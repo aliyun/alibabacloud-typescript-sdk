@@ -51,6 +51,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
+const gateway_pop_1 = __importDefault(require("@alicloud/gateway-pop"));
 const openapi_core_1 = __importDefault(require("@alicloud/openapi-core"));
 const openapi_core_2 = require("@alicloud/openapi-core");
 const $_model = __importStar(require("./models/model"));
@@ -58,6 +59,9 @@ __exportStar(require("./models/model"), exports);
 class Client extends openapi_core_1.default {
     constructor(config) {
         super(config);
+        this._productId = "polardb";
+        let gatewayClient = new gateway_pop_1.default();
+        this._spi = gatewayClient;
         this._endpointRule = "regional";
         this._endpointMap = {
             'cn-qingdao': "polardb.aliyuncs.com",
@@ -363,6 +367,9 @@ class Client extends openapi_core_1.default {
     /**
      * Adds a transparent acceleration path.
      *
+     * @remarks
+     * Adds a transparent acceleration path for a PolarFS instance. Before you call this operation, make sure that you have a running PolarDB cluster, a valid OSS bucket in the same region, and a PolarFS instance of the basic type with acceleration enabled. The bucket endpoint format is {bucket-name}.oss-{regionId}-internal.aliyuncs.com. This operation is not applicable to instances of the cold type or instances with acceleration disabled. You can call the DescribePolarFs and DescribePolarFsAttribute operations to verify the instance type and acceleration status.
+     *
      * @param request - AddPolarFsPathMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      * @returns AddPolarFsPathMappingResponse
@@ -397,6 +404,9 @@ class Client extends openapi_core_1.default {
     }
     /**
      * Adds a transparent acceleration path.
+     *
+     * @remarks
+     * Adds a transparent acceleration path for a PolarFS instance. Before you call this operation, make sure that you have a running PolarDB cluster, a valid OSS bucket in the same region, and a PolarFS instance of the basic type with acceleration enabled. The bucket endpoint format is {bucket-name}.oss-{regionId}-internal.aliyuncs.com. This operation is not applicable to instances of the cold type or instances with acceleration disabled. You can call the DescribePolarFs and DescribePolarFsAttribute operations to verify the instance type and acceleration status.
      *
      * @param request - AddPolarFsPathMappingRequest
      * @returns AddPolarFsPathMappingResponse
@@ -643,11 +653,10 @@ class Client extends openapi_core_1.default {
         return await this.answerKnowledgeBaseWithOptions(request, runtime);
     }
     /**
-     * Applies prompts to an application instance.
+     * Applies a prompt policy to an instance.
      *
      * @remarks
-     * ## Request
-     * - Applies prompts to a specified application instance.
+     * Before you begin: This operation applies only to mem0 applications created by calling CreateApplication with MemApplicationSpec specified. Create a mem0 application, call CreateApplicationPrompt to create a prompt, and then call this operation to apply the prompt policy.
      *
      * @param tmpReq - ApplyApplicationPromptsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -690,11 +699,10 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.ApplyApplicationPromptsResponse({}));
     }
     /**
-     * Applies prompts to an application instance.
+     * Applies a prompt policy to an instance.
      *
      * @remarks
-     * ## Request
-     * - Applies prompts to a specified application instance.
+     * Before you begin: This operation applies only to mem0 applications created by calling CreateApplication with MemApplicationSpec specified. Create a mem0 application, call CreateApplicationPrompt to create a prompt, and then call this operation to apply the prompt policy.
      *
      * @param request - ApplyApplicationPromptsRequest
      * @returns ApplyApplicationPromptsResponse
@@ -1515,6 +1523,77 @@ class Client extends openapi_core_1.default {
         return await this.checkKMSAuthorizedWithOptions(request, runtime);
     }
     /**
+     * Prechecks a skill.
+     *
+     * @remarks
+     * ## Request description
+     * This operation prechecks a skill before it is uploaded to a PolarClaw instance.
+     *
+     * @param request - CheckPolarClawSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CheckPolarClawSkillResponse
+     */
+    async checkPolarClawSkillWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.bucketRegionId)) {
+            query["BucketRegionId"] = request.bucketRegionId;
+        }
+        if (!$dara.isNull(request.bucketType)) {
+            query["BucketType"] = request.bucketType;
+        }
+        if (!$dara.isNull(request.OSSBucket)) {
+            query["OSSBucket"] = request.OSSBucket;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        if (!$dara.isNull(request.skillName)) {
+            query["SkillName"] = request.skillName;
+        }
+        if (!$dara.isNull(request.skillVersion)) {
+            query["SkillVersion"] = request.skillVersion;
+        }
+        if (!$dara.isNull(request.summary)) {
+            query["Summary"] = request.summary;
+        }
+        if (!$dara.isNull(request.tags)) {
+            query["Tags"] = request.tags;
+        }
+        if (!$dara.isNull(request.title)) {
+            query["Title"] = request.title;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "CheckPolarClawSkill",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.CheckPolarClawSkillResponse({}));
+    }
+    /**
+     * Prechecks a skill.
+     *
+     * @remarks
+     * ## Request description
+     * This operation prechecks a skill before it is uploaded to a PolarClaw instance.
+     *
+     * @param request - CheckPolarClawSkillRequest
+     * @returns CheckPolarClawSkillResponse
+     */
+    async checkPolarClawSkill(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.checkPolarClawSkillWithOptions(request, runtime);
+    }
+    /**
      * Checks the consistency of quota settings in a PolarFS instance.
      *
      * @remarks
@@ -2010,7 +2089,7 @@ class Client extends openapi_core_1.default {
         return await this.createAIDBClusterWithOptions(request, runtime);
     }
     /**
-     * Creates a model creation service API key.
+     * Creates an API key for the model creation service.
      *
      * @param request - CreateAIDBClusterApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2045,7 +2124,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.CreateAIDBClusterApiKeyResponse({}));
     }
     /**
-     * Creates a model creation service API key.
+     * Creates an API key for the model creation service.
      *
      * @param request - CreateAIDBClusterApiKeyRequest
      * @returns CreateAIDBClusterApiKeyResponse
@@ -2951,6 +3030,54 @@ class Client extends openapi_core_1.default {
         return await this.createApplicationAgentRelationWithOptions(request, runtime);
     }
     /**
+     * Creates a backup for a specified PolarDB application and returns the backup job ID and workflow task ID.
+     *
+     * @param request - CreateApplicationBackupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateApplicationBackupResponse
+     */
+    async createApplicationBackupWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.applicationId)) {
+            query["ApplicationId"] = request.applicationId;
+        }
+        if (!$dara.isNull(request.applicationType)) {
+            query["ApplicationType"] = request.applicationType;
+        }
+        if (!$dara.isNull(request.jobMode)) {
+            query["JobMode"] = request.jobMode;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "CreateApplicationBackup",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.CreateApplicationBackupResponse({}));
+    }
+    /**
+     * Creates a backup for a specified PolarDB application and returns the backup job ID and workflow task ID.
+     *
+     * @param request - CreateApplicationBackupRequest
+     * @returns CreateApplicationBackupResponse
+     */
+    async createApplicationBackup(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.createApplicationBackupWithOptions(request, runtime);
+    }
+    /**
      * Creates a connection address for a specified application.
      *
      * @param request - CreateApplicationEndpointAddressRequest
@@ -3111,12 +3238,10 @@ class Client extends openapi_core_1.default {
         return await this.createBackupWithOptions(request, runtime);
     }
     /**
-     * Creates multiple API keys.
+     * Creates API keys in batches.
      *
      * @remarks
-     * > * A maximum of three manually created backups can exist for each cluster at the same time.
-     * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, it indicates that three manually created backups already exist in your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
-     * > * After you call this operation, a backup task is created in the background. If the data volume is large, the task may take a long time to complete.
+     * Prerequisites: Call CreateGwConsumerOrder first, providing GatewayId, PackageSpec, KeyCount, RegionId, and ExpireTime to obtain a CreditToken, and then call this operation to create consumers in batches. Before the call, you must also obtain a valid ConsumerGroupId by calling DescribeConsumerGroups with GwClusterId and RegionId, and explicitly pass it in.
      *
      * @param request - CreateBatchConsumerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3163,12 +3288,10 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.CreateBatchConsumerResponse({}));
     }
     /**
-     * Creates multiple API keys.
+     * Creates API keys in batches.
      *
      * @remarks
-     * > * A maximum of three manually created backups can exist for each cluster at the same time.
-     * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, it indicates that three manually created backups already exist in your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
-     * > * After you call this operation, a backup task is created in the background. If the data volume is large, the task may take a long time to complete.
+     * Prerequisites: Call CreateGwConsumerOrder first, providing GatewayId, PackageSpec, KeyCount, RegionId, and ExpireTime to obtain a CreditToken, and then call this operation to create consumers in batches. Before the call, you must also obtain a valid ConsumerGroupId by calling DescribeConsumerGroups with GwClusterId and RegionId, and explicitly pass it in.
      *
      * @param request - CreateBatchConsumerRequest
      * @returns CreateBatchConsumerResponse
@@ -4318,6 +4441,141 @@ class Client extends openapi_core_1.default {
         return await this.createDBNodesWithOptions(request, runtime);
     }
     /**
+     * Creates a task to process data in PolarFS based on a specified template and write it to a PolarDB database.
+     *
+     * @param request - CreateDataProcessJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataProcessJobResponse
+     */
+    async createDataProcessJobWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.description)) {
+            query["Description"] = request.description;
+        }
+        if (!$dara.isNull(request.destinationConfig)) {
+            query["DestinationConfig"] = request.destinationConfig;
+        }
+        if (!$dara.isNull(request.destinationId)) {
+            query["DestinationId"] = request.destinationId;
+        }
+        if (!$dara.isNull(request.destinationPath)) {
+            query["DestinationPath"] = request.destinationPath;
+        }
+        if (!$dara.isNull(request.destinationType)) {
+            query["DestinationType"] = request.destinationType;
+        }
+        if (!$dara.isNull(request.modelName)) {
+            query["ModelName"] = request.modelName;
+        }
+        if (!$dara.isNull(request.processingMode)) {
+            query["ProcessingMode"] = request.processingMode;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        if (!$dara.isNull(request.sourceConfig)) {
+            query["SourceConfig"] = request.sourceConfig;
+        }
+        if (!$dara.isNull(request.sourceId)) {
+            query["SourceId"] = request.sourceId;
+        }
+        if (!$dara.isNull(request.sourcePath)) {
+            query["SourcePath"] = request.sourcePath;
+        }
+        if (!$dara.isNull(request.sourceType)) {
+            query["SourceType"] = request.sourceType;
+        }
+        if (!$dara.isNull(request.templateId)) {
+            query["TemplateId"] = request.templateId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "CreateDataProcessJob",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.CreateDataProcessJobResponse({}));
+    }
+    /**
+     * Creates a task to process data in PolarFS based on a specified template and write it to a PolarDB database.
+     *
+     * @param request - CreateDataProcessJobRequest
+     * @returns CreateDataProcessJobResponse
+     */
+    async createDataProcessJob(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.createDataProcessJobWithOptions(request, runtime);
+    }
+    /**
+     * Creates a task template for image data processing in a specified region.
+     *
+     * @param request - CreateDataProcessJobTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataProcessJobTemplateResponse
+     */
+    async createDataProcessJobTemplateWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.captioning)) {
+            query["Captioning"] = request.captioning;
+        }
+        if (!$dara.isNull(request.captioningPrompt)) {
+            query["CaptioningPrompt"] = request.captioningPrompt;
+        }
+        if (!$dara.isNull(request.embedding)) {
+            query["Embedding"] = request.embedding;
+        }
+        if (!$dara.isNull(request.embeddingDimension)) {
+            query["EmbeddingDimension"] = request.embeddingDimension;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        if (!$dara.isNull(request.templateConfig)) {
+            query["TemplateConfig"] = request.templateConfig;
+        }
+        if (!$dara.isNull(request.templateName)) {
+            query["TemplateName"] = request.templateName;
+        }
+        if (!$dara.isNull(request.templateType)) {
+            query["TemplateType"] = request.templateType;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "CreateDataProcessJobTemplate",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.CreateDataProcessJobTemplateResponse({}));
+    }
+    /**
+     * Creates a task template for image data processing in a specified region.
+     *
+     * @param request - CreateDataProcessJobTemplateRequest
+     * @returns CreateDataProcessJobTemplateResponse
+     */
+    async createDataProcessJobTemplate(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.createDataProcessJobTemplateWithOptions(request, runtime);
+    }
+    /**
      * Creates a database for a PolarDB cluster.
      *
      * @remarks
@@ -5077,6 +5335,9 @@ class Client extends openapi_core_1.default {
     /**
      * Creates a knowledge space.
      *
+     * @remarks
+     * Prerequisites: Before you call this operation, you must activate the PrivateLink service in your current account. If the service is not activated, the API returns the PrivateLinkService.NotOpen (400) error. You can check the activation status of the service in the PrivateLink console. Before creating a knowledge space, you must also prepare the VpcId, VSwitchId, SecurityGroupId, and OSSBucket parameters. You can query VPCs and vSwitches by calling the DescribeVpcs and DescribeVSwitches operations of VPC, query security groups by calling the DescribeSecurityGroups operation of ECS, and query buckets by calling the ListBuckets operation of OSS. If the resources do not exist, create them in the corresponding services first.
+     *
      * @param request - CreateKnowledgeSpaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      * @returns CreateKnowledgeSpaceResponse
@@ -5156,6 +5417,9 @@ class Client extends openapi_core_1.default {
     }
     /**
      * Creates a knowledge space.
+     *
+     * @remarks
+     * Prerequisites: Before you call this operation, you must activate the PrivateLink service in your current account. If the service is not activated, the API returns the PrivateLinkService.NotOpen (400) error. You can check the activation status of the service in the PrivateLink console. Before creating a knowledge space, you must also prepare the VpcId, VSwitchId, SecurityGroupId, and OSSBucket parameters. You can query VPCs and vSwitches by calling the DescribeVpcs and DescribeVSwitches operations of VPC, query security groups by calling the DescribeSecurityGroups operation of ECS, and query buckets by calling the ListBuckets operation of OSS. If the resources do not exist, create them in the corresponding services first.
      *
      * @param request - CreateKnowledgeSpaceRequest
      * @returns CreateKnowledgeSpaceResponse
@@ -5339,7 +5603,7 @@ class Client extends openapi_core_1.default {
         return await this.createModelApiWithOptions(request, runtime);
     }
     /**
-     * Creates a model service.
+     * Creates a model creation service.
      *
      * @param request - CreateModelServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5398,7 +5662,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.CreateModelServiceResponse({}));
     }
     /**
-     * Creates a model service.
+     * Creates a model creation service.
      *
      * @param request - CreateModelServiceRequest
      * @returns CreateModelServiceResponse
@@ -5748,7 +6012,7 @@ class Client extends openapi_core_1.default {
      *
      * @remarks
      * ## Request description
-     * You can use this API to define and create a scheduled task. The task is triggered periodically based on a specified schedule and carries specific messages or instructions. This API supports advanced options such as custom execution frequency, time zone settings, and failure alert mechanisms. You can also configure details such as message content, target channels, and recipients.
+     * This API allows you to define and create a new scheduled task (cron job). The task is triggered periodically based on a given schedule and carries specific messages or instructions. It supports advanced options such as customizing the execution frequency, time zone settings, and alert mechanisms for failures. In addition, you can configure detailed information such as the message content, destination channel, and recipients.
      *
      * @param tmpReq - CreatePolarClawCronJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5837,7 +6101,7 @@ class Client extends openapi_core_1.default {
      *
      * @remarks
      * ## Request description
-     * You can use this API to define and create a scheduled task. The task is triggered periodically based on a specified schedule and carries specific messages or instructions. This API supports advanced options such as custom execution frequency, time zone settings, and failure alert mechanisms. You can also configure details such as message content, target channels, and recipients.
+     * This API allows you to define and create a new scheduled task (cron job). The task is triggered periodically based on a given schedule and carries specific messages or instructions. It supports advanced options such as customizing the execution frequency, time zone settings, and alert mechanisms for failures. In addition, you can configure detailed information such as the message content, destination channel, and recipients.
      *
      * @param request - CreatePolarClawCronJobRequest
      * @returns CreatePolarClawCronJobResponse
@@ -5845,6 +6109,72 @@ class Client extends openapi_core_1.default {
     async createPolarClawCronJob(request) {
         let runtime = new $dara.RuntimeOptions({});
         return await this.createPolarClawCronJobWithOptions(request, runtime);
+    }
+    /**
+     * 上传skill
+     *
+     * @param request - CreatePolarClawSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePolarClawSkillResponse
+     */
+    async createPolarClawSkillWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.bucketRegionId)) {
+            query["BucketRegionId"] = request.bucketRegionId;
+        }
+        if (!$dara.isNull(request.bucketType)) {
+            query["BucketType"] = request.bucketType;
+        }
+        if (!$dara.isNull(request.OSSBucket)) {
+            query["OSSBucket"] = request.OSSBucket;
+        }
+        if (!$dara.isNull(request.OSSPrefix)) {
+            query["OSSPrefix"] = request.OSSPrefix;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        if (!$dara.isNull(request.skillName)) {
+            query["SkillName"] = request.skillName;
+        }
+        if (!$dara.isNull(request.skillVersion)) {
+            query["SkillVersion"] = request.skillVersion;
+        }
+        if (!$dara.isNull(request.summary)) {
+            query["Summary"] = request.summary;
+        }
+        if (!$dara.isNull(request.tags)) {
+            query["Tags"] = request.tags;
+        }
+        if (!$dara.isNull(request.title)) {
+            query["Title"] = request.title;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "CreatePolarClawSkill",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.CreatePolarClawSkillResponse({}));
+    }
+    /**
+     * 上传skill
+     *
+     * @param request - CreatePolarClawSkillRequest
+     * @returns CreatePolarClawSkillResponse
+     */
+    async createPolarClawSkill(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.createPolarClawSkillWithOptions(request, runtime);
     }
     /**
      * Creates a PolarClaw skill template.
@@ -6352,7 +6682,7 @@ class Client extends openapi_core_1.default {
         return await this.deleteAIDBClusterWithOptions(request, runtime);
     }
     /**
-     * Deletes an API key for a model service.
+     * Deletes an API key for the model service.
      *
      * @param request - DeleteAIDBClusterApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6387,7 +6717,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DeleteAIDBClusterApiKeyResponse({}));
     }
     /**
-     * Deletes an API key for a model service.
+     * Deletes an API key for the model service.
      *
      * @param request - DeleteAIDBClusterApiKeyRequest
      * @returns DeleteAIDBClusterApiKeyResponse
@@ -7636,7 +7966,10 @@ class Client extends openapi_core_1.default {
         return await this.deleteDBLinkWithOptions(request, runtime);
     }
     /**
-     * Deletes read-only nodes from a PolarDB cluster.
+     * Deletes a read-only node from a PolarDB cluster.
+     *
+     * @remarks
+     * Deletes a read-only node from a PolarDB cluster. Before you call this operation, the cluster must be in the Running state. You can call the DescribeDBClusters operation to query the DBClusterStatus parameter and check the cluster state. If the cluster is in a transitional state such as DBNodeCreating or DBNodeDeleting, wait until the cluster returns to the Running state before you call this operation.
      *
      * @param request - DeleteDBNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7689,7 +8022,10 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DeleteDBNodesResponse({}));
     }
     /**
-     * Deletes read-only nodes from a PolarDB cluster.
+     * Deletes a read-only node from a PolarDB cluster.
+     *
+     * @remarks
+     * Deletes a read-only node from a PolarDB cluster. Before you call this operation, the cluster must be in the Running state. You can call the DescribeDBClusters operation to query the DBClusterStatus parameter and check the cluster state. If the cluster is in a transitional state such as DBNodeCreating or DBNodeDeleting, wait until the cluster returns to the Running state before you call this operation.
      *
      * @param request - DeleteDBNodesRequest
      * @returns DeleteDBNodesResponse
@@ -7697,6 +8033,48 @@ class Client extends openapi_core_1.default {
     async deleteDBNodes(request) {
         let runtime = new $dara.RuntimeOptions({});
         return await this.deleteDBNodesWithOptions(request, runtime);
+    }
+    /**
+     * Deletes a data processing task template in a specified region.
+     *
+     * @param request - DeleteDataProcessJobTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDataProcessJobTemplateResponse
+     */
+    async deleteDataProcessJobTemplateWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        if (!$dara.isNull(request.templateId)) {
+            query["TemplateId"] = request.templateId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DeleteDataProcessJobTemplate",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DeleteDataProcessJobTemplateResponse({}));
+    }
+    /**
+     * Deletes a data processing task template in a specified region.
+     *
+     * @param request - DeleteDataProcessJobTemplateRequest
+     * @returns DeleteDataProcessJobTemplateResponse
+     */
+    async deleteDataProcessJobTemplate(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.deleteDataProcessJobTemplateWithOptions(request, runtime);
     }
     /**
      * Deletes a database from a PolarDB cluster.
@@ -9514,7 +9892,7 @@ class Client extends openapi_core_1.default {
         return await this.describeAIDBClusterDatasetsWithOptions(request, runtime);
     }
     /**
-     * Retrieves the performance metrics of an AI container.
+     * Retrieves AI container performance metrics.
      *
      * @param request - DescribeAIDBClusterPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -9555,7 +9933,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeAIDBClusterPerformanceResponse({}));
     }
     /**
-     * Retrieves the performance metrics of an AI container.
+     * Retrieves AI container performance metrics.
      *
      * @param request - DescribeAIDBClusterPerformanceRequest
      * @returns DescribeAIDBClusterPerformanceResponse
@@ -9563,6 +9941,60 @@ class Client extends openapi_core_1.default {
     async describeAIDBClusterPerformance(request) {
         let runtime = new $dara.RuntimeOptions({});
         return await this.describeAIDBClusterPerformanceWithOptions(request, runtime);
+    }
+    /**
+     * Queries the node resource usage and pod resource requests in an AI database cluster.
+     *
+     * @param request - DescribeAIDBClusterResourceUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAIDBClusterResourceUsageResponse
+     */
+    async describeAIDBClusterResourceUsageWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.DBClusterId)) {
+            query["DBClusterId"] = request.DBClusterId;
+        }
+        if (!$dara.isNull(request.ownerAccount)) {
+            query["OwnerAccount"] = request.ownerAccount;
+        }
+        if (!$dara.isNull(request.ownerId)) {
+            query["OwnerId"] = request.ownerId;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        if (!$dara.isNull(request.resourceOwnerAccount)) {
+            query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+        }
+        if (!$dara.isNull(request.resourceOwnerId)) {
+            query["ResourceOwnerId"] = request.resourceOwnerId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeAIDBClusterResourceUsage",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeAIDBClusterResourceUsageResponse({}));
+    }
+    /**
+     * Queries the node resource usage and pod resource requests in an AI database cluster.
+     *
+     * @param request - DescribeAIDBClusterResourceUsageRequest
+     * @returns DescribeAIDBClusterResourceUsageResponse
+     */
+    async describeAIDBClusterResourceUsage(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeAIDBClusterResourceUsageWithOptions(request, runtime);
     }
     /**
      * Retrieves the details of a task instance.
@@ -10238,7 +10670,7 @@ class Client extends openapi_core_1.default {
         return await this.describeActiveOperationMaintainConfWithOptions(request, runtime);
     }
     /**
-     * Queries the details of active operation tasks.
+     * Queries the details of pending tasks.
      *
      * @param request - DescribeActiveOperationTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10297,7 +10729,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeActiveOperationTaskResponse({}));
     }
     /**
-     * Queries the details of active operation tasks.
+     * Queries the details of pending tasks.
      *
      * @param request - DescribeActiveOperationTaskRequest
      * @returns DescribeActiveOperationTaskResponse
@@ -10439,7 +10871,7 @@ class Client extends openapi_core_1.default {
         return await this.describeAgenticDBBranchWithOptions(request, runtime);
     }
     /**
-     * Queries the branch connection information of an AgenticDB cluster.
+     * Queries the connection information of an AgenticDB branch.
      *
      * @param request - DescribeAgenticDBBranchEndpointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -10480,7 +10912,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeAgenticDBBranchEndpointsResponse({}));
     }
     /**
-     * Queries the branch connection information of an AgenticDB cluster.
+     * Queries the connection information of an AgenticDB branch.
      *
      * @param request - DescribeAgenticDBBranchEndpointsRequest
      * @returns DescribeAgenticDBBranchEndpointsResponse
@@ -11088,6 +11520,263 @@ class Client extends openapi_core_1.default {
         return await this.describeApplicationAttributeWithOptions(request, runtime);
     }
     /**
+     * Queries the available models, default models, and memory capability configurations for a specified region and application type.
+     *
+     * @param request - DescribeApplicationAvailableModelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApplicationAvailableModelsResponse
+     */
+    async describeApplicationAvailableModelsWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.applicationType)) {
+            query["ApplicationType"] = request.applicationType;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeApplicationAvailableModels",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeApplicationAvailableModelsResponse({}));
+    }
+    /**
+     * Queries the available models, default models, and memory capability configurations for a specified region and application type.
+     *
+     * @param request - DescribeApplicationAvailableModelsRequest
+     * @returns DescribeApplicationAvailableModelsResponse
+     */
+    async describeApplicationAvailableModels(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeApplicationAvailableModelsWithOptions(request, runtime);
+    }
+    /**
+     * Queries the list of versions to which a specified application type can be upgraded.
+     *
+     * @param tmpReq - DescribeApplicationAvailableVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApplicationAvailableVersionResponse
+     */
+    async describeApplicationAvailableVersionWithOptions(tmpReq, runtime) {
+        tmpReq.validate();
+        let request = new $_model.DescribeApplicationAvailableVersionShrinkRequest({});
+        openapi_core_2.OpenApiUtil.convert(tmpReq, request);
+        if (!$dara.isNull(tmpReq.components)) {
+            request.componentsShrink = openapi_core_2.OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.components, "Components", "json");
+        }
+        let query = {};
+        if (!$dara.isNull(request.applicationId)) {
+            query["ApplicationId"] = request.applicationId;
+        }
+        if (!$dara.isNull(request.applicationType)) {
+            query["ApplicationType"] = request.applicationType;
+        }
+        if (!$dara.isNull(request.componentsShrink)) {
+            query["Components"] = request.componentsShrink;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeApplicationAvailableVersion",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeApplicationAvailableVersionResponse({}));
+    }
+    /**
+     * Queries the list of versions to which a specified application type can be upgraded.
+     *
+     * @param request - DescribeApplicationAvailableVersionRequest
+     * @returns DescribeApplicationAvailableVersionResponse
+     */
+    async describeApplicationAvailableVersion(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeApplicationAvailableVersionWithOptions(request, runtime);
+    }
+    /**
+     * Queries the automatic backup cycle, backup time window, and level-1 backup retention period of a specified application.
+     *
+     * @param request - DescribeApplicationBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApplicationBackupPolicyResponse
+     */
+    async describeApplicationBackupPolicyWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.applicationId)) {
+            query["ApplicationId"] = request.applicationId;
+        }
+        if (!$dara.isNull(request.applicationType)) {
+            query["ApplicationType"] = request.applicationType;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeApplicationBackupPolicy",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeApplicationBackupPolicyResponse({}));
+    }
+    /**
+     * Queries the automatic backup cycle, backup time window, and level-1 backup retention period of a specified application.
+     *
+     * @param request - DescribeApplicationBackupPolicyRequest
+     * @returns DescribeApplicationBackupPolicyResponse
+     */
+    async describeApplicationBackupPolicy(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeApplicationBackupPolicyWithOptions(request, runtime);
+    }
+    /**
+     * Queries the backup sets of a specified application by time range and backup status, and returns the backup details in a paginated list.
+     *
+     * @param request - DescribeApplicationBackupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApplicationBackupsResponse
+     */
+    async describeApplicationBackupsWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.applicationId)) {
+            query["ApplicationId"] = request.applicationId;
+        }
+        if (!$dara.isNull(request.applicationType)) {
+            query["ApplicationType"] = request.applicationType;
+        }
+        if (!$dara.isNull(request.backupStatus)) {
+            query["BackupStatus"] = request.backupStatus;
+        }
+        if (!$dara.isNull(request.endTime)) {
+            query["EndTime"] = request.endTime;
+        }
+        if (!$dara.isNull(request.pageNumber)) {
+            query["PageNumber"] = request.pageNumber;
+        }
+        if (!$dara.isNull(request.pageSize)) {
+            query["PageSize"] = request.pageSize;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        if (!$dara.isNull(request.startTime)) {
+            query["StartTime"] = request.startTime;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeApplicationBackups",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeApplicationBackupsResponse({}));
+    }
+    /**
+     * Queries the backup sets of a specified application by time range and backup status, and returns the backup details in a paginated list.
+     *
+     * @param request - DescribeApplicationBackupsRequest
+     * @returns DescribeApplicationBackupsResponse
+     */
+    async describeApplicationBackups(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeApplicationBackupsWithOptions(request, runtime);
+    }
+    /**
+     * Queries the performance metrics and sample data of a specified application component within a specified time range.
+     *
+     * @param request - DescribeApplicationComponentPerformanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApplicationComponentPerformanceResponse
+     */
+    async describeApplicationComponentPerformanceWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.applicationId)) {
+            query["ApplicationId"] = request.applicationId;
+        }
+        if (!$dara.isNull(request.componentId)) {
+            query["ComponentId"] = request.componentId;
+        }
+        if (!$dara.isNull(request.endTime)) {
+            query["EndTime"] = request.endTime;
+        }
+        if (!$dara.isNull(request.interval)) {
+            query["Interval"] = request.interval;
+        }
+        if (!$dara.isNull(request.key)) {
+            query["Key"] = request.key;
+        }
+        if (!$dara.isNull(request.startTime)) {
+            query["StartTime"] = request.startTime;
+        }
+        if (!$dara.isNull(request.type)) {
+            query["Type"] = request.type;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeApplicationComponentPerformance",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeApplicationComponentPerformanceResponse({}));
+    }
+    /**
+     * Queries the performance metrics and sample data of a specified application component within a specified time range.
+     *
+     * @param request - DescribeApplicationComponentPerformanceRequest
+     * @returns DescribeApplicationComponentPerformanceResponse
+     */
+    async describeApplicationComponentPerformance(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeApplicationComponentPerformanceWithOptions(request, runtime);
+    }
+    /**
      * Queries the details of AI application logs.
      *
      * @param request - DescribeApplicationLogsRequest
@@ -11213,7 +11902,7 @@ class Client extends openapi_core_1.default {
         return await this.describeApplicationParametersWithOptions(request, runtime);
     }
     /**
-     * Queries the performance of a PolarDB AI application.
+     * Queries the performance of PolarDB AI applications.
      *
      * @param tmpReq - DescribeApplicationPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11283,7 +11972,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeApplicationPerformanceResponse({}));
     }
     /**
-     * Queries the performance of a PolarDB AI application.
+     * Queries the performance of PolarDB AI applications.
      *
      * @param request - DescribeApplicationPerformanceRequest
      * @returns DescribeApplicationPerformanceResponse
@@ -11293,7 +11982,10 @@ class Client extends openapi_core_1.default {
         return await this.describeApplicationPerformanceWithOptions(request, runtime);
     }
     /**
-     * Lists the Application Prompts for a specific Application.
+     * Queries all application prompt policies for the current application.
+     *
+     * @remarks
+     * Prerequisites: First, create a PostgreSQL cluster, and then call the CreateApplication operation to create an application with ApplicationType set to mem0. When creating the application, you must prepare a VPC, a vSwitch, and a security group. After obtaining the ApplicationId, call this operation to query application prompts. Call sequence: CreateDBCluster → CreateApplication → DescribeApplicationPrompts.
      *
      * @param request - DescribeApplicationPromptsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -11328,7 +12020,10 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeApplicationPromptsResponse({}));
     }
     /**
-     * Lists the Application Prompts for a specific Application.
+     * Queries all application prompt policies for the current application.
+     *
+     * @remarks
+     * Prerequisites: First, create a PostgreSQL cluster, and then call the CreateApplication operation to create an application with ApplicationType set to mem0. When creating the application, you must prepare a VPC, a vSwitch, and a security group. After obtaining the ApplicationId, call this operation to query application prompts. Call sequence: CreateDBCluster → CreateApplication → DescribeApplicationPrompts.
      *
      * @param request - DescribeApplicationPromptsRequest
      * @returns DescribeApplicationPromptsResponse
@@ -11477,6 +12172,87 @@ class Client extends openapi_core_1.default {
     async describeApplicationSessionIds(request) {
         let runtime = new $dara.RuntimeOptions({});
         return await this.describeApplicationSessionIdsWithOptions(request, runtime);
+    }
+    /**
+     * Queries the session logs of a specified application, supports filtering by agent, session, and role, and returns paginated log records.
+     *
+     * @remarks
+     * Logs for different roles may contain different fields. User messages may include Content. Assistant messages may include the model, token usage, and cost statistics. Tool execution results may include the tool name and execution status. Cost statistics are returned exactly as provided by the log source, and this API operation does not perform currency conversion.
+     *
+     * @param request - DescribeApplicationSessionLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApplicationSessionLogsResponse
+     */
+    async describeApplicationSessionLogsWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.agent)) {
+            query["Agent"] = request.agent;
+        }
+        if (!$dara.isNull(request.applicationId)) {
+            query["ApplicationId"] = request.applicationId;
+        }
+        if (!$dara.isNull(request.endTime)) {
+            query["EndTime"] = request.endTime;
+        }
+        if (!$dara.isNull(request.ownerAccount)) {
+            query["OwnerAccount"] = request.ownerAccount;
+        }
+        if (!$dara.isNull(request.ownerId)) {
+            query["OwnerId"] = request.ownerId;
+        }
+        if (!$dara.isNull(request.pageNumber)) {
+            query["PageNumber"] = request.pageNumber;
+        }
+        if (!$dara.isNull(request.pageSize)) {
+            query["PageSize"] = request.pageSize;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        if (!$dara.isNull(request.resourceOwnerAccount)) {
+            query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+        }
+        if (!$dara.isNull(request.role)) {
+            query["Role"] = request.role;
+        }
+        if (!$dara.isNull(request.sessionId)) {
+            query["SessionId"] = request.sessionId;
+        }
+        if (!$dara.isNull(request.startTime)) {
+            query["StartTime"] = request.startTime;
+        }
+        if (!$dara.isNull(request.type)) {
+            query["Type"] = request.type;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeApplicationSessionLogs",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeApplicationSessionLogsResponse({}));
+    }
+    /**
+     * Queries the session logs of a specified application, supports filtering by agent, session, and role, and returns paginated log records.
+     *
+     * @remarks
+     * Logs for different roles may contain different fields. User messages may include Content. Assistant messages may include the model, token usage, and cost statistics. Tool execution results may include the tool name and execution status. Cost statistics are returned exactly as provided by the log source, and this API operation does not perform currency conversion.
+     *
+     * @param request - DescribeApplicationSessionLogsRequest
+     * @returns DescribeApplicationSessionLogsResponse
+     */
+    async describeApplicationSessionLogs(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeApplicationSessionLogsWithOptions(request, runtime);
     }
     /**
      * Queries the usage of an AI application.
@@ -12244,6 +13020,54 @@ class Client extends openapi_core_1.default {
     async describeBudgetPolicies(request) {
         let runtime = new $dara.RuntimeOptions({});
         return await this.describeBudgetPoliciesWithOptions(request, runtime);
+    }
+    /**
+     * Queries the used quota, statistical window, and associated budget policies for a PolarDB gateway instance by budget dimension.
+     *
+     * @param request - DescribeBudgetUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeBudgetUsageResponse
+     */
+    async describeBudgetUsageWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.budgetDimensionRefId)) {
+            query["BudgetDimensionRefId"] = request.budgetDimensionRefId;
+        }
+        if (!$dara.isNull(request.budgetDimensionType)) {
+            query["BudgetDimensionType"] = request.budgetDimensionType;
+        }
+        if (!$dara.isNull(request.gwClusterId)) {
+            query["GwClusterId"] = request.gwClusterId;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeBudgetUsage",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeBudgetUsageResponse({}));
+    }
+    /**
+     * Queries the used quota, statistical window, and associated budget policies for a PolarDB gateway instance by budget dimension.
+     *
+     * @param request - DescribeBudgetUsageRequest
+     * @returns DescribeBudgetUsageResponse
+     */
+    async describeBudgetUsage(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeBudgetUsageWithOptions(request, runtime);
     }
     /**
      * Queries the character sets supported by PolarDB for MySQL.
@@ -13337,7 +14161,7 @@ class Client extends openapi_core_1.default {
         return await this.describeDBClusterMigrationWithOptions(request, runtime);
     }
     /**
-     * Queries the model enhancement status and API key list of a specified PolarDB cluster.
+     * Queries the model enhancement status and the list of API keys for a specified PolarDB cluster.
      *
      * @param request - DescribeDBClusterModelEnhancementRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13366,7 +14190,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeDBClusterModelEnhancementResponse({}));
     }
     /**
-     * Queries the model enhancement status and API key list of a specified PolarDB cluster.
+     * Queries the model enhancement status and the list of API keys for a specified PolarDB cluster.
      *
      * @param request - DescribeDBClusterModelEnhancementRequest
      * @returns DescribeDBClusterModelEnhancementResponse
@@ -13538,18 +14362,18 @@ class Client extends openapi_core_1.default {
      * Queries the performance data of a PolarDB cluster.
      *
      * @remarks
-     * - If the monitoring frequency is once every 5 seconds:
-     *   - If the query time range is 1 hour or less, the data granularity is 5 seconds.
-     *   - If the query time range is 1 day or less, the data granularity is 1 minute.
-     *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
-     *   - If the query time range is 30 days or less, the data granularity is 1 hour.
-     *   - If the query time range is more than 30 days, the data granularity is 1 day.
-     * - If the monitoring frequency is once every 60 seconds:
-     *   - If the query time range is 1 day or less, the data granularity is 1 minute.
-     *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
-     *   - If the query time range is 30 days or less, the data granularity is 1 hour.
-     *   - If the query time range is more than 30 days, the data granularity is 1 day.
-     * > The default monitoring frequency is once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the frequency to once every 5 seconds.
+     * If the monitoring frequency is 5 seconds:
+     *     - When the query time range is less than or equal to 1 hour, the display granularity is 5 seconds.
+     *     - When the query time range is less than or equal to 1 day, the display granularity is 1 minute.
+     *     - When the query time range is less than or equal to 7 days, the display granularity is 10 minutes.
+     *     - When the query time range is less than or equal to 30 days, the display granularity is 1 hour.
+     *     - When the query time range is greater than 30 days, the display granularity is 1 day.
+     * * If the monitoring frequency is 60 seconds:
+     *     - When the query time range is less than or equal to 1 day, the display granularity is 1 minute.
+     *     - When the query time range is less than or equal to 7 days, the display granularity is 10 minutes.
+     *     - When the query time range is less than or equal to 30 days, the display granularity is 1 hour.
+     *     - When the query time range is greater than 30 days, the display granularity is 1 day.
+     * > The default monitoring frequency is 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set it to 5 seconds.
      *
      * @param request - DescribeDBClusterPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -13599,18 +14423,18 @@ class Client extends openapi_core_1.default {
      * Queries the performance data of a PolarDB cluster.
      *
      * @remarks
-     * - If the monitoring frequency is once every 5 seconds:
-     *   - If the query time range is 1 hour or less, the data granularity is 5 seconds.
-     *   - If the query time range is 1 day or less, the data granularity is 1 minute.
-     *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
-     *   - If the query time range is 30 days or less, the data granularity is 1 hour.
-     *   - If the query time range is more than 30 days, the data granularity is 1 day.
-     * - If the monitoring frequency is once every 60 seconds:
-     *   - If the query time range is 1 day or less, the data granularity is 1 minute.
-     *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
-     *   - If the query time range is 30 days or less, the data granularity is 1 hour.
-     *   - If the query time range is more than 30 days, the data granularity is 1 day.
-     * > The default monitoring frequency is once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the frequency to once every 5 seconds.
+     * If the monitoring frequency is 5 seconds:
+     *     - When the query time range is less than or equal to 1 hour, the display granularity is 5 seconds.
+     *     - When the query time range is less than or equal to 1 day, the display granularity is 1 minute.
+     *     - When the query time range is less than or equal to 7 days, the display granularity is 10 minutes.
+     *     - When the query time range is less than or equal to 30 days, the display granularity is 1 hour.
+     *     - When the query time range is greater than 30 days, the display granularity is 1 day.
+     * * If the monitoring frequency is 60 seconds:
+     *     - When the query time range is less than or equal to 1 day, the display granularity is 1 minute.
+     *     - When the query time range is less than or equal to 7 days, the display granularity is 10 minutes.
+     *     - When the query time range is less than or equal to 30 days, the display granularity is 1 hour.
+     *     - When the query time range is greater than 30 days, the display granularity is 1 day.
+     * > The default monitoring frequency is 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set it to 5 seconds.
      *
      * @param request - DescribeDBClusterPerformanceRequest
      * @returns DescribeDBClusterPerformanceResponse
@@ -14961,6 +15785,150 @@ class Client extends openapi_core_1.default {
         return await this.describeDasConfigWithOptions(request, runtime);
     }
     /**
+     * Queries the status, data source, destination database, and processing configuration of a specified data processing job.
+     *
+     * @param request - DescribeDataProcessJobAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDataProcessJobAttributeResponse
+     */
+    async describeDataProcessJobAttributeWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.jobId)) {
+            query["JobId"] = request.jobId;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeDataProcessJobAttribute",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeDataProcessJobAttributeResponse({}));
+    }
+    /**
+     * Queries the status, data source, destination database, and processing configuration of a specified data processing job.
+     *
+     * @param request - DescribeDataProcessJobAttributeRequest
+     * @returns DescribeDataProcessJobAttributeResponse
+     */
+    async describeDataProcessJobAttribute(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeDataProcessJobAttributeWithOptions(request, runtime);
+    }
+    /**
+     * Queries data processing task templates by region, template ID, or type, and returns paginated template configurations.
+     *
+     * @param request - DescribeDataProcessJobTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDataProcessJobTemplatesResponse
+     */
+    async describeDataProcessJobTemplatesWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.pageNumber)) {
+            query["PageNumber"] = request.pageNumber;
+        }
+        if (!$dara.isNull(request.pageSize)) {
+            query["PageSize"] = request.pageSize;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        if (!$dara.isNull(request.templateId)) {
+            query["TemplateId"] = request.templateId;
+        }
+        if (!$dara.isNull(request.templateType)) {
+            query["TemplateType"] = request.templateType;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeDataProcessJobTemplates",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeDataProcessJobTemplatesResponse({}));
+    }
+    /**
+     * Queries data processing task templates by region, template ID, or type, and returns paginated template configurations.
+     *
+     * @param request - DescribeDataProcessJobTemplatesRequest
+     * @returns DescribeDataProcessJobTemplatesResponse
+     */
+    async describeDataProcessJobTemplates(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeDataProcessJobTemplatesWithOptions(request, runtime);
+    }
+    /**
+     * Queries the data processing jobs of a specified PolarFS instance, with support for filtering by job ID and pagination.
+     *
+     * @param request - DescribeDataProcessJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDataProcessJobsResponse
+     */
+    async describeDataProcessJobsWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.jobId)) {
+            query["JobId"] = request.jobId;
+        }
+        if (!$dara.isNull(request.pageNumber)) {
+            query["PageNumber"] = request.pageNumber;
+        }
+        if (!$dara.isNull(request.pageSize)) {
+            query["PageSize"] = request.pageSize;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        if (!$dara.isNull(request.sourceId)) {
+            query["SourceId"] = request.sourceId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeDataProcessJobs",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeDataProcessJobsResponse({}));
+    }
+    /**
+     * Queries the data processing jobs of a specified PolarFS instance, with support for filtering by job ID and pagination.
+     *
+     * @param request - DescribeDataProcessJobsRequest
+     * @returns DescribeDataProcessJobsResponse
+     */
+    async describeDataProcessJobs(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeDataProcessJobsWithOptions(request, runtime);
+    }
+    /**
      * Queries for the details of databases in a specified PolarDB cluster.
      *
      * @param request - DescribeDatabasesRequest
@@ -15224,7 +16192,7 @@ class Client extends openapi_core_1.default {
         return await this.describeDetachedBackupsWithOptions(request, runtime);
     }
     /**
-     * Queries the available edge cloud regions for the current account, along with their central control regions and standby edge cloud regions.
+     * Queries the available edge cloud regions for the current account, including their central control regions and standby edge cloud regions.
      *
      * @param request - DescribeEdgeCloudRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15247,7 +16215,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeEdgeCloudRegionResponse({}));
     }
     /**
-     * Queries the available edge cloud regions for the current account, along with their central control regions and standby edge cloud regions.
+     * Queries the available edge cloud regions for the current account, including their central control regions and standby edge cloud regions.
      *
      * @param request - DescribeEdgeCloudRegionRequest
      * @returns DescribeEdgeCloudRegionResponse
@@ -15407,6 +16375,54 @@ class Client extends openapi_core_1.default {
         return await this.describeExtensionsWithOptions(request, runtime);
     }
     /**
+     * Queries the file information under a specified path of a PolarFS instance and uses a pagination token to retrieve subsequent results.
+     *
+     * @param request - DescribeFileSystemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeFileSystemsResponse
+     */
+    async describeFileSystemsWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.fileSystemId)) {
+            query["FileSystemId"] = request.fileSystemId;
+        }
+        if (!$dara.isNull(request.maxResults)) {
+            query["MaxResults"] = request.maxResults;
+        }
+        if (!$dara.isNull(request.nextToken)) {
+            query["NextToken"] = request.nextToken;
+        }
+        if (!$dara.isNull(request.polarFsInstanceId)) {
+            query["PolarFsInstanceId"] = request.polarFsInstanceId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeFileSystems",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeFileSystemsResponse({}));
+    }
+    /**
+     * Queries the file information under a specified path of a PolarFS instance and uses a pagination token to retrieve subsequent results.
+     *
+     * @param request - DescribeFileSystemsRequest
+     * @returns DescribeFileSystemsResponse
+     */
+    async describeFileSystems(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeFileSystemsWithOptions(request, runtime);
+    }
+    /**
      * Describes SQL firewall rules.
      *
      * @param request - DescribeFirewallRulesRequest
@@ -15461,7 +16477,7 @@ class Client extends openapi_core_1.default {
         return await this.describeFirewallRulesWithOptions(request, runtime);
     }
     /**
-     * Queries all API keys under the current UID.
+     * Queries all API keys for the specified UID.
      *
      * @param request - DescribeGatewayApikeyListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15496,7 +16512,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeGatewayApikeyListResponse({}));
     }
     /**
-     * Queries all API keys under the current UID.
+     * Queries all API keys for the specified UID.
      *
      * @param request - DescribeGatewayApikeyListRequest
      * @returns DescribeGatewayApikeyListResponse
@@ -15953,7 +16969,7 @@ class Client extends openapi_core_1.default {
         return await this.describeHALogsWithOptions(request, runtime);
     }
     /**
-     * Lists the historical events in Event Center.
+     * Queries the list of events in Event Center.
      *
      * @param request - DescribeHistoryEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16024,7 +17040,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeHistoryEventsResponse({}));
     }
     /**
-     * Lists the historical events in Event Center.
+     * Queries the list of events in Event Center.
      *
      * @param request - DescribeHistoryEventsRequest
      * @returns DescribeHistoryEventsResponse
@@ -16032,6 +17048,54 @@ class Client extends openapi_core_1.default {
     async describeHistoryEvents(request) {
         let runtime = new $dara.RuntimeOptions({});
         return await this.describeHistoryEventsWithOptions(request, runtime);
+    }
+    /**
+     * Queries the number of events in the Event Center by event category.
+     *
+     * @param request - DescribeHistoryEventsStatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeHistoryEventsStatResponse
+     */
+    async describeHistoryEventsStatWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.archiveStatus)) {
+            query["ArchiveStatus"] = request.archiveStatus;
+        }
+        if (!$dara.isNull(request.fromStartTime)) {
+            query["FromStartTime"] = request.fromStartTime;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        if (!$dara.isNull(request.toStartTime)) {
+            query["ToStartTime"] = request.toStartTime;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeHistoryEventsStat",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeHistoryEventsStatResponse({}));
+    }
+    /**
+     * Queries the number of events in the Event Center by event category.
+     *
+     * @param request - DescribeHistoryEventsStatRequest
+     * @returns DescribeHistoryEventsStatResponse
+     */
+    async describeHistoryEventsStat(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeHistoryEventsStatWithOptions(request, runtime);
     }
     /**
      * Queries the historical task list for PolarDB for MySQL.
@@ -16199,6 +17263,192 @@ class Client extends openapi_core_1.default {
         return await this.describeHistoryTasksStatWithOptions(request, runtime);
     }
     /**
+     * Queries a list of reports for a specified inspection task. Supports time-based filtering and pagination.
+     *
+     * @param request - DescribeInspectionReportListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInspectionReportListResponse
+     */
+    async describeInspectionReportListWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.endTime)) {
+            query["EndTime"] = request.endTime;
+        }
+        if (!$dara.isNull(request.pageNumber)) {
+            query["PageNumber"] = request.pageNumber;
+        }
+        if (!$dara.isNull(request.pageSize)) {
+            query["PageSize"] = request.pageSize;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        if (!$dara.isNull(request.startTime)) {
+            query["StartTime"] = request.startTime;
+        }
+        if (!$dara.isNull(request.taskId)) {
+            query["TaskId"] = request.taskId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeInspectionReportList",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeInspectionReportListResponse({}));
+    }
+    /**
+     * Queries a list of reports for a specified inspection task. Supports time-based filtering and pagination.
+     *
+     * @param request - DescribeInspectionReportListRequest
+     * @returns DescribeInspectionReportListResponse
+     */
+    async describeInspectionReportList(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeInspectionReportListWithOptions(request, runtime);
+    }
+    /**
+     * Queries the execution plan, associated clusters, and validity period of a specified inspection task.
+     *
+     * @param request - DescribeInspectionTaskAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInspectionTaskAttributeResponse
+     */
+    async describeInspectionTaskAttributeWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        if (!$dara.isNull(request.taskId)) {
+            query["TaskId"] = request.taskId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeInspectionTaskAttribute",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeInspectionTaskAttributeResponse({}));
+    }
+    /**
+     * Queries the execution plan, associated clusters, and validity period of a specified inspection task.
+     *
+     * @param request - DescribeInspectionTaskAttributeRequest
+     * @returns DescribeInspectionTaskAttributeResponse
+     */
+    async describeInspectionTaskAttribute(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeInspectionTaskAttributeWithOptions(request, runtime);
+    }
+    /**
+     * Queries inspection tasks, their execution plans, and associated clusters by paging based on the inspection space.
+     *
+     * @param request - DescribeInspectionTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInspectionTaskListResponse
+     */
+    async describeInspectionTaskListWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.pageNumber)) {
+            query["PageNumber"] = request.pageNumber;
+        }
+        if (!$dara.isNull(request.pageSize)) {
+            query["PageSize"] = request.pageSize;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        if (!$dara.isNull(request.spaceId)) {
+            query["SpaceId"] = request.spaceId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeInspectionTaskList",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeInspectionTaskListResponse({}));
+    }
+    /**
+     * Queries inspection tasks, their execution plans, and associated clusters by paging based on the inspection space.
+     *
+     * @param request - DescribeInspectionTaskListRequest
+     * @returns DescribeInspectionTaskListResponse
+     */
+    async describeInspectionTaskList(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeInspectionTaskListWithOptions(request, runtime);
+    }
+    /**
+     * Queries the overall score, status, and check results of an instance inspection report based on the report ID.
+     *
+     * @param request - DescribeInstanceReportAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstanceReportAttributeResponse
+     */
+    async describeInstanceReportAttributeWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        if (!$dara.isNull(request.reportId)) {
+            query["ReportId"] = request.reportId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeInstanceReportAttribute",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeInstanceReportAttributeResponse({}));
+    }
+    /**
+     * Queries the overall score, status, and check results of an instance inspection report based on the report ID.
+     *
+     * @param request - DescribeInstanceReportAttributeRequest
+     * @returns DescribeInstanceReportAttributeResponse
+     */
+    async describeInstanceReportAttribute(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeInstanceReportAttributeWithOptions(request, runtime);
+    }
+    /**
      * Queries the details of a knowledge base synchronization link.
      *
      * @param request - DescribeKBSyncLinkAttributeRequest
@@ -16295,7 +17545,46 @@ class Client extends openapi_core_1.default {
         return await this.describeKBSyncLinksWithOptions(request, runtime);
     }
     /**
-     * Queries the details of KVCache instances filtered by region, associated cluster, or instance ID, and returns the results in pages.
+     * Queries the region, status, capacity, network, billing method, and expiration information of a specified KVCache instance.
+     *
+     * @param request - DescribeKVCacheInstanceAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeKVCacheInstanceAttributeResponse
+     */
+    async describeKVCacheInstanceAttributeWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.KVCacheInstanceId)) {
+            query["KVCacheInstanceId"] = request.KVCacheInstanceId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeKVCacheInstanceAttribute",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeKVCacheInstanceAttributeResponse({}));
+    }
+    /**
+     * Queries the region, status, capacity, network, billing method, and expiration information of a specified KVCache instance.
+     *
+     * @param request - DescribeKVCacheInstanceAttributeRequest
+     * @returns DescribeKVCacheInstanceAttributeResponse
+     */
+    async describeKVCacheInstanceAttribute(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeKVCacheInstanceAttributeWithOptions(request, runtime);
+    }
+    /**
+     * Queries KVCache instances filtered by region, associated cluster, or instance ID, and returns paginated instance details.
      *
      * @param request - DescribeKVCacheInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -16339,7 +17628,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeKVCacheInstancesResponse({}));
     }
     /**
-     * Queries the details of KVCache instances filtered by region, associated cluster, or instance ID, and returns the results in pages.
+     * Queries KVCache instances filtered by region, associated cluster, or instance ID, and returns paginated instance details.
      *
      * @param request - DescribeKVCacheInstancesRequest
      * @returns DescribeKVCacheInstancesResponse
@@ -17285,7 +18574,7 @@ class Client extends openapi_core_1.default {
         return await this.describeModelApisWithOptions(request, runtime);
     }
     /**
-     * Queries the model service list.
+     * Queries the list of model services.
      *
      * @param request - DescribeModelServicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17338,7 +18627,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeModelServicesResponse({}));
     }
     /**
-     * Queries the model service list.
+     * Queries the list of model services.
      *
      * @param request - DescribeModelServicesRequest
      * @returns DescribeModelServicesResponse
@@ -17796,7 +19085,10 @@ class Client extends openapi_core_1.default {
         return await this.describePendingMaintenanceActionsWithOptions(request, runtime);
     }
     /**
-     * Queries the chat records of a specified session.
+     * Queries the details of a specified session.
+     *
+     * @remarks
+     * Prerequisites: Use Signature Version 3.0 to call GetPolarAgent to initiate a conversation and obtain the SessionId from the returned stream. Then, call this operation to query the chat history of the session.
      *
      * @param request - DescribePolarAgentChatRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -17828,7 +19120,10 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribePolarAgentChatRecordsResponse({}));
     }
     /**
-     * Queries the chat records of a specified session.
+     * Queries the details of a specified session.
+     *
+     * @remarks
+     * Prerequisites: Use Signature Version 3.0 to call GetPolarAgent to initiate a conversation and obtain the SessionId from the returned stream. Then, call this operation to query the chat history of the session.
      *
      * @param request - DescribePolarAgentChatRecordsRequest
      * @returns DescribePolarAgentChatRecordsResponse
@@ -18103,12 +19398,13 @@ class Client extends openapi_core_1.default {
         return await this.describePolarClawChannelsWithOptions(request, runtime);
     }
     /**
-     * Query all or specific scheduled tasks in PolarClaw and their details.
+     * Queries all or specified scheduled jobs and their details in PolarClaw.
      *
      * @remarks
      * ## Request description
-     * - You can use this API to retrieve all scheduled tasks in a PolarClaw application or filter specific tasks using the `JobIdList` parameter.
-     * - If you do not specify the `JobIdList` parameter, the API returns all scheduled tasks in the application.
+     * - You can use this API operation to retrieve all scheduled jobs in a PolarClaw application, or filter specific jobs by using the JobIdList parameter.
+     * - If the JobIdList parameter is not provided, all scheduled jobs in the application are returned.
+     * Before you begin: Call DescribeApplications to filter applications where ApplicationType is polardb_polarclaw, obtain the ApplicationId, and then call this operation to query scheduled jobs.
      *
      * @param tmpReq - DescribePolarClawCronJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18154,12 +19450,13 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribePolarClawCronJobsResponse({}));
     }
     /**
-     * Query all or specific scheduled tasks in PolarClaw and their details.
+     * Queries all or specified scheduled jobs and their details in PolarClaw.
      *
      * @remarks
      * ## Request description
-     * - You can use this API to retrieve all scheduled tasks in a PolarClaw application or filter specific tasks using the `JobIdList` parameter.
-     * - If you do not specify the `JobIdList` parameter, the API returns all scheduled tasks in the application.
+     * - You can use this API operation to retrieve all scheduled jobs in a PolarClaw application, or filter specific jobs by using the JobIdList parameter.
+     * - If the JobIdList parameter is not provided, all scheduled jobs in the application are returned.
+     * Before you begin: Call DescribeApplications to filter applications where ApplicationType is polardb_polarclaw, obtain the ApplicationId, and then call this operation to query scheduled jobs.
      *
      * @param request - DescribePolarClawCronJobsRequest
      * @returns DescribePolarClawCronJobsResponse
@@ -18211,12 +19508,12 @@ class Client extends openapi_core_1.default {
         return await this.describePolarClawMCPServersWithOptions(request, runtime);
     }
     /**
-     * Lists all installed PolarClaw plugins and their status.
+     * Lists all installed PolarClaw plugins and their status information.
      *
      * @remarks
-     * ## Request
-     * - This API gets information about all plugins for a given application, including built-in and user-installed plugins.
-     * - Use the `PluginList` parameter to request information for specific plugins. If you omit this parameter, the API returns details for all plugins.
+     * ## Request description
+     * - Retrieves information about all plugins in a specified application, including built-in and user-installed plugins.
+     * - You can use the PluginList parameter to request information about specific plugins. If this parameter is not provided, details of all plugins are returned.
      *
      * @param request - DescribePolarClawPluginsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18248,12 +19545,12 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribePolarClawPluginsResponse({}));
     }
     /**
-     * Lists all installed PolarClaw plugins and their status.
+     * Lists all installed PolarClaw plugins and their status information.
      *
      * @remarks
-     * ## Request
-     * - This API gets information about all plugins for a given application, including built-in and user-installed plugins.
-     * - Use the `PluginList` parameter to request information for specific plugins. If you omit this parameter, the API returns details for all plugins.
+     * ## Request description
+     * - Retrieves information about all plugins in a specified application, including built-in and user-installed plugins.
+     * - You can use the PluginList parameter to request information about specific plugins. If this parameter is not provided, details of all plugins are returned.
      *
      * @param request - DescribePolarClawPluginsRequest
      * @returns DescribePolarClawPluginsResponse
@@ -18263,7 +19560,7 @@ class Client extends openapi_core_1.default {
         return await this.describePolarClawPluginsWithOptions(request, runtime);
     }
     /**
-     * Retrieves the details of the PolarClaw skill security assessment.
+     * Retrieves the details of a PolarClaw skill security assessment.
      *
      * @param request - DescribePolarClawSkillAssessmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18304,7 +19601,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribePolarClawSkillAssessmentResponse({}));
     }
     /**
-     * Retrieves the details of the PolarClaw skill security assessment.
+     * Retrieves the details of a PolarClaw skill security assessment.
      *
      * @param request - DescribePolarClawSkillAssessmentRequest
      * @returns DescribePolarClawSkillAssessmentResponse
@@ -18359,12 +19656,7 @@ class Client extends openapi_core_1.default {
      * Queries the details of a PolarClaw skill template.
      *
      * @remarks
-     * ## Request description
-     * - This API operation queries all quota rules under a specific Polarlakebase instance and supports fuzzy matching by using the QuotaNameMatch and PatternMatch parameters.
-     * - The pagination feature is not yet public and will be available after the kernel is ready. Currently, there is no pagination limit on the returned results.
-     * - PolarFsInstanceId is required and specifies the Polarlakebase instance to query.
-     * - Optional parameters such as QuotaNameMatch and PatternMatch can be used to further filter the matching quota rules.
-     * - The returned data includes but is not limited to the total number of quota rules, the number of rules on the current page, and specific rule details such as the rule ID, name, description, and capacity limit.
+     * Queries the PolarClaw skill templates associated with a specified application. You must provide ApplicationId when calling this operation. If this parameter is not specified, InvalidApplicationId.Malformed is returned. The SkillTemplates field in the response is a list of templates, and Skills is a map of keys to strings. Each string can be parsed into an array of skill details, where each array element contains skillName and version.
      *
      * @param request - DescribePolarClawSkillTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18405,12 +19697,7 @@ class Client extends openapi_core_1.default {
      * Queries the details of a PolarClaw skill template.
      *
      * @remarks
-     * ## Request description
-     * - This API operation queries all quota rules under a specific Polarlakebase instance and supports fuzzy matching by using the QuotaNameMatch and PatternMatch parameters.
-     * - The pagination feature is not yet public and will be available after the kernel is ready. Currently, there is no pagination limit on the returned results.
-     * - PolarFsInstanceId is required and specifies the Polarlakebase instance to query.
-     * - Optional parameters such as QuotaNameMatch and PatternMatch can be used to further filter the matching quota rules.
-     * - The returned data includes but is not limited to the total number of quota rules, the number of rules on the current page, and specific rule details such as the rule ID, name, description, and capacity limit.
+     * Queries the PolarClaw skill templates associated with a specified application. You must provide ApplicationId when calling this operation. If this parameter is not specified, InvalidApplicationId.Malformed is returned. The SkillTemplates field in the response is a list of templates, and Skills is a map of keys to strings. Each string can be parsed into an array of skill details, where each array element contains skillName and version.
      *
      * @param request - DescribePolarClawSkillTemplateRequest
      * @returns DescribePolarClawSkillTemplateResponse
@@ -18418,6 +19705,66 @@ class Client extends openapi_core_1.default {
     async describePolarClawSkillTemplate(request) {
         let runtime = new $dara.RuntimeOptions({});
         return await this.describePolarClawSkillTemplateWithOptions(request, runtime);
+    }
+    /**
+     * Queries PolarClaw skill templates. You can filter the templates by template ID and time range, and the results are paginated.
+     *
+     * @param request - DescribePolarClawSkillTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePolarClawSkillTemplatesResponse
+     */
+    async describePolarClawSkillTemplatesWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.applicationId)) {
+            query["ApplicationId"] = request.applicationId;
+        }
+        if (!$dara.isNull(request.applicationType)) {
+            query["ApplicationType"] = request.applicationType;
+        }
+        if (!$dara.isNull(request.endTime)) {
+            query["EndTime"] = request.endTime;
+        }
+        if (!$dara.isNull(request.pageNumber)) {
+            query["PageNumber"] = request.pageNumber;
+        }
+        if (!$dara.isNull(request.pageSize)) {
+            query["PageSize"] = request.pageSize;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        if (!$dara.isNull(request.skillTemplateId)) {
+            query["SkillTemplateId"] = request.skillTemplateId;
+        }
+        if (!$dara.isNull(request.startTime)) {
+            query["StartTime"] = request.startTime;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribePolarClawSkillTemplates",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribePolarClawSkillTemplatesResponse({}));
+    }
+    /**
+     * Queries PolarClaw skill templates. You can filter the templates by template ID and time range, and the results are paginated.
+     *
+     * @param request - DescribePolarClawSkillTemplatesRequest
+     * @returns DescribePolarClawSkillTemplatesResponse
+     */
+    async describePolarClawSkillTemplates(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describePolarClawSkillTemplatesWithOptions(request, runtime);
     }
     /**
      * Queries PolarClaw skills.
@@ -18570,7 +19917,7 @@ class Client extends openapi_core_1.default {
         return await this.describePolarClawTaskWithOptions(request, runtime);
     }
     /**
-     * Queries the PolarFS information.
+     * Queries PolarFS information.
      *
      * @param request - DescribePolarFsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18626,7 +19973,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribePolarFsResponse({}));
     }
     /**
-     * Queries the PolarFS information.
+     * Queries PolarFS information.
      *
      * @param request - DescribePolarFsRequest
      * @returns DescribePolarFsResponse
@@ -18729,14 +20076,14 @@ class Client extends openapi_core_1.default {
         return await this.describePolarFsMappingWithOptions(request, runtime);
     }
     /**
-     * Lists the files and subdirectories under a specified path.
+     * Lists the files and subdirectories in a specified path.
      *
      * @remarks
-     * ## 请求说明
-     * - **Path** 参数必须提供一个绝对路径。
-     * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
-     * - **Depth** 参数用于限制递归深度，默认值为 `1`。
-     * - **Filter** 参数支持通配符或正则表达式过滤结果。
+     * ## Request description
+     * - The **Path** parameter must be an absolute path.
+     * - The **Recursive** parameter defaults to `false`. If set to `true`, the contents of all subdirectories are listed recursively.
+     * - The **Depth** parameter limits the recursion depth. Default value: `1`.
+     * - The **Filter** parameter supports wildcards or regular expressions to filter results.
      *
      * @param request - DescribePolarFsObjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18768,14 +20115,14 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribePolarFsObjectsResponse({}));
     }
     /**
-     * Lists the files and subdirectories under a specified path.
+     * Lists the files and subdirectories in a specified path.
      *
      * @remarks
-     * ## 请求说明
-     * - **Path** 参数必须提供一个绝对路径。
-     * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
-     * - **Depth** 参数用于限制递归深度，默认值为 `1`。
-     * - **Filter** 参数支持通配符或正则表达式过滤结果。
+     * ## Request description
+     * - The **Path** parameter must be an absolute path.
+     * - The **Recursive** parameter defaults to `false`. If set to `true`, the contents of all subdirectories are listed recursively.
+     * - The **Depth** parameter limits the recursion depth. Default value: `1`.
+     * - The **Filter** parameter supports wildcards or regular expressions to filter results.
      *
      * @param request - DescribePolarFsObjectsRequest
      * @returns DescribePolarFsObjectsResponse
@@ -18783,6 +20130,69 @@ class Client extends openapi_core_1.default {
     async describePolarFsObjects(request) {
         let runtime = new $dara.RuntimeOptions({});
         return await this.describePolarFsObjectsWithOptions(request, runtime);
+    }
+    /**
+     * Queries the performance metrics and sampling data of a specified PolarFS instance within a specified time range.
+     *
+     * @remarks
+     * Use Key to specify the metric group to query and Interval to specify the sampling granularity. The end time of the query must not be earlier than the start time, and the start time must not be later than the current time.
+     *
+     * @param request - DescribePolarFsPerformanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePolarFsPerformanceResponse
+     */
+    async describePolarFsPerformanceWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.DBClusterId)) {
+            query["DBClusterId"] = request.DBClusterId;
+        }
+        if (!$dara.isNull(request.endTime)) {
+            query["EndTime"] = request.endTime;
+        }
+        if (!$dara.isNull(request.interval)) {
+            query["Interval"] = request.interval;
+        }
+        if (!$dara.isNull(request.key)) {
+            query["Key"] = request.key;
+        }
+        if (!$dara.isNull(request.polarFsInstanceId)) {
+            query["PolarFsInstanceId"] = request.polarFsInstanceId;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        if (!$dara.isNull(request.startTime)) {
+            query["StartTime"] = request.startTime;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribePolarFsPerformance",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribePolarFsPerformanceResponse({}));
+    }
+    /**
+     * Queries the performance metrics and sampling data of a specified PolarFS instance within a specified time range.
+     *
+     * @remarks
+     * Use Key to specify the metric group to query and Interval to specify the sampling granularity. The end time of the query must not be earlier than the start time, and the start time must not be later than the current time.
+     *
+     * @param request - DescribePolarFsPerformanceRequest
+     * @returns DescribePolarFsPerformanceResponse
+     */
+    async describePolarFsPerformance(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describePolarFsPerformanceWithOptions(request, runtime);
     }
     /**
      * Retrieves all quota rule information for a specified Polarlakebase instance.
@@ -18852,7 +20262,7 @@ class Client extends openapi_core_1.default {
         return await this.describePolarFsQuotaWithOptions(request, runtime);
     }
     /**
-     * Queries the quota list.
+     * Queries the list of quotas.
      *
      * @param request - DescribePolarFsQuotaListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -18896,7 +20306,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribePolarFsQuotaListResponse({}));
     }
     /**
-     * Queries the quota list.
+     * Queries the list of quotas.
      *
      * @param request - DescribePolarFsQuotaListRequest
      * @returns DescribePolarFsQuotaListResponse
@@ -19175,7 +20585,7 @@ class Client extends openapi_core_1.default {
         return await this.describeRegionsWithOptions(request, runtime);
     }
     /**
-     * Queries the replication slots of a specified PolarDB cluster. You can filter the results by the child node name of the distributed instance.
+     * Queries the replication slots of a specified PolarDB cluster. You can filter the results by the child node name of a distributed instance.
      *
      * @param request - DescribeReplicationSlotsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19207,7 +20617,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeReplicationSlotsResponse({}));
     }
     /**
-     * Queries the replication slots of a specified PolarDB cluster. You can filter the results by the child node name of the distributed instance.
+     * Queries the replication slots of a specified PolarDB cluster. You can filter the results by the child node name of a distributed instance.
      *
      * @param request - DescribeReplicationSlotsRequest
      * @returns DescribeReplicationSlotsResponse
@@ -19495,6 +20905,90 @@ class Client extends openapi_core_1.default {
         return await this.describeScheduleTasksWithOptions(request, runtime);
     }
     /**
+     * Queries the parameter modification history of PolarDB Search.
+     *
+     * @param request - DescribeSearchModifyParameterLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSearchModifyParameterLogResponse
+     */
+    async describeSearchModifyParameterLogWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.DBClusterId)) {
+            query["DBClusterId"] = request.DBClusterId;
+        }
+        if (!$dara.isNull(request.endTime)) {
+            query["EndTime"] = request.endTime;
+        }
+        if (!$dara.isNull(request.startTime)) {
+            query["StartTime"] = request.startTime;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeSearchModifyParameterLog",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeSearchModifyParameterLogResponse({}));
+    }
+    /**
+     * Queries the parameter modification history of PolarDB Search.
+     *
+     * @param request - DescribeSearchModifyParameterLogRequest
+     * @returns DescribeSearchModifyParameterLogResponse
+     */
+    async describeSearchModifyParameterLog(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeSearchModifyParameterLogWithOptions(request, runtime);
+    }
+    /**
+     * Queries the parameters of a PolarDB Search cluster.
+     *
+     * @param request - DescribeSearchParametersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSearchParametersResponse
+     */
+    async describeSearchParametersWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.DBClusterId)) {
+            query["DBClusterId"] = request.DBClusterId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeSearchParameters",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeSearchParametersResponse({}));
+    }
+    /**
+     * Queries the parameters of a PolarDB Search cluster.
+     *
+     * @param request - DescribeSearchParametersRequest
+     * @returns DescribeSearchParametersResponse
+     */
+    async describeSearchParameters(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeSearchParametersWithOptions(request, runtime);
+    }
+    /**
      * Queries shared backup sets.
      *
      * @param request - DescribeSharedBackupsRequest
@@ -19736,7 +21230,7 @@ class Client extends openapi_core_1.default {
      * Queries the list of storage plans.
      *
      * @remarks
-     * > This operation is only supported in regions where the endpoint is polardb.aliyuncs.com.
+     * > This operation is supported only in regions where the endpoint is polardb.aliyuncs.com.
      *
      * @param request - DescribeStoragePlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -19786,7 +21280,7 @@ class Client extends openapi_core_1.default {
      * Queries the list of storage plans.
      *
      * @remarks
-     * > This operation is only supported in regions where the endpoint is polardb.aliyuncs.com.
+     * > This operation is supported only in regions where the endpoint is polardb.aliyuncs.com.
      *
      * @param request - DescribeStoragePlanRequest
      * @returns DescribeStoragePlanResponse
@@ -20224,7 +21718,7 @@ class Client extends openapi_core_1.default {
         return await this.describeVpcsWithOptions(request, runtime);
     }
     /**
-     * Queries the available zones.
+     * Queries zones.
      *
      * @param request - DescribeZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20262,7 +21756,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeZonesResponse({}));
     }
     /**
-     * Queries the available zones.
+     * Queries zones.
      *
      * @param request - DescribeZonesRequest
      * @returns DescribeZonesResponse
@@ -20646,7 +22140,7 @@ class Client extends openapi_core_1.default {
         return await this.disablePolarClawPluginWithOptions(request, runtime);
     }
     /**
-     * Enables the dataset management service for a cold storage instance.
+     * Enables the dataset service for a cold storage instance.
      *
      * @param request - EnableAIDBClusterDatasetServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20693,7 +22187,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.EnableAIDBClusterDatasetServiceResponse({}));
     }
     /**
-     * Enables the dataset management service for a cold storage instance.
+     * Enables the dataset service for a cold storage instance.
      *
      * @param request - EnableAIDBClusterDatasetServiceRequest
      * @returns EnableAIDBClusterDatasetServiceResponse
@@ -20703,7 +22197,7 @@ class Client extends openapi_core_1.default {
         return await this.enableAIDBClusterDatasetServiceWithOptions(request, runtime);
     }
     /**
-     * Enables the column store table feature for a specified PolarDB cluster.
+     * Enables the column store table feature for the specified PolarDB cluster.
      *
      * @param request - EnableDBClusterCTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20732,7 +22226,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.EnableDBClusterCTableResponse({}));
     }
     /**
-     * Enables the column store table feature for a specified PolarDB cluster.
+     * Enables the column store table feature for the specified PolarDB cluster.
      *
      * @param request - EnableDBClusterCTableRequest
      * @returns EnableDBClusterCTableResponse
@@ -21523,6 +23017,9 @@ class Client extends openapi_core_1.default {
     /**
      * Retrieves the Lakebase tenant token (SPG tenant mount URL).
      *
+     * @remarks
+     * Retrieves the token required for mounting a Lakebase tenant. Only PolarFS instances whose CreationCategory is basic (Basic Edition) are supported. The server verifies the instance category before calling the backend, and returns OperationDenied.PolarFsCategory for other categories. Before calling this operation, provide PolarFsInstanceId and specify the associated DBClusterId, mount subdirectory, and tenant identifier as needed.
+     *
      * @param request - GetLakebaseTenantTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
      * @returns GetLakebaseTenantTokenResponse
@@ -21560,6 +23057,9 @@ class Client extends openapi_core_1.default {
     }
     /**
      * Retrieves the Lakebase tenant token (SPG tenant mount URL).
+     *
+     * @remarks
+     * Retrieves the token required for mounting a Lakebase tenant. Only PolarFS instances whose CreationCategory is basic (Basic Edition) are supported. The server verifies the instance category before calling the backend, and returns OperationDenied.PolarFsCategory for other categories. Before calling this operation, provide PolarFsInstanceId and specify the associated DBClusterId, mount subdirectory, and tenant identifier as needed.
      *
      * @param request - GetLakebaseTenantTokenRequest
      * @returns GetLakebaseTenantTokenResponse
@@ -21724,11 +23224,11 @@ class Client extends openapi_core_1.default {
         return await this.getPolarClawConfigWithOptions(request, runtime);
     }
     /**
-     * Retrieves the central bucket of polarClawSkill.
+     * Retrieves the central bucket for polarClawSkill.
      *
      * @remarks
      * ## Request description
-     * This operation sets file quota rules for specific directories in a Polarlakebase instance. By configuring the `FilePathQuotas` parameter, you can specify the directories to which the quota rules apply and their related attributes. Note that when you use `FilePathId` to specify a directory, ensure that the path is an absolute path starting from the root directory rather than a mount point path. Additionally, you can use the `Strategy` parameter to control how the rules take effect on existing files. By default, the rules take effect only when a rule is missing.
+     * This operation sets file quota rules for specific directories in a Polarlakebase instance. By configuring the `FilePathQuotas` parameter, you can specify the directories to which the quota rules apply and their related attributes. Note that when you use `FilePathId` to specify a directory, ensure that the path is an absolute path starting from the root directory rather than a mount point path. Additionally, you can use the `Strategy` parameter to control how the rules take effect on existing files. By default, the rules take effect only when no rules exist.
      * ### Important notes
      * - The maximum length of the `FilePathQuotas` list is 21.
      * - To apply rules to multi-level subdirectories under `FilePathId`, set the `MaxDepth` parameter. To traverse to the deepest level, set this value to 0.
@@ -21760,11 +23260,11 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.GetPolarClawSkillRegionResponse({}));
     }
     /**
-     * Retrieves the central bucket of polarClawSkill.
+     * Retrieves the central bucket for polarClawSkill.
      *
      * @remarks
      * ## Request description
-     * This operation sets file quota rules for specific directories in a Polarlakebase instance. By configuring the `FilePathQuotas` parameter, you can specify the directories to which the quota rules apply and their related attributes. Note that when you use `FilePathId` to specify a directory, ensure that the path is an absolute path starting from the root directory rather than a mount point path. Additionally, you can use the `Strategy` parameter to control how the rules take effect on existing files. By default, the rules take effect only when a rule is missing.
+     * This operation sets file quota rules for specific directories in a Polarlakebase instance. By configuring the `FilePathQuotas` parameter, you can specify the directories to which the quota rules apply and their related attributes. Note that when you use `FilePathId` to specify a directory, ensure that the path is an absolute path starting from the root directory rather than a mount point path. Additionally, you can use the `Strategy` parameter to control how the rules take effect on existing files. By default, the rules take effect only when no rules exist.
      * ### Important notes
      * - The maximum length of the `FilePathQuotas` list is 21.
      * - To apply rules to multi-level subdirectories under `FilePathId`, set the `MaxDepth` parameter. To traverse to the deepest level, set this value to 0.
@@ -22230,7 +23730,7 @@ class Client extends openapi_core_1.default {
         return await this.listPolarClawDevicePairsWithOptions(request, runtime);
     }
     /**
-     * Queries the tags that are attached to one or more PolarDB clusters, or the PolarDB clusters that are attached to one or more tags.
+     * Queries the tags bound to one or more PolarDB clusters, or the PolarDB clusters bound to one or more tags.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22283,7 +23783,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.ListTagResourcesResponse({}));
     }
     /**
-     * Queries the tags that are attached to one or more PolarDB clusters, or the PolarDB clusters that are attached to one or more tags.
+     * Queries the tags bound to one or more PolarDB clusters, or the PolarDB clusters bound to one or more tags.
      *
      * @param request - ListTagResourcesRequest
      * @returns ListTagResourcesResponse
@@ -22293,7 +23793,7 @@ class Client extends openapi_core_1.default {
         return await this.listTagResourcesWithOptions(request, runtime);
     }
     /**
-     * Queries the tags that are attached to resources in a specified region.
+     * Queries the resource tags in a region.
      *
      * @param request - ListTagResourcesForRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22340,7 +23840,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.ListTagResourcesForRegionResponse({}));
     }
     /**
-     * Queries the tags that are attached to resources in a specified region.
+     * Queries the resource tags in a region.
      *
      * @param request - ListTagResourcesForRegionRequest
      * @returns ListTagResourcesForRegionResponse
@@ -23055,7 +24555,7 @@ class Client extends openapi_core_1.default {
         return await this.modifyActiveOperationTasksWithOptions(request, runtime);
     }
     /**
-     * Modifies the history retention window of an AgenticDB project.
+     * Modifies the history retention window for an AgenticDB project.
      *
      * @param request - ModifyAgenticDBProjectHistoryRetentionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -23096,7 +24596,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.ModifyAgenticDBProjectHistoryRetentionResponse({}));
     }
     /**
-     * Modifies the history retention window of an AgenticDB project.
+     * Modifies the history retention window for an AgenticDB project.
      *
      * @param request - ModifyAgenticDBProjectHistoryRetentionRequest
      * @returns ModifyAgenticDBProjectHistoryRetentionResponse
@@ -23104,6 +24604,60 @@ class Client extends openapi_core_1.default {
     async modifyAgenticDBProjectHistoryRetention(request) {
         let runtime = new $dara.RuntimeOptions({});
         return await this.modifyAgenticDBProjectHistoryRetentionWithOptions(request, runtime);
+    }
+    /**
+     * Modifies the automatic backup cycle, backup time window, and level-1 backup retention period of a specified application.
+     *
+     * @param request - ModifyApplicationBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyApplicationBackupPolicyResponse
+     */
+    async modifyApplicationBackupPolicyWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.applicationId)) {
+            query["ApplicationId"] = request.applicationId;
+        }
+        if (!$dara.isNull(request.applicationType)) {
+            query["ApplicationType"] = request.applicationType;
+        }
+        if (!$dara.isNull(request.preferredBackupPeriod)) {
+            query["PreferredBackupPeriod"] = request.preferredBackupPeriod;
+        }
+        if (!$dara.isNull(request.preferredBackupRetentionPeriod)) {
+            query["PreferredBackupRetentionPeriod"] = request.preferredBackupRetentionPeriod;
+        }
+        if (!$dara.isNull(request.preferredBackupTime)) {
+            query["PreferredBackupTime"] = request.preferredBackupTime;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "ModifyApplicationBackupPolicy",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.ModifyApplicationBackupPolicyResponse({}));
+    }
+    /**
+     * Modifies the automatic backup cycle, backup time window, and level-1 backup retention period of a specified application.
+     *
+     * @param request - ModifyApplicationBackupPolicyRequest
+     * @returns ModifyApplicationBackupPolicyResponse
+     */
+    async modifyApplicationBackupPolicy(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.modifyApplicationBackupPolicyWithOptions(request, runtime);
     }
     /**
      * Updates the description of a PolarDB application.
@@ -24257,7 +25811,7 @@ class Client extends openapi_core_1.default {
         return await this.modifyDBClusterAuditLogCollectorWithOptions(request, runtime);
     }
     /**
-     * Modifies the minor engine version update policy of a specified PolarDB cluster.
+     * Modifies the minor engine version update policy for a specified PolarDB cluster.
      *
      * @param request - ModifyDBClusterAutoUpgradeMinorVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -24289,7 +25843,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.ModifyDBClusterAutoUpgradeMinorVersionResponse({}));
     }
     /**
-     * Modifies the minor engine version update policy of a specified PolarDB cluster.
+     * Modifies the minor engine version update policy for a specified PolarDB cluster.
      *
      * @param request - ModifyDBClusterAutoUpgradeMinorVersionRequest
      * @returns ModifyDBClusterAutoUpgradeMinorVersionResponse
@@ -25102,7 +26656,7 @@ class Client extends openapi_core_1.default {
         return await this.modifyDBClusterResourceGroupWithOptions(request, runtime);
     }
     /**
-     * Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
+     * Enables or performs a shutdown of the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
      *
      * @param request - ModifyDBClusterSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25164,7 +26718,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.ModifyDBClusterSSLResponse({}));
     }
     /**
-     * Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
+     * Enables or performs a shutdown of the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
      *
      * @param request - ModifyDBClusterSSLRequest
      * @returns ModifyDBClusterSSLResponse
@@ -25417,12 +26971,12 @@ class Client extends openapi_core_1.default {
         return await this.modifyDBClusterStorageSpaceWithOptions(request, runtime);
     }
     /**
-     * ModifyDBClusterTDE
+     * Enables Transparent Data Encryption (TDE) for a specified PolarDB cluster. You must activate Key Management Service (KMS) before you enable TDE. TDE cannot be disabled after it is enabled.
      *
      * @remarks
-     * > - You must activate Key Management Service (KMS) before you perform this operation. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
-     * >
-     * > - You cannot disable transparent data encryption (TDE) after you enable it.
+     * >* You must activate KMS before you perform this operation. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
+     * >* TDE cannot be disabled after it is enabled.
+     * Before you call this operation, call the OpenKmsService operation of KMS (version 2016-01-20) to activate KMS, and then call this operation to enable TDE for the cluster.
      *
      * @param request - ModifyDBClusterTDERequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25478,12 +27032,12 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.ModifyDBClusterTDEResponse({}));
     }
     /**
-     * ModifyDBClusterTDE
+     * Enables Transparent Data Encryption (TDE) for a specified PolarDB cluster. You must activate Key Management Service (KMS) before you enable TDE. TDE cannot be disabled after it is enabled.
      *
      * @remarks
-     * > - You must activate Key Management Service (KMS) before you perform this operation. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
-     * >
-     * > - You cannot disable transparent data encryption (TDE) after you enable it.
+     * >* You must activate KMS before you perform this operation. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
+     * >* TDE cannot be disabled after it is enabled.
+     * Before you call this operation, call the OpenKmsService operation of KMS (version 2016-01-20) to activate KMS, and then call this operation to enable TDE for the cluster.
      *
      * @param request - ModifyDBClusterTDERequest
      * @returns ModifyDBClusterTDEResponse
@@ -26000,7 +27554,7 @@ class Client extends openapi_core_1.default {
         return await this.modifyDBNodeHotReplicaModeWithOptions(request, runtime);
     }
     /**
-     * Configures the routing access weights of nodes.
+     * Modifies the routing access weights of nodes.
      *
      * @param request - ModifyDBNodeRouterWeightRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -26047,7 +27601,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.ModifyDBNodeRouterWeightResponse({}));
     }
     /**
-     * Configures the routing access weights of nodes.
+     * Modifies the routing access weights of nodes.
      *
      * @param request - ModifyDBNodeRouterWeightRequest
      * @returns ModifyDBNodeRouterWeightResponse
@@ -27184,7 +28738,7 @@ class Client extends openapi_core_1.default {
         return await this.modifyPolarClawSkillWithOptions(request, runtime);
     }
     /**
-     * Modifies the PolarFS configuration.
+     * Modifies the PolarFs configuration.
      *
      * @param request - ModifyPolarFsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -27222,7 +28776,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.ModifyPolarFsResponse({}));
     }
     /**
-     * Modifies the PolarFS configuration.
+     * Modifies the PolarFs configuration.
      *
      * @param request - ModifyPolarFsRequest
      * @returns ModifyPolarFsResponse
@@ -27616,6 +29170,48 @@ class Client extends openapi_core_1.default {
         return await this.modifyScheduleTaskWithOptions(request, runtime);
     }
     /**
+     * Modifies the parameters of a PolarDB Search cluster.
+     *
+     * @param request - ModifySearchParametersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifySearchParametersResponse
+     */
+    async modifySearchParametersWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.DBClusterId)) {
+            query["DBClusterId"] = request.DBClusterId;
+        }
+        if (!$dara.isNull(request.parameters)) {
+            query["Parameters"] = request.parameters;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "ModifySearchParameters",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.ModifySearchParametersResponse({}));
+    }
+    /**
+     * Modifies the parameters of a PolarDB Search cluster.
+     *
+     * @param request - ModifySearchParametersRequest
+     * @returns ModifySearchParametersResponse
+     */
+    async modifySearchParameters(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.modifySearchParametersWithOptions(request, runtime);
+    }
+    /**
      * Modifies the IP address whitelist of a specified PolarDB cluster.
      *
      * @param request - ModifySecurityIpsRequest
@@ -27674,6 +29270,66 @@ class Client extends openapi_core_1.default {
     async modifySecurityIps(request) {
         let runtime = new $dara.RuntimeOptions({});
         return await this.modifySecurityIpsWithOptions(request, runtime);
+    }
+    /**
+     * Updates task information in the task center.
+     *
+     * @param request - ModifyTaskInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyTaskInfoResponse
+     */
+    async modifyTaskInfoWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.actionParams)) {
+            query["ActionParams"] = request.actionParams;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        if (!$dara.isNull(request.resourceOwnerAccount)) {
+            query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+        }
+        if (!$dara.isNull(request.resourceOwnerId)) {
+            query["ResourceOwnerId"] = request.resourceOwnerId;
+        }
+        if (!$dara.isNull(request.securityToken)) {
+            query["SecurityToken"] = request.securityToken;
+        }
+        if (!$dara.isNull(request.stepName)) {
+            query["StepName"] = request.stepName;
+        }
+        if (!$dara.isNull(request.taskAction)) {
+            query["TaskAction"] = request.taskAction;
+        }
+        if (!$dara.isNull(request.taskId)) {
+            query["TaskId"] = request.taskId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "ModifyTaskInfo",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.ModifyTaskInfoResponse({}));
+    }
+    /**
+     * Updates task information in the task center.
+     *
+     * @param request - ModifyTaskInfoRequest
+     * @returns ModifyTaskInfoResponse
+     */
+    async modifyTaskInfo(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.modifyTaskInfoWithOptions(request, runtime);
     }
     /**
      * Renames or moves files in a PolarFs instance.
@@ -27964,6 +29620,72 @@ class Client extends openapi_core_1.default {
     async refreshDBClusterStorageUsage(request) {
         let runtime = new $dara.RuntimeOptions({});
         return await this.refreshDBClusterStorageUsageWithOptions(request, runtime);
+    }
+    /**
+     * Modifies the proxy performance level of a specified PolarDB cluster and supports scheduled execution.
+     *
+     * @param request - RefreshProxyLevelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RefreshProxyLevelResponse
+     */
+    async refreshProxyLevelWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.DBClusterId)) {
+            query["DBClusterId"] = request.DBClusterId;
+        }
+        if (!$dara.isNull(request.fromTimeService)) {
+            query["FromTimeService"] = request.fromTimeService;
+        }
+        if (!$dara.isNull(request.ownerAccount)) {
+            query["OwnerAccount"] = request.ownerAccount;
+        }
+        if (!$dara.isNull(request.ownerId)) {
+            query["OwnerId"] = request.ownerId;
+        }
+        if (!$dara.isNull(request.plannedEndTime)) {
+            query["PlannedEndTime"] = request.plannedEndTime;
+        }
+        if (!$dara.isNull(request.plannedStartTime)) {
+            query["PlannedStartTime"] = request.plannedStartTime;
+        }
+        if (!$dara.isNull(request.proxyTargetClass)) {
+            query["ProxyTargetClass"] = request.proxyTargetClass;
+        }
+        if (!$dara.isNull(request.resourceGroupId)) {
+            query["ResourceGroupId"] = request.resourceGroupId;
+        }
+        if (!$dara.isNull(request.resourceOwnerAccount)) {
+            query["ResourceOwnerAccount"] = request.resourceOwnerAccount;
+        }
+        if (!$dara.isNull(request.resourceOwnerId)) {
+            query["ResourceOwnerId"] = request.resourceOwnerId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "RefreshProxyLevel",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.RefreshProxyLevelResponse({}));
+    }
+    /**
+     * Modifies the proxy performance level of a specified PolarDB cluster and supports scheduled execution.
+     *
+     * @param request - RefreshProxyLevelRequest
+     * @returns RefreshProxyLevelResponse
+     */
+    async refreshProxyLevel(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.refreshProxyLevelWithOptions(request, runtime);
     }
     /**
      * Registers a custom model for an AI cluster.
@@ -29089,6 +30811,54 @@ class Client extends openapi_core_1.default {
         return await this.restartPolarClawGatewayWithOptions(request, runtime);
     }
     /**
+     * Restores a PolarDB application from a specified backup set.
+     *
+     * @param request - RestoreApplicationByBackupSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RestoreApplicationByBackupSetResponse
+     */
+    async restoreApplicationByBackupSetWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.applicationId)) {
+            query["ApplicationId"] = request.applicationId;
+        }
+        if (!$dara.isNull(request.applicationType)) {
+            query["ApplicationType"] = request.applicationType;
+        }
+        if (!$dara.isNull(request.backupSetId)) {
+            query["BackupSetId"] = request.backupSetId;
+        }
+        if (!$dara.isNull(request.regionId)) {
+            query["RegionId"] = request.regionId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "RestoreApplicationByBackupSet",
+            version: "2017-08-01",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.RestoreApplicationByBackupSetResponse({}));
+    }
+    /**
+     * Restores a PolarDB application from a specified backup set.
+     *
+     * @param request - RestoreApplicationByBackupSetRequest
+     * @returns RestoreApplicationByBackupSetResponse
+     */
+    async restoreApplicationByBackupSet(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.restoreApplicationByBackupSetWithOptions(request, runtime);
+    }
+    /**
      * Restores databases or tables to a PolarDB cluster.
      *
      * @param request - RestoreTableRequest
@@ -29661,7 +31431,7 @@ class Client extends openapi_core_1.default {
         return await this.switchOverGlobalDatabaseNetworkWithOptions(request, runtime);
     }
     /**
-     * Adds tags to PolarDB clusters.
+     * Adds tags to an instance.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -29711,7 +31481,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.TagResourcesResponse({}));
     }
     /**
-     * Adds tags to PolarDB clusters.
+     * Adds tags to an instance.
      *
      * @param request - TagResourcesRequest
      * @returns TagResourcesResponse
@@ -30093,8 +31863,8 @@ class Client extends openapi_core_1.default {
      *
      * @remarks
      * ## Request description
-     * - `PolarFsInstanceId` is required and identifies the Polarlakebase instance to operate on.
-     * - The `FilePathIds` parameter is also required. It accepts a list of file path IDs in string format. These IDs correspond to the specific file paths whose quota rules need to be deleted. Ensure that each provided ID is valid and belongs to the specified Polarlakebase instance.
+     * - PolarFsInstanceId is required to identify the Polarlakebase instance to operate.
+     * - The FilePathIds parameter is also required. It accepts a list of file path IDs in string format, which correspond to the specific file paths whose quota rules are to be deleted. Ensure that each provided ID is valid and belongs to the specified Polarlakebase instance.
      * - A single API call can process quota deletion requests for multiple file paths. However, control the request size to avoid performance issues.
      *
      * @param request - UninstallPolarClawSkillsRequest
@@ -30140,8 +31910,8 @@ class Client extends openapi_core_1.default {
      *
      * @remarks
      * ## Request description
-     * - `PolarFsInstanceId` is required and identifies the Polarlakebase instance to operate on.
-     * - The `FilePathIds` parameter is also required. It accepts a list of file path IDs in string format. These IDs correspond to the specific file paths whose quota rules need to be deleted. Ensure that each provided ID is valid and belongs to the specified Polarlakebase instance.
+     * - PolarFsInstanceId is required to identify the Polarlakebase instance to operate.
+     * - The FilePathIds parameter is also required. It accepts a list of file path IDs in string format, which correspond to the specific file paths whose quota rules are to be deleted. Ensure that each provided ID is valid and belongs to the specified Polarlakebase instance.
      * - A single API call can process quota deletion requests for multiple file paths. However, control the request size to avoid performance issues.
      *
      * @param request - UninstallPolarClawSkillsRequest
@@ -30152,7 +31922,7 @@ class Client extends openapi_core_1.default {
         return await this.uninstallPolarClawSkillsWithOptions(request, runtime);
     }
     /**
-     * Detaches tags from a PolarDB cluster.
+     * Removes tags from one or more PolarDB clusters.
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30205,7 +31975,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.UntagResourcesResponse({}));
     }
     /**
-     * Detaches tags from a PolarDB cluster.
+     * Removes tags from one or more PolarDB clusters.
      *
      * @param request - UntagResourcesRequest
      * @returns UntagResourcesResponse
@@ -30337,7 +32107,7 @@ class Client extends openapi_core_1.default {
         return await this.updateExtensionsWithOptions(request, runtime);
     }
     /**
-     * Updates a knowledge base synchronization link.
+     * Updates the synchronization link for a knowledge base.
      *
      * @param request - UpdateKBSyncLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -30402,7 +32172,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.UpdateKBSyncLinkResponse({}));
     }
     /**
-     * Updates a knowledge base synchronization link.
+     * Updates the synchronization link for a knowledge base.
      *
      * @param request - UpdateKBSyncLinkRequest
      * @returns UpdateKBSyncLinkResponse

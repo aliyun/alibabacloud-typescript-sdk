@@ -13,7 +13,7 @@ export class DescribePolarFsQuotaListResponseBodyQuotaItems extends $dara.Model 
   capacity?: number;
   /**
    * @remarks
-   * Inodes
+   * The number of inodes.
    * 
    * @example
    * 100
@@ -83,7 +83,7 @@ export class DescribePolarFsQuotaListResponseBody extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of records on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 30
@@ -91,9 +91,7 @@ export class DescribePolarFsQuotaListResponseBody extends $dara.Model {
   pageRecordCount?: string;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **30**, **50**, and **100**.
-   *                               
-   * Default value: **30**.
+   * The number of entries per page. Valid values: **30**, **50**, and **100**. Default value: **30**.
    * 
    * @example
    * 30
@@ -101,7 +99,7 @@ export class DescribePolarFsQuotaListResponseBody extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The PolarFs instance ID.
+   * The PolarFS instance ID.
    * 
    * @example
    * pfs-test****
@@ -114,7 +112,7 @@ export class DescribePolarFsQuotaListResponseBody extends $dara.Model {
   quotaItems?: DescribePolarFsQuotaListResponseBodyQuotaItems[];
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * EBEAA83D-1734-42E3-85E3-E25F6E******
@@ -122,7 +120,7 @@ export class DescribePolarFsQuotaListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 2

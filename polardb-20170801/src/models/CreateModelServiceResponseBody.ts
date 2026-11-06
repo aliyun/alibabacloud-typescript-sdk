@@ -21,7 +21,7 @@ export class CreateModelServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the model service.
+   * The model status.
    * 
    * @example
    * Enable

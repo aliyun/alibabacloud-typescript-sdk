@@ -2,9 +2,9 @@ import * as $dara from '@darabonba/typescript';
 export declare class TagResourcesRequestTag extends $dara.Model {
     /**
      * @remarks
-     * The tag key. To add multiple tags to the cluster at once, click **Add** to specify multiple tag keys.
+     * The tag key. To add multiple tags to the target cluster at a time, click **Add** to add tag keys.
      *
-     * > You can add a maximum of 20 tag pairs at a time. `Tag.n.Key` corresponds to `Tag.n.Value`.
+     * > You can add up to 20 tags at a time. The value of `Tag.n.Key` corresponds to `Tag.n.Value`.
      *
      * @example
      * type
@@ -12,9 +12,9 @@ export declare class TagResourcesRequestTag extends $dara.Model {
     key?: string;
     /**
      * @remarks
-     * The tag value. To add multiple tags to the cluster at once, click **Add** to specify multiple tag values.
+     * The tag value. To add multiple tags to the target cluster at a time, click **Add** to add tag values.
      *
-     * > You can add a maximum of 20 tag pairs at a time. `Tag.n.Value` corresponds to `Tag.n.Key`.
+     * > You can add up to 20 tags at a time. The value of `Tag.n.Value` corresponds to `Tag.n.Key`.
      *
      * @example
      * test
@@ -51,7 +51,7 @@ export declare class TagResourcesRequest extends $dara.Model {
      * This parameter is required.
      *
      * @example
-     * pc-*****************
+     * ["pc-***************"]
      */
     resourceId?: string[];
     resourceOwnerAccount?: string;

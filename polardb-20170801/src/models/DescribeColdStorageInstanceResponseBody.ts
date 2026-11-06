@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeColdStorageInstanceResponseBodyOssClusterInfoList extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the cluster. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the cluster was created. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2023-05-10T17:01:16Z
@@ -29,7 +29,7 @@ export class DescribeColdStorageInstanceResponseBodyOssClusterInfoList extends $
   region?: string;
   /**
    * @remarks
-   * The size of the cold storage table. Unit: GB.
+   * The size of the cold storage table, in GB.
    * 
    * @example
    * 50
@@ -65,7 +65,7 @@ export class DescribeColdStorageInstanceResponseBodyOssClusterInfoList extends $
 export class DescribeColdStorageInstanceResponseBodyTablesChildObjects extends $dara.Model {
   /**
    * @remarks
-   * The object name.
+   * The name of the object.
    * 
    * @example
    * img/1728554006462.png
@@ -81,7 +81,7 @@ export class DescribeColdStorageInstanceResponseBodyTablesChildObjects extends $
   objectType?: string;
   /**
    * @remarks
-   * The disk size. Unit: GiB.
+   * The disk size, in GiB.
    * 
    * @example
    * 10
@@ -90,14 +90,14 @@ export class DescribeColdStorageInstanceResponseBodyTablesChildObjects extends $
   /**
    * @remarks
    * The task status. Valid values:
-   * * **Scheduled**: waiting for execution
-   * * **Running**: running
-   * * **Succeed**: succeeded
-   * * **Cancelling**: cancelling
-   * * **Canceled**: canceled
-   * * **Waiting**: waiting for the preset time
+   * * **Scheduled**: Pending execution.
+   * * **Running**: Executing.
+   * * **Succeed**: Executed successfully.
+   * * **Cancelling**: Terminating.
+   * * **Canceled**: Terminated.
+   * * **Waiting**: Waiting for the scheduled time.
    * 
-   * To query multiple statuses, separate them with commas (,). The default value is empty, which indicates that all statuses are selected.
+   * To query multiple statuses, separate them with commas (,). By default, this parameter is left empty, which indicates all statuses.
    * 
    * @example
    * Running
@@ -178,7 +178,7 @@ export class DescribeColdStorageInstanceResponseBodyTables extends $dara.Model {
   partion?: string;
   /**
    * @remarks
-   * The disk size of the cold storage instance. Unit: GiB.
+   * The disk size of the cold storage instance, in GiB.
    * 
    * @example
    * 30
@@ -253,7 +253,7 @@ export class DescribeColdStorageInstanceResponseBodyTables extends $dara.Model {
 export class DescribeColdStorageInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of data entries to read in this request. Default value: 10.
+   * The maximum number of data entries to read in the current request. Default value: 10.
    * 
    * @example
    * 1000
@@ -279,8 +279,8 @@ export class DescribeColdStorageInstanceResponseBody extends $dara.Model {
    * @remarks
    * Specifies whether OSS storage space is enabled. Valid values:
    * 
-   * - **true**: enabled
-   * - **false**: disabled
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -325,7 +325,7 @@ export class DescribeColdStorageInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Specifies whether the current cluster supports enabling cold storage. For clusters that do not support this feature, the switch is not displayed on the page.
+   * Indicates whether the current cluster supports enabling cold storage. For clusters that do not support this feature, the switch is not displayed on the page.
    * 
    * @example
    * true

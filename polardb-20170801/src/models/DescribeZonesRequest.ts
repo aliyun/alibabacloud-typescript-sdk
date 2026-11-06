@@ -8,7 +8,7 @@ export class DescribeZonesRequest extends $dara.Model {
    * The database engine.
    * 
    * @example
-   * POLARDB
+   * mysql
    */
   engine?: string;
   /**
@@ -23,7 +23,7 @@ export class DescribeZonesRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view information about all available regions for your account, including region IDs.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all available regions for the current account, including region IDs.
    * 
    * @example
    * cn-zhangjiakou

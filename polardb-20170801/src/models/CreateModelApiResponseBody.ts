@@ -8,7 +8,7 @@ export class CreateModelApiResponseBody extends $dara.Model {
    * The invocation endpoint.
    * 
    * @example
-   * xxx
+   * https://model-api.example.com/v1/chat/completions
    */
   invokeEndpoint?: string;
   /**
@@ -21,7 +21,7 @@ export class CreateModelApiResponseBody extends $dara.Model {
   modelApiId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 6BD9CDE4-5E7B-4BF3-9BB8-83C73E******

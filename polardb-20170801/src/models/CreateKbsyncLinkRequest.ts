@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateKBSyncLinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The client identifier.
+   * The client ID.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * ******
+   * example-client-secret
    */
   clientSecret?: string;
   /**
@@ -33,7 +33,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The validity period of the successful snapshot of Lark group members for fallback reuse, in seconds. This parameter can be explicitly set only for FEISHU synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 disables snapshot fallback reuse. A positive integer indicates the maximum age of the snapshot allowed for reuse. Default value: -1. If this parameter is omitted, the default value -1 takes effect.
+   * The time-to-live (TTL) of the successful snapshot of Lark chat members for fallback reuse, in seconds. This parameter can be explicitly set only for FEISHU synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 disables snapshot fallback reuse. A positive integer indicates the maximum age of the snapshot allowed for reuse. Default value: -1. If this parameter is not specified, the default value -1 is used.
    * 
    * @example
    * -1
@@ -97,7 +97,7 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
   sourceDir?: string;
   /**
    * @remarks
-   * The data source type. Valid values: FEISHU and SHAREPOINT.
+   * The data source type. Valid values: FEISHU, SHAREPOINT.
    * 
    * This parameter is required.
    * 
@@ -123,10 +123,10 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The Lark user access token. This token is used only when the application identity cannot expand group members because the bot is not in the group chat.
+   * The Lark user access token. This token is used only when the application identity cannot expand chat members because the bot is not in the chat.
    * 
    * @example
-   * ******
+   * example-user-access-token
    */
   userAccessToken?: string;
   /**
@@ -139,10 +139,10 @@ export class CreateKBSyncLinkRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The Lark user refresh token. This token must be provided together with UserAccessToken to automatically rotate the fallback identity for expanding group members.
+   * The Lark user refresh token. This token must be provided together with UserAccessToken to automatically rotate the fallback identity for expanding chat members.
    * 
    * @example
-   * ******
+   * example-user-refresh-token
    */
   userRefreshToken?: string;
   static names(): { [key: string]: string } {

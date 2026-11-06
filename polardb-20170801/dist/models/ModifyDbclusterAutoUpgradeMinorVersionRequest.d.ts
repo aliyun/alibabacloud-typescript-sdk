@@ -2,9 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ModifyDBClusterAutoUpgradeMinorVersionRequest extends $dara.Model {
     /**
      * @remarks
-     * The minor engine version update policy. Valid values:
-     * - Auto: Automatic update.
-     * - Manual: Manual update.
+     * The minor engine version update policy. Valid values: Auto: automatic update. Manual: manual update.
      *
      * This parameter is required.
      *

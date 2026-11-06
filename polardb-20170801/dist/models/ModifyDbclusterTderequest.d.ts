@@ -12,13 +12,11 @@ export declare class ModifyDBClusterTDERequest extends $dara.Model {
     DBClusterId?: string;
     /**
      * @remarks
-     * Specifies whether to automatically rotate the TDE key of the instance during the next O\\&M window after a new version of the KMS key is available. This parameter is valid only for custom keys.
+     * Specifies whether to allow the TDE key of the instance to automatically rotate at the nearest maintenance window after the rotation period when a KMS key version change is detected. This parameter is supported only for custom keys. Valid values:
+     * - **true**: Allows automatic rotation.
+     * - **false**: Does not allow automatic rotation.
      *
-     * - **true**
-     *
-     * - **false**
-     *
-     * > This parameter is supported only when the database engine is compatible with PostgreSQL or Oracle.
+     * > This parameter is supported only when the database engine is PostgreSQL-compatible or Oracle-compatible.
      *
      * @example
      * false
@@ -26,13 +24,13 @@ export declare class ModifyDBClusterTDERequest extends $dara.Model {
     enableAutomaticRotation?: string;
     /**
      * @remarks
-     * Specifies whether to automatically encrypt all new tables. Valid values:
+     * Specifies whether to automatically encrypt all newly created tables. Valid values:
      *
-     * - **ON**
+     * - **ON**: Enables automatic encryption.
      *
-     * - **OFF**
+     * - **OFF**: Disables automatic encryption.
      *
-     * > This parameter is valid only when the database engine is compatible with MySQL.
+     * > This parameter takes effect only when the database engine is MySQL-compatible.
      *
      * @example
      * ON
@@ -52,7 +50,7 @@ export declare class ModifyDBClusterTDERequest extends $dara.Model {
     resourceOwnerId?: number;
     /**
      * @remarks
-     * The Global Resource Descriptor of the role. You can use this parameter to specify a role. For more information, see [Overview of RAM roles](https://help.aliyun.com/document_detail/93689.html).
+     * The global resource descriptor of the role, used to specify a specific role. For details, see [RAM role overview](https://help.aliyun.com/document_detail/93689.html).
      *
      * @example
      * acs:ram::1406926*****:role/aliyunrdsinstanceencryptiondefaultrole

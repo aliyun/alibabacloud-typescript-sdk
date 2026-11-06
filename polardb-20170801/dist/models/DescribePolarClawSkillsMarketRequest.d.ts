@@ -2,10 +2,10 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribePolarClawSkillsMarketRequest extends $dara.Model {
     /**
      * @remarks
-     * The sorting condition.
+     * The sorting condition. DOWNLOAD_COUNT indicates sorting by download count.
      *
      * @example
-     * NewSessionPerSecond
+     * DOWNLOAD_COUNT
      */
     orderBy?: string;
     /**
@@ -33,7 +33,7 @@ export declare class DescribePolarClawSkillsMarketRequest extends $dara.Model {
      * @remarks
      * The region ID.
      *
-     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all available regions under the current account, including region IDs.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all available regions for the current account, including region IDs.
      *
      * @example
      * cn-beijing
@@ -41,7 +41,7 @@ export declare class DescribePolarClawSkillsMarketRequest extends $dara.Model {
     regionId?: string;
     /**
      * @remarks
-     * The skill name to search for.
+     * The skill name to search by.
      *
      * @example
      * polarclawhub
@@ -49,7 +49,7 @@ export declare class DescribePolarClawSkillsMarketRequest extends $dara.Model {
     searchBySkillName?: string;
     /**
      * @remarks
-     * The tag name to search for.
+     * The tag name to search by.
      *
      * @example
      * PolarDB
@@ -57,13 +57,10 @@ export declare class DescribePolarClawSkillsMarketRequest extends $dara.Model {
     searchByTagName?: string;
     /**
      * @remarks
-     * The source of the skill. Valid values:
-     * 1. `PUBLIC`: Public.
-     * 2. `SELF`: Private.
-     * 3. `OTHER`: Other.
+     * The source of the skill. SELF indicates private skills of the current user, and PUBLIC indicates public skills.
      *
      * @example
-     * polardb-console
+     * PUBLIC
      */
     source?: string;
     static names(): {

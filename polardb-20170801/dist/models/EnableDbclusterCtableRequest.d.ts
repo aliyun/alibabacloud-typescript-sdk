@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class EnableDBClusterCTableRequest extends $dara.Model {
     /**
      * @remarks
-     * The ID of the database cluster.
+     * The ID of the cluster.
      *
      * This parameter is required.
      *

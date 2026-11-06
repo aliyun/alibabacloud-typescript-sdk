@@ -14,6 +14,9 @@ export class UpdatePolarClawSkillResponseBodyConfig extends $dara.Model {
   /**
    * @remarks
    * The environment variable configuration.
+   * 
+   * @example
+   * {"TOKEN":"my-token"}
    */
   env?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -82,7 +85,7 @@ export class UpdatePolarClawSkillResponseBody extends $dara.Model {
   ok?: boolean;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * F45FFACC-xxx

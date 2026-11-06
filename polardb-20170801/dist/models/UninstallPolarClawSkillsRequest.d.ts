@@ -22,7 +22,7 @@ export declare class UninstallPolarClawSkillsRequest extends $dara.Model {
      * @remarks
      * The region ID.
      *
-     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view region details.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query region details.
      *
      * @example
      * cn-hangzhou
@@ -30,7 +30,7 @@ export declare class UninstallPolarClawSkillsRequest extends $dara.Model {
     regionId?: string;
     /**
      * @remarks
-     * The task-level scope: workspace (default) or global. This parameter is mutually exclusive with AgentId.
+     * The task-level scope. Valid values: workspace (default) and global. This parameter is mutually exclusive with AgentId.
      *
      * @example
      * global

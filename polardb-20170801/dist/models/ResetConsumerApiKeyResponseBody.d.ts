@@ -2,15 +2,15 @@ import * as $dara from '@darabonba/typescript';
 export declare class ResetConsumerApiKeyResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The complete API key, which is returned only in this response.
+     * The complete API key. This value is returned only in the current response.
      *
      * @example
-     * xxx
+     * 6c4b1f0317cd4fd7a5b446d3503d**
      */
     apiKey?: string;
     /**
      * @remarks
-     * The user ID.
+     * The ID of the consumer.
      *
      * @example
      * c-mqveroemc***
@@ -18,7 +18,7 @@ export declare class ResetConsumerApiKeyResponseBody extends $dara.Model {
     consumerId?: string;
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * 3AA69096-757C-4647-B36C-29EBC2******

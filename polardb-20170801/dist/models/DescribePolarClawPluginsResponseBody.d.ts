@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribePolarClawPluginsResponseBodyDiagnostics extends $dara.Model {
     /**
      * @remarks
-     * The severity level. Valid values: `error` and `warn`.
+     * The diagnostic level. Valid values: `error` and `warn`.
      *
      * @example
      * warn
@@ -10,7 +10,7 @@ export declare class DescribePolarClawPluginsResponseBodyDiagnostics extends $da
     level?: string;
     /**
      * @remarks
-     * The detailed diagnostic message.
+     * The details of the diagnostic message.
      *
      * @example
      * loaded without install/load-path provenance; treat as untracked local code
@@ -26,7 +26,7 @@ export declare class DescribePolarClawPluginsResponseBodyDiagnostics extends $da
     pluginId?: string;
     /**
      * @remarks
-     * The source file path associated with the diagnostic.
+     * The path to the source file of the associated plugin.
      *
      * @example
      * /home/node/.openclaw/extensions/openclaw-lark/index.js
@@ -46,7 +46,7 @@ export declare class DescribePolarClawPluginsResponseBodyDiagnostics extends $da
 export declare class DescribePolarClawPluginsResponseBodyPlugins extends $dara.Model {
     /**
      * @remarks
-     * A list of channel IDs, which can be empty.
+     * The list of provided channel IDs. An empty array indicates that no channel IDs are available.
      */
     channelIds?: string[];
     /**
@@ -59,7 +59,7 @@ export declare class DescribePolarClawPluginsResponseBodyPlugins extends $dara.M
     description?: string;
     /**
      * @remarks
-     * The error message, or `null` if no error occurred.
+     * The error message. If this field is missing, no error occurred.
      *
      * @example
      * null
@@ -67,7 +67,7 @@ export declare class DescribePolarClawPluginsResponseBodyPlugins extends $dara.M
     error?: string;
     /**
      * @remarks
-     * The format of the plugin, which can be an empty string.
+     * The format of the plugin. This field can be an empty string.
      *
      * @example
      * openclaw
@@ -91,7 +91,7 @@ export declare class DescribePolarClawPluginsResponseBodyPlugins extends $dara.M
     name?: string;
     /**
      * @remarks
-     * The origin of the plugin. Valid values: `bundled`, `global`, and `user-install`.
+     * The origin of the plugin. Valid values: `bundled` (built-in), `global` (global), and `user-install` (user-installed).
      *
      * @example
      * global
@@ -99,12 +99,12 @@ export declare class DescribePolarClawPluginsResponseBodyPlugins extends $dara.M
     origin?: string;
     /**
      * @remarks
-     * A list of provider IDs, which can be empty.
+     * The list of provided provider IDs. An empty array indicates that no provider IDs are available.
      */
     providerIds?: string[];
     /**
      * @remarks
-     * The file path to the plugin\\"s entry point.
+     * The path to the plugin entry file.
      *
      * @example
      * /home/node/.openclaw/extensions/openclaw-lark/index.js
@@ -112,7 +112,7 @@ export declare class DescribePolarClawPluginsResponseBodyPlugins extends $dara.M
     source?: string;
     /**
      * @remarks
-     * The status of the plugin. Valid values: `loaded`, `disabled`, and `error`.
+     * The status of the plugin. Valid values: `loaded` (loaded), `disabled` (disabled), and `error` (failed to load).
      *
      * @example
      * loaded
@@ -120,7 +120,7 @@ export declare class DescribePolarClawPluginsResponseBodyPlugins extends $dara.M
     status?: string;
     /**
      * @remarks
-     * The version number of the plugin.
+     * The version number.
      *
      * @example
      * 2026.4.7
@@ -156,7 +156,7 @@ export declare class DescribePolarClawPluginsResponseBody extends $dara.Model {
     code?: number;
     /**
      * @remarks
-     * An array of diagnostic objects.
+     * The list of diagnostic information.
      */
     diagnostics?: DescribePolarClawPluginsResponseBodyDiagnostics[];
     /**
@@ -169,7 +169,7 @@ export declare class DescribePolarClawPluginsResponseBody extends $dara.Model {
     message?: string;
     /**
      * @remarks
-     * An array of plugin objects.
+     * The list of plugins.
      */
     plugins?: DescribePolarClawPluginsResponseBodyPlugins[];
     /**

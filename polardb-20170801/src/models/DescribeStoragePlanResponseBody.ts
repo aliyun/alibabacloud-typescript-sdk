@@ -45,7 +45,7 @@ export class DescribeStoragePlanResponseBodyItems extends $dara.Model {
   initCapacityViewValue?: string;
   /**
    * @remarks
-   * The resource instance ID.
+   * The instance ID.
    * 
    * @example
    * 500072****
@@ -53,7 +53,7 @@ export class DescribeStoragePlanResponseBodyItems extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The period capacity unit of the storage plan.
+   * The periodic capacity unit of the storage plan.
    * 
    * @example
    * GB
@@ -61,7 +61,7 @@ export class DescribeStoragePlanResponseBodyItems extends $dara.Model {
   periodCapaCityViewUnit?: string;
   /**
    * @remarks
-   * The period capacity of the storage plan. The period capacity gradually decreases as the storage plan is used.
+   * The periodic capacity of the storage plan. The periodic capacity gradually decreases as the storage plan is used.
    * 
    * @example
    * 400.000
@@ -69,7 +69,7 @@ export class DescribeStoragePlanResponseBodyItems extends $dara.Model {
   periodCapacityViewValue?: string;
   /**
    * @remarks
-   * The period duration. This indicates that the capacity of the storage plan is measured and consumed by the hour.
+   * The period duration, which indicates that the capacity of the storage plan is measured and consumed on an hourly basis.
    * 
    * @example
    * hour
@@ -103,9 +103,9 @@ export class DescribeStoragePlanResponseBodyItems extends $dara.Model {
    * @remarks
    * The status of the storage plan. Valid values:
    * 
-   * - **Valid**: Valid.
+   * - **Valid**: The storage plan is valid.
    * 
-   * - **Invalid**: Invalid.
+   * - **Invalid**: The storage plan is invalid.
    * 
    * @example
    * Valid
@@ -115,11 +115,11 @@ export class DescribeStoragePlanResponseBodyItems extends $dara.Model {
    * @remarks
    * The type of the storage plan. Valid values:
    * 
-   * - **Overseas**: Hong Kong (China) and regions outside China
+   * - **Overseas**: Hong Kong (China) and regions outside the Chinese mainland.
    * 
-   * - **Mainland**: the Chinese mainland
+   * - **Mainland**: The Chinese mainland.
    * 
-   * - **Financial**: Finance Cloud
+   * - **Financial**: Alibaba Finance Cloud.
    * 
    * @example
    * Overseas
@@ -129,11 +129,11 @@ export class DescribeStoragePlanResponseBodyItems extends $dara.Model {
    * @remarks
    * The type of the resource plan. Valid values:
    * 
-   *  - **FPT_polardb_package_absolute_1540888383**: the Chinese mainland
+   *  - **FPT_polardb_package_absolute_1540888383**: The Chinese mainland.
    * 
-   * - **FPT_polardb_package_absolute_1540890081**: Hong Kong (China) and regions outside China
+   * - **FPT_polardb_package_absolute_1540890081**: Hong Kong (China) and regions outside the Chinese mainland.
    * 
-   * - **FPT_polardb_package_absolute_1567151499**: Finance Cloud
+   * - **FPT_polardb_package_absolute_1567151499**: Alibaba Finance Cloud.
    * 
    * @example
    * FPT_polardb_package_absolute_1540890081
@@ -218,7 +218,7 @@ export class DescribeStoragePlanResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * D9384D30-5C9A-11EA-BFC0-F754D2Bxxxx

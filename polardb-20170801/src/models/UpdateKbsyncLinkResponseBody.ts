@@ -13,7 +13,7 @@ export class UpdateKBSyncLinkResponseBody extends $dara.Model {
   linkId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * EBEAA83D-1734-42E3-85E3-E25F6E******
@@ -21,7 +21,7 @@ export class UpdateKBSyncLinkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The scheduling time of the synchronization task.
+   * The scheduled time of the synchronization task.
    */
   syncSchedule?: string;
   static names(): { [key: string]: string } {

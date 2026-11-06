@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolarClawSkillsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies the agent (workspace) perspective. If this parameter is specified, the Disabled and AvailableToAgent fields are returned based on the specified agent. If this parameter is not specified, the default agent is used.
+   * Specifies the agent workspace perspective. If this parameter is specified, the Disabled and AvailableToAgent fields are returned based on the specified agent. If this parameter is not specified, the default agent is used.
    * 
    * @example
    * test1
@@ -23,7 +23,7 @@ export class DescribePolarClawSkillsRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The page number. The value must be a positive integer.
+   * The page number. The value must be an integer greater than 0 and less than or equal to the maximum value of the Integer data type.
    * 
    * @example
    * 1
@@ -39,7 +39,9 @@ export class DescribePolarClawSkillsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all available regions for the current account, including region IDs.
+   * The region ID.
+   * 
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all available regions for the current account, including region IDs.
    * 
    * @example
    * cn-hangzhou

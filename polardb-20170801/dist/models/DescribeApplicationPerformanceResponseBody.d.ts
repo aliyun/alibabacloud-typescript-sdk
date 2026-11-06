@@ -60,7 +60,7 @@ export declare class DescribeApplicationPerformanceResponseBodyPerformanceKeys e
 export declare class DescribeApplicationPerformanceResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The application cluster ID.
+     * The ID of the application cluster.
      *
      * @example
      * pa-**************
@@ -76,7 +76,7 @@ export declare class DescribeApplicationPerformanceResponseBody extends $dara.Mo
     applicationType?: string;
     /**
      * @remarks
-     * The end of the time range to query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
+     * The end time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and must be in UTC.
      *
      * @example
      * 2025-05-23T02:21:00Z
@@ -93,7 +93,7 @@ export declare class DescribeApplicationPerformanceResponseBody extends $dara.Mo
     performanceKeys?: DescribeApplicationPerformanceResponseBodyPerformanceKeys;
     /**
      * @remarks
-     * The request ID.
+     * The ID of the request.
      *
      * @example
      * CDB3258F-B5DE-43C4-8935-CBA0CA******
@@ -101,7 +101,7 @@ export declare class DescribeApplicationPerformanceResponseBody extends $dara.Mo
     requestId?: string;
     /**
      * @remarks
-     * The beginning of the time range to query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format (UTC).
+     * The start time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and must be in UTC.
      *
      * @example
      * 2022-11-15T16:00Z

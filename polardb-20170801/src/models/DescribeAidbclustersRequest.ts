@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAIDBClustersRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. You can use tags to filter the cluster list. You can specify up to 20 tag key-value pairs. The number n in each tag pair must be unique and must be a consecutive integer starting from 1. The value of Tag.n.Key is Tag.n.Value.
+   * The tag key. You can filter the cluster list by tags. A maximum of 20 tag key-value pairs are supported. The number n in each tag pair must be unique and must be a consecutive integer starting from 1. The value of Tag.n.Key corresponds to Tag.n.Value.
    * 
    * @example
    * testKey
@@ -13,7 +13,7 @@ export class DescribeAIDBClustersRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value that corresponds to the tag key.
+   * The tag value corresponding to the tag key.
    * 
    * @example
    * testValueData
@@ -47,9 +47,9 @@ export class DescribeAIDBClustersRequest extends $dara.Model {
    * @remarks
    * The node type. You can specify multiple types separated by commas (,). Valid values:
    * 
-   * - vnode: managed by Kubernetes.
-   * - container: logon-enabled container.
-   * - maas: model service.
+   * - vnode: managed by Kubernetes
+   * - container: container with logon access
+   * - maas: model service
    * 
    * @example
    * vnode,container
@@ -57,7 +57,7 @@ export class DescribeAIDBClustersRequest extends $dara.Model {
   aiNodeType?: string;
   /**
    * @remarks
-   * The cluster description. Fuzzy match is supported.
+   * The description of the cluster. Fuzzy search is supported.
    * 
    * @example
    * pc-****************
@@ -86,7 +86,7 @@ export class DescribeAIDBClustersRequest extends $dara.Model {
    * - **NetAddressDeleting**: The network connectivity is being deleted.
    * - **NetAddressModifying**: The network connectivity is being modified. 
    * - **Deleted**: The cluster is released.
-   * - **ClassChanged**: Resources are being revoked after an upgrade or decrease the quota.
+   * * **ClassChanged**: Resources are being revoked after you increase or decrease the quota.
    * 
    * @example
    * Running

@@ -31,7 +31,7 @@ export declare class ListTagResourcesForRegionResponseBodyTagResources extends $
 export declare class ListTagResourcesForRegionResponseBody extends $dara.Model {
     /**
      * @remarks
-     * If the response does not return all results, this parameter is returned. You can use this token in the next request to continue the query.
+     * The token used to retrieve more results. This parameter is returned if a single query does not return all results. You can pass the token returned in the previous response to retrieve the remaining results.
      *
      * @example
      * 212db86sca4384811e0b5e8707e******

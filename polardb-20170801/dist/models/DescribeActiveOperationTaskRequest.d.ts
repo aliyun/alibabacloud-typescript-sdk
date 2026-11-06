@@ -16,7 +16,7 @@ export declare class DescribeActiveOperationTaskRequest extends $dara.Model {
     ownerId?: number;
     /**
      * @remarks
-     * The page number. The value must be greater than 0 and less than or equal to the maximum value of the Integer data type. Default value: **1**.
+     * The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer data type. Default value: **1**.
      *
      * @example
      * 1
@@ -44,8 +44,8 @@ export declare class DescribeActiveOperationTaskRequest extends $dara.Model {
      * @remarks
      * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the regions and zones supported by PolarDB.
      *
-     * > * You can enter **all** to query all pending tasks under your account.
-     * * When Region is set to **all**, TaskType must also be set to **all**.
+     * > * You can enter **all** to view all pending tasks under your account.
+     * * When `Region` is set to **all**, `TaskType` must also be set to **all**.
      *
      * This parameter is required.
      *
@@ -58,10 +58,10 @@ export declare class DescribeActiveOperationTaskRequest extends $dara.Model {
     securityToken?: string;
     /**
      * @remarks
-     * The task type. You can call the [DescribeActiveOperationTaskType](还未生成ID) operation to query the task types of pending tasks.
+     * The task type. You can call the [DescribeActiveOperationTaskType](ID not yet generated) operation to query the task types of pending tasks.
      *
-     * > * You can also enter **all** to query all pending tasks under your account.
-     * * When TaskType is set to **all**, Region must also be set to **all**.
+     * > * You can also enter **all** to view all pending tasks under your account.
+     * * When `TaskType` is set to **all**, `Region` must also be set to **all**.
      *
      * This parameter is required.
      *

@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateKnowledgeSpaceResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The ID of the PolarDB instance created by automatic creation.
+     * The PolarDB instance ID for automatic creation.
      *
      * @example
      * pc-**************
@@ -26,7 +26,7 @@ export declare class CreateKnowledgeSpaceResponseBody extends $dara.Model {
     orderId?: string;
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * 2F029645-FED9-4FE8-A6D3-488954******

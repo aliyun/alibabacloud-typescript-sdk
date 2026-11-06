@@ -12,7 +12,7 @@ export declare class DescribePolarFsObjectsRequest extends $dara.Model {
     path?: string;
     /**
      * @remarks
-     * The PolarFs instance ID.
+     * The PolarFS instance ID.
      *
      * This parameter is required.
      *

@@ -3,11 +3,11 @@ export declare class DescribeSQLExplorerRetentionResponseBody extends $dara.Mode
     /**
      * @remarks
      * The retention period of SQL Explorer logs. Valid values:
-     * * **30**: 30 days.
-     * * **180**: 180 days.
-     * * **365**: 1 year.
-     * * **1095**: 3 years.
-     * * **1825**: 5 years.
+     * * **30**: 30 days
+     * * **180**: 180 days
+     * * **365**: 1 year
+     * * **1095**: 3 years
+     * * **1825**: 5 years
      *
      * @example
      * 30

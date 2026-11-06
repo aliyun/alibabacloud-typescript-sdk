@@ -153,7 +153,7 @@ export declare class DescribePolarFsResponseBody extends $dara.Model {
     pageRecordCount?: number;
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * 8CD1852F-8176-55E4-891C-4478DC00CC7A

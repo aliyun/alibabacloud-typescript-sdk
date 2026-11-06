@@ -5,12 +5,12 @@ export declare class DescribePolarClawSkillAssessmentResponseBody extends $dara.
      * The assessment result.
      *
      * @example
-     * {"zhReportContent":"# Skill Security Assessment Report\\n\\n> **Risk level:** ...}
+     * {"zhReportContent":"# Skill Security Assessment Report\\n\\n> **Risk Level:** ...}
      */
     assessmentResult?: string;
     /**
      * @remarks
-     * The request ID.
+     * The ID of the request.
      *
      * @example
      * CD3FA5F3-FAF3-44CA-AFFF-BAF869******

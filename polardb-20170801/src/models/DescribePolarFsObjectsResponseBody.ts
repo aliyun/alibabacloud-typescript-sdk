@@ -13,18 +13,18 @@ export class DescribePolarFsObjectsResponseBodyItems extends $dara.Model {
   capacity?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in seconds, and the time zone is UTC.
    * 
    * @example
-   * 2025-03-25T09:37:10Z
+   * 1793809871
    */
   creationTime?: number;
   /**
    * @remarks
-   * The last modified time.
+   * The last modified time. The value is a UNIX timestamp in seconds, and the time zone is UTC.
    * 
    * @example
-   * 2025-03-25T09:37:10Z
+   * 1793809534
    */
   lastModified?: number;
   /**
@@ -45,15 +45,15 @@ export class DescribePolarFsObjectsResponseBodyItems extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The number of links.
+   * The number of hard links. The value is an integer. This field may not be returned for some entries.
    * 
    * @example
-   * test
+   * 1
    */
   nlink?: number;
   /**
    * @remarks
-   * Owner
+   * The owner of the file or directory.
    * 
    * @example
    * test
@@ -144,7 +144,7 @@ export class DescribePolarFsObjectsResponseBody extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The PolarFs instance ID.
+   * The PolarFS instance ID.
    * 
    * @example
    * pfs-2ze0i7*****

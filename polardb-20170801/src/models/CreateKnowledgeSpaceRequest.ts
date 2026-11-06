@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateKnowledgeSpaceRequest extends $dara.Model {
   /**
    * @remarks
-   * The database engine type.
+   * The type of the database engine.
    * 
    * @example
    * MySQL
@@ -41,7 +41,7 @@ export class CreateKnowledgeSpaceRequest extends $dara.Model {
   embeddingModel?: string;
   /**
    * @remarks
-   * Specifies whether to enable ACL-based authentication for the knowledge space.
+   * Specifies whether to enforce access control list (ACL) authentication for the knowledge space.
    * 
    * @example
    * false
@@ -67,12 +67,12 @@ export class CreateKnowledgeSpaceRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * OSS AK
+   * The AccessKey ID used to access OSS.
    * 
    * This parameter is required.
    * 
    * @example
-   * ******
+   * LTAI5tExample1234
    */
   OSSAccessKey?: string;
   /**
@@ -87,12 +87,12 @@ export class CreateKnowledgeSpaceRequest extends $dara.Model {
   OSSBucket?: string;
   /**
    * @remarks
-   * OSS SK
+   * The AccessKey secret used to access OSS.
    * 
    * This parameter is required.
    * 
    * @example
-   * ******
+   * example-oss-secret
    */
   OSSSecretKey?: string;
   /**
@@ -107,7 +107,7 @@ export class CreateKnowledgeSpaceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the reranking model.
+   * The name of the rerank model.
    * 
    * @example
    * qwen3-rerank
@@ -115,7 +115,7 @@ export class CreateKnowledgeSpaceRequest extends $dara.Model {
   rerankModel?: string;
   /**
    * @remarks
-   * The security group ID.
+   * The ID of the security group.
    * 
    * This parameter is required.
    * 
@@ -136,9 +136,8 @@ export class CreateKnowledgeSpaceRequest extends $dara.Model {
   /**
    * @remarks
    * The sharding strategy. Valid values:
-   * 
-   * - hierarchical (default)
-   * - hybrid
+   * - hierarchical: hierarchical sharding. This is the default value.
+   * - hybrid: hybrid sharding.
    * 
    * This parameter is required.
    * 

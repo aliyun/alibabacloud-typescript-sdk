@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAIDBClusterPerformanceResponseBodyPerformanceKeysPoints extends $dara.Model {
   /**
    * @remarks
-   * The specific time point of the monitoring metric. The format is a UNIX timestamp, and the unit is milliseconds.
+   * The specific time point of the monitoring metric. The format is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1724206183
@@ -13,7 +13,7 @@ export class DescribeAIDBClusterPerformanceResponseBodyPerformanceKeysPoints ext
   timestamp?: number;
   /**
    * @remarks
-   * The value of the monitoring metric.
+   * The data value of the monitoring metric.
    * 
    * @example
    * 42.38
@@ -53,7 +53,7 @@ export class DescribeAIDBClusterPerformanceResponseBodyPerformanceKeys extends $
   DBNodeId?: string;
   /**
    * @remarks
-   * The performance metrics.
+   * The performance metric.
    * 
    * @example
    * PolarDBAIModelCall
@@ -61,7 +61,7 @@ export class DescribeAIDBClusterPerformanceResponseBodyPerformanceKeys extends $
   measurement?: string;
   /**
    * @remarks
-   * The specific measurement name of the performance metrics.
+   * The name of the specific performance metric.
    * 
    * @example
    * model_input_amount
@@ -108,7 +108,7 @@ export class DescribeAIDBClusterPerformanceResponseBody extends $dara.Model {
    * An API key for the model service.
    * 
    * @example
-   * xxx
+   * 6c4b1f0317cd4fd7a5b446d3503d**
    */
   apiKey?: string;
   /**
@@ -129,7 +129,7 @@ export class DescribeAIDBClusterPerformanceResponseBody extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * The version number of the database AI DPI engine.
+   * The version number of the database AI engine.
    * 
    * 
    *   -3.0
@@ -140,7 +140,7 @@ export class DescribeAIDBClusterPerformanceResponseBody extends $dara.Model {
   DBVersion?: string;
   /**
    * @remarks
-   * The end time of the query. The end time must be later than the start time. Specify the time in the `YYYY-MM-DDThh:mmZ` format. The time must be in UTC.
+   * The end time of the query. The end time must be later than the start time. The format is YYYY-MM-DDThh:mmZ (UTC).
    * 
    * @example
    * 2022-11-16T16:00Z
@@ -148,7 +148,7 @@ export class DescribeAIDBClusterPerformanceResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The data granularity of performance. Valid values:
+   * The data granularity of the performance data. Valid values:
    * 
    * - 60
    * - 3600
@@ -172,7 +172,7 @@ export class DescribeAIDBClusterPerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the query. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
+   * The start time of the query. The format is yyyy-MM-ddTHH:mm:ssZ (UTC).
    * 
    * @example
    * 2022-11-15T16:00Z

@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ApplyApplicationPromptsResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The ID of the application.
+     * The application ID.
      *
      * @example
      * pa-**************
@@ -10,7 +10,7 @@ export declare class ApplyApplicationPromptsResponseBody extends $dara.Model {
     applicationId?: string;
     /**
      * @remarks
-     * The ID of the request.
+     * The request ID.
      *
      * @example
      * CDB3258F-B5DE-43C4-8935-CBA0CA******

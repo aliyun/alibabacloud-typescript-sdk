@@ -98,7 +98,7 @@ export declare class DescribeAIDBClustersResponseBody extends $dara.Model {
     pageRecordCount?: number;
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * 9D6CE7C6-1C52-5BF6-B3D7-10977D44542C

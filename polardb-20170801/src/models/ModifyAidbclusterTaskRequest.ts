@@ -14,7 +14,7 @@ export class ModifyAIDBClusterTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The operation to perform. Valid values:
-   * * **stop**: Stops training. This value applies only to tasks that are being trained.
+   * * **stop**: Stops training. This value takes effect only for tasks that are currently in the training state.
    * 
    * @example
    * stop

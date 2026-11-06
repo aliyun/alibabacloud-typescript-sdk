@@ -65,7 +65,7 @@ export declare class DescribeKVCacheInstancesResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * The total number of instances that meet the query conditions.
+     * The total number of instances that match the filter conditions.
      *
      * @example
      * 1

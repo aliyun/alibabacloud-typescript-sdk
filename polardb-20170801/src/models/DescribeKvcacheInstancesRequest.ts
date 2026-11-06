@@ -29,7 +29,7 @@ export class DescribeKVCacheInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The page size.
    * 
    * @example
    * 20

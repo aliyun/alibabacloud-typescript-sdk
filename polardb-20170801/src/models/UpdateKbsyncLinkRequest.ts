@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateKBSyncLinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The client ID.
+   * The client identifier.
    * 
    * @example
    * cli_xxxxxxbe8
@@ -16,12 +16,12 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
    * The client secret.
    * 
    * @example
-   * ******
+   * example-client-secret
    */
   clientSecret?: string;
   /**
    * @remarks
-   * The validity period of the successful Lark group member snapshot for fallback reuse, in seconds. This parameter can only be explicitly set for FEISHU synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 disables snapshot fallback reuse. A positive integer indicates the maximum age of the snapshot allowed for reuse. If this parameter is omitted, the original value is retained. Explicitly passing -1 restores the default behavior.
+   * The validity period of the successful snapshot of Lark group members for fallback reuse, in seconds. This parameter can be explicitly set only for FEISHU synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 disables snapshot fallback reuse. A positive integer indicates the maximum age of the snapshot allowed for reuse. If this parameter is omitted, the original value is retained. Explicitly passing -1 restores the default behavior.
    * 
    * @example
    * -1
@@ -49,7 +49,7 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
   linkId?: string;
   /**
    * @remarks
-   * The endpoint of the DingTalk document MCP server.
+   * The endpoint of the DingTalk Docs MCP server.
    * 
    * @example
    * https://mcp-gw.dingtalk.com/server/1a2b3cxxxxxx789?key=d5e6fxxxxxx876
@@ -67,7 +67,7 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The endpoint of the DingTalk sheet MCP server.
+   * The endpoint of the DingTalk Sheets MCP server.
    * 
    * @example
    * https://mcp-gw.dingtalk.com/server/1a2b3cxxxxxx567?key=d5e6fxxxxxx543
@@ -75,7 +75,7 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
   sheetMcpEndpoint?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic synchronization. This parameter can only be modified individually and cannot be changed together with other configurations.
+   * Specifies whether to enable automatic synchronization. This parameter can only be modified individually and cannot be changed along with other configurations.
    * 
    * @example
    * false
@@ -83,7 +83,7 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
   syncEnabled?: boolean;
   /**
    * @remarks
-   * 20
+   * The automatic synchronization interval, in minutes.
    * 
    * @example
    * 20
@@ -94,7 +94,7 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
    * The new Lark user access token.
    * 
    * @example
-   * ******
+   * example-user-access-token
    */
   userAccessToken?: string;
   /**
@@ -107,10 +107,10 @@ export class UpdateKBSyncLinkRequest extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The new Lark user refresh token. This parameter must be passed together with UserAccessToken. Passing empty strings for both parameters deletes the tokens.
+   * The new Lark user refresh token. Pass this parameter together with UserAccessToken. Passing empty strings for both parameters deletes the tokens.
    * 
    * @example
-   * ******
+   * example-user-refresh-token
    */
   userRefreshToken?: string;
   static names(): { [key: string]: string } {

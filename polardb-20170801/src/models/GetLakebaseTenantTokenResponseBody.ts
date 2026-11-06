@@ -13,7 +13,7 @@ export class GetLakebaseTenantTokenResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * CD35F3-F3-44CA-AFFF-BAF869******
@@ -48,7 +48,7 @@ export class GetLakebaseTenantTokenResponseBody extends $dara.Model {
    * The tenant token.
    * 
    * @example
-   * ***
+   * example-tenant-token-123456
    */
   token?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationPerformanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The application cluster ID.
+   * The ID of the application cluster.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeApplicationPerformanceShrinkRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The user.
+   * The consumer.
    * 
    * @example
    * c-xxxxxxx
@@ -23,7 +23,7 @@ export class DescribeApplicationPerformanceShrinkRequest extends $dara.Model {
   consumer?: string;
   /**
    * @remarks
-   * The user group.
+   * The consumer group.
    * 
    * @example
    * cg-xxxxxx
@@ -31,7 +31,7 @@ export class DescribeApplicationPerformanceShrinkRequest extends $dara.Model {
   consumerGroup?: string;
   /**
    * @remarks
-   * The downsampling policy.
+   * The downsampling strategy.
    * 
    * @example
    * raw_sample
@@ -39,7 +39,7 @@ export class DescribeApplicationPerformanceShrinkRequest extends $dara.Model {
   downsample?: string;
   /**
    * @remarks
-   * The end step number.
+   * The end step.
    * 
    * @example
    * 100
@@ -47,7 +47,7 @@ export class DescribeApplicationPerformanceShrinkRequest extends $dara.Model {
   endStep?: number;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format (UTC).
+   * The end time of the query. Specify the time in the yyyy-MM-ddTHH:mmZ format (UTC).
    * 
    * This parameter is required.
    * 
@@ -55,10 +55,17 @@ export class DescribeApplicationPerformanceShrinkRequest extends $dara.Model {
    * 2020-09-23T01:00Z
    */
   endTime?: string;
+  /**
+   * @remarks
+   * The optional filter conditions for performance data, represented as a JSON object. If this parameter is not specified, no filtering is applied based on this condition.
+   * 
+   * @example
+   * {}
+   */
   filterShrink?: string;
   /**
    * @remarks
-   * The data granularity of performance data. Valid values:
+   * The performance data granularity. Valid values:
    * - 5
    * - 30
    * - 60
@@ -74,8 +81,8 @@ export class DescribeApplicationPerformanceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The performance metrics to query. Separate multiple values with commas (,).
-   * 
-   * >  You can specify up to 5 performance metrics.
+   * Note
+   * You can specify up to 5 performance metrics.
    * 
    * This parameter is required.
    * 
@@ -85,7 +92,7 @@ export class DescribeApplicationPerformanceShrinkRequest extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The maximum number of data points to return.
+   * The maximum number of points to return.
    * 
    * @example
    * 1000
@@ -101,7 +108,7 @@ export class DescribeApplicationPerformanceShrinkRequest extends $dara.Model {
   modelService?: string;
   /**
    * @remarks
-   * The start step number.
+   * The start step.
    * 
    * @example
    * 1
@@ -109,7 +116,7 @@ export class DescribeApplicationPerformanceShrinkRequest extends $dara.Model {
   startStep?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mmZ format (UTC).
+   * The start time of the query. Specify the time in the yyyy-MM-ddTHH:mmZ format (UTC).
    * 
    * This parameter is required.
    * 

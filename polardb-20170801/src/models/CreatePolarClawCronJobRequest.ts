@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolarClawCronJobRequestDelivery extends $dara.Model {
   /**
    * @remarks
-   * The channel account ID.
+   * The ID of the channel account.
    * 
    * @example
    * default
@@ -29,7 +29,7 @@ export class CreatePolarClawCronJobRequestDelivery extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The delivery mode. Valid values: none, announce, webhook.
+   * The delivery mode. Valid values: none, announce, and webhook.
    * 
    * @example
    * announce
@@ -75,7 +75,7 @@ export class CreatePolarClawCronJobRequestDelivery extends $dara.Model {
 export class CreatePolarClawCronJobRequestFailureAlert extends $dara.Model {
   /**
    * @remarks
-   * The channel account ID.
+   * The ID of the channel account.
    * 
    * @example
    * default
@@ -83,7 +83,7 @@ export class CreatePolarClawCronJobRequestFailureAlert extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The number of consecutive failures before an alert is triggered.
+   * The number of consecutive failures after which an alert is triggered.
    * 
    * @example
    * 3
@@ -184,7 +184,7 @@ export class CreatePolarClawCronJobRequestPayload extends $dara.Model {
   fallbacks?: string[];
   /**
    * @remarks
-   * The payload type. Valid values: agentTurn, systemEvent.
+   * The payload type. Valid values: agentTurn and systemEvent.
    * 
    * @example
    * systemEvent
@@ -224,7 +224,7 @@ export class CreatePolarClawCronJobRequestPayload extends $dara.Model {
   text?: string;
   /**
    * @remarks
-   * The thinking level. Valid values: off, minimal, low, medium, high, xhigh.
+   * The thinking level. Valid values: off, minimal, low, medium, high, and xhigh.
    * 
    * @example
    * xhigh
@@ -327,7 +327,7 @@ export class CreatePolarClawCronJobRequestSchedule extends $dara.Model {
   expr?: string;
   /**
    * @remarks
-   * The schedule type. Valid values: cron, every, at.
+   * The schedule type. Valid values: cron, every, and at.
    * 
    * @example
    * cron
@@ -343,7 +343,7 @@ export class CreatePolarClawCronJobRequestSchedule extends $dara.Model {
   staggerMs?: number;
   /**
    * @remarks
-   * The IANA time zone.
+   * The time zone.
    * 
    * @example
    * Asia/Shanghai
@@ -385,7 +385,7 @@ export class CreatePolarClawCronJobRequestSchedule extends $dara.Model {
 export class CreatePolarClawCronJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the specified execution agent.
+   * The specified execution agent.
    * 
    * @example
    * main
@@ -458,7 +458,7 @@ export class CreatePolarClawCronJobRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * {"Kind":"agentTurn","Message":"Generate the daily report."}
+   * {"Kind":"systemEvent","Text":"Generate the daily report."}
    */
   payload?: CreatePolarClawCronJobRequestPayload;
   /**
@@ -471,7 +471,7 @@ export class CreatePolarClawCronJobRequest extends $dara.Model {
   restart?: boolean;
   /**
    * @remarks
-   * Specifies whether to run it once immediately after creation. Default value: false.
+   * Specifies whether to run the task immediately after creation. Default value: false.
    * 
    * @example
    * false
@@ -497,7 +497,7 @@ export class CreatePolarClawCronJobRequest extends $dara.Model {
   sessionKey?: string;
   /**
    * @remarks
-   * The session target. Valid values: main, isolated, current.
+   * The execution session target. If set to main, it indicates the main session, and Payload.Kind must be systemEvent. If set to isolated or current, it supports agentTurn or systemEvent.
    * 
    * This parameter is required.
    * 
@@ -507,7 +507,7 @@ export class CreatePolarClawCronJobRequest extends $dara.Model {
   sessionTarget?: string;
   /**
    * @remarks
-   * The wake mode. Valid values: now, next-heartbeat.
+   * The wake mode. Valid values: now and next-heartbeat.
    * 
    * This parameter is required.
    * 

@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribePolarClawSkillAssessmentRequest extends $dara.Model {
     /**
      * @remarks
-     * The application ID.
+     * The ID of the application.
      *
      * @example
      * pa-**************

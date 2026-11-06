@@ -80,12 +80,12 @@ export class DescribeKnowledgeBaseFileShardsResponseBodyShards extends $dara.Mod
   captions?: string[];
   /**
    * @remarks
-   * The list of structured element references of the source document associated with the shard, which can be used to precisely locate the original elements.
+   * The list of structured element references in the source document associated with the shard, which can be used to precisely locate the original elements.
    */
   docItems?: string[];
   /**
    * @remarks
-   * The section heading chain to which the shard belongs.
+   * The chain of section headings to which the shard belongs.
    */
   headings?: string[];
   /**
@@ -103,7 +103,7 @@ export class DescribeKnowledgeBaseFileShardsResponseBodyShards extends $dara.Mod
    * The text content of the shard.
    * 
    * @example
-   * ******
+   * This is sample content for a knowledge base shard
    */
   shardContent?: string;
   /**
@@ -199,7 +199,7 @@ export class DescribeKnowledgeBaseFileShardsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 3E5CD764-xxxx-xxxx-xxxx-20E0DE84B2AF

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolarClawCronJobShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the specified execution agent.
+   * The specified execution agent.
    * 
    * @example
    * main
@@ -78,7 +78,7 @@ export class CreatePolarClawCronJobShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * {"Kind":"agentTurn","Message":"Generate the daily report."}
+   * {"Kind":"systemEvent","Text":"Generate the daily report."}
    */
   payloadShrink?: string;
   /**
@@ -91,7 +91,7 @@ export class CreatePolarClawCronJobShrinkRequest extends $dara.Model {
   restart?: boolean;
   /**
    * @remarks
-   * Specifies whether to run it once immediately after creation. Default value: false.
+   * Specifies whether to run the task immediately after creation. Default value: false.
    * 
    * @example
    * false
@@ -117,7 +117,7 @@ export class CreatePolarClawCronJobShrinkRequest extends $dara.Model {
   sessionKey?: string;
   /**
    * @remarks
-   * The session target. Valid values: main, isolated, current.
+   * The execution session target. If set to main, it indicates the main session, and Payload.Kind must be systemEvent. If set to isolated or current, it supports agentTurn or systemEvent.
    * 
    * This parameter is required.
    * 
@@ -127,7 +127,7 @@ export class CreatePolarClawCronJobShrinkRequest extends $dara.Model {
   sessionTarget?: string;
   /**
    * @remarks
-   * The wake mode. Valid values: now, next-heartbeat.
+   * The wake mode. Valid values: now and next-heartbeat.
    * 
    * This parameter is required.
    * 

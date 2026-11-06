@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyApplicationPromptsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,18 +15,18 @@ export class ApplyApplicationPromptsShrinkRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * An array of prompt IDs to disable.
+   * The list of prompt IDs to disable. You must provide a non-empty list for at least one of EnabledPromptIds and DisabledPromptIds. Otherwise, the InvalidApplicationPromptId.Malformed error is returned.
    * 
    * @example
-   * papt-************
+   * ["papt-************"]
    */
   disabledPromptIdsShrink?: string;
   /**
    * @remarks
-   * An array of prompt IDs to enable.
+   * The list of prompt IDs to enable. You must provide a non-empty list for at least one of EnabledPromptIds and DisabledPromptIds. Otherwise, the InvalidApplicationPromptId.Malformed error is returned.
    * 
    * @example
-   * papt-************
+   * ["papt-************"]
    */
   enabledPromptIdsShrink?: string;
   static names(): { [key: string]: string } {

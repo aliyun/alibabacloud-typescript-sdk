@@ -2,11 +2,9 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
     /**
      * @remarks
-     * The type of the Alibaba Cloud service for the application group. Valid values:
-     *
-     * - **web**: web application.
-     *
-     * - **native**: native application.
+     * The cloud service type of the application group. Valid values:
+     * - **web**: Web application.
+     * - **native**: Native application.
      *
      * @example
      * web
@@ -22,7 +20,7 @@ export declare class DescribeHistoryEventsResponseBodyItemsData extends $dara.Mo
     dbType?: string;
     /**
      * @remarks
-     * This parameter is used for pagination.
+     * The pagination parameter.
      *
      * @example
      * 1
@@ -30,15 +28,15 @@ export declare class DescribeHistoryEventsResponseBodyItemsData extends $dara.Mo
     detailImpact?: string;
     /**
      * @remarks
-     * The details of the instance operation.
+     * The instance operation details.
      *
      * @example
-     * xxxx
+     * The instance needs to be restarted for system maintenance
      */
     detailReason?: string;
     /**
      * @remarks
-     * The end of the query time range. The end time must be later than the start time. The interval between the start time and the end time must be within 24 hours. The time is in the `YYYY-MM-DDThh:mmZ` format and is displayed in UTC.
+     * The end time of the query. The end time must be later than the start time, and the interval between the start time and the end time must be within 24 hours. Specify the time in the `YYYY-MM-DDThh:mmZ` format (UTC time).
      *
      * @example
      * 2025-12-24T02:24:00Z
@@ -46,15 +44,11 @@ export declare class DescribeHistoryEventsResponseBodyItemsData extends $dara.Mo
     endTime?: string;
     /**
      * @remarks
-     * The category of the system event. Valid values:
-     *
-     * - **Exception**: anomalous activity
-     *
-     * - **Optimize**: optimization events
-     *
-     * - **Notification**: notification events
-     *
-     * - **Maintenance**: scheduled O\\&M events
+     * The system event category. Valid values:
+     * - **Exception**: Exception events.
+     * - **Optimize**: Optimization events.
+     * - **Notification**: Notification events.
+     * - **Maintenance**: Scheduled O&M events.
      *
      * @example
      * Exception
@@ -73,7 +67,7 @@ export declare class DescribeHistoryEventsResponseBodyItemsData extends $dara.Mo
      * The event details.
      *
      * @example
-     * xxxx
+     * The instance will be restarted within the maintenance window
      */
     eventDetail?: string;
     /**
@@ -86,21 +80,18 @@ export declare class DescribeHistoryEventsResponseBodyItemsData extends $dara.Mo
     eventId?: string;
     /**
      * @remarks
-     * An overview of the event\\"s impact.
+     * The event impact overview.
      *
      * @example
-     * xxxx
+     * The instance connection may be briefly interrupted
      */
     eventImpact?: string;
     /**
      * @remarks
      * The event level. Valid values:
-     *
-     * - **INFO**: notification
-     *
-     * - **WARN**: warning
-     *
-     * - **CRITICAL**: urgent
+     * - **INFO**: Notification.
+     * - **WARN**: Warning.
+     * - **CRITICAL**: Critical.
      *
      * @example
      * INFO
@@ -111,24 +102,18 @@ export declare class DescribeHistoryEventsResponseBodyItemsData extends $dara.Mo
      * The source of the event operation.
      *
      * @example
-     * xxxxx
+     * System maintenance
      */
     eventReason?: string;
     /**
      * @remarks
      * The event status. Valid values:
-     *
-     * - **Inquiring**: The event is being inquired.
-     *
-     * - **Scheduled**: The event is scheduled.
-     *
-     * - **Running**: The event is in progress.
-     *
-     * - **Succeed**: The event is successful.
-     *
-     * - **Failed**: The event failed.
-     *
-     * - **Canceled**: The event is canceled.
+     * - **Inquiring**: Inquiring.
+     * - **Scheduled**: Scheduled.
+     * - **Running**: Running.
+     * - **Succeed**: Succeeded.
+     * - **Failed**: Failed.
+     * - **Canceled**: Canceled.
      *
      * @example
      * Inquiring
@@ -136,26 +121,16 @@ export declare class DescribeHistoryEventsResponseBodyItemsData extends $dara.Mo
     eventStatus?: string;
     /**
      * @remarks
-     * The type of the system event. Valid values:
-     *
+     * The system event type. Valid values:
      * - **SystemMaintenance.Reboot**: The instance is restarted due to system maintenance.
-     *
      * - **SystemMaintenance.Redeploy**: The instance is redeployed due to system maintenance.
-     *
-     * - **SystemFailure.Reboot**: The instance is restarted due to a system fault.
-     *
-     * - **SystemFailure.Redeploy**: The instance is redeployed due to a system fault.
-     *
-     * - **SystemFailure.Delete**: The instance is released because it failed to be created.
-     *
-     * - **InstanceFailure.Reboot**: The instance is restarted due to an instance fault.
-     *
-     * - **InstanceExpiration.Stop**: The subscription instance is stopped because its subscription expires.
-     *
-     * - **InstanceExpiration.Delete**: The subscription instance is released because its subscription expires.
-     *
+     * - **SystemFailure.Reboot**: The instance is restarted due to a system failure.
+     * - **SystemFailure.Redeploy**: The instance is redeployed due to a system failure.
+     * - **SystemFailure.Delete**: The instance is released due to a creation failure.
+     * - **InstanceFailure.Reboot**: The instance is restarted due to an instance failure.
+     * - **InstanceExpiration.Stop**: The subscription instance is stopped due to expiration.
+     * - **InstanceExpiration.Delete**: The subscription instance is released due to expiration.
      * - **AccountUnbalanced.Stop**: The pay-as-you-go instance is stopped due to an overdue payment.
-     *
      * - **AccountUnbalanced.Delete**: The pay-as-you-go instance is released due to an overdue payment.
      *
      * @example
@@ -180,7 +155,7 @@ export declare class DescribeHistoryEventsResponseBodyItemsData extends $dara.Mo
     gmtModified?: string;
     /**
      * @remarks
-     * The processing status.
+     * The handling status.
      *
      * @example
      * done
@@ -188,10 +163,10 @@ export declare class DescribeHistoryEventsResponseBodyItemsData extends $dara.Mo
     handleStatus?: string;
     /**
      * @remarks
-     * Indicates whether a lifecycle exists.
+     * Indicates whether the event has a lifecycle.
      *
      * @example
-     * false
+     * 0
      */
     hasLifeCycle?: number;
     /**
@@ -212,11 +187,9 @@ export declare class DescribeHistoryEventsResponseBodyItemsData extends $dara.Mo
     instanceName?: string;
     /**
      * @remarks
-     * Indicates whether the event is successfully closed. Valid values:
-     *
-     * - **0**: closed
-     *
-     * - **1**: open
+     * Indicates whether the event is closed. Valid values:
+     * - **0**: Closed.
+     * - **1**: Open.
      *
      * @example
      * 1
@@ -241,12 +214,9 @@ export declare class DescribeHistoryEventsResponseBodyItemsData extends $dara.Mo
     /**
      * @remarks
      * The resource type. Valid values:
-     *
-     * - **Instance**: instance resource
-     *
-     * - **Host**: host resource
-     *
-     * - **User**: user resource
+     * - **Instance**: Instance resources.
+     * - **Host**: Host resources.
+     * - **User**: User resources.
      *
      * @example
      * Host
@@ -254,7 +224,7 @@ export declare class DescribeHistoryEventsResponseBodyItemsData extends $dara.Mo
     resourceType?: string;
     /**
      * @remarks
-     * The type of the source data.
+     * The source data type.
      *
      * @example
      * loanBill
@@ -262,7 +232,7 @@ export declare class DescribeHistoryEventsResponseBodyItemsData extends $dara.Mo
     sourceType?: string;
     /**
      * @remarks
-     * The start of the query time range. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
+     * The start time of the query. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format (UTC time).
      *
      * @example
      * 2025-02-27T02:00:00Z
@@ -270,7 +240,7 @@ export declare class DescribeHistoryEventsResponseBodyItemsData extends $dara.Mo
     startTime?: string;
     /**
      * @remarks
-     * The ID of the user to whom the resource belongs.
+     * The ID of the user to which the resource belongs.
      *
      * @example
      * 1540497309282125
@@ -303,7 +273,7 @@ export declare class DescribeHistoryEventsResponseBodyItems extends $dara.Model 
     id?: string;
     /**
      * @remarks
-     * The ID of the region where the task is located.
+     * The region ID of the region where the task resides.
      *
      * @example
      * cn-hangzhou
@@ -335,7 +305,7 @@ export declare class DescribeHistoryEventsResponseBodyItems extends $dara.Model 
     subject?: string;
     /**
      * @remarks
-     * The runtime of the query task. Unit: seconds (s).
+     * The running time of the query task. Unit: seconds.
      *
      * @example
      * 1758680209206
@@ -363,12 +333,12 @@ export declare class DescribeHistoryEventsResponseBodyItems extends $dara.Model 
 export declare class DescribeHistoryEventsResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The list of events.
+     * The event list.
      */
     items?: DescribeHistoryEventsResponseBodyItems[];
     /**
      * @remarks
-     * The page number of the returned page. The default value is 1.
+     * The page number. Default value: 1.
      *
      * @example
      * 1
@@ -376,7 +346,7 @@ export declare class DescribeHistoryEventsResponseBody extends $dara.Model {
     pageNumber?: number;
     /**
      * @remarks
-     * The number of entries returned per page. Valid values:
+     * The number of entries per page. Valid values:
      *
      * - **30**
      *
@@ -398,7 +368,7 @@ export declare class DescribeHistoryEventsResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * The total number of entries in the list.
+     * The total number of entries.
      *
      * @example
      * 7

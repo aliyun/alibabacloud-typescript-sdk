@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreatePolarClawCronJobResponseBodyJobDelivery extends $dara.Model {
     /**
      * @remarks
-     * The channel account ID.
+     * The ID of the channel account.
      *
      * @example
      * default
@@ -26,7 +26,7 @@ export declare class CreatePolarClawCronJobResponseBodyJobDelivery extends $dara
     channel?: string;
     /**
      * @remarks
-     * The delivery mode. Valid values: none, announce, webhook.
+     * The delivery mode. Valid values: none, announce, and webhook.
      *
      * @example
      * announce
@@ -78,7 +78,7 @@ export declare class CreatePolarClawCronJobResponseBodyJobPayload extends $dara.
     deliver?: boolean;
     /**
      * @remarks
-     * The payload type. Valid values: agentTurn, systemEvent.
+     * The payload type. Valid values: agentTurn and systemEvent.
      *
      * @example
      * agentTurn
@@ -190,7 +190,7 @@ export declare class CreatePolarClawCronJobResponseBodyJobRuns extends $dara.Mod
     action?: string;
     /**
      * @remarks
-     * Indicates whether the run was delivered.
+     * Indicates whether the job run has been delivered.
      *
      * @example
      * false
@@ -230,7 +230,7 @@ export declare class CreatePolarClawCronJobResponseBodyJobRuns extends $dara.Mod
     jobName?: string;
     /**
      * @remarks
-     * The model used.
+     * The model used for the execution.
      *
      * @example
      * bailian/qwen3.5-plus
@@ -246,7 +246,7 @@ export declare class CreatePolarClawCronJobResponseBodyJobRuns extends $dara.Mod
     nextRunAtMs?: number;
     /**
      * @remarks
-     * The model provider.
+     * The provider of the model.
      *
      * @example
      * bailian
@@ -265,7 +265,7 @@ export declare class CreatePolarClawCronJobResponseBodyJobRuns extends $dara.Mod
      * The ID of the associated session.
      *
      * @example
-     * ***
+     * session-123
      */
     sessionId?: string;
     /**
@@ -278,7 +278,7 @@ export declare class CreatePolarClawCronJobResponseBodyJobRuns extends $dara.Mod
     status?: string;
     /**
      * @remarks
-     * The execution summary text.
+     * The text of the execution summary.
      *
      * @example
      * Generate the daily report.
@@ -294,7 +294,7 @@ export declare class CreatePolarClawCronJobResponseBodyJobRuns extends $dara.Mod
     ts?: number;
     /**
      * @remarks
-     * The token usage details.
+     * The details of token usage.
      */
     usage?: CreatePolarClawCronJobResponseBodyJobRunsUsage;
     static names(): {
@@ -343,7 +343,7 @@ export declare class CreatePolarClawCronJobResponseBodyJobSchedule extends $dara
     expr?: string;
     /**
      * @remarks
-     * The schedule type: cron, every, or at.
+     * The schedule type. Valid values: cron, every, and at.
      *
      * @example
      * cron
@@ -499,7 +499,7 @@ export declare class CreatePolarClawCronJobResponseBodyJob extends $dara.Model {
     sessionKey?: string;
     /**
      * @remarks
-     * The session target. Valid values: main, isolated, current.
+     * The session target. Valid values: main, isolated, and current.
      *
      * @example
      * main
@@ -507,7 +507,7 @@ export declare class CreatePolarClawCronJobResponseBodyJob extends $dara.Model {
     sessionTarget?: string;
     /**
      * @remarks
-     * The execution status.
+     * The execution state.
      */
     state?: CreatePolarClawCronJobResponseBodyJobState;
     /**
@@ -520,7 +520,7 @@ export declare class CreatePolarClawCronJobResponseBodyJob extends $dara.Model {
     updatedAtMs?: number;
     /**
      * @remarks
-     * The wake mode. Valid values: now, next-heartbeat.
+     * The wake mode. Valid values: now and next-heartbeat.
      *
      * @example
      * now
@@ -577,7 +577,7 @@ export declare class CreatePolarClawCronJobResponseBody extends $dara.Model {
     ok?: boolean;
     /**
      * @remarks
-     * Indicates whether the job was executed immediately and successfully.
+     * Indicates whether the job was executed immediately and succeeded.
      *
      * @example
      * false
@@ -585,7 +585,7 @@ export declare class CreatePolarClawCronJobResponseBody extends $dara.Model {
     ranImmediately?: boolean;
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * 6BD9CDE4-5E7B-4BF3-9BB8-83C73E******

@@ -58,7 +58,7 @@ export declare class DescribeDBClusterPerformanceResponseBodyPerformanceKeys ext
 export declare class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The database cluster ID.
+     * The ID of the database cluster.
      *
      * @example
      * pc-*****************
@@ -82,7 +82,7 @@ export declare class DescribeDBClusterPerformanceResponseBody extends $dara.Mode
     DBVersion?: string;
     /**
      * @remarks
-     * The end of the time range. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
+     * The end time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
      *
      * @example
      * 2020-09-23T01:01:00Z
@@ -91,7 +91,7 @@ export declare class DescribeDBClusterPerformanceResponseBody extends $dara.Mode
     performanceKeys?: DescribeDBClusterPerformanceResponseBodyPerformanceKeys;
     /**
      * @remarks
-     * The request ID.
+     * The ID of the request.
      *
      * @example
      * 35D3E3DA-4650-407A-BFF5-59BFF1******
@@ -99,7 +99,7 @@ export declare class DescribeDBClusterPerformanceResponseBody extends $dara.Mode
     requestId?: string;
     /**
      * @remarks
-     * The beginning of the time range. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
+     * The start time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format. The time is displayed in UTC.
      *
      * @example
      * 2020-09-23T01:00:00Z

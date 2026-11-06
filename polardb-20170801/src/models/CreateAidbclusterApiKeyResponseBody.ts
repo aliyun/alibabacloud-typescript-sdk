@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAIDBClusterApiKeyResponseBodyApiKey extends $dara.Model {
   /**
    * @remarks
-   * The API key for model serving.
+   * The API key for the model service.
    * 
    * @example
-   * xxx
+   * 6c4b1f0317cd4fd7a5b446d3503d**
    */
   apiKey?: string;
   /**
    * @remarks
-   * The time when the API key was created.
+   * The creation time.
    * 
-   * The time is in the ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The time is displayed in ISO 8601 format in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-06-12T03:41:53Z
@@ -31,7 +31,7 @@ export class CreateAIDBClusterApiKeyResponseBodyApiKey extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * id
+   * The API key ID.
    * 
    * @example
    * 393
@@ -39,7 +39,7 @@ export class CreateAIDBClusterApiKeyResponseBodyApiKey extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The API key status.
+   * The status of the API key.
    * 
    * @example
    * active
@@ -82,7 +82,7 @@ export class CreateAIDBClusterApiKeyResponseBody extends $dara.Model {
   apiKey?: CreateAIDBClusterApiKeyResponseBodyApiKey;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 2281C6C9-CBAB-1AFD-8400-670750CF6025_2212

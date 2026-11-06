@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateColdStorageInstanceResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The ID of the cold storage instance.
+     * The cold storage instance ID.
      *
      * @example
      * pcs_2zeth2gf4i83e578t

@@ -13,7 +13,7 @@ export class GetLakebaseTenantTokenRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The PolarFS instance ID.
+   * The PolarFS instance ID. The CreationCategory of the instance must be basic (Basic Edition). Other categories are not supported by this operation.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class GetLakebaseTenantTokenRequest extends $dara.Model {
   polarFsInstanceId?: string;
   /**
    * @remarks
-   * The mount subdirectory. Specify an absolute path.
+   * The absolute path of the mount subdirectory.
    * 
    * This parameter is required.
    * 

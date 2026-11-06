@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationPromptsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the Prompt is enabled. A value of 1 indicates enabled, and 0 indicates disabled.
+   * Indicates whether the prompt is enabled.
    * 
    * @example
-   * prompt if enabled
+   * 1
    */
   promptEnabled?: number;
   /**
    * @remarks
-   * The Prompt ID.
+   * The prompt ID.
    * 
    * @example
    * papt-58z96zl691otf356o4
@@ -21,7 +21,7 @@ export class DescribeApplicationPromptsResponseBodyItems extends $dara.Model {
   promptId?: string;
   /**
    * @remarks
-   * The Prompt Name.
+   * The prompt name.
    * 
    * @example
    * prompt name
@@ -29,7 +29,7 @@ export class DescribeApplicationPromptsResponseBodyItems extends $dara.Model {
   promptName?: string;
   /**
    * @remarks
-   * The Prompt Type.
+   * The prompt type.
    * 
    * @example
    * DELETE_RELATIONS_SYSTEM_PROMPT
@@ -37,7 +37,7 @@ export class DescribeApplicationPromptsResponseBodyItems extends $dara.Model {
   promptType?: string;
   /**
    * @remarks
-   * The Prompt Value.
+   * The prompt content.
    * 
    * @example
    * prompt value
@@ -75,7 +75,7 @@ export class DescribeApplicationPromptsResponseBodyItems extends $dara.Model {
 export class DescribeApplicationPromptsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of Application Prompts.
+   * The list.
    */
   items?: DescribeApplicationPromptsResponseBodyItems[];
   /**
@@ -96,7 +96,7 @@ export class DescribeApplicationPromptsResponseBody extends $dara.Model {
   pageRecordCount?: string;
   /**
    * @remarks
-   * The Request ID.
+   * The request ID.
    * 
    * @example
    * 6BD9CDE4-5E7B-4BF3-9BB8-83C73E******
@@ -104,7 +104,7 @@ export class DescribeApplicationPromptsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of matching entries.
+   * The total number of entries.
    * 
    * @example
    * 10

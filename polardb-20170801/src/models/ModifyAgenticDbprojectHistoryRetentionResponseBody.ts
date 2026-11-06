@@ -13,7 +13,7 @@ export class ModifyAgenticDBProjectHistoryRetentionResponseBody extends $dara.Mo
   DBClusterId?: string;
   /**
    * @remarks
-   * The current effective history retention period of the project. To check the actual recoverable range, query the branch recovery window.
+   * The current effective history retention period for the project. For the actual recoverable range, query the branch recovery window.
    * 
    * @example
    * 604800

@@ -13,12 +13,12 @@ export declare class DescribePolarFsMappingResponseBodyPathMappingItems extends 
      * The AccessKey ID of the storage bucket.
      *
      * @example
-     * xxx
+     * LTAI5tExample1234
      */
     bucketAccessKeyId?: string;
     /**
      * @remarks
-     * The mapping path.
+     * The mapped path.
      *
      * @example
      * /test
@@ -38,10 +38,10 @@ export declare class DescribePolarFsMappingResponseBodyPathMappingItems extends 
 export declare class DescribePolarFsMappingResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The default AccessKey ID at the instance level.
+     * The instance-level default AccessKey ID.
      *
      * @example
-     * xxx
+     * LTAI5tExample1234
      */
     defaultAccessKeyId?: string;
     /**
@@ -54,7 +54,7 @@ export declare class DescribePolarFsMappingResponseBody extends $dara.Model {
     pageNumber?: string;
     /**
      * @remarks
-     * The number of records on the current page.
+     * The number of entries on the current page.
      *
      * @example
      * 1
@@ -89,7 +89,7 @@ export declare class DescribePolarFsMappingResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * The total number of records.
+     * The total number of entries.
      *
      * @example
      * 1

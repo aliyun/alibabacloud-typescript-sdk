@@ -13,7 +13,7 @@ export class CreateInspectionTaskRequestDBClusterList extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the region where the cluster to be inspected resides.
+   * The ID of the region where the cluster to be inspected is located.
    * 
    * @example
    * cn-beijing
@@ -58,7 +58,7 @@ export class CreateInspectionTaskRequest extends $dara.Model {
   DBClusterList?: CreateInspectionTaskRequestDBClusterList[];
   /**
    * @remarks
-   * The ID of the region where the task resides.
+   * The ID of the region where the task is located.
    * 
    * @example
    * cn-beijing

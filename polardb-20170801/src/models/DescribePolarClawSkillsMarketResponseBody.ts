@@ -45,7 +45,7 @@ export class DescribePolarClawSkillsMarketResponseBodySkillList extends $dara.Mo
   summary?: string;
   /**
    * @remarks
-   * The tag group.
+   * The tag list.
    */
   tagList?: string[];
   /**
@@ -111,7 +111,7 @@ export class DescribePolarClawSkillsMarketResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * CDB3258F-B5DE-43C4-8935-CBA0CA******
@@ -119,7 +119,7 @@ export class DescribePolarClawSkillsMarketResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of skills.
+   * The skill list.
    */
   skillList?: DescribePolarClawSkillsMarketResponseBodySkillList[];
   /**

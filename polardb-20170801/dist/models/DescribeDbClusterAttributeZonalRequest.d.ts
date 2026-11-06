@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeDbClusterAttributeZonalRequest extends $dara.Model {
     /**
      * @remarks
-     * The cluster ID.
+     * The ID of the edge cluster. You can call the DescribeDBClustersZonal operation to list available edge clusters and then use the returned DBClusterId to query the attributes. IDs of common clusters are not applicable to this operation.
      *
      * This parameter is required.
      *
@@ -12,7 +12,7 @@ export declare class DescribeDbClusterAttributeZonalRequest extends $dara.Model 
     DBClusterId?: string;
     /**
      * @remarks
-     * Specifies whether to retrieve AI-related node information.
+     * Specifies whether to retrieve information about AI nodes.
      *
      * @example
      * AI

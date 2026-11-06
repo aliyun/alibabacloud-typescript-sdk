@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeReplicationSlotsRequest extends $dara.Model {
     /**
      * @remarks
-     * The ID of the PolarDB cluster.
+     * The ID of the PolarDB cluster to query.
      *
      * This parameter is required.
      *
@@ -12,7 +12,7 @@ export declare class DescribeReplicationSlotsRequest extends $dara.Model {
     DBClusterId?: string;
     /**
      * @remarks
-     * The name of the child node of the distributed instance, used to filter replication slots.
+     * The child node name of the distributed instance, which is used to filter replication slots.
      *
      * @example
      * testGroup

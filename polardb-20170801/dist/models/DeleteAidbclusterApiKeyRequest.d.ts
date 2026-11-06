@@ -2,12 +2,12 @@ import * as $dara from '@darabonba/typescript';
 export declare class DeleteAIDBClusterApiKeyRequest extends $dara.Model {
     /**
      * @remarks
-     * The API key of the model service.
+     * The API key for the model service.
      *
      * This parameter is required.
      *
      * @example
-     * xxx
+     * 6c4b1f0317cd4fd7a5b446d3503d**
      */
     apiKey?: string;
     /**
@@ -21,7 +21,7 @@ export declare class DeleteAIDBClusterApiKeyRequest extends $dara.Model {
     /**
      * @remarks
      * The region ID.
-     * >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query available region IDs.
+     * >You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query region IDs.
      *
      * This parameter is required.
      *

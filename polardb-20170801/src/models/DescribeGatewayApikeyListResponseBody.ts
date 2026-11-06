@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGatewayApikeyListResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The API key in use.
+   * The API key used.
    * 
    * @example
-   * xxxxxxxx
+   * 6c4b1f0317cd4fd7a5b446d3503d**
    */
   apiKey?: string;
   /**
@@ -37,7 +37,7 @@ export class DescribeGatewayApikeyListResponseBodyItems extends $dara.Model {
   consumerTag?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time follows the ISO 8601 standard in UTC (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2020-08-14T05:58:42Z
@@ -53,7 +53,7 @@ export class DescribeGatewayApikeyListResponseBodyItems extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The last modification time. The time follows the ISO 8601 standard in UTC (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2024-10-29T09:31:37Z
@@ -139,7 +139,7 @@ export class DescribeGatewayApikeyListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * A0450B18-BBD4-5DF9-8E71-610F1A921CDE

@@ -95,6 +95,9 @@ export default class Client extends OpenApi {
     /**
      * Adds a transparent acceleration path.
      *
+     * @remarks
+     * Adds a transparent acceleration path for a PolarFS instance. Before you call this operation, make sure that you have a running PolarDB cluster, a valid OSS bucket in the same region, and a PolarFS instance of the basic type with acceleration enabled. The bucket endpoint format is {bucket-name}.oss-{regionId}-internal.aliyuncs.com. This operation is not applicable to instances of the cold type or instances with acceleration disabled. You can call the DescribePolarFs and DescribePolarFsAttribute operations to verify the instance type and acceleration status.
+     *
      * @param request - AddPolarFsPathMappingRequest
      * @param runtime - runtime options for this request RuntimeOptions
      * @returns AddPolarFsPathMappingResponse
@@ -102,6 +105,9 @@ export default class Client extends OpenApi {
     addPolarFsPathMappingWithOptions(request: $_model.AddPolarFsPathMappingRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddPolarFsPathMappingResponse>;
     /**
      * Adds a transparent acceleration path.
+     *
+     * @remarks
+     * Adds a transparent acceleration path for a PolarFS instance. Before you call this operation, make sure that you have a running PolarDB cluster, a valid OSS bucket in the same region, and a PolarFS instance of the basic type with acceleration enabled. The bucket endpoint format is {bucket-name}.oss-{regionId}-internal.aliyuncs.com. This operation is not applicable to instances of the cold type or instances with acceleration disabled. You can call the DescribePolarFs and DescribePolarFsAttribute operations to verify the instance type and acceleration status.
      *
      * @param request - AddPolarFsPathMappingRequest
      * @returns AddPolarFsPathMappingResponse
@@ -186,11 +192,10 @@ export default class Client extends OpenApi {
      */
     answerKnowledgeBase(request: $_model.AnswerKnowledgeBaseRequest): Promise<$_model.AnswerKnowledgeBaseResponse>;
     /**
-     * Applies prompts to an application instance.
+     * Applies a prompt policy to an instance.
      *
      * @remarks
-     * ## Request
-     * - Applies prompts to a specified application instance.
+     * Before you begin: This operation applies only to mem0 applications created by calling CreateApplication with MemApplicationSpec specified. Create a mem0 application, call CreateApplicationPrompt to create a prompt, and then call this operation to apply the prompt policy.
      *
      * @param tmpReq - ApplyApplicationPromptsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -198,11 +203,10 @@ export default class Client extends OpenApi {
      */
     applyApplicationPromptsWithOptions(tmpReq: $_model.ApplyApplicationPromptsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ApplyApplicationPromptsResponse>;
     /**
-     * Applies prompts to an application instance.
+     * Applies a prompt policy to an instance.
      *
      * @remarks
-     * ## Request
-     * - Applies prompts to a specified application instance.
+     * Before you begin: This operation applies only to mem0 applications created by calling CreateApplication with MemApplicationSpec specified. Create a mem0 application, call CreateApplicationPrompt to create a prompt, and then call this operation to apply the prompt policy.
      *
      * @param request - ApplyApplicationPromptsRequest
      * @returns ApplyApplicationPromptsResponse
@@ -468,6 +472,29 @@ export default class Client extends OpenApi {
      */
     checkKMSAuthorized(request: $_model.CheckKMSAuthorizedRequest): Promise<$_model.CheckKMSAuthorizedResponse>;
     /**
+     * Prechecks a skill.
+     *
+     * @remarks
+     * ## Request description
+     * This operation prechecks a skill before it is uploaded to a PolarClaw instance.
+     *
+     * @param request - CheckPolarClawSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CheckPolarClawSkillResponse
+     */
+    checkPolarClawSkillWithOptions(request: $_model.CheckPolarClawSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CheckPolarClawSkillResponse>;
+    /**
+     * Prechecks a skill.
+     *
+     * @remarks
+     * ## Request description
+     * This operation prechecks a skill before it is uploaded to a PolarClaw instance.
+     *
+     * @param request - CheckPolarClawSkillRequest
+     * @returns CheckPolarClawSkillResponse
+     */
+    checkPolarClawSkill(request: $_model.CheckPolarClawSkillRequest): Promise<$_model.CheckPolarClawSkillResponse>;
+    /**
      * Checks the consistency of quota settings in a PolarFS instance.
      *
      * @remarks
@@ -609,7 +636,7 @@ export default class Client extends OpenApi {
      */
     createAIDBCluster(request: $_model.CreateAIDBClusterRequest): Promise<$_model.CreateAIDBClusterResponse>;
     /**
-     * Creates a model creation service API key.
+     * Creates an API key for the model creation service.
      *
      * @param request - CreateAIDBClusterApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -617,7 +644,7 @@ export default class Client extends OpenApi {
      */
     createAIDBClusterApiKeyWithOptions(request: $_model.CreateAIDBClusterApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAIDBClusterApiKeyResponse>;
     /**
-     * Creates a model creation service API key.
+     * Creates an API key for the model creation service.
      *
      * @param request - CreateAIDBClusterApiKeyRequest
      * @returns CreateAIDBClusterApiKeyResponse
@@ -810,6 +837,21 @@ export default class Client extends OpenApi {
      */
     createApplicationAgentRelation(request: $_model.CreateApplicationAgentRelationRequest): Promise<$_model.CreateApplicationAgentRelationResponse>;
     /**
+     * Creates a backup for a specified PolarDB application and returns the backup job ID and workflow task ID.
+     *
+     * @param request - CreateApplicationBackupRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateApplicationBackupResponse
+     */
+    createApplicationBackupWithOptions(request: $_model.CreateApplicationBackupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateApplicationBackupResponse>;
+    /**
+     * Creates a backup for a specified PolarDB application and returns the backup job ID and workflow task ID.
+     *
+     * @param request - CreateApplicationBackupRequest
+     * @returns CreateApplicationBackupResponse
+     */
+    createApplicationBackup(request: $_model.CreateApplicationBackupRequest): Promise<$_model.CreateApplicationBackupResponse>;
+    /**
      * Creates a connection address for a specified application.
      *
      * @param request - CreateApplicationEndpointAddressRequest
@@ -865,12 +907,10 @@ export default class Client extends OpenApi {
      */
     createBackup(request: $_model.CreateBackupRequest): Promise<$_model.CreateBackupResponse>;
     /**
-     * Creates multiple API keys.
+     * Creates API keys in batches.
      *
      * @remarks
-     * > * A maximum of three manually created backups can exist for each cluster at the same time.
-     * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, it indicates that three manually created backups already exist in your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
-     * > * After you call this operation, a backup task is created in the background. If the data volume is large, the task may take a long time to complete.
+     * Prerequisites: Call CreateGwConsumerOrder first, providing GatewayId, PackageSpec, KeyCount, RegionId, and ExpireTime to obtain a CreditToken, and then call this operation to create consumers in batches. Before the call, you must also obtain a valid ConsumerGroupId by calling DescribeConsumerGroups with GwClusterId and RegionId, and explicitly pass it in.
      *
      * @param request - CreateBatchConsumerRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -878,12 +918,10 @@ export default class Client extends OpenApi {
      */
     createBatchConsumerWithOptions(request: $_model.CreateBatchConsumerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateBatchConsumerResponse>;
     /**
-     * Creates multiple API keys.
+     * Creates API keys in batches.
      *
      * @remarks
-     * > * A maximum of three manually created backups can exist for each cluster at the same time.
-     * > * If the error message `Exceeding the daily backup times of this DB cluster` is returned, it indicates that three manually created backups already exist in your cluster. [Delete a backup](https://help.aliyun.com/document_detail/98101.html) before you call this operation.
-     * > * After you call this operation, a backup task is created in the background. If the data volume is large, the task may take a long time to complete.
+     * Prerequisites: Call CreateGwConsumerOrder first, providing GatewayId, PackageSpec, KeyCount, RegionId, and ExpireTime to obtain a CreditToken, and then call this operation to create consumers in batches. Before the call, you must also obtain a valid ConsumerGroupId by calling DescribeConsumerGroups with GwClusterId and RegionId, and explicitly pass it in.
      *
      * @param request - CreateBatchConsumerRequest
      * @returns CreateBatchConsumerResponse
@@ -1119,6 +1157,36 @@ export default class Client extends OpenApi {
      */
     createDBNodes(request: $_model.CreateDBNodesRequest): Promise<$_model.CreateDBNodesResponse>;
     /**
+     * Creates a task to process data in PolarFS based on a specified template and write it to a PolarDB database.
+     *
+     * @param request - CreateDataProcessJobRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataProcessJobResponse
+     */
+    createDataProcessJobWithOptions(request: $_model.CreateDataProcessJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDataProcessJobResponse>;
+    /**
+     * Creates a task to process data in PolarFS based on a specified template and write it to a PolarDB database.
+     *
+     * @param request - CreateDataProcessJobRequest
+     * @returns CreateDataProcessJobResponse
+     */
+    createDataProcessJob(request: $_model.CreateDataProcessJobRequest): Promise<$_model.CreateDataProcessJobResponse>;
+    /**
+     * Creates a task template for image data processing in a specified region.
+     *
+     * @param request - CreateDataProcessJobTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreateDataProcessJobTemplateResponse
+     */
+    createDataProcessJobTemplateWithOptions(request: $_model.CreateDataProcessJobTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDataProcessJobTemplateResponse>;
+    /**
+     * Creates a task template for image data processing in a specified region.
+     *
+     * @param request - CreateDataProcessJobTemplateRequest
+     * @returns CreateDataProcessJobTemplateResponse
+     */
+    createDataProcessJobTemplate(request: $_model.CreateDataProcessJobTemplateRequest): Promise<$_model.CreateDataProcessJobTemplateResponse>;
+    /**
      * Creates a database for a PolarDB cluster.
      *
      * @remarks
@@ -1308,6 +1376,9 @@ export default class Client extends OpenApi {
     /**
      * Creates a knowledge space.
      *
+     * @remarks
+     * Prerequisites: Before you call this operation, you must activate the PrivateLink service in your current account. If the service is not activated, the API returns the PrivateLinkService.NotOpen (400) error. You can check the activation status of the service in the PrivateLink console. Before creating a knowledge space, you must also prepare the VpcId, VSwitchId, SecurityGroupId, and OSSBucket parameters. You can query VPCs and vSwitches by calling the DescribeVpcs and DescribeVSwitches operations of VPC, query security groups by calling the DescribeSecurityGroups operation of ECS, and query buckets by calling the ListBuckets operation of OSS. If the resources do not exist, create them in the corresponding services first.
+     *
      * @param request - CreateKnowledgeSpaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
      * @returns CreateKnowledgeSpaceResponse
@@ -1315,6 +1386,9 @@ export default class Client extends OpenApi {
     createKnowledgeSpaceWithOptions(request: $_model.CreateKnowledgeSpaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateKnowledgeSpaceResponse>;
     /**
      * Creates a knowledge space.
+     *
+     * @remarks
+     * Prerequisites: Before you call this operation, you must activate the PrivateLink service in your current account. If the service is not activated, the API returns the PrivateLinkService.NotOpen (400) error. You can check the activation status of the service in the PrivateLink console. Before creating a knowledge space, you must also prepare the VpcId, VSwitchId, SecurityGroupId, and OSSBucket parameters. You can query VPCs and vSwitches by calling the DescribeVpcs and DescribeVSwitches operations of VPC, query security groups by calling the DescribeSecurityGroups operation of ECS, and query buckets by calling the ListBuckets operation of OSS. If the resources do not exist, create them in the corresponding services first.
      *
      * @param request - CreateKnowledgeSpaceRequest
      * @returns CreateKnowledgeSpaceResponse
@@ -1366,7 +1440,7 @@ export default class Client extends OpenApi {
      */
     createModelApi(request: $_model.CreateModelApiRequest): Promise<$_model.CreateModelApiResponse>;
     /**
-     * Creates a model service.
+     * Creates a model creation service.
      *
      * @param request - CreateModelServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1374,7 +1448,7 @@ export default class Client extends OpenApi {
      */
     createModelServiceWithOptions(request: $_model.CreateModelServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateModelServiceResponse>;
     /**
-     * Creates a model service.
+     * Creates a model creation service.
      *
      * @param request - CreateModelServiceRequest
      * @returns CreateModelServiceResponse
@@ -1482,7 +1556,7 @@ export default class Client extends OpenApi {
      *
      * @remarks
      * ## Request description
-     * You can use this API to define and create a scheduled task. The task is triggered periodically based on a specified schedule and carries specific messages or instructions. This API supports advanced options such as custom execution frequency, time zone settings, and failure alert mechanisms. You can also configure details such as message content, target channels, and recipients.
+     * This API allows you to define and create a new scheduled task (cron job). The task is triggered periodically based on a given schedule and carries specific messages or instructions. It supports advanced options such as customizing the execution frequency, time zone settings, and alert mechanisms for failures. In addition, you can configure detailed information such as the message content, destination channel, and recipients.
      *
      * @param tmpReq - CreatePolarClawCronJobRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1494,12 +1568,27 @@ export default class Client extends OpenApi {
      *
      * @remarks
      * ## Request description
-     * You can use this API to define and create a scheduled task. The task is triggered periodically based on a specified schedule and carries specific messages or instructions. This API supports advanced options such as custom execution frequency, time zone settings, and failure alert mechanisms. You can also configure details such as message content, target channels, and recipients.
+     * This API allows you to define and create a new scheduled task (cron job). The task is triggered periodically based on a given schedule and carries specific messages or instructions. It supports advanced options such as customizing the execution frequency, time zone settings, and alert mechanisms for failures. In addition, you can configure detailed information such as the message content, destination channel, and recipients.
      *
      * @param request - CreatePolarClawCronJobRequest
      * @returns CreatePolarClawCronJobResponse
      */
     createPolarClawCronJob(request: $_model.CreatePolarClawCronJobRequest): Promise<$_model.CreatePolarClawCronJobResponse>;
+    /**
+     * 上传skill
+     *
+     * @param request - CreatePolarClawSkillRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns CreatePolarClawSkillResponse
+     */
+    createPolarClawSkillWithOptions(request: $_model.CreatePolarClawSkillRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreatePolarClawSkillResponse>;
+    /**
+     * 上传skill
+     *
+     * @param request - CreatePolarClawSkillRequest
+     * @returns CreatePolarClawSkillResponse
+     */
+    createPolarClawSkill(request: $_model.CreatePolarClawSkillRequest): Promise<$_model.CreatePolarClawSkillResponse>;
     /**
      * Creates a PolarClaw skill template.
      *
@@ -1655,7 +1744,7 @@ export default class Client extends OpenApi {
      */
     deleteAIDBCluster(request: $_model.DeleteAIDBClusterRequest): Promise<$_model.DeleteAIDBClusterResponse>;
     /**
-     * Deletes an API key for a model service.
+     * Deletes an API key for the model service.
      *
      * @param request - DeleteAIDBClusterApiKeyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1663,7 +1752,7 @@ export default class Client extends OpenApi {
      */
     deleteAIDBClusterApiKeyWithOptions(request: $_model.DeleteAIDBClusterApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAIDBClusterApiKeyResponse>;
     /**
-     * Deletes an API key for a model service.
+     * Deletes an API key for the model service.
      *
      * @param request - DeleteAIDBClusterApiKeyRequest
      * @returns DeleteAIDBClusterApiKeyResponse
@@ -2078,7 +2167,10 @@ export default class Client extends OpenApi {
      */
     deleteDBLink(request: $_model.DeleteDBLinkRequest): Promise<$_model.DeleteDBLinkResponse>;
     /**
-     * Deletes read-only nodes from a PolarDB cluster.
+     * Deletes a read-only node from a PolarDB cluster.
+     *
+     * @remarks
+     * Deletes a read-only node from a PolarDB cluster. Before you call this operation, the cluster must be in the Running state. You can call the DescribeDBClusters operation to query the DBClusterStatus parameter and check the cluster state. If the cluster is in a transitional state such as DBNodeCreating or DBNodeDeleting, wait until the cluster returns to the Running state before you call this operation.
      *
      * @param request - DeleteDBNodesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2086,12 +2178,30 @@ export default class Client extends OpenApi {
      */
     deleteDBNodesWithOptions(request: $_model.DeleteDBNodesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDBNodesResponse>;
     /**
-     * Deletes read-only nodes from a PolarDB cluster.
+     * Deletes a read-only node from a PolarDB cluster.
+     *
+     * @remarks
+     * Deletes a read-only node from a PolarDB cluster. Before you call this operation, the cluster must be in the Running state. You can call the DescribeDBClusters operation to query the DBClusterStatus parameter and check the cluster state. If the cluster is in a transitional state such as DBNodeCreating or DBNodeDeleting, wait until the cluster returns to the Running state before you call this operation.
      *
      * @param request - DeleteDBNodesRequest
      * @returns DeleteDBNodesResponse
      */
     deleteDBNodes(request: $_model.DeleteDBNodesRequest): Promise<$_model.DeleteDBNodesResponse>;
+    /**
+     * Deletes a data processing task template in a specified region.
+     *
+     * @param request - DeleteDataProcessJobTemplateRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DeleteDataProcessJobTemplateResponse
+     */
+    deleteDataProcessJobTemplateWithOptions(request: $_model.DeleteDataProcessJobTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDataProcessJobTemplateResponse>;
+    /**
+     * Deletes a data processing task template in a specified region.
+     *
+     * @param request - DeleteDataProcessJobTemplateRequest
+     * @returns DeleteDataProcessJobTemplateResponse
+     */
+    deleteDataProcessJobTemplate(request: $_model.DeleteDataProcessJobTemplateRequest): Promise<$_model.DeleteDataProcessJobTemplateResponse>;
     /**
      * Deletes a database from a PolarDB cluster.
      *
@@ -2712,7 +2822,7 @@ export default class Client extends OpenApi {
      */
     describeAIDBClusterDatasets(request: $_model.DescribeAIDBClusterDatasetsRequest): Promise<$_model.DescribeAIDBClusterDatasetsResponse>;
     /**
-     * Retrieves the performance metrics of an AI container.
+     * Retrieves AI container performance metrics.
      *
      * @param request - DescribeAIDBClusterPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2720,12 +2830,27 @@ export default class Client extends OpenApi {
      */
     describeAIDBClusterPerformanceWithOptions(request: $_model.DescribeAIDBClusterPerformanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAIDBClusterPerformanceResponse>;
     /**
-     * Retrieves the performance metrics of an AI container.
+     * Retrieves AI container performance metrics.
      *
      * @param request - DescribeAIDBClusterPerformanceRequest
      * @returns DescribeAIDBClusterPerformanceResponse
      */
     describeAIDBClusterPerformance(request: $_model.DescribeAIDBClusterPerformanceRequest): Promise<$_model.DescribeAIDBClusterPerformanceResponse>;
+    /**
+     * Queries the node resource usage and pod resource requests in an AI database cluster.
+     *
+     * @param request - DescribeAIDBClusterResourceUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAIDBClusterResourceUsageResponse
+     */
+    describeAIDBClusterResourceUsageWithOptions(request: $_model.DescribeAIDBClusterResourceUsageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAIDBClusterResourceUsageResponse>;
+    /**
+     * Queries the node resource usage and pod resource requests in an AI database cluster.
+     *
+     * @param request - DescribeAIDBClusterResourceUsageRequest
+     * @returns DescribeAIDBClusterResourceUsageResponse
+     */
+    describeAIDBClusterResourceUsage(request: $_model.DescribeAIDBClusterResourceUsageRequest): Promise<$_model.DescribeAIDBClusterResourceUsageResponse>;
     /**
      * Retrieves the details of a task instance.
      *
@@ -2908,7 +3033,7 @@ export default class Client extends OpenApi {
      */
     describeActiveOperationMaintainConf(request: $_model.DescribeActiveOperationMaintainConfRequest): Promise<$_model.DescribeActiveOperationMaintainConfResponse>;
     /**
-     * Queries the details of active operation tasks.
+     * Queries the details of pending tasks.
      *
      * @param request - DescribeActiveOperationTaskRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2916,7 +3041,7 @@ export default class Client extends OpenApi {
      */
     describeActiveOperationTaskWithOptions(request: $_model.DescribeActiveOperationTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeActiveOperationTaskResponse>;
     /**
-     * Queries the details of active operation tasks.
+     * Queries the details of pending tasks.
      *
      * @param request - DescribeActiveOperationTaskRequest
      * @returns DescribeActiveOperationTaskResponse
@@ -2953,7 +3078,7 @@ export default class Client extends OpenApi {
      */
     describeAgenticDBBranch(request: $_model.DescribeAgenticDBBranchRequest): Promise<$_model.DescribeAgenticDBBranchResponse>;
     /**
-     * Queries the branch connection information of an AgenticDB cluster.
+     * Queries the connection information of an AgenticDB branch.
      *
      * @param request - DescribeAgenticDBBranchEndpointsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -2961,7 +3086,7 @@ export default class Client extends OpenApi {
      */
     describeAgenticDBBranchEndpointsWithOptions(request: $_model.DescribeAgenticDBBranchEndpointsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeAgenticDBBranchEndpointsResponse>;
     /**
-     * Queries the branch connection information of an AgenticDB cluster.
+     * Queries the connection information of an AgenticDB branch.
      *
      * @param request - DescribeAgenticDBBranchEndpointsRequest
      * @returns DescribeAgenticDBBranchEndpointsResponse
@@ -3149,6 +3274,81 @@ export default class Client extends OpenApi {
      */
     describeApplicationAttribute(request: $_model.DescribeApplicationAttributeRequest): Promise<$_model.DescribeApplicationAttributeResponse>;
     /**
+     * Queries the available models, default models, and memory capability configurations for a specified region and application type.
+     *
+     * @param request - DescribeApplicationAvailableModelsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApplicationAvailableModelsResponse
+     */
+    describeApplicationAvailableModelsWithOptions(request: $_model.DescribeApplicationAvailableModelsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationAvailableModelsResponse>;
+    /**
+     * Queries the available models, default models, and memory capability configurations for a specified region and application type.
+     *
+     * @param request - DescribeApplicationAvailableModelsRequest
+     * @returns DescribeApplicationAvailableModelsResponse
+     */
+    describeApplicationAvailableModels(request: $_model.DescribeApplicationAvailableModelsRequest): Promise<$_model.DescribeApplicationAvailableModelsResponse>;
+    /**
+     * Queries the list of versions to which a specified application type can be upgraded.
+     *
+     * @param tmpReq - DescribeApplicationAvailableVersionRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApplicationAvailableVersionResponse
+     */
+    describeApplicationAvailableVersionWithOptions(tmpReq: $_model.DescribeApplicationAvailableVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationAvailableVersionResponse>;
+    /**
+     * Queries the list of versions to which a specified application type can be upgraded.
+     *
+     * @param request - DescribeApplicationAvailableVersionRequest
+     * @returns DescribeApplicationAvailableVersionResponse
+     */
+    describeApplicationAvailableVersion(request: $_model.DescribeApplicationAvailableVersionRequest): Promise<$_model.DescribeApplicationAvailableVersionResponse>;
+    /**
+     * Queries the automatic backup cycle, backup time window, and level-1 backup retention period of a specified application.
+     *
+     * @param request - DescribeApplicationBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApplicationBackupPolicyResponse
+     */
+    describeApplicationBackupPolicyWithOptions(request: $_model.DescribeApplicationBackupPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationBackupPolicyResponse>;
+    /**
+     * Queries the automatic backup cycle, backup time window, and level-1 backup retention period of a specified application.
+     *
+     * @param request - DescribeApplicationBackupPolicyRequest
+     * @returns DescribeApplicationBackupPolicyResponse
+     */
+    describeApplicationBackupPolicy(request: $_model.DescribeApplicationBackupPolicyRequest): Promise<$_model.DescribeApplicationBackupPolicyResponse>;
+    /**
+     * Queries the backup sets of a specified application by time range and backup status, and returns the backup details in a paginated list.
+     *
+     * @param request - DescribeApplicationBackupsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApplicationBackupsResponse
+     */
+    describeApplicationBackupsWithOptions(request: $_model.DescribeApplicationBackupsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationBackupsResponse>;
+    /**
+     * Queries the backup sets of a specified application by time range and backup status, and returns the backup details in a paginated list.
+     *
+     * @param request - DescribeApplicationBackupsRequest
+     * @returns DescribeApplicationBackupsResponse
+     */
+    describeApplicationBackups(request: $_model.DescribeApplicationBackupsRequest): Promise<$_model.DescribeApplicationBackupsResponse>;
+    /**
+     * Queries the performance metrics and sample data of a specified application component within a specified time range.
+     *
+     * @param request - DescribeApplicationComponentPerformanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApplicationComponentPerformanceResponse
+     */
+    describeApplicationComponentPerformanceWithOptions(request: $_model.DescribeApplicationComponentPerformanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationComponentPerformanceResponse>;
+    /**
+     * Queries the performance metrics and sample data of a specified application component within a specified time range.
+     *
+     * @param request - DescribeApplicationComponentPerformanceRequest
+     * @returns DescribeApplicationComponentPerformanceResponse
+     */
+    describeApplicationComponentPerformance(request: $_model.DescribeApplicationComponentPerformanceRequest): Promise<$_model.DescribeApplicationComponentPerformanceResponse>;
+    /**
      * Queries the details of AI application logs.
      *
      * @param request - DescribeApplicationLogsRequest
@@ -3179,7 +3379,7 @@ export default class Client extends OpenApi {
      */
     describeApplicationParameters(request: $_model.DescribeApplicationParametersRequest): Promise<$_model.DescribeApplicationParametersResponse>;
     /**
-     * Queries the performance of a PolarDB AI application.
+     * Queries the performance of PolarDB AI applications.
      *
      * @param tmpReq - DescribeApplicationPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3187,14 +3387,17 @@ export default class Client extends OpenApi {
      */
     describeApplicationPerformanceWithOptions(tmpReq: $_model.DescribeApplicationPerformanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationPerformanceResponse>;
     /**
-     * Queries the performance of a PolarDB AI application.
+     * Queries the performance of PolarDB AI applications.
      *
      * @param request - DescribeApplicationPerformanceRequest
      * @returns DescribeApplicationPerformanceResponse
      */
     describeApplicationPerformance(request: $_model.DescribeApplicationPerformanceRequest): Promise<$_model.DescribeApplicationPerformanceResponse>;
     /**
-     * Lists the Application Prompts for a specific Application.
+     * Queries all application prompt policies for the current application.
+     *
+     * @remarks
+     * Prerequisites: First, create a PostgreSQL cluster, and then call the CreateApplication operation to create an application with ApplicationType set to mem0. When creating the application, you must prepare a VPC, a vSwitch, and a security group. After obtaining the ApplicationId, call this operation to query application prompts. Call sequence: CreateDBCluster → CreateApplication → DescribeApplicationPrompts.
      *
      * @param request - DescribeApplicationPromptsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3202,7 +3405,10 @@ export default class Client extends OpenApi {
      */
     describeApplicationPromptsWithOptions(request: $_model.DescribeApplicationPromptsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationPromptsResponse>;
     /**
-     * Lists the Application Prompts for a specific Application.
+     * Queries all application prompt policies for the current application.
+     *
+     * @remarks
+     * Prerequisites: First, create a PostgreSQL cluster, and then call the CreateApplication operation to create an application with ApplicationType set to mem0. When creating the application, you must prepare a VPC, a vSwitch, and a security group. After obtaining the ApplicationId, call this operation to query application prompts. Call sequence: CreateDBCluster → CreateApplication → DescribeApplicationPrompts.
      *
      * @param request - DescribeApplicationPromptsRequest
      * @returns DescribeApplicationPromptsResponse
@@ -3253,6 +3459,27 @@ export default class Client extends OpenApi {
      * @returns DescribeApplicationSessionIdsResponse
      */
     describeApplicationSessionIds(request: $_model.DescribeApplicationSessionIdsRequest): Promise<$_model.DescribeApplicationSessionIdsResponse>;
+    /**
+     * Queries the session logs of a specified application, supports filtering by agent, session, and role, and returns paginated log records.
+     *
+     * @remarks
+     * Logs for different roles may contain different fields. User messages may include Content. Assistant messages may include the model, token usage, and cost statistics. Tool execution results may include the tool name and execution status. Cost statistics are returned exactly as provided by the log source, and this API operation does not perform currency conversion.
+     *
+     * @param request - DescribeApplicationSessionLogsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeApplicationSessionLogsResponse
+     */
+    describeApplicationSessionLogsWithOptions(request: $_model.DescribeApplicationSessionLogsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationSessionLogsResponse>;
+    /**
+     * Queries the session logs of a specified application, supports filtering by agent, session, and role, and returns paginated log records.
+     *
+     * @remarks
+     * Logs for different roles may contain different fields. User messages may include Content. Assistant messages may include the model, token usage, and cost statistics. Tool execution results may include the tool name and execution status. Cost statistics are returned exactly as provided by the log source, and this API operation does not perform currency conversion.
+     *
+     * @param request - DescribeApplicationSessionLogsRequest
+     * @returns DescribeApplicationSessionLogsResponse
+     */
+    describeApplicationSessionLogs(request: $_model.DescribeApplicationSessionLogsRequest): Promise<$_model.DescribeApplicationSessionLogsResponse>;
     /**
      * Queries the usage of an AI application.
      *
@@ -3463,6 +3690,21 @@ export default class Client extends OpenApi {
      * @returns DescribeBudgetPoliciesResponse
      */
     describeBudgetPolicies(request: $_model.DescribeBudgetPoliciesRequest): Promise<$_model.DescribeBudgetPoliciesResponse>;
+    /**
+     * Queries the used quota, statistical window, and associated budget policies for a PolarDB gateway instance by budget dimension.
+     *
+     * @param request - DescribeBudgetUsageRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeBudgetUsageResponse
+     */
+    describeBudgetUsageWithOptions(request: $_model.DescribeBudgetUsageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeBudgetUsageResponse>;
+    /**
+     * Queries the used quota, statistical window, and associated budget policies for a PolarDB gateway instance by budget dimension.
+     *
+     * @param request - DescribeBudgetUsageRequest
+     * @returns DescribeBudgetUsageResponse
+     */
+    describeBudgetUsage(request: $_model.DescribeBudgetUsageRequest): Promise<$_model.DescribeBudgetUsageResponse>;
     /**
      * Queries the character sets supported by PolarDB for MySQL.
      *
@@ -3769,7 +4011,7 @@ export default class Client extends OpenApi {
      */
     describeDBClusterMigration(request: $_model.DescribeDBClusterMigrationRequest): Promise<$_model.DescribeDBClusterMigrationResponse>;
     /**
-     * Queries the model enhancement status and API key list of a specified PolarDB cluster.
+     * Queries the model enhancement status and the list of API keys for a specified PolarDB cluster.
      *
      * @param request - DescribeDBClusterModelEnhancementRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3777,7 +4019,7 @@ export default class Client extends OpenApi {
      */
     describeDBClusterModelEnhancementWithOptions(request: $_model.DescribeDBClusterModelEnhancementRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDBClusterModelEnhancementResponse>;
     /**
-     * Queries the model enhancement status and API key list of a specified PolarDB cluster.
+     * Queries the model enhancement status and the list of API keys for a specified PolarDB cluster.
      *
      * @param request - DescribeDBClusterModelEnhancementRequest
      * @returns DescribeDBClusterModelEnhancementResponse
@@ -3832,18 +4074,18 @@ export default class Client extends OpenApi {
      * Queries the performance data of a PolarDB cluster.
      *
      * @remarks
-     * - If the monitoring frequency is once every 5 seconds:
-     *   - If the query time range is 1 hour or less, the data granularity is 5 seconds.
-     *   - If the query time range is 1 day or less, the data granularity is 1 minute.
-     *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
-     *   - If the query time range is 30 days or less, the data granularity is 1 hour.
-     *   - If the query time range is more than 30 days, the data granularity is 1 day.
-     * - If the monitoring frequency is once every 60 seconds:
-     *   - If the query time range is 1 day or less, the data granularity is 1 minute.
-     *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
-     *   - If the query time range is 30 days or less, the data granularity is 1 hour.
-     *   - If the query time range is more than 30 days, the data granularity is 1 day.
-     * > The default monitoring frequency is once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the frequency to once every 5 seconds.
+     * If the monitoring frequency is 5 seconds:
+     *     - When the query time range is less than or equal to 1 hour, the display granularity is 5 seconds.
+     *     - When the query time range is less than or equal to 1 day, the display granularity is 1 minute.
+     *     - When the query time range is less than or equal to 7 days, the display granularity is 10 minutes.
+     *     - When the query time range is less than or equal to 30 days, the display granularity is 1 hour.
+     *     - When the query time range is greater than 30 days, the display granularity is 1 day.
+     * * If the monitoring frequency is 60 seconds:
+     *     - When the query time range is less than or equal to 1 day, the display granularity is 1 minute.
+     *     - When the query time range is less than or equal to 7 days, the display granularity is 10 minutes.
+     *     - When the query time range is less than or equal to 30 days, the display granularity is 1 hour.
+     *     - When the query time range is greater than 30 days, the display granularity is 1 day.
+     * > The default monitoring frequency is 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set it to 5 seconds.
      *
      * @param request - DescribeDBClusterPerformanceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -3854,18 +4096,18 @@ export default class Client extends OpenApi {
      * Queries the performance data of a PolarDB cluster.
      *
      * @remarks
-     * - If the monitoring frequency is once every 5 seconds:
-     *   - If the query time range is 1 hour or less, the data granularity is 5 seconds.
-     *   - If the query time range is 1 day or less, the data granularity is 1 minute.
-     *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
-     *   - If the query time range is 30 days or less, the data granularity is 1 hour.
-     *   - If the query time range is more than 30 days, the data granularity is 1 day.
-     * - If the monitoring frequency is once every 60 seconds:
-     *   - If the query time range is 1 day or less, the data granularity is 1 minute.
-     *   - If the query time range is 7 days or less, the data granularity is 10 minutes.
-     *   - If the query time range is 30 days or less, the data granularity is 1 hour.
-     *   - If the query time range is more than 30 days, the data granularity is 1 day.
-     * > The default monitoring frequency is once every 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set the frequency to once every 5 seconds.
+     * If the monitoring frequency is 5 seconds:
+     *     - When the query time range is less than or equal to 1 hour, the display granularity is 5 seconds.
+     *     - When the query time range is less than or equal to 1 day, the display granularity is 1 minute.
+     *     - When the query time range is less than or equal to 7 days, the display granularity is 10 minutes.
+     *     - When the query time range is less than or equal to 30 days, the display granularity is 1 hour.
+     *     - When the query time range is greater than 30 days, the display granularity is 1 day.
+     * * If the monitoring frequency is 60 seconds:
+     *     - When the query time range is less than or equal to 1 day, the display granularity is 1 minute.
+     *     - When the query time range is less than or equal to 7 days, the display granularity is 10 minutes.
+     *     - When the query time range is less than or equal to 30 days, the display granularity is 1 hour.
+     *     - When the query time range is greater than 30 days, the display granularity is 1 day.
+     * > The default monitoring frequency is 60 seconds. You can call the [ModifyDBClusterMonitor](https://help.aliyun.com/document_detail/159557.html) operation to set it to 5 seconds.
      *
      * @param request - DescribeDBClusterPerformanceRequest
      * @returns DescribeDBClusterPerformanceResponse
@@ -4218,6 +4460,51 @@ export default class Client extends OpenApi {
      */
     describeDasConfig(request: $_model.DescribeDasConfigRequest): Promise<$_model.DescribeDasConfigResponse>;
     /**
+     * Queries the status, data source, destination database, and processing configuration of a specified data processing job.
+     *
+     * @param request - DescribeDataProcessJobAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDataProcessJobAttributeResponse
+     */
+    describeDataProcessJobAttributeWithOptions(request: $_model.DescribeDataProcessJobAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDataProcessJobAttributeResponse>;
+    /**
+     * Queries the status, data source, destination database, and processing configuration of a specified data processing job.
+     *
+     * @param request - DescribeDataProcessJobAttributeRequest
+     * @returns DescribeDataProcessJobAttributeResponse
+     */
+    describeDataProcessJobAttribute(request: $_model.DescribeDataProcessJobAttributeRequest): Promise<$_model.DescribeDataProcessJobAttributeResponse>;
+    /**
+     * Queries data processing task templates by region, template ID, or type, and returns paginated template configurations.
+     *
+     * @param request - DescribeDataProcessJobTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDataProcessJobTemplatesResponse
+     */
+    describeDataProcessJobTemplatesWithOptions(request: $_model.DescribeDataProcessJobTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDataProcessJobTemplatesResponse>;
+    /**
+     * Queries data processing task templates by region, template ID, or type, and returns paginated template configurations.
+     *
+     * @param request - DescribeDataProcessJobTemplatesRequest
+     * @returns DescribeDataProcessJobTemplatesResponse
+     */
+    describeDataProcessJobTemplates(request: $_model.DescribeDataProcessJobTemplatesRequest): Promise<$_model.DescribeDataProcessJobTemplatesResponse>;
+    /**
+     * Queries the data processing jobs of a specified PolarFS instance, with support for filtering by job ID and pagination.
+     *
+     * @param request - DescribeDataProcessJobsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeDataProcessJobsResponse
+     */
+    describeDataProcessJobsWithOptions(request: $_model.DescribeDataProcessJobsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeDataProcessJobsResponse>;
+    /**
+     * Queries the data processing jobs of a specified PolarFS instance, with support for filtering by job ID and pagination.
+     *
+     * @param request - DescribeDataProcessJobsRequest
+     * @returns DescribeDataProcessJobsResponse
+     */
+    describeDataProcessJobs(request: $_model.DescribeDataProcessJobsRequest): Promise<$_model.DescribeDataProcessJobsResponse>;
+    /**
      * Queries for the details of databases in a specified PolarDB cluster.
      *
      * @param request - DescribeDatabasesRequest
@@ -4286,7 +4573,7 @@ export default class Client extends OpenApi {
      */
     describeDetachedBackups(request: $_model.DescribeDetachedBackupsRequest): Promise<$_model.DescribeDetachedBackupsResponse>;
     /**
-     * Queries the available edge cloud regions for the current account, along with their central control regions and standby edge cloud regions.
+     * Queries the available edge cloud regions for the current account, including their central control regions and standby edge cloud regions.
      *
      * @param request - DescribeEdgeCloudRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4294,7 +4581,7 @@ export default class Client extends OpenApi {
      */
     describeEdgeCloudRegionWithOptions(request: $_model.DescribeEdgeCloudRegionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeEdgeCloudRegionResponse>;
     /**
-     * Queries the available edge cloud regions for the current account, along with their central control regions and standby edge cloud regions.
+     * Queries the available edge cloud regions for the current account, including their central control regions and standby edge cloud regions.
      *
      * @param request - DescribeEdgeCloudRegionRequest
      * @returns DescribeEdgeCloudRegionResponse
@@ -4346,6 +4633,21 @@ export default class Client extends OpenApi {
      */
     describeExtensions(request: $_model.DescribeExtensionsRequest): Promise<$_model.DescribeExtensionsResponse>;
     /**
+     * Queries the file information under a specified path of a PolarFS instance and uses a pagination token to retrieve subsequent results.
+     *
+     * @param request - DescribeFileSystemsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeFileSystemsResponse
+     */
+    describeFileSystemsWithOptions(request: $_model.DescribeFileSystemsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeFileSystemsResponse>;
+    /**
+     * Queries the file information under a specified path of a PolarFS instance and uses a pagination token to retrieve subsequent results.
+     *
+     * @param request - DescribeFileSystemsRequest
+     * @returns DescribeFileSystemsResponse
+     */
+    describeFileSystems(request: $_model.DescribeFileSystemsRequest): Promise<$_model.DescribeFileSystemsResponse>;
+    /**
      * Describes SQL firewall rules.
      *
      * @param request - DescribeFirewallRulesRequest
@@ -4361,7 +4663,7 @@ export default class Client extends OpenApi {
      */
     describeFirewallRules(request: $_model.DescribeFirewallRulesRequest): Promise<$_model.DescribeFirewallRulesResponse>;
     /**
-     * Queries all API keys under the current UID.
+     * Queries all API keys for the specified UID.
      *
      * @param request - DescribeGatewayApikeyListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4369,7 +4671,7 @@ export default class Client extends OpenApi {
      */
     describeGatewayApikeyListWithOptions(request: $_model.DescribeGatewayApikeyListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeGatewayApikeyListResponse>;
     /**
-     * Queries all API keys under the current UID.
+     * Queries all API keys for the specified UID.
      *
      * @param request - DescribeGatewayApikeyListRequest
      * @returns DescribeGatewayApikeyListResponse
@@ -4502,7 +4804,7 @@ export default class Client extends OpenApi {
      */
     describeHALogs(request: $_model.DescribeHALogsRequest): Promise<$_model.DescribeHALogsResponse>;
     /**
-     * Lists the historical events in Event Center.
+     * Queries the list of events in Event Center.
      *
      * @param request - DescribeHistoryEventsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4510,12 +4812,27 @@ export default class Client extends OpenApi {
      */
     describeHistoryEventsWithOptions(request: $_model.DescribeHistoryEventsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeHistoryEventsResponse>;
     /**
-     * Lists the historical events in Event Center.
+     * Queries the list of events in Event Center.
      *
      * @param request - DescribeHistoryEventsRequest
      * @returns DescribeHistoryEventsResponse
      */
     describeHistoryEvents(request: $_model.DescribeHistoryEventsRequest): Promise<$_model.DescribeHistoryEventsResponse>;
+    /**
+     * Queries the number of events in the Event Center by event category.
+     *
+     * @param request - DescribeHistoryEventsStatRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeHistoryEventsStatResponse
+     */
+    describeHistoryEventsStatWithOptions(request: $_model.DescribeHistoryEventsStatRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeHistoryEventsStatResponse>;
+    /**
+     * Queries the number of events in the Event Center by event category.
+     *
+     * @param request - DescribeHistoryEventsStatRequest
+     * @returns DescribeHistoryEventsStatResponse
+     */
+    describeHistoryEventsStat(request: $_model.DescribeHistoryEventsStatRequest): Promise<$_model.DescribeHistoryEventsStatResponse>;
     /**
      * Queries the historical task list for PolarDB for MySQL.
      *
@@ -4547,6 +4864,66 @@ export default class Client extends OpenApi {
      */
     describeHistoryTasksStat(request: $_model.DescribeHistoryTasksStatRequest): Promise<$_model.DescribeHistoryTasksStatResponse>;
     /**
+     * Queries a list of reports for a specified inspection task. Supports time-based filtering and pagination.
+     *
+     * @param request - DescribeInspectionReportListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInspectionReportListResponse
+     */
+    describeInspectionReportListWithOptions(request: $_model.DescribeInspectionReportListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInspectionReportListResponse>;
+    /**
+     * Queries a list of reports for a specified inspection task. Supports time-based filtering and pagination.
+     *
+     * @param request - DescribeInspectionReportListRequest
+     * @returns DescribeInspectionReportListResponse
+     */
+    describeInspectionReportList(request: $_model.DescribeInspectionReportListRequest): Promise<$_model.DescribeInspectionReportListResponse>;
+    /**
+     * Queries the execution plan, associated clusters, and validity period of a specified inspection task.
+     *
+     * @param request - DescribeInspectionTaskAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInspectionTaskAttributeResponse
+     */
+    describeInspectionTaskAttributeWithOptions(request: $_model.DescribeInspectionTaskAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInspectionTaskAttributeResponse>;
+    /**
+     * Queries the execution plan, associated clusters, and validity period of a specified inspection task.
+     *
+     * @param request - DescribeInspectionTaskAttributeRequest
+     * @returns DescribeInspectionTaskAttributeResponse
+     */
+    describeInspectionTaskAttribute(request: $_model.DescribeInspectionTaskAttributeRequest): Promise<$_model.DescribeInspectionTaskAttributeResponse>;
+    /**
+     * Queries inspection tasks, their execution plans, and associated clusters by paging based on the inspection space.
+     *
+     * @param request - DescribeInspectionTaskListRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInspectionTaskListResponse
+     */
+    describeInspectionTaskListWithOptions(request: $_model.DescribeInspectionTaskListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInspectionTaskListResponse>;
+    /**
+     * Queries inspection tasks, their execution plans, and associated clusters by paging based on the inspection space.
+     *
+     * @param request - DescribeInspectionTaskListRequest
+     * @returns DescribeInspectionTaskListResponse
+     */
+    describeInspectionTaskList(request: $_model.DescribeInspectionTaskListRequest): Promise<$_model.DescribeInspectionTaskListResponse>;
+    /**
+     * Queries the overall score, status, and check results of an instance inspection report based on the report ID.
+     *
+     * @param request - DescribeInstanceReportAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstanceReportAttributeResponse
+     */
+    describeInstanceReportAttributeWithOptions(request: $_model.DescribeInstanceReportAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceReportAttributeResponse>;
+    /**
+     * Queries the overall score, status, and check results of an instance inspection report based on the report ID.
+     *
+     * @param request - DescribeInstanceReportAttributeRequest
+     * @returns DescribeInstanceReportAttributeResponse
+     */
+    describeInstanceReportAttribute(request: $_model.DescribeInstanceReportAttributeRequest): Promise<$_model.DescribeInstanceReportAttributeResponse>;
+    /**
      * Queries the details of a knowledge base synchronization link.
      *
      * @param request - DescribeKBSyncLinkAttributeRequest
@@ -4577,7 +4954,22 @@ export default class Client extends OpenApi {
      */
     describeKBSyncLinks(request: $_model.DescribeKBSyncLinksRequest): Promise<$_model.DescribeKBSyncLinksResponse>;
     /**
-     * Queries the details of KVCache instances filtered by region, associated cluster, or instance ID, and returns the results in pages.
+     * Queries the region, status, capacity, network, billing method, and expiration information of a specified KVCache instance.
+     *
+     * @param request - DescribeKVCacheInstanceAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeKVCacheInstanceAttributeResponse
+     */
+    describeKVCacheInstanceAttributeWithOptions(request: $_model.DescribeKVCacheInstanceAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeKVCacheInstanceAttributeResponse>;
+    /**
+     * Queries the region, status, capacity, network, billing method, and expiration information of a specified KVCache instance.
+     *
+     * @param request - DescribeKVCacheInstanceAttributeRequest
+     * @returns DescribeKVCacheInstanceAttributeResponse
+     */
+    describeKVCacheInstanceAttribute(request: $_model.DescribeKVCacheInstanceAttributeRequest): Promise<$_model.DescribeKVCacheInstanceAttributeResponse>;
+    /**
+     * Queries KVCache instances filtered by region, associated cluster, or instance ID, and returns paginated instance details.
      *
      * @param request - DescribeKVCacheInstancesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4585,7 +4977,7 @@ export default class Client extends OpenApi {
      */
     describeKVCacheInstancesWithOptions(request: $_model.DescribeKVCacheInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeKVCacheInstancesResponse>;
     /**
-     * Queries the details of KVCache instances filtered by region, associated cluster, or instance ID, and returns the results in pages.
+     * Queries KVCache instances filtered by region, associated cluster, or instance ID, and returns paginated instance details.
      *
      * @param request - DescribeKVCacheInstancesRequest
      * @returns DescribeKVCacheInstancesResponse
@@ -4862,7 +5254,7 @@ export default class Client extends OpenApi {
      */
     describeModelApis(request: $_model.DescribeModelApisRequest): Promise<$_model.DescribeModelApisResponse>;
     /**
-     * Queries the model service list.
+     * Queries the list of model services.
      *
      * @param request - DescribeModelServicesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4870,7 +5262,7 @@ export default class Client extends OpenApi {
      */
     describeModelServicesWithOptions(request: $_model.DescribeModelServicesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeModelServicesResponse>;
     /**
-     * Queries the model service list.
+     * Queries the list of model services.
      *
      * @param request - DescribeModelServicesRequest
      * @returns DescribeModelServicesResponse
@@ -4998,7 +5390,10 @@ export default class Client extends OpenApi {
      */
     describePendingMaintenanceActions(request: $_model.DescribePendingMaintenanceActionsRequest): Promise<$_model.DescribePendingMaintenanceActionsResponse>;
     /**
-     * Queries the chat records of a specified session.
+     * Queries the details of a specified session.
+     *
+     * @remarks
+     * Prerequisites: Use Signature Version 3.0 to call GetPolarAgent to initiate a conversation and obtain the SessionId from the returned stream. Then, call this operation to query the chat history of the session.
      *
      * @param request - DescribePolarAgentChatRecordsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5006,7 +5401,10 @@ export default class Client extends OpenApi {
      */
     describePolarAgentChatRecordsWithOptions(request: $_model.DescribePolarAgentChatRecordsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarAgentChatRecordsResponse>;
     /**
-     * Queries the chat records of a specified session.
+     * Queries the details of a specified session.
+     *
+     * @remarks
+     * Prerequisites: Use Signature Version 3.0 to call GetPolarAgent to initiate a conversation and obtain the SessionId from the returned stream. Then, call this operation to query the chat history of the session.
      *
      * @param request - DescribePolarAgentChatRecordsRequest
      * @returns DescribePolarAgentChatRecordsResponse
@@ -5103,12 +5501,13 @@ export default class Client extends OpenApi {
      */
     describePolarClawChannels(request: $_model.DescribePolarClawChannelsRequest): Promise<$_model.DescribePolarClawChannelsResponse>;
     /**
-     * Query all or specific scheduled tasks in PolarClaw and their details.
+     * Queries all or specified scheduled jobs and their details in PolarClaw.
      *
      * @remarks
      * ## Request description
-     * - You can use this API to retrieve all scheduled tasks in a PolarClaw application or filter specific tasks using the `JobIdList` parameter.
-     * - If you do not specify the `JobIdList` parameter, the API returns all scheduled tasks in the application.
+     * - You can use this API operation to retrieve all scheduled jobs in a PolarClaw application, or filter specific jobs by using the JobIdList parameter.
+     * - If the JobIdList parameter is not provided, all scheduled jobs in the application are returned.
+     * Before you begin: Call DescribeApplications to filter applications where ApplicationType is polardb_polarclaw, obtain the ApplicationId, and then call this operation to query scheduled jobs.
      *
      * @param tmpReq - DescribePolarClawCronJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5116,12 +5515,13 @@ export default class Client extends OpenApi {
      */
     describePolarClawCronJobsWithOptions(tmpReq: $_model.DescribePolarClawCronJobsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarClawCronJobsResponse>;
     /**
-     * Query all or specific scheduled tasks in PolarClaw and their details.
+     * Queries all or specified scheduled jobs and their details in PolarClaw.
      *
      * @remarks
      * ## Request description
-     * - You can use this API to retrieve all scheduled tasks in a PolarClaw application or filter specific tasks using the `JobIdList` parameter.
-     * - If you do not specify the `JobIdList` parameter, the API returns all scheduled tasks in the application.
+     * - You can use this API operation to retrieve all scheduled jobs in a PolarClaw application, or filter specific jobs by using the JobIdList parameter.
+     * - If the JobIdList parameter is not provided, all scheduled jobs in the application are returned.
+     * Before you begin: Call DescribeApplications to filter applications where ApplicationType is polardb_polarclaw, obtain the ApplicationId, and then call this operation to query scheduled jobs.
      *
      * @param request - DescribePolarClawCronJobsRequest
      * @returns DescribePolarClawCronJobsResponse
@@ -5143,12 +5543,12 @@ export default class Client extends OpenApi {
      */
     describePolarClawMCPServers(request: $_model.DescribePolarClawMCPServersRequest): Promise<$_model.DescribePolarClawMCPServersResponse>;
     /**
-     * Lists all installed PolarClaw plugins and their status.
+     * Lists all installed PolarClaw plugins and their status information.
      *
      * @remarks
-     * ## Request
-     * - This API gets information about all plugins for a given application, including built-in and user-installed plugins.
-     * - Use the `PluginList` parameter to request information for specific plugins. If you omit this parameter, the API returns details for all plugins.
+     * ## Request description
+     * - Retrieves information about all plugins in a specified application, including built-in and user-installed plugins.
+     * - You can use the PluginList parameter to request information about specific plugins. If this parameter is not provided, details of all plugins are returned.
      *
      * @param request - DescribePolarClawPluginsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5156,19 +5556,19 @@ export default class Client extends OpenApi {
      */
     describePolarClawPluginsWithOptions(request: $_model.DescribePolarClawPluginsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarClawPluginsResponse>;
     /**
-     * Lists all installed PolarClaw plugins and their status.
+     * Lists all installed PolarClaw plugins and their status information.
      *
      * @remarks
-     * ## Request
-     * - This API gets information about all plugins for a given application, including built-in and user-installed plugins.
-     * - Use the `PluginList` parameter to request information for specific plugins. If you omit this parameter, the API returns details for all plugins.
+     * ## Request description
+     * - Retrieves information about all plugins in a specified application, including built-in and user-installed plugins.
+     * - You can use the PluginList parameter to request information about specific plugins. If this parameter is not provided, details of all plugins are returned.
      *
      * @param request - DescribePolarClawPluginsRequest
      * @returns DescribePolarClawPluginsResponse
      */
     describePolarClawPlugins(request: $_model.DescribePolarClawPluginsRequest): Promise<$_model.DescribePolarClawPluginsResponse>;
     /**
-     * Retrieves the details of the PolarClaw skill security assessment.
+     * Retrieves the details of a PolarClaw skill security assessment.
      *
      * @param request - DescribePolarClawSkillAssessmentRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5176,7 +5576,7 @@ export default class Client extends OpenApi {
      */
     describePolarClawSkillAssessmentWithOptions(request: $_model.DescribePolarClawSkillAssessmentRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarClawSkillAssessmentResponse>;
     /**
-     * Retrieves the details of the PolarClaw skill security assessment.
+     * Retrieves the details of a PolarClaw skill security assessment.
      *
      * @param request - DescribePolarClawSkillAssessmentRequest
      * @returns DescribePolarClawSkillAssessmentResponse
@@ -5201,12 +5601,7 @@ export default class Client extends OpenApi {
      * Queries the details of a PolarClaw skill template.
      *
      * @remarks
-     * ## Request description
-     * - This API operation queries all quota rules under a specific Polarlakebase instance and supports fuzzy matching by using the QuotaNameMatch and PatternMatch parameters.
-     * - The pagination feature is not yet public and will be available after the kernel is ready. Currently, there is no pagination limit on the returned results.
-     * - PolarFsInstanceId is required and specifies the Polarlakebase instance to query.
-     * - Optional parameters such as QuotaNameMatch and PatternMatch can be used to further filter the matching quota rules.
-     * - The returned data includes but is not limited to the total number of quota rules, the number of rules on the current page, and specific rule details such as the rule ID, name, description, and capacity limit.
+     * Queries the PolarClaw skill templates associated with a specified application. You must provide ApplicationId when calling this operation. If this parameter is not specified, InvalidApplicationId.Malformed is returned. The SkillTemplates field in the response is a list of templates, and Skills is a map of keys to strings. Each string can be parsed into an array of skill details, where each array element contains skillName and version.
      *
      * @param request - DescribePolarClawSkillTemplateRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5217,17 +5612,27 @@ export default class Client extends OpenApi {
      * Queries the details of a PolarClaw skill template.
      *
      * @remarks
-     * ## Request description
-     * - This API operation queries all quota rules under a specific Polarlakebase instance and supports fuzzy matching by using the QuotaNameMatch and PatternMatch parameters.
-     * - The pagination feature is not yet public and will be available after the kernel is ready. Currently, there is no pagination limit on the returned results.
-     * - PolarFsInstanceId is required and specifies the Polarlakebase instance to query.
-     * - Optional parameters such as QuotaNameMatch and PatternMatch can be used to further filter the matching quota rules.
-     * - The returned data includes but is not limited to the total number of quota rules, the number of rules on the current page, and specific rule details such as the rule ID, name, description, and capacity limit.
+     * Queries the PolarClaw skill templates associated with a specified application. You must provide ApplicationId when calling this operation. If this parameter is not specified, InvalidApplicationId.Malformed is returned. The SkillTemplates field in the response is a list of templates, and Skills is a map of keys to strings. Each string can be parsed into an array of skill details, where each array element contains skillName and version.
      *
      * @param request - DescribePolarClawSkillTemplateRequest
      * @returns DescribePolarClawSkillTemplateResponse
      */
     describePolarClawSkillTemplate(request: $_model.DescribePolarClawSkillTemplateRequest): Promise<$_model.DescribePolarClawSkillTemplateResponse>;
+    /**
+     * Queries PolarClaw skill templates. You can filter the templates by template ID and time range, and the results are paginated.
+     *
+     * @param request - DescribePolarClawSkillTemplatesRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePolarClawSkillTemplatesResponse
+     */
+    describePolarClawSkillTemplatesWithOptions(request: $_model.DescribePolarClawSkillTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarClawSkillTemplatesResponse>;
+    /**
+     * Queries PolarClaw skill templates. You can filter the templates by template ID and time range, and the results are paginated.
+     *
+     * @param request - DescribePolarClawSkillTemplatesRequest
+     * @returns DescribePolarClawSkillTemplatesResponse
+     */
+    describePolarClawSkillTemplates(request: $_model.DescribePolarClawSkillTemplatesRequest): Promise<$_model.DescribePolarClawSkillTemplatesResponse>;
     /**
      * Queries PolarClaw skills.
      *
@@ -5274,7 +5679,7 @@ export default class Client extends OpenApi {
      */
     describePolarClawTask(request: $_model.DescribePolarClawTaskRequest): Promise<$_model.DescribePolarClawTaskResponse>;
     /**
-     * Queries the PolarFS information.
+     * Queries PolarFS information.
      *
      * @param request - DescribePolarFsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5282,7 +5687,7 @@ export default class Client extends OpenApi {
      */
     describePolarFsWithOptions(request: $_model.DescribePolarFsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarFsResponse>;
     /**
-     * Queries the PolarFS information.
+     * Queries PolarFS information.
      *
      * @param request - DescribePolarFsRequest
      * @returns DescribePolarFsResponse
@@ -5319,14 +5724,14 @@ export default class Client extends OpenApi {
      */
     describePolarFsMapping(request: $_model.DescribePolarFsMappingRequest): Promise<$_model.DescribePolarFsMappingResponse>;
     /**
-     * Lists the files and subdirectories under a specified path.
+     * Lists the files and subdirectories in a specified path.
      *
      * @remarks
-     * ## 请求说明
-     * - **Path** 参数必须提供一个绝对路径。
-     * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
-     * - **Depth** 参数用于限制递归深度，默认值为 `1`。
-     * - **Filter** 参数支持通配符或正则表达式过滤结果。
+     * ## Request description
+     * - The **Path** parameter must be an absolute path.
+     * - The **Recursive** parameter defaults to `false`. If set to `true`, the contents of all subdirectories are listed recursively.
+     * - The **Depth** parameter limits the recursion depth. Default value: `1`.
+     * - The **Filter** parameter supports wildcards or regular expressions to filter results.
      *
      * @param request - DescribePolarFsObjectsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5334,19 +5739,40 @@ export default class Client extends OpenApi {
      */
     describePolarFsObjectsWithOptions(request: $_model.DescribePolarFsObjectsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarFsObjectsResponse>;
     /**
-     * Lists the files and subdirectories under a specified path.
+     * Lists the files and subdirectories in a specified path.
      *
      * @remarks
-     * ## 请求说明
-     * - **Path** 参数必须提供一个绝对路径。
-     * - **Recursive** 参数默认为 `false`，如果设置为 `true`，则会递归列出所有子目录的内容。
-     * - **Depth** 参数用于限制递归深度，默认值为 `1`。
-     * - **Filter** 参数支持通配符或正则表达式过滤结果。
+     * ## Request description
+     * - The **Path** parameter must be an absolute path.
+     * - The **Recursive** parameter defaults to `false`. If set to `true`, the contents of all subdirectories are listed recursively.
+     * - The **Depth** parameter limits the recursion depth. Default value: `1`.
+     * - The **Filter** parameter supports wildcards or regular expressions to filter results.
      *
      * @param request - DescribePolarFsObjectsRequest
      * @returns DescribePolarFsObjectsResponse
      */
     describePolarFsObjects(request: $_model.DescribePolarFsObjectsRequest): Promise<$_model.DescribePolarFsObjectsResponse>;
+    /**
+     * Queries the performance metrics and sampling data of a specified PolarFS instance within a specified time range.
+     *
+     * @remarks
+     * Use Key to specify the metric group to query and Interval to specify the sampling granularity. The end time of the query must not be earlier than the start time, and the start time must not be later than the current time.
+     *
+     * @param request - DescribePolarFsPerformanceRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribePolarFsPerformanceResponse
+     */
+    describePolarFsPerformanceWithOptions(request: $_model.DescribePolarFsPerformanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarFsPerformanceResponse>;
+    /**
+     * Queries the performance metrics and sampling data of a specified PolarFS instance within a specified time range.
+     *
+     * @remarks
+     * Use Key to specify the metric group to query and Interval to specify the sampling granularity. The end time of the query must not be earlier than the start time, and the start time must not be later than the current time.
+     *
+     * @param request - DescribePolarFsPerformanceRequest
+     * @returns DescribePolarFsPerformanceResponse
+     */
+    describePolarFsPerformance(request: $_model.DescribePolarFsPerformanceRequest): Promise<$_model.DescribePolarFsPerformanceResponse>;
     /**
      * Retrieves all quota rule information for a specified Polarlakebase instance.
      *
@@ -5379,7 +5805,7 @@ export default class Client extends OpenApi {
      */
     describePolarFsQuota(request: $_model.DescribePolarFsQuotaRequest): Promise<$_model.DescribePolarFsQuotaResponse>;
     /**
-     * Queries the quota list.
+     * Queries the list of quotas.
      *
      * @param request - DescribePolarFsQuotaListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5387,7 +5813,7 @@ export default class Client extends OpenApi {
      */
     describePolarFsQuotaListWithOptions(request: $_model.DescribePolarFsQuotaListRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribePolarFsQuotaListResponse>;
     /**
-     * Queries the quota list.
+     * Queries the list of quotas.
      *
      * @param request - DescribePolarFsQuotaListRequest
      * @returns DescribePolarFsQuotaListResponse
@@ -5477,7 +5903,7 @@ export default class Client extends OpenApi {
      */
     describeRegions(request: $_model.DescribeRegionsRequest): Promise<$_model.DescribeRegionsResponse>;
     /**
-     * Queries the replication slots of a specified PolarDB cluster. You can filter the results by the child node name of the distributed instance.
+     * Queries the replication slots of a specified PolarDB cluster. You can filter the results by the child node name of a distributed instance.
      *
      * @param request - DescribeReplicationSlotsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5485,7 +5911,7 @@ export default class Client extends OpenApi {
      */
     describeReplicationSlotsWithOptions(request: $_model.DescribeReplicationSlotsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeReplicationSlotsResponse>;
     /**
-     * Queries the replication slots of a specified PolarDB cluster. You can filter the results by the child node name of the distributed instance.
+     * Queries the replication slots of a specified PolarDB cluster. You can filter the results by the child node name of a distributed instance.
      *
      * @param request - DescribeReplicationSlotsRequest
      * @returns DescribeReplicationSlotsResponse
@@ -5564,6 +5990,36 @@ export default class Client extends OpenApi {
      */
     describeScheduleTasks(request: $_model.DescribeScheduleTasksRequest): Promise<$_model.DescribeScheduleTasksResponse>;
     /**
+     * Queries the parameter modification history of PolarDB Search.
+     *
+     * @param request - DescribeSearchModifyParameterLogRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSearchModifyParameterLogResponse
+     */
+    describeSearchModifyParameterLogWithOptions(request: $_model.DescribeSearchModifyParameterLogRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSearchModifyParameterLogResponse>;
+    /**
+     * Queries the parameter modification history of PolarDB Search.
+     *
+     * @param request - DescribeSearchModifyParameterLogRequest
+     * @returns DescribeSearchModifyParameterLogResponse
+     */
+    describeSearchModifyParameterLog(request: $_model.DescribeSearchModifyParameterLogRequest): Promise<$_model.DescribeSearchModifyParameterLogResponse>;
+    /**
+     * Queries the parameters of a PolarDB Search cluster.
+     *
+     * @param request - DescribeSearchParametersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeSearchParametersResponse
+     */
+    describeSearchParametersWithOptions(request: $_model.DescribeSearchParametersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSearchParametersResponse>;
+    /**
+     * Queries the parameters of a PolarDB Search cluster.
+     *
+     * @param request - DescribeSearchParametersRequest
+     * @returns DescribeSearchParametersResponse
+     */
+    describeSearchParameters(request: $_model.DescribeSearchParametersRequest): Promise<$_model.DescribeSearchParametersResponse>;
+    /**
      * Queries shared backup sets.
      *
      * @param request - DescribeSharedBackupsRequest
@@ -5634,7 +6090,7 @@ export default class Client extends OpenApi {
      * Queries the list of storage plans.
      *
      * @remarks
-     * > This operation is only supported in regions where the endpoint is polardb.aliyuncs.com.
+     * > This operation is supported only in regions where the endpoint is polardb.aliyuncs.com.
      *
      * @param request - DescribeStoragePlanRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5645,7 +6101,7 @@ export default class Client extends OpenApi {
      * Queries the list of storage plans.
      *
      * @remarks
-     * > This operation is only supported in regions where the endpoint is polardb.aliyuncs.com.
+     * > This operation is supported only in regions where the endpoint is polardb.aliyuncs.com.
      *
      * @param request - DescribeStoragePlanRequest
      * @returns DescribeStoragePlanResponse
@@ -5750,7 +6206,7 @@ export default class Client extends OpenApi {
      */
     describeVpcs(request: $_model.DescribeVpcsRequest): Promise<$_model.DescribeVpcsResponse>;
     /**
-     * Queries the available zones.
+     * Queries zones.
      *
      * @param request - DescribeZonesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5758,7 +6214,7 @@ export default class Client extends OpenApi {
      */
     describeZonesWithOptions(request: $_model.DescribeZonesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeZonesResponse>;
     /**
-     * Queries the available zones.
+     * Queries zones.
      *
      * @param request - DescribeZonesRequest
      * @returns DescribeZonesResponse
@@ -5893,7 +6349,7 @@ export default class Client extends OpenApi {
      */
     disablePolarClawPlugin(request: $_model.DisablePolarClawPluginRequest): Promise<$_model.DisablePolarClawPluginResponse>;
     /**
-     * Enables the dataset management service for a cold storage instance.
+     * Enables the dataset service for a cold storage instance.
      *
      * @param request - EnableAIDBClusterDatasetServiceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5901,14 +6357,14 @@ export default class Client extends OpenApi {
      */
     enableAIDBClusterDatasetServiceWithOptions(request: $_model.EnableAIDBClusterDatasetServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableAIDBClusterDatasetServiceResponse>;
     /**
-     * Enables the dataset management service for a cold storage instance.
+     * Enables the dataset service for a cold storage instance.
      *
      * @param request - EnableAIDBClusterDatasetServiceRequest
      * @returns EnableAIDBClusterDatasetServiceResponse
      */
     enableAIDBClusterDatasetService(request: $_model.EnableAIDBClusterDatasetServiceRequest): Promise<$_model.EnableAIDBClusterDatasetServiceResponse>;
     /**
-     * Enables the column store table feature for a specified PolarDB cluster.
+     * Enables the column store table feature for the specified PolarDB cluster.
      *
      * @param request - EnableDBClusterCTableRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -5916,7 +6372,7 @@ export default class Client extends OpenApi {
      */
     enableDBClusterCTableWithOptions(request: $_model.EnableDBClusterCTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EnableDBClusterCTableResponse>;
     /**
-     * Enables the column store table feature for a specified PolarDB cluster.
+     * Enables the column store table feature for the specified PolarDB cluster.
      *
      * @param request - EnableDBClusterCTableRequest
      * @returns EnableDBClusterCTableResponse
@@ -6143,6 +6599,9 @@ export default class Client extends OpenApi {
     /**
      * Retrieves the Lakebase tenant token (SPG tenant mount URL).
      *
+     * @remarks
+     * Retrieves the token required for mounting a Lakebase tenant. Only PolarFS instances whose CreationCategory is basic (Basic Edition) are supported. The server verifies the instance category before calling the backend, and returns OperationDenied.PolarFsCategory for other categories. Before calling this operation, provide PolarFsInstanceId and specify the associated DBClusterId, mount subdirectory, and tenant identifier as needed.
+     *
      * @param request - GetLakebaseTenantTokenRequest
      * @param runtime - runtime options for this request RuntimeOptions
      * @returns GetLakebaseTenantTokenResponse
@@ -6150,6 +6609,9 @@ export default class Client extends OpenApi {
     getLakebaseTenantTokenWithOptions(request: $_model.GetLakebaseTenantTokenRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetLakebaseTenantTokenResponse>;
     /**
      * Retrieves the Lakebase tenant token (SPG tenant mount URL).
+     *
+     * @remarks
+     * Retrieves the token required for mounting a Lakebase tenant. Only PolarFS instances whose CreationCategory is basic (Basic Edition) are supported. The server verifies the instance category before calling the backend, and returns OperationDenied.PolarFsCategory for other categories. Before calling this operation, provide PolarFsInstanceId and specify the associated DBClusterId, mount subdirectory, and tenant identifier as needed.
      *
      * @param request - GetLakebaseTenantTokenRequest
      * @returns GetLakebaseTenantTokenResponse
@@ -6194,11 +6656,11 @@ export default class Client extends OpenApi {
      */
     getPolarClawConfig(request: $_model.GetPolarClawConfigRequest): Promise<$_model.GetPolarClawConfigResponse>;
     /**
-     * Retrieves the central bucket of polarClawSkill.
+     * Retrieves the central bucket for polarClawSkill.
      *
      * @remarks
      * ## Request description
-     * This operation sets file quota rules for specific directories in a Polarlakebase instance. By configuring the `FilePathQuotas` parameter, you can specify the directories to which the quota rules apply and their related attributes. Note that when you use `FilePathId` to specify a directory, ensure that the path is an absolute path starting from the root directory rather than a mount point path. Additionally, you can use the `Strategy` parameter to control how the rules take effect on existing files. By default, the rules take effect only when a rule is missing.
+     * This operation sets file quota rules for specific directories in a Polarlakebase instance. By configuring the `FilePathQuotas` parameter, you can specify the directories to which the quota rules apply and their related attributes. Note that when you use `FilePathId` to specify a directory, ensure that the path is an absolute path starting from the root directory rather than a mount point path. Additionally, you can use the `Strategy` parameter to control how the rules take effect on existing files. By default, the rules take effect only when no rules exist.
      * ### Important notes
      * - The maximum length of the `FilePathQuotas` list is 21.
      * - To apply rules to multi-level subdirectories under `FilePathId`, set the `MaxDepth` parameter. To traverse to the deepest level, set this value to 0.
@@ -6209,11 +6671,11 @@ export default class Client extends OpenApi {
      */
     getPolarClawSkillRegionWithOptions(request: $_model.GetPolarClawSkillRegionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetPolarClawSkillRegionResponse>;
     /**
-     * Retrieves the central bucket of polarClawSkill.
+     * Retrieves the central bucket for polarClawSkill.
      *
      * @remarks
      * ## Request description
-     * This operation sets file quota rules for specific directories in a Polarlakebase instance. By configuring the `FilePathQuotas` parameter, you can specify the directories to which the quota rules apply and their related attributes. Note that when you use `FilePathId` to specify a directory, ensure that the path is an absolute path starting from the root directory rather than a mount point path. Additionally, you can use the `Strategy` parameter to control how the rules take effect on existing files. By default, the rules take effect only when a rule is missing.
+     * This operation sets file quota rules for specific directories in a Polarlakebase instance. By configuring the `FilePathQuotas` parameter, you can specify the directories to which the quota rules apply and their related attributes. Note that when you use `FilePathId` to specify a directory, ensure that the path is an absolute path starting from the root directory rather than a mount point path. Additionally, you can use the `Strategy` parameter to control how the rules take effect on existing files. By default, the rules take effect only when no rules exist.
      * ### Important notes
      * - The maximum length of the `FilePathQuotas` list is 21.
      * - To apply rules to multi-level subdirectories under `FilePathId`, set the `MaxDepth` parameter. To traverse to the deepest level, set this value to 0.
@@ -6365,7 +6827,7 @@ export default class Client extends OpenApi {
      */
     listPolarClawDevicePairs(request: $_model.ListPolarClawDevicePairsRequest): Promise<$_model.ListPolarClawDevicePairsResponse>;
     /**
-     * Queries the tags that are attached to one or more PolarDB clusters, or the PolarDB clusters that are attached to one or more tags.
+     * Queries the tags bound to one or more PolarDB clusters, or the PolarDB clusters bound to one or more tags.
      *
      * @param request - ListTagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6373,14 +6835,14 @@ export default class Client extends OpenApi {
      */
     listTagResourcesWithOptions(request: $_model.ListTagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagResourcesResponse>;
     /**
-     * Queries the tags that are attached to one or more PolarDB clusters, or the PolarDB clusters that are attached to one or more tags.
+     * Queries the tags bound to one or more PolarDB clusters, or the PolarDB clusters bound to one or more tags.
      *
      * @param request - ListTagResourcesRequest
      * @returns ListTagResourcesResponse
      */
     listTagResources(request: $_model.ListTagResourcesRequest): Promise<$_model.ListTagResourcesResponse>;
     /**
-     * Queries the tags that are attached to resources in a specified region.
+     * Queries the resource tags in a region.
      *
      * @param request - ListTagResourcesForRegionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6388,7 +6850,7 @@ export default class Client extends OpenApi {
      */
     listTagResourcesForRegionWithOptions(request: $_model.ListTagResourcesForRegionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListTagResourcesForRegionResponse>;
     /**
-     * Queries the tags that are attached to resources in a specified region.
+     * Queries the resource tags in a region.
      *
      * @param request - ListTagResourcesForRegionRequest
      * @returns ListTagResourcesForRegionResponse
@@ -6575,7 +7037,7 @@ export default class Client extends OpenApi {
      */
     modifyActiveOperationTasks(request: $_model.ModifyActiveOperationTasksRequest): Promise<$_model.ModifyActiveOperationTasksResponse>;
     /**
-     * Modifies the history retention window of an AgenticDB project.
+     * Modifies the history retention window for an AgenticDB project.
      *
      * @param request - ModifyAgenticDBProjectHistoryRetentionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6583,12 +7045,27 @@ export default class Client extends OpenApi {
      */
     modifyAgenticDBProjectHistoryRetentionWithOptions(request: $_model.ModifyAgenticDBProjectHistoryRetentionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAgenticDBProjectHistoryRetentionResponse>;
     /**
-     * Modifies the history retention window of an AgenticDB project.
+     * Modifies the history retention window for an AgenticDB project.
      *
      * @param request - ModifyAgenticDBProjectHistoryRetentionRequest
      * @returns ModifyAgenticDBProjectHistoryRetentionResponse
      */
     modifyAgenticDBProjectHistoryRetention(request: $_model.ModifyAgenticDBProjectHistoryRetentionRequest): Promise<$_model.ModifyAgenticDBProjectHistoryRetentionResponse>;
+    /**
+     * Modifies the automatic backup cycle, backup time window, and level-1 backup retention period of a specified application.
+     *
+     * @param request - ModifyApplicationBackupPolicyRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyApplicationBackupPolicyResponse
+     */
+    modifyApplicationBackupPolicyWithOptions(request: $_model.ModifyApplicationBackupPolicyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyApplicationBackupPolicyResponse>;
+    /**
+     * Modifies the automatic backup cycle, backup time window, and level-1 backup retention period of a specified application.
+     *
+     * @param request - ModifyApplicationBackupPolicyRequest
+     * @returns ModifyApplicationBackupPolicyResponse
+     */
+    modifyApplicationBackupPolicy(request: $_model.ModifyApplicationBackupPolicyRequest): Promise<$_model.ModifyApplicationBackupPolicyResponse>;
     /**
      * Updates the description of a PolarDB application.
      *
@@ -6874,7 +7351,7 @@ export default class Client extends OpenApi {
      */
     modifyDBClusterAuditLogCollector(request: $_model.ModifyDBClusterAuditLogCollectorRequest): Promise<$_model.ModifyDBClusterAuditLogCollectorResponse>;
     /**
-     * Modifies the minor engine version update policy of a specified PolarDB cluster.
+     * Modifies the minor engine version update policy for a specified PolarDB cluster.
      *
      * @param request - ModifyDBClusterAutoUpgradeMinorVersionRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -6882,7 +7359,7 @@ export default class Client extends OpenApi {
      */
     modifyDBClusterAutoUpgradeMinorVersionWithOptions(request: $_model.ModifyDBClusterAutoUpgradeMinorVersionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBClusterAutoUpgradeMinorVersionResponse>;
     /**
-     * Modifies the minor engine version update policy of a specified PolarDB cluster.
+     * Modifies the minor engine version update policy for a specified PolarDB cluster.
      *
      * @param request - ModifyDBClusterAutoUpgradeMinorVersionRequest
      * @returns ModifyDBClusterAutoUpgradeMinorVersionResponse
@@ -7119,7 +7596,7 @@ export default class Client extends OpenApi {
      */
     modifyDBClusterResourceGroup(request: $_model.ModifyDBClusterResourceGroupRequest): Promise<$_model.ModifyDBClusterResourceGroupResponse>;
     /**
-     * Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
+     * Enables or performs a shutdown of the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
      *
      * @param request - ModifyDBClusterSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7127,7 +7604,7 @@ export default class Client extends OpenApi {
      */
     modifyDBClusterSSLWithOptions(request: $_model.ModifyDBClusterSSLRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBClusterSSLResponse>;
     /**
-     * Enables or shuts down the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
+     * Enables or performs a shutdown of the Secure Sockets Layer (SSL) encryption feature for a PolarDB cluster, or updates the CA certificate of a PolarDB cluster.
      *
      * @param request - ModifyDBClusterSSLRequest
      * @returns ModifyDBClusterSSLResponse
@@ -7185,12 +7662,12 @@ export default class Client extends OpenApi {
      */
     modifyDBClusterStorageSpace(request: $_model.ModifyDBClusterStorageSpaceRequest): Promise<$_model.ModifyDBClusterStorageSpaceResponse>;
     /**
-     * ModifyDBClusterTDE
+     * Enables Transparent Data Encryption (TDE) for a specified PolarDB cluster. You must activate Key Management Service (KMS) before you enable TDE. TDE cannot be disabled after it is enabled.
      *
      * @remarks
-     * > - You must activate Key Management Service (KMS) before you perform this operation. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
-     * >
-     * > - You cannot disable transparent data encryption (TDE) after you enable it.
+     * >* You must activate KMS before you perform this operation. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
+     * >* TDE cannot be disabled after it is enabled.
+     * Before you call this operation, call the OpenKmsService operation of KMS (version 2016-01-20) to activate KMS, and then call this operation to enable TDE for the cluster.
      *
      * @param request - ModifyDBClusterTDERequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7198,12 +7675,12 @@ export default class Client extends OpenApi {
      */
     modifyDBClusterTDEWithOptions(request: $_model.ModifyDBClusterTDERequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBClusterTDEResponse>;
     /**
-     * ModifyDBClusterTDE
+     * Enables Transparent Data Encryption (TDE) for a specified PolarDB cluster. You must activate Key Management Service (KMS) before you enable TDE. TDE cannot be disabled after it is enabled.
      *
      * @remarks
-     * > - You must activate Key Management Service (KMS) before you perform this operation. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
-     * >
-     * > - You cannot disable transparent data encryption (TDE) after you enable it.
+     * >* You must activate KMS before you perform this operation. For more information, see [Purchase a dedicated KMS instance](https://help.aliyun.com/document_detail/153781.html).
+     * >* TDE cannot be disabled after it is enabled.
+     * Before you call this operation, call the OpenKmsService operation of KMS (version 2016-01-20) to activate KMS, and then call this operation to enable TDE for the cluster.
      *
      * @param request - ModifyDBClusterTDERequest
      * @returns ModifyDBClusterTDEResponse
@@ -7330,7 +7807,7 @@ export default class Client extends OpenApi {
      */
     modifyDBNodeHotReplicaMode(request: $_model.ModifyDBNodeHotReplicaModeRequest): Promise<$_model.ModifyDBNodeHotReplicaModeResponse>;
     /**
-     * Configures the routing access weights of nodes.
+     * Modifies the routing access weights of nodes.
      *
      * @param request - ModifyDBNodeRouterWeightRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7338,7 +7815,7 @@ export default class Client extends OpenApi {
      */
     modifyDBNodeRouterWeightWithOptions(request: $_model.ModifyDBNodeRouterWeightRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyDBNodeRouterWeightResponse>;
     /**
-     * Configures the routing access weights of nodes.
+     * Modifies the routing access weights of nodes.
      *
      * @param request - ModifyDBNodeRouterWeightRequest
      * @returns ModifyDBNodeRouterWeightResponse
@@ -7621,7 +8098,7 @@ export default class Client extends OpenApi {
      */
     modifyPolarClawSkill(request: $_model.ModifyPolarClawSkillRequest): Promise<$_model.ModifyPolarClawSkillResponse>;
     /**
-     * Modifies the PolarFS configuration.
+     * Modifies the PolarFs configuration.
      *
      * @param request - ModifyPolarFsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -7629,7 +8106,7 @@ export default class Client extends OpenApi {
      */
     modifyPolarFsWithOptions(request: $_model.ModifyPolarFsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyPolarFsResponse>;
     /**
-     * Modifies the PolarFS configuration.
+     * Modifies the PolarFs configuration.
      *
      * @param request - ModifyPolarFsRequest
      * @returns ModifyPolarFsResponse
@@ -7759,6 +8236,21 @@ export default class Client extends OpenApi {
      */
     modifyScheduleTask(request: $_model.ModifyScheduleTaskRequest): Promise<$_model.ModifyScheduleTaskResponse>;
     /**
+     * Modifies the parameters of a PolarDB Search cluster.
+     *
+     * @param request - ModifySearchParametersRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifySearchParametersResponse
+     */
+    modifySearchParametersWithOptions(request: $_model.ModifySearchParametersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifySearchParametersResponse>;
+    /**
+     * Modifies the parameters of a PolarDB Search cluster.
+     *
+     * @param request - ModifySearchParametersRequest
+     * @returns ModifySearchParametersResponse
+     */
+    modifySearchParameters(request: $_model.ModifySearchParametersRequest): Promise<$_model.ModifySearchParametersResponse>;
+    /**
      * Modifies the IP address whitelist of a specified PolarDB cluster.
      *
      * @param request - ModifySecurityIpsRequest
@@ -7773,6 +8265,21 @@ export default class Client extends OpenApi {
      * @returns ModifySecurityIpsResponse
      */
     modifySecurityIps(request: $_model.ModifySecurityIpsRequest): Promise<$_model.ModifySecurityIpsResponse>;
+    /**
+     * Updates task information in the task center.
+     *
+     * @param request - ModifyTaskInfoRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns ModifyTaskInfoResponse
+     */
+    modifyTaskInfoWithOptions(request: $_model.ModifyTaskInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyTaskInfoResponse>;
+    /**
+     * Updates task information in the task center.
+     *
+     * @param request - ModifyTaskInfoRequest
+     * @returns ModifyTaskInfoResponse
+     */
+    modifyTaskInfo(request: $_model.ModifyTaskInfoRequest): Promise<$_model.ModifyTaskInfoResponse>;
     /**
      * Renames or moves files in a PolarFs instance.
      *
@@ -7863,6 +8370,21 @@ export default class Client extends OpenApi {
      * @returns RefreshDBClusterStorageUsageResponse
      */
     refreshDBClusterStorageUsage(request: $_model.RefreshDBClusterStorageUsageRequest): Promise<$_model.RefreshDBClusterStorageUsageResponse>;
+    /**
+     * Modifies the proxy performance level of a specified PolarDB cluster and supports scheduled execution.
+     *
+     * @param request - RefreshProxyLevelRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RefreshProxyLevelResponse
+     */
+    refreshProxyLevelWithOptions(request: $_model.RefreshProxyLevelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RefreshProxyLevelResponse>;
+    /**
+     * Modifies the proxy performance level of a specified PolarDB cluster and supports scheduled execution.
+     *
+     * @param request - RefreshProxyLevelRequest
+     * @returns RefreshProxyLevelResponse
+     */
+    refreshProxyLevel(request: $_model.RefreshProxyLevelRequest): Promise<$_model.RefreshProxyLevelResponse>;
     /**
      * Registers a custom model for an AI cluster.
      *
@@ -8203,6 +8725,21 @@ export default class Client extends OpenApi {
      */
     restartPolarClawGateway(request: $_model.RestartPolarClawGatewayRequest): Promise<$_model.RestartPolarClawGatewayResponse>;
     /**
+     * Restores a PolarDB application from a specified backup set.
+     *
+     * @param request - RestoreApplicationByBackupSetRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns RestoreApplicationByBackupSetResponse
+     */
+    restoreApplicationByBackupSetWithOptions(request: $_model.RestoreApplicationByBackupSetRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestoreApplicationByBackupSetResponse>;
+    /**
+     * Restores a PolarDB application from a specified backup set.
+     *
+     * @param request - RestoreApplicationByBackupSetRequest
+     * @returns RestoreApplicationByBackupSetResponse
+     */
+    restoreApplicationByBackupSet(request: $_model.RestoreApplicationByBackupSetRequest): Promise<$_model.RestoreApplicationByBackupSetResponse>;
+    /**
      * Restores databases or tables to a PolarDB cluster.
      *
      * @param request - RestoreTableRequest
@@ -8373,7 +8910,7 @@ export default class Client extends OpenApi {
      */
     switchOverGlobalDatabaseNetwork(request: $_model.SwitchOverGlobalDatabaseNetworkRequest): Promise<$_model.SwitchOverGlobalDatabaseNetworkResponse>;
     /**
-     * Adds tags to PolarDB clusters.
+     * Adds tags to an instance.
      *
      * @param request - TagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8381,7 +8918,7 @@ export default class Client extends OpenApi {
      */
     tagResourcesWithOptions(request: $_model.TagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TagResourcesResponse>;
     /**
-     * Adds tags to PolarDB clusters.
+     * Adds tags to an instance.
      *
      * @param request - TagResourcesRequest
      * @returns TagResourcesResponse
@@ -8514,8 +9051,8 @@ export default class Client extends OpenApi {
      *
      * @remarks
      * ## Request description
-     * - `PolarFsInstanceId` is required and identifies the Polarlakebase instance to operate on.
-     * - The `FilePathIds` parameter is also required. It accepts a list of file path IDs in string format. These IDs correspond to the specific file paths whose quota rules need to be deleted. Ensure that each provided ID is valid and belongs to the specified Polarlakebase instance.
+     * - PolarFsInstanceId is required to identify the Polarlakebase instance to operate.
+     * - The FilePathIds parameter is also required. It accepts a list of file path IDs in string format, which correspond to the specific file paths whose quota rules are to be deleted. Ensure that each provided ID is valid and belongs to the specified Polarlakebase instance.
      * - A single API call can process quota deletion requests for multiple file paths. However, control the request size to avoid performance issues.
      *
      * @param request - UninstallPolarClawSkillsRequest
@@ -8528,8 +9065,8 @@ export default class Client extends OpenApi {
      *
      * @remarks
      * ## Request description
-     * - `PolarFsInstanceId` is required and identifies the Polarlakebase instance to operate on.
-     * - The `FilePathIds` parameter is also required. It accepts a list of file path IDs in string format. These IDs correspond to the specific file paths whose quota rules need to be deleted. Ensure that each provided ID is valid and belongs to the specified Polarlakebase instance.
+     * - PolarFsInstanceId is required to identify the Polarlakebase instance to operate.
+     * - The FilePathIds parameter is also required. It accepts a list of file path IDs in string format, which correspond to the specific file paths whose quota rules are to be deleted. Ensure that each provided ID is valid and belongs to the specified Polarlakebase instance.
      * - A single API call can process quota deletion requests for multiple file paths. However, control the request size to avoid performance issues.
      *
      * @param request - UninstallPolarClawSkillsRequest
@@ -8537,7 +9074,7 @@ export default class Client extends OpenApi {
      */
     uninstallPolarClawSkills(request: $_model.UninstallPolarClawSkillsRequest): Promise<$_model.UninstallPolarClawSkillsResponse>;
     /**
-     * Detaches tags from a PolarDB cluster.
+     * Removes tags from one or more PolarDB clusters.
      *
      * @param request - UntagResourcesRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8545,7 +9082,7 @@ export default class Client extends OpenApi {
      */
     untagResourcesWithOptions(request: $_model.UntagResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UntagResourcesResponse>;
     /**
-     * Detaches tags from a PolarDB cluster.
+     * Removes tags from one or more PolarDB clusters.
      *
      * @param request - UntagResourcesRequest
      * @returns UntagResourcesResponse
@@ -8582,7 +9119,7 @@ export default class Client extends OpenApi {
      */
     updateExtensions(request: $_model.UpdateExtensionsRequest): Promise<$_model.UpdateExtensionsResponse>;
     /**
-     * Updates a knowledge base synchronization link.
+     * Updates the synchronization link for a knowledge base.
      *
      * @param request - UpdateKBSyncLinkRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -8590,7 +9127,7 @@ export default class Client extends OpenApi {
      */
     updateKBSyncLinkWithOptions(request: $_model.UpdateKBSyncLinkRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKBSyncLinkResponse>;
     /**
-     * Updates a knowledge base synchronization link.
+     * Updates the synchronization link for a knowledge base.
      *
      * @param request - UpdateKBSyncLinkRequest
      * @returns UpdateKBSyncLinkResponse

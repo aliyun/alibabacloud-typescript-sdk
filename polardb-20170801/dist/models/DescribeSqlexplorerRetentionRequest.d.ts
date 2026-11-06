@@ -3,7 +3,7 @@ export declare class DescribeSQLExplorerRetentionRequest extends $dara.Model {
     /**
      * @remarks
      * The cluster ID.
-     * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters under your account, such as the cluster ID.
+     * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the details of all clusters under your account, such as cluster IDs.
      *
      * This parameter is required.
      *
@@ -16,7 +16,7 @@ export declare class DescribeSQLExplorerRetentionRequest extends $dara.Model {
     /**
      * @remarks
      * The region ID.
-     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the region information of all clusters under the target account.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the regions of all clusters under the target account.
      *
      * @example
      * cn-hangzhou

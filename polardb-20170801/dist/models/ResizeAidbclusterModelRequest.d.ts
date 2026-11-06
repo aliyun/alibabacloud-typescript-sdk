@@ -20,7 +20,7 @@ export declare class ResizeAIDBClusterModelRequest extends $dara.Model {
     dryRun?: boolean;
     /**
      * @remarks
-     * The region ID. Requests are routed based on the region to which the instance belongs.
+     * The region ID. Requests are routed to the region where the instance resides.
      *
      * This parameter is required.
      *
@@ -30,7 +30,7 @@ export declare class ResizeAIDBClusterModelRequest extends $dara.Model {
     regionId?: string;
     /**
      * @remarks
-     * The target total capacity. The abstract capacity unit is 1000, which equals one L20N equivalent card. The value must be a positive integer.
+     * The target total capacity. An abstract capacity unit of 1000 is equivalent to one L20N equivalent card. The value must be a positive integer.
      *
      * This parameter is required.
      *

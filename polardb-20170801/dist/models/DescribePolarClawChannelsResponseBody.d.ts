@@ -34,12 +34,12 @@ export declare class DescribePolarClawChannelsResponseBodyChannelsAccounts exten
     enabled?: boolean;
     /**
      * @remarks
-     * A list of issues related to the account.
+     * The list of account issues.
      */
     issues?: string[];
     /**
      * @remarks
-     * The timestamp (in milliseconds) of the last inbound message.
+     * The timestamp of the last inbound message in milliseconds.
      *
      * @example
      * 0
@@ -47,7 +47,7 @@ export declare class DescribePolarClawChannelsResponseBodyChannelsAccounts exten
     lastInboundAt?: number;
     /**
      * @remarks
-     * The timestamp (in milliseconds) of the last outbound message.
+     * The timestamp of the last outbound message in milliseconds.
      *
      * @example
      * 0
@@ -67,7 +67,7 @@ export declare class DescribePolarClawChannelsResponseBodyChannelsAccounts exten
 export declare class DescribePolarClawChannelsResponseBodyChannels extends $dara.Model {
     /**
      * @remarks
-     * A list of account objects for the channel.
+     * The list of channel accounts.
      */
     accounts?: DescribePolarClawChannelsResponseBodyChannelsAccounts[];
     /**
@@ -88,7 +88,7 @@ export declare class DescribePolarClawChannelsResponseBodyChannels extends $dara
     configured?: boolean;
     /**
      * @remarks
-     * The default account ID for the channel.
+     * The default account ID.
      *
      * @example
      * default
@@ -124,7 +124,7 @@ export declare class DescribePolarClawChannelsResponseBody extends $dara.Model {
     applicationId?: string;
     /**
      * @remarks
-     * A list of PolarClaw channel objects.
+     * The list of channels.
      */
     channels?: DescribePolarClawChannelsResponseBodyChannels[];
     /**
@@ -137,7 +137,7 @@ export declare class DescribePolarClawChannelsResponseBody extends $dara.Model {
     code?: number;
     /**
      * @remarks
-     * The response message. A value of `successful` indicates that the request succeeded.
+     * The returned message.
      *
      * @example
      * successful

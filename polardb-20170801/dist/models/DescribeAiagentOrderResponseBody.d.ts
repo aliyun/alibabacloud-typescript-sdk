@@ -18,7 +18,7 @@ export declare class DescribeAIAgentOrderResponseBody extends $dara.Model {
     capacityPack?: string;
     /**
      * @remarks
-     * The expiration time of the order, in RFC 3339 format.
+     * The expiration time of the order in RFC 3339 format.
      *
      * @example
      * 2027-01-01T00:00:00Z

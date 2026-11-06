@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeSQLExplorerPolicyResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The ID of the request.
+     * The request ID.
      *
      * @example
      * 3655211B-4D74-4E13-91E6-FF2AFE******

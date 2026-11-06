@@ -18,7 +18,7 @@ export declare class DescribeDBClusterModelEnhancementResponseBodyModelEnhanceme
     apiKeyId?: string;
     /**
      * @remarks
-     * The time when the API key was created, in ISO 8601 UTC format (YYYY-MM-DDThh:mm:ssZ).
+     * The time when the API key was created, in the ISO 8601 UTC format (YYYY-MM-DDThh:mm:ssZ).
      *
      * @example
      * 2025-01-01T00:00:00Z
@@ -34,7 +34,7 @@ export declare class DescribeDBClusterModelEnhancementResponseBodyModelEnhanceme
     description?: string;
     /**
      * @remarks
-     * The expiration time of the API key, in ISO 8601 UTC format (YYYY-MM-DDThh:mm:ssZ).
+     * The expiration time of the API key, in the ISO 8601 UTC format (YYYY-MM-DDThh:mm:ssZ).
      *
      * @example
      * 2025-12-31T23:59:59Z
@@ -54,7 +54,7 @@ export declare class DescribeDBClusterModelEnhancementResponseBodyModelEnhanceme
 export declare class DescribeDBClusterModelEnhancementResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The time when the model enhancement feature was enabled, in ISO 8601 UTC format (YYYY-MM-DDThh:mm:ssZ).
+     * The time when the model enhancement feature was enabled, in the ISO 8601 UTC format (YYYY-MM-DDThh:mm:ssZ).
      *
      * @example
      * 2025-01-01T00:00:00Z
@@ -75,7 +75,7 @@ export declare class DescribeDBClusterModelEnhancementResponseBody extends $dara
     modelEnhancementKeys?: DescribeDBClusterModelEnhancementResponseBodyModelEnhancementKeys[];
     /**
      * @remarks
-     * The status of the model enhancement feature. ON indicates that the feature is enabled.
+     * The status of the model enhancement feature. A value of ON indicates that the feature is enabled.
      *
      * @example
      * ON

@@ -53,7 +53,7 @@ export class DescribeReplicationSlotsResponseBodySlots extends $dara.Model {
   slotType?: string;
   /**
    * @remarks
-   * The name of the child node of the distributed instance.
+   * The child node name of the distributed instance.
    * 
    * @example
    * testGroup
@@ -69,7 +69,7 @@ export class DescribeReplicationSlotsResponseBodySlots extends $dara.Model {
   subReplayLag?: string;
   /**
    * @remarks
-   * Indicates whether the replication slot is temporary. The value is a string: true or false.
+   * Indicates whether the replication slot is temporary. The value is returned as a string: true or false.
    * 
    * @example
    * false
@@ -77,7 +77,7 @@ export class DescribeReplicationSlotsResponseBodySlots extends $dara.Model {
   temporary?: string;
   /**
    * @remarks
-   * The WAL delay value.
+   * The WAL latency value.
    * 
    * @example
    * 50

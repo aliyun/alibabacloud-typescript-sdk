@@ -13,7 +13,7 @@ export class RestartDBClusterRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the PolarDB cluster.
+   * The PolarDB cluster ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class RestartDBClusterRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-************

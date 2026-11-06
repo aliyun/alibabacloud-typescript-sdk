@@ -2,22 +2,22 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateModelServiceRequest extends $dara.Model {
     /**
      * @remarks
-     * The API key for the model service.
+     * The API key of the model service.
      *
      * This parameter is required.
      *
      * @example
-     * xxxx
+     * 6c4b1f0317cd4fd7a5b446d3503d**
      */
     apiKey?: string;
     /**
      * @remarks
-     * The URL of the upstream service.
+     * The address of the upstream service.
      *
      * This parameter is required.
      *
      * @example
-     * xxxx
+     * https://example.com/v1
      */
     baseUrl?: string;
     /**
@@ -32,7 +32,7 @@ export declare class CreateModelServiceRequest extends $dara.Model {
     gwClusterId?: string;
     /**
      * @remarks
-     * The billing cost for input, measured in points per one million tokens.
+     * The number of input points.
      *
      * @example
      * 10
@@ -60,7 +60,7 @@ export declare class CreateModelServiceRequest extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The billing cost for output, measured in points per one million tokens.
+     * The number of output points.
      *
      * @example
      * 10
@@ -86,7 +86,7 @@ export declare class CreateModelServiceRequest extends $dara.Model {
     regionId?: string;
     /**
      * @remarks
-     * The billing cost per request, measured in points.
+     * The number of requests.
      *
      * @example
      * 10
@@ -94,7 +94,7 @@ export declare class CreateModelServiceRequest extends $dara.Model {
     requestCostPoints?: string;
     /**
      * @remarks
-     * The model service provider. The example value `bailian` is a pinyin-based identifier that corresponds to the product name Model Studio.
+     * The model service provider.
      *
      * This parameter is required.
      *

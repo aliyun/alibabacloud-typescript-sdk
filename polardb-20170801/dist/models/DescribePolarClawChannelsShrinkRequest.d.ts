@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribePolarClawChannelsShrinkRequest extends $dara.Model {
     /**
      * @remarks
-     * The application ID.
+     * The PolarClaw application ID. First call DescribeApplications to filter applications where ApplicationType is polardb_polarclaw and Status is Activated, and then use the returned ApplicationId to query channels.
      *
      * This parameter is required.
      *
@@ -12,7 +12,7 @@ export declare class DescribePolarClawChannelsShrinkRequest extends $dara.Model 
     applicationId?: string;
     /**
      * @remarks
-     * The channel IDs to query. Leave this parameter empty to return all channels.
+     * The list of channel IDs to query. If this parameter is left empty, all channels are returned.
      *
      * @example
      * feishu,telegram

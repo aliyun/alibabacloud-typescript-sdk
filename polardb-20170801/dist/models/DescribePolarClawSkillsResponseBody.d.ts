@@ -10,7 +10,7 @@ export declare class DescribePolarClawSkillsResponseBodySkillList extends $dara.
     assessmentStatus?: string;
     /**
      * @remarks
-     * Indicates whether the skill is available to the agent. The value is false if the skill is not in the workspace of the agent or is excluded by the availability policy of the agent.
+     * Indicates whether the skill is available to the agent. The value is false if the skill is not in the agent workspace or is excluded by the availability policy of the agent.
      *
      * @example
      * true
@@ -58,7 +58,7 @@ export declare class DescribePolarClawSkillsResponseBodySkillList extends $dara.
     riskDetail?: string;
     /**
      * @remarks
-     * The size of the database and tables. Unit: bytes.
+     * The size of the databases and tables. Unit: bytes.
      *
      * @example
      * 18
@@ -66,7 +66,7 @@ export declare class DescribePolarClawSkillsResponseBodySkillList extends $dara.
     size?: number;
     /**
      * @remarks
-     * The name of the skill.
+     * The skill name.
      *
      * @example
      * polarclawhub
@@ -74,7 +74,7 @@ export declare class DescribePolarClawSkillsResponseBodySkillList extends $dara.
     skillName?: string;
     /**
      * @remarks
-     * The version of the skill.
+     * The skill version.
      *
      * @example
      * 0.0.0
@@ -82,10 +82,10 @@ export declare class DescribePolarClawSkillsResponseBodySkillList extends $dara.
     skillVersion?: string;
     /**
      * @remarks
-     * The source of the skill. Valid values:
-     * - `PUBLIC`: Public.
-     * - `SELF`: Private.
-     * - `OTHER`: Other.
+     * The skill source. Valid values:
+     * - PUBLIC: public
+     * - SELF: private
+     * - OTHER: other
      *
      * @example
      * PUBLIC
@@ -93,7 +93,7 @@ export declare class DescribePolarClawSkillsResponseBodySkillList extends $dara.
     source?: string;
     /**
      * @remarks
-     * The status of the skill.
+     * The skill status.
      *
      * @example
      * ready
@@ -145,7 +145,7 @@ export declare class DescribePolarClawSkillsResponseBody extends $dara.Model {
     pageNumber?: number;
     /**
      * @remarks
-     * The number of entries returned on the current page.
+     * The number of entries on the current page.
      *
      * @example
      * 7
@@ -161,7 +161,7 @@ export declare class DescribePolarClawSkillsResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * The list of skills.
+     * The skill list.
      */
     skillList?: DescribePolarClawSkillsResponseBodySkillList[];
     /**

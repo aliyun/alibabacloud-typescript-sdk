@@ -18,7 +18,7 @@ export declare class DescribeAIDBClusterAttributeResponseBodyDBNodesChildVolumes
     name?: string;
     /**
      * @remarks
-     * The size of the cloud disk.
+     * The size of the storage disk.
      *
      * @example
      * 8192
@@ -121,7 +121,7 @@ export declare class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $da
      * @remarks
      * The time when the node was created.
      *
-     * The time follows the ISO 8601 standard in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+     * The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
      *
      * @example
      * 2020-08-14T05:58:42Z
@@ -129,7 +129,7 @@ export declare class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $da
     creationTime?: string;
     /**
      * @remarks
-     * The cluster specifications.
+     * The node specifications.
      *
      * @example
      * polar.pg.g8.8xlarge.gu30
@@ -154,16 +154,16 @@ export declare class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $da
     /**
      * @remarks
      * The status of the node. Valid values:
-     * * **Creating**: The node is being created.
-     * * **Running**: The node is running.
-     * * **Deleting**: The node is being deleted.
-     * * **Rebooting**: The node is being restarted.
-     * * **DBNodeCreating**: Nodes are being added.
-     * * **DBNodeDeleting**: Nodes are being deleted.
-     * * **ClassChanging**: The node specifications are being changed.
-     * * **MinorVersionUpgrading**: The minor version is being upgraded.
-     * * **Maintaining**: The instance is being maintained.
-     * * **Switching**: A switchover is in progress.
+     * - **Creating**: The node is being created.
+     * - **Running**: The node is running.
+     * - **Deleting**: The node is being deleted.
+     * - **Rebooting**: The node is restarting.
+     * - **DBNodeCreating**: Nodes are being added.
+     * - **DBNodeDeleting**: Nodes are being deleted.
+     * - **ClassChanging**: The node specifications are being changed.
+     * - **MinorVersionUpgrading**: The minor version is being upgraded.
+     * - **Maintaining**: The instance is being maintained.
+     * - **Switching**: A switchover is in progress.
      *
      * @example
      * Running
@@ -276,7 +276,7 @@ export declare class DescribeAIDBClusterAttributeResponseBodyDBNodes extends $da
 export declare class DescribeAIDBClusterAttributeResponseBodyEndpointListNetInfoItems extends $dara.Model {
     /**
      * @remarks
-     * The database connection address.
+     * The database endpoint.
      *
      * @example
      * pc-**********.rwlb.rds.aliyuncs.com
@@ -285,9 +285,9 @@ export declare class DescribeAIDBClusterAttributeResponseBodyEndpointListNetInfo
     /**
      * @remarks
      * The network type of the connection string. Valid values:
-     * * **Public**: Public network address.
-     * * **Private**: Private network address.
-     * * **Inner**: Private network address (classic network).
+     * - **Public**: Public endpoint.
+     * - **Private**: Private endpoint.
+     * - **Inner**: Private endpoint in the classic network.
      *
      * @example
      * Public
@@ -315,7 +315,7 @@ export declare class DescribeAIDBClusterAttributeResponseBodyEndpointListNetInfo
 export declare class DescribeAIDBClusterAttributeResponseBodyEndpointList extends $dara.Model {
     /**
      * @remarks
-     * The list of network information of the instance.
+     * The list of network information for the instance.
      */
     netInfoItems?: DescribeAIDBClusterAttributeResponseBodyEndpointListNetInfoItems[];
     static names(): {
@@ -516,9 +516,9 @@ export declare class DescribeAIDBClusterAttributeResponseBody extends $dara.Mode
     /**
      * @remarks
      * The node type. Valid values:
-     * - vnode: ACK-managed node.
-     * - container: container that supports logon.
-     * - maas: model service.
+     * - vnode: ACK-managed.
+     * - container: Logon-enabled container.
+     * - maas: Model service.
      *
      * @example
      * vnode
@@ -529,7 +529,7 @@ export declare class DescribeAIDBClusterAttributeResponseBody extends $dara.Mode
      * The API key.
      *
      * @example
-     * x********
+     * example-api-key-123456
      */
     apiKey?: string;
     /**
@@ -544,7 +544,7 @@ export declare class DescribeAIDBClusterAttributeResponseBody extends $dara.Mode
      * @remarks
      * The time when the cluster was created.
      *
-     * The time follows the ISO 8601 standard in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+     * The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
      *
      * @example
      * 2020-08-14T05:58:42Z
@@ -560,7 +560,7 @@ export declare class DescribeAIDBClusterAttributeResponseBody extends $dara.Mode
     currentCapacity?: number;
     /**
      * @remarks
-     * The custom Object Storage Service (OSS) path of the model currently used by the instance.
+     * The custom OSS path currently used by the instance.
      *
      * @example
      * /my-model-bucket/models/qwen3
@@ -585,7 +585,6 @@ export declare class DescribeAIDBClusterAttributeResponseBody extends $dara.Mode
     /**
      * @remarks
      * The status of the cluster. Valid values:
-     *
      * - **Creating**: The cluster is being created.
      * - **Running**: The cluster is running.
      * - **Deleting**: The cluster is being released.
@@ -600,7 +599,7 @@ export declare class DescribeAIDBClusterAttributeResponseBody extends $dara.Mode
     DBClusterStatus?: string;
     /**
      * @remarks
-     * The database instance status description. A value of ACTIVATION indicates that the database instance is running.
+     * The description of the database instance status. A value of ACTIVATION indicates that the database instance is running.
      *
      * @example
      * ACTIVATION
@@ -608,18 +607,15 @@ export declare class DescribeAIDBClusterAttributeResponseBody extends $dara.Mode
     DBInstanceStatusDesc?: string;
     /**
      * @remarks
-     * The details of the node information.
+     * The detailed node information.
      */
     DBNodes?: DescribeAIDBClusterAttributeResponseBodyDBNodes[];
     /**
      * @remarks
      * The cluster version. Valid values:
-     *
-     * **1.0**
-     *
-     * **2.0**
-     *
-     * **3.0**
+     * - **1.0**
+     * - **2.0**
+     * - **3.0**
      *
      * @example
      * 1.0
@@ -640,7 +636,7 @@ export declare class DescribeAIDBClusterAttributeResponseBody extends $dara.Mode
     ecsSecurityGroupId?: string;
     /**
      * @remarks
-     * The list of network endpoint addresses of the instance.
+     * The list of network endpoints for the instance.
      */
     endpointList?: DescribeAIDBClusterAttributeResponseBodyEndpointList[];
     /**
@@ -649,7 +645,7 @@ export declare class DescribeAIDBClusterAttributeResponseBody extends $dara.Mode
      *
      * > A specific value is returned only for clusters whose billing method is **Prepaid** (subscription). For clusters whose billing method is **Postpaid** (pay-as-you-go), an empty value is returned.
      *
-     * The time follows the ISO 8601 standard in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+     * The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
      *
      * @example
      * 2020-11-14T16:00:00Z
@@ -657,11 +653,9 @@ export declare class DescribeAIDBClusterAttributeResponseBody extends $dara.Mode
     expireTime?: string;
     /**
      * @remarks
-     * Indicates whether the cluster has expired. Valid values:
-     *
-     * - **true**
-     *
-     * - **false**
+     * Specifies whether the cluster has expired. Valid values:
+     * - **true**: The cluster has expired.
+     * - **false**: The cluster has not expired.
      *
      * @example
      * false
@@ -704,12 +698,12 @@ export declare class DescribeAIDBClusterAttributeResponseBody extends $dara.Mode
      * The ACK cluster ID.
      *
      * @example
-     * xxxxxxxxxxxxxxxxxxxxxxx
+     * ack-example-cluster-id
      */
     kubeClusterId?: string;
     /**
      * @remarks
-     * The lock mode of the instance. A value of **lock** indicates that the instance has expired or has an overdue payment.
+     * The instance lock mode. A value of **lock** indicates that the instance has automatically expired or has an overdue payment.
      *
      * @example
      * Unlock
@@ -759,8 +753,8 @@ export declare class DescribeAIDBClusterAttributeResponseBody extends $dara.Mode
      * @remarks
      * The billing method. Valid values:
      *
-     * - **Postpaid**: pay-as-you-go
-     * - **Prepaid**: subscription
+     * - **Postpaid**: pay-as-you-go.
+     * - **Prepaid**: subscription.
      *
      * @example
      * Postpaid
@@ -792,7 +786,7 @@ export declare class DescribeAIDBClusterAttributeResponseBody extends $dara.Mode
     regionId?: string;
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * EBEAA83D-1734-42E3-85E3-E25F6E******
@@ -801,8 +795,8 @@ export declare class DescribeAIDBClusterAttributeResponseBody extends $dara.Mode
     /**
      * @remarks
      * The architecture type. Valid values:
-     * - container: AI container
-     * - ainode: AI node
+     * - container: AI container.
+     * - ainode: AI node.
      *
      * @example
      * container
@@ -827,12 +821,12 @@ export declare class DescribeAIDBClusterAttributeResponseBody extends $dara.Mode
     storageType?: string;
     /**
      * @remarks
-     * The time slice configuration for pay-as-you-go billing.
+     * The configuration of time slices for pay-as-you-go billing.
      */
     timeSlicesInfo?: DescribeAIDBClusterAttributeResponseBodyTimeSlicesInfo;
     /**
      * @remarks
-     * The cycle type of the time slice configuration.
+     * The cycle type of the time slice configuration, such as daily. This field represents the name of the cycle type, not a date or timestamp, and is not subject to time zones or time formats.
      *
      * @example
      * daily
@@ -840,7 +834,7 @@ export declare class DescribeAIDBClusterAttributeResponseBody extends $dara.Mode
     timeSlicesType?: string;
     /**
      * @remarks
-     * The VPC ID specified for zone switching.
+     * The ID of the virtual private cloud (VPC) specified for zone switchover.
      *
      * @example
      * vpc-*******************

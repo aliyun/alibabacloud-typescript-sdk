@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateApplicationResponseBodyComponents extends $dara.Model {
     /**
      * @remarks
-     * The subcomponent ID.
+     * The ID of the subcomponent.
      *
      * @example
      * pac-********************
@@ -22,7 +22,7 @@ export declare class CreateApplicationResponseBodyComponents extends $dara.Model
 export declare class CreateApplicationResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The application ID.
+     * The ID of the application.
      *
      * @example
      * pa-********************
@@ -35,7 +35,7 @@ export declare class CreateApplicationResponseBody extends $dara.Model {
     components?: CreateApplicationResponseBodyComponents[];
     /**
      * @remarks
-     * The application description.
+     * The description of the application.
      *
      * @example
      * myapp
@@ -43,7 +43,7 @@ export declare class CreateApplicationResponseBody extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The generated order ID.
+     * The ID of the generated order.
      *
      * @example
      * 2148126708*****
@@ -51,7 +51,7 @@ export declare class CreateApplicationResponseBody extends $dara.Model {
     orderId?: string;
     /**
      * @remarks
-     * The request ID.
+     * The ID of the request.
      *
      * @example
      * 3E5CD764-FCCA-5C9C-838E-20E0DE84B2AF

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolarClawCronJobResponseBodyJobDelivery extends $dara.Model {
   /**
    * @remarks
-   * The channel account ID.
+   * The ID of the channel account.
    * 
    * @example
    * default
@@ -29,7 +29,7 @@ export class CreatePolarClawCronJobResponseBodyJobDelivery extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The delivery mode. Valid values: none, announce, webhook.
+   * The delivery mode. Valid values: none, announce, and webhook.
    * 
    * @example
    * announce
@@ -99,7 +99,7 @@ export class CreatePolarClawCronJobResponseBodyJobPayload extends $dara.Model {
   deliver?: boolean;
   /**
    * @remarks
-   * The payload type. Valid values: agentTurn, systemEvent.
+   * The payload type. Valid values: agentTurn and systemEvent.
    * 
    * @example
    * agentTurn
@@ -253,7 +253,7 @@ export class CreatePolarClawCronJobResponseBodyJobRuns extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * Indicates whether the run was delivered.
+   * Indicates whether the job run has been delivered.
    * 
    * @example
    * false
@@ -293,7 +293,7 @@ export class CreatePolarClawCronJobResponseBodyJobRuns extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The model used.
+   * The model used for the execution.
    * 
    * @example
    * bailian/qwen3.5-plus
@@ -309,7 +309,7 @@ export class CreatePolarClawCronJobResponseBodyJobRuns extends $dara.Model {
   nextRunAtMs?: number;
   /**
    * @remarks
-   * The model provider.
+   * The provider of the model.
    * 
    * @example
    * bailian
@@ -328,7 +328,7 @@ export class CreatePolarClawCronJobResponseBodyJobRuns extends $dara.Model {
    * The ID of the associated session.
    * 
    * @example
-   * ***
+   * session-123
    */
   sessionId?: string;
   /**
@@ -341,7 +341,7 @@ export class CreatePolarClawCronJobResponseBodyJobRuns extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The execution summary text.
+   * The text of the execution summary.
    * 
    * @example
    * Generate the daily report.
@@ -357,7 +357,7 @@ export class CreatePolarClawCronJobResponseBodyJobRuns extends $dara.Model {
   ts?: number;
   /**
    * @remarks
-   * The token usage details.
+   * The details of token usage.
    */
   usage?: CreatePolarClawCronJobResponseBodyJobRunsUsage;
   static names(): { [key: string]: string } {
@@ -447,7 +447,7 @@ export class CreatePolarClawCronJobResponseBodyJobSchedule extends $dara.Model {
   expr?: string;
   /**
    * @remarks
-   * The schedule type: cron, every, or at.
+   * The schedule type. Valid values: cron, every, and at.
    * 
    * @example
    * cron
@@ -639,7 +639,7 @@ export class CreatePolarClawCronJobResponseBodyJob extends $dara.Model {
   sessionKey?: string;
   /**
    * @remarks
-   * The session target. Valid values: main, isolated, current.
+   * The session target. Valid values: main, isolated, and current.
    * 
    * @example
    * main
@@ -647,7 +647,7 @@ export class CreatePolarClawCronJobResponseBodyJob extends $dara.Model {
   sessionTarget?: string;
   /**
    * @remarks
-   * The execution status.
+   * The execution state.
    */
   state?: CreatePolarClawCronJobResponseBodyJobState;
   /**
@@ -660,7 +660,7 @@ export class CreatePolarClawCronJobResponseBodyJob extends $dara.Model {
   updatedAtMs?: number;
   /**
    * @remarks
-   * The wake mode. Valid values: now, next-heartbeat.
+   * The wake mode. Valid values: now and next-heartbeat.
    * 
    * @example
    * now
@@ -772,7 +772,7 @@ export class CreatePolarClawCronJobResponseBody extends $dara.Model {
   ok?: boolean;
   /**
    * @remarks
-   * Indicates whether the job was executed immediately and successfully.
+   * Indicates whether the job was executed immediately and succeeded.
    * 
    * @example
    * false
@@ -780,7 +780,7 @@ export class CreatePolarClawCronJobResponseBody extends $dara.Model {
   ranImmediately?: boolean;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 6BD9CDE4-5E7B-4BF3-9BB8-83C73E******

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAvailableModelsRequest extends $dara.Model {
   /**
    * @remarks
-   * aideploy
+   * The Kubernetes cluster type, such as aideploy.
    * 
    * @example
    * aideploy

@@ -26,7 +26,7 @@ export declare class DescribeStoragePlanRequest extends $dara.Model {
     pageSize?: number;
     /**
      * @remarks
-     * The resource group ID.
+     * The ID of the resource group.
      *
      * @example
      * rg-************

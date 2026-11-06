@@ -2,10 +2,10 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribePolarAgentChatRecordsResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The answer.
+     * The reply.
      *
      * @example
-     * xxx
+     * Call DescribeDBClusters and check DBClusterStatus
      */
     answer?: string;
     /**
@@ -18,10 +18,10 @@ export declare class DescribePolarAgentChatRecordsResponseBodyData extends $dara
     feedbackType?: string;
     /**
      * @remarks
-     * The session query. Obtain this value from the response of the API call to start a digital human.
+     * The session query. You can obtain this value from the response of the API operation that starts a digital human.
      *
      * @example
-     * xxx
+     * How do I query the cluster status?
      */
     query?: string;
     /**

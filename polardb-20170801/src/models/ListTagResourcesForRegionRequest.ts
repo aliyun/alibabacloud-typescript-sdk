@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesForRegionRequest extends $dara.Model {
   /**
    * @remarks
-   * The token that is used to retrieve the next page of results. Optional for the first request. If the query does not return all results, the response contains a token. You can use this token in the next request to continue the query.
+   * The token used to retrieve more results. You do not need to specify this parameter for the first query. If the first query does not return all results, you can pass the token returned in the previous response to retrieve the remaining results.
    * 
    * @example
    * 212db86sca4384811e0b5e8707e******
@@ -30,7 +30,6 @@ export class ListTagResourcesForRegionRequest extends $dara.Model {
    * The resource type. Valid values:
    * 
    * - cluster: cluster instance
-   * 
    * - aicluster: AI cluster instance
    * 
    * @example

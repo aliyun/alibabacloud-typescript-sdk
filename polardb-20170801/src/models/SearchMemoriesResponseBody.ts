@@ -7,7 +7,7 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
    * @remarks
    * The creation time.
    * 
-   * The time follows the ISO 8601 standard in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The time follows the ISO 8601 standard and is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2025-09-26T08:25:44Z
@@ -26,7 +26,7 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
    * The memory content.
    * 
    * @example
-   * xxx
+   * The user prefers PostgreSQL
    */
   memory?: string;
   /**
@@ -50,7 +50,7 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
    * The metadata.
    * 
    * @example
-   * {"tags":"Issue_date_2023-11-30,VD_Valid"}
+   * {\\"tags\\":\\"Issue_date_2023-11-30,VD_Active\\"}
    */
   metadata?: string;
   /**
@@ -65,7 +65,7 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
    * @remarks
    * The update time.
    * 
-   * The time follows the ISO 8601 standard in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The time follows the ISO 8601 standard and is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2025-10-16T02:27:33Z
@@ -117,7 +117,7 @@ export class SearchMemoriesResponseBody extends $dara.Model {
   page?: string;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -138,7 +138,7 @@ export class SearchMemoriesResponseBody extends $dara.Model {
   results?: SearchMemoriesResponseBodyResults[];
   /**
    * @remarks
-   * The total number of matching records.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 1

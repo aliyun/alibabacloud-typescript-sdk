@@ -2,17 +2,17 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribePolarAgentChatRecordsRequest extends $dara.Model {
     /**
      * @remarks
-     * The session ID.
+     * The session ID. To obtain the SessionId, use Signature Version 3.0 to call GetPolarAgent to initiate a conversation and extract the SessionId from the returned stream.
      *
      * This parameter is required.
      *
      * @example
-     * 1e28530a0da2c4755f165b1b8b9a73c9
+     * 44dcdf31-04cd-4a44-9bae-834dd6657e29
      */
     sessionId?: string;
     /**
      * @remarks
-     * The product source. Valid value: polardb-console.
+     * The product type source. Valid value: polardb-console.
      *
      * @example
      * polardb-console

@@ -5,13 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeZonesResponseBodyZones extends $dara.Model {
   /**
    * @remarks
-   * The enumeration of statuses. Valid values:
+   * The enumeration values for various availability states. Valid values:
    * 
-   * - **UnSet**: The zone is not open for use.
-   * 
-   * - **SoldOut**: The resources in the zone are sold out.
-   * 
-   * - **WithStock**: The zone has available resources.
+   * - **UnSet**: not available
+   * - **SoldOut**: sold out
+   * - **WithStock**: in stock
    * 
    * @example
    * UnSet
@@ -27,11 +25,9 @@ export class DescribeZonesResponseBodyZones extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The status of the zone. Valid values:
-   * 
-   * - **ON**: The zone is available.
-   * 
-   * - **OFF**: The zone is unavailable.
+   * The zone status. Valid values:
+   * - **ON**: available
+   * - **OFF**: unavailable
    * 
    * @example
    * ON
@@ -39,7 +35,7 @@ export class DescribeZonesResponseBodyZones extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the zone.
+   * The zone ID.
    * 
    * @example
    * cn-beijing-h
@@ -83,7 +79,7 @@ export class DescribeZonesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of zones.
+   * The list of zones.
    */
   zones?: DescribeZonesResponseBodyZones[];
   static names(): { [key: string]: string } {

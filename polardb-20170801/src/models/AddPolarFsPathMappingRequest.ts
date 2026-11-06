@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddPolarFsPathMappingRequestCustomBucketPathList extends $dara.Model {
   /**
    * @remarks
-   * The bucket name.
+   * The name of the bucket.
    * 
    * @example
    * Bucket1
@@ -15,18 +15,18 @@ export class AddPolarFsPathMappingRequestCustomBucketPathList extends $dara.Mode
   bucket?: string;
   /**
    * @remarks
-   * The AccessKey ID of the storage bucket.
+   * The AccessKey ID for the bucket.
    * 
    * @example
-   * xxx
+   * LTAIExampleBucketAccessKeyId
    */
   bucketAccessKeyId?: string;
   /**
    * @remarks
-   * The AccessKey secret of the storage bucket.
+   * The AccessKey secret for the bucket.
    * 
    * @example
-   * xxx
+   * ExampleBucketAccessKeySecret123
    */
   bucketAccessKeySecret?: string;
   /**
@@ -72,7 +72,7 @@ export class AddPolarFsPathMappingRequest extends $dara.Model {
   customBucketPathList?: AddPolarFsPathMappingRequestCustomBucketPathList[];
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * This parameter is required.
    * 

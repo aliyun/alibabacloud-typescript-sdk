@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolarClawSkillTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The application ID. This parameter is required when you call this operation. If this parameter is not specified, InvalidApplicationId.Malformed is returned.
    * 
    * @example
    * pa-**************
@@ -14,6 +14,7 @@ export class DescribePolarClawSkillTemplateRequest extends $dara.Model {
   /**
    * @remarks
    * The application type.
+   * 
    * > If you are calling this operation for the first time, you do not need to specify this parameter.
    * 
    * @example

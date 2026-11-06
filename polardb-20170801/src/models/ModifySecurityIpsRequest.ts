@@ -35,7 +35,7 @@ export class ModifySecurityIpsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The IP addresses or CIDR blocks in the whitelist. Separate multiple values with commas (,).
+   * The IP addresses or CIDR blocks in the whitelist. Separate multiple values with commas.
    * 
    * This parameter is required.
    * 

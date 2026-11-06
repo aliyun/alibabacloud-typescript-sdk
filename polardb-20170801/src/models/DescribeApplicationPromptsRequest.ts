@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationPromptsRequest extends $dara.Model {
   /**
    * @remarks
-   * The Application ID.
+   * The application ID. This operation applies only to applications of the mem0 type. If you specify the ID of an application of another type, an error is returned. You can call the DescribeApplications operation to query the application list and filter applications by ApplicationType.
    * 
    * This parameter is required.
    * 
@@ -24,12 +24,9 @@ export class DescribeApplicationPromptsRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * 
-   * - **30**
-   * 
-   * - **50**
-   * 
-   * - **100**
+   * * **30**
+   * * **50**
+   * * **100**
    * 
    * Default value: **30**.
    * 

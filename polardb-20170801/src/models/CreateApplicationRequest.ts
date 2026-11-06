@@ -94,7 +94,7 @@ export class CreateApplicationRequestComponents extends $dara.Model {
   /**
    * @remarks
    * The maximum number of application subcomponents of the same specifications. Default value: the value of ComponentReplica.
-   * - This parameter is supported only by raycluster.
+   * - This parameter is supported only for raycluster.
    * 
    * @example
    * 1
@@ -221,7 +221,7 @@ export class CreateApplicationRequestDnatEntries extends $dara.Model {
   frontPort?: number;
   /**
    * @remarks
-   * The port name. Valid values: webui, hermesagent, dashboard, and ssh.
+   * The name of the port. Valid values: webui, hermesagent, dashboard, and ssh.
    * 
    * @example
    * webui
@@ -665,7 +665,7 @@ export class CreateApplicationRequestStorages extends $dara.Model {
   storageCapacity?: string;
   /**
    * @remarks
-   * The access endpoint of the storage.
+   * The access address of the storage.
    * 
    * @example
    * polarfs.example.com
@@ -673,7 +673,7 @@ export class CreateApplicationRequestStorages extends $dara.Model {
   storageEndpoint?: string;
   /**
    * @remarks
-   * The ID of the storage instance.
+   * The storage instance ID.
    * 
    * @example
    * pfs-xxxx
@@ -832,19 +832,19 @@ export class CreateApplicationRequest extends $dara.Model {
    * The authentication provider configuration.
    * 
    * @example
-   * xxx
+   * {"github":{"authAppId":"example-app-id","authAppSecret":"example-secret","trustedDomain":"example.com"}}
    */
   authProviderConfig?: string;
   /**
    * @remarks
-   * Specifies whether the automatic creation is enabled and whether to attach and associate with an EIP.
+   * Specifies whether an elastic IP address is automatically created and attached.
    */
   autoAllocatePublicEip?: boolean;
   /**
    * @remarks
-   * Specifies whether to automatically create a Polarlakebase cold storage edition instance. Valid values:
-   * * false (default): Do not automatically create the instance.
-   * * true: Automatically create the instance.
+   * Specifies whether to enable automatic creation of a Polarlakebase cold storage instance. Valid values:
+   * * false (default): disables automatic creation.
+   * * true: enables automatic creation.
    * 
    * @example
    * false
@@ -861,8 +861,8 @@ export class CreateApplicationRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to automatically use coupons. Valid values:
-   * * true (default): Use coupons.
-   * * false: Do not use coupons.
+   * - true: uses coupons. This is the default value.
+   * - false: does not use coupons.
    * 
    * @example
    * true
@@ -875,7 +875,7 @@ export class CreateApplicationRequest extends $dara.Model {
   components?: CreateApplicationRequestComponents[];
   /**
    * @remarks
-   * The ID of the PolarDB instance on which the application depends.
+   * The PolarDB instance ID on which the application depends.
    * 
    * @example
    * pc-**************
@@ -896,7 +896,7 @@ export class CreateApplicationRequest extends $dara.Model {
   dnatEntries?: CreateApplicationRequestDnatEntries[];
   /**
    * @remarks
-   * The dedicated NAT IP address allocated for DNAT, which is separate from the SNAT IP address. The IP address must belong to the specified gateway, be in the available state, and the vSwitch where the gateway resides must belong to a primary CIDR block reachable from the office network. This parameter must be specified together with VpcNatGatewayId. Prerequisite: An SNAT entry is associated with the vSwitch where the application resides.
+   * The dedicated NAT IP address allocated for DNAT, which is separate from the SNAT IP address. The IP address must belong to the gateway, be in the available state, and the vSwitch where the gateway resides must belong to the primary CIDR block reachable from the office network. This parameter must be specified together with VpcNatGatewayId. Prerequisite: An SNAT entry is bound to the vSwitch where the application resides.
    * 
    * @example
    * 10.64.0.10
@@ -904,7 +904,7 @@ export class CreateApplicationRequest extends $dara.Model {
   dnatIpAddress?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Default value: `false`. If you set this parameter to `true`, only parameter and resource validations are performed, and no resources are actually created.
+   * Specifies whether to perform a dry run. Default value: `false`. If you set this parameter to `true`, only parameter and resource validation is performed, and no resources are actually created.
    * 
    * @example
    * false
@@ -917,12 +917,12 @@ export class CreateApplicationRequest extends $dara.Model {
   endpoints?: CreateApplicationRequestEndpoints[];
   /**
    * @remarks
-   * The knowledge application specification. This parameter is required for knowledge applications.
+   * The required specification for knowledge applications.
    */
   knowledgeApplicationSpec?: CreateApplicationRequestKnowledgeApplicationSpec;
   /**
    * @remarks
-   * The Mem0 application specification. This parameter is required for mem0 applications.
+   * The required specification for mem0 applications.
    */
   memApplicationSpec?: CreateApplicationRequestMemApplicationSpec;
   /**
@@ -952,9 +952,9 @@ export class CreateApplicationRequest extends $dara.Model {
   /**
    * @remarks
    * The source of the model. Valid values:
-   * * bailian: Model Studio model.
-   * * custom: Custom model.
-   * * maas: PolarDB model operator.
+   * - bailian: Model Studio model.
+   * - custom: Custom model.
+   * - maas: PolarDB model operator.
    * 
    * @example
    * bailian
@@ -991,9 +991,9 @@ export class CreateApplicationRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The ID of the Polarlakebase cold storage or high-performance edition instance. Default value: empty. If you specify this parameter, the corresponding storage is mounted to the application.
+   * The Polarlakebase cold storage or high-performance instance ID. Default value: empty. If you specify this parameter, the corresponding storage is mounted to the application.
    * 
-   * Currently, only the following applications support this parameter:
+   * Currently, only the following applications are supported:
    * - supabase
    * - raycluster
    * 
@@ -1059,10 +1059,10 @@ export class CreateApplicationRequest extends $dara.Model {
   securityIPType?: string;
   /**
    * @remarks
-   * The skill template ID.
+   * The ID of the skill template.
    * 
    * @example
-   * xxx
+   * pst-123456
    */
   skillTemplateId?: string;
   /**
@@ -1075,7 +1075,7 @@ export class CreateApplicationRequest extends $dara.Model {
   storages?: CreateApplicationRequestStorages[];
   /**
    * @remarks
-   * The tag.
+   * The tags.
    */
   tag?: CreateApplicationRequestTag[];
   /**
@@ -1112,7 +1112,7 @@ export class CreateApplicationRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The VPC NAT gateway ID for NAT mapping. If you specify this parameter, NAT mapping is enabled when the instance is created. The gateway must reside in the same VPC as the application, be of the private network (intranet) type, and be active.
+   * NAT mapping: the NAT gateway ID of the self-managed VPC NAT gateway. If you specify this parameter, NAT mapping is enabled when the instance is created. The gateway must be in the same VPC as the application, be of the private network type (intranet), and be in the active state.
    * 
    * @example
    * ngw-xxx

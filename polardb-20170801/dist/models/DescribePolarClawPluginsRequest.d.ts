@@ -12,7 +12,7 @@ export declare class DescribePolarClawPluginsRequest extends $dara.Model {
     applicationId?: string;
     /**
      * @remarks
-     * A list of plugin IDs. If omitted, all plugins are returned.
+     * The list of plugin IDs to query. If this parameter is empty, all plugins are returned.
      */
     pluginList?: string[];
     static names(): {

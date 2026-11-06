@@ -45,7 +45,7 @@ export class DescribePolarFsAttributeResponseBodyCustomBucketPathList extends $d
 export class DescribePolarFsAttributeResponseBodyEndpointItemsAddressItems extends $dara.Model {
   /**
    * @remarks
-   * The protocol endpoint.
+   * The protocol connection address.
    * 
    * @example
    * aclsh-prd-pdb12-rw.rwlb.rds.aliyuncs.com
@@ -289,17 +289,14 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    * The bucket ID.
    * 
    * @example
-   * xxx
+   * bucket-example-001
    */
   bucketId?: string;
   /**
    * @remarks
    * The Polarlakebase edition. Valid values:
-   * 
    * - **high_performance**: High-performance Edition.
-   * 
    * - **basic**: Basic Edition.
-   * 
    * - **cold**: Cold Storage Edition.
    * 
    * @example
@@ -317,7 +314,6 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The creation time.
-   * 
    * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
@@ -357,15 +353,13 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   DBType?: string;
   /**
    * @remarks
-   * The list of endpoints, including endpoint information for types such as NAS and S3 Gateway.
+   * The list of endpoints, including endpoint information such as NAS and S3 Gateway.
    */
   endpointItems?: DescribePolarFsAttributeResponseBodyEndpointItems[];
   /**
    * @remarks
    * The expiration time of the cluster.
-   * 
-   * > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription). For clusters whose billing method is **Postpaid** (pay-as-you-go), an empty value is returned.
-   * 
+   * > This parameter is returned only for subscription clusters whose billing method is **Prepaid**. For pay-as-you-go clusters whose billing method is **Postpaid**, an empty value is returned.
    * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
@@ -375,7 +369,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the cluster has expired.
-   * > This parameter is returned only for clusters whose billing method is **Prepaid** (subscription).
+   * > This parameter is returned only for subscription clusters whose billing method is **Prepaid**.
    * 
    * @example
    * false
@@ -386,16 +380,15 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
    * The file system ID.
    * 
    * @example
-   * xxx
+   * fs-example-001
    */
   fileSystemId?: string;
   /**
    * @remarks
-   * The lock mode. Valid values: 
-   * 
+   * The lock mode. Valid values:
    * - **Unlock**: Unlocked.
-   * - **ManualLock**: Manually locked. 
-   * - **LockByExpiration**: Automatically locked due to cluster expiration.
+   * - **ManualLock**: Manually locked.
+   * - **LockByExpiration**: Automatically locked due to expiration.
    * 
    * @example
    * Unlock
@@ -443,7 +436,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   metaUrl?: string;
   /**
    * @remarks
-   * The minor version number of the instance.
+   * The minor version of the instance.
    * 
    * @example
    * v1.3.0-v1.1.1
@@ -457,7 +450,6 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
-   * 
    * - **Postpaid**: Pay-as-you-go.
    * - **Prepaid**: Subscription.
    * 
@@ -467,7 +459,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The Polarlakebase instance description.
+   * The description of the Polarlakebase instance.
    * 
    * @example
    * pfs-xxx
@@ -483,7 +475,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   polarFsInstanceId?: string;
   /**
    * @remarks
-   * The Polarlakebase instance status.
+   * The status of the Polarlakebase instance.
    * 
    * @example
    * Running
@@ -525,7 +517,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   relativeDbClusterId?: string;
   /**
    * @remarks
-   * The associated Polarlakebase instance ID.
+   * The ID of the associated Polarlakebase instance.
    * 
    * @example
    * pfs-**********
@@ -533,7 +525,7 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   relativePfsClusterId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 3F9E6A3B-C13E-4064-A010-18582A******
@@ -565,12 +557,10 @@ export class DescribePolarFsAttributeResponseBody extends $dara.Model {
   storageSpace?: number;
   /**
    * @remarks
-   * The storage type. 
-   * For High-performance Edition, valid values are:
+   * The storage type. Valid values for High-performance Edition:
    * * **ESSDPL1**
    * * **ESSDPL0**
-   * 
-   * For Basic Edition, valid values are:
+   * Valid values for Basic Edition:
    * * **city_redundancy**: Zone-redundant storage.
    * 
    * @example

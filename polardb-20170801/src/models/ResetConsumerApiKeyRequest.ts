@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetConsumerApiKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The user ID.
+   * The ID of the consumer. You can obtain the ID by calling the DescribeConsumers operation. Call sequence: CreateGateway, CreateConsumer, and then ResetConsumerApiKey.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ResetConsumerApiKeyRequest extends $dara.Model {
   consumerId?: string;
   /**
    * @remarks
-   * The gateway instance ID.
+   * Instance ID of the gateway instance. You can obtain instance ID by calling the DescribeGatewayAttribute operation. Before calling this operation, create a gateway and confirm its VPC, vSwitch, and zone configurations.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ export declare class DescribeApikeyAttributeResponseBodyItemsConsumer extends $d
      * The API key.
      *
      * @example
-     * ***
+     * 6c4b1f0317cd4fd7a5b446d3503d**
      */
     apiKey?: string;
     /**
@@ -34,7 +34,7 @@ export declare class DescribeApikeyAttributeResponseBodyItemsConsumer extends $d
     consumerTag?: string;
     /**
      * @remarks
-     * The creation time. The format is YYYY-MM-DDTHH:mm:ssZ (UTC time).
+     * The creation time. The format is YYYY-MM-DDTHH:mm:ssZ (UTC).
      *
      * @example
      * 2021-07-18T07:32:30Z
@@ -50,7 +50,7 @@ export declare class DescribeApikeyAttributeResponseBodyItemsConsumer extends $d
     gwClusterId?: string;
     /**
      * @remarks
-     * The last modification time. The format is YYYY-MM-DDTHH:mm:ssZ (UTC time).
+     * The last modification time. The format is YYYY-MM-DDTHH:mm:ssZ (UTC).
      *
      * @example
      * 2026-04-10T01:48:25Z
@@ -94,7 +94,7 @@ export declare class DescribeApikeyAttributeResponseBodyItemsUsageStatistics ext
     dimensionRefId?: string;
     /**
      * @remarks
-     * The statistical dimension. The value is typically Consumer.
+     * The statistical dimension. Typically, the value is Consumer.
      *
      * @example
      * Consumer
@@ -229,7 +229,7 @@ export declare class DescribeApikeyAttributeResponseBody extends $dara.Model {
     items?: DescribeApikeyAttributeResponseBodyItems[];
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * F3322AFE-083E-4D77-A074-421301******

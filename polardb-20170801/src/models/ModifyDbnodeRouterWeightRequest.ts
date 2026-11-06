@@ -6,7 +6,7 @@ export class ModifyDBNodeRouterWeightRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
-   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query all clusters in the specified region, including cluster IDs.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query all clusters in a region, including their cluster IDs.
    * 
    * This parameter is required.
    * 

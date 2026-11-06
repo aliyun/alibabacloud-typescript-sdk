@@ -23,10 +23,10 @@ export class DescribeColdStorageInstanceRequest extends $dara.Model {
    * @remarks
    * The supported engine types. The return value is the sum of the following engine type values:
    * 
-   * - 1: search engine
-   * - 2: time series engine
-   * - 4: wide table engine
-   * - 8: file engine
+   * - 1: Search engine
+   * - 2: Time series engine
+   * - 4: Wide table engine
+   * - 8: File engine
    * 
    * > For example, if the EngineType value is 15, 15 = 8 + 4 + 2 + 1, which indicates that the instance supports the search engine, time series engine, wide table engine, and file engine. If the EngineType value is 6, 6 = 4 + 2, which indicates that the instance supports the time series engine and wide table engine.
    * 
@@ -36,16 +36,16 @@ export class DescribeColdStorageInstanceRequest extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * The expiration time of the cluster. Note: A specific value is returned only for clusters whose billing method is Prepaid (subscription). For Postpaid (pay-as-you-go) clusters, a null value is returned.
+   * The validity period of the download URL, in seconds. If you query the download URL of a specified data table and do not specify this parameter, the default value is 3600.
    * 
    * @example
-   * 2020-11-14T16:00:00Z
+   * 3600
    */
   expireTime?: number;
   /**
    * @remarks
-   * - If you do not specify the **MaxResults** parameter, batch query is not required. The value of the **MaxResults** parameter returned after the API call indicates the total number of list entries.
-   * - If you specify the **MaxResults** parameter, batch query is required. The value of **MaxResults** indicates the number of entries displayed per batch. Valid values: **1** to **100**. The value of the **MaxResults** parameter returned after the API call indicates the number of list entries in the current query batch. Set the **MaxResults** parameter to **20**.
+   * - If you do not specify the **MaxResults** parameter, it indicates that you do not need to query in batches. The value of the **MaxResults** parameter returned in the response indicates the total number of entries.
+   * - If you specify the **MaxResults** parameter, it indicates that you need to query in batches. The value of **MaxResults** indicates the number of entries to return per batch. Valid values: **1** to **100**. The value of the **MaxResults** parameter returned in the response indicates the number of entries in the current batch. We recommend that you set the **MaxResults** parameter to **20**.
    * 
    * @example
    * 50
@@ -88,8 +88,8 @@ export class DescribeColdStorageInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID.
-   * > * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the region information of all clusters under the target account.
-   * * If this parameter is left empty, scheduled tasks in all regions under the current account are queried by default.
+   * > * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view the region information of all clusters under the target account.
+   * * If you leave this parameter empty, scheduled tasks in all regions of the current account are queried by default.
    * 
    * @example
    * cn-hangzhou

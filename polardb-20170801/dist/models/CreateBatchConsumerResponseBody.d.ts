@@ -10,10 +10,10 @@ export declare class CreateBatchConsumerResponseBodyItems extends $dara.Model {
     active?: boolean;
     /**
      * @remarks
-     * The complete API key. This value is returned only in the current response.
+     * The complete API key. This value is returned only in this response.
      *
      * @example
-     * xxxxxxxx
+     * 6c4b1f0317cd4fd7a5b446d3503d**
      */
     apiKey?: string;
     /**
@@ -58,7 +58,7 @@ export declare class CreateBatchConsumerResponseBodyItems extends $dara.Model {
     budgetPolicyId?: string;
     /**
      * @remarks
-     * The used quota.
+     * The used budget.
      *
      * @example
      * 0
@@ -100,7 +100,7 @@ export declare class CreateBatchConsumerResponseBodyItems extends $dara.Model {
      * @remarks
      * The expiration time.
      *
-     * The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+     * The time is in ISO 8601 format and UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
      *
      * @example
      * 2025-06-25T09:37:10Z
@@ -202,7 +202,7 @@ export declare class CreateBatchConsumerResponseBody extends $dara.Model {
     pageSize?: number;
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * A7E6A8FD-C50B-46B2-BA85-D8B8D3******

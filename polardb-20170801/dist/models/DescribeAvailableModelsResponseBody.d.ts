@@ -5,7 +5,7 @@ export declare class DescribeAvailableModelsResponseBodyItemsGpuRequired extends
      * The minimum number of GPUs.
      *
      * @example
-     * xx
+     * 1
      */
     gpuMinCount?: string;
     /**
@@ -13,7 +13,7 @@ export declare class DescribeAvailableModelsResponseBodyItemsGpuRequired extends
      * The GPU model.
      *
      * @example
-     * xxx
+     * NVIDIA A10
      */
     gpuModel?: string;
     static names(): {
@@ -80,7 +80,7 @@ export declare class DescribeAvailableModelsResponseBodyItems extends $dara.Mode
     displayModelName?: string;
     /**
      * @remarks
-     * The time when the registration was last modified.
+     * The last modification time of the registration.
      *
      * @example
      * 2026-09-07 20:57:20
@@ -229,7 +229,7 @@ export declare class DescribeAvailableModelsResponseBody extends $dara.Model {
     modelType?: string;
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * 3AA69096-757C-4647-B36C-29EBC2******

@@ -13,7 +13,7 @@ export declare class ModifyDBClusterSSLRequest extends $dara.Model {
      * The connection string.
      *
      * @example
-     * xxx
+     * example.cluster.rds.aliyuncs.com
      */
     connectionString?: string;
     /**
@@ -30,8 +30,8 @@ export declare class ModifyDBClusterSSLRequest extends $dara.Model {
      * @remarks
      * The endpoint ID.
      *
-     * >* If the cluster is a PolarDB for MySQL cluster, this parameter is required.
-     * >* If the cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you do not need to specify this parameter. SSL encryption is enabled for all endpoints by default.
+     * >* This parameter is required if the target cluster is a PolarDB for MySQL cluster.
+     * >* This parameter is not required if the target cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster. By default, Secure Sockets Layer (SSL) encryption is enabled for all endpoints.
      * >* You can call the [DescribeDBClusterSSL](https://help.aliyun.com/document_detail/2319159.html) operation to query endpoint details.
      *
      * @example
@@ -40,13 +40,13 @@ export declare class ModifyDBClusterSSLRequest extends $dara.Model {
     DBEndpointId?: string;
     /**
      * @remarks
-     * The network type of the endpoint. The value must be the same as the network type of the endpoint specified by **DBEndpointId**. Valid values:
-     * * **Public**: public network
-     * * **Private**: private network
-     * * **Inner**: private network (classic network)
+     * The network type of the endpoint. The value must be the same as the network type of the endpoint specified by the **DBEndpointId** parameter. Valid values:
+     * * **Public**: Internet
+     * * **Private**: Private network
+     * * **Inner**: Private network (classic network)
      *
-     * >* If the cluster is a PolarDB for MySQL cluster, this parameter is required.
-     * >* If the cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster, you do not need to specify this parameter. SSL encryption is enabled for all endpoints by default.
+     * >* This parameter is required if the target cluster is a PolarDB for MySQL cluster.
+     * >* This parameter is not required if the target cluster is a PolarDB for PostgreSQL cluster or a PolarDB for PostgreSQL (Compatible with Oracle) cluster. By default, Secure Sockets Layer (SSL) encryption is enabled for all endpoints.
      *
      * @example
      * Public
@@ -66,11 +66,11 @@ export declare class ModifyDBClusterSSLRequest extends $dara.Model {
     resourceOwnerId?: number;
     /**
      * @remarks
-     * Specifies whether to enable automatic SSL certificate rotation. Valid values:
+     * Specifies whether to enable automatic rotation for SSL certificates. Valid values:
      *
-     * - **Enable**: Enabled.
+     * - **Enable**: Enables automatic rotation.
      *
-     * - **Disable**: Disabled.
+     * - **Disable**: Disables automatic rotation.
      *
      * @example
      * Enable
@@ -78,12 +78,12 @@ export declare class ModifyDBClusterSSLRequest extends $dara.Model {
     SSLAutoRotate?: string;
     /**
      * @remarks
-     * The SSL status to set. Valid values:
-     * * **Disable**: Shutdown SSL encryption.
-     * * **Enable**: Enables SSL encryption.
+     * Modifies the Secure Sockets Layer (SSL) encryption status. Valid values:
+     * * **Disable**: Performs a shutdown of Secure Sockets Layer (SSL) encryption.
+     * * **Enable**: Enables Secure Sockets Layer (SSL) encryption.
      * * **Update**: Updates the CA certificate.
      *
-     * > After you enable SSL encryption or update the CA certificate, you must download and configure the certificate. For details, see [Settings for SSL encryption](https://help.aliyun.com/document_detail/153182.html).
+     * > After you enable Secure Sockets Layer (SSL) encryption or update the CA certificate, you must download and configure the certificate. For details, see [Configure SSL encryption](https://help.aliyun.com/document_detail/153182.html).
      *
      * @example
      * Enable

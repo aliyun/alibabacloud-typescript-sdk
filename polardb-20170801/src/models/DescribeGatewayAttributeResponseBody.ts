@@ -13,7 +13,7 @@ export class DescribeGatewayAttributeResponseBodyEndpoints extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The endpoint ID.
+   * The ID of the endpoint node.
    * 
    * @example
    * xxx
@@ -29,9 +29,9 @@ export class DescribeGatewayAttributeResponseBodyEndpoints extends $dara.Model {
   gwClusterId?: string;
   /**
    * @remarks
-   * The endpoint type. Valid values:
-   * - Private: VPC address.
-   * - Public: Internet address.
+   * The type of the endpoint address. Valid values:
+   * - Private: VPC address
+   * - Public: Internet address
    * 
    * @example
    * Public
@@ -97,7 +97,7 @@ export class DescribeGatewayAttributeResponseBodyEndpoints extends $dara.Model {
 export class DescribeGatewayAttributeResponseBodySecurityIPArrays extends $dara.Model {
   /**
    * @remarks
-   * The name of the IP address whitelist. Default value: `default`.
+   * The name of the IP address group. Default value: `default`.
    * 
    * @example
    * default
@@ -105,7 +105,7 @@ export class DescribeGatewayAttributeResponseBodySecurityIPArrays extends $dara.
   securityIPArrayName?: string;
   /**
    * @remarks
-   * The tag of the IP address whitelist.
+   * The tag of the IP address group.
    * 
    * @example
    * mytag
@@ -155,7 +155,9 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   classCode?: string;
   /**
    * @remarks
-   * The creation time. The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
+   * The creation time.
+   * 
+   * The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2020-02-24T11:57:54Z
@@ -184,7 +186,11 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   endpoints?: DescribeGatewayAttributeResponseBodyEndpoints[];
   /**
    * @remarks
-   * The expiration time. This parameter is empty when the billing method is pay-as-you-go. The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
+   * The expiration time.
+   * 
+   * This parameter is empty when the billing method is Postpaid.
+   * 
+   * The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2027-04-22T16:00:00Z
@@ -228,7 +234,9 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   latestVersion?: string;
   /**
    * @remarks
-   * The last modification time. The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
+   * The last modification time.
+   * 
+   * The time is in ISO 8601 format and the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2025-10-07T02:19:55Z
@@ -238,8 +246,8 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
    * @remarks
    * The billing method. Valid values:
    * 
-   * - **Postpaid**: pay-as-you-go.
-   * - **Prepaid**: subscription.
+   * - **Postpaid**: pay-as-you-go
+   * - **Prepaid**: subscription
    * 
    * @example
    * Postpaid
@@ -276,10 +284,15 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   securityIPArrays?: DescribeGatewayAttributeResponseBodySecurityIPArrays[];
   /**
    * @remarks
+   * Indicates whether the semantic cache is enabled. If the semantic cache is disabled or has never been enabled, the value is false.
+   */
+  semanticCacheEnabled?: boolean;
+  /**
+   * @remarks
    * The application status. Valid values:
    * 
-   * - CREATE: Creating.
-   * - ACTIVATION: Running.
+   * - CREATE: creating
+   * - ACTIVATION: running
    * 
    * @example
    * ACTIVATION
@@ -287,7 +300,7 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-*********************
@@ -319,6 +332,7 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
       requestId: 'RequestId',
       runningVersion: 'RunningVersion',
       securityIPArrays: 'SecurityIPArrays',
+      semanticCacheEnabled: 'SemanticCacheEnabled',
       status: 'Status',
       vSwitchId: 'VSwitchId',
       vpcId: 'VpcId',
@@ -343,6 +357,7 @@ export class DescribeGatewayAttributeResponseBody extends $dara.Model {
       requestId: 'string',
       runningVersion: 'string',
       securityIPArrays: { 'type': 'array', 'itemType': DescribeGatewayAttributeResponseBodySecurityIPArrays },
+      semanticCacheEnabled: 'boolean',
       status: 'string',
       vSwitchId: 'string',
       vpcId: 'string',

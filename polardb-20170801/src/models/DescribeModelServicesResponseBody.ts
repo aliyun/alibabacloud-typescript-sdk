@@ -8,12 +8,12 @@ export class DescribeModelServicesResponseBodyItems extends $dara.Model {
    * The API key of the model service.
    * 
    * @example
-   * xxxx
+   * 6c4b1f0317cd4fd7a5b446d3503d**
    */
   apiKey?: string;
   /**
    * @remarks
-   * The upstream service endpoint.
+   * The upstream service URL.
    * 
    * @example
    * https://xxxxxx
@@ -21,7 +21,7 @@ export class DescribeModelServicesResponseBodyItems extends $dara.Model {
   baseUrl?: string;
   /**
    * @remarks
-   * The creation date of the model.
+   * The creation time of the model.
    * 
    * @example
    * 2026-03-31T14:40:48Z
@@ -29,7 +29,7 @@ export class DescribeModelServicesResponseBodyItems extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The input points.
+   * The input cost in points per million.
    * 
    * @example
    * 10
@@ -45,7 +45,7 @@ export class DescribeModelServicesResponseBodyItems extends $dara.Model {
   modelCategory?: string;
   /**
    * @remarks
-   * The model service IDs.
+   * The IDs of the model services.
    * 
    * @example
    * ms-xxxxxx
@@ -61,7 +61,7 @@ export class DescribeModelServicesResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The output points.
+   * The output cost in points per million.
    * 
    * @example
    * 10
@@ -81,7 +81,7 @@ export class DescribeModelServicesResponseBodyItems extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The number of requests.
+   * The request cost in points.
    * 
    * @example
    * 10
@@ -183,7 +183,7 @@ export class DescribeModelServicesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 24A1990B-4F6E-482B-B8CB-75C612******

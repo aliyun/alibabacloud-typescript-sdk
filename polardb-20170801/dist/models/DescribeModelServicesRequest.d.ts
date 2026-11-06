@@ -20,7 +20,7 @@ export declare class DescribeModelServicesRequest extends $dara.Model {
     modelCategory?: string;
     /**
      * @remarks
-     * The model service IDs.
+     * The IDs of the model services.
      *
      * @example
      * ms-xxx,ms-xxxx

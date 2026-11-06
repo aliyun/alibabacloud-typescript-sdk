@@ -18,7 +18,7 @@ export declare class ResizeAIDBClusterModelResponseBody extends $dara.Model {
     DBClusterId?: string;
     /**
      * @remarks
-     * Indicates whether the current request performs a capacity dry run only.
+     * Indicates whether the current request only performs a capacity dry run.
      *
      * @example
      * true

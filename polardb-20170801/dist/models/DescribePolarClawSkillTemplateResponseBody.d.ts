@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribePolarClawSkillTemplateResponseBodySkillTemplates extends $dara.Model {
     /**
      * @remarks
-     * Indicates whether it is actually created.
+     * Indicates whether the template is actually created.
      *
      * @example
      * 2026-03-21 12:00:00
@@ -42,7 +42,10 @@ export declare class DescribePolarClawSkillTemplateResponseBodySkillTemplates ex
     skillTemplateName?: string;
     /**
      * @remarks
-     * The list of associated skill details.
+     * The map of associated skill details. The key is the skill identifier, and the value is a JSON string that can be parsed into an array of skill details. Each array element contains skillName and version.
+     *
+     * @example
+     * {"skill1":"[{\\"skillName\\":\\"example-skill\\",\\"version\\":\\"1.0.0\\"}]"}
      */
     skills?: {
         [key: string]: string;

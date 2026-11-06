@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDBNodesRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. The client generates this value, which must be unique for each request. The token can contain only ASCII characters and cannot exceed 64 characters in length. The token is case-sensitive.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token is case-sensitive and can be up to 64 ASCII characters in length.
    * 
    * @example
    * 6000170000591aed949d0f54a343f1a42***********
@@ -21,7 +21,7 @@ export class DeleteDBNodesRequest extends $dara.Model {
   cloudProvider?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * This parameter is required.
    * 
@@ -31,24 +31,20 @@ export class DeleteDBNodesRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The IDs of the nodes to be deleted.
-   * 
-   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/185342.html) operation to query the details of all clusters in your account, including node IDs.
+   * The ID of the node in the cluster.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/185342.html) operation to query the details of all clusters under your account, including the node IDs.
    * 
    * This parameter is required.
    * 
    * @example
-   * pi-************
+   * ["pi-************"]
    */
   DBNodeId?: string[];
   /**
    * @remarks
-   * The node type. Valid values:
-   * 
+   * The type of the node. Valid values:
    * - RO
-   * 
    * - STANDBY
-   * 
    * - DLNode
    * 
    * @example
