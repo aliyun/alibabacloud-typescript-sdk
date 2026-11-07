@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayDomainResponseBodyDataComment extends $dara.Model {
   /**
    * @remarks
-   * The route status.
+   * The status.
    * 
    * @example
    * Error
@@ -33,7 +33,18 @@ export class ListGatewayDomainResponseBodyDataComment extends $dara.Model {
 }
 
 export class ListGatewayDomainResponseBodyDataTlsCipherSuitesConfig extends $dara.Model {
+  /**
+   * @remarks
+   * The TLS encrypt cipher suite configuration type. DEFAULT indicates the default configurations, and CUSTOM indicates a custom configuration.
+   * 
+   * @example
+   * DEFAULT
+   */
   configType?: string;
+  /**
+   * @remarks
+   * The list of TLS cipher suite names.
+   */
   tlsCipherSuites?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -64,7 +75,7 @@ export class ListGatewayDomainResponseBodyDataTlsCipherSuitesConfig extends $dar
 export class ListGatewayDomainResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the certificate expires.
+   * **[Deprecated]** The expiration time of the certificate. Go to the domain name details page to view the information.
    * 
    * @example
    * 2031-03-30 02:35:12
@@ -80,9 +91,14 @@ export class ListGatewayDomainResponseBodyData extends $dara.Model {
   certIdentifier?: string;
   /**
    * @remarks
-   * The route comment. This parameter is returned only in ingress scenarios.
+   * The route remark (Ingress).
    */
   comment?: ListGatewayDomainResponseBodyDataComment;
+  /**
+   * @remarks
+   * Indicates whether WAF protection is enabled for the domain name.
+   */
+  enableWaf?: boolean;
   /**
    * @remarks
    * The gateway ID.
@@ -93,7 +109,7 @@ export class ListGatewayDomainResponseBodyData extends $dara.Model {
   gatewayId?: number;
   /**
    * @remarks
-   * The time when the domain name was created.
+   * The time when the domain name record was created.
    * 
    * @example
    * 2031-03-30 02:35:12
@@ -101,7 +117,7 @@ export class ListGatewayDomainResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the domain name was updated.
+   * The time when the domain name record was updated.
    * 
    * @example
    * 2031-03-30 02:35:12
@@ -109,11 +125,10 @@ export class ListGatewayDomainResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Indicates whether `HTTP/2` is enabled.
-   * 
-   * *   `open`: `HTTP/2` is enabled.
-   * *   `close`: `HTTP/2` is disabled.
-   * *   `globalConfig`: Global configurations are used.
+   * Indicates whether HTTP/2 is enabled. Valid values:
+   * - `open`: HTTP/2 is enabled.
+   * - `close`: HTTP/2 is disabled.
+   * - `globalConfig`: The global configuration is used.
    * 
    * @example
    * close
@@ -121,16 +136,20 @@ export class ListGatewayDomainResponseBodyData extends $dara.Model {
   http2?: string;
   /**
    * @remarks
-   * The ID of the domain name.
+   * The domain name ID.
    * 
    * @example
    * 243
    */
   id?: number;
+  /**
+   * @remarks
+   * Indicates whether the domain name is managed.
+   */
   isManaged?: boolean;
   /**
    * @remarks
-   * Indicates whether HTTPS is forcefully used.
+   * Indicates whether HTTPS is forced.
    * 
    * @example
    * true
@@ -154,23 +173,32 @@ export class ListGatewayDomainResponseBodyData extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The state of the domain name. Valid values:
+   * The domain name status. Valid values:
    * 
-   * *   0: unpublished
-   * *   2: publishing
-   * *   3: published
-   * *   4: editing
-   * *   5: unpublishing
-   * *   6: unavailable
+   * - 0: unpublished
+   * - 2: publishing
+   * - 3: published
+   * - 4: editing
+   * - 5: taking offline
+   * - 6: unavailable
    * 
    * @example
    * 3
    */
   status?: number;
+  /**
+   * @remarks
+   * Indicates whether the gateway supports WAF protection.
+   */
+  supportWaf?: boolean;
+  /**
+   * @remarks
+   * The TLS cipher suite configuration, including the configuration type and the list of cipher suite names.
+   */
   tlsCipherSuitesConfig?: ListGatewayDomainResponseBodyDataTlsCipherSuitesConfig;
   /**
    * @remarks
-   * The maximum version of Transport Layer Security (TLS).
+   * The maximum TLS version.
    * 
    * @example
    * TLS 1.3
@@ -178,7 +206,7 @@ export class ListGatewayDomainResponseBodyData extends $dara.Model {
   tlsMax?: string;
   /**
    * @remarks
-   * The minimum version of TLS.
+   * The minimum TLS version.
    * 
    * @example
    * TLS 1.0
@@ -186,10 +214,9 @@ export class ListGatewayDomainResponseBodyData extends $dara.Model {
   tlsMin?: string;
   /**
    * @remarks
-   * The type of the domain name source. Valid values:
-   * 
-   * *   Op: console
-   * *   Ingress: MSE Ingress
+   * The source type of the domain name. Valid values:
+   * - Op: created in the console
+   * - Ingress: created by MSE Ingress
    * 
    * @example
    * Op
@@ -200,6 +227,7 @@ export class ListGatewayDomainResponseBodyData extends $dara.Model {
       certBeforeDate: 'CertBeforeDate',
       certIdentifier: 'CertIdentifier',
       comment: 'Comment',
+      enableWaf: 'EnableWaf',
       gatewayId: 'GatewayId',
       gmtCreate: 'GmtCreate',
       gmtModified: 'GmtModified',
@@ -210,6 +238,7 @@ export class ListGatewayDomainResponseBodyData extends $dara.Model {
       name: 'Name',
       protocol: 'Protocol',
       status: 'Status',
+      supportWaf: 'SupportWaf',
       tlsCipherSuitesConfig: 'TlsCipherSuitesConfig',
       tlsMax: 'TlsMax',
       tlsMin: 'TlsMin',
@@ -222,6 +251,7 @@ export class ListGatewayDomainResponseBodyData extends $dara.Model {
       certBeforeDate: 'string',
       certIdentifier: 'string',
       comment: ListGatewayDomainResponseBodyDataComment,
+      enableWaf: 'boolean',
       gatewayId: 'number',
       gmtCreate: 'string',
       gmtModified: 'string',
@@ -232,6 +262,7 @@ export class ListGatewayDomainResponseBodyData extends $dara.Model {
       name: 'string',
       protocol: 'string',
       status: 'number',
+      supportWaf: 'boolean',
       tlsCipherSuitesConfig: ListGatewayDomainResponseBodyDataTlsCipherSuitesConfig,
       tlsMax: 'string',
       tlsMin: 'string',
@@ -257,7 +288,7 @@ export class ListGatewayDomainResponseBodyData extends $dara.Model {
 export class ListGatewayDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The return code.
    * 
    * @example
    * 200
@@ -265,12 +296,12 @@ export class ListGatewayDomainResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The details of the data.
+   * The node data.
    */
   data?: ListGatewayDomainResponseBodyData[];
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -278,7 +309,7 @@ export class ListGatewayDomainResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message.
    * 
    * @example
    * You are not authorized to perform this operation.
@@ -286,7 +317,7 @@ export class ListGatewayDomainResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3F5D8E93-CA66-57F1-8BCF-A223E11B6B91
@@ -294,10 +325,9 @@ export class ListGatewayDomainResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

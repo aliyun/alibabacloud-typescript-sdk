@@ -7,8 +7,8 @@ export class ListClusterTypesRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -18,8 +18,8 @@ export class ListClusterTypesRequest extends $dara.Model {
    * @remarks
    * The network type. Valid values:
    * 
-   * *   slb
-   * *   eni
+   * - slb
+   * - eni
    * 
    * @example
    * slb
@@ -27,10 +27,10 @@ export class ListClusterTypesRequest extends $dara.Model {
   connectType?: string;
   /**
    * @remarks
-   * The edition of the MSE instance that you want to purchase.
+   * The Microservices Engine (MSE) cluster edition to be activated. Valid values:
    * 
-   * *   mse_pro: Professional Edition
-   * *   mse_dev: Developer Edition
+   * - mse_pro: Professional Edition.
+   * - mse_dev: Developer Edition.
    * 
    * @example
    * mse_pro
@@ -38,7 +38,7 @@ export class ListClusterTypesRequest extends $dara.Model {
   mseVersion?: string;
   /**
    * @remarks
-   * The ID of the region in which the instance resides. The region is supported by Microservices Engine (MSE).
+   * The region ID of the cluster. The region must be supported by Microservices Engine (MSE).
    * 
    * @example
    * cn-hangzhou

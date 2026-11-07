@@ -32,7 +32,7 @@ export class DeleteNacosConfigResponseBody extends $dara.Model {
    * Message.
    * 
    * @example
-   * success
+   * The request is processed successfully.
    */
   message?: string;
   /**

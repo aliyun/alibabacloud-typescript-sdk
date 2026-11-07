@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -13,7 +13,7 @@ export class UpgradeClusterResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The response code returned.
+   * The HTTP status code.
    * 
    * @example
    * 202
@@ -21,18 +21,18 @@ export class UpgradeClusterResponseBody extends $dara.Model {
   httpCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
-   * *   If the request is successful, a success message is returned.
-   * *   If the request fails, an error message is returned.
+   * - If the request succeeds, a success message is returned.
+   * - If the request fails, the cause of the failure is returned.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8D855418-177B-5FF8-A021-75B930AD890A
@@ -40,10 +40,9 @@ export class UpgradeClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request succeeded. Valid values:
+   * - `true`: The request succeeded.
+   * - `false`: The request failed.
    * 
    * @example
    * true

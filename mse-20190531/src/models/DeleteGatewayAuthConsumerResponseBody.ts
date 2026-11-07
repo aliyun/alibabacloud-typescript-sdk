@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteGatewayAuthConsumerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of 200 is returned if the request is successful.
+   * The code is used only to synchronize with the success field.
    * 
    * @example
    * 200
@@ -13,10 +13,11 @@ export class DeleteGatewayAuthConsumerResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Indicates whether the execution was successful. Valid values:
+   * Indicates whether the execution is successful. Valid values:
    * 
-   * *   true: The execution was successful.
-   * *   false: The execution failed.
+   * - true: Successful.
+   * 
+   * - false: Failed.
    * 
    * @example
    * true
@@ -24,7 +25,7 @@ export class DeleteGatewayAuthConsumerResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The dynamic part in the error message.
+   * The placeholder in the dynamic error message.
    * 
    * @example
    * code
@@ -32,9 +33,8 @@ export class DeleteGatewayAuthConsumerResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the **ErrMessage** parameter.
-   * 
-   * > If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+   * The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the value of the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * The specified parameter is invalid.
@@ -42,7 +42,7 @@ export class DeleteGatewayAuthConsumerResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -58,15 +58,15 @@ export class DeleteGatewayAuthConsumerResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 69AD2AA7-DB47-449B-941B-B14409DF****
@@ -74,10 +74,9 @@ export class DeleteGatewayAuthConsumerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * The request result. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

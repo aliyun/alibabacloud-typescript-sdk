@@ -12,36 +12,57 @@ export class GatewayService extends $dara.Model {
   /**
    * @remarks
    * The unique ID of the gateway.
+   * 
+   * @example
+   * gw-913a49bab6c5461187a3305fb8da****
    */
   gatewayUniqueId?: string;
   /**
    * @remarks
    * The name of the group to which the service belongs.
+   * 
+   * @example
+   * DEFAULT_GROUP
    */
   groupName?: string;
   /**
    * @remarks
    * The ID of the service.
+   * 
+   * @example
+   * 1
    */
   id?: number;
   /**
    * @remarks
    * The metadata of the service.
+   * 
+   * @example
+   * [\\"192.168.0.xxx:80\\"]
    */
   metaInfo?: string;
   /**
    * @remarks
    * The name of the service.
+   * 
+   * @example
+   * test
    */
   name?: string;
   /**
    * @remarks
    * The namespace to which the service belongs.
+   * 
+   * @example
+   * public
    */
   namespace?: string;
   /**
    * @remarks
    * The source type of the service.
+   * 
+   * @example
+   * MSE
    */
   sourceType?: string;
   static names(): { [key: string]: string } {

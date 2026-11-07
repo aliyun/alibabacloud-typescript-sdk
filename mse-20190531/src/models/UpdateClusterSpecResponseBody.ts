@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateClusterSpecResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code returned.
+   * The response code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdateClusterSpecResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * A reserved parameter.
+   * This is a reserved field.
    * 
    * @example
    * null
@@ -21,10 +21,11 @@ export class UpdateClusterSpecResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The error code returned if the request failed. Take note of the following rules:
+   * The error code. Take note of the following items:
    * 
-   * *   The **ErrorCode** parameter is not returned if the request succeeds.
-   * *   The **ErrorCode** parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+   * - If the request is successful: The **ErrorCode** field is not returned.
+   * 
+   * - If the request fails: The **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
    * 
    * @example
    * mse-100-000
@@ -32,7 +33,7 @@ export class UpdateClusterSpecResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -40,15 +41,15 @@ export class UpdateClusterSpecResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The message.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5B170A0D-2C5D-4CF8-B808-03966B86****
@@ -58,8 +59,9 @@ export class UpdateClusterSpecResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

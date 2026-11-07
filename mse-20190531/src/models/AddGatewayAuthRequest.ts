@@ -4,16 +4,34 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddGatewayAuthRequestAuthResourceListAuthResourceHeaderList extends $dara.Model {
   /**
+   * @remarks
+   * The name of the request header.
+   * 
    * @example
    * x-req
    */
   headerKey?: string;
   /**
+   * @remarks
+   * The matching condition. Valid values:
+   * - EQUAL: equal to.
+   * - NOT_EQUAL: not equal to.
+   * - EXIST: exists.
+   * - NOT_EXIST: does not exist.
+   * - INCLUDE: includes.
+   * - EXCLUDE: excludes.
+   * - PREFIX: prefix.
+   * - SUFFIX: suffix.
+   * - REGREX: regular expression.
+   * 
    * @example
    * EQUAL
    */
   headerMethod?: string;
   /**
+   * @remarks
+   * The value of the request header.
+   * 
    * @example
    * 123
    */
@@ -44,28 +62,43 @@ export class AddGatewayAuthRequestAuthResourceListAuthResourceHeaderList extends
 }
 
 export class AddGatewayAuthRequestAuthResourceList extends $dara.Model {
+  /**
+   * @remarks
+   * The request headers of the rule. This parameter is currently only used for custom authentication.
+   */
   authResourceHeaderList?: AddGatewayAuthRequestAuthResourceListAuthResourceHeaderList[];
   /**
    * @remarks
-   * The domain ID.
+   * The ID of the domain name in the rule.
    * 
    * @example
-   * 1
+   * 1765
    */
   domainId?: number;
   /**
+   * @remarks
+   * Specifies whether the path is case-sensitive. This parameter is used when creating custom authentication. For other authentication types, case sensitivity is enabled by default. Valid values:
+   * - true: case-sensitive.
+   * - false: case-insensitive.
+   * 
    * @example
    * true
    */
   ignoreCase?: boolean;
   /**
+   * @remarks
+   * The matching type for the request path. Valid values:
+   * - EQUAL: exact match.
+   * - PRE: prefix match.
+   * - ERGULAR: regular expression match.
+   * 
    * @example
    * EQUAL
    */
   matchType?: string;
   /**
    * @remarks
-   * The request path.
+   * The matching path of the rule.
    * 
    * @example
    * /test
@@ -106,22 +139,27 @@ export class AddGatewayAuthRequestAuthResourceList extends $dara.Model {
 export class AddGatewayAuthRequestExternalAuthZJSON extends $dara.Model {
   /**
    * @remarks
-   * The header that can be carried in an authentication request.
+   * The headers allowed in the authentication request.
    */
   allowRequestHeaders?: string[];
   /**
    * @remarks
-   * The header that can be retained in an authentication response.
+   * The headers to retain in the authentication response.
    */
   allowUpstreamHeaders?: string[];
   /**
+   * @remarks
+   * The maximum number of bytes for the request body.
+   * 
    * @example
    * 4000000
    */
   bodyMaxBytes?: number;
   /**
    * @remarks
-   * Specifies whether the gateway allows a client request when the authentication server is unavailable. If a connection to the authentication server fails to be established or a 5xx error code is returned, the authentication server is unavailable.
+   * The custom authentication mode. Valid values:
+   * - true: strict mode. If the authentication service is unavailable, such as when a connection fails to be established or a 5xx error is returned, the gateway rejects the client request.
+   * - false: loose mode. If the authentication service is unavailable, such as when a connection fails to be established or a 5xx error is returned, the gateway allows the client request.
    * 
    * @example
    * true
@@ -129,7 +167,7 @@ export class AddGatewayAuthRequestExternalAuthZJSON extends $dara.Model {
   isRestrict?: boolean;
   /**
    * @remarks
-   * The path of the authentication API provided by the authentication service. The path supports the prefix match method.
+   * The path of the authentication API provided by the authentication service. The API path must match the prefix.
    * 
    * @example
    * /auth
@@ -137,30 +175,37 @@ export class AddGatewayAuthRequestExternalAuthZJSON extends $dara.Model {
   prefixPath?: string;
   /**
    * @remarks
-   * The ID of the service.
+   * The ID of the authentication service.
    * 
    * @example
-   * 1
+   * 1343
    */
   serviceId?: number;
   /**
    * @remarks
-   * The timeout period. Unit: seconds.
+   * The timeout period of the authentication service. Unit: seconds.
    * 
    * @example
-   * 100
+   * 10
    */
   timeout?: number;
   /**
    * @remarks
-   * The header that stores a token in an authentication request. In most cases, a token is stored in the Authorization or Cookie header.
+   * The header in the request message that contains the token. Common headers include Authorization and Cookie.
    * 
    * @example
    * Authorization
    */
   tokenKey?: string;
+  /**
+   * @remarks
+   * Specifies whether to rematch the route after authentication.
+   */
   withRematchRoute?: boolean;
   /**
+   * @remarks
+   * Specifies whether to include the request body.
+   * 
    * @example
    * true
    */
@@ -212,24 +257,56 @@ export class AddGatewayAuthRequestExternalAuthZJSON extends $dara.Model {
 
 export class AddGatewayAuthRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the returned result. Valid values:
+   * - zh: Chinese. This is the default value.
+   * - en: English.
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The YAML configuration for the complex mode.
+   * 
+   * @example
+   * permissions:
+   *   - not_rule:
+   *       or_rules:
+   *         rules:
+   *         - and_rules:
+   *             rules:
+   *             - url_path:
+   *                 path:
+   *                   ignore_case: false
+   *                   prefix: /version
+   *         - and_rules:
+   *             rules:
+   *             - url_path:
+   *                 path:
+   *                   ignore_case: false
+   *                   prefix: /header
+   */
   authResourceConfig?: string;
   /**
    * @remarks
-   * The information about the resource to be authorized.
+   * The list of authorization rules for authentication. Multiple rule conditions use the OR operator, and multiple matching items within a rule condition use the AND operator.
    */
   authResourceList?: AddGatewayAuthRequestAuthResourceList[];
   /**
+   * @remarks
+   * The authorization resource mode. Valid values:
+   * - 0: simple mode.
+   * - 1: complex mode.
+   * 
    * @example
    * 1
    */
   authResourceMode?: number;
   /**
    * @remarks
-   * The application ID registered with the OIDC authentication service.
+   * The application ID registered in the service. This parameter is used for OIDC and IDaaS.
    * 
    * @example
    * 23460e2fdd9bf9ad106****
@@ -237,7 +314,7 @@ export class AddGatewayAuthRequest extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * The application secret registered with the OIDC authentication service.
+   * The application secret registered in the service. This parameter is used for OIDC and IDaaS.
    * 
    * @example
    * 123****
@@ -245,7 +322,9 @@ export class AddGatewayAuthRequest extends $dara.Model {
   clientSecret?: string;
   /**
    * @remarks
-   * The domain name of the cookie. After the authentication is passed, the cookie is sent to the specified domain name to maintain the logon status. For example, if you set `Cookie-domain` to a.example.com, the cookie is sent to the domain name `a.example.com`. If you set `Cookie-domain` to .example.com, the cookie is sent to all subdomains of `example.com`.
+   * The domain name of the cookie. After authentication, the cookie is sent to the specified domain name to maintain the logon state.
+   * 
+   * For example, if you set the value to `Cookie-domain=a.example.com`, the cookie is sent to the `a.example.com` domain name. If you set the value to `Cookie-domain=.example.com`, the cookie is sent to all subdomains of `example.com`.
    * 
    * @example
    * test.com
@@ -253,7 +332,7 @@ export class AddGatewayAuthRequest extends $dara.Model {
   cookieDomain?: string;
   /**
    * @remarks
-   * The information about the custom authentication service.
+   * The custom authentication information.
    */
   externalAuthZJSON?: AddGatewayAuthRequestExternalAuthZJSON;
   /**
@@ -261,12 +340,14 @@ export class AddGatewayAuthRequest extends $dara.Model {
    * The unique ID of the gateway.
    * 
    * @example
-   * gw-492af9b04bb4474cae9d645be850e3d7
+   * gw-*****9b04bb4474cae9d645be850e3d7
    */
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the whitelist feature.
+   * The authorization blacklist and whitelist mode. Valid values:
+   * - true: whitelist mode. Hosts and paths in the list can be accessed without verification, while all others require verification.
+   * - false: blacklist mode. Hosts and paths in the list require verification, while all others can be accessed directly.
    * 
    * @example
    * true
@@ -274,15 +355,17 @@ export class AddGatewayAuthRequest extends $dara.Model {
   isWhite?: boolean;
   /**
    * @remarks
-   * The iss value of JWT claims, which indicates the issuer. You must make sure that the value of this parameter is the same as the iss value in the payload of JWT claims.
+   * Used when the authentication type is JWT or OIDC:
+   * - JWT: specifies the `iss` (issuer) claim of the JWT.
+   * - OIDC: specifies the `iss` (issuer) claim of the OIDC token.
    * 
    * @example
-   * testing@secure.istio.io
+   * https://example.com/auth
    */
   issuer?: string;
   /**
    * @remarks
-   * The JWT public key. The JSON format is supported.
+   * The JWT public key. JSON format is supported.
    * 
    * @example
    * {"keys":[{"e":"AQAB","kid":"DHFbpoIUqrY8t2zpA2qXfCmr5VO5ZEr4RzHU_-envvQ","kty":"RSA","n":"xAE7eB6qugXyCAG3yhh7pkDkT65pHymX-P7KfIupjf59vsdo91bSP9C8H07pSAGQO1MV_xFj9VswgsCg4R6otmg5PV2He95lZdHtOcU5DXIg_pbhLdKXbi66GlVeK6ABZOUW3WYtnNHD-91gVuoeJT_DwtGGcp4ignkgXfkiEm4sw-4sfb4qdt5oLbyVpmW6x9cfa7vs2WTfURiCrBoUqgBo_-4WTiULmmHSGZHOjzwa8WtrtOQGsAFjIbno85jp6MnGGGZPYZbDAa_b3y5u-YpW7ypZrvD8BgtKVjgtQgZhLAGezMt0ua3DRrWnKqTZ0BJ_EyxOGuHJrLsn00fnMQ"}]}
@@ -290,23 +373,23 @@ export class AddGatewayAuthRequest extends $dara.Model {
   jwks?: string;
   /**
    * @remarks
-   * The URL that is used to log on to the IDaaS instance.
+   * The URL of the user logon page for the IDaaS instance. This parameter is used for IDaaS.
    * 
    * @example
-   * ***
+   * https://daxxxxcn.aliyunidaas.com/
    */
   loginUrl?: string;
   /**
    * @remarks
-   * The name.
+   * The name of the authentication.
    * 
    * @example
-   * jwt
+   * test
    */
   name?: string;
   /**
    * @remarks
-   * The redirect URL.
+   * The redirect URL after successful authorization. This parameter is used for OIDC and IDaaS. The value must be the same as the redirect URL configured in OIDC or IDaaS.
    * 
    * @example
    * https://test-.com/oauth2/callback
@@ -314,20 +397,20 @@ export class AddGatewayAuthRequest extends $dara.Model {
   redirectUrl?: string;
   /**
    * @remarks
-   * The OIDC scope.
+   * The OIDC authorization scopes. This parameter is used for OIDC.
    */
   scopesList?: string[];
   /**
    * @remarks
-   * The status.
+   * An unavailable parameter. You do not need to specify this parameter. By default, authentication is disabled after it is created.
    * 
    * @example
-   * true
+   * false
    */
   status?: boolean;
   /**
    * @remarks
-   * The sub value of JWT claims, which indicates the subject. You must make sure that the value of this parameter is the same as the sub value in the payload of JWT claims. If you do not set this parameter or leave it empty, the default value, which is the value of the Issuer parameter, is used.
+   * Used when the authentication type is JWT. Specifies the `sub` (subject) claim of the JWT. Make sure that the value of the `sub` field in the JWT payload is the same as the value configured here. If this parameter is not specified or is empty, the default value is the same as the value of the Issuer parameter.
    * 
    * @example
    * testing@secure.istio.io
@@ -335,7 +418,9 @@ export class AddGatewayAuthRequest extends $dara.Model {
   sub?: string;
   /**
    * @remarks
-   * The name of the parameter that is required to verify a token. By default, a token is prefixed with Bearer and stored in the authorization header. Example: `Authorization: Bearer token`.
+   * The location where the JWT token is stored.
+   * 
+   * By default, the token to be verified is placed in the Authorization header with the Bearer prefix, such as `Authorization: Bearer token`.
    * 
    * @example
    * Authorization
@@ -343,7 +428,9 @@ export class AddGatewayAuthRequest extends $dara.Model {
   tokenName?: string;
   /**
    * @remarks
-   * The name prefix of the parameter that is required to verify a token. By default, a token is prefixed with Bearer and stored in the authorization header. Example: `Authorization: Bearer token`
+   * The prefix of the JWT token.
+   * 
+   * By default, the token to be verified is placed in the Authorization header with the Bearer prefix, such as `Authorization: Bearer token`.
    * 
    * @example
    * Bearer
@@ -351,7 +438,7 @@ export class AddGatewayAuthRequest extends $dara.Model {
   tokenNamePrefix?: string;
   /**
    * @remarks
-   * Specifies whether to enable pass-through.
+   * Specifies whether to pass through the token.
    * 
    * @example
    * true
@@ -359,7 +446,10 @@ export class AddGatewayAuthRequest extends $dara.Model {
   tokenPass?: boolean;
   /**
    * @remarks
-   * The position of the parameter that is required to verify a token. By default, a token is prefixed with Bearer and stored in the authorization header. Example: `Authorization: Bearer token`.
+   * The position of the JWT token. Valid values:
+   * - HEADER: transmitted in the HTTP header.
+   * 
+   * By default, the token to be verified is placed in the Authorization header with the Bearer prefix, such as Authorization: Bearer token.
    * 
    * @example
    * HEADER
@@ -367,7 +457,11 @@ export class AddGatewayAuthRequest extends $dara.Model {
   tokenPosition?: string;
   /**
    * @remarks
-   * The authentication type. JSON Web Token (JWT) authentication, OpenID Connect (OIDC) authentication, Identity as a Service (IDaaS) authentication, or custom authentication are supported.
+   * The authentication type. Valid values:
+   * - JWT
+   * - OIDC
+   * - IDaaS
+   * - ExternalAuthZ (custom authentication service)
    * 
    * @example
    * JWT

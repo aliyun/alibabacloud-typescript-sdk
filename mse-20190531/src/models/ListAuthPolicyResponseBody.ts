@@ -21,12 +21,12 @@ export class ListAuthPolicyResponseBodyDataResultAuthRuleMethod extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The types of request parameters.
+   * The list of request parameter types.
    */
   parameterTypes?: string[];
   /**
    * @remarks
-   * The type of the return value.
+   * The return value type.
    * 
    * @example
    * Boolean
@@ -42,7 +42,7 @@ export class ListAuthPolicyResponseBodyDataResultAuthRuleMethod extends $dara.Mo
   serviceName?: string;
   /**
    * @remarks
-   * The method version.
+   * The method version number.
    * 
    * @example
    * 0.0.1
@@ -85,15 +85,16 @@ export class ListAuthPolicyResponseBodyDataResultAuthRuleMethod extends $dara.Mo
 export class ListAuthPolicyResponseBodyDataResultAuthRule extends $dara.Model {
   /**
    * @remarks
-   * The IDs of applications.
+   * The application collection.
    */
   appIds?: string[];
   /**
    * @remarks
-   * The rule type. Valid values:
+   * The rule type.
    * 
-   * *   0: by application
-   * *   1: by namespace
+   * - 0, by application dimension.
+   * 
+   * - 1, by namespace dimension.
    * 
    * @example
    * 0
@@ -101,7 +102,7 @@ export class ListAuthPolicyResponseBodyDataResultAuthRule extends $dara.Model {
   authType?: number;
   /**
    * @remarks
-   * Indicates whether the rule is a blacklist rule.
+   * Indicates whether it is a blacklist.
    * 
    * @example
    * false
@@ -109,7 +110,7 @@ export class ListAuthPolicyResponseBodyDataResultAuthRule extends $dara.Model {
   black?: boolean;
   /**
    * @remarks
-   * The queried namespaces.
+   * The namespace list.
    */
   k8sNamespaces?: string[];
   /**
@@ -119,7 +120,7 @@ export class ListAuthPolicyResponseBodyDataResultAuthRule extends $dara.Model {
   method?: ListAuthPolicyResponseBodyDataResultAuthRuleMethod;
   /**
    * @remarks
-   * The service path.
+   * The path.
    * 
    * @example
    * /a
@@ -168,7 +169,7 @@ export class ListAuthPolicyResponseBodyDataResultAuthRule extends $dara.Model {
 export class ListAuthPolicyResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the resource belongs.
+   * The Alibaba Cloud account ID of the resource owner.
    * 
    * @example
    * 19039813784***
@@ -192,15 +193,16 @@ export class ListAuthPolicyResponseBodyDataResult extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The content of the service authentication rule.
+   * The list of service authentication rules.
    */
   authRule?: ListAuthPolicyResponseBodyDataResultAuthRule[];
   /**
    * @remarks
-   * The rule type. Valid values:
+   * The rule type.
    * 
-   * *   0: by application
-   * *   1: by namespace
+   * - 0: by application dimension.
+   * 
+   * - 1: by namespace dimension.
    * 
    * @example
    * 0
@@ -208,10 +210,11 @@ export class ListAuthPolicyResponseBodyDataResult extends $dara.Model {
   authType?: number;
   /**
    * @remarks
-   * Indicates whether the rule was enabled or disabled. Valid values:
+   * Enable or disable.
    * 
-   * *   `true`: enabled
-   * *   `false`: disabled
+   * - `true`: Enable.
+   * 
+   * - `false`: disable.
    * 
    * @example
    * false
@@ -219,7 +222,7 @@ export class ListAuthPolicyResponseBodyDataResult extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The rule ID.
+   * The ID.
    * 
    * @example
    * 204
@@ -235,7 +238,7 @@ export class ListAuthPolicyResponseBodyDataResult extends $dara.Model {
   k8sNamespace?: string;
   /**
    * @remarks
-   * The name of the authentication rule.
+   * The authentication rule name.
    * 
    * @example
    * test
@@ -251,11 +254,13 @@ export class ListAuthPolicyResponseBodyDataResult extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The protocol type. Valid values:
+   * The Protocol Type. Valid values:
    * 
-   * *   **SPRING_CLOUD**
-   * *   **DUBBO**
-   * *   **istio**
+   * - **SPRING_CLOUD**.
+   * 
+   * - **DUBBO**.
+   * 
+   * - **istio**.
    * 
    * @example
    * SPRING_CLOUD
@@ -271,7 +276,7 @@ export class ListAuthPolicyResponseBodyDataResult extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The source of the application.
+   * The application source.
    * 
    * @example
    * edasmsc
@@ -346,7 +351,7 @@ export class ListAuthPolicyResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -354,7 +359,7 @@ export class ListAuthPolicyResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   result?: ListAuthPolicyResponseBodyDataResult[];
   /**
@@ -406,7 +411,7 @@ export class ListAuthPolicyResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The details of the data.
+   * The data overview.
    */
   data?: ListAuthPolicyResponseBodyData;
   /**
@@ -420,6 +425,9 @@ export class ListAuthPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
+   * 
+   * @example
+   * The request is processed successfully.
    */
   message?: string;
   /**
@@ -432,10 +440,11 @@ export class ListAuthPolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * The request result, with the following values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * True

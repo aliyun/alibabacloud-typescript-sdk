@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMessageQueueRouteRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class UpdateMessageQueueRouteRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -25,16 +25,19 @@ export class UpdateMessageQueueRouteRequest extends $dara.Model {
    */
   appId?: string;
   /**
+   * @remarks
+   * The application name.
+   * 
    * @example
    * example-app
    */
   appName?: string;
   /**
    * @remarks
-   * Specifies whether the canary release for messaging feature is enabled for the application. Valid values:
+   * Specifies whether message canary release is enabled. Valid values:
    * 
-   * *   `true`: enabled
-   * *   `false`: disabled
+   * - `true`: Enabled.
+   * - `false`: Disabled.
    * 
    * @example
    * true
@@ -42,21 +45,28 @@ export class UpdateMessageQueueRouteRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The side for message filtering when the canary release for messaging feature is enabled.
+   * The filtering side for message canary release.
    * 
    * @example
    * Server
    */
   filterSide?: string;
+  /**
+   * @remarks
+   * The list of baseline environment labels for MSMQ grayscale rules.
+   */
   grayBaseTags?: string[];
   /**
+   * @remarks
+   * The MSE namespace name.
+   * 
    * @example
    * default
    */
   namespace?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * This parameter is required.
    * 
@@ -66,7 +76,7 @@ export class UpdateMessageQueueRouteRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The tag that is negligible for the untagged environment of the application.
+   * The ignored tags for the untagged environments of the application.
    */
   tags?: string[];
   static names(): { [key: string]: string } {

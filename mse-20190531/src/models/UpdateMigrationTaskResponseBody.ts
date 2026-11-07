@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMigrationTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The type of the instance.
+   * The type of the cluster.
    * 
-   * *   Nacos-Ans
-   * *   ZooKeeper
-   * *   Eureka
+   * - Nacos-Ans
+   * 
+   * - ZooKeeper
+   * 
+   * - Eureka
    * 
    * @example
    * Nacos-Ans
@@ -17,7 +19,7 @@ export class UpdateMigrationTaskResponseBodyData extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the migration task was created.
    * 
    * @example
    * 2022-01-07T10:07:57.000+0000
@@ -25,7 +27,7 @@ export class UpdateMigrationTaskResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time.
+   * The time when the migration task was updated.
    * 
    * @example
    * 2022-01-07T10:07:57.000+0000
@@ -33,7 +35,7 @@ export class UpdateMigrationTaskResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 1
@@ -41,7 +43,7 @@ export class UpdateMigrationTaskResponseBodyData extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The address of the source instance node.
+   * The source instance node address.
    * 
    * @example
    * 192.168.100.2:2181
@@ -65,12 +67,19 @@ export class UpdateMigrationTaskResponseBodyData extends $dara.Model {
   originInstanceNamespace?: string;
   /**
    * @remarks
-   * The description.
+   * The description of the task.
    * 
    * @example
    * 1232345
    */
   projectDesc?: string;
+  /**
+   * @remarks
+   * The synchronization type
+   * 
+   * @example
+   * All
+   */
   syncType?: string;
   /**
    * @remarks
@@ -98,7 +107,7 @@ export class UpdateMigrationTaskResponseBodyData extends $dara.Model {
   targetInstanceId?: string;
   /**
    * @remarks
-   * The ID of the user.
+   * The user ID.
    * 
    * @example
    * 183876217*****
@@ -157,7 +166,7 @@ export class UpdateMigrationTaskResponseBody extends $dara.Model {
   data?: UpdateMigrationTaskResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -165,7 +174,7 @@ export class UpdateMigrationTaskResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -173,15 +182,15 @@ export class UpdateMigrationTaskResponseBody extends $dara.Model {
   httpCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * The message.
    * 
    * @example
-   * The request was successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AF21683A-29C7-4853-AC0F-B5ADEE4****
@@ -191,8 +200,9 @@ export class UpdateMigrationTaskResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

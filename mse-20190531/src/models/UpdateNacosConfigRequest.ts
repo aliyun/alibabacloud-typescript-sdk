@@ -35,7 +35,7 @@ export class UpdateNacosConfigRequest extends $dara.Model {
    * The content of the configuration.
    * 
    * @example
-   * attribute1=1221111\\r\\nattribute2=Chinese\\r\\nattribute3=abc11\\r\\nattribute4=1.00111
+   * test
    */
   content?: string;
   /**
@@ -53,7 +53,7 @@ export class UpdateNacosConfigRequest extends $dara.Model {
    * The description of the configuration.
    * 
    * @example
-   * Basic configurations
+   * Base configuration
    */
   desc?: string;
   /**

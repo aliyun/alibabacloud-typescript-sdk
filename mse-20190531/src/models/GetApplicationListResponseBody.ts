@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetApplicationListResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * hkhon1po62@5f1b08becb*****
@@ -13,7 +13,7 @@ export class GetApplicationListResponseBodyDataResult extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * finance
@@ -29,7 +29,7 @@ export class GetApplicationListResponseBodyDataResult extends $dara.Model {
   extraInfo?: string;
   /**
    * @remarks
-   * The number of instances.
+   * The total number of instances.
    * 
    * @example
    * 1
@@ -75,6 +75,13 @@ export class GetApplicationListResponseBodyDataResult extends $dara.Model {
    * 0
    */
   status?: number;
+  /**
+   * @remarks
+   * The Alibaba Cloud tags.
+   * 
+   * @example
+   * {"tagKey1":"tagValue1","tagKey2":"tagValue2"}
+   */
   tags?: { [key: string]: any };
   /**
    * @remarks
@@ -131,7 +138,7 @@ export class GetApplicationListResponseBodyDataResult extends $dara.Model {
 export class GetApplicationListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -139,7 +146,7 @@ export class GetApplicationListResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -147,12 +154,12 @@ export class GetApplicationListResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The data returned.
+   * The information about the applications.
    */
   result?: GetApplicationListResponseBodyDataResult[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 11
@@ -191,20 +198,20 @@ export class GetApplicationListResponseBodyData extends $dara.Model {
 export class GetApplicationListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the data.
+   * The data structure.
    */
   data?: GetApplicationListResponseBodyData;
   /**
    * @remarks
-   * The message returned.
+   * The message.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F55E608F-7C15-****-9CFD-DF832EBC4A0F
@@ -214,8 +221,9 @@ export class GetApplicationListResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

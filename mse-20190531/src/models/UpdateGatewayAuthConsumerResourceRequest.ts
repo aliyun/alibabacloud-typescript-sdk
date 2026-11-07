@@ -13,7 +13,7 @@ export class UpdateGatewayAuthConsumerResourceRequestResourceList extends $dara.
   routeId?: number;
   /**
    * @remarks
-   * The name of the route.
+   * The route name.
    * 
    * @example
    * helo
@@ -45,10 +45,10 @@ export class UpdateGatewayAuthConsumerResourceRequestResourceList extends $dara.
 export class UpdateGatewayAuthConsumerResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -56,7 +56,7 @@ export class UpdateGatewayAuthConsumerResourceRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The gateway authentication consumer ID.
+   * The ID of the gateway authentication consumer.
    * 
    * This parameter is required.
    * 
@@ -66,7 +66,7 @@ export class UpdateGatewayAuthConsumerResourceRequest extends $dara.Model {
   consumerId?: number;
   /**
    * @remarks
-   * The unique ID of the gateway.
+   * UpdateGatewayAuthConsumerResource
    * 
    * This parameter is required.
    * 
@@ -76,7 +76,7 @@ export class UpdateGatewayAuthConsumerResourceRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The gateway authentication consumer ID.
+   * The list of resources.
    */
   resourceList?: UpdateGatewayAuthConsumerResourceRequestResourceList[];
   static names(): { [key: string]: string } {

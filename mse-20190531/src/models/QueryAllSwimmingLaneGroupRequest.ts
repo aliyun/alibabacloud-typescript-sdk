@@ -7,8 +7,9 @@ export class QueryAllSwimmingLaneGroupRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
@@ -16,7 +17,7 @@ export class QueryAllSwimmingLaneGroupRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The name of the Microservices Engine (MSE) namespace that you want to query.
+   * The name of the MSE namespace to query.
    * 
    * @example
    * default

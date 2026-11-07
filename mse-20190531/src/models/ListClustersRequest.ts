@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClustersRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class ListClustersRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * prd
@@ -47,8 +47,8 @@ export class ListClustersRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -56,16 +56,23 @@ export class ListClustersRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The alias of the instance. Fuzzy match is supported.
+   * The name of the cluster. Fuzzy match is supported.
    * 
    * @example
    * cluster
    */
   clusterAliasName?: string;
+  /**
+   * @remarks
+   * The key ID. If the cluster is a Nacos cluster, this parameter is used to query instances bound to the specified key ID.
+   * 
+   * @example
+   * key-hzz67774641bsp21vhj4h
+   */
   keyId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -75,7 +82,7 @@ export class ListClustersRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of clusters to return on each page.
    * 
    * This parameter is required.
    * 
@@ -85,7 +92,7 @@ export class ListClustersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region in which the instance resides. The region is supported by MSE.
+   * The region ID of the cluster. The region must be supported by Microservices Engine (MSE).
    * 
    * This parameter is required.
    * 
@@ -95,7 +102,7 @@ export class ListClustersRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The extended request parameters in the JSON format.
+   * The extended request parameters in JSON format.
    * 
    * @example
    * {}
@@ -103,7 +110,7 @@ export class ListClustersRequest extends $dara.Model {
   requestPars?: string;
   /**
    * @remarks
-   * The ID of the resource group. For more information about resource groups, see the topic "View basic information of a resource group."
+   * The ID of the resource group. For more information, see View basic information of a resource group.
    * 
    * @example
    * rg-acfmxbzafebvvfa
@@ -111,9 +118,16 @@ export class ListClustersRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The list of tags. A maximum number of 20 tags are supported.
+   * The list of tags. A maximum of 20 tags can be specified.
    */
   tag?: ListClustersRequestTag[];
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-bp1t50e045b5g7i3p****
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {

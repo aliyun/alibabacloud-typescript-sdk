@@ -3,15 +3,79 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesDubboArgumentItems extends $dara.Model {
+  /**
+   * @remarks
+   * The comparison operator. Valid values: >=, <=, >, <, and ==.
+   * 
+   * @example
+   * ==
+   */
   cond?: string;
+  /**
+   * @remarks
+   * The value to be compared for operators such as rawvalue.
+   * 
+   * @example
+   * 30
+   */
   datum?: string;
+  /**
+   * @remarks
+   * The field required for the mod operator, which is the divisor.
+   * 
+   * @example
+   * 30
+   */
   divisor?: number;
+  /**
+   * @remarks
+   * The expression. For more information, see the descriptions of other fields.
+   */
   expr?: string;
+  /**
+   * @remarks
+   * The parameter position, starting from 0.
+   * 
+   * @example
+   * 0
+   */
   index?: number;
+  /**
+   * @remarks
+   * The list of names.
+   */
   nameList?: string[];
+  /**
+   * @remarks
+   * The operator. A value of rawvalue indicates direct comparison, mode indicates modulo operation, and list indicates a whitelist.
+   * 
+   * @example
+   * rawvalue
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The proportion rule, where 20% of traffic is routed to the node corresponding to this tag.
+   * 
+   * @example
+   * 10
+   */
   rate?: number;
+  /**
+   * @remarks
+   * The field required for the percentage operation, which is the percentage value.
+   * 
+   * @example
+   * 30
+   */
   remainder?: number;
+  /**
+   * @remarks
+   * The value used for comparison. The value obtained from the expression is compared with this value. If the operator is a list whitelist, separate multiple values with commas (,), such as 1,2,3.
+   * 
+   * @example
+   * 1,2,3
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -56,15 +120,76 @@ export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesDu
 }
 
 export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesDubbo extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * @example
+   * ***@***
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The list of parameter arguments.
+   */
   argumentItems?: ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesDubboArgumentItems[];
+  /**
+   * @remarks
+   * The logical relationship among the following items. Valid values: AND and OR.
+   * 
+   * @example
+   * AND
+   */
   condition?: string;
+  /**
+   * @remarks
+   * The Dubbo service group.
+   * 
+   * @example
+   * default
+   */
   group?: string;
+  /**
+   * @remarks
+   * The Dubbo service method name.
+   * 
+   * @example
+   * hello
+   */
   methodName?: string;
+  /**
+   * @remarks
+   * The list of parameter types.
+   */
   paramTypes?: string[];
+  /**
+   * @remarks
+   * The service name (interface).
+   * 
+   * @example
+   * HelloService
+   */
   serviceName?: string;
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tags?: string[];
+  /**
+   * @remarks
+   * The policy type.
+   * 
+   * @example
+   * CONTENT
+   */
   triggerPolicy?: string;
+  /**
+   * @remarks
+   * The Dubbo service version.
+   * 
+   * @example
+   * 1.0.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {
@@ -115,15 +240,82 @@ export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesDu
 }
 
 export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesSpringcloudRestItems extends $dara.Model {
+  /**
+   * @remarks
+   * The comparison operator. Valid values: >=, <=, >, <, and ==.
+   * 
+   * @example
+   * ==
+   */
   cond?: string;
+  /**
+   * @remarks
+   * The value to be compared for operators such as rawvalue.
+   * 
+   * @example
+   * 10
+   */
   datum?: string;
+  /**
+   * @remarks
+   * The field required for the mod operator, which is the divisor.
+   * 
+   * @example
+   * 30
+   */
   divisor?: number;
+  /**
+   * @remarks
+   * The name.
+   * 
+   * @example
+   * key
+   */
   name?: string;
+  /**
+   * @remarks
+   * The field required for the list operator.
+   */
   nameList?: string[];
+  /**
+   * @remarks
+   * The operator. A value of rawvalue indicates direct comparison, mode indicates modulo operation, and list indicates a whitelist.
+   * 
+   * @example
+   * rawvalue
+   */
   operator?: string;
+  /**
+   * @remarks
+   * The proportion rule, where 20% of traffic is routed to the node corresponding to this tag.
+   * 
+   * @example
+   * 20
+   */
   rate?: number;
+  /**
+   * @remarks
+   * The field required for the percentage operation, which is the percentage value.
+   * 
+   * @example
+   * 30
+   */
   remainder?: number;
+  /**
+   * @remarks
+   * The type.
+   * 
+   * @example
+   * test
+   */
   type?: string;
+  /**
+   * @remarks
+   * The value.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -168,14 +360,65 @@ export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesSp
 }
 
 export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesSpringcloud extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the application.
+   * 
+   * @example
+   * ***@***
+   */
   appId?: string;
+  /**
+   * @remarks
+   * The logical relationship among the following items. Valid values: AND and OR.
+   * 
+   * @example
+   * AND
+   */
   condition?: string;
+  /**
+   * @remarks
+   * Specifies whether the feature is enabled.
+   */
   enable?: boolean;
+  /**
+   * @remarks
+   * The path.
+   * 
+   * @example
+   * /hello
+   */
   path?: string;
+  /**
+   * @remarks
+   * The list of paths.
+   */
   paths?: string[];
+  /**
+   * @remarks
+   * The priority.
+   * 
+   * @example
+   * 1
+   */
   priority?: number;
+  /**
+   * @remarks
+   * The list of matching conditions for REST requests.
+   */
   restItems?: ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesSpringcloudRestItems[];
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tags?: string[];
+  /**
+   * @remarks
+   * The policy type.
+   * 
+   * @example
+   * CONTENT
+   */
   triggerPolicy?: string;
   static names(): { [key: string]: string } {
     return {
@@ -224,7 +467,15 @@ export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesSp
 }
 
 export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRules extends $dara.Model {
+  /**
+   * @remarks
+   * The Dubbo rule.
+   */
   dubbo?: ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesDubbo[];
+  /**
+   * @remarks
+   * The Spring Cloud rule.
+   */
   springcloud?: ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRulesSpringcloud[];
   static names(): { [key: string]: string } {
     return {
@@ -258,10 +509,10 @@ export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRulesRules e
 export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRules extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the alert rule is enabled. Valid values:
+   * The enabling status of the alert rule. Valid values:
    * 
-   * *   `true`
-   * *   `false`
+   * - `true`: Enabled.
+   * - `false`: Disabled.
    * 
    * @example
    * true
@@ -293,7 +544,7 @@ export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRules extend
   name?: string;
   /**
    * @remarks
-   * The rate.
+   * The proportion.
    * 
    * @example
    * 10
@@ -301,7 +552,7 @@ export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRules extend
   rate?: number;
   /**
    * @remarks
-   * The details of the routing rule.
+   * The applicable routes of the rule.
    * 
    * @example
    * {
@@ -379,7 +630,7 @@ export class ListApplicationsWithTagRulesResponseBodyDataResultRouteRules extend
 export class ListApplicationsWithTagRulesResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The ID of the application.
    * 
    * @example
    * daqijp6c31@xxx
@@ -403,15 +654,16 @@ export class ListApplicationsWithTagRulesResponseBodyDataResult extends $dara.Mo
   namespace?: string;
   /**
    * @remarks
-   * The queried rules.
+   * The list of rules.
    */
   routeRules?: ListApplicationsWithTagRulesResponseBodyDataResultRouteRules[];
   /**
    * @remarks
-   * The route state. Valid values:
+   * The routing status. Valid values:
    * 
-   * *   0: disabled
-   * *   1: enabled
+   * - 0: Disabled.
+   * 
+   * - 1: Enabled.
    * 
    * @example
    * 1
@@ -452,7 +704,7 @@ export class ListApplicationsWithTagRulesResponseBodyDataResult extends $dara.Mo
 export class ListApplicationsWithTagRulesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -460,7 +712,7 @@ export class ListApplicationsWithTagRulesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -468,12 +720,12 @@ export class ListApplicationsWithTagRulesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The returned data.
+   * The data structure.
    */
   result?: ListApplicationsWithTagRulesResponseBodyDataResult[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -512,12 +764,12 @@ export class ListApplicationsWithTagRulesResponseBodyData extends $dara.Model {
 export class ListApplicationsWithTagRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The data overview.
    */
   data?: ListApplicationsWithTagRulesResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -527,8 +779,8 @@ export class ListApplicationsWithTagRulesResponseBody extends $dara.Model {
    * @remarks
    * The returned message.
    * 
-   * *   If the request is successful, a success message is returned.
-   * *   If the request fails, an error message is returned.
+   * - If the request is successful, a success message is returned.
+   * - If the request fails, the cause of the failure is returned.
    * 
    * @example
    * success
@@ -536,7 +788,7 @@ export class ListApplicationsWithTagRulesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7466566F-F30F-4A29-965D-3E0AF21D****
@@ -544,10 +796,10 @@ export class ListApplicationsWithTagRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

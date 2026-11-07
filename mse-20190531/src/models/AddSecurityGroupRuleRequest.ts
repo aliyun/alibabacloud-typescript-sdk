@@ -7,8 +7,8 @@ export class AddSecurityGroupRuleRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -34,7 +34,7 @@ export class AddSecurityGroupRuleRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The range of port numbers.
+   * The port range.
    * 
    * This parameter is required.
    * 

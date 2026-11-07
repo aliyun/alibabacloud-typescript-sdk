@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayResponseBodyDataElasticPolicyTimePolicyList extends $dara.Model {
   /**
    * @remarks
-   * The number of expected replicas.
+   * The expected number of replicas.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class GetGatewayResponseBodyDataElasticPolicyTimePolicyList extends $dara
   desiredReplica?: number;
   /**
    * @remarks
-   * The end time of auto scale-out.
+   * The end time in the HH:mm format (24-hour clock).
    * 
    * @example
    * 18:00
@@ -21,7 +21,7 @@ export class GetGatewayResponseBodyDataElasticPolicyTimePolicyList extends $dara
   endTime?: string;
   /**
    * @remarks
-   * The start time of auto scale-out.
+   * The start time in the HH:mm format (24-hour clock).
    * 
    * @example
    * 16:00
@@ -55,9 +55,9 @@ export class GetGatewayResponseBodyDataElasticPolicyTimePolicyList extends $dara
 export class GetGatewayResponseBodyDataElasticPolicy extends $dara.Model {
   /**
    * @remarks
-   * The type of auto scale-out. Valid value:
+   * The auto-scaling type. Valid values:
    * 
-   * *   CronHPA: scale-out by time
+   * - CronHPA: Time-based scaling.
    * 
    * @example
    * CronHPA
@@ -65,7 +65,7 @@ export class GetGatewayResponseBodyDataElasticPolicy extends $dara.Model {
   elasticType?: string;
   /**
    * @remarks
-   * The maximum number of instances that are automatically scaled out. This parameter is used for horizontal scale-out.
+   * The maximum number of instances for auto-scaling, which is used for horizontal scaling.
    * 
    * @example
    * 5
@@ -73,7 +73,7 @@ export class GetGatewayResponseBodyDataElasticPolicy extends $dara.Model {
   maxReplica?: number;
   /**
    * @remarks
-   * The policy of scale-out by time.
+   * The time-based scaling policy.
    */
   timePolicyList?: GetGatewayResponseBodyDataElasticPolicyTimePolicyList[];
   static names(): { [key: string]: string } {
@@ -107,7 +107,7 @@ export class GetGatewayResponseBodyDataElasticPolicy extends $dara.Model {
 export class GetGatewayResponseBodyDataLogConfigDetails extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether Log Service is activated.
+   * Specifies whether log delivery is enabled.
    * 
    * @example
    * true
@@ -115,7 +115,7 @@ export class GetGatewayResponseBodyDataLogConfigDetails extends $dara.Model {
   logEnabled?: boolean;
   /**
    * @remarks
-   * The name of the Logstore.
+   * The Logstore name.
    * 
    * @example
    * mse_access_log
@@ -123,7 +123,7 @@ export class GetGatewayResponseBodyDataLogConfigDetails extends $dara.Model {
   logStoreName?: string;
   /**
    * @remarks
-   * The name of the project.
+   * The project name.
    * 
    * @example
    * k8s-log-c173117256e934a96b7fefdf2ef8a8057
@@ -157,7 +157,7 @@ export class GetGatewayResponseBodyDataLogConfigDetails extends $dara.Model {
 export class GetGatewayResponseBodyDataXtraceDetails extends $dara.Model {
   /**
    * @remarks
-   * The sampling rate of Tracing Analysis.
+   * The XTrace sampling rate.
    * 
    * @example
    * 10
@@ -165,7 +165,7 @@ export class GetGatewayResponseBodyDataXtraceDetails extends $dara.Model {
   sample?: number;
   /**
    * @remarks
-   * Indicates whether sampling by using Tracing Analysis is enabled.
+   * Specifies whether XTrace sampling is enabled.
    * 
    * @example
    * true
@@ -197,7 +197,7 @@ export class GetGatewayResponseBodyDataXtraceDetails extends $dara.Model {
 export class GetGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The billing method, such as subscription or pay-as-you-go.
+   * The billing method. Valid values: subscription and pay-as-you-go.
    * 
    * @example
    * POSTPAY
@@ -205,7 +205,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * Indicates whether auto scale-out is enabled.
+   * Specifies whether auto-scaling is enabled.
    * 
    * @example
    * true
@@ -213,12 +213,12 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   elastic?: boolean;
   /**
    * @remarks
-   * The auto scale-out policy.
+   * The auto-scaling policy.
    */
   elasticPolicy?: GetGatewayResponseBodyDataElasticPolicy;
   /**
    * @remarks
-   * The number of replicas that are automatically scaled out.
+   * The number of auto-scaling replicas.
    * 
    * @example
    * 1
@@ -226,9 +226,9 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   elasticReplica?: number;
   /**
    * @remarks
-   * The type of auto scale-out. Valid value:
+   * The auto-scaling type. Valid values:
    * 
-   * *   CronHPA: scale-out by time
+   * * CronHPA: Time-based scaling.
    * 
    * @example
    * CronHPA
@@ -236,7 +236,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   elasticType?: string;
   /**
    * @remarks
-   * The time when the gateway expires.
+   * The expiration time of the gateway.
    * 
    * @example
    * 2021-08-01 00:00:00
@@ -252,7 +252,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The time when the gateway was created. The time is displayed in GMT. The time is the local time of the region in which the gateway resides.
+   * The time when the gateway was created. The time is in GMT and represents the local time of the user.
    * 
    * @example
    * 2022-01-07T10:07:57.000+0000
@@ -260,7 +260,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the gateway was last modified.
+   * The time when the instance was last updated.
    * 
    * @example
    * 2022-01-07T10:07:57.000+0000
@@ -268,7 +268,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the gateway.
+   * The gateway ID.
    * 
    * @example
    * 12
@@ -276,7 +276,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * mse-cn-st21ri2****
@@ -289,7 +289,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   logConfigDetails?: GetGatewayResponseBodyDataLogConfigDetails;
   /**
    * @remarks
-   * The tag of the resource.
+   * The resource tags.
    * 
    * @example
    * {"TagKey":"TagValue"}
@@ -297,7 +297,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   mseTag?: string;
   /**
    * @remarks
-   * The name of the gateway.
+   * The gateway name.
    * 
    * @example
    * DEFAULT
@@ -305,7 +305,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the user who created the gateway.
+   * The ID of the primary user who created the gateway.
    * 
    * @example
    * 1231254
@@ -313,7 +313,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   primaryUser?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * @example
    * cn-hangzhou
@@ -324,12 +324,12 @@ export class GetGatewayResponseBodyData extends $dara.Model {
    * The number of gateway replicas.
    * 
    * @example
-   * 2
+   * 1
    */
   replica?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfm34x43l*****
@@ -337,7 +337,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group.
    * 
    * @example
    * sg-bp11ufzqn6mmb8dtzz82
@@ -345,7 +345,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   securityGroup?: string;
   /**
    * @remarks
-   * The specifications of the gateway.
+   * The gateway specifications.
    * 
    * @example
    * MSE_GTW_16_32_200_c
@@ -353,19 +353,18 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   spec?: string;
   /**
    * @remarks
-   * The status of the gateway. Valid values:
-   * 
-   * *   0: The gateway is being created.
-   * *   1: The gateway fails to be created.
-   * *   2: The gateway is running.
-   * *   3: The gateway is changing.
-   * *   4: The gateway is scaling in.
-   * *   6: The gateway is scaling out.
-   * *   8: The gateway is being deleted.
-   * *   10: The gateway is restarting.
-   * *   11: The gateway is being rebuilt.
-   * *   12: The gateway is updating.
-   * *   13: The gateway fails to be updated.
+   * The result status of the data integration synchronization node. Valid values:
+   * * 0: Creating.
+   * * 1: Creation failed.
+   * * 2: Running.
+   * * 3: Modifying.
+   * * 4: Scaling in.
+   * * 6: Scaling out.
+   * * 8: delete.
+   * * 10: Restarting.
+   * * 11: Rebuilding.
+   * * 12: Upgrading.
+   * * 13: Upgrade failed.
    * 
    * @example
    * 0
@@ -373,7 +372,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The description of the status.
+   * The status description.
    * 
    * @example
    * Restarting
@@ -381,7 +380,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   statusDesc?: string;
   /**
    * @remarks
-   * The total number of replicas, including the number of replicas that are automatically scaled out.
+   * The total number of replicas, including auto-scaling replicas.
    * 
    * @example
    * 3
@@ -389,7 +388,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   totalReplica?: number;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC ID.
    * 
    * @example
    * vpc-bp1328cm01m6uel42b5zb
@@ -397,7 +396,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   vpc?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch.
    * 
    * @example
    * vsw-bp18zeqxx6mpuq843z4n5
@@ -405,7 +404,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   vswitch?: string;
   /**
    * @remarks
-   * The ID of the secondary vSwitch.
+   * The secondary vSwitch.
    * 
    * @example
    * vpc-bp1j6ivhav15ve7q54kq2
@@ -413,7 +412,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
   vswitch2?: string;
   /**
    * @remarks
-   * The details of Tracing Analysis.
+   * The XTrace details.
    */
   xtraceDetails?: GetGatewayResponseBodyDataXtraceDetails;
   static names(): { [key: string]: string } {
@@ -501,7 +500,7 @@ export class GetGatewayResponseBodyData extends $dara.Model {
 export class GetGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned. A value of 200 indicates that the request is successful.
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -509,12 +508,12 @@ export class GetGatewayResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The information about the gateway.
+   * The gateway information.
    */
   data?: GetGatewayResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -522,15 +521,15 @@ export class GetGatewayResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The message that indicates whether the request is successful.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9C96CDF8-9E6C-5AB6-B83C-8F87A10117E6
@@ -538,10 +537,9 @@ export class GetGatewayResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class QueryClusterDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * The language of the returned information. Valid values:
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +15,7 @@ export class QueryClusterDetailRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to query access control lists (ACLs).
+   * Specifies whether to query the access control list (ACL).
    * 
    * @example
    * false
@@ -24,7 +23,7 @@ export class QueryClusterDetailRequest extends $dara.Model {
   aclSwitch?: boolean;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * mse-cn-st21ri2****
@@ -32,7 +31,7 @@ export class QueryClusterDetailRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 20576750143****

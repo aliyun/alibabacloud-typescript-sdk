@@ -7,8 +7,9 @@ export class QueryConfigRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
@@ -24,7 +25,7 @@ export class QueryConfigRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * A reserved field.
    * 
    * @example
    * null
@@ -40,7 +41,7 @@ export class QueryConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Specifies whether runtime configurations are required.
+   * Specifies whether to query the runtime configuration.
    * 
    * @example
    * true

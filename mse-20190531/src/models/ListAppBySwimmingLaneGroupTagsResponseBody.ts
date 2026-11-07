@@ -6,7 +6,7 @@ import { DataValue } from "./DataValue";
 export class ListAppBySwimmingLaneGroupTagsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The data returned in the response.
    */
   data?: { [key: string]: DataValue[] };
   /**
@@ -19,7 +19,7 @@ export class ListAppBySwimmingLaneGroupTagsResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The additional request information.
+   * The additional information about the request.
    * 
    * @example
    * OK
@@ -27,7 +27,7 @@ export class ListAppBySwimmingLaneGroupTagsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6832e76b-bb5f-4dea-****-************
@@ -35,7 +35,7 @@ export class ListAppBySwimmingLaneGroupTagsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

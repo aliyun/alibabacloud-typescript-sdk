@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class QueryInstancesInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class QueryInstancesInfoRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * mse-09k1q11****
@@ -24,7 +24,7 @@ export class QueryInstancesInfoRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * mse_prepaid_public_cn-tl32g1u9k01
@@ -32,7 +32,7 @@ export class QueryInstancesInfoRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 20574710974****
@@ -40,7 +40,7 @@ export class QueryInstancesInfoRequest extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the region where the instance resides.
+   * The region ID of the instance.
    * 
    * @example
    * cn-hangzhou
@@ -48,7 +48,7 @@ export class QueryInstancesInfoRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The extended request parameters in the JSON format.
+   * The extended request parameters in JSON format.
    * 
    * @example
    * {}

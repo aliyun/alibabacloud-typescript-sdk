@@ -45,7 +45,7 @@ export class QueryNamespaceResponseBodyData extends $dara.Model {
 export class QueryNamespaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The data that is returned.
    */
   data?: QueryNamespaceResponseBodyData[];
   /**
@@ -56,13 +56,26 @@ export class QueryNamespaceResponseBody extends $dara.Model {
    * Success
    */
   errorCode?: string;
+  /**
+   * @remarks
+   * The error message returned.
+   * 
+   * @example
+   * The request is processed successfully.
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * abcde-fg
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful.
+   * 
    * @example
    * true
    */

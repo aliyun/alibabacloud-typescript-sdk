@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewayRouteRequestDirectResponseJSON extends $dara.Model {
   /**
    * @remarks
-   * The mock return value.
+   * The mock response body.
    * 
    * @example
    * hello
@@ -13,7 +13,7 @@ export class AddGatewayRouteRequestDirectResponseJSON extends $dara.Model {
   body?: string;
   /**
    * @remarks
-   * The mock return code.
+   * The mock response code.
    * 
    * @example
    * 403
@@ -45,7 +45,7 @@ export class AddGatewayRouteRequestDirectResponseJSON extends $dara.Model {
 export class AddGatewayRouteRequestFallbackServices extends $dara.Model {
   /**
    * @remarks
-   * The type of the protocol.
+   * The protocol type.
    * 
    * @example
    * DUBBO
@@ -53,7 +53,7 @@ export class AddGatewayRouteRequestFallbackServices extends $dara.Model {
   agreementType?: string;
   /**
    * @remarks
-   * The name of the group to which the service belongs.
+   * The service group name.
    * 
    * @example
    * test
@@ -69,7 +69,7 @@ export class AddGatewayRouteRequestFallbackServices extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The namespace to which the service belongs.
+   * The namespace where the service resides.
    * 
    * @example
    * default
@@ -77,7 +77,7 @@ export class AddGatewayRouteRequestFallbackServices extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The weight in the form of a percentage value.
+   * The weight percentage.
    * 
    * @example
    * 80
@@ -85,7 +85,7 @@ export class AddGatewayRouteRequestFallbackServices extends $dara.Model {
   percent?: number;
   /**
    * @remarks
-   * The ID of the service.
+   * The service ID.
    * 
    * @example
    * 353
@@ -93,7 +93,7 @@ export class AddGatewayRouteRequestFallbackServices extends $dara.Model {
   serviceId?: number;
   /**
    * @remarks
-   * The service port number.
+   * The service port.
    * 
    * @example
    * 443
@@ -109,7 +109,7 @@ export class AddGatewayRouteRequestFallbackServices extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The version of the service.
+   * The service version.
    * 
    * @example
    * v1
@@ -155,7 +155,7 @@ export class AddGatewayRouteRequestFallbackServices extends $dara.Model {
 export class AddGatewayRouteRequestPredicatesHeaderPredicates extends $dara.Model {
   /**
    * @remarks
-   * The key of the request header.
+   * The request header key.
    * 
    * @example
    * debug
@@ -171,7 +171,7 @@ export class AddGatewayRouteRequestPredicatesHeaderPredicates extends $dara.Mode
   type?: string;
   /**
    * @remarks
-   * The value of the request header.
+   * The corresponding value.
    * 
    * @example
    * test
@@ -205,7 +205,7 @@ export class AddGatewayRouteRequestPredicatesHeaderPredicates extends $dara.Mode
 export class AddGatewayRouteRequestPredicatesPathPredicates extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to ignore case sensitivity.
+   * Specifies whether to ignore case.
    * 
    * @example
    * true
@@ -222,10 +222,9 @@ export class AddGatewayRouteRequestPredicatesPathPredicates extends $dara.Model 
   /**
    * @remarks
    * The route matching type. Valid values:
-   * 
-   * *   PRE: prefix matching
-   * *   EQUAL: exact matching
-   * *   ERGULAR: regular expression matching
+   * - PRE: prefix match
+   * - EQUAL: exact match
+   * - ERGULAR: regular expression match
    * 
    * @example
    * PRE
@@ -259,7 +258,7 @@ export class AddGatewayRouteRequestPredicatesPathPredicates extends $dara.Model 
 export class AddGatewayRouteRequestPredicatesQueryPredicates extends $dara.Model {
   /**
    * @remarks
-   * The name of the parameter.
+   * The parameter name.
    * 
    * @example
    * userid
@@ -275,7 +274,7 @@ export class AddGatewayRouteRequestPredicatesQueryPredicates extends $dara.Model
   type?: string;
   /**
    * @remarks
-   * The value of the parameter.
+   * The matching value.
    * 
    * @example
    * test
@@ -309,22 +308,22 @@ export class AddGatewayRouteRequestPredicatesQueryPredicates extends $dara.Model
 export class AddGatewayRouteRequestPredicates extends $dara.Model {
   /**
    * @remarks
-   * The information about header matching.
+   * The request header matching rules.
    */
   headerPredicates?: AddGatewayRouteRequestPredicatesHeaderPredicates[];
   /**
    * @remarks
-   * The information about method matching.
+   * The method matching rules.
    */
   methodPredicates?: string[];
   /**
    * @remarks
-   * The information about route matching.
+   * The path matching rules.
    */
   pathPredicates?: AddGatewayRouteRequestPredicatesPathPredicates;
   /**
    * @remarks
-   * The information about URL parameter matching.
+   * The URL parameter matching rules.
    */
   queryPredicates?: AddGatewayRouteRequestPredicatesQueryPredicates[];
   static names(): { [key: string]: string } {
@@ -369,7 +368,7 @@ export class AddGatewayRouteRequestPredicates extends $dara.Model {
 export class AddGatewayRouteRequestRedirectJSON extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The response code.
    * 
    * @example
    * 302
@@ -377,7 +376,7 @@ export class AddGatewayRouteRequestRedirectJSON extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The hostname to be redirected to.
+   * The redirect hostname.
    * 
    * @example
    * test.com
@@ -385,7 +384,7 @@ export class AddGatewayRouteRequestRedirectJSON extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The path to be redirected to.
+   * The redirect path.
    * 
    * @example
    * /test
@@ -419,7 +418,7 @@ export class AddGatewayRouteRequestRedirectJSON extends $dara.Model {
 export class AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapListParamMapsList extends $dara.Model {
   /**
    * @remarks
-   * The key extracted from the input parameter.
+   * The key extracted from the input parameter location.
    * 
    * @example
    * name
@@ -427,15 +426,11 @@ export class AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapListParam
   extractKey?: string;
   /**
    * @remarks
-   * The position of the input parameter.
-   * 
-   * > Valid values:
-   * 
-   * *   `ALL_QUERY_PARAMETER`: request parameter
-   * 
-   * *   `ALL_HEADER`: request header
-   * *   `ALL_PATH`: request path
-   * *   `ALL_BODY`: request body
+   * The input parameter location. Valid values:
+   * - ALL_QUERY_PARAMETER: request parameters
+   * - ALL_HEADER: request headers
+   * - ALL_PATH: URI of the request
+   * - ALL_BODY: request body
    * 
    * @example
    * ALL_QUERY_PARAMETER
@@ -443,7 +438,7 @@ export class AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapListParam
   extractKeySpec?: string;
   /**
    * @remarks
-   * The type of the backend service parameter.
+   * The backend parameter type.
    * 
    * @example
    * java.lang.String
@@ -477,7 +472,7 @@ export class AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapListParam
 export class AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList extends $dara.Model {
   /**
    * @remarks
-   * The method name of the Dubbo service.
+   * The Dubbo method name.
    * 
    * @example
    * sayHello
@@ -485,19 +480,12 @@ export class AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList exte
   dubboMothedName?: string;
   /**
    * @remarks
-   * The HTTP method.
-   * 
-   * > Valid values:
-   * 
-   * *   ALL_GET
-   * 
-   * *   ALL_POST
-   * 
-   * *   ALL_PUT
-   * 
-   * *   ALL_DELETE
-   * 
-   * *   ALL_PATCH
+   * The HTTP method. Valid values:
+   * - ALL_GET: all GET methods
+   * - ALL_POST: all POST methods
+   * - ALL_PUT: all PUT methods
+   * - ALL_DELETE: all DELETE methods
+   * - ALL_PATCH: all PATCH methods
    * 
    * @example
    * ALL_GET
@@ -505,7 +493,7 @@ export class AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList exte
   httpMothed?: string;
   /**
    * @remarks
-   * The path used for method matching.
+   * The method matching path.
    * 
    * @example
    * /mytestzbk/sayhello
@@ -513,20 +501,15 @@ export class AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList exte
   mothedpath?: string;
   /**
    * @remarks
-   * The information about parameter mappings.
+   * The parameter mapping list.
    */
   paramMapsList?: AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapListParamMapsList[];
   /**
    * @remarks
-   * The pass-through type of the header.
-   * 
-   * > Valid values:
-   * 
-   * *   PASS_ALL: All headers are passed through.
-   * 
-   * *   PASS_NOT: All headers are not passed through.
-   * 
-   * *   PASS_ASSIGN: Specified headers are passed through.
+   * The header pass-through type. Valid values:
+   * - PASS_ALL: pass through all headers
+   * - PASS_NOT: do not pass through headers
+   * - PASS_ASSIGN: pass through specified headers
    * 
    * @example
    * PASS_NOT
@@ -534,7 +517,7 @@ export class AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList exte
   passThroughAllHeaders?: string;
   /**
    * @remarks
-   * The list of headers to be passed through.
+   * The list of specified headers to pass through.
    */
   passThroughList?: string[];
   static names(): { [key: string]: string } {
@@ -577,15 +560,15 @@ export class AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList exte
 export class AddGatewayRouteRequestServicesHttpDubboTranscoder extends $dara.Model {
   /**
    * @remarks
-   * The name of the service group.
+   * The service group.
    * 
    * @example
-   * None
+   * group
    */
   dubboServiceGroup?: string;
   /**
    * @remarks
-   * The name of the Dubbo service.
+   * The Dubbo service name.
    * 
    * @example
    * org.apache.dubbo.samples.basic.api.DemoService
@@ -593,7 +576,7 @@ export class AddGatewayRouteRequestServicesHttpDubboTranscoder extends $dara.Mod
   dubboServiceName?: string;
   /**
    * @remarks
-   * The version of the Dubbo service.
+   * The Dubbo service version.
    * 
    * @example
    * 0.0.0
@@ -601,7 +584,7 @@ export class AddGatewayRouteRequestServicesHttpDubboTranscoder extends $dara.Mod
   dubboServiceVersion?: string;
   /**
    * @remarks
-   * The forwarding rules of the Dubbo service.
+   * The list of Dubbo forwarding rules.
    */
   mothedMapList?: AddGatewayRouteRequestServicesHttpDubboTranscoderMothedMapList[];
   static names(): { [key: string]: string } {
@@ -637,7 +620,7 @@ export class AddGatewayRouteRequestServicesHttpDubboTranscoder extends $dara.Mod
 export class AddGatewayRouteRequestServices extends $dara.Model {
   /**
    * @remarks
-   * The type of the protocol.
+   * The protocol type.
    * 
    * @example
    * DUBBO
@@ -645,7 +628,7 @@ export class AddGatewayRouteRequestServices extends $dara.Model {
   agreementType?: string;
   /**
    * @remarks
-   * The name of the group to which the service belongs.
+   * The service group name.
    * 
    * @example
    * test
@@ -653,7 +636,7 @@ export class AddGatewayRouteRequestServices extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The transcoder of the Dubbo protocol.
+   * The Dubbo protocol transcoding configuration.
    */
   httpDubboTranscoder?: AddGatewayRouteRequestServicesHttpDubboTranscoder;
   /**
@@ -666,7 +649,7 @@ export class AddGatewayRouteRequestServices extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The namespace to which the service belongs.
+   * The namespace where the service resides.
    * 
    * @example
    * default
@@ -674,7 +657,7 @@ export class AddGatewayRouteRequestServices extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The weight in the form of a percentage value.
+   * The traffic distribution percentage for the current service or service version. This parameter is required only when multiple services or tag-based routing is used.
    * 
    * @example
    * 80
@@ -682,7 +665,7 @@ export class AddGatewayRouteRequestServices extends $dara.Model {
   percent?: number;
   /**
    * @remarks
-   * The ID of the service.
+   * The service ID.
    * 
    * @example
    * 353
@@ -690,7 +673,7 @@ export class AddGatewayRouteRequestServices extends $dara.Model {
   serviceId?: number;
   /**
    * @remarks
-   * The service port number.
+   * The service port.
    * 
    * @example
    * 443
@@ -706,7 +689,7 @@ export class AddGatewayRouteRequestServices extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The version of the service.
+   * The service version. This parameter is required only when tag-based routing is used.
    * 
    * @example
    * v1
@@ -757,29 +740,30 @@ export class AddGatewayRouteRequestServices extends $dara.Model {
 export class AddGatewayRouteRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * The language of the returned information. Valid values:
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The route description.
+   * 
    * @example
    * a route for xxx
    */
   description?: string;
   /**
    * @remarks
-   * The type of the destination service. Valid values:
-   * 
-   * *   Single
-   * *   Multiple
-   * *   VersionOriented
-   * *   Mock
-   * *   Redirect
+   * The destination service type. Valid values:
+   * - Single: single service
+   * - Multiple: multiple services
+   * - VersionOriented: tag-based routing
+   * - Mock: mock
+   * - Redirect: redirect
    * 
    * @example
    * Multiple
@@ -792,7 +776,7 @@ export class AddGatewayRouteRequest extends $dara.Model {
   directResponseJSON?: AddGatewayRouteRequestDirectResponseJSON;
   /**
    * @remarks
-   * The domain ID.
+   * The domain name ID.
    * 
    * @example
    * 20
@@ -800,7 +784,7 @@ export class AddGatewayRouteRequest extends $dara.Model {
   domainId?: number;
   /**
    * @remarks
-   * The domain IDs.
+   * The domain name list.
    * 
    * @example
    * [0,94]
@@ -808,7 +792,7 @@ export class AddGatewayRouteRequest extends $dara.Model {
   domainIdListJSON?: string;
   /**
    * @remarks
-   * Specifies whether to activate Web Application Firewall (WAF).
+   * **[Deprecated]** Use UpdateGatewayRouteWafStatus to update the WAF status of the route.
    * 
    * @example
    * true
@@ -818,7 +802,7 @@ export class AddGatewayRouteRequest extends $dara.Model {
   enableWaf?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the Fallback service.
+   * Specifies whether to enable the fallback service.
    * 
    * @example
    * true
@@ -826,12 +810,12 @@ export class AddGatewayRouteRequest extends $dara.Model {
   fallback?: boolean;
   /**
    * @remarks
-   * The information about the Fallback service.
+   * The fallback service.
    */
   fallbackServices?: AddGatewayRouteRequestFallbackServices[];
   /**
    * @remarks
-   * The ID of the gateway.
+   * The gateway ID.
    * 
    * @example
    * 526
@@ -847,7 +831,7 @@ export class AddGatewayRouteRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The name of the route.
+   * The route name.
    * 
    * @example
    * test
@@ -855,7 +839,7 @@ export class AddGatewayRouteRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The routing policy in a JSON string.
+   * The JSON string of the route policy.
    * 
    * @example
    * {"CORS":"{\\"allowMethods\\":\\"GET,POST,PUT,DELETE,HEAD,OPTIONS,PATCH\\",\\"allowHeaders\\":\\"*\\",\\"exposeHeaders\\":\\"*\\",\\"unitNum\\":12,\\"allowCredentials\\":true,\\"status\\":\\"off\\",\\"allowOrigins\\":\\"*\\",\\"timeUnit\\":\\"h\\"}","Timeout":"{\\"unitNum\\":10,\\"timeUnit\\":\\"s\\",\\"status\\":\\"off\\"}","Retry":"{\\"attempts\\":2,\\"retryOn\\":[\\"5xx\\"],\\"status\\":\\"off\\"}","HTTPRewrite":"{\\"pathType\\":\\"EQUAL\\",\\"path\\":\\"/o\\",\\"status\\":\\"off\\"}","Waf":"{\\"enabled\\":false}","HeaderOp":"{\\"status\\":\\"off\\",\\"headerOpItems\\":[{\\"directionType\\":\\"Request\\",\\"opType\\":\\"Add\\",\\"key\\":\\"kkk\\",\\"value\\":\\"ll\\"}]}"}
@@ -863,17 +847,17 @@ export class AddGatewayRouteRequest extends $dara.Model {
   policies?: string;
   /**
    * @remarks
-   * The matching rule.
+   * The matching rules.
    */
   predicates?: AddGatewayRouteRequestPredicates;
   /**
    * @remarks
-   * The configuration of the redirection.
+   * The redirect configuration.
    */
   redirectJSON?: AddGatewayRouteRequestRedirectJSON;
   /**
    * @remarks
-   * The sequence number of the route. (A small value indicates a high priority.)
+   * The route order. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -882,8 +866,7 @@ export class AddGatewayRouteRequest extends $dara.Model {
   /**
    * @remarks
    * The route type. Valid values:
-   * 
-   * Op: Manage routes.
+   * - Op: management and control route
    * 
    * @example
    * Op
@@ -891,7 +874,7 @@ export class AddGatewayRouteRequest extends $dara.Model {
   routeType?: string;
   /**
    * @remarks
-   * The list of services.
+   * The service list. This parameter is required when the route points to a single service, multiple services, or tag-based routing.
    */
   services?: AddGatewayRouteRequestServices[];
   static names(): { [key: string]: string } {

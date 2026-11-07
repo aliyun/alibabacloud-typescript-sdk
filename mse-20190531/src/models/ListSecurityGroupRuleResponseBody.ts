@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListSecurityGroupRuleResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of IP address CIDR blocks with authorization to access the gateway.
+   */
   authCidrs?: string[];
   /**
    * @remarks
@@ -14,7 +18,7 @@ export class ListSecurityGroupRuleResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The gateway ID.
+   * The ID of the gateway.
    * 
    * @example
    * 81
@@ -121,7 +125,7 @@ export class ListSecurityGroupRuleResponseBodyData extends $dara.Model {
 export class ListSecurityGroupRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The return code.
    * 
    * @example
    * 200
@@ -134,7 +138,7 @@ export class ListSecurityGroupRuleResponseBody extends $dara.Model {
   data?: ListSecurityGroupRuleResponseBodyData[];
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -142,7 +146,7 @@ export class ListSecurityGroupRuleResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
    * success
@@ -150,7 +154,7 @@ export class ListSecurityGroupRuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 9EC7BDBF-3C38-5C9C-95DD-61E298CD43E8
@@ -158,10 +162,9 @@ export class ListSecurityGroupRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * The request result. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

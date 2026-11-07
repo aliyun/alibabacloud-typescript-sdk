@@ -21,7 +21,7 @@ export class ListCircuitBreakerRulesResponseBodyDataResult extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * Indicates whether the rule was enabled.
+   * Indicates whether the rule is enabled.
    * 
    * @example
    * true
@@ -77,7 +77,7 @@ export class ListCircuitBreakerRulesResponseBodyDataResult extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region in which the cluster resides.
    * 
    * @example
    * cn-hangzhou
@@ -85,16 +85,23 @@ export class ListCircuitBreakerRulesResponseBodyDataResult extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the interface to which the rule is applicable. The interface name must be the same as the name on the interface details page in the console.
+   * The name of the interface to which the rule applies. The interface name must be the same as that displayed on the API Details page in the console.
    * 
    * @example
    * /a
    */
   resource?: string;
+  /**
+   * @remarks
+   * The interface resource type.
+   * 
+   * @example
+   * 1
+   */
   resourceType?: number;
   /**
    * @remarks
-   * The period in which circuit breaking is implemented. Unit: milliseconds. If circuit breaking is implemented on the requests for the route, the calls to all the requests for the route fail in the configured circuit breaking period.
+   * The period in which circuit breaking is implemented. Unit: milliseconds. If circuit breaking is implemented on the resources, all requests quickly fail in the configured duration.
    * 
    * @example
    * 10000
@@ -119,32 +126,6 @@ export class ListCircuitBreakerRulesResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
    * The threshold type.
-   * 
-   * Valid values:
-   * 
-   * *   0
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     slow call proportion
-   * 
-   *     <!-- -->
-   * 
-   * *   1
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     abnormal proportion
-   * 
-   *     <!-- -->
    * 
    * @example
    * 0
@@ -214,7 +195,7 @@ export class ListCircuitBreakerRulesResponseBodyDataResult extends $dara.Model {
 export class ListCircuitBreakerRulesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The first page number.
    * 
    * @example
    * 1
@@ -282,7 +263,7 @@ export class ListCircuitBreakerRulesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The details of the rule.
+   * The rules.
    */
   data?: ListCircuitBreakerRulesResponseBodyData;
   /**
@@ -295,7 +276,7 @@ export class ListCircuitBreakerRulesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * OK
@@ -303,7 +284,7 @@ export class ListCircuitBreakerRulesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 4E9FDCFE-0738-493B-B801-82BDFBCB****
@@ -311,7 +292,7 @@ export class ListCircuitBreakerRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The result of the request.
    * 
    * @example
    * true

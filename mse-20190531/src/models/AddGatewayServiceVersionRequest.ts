@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewayServiceVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * The language of the returned information. Valid values:
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +15,7 @@ export class AddGatewayServiceVersionRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The unique ID of the gateway.
+   * The unique gateway ID.
    * 
    * @example
    * gw-913a49bab6c5461187a3305fb8da****
@@ -24,7 +23,7 @@ export class AddGatewayServiceVersionRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The ID of the service.
+   * The service ID.
    * 
    * @example
    * 33
@@ -32,7 +31,7 @@ export class AddGatewayServiceVersionRequest extends $dara.Model {
   serviceId?: number;
   /**
    * @remarks
-   * The version of the service.
+   * The service version.
    * 
    * @example
    * {\\"name\\":\\"v1\\",\\"labels\\":[{\\"key\\":\\"version\\",\\"value\\":\\"v1\\"}]}

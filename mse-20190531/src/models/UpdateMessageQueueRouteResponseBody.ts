@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMessageQueueRouteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned. The value 200 indicates that the request was successful. Other values indicate that the request failed.
+   * The status code. A status code of 200 indicates success, and other values indicate failure.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdateMessageQueueRouteResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data of the node.
+   * The node data.
    * 
    * @example
    * True
@@ -21,7 +21,7 @@ export class UpdateMessageQueueRouteResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class UpdateMessageQueueRouteResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
    * success
@@ -45,10 +45,9 @@ export class UpdateMessageQueueRouteResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

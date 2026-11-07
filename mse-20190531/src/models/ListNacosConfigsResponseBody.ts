@@ -5,25 +5,39 @@ import * as $dara from '@darabonba/typescript';
 export class ListNacosConfigsResponseBodyConfigurations extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * test
    */
   appName?: string;
+  /**
+   * @remarks
+   * The tags of the configuration. Multiple tags are separated by commas.
+   * 
+   * @example
+   * tag1,tag2
+   */
   configTags?: string;
   /**
    * @remarks
-   * The ID of the configuration.
+   * The configuration ID.
    * 
    * @example
    * log.yaml
    */
   dataId?: string;
+  /**
+   * @remarks
+   * The description of the configuration item.
+   * 
+   * @example
+   * test-description
+   */
   description?: string;
   /**
    * @remarks
-   * The ID of the group.
+   * The group ID.
    * 
    * @example
    * public
@@ -31,7 +45,7 @@ export class ListNacosConfigsResponseBodyConfigurations extends $dara.Model {
   group?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * 132****
@@ -71,7 +85,7 @@ export class ListNacosConfigsResponseBodyConfigurations extends $dara.Model {
 export class ListNacosConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The returned code.
    * 
    * @example
    * 200
@@ -79,12 +93,12 @@ export class ListNacosConfigsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The configurations.
+   * The list of configurations.
    */
   configurations?: ListNacosConfigsResponseBodyConfigurations[];
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -92,7 +106,7 @@ export class ListNacosConfigsResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -100,15 +114,15 @@ export class ListNacosConfigsResponseBody extends $dara.Model {
   httpCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
-   * The request was successfully processed.
+   * Request processed successfully
    */
   message?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -116,7 +130,7 @@ export class ListNacosConfigsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of instances displayed on each page.
    * 
    * @example
    * 10
@@ -124,7 +138,7 @@ export class ListNacosConfigsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4081087F-3429-5873-A1E7-D4B5479D0B84
@@ -132,10 +146,9 @@ export class ListNacosConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true
@@ -143,7 +156,7 @@ export class ListNacosConfigsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of returned instances.
+   * The total number of instances.
    * 
    * @example
    * 12

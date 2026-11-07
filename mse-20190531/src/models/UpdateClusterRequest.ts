@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * The language of the returned information. Valid values:
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +15,7 @@ export class UpdateClusterRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The alias of the instance.
+   * The alias of the cluster.
    * 
    * @example
    * cluster-1
@@ -24,7 +23,7 @@ export class UpdateClusterRequest extends $dara.Model {
   clusterAliasName?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * mse-cn-78v1l83****
@@ -32,7 +31,7 @@ export class UpdateClusterRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The end time of the O\\&M window.
+   * The end time of the O&M window.
    * 
    * @example
    * 06:00
@@ -40,7 +39,7 @@ export class UpdateClusterRequest extends $dara.Model {
   maintenanceEndTime?: string;
   /**
    * @remarks
-   * The start time of the O\\&M window.
+   * The start time of the O&M window.
    * 
    * @example
    * 02:00
@@ -48,7 +47,7 @@ export class UpdateClusterRequest extends $dara.Model {
   maintenanceStartTime?: string;
   /**
    * @remarks
-   * The extended request parameters in the JSON format.
+   * The extended request parameters in JSON format.
    * 
    * @example
    * {}

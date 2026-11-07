@@ -5,12 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayZoneResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The local name of the zone.
+   * The name of the zone.
    * 
    * @example
    * I
    */
   localName?: string;
+  /**
+   * @remarks
+   * Indicates whether the zone supports QAT.
+   */
   supportQat?: boolean;
   /**
    * @remarks
@@ -48,7 +52,7 @@ export class ListGatewayZoneResponseBodyData extends $dara.Model {
 export class ListGatewayZoneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The status code 200 indicates that the request was successful.
+   * The status code. A value of `200` is returned when `Success` is `true`.
    * 
    * @example
    * 200
@@ -56,12 +60,12 @@ export class ListGatewayZoneResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The queried zones.
+   * A list of zones.
    */
   data?: ListGatewayZoneResponseBodyData[];
   /**
    * @remarks
-   * The dynamic part in the error message.
+   * The placeholder in the dynamic error message.
    * 
    * @example
    * code
@@ -69,7 +73,7 @@ export class ListGatewayZoneResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace %s in **ErrMessage**.
+   * The dynamic error message that is used to replace the **%s** placeholder in the ErrMessage parameter.
    * 
    * @example
    * The specified parameter is invalid.
@@ -77,7 +81,7 @@ export class ListGatewayZoneResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The status code.
+   * The error code returned if the request fails.
    * 
    * @example
    * NO_PERMISSION
@@ -93,7 +97,7 @@ export class ListGatewayZoneResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
    * OK
@@ -111,8 +115,9 @@ export class ListGatewayZoneResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`
+   * 
+   * - `false`
    * 
    * @example
    * true

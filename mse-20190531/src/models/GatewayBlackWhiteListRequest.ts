@@ -13,7 +13,7 @@ export class GatewayBlackWhiteListRequestFilterParams extends $dara.Model {
   gatewayId?: number;
   /**
    * @remarks
-   * The unique ID of the gateway. If this parameter is used together with the GatewayId parameter, the value of the GatewayId parameter is used.
+   * The unique identifier of the gateway. If both GatewayUniqueId and GatewayId are specified, GatewayId takes precedence.
    * 
    * @example
    * gw-5017305290e14centbrveca****
@@ -21,7 +21,7 @@ export class GatewayBlackWhiteListRequestFilterParams extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * This parameter is unavailable for public use.
+   * This parameter is not available.
    * 
    * @example
    * ""
@@ -29,7 +29,7 @@ export class GatewayBlackWhiteListRequestFilterParams extends $dara.Model {
   isWhite?: boolean;
   /**
    * @remarks
-   * This parameter is unavailable for public use.
+   * This parameter is not available.
    * 
    * @example
    * ""
@@ -37,7 +37,7 @@ export class GatewayBlackWhiteListRequestFilterParams extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The content that you want to query.
+   * The search content.
    * 
    * @example
    * 1.1.1.1
@@ -47,9 +47,11 @@ export class GatewayBlackWhiteListRequestFilterParams extends $dara.Model {
    * @remarks
    * The query type. Valid values:
    * 
-   * *   ROUTE: The list is queried by route. If the value of this parameter is ROUTE, set the SearchContent parameter to the route name.
-   * *   DOMAIN: The list is queried by domain name. If the value of this parameter is DOMAIN, set the SearchContent parameter to the domain name.
-   * *   IP: The list is queried by specified IP address. If the value of this parameter is IP, set the SearchContent parameter to the IP address.
+   * - ROUTE: searches by route. Set SearchContent to the route name.
+   * 
+   * - DOMAIN: searches by domain name. Set SearchContent to the domain name.
+   * 
+   * - IP: searches by specified IP address. Set SearchContent to the IP address.
    * 
    * @example
    * IP
@@ -57,7 +59,7 @@ export class GatewayBlackWhiteListRequestFilterParams extends $dara.Model {
   searchType?: string;
   /**
    * @remarks
-   * This parameter is unavailable for public use.
+   * This parameter is not available.
    * 
    * @example
    * ""
@@ -99,7 +101,7 @@ export class GatewayBlackWhiteListRequestFilterParams extends $dara.Model {
 export class GatewayBlackWhiteListRequest extends $dara.Model {
   /**
    * @remarks
-   * The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+   * The language of the response. Valid values: zh (Chinese, default) and en (English).
    * 
    * @example
    * zh
@@ -107,7 +109,7 @@ export class GatewayBlackWhiteListRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * This parameter is unavailable for public use.
+   * This parameter is not available.
    * 
    * @example
    * ""
@@ -115,12 +117,12 @@ export class GatewayBlackWhiteListRequest extends $dara.Model {
   descSort?: boolean;
   /**
    * @remarks
-   * The filter parameters.
+   * parse from filterParams
    */
   filterParams?: GatewayBlackWhiteListRequestFilterParams;
   /**
    * @remarks
-   * This parameter is unavailable for public use.
+   * This parameter is not available.
    * 
    * @example
    * ""
@@ -128,7 +130,7 @@ export class GatewayBlackWhiteListRequest extends $dara.Model {
   orderItem?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Valid values: integers greater than 0. Default value: 1.
    * 
    * @example
    * 1

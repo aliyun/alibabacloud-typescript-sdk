@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListGatewayIsolationRuleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values: zh (default): Chinese. en: English.
+   * 
    * @example
    * zh
    */

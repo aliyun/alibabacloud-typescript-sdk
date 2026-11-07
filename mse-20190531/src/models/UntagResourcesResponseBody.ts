@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -13,15 +13,15 @@ export class UntagResourcesResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
-   * The request was successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 58E06A0A-BD2C-47A0-99C2-B100F353****
@@ -29,10 +29,9 @@ export class UntagResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * The request result. Valid values:
+   * - `true`: The request succeeded.
+   * - `false`: The request failed.
    * 
    * @example
    * true

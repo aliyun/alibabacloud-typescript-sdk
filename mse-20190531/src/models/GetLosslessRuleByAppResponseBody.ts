@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLosslessRuleByAppResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether service registration is complete before readiness probe.
+   * Indicates whether service registration is completed before the readiness check is passed.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class GetLosslessRuleByAppResponseBodyData extends $dara.Model {
   aligned?: boolean;
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * hkhon1po62@24810bf4364a***
@@ -21,7 +21,7 @@ export class GetLosslessRuleByAppResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * spring-cloud-a
@@ -37,7 +37,7 @@ export class GetLosslessRuleByAppResponseBodyData extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The registration latency. Unit: seconds.
+   * The delayed registration time in seconds.
    * 
    * @example
    * 60
@@ -45,10 +45,9 @@ export class GetLosslessRuleByAppResponseBodyData extends $dara.Model {
   delayTime?: number;
   /**
    * @remarks
-   * Indicates whether graceful start is enabled. Valid values:
-   * 
-   * *   `true`: enabled
-   * *   `false`: disabled
+   * The enabling status of graceful start. Valid values:
+   * - `true`: Enabled.
+   * - `false`: Disabled.
    * 
    * @example
    * true
@@ -56,7 +55,7 @@ export class GetLosslessRuleByAppResponseBodyData extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The slope of the prefetching curve.
+   * The slope of the warm-up curve.
    * 
    * @example
    * 2
@@ -64,7 +63,7 @@ export class GetLosslessRuleByAppResponseBodyData extends $dara.Model {
   funcType?: number;
   /**
    * @remarks
-   * Indicates whether online and offline processing details are displayed.
+   * Indicates whether the processing details for graceful start and shutdown are enabled.
    * 
    * @example
    * true
@@ -72,7 +71,7 @@ export class GetLosslessRuleByAppResponseBodyData extends $dara.Model {
   lossLessDetail?: boolean;
   /**
    * @remarks
-   * Indicates whether notification is enabled.
+   * Indicates whether proactive notification is enabled.
    * 
    * @example
    * false
@@ -80,7 +79,7 @@ export class GetLosslessRuleByAppResponseBodyData extends $dara.Model {
   notice?: boolean;
   /**
    * @remarks
-   * Indicates whether service prefetching is complete before readiness probe.
+   * Indicates whether service warm-up is completed before the readiness check is passed.
    * 
    * @example
    * false
@@ -88,7 +87,7 @@ export class GetLosslessRuleByAppResponseBodyData extends $dara.Model {
   related?: boolean;
   /**
    * @remarks
-   * The prefetching duration. Unit: seconds.
+   * The warm-up duration in seconds.
    * 
    * @example
    * 120
@@ -146,12 +145,12 @@ export class GetLosslessRuleByAppResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: GetLosslessRuleByAppResponseBodyData;
   /**
    * @remarks
-   * The error code returned.
+   * The error code.
    * 
    * @example
    * Success
@@ -159,7 +158,7 @@ export class GetLosslessRuleByAppResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -167,7 +166,7 @@ export class GetLosslessRuleByAppResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
    * success
@@ -183,10 +182,9 @@ export class GetLosslessRuleByAppResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   true: The request was successful.
-   * *   false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request succeeded.
+   * - false: The request failed.
    * 
    * @example
    * true

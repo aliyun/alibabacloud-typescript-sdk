@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "mse";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("mse", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -112,7 +116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds authorization information for a gateway.
+   * Creates authorization information for gateway authentication.
    * 
    * @param tmpReq - AddAuthResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -177,7 +181,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds authorization information for a gateway.
+   * Creates authorization information for gateway authentication.
    * 
    * @param request - AddAuthResourceRequest
    * @returns AddAuthResourceResponse
@@ -188,7 +192,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a blacklist or a whitelist.
+   * Adds blacklists and whitelists.
    * 
    * @param request - AddBlackWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -255,7 +259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a blacklist or a whitelist.
+   * Adds blacklists and whitelists.
    * 
    * @param request - AddBlackWhiteListRequest
    * @returns AddBlackWhiteListResponse
@@ -266,7 +270,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a gateway.
+   * Creates a gateway.
    * 
    * @param tmpReq - AddGatewayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -395,7 +399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a gateway.
+   * Creates a gateway.
    * 
    * @param request - AddGatewayRequest
    * @returns AddGatewayResponse
@@ -406,7 +410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds an authentication configuration for a gateway.
+   * Creates gateway authentication.
    * 
    * @param tmpReq - AddGatewayAuthRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -539,7 +543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds an authentication configuration for a gateway.
+   * Creates gateway authentication.
    * 
    * @param request - AddGatewayAuthRequest
    * @returns AddGatewayAuthResponse
@@ -550,7 +554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a consumer on which a gateway performs authentication operations.
+   * Creates a gateway authentication consumer.
    * 
    * @param request - AddGatewayAuthConsumerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -629,7 +633,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a consumer on which a gateway performs authentication operations.
+   * Creates a gateway authentication consumer.
    * 
    * @param request - AddGatewayAuthConsumerRequest
    * @returns AddGatewayAuthConsumerResponse
@@ -640,7 +644,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a domain name with a gateway.
+   * Adds an associated domain to a gateway.
    * 
    * @param tmpReq - AddGatewayDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -721,7 +725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a domain name with a gateway.
+   * Adds an associated domain to a gateway.
    * 
    * @param request - AddGatewayDomainRequest
    * @returns AddGatewayDomainResponse
@@ -864,7 +868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a service version for a gateway.
+   * Adds a service version.
    * 
    * @param request - AddGatewayServiceVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -907,7 +911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a service version for a gateway.
+   * Adds a service version.
    * 
    * @param request - AddGatewayServiceVersionRequest
    * @returns AddGatewayServiceVersionResponse
@@ -918,7 +922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a Server Load Balancer (SLB) instance with a gateway.
+   * Associates an SLB instance with a gateway.
    * 
    * @param tmpReq - AddGatewaySlbRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -991,7 +995,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a Server Load Balancer (SLB) instance with a gateway.
+   * Associates an SLB instance with a gateway.
    * 
    * @param request - AddGatewaySlbRequest
    * @returns AddGatewaySlbResponse
@@ -1002,7 +1006,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a new migration task
+   * Creates a migration task.
    * 
    * @param request - AddMigrationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1073,7 +1077,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a new migration task
+   * Creates a migration task.
    * 
    * @param request - AddMigrationTaskRequest
    * @returns AddMigrationTaskResponse
@@ -1084,7 +1088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service mocking rule.
+   * Creates a mock rule.
    * 
    * @param request - AddMockRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1159,7 +1163,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service mocking rule.
+   * Creates a mock rule.
    * 
    * @param request - AddMockRuleRequest
    * @returns AddMockRuleResponse
@@ -1170,7 +1174,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a certificate with a domain name of a gateway. You can specify a certificate that is hosted in Alibaba Cloud Security.
+   * Associates a certificate with a gateway domain name. The certificate can be hosted in SSL Certificates Service.
    * 
    * @param request - AddSSLCertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1213,7 +1217,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a certificate with a domain name of a gateway. You can specify a certificate that is hosted in Alibaba Cloud Security.
+   * Associates a certificate with a gateway domain name. The certificate can be hosted in SSL Certificates Service.
    * 
    * @param request - AddSSLCertRequest
    * @returns AddSSLCertResponse
@@ -1224,7 +1228,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a security group rule for a gateway.
+   * Adds a security group rule for a gateway.
    * 
    * @param request - AddSecurityGroupRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1271,7 +1275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a security group rule for a gateway.
+   * Adds a security group rule for a gateway.
    * 
    * @param request - AddSecurityGroupRuleRequest
    * @returns AddSecurityGroupRuleResponse
@@ -1282,7 +1286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a Nacos service source.
+   * Creates a Nacos service source.
    * 
    * @param tmpReq - AddServiceSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1367,7 +1371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a Nacos service source.
+   * Creates a Nacos service source.
    * 
    * @param request - AddServiceSourceRequest
    * @returns AddServiceSourceResponse
@@ -1378,7 +1382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 增加ZooKeeper Sasl 用户
+   * Adds ZooKeeper SASL users.
    * 
    * @param tmpReq - AddZooKeeperSaslUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1427,7 +1431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 增加ZooKeeper Sasl 用户
+   * Adds ZooKeeper SASL users.
    * 
    * @param request - AddZooKeeperSaslUserRequest
    * @returns AddZooKeeperSaslUserResponse
@@ -1488,7 +1492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a tag-based routing rule.
+   * Modifies tag-based routing rules.
    * 
    * @param tmpReq - ApplyTagPoliciesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1553,7 +1557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a tag-based routing rule.
+   * Modifies tag-based routing rules.
    * 
    * @param request - ApplyTagPoliciesRequest
    * @returns ApplyTagPoliciesResponse
@@ -1684,10 +1688,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Copy Nacos Configuration
+   * Clones existing Nacos configurations to another namespace.
    * 
    * @remarks
-   * > This OpenAPI is not the Nacos-SDK API. For information related to the Nacos-SDK API, please refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * > The current OpenAPI is not a Nacos-SDK API. For information about Nacos-SDK APIs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - CloneNacosConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1742,10 +1746,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Copy Nacos Configuration
+   * Clones existing Nacos configurations to another namespace.
    * 
    * @remarks
-   * > This OpenAPI is not the Nacos-SDK API. For information related to the Nacos-SDK API, please refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * > The current OpenAPI is not a Nacos-SDK API. For information about Nacos-SDK APIs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - CloneNacosConfigRequest
    * @returns CloneNacosConfigResponse
@@ -2000,10 +2004,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an MSE registration and configuration center instance
+   * Creates a registry and configuration center cluster, such as ZooKeeper or Nacos.
    * 
    * @remarks
-   * Please ensure that you fully understand the billing method and pricing of the MSE (Microservice Engine) product before using this interface.
+   * Make sure that you fully understand the billing methods and pricing of Microservices Engine (MSE) before you call this operation.
    * 
    * @param request - CreateClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2118,10 +2122,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an MSE registration and configuration center instance
+   * Creates a registry and configuration center cluster, such as ZooKeeper or Nacos.
    * 
    * @remarks
-   * Please ensure that you fully understand the billing method and pricing of the MSE (Microservice Engine) product before using this interface.
+   * Make sure that you fully understand the billing methods and pricing of Microservices Engine (MSE) before you call this operation.
    * 
    * @param request - CreateClusterRequest
    * @returns CreateClusterResponse
@@ -2899,7 +2903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个MCP Server
+   * Creates an MCP server.
    * 
    * @param request - CreateNacosMcpServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2964,7 +2968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建一个MCP Server
+   * Creates an MCP server.
    * 
    * @param request - CreateNacosMcpServerRequest
    * @returns CreateNacosMcpServerResponse
@@ -3111,7 +3115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates a lane for end-to-end canary release.
+   * Creates or updates an end-to-end canary release lane.
    * 
    * @param tmpReq - CreateOrUpdateSwimmingLaneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3198,7 +3202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates a lane for end-to-end canary release.
+   * Creates or updates an end-to-end canary release lane.
    * 
    * @param request - CreateOrUpdateSwimmingLaneRequest
    * @returns CreateOrUpdateSwimmingLaneResponse
@@ -3209,7 +3213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates a lane group for end-to-end canary release.
+   * Creates or updates an end-to-end canary release swimlane group.
    * 
    * @param tmpReq - CreateOrUpdateSwimmingLaneGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3310,7 +3314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates or updates a lane group for end-to-end canary release.
+   * Creates or updates an end-to-end canary release swimlane group.
    * 
    * @param request - CreateOrUpdateSwimmingLaneGroupRequest
    * @returns CreateOrUpdateSwimmingLaneGroupResponse
@@ -3395,7 +3399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建行为管理
+   * Creates behavior management definitions
    * 
    * @param request - CreateSentinelBlockFallbackDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3466,7 +3470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建行为管理
+   * Creates behavior management definitions
    * 
    * @param request - CreateSentinelBlockFallbackDefinitionRequest
    * @returns CreateSentinelBlockFallbackDefinitionResponse
@@ -3477,7 +3481,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a hot parameter protection rule for HTTP requests.
+   * Creates a hotspot parameter protection rule for HTTP requests.
    * 
    * @param request - CreateWebFlowRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3568,7 +3572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a hot parameter protection rule for HTTP requests.
+   * Creates a hotspot parameter protection rule for HTTP requests.
    * 
    * @param request - CreateWebFlowRuleRequest
    * @returns CreateWebFlowRuleResponse
@@ -3683,7 +3687,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除黑白名单
+   * Deletes a blacklists and whitelists entry.
    * 
    * @param request - DeleteBlackWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3726,7 +3730,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除黑白名单
+   * Deletes a blacklists and whitelists entry.
    * 
    * @param request - DeleteBlackWhiteListRequest
    * @returns DeleteBlackWhiteListResponse
@@ -3843,7 +3847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a namespace from a Nacos instance.
+   * Deletes a Nacos namespace.
    * 
    * @param request - DeleteEngineNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3886,7 +3890,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a namespace from a Nacos instance.
+   * Deletes a Nacos namespace.
    * 
    * @param request - DeleteEngineNamespaceRequest
    * @returns DeleteEngineNamespaceResponse
@@ -4007,7 +4011,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网关认证
+   * Deletes gateway authentication.
    * 
    * @param request - DeleteGatewayAuthRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4046,7 +4050,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除网关认证
+   * Deletes gateway authentication.
    * 
    * @param request - DeleteGatewayAuthRequest
    * @returns DeleteGatewayAuthResponse
@@ -4057,7 +4061,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a consumer on which a gateway performs authentication operations.
+   * Deletes a gateway authentication consumer.
    * 
    * @param request - DeleteGatewayAuthConsumerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4096,7 +4100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a consumer on which a gateway performs authentication operations.
+   * Deletes a gateway authentication consumer.
    * 
    * @param request - DeleteGatewayAuthConsumerRequest
    * @returns DeleteGatewayAuthConsumerResponse
@@ -4107,7 +4111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes resource permissions from the consumer on which a gateway performs authentication operations.
+   * Deletes the authorization for a gateway authentication consumer.
    * 
    * @param request - DeleteGatewayAuthConsumerResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4150,7 +4154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes resource permissions from the consumer on which a gateway performs authentication operations.
+   * Deletes the authorization for a gateway authentication consumer.
    * 
    * @param request - DeleteGatewayAuthConsumerResourceRequest
    * @returns DeleteGatewayAuthConsumerResourceResponse
@@ -4319,7 +4323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the gateway concurrency rule.
+   * Deletes a gateway concurrency rule.
    * 
    * @param request - DeleteGatewayIsolationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4362,7 +4366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the gateway concurrency rule.
+   * Deletes a gateway concurrency rule.
    * 
    * @param request - DeleteGatewayIsolationRuleRequest
    * @returns DeleteGatewayIsolationRuleResponse
@@ -4373,7 +4377,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a route from a gateway.
+   * Deletes a gateway route.
    * 
    * @param request - DeleteGatewayRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4412,7 +4416,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a route from a gateway.
+   * Deletes a gateway route.
    * 
    * @param request - DeleteGatewayRouteRequest
    * @returns DeleteGatewayRouteResponse
@@ -4589,7 +4593,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes isolation rules.
+   * Deletes fencing rules.
    * 
    * @param tmpReq - DeleteIsolationRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4638,7 +4642,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes isolation rules.
+   * Deletes fencing rules.
    * 
    * @param request - DeleteIsolationRulesRequest
    * @returns DeleteIsolationRulesResponse
@@ -4767,10 +4771,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple Nacos configurations at a time.
+   * Deletes multiple Nacos configurations.
    * 
    * @remarks
-   * >  The current API operation is not provided in Nacos SDK. For more information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * > The current OpenAPI is not the Nacos SDK API. For information about the Nacos SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - DeleteNacosConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4813,10 +4817,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes multiple Nacos configurations at a time.
+   * Deletes multiple Nacos configurations.
    * 
    * @remarks
-   * >  The current API operation is not provided in Nacos SDK. For more information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * > The current OpenAPI is not the Nacos SDK API. For information about the Nacos SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - DeleteNacosConfigsRequest
    * @returns DeleteNacosConfigsResponse
@@ -4907,7 +4911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除一个MCP Server
+   * Deletes an MCP Server.
    * 
    * @param request - DeleteNacosMcpServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4950,7 +4954,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除一个MCP Server
+   * Deletes an MCP Server.
    * 
    * @param request - DeleteNacosMcpServerRequest
    * @returns DeleteNacosMcpServerResponse
@@ -5025,7 +5029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除MSE命名空间
+   * Deletes an MSE namespace.
    * 
    * @param request - DeleteNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5064,7 +5068,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除MSE命名空间
+   * Deletes an MSE namespace.
    * 
    * @param request - DeleteNamespaceRequest
    * @returns DeleteNamespaceResponse
@@ -5229,7 +5233,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a lane.
+   * Deletes an end-to-end traffic lane.
    * 
    * @param request - DeleteSwimmingLaneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5268,7 +5272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a lane.
+   * Deletes an end-to-end traffic lane.
    * 
    * @param request - DeleteSwimmingLaneRequest
    * @returns DeleteSwimmingLaneResponse
@@ -5279,7 +5283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a lane group.
+   * Deletes an end-to-end traffic lane group.
    * 
    * @param request - DeleteSwimmingLaneGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5322,7 +5326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a lane group.
+   * Deletes an end-to-end traffic lane group.
    * 
    * @param request - DeleteSwimmingLaneGroupRequest
    * @returns DeleteSwimmingLaneGroupResponse
@@ -5333,7 +5337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a hot parameter protection rule for HTTP requests.
+   * Deletes hot spot parameter protection rules for HTTP requests.
    * 
    * @param request - DeleteWebFlowRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5376,7 +5380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a hot parameter protection rule for HTTP requests.
+   * Deletes hot spot parameter protection rules for HTTP requests.
    * 
    * @param request - DeleteWebFlowRulesRequest
    * @returns DeleteWebFlowRulesResponse
@@ -5387,7 +5391,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a ZooKeeper node.
+   * Deletes a ZooKeeper data node.
    * 
    * @param request - DeleteZnodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5430,7 +5434,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a ZooKeeper node.
+   * Deletes a ZooKeeper data node.
    * 
    * @param request - DeleteZnodeRequest
    * @returns DeleteZnodeResponse
@@ -5491,7 +5495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the proxy protocol. When an NLB instance is used as an ingress, you cannot obtain the real IP address of the client if you do not enable the proxy protocol. After you enable the proxy protocol, non-proxy requests are not adversely affected.
+   * Enables the PROXY protocol. If the gateway ingress traffic is connected through NLB, the real IP address of the client cannot be obtained unless this feature is enabled. Enabling this feature does not affect non-PROXY protocol requests.
    * 
    * @param request - EnableProxyProtocolRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5530,7 +5534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the proxy protocol. When an NLB instance is used as an ingress, you cannot obtain the real IP address of the client if you do not enable the proxy protocol. After you enable the proxy protocol, non-proxy requests are not adversely affected.
+   * Enables the PROXY protocol. If the gateway ingress traffic is connected through NLB, the real IP address of the client cannot be obtained unless this feature is enabled. Enabling this feature does not affect non-PROXY protocol requests.
    * 
    * @param request - EnableProxyProtocolRequest
    * @returns EnableProxyProtocolResponse
@@ -5617,7 +5621,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initiates a task to export ZooKeeper data.
+   * Initiates a ZooKeeper data export task.
    * 
    * @remarks
    * Only one task can run at a time.
@@ -5667,7 +5671,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initiates a task to export ZooKeeper data.
+   * Initiates a ZooKeeper data export task.
    * 
    * @remarks
    * Only one task can run at a time.
@@ -5681,10 +5685,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the rules for graceful start and shutdown.
+   * Queries the list of graceful start and shutdown rules.
    * 
    * @remarks
-   * You can call this operation to query the rules for graceful start and shutdown.
+   * Calls the FetchLosslessRuleList operation to retrieve the list of configuration rules for graceful start and shutdown.
    * 
    * @param request - FetchLosslessRuleListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5739,10 +5743,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the rules for graceful start and shutdown.
+   * Queries the list of graceful start and shutdown rules.
    * 
    * @remarks
-   * You can call this operation to query the rules for graceful start and shutdown.
+   * Calls the FetchLosslessRuleList operation to retrieve the list of configuration rules for graceful start and shutdown.
    * 
    * @param request - FetchLosslessRuleListRequest
    * @returns FetchLosslessRuleListResponse
@@ -5753,7 +5757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of blacklists and whitelists of a gateway.
+   * Retrieves the list of gateway blacklists and whitelists.
    * 
    * @param tmpReq - GatewayBlackWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5810,7 +5814,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of blacklists and whitelists of a gateway.
+   * Retrieves the list of gateway blacklists and whitelists.
    * 
    * @param request - GatewayBlackWhiteListRequest
    * @returns GatewayBlackWhiteListResponse
@@ -5821,7 +5825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about canary release for messaging of an application.
+   * Retrieves information related to application message canary release.
    * 
    * @param request - GetAppMessageQueueRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5868,7 +5872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about canary release for messaging of an application.
+   * Retrieves information related to application message canary release.
    * 
    * @param request - GetAppMessageQueueRouteRequest
    * @returns GetAppMessageQueueRouteResponse
@@ -5949,7 +5953,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the list of applications.
+   * Retrieves the list of applications.
    * 
    * @param tmpReq - GetApplicationListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6030,7 +6034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the list of applications.
+   * Retrieves the list of applications.
    * 
    * @param request - GetApplicationListRequest
    * @returns GetApplicationListResponse
@@ -6158,7 +6162,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the basic information about a gateway, such as the virtual private cloud (VPC) and vSwitch to which the gateway belongs.
+   * Retrieves basic information about a gateway, such as the VPC and vSwitch to which the gateway belongs.
    * 
    * @param request - GetGatewayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6193,7 +6197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the basic information about a gateway, such as the virtual private cloud (VPC) and vSwitch to which the gateway belongs.
+   * Retrieves basic information about a gateway, such as the VPC and vSwitch to which the gateway belongs.
    * 
    * @param request - GetGatewayRequest
    * @returns GetGatewayResponse
@@ -6254,7 +6258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the authentication details of a gateway.
+   * Retrieves the details of gateway authentication.
    * 
    * @param request - GetGatewayAuthDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6297,7 +6301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the authentication details of a gateway.
+   * Retrieves the details of gateway authentication.
    * 
    * @param request - GetGatewayAuthDetailRequest
    * @returns GetGatewayAuthDetailResponse
@@ -6308,7 +6312,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the parameter configurations of a gateway.
+   * Retrieves the parameter settings of a gateway.
    * 
    * @param request - GetGatewayConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6343,7 +6347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the parameter configurations of a gateway.
+   * Retrieves the parameter settings of a gateway.
    * 
    * @param request - GetGatewayConfigRequest
    * @returns GetGatewayConfigResponse
@@ -6354,7 +6358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a domain name associated with a gateway.
+   * Queries the details of a gateway domain name.
    * 
    * @param request - GetGatewayDomainDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6393,7 +6397,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a domain name associated with a gateway.
+   * Queries the details of a gateway domain name.
    * 
    * @param request - GetGatewayDomainDetailRequest
    * @returns GetGatewayDomainDetailResponse
@@ -6404,7 +6408,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the global parameters of a gateway.
+   * Retrieves the global parameters of a gateway.
    * 
    * @param request - GetGatewayOptionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6443,7 +6447,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the global parameters of a gateway.
+   * Retrieves the global parameters of a gateway.
    * 
    * @param request - GetGatewayOptionRequest
    * @returns GetGatewayOptionResponse
@@ -6454,7 +6458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a route for a gateway.
+   * Queries the details of a gateway route.
    * 
    * @param request - GetGatewayRouteDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6493,7 +6497,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a route for a gateway.
+   * Queries the details of a gateway route.
    * 
    * @param request - GetGatewayRouteDetailRequest
    * @returns GetGatewayRouteDetailResponse
@@ -6554,7 +6558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a Container Service for Kubernetes (ACK) cluster for which Microservices Governance is enabled.
+   * Queries information about a Container Service for Kubernetes (ACK) cluster that has Microservices Governance enabled.
    * 
    * @param request - GetGovernanceKubernetesClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6593,7 +6597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a Container Service for Kubernetes (ACK) cluster for which Microservices Governance is enabled.
+   * Queries information about a Container Service for Kubernetes (ACK) cluster that has Microservices Governance enabled.
    * 
    * @param request - GetGovernanceKubernetesClusterRequest
    * @returns GetGovernanceKubernetesClusterResponse
@@ -6764,7 +6768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the Intra-zone Provider First rules.
+   * Retrieves the Intra-zone Provider First rules.
    * 
    * @param request - GetLocalityRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6815,7 +6819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the Intra-zone Provider First rules.
+   * Retrieves the Intra-zone Provider First rules.
    * 
    * @param request - GetLocalityRuleRequest
    * @returns GetLocalityRuleResponse
@@ -6826,12 +6830,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the rules for graceful start and shutdown of an application.
+   * Retrieves the graceful start and shutdown rules for a specified application.
    * 
    * @remarks
-   * You can call this operation to query the rules for graceful start and shutdown of an application.
-   * You can query the rules for graceful start and shutdown of an application preferentially by using the AppId parameter.
-   * If the AppId parameter is left empty, you can use the RegionId, Namespace, and AppName parameters to query the rules for graceful start and shutdown of an application.
+   * Calls the GetLosslessRuleByApp operation to retrieve the graceful start and shutdown configuration rules for a specified application. The query prioritizes the AppId parameter. If AppId is not specified, the system queries by using RegionId, Namespace, and AppName.
    * 
    * @param request - GetLosslessRuleByAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6878,12 +6880,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the rules for graceful start and shutdown of an application.
+   * Retrieves the graceful start and shutdown rules for a specified application.
    * 
    * @remarks
-   * You can call this operation to query the rules for graceful start and shutdown of an application.
-   * You can query the rules for graceful start and shutdown of an application preferentially by using the AppId parameter.
-   * If the AppId parameter is left empty, you can use the RegionId, Namespace, and AppName parameters to query the rules for graceful start and shutdown of an application.
+   * Calls the GetLosslessRuleByApp operation to retrieve the graceful start and shutdown configuration rules for a specified application. The query prioritizes the AppId parameter. If AppId is not specified, the system queries by using RegionId, Namespace, and AppName.
    * 
    * @param request - GetLosslessRuleByAppRequest
    * @returns GetLosslessRuleByAppResponse
@@ -6894,7 +6894,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the MSE feature switch.
+   * Retrieves the MSE feature toggles.
    * 
    * @param request - GetMseFeatureSwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6925,7 +6925,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the MSE feature switch.
+   * Retrieves the MSE feature toggles.
    * 
    * @param request - GetMseFeatureSwitchRequest
    * @returns GetMseFeatureSwitchResponse
@@ -7126,7 +7126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取MCP Server的详情
+   * Retrieves the details of an MCP server.
    * 
    * @param request - GetNacosMcpServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7173,7 +7173,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取MCP Server的详情
+   * Retrieves the details of an MCP server.
    * 
    * @param request - GetNacosMcpServerRequest
    * @returns GetNacosMcpServerResponse
@@ -7184,10 +7184,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries overview information about Microservices Governance.
+   * Queries the Query Governance overview information.
    * 
    * @remarks
-   * You can call this operation to query overview information about service governance.
+   * Queries the service governance overview information.
    * 
    * @param request - GetOverviewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7226,10 +7226,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries overview information about Microservices Governance.
+   * Queries the Query Governance overview information.
    * 
    * @remarks
-   * You can call this operation to query overview information about service governance.
+   * Queries the service governance overview information.
    * 
    * @param request - GetOverviewRequest
    * @returns GetOverviewResponse
@@ -7240,7 +7240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains plug-in configurations.
+   * Retrieves the plug-in configuration.
    * 
    * @param request - GetPluginConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7279,7 +7279,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains plug-in configurations.
+   * Retrieves the plug-in configuration.
    * 
    * @param request - GetPluginConfigRequest
    * @returns GetPluginConfigResponse
@@ -7290,7 +7290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains plug-ins.
+   * Queries plugins from the plug-in marketplace.
    * 
    * @param request - GetPluginsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7337,7 +7337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains plug-ins.
+   * Queries plugins from the plug-in marketplace.
    * 
    * @param request - GetPluginsRequest
    * @returns GetPluginsResponse
@@ -7410,7 +7410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the version of a microservices application.
+   * Retrieves the service list.
    * 
    * @param request - GetServiceListPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7477,7 +7477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the version of a microservices application.
+   * Retrieves the service list.
    * 
    * @param request - GetServiceListPageRequest
    * @returns GetServiceListPageResponse
@@ -7672,7 +7672,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains all tags in the current lane group.
+   * Retrieves all tags in the current traffic lane group.
    * 
    * @param request - GetTagsBySwimmingLaneGroupIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7711,7 +7711,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains all tags in the current lane group.
+   * Retrieves all tags in the current traffic lane group.
    * 
    * @param request - GetTagsBySwimmingLaneGroupIdRequest
    * @returns GetTagsBySwimmingLaneGroupIdResponse
@@ -7772,10 +7772,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports Nacos configurations as a file.
+   * Imports Nacos configurations by using a configuration file.
    * 
    * @remarks
-   * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * > The current OpenAPI is not the Nacos-SDK API. For information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - ImportNacosConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7822,10 +7822,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports Nacos configurations as a file.
+   * Imports Nacos configurations by using a configuration file.
    * 
    * @remarks
-   * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * > The current OpenAPI is not the Nacos-SDK API. For information about the Nacos-SDK API, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - ImportNacosConfigRequest
    * @returns ImportNacosConfigResponse
@@ -7836,7 +7836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports services to a gateway.
+   * Subscribes to the services imported to the gateway.
    * 
    * @param tmpReq - ImportServicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7905,7 +7905,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports services to a gateway.
+   * Subscribes to the services imported to the gateway.
    * 
    * @param request - ImportServicesRequest
    * @returns ImportServicesResponse
@@ -7916,10 +7916,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initiates a task to import data from a destination URL to a Microservices Engine (MSE) ZooKeeper instance.
+   * Initiates a ZooKeeper data import task to import data from the specified URL into the ZooKeeper cluster.
    * 
    * @remarks
-   * *Danger** This operation clears existing data. Exercise caution when you call this API operation.
+   * >Danger: This operation clears all existing data. Proceed with caution.
    * 
    * @param request - ImportZookeeperDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7970,10 +7970,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initiates a task to import data from a destination URL to a Microservices Engine (MSE) ZooKeeper instance.
+   * Initiates a ZooKeeper data import task to import data from the specified URL into the ZooKeeper cluster.
    * 
    * @remarks
-   * *Danger** This operation clears existing data. Exercise caution when you call this API operation.
+   * >Danger: This operation clears all existing data. Proceed with caution.
    * 
    * @param request - ImportZookeeperDataRequest
    * @returns ImportZookeeperDataResponse
@@ -8034,10 +8034,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries application instances that are registered with a Microservices Engine (MSE) Nacos instance.
+   * Queries the list of Nacos service instances.
    * 
    * @remarks
-   * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * > The current OpenAPI is not the Nacos-SDK API. For information about the Nacos-SDK API, refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - ListAnsInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8104,10 +8104,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries application instances that are registered with a Microservices Engine (MSE) Nacos instance.
+   * Queries the list of Nacos service instances.
    * 
    * @remarks
-   * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * > The current OpenAPI is not the Nacos-SDK API. For information about the Nacos-SDK API, refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - ListAnsInstancesRequest
    * @returns ListAnsInstancesResponse
@@ -8198,10 +8198,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Nacos services.
+   * Queries the details of Nacos services.
    * 
    * @remarks
-   * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * > This OpenAPI is not a Nacos SDK API. For more information about Nacos SDK APIs, see [the official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - ListAnsServicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8276,10 +8276,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Nacos services.
+   * Queries the details of Nacos services.
    * 
    * @remarks
-   * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * > This OpenAPI is not a Nacos SDK API. For more information about Nacos SDK APIs, see [the official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - ListAnsServicesRequest
    * @returns ListAnsServicesResponse
@@ -8349,7 +8349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists applications by tag in a specified lane group.
+   * Retrieves the list of applications with a specified tag in a specified lane group.
    * 
    * @param tmpReq - ListAppBySwimmingLaneGroupTagsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8398,7 +8398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists applications by tag in a specified lane group.
+   * Retrieves the list of applications with a specified tag in a specified lane group.
    * 
    * @param request - ListAppBySwimmingLaneGroupTagsRequest
    * @returns ListAppBySwimmingLaneGroupTagsResponse
@@ -8447,7 +8447,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of service authentication rules.
+   * Call the ListAuthPolicy API to query the list of service authentication rules.
    * 
    * @param request - ListAuthPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8510,7 +8510,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of service authentication rules.
+   * Call the ListAuthPolicy API to query the list of service authentication rules.
    * 
    * @param request - ListAuthPolicyRequest
    * @returns ListAuthPolicyResponse
@@ -8521,7 +8521,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of circuit breaking rules.
+   * Queries circuit breaker rules.
    * 
    * @param request - ListCircuitBreakerRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8580,7 +8580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of circuit breaking rules.
+   * Queries circuit breaker rules.
    * 
    * @param request - ListCircuitBreakerRulesRequest
    * @returns ListCircuitBreakerRulesResponse
@@ -8591,7 +8591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries available cluster connection types.
+   * Queries the supported cluster connection types.
    * 
    * @param request - ListClusterConnectionTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8622,7 +8622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries available cluster connection types.
+   * Queries the supported cluster connection types.
    * 
    * @param request - ListClusterConnectionTypesRequest
    * @returns ListClusterConnectionTypesResponse
@@ -8633,7 +8633,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains information about historical health check tasks.
+   * Retrieves information about historical health check tasks.
    * 
    * @param request - ListClusterHealthCheckTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8684,7 +8684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains information about historical health check tasks.
+   * Retrieves information about historical health check tasks.
    * 
    * @param request - ListClusterHealthCheckTaskRequest
    * @returns ListClusterHealthCheckTaskResponse
@@ -8695,7 +8695,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the engine types that can be activated.
+   * Queries the supported engine types.
    * 
    * @param request - ListClusterTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8738,7 +8738,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the engine types that can be activated.
+   * Queries the supported engine types.
    * 
    * @param request - ListClusterTypesRequest
    * @returns ListClusterTypesResponse
@@ -8749,7 +8749,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about supported instance versions.
+   * Queries information about supported cluster versions.
    * 
    * @param request - ListClusterVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8788,7 +8788,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about supported instance versions.
+   * Queries information about supported cluster versions.
    * 
    * @param request - ListClusterVersionsRequest
    * @returns ListClusterVersionsResponse
@@ -8799,7 +8799,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Microservices Engine (MSE) instances.
+   * Queries a list of Microservices Registry clusters.
    * 
    * @param request - ListClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8866,7 +8866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Microservices Engine (MSE) instances.
+   * Queries a list of Microservices Registry clusters.
    * 
    * @param request - ListClustersRequest
    * @returns ListClustersResponse
@@ -9047,7 +9047,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Eureka services.
+   * Queries the Eureka service list.
    * 
    * @param request - ListEurekaServicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9074,7 +9074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Eureka services.
+   * Queries the Eureka service list.
    * 
    * @param request - ListEurekaServicesRequest
    * @returns ListEurekaServicesResponse
@@ -9139,7 +9139,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of throttling rules.
+   * Queries the list of flow control rules.
    * 
    * @param request - ListFlowRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9198,7 +9198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of throttling rules.
+   * Queries the list of flow control rules.
    * 
    * @param request - ListFlowRulesRequest
    * @returns ListFlowRulesResponse
@@ -9209,7 +9209,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of gateways.
+   * Queries the list of gateways.
    * 
    * @param tmpReq - ListGatewayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9266,7 +9266,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of gateways.
+   * Queries the list of gateways.
    * 
    * @param request - ListGatewayRequest
    * @returns ListGatewayResponse
@@ -9277,7 +9277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询网关认证
+   * Queries the list of gateway authentication rules.
    * 
    * @param tmpReq - ListGatewayAuthRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9334,7 +9334,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询网关认证
+   * Queries the list of gateway authentication rules.
    * 
    * @param request - ListGatewayAuthRequest
    * @returns ListGatewayAuthResponse
@@ -9411,7 +9411,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of authorized resources for the consumer on which a gateway performs authentication operations.
+   * Queries the authorization list for gateway authentication consumers.
    * 
    * @param request - ListGatewayAuthConsumerResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9466,7 +9466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of authorized resources for the consumer on which a gateway performs authentication operations.
+   * Queries the authorization list for gateway authentication consumers.
    * 
    * @param request - ListGatewayAuthConsumerResourceRequest
    * @returns ListGatewayAuthConsumerResourceResponse
@@ -9477,7 +9477,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a gateway circuit breaking rule.
+   * Queries the circuit breaker rules of the gateway.
    * 
    * @param request - ListGatewayCircuitBreakerRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9512,7 +9512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a gateway circuit breaking rule.
+   * Queries the circuit breaker rules of the gateway.
    * 
    * @param request - ListGatewayCircuitBreakerRuleRequest
    * @returns ListGatewayCircuitBreakerRuleResponse
@@ -9523,7 +9523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the domain names that are associated with a gateway.
+   * Queries the list of associated domains for a gateway.
    * 
    * @param request - ListGatewayDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9566,7 +9566,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the domain names that are associated with a gateway.
+   * Queries the list of associated domains for a gateway.
    * 
    * @param request - ListGatewayDomainRequest
    * @returns ListGatewayDomainResponse
@@ -9577,7 +9577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries throttling rules of a gateway.
+   * Queries the gateway throttle rules.
    * 
    * @param request - ListGatewayFlowRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9612,7 +9612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries throttling rules of a gateway.
+   * Queries the gateway throttle rules.
    * 
    * @param request - ListGatewayFlowRuleRequest
    * @returns ListGatewayFlowRuleResponse
@@ -9623,7 +9623,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the concurrency rule of a gateway.
+   * Queries the concurrency rules of the gateway.
    * 
    * @param request - ListGatewayIsolationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9658,7 +9658,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the concurrency rule of a gateway.
+   * Queries the concurrency rules of the gateway.
    * 
    * @param request - ListGatewayIsolationRuleRequest
    * @returns ListGatewayIsolationRuleResponse
@@ -9669,7 +9669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the routes of a gateway.
+   * Queries the gateway route list.
    * 
    * @param tmpReq - ListGatewayRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9726,7 +9726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the routes of a gateway.
+   * Queries the gateway route list.
    * 
    * @param request - ListGatewayRouteRequest
    * @returns ListGatewayRouteResponse
@@ -9787,7 +9787,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of services that are subscribed to by a gateway.
+   * Queries the list of services subscribed to by a gateway.
    * 
    * @param tmpReq - ListGatewayServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9844,7 +9844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of services that are subscribed to by a gateway.
+   * Queries the list of services subscribed to by a gateway.
    * 
    * @param request - ListGatewayServiceRequest
    * @returns ListGatewayServiceResponse
@@ -9855,7 +9855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Server Load Balancer (SLB) instances that are associated with a gateway.
+   * Queries the gateway ingress SLB.
    * 
    * @param request - ListGatewaySlbRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9890,7 +9890,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Server Load Balancer (SLB) instances that are associated with a gateway.
+   * Queries the gateway ingress SLB.
    * 
    * @param request - ListGatewaySlbRequest
    * @returns ListGatewaySlbResponse
@@ -9901,7 +9901,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of zones where a gateway is available.
+   * Queries the available zones for gateways.
    * 
    * @param request - ListGatewayZoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9932,7 +9932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of zones where a gateway is available.
+   * Queries the available zones for gateways.
    * 
    * @param request - ListGatewayZoneRequest
    * @returns ListGatewayZoneResponse
@@ -10001,7 +10001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries isolation rules.
+   * Query isolation rules.
    * 
    * @param request - ListIsolationRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10060,7 +10060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries isolation rules.
+   * Query isolation rules.
    * 
    * @param request - ListIsolationRulesRequest
    * @returns ListIsolationRulesResponse
@@ -10074,7 +10074,7 @@ export default class Client extends OpenApi {
    * Queries listeners based on configuration information.
    * 
    * @remarks
-   * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * > The current OpenAPI is not a Nacos-SDK API. For information about Nacos-SDK APIs, refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param tmpReq - ListListenersByConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10138,7 +10138,7 @@ export default class Client extends OpenApi {
    * Queries listeners based on configuration information.
    * 
    * @remarks
-   * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * > The current OpenAPI is not a Nacos-SDK API. For information about Nacos-SDK APIs, refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - ListListenersByConfigRequest
    * @returns ListListenersByConfigResponse
@@ -10149,10 +10149,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about listeners based on IP addresses.
+   * Queries the listener list based on an IP address.
    * 
    * @remarks
-   * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * > The current OpenAPI is not a Nacos-SDK API. For more information about the Nacos-SDK API, see [Official Documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - ListListenersByIpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10199,10 +10199,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about listeners based on IP addresses.
+   * Queries the listener list based on an IP address.
    * 
    * @remarks
-   * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * > The current OpenAPI is not a Nacos-SDK API. For more information about the Nacos-SDK API, see [Official Documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - ListListenersByIpRequest
    * @returns ListListenersByIpResponse
@@ -10213,7 +10213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a migration task.
+   * This operation queries cloud migration tasks.
    * 
    * @param request - ListMigrationTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10260,7 +10260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about a migration task.
+   * This operation queries cloud migration tasks.
    * 
    * @param request - ListMigrationTaskRequest
    * @returns ListMigrationTaskResponse
@@ -10271,10 +10271,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Nacos configurations.
+   * Queries the list of Nacos configurations.
    * 
    * @remarks
-   * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * > The current OpenAPI is not the Nacos SDK API. For information about the Nacos SDK API, refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - ListNacosConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10345,10 +10345,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Nacos configurations.
+   * Queries the list of Nacos configurations.
    * 
    * @remarks
-   * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * > The current OpenAPI is not the Nacos SDK API. For information about the Nacos SDK API, refer to the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - ListNacosConfigsRequest
    * @returns ListNacosConfigsResponse
@@ -10359,10 +10359,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration history of a Microservices Engine (MSE) Nacos instance.
+   * Queries the configuration history of a Nacos instance.
    * 
    * @remarks
-   * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * > The current OpenAPI is not the Nacos-SDK API. For information about the Nacos-SDK API, see [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - ListNacosHistoryConfigsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10425,10 +10425,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration history of a Microservices Engine (MSE) Nacos instance.
+   * Queries the configuration history of a Nacos instance.
    * 
    * @remarks
-   * > The operation is not provided in Nacos SDKs. For information about Nacos SDKs, see the [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
+   * > The current OpenAPI is not the Nacos-SDK API. For information about the Nacos-SDK API, see [official documentation](https://nacos.io/zh-cn/docs/sdk.html).
    * 
    * @param request - ListNacosHistoryConfigsRequest
    * @returns ListNacosHistoryConfigsResponse
@@ -10439,7 +10439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取McpServer列表
+   * Retrieves a list of MCP servers.
    * 
    * @param request - ListNacosMcpServersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10494,7 +10494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取McpServer列表
+   * Retrieves a list of MCP servers.
    * 
    * @param request - ListNacosMcpServersRequest
    * @returns ListNacosMcpServersResponse
@@ -10505,7 +10505,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Displays the list of namespaces, the number of online nodes in each namespace, and the total number of applications in each namespace. You can also call this operation to perform fuzzy queries based on the namespace name.
+   * Displays the namespace list, showing the number of online nodes and total applications in each namespace. This interface also supports fuzzy queries based on namespace names.
    * 
    * @param tmpReq - ListNamespacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10562,7 +10562,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Displays the list of namespaces, the number of online nodes in each namespace, and the total number of applications in each namespace. You can also call this operation to perform fuzzy queries based on the namespace name.
+   * Displays the namespace list, showing the number of online nodes and total applications in each namespace. This interface also supports fuzzy queries based on namespace names.
    * 
    * @param request - ListNamespacesRequest
    * @returns ListNamespacesResponse
@@ -10611,7 +10611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of gateway certificates.
+   * Retrieves a list of gateway certificates.
    * 
    * @param request - ListSSLCertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10650,7 +10650,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains a list of gateway certificates.
+   * Retrieves a list of gateway certificates.
    * 
    * @param request - ListSSLCertRequest
    * @returns ListSSLCertResponse
@@ -10707,7 +10707,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the security group rules of a gateway.
+   * Queries the list of gateway security groups.
    * 
    * @param request - ListSecurityGroupRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10742,7 +10742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the security group rules of a gateway.
+   * Queries the list of gateway security groups.
    * 
    * @param request - ListSecurityGroupRuleRequest
    * @returns ListSecurityGroupRuleResponse
@@ -10813,7 +10813,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of associated sources.
+   * Queries the list of associated sources.
    * 
    * @param request - ListServiceSourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10852,7 +10852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of associated sources.
+   * Queries the list of associated sources.
    * 
    * @param request - ListServiceSourceRequest
    * @returns ListServiceSourceResponse
@@ -10863,7 +10863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries tagged resources.
+   * Queries resource tags.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10914,7 +10914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries tagged resources.
+   * Queries resource tags.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -11123,7 +11123,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出所有ZooKeeper sasl用户
+   * Lists all ZooKeeper SASL users.
    * 
    * @param request - ListZooKeeperSaslUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11158,7 +11158,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 列出所有ZooKeeper sasl用户
+   * Lists all ZooKeeper SASL users.
    * 
    * @param request - ListZooKeeperSaslUserRequest
    * @returns ListZooKeeperSaslUserResponse
@@ -11321,7 +11321,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a route for a gateway.
+   * Takes a gateway route offline.
    * 
    * @param request - OfflineGatewayRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11360,7 +11360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables a route for a gateway.
+   * Takes a gateway route offline.
    * 
    * @param request - OfflineGatewayRouteRequest
    * @returns OfflineGatewayRouteResponse
@@ -11487,7 +11487,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all the microservices of a service source.
+   * Queries the information about importable services from a specified source.
    * 
    * @param request - PullServicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11534,7 +11534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all the microservices of a service source.
+   * Queries the information about importable services from a specified source.
    * 
    * @param request - PullServicesRequest
    * @returns PullServicesResponse
@@ -11545,7 +11545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initiates a task to check risk evaluation for an instance.
+   * Initiates a risk assessment check task for the current cluster.
    * 
    * @param request - PutClusterHealthCheckTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11580,7 +11580,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initiates a task to check risk evaluation for an instance.
+   * Initiates a risk assessment check task for the current cluster.
    * 
    * @param request - PutClusterHealthCheckTaskRequest
    * @returns PutClusterHealthCheckTaskResponse
@@ -11591,7 +11591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all the lanes in a lane group.
+   * Queries information about all lanes.
    * 
    * @param request - QueryAllSwimmingLaneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11630,7 +11630,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all the lanes in a lane group.
+   * Queries information about all lanes.
    * 
    * @param request - QueryAllSwimmingLaneRequest
    * @returns QueryAllSwimmingLaneResponse
@@ -11725,7 +11725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an instance.
+   * Queries the details of a cluster.
    * 
    * @param request - QueryClusterDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11768,7 +11768,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an instance.
+   * Queries the details of a cluster.
    * 
    * @param request - QueryClusterDetailRequest
    * @returns QueryClusterDetailResponse
@@ -11825,7 +11825,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the static information of an instance.
+   * Queries the static information of a cluster.
    * 
    * @param request - QueryClusterInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11880,7 +11880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the static information of an instance.
+   * Queries the static information of a cluster.
    * 
    * @param request - QueryClusterInfoRequest
    * @returns QueryClusterInfoResponse
@@ -11891,7 +11891,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of supported instance specifications.
+   * Queries the list of supported cluster specifications.
    * 
    * @param request - QueryClusterSpecificationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11930,7 +11930,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of supported instance specifications.
+   * Queries the list of supported cluster specifications.
    * 
    * @param request - QueryClusterSpecificationRequest
    * @returns QueryClusterSpecificationResponse
@@ -11941,7 +11941,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries configuration information of an instance.
+   * Queries the configuration of a cluster.
    * 
    * @param request - QueryConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11992,7 +11992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries configuration information of an instance.
+   * Queries the configuration of a cluster.
    * 
    * @param request - QueryConfigRequest
    * @returns QueryConfigResponse
@@ -12003,7 +12003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the regions supported by a gateway.
+   * Queries the regions supported by the gateway.
    * 
    * @param request - QueryGatewayRegionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12034,7 +12034,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the regions supported by a gateway.
+   * Queries the regions supported by the gateway.
    * 
    * @param request - QueryGatewayRegionRequest
    * @returns QueryGatewayRegionResponse
@@ -12087,7 +12087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Kubernetes clusters for which Microservices Governance is activated.
+   * Queries a list of Kubernetes clusters for microservice governance.
    * 
    * @param request - QueryGovernanceKubernetesClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12134,7 +12134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Kubernetes clusters for which Microservices Governance is activated.
+   * Queries a list of Kubernetes clusters for microservice governance.
    * 
    * @param request - QueryGovernanceKubernetesClusterRequest
    * @returns QueryGovernanceKubernetesClusterResponse
@@ -12273,7 +12273,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries canary configurations of a Nacos instance.
+   * Queries the grayscale configuration of a Nacos canary release environment.
    * 
    * @param request - QueryNacosGrayConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12332,7 +12332,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries canary configurations of a Nacos instance.
+   * Queries the grayscale configuration of a Nacos canary release environment.
    * 
    * @param request - QueryNacosGrayConfigRequest
    * @returns QueryNacosGrayConfigResponse
@@ -12343,7 +12343,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询MSE命名空间
+   * Queries the namespace to which Microservices Governance belongs.
    * 
    * @param request - QueryNamespaceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12382,7 +12382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询MSE命名空间
+   * Queries the namespace to which Microservices Governance belongs.
    * 
    * @param request - QueryNamespaceRequest
    * @returns QueryNamespaceResponse
@@ -12431,7 +12431,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a lane based on the lane ID.
+   * Queries swimming lane information by swimming lane ID.
    * 
    * @param request - QuerySwimmingLaneByIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12470,7 +12470,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about a lane based on the lane ID.
+   * Queries swimming lane information by swimming lane ID.
    * 
    * @param request - QuerySwimmingLaneByIdRequest
    * @returns QuerySwimmingLaneByIdResponse
@@ -12597,7 +12597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a service authentication rule.
+   * Delete service authentication rules using the RemoveAuthPolicy interface.
    * 
    * @param request - RemoveAuthPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12632,7 +12632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a service authentication rule.
+   * Delete service authentication rules using the RemoveAuthPolicy interface.
    * 
    * @param request - RemoveAuthPolicyRequest
    * @returns RemoveAuthPolicyResponse
@@ -12643,7 +12643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除ZooKeeper sasl用户
+   * Deletes ZooKeeper SASL users.
    * 
    * @param tmpReq - RemoveZooKeeperSaslUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12692,7 +12692,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除ZooKeeper sasl用户
+   * Deletes ZooKeeper SASL users.
    * 
    * @param request - RemoveZooKeeperSaslUserRequest
    * @returns RemoveZooKeeperSaslUserResponse
@@ -12865,7 +12865,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tags a specified resource.
+   * Adds tags to specified resources.
    * 
    * @param request - TagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12912,7 +12912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tags a specified resource.
+   * Adds tags to specified resources.
    * 
    * @param request - TagResourcesRequest
    * @returns TagResourcesResponse
@@ -12923,7 +12923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Untags resources.
+   * Deletes tags.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12974,7 +12974,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Untags resources.
+   * Deletes tags.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -12985,7 +12985,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an IP address whitelist.
+   * Modifies the whitelist.
    * 
    * @param request - UpdateAclRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13028,7 +13028,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an IP address whitelist.
+   * Modifies the whitelist.
    * 
    * @param request - UpdateAclRequest
    * @returns UpdateAclResponse
@@ -13039,7 +13039,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a service authentication rule.
+   * Updates service authentication rules through the UpdateAuthPolicy operation.
    * 
    * @param request - UpdateAuthPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13106,7 +13106,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a service authentication rule.
+   * Updates service authentication rules through the UpdateAuthPolicy operation.
    * 
    * @param request - UpdateAuthPolicyRequest
    * @returns UpdateAuthPolicyResponse
@@ -13117,7 +13117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the blacklist or whitelist of a gateway.
+   * Updates the blacklists and whitelists of a gateway.
    * 
    * @param request - UpdateBlackWhiteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13188,7 +13188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the blacklist or whitelist of a gateway.
+   * Updates the blacklists and whitelists of a gateway.
    * 
    * @param request - UpdateBlackWhiteListRequest
    * @returns UpdateBlackWhiteListResponse
@@ -13293,7 +13293,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about an instance.
+   * Modifies the cluster information.
    * 
    * @param request - UpdateClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13344,7 +13344,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about an instance.
+   * Modifies the cluster information.
    * 
    * @param request - UpdateClusterRequest
    * @returns UpdateClusterResponse
@@ -13355,10 +13355,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the number or specifications of nodes in a pay-as-you-go Microservices Engine (MSE) instance.
+   * Updates the number of nodes or specifications of a registry and configuration center cluster (supports both pay-as-you-go and subscription).
    * 
    * @remarks
-   * You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see [Pricing] (`~~1806469~~`).
+   * Updates the number of nodes or specifications of a registry and configuration center cluster (supports both pay-as-you-go and subscription). Adding nodes or upgrading specifications will incur corresponding fees. For more information, see [Pricing]\\(`~~1806469~~`).
    * 
    * @param request - UpdateClusterSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13417,10 +13417,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the number or specifications of nodes in a pay-as-you-go Microservices Engine (MSE) instance.
+   * Updates the number of nodes or specifications of a registry and configuration center cluster (supports both pay-as-you-go and subscription).
    * 
    * @remarks
-   * You can call this operation to update the number or specifications of nodes in a pay-as-you-go MSE instance. You are charged when you add nodes or upgrade node specifications. For more information, see [Pricing] (`~~1806469~~`).
+   * Updates the number of nodes or specifications of a registry and configuration center cluster (supports both pay-as-you-go and subscription). Adding nodes or upgrading specifications will incur corresponding fees. For more information, see [Pricing]\\(`~~1806469~~`).
    * 
    * @param request - UpdateClusterSpecRequest
    * @returns UpdateClusterSpecResponse
@@ -13727,7 +13727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新网关认证
+   * Updates gateway authentication.
    * 
    * @param tmpReq - UpdateGatewayAuthRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13872,7 +13872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新网关认证
+   * Updates gateway authentication.
    * 
    * @param request - UpdateGatewayAuthRequest
    * @returns UpdateGatewayAuthResponse
@@ -13883,7 +13883,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the consumer on which a gateway performs authentication operations.
+   * Updates a gateway authentication consumer.
    * 
    * @param request - UpdateGatewayAuthConsumerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13958,7 +13958,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the consumer on which a gateway performs authentication operations.
+   * Updates a gateway authentication consumer.
    * 
    * @param request - UpdateGatewayAuthConsumerRequest
    * @returns UpdateGatewayAuthConsumerResponse
@@ -13969,7 +13969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a list of resources on which permissions are granted to a gateway authentication consumer.
+   * Updates the authorization list of a gateway authentication consumer.
    * 
    * @param tmpReq - UpdateGatewayAuthConsumerResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14018,7 +14018,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a list of resources on which permissions are granted to a gateway authentication consumer.
+   * Updates the authorization list of a gateway authentication consumer.
    * 
    * @param request - UpdateGatewayAuthConsumerResourceRequest
    * @returns UpdateGatewayAuthConsumerResourceResponse
@@ -14029,7 +14029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the resource authorization status for the consumer on which a gateway performs authentication operations.
+   * Updates the authorization status of a gateway authentication consumer.
    * 
    * @param request - UpdateGatewayAuthConsumerResourceStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14076,7 +14076,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the resource authorization status for the consumer on which a gateway performs authentication operations.
+   * Updates the authorization status of a gateway authentication consumer.
    * 
    * @param request - UpdateGatewayAuthConsumerResourceStatusRequest
    * @returns UpdateGatewayAuthConsumerResourceStatusResponse
@@ -14087,7 +14087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the status of the consumer on which a gateway performs authentication operations.
+   * Updates the status of a gateway authentication consumer.
    * 
    * @param request - UpdateGatewayAuthConsumerStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14130,7 +14130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the status of the consumer on which a gateway performs authentication operations.
+   * Updates the status of a gateway authentication consumer.
    * 
    * @param request - UpdateGatewayAuthConsumerStatusRequest
    * @returns UpdateGatewayAuthConsumerStatusResponse
@@ -14141,7 +14141,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a gateway circuit breaking rule.
+   * Updates the circuit breaker rule for the gateway.
    * 
    * @param request - UpdateGatewayCircuitBreakerRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14240,7 +14240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a gateway circuit breaking rule.
+   * Updates the circuit breaker rule for the gateway.
    * 
    * @param request - UpdateGatewayCircuitBreakerRuleRequest
    * @returns UpdateGatewayCircuitBreakerRuleResponse
@@ -14305,7 +14305,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about the domain name associated with a gateway.
+   * Modifies the associated domain name information.
    * 
    * @param tmpReq - UpdateGatewayDomainRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14330,6 +14330,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.certIdentifier)) {
       query["CertIdentifier"] = request.certIdentifier;
+    }
+
+    if (!$dara.isNull(request.enableWaf)) {
+      query["EnableWaf"] = request.enableWaf;
     }
 
     if (!$dara.isNull(request.gatewayUniqueId)) {
@@ -14386,7 +14390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the information about the domain name associated with a gateway.
+   * Modifies the associated domain name information.
    * 
    * @param request - UpdateGatewayDomainRequest
    * @returns UpdateGatewayDomainResponse
@@ -14397,7 +14401,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries throttling rules of a gateway.
+   * Updates a throttling rule of a gateway.
    * 
    * @param request - UpdateGatewayFlowRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14476,7 +14480,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries throttling rules of a gateway.
+   * Updates a throttling rule of a gateway.
    * 
    * @param request - UpdateGatewayFlowRuleRequest
    * @returns UpdateGatewayFlowRuleResponse
@@ -14687,7 +14691,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a route for a gateway.
+   * Updates a gateway route.
    * 
    * @param tmpReq - UpdateGatewayRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14800,7 +14804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a route for a gateway.
+   * Updates a gateway route.
    * 
    * @param request - UpdateGatewayRouteRequest
    * @returns UpdateGatewayRouteResponse
@@ -14811,7 +14815,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the authentication configurations of a route.
+   * Updates the route authentication configuration.
    * 
    * @param tmpReq - UpdateGatewayRouteAuthRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14864,7 +14868,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the authentication configurations of a route.
+   * Updates the route authentication configuration.
    * 
    * @param request - UpdateGatewayRouteAuthRequest
    * @returns UpdateGatewayRouteAuthResponse
@@ -15055,7 +15059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the retry policy of a route.
+   * Modifies the retry policy for a gateway route.
    * 
    * @param tmpReq - UpdateGatewayRouteRetryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15108,7 +15112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the retry policy of a route.
+   * Modifies the retry policy for a gateway route.
    * 
    * @param request - UpdateGatewayRouteRetryRequest
    * @returns UpdateGatewayRouteRetryResponse
@@ -15237,7 +15241,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates gateways for fixed address services or DNS services.
+   * Edit a gateway service (applicable only to fixed address services or DNS domain name services)
    * 
    * @param tmpReq - UpdateGatewayServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15314,7 +15318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates gateways for fixed address services or DNS services.
+   * Edit a gateway service (applicable only to fixed address services or DNS domain name services)
    * 
    * @param request - UpdateGatewayServiceRequest
    * @returns UpdateGatewayServiceResponse
@@ -15715,7 +15719,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the Intra-zone Provider First rules.
+   * Updates zone affinity routing rules.
    * 
    * @param request - UpdateLocalityRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15778,7 +15782,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the Intra-zone Provider First rules.
+   * Updates zone affinity routing rules.
    * 
    * @param request - UpdateLocalityRuleRequest
    * @returns UpdateLocalityRuleResponse
@@ -15789,7 +15793,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of a canary release for messaging of an application.
+   * Updates the message canary release configuration for an application.
    * 
    * @param tmpReq - UpdateMessageQueueRouteRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15862,7 +15866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of a canary release for messaging of an application.
+   * Updates the message canary release configuration for an application.
    * 
    * @param request - UpdateMessageQueueRouteRequest
    * @returns UpdateMessageQueueRouteResponse
@@ -16131,7 +16135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the canary release settings, which include beta release and tag-based canary release.
+   * Updates the canary release settings, including beta release and tag-based canary release.
    * 
    * @param request - UpdateNacosGrayConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16218,7 +16222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the canary release settings, which include beta release and tag-based canary release.
+   * Updates the canary release settings, including beta release and tag-based canary release.
    * 
    * @param request - UpdateNacosGrayConfigRequest
    * @returns UpdateNacosGrayConfigResponse
@@ -16395,7 +16399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates plug-in configurations.
+   * Updates the configuration of a plug-in.
    * 
    * @param tmpReq - UpdatePluginConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16474,7 +16478,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates plug-in configurations.
+   * Updates the configuration of a plug-in.
    * 
    * @param request - UpdatePluginConfigRequest
    * @returns UpdatePluginConfigResponse
@@ -16783,7 +16787,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改ZooKeeper sasl 用户信息
+   * Updates the SASL user information for ZooKeeper.
    * 
    * @param tmpReq - UpdateZooKeeperSaslUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16832,7 +16836,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 修改ZooKeeper sasl 用户信息
+   * Updates the SASL user information for ZooKeeper.
    * 
    * @param request - UpdateZooKeeperSaslUserRequest
    * @returns UpdateZooKeeperSaslUserResponse
@@ -16843,7 +16847,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades the version of a cluster.
+   * Upgrades the cluster version.
    * 
    * @param request - UpgradeClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16886,7 +16890,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades the version of a cluster.
+   * Upgrades the cluster version.
    * 
    * @param request - UpgradeClusterRequest
    * @returns UpgradeClusterResponse

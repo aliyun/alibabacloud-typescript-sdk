@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePluginConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The plug-in configuration ID.
+   * The ID of the plug-in configuration.
    * 
    * @example
    * 10

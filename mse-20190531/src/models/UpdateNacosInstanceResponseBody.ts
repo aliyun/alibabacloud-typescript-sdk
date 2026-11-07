@@ -32,7 +32,7 @@ export class UpdateNacosInstanceResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * The request is successfully processed.
+   * Request succeeded.
    */
   message?: string;
   /**

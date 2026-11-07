@@ -18,12 +18,12 @@ export class UpdateGatewayRouteRetryRequestRetryJSON extends $dara.Model {
   httpCodes?: string[];
   /**
    * @remarks
-   * The retry conditions.
+   * The conditions that trigger a retry.
    */
   retryOn?: string[];
   /**
    * @remarks
-   * The status of the policy.
+   * The status of the retry policy.
    * 
    * @example
    * off
@@ -67,8 +67,9 @@ export class UpdateGatewayRouteRetryRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
@@ -76,7 +77,7 @@ export class UpdateGatewayRouteRetryRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the gateway.
+   * The gateway ID.
    * 
    * @example
    * 501
@@ -100,7 +101,7 @@ export class UpdateGatewayRouteRetryRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The information about the retry policy.
+   * The retry policy.
    */
   retryJSON?: UpdateGatewayRouteRetryRequestRetryJSON;
   static names(): { [key: string]: string } {

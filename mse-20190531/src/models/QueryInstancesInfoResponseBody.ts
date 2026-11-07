@@ -21,7 +21,7 @@ export class QueryInstancesInfoResponseBodyData extends $dara.Model {
   creationTimestamp?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved field.
    * 
    * @example
    * null
@@ -53,7 +53,7 @@ export class QueryInstancesInfoResponseBodyData extends $dara.Model {
   podName?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved field.
    * 
    * @example
    * null
@@ -69,7 +69,7 @@ export class QueryInstancesInfoResponseBodyData extends $dara.Model {
   singleTunnelVip?: string;
   /**
    * @remarks
-   * The zone ID.
+   * The zone.
    * 
    * @example
    * cn-hangzhou-k
@@ -77,7 +77,7 @@ export class QueryInstancesInfoResponseBodyData extends $dara.Model {
   zone?: string;
   /**
    * @remarks
-   * Indicates whether all pods in the cluster are distributed in the specified zones.
+   * Indicates whether all pods are distributed across multiple zones.
    * 
    * @example
    * true
@@ -125,12 +125,12 @@ export class QueryInstancesInfoResponseBodyData extends $dara.Model {
 export class QueryInstancesInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the data.
+   * The data overview.
    */
   data?: QueryInstancesInfoResponseBodyData[];
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -146,18 +146,18 @@ export class QueryInstancesInfoResponseBody extends $dara.Model {
   httpCode?: string;
   /**
    * @remarks
-   * The message that is returned.
+   * The returned message.
    * 
-   * *   If the request is successful, a success message is returned.
-   * *   If the request fails, an error message is returned.
+   * - If the request is successful, a success message is returned.
+   * - If the request fails, the cause of the failure is returned.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 54973C90-F379-4372-9AA5-053A3F7****
@@ -165,10 +165,9 @@ export class QueryInstancesInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

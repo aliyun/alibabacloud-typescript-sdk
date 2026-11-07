@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * prd
@@ -46,9 +46,8 @@ export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -56,7 +55,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The token used to start the next query.
+   * The token for the next query.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kywps2Ezza3n8HAAzCCqsi
@@ -64,7 +63,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -74,15 +73,14 @@ export class ListTagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource IDs. You can specify a maximum of 50 resource IDs.
+   * The resource IDs. You can specify up to 50 resource IDs.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resource. Valid values:
-   * 
-   * *   CLUSTER: MSE instance
-   * *   GATEWAY: cloud-native gateway
+   * The resource type. Valid values:
+   * - CLUSTER: registration configuration center
+   * - GATEWAY: cloud-native gateway
    * 
    * This parameter is required.
    * 
@@ -92,7 +90,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tags. A maximum number of 20 tags are supported.
+   * The tags. You can specify up to 20 tags.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {

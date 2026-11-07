@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -13,7 +13,7 @@ export class CreateClusterResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * mse-cn-st21ri2****
@@ -21,15 +21,15 @@ export class CreateClusterResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Return message.
+   * The returned message.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully
    */
   message?: string;
   /**
    * @remarks
-   * Order ID.
+   * The order ID.
    * 
    * @example
    * 20574710974****
@@ -37,7 +37,7 @@ export class CreateClusterResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * dc63-465d-8ef5-20dc18af****
@@ -45,9 +45,9 @@ export class CreateClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Request result, with the following values:
-   * - `true`: Request succeeded.
-   * - `false`: Request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

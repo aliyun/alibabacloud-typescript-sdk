@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayRouteDetailResponseBodyDataCors extends $dara.Model {
   /**
    * @remarks
-   * The credentials allowed.
+   * Allow credentials.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class GetGatewayRouteDetailResponseBodyDataCors extends $dara.Model {
   allowCredentials?: boolean;
   /**
    * @remarks
-   * The headers allowed.
+   * Cross-domain Header.
    * 
    * @example
    * *
@@ -21,7 +21,7 @@ export class GetGatewayRouteDetailResponseBodyDataCors extends $dara.Model {
   allowHeaders?: string;
   /**
    * @remarks
-   * The methods allowed.
+   * Cross-domain methods.
    * 
    * @example
    * GET,POST,PUT,DELETE,HEAD,OPTIONS,PATCH
@@ -29,7 +29,7 @@ export class GetGatewayRouteDetailResponseBodyDataCors extends $dara.Model {
   allowMethods?: string;
   /**
    * @remarks
-   * The origins allowed.
+   * Cross-domain.
    * 
    * @example
    * *
@@ -37,7 +37,7 @@ export class GetGatewayRouteDetailResponseBodyDataCors extends $dara.Model {
   allowOrigins?: string;
   /**
    * @remarks
-   * The response headers.
+   * Response header.
    * 
    * @example
    * *
@@ -45,7 +45,7 @@ export class GetGatewayRouteDetailResponseBodyDataCors extends $dara.Model {
   exposeHeaders?: string;
   /**
    * @remarks
-   * The status.
+   * Status.
    * 
    * @example
    * off
@@ -53,7 +53,7 @@ export class GetGatewayRouteDetailResponseBodyDataCors extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time unit.
+   * Time unit.
    * 
    * @example
    * h
@@ -61,7 +61,7 @@ export class GetGatewayRouteDetailResponseBodyDataCors extends $dara.Model {
   timeUnit?: string;
   /**
    * @remarks
-   * The unit number.
+   * Time number.
    * 
    * @example
    * 24
@@ -105,7 +105,7 @@ export class GetGatewayRouteDetailResponseBodyDataCors extends $dara.Model {
 export class GetGatewayRouteDetailResponseBodyDataDirectResponse extends $dara.Model {
   /**
    * @remarks
-   * The mock return value.
+   * Mock return value.
    * 
    * @example
    * {}
@@ -113,7 +113,7 @@ export class GetGatewayRouteDetailResponseBodyDataDirectResponse extends $dara.M
   body?: string;
   /**
    * @remarks
-   * The response code returned.
+   * Response code.
    * 
    * @example
    * 200
@@ -145,7 +145,7 @@ export class GetGatewayRouteDetailResponseBodyDataDirectResponse extends $dara.M
 export class GetGatewayRouteDetailResponseBodyDataFallbackServices extends $dara.Model {
   /**
    * @remarks
-   * The protocol type.
+   * Protocol Type.
    * 
    * @example
    * DUBBO
@@ -153,7 +153,7 @@ export class GetGatewayRouteDetailResponseBodyDataFallbackServices extends $dara
   agreementType?: string;
   /**
    * @remarks
-   * The name of the group to which the service belongs.
+   * Service group name.
    * 
    * @example
    * test
@@ -161,7 +161,7 @@ export class GetGatewayRouteDetailResponseBodyDataFallbackServices extends $dara
   groupName?: string;
   /**
    * @remarks
-   * The name.
+   * Name.
    * 
    * @example
    * name
@@ -169,7 +169,7 @@ export class GetGatewayRouteDetailResponseBodyDataFallbackServices extends $dara
   name?: string;
   /**
    * @remarks
-   * The namespace to which the service belongs.
+   * Service namespace.
    * 
    * @example
    * namespace
@@ -177,7 +177,7 @@ export class GetGatewayRouteDetailResponseBodyDataFallbackServices extends $dara
   namespace?: string;
   /**
    * @remarks
-   * The weight in the form of a percentage value.
+   * Weight percentage.
    * 
    * @example
    * 80
@@ -185,7 +185,7 @@ export class GetGatewayRouteDetailResponseBodyDataFallbackServices extends $dara
   percent?: number;
   /**
    * @remarks
-   * The service ID.
+   * Service ID.
    * 
    * @example
    * 1
@@ -193,7 +193,7 @@ export class GetGatewayRouteDetailResponseBodyDataFallbackServices extends $dara
   serviceId?: number;
   /**
    * @remarks
-   * The service name.
+   * Service name.
    * 
    * @example
    * name
@@ -201,7 +201,7 @@ export class GetGatewayRouteDetailResponseBodyDataFallbackServices extends $dara
   serviceName?: string;
   /**
    * @remarks
-   * The port number of the service.
+   * Service port.
    * 
    * @example
    * 8848
@@ -209,7 +209,7 @@ export class GetGatewayRouteDetailResponseBodyDataFallbackServices extends $dara
   servicePort?: number;
   /**
    * @remarks
-   * The source type of the service.
+   * Source type.
    * 
    * @example
    * MSE
@@ -217,7 +217,7 @@ export class GetGatewayRouteDetailResponseBodyDataFallbackServices extends $dara
   sourceType?: string;
   /**
    * @remarks
-   * The service version.
+   * Service version.
    * 
    * @example
    * v1
@@ -265,7 +265,7 @@ export class GetGatewayRouteDetailResponseBodyDataFallbackServices extends $dara
 export class GetGatewayRouteDetailResponseBodyDataFlowMirror extends $dara.Model {
   /**
    * @remarks
-   * 流量复制比例（%），取值0-100。
+   * Traffic replication percentage (%), value range 0-100.
    * 
    * @example
    * 90
@@ -273,7 +273,7 @@ export class GetGatewayRouteDetailResponseBodyDataFlowMirror extends $dara.Model
   percentage?: number;
   /**
    * @remarks
-   * 目标服务端口。
+   * Target service port.
    * 
    * @example
    * 8790
@@ -281,10 +281,11 @@ export class GetGatewayRouteDetailResponseBodyDataFlowMirror extends $dara.Model
   port?: number;
   /**
    * @remarks
-   * 开启状态，取值：
+   * Enabling status, values:
    * 
-   * - on：开启
-   * - off：关闭
+   * - on: enabled
+   * 
+   * - off: disabled
    * 
    * @example
    * on
@@ -292,7 +293,7 @@ export class GetGatewayRouteDetailResponseBodyDataFlowMirror extends $dara.Model
   status?: string;
   /**
    * @remarks
-   * 目标服务ID。
+   * Target service ID.
    * 
    * @example
    * 21
@@ -300,7 +301,7 @@ export class GetGatewayRouteDetailResponseBodyDataFlowMirror extends $dara.Model
   targetServiceId?: number;
   /**
    * @remarks
-   * 目标服务名称。
+   * Target service name.
    * 
    * @example
    * test
@@ -338,7 +339,7 @@ export class GetGatewayRouteDetailResponseBodyDataFlowMirror extends $dara.Model
 export class GetGatewayRouteDetailResponseBodyDataHTTPRewrite extends $dara.Model {
   /**
    * @remarks
-   * The hostname of the gateway.
+   * Instance address.
    * 
    * @example
    * aliyuncs.com
@@ -346,7 +347,7 @@ export class GetGatewayRouteDetailResponseBodyDataHTTPRewrite extends $dara.Mode
   host?: string;
   /**
    * @remarks
-   * The path of the node.
+   * Node path.
    * 
    * @example
    * /test/client
@@ -354,7 +355,7 @@ export class GetGatewayRouteDetailResponseBodyDataHTTPRewrite extends $dara.Mode
   path?: string;
   /**
    * @remarks
-   * The rewrite type.
+   * Rewrite type.
    * 
    * @example
    * PRE
@@ -362,7 +363,7 @@ export class GetGatewayRouteDetailResponseBodyDataHTTPRewrite extends $dara.Mode
   pathType?: string;
   /**
    * @remarks
-   * The matching pattern.
+   * Matching Pattern.
    * 
    * @example
    * /test
@@ -370,7 +371,7 @@ export class GetGatewayRouteDetailResponseBodyDataHTTPRewrite extends $dara.Mode
   pattern?: string;
   /**
    * @remarks
-   * The status of the policy.
+   * Enabling status.
    * 
    * @example
    * off
@@ -378,7 +379,7 @@ export class GetGatewayRouteDetailResponseBodyDataHTTPRewrite extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * The replacement.
+   * Replacement.
    * 
    * @example
    * test
@@ -418,7 +419,7 @@ export class GetGatewayRouteDetailResponseBodyDataHTTPRewrite extends $dara.Mode
 export class GetGatewayRouteDetailResponseBodyDataHeaderOpHeaderOpItems extends $dara.Model {
   /**
    * @remarks
-   * The request or response.
+   * Request or response.
    * 
    * @example
    * Response
@@ -426,7 +427,7 @@ export class GetGatewayRouteDetailResponseBodyDataHeaderOpHeaderOpItems extends 
   directionType?: string;
   /**
    * @remarks
-   * The header key.
+   * Header Key.
    * 
    * @example
    * debug
@@ -434,7 +435,7 @@ export class GetGatewayRouteDetailResponseBodyDataHeaderOpHeaderOpItems extends 
   key?: string;
   /**
    * @remarks
-   * The type of the operation.
+   * Operation type.
    * 
    * @example
    * Add
@@ -442,7 +443,7 @@ export class GetGatewayRouteDetailResponseBodyDataHeaderOpHeaderOpItems extends 
   opType?: string;
   /**
    * @remarks
-   * The header value.
+   * Setting value.
    * 
    * @example
    * test
@@ -478,12 +479,12 @@ export class GetGatewayRouteDetailResponseBodyDataHeaderOpHeaderOpItems extends 
 export class GetGatewayRouteDetailResponseBodyDataHeaderOp extends $dara.Model {
   /**
    * @remarks
-   * The information about headers.
+   * Header field objects.
    */
   headerOpItems?: GetGatewayRouteDetailResponseBodyDataHeaderOpHeaderOpItems[];
   /**
    * @remarks
-   * The status.
+   * Status.
    * 
    * @example
    * off
@@ -518,7 +519,7 @@ export class GetGatewayRouteDetailResponseBodyDataHeaderOp extends $dara.Model {
 export class GetGatewayRouteDetailResponseBodyDataRedirect extends $dara.Model {
   /**
    * @remarks
-   * The response code returned.
+   * Response code.
    * 
    * @example
    * 200
@@ -526,7 +527,7 @@ export class GetGatewayRouteDetailResponseBodyDataRedirect extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The hostname.
+   * Host.
    * 
    * @example
    * 16
@@ -534,7 +535,7 @@ export class GetGatewayRouteDetailResponseBodyDataRedirect extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * The path.
+   * Path.
    * 
    * @example
    * 10111
@@ -568,7 +569,7 @@ export class GetGatewayRouteDetailResponseBodyDataRedirect extends $dara.Model {
 export class GetGatewayRouteDetailResponseBodyDataRetry extends $dara.Model {
   /**
    * @remarks
-   * The number of retries allowed.
+   * Number of retry attempts.
    * 
    * @example
    * 1
@@ -576,17 +577,17 @@ export class GetGatewayRouteDetailResponseBodyDataRetry extends $dara.Model {
   attempts?: number;
   /**
    * @remarks
-   * The HTTP status codes.
+   * HTTP status codes.
    */
   httpCodes?: string[];
   /**
    * @remarks
-   * The retry condition.
+   * Retry conditions.
    */
   retryOn?: string[];
   /**
    * @remarks
-   * The retry status.
+   * Retry status.
    * 
    * @example
    * on
@@ -628,7 +629,7 @@ export class GetGatewayRouteDetailResponseBodyDataRetry extends $dara.Model {
 export class GetGatewayRouteDetailResponseBodyDataRoutePredicatesHeaderPredicates extends $dara.Model {
   /**
    * @remarks
-   * The key of the request header.
+   * Request header KEY.
    * 
    * @example
    * id
@@ -636,7 +637,7 @@ export class GetGatewayRouteDetailResponseBodyDataRoutePredicatesHeaderPredicate
   key?: string;
   /**
    * @remarks
-   * The route type.
+   * Type.
    * 
    * @example
    * PRE
@@ -644,7 +645,7 @@ export class GetGatewayRouteDetailResponseBodyDataRoutePredicatesHeaderPredicate
   type?: string;
   /**
    * @remarks
-   * The value of the request header.
+   * Matching value.
    * 
    * @example
    * 200
@@ -678,7 +679,7 @@ export class GetGatewayRouteDetailResponseBodyDataRoutePredicatesHeaderPredicate
 export class GetGatewayRouteDetailResponseBodyDataRoutePredicatesPathPredicates extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether case sensitivity is ignored.
+   * Whether to ignore case.
    * 
    * @example
    * true
@@ -686,7 +687,7 @@ export class GetGatewayRouteDetailResponseBodyDataRoutePredicatesPathPredicates 
   ignoreCase?: boolean;
   /**
    * @remarks
-   * The path.
+   * Path.
    * 
    * @example
    * /api
@@ -694,7 +695,7 @@ export class GetGatewayRouteDetailResponseBodyDataRoutePredicatesPathPredicates 
   path?: string;
   /**
    * @remarks
-   * The matching type.
+   * Matching type.
    * 
    * @example
    * PRE
@@ -728,7 +729,7 @@ export class GetGatewayRouteDetailResponseBodyDataRoutePredicatesPathPredicates 
 export class GetGatewayRouteDetailResponseBodyDataRoutePredicatesQueryPredicates extends $dara.Model {
   /**
    * @remarks
-   * The parameter name.
+   * Parameter name.
    * 
    * @example
    * userid
@@ -736,7 +737,7 @@ export class GetGatewayRouteDetailResponseBodyDataRoutePredicatesQueryPredicates
   key?: string;
   /**
    * @remarks
-   * The route type.
+   * Type.
    * 
    * @example
    * PRE
@@ -744,7 +745,7 @@ export class GetGatewayRouteDetailResponseBodyDataRoutePredicatesQueryPredicates
   type?: string;
   /**
    * @remarks
-   * The value of the parameter.
+   * Matching value.
    * 
    * @example
    * test
@@ -778,22 +779,22 @@ export class GetGatewayRouteDetailResponseBodyDataRoutePredicatesQueryPredicates
 export class GetGatewayRouteDetailResponseBodyDataRoutePredicates extends $dara.Model {
   /**
    * @remarks
-   * The information about header matching.
+   * Header matching.
    */
   headerPredicates?: GetGatewayRouteDetailResponseBodyDataRoutePredicatesHeaderPredicates[];
   /**
    * @remarks
-   * The information about method matching.
+   * Method matching.
    */
   methodPredicates?: string[];
   /**
    * @remarks
-   * The information about route matching.
+   * Route matching.
    */
   pathPredicates?: GetGatewayRouteDetailResponseBodyDataRoutePredicatesPathPredicates;
   /**
    * @remarks
-   * The information about parameter matching.
+   * Parameter matching.
    */
   queryPredicates?: GetGatewayRouteDetailResponseBodyDataRoutePredicatesQueryPredicates[];
   static names(): { [key: string]: string } {
@@ -836,8 +837,39 @@ export class GetGatewayRouteDetailResponseBodyDataRoutePredicates extends $dara.
 }
 
 export class GetGatewayRouteDetailResponseBodyDataRouteServicesHttpDubboTranscoderMothedMapListParamMapsList extends $dara.Model {
+  /**
+   * @remarks
+   * Input parameter extraction Key.
+   * 
+   * @example
+   * name
+   */
   extractKey?: string;
+  /**
+   * @remarks
+   * Input parameter position.
+   * 
+   * > Input parameter position enumeration values.
+   * >
+   * > - Request parameter: `ALL_QUERY_PARAMETER`
+   * >
+   * > - Request header: `ALL_HEADER`
+   * >
+   * > - URI of the request: `ALL_PATH`
+   * >
+   * > - Request body: `ALL_BODY`
+   * 
+   * @example
+   * ALL_QUERY_PARAMETER
+   */
   extractKeySpec?: string;
+  /**
+   * @remarks
+   * Backend parameter type.
+   * 
+   * @example
+   * java.lang.String
+   */
   mappingType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -865,11 +897,67 @@ export class GetGatewayRouteDetailResponseBodyDataRouteServicesHttpDubboTranscod
 }
 
 export class GetGatewayRouteDetailResponseBodyDataRouteServicesHttpDubboTranscoderMothedMapList extends $dara.Model {
+  /**
+   * @remarks
+   * Dubbo method name.
+   * 
+   * @example
+   * sayHello
+   */
   dubboMothedName?: string;
+  /**
+   * @remarks
+   * Http method.
+   * 
+   * > Supported http method parameter values.
+   * >
+   * > - ALL_GET
+   * >
+   * > - ALL_POST
+   * >
+   * > - ALL_PUT
+   * >
+   * > - ALL_DELETE
+   * >
+   * > - ALL_PATCH
+   * 
+   * @example
+   * ALL_GET
+   */
   httpMothed?: string;
+  /**
+   * @remarks
+   * Method matching path.
+   * 
+   * @example
+   * /mytestzbk/sayhello
+   */
   mothedpath?: string;
+  /**
+   * @remarks
+   * Parameter mapping list.
+   */
   paramMapsList?: GetGatewayRouteDetailResponseBodyDataRouteServicesHttpDubboTranscoderMothedMapListParamMapsList[];
+  /**
+   * @remarks
+   * Header pass-through type.
+   * 
+   * > Pass-through type enumeration values.
+   * >
+   * > - Pass through all: PASS_ALL
+   * >
+   * > - No pass-through: PASS_NOT
+   * >
+   * > - Specified parameters: PASS_ASSIGN
+   * 
+   * @example
+   * PASS_NOT
+   */
   passThroughAllHeaders?: string;
+  /**
+   * @remarks
+   * Specified Header pass-through list.
+   */
   passThroughList?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -909,9 +997,34 @@ export class GetGatewayRouteDetailResponseBodyDataRouteServicesHttpDubboTranscod
 }
 
 export class GetGatewayRouteDetailResponseBodyDataRouteServicesHttpDubboTranscoder extends $dara.Model {
+  /**
+   * @remarks
+   * Dubbo service group.
+   * 
+   * @example
+   * service group
+   */
   dubboServiceGroup?: string;
+  /**
+   * @remarks
+   * Dubbo service name.
+   * 
+   * @example
+   * org.apache.dubbo.samples.basic.api.DemoService
+   */
   dubboServiceName?: string;
+  /**
+   * @remarks
+   * Dubbo service version.
+   * 
+   * @example
+   * 0.0.0
+   */
   dubboServiceVersion?: string;
+  /**
+   * @remarks
+   * Dubbo forwarding rule list.
+   */
   mothedMapList?: GetGatewayRouteDetailResponseBodyDataRouteServicesHttpDubboTranscoderMothedMapList[];
   static names(): { [key: string]: string } {
     return {
@@ -946,7 +1059,7 @@ export class GetGatewayRouteDetailResponseBodyDataRouteServicesHttpDubboTranscod
 export class GetGatewayRouteDetailResponseBodyDataRouteServices extends $dara.Model {
   /**
    * @remarks
-   * The protocol type.
+   * Protocol Type.
    * 
    * @example
    * DUBBO
@@ -954,21 +1067,36 @@ export class GetGatewayRouteDetailResponseBodyDataRouteServices extends $dara.Mo
   agreementType?: string;
   /**
    * @remarks
-   * The name of the group to which the service belongs.
+   * Service group name.
    * 
    * @example
    * api
    */
   groupName?: string;
   /**
+   * @remarks
+   * Health status
+   * 
+   * - Health
+   * 
+   * - Unhealthy
+   * 
+   * - Checking
+   * 
+   * - Unknown
+   * 
    * @example
    * Health
    */
   healthStatus?: string;
+  /**
+   * @remarks
+   * Dubbo protocol conversion body.
+   */
   httpDubboTranscoder?: GetGatewayRouteDetailResponseBodyDataRouteServicesHttpDubboTranscoder;
   /**
    * @remarks
-   * The service name.
+   * Service name.
    * 
    * @example
    * dubbo4
@@ -976,7 +1104,7 @@ export class GetGatewayRouteDetailResponseBodyDataRouteServices extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The namespace.
+   * Namespace.
    * 
    * @example
    * acs_ecs_dashboard
@@ -984,7 +1112,7 @@ export class GetGatewayRouteDetailResponseBodyDataRouteServices extends $dara.Mo
   namespace?: string;
   /**
    * @remarks
-   * The weight.
+   * Weight.
    * 
    * @example
    * 80
@@ -992,7 +1120,7 @@ export class GetGatewayRouteDetailResponseBodyDataRouteServices extends $dara.Mo
   percent?: number;
   /**
    * @remarks
-   * The service ID.
+   * Service ID.
    * 
    * @example
    * 782
@@ -1000,7 +1128,7 @@ export class GetGatewayRouteDetailResponseBodyDataRouteServices extends $dara.Mo
   serviceId?: number;
   /**
    * @remarks
-   * The service name.
+   * Service name.
    * 
    * @example
    * xkc-crm
@@ -1008,7 +1136,7 @@ export class GetGatewayRouteDetailResponseBodyDataRouteServices extends $dara.Mo
   serviceName?: string;
   /**
    * @remarks
-   * The port number of the service.
+   * Service port.
    * 
    * @example
    * 20880
@@ -1016,16 +1144,20 @@ export class GetGatewayRouteDetailResponseBodyDataRouteServices extends $dara.Mo
   servicePort?: number;
   /**
    * @remarks
-   * The source type of the service.
+   * Service source.
    * 
    * @example
    * MSE
    */
   sourceType?: string;
+  /**
+   * @remarks
+   * Unhealthy Endpoint list
+   */
   unhealthyEndpoints?: string[];
   /**
    * @remarks
-   * The service version.
+   * Service version.
    * 
    * @example
    * v1
@@ -1085,7 +1217,7 @@ export class GetGatewayRouteDetailResponseBodyDataRouteServices extends $dara.Mo
 export class GetGatewayRouteDetailResponseBodyDataTimeout extends $dara.Model {
   /**
    * @remarks
-   * The status.
+   * Status.
    * 
    * @example
    * off
@@ -1093,7 +1225,7 @@ export class GetGatewayRouteDetailResponseBodyDataTimeout extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time unit.
+   * Time unit.
    * 
    * @example
    * s
@@ -1101,7 +1233,7 @@ export class GetGatewayRouteDetailResponseBodyDataTimeout extends $dara.Model {
   timeUnit?: string;
   /**
    * @remarks
-   * The unit number.
+   * Unit number.
    * 
    * @example
    * 10
@@ -1135,7 +1267,7 @@ export class GetGatewayRouteDetailResponseBodyDataTimeout extends $dara.Model {
 export class GetGatewayRouteDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The status of Application High Availability Service (AHAS).
+   * Ahas status.
    * 
    * @example
    * 1
@@ -1143,12 +1275,12 @@ export class GetGatewayRouteDetailResponseBodyData extends $dara.Model {
   ahasStatus?: number;
   /**
    * @remarks
-   * The configuration for cross-origin resource sharing (CORS).
+   * Cross-domain configuration.
    */
   cors?: GetGatewayRouteDetailResponseBodyDataCors;
   /**
    * @remarks
-   * The default service ID.
+   * Default service ID.
    * 
    * @example
    * 3
@@ -1156,20 +1288,23 @@ export class GetGatewayRouteDetailResponseBodyData extends $dara.Model {
   defaultServiceId?: number;
   /**
    * @remarks
-   * The default service name.
+   * Default service name.
    * 
    * @example
    * test
    */
   defaultServiceName?: string;
   /**
+   * @remarks
+   * Route description
+   * 
    * @example
    * a route for xxx
    */
   description?: string;
   /**
    * @remarks
-   * The destination service type.
+   * Target service type.
    * 
    * @example
    * Single
@@ -1177,12 +1312,12 @@ export class GetGatewayRouteDetailResponseBodyData extends $dara.Model {
   destinationType?: string;
   /**
    * @remarks
-   * The information about service mocking.
+   * Mock information.
    */
   directResponse?: GetGatewayRouteDetailResponseBodyDataDirectResponse;
   /**
    * @remarks
-   * The domain ID.
+   * Domain ID.
    * 
    * @example
    * 235
@@ -1190,12 +1325,12 @@ export class GetGatewayRouteDetailResponseBodyData extends $dara.Model {
   domainId?: number;
   /**
    * @remarks
-   * The IDs of domains.
+   * Domain list
    */
   domainIdList?: number[];
   /**
    * @remarks
-   * The domain name.
+   * Domain name.
    * 
    * @example
    * 123.com
@@ -1203,12 +1338,12 @@ export class GetGatewayRouteDetailResponseBodyData extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The list of domain names.
+   * Domain name list
    */
   domainNameList?: string[];
   /**
    * @remarks
-   * Indicates whether Web Application Firewall (WAF) is activated.
+   * Whether to enable Waf.
    * 
    * @example
    * true
@@ -1216,7 +1351,7 @@ export class GetGatewayRouteDetailResponseBodyData extends $dara.Model {
   enableWaf?: boolean;
   /**
    * @remarks
-   * Indicates whether the Fallback service is enabled.
+   * Whether to enable Fallback service.
    * 
    * @example
    * true
@@ -1224,17 +1359,17 @@ export class GetGatewayRouteDetailResponseBodyData extends $dara.Model {
   fallback?: boolean;
   /**
    * @remarks
-   * The information of the Fallback service.
+   * Fallback services.
    */
   fallbackServices?: GetGatewayRouteDetailResponseBodyDataFallbackServices[];
   /**
    * @remarks
-   * 流量镜像配置。
+   * Traffic mirroring configuration.
    */
   flowMirror?: GetGatewayRouteDetailResponseBodyDataFlowMirror;
   /**
    * @remarks
-   * The ID of the gateway.
+   * Gateway ID.
    * 
    * @example
    * 1
@@ -1242,7 +1377,7 @@ export class GetGatewayRouteDetailResponseBodyData extends $dara.Model {
   gatewayId?: number;
   /**
    * @remarks
-   * The unique ID of the gateway.
+   * Gateway unique identifier ID.
    * 
    * @example
    * gw-7ea3da97b96543e19f6c597c****
@@ -1250,7 +1385,7 @@ export class GetGatewayRouteDetailResponseBodyData extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The creation time.
+   * Creation time.
    * 
    * @example
    * 2022-01-07 18:07:57
@@ -1258,7 +1393,7 @@ export class GetGatewayRouteDetailResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The last modification time.
+   * Last modification time.
    * 
    * @example
    * 2022-01-07T10:07:57.000+0000
@@ -1266,17 +1401,17 @@ export class GetGatewayRouteDetailResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The information about the rewrite policy.
+   * Rewrite policy information.
    */
   HTTPRewrite?: GetGatewayRouteDetailResponseBodyDataHTTPRewrite;
   /**
    * @remarks
-   * The header settings.
+   * Header settings information.
    */
   headerOp?: GetGatewayRouteDetailResponseBodyDataHeaderOp;
   /**
    * @remarks
-   * The ID.
+   * ID.
    * 
    * @example
    * 1050
@@ -1284,7 +1419,7 @@ export class GetGatewayRouteDetailResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name.
+   * Name.
    * 
    * @example
    * test
@@ -1292,7 +1427,7 @@ export class GetGatewayRouteDetailResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The routing policy in a JSON string.
+   * Routing policy Json string.
    * 
    * @example
    * {
@@ -1307,7 +1442,7 @@ export class GetGatewayRouteDetailResponseBodyData extends $dara.Model {
   policies?: string;
   /**
    * @remarks
-   * The matching conditions.
+   * Matching conditions.
    * 
    * @example
    * {}
@@ -1315,17 +1450,17 @@ export class GetGatewayRouteDetailResponseBodyData extends $dara.Model {
   predicates?: string;
   /**
    * @remarks
-   * The configuration of the redirection.
+   * Redirection configuration
    */
   redirect?: GetGatewayRouteDetailResponseBodyDataRedirect;
   /**
    * @remarks
-   * The retry configuration.
+   * Retry configuration.
    */
   retry?: GetGatewayRouteDetailResponseBodyDataRetry;
   /**
    * @remarks
-   * The sequence number of the route.
+   * Route order.
    * 
    * @example
    * 1
@@ -1333,17 +1468,17 @@ export class GetGatewayRouteDetailResponseBodyData extends $dara.Model {
   routeOrder?: number;
   /**
    * @remarks
-   * The information about route matching.
+   * Route matching.
    */
   routePredicates?: GetGatewayRouteDetailResponseBodyDataRoutePredicates;
   /**
    * @remarks
-   * The services.
+   * Services.
    */
   routeServices?: GetGatewayRouteDetailResponseBodyDataRouteServices[];
   /**
    * @remarks
-   * The configurations of services.
+   * Service configuration information.
    * 
    * @example
    * [{\\"Percent\\":100,\\"ServiceId\\":126}]
@@ -1351,14 +1486,19 @@ export class GetGatewayRouteDetailResponseBodyData extends $dara.Model {
   services?: string;
   /**
    * @remarks
-   * The status of the route. Valid values:
+   * Route status.
    * 
-   * *   0: unpublished
-   * *   2: publishing
-   * *   3: published
-   * *   4: editing (updated but not published)
-   * *   5: unpublishing
-   * *   6: unavailable
+   * - Not published: 0
+   * 
+   * - Publishing: 2
+   * 
+   * - Published: 3
+   * 
+   * - Editing (updates not published): 4
+   * 
+   * - Unpublishing: 5
+   * 
+   * - Unavailable: 6
    * 
    * @example
    * 0
@@ -1366,7 +1506,7 @@ export class GetGatewayRouteDetailResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The timeout configuration.
+   * Timeout configuration.
    */
   timeout?: GetGatewayRouteDetailResponseBodyDataTimeout;
   static names(): { [key: string]: string } {
@@ -1496,7 +1636,7 @@ export class GetGatewayRouteDetailResponseBodyData extends $dara.Model {
 export class GetGatewayRouteDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned. A value of 200 indicates that the request is successful.
+   * Status code. Note that 200 indicates success.
    * 
    * @example
    * 200
@@ -1504,12 +1644,12 @@ export class GetGatewayRouteDetailResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * Returned data.
    */
   data?: GetGatewayRouteDetailResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * HTTP status code.
    * 
    * @example
    * 200
@@ -1517,7 +1657,7 @@ export class GetGatewayRouteDetailResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * Error message.
    * 
    * @example
    * You are not authorized to perform this operation.
@@ -1525,7 +1665,7 @@ export class GetGatewayRouteDetailResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * FDF2D16C-5D28-5FAA-A56B-30BDE3559880
@@ -1533,10 +1673,11 @@ export class GetGatewayRouteDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Request result, with the following values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request is successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

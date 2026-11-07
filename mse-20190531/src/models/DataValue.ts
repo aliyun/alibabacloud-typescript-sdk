@@ -13,7 +13,7 @@ export class DataValue extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The region where the application resides.
+   * The region where the application is deployed.
    * 
    * @example
    * cn-hangzhou
@@ -29,7 +29,7 @@ export class DataValue extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The application name.
+   * The name of the application.
    * 
    * @example
    * example-app-name
@@ -37,7 +37,7 @@ export class DataValue extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The application ID.
+   * The ID of the application.
    * 
    * @example
    * 123456abcde@12345abcde

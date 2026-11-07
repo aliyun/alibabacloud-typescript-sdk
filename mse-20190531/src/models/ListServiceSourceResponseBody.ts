@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceSourceResponseBodyDataIngressOptions extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether Ingresses are enabled.
+   * Specifies whether to enable or disable Ingress.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class ListServiceSourceResponseBodyDataIngressOptions extends $dara.Model
   enableIngress?: boolean;
   /**
    * @remarks
-   * Indicates whether the Ingress status is updated.
+   * Specifies whether to update IngressStatus.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ListServiceSourceResponseBodyDataIngressOptions extends $dara.Model
   ingressClass?: string;
   /**
    * @remarks
-   * The namespace that you want to monitor.
+   * The monitored namespace.
    * 
    * @example
    * default
@@ -65,7 +65,7 @@ export class ListServiceSourceResponseBodyDataIngressOptions extends $dara.Model
 export class ListServiceSourceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Container Service for Kubernetes (ACK) cluster or the endpoint of the Microservices Engine (MSE) instance.
+   * The ACK ID or the MSE registry address.
    * 
    * @example
    * ***
@@ -73,7 +73,7 @@ export class ListServiceSourceResponseBodyData extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * Indicates whether the service source is associated with the gateway. The value 1 indicates that the service source is associated with the gateway.
+   * Indicates whether the binding is completed. A value of 1 indicates that the binding is completed.
    * 
    * @example
    * 1
@@ -81,7 +81,7 @@ export class ListServiceSourceResponseBodyData extends $dara.Model {
   bindingWithGateway?: number;
   /**
    * @remarks
-   * The ID of the gateway.
+   * The gateway ID.
    * 
    * @example
    * 1
@@ -126,9 +126,13 @@ export class ListServiceSourceResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The information about the support for Ingresses by applications.
+   * The Ingress support for application routing.
    */
   ingressOptions?: ListServiceSourceResponseBodyDataIngressOptions;
+  /**
+   * @remarks
+   * Indicates whether the source is valid.
+   */
   invalid?: boolean;
   /**
    * @remarks
@@ -140,12 +144,12 @@ export class ListServiceSourceResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The array of root paths of service lists.
+   * The array of root paths for the service list.
    */
   pathList?: string[];
   /**
    * @remarks
-   * The type of the service source.
+   * The source type.
    * 
    * @example
    * MSE
@@ -153,7 +157,7 @@ export class ListServiceSourceResponseBodyData extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The unique ID of the service source.
+   * The unique identifier of the source.
    * 
    * @example
    * mse-cn-***
@@ -228,7 +232,7 @@ export class ListServiceSourceResponseBodyData extends $dara.Model {
 export class ListServiceSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The response code.
    * 
    * @example
    * 200
@@ -236,12 +240,12 @@ export class ListServiceSourceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The returned results.
    */
   data?: ListServiceSourceResponseBodyData[];
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -249,7 +253,7 @@ export class ListServiceSourceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * You are not authorized to perform this operation.
@@ -257,7 +261,7 @@ export class ListServiceSourceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B8C4B0D8-EBB9-5F20-8295-04224FBE5529
@@ -265,10 +269,9 @@ export class ListServiceSourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayAuthConsumerResourceResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the consumer.
+   * The ID of the gateway authentication consumer.
    * 
    * @example
    * 2
@@ -29,7 +29,7 @@ export class ListGatewayAuthConsumerResourceResponseBodyDataResult extends $dara
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2022-01-07 18:07:57
@@ -37,7 +37,7 @@ export class ListGatewayAuthConsumerResourceResponseBodyDataResult extends $dara
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the authorized resource for the consumer.
+   * The authorization ID of the gateway authentication consumer.
    * 
    * @example
    * 1
@@ -47,8 +47,9 @@ export class ListGatewayAuthConsumerResourceResponseBodyDataResult extends $dara
    * @remarks
    * The resource authorization status. Valid values:
    * 
-   * *   true: enabled
-   * *   false: disabled
+   * - true: Enabled.
+   * 
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -56,7 +57,7 @@ export class ListGatewayAuthConsumerResourceResponseBodyDataResult extends $dara
   resourceStatus?: boolean;
   /**
    * @remarks
-   * The ID of the route.
+   * The route ID.
    * 
    * @example
    * 3091
@@ -108,7 +109,7 @@ export class ListGatewayAuthConsumerResourceResponseBodyDataResult extends $dara
 export class ListGatewayAuthConsumerResourceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -116,7 +117,7 @@ export class ListGatewayAuthConsumerResourceResponseBodyData extends $dara.Model
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -129,7 +130,7 @@ export class ListGatewayAuthConsumerResourceResponseBodyData extends $dara.Model
   result?: ListGatewayAuthConsumerResourceResponseBodyDataResult[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 11
@@ -168,7 +169,7 @@ export class ListGatewayAuthConsumerResourceResponseBodyData extends $dara.Model
 export class ListGatewayAuthConsumerResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of 200 is returned if the request is successful.
+   * The code used only to synchronize with the success field.
    * 
    * @example
    * 200
@@ -176,12 +177,12 @@ export class ListGatewayAuthConsumerResourceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned result.
+   * The returned data.
    */
   data?: ListGatewayAuthConsumerResourceResponseBodyData;
   /**
    * @remarks
-   * The dynamic part in the error message.
+   * The placeholder in the dynamic error message.
    * 
    * @example
    * code
@@ -189,9 +190,8 @@ export class ListGatewayAuthConsumerResourceResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the **ErrMessage** parameter.
-   * 
-   * >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+   * The dynamic error message, which is used to replace the **%s** placeholder in the error message of the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * The specified parameter is invalid.
@@ -199,7 +199,7 @@ export class ListGatewayAuthConsumerResourceResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code that is returned.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -207,7 +207,7 @@ export class ListGatewayAuthConsumerResourceResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -215,15 +215,15 @@ export class ListGatewayAuthConsumerResourceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned.
+   * The response message.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A73AC37C-C617-4E3A-8049-372CF49C****
@@ -231,10 +231,9 @@ export class ListGatewayAuthConsumerResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * True

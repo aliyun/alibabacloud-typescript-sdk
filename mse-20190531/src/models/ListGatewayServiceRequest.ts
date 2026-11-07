@@ -13,7 +13,7 @@ export class ListGatewayServiceRequestFilterParams extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The group.
+   * The group name.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class ListGatewayServiceRequestFilterParams extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
    * test
@@ -29,7 +29,7 @@ export class ListGatewayServiceRequestFilterParams extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The namespace to which the service belongs.
+   * The namespace.
    * 
    * @example
    * public
@@ -37,13 +37,12 @@ export class ListGatewayServiceRequestFilterParams extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The protocol of the service.
-   * 
-   * *   HTTP
-   * *   HTTPS
-   * *   HTTP2
-   * *   GRPC
-   * *   DUBBO
+   * The Terms of Service. Valid values:
+   * - HTTP
+   * - HTTPS
+   * - HTTP2
+   * - GRPC
+   * - DUBBO
    * 
    * @example
    * HTTP
@@ -51,7 +50,7 @@ export class ListGatewayServiceRequestFilterParams extends $dara.Model {
   serviceProtocol?: string;
   /**
    * @remarks
-   * The type of the source.
+   * The source type.
    * 
    * @example
    * MSE
@@ -92,9 +91,8 @@ export class ListGatewayServiceRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -102,7 +100,7 @@ export class ListGatewayServiceRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to enable sorting.
+   * The sort order.
    * 
    * @example
    * false
@@ -110,12 +108,12 @@ export class ListGatewayServiceRequest extends $dara.Model {
   descSort?: boolean;
   /**
    * @remarks
-   * The parameters that are used to specify filter conditions. The values of the parameters are in the format of {"key1":"value1"}.
+   * The filter conditions in the format of {"key1":"value1"}.
    */
   filterParams?: ListGatewayServiceRequestFilterParams;
   /**
    * @remarks
-   * The item based on which entries are sorted.
+   * The sort attribute.
    * 
    * @example
    * GmtCreate
@@ -123,7 +121,7 @@ export class ListGatewayServiceRequest extends $dara.Model {
   orderItem?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -131,7 +129,7 @@ export class ListGatewayServiceRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The page size.
    * 
    * @example
    * 10

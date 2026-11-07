@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewayAuthResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The code synchronized with the Success parameter. If Success is true, Code is 200.
    * 
    * @example
    * 200
@@ -13,15 +13,15 @@ export class AddGatewayAuthResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The ID of the created authentication.
    * 
    * @example
-   * 3
+   * 333
    */
   data?: number;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,15 +29,15 @@ export class AddGatewayAuthResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
-   * You are not authorized to perform this operation.
+   * OK
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4279C00F-A5E1-53C6-A43B-751C1C524D0B
@@ -45,10 +45,9 @@ export class AddGatewayAuthResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * The request result. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

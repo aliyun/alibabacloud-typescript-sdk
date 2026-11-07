@@ -5,11 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class ListMigrationTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The type of the instance.
+   * The type of the cluster. Valid values:
    * 
-   * *   Nacos-Ans
-   * *   ZooKeeper
-   * *   Eureka
+   * - Nacos-Ans
+   * 
+   * - ZooKeeper
+   * 
+   * - Eureka
    * 
    * @example
    * Nacos-Ans
@@ -17,7 +19,7 @@ export class ListMigrationTaskResponseBodyData extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the task was created.
    * 
    * @example
    * 2022-01-07T10:07:57.000+0000
@@ -25,7 +27,7 @@ export class ListMigrationTaskResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The update time.
+   * The time when the task was updated.
    * 
    * @example
    * 2021-12-30T06:41:52.000+0000
@@ -33,7 +35,7 @@ export class ListMigrationTaskResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the job.
+   * The ID of the task.
    * 
    * @example
    * 1
@@ -41,7 +43,7 @@ export class ListMigrationTaskResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The address of the source instance node.
+   * The endpoint of the source instance.
    * 
    * @example
    * 192.168.1.1:8848
@@ -57,7 +59,7 @@ export class ListMigrationTaskResponseBodyData extends $dara.Model {
   originInstanceName?: string;
   /**
    * @remarks
-   * The list of namespaces. This parameter is optional if applications are migrated from a Nacos instance.
+   * The list of namespaces. This parameter is optional when the source instance is a Nacos instance.
    * 
    * @example
    * fsdfsdfdsf
@@ -71,6 +73,13 @@ export class ListMigrationTaskResponseBodyData extends $dara.Model {
    * test
    */
   projectDesc?: string;
+  /**
+   * @remarks
+   * The synchronization type.
+   * 
+   * @example
+   * Service
+   */
   syncType?: string;
   /**
    * @remarks
@@ -152,12 +161,12 @@ export class ListMigrationTaskResponseBodyData extends $dara.Model {
 export class ListMigrationTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The array structure.
+   * The data array.
    */
   data?: ListMigrationTaskResponseBodyData[];
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -165,7 +174,7 @@ export class ListMigrationTaskResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -173,15 +182,15 @@ export class ListMigrationTaskResponseBody extends $dara.Model {
   httpCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
-   * The request was successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -189,7 +198,7 @@ export class ListMigrationTaskResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -207,8 +216,9 @@ export class ListMigrationTaskResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImportServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The response code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class ImportServicesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The result returned.
+   * The returned data.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ImportServicesResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,15 +29,15 @@ export class ImportServicesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
-   * The request is successfully processed.
+   * Succ
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0F0FBA7D-5AC5-5DC4-A1E9-E9656BFAE1B9
@@ -45,10 +45,10 @@ export class ImportServicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

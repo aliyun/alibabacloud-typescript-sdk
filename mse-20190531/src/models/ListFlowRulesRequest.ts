@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListFlowRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * The language of the returned information. Valid values:
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -16,7 +15,7 @@ export class ListFlowRulesRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * hkhon1po62@c3df23522******
@@ -24,7 +23,7 @@ export class ListFlowRulesRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * This parameter is required.
    * 
@@ -44,7 +43,7 @@ export class ListFlowRulesRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The target page number. Default value: 1.
    * 
    * @example
    * 1
@@ -60,7 +59,7 @@ export class ListFlowRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the resource.
+   * The resource name.
    * 
    * @example
    * /a
@@ -68,7 +67,7 @@ export class ListFlowRulesRequest extends $dara.Model {
   resource?: string;
   /**
    * @remarks
-   * The keyword that is used for the search.
+   * The search keyword.
    * 
    * @example
    * /a

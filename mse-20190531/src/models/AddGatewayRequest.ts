@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewayRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The value of the tag.
+   * The tag key.
    * 
    * @example
    * key
@@ -13,7 +13,7 @@ export class AddGatewayRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The tag value.
    * 
    * @example
    * value
@@ -86,9 +86,8 @@ export class AddGatewayRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -96,12 +95,7 @@ export class AddGatewayRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The billing method you specify when you purchase an ordinary instance.
-   * 
-   * Valid values:
-   * 
-   * *   PREPAY: subscription
-   * *   POSTPAY: pay-as-you-go
+   * The billing method. This parameter is specified when you purchase a traditional instance.
    * 
    * @example
    * POSTPAY
@@ -109,11 +103,14 @@ export class AddGatewayRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The network type of the purchased Classic Load Balancer (CLB) instance that is billed based on LCUs.
+   * The network type of the pay-by-LCU Classic Load Balancer (CLB) to be purchased. Valid values:
+   * - pubnet: Internet.
+   * - privatenet: Internal network.
+   * - privatepubnet: Internet and internal network.
    * 
-   * *   pubnet: Internet
-   * *   privatenet: private network
-   * *   privatepubnet: Internet and private network
+   * > Traditional instance: When you create a traditional instance, you can purchase only one of the following load balancers: an NLB, a pay-by-LCU CLB, or a pay-by-specification CLB.
+   * 
+   * > Serverless instance: When you create a Serverless instance, you can purchase only one of the following load balancers: an NLB or a pay-by-LCU CLB.
    * 
    * @example
    * pubnet
@@ -121,7 +118,7 @@ export class AddGatewayRequest extends $dara.Model {
   clbNetworkType?: string;
   /**
    * @remarks
-   * Specifies whether to activate Tracing Analysis.
+   * Specifies whether to enable hardware acceleration.
    * 
    * @example
    * false
@@ -129,7 +126,7 @@ export class AddGatewayRequest extends $dara.Model {
   enableHardwareAcceleration?: boolean;
   /**
    * @remarks
-   * The tag of the gateway.
+   * Specifies whether to enable log delivery to Simple Log Service (SLS).
    * 
    * @example
    * false
@@ -137,7 +134,7 @@ export class AddGatewayRequest extends $dara.Model {
   enableSls?: boolean;
   /**
    * @remarks
-   * The sampling rate of Tracing Analysis. Valid values: [1,100].
+   * Specifies whether to enable Tracing Analysis.
    * 
    * @example
    * false
@@ -145,7 +142,7 @@ export class AddGatewayRequest extends $dara.Model {
   enableXtrace?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable hardware acceleration.
+   * Specifies whether the security group is an advanced security group.
    * 
    * @example
    * false
@@ -153,14 +150,17 @@ export class AddGatewayRequest extends $dara.Model {
   enterpriseSecurityGroup?: boolean;
   /**
    * @remarks
-   * The specifications of the Internet-facing Server Load Balancer (SLB) instance. Valid values:
+   * The specifications of the Internet-facing SLB instance. This parameter is applicable to traditional instances. Valid values:
+   * - Basic (slb.s1.small)
+   * - Standard 1 (slb.s2.small)
+   * - Standard I (slb.s2.medium)
+   * - Advanced 1 (slb.s3.small)
+   * - Advanced I (slb.s3.medium)
+   * - Ultra-high I (slb.s3.large)
    * 
-   * *   slb.s1.small
-   * *   slb.s2.smal
-   * *   slb.s2.medium
-   * *   slb.s3.small
-   * *   slb.s3.medium
-   * *   slb.s3.large
+   * > Traditional instance: When you create a traditional instance, you can purchase only one of the following load balancers: an NLB, a pay-by-LCU CLB, or a pay-by-specification CLB.
+   * 
+   * > Serverless instance: When you create a Serverless instance, you can purchase only one of the following load balancers: an NLB or a pay-by-LCU CLB.
    * 
    * @example
    * slb.s2.small
@@ -169,16 +169,22 @@ export class AddGatewayRequest extends $dara.Model {
    */
   internetSlbSpec?: string;
   /**
+   * @remarks
+   * The gateway ingress type. This parameter is applicable to the Professional Edition of a standard instance. Valid values:
+   * - pubnet: Internet.
+   * - privatenet: Internal network.
+   * - privatepubnet: Internet and internal network.
+   * 
    * @example
    * pubnet
    */
   managedEntryNetworkType?: string;
   /**
    * @remarks
-   * The MSE instance type. Valid values:
-   * 
-   * *   mse_pro: ordinary instance
-   * *   mse_serverless: serverless instance
+   * The gateway product type. Valid values:
+   * - mse_premium: Professional Edition of a standard instance.
+   * - mse_pro: Standard Edition of a standard instance.
+   * - mse_serverless: Serverless.
    * 
    * @example
    * mse_pro
@@ -186,7 +192,7 @@ export class AddGatewayRequest extends $dara.Model {
   mserVersion?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The name of the gateway.
    * 
    * @example
    * test-ceshi
@@ -194,11 +200,14 @@ export class AddGatewayRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The network type of the Network Load Balancer (NLB) instance you specify when you purchase a serverless instance.
+   * The network type of the Network Load Balancer (NLB) to be purchased. Valid values:
+   * - pubnet: Internet.
+   * - privatenet: Internal network.
+   * - privatepubnet: Internet and internal network.
    * 
-   * *   pubnet: Internet
-   * *   privatenet: private network
-   * *   privatepubnet: Internet and private network
+   * > Traditional instance: When you create a traditional instance, you can purchase only one of the following load balancers: an NLB, a pay-by-LCU Classic Load Balancer (CLB), or a pay-by-specification CLB.
+   * 
+   * > Serverless instance: When you create a Serverless instance, you can purchase only one of the following load balancers: an NLB or a pay-by-LCU CLB.
    * 
    * @example
    * pubnet
@@ -206,14 +215,7 @@ export class AddGatewayRequest extends $dara.Model {
   nlbNetworkType?: string;
   /**
    * @remarks
-   * The specifications of the internal-facing Server Load Balancer (SLB) instance. Valid values:
-   * 
-   * *   slb.s1.small
-   * *   slb.s2.small
-   * *   slb.s2.medium
-   * *   slb.s3.small
-   * *   slb.s3.medium
-   * *   slb.s3.large
+   * The region.
    * 
    * This parameter is required.
    * 
@@ -223,7 +225,7 @@ export class AddGatewayRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The number of nodes you specify when you purchase an ordinary instance.
+   * The number of nodes. This parameter is specified when you purchase a traditional instance.
    * 
    * @example
    * 2
@@ -231,7 +233,7 @@ export class AddGatewayRequest extends $dara.Model {
   replica?: number;
   /**
    * @remarks
-   * The extended field.
+   * The extended fields.
    * 
    * @example
    * {}
@@ -239,10 +241,7 @@ export class AddGatewayRequest extends $dara.Model {
   requestPars?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfm34x43l*****
@@ -250,14 +249,17 @@ export class AddGatewayRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The specifications of the internal-facing Server Load Balancer (SLB) instance. Valid values:
+   * The specifications of the internal-facing Server Load Balancer (SLB) instance. This parameter is applicable to traditional instances. Valid values:
+   * - Basic (slb.s1.small)
+   * - Standard 1 (slb.s2.small)
+   * - Standard I (slb.s2.medium)
+   * - Advanced 1 (slb.s3.small)
+   * - Advanced I (slb.s3.medium)
+   * - Ultra-high I (slb.s3.large)
    * 
-   * *   slb.s1.small
-   * *   slb.s2.small
-   * *   slb.s2.medium
-   * *   slb.s3.small
-   * *   slb.s3.medium
-   * *   slb.s3.large
+   * > Traditional instance: When you create a traditional instance, you can purchase only one of the following load balancers: an NLB, a pay-by-LCU CLB, or a pay-by-specification CLB.
+   * 
+   * > Serverless instance: When you create a Serverless instance, you can purchase only one of the following load balancers: an NLB or a pay-by-LCU CLB.
    * 
    * @example
    * slb.s2.small
@@ -267,12 +269,11 @@ export class AddGatewayRequest extends $dara.Model {
   slbSpec?: string;
   /**
    * @remarks
-   * The node specifications you specify when you purchase an ordinary instance. Valid values:
-   * 
-   * *   MSE_GTW_16_32_200_c(16C32G)
-   * *   MSE_GTW_2_4_200_c(2C4G)
-   * *   MSE_GTW_4_8_200_c(4C8G)
-   * *   MSE_GTW_8_16_200_c(8C16G)
+   * The node specifications. This parameter is specified when you purchase a traditional instance. Valid values:
+   * - MSE_GTW_16_32_200_c(16C32G)
+   * - MSE_GTW_2_4_200_c(2C4G)
+   * - MSE_GTW_4_8_200_c(4C8G)
+   * - MSE_GTW_8_16_200_c(8C16G)
    * 
    * @example
    * MSE_GTW_2_4_200_c
@@ -280,7 +281,7 @@ export class AddGatewayRequest extends $dara.Model {
   spec?: string;
   /**
    * @remarks
-   * The tag object.
+   * The tags of the gateway.
    */
   tag?: AddGatewayRequestTag[];
   /**
@@ -293,7 +294,7 @@ export class AddGatewayRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * Specifies whether to use an advanced security group.
+   * The ID of the secondary vSwitch.
    * 
    * @example
    * vsw-wz9bu6o5vsvitt5mrxo6s
@@ -301,7 +302,7 @@ export class AddGatewayRequest extends $dara.Model {
   vSwitchId2?: string;
   /**
    * @remarks
-   * The ID of the primary vSwitch.
+   * The ID of the virtual private cloud (VPC).
    * 
    * This parameter is required.
    * 
@@ -311,7 +312,7 @@ export class AddGatewayRequest extends $dara.Model {
   vpc?: string;
   /**
    * @remarks
-   * Specifies whether to activate Log Service.
+   * The sampling rate for Tracing Analysis. Valid values: 1 to 100.
    * 
    * @example
    * 10
@@ -319,7 +320,7 @@ export class AddGatewayRequest extends $dara.Model {
   xtraceRatio?: string;
   /**
    * @remarks
-   * The details of the zone.
+   * The zone information.
    */
   zoneInfo?: AddGatewayRequestZoneInfo[];
   static names(): { [key: string]: string } {

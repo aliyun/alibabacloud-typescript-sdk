@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSwimmingLaneGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the data.
+   * The data overview.
    * 
    * @example
    * {}
@@ -16,20 +16,20 @@ export class DeleteSwimmingLaneGroupResponseBody extends $dara.Model {
    * The error code.
    * 
    * @example
-   * mse-100-000
+   * Success
    */
   errorCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 52BA6DA6-A702-4362-A32F-DFF79655****
@@ -37,10 +37,9 @@ export class DeleteSwimmingLaneGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

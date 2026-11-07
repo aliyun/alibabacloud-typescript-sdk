@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppBySwimmingLaneGroupTagsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+   * The language of the response. Valid values:
+   * - zh: Chinese. This is the default value.
+   * - en: English.
    * 
    * @example
    * zh
@@ -23,7 +25,7 @@ export class ListAppBySwimmingLaneGroupTagsShrinkRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The name of the MSE namespace that you want to query.
+   * The name of the Microservices Engine (MSE) namespace to query.
    * 
    * This parameter is required.
    * 
@@ -33,7 +35,7 @@ export class ListAppBySwimmingLaneGroupTagsShrinkRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The tag based on which you want to list applications.
+   * The tags to query.
    */
   tagsShrink?: string;
   static names(): { [key: string]: string } {

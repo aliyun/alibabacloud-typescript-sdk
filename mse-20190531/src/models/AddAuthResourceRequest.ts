@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddAuthResourceRequestAuthResourceHeaderList extends $dara.Model {
   /**
    * @remarks
-   * The parameter of the HTTP header.
+   * The HTTP header parameter.
    * 
    * @example
    * Access-Control-Allow-Origin
@@ -13,81 +13,7 @@ export class AddAuthResourceRequestAuthResourceHeaderList extends $dara.Model {
   headerKey?: string;
   /**
    * @remarks
-   * The header matching mode.
-   * 
-   * Valid values:
-   * 
-   * *   SUFFIX
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   EXIST
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   PREFIX
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   EQUAL
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   EXCLUDE
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   NOT_EQUAL
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   NOT_EXIST
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   REGREX
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   INCLUDE
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The header match method.
    * 
    * @example
    * EQUAL
@@ -95,7 +21,7 @@ export class AddAuthResourceRequestAuthResourceHeaderList extends $dara.Model {
   headerMethod?: string;
   /**
    * @remarks
-   * The parameter value of the HTTP header.
+   * The value of the HTTP header parameter.
    * 
    * @example
    * *
@@ -130,9 +56,8 @@ export class AddAuthResourceRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -140,7 +65,7 @@ export class AddAuthResourceRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the authorization record.
+   * The authorization ID.
    * 
    * @example
    * 13
@@ -148,12 +73,12 @@ export class AddAuthResourceRequest extends $dara.Model {
   authId?: number;
   /**
    * @remarks
-   * The authentication resource headers.
+   * The list of authentication resource headers.
    */
   authResourceHeaderList?: AddAuthResourceRequestAuthResourceHeaderList[];
   /**
    * @remarks
-   * The domain ID.
+   * The domain name ID.
    * 
    * @example
    * 128
@@ -161,7 +86,7 @@ export class AddAuthResourceRequest extends $dara.Model {
   domainId?: number;
   /**
    * @remarks
-   * The unique ID of the gateway.
+   * The unique gateway ID.
    * 
    * @example
    * gw-86575c0bc9f04ecfbacb92b8e392****
@@ -169,7 +94,7 @@ export class AddAuthResourceRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * Specifies whether the matching is not case-sensitive. Default value: true.
+   * Specifies whether to ignore case. Default value: true.
    * 
    * @example
    * true
@@ -177,14 +102,13 @@ export class AddAuthResourceRequest extends $dara.Model {
   ignoreCase?: boolean;
   /**
    * @remarks
-   * The matching type. Valid values:
-   * 
-   * *   EQUAL
-   * *   PRE
-   * *   ERGULAR
+   * The match type. Valid values:
+   * - EQUAL: Exact match.
+   * - PRE: Prefix match.
+   * - ERGULAR: Regular expression match.
    * 
    * @example
-   * exact
+   * PRE
    */
   matchType?: string;
   /**

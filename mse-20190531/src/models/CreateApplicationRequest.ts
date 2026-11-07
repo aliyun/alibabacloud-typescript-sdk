@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateApplicationRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The custom tag key entered by the user. It can be up to 128 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * tagKey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value. It can be up to 128 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * tagKey
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,10 +45,10 @@ export class CreateApplicationRequestTags extends $dara.Model {
 export class CreateApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -60,7 +74,7 @@ export class CreateApplicationRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * MSE命名空间名字。
+   * The name of the MSE namespace.
    * 
    * @example
    * prod
@@ -78,7 +92,7 @@ export class CreateApplicationRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Specifies whether to start the switch.
+   * Specifies whether to enable Sentinel.
    * 
    * @example
    * true
@@ -86,7 +100,7 @@ export class CreateApplicationRequest extends $dara.Model {
   sentinelEnable?: string;
   /**
    * @remarks
-   * The service where the application is deployed. A value of ACK indicates Container Service for Kubernetes.
+   * The deployment method of the application. ACK indicates Container Service for Kubernetes (ACK).
    * 
    * @example
    * ACK
@@ -94,12 +108,16 @@ export class CreateApplicationRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The name of the Microservices Engine (MSE) namespace.
+   * Specifies whether to enable Switch.
    * 
    * @example
    * true
    */
   switchEnable?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud tags.
+   */
   tags?: CreateApplicationRequestTags[];
   static names(): { [key: string]: string } {
     return {

@@ -5,18 +5,24 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNamespaceRequest extends $dara.Model {
   /**
    * @remarks
-   * The language in which you want to display the results. Valid values: zh and en. Default value: zh. The value zh indicates Chinese, and the value en indicates English.
+   * The language in which the response is displayed. Valid values: zh (default): Chinese, en: English
    * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The name of the MSE namespace to be deleted.
+   * 
    * @example
    * prod
    */
   name?: string;
   /**
+   * @remarks
+   * The region of the operation.
+   * 
    * @example
    * cn-hangzhou
    */

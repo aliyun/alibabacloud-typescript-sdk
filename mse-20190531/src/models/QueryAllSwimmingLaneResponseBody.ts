@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAllSwimmingLaneResponseBodyDataEntryRulesRestItems extends $dara.Model {
   /**
    * @remarks
-   * The matching character.
+   * The matching operator.
    * 
    * @example
    * ==
@@ -29,7 +29,7 @@ export class QueryAllSwimmingLaneResponseBodyDataEntryRulesRestItems extends $da
   divisor?: number;
   /**
    * @remarks
-   * The name of the matching rule.
+   * The name.
    * 
    * @example
    * test
@@ -37,7 +37,7 @@ export class QueryAllSwimmingLaneResponseBodyDataEntryRulesRestItems extends $da
   name?: string;
   /**
    * @remarks
-   * The matching list.
+   * The list of items to match.
    */
   nameList?: string[];
   /**
@@ -141,12 +141,12 @@ export class QueryAllSwimmingLaneResponseBodyDataEntryRules extends $dara.Model 
   path?: string;
   /**
    * @remarks
-   * The paths.
+   * The list of paths.
    */
   paths?: string[];
   /**
    * @remarks
-   * The RESTful matching rules.
+   * The list of RESTful matching rules.
    */
   restItems?: QueryAllSwimmingLaneResponseBodyDataEntryRulesRestItems[];
   static names(): { [key: string]: string } {
@@ -185,10 +185,13 @@ export class QueryAllSwimmingLaneResponseBodyDataEntryRules extends $dara.Model 
 export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteConditions extends $dara.Model {
   /**
    * @remarks
-   * 条件：
-   * - PRE：前缀匹配
-   * - EQUAL：精确匹配
-   * - ERGULAR：正则匹配
+   * The condition. Valid values:
+   * 
+   * - PRE: prefix match
+   * 
+   * - EQUAL: exact match
+   * 
+   * - REGULAR: regular expression match
    * 
    * @example
    * PRE
@@ -196,7 +199,7 @@ export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteConditi
   cond?: string;
   /**
    * @remarks
-   * 参数名称
+   * The parameter name.
    * 
    * @example
    * name
@@ -209,9 +212,11 @@ export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteConditi
   nameList?: string[];
   /**
    * @remarks
-   * 参数类型：
-   * - header：Header
-   * - param：Parameter
+   * The parameter type. Valid values:
+   * 
+   * - header: Header
+   * 
+   * - param: Parameter
    * 
    * @example
    * header
@@ -219,7 +224,7 @@ export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteConditi
   type?: string;
   /**
    * @remarks
-   * 参数值
+   * The parameter value.
    * 
    * @example
    * xiaoming
@@ -259,11 +264,17 @@ export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteConditi
 
 export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteRouteIndependentPercentageList extends $dara.Model {
   /**
+   * @remarks
+   * The percentage.
+   * 
    * @example
    * 60
    */
   percentage?: string;
   /**
+   * @remarks
+   * The route ID.
+   * 
    * @example
    * 12345
    */
@@ -294,29 +305,32 @@ export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteRouteIn
 export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute extends $dara.Model {
   /**
    * @remarks
-   * 全链路灰度模式：
+   * The mode of the end-to-end canary release. Valid values:
    * 
-   * - 0: 按请求内容路由
+   * - 0: route by the content of the request
    * 
-   * - 1: 按比例路由
+   * - 1: route by proportion
    * 
    * @example
    * 0
    */
   canaryModel?: number;
   /**
+   * @remarks
+   * The condition for the canary release.
+   * 
    * @example
    * AND、OR
    */
   condition?: string;
   /**
    * @remarks
-   * 匹配条件列表（按内容路由使用）
+   * The list of matching conditions. This parameter is used when you route requests by content.
    */
   conditions?: QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteConditions[];
   /**
    * @remarks
-   * 网关ID
+   * The gateway ID.
    * 
    * @example
    * 1
@@ -324,7 +338,7 @@ export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute extend
   gatewayId?: number;
   /**
    * @remarks
-   * 网关唯一ID
+   * The unique ID of the gateway.
    * 
    * @example
    * gw-84efde2ee1464260bdb17a5b****
@@ -332,7 +346,7 @@ export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute extend
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * 流量比例（按比例路由使用，取值0-100）
+   * The traffic proportion. This parameter is used when you route requests by proportion. Valid values: 0 to 100.
    * 
    * @example
    * 20
@@ -340,14 +354,21 @@ export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute extend
   percentage?: number;
   /**
    * @remarks
-   * 路由ID列表
+   * The list of route IDs. This parameter is optional if the canary release is effective at the gateway level.
    */
   routeIdList?: number[];
   /**
+   * @remarks
+   * Indicates whether to independently set the percentage for each path.
+   * 
    * @example
    * true
    */
   routeIndependentPercentageEnable?: string;
+  /**
+   * @remarks
+   * The list of routes and percentages.
+   */
   routeIndependentPercentageList?: QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRouteRouteIndependentPercentageList[];
   static names(): { [key: string]: string } {
     return {
@@ -398,7 +419,7 @@ export class QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute extend
 export class QueryAllSwimmingLaneResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 是否开启。
+   * Indicates whether the lane is enabled.
    * 
    * @example
    * true
@@ -406,15 +427,18 @@ export class QueryAllSwimmingLaneResponseBodyData extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * The ingress application rules.
+   * The list of rules for the ingress application.
    */
   entryRules?: QueryAllSwimmingLaneResponseBodyDataEntryRules[];
   /**
    * @remarks
-   * 网关路由信息（使用云原生网关为入口时使用）
+   * The information about the gateway route. This parameter is used when a cloud-native gateway or an API Gateway instance is used as the ingress.
    */
   gatewaySwimmingLaneRoute?: QueryAllSwimmingLaneResponseBodyDataGatewaySwimmingLaneRoute;
   /**
+   * @remarks
+   * The information about the gateway. This parameter is used when an MSE cloud-native gateway or a cloud-native API Gateway instance is used as the ingress.
+   * 
    * @example
    * {\\"GatewayUniqueId\\":\\"gw-cf815503e0a8441b8956d8e349fa8fb5\\",\\"Percentage\\":0,\\"RouteIdList\\":[32295,32298,32297,32309,32307,32294,32303,32292,32299,35278],\\"CanaryModel\\":1,\\"Conditions\\":[]}
    */
@@ -429,7 +453,7 @@ export class QueryAllSwimmingLaneResponseBodyData extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The ID of the lane group.
+   * The lane ID.
    * 
    * @example
    * 123
@@ -437,7 +461,7 @@ export class QueryAllSwimmingLaneResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The side on which canary release for messaging is implemented.
+   * The side on which canary release for messages is implemented.
    * 
    * @example
    * Client
@@ -445,7 +469,7 @@ export class QueryAllSwimmingLaneResponseBodyData extends $dara.Model {
   messageQueueFilterSide?: string;
   /**
    * @remarks
-   * Indicates whether canary release for messaging is enabled.
+   * Indicates whether canary release for messages is enabled.
    * 
    * @example
    * false
@@ -461,20 +485,23 @@ export class QueryAllSwimmingLaneResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The Microservices Engine (MSE) namespace to which the lane belongs.
+   * The MSE namespace to which the lane belongs.
    * 
    * @example
    * default
    */
   namespace?: string;
   /**
+   * @remarks
+   * Indicates whether to set the percentage for each path.
+   * 
    * @example
    * true
    */
   pathIndependentPercentageEnable?: boolean;
   /**
    * @remarks
-   * Indicates whether request details were recorded (metrics of end-to-end canary release).
+   * Indicates whether to record the request details. This is for the observability of end-to-end canary releases.
    * 
    * @example
    * false
@@ -498,7 +525,7 @@ export class QueryAllSwimmingLaneResponseBodyData extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The user ID of the lane group.
+   * The ID of the user to which the lane belongs.
    * 
    * @example
    * 12345
@@ -506,7 +533,7 @@ export class QueryAllSwimmingLaneResponseBodyData extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * Indicates whether the rule is enabled.
+   * Indicates whether rules are enabled.
    * 
    * @example
    * true
@@ -522,7 +549,7 @@ export class QueryAllSwimmingLaneResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the lane was updated.
+   * The time when the lane was last updated.
    * 
    * @example
    * 1683598484000
@@ -592,7 +619,7 @@ export class QueryAllSwimmingLaneResponseBodyData extends $dara.Model {
 export class QueryAllSwimmingLaneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the data.
+   * Data Overview.
    * 
    * @example
    * [{id:100,name:"test"}]
@@ -603,7 +630,7 @@ export class QueryAllSwimmingLaneResponseBody extends $dara.Model {
    * The error code.
    * 
    * @example
-   * mse-100-000
+   * Success
    */
   errorCode?: string;
   /**
@@ -611,12 +638,12 @@ export class QueryAllSwimmingLaneResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * The request was successfully processed.
+   * OK
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DC34E4A3-5F1C-4E40-86EA-02EDF967****
@@ -626,8 +653,9 @@ export class QueryAllSwimmingLaneResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

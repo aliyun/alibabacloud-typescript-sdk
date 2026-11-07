@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteEngineNamespaceRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class DeleteEngineNamespaceRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * mse-0c738****
@@ -24,7 +24,7 @@ export class DeleteEngineNamespaceRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The namespace ID.
    * 
    * @example
    * 678ca857-****-b1bf-d0a98c5ca84b
@@ -32,7 +32,7 @@ export class DeleteEngineNamespaceRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * mse-cn-7pp2d1****

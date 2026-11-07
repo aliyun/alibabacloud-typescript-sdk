@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListClusterTypesResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The code of the engine type.
+   * 
+   * @example
+   * ZooKeeper
+   */
   code?: string;
   /**
    * @remarks
-   * The type of the MSE engine that can be activated.
+   * The Microservices Engine (MSE) engine type that can be activated.
    * 
    * @example
    * Zookeeper
@@ -38,7 +45,7 @@ export class ListClusterTypesResponseBodyData extends $dara.Model {
 export class ListClusterTypesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The return code.
    * 
    * @example
    * 200
@@ -46,14 +53,13 @@ export class ListClusterTypesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data entries returned.
+   * The returned data.
    */
   data?: ListClusterTypesResponseBodyData[];
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the **ErrMessage** parameter.
-   * 
-   * > If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+   * The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the specified **DtsJobId** request parameter is invalid.
    * 
    * @example
    * The specified parameter is invalid.
@@ -61,7 +67,7 @@ export class ListClusterTypesResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -69,7 +75,7 @@ export class ListClusterTypesResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -77,15 +83,15 @@ export class ListClusterTypesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
-   * The request was successfully processed.
+   * The request was processed successfully
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 821B5B05-8919-5FBB-BA75-417BFC093EB8
@@ -94,9 +100,8 @@ export class ListClusterTypesResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request was successful.
+   * - `false`: The request failed.
    * 
    * @example
    * True

@@ -7,8 +7,9 @@ export class GetGovernanceKubernetesClusterRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * 
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +17,7 @@ export class GetGovernanceKubernetesClusterRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -26,7 +27,7 @@ export class GetGovernanceKubernetesClusterRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the region in which the instance resides. The region is supported by MSE.
+   * The region where the cluster is located. MSE supports specific regions.
    * 
    * This parameter is required.
    * 

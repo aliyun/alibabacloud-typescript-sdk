@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RemoveZooKeeperSaslUserResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The data overview.
+   * 
    * @example
    * True
    */
   data?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 56D9E600-6348-4260-B35F-583413F****
    */

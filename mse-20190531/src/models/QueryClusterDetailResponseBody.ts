@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryClusterDetailResponseBodyDataInstanceModels extends $dara.Model {
   /**
    * @remarks
-   * The timestamp when the instance was created.
+   * The creation timestamp.
    * 
    * @example
    * 1578575377732
@@ -53,7 +53,7 @@ export class QueryClusterDetailResponseBodyDataInstanceModels extends $dara.Mode
   role?: string;
   /**
    * @remarks
-   * The single-thread IP address.
+   * The single-tunnel IP address.
    * 
    * @example
    * 192.168.XX.XX
@@ -61,7 +61,7 @@ export class QueryClusterDetailResponseBodyDataInstanceModels extends $dara.Mode
   singleTunnelVip?: string;
   /**
    * @remarks
-   * The zone ID.
+   * The zone.
    * 
    * @example
    * cn-shanghai-f
@@ -113,7 +113,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   aclEntryList?: string;
   /**
    * @remarks
-   * The ID of the whitelist.
+   * The whitelist ID.
    * 
    * @example
    * acl-bp17020kiqvzutwwj****
@@ -129,7 +129,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   appVersion?: string;
   /**
    * @remarks
-   * The billing method, such as subscription or pay-as-you-go.
+   * The billing method, including subscription and pay-as-you-go.
    * 
    * @example
    * Pay-as-you-go
@@ -137,7 +137,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The alias of the instance.
+   * The alias of the cluster.
    * 
    * @example
    * mse-7413****
@@ -145,7 +145,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   clusterAliasName?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The name of the cluster.
    * 
    * @example
    * mse-bc1a29b0-160230875****
@@ -161,7 +161,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   clusterSpecification?: string;
   /**
    * @remarks
-   * The type of the instance. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
+   * The cluster type, including ZooKeeper, Nacos-Ans, and Eureka.
    * 
    * @example
    * Nacos-Ans
@@ -169,7 +169,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The version of the instance.
+   * The cluster version.
    * 
    * @example
    * 1.2.1
@@ -177,10 +177,9 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   clusterVersion?: string;
   /**
    * @remarks
-   * The network connection type. Valid values:
-   * 
-   * *   slb
-   * *   eni
+   * The network connectivity type. Valid values:
+   * - slb
+   * - eni
    * 
    * @example
    * slb
@@ -188,7 +187,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   connectionType?: string;
   /**
    * @remarks
-   * The number of vCPUs.
+   * The number of CPUs.
    * 
    * @example
    * 1
@@ -196,7 +195,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The time when the cluster was created.
    * 
    * @example
    * 2020-07-31 11:36:08
@@ -204,7 +203,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The capacity of the disk. Unit: GB.
+   * The disk capacity. Unit: GB.
    * 
    * @example
    * 60
@@ -212,7 +211,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   diskCapacity?: number;
   /**
    * @remarks
-   * The type of the disk.
+   * The disk type.
    * 
    * @example
    * alicloud-disk-ssd-multi-zone
@@ -220,7 +219,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The health status of the instance.
+   * The health status of the cluster.
    * 
    * @example
    * RESTART_SUCCESS
@@ -228,7 +227,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   healthStatus?: string;
   /**
    * @remarks
-   * The amount of time taken to create the instance. Unit: milliseconds.
+   * The time taken to create the cluster. Unit: ms.
    * 
    * @example
    * 98408
@@ -236,7 +235,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   initCostTime?: number;
   /**
    * @remarks
-   * The creation status of the instance.
+   * The creation status of the cluster.
    * 
    * @example
    * RESTART_SUCCESS
@@ -244,7 +243,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   initStatus?: string;
   /**
    * @remarks
-   * The number of instance nodes.
+   * The number of instances in the cluster.
    * 
    * @example
    * 3
@@ -252,7 +251,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   instanceCount?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * mse-cn-st21ri2****
@@ -260,12 +259,12 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of instance nodes.
+   * The list of instances.
    */
   instanceModels?: QueryClusterDetailResponseBodyDataInstanceModels[];
   /**
    * @remarks
-   * The public IP address of the instance.
+   * The public endpoint.
    * 
    * @example
    * 47.98.XX.XX
@@ -273,7 +272,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   internetAddress?: string;
   /**
    * @remarks
-   * The public endpoint of the instance.
+   * The public domain name.
    * 
    * @example
    * mse-7413****-p.eureka.mse.aliyuncs.com
@@ -281,7 +280,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   internetDomain?: string;
   /**
    * @remarks
-   * The private port number.
+   * The private port.
    * 
    * @example
    * 8761
@@ -289,7 +288,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   internetPort?: string;
   /**
    * @remarks
-   * The internal IP address.
+   * The private endpoint.
    * 
    * @example
    * 192.168.XX.XX
@@ -297,7 +296,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   intranetAddress?: string;
   /**
    * @remarks
-   * The internal endpoint of the instance.
+   * The private domain name.
    * 
    * @example
    * mse-7413****-eureka.mse.aliyuncs.com
@@ -305,7 +304,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   intranetDomain?: string;
   /**
    * @remarks
-   * The private port number.
+   * The private port.
    * 
    * @example
    * 8761
@@ -313,7 +312,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   intranetPort?: string;
   /**
    * @remarks
-   * The size of the memory. Unit: GB.
+   * The memory size. Unit: GB.
    * 
    * @example
    * 2
@@ -321,7 +320,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   memoryCapacity?: number;
   /**
    * @remarks
-   * The edition of Microservices Engine (MSE).
+   * The MSE version.
    * 
    * @example
    * mse_basic
@@ -329,10 +328,9 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   mseVersion?: string;
   /**
    * @remarks
-   * The network type of the instance. Valid values:
-   * 
-   * *   `privatenet`: VPC
-   * *   `pubnet`: Internet
+   * The network type. Valid values:
+   * - privatenet: VPC.
+   * - pubnet: Internet.
    * 
    * @example
    * privatenet
@@ -340,7 +338,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   netType?: string;
   /**
    * @remarks
-   * The version number of the original order.
+   * The original order version number.
    * 
    * @example
    * 1.2.0
@@ -348,7 +346,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   orderClusterVersion?: string;
   /**
    * @remarks
-   * The billing method, such as subscription or pay-as-you-go.
+   * The billing method, including subscription and pay-as-you-go.
    * 
    * @example
    * Pay-as-you-go
@@ -356,8 +354,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   payInfo?: string;
   /**
    * @remarks
-   * The public bandwidth. Unit: Mbit/s.\\
-   * Valid values: 0 to 5000. The value 0 indicates no access to the Internet.
+   * The Internet bandwidth. Unit: Mbit/s. Valid values: 0 to 5000. A value of 0 indicates that the cluster is not connected to the Internet.
    * 
    * @example
    * 3
@@ -373,7 +370,7 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-aek2dhgysj*****
@@ -381,21 +378,28 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags that are attached to the instance.
+   * The tags bound to the instance.
    */
   tags?: { [key: string]: any };
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-xxx-xxxx
    */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The version lifecycle.
+   * 
+   * @example
+   * STABLE
+   */
   versionLifecycle?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC ID.
    * 
    * @example
    * vpc-bp1hcg467ekqsv0zr****
@@ -505,12 +509,12 @@ export class QueryClusterDetailResponseBodyData extends $dara.Model {
 export class QueryClusterDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the data.
+   * The data overview.
    */
   data?: QueryClusterDetailResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -518,15 +522,15 @@ export class QueryClusterDetailResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
-   * The request is successfully processed.
+   * Request processed successfully
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9515ACA4-E94D-440D-989E-C379FCED****
@@ -535,9 +539,8 @@ export class QueryClusterDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - true: The request was successful.
+   * - false: The request failed.
    * 
    * @example
    * true

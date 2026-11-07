@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteWebFlowRulesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values: zh (default): Chinese, en: English.
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * The name of the application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class DeleteWebFlowRulesRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The IDs of the rules to delete.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class DeleteWebFlowRulesRequest extends $dara.Model {
   ids?: string;
   /**
    * @remarks
+   * The name of the MSE namespace.
+   * 
    * This parameter is required.
    * 
    * @example

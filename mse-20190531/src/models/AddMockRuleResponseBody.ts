@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddMockRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The account ID.
    * 
    * @example
    * 178432728867xxxx
@@ -13,7 +13,7 @@ export class AddMockRuleResponseBodyData extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The ID of the consumer application.
+   * The ID of the service consumer application.
    * 
    * @example
    * hkhon1po62@a000601b265xxxx
@@ -21,7 +21,7 @@ export class AddMockRuleResponseBodyData extends $dara.Model {
   consumerAppId?: string;
   /**
    * @remarks
-   * The name of the consumer application.
+   * The name of the application to be queried.
    * 
    * @example
    * demo-xxxx
@@ -29,10 +29,10 @@ export class AddMockRuleResponseBodyData extends $dara.Model {
   consumerAppName?: string;
   /**
    * @remarks
-   * Indicates whether the mock rule is enabled.
+   * Indicates whether the rule is enabled. Valid values:
    * 
-   * *   `true`: enabled
-   * *   `false`: disabled
+   * - `true`: Enabled.
+   * - `false`: Disabled.
    * 
    * @example
    * true
@@ -48,7 +48,7 @@ export class AddMockRuleResponseBodyData extends $dara.Model {
   extraJson?: string;
   /**
    * @remarks
-   * The ID of the rule.
+   * The rule ID.
    * 
    * @example
    * 275
@@ -56,10 +56,10 @@ export class AddMockRuleResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The mock type. Valid values:
+   * The model type. Valid values:
    * 
-   * *   \\- `[unk]0[unk]`: desktop client
-   * *   \\- `[unk]1[unk]`: mobile client
+   * - `[unk]0[unk]`: Desktop model
+   * - `[unk]1[unk]`: Mobile model
    * 
    * @example
    * 0
@@ -75,7 +75,7 @@ export class AddMockRuleResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The namespace ID.
    * 
    * @example
    * cn-shanghai
@@ -99,7 +99,7 @@ export class AddMockRuleResponseBodyData extends $dara.Model {
   providerAppName?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * @example
    * cn-shanghai
@@ -107,7 +107,7 @@ export class AddMockRuleResponseBodyData extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The HTTP mock rule.
+   * The mock rule for the HTTP protocol.
    * 
    * @example
    * [{"oper":"return+json","Path":"/mock","Value":"{\\n \\"date\\": \\"2021-09-10T07:45:12.357+0000\\",\\n \\"name\\": \\"name\\",\\n \\"id\\": \\"1\\"\\n}","Method":"GET","Condition":"AND","Timeout":1,"ArgumentMockItems":[{"type":"param","name":"id","value":"1","cond":"==","operator":"rawvalue"},{"type":"param","name":"name","value":"aliyun","cond":"==","operator":"rawvalue"}]}]
@@ -115,7 +115,7 @@ export class AddMockRuleResponseBodyData extends $dara.Model {
   scMockItemJson?: string;
   /**
    * @remarks
-   * The service source.
+   * The source.
    * 
    * @example
    * edasmsc
@@ -171,7 +171,7 @@ export class AddMockRuleResponseBodyData extends $dara.Model {
 export class AddMockRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The return code.
    * 
    * @example
    * 200
@@ -179,12 +179,12 @@ export class AddMockRuleResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The details of the data.
+   * The data overview.
    */
   data?: AddMockRuleResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -192,15 +192,15 @@ export class AddMockRuleResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
-   * The request is successfully processed.
+   * Succ
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 316F5F64-F73D-42DC-8632-01E308B6****
@@ -208,10 +208,9 @@ export class AddMockRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request succeeded.
+   * - `false`: The request failed.
    * 
    * @example
    * true

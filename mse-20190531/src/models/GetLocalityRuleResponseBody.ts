@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetLocalityRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The status code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The data returned.
+   * 
    * @example
    * {
    *   "pageNumber":0,
@@ -27,17 +33,37 @@ export class GetLocalityRuleResponseBody extends $dara.Model {
    */
   data?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The returned message.
+   * 
+   * @example
+   * The request is processed successfully.
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * D3971C60-3F07-58B0-8EA0-A194********
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
+   * 
    * @example
    * true
    */

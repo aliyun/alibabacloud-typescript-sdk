@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteEngineNamespaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -13,7 +13,7 @@ export class DeleteEngineNamespaceResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 202
@@ -21,15 +21,15 @@ export class DeleteEngineNamespaceResponseBody extends $dara.Model {
   httpCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A73AC37C-C617-4E3A-8049-372CF49C****
@@ -37,10 +37,9 @@ export class DeleteEngineNamespaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * True

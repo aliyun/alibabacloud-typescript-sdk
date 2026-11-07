@@ -102,7 +102,7 @@ export class GetMseSourceResponseBody extends $dara.Model {
    * *   If the request fails, an error message is returned, such as the "TaskId not found" message.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**

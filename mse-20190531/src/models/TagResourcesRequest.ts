@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. Valid values of N: 1 to 20. The tag key cannot be an empty string. The tag key must be 1 to 128 characters in length. The tag key cannot start with acs: or aliyun or contain [http:// or https://.](http://https://。)
+   * The tag key. The tag key cannot be an empty string. It can be up to 128 characters in length. The tag key cannot start with \\`aliyun\\` or \\`acs:\\`. The tag key cannot contain \\`http\\://\\` or \\`https\\://\\`.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * prd
@@ -47,8 +47,9 @@ export class TagResourcesRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
@@ -56,7 +57,7 @@ export class TagResourcesRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region.
    * 
    * This parameter is required.
    * 
@@ -66,30 +67,40 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The resource ID.
    * 
-   * > This parameter specifies the instance ID that is passed. Examples:
+   * - *Registration and configuration center*: the instance ID.
    * 
-   * - ResourceId.0 specifies the first instance ID that is passed.
-   * - ResourceId.1 specifies the second instance ID that is passed.
+   * - *Cloud-native gateway*: the unique ID of the gateway.
+   * 
+   * - *Microservice administration application*: the AppID of the microservice administration application. Note that this is not the LicenseKey.
+   * 
+   * > The number in the parameter name specifies the index of the instance ID. For example:
+   * 
+   * - **ResourceId.0** specifies the first instance ID.
+   * 
+   * - **ResourceId.1** specifies the second instance ID.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resources. Valid values:
+   * The resource type. Valid values:
    * 
-   * *   CLUSTER: Microservices Engine (MSE) instance
-   * *   GATEWAY: cloud-native gateway
+   * - CLUSTER: a registration and configuration center.
+   * 
+   * - GATEWAY: a cloud-native gateway.
+   * 
+   * - GOVERNANCEAPPLICATION: a microservice administration application.
    * 
    * This parameter is required.
    * 
    * @example
-   * CLUSTER
+   * CLUSTER、GATEWAY、GOVERNANCEAPPLICATION
    */
   resourceType?: string;
   /**
    * @remarks
-   * The list of tags. You can specify a maximum of 20 tags.
+   * A list of tags. You can specify up to 20 tags.
    * 
    * This parameter is required.
    */

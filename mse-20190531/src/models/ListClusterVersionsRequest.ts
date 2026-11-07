@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterVersionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class ListClusterVersionsRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The type of the instance. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
+   * The cluster type. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
    * 
    * @example
    * Nacos-Ans
@@ -24,10 +24,10 @@ export class ListClusterVersionsRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The instance edition. Valid values:
+   * Valid values:
    * 
-   * *   `mse_dev`: Developer Edition.
-   * *   `mse_pro`: Professional Edition. This is the default value.
+   * - `mse_dev`: Developer Edition.
+   * - `mse_pro`: Professional Edition (default).
    * 
    * @example
    * mse_pro

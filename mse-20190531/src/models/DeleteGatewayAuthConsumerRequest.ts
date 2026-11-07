@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteGatewayAuthConsumerRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -26,7 +26,7 @@ export class DeleteGatewayAuthConsumerRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The ID of the consumer on which the gateway performs authentication operations.
+   * The ID of the gateway authentication consumer.
    * 
    * This parameter is required.
    * 

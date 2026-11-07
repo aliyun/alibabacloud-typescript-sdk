@@ -47,12 +47,14 @@ export class ListAnsServiceClustersResponseBodyDataAppDetail extends $dara.Model
    * @remarks
    * The type of the health check. Valid values:
    * 
-   * *   connection: connection status check
-   * *   tcp: TCP connection check
-   * *   http: HTTP connection check
+   * - connection: connection status check
+   * 
+   * - tcp: TCP connection check
+   * 
+   * - http: HTTP connection check
    * 
    * @example
-   * connection
+   * tcp
    */
   checkType?: string;
   /**
@@ -138,7 +140,7 @@ export class ListAnsServiceClustersResponseBodyDataClusters extends $dara.Model 
    * The type of the health check.
    * 
    * @example
-   * Heartbeat Reporting
+   * tcp
    */
   healthCheckerType?: string;
   /**
@@ -224,8 +226,9 @@ export class ListAnsServiceClustersResponseBodyData extends $dara.Model {
    * @remarks
    * Indicates whether the service is a temporary service. Valid values:
    * 
-   * *   `true`: yes
-   * *   `false`: no
+   * - `true`: yes
+   * 
+   * - `false`: no
    * 
    * @example
    * true
@@ -275,9 +278,11 @@ export class ListAnsServiceClustersResponseBodyData extends $dara.Model {
    * @remarks
    * The source type of the service. Valid values:
    * 
-   * *   console: The service was registered in the console.
-   * *   sdk: The service was registered by using the SDK.
-   * *   governance: The service was registered on Microservices Governance.
+   * - console: The service was registered in the console.
+   * 
+   * - sdk: The service was registered by using the SDK.
+   * 
+   * - governance: The service was registered on Microservices Governance.
    * 
    * @example
    * console
@@ -356,7 +361,7 @@ export class ListAnsServiceClustersResponseBody extends $dara.Model {
    * The message returned.
    * 
    * @example
-   * The request was successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
@@ -371,8 +376,9 @@ export class ListAnsServiceClustersResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

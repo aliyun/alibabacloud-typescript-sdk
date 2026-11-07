@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteZnodeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The data of the node.
+   * The list of node data.
    * 
    * @example
    * cluster
@@ -13,10 +13,9 @@ export class DeleteZnodeResponseBodyData extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * Indicates whether the node information was returned. Valid values:
-   * 
-   * *   `true`: The node information was returned.
-   * *   `false`: The node information failed to be returned.
+   * The node list information. Valid values:
+   * - `true`: The information is returned successfully.
+   * - `false`: The information fails to be returned.
    * 
    * @example
    * true
@@ -24,7 +23,7 @@ export class DeleteZnodeResponseBodyData extends $dara.Model {
   dir?: boolean;
   /**
    * @remarks
-   * The name of the node.
+   * The node name.
    * 
    * @example
    * mse-bc1a29b0-160230875****-reg-center-0-1
@@ -32,7 +31,7 @@ export class DeleteZnodeResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The path of the node.
+   * The node path.
    * 
    * @example
    * /
@@ -68,12 +67,12 @@ export class DeleteZnodeResponseBodyData extends $dara.Model {
 export class DeleteZnodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the data.
+   * The data overview.
    */
   data?: DeleteZnodeResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -81,7 +80,7 @@ export class DeleteZnodeResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -89,15 +88,15 @@ export class DeleteZnodeResponseBody extends $dara.Model {
   httpCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * The message.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DC34E4A3-5F1C-4E40-86EA-02EDF967****
@@ -105,10 +104,9 @@ export class DeleteZnodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * The request result. Valid values:
+   * - `true`: The request succeeded.
+   * - `false`: The request failed.
    * 
    * @example
    * true

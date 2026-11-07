@@ -129,6 +129,9 @@ export class TrafficPolicyLoadBalancerSettings extends $dara.Model {
   /**
    * @remarks
    * The prefetch duration. Unit: seconds.
+   * 
+   * @example
+   * 5
    */
   warmupDuration?: number;
   static names(): { [key: string]: string } {

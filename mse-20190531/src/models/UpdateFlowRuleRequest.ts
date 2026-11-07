@@ -7,8 +7,9 @@ export class UpdateFlowRuleRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
@@ -36,32 +37,6 @@ export class UpdateFlowRuleRequest extends $dara.Model {
    * @remarks
    * The throttling effect.
    * 
-   * Valid values:
-   * 
-   * *   0
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     fast failure
-   * 
-   *     <!-- -->
-   * 
-   * *   2
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     in queue
-   * 
-   *     <!-- -->
-   * 
    * @example
    * 0
    */
@@ -70,32 +45,21 @@ export class UpdateFlowRuleRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the rule.
    * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
    * @example
    * true
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The source application of the request.
+   * 
+   * @example
+   * Spring-cloud-a
+   */
   limitApp?: string;
   /**
    * @remarks
-   * The timeout period. Unit: milliseconds. This parameter is required when the value of ControlBehavior is set to 2.
+   * The timeout period. Unit: milliseconds. This parameter is required if the ControlBehavior parameter is set to 2.
    * 
    * @example
    * 500

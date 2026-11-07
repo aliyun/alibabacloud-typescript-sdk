@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOrUpdateSwimmingLaneRequestEntryRulesRestItems extends $dara.Model {
   /**
    * @remarks
-   * The matching character.
+   * The match operator.
    * 
    * @example
-   * =
+   * ==
    */
   cond?: string;
   /**
@@ -16,7 +16,7 @@ export class CreateOrUpdateSwimmingLaneRequestEntryRulesRestItems extends $dara.
    * The value.
    * 
    * @example
-   * .params[0]
+   * x
    */
   datum?: string;
   /**
@@ -32,12 +32,12 @@ export class CreateOrUpdateSwimmingLaneRequestEntryRulesRestItems extends $dara.
    * The name.
    * 
    * @example
-   * ""
+   * x-mse-tag
    */
   name?: string;
   /**
    * @remarks
-   * The matching list.
+   * The list of matching items.
    */
   nameList?: string[];
   /**
@@ -45,7 +45,7 @@ export class CreateOrUpdateSwimmingLaneRequestEntryRulesRestItems extends $dara.
    * The operator.
    * 
    * @example
-   * mod
+   * rawvalue
    */
   operator?: string;
   /**
@@ -53,7 +53,7 @@ export class CreateOrUpdateSwimmingLaneRequestEntryRulesRestItems extends $dara.
    * The percentage.
    * 
    * @example
-   * 10
+   * 30
    */
   rate?: number;
   /**
@@ -61,12 +61,12 @@ export class CreateOrUpdateSwimmingLaneRequestEntryRulesRestItems extends $dara.
    * The remainder.
    * 
    * @example
-   * 3
+   * 10
    */
   remainder?: number;
   /**
    * @remarks
-   * The matching type.
+   * The match type.
    * 
    * @example
    * header
@@ -77,7 +77,7 @@ export class CreateOrUpdateSwimmingLaneRequestEntryRulesRestItems extends $dara.
    * The value.
    * 
    * @example
-   * ""
+   * gray
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -125,15 +125,15 @@ export class CreateOrUpdateSwimmingLaneRequestEntryRulesRestItems extends $dara.
 export class CreateOrUpdateSwimmingLaneRequestEntryRules extends $dara.Model {
   /**
    * @remarks
-   * Specifies how RESTful items are combined into the final condition.
+   * Specifies how RestItems are combined to form the final condition.
    * 
    * @example
-   * ""
+   * AND
    */
   condition?: string;
   /**
    * @remarks
-   * The paths.
+   * The list of paths.
    */
   paths?: string[];
   /**
@@ -146,7 +146,7 @@ export class CreateOrUpdateSwimmingLaneRequestEntryRules extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The matching list.
+   * The list of matching items.
    */
   restItems?: CreateOrUpdateSwimmingLaneRequestEntryRulesRestItems[];
   static names(): { [key: string]: string } {
@@ -185,11 +185,20 @@ export class CreateOrUpdateSwimmingLaneRequestEntryRules extends $dara.Model {
 export class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonConditions extends $dara.Model {
   /**
    * @remarks
-   * The matching condition. Valid values:
+   * If you use the legacy version of end-to-end canary release (swimversion is 0, which uses tag-based routing and canary routing), the following values are supported:
+   * - PRE: prefix match
+   * - ERGULAR: regular expression match
+   * - EQUAL: exact match
    * 
-   * *   PRE: prefix matching
-   * *   EQUAL: exact matching
-   * *   ERGULAR: regular expression matching
+   * If you use the new version of end-to-end canary release (swimversion is 1 or 2, which uses single-service routing), the following values are supported:
+   * - PRE: prefix match
+   * - regexp: regular expression match
+   * - ==: equal to
+   * - !=: not equal to
+   * - list: in
+   * - %: percentage
+   * 
+   * The new version of end-to-end canary release provides the same features as the legacy version but delivers better performance and simpler configuration. Migrate to the new version of end-to-end canary release.
    * 
    * @example
    * PRE
@@ -206,9 +215,8 @@ export class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonCondit
   /**
    * @remarks
    * The type of the parameter. Valid values:
-   * 
-   * *   header
-   * *   param
+   * - header: header
+   * - param: parameter
    * 
    * @example
    * header
@@ -250,7 +258,21 @@ export class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonCondit
 }
 
 export class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonRouteIndependentPercentageList extends $dara.Model {
+  /**
+   * @remarks
+   * The traffic percentage. This parameter is used for percentage-based routing. Valid values: 0 to 100.
+   * 
+   * @example
+   * 50
+   */
   percentage?: number;
+  /**
+   * @remarks
+   * The route ID.
+   * 
+   * @example
+   * 111
+   */
   routeId?: number;
   static names(): { [key: string]: string } {
     return {
@@ -277,14 +299,28 @@ export class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonRouteI
 
 export class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJson extends $dara.Model {
   /**
+   * @remarks
+   * The end-to-end canary release mode. Valid values:
+   * 
+   * - 0: route by request content
+   * 
+   * - 1: route by percentage
+   * 
    * @example
    * 0
    */
   canaryModel?: number;
+  /**
+   * @remarks
+   * The canary release condition. Valid values: AND (all conditions must be met) and OR (any condition must be met).
+   * 
+   * @example
+   * AND
+   */
   condition?: string;
   /**
    * @remarks
-   * The matching conditions.
+   * The list of matching conditions.
    */
   conditions?: CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonConditions[];
   /**
@@ -304,16 +340,27 @@ export class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJson exten
    */
   gatewayUniqueId?: string;
   /**
+   * @remarks
+   * The traffic percentage. This parameter is used for percentage-based routing. Valid values: 0 to 100.
+   * 
    * @example
-   * 20
+   * 30
    */
   percentage?: number;
   /**
    * @remarks
-   * The route IDs.
+   * The list of route IDs.
    */
   routeIdList?: number[];
+  /**
+   * @remarks
+   * **[Deprecated]** This parameter is used to specify the percentage-based routing setting by route when an MSE cloud-native gateway is used as the ingress.
+   */
   routeIndependentPercentageEnable?: boolean;
+  /**
+   * @remarks
+   * **[Deprecated]** The list of routes for independent percentage-based canary releases by route.
+   */
   routeIndependentPercentageList?: CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJsonRouteIndependentPercentageList[];
   static names(): { [key: string]: string } {
     return {
@@ -364,7 +411,7 @@ export class CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJson exten
 export class CreateOrUpdateSwimmingLaneRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values: zh and en. Default value: zh. The value zh indicates Chinese, and the value en indicates English.
+   * The language in which the results are returned. Valid values: zh (Chinese, default) and en (English).
    * 
    * @example
    * zh
@@ -372,7 +419,7 @@ export class CreateOrUpdateSwimmingLaneRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to enable the lane.
+   * Specifies whether the lane is enabled.
    * 
    * @example
    * true
@@ -380,7 +427,7 @@ export class CreateOrUpdateSwimmingLaneRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * Specifies whether to configure a routing rule for the lane. If an Ingress gateway is used, this parameter is not required.
+   * Specifies whether to configure routing rules for the lane. Configuration is not required if the ingress is a gateway.
    * 
    * @example
    * false
@@ -391,29 +438,24 @@ export class CreateOrUpdateSwimmingLaneRequest extends $dara.Model {
    * The JSON string.
    * 
    * @example
-   * {}
+   * [{"Priority":1,"Paths":[],"Condition":"AND","RestItems":[{"Type":"param","Name":"name","Value":"xiaoming","Cond":"==","Operator":"rawvalue"}]}]
    * 
    * @deprecated
    */
   entryRule?: string;
   /**
    * @remarks
-   * The lane.
+   * The collection of lane rules.
    */
   entryRules?: CreateOrUpdateSwimmingLaneRequestEntryRules[];
   /**
    * @remarks
-   * The information about the routing rule for the gateway. This parameter is required when a cloud-native gateway is used as the ingress.
+   * The gateway routing information. This parameter is used when a cloud-native gateway is used as the ingress.
    */
   gatewaySwimmingLaneRouteJson?: CreateOrUpdateSwimmingLaneRequestGatewaySwimmingLaneRouteJson;
   /**
    * @remarks
-   * The language of the response. Valid values:****
-   * 
-   * *   **zh-CN**: Chinese
-   * *   **en-US**: English
-   * 
-   * > Default value: **zh-CN**.
+   * The ID of the lane group to which the lane belongs.
    * 
    * @example
    * 115
@@ -421,7 +463,7 @@ export class CreateOrUpdateSwimmingLaneRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The ID of the primary key. The value -1 indicates a request that is used to create a lane. A value greater than 0 indicates a request that is used to modify a lane.
+   * The primary key ID. A value of -1 indicates that a lane is created. A value greater than 0 indicates that a specified lane is updated.
    * 
    * @example
    * -1
@@ -434,18 +476,28 @@ export class CreateOrUpdateSwimmingLaneRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Test lane
+   * gray
    */
   name?: string;
   /**
+   * @remarks
+   * The name of the MSE namespace.
+   * 
    * @example
    * default
    */
   namespace?: string;
+  /**
+   * @remarks
+   * **[Deprecated]** The Java gateway-related configuration for percentage-based routing by path.
+   * 
+   * @example
+   * false
+   */
   pathIndependentPercentageEnable?: boolean;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -453,7 +505,7 @@ export class CreateOrUpdateSwimmingLaneRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The tag.
+   * The identifier.
    * 
    * @example
    * gray

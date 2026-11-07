@@ -35,7 +35,7 @@ export class CreateNacosConfigRequest extends $dara.Model {
    * The content of the configuration.
    * 
    * @example
-   * asdf
+   * text
    */
   content?: string;
   /**
@@ -53,7 +53,7 @@ export class CreateNacosConfigRequest extends $dara.Model {
    * The description of the configuration.
    * 
    * @example
-   * Basic module configuration.
+   * Base module configuration
    */
   desc?: string;
   /**
@@ -89,7 +89,7 @@ export class CreateNacosConfigRequest extends $dara.Model {
    * The tags of the configuration.
    * 
    * @example
-   * Basic configurations
+   * Basic configuration
    */
   tags?: string;
   /**

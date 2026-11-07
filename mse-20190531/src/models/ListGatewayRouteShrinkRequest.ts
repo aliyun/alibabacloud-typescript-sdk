@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayRouteShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * Language type for returned information:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
@@ -16,7 +17,7 @@ export class ListGatewayRouteShrinkRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to enable sorting. This parameter is unavailable.
+   * Sorting. This field is currently unavailable and being deprecated.
    * 
    * @example
    * false
@@ -24,12 +25,12 @@ export class ListGatewayRouteShrinkRequest extends $dara.Model {
   descSort?: boolean;
   /**
    * @remarks
-   * The parameters that specify filter conditions. The parameters are in the format of {"key1":"value1"}.
+   * Filter conditions in the format {"key1":"value1"}
    */
   filterParamsShrink?: string;
   /**
    * @remarks
-   * The item based on which entries are sorted.
+   * Sorting property.
    * 
    * @example
    * GmtCreate
@@ -37,7 +38,7 @@ export class ListGatewayRouteShrinkRequest extends $dara.Model {
   orderItem?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * Page number.
    * 
    * @example
    * 1
@@ -45,7 +46,7 @@ export class ListGatewayRouteShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * Number of instances displayed per page (currently not in effect, queries all instances by default).
    * 
    * @example
    * 10

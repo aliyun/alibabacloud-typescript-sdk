@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * The language of the returned information. Valid values:
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +15,7 @@ export class UpgradeClusterRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -26,7 +25,7 @@ export class UpgradeClusterRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The extended request parameters in the JSON format.
+   * The extended request parameters in JSON format.
    * 
    * @example
    * {}
@@ -34,7 +33,7 @@ export class UpgradeClusterRequest extends $dara.Model {
   requestPars?: string;
   /**
    * @remarks
-   * The destination version.
+   * The target upgrade version.
    * 
    * This parameter is required.
    * 

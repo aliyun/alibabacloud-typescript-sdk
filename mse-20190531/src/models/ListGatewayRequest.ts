@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayRequestFilterParams extends $dara.Model {
   /**
    * @remarks
-   * The type of the gateway.
+   * The gateway type.
    * 
    * @example
    * Ingress
@@ -21,7 +21,7 @@ export class ListGatewayRequestFilterParams extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * mse_ingresspre-cn-****
@@ -29,7 +29,7 @@ export class ListGatewayRequestFilterParams extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The tag of the instance.
+   * The resource tag.
    * 
    * @example
    * [{"key":"tagkey","value":"tagvalue"}]
@@ -37,7 +37,7 @@ export class ListGatewayRequestFilterParams extends $dara.Model {
   mseTag?: string;
   /**
    * @remarks
-   * The name of the gateway.
+   * The gateway name.
    * 
    * @example
    * rutain-test
@@ -45,7 +45,7 @@ export class ListGatewayRequestFilterParams extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-7y2uye*****
@@ -53,7 +53,7 @@ export class ListGatewayRequestFilterParams extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The VPC.
    * 
    * @example
    * vpc-bp13hhyjntbab7w****
@@ -95,10 +95,9 @@ export class ListGatewayRequestFilterParams extends $dara.Model {
 export class ListGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * The language of the returned information. Valid values:
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -106,7 +105,7 @@ export class ListGatewayRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to enable the sorting feature. This feature is not available.
+   * The sorting order. This parameter is currently not used.
    * 
    * @example
    * false
@@ -114,7 +113,7 @@ export class ListGatewayRequest extends $dara.Model {
   descSort?: boolean;
   /**
    * @remarks
-   * The details of parameters.
+   * The filter parameters.
    */
   filterParams?: ListGatewayRequestFilterParams;
   /**
@@ -127,7 +126,7 @@ export class ListGatewayRequest extends $dara.Model {
   orderItem?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -135,7 +134,7 @@ export class ListGatewayRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of instances per page.
    * 
    * @example
    * 10

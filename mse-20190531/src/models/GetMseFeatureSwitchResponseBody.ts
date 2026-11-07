@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMseFeatureSwitchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * NoPermission
@@ -13,15 +13,15 @@ export class GetMseFeatureSwitchResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6B4653A3-8D9C-5FDC-BB0C-936D40E9794B
@@ -29,7 +29,7 @@ export class GetMseFeatureSwitchResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The response result.
    * 
    * @example
    * {\\"nacos_config_encrypt\\": False}
@@ -37,10 +37,9 @@ export class GetMseFeatureSwitchResponseBody extends $dara.Model {
   result?: { [key: string]: any };
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request failed.
    * 
    * @example
    * true

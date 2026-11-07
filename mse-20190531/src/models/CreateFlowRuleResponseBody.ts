@@ -13,7 +13,7 @@ export class CreateFlowRuleResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The application name.
+   * The name of the application.
    * 
    * @example
    * spring-cloud-a
@@ -23,32 +23,6 @@ export class CreateFlowRuleResponseBodyData extends $dara.Model {
    * @remarks
    * The throttling effect.
    * 
-   * Valid values:
-   * 
-   * *   0
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     fast failure
-   * 
-   *     <!-- -->
-   * 
-   * *   2
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     in queue
-   * 
-   *     <!-- -->
-   * 
    * @example
    * 0
    */
@@ -56,24 +30,6 @@ export class CreateFlowRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the rule is enabled.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * true
@@ -87,10 +43,17 @@ export class CreateFlowRuleResponseBodyData extends $dara.Model {
    * 12
    */
   id?: number;
+  /**
+   * @remarks
+   * The source application of the request.
+   * 
+   * @example
+   * spring-cloud-a
+   */
   limitApp?: string;
   /**
    * @remarks
-   * The timeout period for queuing when the value of ControlBehavior is set to 2. Unit: milliseconds.
+   * The timeout period for queuing when the ControlBehavior parameter is set to 2. Unit: milliseconds.
    * 
    * @example
    * 500
@@ -106,7 +69,7 @@ export class CreateFlowRuleResponseBodyData extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region of the gateway.
    * 
    * @example
    * cn-hangzhou
@@ -114,7 +77,7 @@ export class CreateFlowRuleResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the API resource.
+   * The interface resource name.
    * 
    * @example
    * app
@@ -185,7 +148,10 @@ export class CreateFlowRuleResponseBody extends $dara.Model {
   data?: CreateFlowRuleResponseBodyData;
   /**
    * @remarks
-   * The error message returned.
+   * The returned message.
+   * 
+   * @example
+   * The request is processed successfully.
    */
   message?: string;
   /**
@@ -198,25 +164,7 @@ export class CreateFlowRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * The result of the request.
    * 
    * @example
    * true

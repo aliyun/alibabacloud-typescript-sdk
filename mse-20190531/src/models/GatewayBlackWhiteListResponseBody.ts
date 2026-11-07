@@ -21,7 +21,7 @@ export class GatewayBlackWhiteListResponseBodyDataResult extends $dara.Model {
   gatewayId?: number;
   /**
    * @remarks
-   * The unique ID of the gateway.
+   * The unique identifier of the gateway.
    * 
    * @example
    * gw-5017305290e14centbrveca****
@@ -29,7 +29,7 @@ export class GatewayBlackWhiteListResponseBodyDataResult extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The time when the blacklist or whitelist was created.
+   * The creation time.
    * 
    * @example
    * 2024-08-02T02:43:40.000+0000
@@ -37,7 +37,7 @@ export class GatewayBlackWhiteListResponseBodyDataResult extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the rule was modified.
+   * The update time.
    * 
    * @example
    * 2024-08-02T02:43:40.000+0000
@@ -45,7 +45,7 @@ export class GatewayBlackWhiteListResponseBodyDataResult extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the blacklist and whitelist.
+   * The ID of the blacklists and whitelists.
    * 
    * @example
    * 549
@@ -53,7 +53,7 @@ export class GatewayBlackWhiteListResponseBodyDataResult extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Specifies whether to enable the whitelist feature.
+   * Indicates whether it is a whitelist.
    * 
    * @example
    * true
@@ -69,7 +69,10 @@ export class GatewayBlackWhiteListResponseBodyDataResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The comment.
+   * The note.
+   * 
+   * @example
+   * Blocked IP list
    */
   note?: string;
   /**
@@ -82,10 +85,11 @@ export class GatewayBlackWhiteListResponseBodyDataResult extends $dara.Model {
   resourceId?: number;
   /**
    * @remarks
-   * The list of resource IDs in the JSON format.
+   * The JSON string of the resource ID list.
    * 
-   * *   If the value of the ResourceType parameter is ROUTE, the value of this parameter is the list of route IDs.
-   * *   If the value of the ResourceType parameter is DOMAIN, the value of this parameter is the list of domain names.
+   * - If ResourceType is set to ROUTE, this parameter is a list of route IDs.
+   * 
+   * - If ResourceType is set to DOMAIN, this parameter is a list of domain name IDs.
    * 
    * @example
    * [234]
@@ -93,7 +97,7 @@ export class GatewayBlackWhiteListResponseBodyDataResult extends $dara.Model {
   resourceIdJsonList?: string;
   /**
    * @remarks
-   * The description of the resource name.
+   * The resource name description.
    * 
    * @example
    * {}
@@ -101,11 +105,10 @@ export class GatewayBlackWhiteListResponseBodyDataResult extends $dara.Model {
   resourceIdNameJson?: string;
   /**
    * @remarks
-   * The effective scope of the blacklist or whitelist. Valid values:
-   * 
-   * *   GATEWAY
-   * *   DOMAIN
-   * *   ROUTE
+   * The effective granularity. Valid values:
+   * - GATEWAY: global gateway level.
+   * - DOMAIN: domain name level.
+   * - ROUTE: route level.
    * 
    * @example
    * GATEWAY
@@ -113,10 +116,11 @@ export class GatewayBlackWhiteListResponseBodyDataResult extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The status of the blacklist or whitelist.
+   * The status of the blacklists and whitelists. Valid values:
    * 
-   * *   on
-   * *   off
+   * - on: enabled.
+   * 
+   * - off: shutdown.
    * 
    * @example
    * on
@@ -124,7 +128,7 @@ export class GatewayBlackWhiteListResponseBodyDataResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the blacklist and whitelist. The value is fixed to IP address blacklist and whitelist.
+   * The type of the blacklists and whitelists. The value is fixed to IP blacklists and whitelists.
    * 
    * @example
    * IP
@@ -182,7 +186,7 @@ export class GatewayBlackWhiteListResponseBodyDataResult extends $dara.Model {
 export class GatewayBlackWhiteListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the instance list.
    * 
    * @example
    * 1
@@ -190,7 +194,7 @@ export class GatewayBlackWhiteListResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page specified in the request.
    * 
    * @example
    * 1
@@ -198,12 +202,12 @@ export class GatewayBlackWhiteListResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The returned information.
+   * The returned result set.
    */
   result?: GatewayBlackWhiteListResponseBodyDataResult[];
   /**
    * @remarks
-   * The total number of instances returned.
+   * The total number of queried instances.
    * 
    * @example
    * 1
@@ -242,7 +246,7 @@ export class GatewayBlackWhiteListResponseBodyData extends $dara.Model {
 export class GatewayBlackWhiteListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of 200 is returned if the request is successful.
+   * The code that synchronizes with the Success parameter.
    * 
    * @example
    * 200
@@ -250,12 +254,12 @@ export class GatewayBlackWhiteListResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: GatewayBlackWhiteListResponseBodyData;
   /**
    * @remarks
-   * The placeholder in the dynamic error message. This parameter is not returned.
+   * The placeholder in the dynamic error message. This parameter is not used and can be ignored.
    * 
    * @example
    * code
@@ -263,7 +267,7 @@ export class GatewayBlackWhiteListResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic message. This parameter is not returned.
+   * The dynamic message. This parameter is not used and can be ignored.
    * 
    * @example
    * The specified parameter is invalid.
@@ -303,10 +307,9 @@ export class GatewayBlackWhiteListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`
-   * *   `false`
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

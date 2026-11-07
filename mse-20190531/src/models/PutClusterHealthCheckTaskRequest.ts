@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class PutClusterHealthCheckTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class PutClusterHealthCheckTaskRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * mse_prepaid_public_cn-2r42o83h506

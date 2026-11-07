@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PullServicesResponseBodyDataServices extends $dara.Model {
   /**
    * @remarks
-   * The name of the group.
+   * The group.
    * 
    * @example
    * test
@@ -13,7 +13,7 @@ export class PullServicesResponseBodyDataServices extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
    * test
@@ -27,19 +27,30 @@ export class PullServicesResponseBodyDataServices extends $dara.Model {
    * public
    */
   namespace?: string;
+  /**
+   * @remarks
+   * The SAE application ID.
+   * 
+   * @example
+   * 7171a6ca-d1cd-4928-8642-7d5cfe69****
+   */
   saeAppId?: string;
   /**
    * @remarks
-   * The ID of the service source.
+   * The source ID.
    * 
    * @example
    * 1
    */
   sourceId?: string;
+  /**
+   * @remarks
+   * The list of associated service source IDs.
+   */
   sourceIdList?: number[];
   /**
    * @remarks
-   * The type of the service source.
+   * The source type.
    * 
    * @example
    * MSE
@@ -84,7 +95,7 @@ export class PullServicesResponseBodyDataServices extends $dara.Model {
 export class PullServicesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the group.
+   * The group.
    * 
    * @example
    * test
@@ -100,7 +111,7 @@ export class PullServicesResponseBodyData extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The alias of the namespace.
+   * The namespace alias.
    * 
    * @example
    * public
@@ -108,7 +119,7 @@ export class PullServicesResponseBodyData extends $dara.Model {
   namespaceShowName?: string;
   /**
    * @remarks
-   * The information about services.
+   * The list of services.
    */
   services?: PullServicesResponseBodyDataServices[];
   static names(): { [key: string]: string } {
@@ -144,7 +155,7 @@ export class PullServicesResponseBodyData extends $dara.Model {
 export class PullServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The response code.
    * 
    * @example
    * 200
@@ -157,7 +168,7 @@ export class PullServicesResponseBody extends $dara.Model {
   data?: PullServicesResponseBodyData[];
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -165,7 +176,7 @@ export class PullServicesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
    * You are not authorized to perform this operation. Action: mse:PullServices, Resource: acs:mse:cn-shenzhen:1228932054837788:*
@@ -173,7 +184,7 @@ export class PullServicesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EC0A99B9-8BA3-5FE3-8FE7-D7C719CF7BD2
@@ -181,10 +192,9 @@ export class PullServicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

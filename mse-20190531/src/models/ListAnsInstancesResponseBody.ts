@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAnsInstancesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * app
@@ -13,7 +13,7 @@ export class ListAnsInstancesResponseBodyData extends $dara.Model {
   app?: string;
   /**
    * @remarks
-   * The name of the cluster.
+   * The cluster name.
    * 
    * @example
    * DEFAULT
@@ -21,7 +21,7 @@ export class ListAnsInstancesResponseBodyData extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The reference key.
+   * The datum key.
    * 
    * @example
    * 30.5.XX.XX:unknown:DEFAULT
@@ -37,10 +37,9 @@ export class ListAnsInstancesResponseBodyData extends $dara.Model {
   defaultKey?: string;
   /**
    * @remarks
-   * The effective status of the instance. Valid values:
-   * 
-   * *   `true`: The instance takes effect.
-   * *   `false`: The instance does not take effect.
+   * Indicates whether the instance is enabled. Valid values:
+   * - `true`: Enabled.
+   * - `false`: Disabled.
    * 
    * @example
    * true
@@ -48,10 +47,9 @@ export class ListAnsInstancesResponseBodyData extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the information about the ephemeral node is obtained. Valid values:
-   * 
-   * *   `true`: yes
-   * *   `false`: no
+   * Indicates whether the node is ephemeral. Valid values:
+   * - `true`: Obtained successfully.
+   * - `false`: Failed to obtain.
    * 
    * @example
    * true
@@ -59,7 +57,7 @@ export class ListAnsInstancesResponseBodyData extends $dara.Model {
   ephemeral?: boolean;
   /**
    * @remarks
-   * The number of counted failures.
+   * The failure count.
    * 
    * @example
    * 0
@@ -68,9 +66,8 @@ export class ListAnsInstancesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The health status of the instance. Valid values:
-   * 
-   * *   `true`: The instance is healthy.
-   * *   `false`: The instance is unhealthy.
+   * - `true`: The instance is healthy.
+   * - `false`: The instance is unhealthy.
    * 
    * @example
    * true
@@ -86,7 +83,7 @@ export class ListAnsInstancesResponseBodyData extends $dara.Model {
   instanceHeartBeatInterval?: number;
   /**
    * @remarks
-   * The timeout period of the instance heartbeat.
+   * The instance heartbeat timeout.
    * 
    * @example
    * 15000
@@ -94,7 +91,7 @@ export class ListAnsInstancesResponseBodyData extends $dara.Model {
   instanceHeartBeatTimeOut?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * 30.5.XX.XX#0#DEFAULT#DEFAULT_GROUP@@consumers:com.alibaba.edas.IHelloService
@@ -110,7 +107,7 @@ export class ListAnsInstancesResponseBodyData extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The timeout period for removing an IP address.
+   * The IP address deletion timeout.
    * 
    * @example
    * 30000
@@ -118,7 +115,7 @@ export class ListAnsInstancesResponseBodyData extends $dara.Model {
   ipDeleteTimeout?: number;
   /**
    * @remarks
-   * The last heartbeat time.
+   * The time of the last heartbeat.
    * 
    * @example
    * 20201010
@@ -126,10 +123,9 @@ export class ListAnsInstancesResponseBodyData extends $dara.Model {
   lastBeat?: number;
   /**
    * @remarks
-   * Indicates whether the instance was marked. Valid values:
-   * 
-   * *   `true`: The instance marking was successful.
-   * *   `false`: The instance marking failed.
+   * Indicates whether the instance is marked. Valid values:
+   * - `true`: Marked successfully.
+   * - `false`: Failed to mark.
    * 
    * @example
    * true
@@ -145,7 +141,7 @@ export class ListAnsInstancesResponseBodyData extends $dara.Model {
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * The number of counted successes.
+   * The success count.
    * 
    * @example
    * 0
@@ -161,7 +157,7 @@ export class ListAnsInstancesResponseBodyData extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
    * DEFAULT_GROUP@@consumers:com.alibaba.edas.IHelloService::
@@ -240,12 +236,12 @@ export class ListAnsInstancesResponseBodyData extends $dara.Model {
 export class ListAnsInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the data.
+   * The data overview.
    */
   data?: ListAnsInstancesResponseBodyData[];
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -253,7 +249,7 @@ export class ListAnsInstancesResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 202
@@ -261,15 +257,15 @@ export class ListAnsInstancesResponseBody extends $dara.Model {
   httpCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * The message.
    * 
    * @example
-   * The request was successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -277,7 +273,7 @@ export class ListAnsInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of instances to return on each page.
    * 
    * @example
    * 10
@@ -285,7 +281,7 @@ export class ListAnsInstancesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 52BA6DA6-A702-4362-A32F-DFF79655****
@@ -293,10 +289,9 @@ export class ListAnsInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true
@@ -304,7 +299,7 @@ export class ListAnsInstancesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of returned instances.
+   * The total number of instances.
    * 
    * @example
    * 7

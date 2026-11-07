@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayRouteDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * Language type of the returned information:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
@@ -16,7 +17,7 @@ export class GetGatewayRouteDetailRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The unique ID of the gateway.
+   * Gateway unique identifier ID.
    * 
    * @example
    * gw-5d3a78a53ec947aa928212d671d400ac
@@ -24,7 +25,7 @@ export class GetGatewayRouteDetailRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The ID of the route.
+   * Route ID.
    * 
    * @example
    * 1050

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListListenersByIpRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * Language type of the returned information:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
@@ -16,7 +17,7 @@ export class ListListenersByIpRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * Instance ID.
    * 
    * This parameter is required.
    * 
@@ -26,7 +27,7 @@ export class ListListenersByIpRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The IP address of the listener.
+   * Listener IP address.
    * 
    * This parameter is required.
    * 
@@ -36,7 +37,7 @@ export class ListListenersByIpRequest extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * Namespace ID, default is public
    * 
    * @example
    * ea02a522-9482-4255-bb65-dc0636d783f2
@@ -44,7 +45,7 @@ export class ListListenersByIpRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The extended request parameters in the JSON format.
+   * Extended request parameters in JSON format.
    * 
    * @example
    * {}

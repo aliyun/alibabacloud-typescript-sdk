@@ -35,7 +35,7 @@ export class ListClusterConnectionTypesResponseBodyData extends $dara.Model {
 export class ListClusterConnectionTypesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code returned.
+   * The response code.
    * 
    * @example
    * 200
@@ -43,14 +43,14 @@ export class ListClusterConnectionTypesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The details of the data.
+   * The data overview.
    */
   data?: ListClusterConnectionTypesResponseBodyData[];
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
+   * The dynamic error message, which is used to replace %s in the error message of the **ErrMessage** response parameter.
    * 
-   * >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the specified **DtsJobId** request parameter is invalid.
    * 
    * @example
    * The specified parameter is invalid.
@@ -58,7 +58,7 @@ export class ListClusterConnectionTypesResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -66,7 +66,7 @@ export class ListClusterConnectionTypesResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -74,7 +74,7 @@ export class ListClusterConnectionTypesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
    * success
@@ -82,7 +82,7 @@ export class ListClusterConnectionTypesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8625467C-27DD-5711-878E-6857E3074937
@@ -90,10 +90,9 @@ export class ListClusterConnectionTypesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * True

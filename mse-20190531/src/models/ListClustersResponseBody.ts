@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListClustersResponseBodyDataMaintenancePeriod extends $dara.Model {
+  /**
+   * @remarks
+   * The end time of the O&M time window.
+   * 
+   * @example
+   * 06:00
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The start time of the O&M time window.
+   * 
+   * @example
+   * 02:00
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -39,7 +53,7 @@ export class ListClustersResponseBodyData extends $dara.Model {
   appVersion?: string;
   /**
    * @remarks
-   * Indicates whether the instance can be upgraded.
+   * Indicates whether the cluster can be upgraded.
    * 
    * @example
    * true
@@ -47,10 +61,10 @@ export class ListClustersResponseBodyData extends $dara.Model {
   canUpdate?: boolean;
   /**
    * @remarks
-   * The billing method, such as subscription or pay-as-you-go.
+   * The billing method, including subscription and pay-as-you-go.
    * 
    * @example
-   * Pay-as-you-go
+   * subscription
    */
   chargeType?: string;
   /**
@@ -71,7 +85,7 @@ export class ListClustersResponseBodyData extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The type of the cluster. Valid values: ZooKeeper, Nacos-Ans, and Eureka.
+   * The cluster type, including ZooKeeper, Nacos-Ans, and Eureka.
    * 
    * @example
    * Eureka
@@ -87,7 +101,7 @@ export class ListClustersResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the cluster expires.
+   * The expiration time of the cluster.
    * 
    * @example
    * 2021-08-01 00:00:00
@@ -95,7 +109,7 @@ export class ListClustersResponseBodyData extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The initialization status of the instance.
+   * The initialization status.
    * 
    * @example
    * RESTART_SUCCESS
@@ -119,7 +133,7 @@ export class ListClustersResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The public IP address.
+   * The public address.
    * 
    * @example
    * 47.98.XX.XX
@@ -127,7 +141,7 @@ export class ListClustersResponseBodyData extends $dara.Model {
   internetAddress?: string;
   /**
    * @remarks
-   * The public endpoint.
+   * The public domain name.
    * 
    * @example
    * mse-7413****-p.eureka.mse.aliyuncs.com
@@ -135,7 +149,7 @@ export class ListClustersResponseBodyData extends $dara.Model {
   internetDomain?: string;
   /**
    * @remarks
-   * The internal IP address.
+   * The private network address.
    * 
    * @example
    * 192.168.XX.XX
@@ -143,12 +157,16 @@ export class ListClustersResponseBodyData extends $dara.Model {
   intranetAddress?: string;
   /**
    * @remarks
-   * The internal endpoint.
+   * The internal domain name.
    * 
    * @example
    * mse-7413****-eureka.mse.aliyuncs.com
    */
   intranetDomain?: string;
+  /**
+   * @remarks
+   * The O&M time window.
+   */
   maintenancePeriod?: ListClustersResponseBodyDataMaintenancePeriod;
   /**
    * @remarks
@@ -168,7 +186,7 @@ export class ListClustersResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The tags that are attached to the instance.
+   * The tags bound to the instance.
    */
   tags?: { [key: string]: any };
   /**
@@ -179,8 +197,18 @@ export class ListClustersResponseBodyData extends $dara.Model {
    * EUREKA_1_9_3
    */
   versionCode?: string;
+  /**
+   * @remarks
+   * The version lifecycle.
+   * 
+   * @example
+   * STABLE
+   */
   versionLifecycle?: string;
   /**
+   * @remarks
+   * The ID of the VPC where the cluster is deployed.
+   * 
    * @example
    * vpc-bp1hcg467ekqsv0zr****
    */
@@ -257,12 +285,12 @@ export class ListClustersResponseBodyData extends $dara.Model {
 export class ListClustersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the data.
+   * The data overview.
    */
   data?: ListClustersResponseBodyData[];
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -270,7 +298,7 @@ export class ListClustersResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 202
@@ -278,15 +306,15 @@ export class ListClustersResponseBody extends $dara.Model {
   httpCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * The message.
    * 
    * @example
-   * The request was successfully processed.
+   * OK
    */
   message?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -294,7 +322,7 @@ export class ListClustersResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of instances returned on each page.
    * 
    * @example
    * 10
@@ -302,7 +330,7 @@ export class ListClustersResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 69AD2AA7-DB47-449B-941B-B14409DF****
@@ -310,10 +338,9 @@ export class ListClustersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true
@@ -321,7 +348,7 @@ export class ListClustersResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of returned instances.
+   * The total number of instances.
    * 
    * @example
    * 7

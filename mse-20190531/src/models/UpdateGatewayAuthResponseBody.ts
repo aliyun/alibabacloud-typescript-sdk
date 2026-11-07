@@ -4,31 +4,52 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateGatewayAuthResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code. The value is synchronized with the success parameter.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The authentication rule ID.
+   * 
    * @example
    * 719
    */
   data?: number;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The returned message.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 316F5F64-F73D-42DC-8632-01E308B6****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * 
+   * - `true`: The request was successful.                                
+   * - `false`: The request failed.
+   * 
    * @example
    * true
    */

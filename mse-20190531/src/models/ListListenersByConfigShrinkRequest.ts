@@ -7,8 +7,8 @@ export class ListListenersByConfigShrinkRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class ListListenersByConfigShrinkRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the data.
+   * The data ID.
    * 
    * This parameter is required.
    * 
@@ -24,10 +24,14 @@ export class ListListenersByConfigShrinkRequest extends $dara.Model {
    * zeekr-clueboss.yml
    */
   dataId?: string;
+  /**
+   * @remarks
+   * The list of additional canary release rules. When performing listener matching, the additional canary release rules are merged with existing rules for matching.
+   */
   extGrayRulesShrink?: string;
   /**
    * @remarks
-   * The name of the group.
+   * The group.
    * 
    * This parameter is required.
    * 
@@ -47,7 +51,7 @@ export class ListListenersByConfigShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The namespace ID. Default value: public.
    * 
    * @example
    * aaeb4d28-c9eb-4fa2-85f5-d03ce7ee8df1
@@ -55,10 +59,10 @@ export class ListListenersByConfigShrinkRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The extended request parameters in the JSON format.
+   * This parameter is deprecated and does not need to be specified.
    * 
    * @example
-   * {\\\\"appGroup\\\\":\\\\"emas-zfive_prehost\\\\",\\\\"appName\\\\":\\\\"emas-zfive\\\\",\\\\"appStage\\\\":\\\\"PRE_PUBLISH\\\\",\\\\"appUnit\\\\":\\\\"\\\\",\\\\"bucId\\\\":\\\\"225902\\\\",\\\\"bucName\\\\":\\\\"Wireless\\\\",\\\\"provider\\\\":\\\\"aliyun\\\\"}
+   * ...
    */
   requestPars?: string;
   static names(): { [key: string]: string } {

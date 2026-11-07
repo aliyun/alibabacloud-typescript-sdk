@@ -6,9 +6,8 @@ export class AddBlackWhiteListRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -32,7 +31,7 @@ export class AddBlackWhiteListRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The whitelist. Default value: No.
+   * Specifies whether the list is a whitelist. Default value: false.
    * 
    * @example
    * false
@@ -48,7 +47,7 @@ export class AddBlackWhiteListRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The description.
+   * The note.
    * 
    * @example
    * this is a note
@@ -56,7 +55,7 @@ export class AddBlackWhiteListRequest extends $dara.Model {
   note?: string;
   /**
    * @remarks
-   * The resource IDs in the JSON format.
+   * The JSON string of the resource ID list.
    * 
    * @example
    * [123]
@@ -64,11 +63,10 @@ export class AddBlackWhiteListRequest extends $dara.Model {
   resourceIdJsonList?: string;
   /**
    * @remarks
-   * The effective scope of the blacklist or whitelist. Valid values:
-   * 
-   * *   GATEWAY
-   * *   DOMAIN
-   * *   ROUTE
+   * The effective granularity. Valid values:
+   * - GATEWAY: the entire gateway.
+   * - DOMAIN: the domain name.
+   * - ROUTE: the route.
    * 
    * @example
    * GATEWAY
@@ -76,10 +74,9 @@ export class AddBlackWhiteListRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The status of the blacklist.
-   * 
-   * *   on: enabled
-   * *   off: disabled
+   * The status of the blacklist. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * off
@@ -87,7 +84,7 @@ export class AddBlackWhiteListRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of object in the blacklist or whitelist.
+   * The type of blacklists and whitelists.
    * 
    * @example
    * IP

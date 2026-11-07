@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class GetOverviewRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class GetOverviewRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The query time. Unit: days. For example, if you set this parameter to 30, the governance rules within the last 30 days are queried.
+   * The query period. Unit: days. For example, if you set this parameter to 30, the governance rules within the last 30 days are queried.
    * 
    * @example
    * 1
@@ -24,7 +24,7 @@ export class GetOverviewRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region.
    * 
    * @example
    * cn-hangzhou

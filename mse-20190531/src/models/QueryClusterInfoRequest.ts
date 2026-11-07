@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class QueryClusterInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language type of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class QueryClusterInfoRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to query the configuration of a public IP address whitelist.
+   * Specifies whether to query the public network whitelist configuration.
    * 
    * @example
    * false
@@ -24,7 +24,7 @@ export class QueryClusterInfoRequest extends $dara.Model {
   aclSwitch?: boolean;
   /**
    * @remarks
-   * The ID of the instance.
+   * The cluster ID.
    * 
    * @example
    * mse-09k1q11****
@@ -32,7 +32,7 @@ export class QueryClusterInfoRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * mse_prepaid_public_cn-7mz2t63ci03
@@ -40,7 +40,7 @@ export class QueryClusterInfoRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 20574710974****
@@ -48,7 +48,7 @@ export class QueryClusterInfoRequest extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -56,7 +56,7 @@ export class QueryClusterInfoRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The extended request parameters in the JSON format.
+   * The extended request parameters in JSON format.
    * 
    * @example
    * {}

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteGatewayFlowRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response data.
+   * 
    * @example
    * True
    */
   data?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2B74E7F7-DF54-5AB1-B8F2-67391B83****
    */

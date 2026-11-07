@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewaySlbShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * The language of the returned information. Valid values:
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -26,7 +25,7 @@ export class AddGatewaySlbShrinkRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The HTTP port number (virtual service group).
+   * The HTTP port (virtual service group).
    * 
    * @example
    * 80
@@ -34,7 +33,7 @@ export class AddGatewaySlbShrinkRequest extends $dara.Model {
   httpPort?: number;
   /**
    * @remarks
-   * The HTTPS port number (virtual service group).
+   * The HTTPS port (virtual service group).
    * 
    * @example
    * 443
@@ -50,7 +49,7 @@ export class AddGatewaySlbShrinkRequest extends $dara.Model {
   httpsVServerGroupId?: string;
   /**
    * @remarks
-   * The service weight.
+   * The weight of the service.
    * 
    * @example
    * 80
@@ -58,7 +57,7 @@ export class AddGatewaySlbShrinkRequest extends $dara.Model {
   serviceWeight?: number;
   /**
    * @remarks
-   * The ID of the SLB instance.
+   * The SLB ID.
    * 
    * This parameter is required.
    * 
@@ -68,10 +67,9 @@ export class AddGatewaySlbShrinkRequest extends $dara.Model {
   slbId?: string;
   /**
    * @remarks
-   * The type of the service source. Valid values:
-   * 
-   * *   PUB_NET: Internet
-   * *   PRIVATE_NET: VPC
+   * The type. Valid values:
+   * - PUB_NET: Internet.
+   * - PRIVATE_NET: Private network.
    * 
    * @example
    * PUB_NET
@@ -87,7 +85,7 @@ export class AddGatewaySlbShrinkRequest extends $dara.Model {
   VServerGroupId?: string;
   /**
    * @remarks
-   * The SLB monitoring information.
+   * The SLB listener information.
    */
   VServiceListShrink?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * code
+   * The unique ID of the gateway.
    * 
    * @example
    * gw-5017305290e14cebbrvec4a5****
@@ -35,10 +35,7 @@ export class AddGatewayResponseBodyData extends $dara.Model {
 export class AddGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * The return code.
    * 
    * @example
    * 200
@@ -46,15 +43,12 @@ export class AddGatewayResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The unique ID of the gateway.
+   * The returned data.
    */
   data?: AddGatewayResponseBodyData;
   /**
    * @remarks
-   * The message returned.
-   * 
-   * *   If the request is successful, a success message is returned.
-   * *   If the request fails, an error message is returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -62,15 +56,18 @@ export class AddGatewayResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request is successfully processed.
+   * The returned message.
+   * 
+   * - If the request is successful, a success message is returned.
+   * - If the request fails, the cause of the failure is returned.
    * 
    * @example
-   * The return value.
+   * Succ
    */
   message?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The request ID.
    * 
    * @example
    * 2F46B9E7-67EF-5C8A-BA52-D38D5B32AF2C
@@ -78,7 +75,9 @@ export class AddGatewayResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned data.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

@@ -7,8 +7,9 @@ export class ListClusterHealthCheckTaskRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
@@ -16,7 +17,7 @@ export class ListClusterHealthCheckTaskRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * mse_prepaid_public_cn-7pp2o4wfx01
@@ -27,12 +28,12 @@ export class ListClusterHealthCheckTaskRequest extends $dara.Model {
    * The number of the page to return.
    * 
    * @example
-   * 0
+   * 1
    */
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -40,7 +41,7 @@ export class ListClusterHealthCheckTaskRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region in which the instance resides.
+   * The region in which the cluster resides.
    * 
    * @example
    * cn-hangzhou
@@ -48,7 +49,7 @@ export class ListClusterHealthCheckTaskRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The extended request parameters in the JSON format.
+   * The extended request parameter in the JSON format.
    * 
    * @example
    * {}

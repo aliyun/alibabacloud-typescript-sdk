@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppMessageQueueRouteResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * hkhon1po62@54e1f42f37cd65a
@@ -13,10 +13,10 @@ export class GetAppMessageQueueRouteResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * Indicates whether the canary release for messaging feature is enabled.
+   * Indicates whether the feature is enabled. Valid values:
    * 
-   * *   `true`: enabled
-   * *   `false`: disabled
+   * - `true`: Enabled.
+   * - `false`: Disabled.
    * 
    * @example
    * true
@@ -24,16 +24,20 @@ export class GetAppMessageQueueRouteResponseBodyData extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The side for message filtering when the canary release for messaging feature is enabled.
+   * The filtering side for message canary release.
    * 
    * @example
    * Server
    */
   filterSide?: string;
+  /**
+   * @remarks
+   * The list of baseline environment labels for MSMQ grayscale rules.
+   */
   grayBaseTags?: string[];
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * @example
    * cn-hangzhou
@@ -41,7 +45,7 @@ export class GetAppMessageQueueRouteResponseBodyData extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The tags used to ignore message consumption for nodes in untagged environments.
+   * The tags that are not consumed by the untagged environments of the application.
    */
   tags?: string[];
   static names(): { [key: string]: string } {
@@ -84,7 +88,7 @@ export class GetAppMessageQueueRouteResponseBodyData extends $dara.Model {
 export class GetAppMessageQueueRouteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code returned.
+   * The response code.
    * 
    * @example
    * 200
@@ -92,12 +96,12 @@ export class GetAppMessageQueueRouteResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The data.
    */
   data?: GetAppMessageQueueRouteResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -105,10 +109,10 @@ export class GetAppMessageQueueRouteResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
-   * *   If the request is successful, a success message is returned.
-   * *   If the request fails, an error message is returned.
+   * - If the request is successful, a success message is returned.
+   * - If the request fails, the cause of the failure is returned.
    * 
    * @example
    * success
@@ -116,7 +120,7 @@ export class GetAppMessageQueueRouteResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4B00BCB0-105F-5A2A-B75B-641C8E9B18FC
@@ -124,7 +128,10 @@ export class GetAppMessageQueueRouteResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true and false. The value true indicates that the request was successful. The value false indicates that the request failed.
+   * The request result. Valid values:
+   * 
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateBlackWhiteListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The response code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdateBlackWhiteListResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The ID of the record.
+   * The record ID.
    * 
    * @example
    * 13
@@ -21,7 +21,7 @@ export class UpdateBlackWhiteListResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class UpdateBlackWhiteListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
    * You are not authorized to perform this operation.
@@ -37,7 +37,7 @@ export class UpdateBlackWhiteListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * AD5DEDA0-C82A-50D9-AF54-BD3576CCFB4C
@@ -45,10 +45,9 @@ export class UpdateBlackWhiteListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

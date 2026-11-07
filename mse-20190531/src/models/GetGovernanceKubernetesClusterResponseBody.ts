@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGovernanceKubernetesClusterResponseBodyDataNamespaces extends $dara.Model {
   /**
    * @remarks
-   * The name of the MSE namespace that you want to access.
+   * The corresponding MSE namespace name.
    * 
    * @example
    * default
@@ -13,7 +13,7 @@ export class GetGovernanceKubernetesClusterResponseBodyDataNamespaces extends $d
   mseNamespace?: string;
   /**
    * @remarks
-   * The name of the namespace in the ACK cluster.
+   * The Kubernetes namespace name.
    * 
    * @example
    * default
@@ -45,7 +45,7 @@ export class GetGovernanceKubernetesClusterResponseBodyDataNamespaces extends $d
 export class GetGovernanceKubernetesClusterResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The cluster ID.
    * 
    * @example
    * cd23228b3c80c4d4f9ad7af1d87cc30d5
@@ -53,7 +53,7 @@ export class GetGovernanceKubernetesClusterResponseBodyData extends $dara.Model 
   clusterId?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The cluster name.
    * 
    * @example
    * myCluster
@@ -61,7 +61,7 @@ export class GetGovernanceKubernetesClusterResponseBodyData extends $dara.Model 
   clusterName?: string;
   /**
    * @remarks
-   * The version of Kubernetes.
+   * The Kubernetes version.
    * 
    * @example
    * 1.20.11-aliyun.1
@@ -69,7 +69,7 @@ export class GetGovernanceKubernetesClusterResponseBodyData extends $dara.Model 
   k8sVersion?: string;
   /**
    * @remarks
-   * The information of the namespace.
+   * The information about namespaces.
    * 
    * @example
    * [{\\"Name\\":\\"ack-onepilot\\",\\"Tags\\":null},{\\"Name\\":\\"default\\",\\"Tags\\":{\\"mse-enable\\":\\"enabled\\"}},{\\"Name\\":\\"kube-node-lease\\",\\"Tags\\":null},{\\"Name\\":\\"kube-public\\",\\"Tags\\":null},{\\"Name\\":\\"kube-system\\",\\"Tags\\":null}]
@@ -77,21 +77,28 @@ export class GetGovernanceKubernetesClusterResponseBodyData extends $dara.Model 
   namespaceInfos?: string;
   /**
    * @remarks
-   * The queried namespaces.
+   * The list of namespaces.
    */
   namespaces?: GetGovernanceKubernetesClusterResponseBodyDataNamespaces[];
   /**
    * @remarks
-   * The time when the pilot component was started.
+   * The Pilot startup time.
    * 
    * @example
    * 2022-01-11T11:50:38.000+0000
    */
   pilotStartTime?: string;
+  /**
+   * @remarks
+   * The ack-onepilot component version
+   * 
+   * @example
+   * 4.1.1
+   */
   pilotVersion?: string;
   /**
    * @remarks
-   * The ID of the region in which the instance resides. The region is supported by MSE.
+   * The region where the cluster is located. MSE supports specific regions.
    * 
    * @example
    * cn-hangzhou
@@ -99,12 +106,19 @@ export class GetGovernanceKubernetesClusterResponseBodyData extends $dara.Model 
   region?: string;
   /**
    * @remarks
-   * The time of the last modification.
+   * The time when the UDF was last modified.
    * 
    * @example
    * 2022-01-12T05:24:31.000+0000
    */
   updateTime?: string;
+  /**
+   * @remarks
+   * The version lifecycle.
+   * 
+   * @example
+   * STABLE
+   */
   versionLifeCycle?: string;
   static names(): { [key: string]: string } {
     return {
@@ -151,12 +165,12 @@ export class GetGovernanceKubernetesClusterResponseBodyData extends $dara.Model 
 export class GetGovernanceKubernetesClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the data.
+   * The data overview.
    */
   data?: GetGovernanceKubernetesClusterResponseBodyData;
   /**
    * @remarks
-   * The message returned.
+   * The information that is returned.
    * 
    * @example
    * success
@@ -164,7 +178,7 @@ export class GetGovernanceKubernetesClusterResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 5B170A0D-2C5D-4CF8-B808-03966B86****
@@ -174,8 +188,9 @@ export class GetGovernanceKubernetesClusterResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * True

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values: zh-CN and en-US. Default value: zh-CN. The value zh-CN indicates Chinese and the value en-US indicates English.
+   * The language in which the response is displayed. Valid values: zh-CN (default): Chinese, en-US: English
    * 
    * @example
    * zh
@@ -21,7 +21,7 @@ export class ListAuthPolicyRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the authentication rule.
+   * The authentication rule name.
    * 
    * @example
    * auto-rule-**
@@ -29,7 +29,7 @@ export class ListAuthPolicyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the Microservices Engine (MSE) namespace.
+   * The MSE namespace name.
    * 
    * @example
    * default
@@ -57,11 +57,13 @@ export class ListAuthPolicyRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The protocol type. Valid values:
+   * The Protocol Type. Valid values:
    * 
-   * *   **SPRING_CLOUD**
-   * *   **DUBBO**
-   * *   **istio**
+   * - **SPRING_CLOUD**.
+   * 
+   * - **DUBBO**.
+   * 
+   * - **istio**.
    * 
    * @example
    * SPRING_CLOUD
@@ -69,7 +71,7 @@ export class ListAuthPolicyRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The region ID.
+   * Region ID.
    * 
    * This parameter is required.
    * 
@@ -79,7 +81,7 @@ export class ListAuthPolicyRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The service source.
+   * The source.
    * 
    * This parameter is required.
    * 

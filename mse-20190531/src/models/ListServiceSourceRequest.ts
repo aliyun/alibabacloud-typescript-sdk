@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -24,13 +24,12 @@ export class ListServiceSourceRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * Specifies the type of the returned service source. If this parameter is not specified, service sources of all types are returned. Valid values:
-   * 
-   * *   K8s
-   * *   MSE
-   * *   MSE_ZK
-   * *   SAE
-   * *   EDAS
+   * Specifies the service source type. If this parameter is left empty, all types are returned. Valid values:
+   * - K8s: Container Service.
+   * - MSE: MSE Nacos.
+   * - MSE_ZK: MSE ZooKeeper.
+   * - SAE: SAE registry.
+   * - EDAS: EDAS registry.
    * 
    * @example
    * MSE

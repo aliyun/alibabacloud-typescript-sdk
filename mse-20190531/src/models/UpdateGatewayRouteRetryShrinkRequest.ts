@@ -7,8 +7,9 @@ export class UpdateGatewayRouteRetryShrinkRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
@@ -16,7 +17,7 @@ export class UpdateGatewayRouteRetryShrinkRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the gateway.
+   * The gateway ID.
    * 
    * @example
    * 501
@@ -40,7 +41,7 @@ export class UpdateGatewayRouteRetryShrinkRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The information about the retry policy.
+   * The retry policy.
    */
   retryJSONShrink?: string;
   static names(): { [key: string]: string } {

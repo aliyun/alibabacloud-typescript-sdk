@@ -6,9 +6,8 @@ export class AddSSLCertRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -16,7 +15,7 @@ export class AddSSLCertRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the certificate.
+   * The certificate ID.
    * 
    * @example
    * 5213641-cn-hangzhou
@@ -24,7 +23,7 @@ export class AddSSLCertRequest extends $dara.Model {
   certIdentifier?: string;
   /**
    * @remarks
-   * The domain ID.
+   * The domain name ID.
    * 
    * @example
    * 0

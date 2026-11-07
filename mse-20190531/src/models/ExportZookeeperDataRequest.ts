@@ -6,9 +6,8 @@ export class ExportZookeeperDataRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -16,10 +15,9 @@ export class ExportZookeeperDataRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The type of the object that is exported. Valid values:
-   * 
-   * *   transactionLog: transaction logs
-   * *   snapshot: snapshots
+   * The export type. Valid values:
+   * - transactionLog: transaction log
+   * - snapshot: snapshot file
    * 
    * @example
    * snapshot
@@ -35,7 +33,7 @@ export class ExportZookeeperDataRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the region in which the instance resides. The region is supported by Microservices Engine (MSE).
+   * The region where the cluster is deployed. Specify a region supported by Microservices Engine (MSE).
    * 
    * @example
    * cn-hangzhou
@@ -43,7 +41,7 @@ export class ExportZookeeperDataRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The extended request parameters in the JSON format.
+   * The extended request parameters in JSON format.
    * 
    * @example
    * {}

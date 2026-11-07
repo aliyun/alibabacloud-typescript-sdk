@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AddMigrationTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Language type of the returned information:
-   * 
-   * - zh: Chinese
-   * - en: English
+   * The language of the response. Valid values:
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,8 +15,7 @@ export class AddMigrationTaskRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * Cluster type.
-   * 
+   * The cluster type. Valid values:
    * - Nacos-Ans
    * - ZooKeeper
    * - Eureka
@@ -28,7 +26,7 @@ export class AddMigrationTaskRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * Source instance node address.
+   * The address of the source instance node.
    * 
    * @example
    * 192.168.1.1:8848
@@ -36,15 +34,15 @@ export class AddMigrationTaskRequest extends $dara.Model {
   originInstanceAddress?: string;
   /**
    * @remarks
-   * Source instance name.
+   * The name of the source instance.
    * 
    * @example
-   * Source instance
+   * Source cluster
    */
   originInstanceName?: string;
   /**
    * @remarks
-   * Namespace list, required when the source cluster is Nacos.
+   * The list of namespaces. This parameter is optional when the source cluster is Nacos.
    * 
    * @example
    * namesapceId1,namesapceId2
@@ -52,7 +50,7 @@ export class AddMigrationTaskRequest extends $dara.Model {
   originInstanceNamespace?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * This is a description.
@@ -60,7 +58,7 @@ export class AddMigrationTaskRequest extends $dara.Model {
   projectDesc?: string;
   /**
    * @remarks
-   * Extended request parameters, in JSON format.
+   * The extended request parameters in JSON format.
    * 
    * @example
    * {}
@@ -68,7 +66,7 @@ export class AddMigrationTaskRequest extends $dara.Model {
   requestPars?: string;
   /**
    * @remarks
-   * SyncType
+   * The synchronization type. Valid values: configuration synchronization, service synchronization, or full synchronization.
    * 
    * @example
    * Service
@@ -76,15 +74,15 @@ export class AddMigrationTaskRequest extends $dara.Model {
   syncType?: string;
   /**
    * @remarks
-   * Target instance name.
+   * The name of the target instance.
    * 
    * @example
-   * Destination instance
+   * Target cluster
    */
   targetClusterName?: string;
   /**
    * @remarks
-   * Target instance URL.
+   * The URL of the target instance.
    * 
    * @example
    * mse-66*****-nacos-ans.mse.aliyuncs.com:8848
@@ -92,7 +90,7 @@ export class AddMigrationTaskRequest extends $dara.Model {
   targetClusterUrl?: string;
   /**
    * @remarks
-   * Target instance ID.
+   * The instance ID of the target instance.
    * 
    * @example
    * mse-cn-ud82*****

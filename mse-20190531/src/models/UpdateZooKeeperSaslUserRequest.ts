@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateZooKeeperSaslUserRequestSaslUser extends $dara.Model {
   /**
+   * @remarks
+   * The description of the user.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The original password. This parameter is required if you want to change the password.
+   * 
    * @example
    * origin-password
    */
   originPassword?: string;
   /**
+   * @remarks
+   * The password.
+   * 
    * @example
    * xxxxxx
    */
   password?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * test
    */
@@ -52,12 +64,17 @@ export class UpdateZooKeeperSaslUserRequestSaslUser extends $dara.Model {
 
 export class UpdateZooKeeperSaslUserRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values: zh (default): Chinese. en: English.
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -65,12 +82,17 @@ export class UpdateZooKeeperSaslUserRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Specifies whether the changes take effect immediately.
+   * 
    * @example
    * true
    */
   reload?: boolean;
   /**
    * @remarks
+   * The list of SASL users to update.
+   * 
    * This parameter is required.
    */
   saslUser?: UpdateZooKeeperSaslUserRequestSaslUser[];

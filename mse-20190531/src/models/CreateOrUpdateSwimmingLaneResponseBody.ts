@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOrUpdateSwimmingLaneResponseBodyDataEntryRulesRestItems extends $dara.Model {
   /**
    * @remarks
-   * The matching character.
+   * The match operator.
    * 
    * @example
    * ==
@@ -37,7 +37,7 @@ export class CreateOrUpdateSwimmingLaneResponseBodyDataEntryRulesRestItems exten
   name?: string;
   /**
    * @remarks
-   * The names.
+   * The list of names.
    */
   nameList?: string[];
   /**
@@ -66,7 +66,7 @@ export class CreateOrUpdateSwimmingLaneResponseBodyDataEntryRulesRestItems exten
   remainder?: number;
   /**
    * @remarks
-   * The matching type.
+   * The match type.
    * 
    * @example
    * cookie
@@ -133,7 +133,7 @@ export class CreateOrUpdateSwimmingLaneResponseBodyDataEntryRules extends $dara.
   condition?: string;
   /**
    * @remarks
-   * The path of the code group.
+   * The code group path.
    * 
    * @example
    * /adump/wxb/prod
@@ -141,12 +141,12 @@ export class CreateOrUpdateSwimmingLaneResponseBodyDataEntryRules extends $dara.
   path?: string;
   /**
    * @remarks
-   * The paths.
+   * The list of paths.
    */
   paths?: string[];
   /**
    * @remarks
-   * The conditions to be met.
+   * The list of REST matching rules.
    */
   restItems?: CreateOrUpdateSwimmingLaneResponseBodyDataEntryRulesRestItems[];
   static names(): { [key: string]: string } {
@@ -185,7 +185,7 @@ export class CreateOrUpdateSwimmingLaneResponseBodyDataEntryRules extends $dara.
 export class CreateOrUpdateSwimmingLaneResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the lane was enabled.
+   * The swimlane switch.
    * 
    * @example
    * true
@@ -193,7 +193,7 @@ export class CreateOrUpdateSwimmingLaneResponseBodyData extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * Indicates whether the rule is enabled.
+   * Specifies whether the rules are enabled.
    * 
    * @example
    * true
@@ -201,7 +201,7 @@ export class CreateOrUpdateSwimmingLaneResponseBodyData extends $dara.Model {
   enableRules?: boolean;
   /**
    * @remarks
-   * The rule for the ingress application.
+   * The entry application rule.
    * 
    * @example
    * {}
@@ -214,7 +214,7 @@ export class CreateOrUpdateSwimmingLaneResponseBodyData extends $dara.Model {
   entryRules?: CreateOrUpdateSwimmingLaneResponseBodyDataEntryRules[];
   /**
    * @remarks
-   * The routing rule for the MSE gateway.
+   * The MSE gateway routing rules.
    * 
    * @example
    * {}
@@ -222,7 +222,7 @@ export class CreateOrUpdateSwimmingLaneResponseBodyData extends $dara.Model {
   gatewaySwimmingLaneRouteJson?: string;
   /**
    * @remarks
-   * The time when the lane was created.
+   * The time when the swimlane was created.
    * 
    * @example
    * 1545726028000
@@ -230,7 +230,7 @@ export class CreateOrUpdateSwimmingLaneResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the lane was updated.
+   * The time when the swimlane was updated.
    * 
    * @example
    * 1565701886000
@@ -238,7 +238,7 @@ export class CreateOrUpdateSwimmingLaneResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the lane group.
+   * The swimlane group ID.
    * 
    * @example
    * 72586
@@ -246,7 +246,7 @@ export class CreateOrUpdateSwimmingLaneResponseBodyData extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The ID of the lane.
+   * The swimlane ID.
    * 
    * @example
    * 94765
@@ -254,16 +254,23 @@ export class CreateOrUpdateSwimmingLaneResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the lane.
+   * The swimlane name.
    * 
    * @example
    * test
    */
   name?: string;
+  /**
+   * @remarks
+   * **[Deprecated]** Specifies whether to enable percentage-based canary releases by path when a Java gateway is used as the entry point.
+   * 
+   * @example
+   * false
+   */
   pathIndependentPercentageEnable?: boolean;
   /**
    * @remarks
-   * The ID of the region where the application is deployed.
+   * The region where the application is located.
    * 
    * @example
    * cn-beijing
@@ -271,7 +278,7 @@ export class CreateOrUpdateSwimmingLaneResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status of the lane.
+   * The swimlane status.
    * 
    * @example
    * 0
@@ -279,7 +286,7 @@ export class CreateOrUpdateSwimmingLaneResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The tag of the lane.
+   * The tag corresponding to the swimlane.
    * 
    * @example
    * release
@@ -338,7 +345,7 @@ export class CreateOrUpdateSwimmingLaneResponseBodyData extends $dara.Model {
 export class CreateOrUpdateSwimmingLaneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. The value 200 is returned if the request is successful.
+   * The code used only to synchronize with the Success parameter.
    * 
    * @example
    * 200
@@ -346,7 +353,7 @@ export class CreateOrUpdateSwimmingLaneResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The details of the data.
+   * The data overview.
    * 
    * @example
    * {}
@@ -354,7 +361,7 @@ export class CreateOrUpdateSwimmingLaneResponseBody extends $dara.Model {
   data?: CreateOrUpdateSwimmingLaneResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -362,7 +369,7 @@ export class CreateOrUpdateSwimmingLaneResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -370,15 +377,15 @@ export class CreateOrUpdateSwimmingLaneResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
-   * The request was successfully processed.
+   * Succ
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EE5C32A1-BC0E-4B79-817C-103E4EDF****
@@ -386,10 +393,9 @@ export class CreateOrUpdateSwimmingLaneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

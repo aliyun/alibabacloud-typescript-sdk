@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGatewayAuthConsumerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of 200 is returned if the request is successful.
+   * The code is used only to synchronize with the success field.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdateGatewayAuthConsumerResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The ID of the consumer.
+   * The ID of the authentication consumer.
    * 
    * @example
    * 2
@@ -21,7 +21,7 @@ export class UpdateGatewayAuthConsumerResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The dynamic part in the error message.
+   * The placeholder in the dynamic error message.
    * 
    * @example
    * code
@@ -29,9 +29,8 @@ export class UpdateGatewayAuthConsumerResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the **ErrMessage** parameter.
-   * 
-   * >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+   * The dynamic error message, which is used to replace **%s** in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, it indicates that the passed request parameter **DtsJobId** is invalid.
    * 
    * @example
    * The specified parameter is invalid.
@@ -39,7 +38,7 @@ export class UpdateGatewayAuthConsumerResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code that is returned.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -47,7 +46,7 @@ export class UpdateGatewayAuthConsumerResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -55,15 +54,15 @@ export class UpdateGatewayAuthConsumerResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned.
+   * The returned message.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EE5C32A1-BC0E-4B79-817C-103E4EDF****
@@ -71,10 +70,9 @@ export class UpdateGatewayAuthConsumerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * The request result. Valid values:
+   * - `true`: The request succeeded.
+   * - `false`: The request failed.
    * 
    * @example
    * true

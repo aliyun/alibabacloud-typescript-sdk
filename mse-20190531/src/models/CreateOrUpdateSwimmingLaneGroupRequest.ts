@@ -6,9 +6,8 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,16 +15,25 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The IDs of applications. Separate application IDs with commas (,).
+   * The IDs of the applications. Separate multiple IDs with commas (,).
    * 
    * @example
-   * hkhon1po62@c3df23522baa898,hkhon1po62@66e5235415730a5,hkhon1po62@958bba95910341f
+   * xxxxn1po62@492b8f98d4bxxxx,xxxxn1po62@2d8f5d1b7f2xxxx
    */
   appIds?: string;
+  /**
+   * @remarks
+   * The end-to-end canary release mode. Valid values:
+   * - 0: Route by request content.
+   * - 1: Route by proportion.
+   * 
+   * @example
+   * 1
+   */
   canaryModel?: number;
   /**
    * @remarks
-   * Specifies whether to enable database canary release.
+   * **[Deprecated]** Specifies whether to enable canary release for databases.
    * 
    * @example
    * true
@@ -33,15 +41,18 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $dara.Model {
   dbGrayEnable?: boolean;
   /**
    * @remarks
-   * The ingress application.
+   * The entry application. Format: Source system:ID. Examples:
+   * - mse:${MSE application ID}
+   * - mse-gw:${MSE cloud-native gateway ID}
+   * - apig:${cloud-native API gateway ID}
    * 
    * @example
-   * Ingress
+   * mse-gw:gw-2b1407e050f1446xxxcd2a65fd9xxxx
    */
   entryApp?: string;
   /**
    * @remarks
-   * The ID of the lane group. A value of -1 is used to create a lane group. A value greater than 0 is used to modify the specified lane group.
+   * The ID of the swimlane group. A value of -1 indicates that a swimlane group is created. A value greater than 0 indicates that a specified swimlane group is updated.
    * 
    * @example
    * 120
@@ -49,7 +60,7 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The side for message filtering when the canary release for messaging feature is enabled.
+   * The side where message queue canary release filtering is performed.
    * 
    * @example
    * Server
@@ -57,7 +68,7 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $dara.Model {
   messageQueueFilterSide?: string;
   /**
    * @remarks
-   * Specifies whether to enable canary release for messaging.
+   * Specifies whether to enable canary release for message queues.
    * 
    * @example
    * true
@@ -68,7 +79,7 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $dara.Model {
   messageQueueGrayEnable?: boolean;
   /**
    * @remarks
-   * The name.
+   * The name of the swimlane group.
    * 
    * This parameter is required.
    * 
@@ -78,35 +89,57 @@ export class CreateOrUpdateSwimmingLaneGroupRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the Microservices Engine (MSE) namespace.
+   * The name of the MSE namespace.
    * 
    * @example
    * default
    */
   namespace?: string;
+  /**
+   * @remarks
+   * **[Deprecated]** The paths. This parameter is required when a Java gateway is used as the entry point.
+   */
   paths?: string[];
   /**
    * @remarks
    * Specifies whether to record request details.
+   * 
+   * @example
+   * false
    */
   recordCanaryDetail?: boolean;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * @example
    * cn-shanghai
    */
   region?: string;
+  /**
+   * @remarks
+   * The IDs of the routes. If a cloud-native gateway is used as the entry point, you must call this operation to pass the IDs of the selected cloud-native gateway routes before creating a swimlane for the swimlane group.
+   */
   routeIds?: number[];
   /**
    * @remarks
-   * The status of the lane group. The value 0 specifies that the lane group is disabled. The value 1 specifies that the lane group is enabled.
+   * The status of the swimlane group. Valid values:
+   * - 0: Inactive.
+   * - 1: Active.
    * 
    * @example
    * 0
    */
   status?: number;
+  /**
+   * @remarks
+   * The version of the end-to-end canary release. Valid values:
+   * - 0: Not recommended. Routes must be specified.
+   * - 2: Recommended. Routes do not need to be specified.
+   * 
+   * @example
+   * 2
+   */
   swimVersion?: number;
   static names(): { [key: string]: string } {
     return {

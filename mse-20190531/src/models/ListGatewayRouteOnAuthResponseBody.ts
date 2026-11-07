@@ -209,7 +209,7 @@ export class ListGatewayRouteOnAuthResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**

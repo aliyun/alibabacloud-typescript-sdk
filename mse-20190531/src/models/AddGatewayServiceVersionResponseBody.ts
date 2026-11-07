@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewayServiceVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned. The value 200 indicates that the request is successfully processed.
+   * The status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class AddGatewayServiceVersionResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The ID of the gateway service.
+   * The gateway service ID.
    * 
    * @example
    * 330
@@ -21,7 +21,7 @@ export class AddGatewayServiceVersionResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 403
@@ -29,15 +29,15 @@ export class AddGatewayServiceVersionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The error message.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * BA4046B6-CFC6-583C-B608-DD75011A590F
@@ -45,10 +45,9 @@ export class AddGatewayServiceVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * The request result. Valid values:
+   * - `true`: The request succeeded.
+   * - `false`: The request failed.
    * 
    * @example
    * true

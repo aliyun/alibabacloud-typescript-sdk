@@ -7,8 +7,8 @@ export class GetTagsBySwimmingLaneGroupIdRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class GetTagsBySwimmingLaneGroupIdRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the lane group.
+   * The ID of the traffic lane group.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class GetTagsBySwimmingLaneGroupIdRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The name of the Microservices Engine (MSE) namespace that you want to query.
+   * The name of the MSE namespace to query.
    * 
    * @example
    * default

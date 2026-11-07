@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateClusterRequestTag extends $dara.Model {
   /**
    * @remarks
-   * Tag key.
+   * The tag key.
    * 
    * @example
    * env
@@ -13,7 +13,7 @@ export class CreateClusterRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Tag value.
+   * The tag value.
    * 
    * @example
    * prd
@@ -45,10 +45,10 @@ export class CreateClusterRequestTag extends $dara.Model {
 export class CreateClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The language type of the returned information:
+   * The language of the response. Valid values:
    * 
-   * - zh: Chinese
-   * - en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -56,9 +56,7 @@ export class CreateClusterRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * Billing method, including PREPAY (Subscription) and POSTPAY (Pay-As-You-Go).
-   * 
-   * This parameter is ignored for the Serverless edition.
+   * The billing method. Valid values: PREPAY (subscription) and POSTPAY (pay-as-you-go). This parameter is ignored for Serverless Edition.
    * 
    * @example
    * POSTPAY
@@ -66,24 +64,7 @@ export class CreateClusterRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * Engine specifications, with the following values:
-   * 
-   * [Professional Edition] 
-   * 
-   * - `MSE_SC_2_4_60_c`: 2 cores, 4GB
-   * - `MSE_SC_1_2_60_c`: 1 core, 2GB
-   * - `MSE_SC_4_8_60_c`: 4 cores, 8GB
-   * - `MSE_SC_8_16_60_c`: 8 cores, 16GB
-   * - `MSE_SC_16_32_60_c`: 16 cores, 32GB
-   * 
-   * [Developer Edition] 
-   * 
-   * - `MSE_SC_1_2_60_c`: 1 core, 2GB
-   * - `MSE_SC_2_4_60_c`: 2 cores, 4GB
-   * 
-   * [Serverless Edition]
-   * 
-   * Ignore this parameter, or you can fill in `MSE_SC_SERVERLESS`.
+   * The engine specifications. Valid values:
    * 
    * This parameter is required.
    * 
@@ -93,7 +74,7 @@ export class CreateClusterRequest extends $dara.Model {
   clusterSpecification?: string;
   /**
    * @remarks
-   * Cluster type, including ZooKeeper, Nacos-Ans.
+   * The cluster type. Valid values: ZooKeeper and Nacos-Ans.
    * 
    * This parameter is required.
    * 
@@ -103,22 +84,7 @@ export class CreateClusterRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * Cluster version, with the following values:
-   * 
-   * [Professional Edition] 
-   * 
-   * - `NACOS_2_0_0`: indicates Nacos 2.x.x version.
-   * - `ZooKeeper_3_8_0`: indicates ZooKeeper 3.8.x version.
-   * 
-   * [Developer Edition] 
-   * 
-   * - `NACOS_2_0_0`: indicates Nacos 2.x version.
-   * - `ZooKeeper_3_8_0`: indicates ZooKeeper 3.8.x version.
-   * 
-   * [Serverless Edition]
-   * 
-   * - `NACOS_2_0_0`: indicates Nacos 2.x version.
-   * - `ZooKeeper_3_8_0`: indicates ZooKeeper 3.8.x version.
+   * The cluster version. Valid values:
    * 
    * This parameter is required.
    * 
@@ -128,7 +94,7 @@ export class CreateClusterRequest extends $dara.Model {
   clusterVersion?: string;
   /**
    * @remarks
-   * Network access type, `slb` or `single_eni`; some regions\\" Developer Edition only support the `single_eni` type.
+   * The network access type. Valid values: `slb` and `single_eni`. In some regions, Developer Edition supports only `single_eni`.
    * 
    * @example
    * slb
@@ -136,7 +102,7 @@ export class CreateClusterRequest extends $dara.Model {
   connectionType?: string;
   /**
    * @remarks
-   * No longer in use
+   * This parameter is deprecated.
    * 
    * @example
    * alicloud-disk-ssd
@@ -146,7 +112,7 @@ export class CreateClusterRequest extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * Valid when `ConnectionType` is `single_eni`, indicating whether to enable public network access (Elastic IP).
+   * Specifies whether to enable public network access by using an elastic IP address (EIP). This parameter takes effect only when ConnectionType is set to `single_eni`.
    * 
    * **if can be null:**
    * false
@@ -154,17 +120,19 @@ export class CreateClusterRequest extends $dara.Model {
   eipEnabled?: boolean;
   /**
    * @remarks
-   * Number of instance nodes, with a range limit of 1 to 9.
-   * 
+   * The number of nodes in the instance. Valid values: 1 to 9.
    * [Professional Edition] 
-   * - The number of instances must be 3 or more and must be an odd number.
    * 
+   * -  `NACOS_2_0_0`: Nacos 2.x.x.
+   * - `ZooKeeper_3_8_0`: ZooKeeper 3.8.x.
    * [Developer Edition] 
-   * - The number of instances can only be 1.
    * 
+   * -  `NACOS_2_0_0`: Nacos 2.x.
+   * - `ZooKeeper_3_8_0`: ZooKeeper 3.8.x.
    * [Serverless Edition]
    * 
-   * Ignore this parameter.
+   * -  `NACOS_2_0_0`: Nacos 2.x.
+   * - `ZooKeeper_3_8_0`: ZooKeeper 3.8.x.
    * 
    * This parameter is required.
    * 
@@ -174,7 +142,7 @@ export class CreateClusterRequest extends $dara.Model {
   instanceCount?: number;
   /**
    * @remarks
-   * Custom instance name
+   * The custom name of the instance.
    * 
    * @example
    * tanshuyingtest001
@@ -182,11 +150,11 @@ export class CreateClusterRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * Required unless under special circumstances, with the following values:
+   * The instance edition. This parameter is required unless otherwise specified. Valid values:
    * 
-   * - `mse_pro`: indicates Professional Edition.
-   * - `mse_dev`: indicates Developer Edition.
-   * - `mse_serverless`: indicates Serverless Edition.
+   * - `mse_pro`: Professional Edition.
+   * - `mse_dev`: Developer Edition.
+   * - `mse_serverless`: Serverless Edition.
    * 
    * @example
    * mse_pro
@@ -194,9 +162,9 @@ export class CreateClusterRequest extends $dara.Model {
   mseVersion?: string;
   /**
    * @remarks
-   * Network type, with the following values:
-   * - `privatenet`: indicates a private network.
-   * - `pubnet`: indicates a public network.
+   * The network type. Valid values:
+   * - `privatenet`: virtual private cloud (VPC).
+   * - `pubnet`: Internet.
    * 
    * This parameter is required.
    * 
@@ -206,7 +174,7 @@ export class CreateClusterRequest extends $dara.Model {
   netType?: string;
   /**
    * @remarks
-   * No longer in use
+   * This parameter is deprecated.
    * 
    * @example
    * slb.s1.small
@@ -216,9 +184,7 @@ export class CreateClusterRequest extends $dara.Model {
   privateSlbSpecification?: string;
   /**
    * @remarks
-   * Valid when `ConnectionType` is `slb`. 0 indicates no public network access SLB creation, and values above 1 indicate a fixed bandwidth for public network access SLB; unit: Mbps.
-   * 
-   * Value range: 0~5000.
+   * The bandwidth of the Internet-facing Server Load Balancer (SLB) instance. This parameter takes effect only when ConnectionType is set to `slb`. A value of 0 indicates that no Internet-facing SLB instance is created. A value greater than 1 indicates the fixed bandwidth of the Internet-facing SLB instance. Unit: Mbit/s. Valid values: 0 to 5000.
    * 
    * @example
    * 0
@@ -226,7 +192,7 @@ export class CreateClusterRequest extends $dara.Model {
   pubNetworkFlow?: string;
   /**
    * @remarks
-   * No longer in use
+   * This parameter is deprecated.
    * 
    * @example
    * slb.s1.small
@@ -236,12 +202,12 @@ export class CreateClusterRequest extends $dara.Model {
   pubSlbSpecification?: string;
   /**
    * @remarks
-   * The region where the cluster is located, including but not limited to the following regions:
-   * - `cn-hangzhou`: Hangzhou
-   * - `cn-beijing`: Beijing
-   * - `cn-shanghai`: Shanghai
-   * - `cn-zhangjiakou`: Zhangjiakou
-   * - `cn-shenzhen`: Shenzhen
+   * The region where the cluster is deployed. Valid values include but are not limited to:
+   * - `cn-hangzhou`: China (Hangzhou)
+   * - `cn-beijing`: China (Beijing)
+   * - `cn-shanghai`: China (Shanghai)
+   * - `cn-zhangjiakou`: China (Zhangjiakou)
+   * - `cn-shenzhen`: China (Shenzhen)
    * 
    * @example
    * cn-hangzhou
@@ -249,7 +215,7 @@ export class CreateClusterRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Extended request parameters, in JSON format.
+   * The extended request parameters in JSON format.
    * 
    * @example
    * {}
@@ -257,7 +223,7 @@ export class CreateClusterRequest extends $dara.Model {
   requestPars?: string;
   /**
    * @remarks
-   * Resource group ID. For more details about the resource group, see [Basic Information of Resource Group](https://help.aliyun.com/document_detail/457230.html).
+   * The resource group ID. For more information, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/457230.html).
    * 
    * @example
    * rg-aekzcqmoay3dlyq
@@ -265,7 +231,7 @@ export class CreateClusterRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Valid when `ConnectionType` is `single_eni`, indicating the security group type of the instance.
+   * The type of the security group to which the instance belongs. This parameter takes effect only when ConnectionType is set to `single_eni`. Valid values:
    * 
    * @example
    * enterprise
@@ -273,12 +239,12 @@ export class CreateClusterRequest extends $dara.Model {
   securityGroupType?: string;
   /**
    * @remarks
-   * List of tags to be added. Contains up to 20 items.
+   * The tags to be added. You can add up to 20 tags.
    */
   tag?: CreateClusterRequestTag[];
   /**
    * @remarks
-   * Switch ID.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp17opt4v18sto39k****
@@ -286,7 +252,7 @@ export class CreateClusterRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC ID.
+   * The VPC ID.
    * 
    * @example
    * vpc-bp1t50e045b5g7i3p****

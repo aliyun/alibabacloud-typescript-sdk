@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteGatewayRouteResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The default service ID.
+   * The ID of the default service.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DeleteGatewayRouteResponseBodyData extends $dara.Model {
   gatewayId?: number;
   /**
    * @remarks
-   * The unique ID of the gateway.
+   * The unique identifier of the gateway.
    * 
    * @example
    * gw-5017305290e14cebbrvec4a5****
@@ -69,7 +69,7 @@ export class DeleteGatewayRouteResponseBodyData extends $dara.Model {
   predicates?: string;
   /**
    * @remarks
-   * The sequence number of the route.
+   * The route order.
    * 
    * @example
    * 1
@@ -77,14 +77,13 @@ export class DeleteGatewayRouteResponseBodyData extends $dara.Model {
   routeOrder?: number;
   /**
    * @remarks
-   * The status of the route. Valid values:
-   * 
-   * *   0: unpublished
-   * *   2: publishing
-   * *   3: published
-   * *   4: editing (updated but not published)
-   * *   5: unpublishing
-   * *   6: unavailable
+   * The route status. Valid values:
+   * - 0: Unpublished.
+   * - 2: Publishing.
+   * - 3: Published.
+   * - 4: Editing (unpublished updates).
+   * - 5: Going offline.
+   * - 6: Unavailable.
    * 
    * @example
    * 2
@@ -132,7 +131,7 @@ export class DeleteGatewayRouteResponseBodyData extends $dara.Model {
 export class DeleteGatewayRouteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The status code.
    * 
    * @example
    * 200
@@ -140,12 +139,12 @@ export class DeleteGatewayRouteResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   data?: DeleteGatewayRouteResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -153,10 +152,10 @@ export class DeleteGatewayRouteResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The error message.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
@@ -169,10 +168,9 @@ export class DeleteGatewayRouteResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request failed.
    * 
    * @example
    * true

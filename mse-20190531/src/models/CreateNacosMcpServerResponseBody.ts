@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateNacosMcpServerResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned data.
+   * 
    * @example
    * true
    */
   data?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * AF21683A-29C7-4853-AC0F-B5ADEE4****
    */

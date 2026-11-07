@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceListPageRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values: zh and en. Default value: zh. The value zh indicates Chinese, and the value en indicates English.
+   * The language of the response. Valid values: zh: Chinese, en: English. Default value: zh.
    * 
    * @example
    * zh
@@ -29,7 +29,7 @@ export class GetServiceListPageRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The IP address from which the query is initiated.
+   * The IP address to query.
    * 
    * @example
    * 223.5.5.5
@@ -37,7 +37,7 @@ export class GetServiceListPageRequest extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The name of the MSE namespace.
+   * The MSE namespace name.
    * 
    * @example
    * default
@@ -61,7 +61,7 @@ export class GetServiceListPageRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * @example
    * cn-hangzhou

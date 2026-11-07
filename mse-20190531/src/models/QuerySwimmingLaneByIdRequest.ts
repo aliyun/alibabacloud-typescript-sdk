@@ -7,8 +7,9 @@ export class QuerySwimmingLaneByIdRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * 
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +17,7 @@ export class QuerySwimmingLaneByIdRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the lane.
+   * The swimming lane ID.
    * 
    * This parameter is required.
    * 
@@ -26,7 +27,7 @@ export class QuerySwimmingLaneByIdRequest extends $dara.Model {
   laneId?: number;
   /**
    * @remarks
-   * The name of the Microservices Engine (MSE) namespace.
+   * The name of the MSE namespace.
    * 
    * @example
    * default

@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetServiceMethodPageResponseBodyDataResultParameterDefinitions extends $dara.Model {
   /**
+   * @remarks
+   * The description of the parameter.
+   * 
    * @example
-   * 参数描述示例
+   * sample description
    */
   description?: string;
   /**
+   * @remarks
+   * The name of the parameter.
+   * 
    * @example
    * aParam
    */
   name?: string;
   /**
+   * @remarks
+   * The parameter type.
+   * 
    * @example
    * java.lang.String
    */
@@ -45,31 +54,66 @@ export class GetServiceMethodPageResponseBodyDataResultParameterDefinitions exte
 
 export class GetServiceMethodPageResponseBodyDataResult extends $dara.Model {
   /**
+   * @remarks
+   * The full name of the Controller class to which the interface belongs.
+   * 
    * @example
    * com.alibabacloud.mse.demo.a.AController
    */
   methodController?: string;
   /**
+   * @remarks
+   * The name of the method.
+   * 
    * @example
    * aMethod
    */
   name?: string;
   /**
+   * @remarks
+   * The interface description information.
+   * 
    * @example
-   * 示例接口描述信息。
+   * sample description
    */
   nameDetail?: string;
+  /**
+   * @remarks
+   * The detailed definition of the parameter.
+   */
   parameterDefinitions?: GetServiceMethodPageResponseBodyDataResultParameterDefinitions[];
+  /**
+   * @remarks
+   * The type of the interface parameter.
+   */
   parameterDetails?: string[];
+  /**
+   * @remarks
+   * The parameter types.
+   */
   parameterTypes?: string[];
+  /**
+   * @remarks
+   * The list of request paths that correspond to the interface.
+   */
   paths?: string[];
+  /**
+   * @remarks
+   * The HTTP request method.
+   */
   requestMethods?: string[];
   /**
+   * @remarks
+   * The type of the return value.
+   * 
    * @example
    * java.lang.String
    */
   returnDetails?: string;
   /**
+   * @remarks
+   * The type of the return value.
+   * 
    * @example
    * java.lang.String
    */
@@ -130,17 +174,30 @@ export class GetServiceMethodPageResponseBodyDataResult extends $dara.Model {
 
 export class GetServiceMethodPageResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries per page.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The method description list.
+   */
   result?: GetServiceMethodPageResponseBodyDataResult[];
   /**
+   * @remarks
+   * The total number of methods.
+   * 
    * @example
    * 100
    */
@@ -176,18 +233,31 @@ export class GetServiceMethodPageResponseBodyData extends $dara.Model {
 }
 
 export class GetServiceMethodPageResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response to the request.
+   */
   data?: GetServiceMethodPageResponseBodyData;
   /**
+   * @remarks
+   * The request information.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 2DD5A212-C77B-3XXF-9XXE-XXX9XXXE5XX1
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request is successful. Valid values:
+   * 
    * @example
    * True
    */

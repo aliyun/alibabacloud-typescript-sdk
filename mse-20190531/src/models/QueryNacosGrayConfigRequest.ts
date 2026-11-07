@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class QueryNacosGrayConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values: zh (default): Chinese. en: English.
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * The DataId of the configuration.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,17 +22,25 @@ export class QueryNacosGrayConfigRequest extends $dara.Model {
    */
   dataId?: string;
   /**
+   * @remarks
+   * The name of the canary release rule.
+   * 
    * @example
    * test
    */
   grayName?: string;
   /**
+   * @remarks
+   * The configuration group.
+   * 
    * @example
    * DEFAULT_GROUP
    */
   group?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,16 +48,25 @@ export class QueryNacosGrayConfigRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * The namespace ID.
+   * 
    * @example
    * 6bafdde3-4fa7-4d67-b3da-a607ab87f7e4
    */
   namespaceId?: string;
   /**
+   * @remarks
+   * The region where the cluster resides.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * This field is deprecated.
+   * 
    * @example
    * {}
    */

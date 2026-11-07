@@ -7,8 +7,8 @@ export class ListGatewayAuthConsumerResourceRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class ListGatewayAuthConsumerResourceRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the consumer.
+   * The ID of the gateway authentication consumer.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class ListGatewayAuthConsumerResourceRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -46,7 +46,7 @@ export class ListGatewayAuthConsumerResourceRequest extends $dara.Model {
   pageNum?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 
@@ -56,10 +56,11 @@ export class ListGatewayAuthConsumerResourceRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The resource authorization status. Valid values:
+   * The resource status. Valid values:
    * 
-   * *   true: enabled
-   * *   false: disabled
+   * - true: Enabled.
+   * 
+   * - false: Disabled.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewayDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The return code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class AddGatewayDomainResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -32,12 +32,12 @@ export class AddGatewayDomainResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * The request is successfully processed.
+   * Request processed successfully
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 16BA802F-B848-55DF-9F57-CD71B7272D1F
@@ -45,10 +45,9 @@ export class AddGatewayDomainResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * The request result. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

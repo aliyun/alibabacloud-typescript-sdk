@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGatewayRouteAuthRequestAuthJSON extends $dara.Model {
   /**
    * @remarks
-   * The authentication type. If an empty string is passed, no authentication type is available. Valid values:
+   * The authentication type. An empty string indicates that authentication is disabled. Valid values:
    * 
-   * *   JWT
+   * - JWT
    * 
    * @example
    * JWT
@@ -39,8 +39,8 @@ export class UpdateGatewayRouteAuthRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -48,7 +48,7 @@ export class UpdateGatewayRouteAuthRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The authentication configurations.
+   * The authentication configuration.
    * 
    * This parameter is required.
    */

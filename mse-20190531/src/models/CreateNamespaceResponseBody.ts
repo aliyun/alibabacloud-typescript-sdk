@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateNamespaceResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The name of the namespace.
+   * 
    * @example
    * myNamespace
    */
   namespace?: string;
   /**
+   * @remarks
+   * The region to which the namespace belongs.
+   * 
    * @example
    * cn-hangzhou
    */
@@ -37,19 +43,39 @@ export class CreateNamespaceResponseBodyData extends $dara.Model {
 }
 
 export class CreateNamespaceResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: CreateNamespaceResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * mse-100-000
    */
   errorCode?: string;
+  /**
+   * @remarks
+   * The error message returned.
+   * 
+   * @example
+   * The request is processed successfully.
+   */
   message?: string;
   /**
+   * @remarks
+   * The request ID
+   * 
    * @example
    * D1F1A6F3-7E03-5EAD-B3F1-123456789ABC
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful
+   * 
    * @example
    * true
    */

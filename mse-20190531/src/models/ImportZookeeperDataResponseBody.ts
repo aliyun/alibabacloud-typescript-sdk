@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImportZookeeperDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the data.
+   * The data overview.
    * 
    * @example
    * null
@@ -13,7 +13,7 @@ export class ImportZookeeperDataResponseBody extends $dara.Model {
   data?: any;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -21,7 +21,7 @@ export class ImportZookeeperDataResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 202
@@ -29,15 +29,15 @@ export class ImportZookeeperDataResponseBody extends $dara.Model {
   httpCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
-   * The request was successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 52BA6DA6-A702-4362-A32F-DFF79655****
@@ -45,10 +45,10 @@ export class ImportZookeeperDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request succeeded.
+   * - `false`: The request failed.
    * 
    * @example
    * true

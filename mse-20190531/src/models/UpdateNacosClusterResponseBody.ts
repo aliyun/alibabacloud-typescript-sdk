@@ -32,7 +32,7 @@ export class UpdateNacosClusterResponseBody extends $dara.Model {
    * The message returned.
    * 
    * @example
-   * The request is successfully processed.
+   * Request succeeded.
    */
   message?: string;
   /**

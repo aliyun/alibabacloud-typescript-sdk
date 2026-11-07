@@ -100,7 +100,7 @@ export class GetNacosConfigResponseBodyConfiguration extends $dara.Model {
    * Configuration description.
    * 
    * @example
-   * For testing
+   * Testdedicateduse
    */
   desc?: string;
   /**

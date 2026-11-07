@@ -3,9 +3,36 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListGatewaySlbResponseBodyDataVServiceList extends $dara.Model {
+  /**
+   * @remarks
+   * The port.
+   * 
+   * @example
+   * 443
+   */
   port?: string;
+  /**
+   * @remarks
+   * The protocol type. Valid values:
+   * - HTTPS
+   * - HTTP
+   * 
+   * @example
+   * HTTPS
+   */
   protocol?: string;
+  /**
+   * @remarks
+   * The ID of the virtual server group.
+   * 
+   * @example
+   * rsp-bp183l2x70***
+   */
   VServerGroupId?: string;
+  /**
+   * @remarks
+   * The name of the virtual server group.
+   */
   VServerGroupName?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,7 +64,7 @@ export class ListGatewaySlbResponseBodyDataVServiceList extends $dara.Model {
 export class ListGatewaySlbResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the edit operation is supported.
+   * Indicates whether the resource is editable.
    * 
    * @example
    * false
@@ -45,7 +72,7 @@ export class ListGatewaySlbResponseBodyData extends $dara.Model {
   editEnable?: boolean;
   /**
    * @remarks
-   * The ID of the gateway.
+   * The gateway ID.
    * 
    * @example
    * 1
@@ -53,7 +80,7 @@ export class ListGatewaySlbResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The mode of the SLB instance.
+   * The source.
    * 
    * @example
    * UserSelect
@@ -77,7 +104,7 @@ export class ListGatewaySlbResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The port number of the HTTP virtual service group.
+   * The HTTP port (virtual server group).
    * 
    * @example
    * 80
@@ -85,7 +112,7 @@ export class ListGatewaySlbResponseBodyData extends $dara.Model {
   httpPort?: number;
   /**
    * @remarks
-   * The port number of the HTTPS virtual service group.
+   * The HTTPS port (virtual server group).
    * 
    * @example
    * 443
@@ -93,7 +120,7 @@ export class ListGatewaySlbResponseBodyData extends $dara.Model {
   httpsPort?: number;
   /**
    * @remarks
-   * The ID of the HTTPS virtual service group.
+   * The ID of the HTTPS virtual server group.
    * 
    * @example
    * 353
@@ -101,7 +128,7 @@ export class ListGatewaySlbResponseBodyData extends $dara.Model {
   httpsVServerGroupId?: string;
   /**
    * @remarks
-   * The ID.
+   * ID
    * 
    * @example
    * ID
@@ -117,7 +144,7 @@ export class ListGatewaySlbResponseBodyData extends $dara.Model {
   serviceWeight?: number;
   /**
    * @remarks
-   * The ID of the SLB instance.
+   * SLB ID
    * 
    * @example
    * lb-bp1kmnli3hdpreptw2ah3
@@ -125,7 +152,7 @@ export class ListGatewaySlbResponseBodyData extends $dara.Model {
   slbId?: string;
   /**
    * @remarks
-   * The IP address of the SLB instance.
+   * SLB IP
    * 
    * @example
    * 121.199.XX.XX
@@ -133,16 +160,23 @@ export class ListGatewaySlbResponseBodyData extends $dara.Model {
   slbIp?: string;
   /**
    * @remarks
-   * The port number of the SLB instance.
+   * The SLB port.
    * 
    * @example
    * 80,443
    */
   slbPort?: string;
+  /**
+   * @remarks
+   * The SLB type.
+   * 
+   * @example
+   * CLB
+   */
   slbType?: string;
   /**
    * @remarks
-   * The description of the status.
+   * The status description.
    * 
    * @example
    * Associating
@@ -150,7 +184,9 @@ export class ListGatewaySlbResponseBodyData extends $dara.Model {
   statusDesc?: string;
   /**
    * @remarks
-   * The type.
+   * The network type. Valid values:
+   * - PUB_NET: Internet.
+   * - PRIVATE_NET: Private network.
    * 
    * @example
    * PUB_NET
@@ -158,13 +194,24 @@ export class ListGatewaySlbResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The ID of the HTTP virtual service group.
+   * The ID of the HTTP virtual server group.
    * 
    * @example
    * 353
    */
   VServerGroupId?: string;
+  /**
+   * @remarks
+   * The SLB listener information.
+   */
   VServiceList?: ListGatewaySlbResponseBodyDataVServiceList[];
+  /**
+   * @remarks
+   * The metadata of the virtual server group.
+   * 
+   * @example
+   * [{"protocol":"HTTP","vServerGroupName":"k8s/80/****","port":80,"vServerGroupId":"rsp-bp***"},{"protocol":"HTTPS","vServerGroupName":"k8s/443/***","port":443,"vServerGroupId":"rsp-bp*****"}]
+   */
   vsMetaInfo?: string;
   static names(): { [key: string]: string } {
     return {
@@ -229,7 +276,7 @@ export class ListGatewaySlbResponseBodyData extends $dara.Model {
 export class ListGatewaySlbResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The return code.
    * 
    * @example
    * 200
@@ -237,12 +284,12 @@ export class ListGatewaySlbResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data entries returned.
+   * The returned data.
    */
   data?: ListGatewaySlbResponseBodyData[];
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -250,15 +297,15 @@ export class ListGatewaySlbResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
-   * The request is successfully processed.
+   * Succ
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EAB345F4-3AC3-560C-B653-65717703****
@@ -266,10 +313,9 @@ export class ListGatewaySlbResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

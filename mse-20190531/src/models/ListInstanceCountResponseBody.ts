@@ -55,7 +55,7 @@ export class ListInstanceCountResponseBody extends $dara.Model {
    * The returned message. If the request is successful, a success message is returned. If the request fails, an error message is returned.
    * 
    * @example
-   * The request was successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**

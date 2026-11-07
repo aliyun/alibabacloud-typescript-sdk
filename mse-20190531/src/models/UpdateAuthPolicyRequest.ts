@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAuthPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values: zh-CN and en-US. Default value: zh-CN. The value zh-CN indicates Chinese, and the value en-US indicates English.
+   * The language in which you want the results to be displayed. Valid values: zh-CN and en-US. Default value: zh-CN. The value zh-CN indicates Chinese, and the value en-US indicates English.
    * 
    * @example
    * zh
@@ -47,7 +47,7 @@ export class UpdateAuthPolicyRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The ID of the ACK cluster namespace.
+   * The namespace ID of the Kubernetes cluster.
    * 
    * @example
    * c19c6c500e1ff4d7abc7bed9b8236***
@@ -55,7 +55,7 @@ export class UpdateAuthPolicyRequest extends $dara.Model {
   k8sNamespace?: string;
   /**
    * @remarks
-   * The name of the rule.
+   * The rule name.
    * 
    * @example
    * demo-test
@@ -63,11 +63,13 @@ export class UpdateAuthPolicyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The protocol type. Valid values:
+   * The Protocol Type. Valid values:
    * 
-   * *   **SPRING_CLOUD**
-   * *   **DUBBO**
-   * *   **istio**
+   * - **SPRING_CLOUD**.
+   * 
+   * - **DUBBO**.
+   * 
+   * - **istio**.
    * 
    * @example
    * SPRING_CLOUD
@@ -75,7 +77,7 @@ export class UpdateAuthPolicyRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * @example
    * cn-hangzhou
@@ -83,7 +85,7 @@ export class UpdateAuthPolicyRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The source for application access.
+   * The service source that the application accesses.
    * 
    * @example
    * edasmsc

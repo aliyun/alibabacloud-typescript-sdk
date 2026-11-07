@@ -23,57 +23,13 @@ export class UpdateFlowRuleResponseBodyData extends $dara.Model {
    * @remarks
    * The throttling effect.
    * 
-   * Valid values:
-   * 
-   * *   0
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     fast failure
-   * 
-   *     <!-- -->
-   * 
-   * *   2
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     in queue
-   * 
-   *     <!-- -->
-   * 
    * @example
    * 0
    */
   controlBehavior?: number;
   /**
    * @remarks
-   * Indicates whether the rule was enabled.
-   * 
-   * Valid value:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * Indicates whether the rule is enabled.
    * 
    * @example
    * true
@@ -87,10 +43,17 @@ export class UpdateFlowRuleResponseBodyData extends $dara.Model {
    * 12
    */
   id?: number;
+  /**
+   * @remarks
+   * The source application of the request.
+   * 
+   * @example
+   * Spring-cloud-a
+   */
   limitApp?: string;
   /**
    * @remarks
-   * The timeout period for queuing when the value of ControlBehavior is set to 2. Unit: milliseconds.
+   * The timeout period for queuing when the ControlBehavior parameter is set to 2. Unit: milliseconds.
    * 
    * @example
    * 500
@@ -106,7 +69,7 @@ export class UpdateFlowRuleResponseBodyData extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The name of the API resource.
+   * The interface resource name.
    * 
    * @example
    * /c
@@ -162,7 +125,7 @@ export class UpdateFlowRuleResponseBodyData extends $dara.Model {
 export class UpdateFlowRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The return value.
    * 
    * @example
    * 200
@@ -175,7 +138,10 @@ export class UpdateFlowRuleResponseBody extends $dara.Model {
   data?: UpdateFlowRuleResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
+   * 
+   * @example
+   * The request is processed successfully.
    */
   message?: string;
   /**
@@ -188,33 +154,7 @@ export class UpdateFlowRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     The request was successful.
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     The request failed.
-   * 
-   *     <!-- -->
+   * The result of the request.
    * 
    * @example
    * true

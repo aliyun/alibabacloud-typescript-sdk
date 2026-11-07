@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFlowRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The return code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteFlowRulesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The IDs of the rules that were deleted.
+   * The IDs of the deleted rules.
    */
   data?: number[];
   /**
@@ -26,7 +26,7 @@ export class DeleteFlowRulesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * OK
@@ -42,10 +42,10 @@ export class DeleteFlowRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request succeeded.
+   * - `false`: The request failed.
    * 
    * @example
    * true

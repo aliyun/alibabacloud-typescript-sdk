@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBalancerSettingsConsistentHashLBConfigHttpCookie extends $dara.Model {
   /**
    * @remarks
-   * The name of the cookie.
+   * The cookie name.
    * 
    * @example
    * name
@@ -13,7 +13,7 @@ export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBal
   name?: string;
   /**
    * @remarks
-   * The path of the cookie.
+   * The cookie path.
    * 
    * @example
    * /path
@@ -21,7 +21,7 @@ export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBal
   path?: string;
   /**
    * @remarks
-   * The lifecycle of the cookie.
+   * The time-to-live (TTL) of the cookie.
    * 
    * @example
    * 360
@@ -55,12 +55,15 @@ export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBal
 export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBalancerSettingsConsistentHashLBConfig extends $dara.Model {
   /**
    * @remarks
-   * The type based on which consistent hashing load balancing is performed.
+   * The consistent hashing method. Valid values:
    * 
-   * *   HEADER
-   * *   COOKIE
-   * *   SOURCE_IP
-   * *   QUERY_PARAMETER
+   * - HEADER
+   * 
+   * - COOKIE
+   * 
+   * - SOURCE_IP
+   * 
+   * - QUERY_PARAMETER
    * 
    * @example
    * HEADER
@@ -68,12 +71,12 @@ export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBal
   consistentHashLBType?: string;
   /**
    * @remarks
-   * The cookie-based load balancing parameters.
+   * The cookie-based parameter.
    */
   httpCookie?: ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBalancerSettingsConsistentHashLBConfigHttpCookie;
   /**
    * @remarks
-   * The minimum value of the hash ring.
+   * The minimum size of the hash ring.
    * 
    * @example
    * 10000
@@ -81,7 +84,7 @@ export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBal
   minimumRingSize?: number;
   /**
    * @remarks
-   * The name of the parameter.
+   * The parameter name.
    * 
    * @example
    * param
@@ -120,17 +123,20 @@ export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBal
 export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBalancerSettings extends $dara.Model {
   /**
    * @remarks
-   * The consistent hashing settings.
+   * The consistent hashing configuration.
    */
   consistentHashLBConfig?: ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBalancerSettingsConsistentHashLBConfig;
   /**
    * @remarks
-   * The load balancing type.
+   * The load balancing policy. Valid values:
    * 
-   * *   ROUND_ROBIN
-   * *   LEAST_CONN
-   * *   RANDOM
-   * *   CONSISTENT_HASH
+   * - ROUND_ROBIN
+   * 
+   * - LEAST_CONN
+   * 
+   * - RANDOM
+   * 
+   * - CONSISTENT_HASH
    * 
    * @example
    * RANDOM
@@ -138,7 +144,7 @@ export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBal
   loadbalancerType?: string;
   /**
    * @remarks
-   * The prefetch time of the least connection load balancing.
+   * The warm-up duration for the minimum number of requests.
    * 
    * @example
    * 10
@@ -175,7 +181,7 @@ export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBal
 export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyTls extends $dara.Model {
   /**
    * @remarks
-   * The public key of the CA certificate .
+   * The public key of the CA certificate.
    * 
    * @example
    * content
@@ -183,7 +189,7 @@ export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyTls ext
   caCertContent?: string;
   /**
    * @remarks
-   * The ID of the certification authority (CA) certificate.
+   * The CA certificate ID.
    * 
    * @example
    * 5******-cn-hangzhou
@@ -191,7 +197,7 @@ export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyTls ext
   caCertId?: string;
   /**
    * @remarks
-   * The ID of the certificate.
+   * The certificate ID.
    * 
    * @example
    * 5******-cn-hangzhou
@@ -199,12 +205,15 @@ export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyTls ext
   certId?: string;
   /**
    * @remarks
-   * The TLS mode.
+   * The TLS mode. Valid values:
    * 
-   * *   DISABLE
-   * *   SIMPLE
-   * *   MUTUAL
-   * *   ISTIO_MUTUAL
+   * - DISABLE
+   * 
+   * - SIMPLE
+   * 
+   * - MUTUAL
+   * 
+   * - ISTIO_MUTUAL
    * 
    * @example
    * SIMPLE
@@ -212,7 +221,7 @@ export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyTls ext
   mode?: string;
   /**
    * @remarks
-   * The Server Name Indication (SNI) value.
+   * The service name identity.
    * 
    * @example
    * name-sni
@@ -220,7 +229,7 @@ export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyTls ext
   sni?: string;
   /**
    * @remarks
-   * The array of subject aliases.
+   * The array of subject alternative names.
    */
   subjectAltNames?: string[];
   static names(): { [key: string]: string } {
@@ -265,7 +274,7 @@ export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicy extend
   loadBalancerSettings?: ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyLoadBalancerSettings;
   /**
    * @remarks
-   * The Transport Layer Security (TLS).
+   * The TLS.
    */
   tls?: ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicyTls;
   static names(): { [key: string]: string } {
@@ -300,7 +309,7 @@ export class ListGatewayServiceResponseBodyDataResultGatewayTrafficPolicy extend
 export class ListGatewayServiceResponseBodyDataResultHealthCheckInfo extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether checks are performed.
+   * Indicates whether the check is performed.
    * 
    * @example
    * true
@@ -308,12 +317,12 @@ export class ListGatewayServiceResponseBodyDataResultHealthCheckInfo extends $da
   check?: boolean;
   /**
    * @remarks
-   * The expected status of the health check.
+   * The expected HTTP status codes for health checks.
    */
   expectedStatuses?: number[];
   /**
    * @remarks
-   * The threshold for healthy instances.
+   * The healthy threshold.
    * 
    * @example
    * 2
@@ -321,7 +330,7 @@ export class ListGatewayServiceResponseBodyDataResultHealthCheckInfo extends $da
   healthyThreshold?: number;
   /**
    * @remarks
-   * The endpoint of the HTTP request for the health check.
+   * The HTTP request address for health checks.
    * 
    * @example
    * http://172.168.0.1
@@ -329,7 +338,7 @@ export class ListGatewayServiceResponseBodyDataResultHealthCheckInfo extends $da
   httpHost?: string;
   /**
    * @remarks
-   * The path to which the HTTP request for the health check is sent.
+   * The HTTP request path for health checks.
    * 
    * @example
    * /health
@@ -361,7 +370,7 @@ export class ListGatewayServiceResponseBodyDataResultHealthCheckInfo extends $da
   timeout?: number;
   /**
    * @remarks
-   * The threshold for unhealthy instances.
+   * The unhealthy threshold.
    * 
    * @example
    * 2
@@ -410,7 +419,7 @@ export class ListGatewayServiceResponseBodyDataResultHealthCheckInfo extends $da
 export class ListGatewayServiceResponseBodyDataResultVersions extends $dara.Model {
   /**
    * @remarks
-   * The version number.
+   * The version name.
    * 
    * @example
    * v1
@@ -438,6 +447,10 @@ export class ListGatewayServiceResponseBodyDataResultVersions extends $dara.Mode
 }
 
 export class ListGatewayServiceResponseBodyDataResult extends $dara.Model {
+  /**
+   * @remarks
+   * The DNS server list (for DNS domain name service only).
+   */
   dnsServerList?: string[];
   /**
    * @remarks
@@ -462,7 +475,7 @@ export class ListGatewayServiceResponseBodyDataResult extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the record was created.
    * 
    * @example
    * 2022-01-07 18:07:57
@@ -470,7 +483,7 @@ export class ListGatewayServiceResponseBodyDataResult extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time.
+   * The time when the record was modified.
    * 
    * @example
    * 2022-01-07 18:07:57
@@ -478,7 +491,7 @@ export class ListGatewayServiceResponseBodyDataResult extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The group.
+   * The group name.
    * 
    * @example
    * test
@@ -486,11 +499,13 @@ export class ListGatewayServiceResponseBodyDataResult extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The health status.
+   * The health status. Valid values:
    * 
-   * *   Health
-   * *   Unhealthy
-   * *   Unknown
+   * - Health
+   * 
+   * - Unhealthy
+   * 
+   * - Unknown
    * 
    * @example
    * Unhealthy
@@ -506,16 +521,18 @@ export class ListGatewayServiceResponseBodyDataResult extends $dara.Model {
   healthCheck?: boolean;
   /**
    * @remarks
-   * The information about health checks.
+   * The health check information.
    */
   healthCheckInfo?: ListGatewayServiceResponseBodyDataResultHealthCheckInfo;
   /**
    * @remarks
-   * The health status.
+   * The health status. Valid values:
    * 
-   * *   Health
-   * *   Unhealthy
-   * *   Unknown
+   * - Health
+   * 
+   * - Unhealthy
+   * 
+   * - Unknown
    * 
    * @example
    * Unhealthy
@@ -531,12 +548,12 @@ export class ListGatewayServiceResponseBodyDataResult extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The list of IP addresses.
+   * The IP address list.
    */
   ips?: string[];
   /**
    * @remarks
-   * The metadata or IP addresses of the service.
+   * The metadata or IP address list.
    * 
    * @example
    * {}
@@ -544,7 +561,7 @@ export class ListGatewayServiceResponseBodyDataResult extends $dara.Model {
   metaInfo?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
    * test
@@ -560,13 +577,20 @@ export class ListGatewayServiceResponseBodyDataResult extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The port array.
+   * The array of ports.
    */
   ports?: number[];
+  /**
+   * @remarks
+   * The fully qualified domain name (FQDN) of the service.
+   * 
+   * @example
+   * demo.default.svc.cluster.local
+   */
   serviceFQDN?: string;
   /**
    * @remarks
-   * The name of the service that is registered with the service registry.
+   * The original service name in the registry.
    * 
    * @example
    * test
@@ -574,7 +598,7 @@ export class ListGatewayServiceResponseBodyDataResult extends $dara.Model {
   serviceNameInRegistry?: string;
   /**
    * @remarks
-   * The service port number.
+   * The service port.
    * 
    * @example
    * 80
@@ -582,7 +606,7 @@ export class ListGatewayServiceResponseBodyDataResult extends $dara.Model {
   servicePort?: number;
   /**
    * @remarks
-   * The protocol of the service.
+   * The service protocol.
    * 
    * @example
    * HTTP
@@ -590,7 +614,7 @@ export class ListGatewayServiceResponseBodyDataResult extends $dara.Model {
   serviceProtocol?: string;
   /**
    * @remarks
-   * The ID of the service source.
+   * The source ID.
    * 
    * @example
    * 2
@@ -606,12 +630,12 @@ export class ListGatewayServiceResponseBodyDataResult extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The array of endpoints of unhealthy instances.
+   * The array of unhealthy endpoints.
    */
   unhealthyEndpoints?: string[];
   /**
    * @remarks
-   * The service version.
+   * The service versions.
    */
   versions?: ListGatewayServiceResponseBodyDataResultVersions[];
   static names(): { [key: string]: string } {
@@ -707,7 +731,7 @@ export class ListGatewayServiceResponseBodyDataResult extends $dara.Model {
 export class ListGatewayServiceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -715,7 +739,7 @@ export class ListGatewayServiceResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page. Default value: 10.
+   * The maximum number of records per page. Default value: 10.
    * 
    * @example
    * 10
@@ -723,12 +747,12 @@ export class ListGatewayServiceResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned collection.
    */
   result?: ListGatewayServiceResponseBodyDataResult[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 9
@@ -780,7 +804,7 @@ export class ListGatewayServiceResponseBody extends $dara.Model {
   data?: ListGatewayServiceResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -788,7 +812,7 @@ export class ListGatewayServiceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * The error message.
    * 
    * @example
    * You are not authorized to perform this operation.
@@ -796,7 +820,7 @@ export class ListGatewayServiceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F46CDBA4-B1EE-5C94-8A48-51C10177****
@@ -804,10 +828,9 @@ export class ListGatewayServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

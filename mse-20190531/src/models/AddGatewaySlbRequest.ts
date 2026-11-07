@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewaySlbRequestVServiceList extends $dara.Model {
   /**
    * @remarks
-   * The port number.
+   * The port.
    * 
    * @example
    * 443
@@ -14,9 +14,8 @@ export class AddGatewaySlbRequestVServiceList extends $dara.Model {
   /**
    * @remarks
    * The protocol type. Valid values:
-   * 
-   * *   HTTP
-   * *   HTTPS
+   * - HTTP
+   * - HTTPS
    * 
    * @example
    * HTTPS
@@ -24,7 +23,7 @@ export class AddGatewaySlbRequestVServiceList extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The ID of the virtual server group.
+   * The ID of the virtual service group.
    * 
    * @example
    * rsp-bp1j**t0fyl**
@@ -32,7 +31,7 @@ export class AddGatewaySlbRequestVServiceList extends $dara.Model {
   VServerGroupId?: string;
   /**
    * @remarks
-   * The name of the virtual server group.
+   * The name of the virtual service group.
    */
   VServerGroupName?: string;
   static names(): { [key: string]: string } {
@@ -65,10 +64,9 @@ export class AddGatewaySlbRequestVServiceList extends $dara.Model {
 export class AddGatewaySlbRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * The language of the returned information. Valid values:
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -86,7 +84,7 @@ export class AddGatewaySlbRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The HTTP port number (virtual service group).
+   * The HTTP port (virtual service group).
    * 
    * @example
    * 80
@@ -94,7 +92,7 @@ export class AddGatewaySlbRequest extends $dara.Model {
   httpPort?: number;
   /**
    * @remarks
-   * The HTTPS port number (virtual service group).
+   * The HTTPS port (virtual service group).
    * 
    * @example
    * 443
@@ -110,7 +108,7 @@ export class AddGatewaySlbRequest extends $dara.Model {
   httpsVServerGroupId?: string;
   /**
    * @remarks
-   * The service weight.
+   * The weight of the service.
    * 
    * @example
    * 80
@@ -118,7 +116,7 @@ export class AddGatewaySlbRequest extends $dara.Model {
   serviceWeight?: number;
   /**
    * @remarks
-   * The ID of the SLB instance.
+   * The SLB ID.
    * 
    * This parameter is required.
    * 
@@ -128,10 +126,9 @@ export class AddGatewaySlbRequest extends $dara.Model {
   slbId?: string;
   /**
    * @remarks
-   * The type of the service source. Valid values:
-   * 
-   * *   PUB_NET: Internet
-   * *   PRIVATE_NET: VPC
+   * The type. Valid values:
+   * - PUB_NET: Internet.
+   * - PRIVATE_NET: Private network.
    * 
    * @example
    * PUB_NET
@@ -147,7 +144,7 @@ export class AddGatewaySlbRequest extends $dara.Model {
   VServerGroupId?: string;
   /**
    * @remarks
-   * The SLB monitoring information.
+   * The SLB listener information.
    */
   VServiceList?: AddGatewaySlbRequestVServiceList[];
   static names(): { [key: string]: string } {

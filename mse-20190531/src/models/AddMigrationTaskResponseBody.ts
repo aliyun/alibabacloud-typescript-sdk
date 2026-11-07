@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddMigrationTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Cluster type.
-   * 
+   * The cluster type. Valid values:
    * - Nacos-Ans
    * - ZooKeeper
    * - Eureka
@@ -17,7 +16,7 @@ export class AddMigrationTaskResponseBodyData extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * Task ID.
+   * The ID of the task.
    * 
    * @example
    * 12
@@ -25,7 +24,7 @@ export class AddMigrationTaskResponseBodyData extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Source instance node address.
+   * The address of the source instance node.
    * 
    * @example
    * 192.168.1.1:8848
@@ -33,15 +32,15 @@ export class AddMigrationTaskResponseBodyData extends $dara.Model {
   originInstanceAddress?: string;
   /**
    * @remarks
-   * Source instance name.
+   * The name of the source instance.
    * 
    * @example
-   * Source instance
+   * Source cluster
    */
   originInstanceName?: string;
   /**
    * @remarks
-   * Namespace list, required when the source cluster is Nacos.
+   * The list of namespaces. This parameter is optional when the source cluster is Nacos.
    * 
    * @example
    * namesapceId1,namesapceId2
@@ -49,7 +48,7 @@ export class AddMigrationTaskResponseBodyData extends $dara.Model {
   originInstanceNamespace?: string;
   /**
    * @remarks
-   * Description.
+   * The description.
    * 
    * @example
    * testsdfsdfsd
@@ -57,7 +56,7 @@ export class AddMigrationTaskResponseBodyData extends $dara.Model {
   projectDesc?: string;
   /**
    * @remarks
-   * SyncType
+   * The synchronization type.
    * 
    * @example
    * Service
@@ -65,15 +64,15 @@ export class AddMigrationTaskResponseBodyData extends $dara.Model {
   syncType?: string;
   /**
    * @remarks
-   * Target instance name.
+   * The name of the target instance.
    * 
    * @example
-   * Destination instance
+   * Target cluster
    */
   targetClusterName?: string;
   /**
    * @remarks
-   * Target instance URL.
+   * The URL of the target instance.
    * 
    * @example
    * mse-94d****-nacos-ans.mse.aliyuncs.com:8848
@@ -81,7 +80,7 @@ export class AddMigrationTaskResponseBodyData extends $dara.Model {
   targetClusterUrl?: string;
   /**
    * @remarks
-   * Target instance ID.
+   * The instance ID of the target instance.
    * 
    * @example
    * mse-cn-7pp2w*****
@@ -89,7 +88,7 @@ export class AddMigrationTaskResponseBodyData extends $dara.Model {
   targetInstanceId?: string;
   /**
    * @remarks
-   * User ID.
+   * The ID of the user.
    * 
    * @example
    * 183876217*****
@@ -139,12 +138,12 @@ export class AddMigrationTaskResponseBodyData extends $dara.Model {
 export class AddMigrationTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Data structure.
+   * The data structure.
    */
   data?: AddMigrationTaskResponseBodyData;
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -152,7 +151,7 @@ export class AddMigrationTaskResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Message.
+   * The message.
    * 
    * @example
    * The request is processed successfully.
@@ -160,7 +159,7 @@ export class AddMigrationTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * 7466566F-F30F-4A29-965D-3E0AF21D****
@@ -168,9 +167,9 @@ export class AddMigrationTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 请求结果，取值如下：
-   * - `true`：请求成功。
-   * - `false`：请求失败。
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

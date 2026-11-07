@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RulesValueRulesSpringcloudRestItems extends $dara.Model {
   /**
    * @remarks
-   * The value on which operators such as rawvalue are performed.
+   * The value to be compared for operators such as rawvalue.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class RulesValueRulesSpringcloudRestItems extends $dara.Model {
   datum?: string;
   /**
    * @remarks
-   * The operator. A value of rawvalue indicates direct comparison. A value of mode indicates the modulo operation. A value of list indicates using a whitelist.
+   * The operator. A value of rawvalue indicates direct comparison. A value of mode indicates a modulo operation. A value of list indicates a whitelist.
    * 
    * @example
    * rawvalue
@@ -21,7 +21,7 @@ export class RulesValueRulesSpringcloudRestItems extends $dara.Model {
   operator?: string;
   /**
    * @remarks
-   * Information about the fields that are required by the list operator.
+   * The field required for the list operator.
    */
   nameList?: string[];
   /**
@@ -34,7 +34,7 @@ export class RulesValueRulesSpringcloudRestItems extends $dara.Model {
   cond?: string;
   /**
    * @remarks
-   * The divisor that is required by the mod operator.
+   * The divisor field required for the mod operator.
    * 
    * @example
    * 30
@@ -42,7 +42,7 @@ export class RulesValueRulesSpringcloudRestItems extends $dara.Model {
   divisor?: number;
   /**
    * @remarks
-   * The remainder.
+   * The percentage value field required for the percentage operation.
    * 
    * @example
    * 30
@@ -50,7 +50,7 @@ export class RulesValueRulesSpringcloudRestItems extends $dara.Model {
   remainder?: number;
   /**
    * @remarks
-   * The rate. A value of 20 indicates that 20% of the traffic is routed to the tagged node.
+   * The proportion rule. For example, 20% indicates that 20% of the traffic is routed to the node corresponding to the tag.
    * 
    * @example
    * 20
@@ -125,34 +125,20 @@ export class RulesValueRulesSpringcloudRestItems extends $dara.Model {
 export class RulesValueRulesSpringcloud extends $dara.Model {
   /**
    * @remarks
-   * The logical operation relationships. Valid values: AND and OR.
+   * The logical operator used between the following items. Valid values: AND and OR.
    * 
    * @example
    * AND
    */
   condition?: string;
+  /**
+   * @remarks
+   * The list of matching conditions for REST requests.
+   */
   restItems?: RulesValueRulesSpringcloudRestItems[];
   /**
    * @remarks
    * The policy type.
-   * 
-   * Valid values:
-   * 
-   * *   PERCENT
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   CONTENT
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
    * 
    * @example
    * CONTENT
@@ -160,7 +146,7 @@ export class RulesValueRulesSpringcloud extends $dara.Model {
   triggerPolicy?: string;
   /**
    * @remarks
-   * Specifies whether to enable the routing rule.
+   * Specifies whether the rule is enabled.
    * 
    * @example
    * true
@@ -184,7 +170,7 @@ export class RulesValueRulesSpringcloud extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tags?: string[];
   /**
@@ -249,7 +235,7 @@ export class RulesValueRulesSpringcloud extends $dara.Model {
 export class RulesValueRulesDubboArgumentItems extends $dara.Model {
   /**
    * @remarks
-   * The operator. A value of rawvalue indicates direct comparison. A value of mode indicates the modulo operation. A value of list indicates using a whitelist.
+   * The operator. A value of rawvalue indicates direct comparison. A value of mode indicates a modulo operation. A value of list indicates a whitelist.
    * 
    * @example
    * rawvalue
@@ -262,7 +248,7 @@ export class RulesValueRulesDubboArgumentItems extends $dara.Model {
   nameList?: string[];
   /**
    * @remarks
-   * The value on which operators such as rawvalue are performed.
+   * The value to be compared for operators such as rawvalue.
    * 
    * @example
    * 30
@@ -278,7 +264,7 @@ export class RulesValueRulesDubboArgumentItems extends $dara.Model {
   cond?: string;
   /**
    * @remarks
-   * The divisor that is required by the mod operator.
+   * The divisor field required for the mod operator.
    * 
    * @example
    * 30
@@ -286,7 +272,7 @@ export class RulesValueRulesDubboArgumentItems extends $dara.Model {
   divisor?: number;
   /**
    * @remarks
-   * The remainder.
+   * The percentage value field required for the percentage operation.
    * 
    * @example
    * 30
@@ -294,7 +280,7 @@ export class RulesValueRulesDubboArgumentItems extends $dara.Model {
   remainder?: number;
   /**
    * @remarks
-   * The rate. A value of 20 indicates that 20% of the traffic is routed to the tagged node.
+   * The proportion rule. For example, 20% indicates that 20% of the traffic is routed to the node corresponding to the tag.
    * 
    * @example
    * 10
@@ -302,7 +288,7 @@ export class RulesValueRulesDubboArgumentItems extends $dara.Model {
   rate?: number;
   /**
    * @remarks
-   * The position of the parameter, which starts from 0.
+   * The position of the parameter, starting from 0.
    * 
    * @example
    * 0
@@ -310,12 +296,12 @@ export class RulesValueRulesDubboArgumentItems extends $dara.Model {
   index?: number;
   /**
    * @remarks
-   * The expression.
+   * The expression. See other field descriptions for details.
    */
   expr?: string;
   /**
    * @remarks
-   * The value that is used for comparison. The value obtained by the expression is compared with this value. If the list operator is used, data of the value parameter is separated by commas (,). For example, 1,2,3.
+   * The value to compare. The value obtained from the expression is compared with this value. If the operator is a list whitelist, separate values with commas (,), such as 1,2,3.
    * 
    * @example
    * 1,2,3
@@ -374,7 +360,7 @@ export class RulesValueRulesDubbo extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    */
   tags?: string[];
   /**
@@ -395,7 +381,7 @@ export class RulesValueRulesDubbo extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The group of the Dubbo application.
+   * The Dubbo service group.
    * 
    * @example
    * default
@@ -403,7 +389,7 @@ export class RulesValueRulesDubbo extends $dara.Model {
   group?: string;
   /**
    * @remarks
-   * The version of the Dubbo application.
+   * The Dubbo service version.
    * 
    * @example
    * 1.0.0
@@ -411,7 +397,7 @@ export class RulesValueRulesDubbo extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The method name of the Dubbo application.
+   * The method name of the Dubbo service.
    * 
    * @example
    * hello
@@ -419,12 +405,12 @@ export class RulesValueRulesDubbo extends $dara.Model {
   methodName?: string;
   /**
    * @remarks
-   * The list of parameter data types.
+   * The list of parameter types.
    */
   paramTypes?: string[];
   /**
    * @remarks
-   * The logical operation relationships. Valid values: AND and OR.
+   * The logical operator used between the following items. Valid values: AND and OR.
    * 
    * @example
    * AND
@@ -432,7 +418,7 @@ export class RulesValueRulesDubbo extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * The list of parameter contents.
+   * The list of parameter content.
    */
   argumentItems?: RulesValueRulesDubboArgumentItems[];
   static names(): { [key: string]: string } {
@@ -486,12 +472,12 @@ export class RulesValueRulesDubbo extends $dara.Model {
 export class RulesValueRules extends $dara.Model {
   /**
    * @remarks
-   * The rule of the Spring Cloud application.
+   * The Spring Cloud rules.
    */
   springcloud?: RulesValueRulesSpringcloud[];
   /**
    * @remarks
-   * The rules of the Dubbo application.
+   * The Dubbo rules.
    */
   dubbo?: RulesValueRulesDubbo[];
   static names(): { [key: string]: string } {
@@ -528,50 +514,6 @@ export class RulesValue extends $dara.Model {
    * @remarks
    * The status.
    * 
-   * Valid values:
-   * 
-   * *   0
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     The routing rule does not take effect
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   1
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     The routing rule takes effect
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
-   * *   2
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     The routing rule is invalid
-   * 
-   *     <!-- -->
-   * 
-   *     .
-   * 
    * @example
    * 0
    */
@@ -586,7 +528,7 @@ export class RulesValue extends $dara.Model {
   rate?: number;
   /**
    * @remarks
-   * Specifies whether to enable the routing rule.
+   * Specifies whether the rule is enabled.
    * 
    * @example
    * true
@@ -594,7 +536,7 @@ export class RulesValue extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The environment of the routing rule.
+   * The environment of this routing rule.
    * 
    * @example
    * gray
@@ -610,7 +552,7 @@ export class RulesValue extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the routing rule.
+   * The ID of the rule.
    * 
    * @example
    * 1
@@ -626,7 +568,7 @@ export class RulesValue extends $dara.Model {
   instanceNum?: number;
   /**
    * @remarks
-   * The details of the routing rule.
+   * The rule information.
    */
   rules?: RulesValueRules;
   static names(): { [key: string]: string } {

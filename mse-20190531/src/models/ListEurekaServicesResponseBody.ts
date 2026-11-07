@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListEurekaServicesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The details of the instance.
+   * The instance information.
    */
   instancesId?: string[];
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
    * CONTACTINFO
@@ -18,7 +18,7 @@ export class ListEurekaServicesResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of service providers. The value is in the following format: Number of healthy instances/Total number of instances.
+   * The number of service providers, in the format of healthy instances/total instances.
    * 
    * @example
    * 1/1
@@ -55,12 +55,12 @@ export class ListEurekaServicesResponseBodyData extends $dara.Model {
 export class ListEurekaServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the data.
+   * The data overview.
    */
   data?: ListEurekaServicesResponseBodyData[];
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -68,7 +68,7 @@ export class ListEurekaServicesResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 202
@@ -76,15 +76,15 @@ export class ListEurekaServicesResponseBody extends $dara.Model {
   httpCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * The message.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -92,7 +92,7 @@ export class ListEurekaServicesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of instances to return per page.
    * 
    * @example
    * 10
@@ -100,7 +100,7 @@ export class ListEurekaServicesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 316F5F64-F73D-42DC-8632-01E308B6****
@@ -108,10 +108,9 @@ export class ListEurekaServicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request succeeded.
+   * - `false`: The request failed.
    * 
    * @example
    * true
@@ -119,7 +118,7 @@ export class ListEurekaServicesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of returned instances.
+   * The total number of instances.
    * 
    * @example
    * 7

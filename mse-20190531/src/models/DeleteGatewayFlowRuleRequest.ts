@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteGatewayFlowRuleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language in which you want the results to be displayed. Valid values: zh (default): Chinese. en: English
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * The unique ID of the gateway.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -18,6 +23,8 @@ export class DeleteGatewayFlowRuleRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
+   * The route ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -26,6 +33,8 @@ export class DeleteGatewayFlowRuleRequest extends $dara.Model {
   routeId?: number;
   /**
    * @remarks
+   * The ID of the throttling rule.
+   * 
    * This parameter is required.
    * 
    * @example

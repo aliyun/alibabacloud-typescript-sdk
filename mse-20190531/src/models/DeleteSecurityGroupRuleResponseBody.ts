@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSecurityGroupRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The description.
+   * The description of the rule.
    * 
    * @example
    * auto-description1
@@ -13,7 +13,7 @@ export class DeleteSecurityGroupRuleResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the gateway.
+   * The gateway ID.
    * 
    * @example
    * 103
@@ -29,7 +29,7 @@ export class DeleteSecurityGroupRuleResponseBodyData extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the rule was created.
    * 
    * @example
    * 2022-01-07 18:07:57
@@ -37,7 +37,7 @@ export class DeleteSecurityGroupRuleResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time.
+   * The time when the rule was last modified.
    * 
    * @example
    * 2022-01-11T14:12:55.000+0000
@@ -45,7 +45,7 @@ export class DeleteSecurityGroupRuleResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The ID.
+   * The rule ID.
    * 
    * @example
    * 2
@@ -53,13 +53,17 @@ export class DeleteSecurityGroupRuleResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The transport layer protocol. The value of this parameter is case-insensitive. Valid values:
+   * The transport-layer protocol. The value is not case-sensitive. Valid values:
    * 
-   * *   icmp
-   * *   gre
-   * *   tcp
-   * *   udp
-   * *   all: All protocols are supported.
+   * - icmp
+   * 
+   * - gre
+   * 
+   * - tcp
+   * 
+   * - udp
+   * 
+   * - all: The rule applies to all protocols.
    * 
    * @example
    * tcp
@@ -67,12 +71,15 @@ export class DeleteSecurityGroupRuleResponseBodyData extends $dara.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The range of ports for the transport layer protocol in the destination security group. Valid values:
+   * The transport-layer port range. Valid values:
    * 
-   * *   When the IpProtocol parameter is set to tcp or udp, the port number range is 1 to 65535. The start port number and the end port number are separated by a forward slash (/). Example: 1/200.
-   * *   If the IpProtocol parameter is set to icmp, the port number range is -1/-1, which indicates all ports.
-   * *   If the IpProtocol parameter is set to gre, the port number range is -1/-1, which indicates all ports.
-   * *   If the IpProtocol parameter is set to all, the port number range is -1/-1, which indicates all ports.
+   * - For TCP or UDP, the port range is 1 to 65535. Use a forward slash (/) to separate the start port from the end port. For example: `1/200`.
+   * 
+   * - For ICMP, the value is `-1/-1`.
+   * 
+   * - For GRE, the value is `-1/-1`.
+   * 
+   * - For all protocols, the value is `-1/-1`.
    * 
    * @example
    * 8443/8443
@@ -80,7 +87,7 @@ export class DeleteSecurityGroupRuleResponseBodyData extends $dara.Model {
   portRange?: string;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group ID.
    * 
    * @example
    * sg-uf6hgwe067prhg68agfa
@@ -126,7 +133,7 @@ export class DeleteSecurityGroupRuleResponseBodyData extends $dara.Model {
 export class DeleteSecurityGroupRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The status code.
    * 
    * @example
    * 200
@@ -139,7 +146,7 @@ export class DeleteSecurityGroupRuleResponseBody extends $dara.Model {
   data?: DeleteSecurityGroupRuleResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -147,10 +154,10 @@ export class DeleteSecurityGroupRuleResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
@@ -165,8 +172,9 @@ export class DeleteSecurityGroupRuleResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

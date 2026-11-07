@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteGatewayCircuitBreakerRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response data.
+   * 
    * @example
    * True
    */
   data?: boolean;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 52BA6DA6-A702-4362-A32F-DFF79655****
    */

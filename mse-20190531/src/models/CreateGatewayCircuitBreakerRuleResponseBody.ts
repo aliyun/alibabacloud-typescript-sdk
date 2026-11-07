@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateGatewayCircuitBreakerRuleResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The ID of the circuit breaking rule that you create.
+   * 
    * @example
    * 28
    */
   data?: number;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * DC34E4A3-5F1C-4E40-86EA-02EDF967****
    */

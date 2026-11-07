@@ -5,29 +5,30 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewayRouteShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * The language of the returned information. Valid values:
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The route description.
+   * 
    * @example
    * a route for xxx
    */
   description?: string;
   /**
    * @remarks
-   * The type of the destination service. Valid values:
-   * 
-   * *   Single
-   * *   Multiple
-   * *   VersionOriented
-   * *   Mock
-   * *   Redirect
+   * The destination service type. Valid values:
+   * - Single: single service
+   * - Multiple: multiple services
+   * - VersionOriented: tag-based routing
+   * - Mock: mock
+   * - Redirect: redirect
    * 
    * @example
    * Multiple
@@ -40,7 +41,7 @@ export class AddGatewayRouteShrinkRequest extends $dara.Model {
   directResponseJSONShrink?: string;
   /**
    * @remarks
-   * The domain ID.
+   * The domain name ID.
    * 
    * @example
    * 20
@@ -48,7 +49,7 @@ export class AddGatewayRouteShrinkRequest extends $dara.Model {
   domainId?: number;
   /**
    * @remarks
-   * The domain IDs.
+   * The domain name list.
    * 
    * @example
    * [0,94]
@@ -56,7 +57,7 @@ export class AddGatewayRouteShrinkRequest extends $dara.Model {
   domainIdListJSON?: string;
   /**
    * @remarks
-   * Specifies whether to activate Web Application Firewall (WAF).
+   * **[Deprecated]** Use UpdateGatewayRouteWafStatus to update the WAF status of the route.
    * 
    * @example
    * true
@@ -66,7 +67,7 @@ export class AddGatewayRouteShrinkRequest extends $dara.Model {
   enableWaf?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the Fallback service.
+   * Specifies whether to enable the fallback service.
    * 
    * @example
    * true
@@ -74,12 +75,12 @@ export class AddGatewayRouteShrinkRequest extends $dara.Model {
   fallback?: boolean;
   /**
    * @remarks
-   * The information about the Fallback service.
+   * The fallback service.
    */
   fallbackServicesShrink?: string;
   /**
    * @remarks
-   * The ID of the gateway.
+   * The gateway ID.
    * 
    * @example
    * 526
@@ -95,7 +96,7 @@ export class AddGatewayRouteShrinkRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The name of the route.
+   * The route name.
    * 
    * @example
    * test
@@ -103,7 +104,7 @@ export class AddGatewayRouteShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The routing policy in a JSON string.
+   * The JSON string of the route policy.
    * 
    * @example
    * {"CORS":"{\\"allowMethods\\":\\"GET,POST,PUT,DELETE,HEAD,OPTIONS,PATCH\\",\\"allowHeaders\\":\\"*\\",\\"exposeHeaders\\":\\"*\\",\\"unitNum\\":12,\\"allowCredentials\\":true,\\"status\\":\\"off\\",\\"allowOrigins\\":\\"*\\",\\"timeUnit\\":\\"h\\"}","Timeout":"{\\"unitNum\\":10,\\"timeUnit\\":\\"s\\",\\"status\\":\\"off\\"}","Retry":"{\\"attempts\\":2,\\"retryOn\\":[\\"5xx\\"],\\"status\\":\\"off\\"}","HTTPRewrite":"{\\"pathType\\":\\"EQUAL\\",\\"path\\":\\"/o\\",\\"status\\":\\"off\\"}","Waf":"{\\"enabled\\":false}","HeaderOp":"{\\"status\\":\\"off\\",\\"headerOpItems\\":[{\\"directionType\\":\\"Request\\",\\"opType\\":\\"Add\\",\\"key\\":\\"kkk\\",\\"value\\":\\"ll\\"}]}"}
@@ -111,17 +112,17 @@ export class AddGatewayRouteShrinkRequest extends $dara.Model {
   policies?: string;
   /**
    * @remarks
-   * The matching rule.
+   * The matching rules.
    */
   predicatesShrink?: string;
   /**
    * @remarks
-   * The configuration of the redirection.
+   * The redirect configuration.
    */
   redirectJSONShrink?: string;
   /**
    * @remarks
-   * The sequence number of the route. (A small value indicates a high priority.)
+   * The route order. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -130,8 +131,7 @@ export class AddGatewayRouteShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The route type. Valid values:
-   * 
-   * Op: Manage routes.
+   * - Op: management and control route
    * 
    * @example
    * Op
@@ -139,7 +139,7 @@ export class AddGatewayRouteShrinkRequest extends $dara.Model {
   routeType?: string;
   /**
    * @remarks
-   * The list of services.
+   * The service list. This parameter is required when the route points to a single service, multiple services, or tag-based routing.
    */
   servicesShrink?: string;
   static names(): { [key: string]: string } {

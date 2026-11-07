@@ -5,24 +5,40 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNamespaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * Error code.
    * 
    * @example
    * NO_PERMISSION
    */
   errorCode?: string;
   /**
+   * @remarks
+   * HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * Request information for troubleshooting.
+   * 
+   * @example
+   * The request is processed successfully.
+   */
   message?: string;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * abcde-efg
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the operation is successful.
+   * 
    * @example
    * true
    */

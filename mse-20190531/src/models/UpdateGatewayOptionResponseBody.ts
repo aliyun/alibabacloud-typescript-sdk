@@ -36,7 +36,7 @@ export class UpdateGatewayOptionResponseBody extends $dara.Model {
    * *   If the request fails, an error message is returned.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**

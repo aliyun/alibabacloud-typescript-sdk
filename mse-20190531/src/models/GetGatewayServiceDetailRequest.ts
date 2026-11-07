@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayServiceDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * The language of the returned information. Valid values:
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -24,7 +23,7 @@ export class GetGatewayServiceDetailRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The ID of the service.
+   * The service ID.
    * 
    * @example
    * 35

@@ -7,8 +7,9 @@ export class UpdateMigrationTaskRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
@@ -16,11 +17,13 @@ export class UpdateMigrationTaskRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The type of the instance. Valid values:
+   * The type of a cluster.
    * 
-   * *   Nacos-Ans
-   * *   ZooKeeper
-   * *   Eureka
+   * - Nacos-Ans
+   * 
+   * - ZooKeeper
+   * 
+   * - Eureka
    * 
    * @example
    * Nacos-Ans
@@ -28,7 +31,7 @@ export class UpdateMigrationTaskRequest extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 1
@@ -36,7 +39,7 @@ export class UpdateMigrationTaskRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The address of the source instance node.
+   * The source instance node address.
    * 
    * @example
    * 192.168.1.1:8848
@@ -47,12 +50,12 @@ export class UpdateMigrationTaskRequest extends $dara.Model {
    * The name of the source instance.
    * 
    * @example
-   * Source instance
+   * Source cluster
    */
   originInstanceName?: string;
   /**
    * @remarks
-   * The list of namespaces. This parameter is optional if you want to migrate applications from a Nacos instance.
+   * The list of namespaces. This parameter is optional if applications are migrated from a Nacos instance.
    * 
    * @example
    * namesapceId1,namesapceId2
@@ -60,7 +63,7 @@ export class UpdateMigrationTaskRequest extends $dara.Model {
   originInstanceNamespace?: string;
   /**
    * @remarks
-   * The description.
+   * The description of the task.
    * 
    * @example
    * This is a description.
@@ -68,19 +71,26 @@ export class UpdateMigrationTaskRequest extends $dara.Model {
   projectDesc?: string;
   /**
    * @remarks
-   * The extended request parameters in the JSON format.
+   * The extended request parameter in the JSON format.
    * 
    * @example
    * {}
    */
   requestPars?: string;
+  /**
+   * @remarks
+   * The synchronization type
+   * 
+   * @example
+   * All
+   */
   syncType?: string;
   /**
    * @remarks
    * The name of the destination instance.
    * 
    * @example
-   * Destination instance
+   * Target cluster
    */
   targetClusterName?: string;
   /**

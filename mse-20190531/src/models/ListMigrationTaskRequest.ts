@@ -7,8 +7,9 @@ export class ListMigrationTaskRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
@@ -24,7 +25,7 @@ export class ListMigrationTaskRequest extends $dara.Model {
   originInstanceName?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -32,7 +33,7 @@ export class ListMigrationTaskRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -40,7 +41,7 @@ export class ListMigrationTaskRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The extended request parameters in the JSON format.
+   * The extended request parameters. This parameter is a JSON string.
    * 
    * @example
    * {}

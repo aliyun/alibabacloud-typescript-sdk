@@ -7,8 +7,8 @@ export class PullServicesRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -31,16 +31,19 @@ export class PullServicesRequest extends $dara.Model {
    */
   namespace?: string;
   /**
+   * @remarks
+   * The service source ID.
+   * 
    * @example
    * 100
    */
   sourceId?: number;
   /**
    * @remarks
-   * The type of the service source.
+   * The service source type.
    * 
    * @example
-   * K8s
+   * K8S
    */
   sourceType?: string;
   static names(): { [key: string]: string } {

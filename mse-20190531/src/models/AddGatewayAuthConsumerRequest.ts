@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewayAuthConsumerRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class AddGatewayAuthConsumerRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The description of the consumer.
+   * The description of the authentication consumer.
    * 
    * @example
    * description
@@ -26,8 +26,9 @@ export class AddGatewayAuthConsumerRequest extends $dara.Model {
    * @remarks
    * The encryption type. Valid values:
    * 
-   * *   RSA
-   * *   OCT
+   * - RSA
+   * 
+   * - OCT
    * 
    * @example
    * RSA
@@ -45,7 +46,7 @@ export class AddGatewayAuthConsumerRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The JWT public key. The JSON format is supported.
+   * The JWT public key in JSON format.
    * 
    * @example
    * {"keys":[{"e":"AQAB","kid":"DHFbpoIUqrY8t2zpA2qXfCmr5VO5ZEr4RzHU_-envvQ","kty":"RSA","n":"xAE7eB6qugXyCAG3yhh7pkDkT65pHymX-P7KfIupjf59vsdo91bSP9C8H07pSAGQO1MV_xFj9VswgsCg4R6otmg5PV2He95lZdHtOcU5DXIg_pbhLdKXbi66GlVeK6ABZOUW3WYtnNHD-91gVuoeJT_DwtGGcp4ignkgXfkiEm4sw-4sfb4qdt5oLbyVpmW6x9cfa7vs2WTfURiCrBoUqgBo_-4WTiULmmHSGZHOjzwa8WtrtOQGsAFjIbno85jp6MnGGGZPYZbDAa_b3y5u-YpW7ypZrvD8BgtKVjgtQgZhLAGezMt0ua3DRrWnKqTZ0BJ_EyxOGuHJrLsn00fnMQ"}]}
@@ -53,7 +54,7 @@ export class AddGatewayAuthConsumerRequest extends $dara.Model {
   jwks?: string;
   /**
    * @remarks
-   * The name of the key used for JWT-based identity authentication.
+   * The KeyName identity in the JWT.
    * 
    * @example
    * iss
@@ -61,7 +62,7 @@ export class AddGatewayAuthConsumerRequest extends $dara.Model {
   keyName?: string;
   /**
    * @remarks
-   * The value of the key used for JWT-based identity authentication.
+   * The KeyValue identity in the JWT.
    * 
    * @example
    * abcd
@@ -69,7 +70,7 @@ export class AddGatewayAuthConsumerRequest extends $dara.Model {
   keyValue?: string;
   /**
    * @remarks
-   * The name of the consumer.
+   * The name of the authentication consumer.
    * 
    * This parameter is required.
    * 
@@ -79,7 +80,7 @@ export class AddGatewayAuthConsumerRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The names of the parameters that are required to verify each token. By default, each token is prefixed with Bearer and stored in the Authorization header, such as `Authorization: Bearer <Content of a token>`.
+   * The name of the token parameter to be verified. By default, the token is prefixed with Bearer and placed in the Authorization header, such as `Authorization: Bearer token`.
    * 
    * @example
    * Authorization
@@ -87,7 +88,7 @@ export class AddGatewayAuthConsumerRequest extends $dara.Model {
   tokenName?: string;
   /**
    * @remarks
-   * Specifies whether to enable pass-through.
+   * Specifies whether to pass through the token.
    * 
    * @example
    * true
@@ -95,7 +96,7 @@ export class AddGatewayAuthConsumerRequest extends $dara.Model {
   tokenPass?: boolean;
   /**
    * @remarks
-   * The positions of the parameters that are required to verify each token. By default, each token is prefixed with Bearer and stored in the Authorization header, such as `Authorization: Bearer <Content of a token>`.
+   * The position of the token parameter to be verified. By default, the token is prefixed with Bearer and placed in the Authorization header, such as `Authorization: Bearer token`.
    * 
    * @example
    * HEADER
@@ -103,7 +104,7 @@ export class AddGatewayAuthConsumerRequest extends $dara.Model {
   tokenPosition?: string;
   /**
    * @remarks
-   * The prefixes of the parameters that are required to verify each token. By default, each token is prefixed with Bearer and stored in the Authorization header, such as `Authorization: Bearer <Content of a token>`.
+   * The prefix of the token parameter to be verified. By default, the token is prefixed with Bearer and placed in the Authorization header, such as `Authorization: Bearer token`.
    * 
    * @example
    * Bearer
@@ -113,7 +114,7 @@ export class AddGatewayAuthConsumerRequest extends $dara.Model {
    * @remarks
    * The authentication type. Valid values:
    * 
-   * *   JWT
+   * - JWT
    * 
    * This parameter is required.
    * 

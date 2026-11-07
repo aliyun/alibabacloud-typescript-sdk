@@ -7,14 +7,18 @@ export class ListSSLCertRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * 
+   * - en: English.
    * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The certificate name that is used for fuzzy search.
+   * 
    * @example
    * certabc
    */

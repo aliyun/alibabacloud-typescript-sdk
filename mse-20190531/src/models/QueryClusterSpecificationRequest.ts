@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class QueryClusterSpecificationRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -18,8 +18,8 @@ export class QueryClusterSpecificationRequest extends $dara.Model {
    * @remarks
    * The network type. Valid values:
    * 
-   * *   slb
-   * *   eni
+   * - slb
+   * - eni
    * 
    * @example
    * slb
@@ -27,10 +27,10 @@ export class QueryClusterSpecificationRequest extends $dara.Model {
   connectType?: string;
   /**
    * @remarks
-   * The edition of the MSE instance that you want to purchase.
+   * The Microservices Engine (MSE) cluster version to be activated. Valid values:
    * 
-   * *   mse_pro: Professional Edition
-   * *   mse_dev: Developer Edition
+   * - mse_pro: Professional Edition.
+   * - mse_dev: Developer Edition.
    * 
    * @example
    * mse_pro

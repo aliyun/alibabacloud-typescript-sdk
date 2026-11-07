@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddAuthPolicyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values: zh-CN (Chinese, default) and en-US (English).
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The ID of the application.
+   * 
    * @example
    * e9clba2xlc@***
    */
   appId?: string;
   /**
    * @remarks
+   * The content of the service authentication rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -22,12 +30,23 @@ export class AddAuthPolicyRequest extends $dara.Model {
    */
   authRule?: string;
   /**
+   * @remarks
+   * The type of the rule. Valid values:
+   * 
+   * - 0: application dimension.
+   * - 1: namespace dimension.
+   * 
    * @example
    * 0
    */
   authType?: number;
   /**
    * @remarks
+   * Specifies whether the authentication rule is enabled. Valid values:
+   * 
+   * - `true`: Enabled.
+   * - `false`: Disabled.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,12 +54,17 @@ export class AddAuthPolicyRequest extends $dara.Model {
    */
   enable?: string;
   /**
+   * @remarks
+   * The ID of the namespace in the Kubernetes cluster.
+   * 
    * @example
    * c19c6c500e1ff4d7abc7***
    */
   k8sNamespace?: string;
   /**
    * @remarks
+   * The name of the rule.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -48,12 +72,21 @@ export class AddAuthPolicyRequest extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * The MSE namespace to which the application belongs.
+   * 
    * @example
    * default
    */
   namespace?: string;
   /**
    * @remarks
+   * The protocol type. Valid values:
+   * 
+   * - **SPRING_CLOUD**
+   * - **DUBBO**
+   * - **istio**
+   * 
    * This parameter is required.
    * 
    * @example
@@ -62,6 +95,8 @@ export class AddAuthPolicyRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
+   * The region.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -70,6 +105,8 @@ export class AddAuthPolicyRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
+   * The source. Valid values: edasmsc.
+   * 
    * This parameter is required.
    * 
    * @example

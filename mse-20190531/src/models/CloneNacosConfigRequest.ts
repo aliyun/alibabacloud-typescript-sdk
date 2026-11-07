@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CloneNacosConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Language type of the returned message:
+   * The language of the response. Valid values:
    * 
-   * - zh: Chinese
-   * - en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class CloneNacosConfigRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * Configuration items to be cloned, in the format of dataId+group, with multiple items separated by commas.
+   * The configuration items to clone, in the format of dataId+group. Separate multiple configuration items with commas (,).
    * 
    * @example
    * test+test,test1+test1
@@ -24,7 +24,7 @@ export class CloneNacosConfigRequest extends $dara.Model {
   dataIds?: string;
   /**
    * @remarks
-   * List of configuration IDs.
+   * The list of configuration IDs.
    * 
    * @example
    * 253661,253662
@@ -34,7 +34,7 @@ export class CloneNacosConfigRequest extends $dara.Model {
   ids?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -44,7 +44,7 @@ export class CloneNacosConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Source namespace ID.
+   * The source namespace ID.
    * 
    * @example
    * be821963-6d48-4ea5-9910-6057d****
@@ -52,11 +52,11 @@ export class CloneNacosConfigRequest extends $dara.Model {
   originNamespaceId?: string;
   /**
    * @remarks
-   * The strategy used when a write conflict occurs.
+   * The policy used when a write conflict occurs. Valid values:
    * 
    * - ABORT
    * - SKIP
-   * - OVERWRITE
+   * - OVERWRITE.
    * 
    * This parameter is required.
    * 
@@ -66,7 +66,7 @@ export class CloneNacosConfigRequest extends $dara.Model {
   policy?: string;
   /**
    * @remarks
-   * Target namespace ID.
+   * The destination namespace ID.
    * 
    * @example
    * 08be4b5d-2d1c-4e6e-aa85-83b9****

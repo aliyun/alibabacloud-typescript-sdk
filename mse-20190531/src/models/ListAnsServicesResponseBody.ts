@@ -21,7 +21,7 @@ export class ListAnsServicesResponseBodyData extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The total number of instances with healthy heartbeats.
+   * The total number of service instances with healthy heartbeats.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListAnsServicesResponseBodyData extends $dara.Model {
   healthyInstanceCount?: number;
   /**
    * @remarks
-   * The total number of instances that are used for the current service.
+   * The total number of instances of the current service.
    * 
    * @example
    * 1
@@ -43,6 +43,19 @@ export class ListAnsServicesResponseBodyData extends $dara.Model {
    * name
    */
   name?: string;
+  /**
+   * @remarks
+   * The type of the service. Valid values:
+   * 
+   * - console: registered on the console.
+   * 
+   * - sdk: registered using an SDK.
+   * 
+   * - governance: registered using service administration.
+   * 
+   * @example
+   * console
+   */
   source?: string;
   static names(): { [key: string]: string } {
     return {
@@ -78,12 +91,12 @@ export class ListAnsServicesResponseBodyData extends $dara.Model {
 export class ListAnsServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the data.
+   * The data overview.
    */
   data?: ListAnsServicesResponseBodyData[];
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -91,7 +104,7 @@ export class ListAnsServicesResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 202
@@ -102,12 +115,12 @@ export class ListAnsServicesResponseBody extends $dara.Model {
    * The message returned.
    * 
    * @example
-   * The request was successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -115,7 +128,7 @@ export class ListAnsServicesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of instances displayed per page.
    * 
    * @example
    * 10
@@ -131,10 +144,11 @@ export class ListAnsServicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * The result of the request. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true
@@ -142,7 +156,7 @@ export class ListAnsServicesResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of instances returned.
+   * The total number of instances.
    * 
    * @example
    * 7

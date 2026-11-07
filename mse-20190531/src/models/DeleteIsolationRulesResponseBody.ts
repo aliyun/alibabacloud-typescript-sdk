@@ -4,27 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteIsolationRulesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The return code.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The list of rule IDs that have been deleted.
+   */
   data?: number[];
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * OK
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 4E9FDCFE-0738-493B-B801-82BDFBCB****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The request result.
+   * 
    * @example
    * true
    */

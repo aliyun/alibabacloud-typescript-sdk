@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFlowRulesResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * hkhon1po62@5f1b08becb*****
@@ -21,33 +21,7 @@ export class ListFlowRulesResponseBodyDataResult extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The throttling effect.
-   * 
-   * Valid values:
-   * 
-   * *   0
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     fast failure
-   * 
-   *     <!-- -->
-   * 
-   * *   2
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     in queue
-   * 
-   *     <!-- -->
+   * The flow control behavior.
    * 
    * @example
    * 0
@@ -55,25 +29,7 @@ export class ListFlowRulesResponseBodyDataResult extends $dara.Model {
   controlBehavior?: number;
   /**
    * @remarks
-   * Indicates whether the throttling rule was enabled.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
-   * 
-   *     <!-- -->
+   * Indicates whether the rule is enabled.
    * 
    * @example
    * true
@@ -81,7 +37,7 @@ export class ListFlowRulesResponseBodyDataResult extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The throttling behavior.
+   * The fallback behavior.
    * 
    * @example
    * "{\\"appName\\":\\"spring-cloud-a\\",\\"fallbackBehavior\\":{\\"webFallbackMode\\":0,\\"webRespContentType\\":0,\\"webRespMessage\\":\\"Blocked\\",\\"webRespStatusCode\\":429},\\"id\\":977,\\"name\\":\\"Fallback\\",\\"namespace\\":\\"default\\",\\"resourceClassification\\":1}"
@@ -89,7 +45,7 @@ export class ListFlowRulesResponseBodyDataResult extends $dara.Model {
   fallbackObject?: string;
   /**
    * @remarks
-   * Requests source application.
+   * The source application of the request.
    * 
    * @example
    * spring-cloud-a
@@ -97,7 +53,7 @@ export class ListFlowRulesResponseBodyDataResult extends $dara.Model {
   limitApp?: string;
   /**
    * @remarks
-   * The timeout period for queuing when the value of ControlBehavior is set to 2. Unit: milliseconds.
+   * The timeout period in milliseconds when the flow control behavior is set to queuing.
    * 
    * @example
    * 500
@@ -105,7 +61,7 @@ export class ListFlowRulesResponseBodyDataResult extends $dara.Model {
   maxQueueingTimeMs?: number;
   /**
    * @remarks
-   * The statistical dimension. The value 1 indicates that the number of accepted requests is used for statistics.
+   * The statistical dimension. A value of 1 indicates the number of passed requests.
    * 
    * @example
    * 1
@@ -121,7 +77,7 @@ export class ListFlowRulesResponseBodyDataResult extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The ID of the region in which the instance resides.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -129,7 +85,7 @@ export class ListFlowRulesResponseBodyDataResult extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the interface resource.
+   * The API resource name.
    * 
    * @example
    * /a
@@ -137,7 +93,7 @@ export class ListFlowRulesResponseBodyDataResult extends $dara.Model {
   resource?: string;
   /**
    * @remarks
-   * Interface resource type.
+   * The API resource category.
    * 
    * @example
    * 1
@@ -153,7 +109,7 @@ export class ListFlowRulesResponseBodyDataResult extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The throttling threshold.
+   * The threshold of the flow control rule.
    * 
    * @example
    * 10
@@ -161,7 +117,7 @@ export class ListFlowRulesResponseBodyDataResult extends $dara.Model {
   threshold?: number;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved field.
    * 
    * @example
    * {\\"origin\\":\\"default\\"}
@@ -238,7 +194,7 @@ export class ListFlowRulesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned collection.
    */
   result?: ListFlowRulesResponseBodyDataResult[];
   /**
@@ -282,7 +238,7 @@ export class ListFlowRulesResponseBodyData extends $dara.Model {
 export class ListFlowRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -290,7 +246,7 @@ export class ListFlowRulesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The details of the data.
+   * The node data.
    */
   data?: ListFlowRulesResponseBodyData;
   /**
@@ -303,10 +259,10 @@ export class ListFlowRulesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
-   * OK
+   * The request is processed successfully.
    */
   message?: string;
   /**
@@ -319,33 +275,7 @@ export class ListFlowRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * Valid values:
-   * 
-   * *   true
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     The request was successful.
-   * 
-   *     <!-- -->
-   * 
-   * *   false
-   * 
-   *     <!-- -->
-   * 
-   *     :
-   * 
-   *     <!-- -->
-   * 
-   *     The request failed.
-   * 
-   *     <!-- -->
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AddGatewayDomainRequestTlsCipherSuitesConfigJSON extends $dara.Model {
+  /**
+   * @remarks
+   * The cipher suite configuration type.
+   * 
+   * @example
+   * DEFAULT
+   */
   configType?: string;
+  /**
+   * @remarks
+   * The list of cipher suite names.
+   */
   tlsCipherSuites?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -35,18 +46,21 @@ export class AddGatewayDomainRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese. This is the default value.
+   * - en: English.
    * 
    * @example
    * zh
    */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * The content of the CA certificate.
+   */
   caCertIdentifier?: string;
   /**
    * @remarks
-   * The ID of the certificate.
+   * The certificate ID.
    * 
    * @example
    * 6828169-cn-hangzhou
@@ -62,16 +76,19 @@ export class AddGatewayDomainRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * Specifies whether to enable `HTTP/2`.
-   * 
-   * *   `open`: enables `HTTP/2`
-   * *   `close`: disables `HTTP/2`
-   * *   `globalConfig`: uses global configurations
+   * Specifies whether to enable HTTP/2. Valid values:
+   * - `open`: Enables HTTP/2.
+   * - `close`: Disables HTTP/2.
+   * - `globalConfig`: Uses the global configuration.
    * 
    * @example
    * close
    */
   http2?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable mTLS.
+   */
   mtlsEnabled?: boolean;
   /**
    * @remarks
@@ -91,19 +108,22 @@ export class AddGatewayDomainRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type of the protocol. Valid values:
-   * 
-   * *   `HTTP`
-   * *   `HTTPS`
+   * The protocol type. Valid values:
+   * - `HTTP`
+   * - `HTTPS`
    * 
    * @example
    * HTTP
    */
   protocol?: string;
+  /**
+   * @remarks
+   * The TLS cipher suite configuration.
+   */
   tlsCipherSuitesConfigJSON?: AddGatewayDomainRequestTlsCipherSuitesConfigJSON;
   /**
    * @remarks
-   * The maximum version of Transport Layer Security (TLS).
+   * The maximum TLS version.
    * 
    * @example
    * TLS 1.3
@@ -111,7 +131,7 @@ export class AddGatewayDomainRequest extends $dara.Model {
   tlsMax?: string;
   /**
    * @remarks
-   * The minimum version of TLS.
+   * The minimum TLS version.
    * 
    * @example
    * TLS 1.0

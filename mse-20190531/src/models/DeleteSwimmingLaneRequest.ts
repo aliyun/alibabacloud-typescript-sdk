@@ -6,9 +6,8 @@ export class DeleteSwimmingLaneRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +15,7 @@ export class DeleteSwimmingLaneRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the lane.
+   * The ID of the traffic lane.
    * 
    * This parameter is required.
    * 
@@ -26,7 +25,7 @@ export class DeleteSwimmingLaneRequest extends $dara.Model {
   laneId?: number;
   /**
    * @remarks
-   * The name of the Microservices Engine (MSE) namespace.
+   * The name of the MSE namespace.
    * 
    * @example
    * default

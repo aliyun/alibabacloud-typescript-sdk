@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class AddZooKeeperSaslUserShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values: zh (default): Chinese, en: English.
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -17,12 +22,17 @@ export class AddZooKeeperSaslUserShrinkRequest extends $dara.Model {
    */
   instanceId?: string;
   /**
+   * @remarks
+   * Specifies whether to restart the cluster to immediately load the SASL users.
+   * 
    * @example
    * true
    */
   reload?: boolean;
   /**
    * @remarks
+   * The list of SASL users to add.
+   * 
    * This parameter is required.
    */
   saslUserShrink?: string;

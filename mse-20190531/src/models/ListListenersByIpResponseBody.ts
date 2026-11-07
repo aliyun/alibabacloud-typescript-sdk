@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListListenersByIpResponseBodyListeners extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data.
+   * Data ID.
    * 
    * @example
    * test.yaml
@@ -13,7 +13,7 @@ export class ListListenersByIpResponseBodyListeners extends $dara.Model {
   dataId?: string;
   /**
    * @remarks
-   * The group.
+   * Group.
    * 
    * @example
    * default
@@ -21,12 +21,19 @@ export class ListListenersByIpResponseBodyListeners extends $dara.Model {
   group?: string;
   /**
    * @remarks
-   * The verification string.
+   * Verification string.
    * 
    * @example
    * 23sdfdf
    */
   md5?: string;
+  /**
+   * @remarks
+   * Namespace ID
+   * 
+   * @example
+   * test
+   */
   namespaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -58,7 +65,7 @@ export class ListListenersByIpResponseBodyListeners extends $dara.Model {
 export class ListListenersByIpResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * Error code.
    * 
    * @example
    * MSE-100-000
@@ -66,7 +73,7 @@ export class ListListenersByIpResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code.
+   * HTTP status code.
    * 
    * @example
    * 202
@@ -74,20 +81,20 @@ export class ListListenersByIpResponseBody extends $dara.Model {
   httpCode?: string;
   /**
    * @remarks
-   * The information about listeners.
+   * Listener information.
    */
   listeners?: ListListenersByIpResponseBodyListeners[];
   /**
    * @remarks
-   * The message returned.
+   * Response message.
    * 
    * @example
-   * The request was successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * Current page number.
    * 
    * @example
    * 1
@@ -95,7 +102,7 @@ export class ListListenersByIpResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * Size of the current page.
    * 
    * @example
    * 10
@@ -103,7 +110,7 @@ export class ListListenersByIpResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 54973C90-F379-4372-9AA5-053A3F7****
@@ -111,18 +118,19 @@ export class ListListenersByIpResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Request result, with the following values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request is successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
-   * True
+   * true
    */
   success?: boolean;
   /**
    * @remarks
-   * The total number of returned instances.
+   * Total number of instances.
    * 
    * @example
    * 6

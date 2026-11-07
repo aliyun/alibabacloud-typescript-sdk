@@ -6,9 +6,8 @@ export class ListGatewayServiceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +15,7 @@ export class ListGatewayServiceShrinkRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to enable sorting.
+   * The sort order.
    * 
    * @example
    * false
@@ -24,12 +23,12 @@ export class ListGatewayServiceShrinkRequest extends $dara.Model {
   descSort?: boolean;
   /**
    * @remarks
-   * The parameters that are used to specify filter conditions. The values of the parameters are in the format of {"key1":"value1"}.
+   * The filter conditions in the format of {"key1":"value1"}.
    */
   filterParamsShrink?: string;
   /**
    * @remarks
-   * The item based on which entries are sorted.
+   * The sort attribute.
    * 
    * @example
    * GmtCreate
@@ -37,7 +36,7 @@ export class ListGatewayServiceShrinkRequest extends $dara.Model {
   orderItem?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -45,7 +44,7 @@ export class ListGatewayServiceShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The page size.
    * 
    * @example
    * 10

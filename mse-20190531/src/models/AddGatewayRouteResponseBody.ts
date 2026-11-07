@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddGatewayRouteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The return code.
    * 
    * @example
    * 200
@@ -21,13 +21,14 @@ export class AddGatewayRouteResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The error code that is returned.
+   * The error code.
    * 
-   * *   InvalidParameter: The parameter is invalid. For example, the parameter is incomplete or the parameter format is invalid.
-   * *   IllegalRequest: The request is invalid. Unauthorized access to data initiated by parameters is identified.
-   * *   NoPermission: You are not authorized to perform this operation.
-   * *   NotFound: The resource does not exist and error 404 is returned.
-   * *   InternalError: An internal error occurred.
+   * Valid values:
+   * - InvalidParameter: Parameter error: missing or invalid format.
+   * - IllegalRequest: Illegal request: unauthorized parameter.
+   * - NoPermission: Permission denied.
+   * - NotFound: Resource not found.
+   * - InternalError: Internal error.
    * 
    * @example
    * InvalidParameter
@@ -35,7 +36,7 @@ export class AddGatewayRouteResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -43,15 +44,15 @@ export class AddGatewayRouteResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 03A3E2F4-6804-5663-9D5D-2EC47A1*****
@@ -59,10 +60,9 @@ export class AddGatewayRouteResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request succeeded. Valid values:
+   * - `true`: The request succeeded.
+   * - `false`: The request failed.
    * 
    * @example
    * true

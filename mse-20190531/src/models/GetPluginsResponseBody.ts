@@ -5,19 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetPluginsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The type of the plug-in. Valid values:
-   * 
-   * 0: custom
-   * 
-   * 1: permission authorization
-   * 
-   * 2: security protection
-   * 
-   * 3: transmission protocol
-   * 
-   * 4: traffic control
-   * 
-   * 5: traffic observation
+   * The plug-in type. Valid values:
+   * - 0: Custom.
+   * - 1: Authentication and authorization.
+   * - 2: Security protection.
+   * - 3: Transport protocol.
+   * - 4: Traffic control.
+   * - 5: Traffic observability.
    * 
    * @example
    * 0
@@ -25,26 +19,39 @@ export class GetPluginsResponseBodyData extends $dara.Model {
   category?: number;
   /**
    * @remarks
-   * The information about the plug-in configuration used for checking.
+   * The configuration validation.
    * 
    * @example
-   * \\# The configuration includes the fields required for checking, such as name, age, and friends. Sample configuration: name: John age: 18 friends: - David - Anne
+   * # Validate required fields in the configuration. As shown in the following example, the plug-in configuration must contain the "name", "age", and "friends" fields.
+   * name: John
+   * age: 18
+   * friends:
+   * - David
+   * - Anne
    */
   configCheck?: string;
   /**
    * @remarks
-   * The ID of the plug-in.
+   * The plug-in ID.
    * 
    * @example
    * 1
    */
   id?: number;
   /**
+   * @remarks
+   * The latest version.
+   * 
    * @example
    * 1.0.0
    */
   maxVersion?: string;
   /**
+   * @remarks
+   * The plug-in language. Valid values:
+   * - 0: Wasm plug-in.
+   * - 2: Lua plug-in.
+   * 
    * @example
    * 0
    */
@@ -58,18 +65,20 @@ export class GetPluginsResponseBodyData extends $dara.Model {
    */
   name?: string;
   /**
+   * @remarks
+   * Indicates whether the latest version is being published.
+   * 
    * @example
    * false
    */
   newVersionPublishingFlag?: boolean;
   /**
    * @remarks
-   * The execution stage of the plug-in.
-   * 
-   * *   0: default stage
-   * *   1: authorization stage
-   * *   2: authentication stage
-   * *   3: statistics stage
+   * The plug-in execution phase. Valid values:
+   * - 0: Default phase.
+   * - 1: Authentication phase.
+   * - 2: Authorization phase.
+   * - 3: Statistics phase.
    * 
    * @example
    * 1
@@ -93,7 +102,10 @@ export class GetPluginsResponseBodyData extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The publish status.
+   * The publish status. Valid values:
+   * - 0: Successful.
+   * - 1: Publishing.
+   * - 2: Failed.
    * 
    * @example
    * 1
@@ -101,10 +113,9 @@ export class GetPluginsResponseBodyData extends $dara.Model {
   publishState?: number;
   /**
    * @remarks
-   * Indicates whether the plug-in is enabled.
-   * 
-   * *   0: disabled
-   * *   1: enabled
+   * The enabling status. Valid values:
+   * - 0: Disabled.
+   * - 1: Enabled.
    * 
    * @example
    * 1
@@ -112,16 +123,23 @@ export class GetPluginsResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The summary of the plug-in.
+   * The plug-in summary.
    * 
    * @example
-   * This is a plug-in.
+   * This is a plug-in
    */
   summary?: string;
+  /**
+   * @remarks
+   * The English plug-in summary.
+   * 
+   * @example
+   * Authentication based on API Key.
+   */
   summaryEn?: string;
   /**
    * @remarks
-   * The version of the plug-in.
+   * The plug-in version.
    * 
    * @example
    * v1
@@ -129,18 +147,17 @@ export class GetPluginsResponseBodyData extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The URL of the Object Storage Service (OSS) bucket that stores the WebAssembly plug-in.
+   * The OSS object of the Wasm plug-in.
    */
   wasmFile?: string;
   /**
    * @remarks
-   * The WebAssembly language. Valid values:
-   * 
-   * *   0: C++
-   * *   1: TinyGo
-   * *   2: Rust
-   * *   3: AssemblyScript
-   * *   4: Zig
+   * The WebAssembly (Wasm) implementation language. Valid values:
+   * - 0: C++.
+   * - 1: TinyGo.
+   * - 2: Rust.
+   * - 3: AssemblyScript.
+   * - 4: Zig.
    * 
    * @example
    * 0
@@ -202,7 +219,7 @@ export class GetPluginsResponseBodyData extends $dara.Model {
 export class GetPluginsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned code.
+   * The code.
    * 
    * @example
    * 200
@@ -210,12 +227,12 @@ export class GetPluginsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data entries returned.
+   * The returned data.
    */
   data?: GetPluginsResponseBodyData[];
   /**
    * @remarks
-   * The dynamic part in the error message.
+   * The placeholder in the dynamic error message.
    * 
    * @example
    * code
@@ -231,7 +248,7 @@ export class GetPluginsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * 500
@@ -239,7 +256,7 @@ export class GetPluginsResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -247,7 +264,7 @@ export class GetPluginsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
    * success
@@ -255,7 +272,7 @@ export class GetPluginsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 03A3E2F4-6804-5663-9D5D-2EC47A1*****
@@ -263,7 +280,7 @@ export class GetPluginsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

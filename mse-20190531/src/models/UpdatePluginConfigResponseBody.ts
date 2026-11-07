@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePluginConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdatePluginConfigResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The ID of the plug-in configuration.
+   * The ID value.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class UpdatePluginConfigResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The dynamic part in the error message.
+   * The placeholder in the dynamic error message.
    * 
    * @example
    * code
@@ -29,7 +29,7 @@ export class UpdatePluginConfigResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code that is returned.
+   * The error code.
    * 
    * @example
    * 500
@@ -37,7 +37,7 @@ export class UpdatePluginConfigResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -45,7 +45,7 @@ export class UpdatePluginConfigResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
    * success

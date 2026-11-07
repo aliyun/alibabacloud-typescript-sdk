@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class QueryGovernanceKubernetesClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -32,7 +32,7 @@ export class QueryGovernanceKubernetesClusterRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -42,7 +42,7 @@ export class QueryGovernanceKubernetesClusterRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of items per page.
    * 
    * This parameter is required.
    * 

@@ -4,43 +4,81 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListNamespacesResponseBodyDataResult extends $dara.Model {
   /**
+   * @remarks
+   * Number of applications.
+   * 
    * @example
    * 3
    */
   appCount?: number;
   /**
+   * @remarks
+   * Creation time.
+   * 
    * @example
    * 2024-09-02T09:49:48.000+0000
    */
   createTime?: number;
+  /**
+   * @remarks
+   * Namespace description.
+   * 
+   * @example
+   * namespace 1 for testing
+   */
   describe?: string;
   /**
+   * @remarks
+   * Number of online nodes.
+   * 
    * @example
    * 6
    */
   instanceCount?: number;
   /**
+   * @remarks
+   * Namespace.
+   * 
    * @example
    * myNamespace
    */
   namespace?: string;
   /**
+   * @remarks
+   * Region.
+   * 
    * @example
    * cn-hangzhou
    */
   region?: string;
+  /**
+   * @remarks
+   * Alibaba Cloud tags.
+   * 
+   * @example
+   * {"1":"1","2":"2"}
+   */
   tags?: { [key: string]: any };
   /**
+   * @remarks
+   * Update time.
+   * 
    * @example
    * 2024-09-02T09:49:48.000+0000
    */
   updateTime?: number;
   /**
+   * @remarks
+   * User ID.
+   * 
    * @example
    * 178*******
    */
   userId?: string;
   /**
+   * @remarks
+   * Version. Basic Edition 0, Professional Edition 1, Enterprise Edition 2.
+   * 
    * @example
    * 1
    */
@@ -89,42 +127,73 @@ export class ListNamespacesResponseBodyDataResult extends $dara.Model {
 
 export class ListNamespacesResponseBodyDataResults extends $dara.Model {
   /**
+   * @remarks
+   * Number of applications.
+   * 
    * @example
    * 3
    */
   appCount?: number;
   /**
+   * @remarks
+   * Creation time.
+   * 
    * @example
    * 2024-09-02T09:49:48.000+0000
    */
   createTime?: number;
+  /**
+   * @remarks
+   * Namespace description.
+   * 
+   * @example
+   * namespace 1 for testing
+   */
   describe?: string;
   /**
+   * @remarks
+   * Number of online nodes.
+   * 
    * @example
    * 6
    */
   instanceCount?: number;
   /**
+   * @remarks
+   * Namespace.
+   * 
    * @example
    * myNamespace
    */
   namespace?: string;
   /**
+   * @remarks
+   * Region.
+   * 
    * @example
    * cn-hangzhou
    */
   region?: string;
   /**
+   * @remarks
+   * Update time.
+   * 
    * @example
    * 2024-09-02T09:49:48.000+0000
    */
   updateTime?: number;
   /**
+   * @remarks
+   * User ID.
+   * 
    * @example
    * 178*******
    */
   userId?: string;
   /**
+   * @remarks
+   * Version. Basic Edition 0, Professional Edition 1, Enterprise Edition 2.
+   * 
    * @example
    * 1
    */
@@ -168,18 +237,35 @@ export class ListNamespacesResponseBodyDataResults extends $dara.Model {
 
 export class ListNamespacesResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * Result page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * Page size for the query.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * Return results.
+   */
   result?: ListNamespacesResponseBodyDataResult[];
+  /**
+   * @remarks
+   * Result set.
+   */
   results?: ListNamespacesResponseBodyDataResults[];
   /**
+   * @remarks
+   * Total number of query results.
+   * 
    * @example
    * 7
    */
@@ -220,8 +306,15 @@ export class ListNamespacesResponseBodyData extends $dara.Model {
 }
 
 export class ListNamespacesResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * Return results.
+   */
   data?: ListNamespacesResponseBodyData;
   /**
+   * @remarks
+   * Request ID.
+   * 
    * @example
    * D1F1A6F3-7E03-5EAD-B3F1-123456789ABC
    */

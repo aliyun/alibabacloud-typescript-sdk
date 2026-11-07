@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListApplicationsWithTagRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -42,7 +42,7 @@ export class ListApplicationsWithTagRulesRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -52,7 +52,7 @@ export class ListApplicationsWithTagRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 
@@ -62,7 +62,7 @@ export class ListApplicationsWithTagRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region.
    * 
    * @example
    * cn-hangzhou
@@ -70,7 +70,7 @@ export class ListApplicationsWithTagRulesRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The source of the routing rule. Default value: edasmsc.
+   * The data source. Default value: edasmsc.
    * 
    * @example
    * edasmsc

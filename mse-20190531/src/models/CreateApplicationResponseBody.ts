@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * xxxxxxxx@xxxxxxxxxx
@@ -13,7 +13,7 @@ export class CreateApplicationResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * spring-cloud-a
@@ -21,7 +21,7 @@ export class CreateApplicationResponseBodyData extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1631001140913
@@ -29,7 +29,7 @@ export class CreateApplicationResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The additional information.
+   * The extra information.
    * 
    * @example
    * {\\"rpcTypes\\":[\\"dubbo\\",\\"springCloud\\"]}
@@ -45,7 +45,7 @@ export class CreateApplicationResponseBodyData extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The license key in use.
+   * The license key corresponding to the user.
    * 
    * @example
    * xxxxxxxx@xxxxxxxxxx
@@ -53,7 +53,7 @@ export class CreateApplicationResponseBodyData extends $dara.Model {
   licenseKey?: string;
   /**
    * @remarks
-   * MSE命名空间名字。
+   * The name of the MSE namespace.
    * 
    * @example
    * prod
@@ -69,10 +69,10 @@ export class CreateApplicationResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The service where the application is deployed. Valid values:
+   * The deployment method of the application. Valid values:
    * 
-   * *   \\- ACK: Container Service for Kubernetes
-   * *   \\- Normal: another service
+   * - ACK: Container Service for Kubernetes (ACK).
+   * - Normal: Other access methods.
    * 
    * @example
    * ACK
@@ -80,7 +80,7 @@ export class CreateApplicationResponseBodyData extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The status of the application. A value of 1 indicates that the application is in a normal state.
+   * The application status. A value of 1 indicates normal.
    * 
    * @example
    * 1
@@ -88,7 +88,7 @@ export class CreateApplicationResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The update time.
+   * The last update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1632979237663
@@ -96,7 +96,7 @@ export class CreateApplicationResponseBodyData extends $dara.Model {
   updateTime?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The Alibaba Cloud user ID.
    * 
    * @example
    * 1888888888
@@ -104,7 +104,7 @@ export class CreateApplicationResponseBodyData extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * 版本号。
+   * The version number.
    * 
    * @example
    * 1.0.0
@@ -158,7 +158,7 @@ export class CreateApplicationResponseBodyData extends $dara.Model {
 export class CreateApplicationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code returned.
+   * The response code.
    * 
    * @example
    * 200
@@ -166,7 +166,7 @@ export class CreateApplicationResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data of the node.
+   * The data.
    * 
    * @example
    * data
@@ -174,7 +174,7 @@ export class CreateApplicationResponseBody extends $dara.Model {
   data?: CreateApplicationResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -182,7 +182,7 @@ export class CreateApplicationResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
    * success
@@ -190,7 +190,7 @@ export class CreateApplicationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 68D91223-CCE9-5F9C-B538-20F617DA48B1
@@ -198,10 +198,10 @@ export class CreateApplicationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * The request result. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

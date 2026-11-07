@@ -7,8 +7,8 @@ export class GetAppMessageQueueRouteRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class GetAppMessageQueueRouteRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class GetAppMessageQueueRouteRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * example-app
@@ -34,7 +34,7 @@ export class GetAppMessageQueueRouteRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The name of the Microservices Engine (MSE) namespace.
+   * The MSE namespace name.
    * 
    * @example
    * default
@@ -42,13 +42,12 @@ export class GetAppMessageQueueRouteRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The region where the instance resides. Examples:
-   * 
-   * *   `cn-hangzhou`: China (Hangzhou)
-   * *   `cn-beijing`: China (Beijing)
-   * *   `cn-shanghai`: China (Shanghai)
-   * *   `cn-zhangjiakou`: China (Zhangjiakou)
-   * *   `cn-shenzhen`: China (Shenzhen)
+   * The region where the cluster is deployed, including but not limited to:
+   * - `cn-hangzhou`: Hangzhou
+   * - `cn-beijing`: Beijing
+   * - `cn-shanghai`: Shanghai
+   * - `cn-zhangjiakou`: Zhangjiakou
+   * - `cn-shenzhen`: Shenzhen
    * 
    * This parameter is required.
    * 

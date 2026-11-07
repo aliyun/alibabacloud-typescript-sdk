@@ -8,9 +8,16 @@ export class ListClusterHealthCheckTaskResponseBodyDataResultRiskList extends $d
    * The description.
    * 
    * @example
-   * {\\\\"desc\\\\":\\\\"The engine version is outdated and a large number of features are not supported. Upgrade the engine to the latest version at the earliest opportunity. \\\\"}
+   * {"desc":"The engine version is outdated and many features are missing. Upgrade to the latest version at the earliest opportunity."}
    */
   description?: string;
+  /**
+   * @remarks
+   * The English description of the risk.
+   * 
+   * @example
+   * Upgrade to the latest version to ensure that all features are available!
+   */
   descriptionEn?: string;
   /**
    * @remarks
@@ -22,7 +29,7 @@ export class ListClusterHealthCheckTaskResponseBodyDataResultRiskList extends $d
   id?: number;
   /**
    * @remarks
-   * A redundant parameter.
+   * Redundant field.
    * 
    * @example
    * null
@@ -30,10 +37,11 @@ export class ListClusterHealthCheckTaskResponseBodyDataResultRiskList extends $d
   module?: string;
   /**
    * @remarks
-   * Indicates whether the risk item notification feature is disabled.
+   * Specifies whether to disable the notification feature if the risk item occurs.
    * 
-   * *   true: disabled
-   * *   false: enabled
+   * - true: Disables risk item notifications
+   * 
+   * - false: Enables risk item notifications
    * 
    * @example
    * false
@@ -41,7 +49,7 @@ export class ListClusterHealthCheckTaskResponseBodyDataResultRiskList extends $d
   mute?: boolean;
   /**
    * @remarks
-   * A redundant parameter.
+   * Redundant field.
    * 
    * @example
    * null
@@ -65,11 +73,13 @@ export class ListClusterHealthCheckTaskResponseBodyDataResultRiskList extends $d
   riskCode?: string;
   /**
    * @remarks
-   * The severity of the risk. Valid values:
+   * The risk level. Valid values:
    * 
-   * *   HIGH: high risk
-   * *   MID: medium risk
-   * *   LOW: low risk
+   * - HIGH: High risk
+   * 
+   * - MID: Medium risk
+   * 
+   * - LOW: Low risk
    * 
    * @example
    * MID
@@ -77,12 +87,19 @@ export class ListClusterHealthCheckTaskResponseBodyDataResultRiskList extends $d
   riskLevel?: string;
   /**
    * @remarks
-   * The name of the risk.
+   * The risk name.
    * 
    * @example
-   * The engine version is outdated.
+   * Engine version too low
    */
   riskName?: string;
+  /**
+   * @remarks
+   * The English name of the risk.
+   * 
+   * @example
+   * Low engine version
+   */
   riskNameEn?: string;
   /**
    * @remarks
@@ -94,21 +111,35 @@ export class ListClusterHealthCheckTaskResponseBodyDataResultRiskList extends $d
   riskType?: string;
   /**
    * @remarks
-   * The situation.
+   * The current situation.
    * 
    * @example
-   * {\\\\"desc\\\\":\\\\"The engine version is outdated and a large number of features are not supported.\\\\",\\\\"links\\\\":[{\\\\"type\\\\":\\\\"url\\\\",\\\\"value\\\\":\\\\"https://xxxx"\\\\",\\\\"desc\\\\":\\\\"Release notes\\\\"}]}
+   * {"desc":"The current engine version is too low with many missing features","links":[{"type":"url","value":"https://xxxx"","desc":"Version notes"}]}
    */
   situation?: string;
+  /**
+   * @remarks
+   * The English description of the current situation.
+   * 
+   * @example
+   * The current engine version is low, and there are many missing features
+   */
   situationEn?: string;
   /**
    * @remarks
    * The suggestion.
    * 
    * @example
-   * {"desc": "Upgrade to the latest version at the earliest opportunity.", "links":[{"type": "upgrade", "desc": "Click to upgrade"}]}
+   * {"desc": "Upgrade to the latest version at the earliest opportunity.", "links":[{"type":"upgrade","desc":"Click to upgrade"}]}
    */
   suggestion?: string;
+  /**
+   * @remarks
+   * The English description of the suggestion.
+   * 
+   * @example
+   * Upgrade to the latest version
+   */
   suggestionEn?: string;
   /**
    * @remarks
@@ -120,7 +151,7 @@ export class ListClusterHealthCheckTaskResponseBodyDataResultRiskList extends $d
   taskId?: number;
   /**
    * @remarks
-   * A redundant parameter.
+   * Redundant field.
    * 
    * @example
    * null
@@ -128,7 +159,7 @@ export class ListClusterHealthCheckTaskResponseBodyDataResultRiskList extends $d
   type?: number;
   /**
    * @remarks
-   * A redundant parameter.
+   * Redundant field.
    * 
    * @example
    * null
@@ -210,7 +241,7 @@ export class ListClusterHealthCheckTaskResponseBodyDataResult extends $dara.Mode
   chargeType?: string;
   /**
    * @remarks
-   * The type of the cluster.
+   * The type of the instance.
    * 
    * @example
    * Nacos-Ans
@@ -234,7 +265,7 @@ export class ListClusterHealthCheckTaskResponseBodyDataResult extends $dara.Mode
   id?: number;
   /**
    * @remarks
-   * A redundant parameter.
+   * Redundant field.
    * 
    * @example
    * null
@@ -242,7 +273,7 @@ export class ListClusterHealthCheckTaskResponseBodyDataResult extends $dara.Mode
   imageVersion?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * mse_ingresspost-cn-0jbvrcex****
@@ -250,7 +281,7 @@ export class ListClusterHealthCheckTaskResponseBodyDataResult extends $dara.Mode
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the user to which the instance belongs.
+   * The ID of the user to which the cluster belongs.
    * 
    * @example
    * 123456
@@ -258,7 +289,7 @@ export class ListClusterHealthCheckTaskResponseBodyDataResult extends $dara.Mode
   primaryUser?: string;
   /**
    * @remarks
-   * The number of nodes in the instance.
+   * The number of nodes in the cluster.
    * 
    * @example
    * 3
@@ -287,7 +318,7 @@ export class ListClusterHealthCheckTaskResponseBodyDataResult extends $dara.Mode
   spec?: string;
   /**
    * @remarks
-   * The status of the task.
+   * The job states.
    * 
    * @example
    * FINISH
@@ -295,7 +326,7 @@ export class ListClusterHealthCheckTaskResponseBodyDataResult extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * The total number of check items.
+   * The total number of inspection items.
    * 
    * @example
    * 10
@@ -311,7 +342,7 @@ export class ListClusterHealthCheckTaskResponseBodyDataResult extends $dara.Mode
   totalRisk?: number;
   /**
    * @remarks
-   * A redundant parameter.
+   * Redundant field.
    * 
    * @example
    * null
@@ -319,7 +350,7 @@ export class ListClusterHealthCheckTaskResponseBodyDataResult extends $dara.Mode
   type?: string;
   /**
    * @remarks
-   * The last update time.
+   * The time when the instance was last updated.
    * 
    * @example
    * 2022-11-12 15:07:55
@@ -394,15 +425,15 @@ export class ListClusterHealthCheckTaskResponseBodyDataResult extends $dara.Mode
 export class ListClusterHealthCheckTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the list.
    * 
    * @example
-   * 0
+   * 1
    */
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -415,7 +446,7 @@ export class ListClusterHealthCheckTaskResponseBodyData extends $dara.Model {
   result?: ListClusterHealthCheckTaskResponseBodyDataResult[];
   /**
    * @remarks
-   * The total number of returned entries.
+   * The total number of queried rules.
    * 
    * @example
    * 9
@@ -454,7 +485,7 @@ export class ListClusterHealthCheckTaskResponseBodyData extends $dara.Model {
 export class ListClusterHealthCheckTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of 200 is returned if the request was successful.
+   * Code is only used to synchronize with success
    * 
    * @example
    * 200
@@ -462,7 +493,7 @@ export class ListClusterHealthCheckTaskResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The details of the data.
+   * The data returned.
    */
   data?: ListClusterHealthCheckTaskResponseBodyData;
   /**
@@ -475,9 +506,9 @@ export class ListClusterHealthCheckTaskResponseBody extends $dara.Model {
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the **ErrMessage** parameter.
+   * The dynamic error message used to replace \\*\\*%s\\*\\* in the **ErrMessage** parameter.
    * 
-   * > If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it indicates that the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * The specified parameter is invalid.
@@ -485,10 +516,11 @@ export class ListClusterHealthCheckTaskResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the request failed. Take note of the following rules:
+   * The error code. Take note of the following items:
    * 
-   * *   The **ErrorCode** parameter is not returned if the request is successful.
-   * *   The **ErrorCode** parameter is returned if the request fails. For more information, see the **Error codes** section in this topic.
+   * - Successful request: The **ErrorCode** field is not returned.
+   * 
+   * - Failed request: The **ErrorCode** field is returned. For more information, see the **Error codes** section in this topic.
    * 
    * @example
    * mse-100-000
@@ -496,7 +528,7 @@ export class ListClusterHealthCheckTaskResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -504,15 +536,15 @@ export class ListClusterHealthCheckTaskResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
-   * The request was successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4E9FDCFE-0738-493B-B801-82BDFBCB****
@@ -520,10 +552,11 @@ export class ListClusterHealthCheckTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

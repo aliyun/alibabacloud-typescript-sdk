@@ -5,17 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class ImportNacosConfigResponseBodyDataFailData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the group.
+   * The data ID.
    * 
    * @example
    * test2.yaml
    */
   dataId?: string;
   /**
+   * @remarks
+   * The group ID.
+   * 
    * @example
    * test
    */
   group?: string;
+  /**
+   * @remarks
+   * The cause of the failure.
+   * 
+   * @example
+   * The import configuration format is incorrect.
+   */
   reason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -45,7 +55,7 @@ export class ImportNacosConfigResponseBodyDataFailData extends $dara.Model {
 export class ImportNacosConfigResponseBodyDataSkipData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the group.
+   * The data ID.
    * 
    * @example
    * test.yaml
@@ -53,7 +63,7 @@ export class ImportNacosConfigResponseBodyDataSkipData extends $dara.Model {
   dataId?: string;
   /**
    * @remarks
-   * The information about configurations that are failed to be imported.
+   * The group ID.
    * 
    * @example
    * public
@@ -85,12 +95,12 @@ export class ImportNacosConfigResponseBodyDataSkipData extends $dara.Model {
 export class ImportNacosConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The data structure.
+   * The list of failed imports.
    */
   failData?: ImportNacosConfigResponseBodyDataFailData[];
   /**
    * @remarks
-   * The information about skipped configurations.
+   * The number of skipped messages.
    * 
    * @example
    * 10
@@ -98,12 +108,12 @@ export class ImportNacosConfigResponseBodyData extends $dara.Model {
   skipCount?: number;
   /**
    * @remarks
-   * The data structure.
+   * The list of skipped configurations.
    */
   skipData?: ImportNacosConfigResponseBodyDataSkipData[];
   /**
    * @remarks
-   * The number of configurations that are skipped.
+   * The number of successfully imported instances.
    * 
    * @example
    * 100
@@ -145,7 +155,7 @@ export class ImportNacosConfigResponseBodyData extends $dara.Model {
 export class ImportNacosConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error message returned.
+   * The code.
    * 
    * @example
    * 1
@@ -153,12 +163,13 @@ export class ImportNacosConfigResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The number of configurations that are imported.
+   * The data overview.
    */
   data?: ImportNacosConfigResponseBodyData;
   /**
    * @remarks
-   * The details of the data.
+   * The dynamic error message, which is used to replace **%s** in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the **DtsJobId** request parameter is invalid.
    * 
    * @example
    * The specified parameter is invalid.
@@ -166,7 +177,7 @@ export class ImportNacosConfigResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The code returned.
+   * The error code.
    * 
    * @example
    * mse-100-100
@@ -174,7 +185,7 @@ export class ImportNacosConfigResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -182,20 +193,15 @@ export class ImportNacosConfigResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request is successfully processed.
+   * The returned message.
    * 
    * @example
-   * The dynamic part in the error message. This parameter is used to replace the **%s** variable in the **ErrMessage** parameter.
-   * 
-   * >  If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * The request ID.
    * 
    * @example
    * AF21683A-29C7-4853-AC0F-B5ADEE4****
@@ -203,7 +209,9 @@ export class ImportNacosConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The error code that is returned.
+   * Indicates whether the request was successful. Valid values:
+   * - `true`: The request was successful.
+   * - `false`: The request failed.
    * 
    * @example
    * true

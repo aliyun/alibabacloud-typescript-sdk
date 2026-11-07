@@ -29,7 +29,7 @@ export class QueryGovernanceKubernetesClusterResponseBodyDataResult extends $dar
   k8sVersion?: string;
   /**
    * @remarks
-   * The information about the namespace.
+   * The namespace information.
    * 
    * @example
    * [{"Name":"ack-onepilot","Tags":{"name":"ack-onepilot"}}]
@@ -37,21 +37,35 @@ export class QueryGovernanceKubernetesClusterResponseBodyDataResult extends $dar
   namespaceInfos?: string;
   /**
    * @remarks
-   * The time when the pilot component was started.
+   * The start time of Pilot.
    * 
    * @example
    * 2022-05-17T05:39:43.000+0000
    */
   pilotStartTime?: string;
+  /**
+   * @remarks
+   * The Pilot version.
+   * 
+   * @example
+   * 4.1.1
+   */
   pilotVersion?: string;
   /**
    * @remarks
-   * The region where the cluster resides.
+   * The region where the cluster is deployed.
    * 
    * @example
    * cn-shanghai
    */
   region?: string;
+  /**
+   * @remarks
+   * The version lifecycle.
+   * 
+   * @example
+   * STABLE
+   */
   versionLifeCycle?: string;
   static names(): { [key: string]: string } {
     return {
@@ -91,7 +105,7 @@ export class QueryGovernanceKubernetesClusterResponseBodyDataResult extends $dar
 export class QueryGovernanceKubernetesClusterResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -99,7 +113,7 @@ export class QueryGovernanceKubernetesClusterResponseBodyData extends $dara.Mode
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The size of the current page.
    * 
    * @example
    * 10
@@ -107,7 +121,7 @@ export class QueryGovernanceKubernetesClusterResponseBodyData extends $dara.Mode
   pageSize?: number;
   /**
    * @remarks
-   * The details of the data.
+   * The data structure.
    */
   result?: QueryGovernanceKubernetesClusterResponseBodyDataResult[];
   /**
@@ -151,7 +165,7 @@ export class QueryGovernanceKubernetesClusterResponseBodyData extends $dara.Mode
 export class QueryGovernanceKubernetesClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: QueryGovernanceKubernetesClusterResponseBodyData;
   /**
@@ -164,7 +178,7 @@ export class QueryGovernanceKubernetesClusterResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DE34D413-2B79-5E77-9696-36D875E822AD
@@ -172,7 +186,7 @@ export class QueryGovernanceKubernetesClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTagsBySwimmingLaneGroupIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data of the tag.
+   * The tag data.
    * 
    * @example
    * ["gray"]
@@ -13,7 +13,7 @@ export class GetTagsBySwimmingLaneGroupIdResponseBody extends $dara.Model {
   data?: string[];
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -21,15 +21,15 @@ export class GetTagsBySwimmingLaneGroupIdResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
-   * The request was successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 69AD2AA7-DB47-449B-941B-B14409DF****
@@ -37,10 +37,9 @@ export class GetTagsBySwimmingLaneGroupIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request failed.
    * 
    * @example
    * true

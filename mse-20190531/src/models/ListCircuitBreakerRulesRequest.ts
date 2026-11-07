@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCircuitBreakerRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values: zh-CN and en-US. Default value: zh-CN. The value zh-CN indicates Chinese, and the value en-US indicates English.
+   * The language in which you want the results to be displayed. Valid values: zh-CN (default value): Chinese. en-US: English
    * 
    * @example
    * zh
@@ -41,7 +41,7 @@ export class ListCircuitBreakerRulesRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The start page of the returned pages. Default value: 1.
+   * The first page number. Default value: 1.
    * 
    * @example
    * 1
@@ -57,7 +57,7 @@ export class ListCircuitBreakerRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * This parameter is used for exact match of circuit breaking rules.
+   * The interface for which the protection rule is configured.
    * 
    * @example
    * /a
@@ -65,7 +65,7 @@ export class ListCircuitBreakerRulesRequest extends $dara.Model {
   resource?: string;
   /**
    * @remarks
-   * This parameter is used for fuzzy match of circuit breaking rules.
+   * The interface keyword in the protection rule.
    * 
    * @example
    * a

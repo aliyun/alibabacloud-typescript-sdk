@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGatewayAuthConsumerResourceStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class UpdateGatewayAuthConsumerResourceStatusRequest extends $dara.Model 
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the consumer.
+   * The ID of the gateway authentication consumer.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class UpdateGatewayAuthConsumerResourceStatusRequest extends $dara.Model 
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The list of IDs of the authorized resources that a user wants to update.
+   * The list of authorization IDs to update.
    * 
    * This parameter is required.
    * 
@@ -46,10 +46,11 @@ export class UpdateGatewayAuthConsumerResourceStatusRequest extends $dara.Model 
   idList?: string;
   /**
    * @remarks
-   * The resource authorization status. Valid values:
+   * The resource status. Valid values:
    * 
-   * *   true: enabled
-   * *   false: disabled
+   * - true: Enabled.
+   * 
+   * - false: Disabled.
    * 
    * This parameter is required.
    * 

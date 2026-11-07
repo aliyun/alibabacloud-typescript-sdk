@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OfflineGatewayRouteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The return code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class OfflineGatewayRouteResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Indicates whether the route is unpublished.
+   * Indicates whether the offline operation was successful.
    * 
    * @example
    * true
@@ -29,15 +29,15 @@ export class OfflineGatewayRouteResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The error message.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8EB24742-AB15-5953-BEFB-1FA18E770EEE
@@ -45,10 +45,10 @@ export class OfflineGatewayRouteResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request is successful.                                
+   * - `false`: The request failed.
    * 
    * @example
    * true

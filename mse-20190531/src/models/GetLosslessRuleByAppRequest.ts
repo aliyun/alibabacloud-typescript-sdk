@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetLosslessRuleByAppRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * The language of the returned information. Valid values:
+   * * zh: Chinese.
+   * * en: English.
    * 
    * @example
    * zh
@@ -16,7 +15,7 @@ export class GetLosslessRuleByAppRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * hkhon1po62@c3df23522baa***
@@ -24,7 +23,7 @@ export class GetLosslessRuleByAppRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * example-app
@@ -32,7 +31,7 @@ export class GetLosslessRuleByAppRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The name of the MSE namespace.
+   * The Microservices Engine (MSE) namespace name.
    * 
    * @example
    * default
@@ -40,7 +39,7 @@ export class GetLosslessRuleByAppRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou

@@ -7,8 +7,9 @@ export class ListNacosHistoryConfigsRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
@@ -32,7 +33,7 @@ export class ListNacosHistoryConfigsRequest extends $dara.Model {
   group?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -42,7 +43,7 @@ export class ListNacosHistoryConfigsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The namespace ID. Default value: public
    * 
    * @example
    * fc0f6e40-****-946b-45e3af313707
@@ -50,7 +51,7 @@ export class ListNacosHistoryConfigsRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -60,7 +61,7 @@ export class ListNacosHistoryConfigsRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries to return per page.
    * 
    * This parameter is required.
    * 
@@ -70,7 +71,7 @@ export class ListNacosHistoryConfigsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region in which the instance resides. The region is supported by MSE.
+   * The region where the cluster is located. MSE supports specific regions.
    * 
    * @example
    * cn-hangzhou
@@ -78,10 +79,10 @@ export class ListNacosHistoryConfigsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The extended request parameters in the JSON format.
+   * The extended request parameter in the JSON format.
    * 
    * @example
-   * {\\\\"appGroup\\\\":\\\\"aliyun-phecda-service-staging\\\\",\\\\"appName\\\\":\\\\"aliyun-phecda-service\\\\",\\\\"appStage\\\\":\\\\"DAILY\\\\",\\\\"appUnit\\\\":\\\\"center\\\\",\\\\"bucId\\\\":\\\\"250858\\\\",\\\\"bucName\\\\":\\\\"Alibaba Cloud\\\\",\\\\"provider\\\\":\\\\"aliyun\\\\"}
+   * {\\"appGroup\\":\\"aliyun-phecda-service-staging\\",\\"appName\\":\\"aliyun-phecda-service\\",\\"appStage\\":\\"DAILY\\",\\"appUnit\\":\\"center\\",\\"bucId\\":\\"250858\\",\\"bucName\\":\\" Alibaba Cloud\\",\\"provider\\":\\"aliyun\\"}
    */
   requestPars?: string;
   static names(): { [key: string]: string } {

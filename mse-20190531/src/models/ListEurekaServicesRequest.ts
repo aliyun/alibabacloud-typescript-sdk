@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListEurekaServicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class ListEurekaServicesRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class ListEurekaServicesRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class ListEurekaServicesRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of instances to return per page.
    * 
    * This parameter is required.
    * 
@@ -54,7 +54,7 @@ export class ListEurekaServicesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The extended request parameters in the JSON format.
+   * The extended request parameters in JSON format.
    * 
    * @example
    * {}

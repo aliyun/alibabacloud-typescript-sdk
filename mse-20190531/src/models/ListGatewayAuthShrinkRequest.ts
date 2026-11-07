@@ -4,27 +4,46 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListGatewayAuthShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values: zh (default): Chinese, en: English.
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The sort order.
+   * 
    * @example
    * false
    */
   descSort?: boolean;
+  /**
+   * @remarks
+   * The filter conditions. Refer to the examples.
+   */
   filterParamsShrink?: string;
   /**
+   * @remarks
+   * This parameter is not available.
+   * 
    * @example
    * {}
    */
   orderItem?: string;
   /**
+   * @remarks
+   * The page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of items per page.
+   * 
    * @example
    * 10
    */

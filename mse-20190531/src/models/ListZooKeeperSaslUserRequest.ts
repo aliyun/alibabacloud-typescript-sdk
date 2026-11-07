@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListZooKeeperSaslUserRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the returned results. Valid values: zh (default): Chinese, en: English.
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * The instance ID.
+   * 
    * This parameter is required.
    * 
    * @example

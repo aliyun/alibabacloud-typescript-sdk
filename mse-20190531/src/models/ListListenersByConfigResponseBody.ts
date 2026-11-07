@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListListenersByConfigResponseBodyListeners extends $dara.Model {
   /**
    * @remarks
-   * The IP address.
+   * IP。
    * 
    * @example
    * 1.1.1.1
@@ -13,14 +13,28 @@ export class ListListenersByConfigResponseBodyListeners extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The label of the listener.
+   * The labels of the listener.
    */
   labels?: { [key: string]: string };
+  /**
+   * @remarks
+   * The name of the canary release rule matched by the current listener.
+   * 
+   * @example
+   * Name of the matched canary release rule
+   */
   matchRuleName?: string;
+  /**
+   * @remarks
+   * The type of the matched canary release rule.
+   * 
+   * @example
+   * Beta
+   */
   matchRuleType?: string;
   /**
    * @remarks
-   * The verification string.
+   * The checksum string.
    * 
    * @example
    * 23sdfdf
@@ -28,15 +42,15 @@ export class ListListenersByConfigResponseBodyListeners extends $dara.Model {
   md5?: string;
   /**
    * @remarks
-   * The status.
+   * Indicates whether the push is successful.
    * 
    * @example
-   * beta
+   * true
    */
   status?: string;
   /**
    * @remarks
-   * The current version of the listener. Valid values: gray and normal.
+   * The current version of the listener. Valid values: gray (canary release version) or normal (production version).
    * 
    * @example
    * gray
@@ -81,7 +95,7 @@ export class ListListenersByConfigResponseBodyListeners extends $dara.Model {
 export class ListListenersByConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -89,7 +103,7 @@ export class ListListenersByConfigResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 202
@@ -97,12 +111,12 @@ export class ListListenersByConfigResponseBody extends $dara.Model {
   httpCode?: string;
   /**
    * @remarks
-   * The information about listeners.
+   * The listener information.
    */
   listeners?: ListListenersByConfigResponseBodyListeners[];
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
    * success
@@ -110,7 +124,7 @@ export class ListListenersByConfigResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 2
@@ -118,7 +132,7 @@ export class ListListenersByConfigResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The size of the current page.
    * 
    * @example
    * 10
@@ -126,7 +140,7 @@ export class ListListenersByConfigResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 75E1442F-11EC-567A-9CF0-5A36F7904F39
@@ -134,10 +148,9 @@ export class ListListenersByConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * The request result. Valid values:
+   * - `true`: The request was successful.
+   * - `false`: The request failed.
    * 
    * @example
    * true
@@ -145,7 +158,7 @@ export class ListListenersByConfigResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total count.
    * 
    * @example
    * 7

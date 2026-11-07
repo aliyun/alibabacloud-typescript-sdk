@@ -3,8 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetPluginConfigResponseBodyDataGatewayConfigListResourceList extends $dara.Model {
+  /**
+   * @remarks
+   * The resource ID.
+   * 
+   * @example
+   * 1
+   */
   id?: number;
   /**
+   * @remarks
+   * The resource name, which is the domain name or route name.
+   * 
    * @example
    * test-route
    */
@@ -38,18 +48,21 @@ export class GetPluginConfigResponseBodyDataGatewayConfigList extends $dara.Mode
    * The plug-in configuration.
    * 
    * @example
-   * \\# Configure a check for the required fields of the plug-in, such as name, age, and friends. Sample configuration: name: John age: 18 friends: - David - Anne
+   * # Validate required configuration fields. In the following example, the plug-in configuration must contain the "name", "age", and "friends" fields.
+   * name: John
+   * age: 18
+   * friends:
+   * - David
+   * - Anne
    */
   config?: string;
   /**
    * @remarks
-   * The application scope of the plug-in. Valid values:
+   * The plug-in application scope. Valid values:
    * 
-   * 0: global
-   * 
-   * 1: domain names
-   * 
-   * 2: routes
+   * - 0: Global.
+   * - 1: Domain name.
+   * - 2: Route.
    * 
    * @example
    * 0
@@ -65,7 +78,7 @@ export class GetPluginConfigResponseBodyDataGatewayConfigList extends $dara.Mode
   enable?: boolean;
   /**
    * @remarks
-   * The ID of the gateway.
+   * The gateway ID.
    * 
    * @example
    * 1
@@ -97,7 +110,7 @@ export class GetPluginConfigResponseBodyDataGatewayConfigList extends $dara.Mode
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the plug-in configuration.
+   * The plug-in configuration ID.
    * 
    * @example
    * 1
@@ -111,6 +124,10 @@ export class GetPluginConfigResponseBodyDataGatewayConfigList extends $dara.Mode
    * 1
    */
   pluginId?: number;
+  /**
+   * @remarks
+   * The list of domain name and route resources, distinguished by ConfigLevel.
+   */
   resourceList?: GetPluginConfigResponseBodyDataGatewayConfigListResourceList[];
   static names(): { [key: string]: string } {
     return {
@@ -157,19 +174,14 @@ export class GetPluginConfigResponseBodyDataGatewayConfigList extends $dara.Mode
 export class GetPluginConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The category of the plug-in. Valid values:
+   * The plug-in category. Valid values:
    * 
-   * 0: user-defined
-   * 
-   * 1: permission authentication
-   * 
-   * 2: security protection
-   * 
-   * 3: transmission protocol
-   * 
-   * 4: traffic control
-   * 
-   * 5: traffic observation
+   * - 0: Custom.
+   * - 1: Authentication and authorization.
+   * - 2: Security protection.
+   * - 3: Transport protocol.
+   * - 4: Traffic control.
+   * - 5: Traffic observation.
    * 
    * @example
    * 0
@@ -177,14 +189,30 @@ export class GetPluginConfigResponseBodyData extends $dara.Model {
   category?: number;
   /**
    * @remarks
-   * The information about the plug-in configuration used for checking.
+   * The configuration validation.
    * 
    * @example
-   * \\# The configuration includes the fields required for checking, such as name, age, and friends. Sample configuration: name: John age: 18 friends: - David - Anne
+   * # Validate required configuration fields. In the following example, the plug-in configuration must contain the "name", "age", and "friends" fields.
+   * name: John
+   * age: 18
+   * friends:
+   * - David
+   * - Anne
    */
   configCheck?: string;
+  /**
+   * @remarks
+   * The plug-in configuration example.
+   * 
+   * @example
+   * blocked_code: 404
+   * blocked_message: resource not found
+   */
   configExample?: string;
   /**
+   * @remarks
+   * The start index of domain-level rules in GatewayConfigList. If no domain-level rules exist, the value is -1.
+   * 
    * @example
    * 5
    */
@@ -195,13 +223,16 @@ export class GetPluginConfigResponseBodyData extends $dara.Model {
    */
   gatewayConfigList?: GetPluginConfigResponseBodyDataGatewayConfigList[];
   /**
+   * @remarks
+   * The index of instance-level rules in GatewayConfigList. If no instance-level rules exist, the value is -1.
+   * 
    * @example
    * 7
    */
   gatewayConfigStartIndex?: number;
   /**
    * @remarks
-   * The ID of the plug-in.
+   * The plug-in ID.
    * 
    * @example
    * 1
@@ -209,7 +240,7 @@ export class GetPluginConfigResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the image.
+   * The image name.
    * 
    * @example
    * name
@@ -225,7 +256,7 @@ export class GetPluginConfigResponseBodyData extends $dara.Model {
   mode?: number;
   /**
    * @remarks
-   * The name of the plug-in.
+   * The plug-in name.
    * 
    * @example
    * name
@@ -233,15 +264,12 @@ export class GetPluginConfigResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The execution stage of the plug-in. Valid values:
+   * The plug-in execution phase. Valid values:
    * 
-   * 0: default stage
-   * 
-   * 1: authorization stage
-   * 
-   * 2: authentication stage
-   * 
-   * 3: statistics stage
+   * - 0: Default phase.
+   * - 1: Authentication phase.
+   * - 2: Authorization phase.
+   * - 3: Statistics phase.
    * 
    * @example
    * 0
@@ -257,7 +285,7 @@ export class GetPluginConfigResponseBodyData extends $dara.Model {
   primaryUser?: string;
   /**
    * @remarks
-   * The execution priority of the plug-in. A larger value indicates a higher priority.
+   * The plug-in execution priority. A larger value indicates a higher priority.
    * 
    * @example
    * 1
@@ -273,7 +301,7 @@ export class GetPluginConfigResponseBodyData extends $dara.Model {
   publishState?: number;
   /**
    * @remarks
-   * The description of the README file.
+   * The README description.
    * 
    * @example
    * read me
@@ -281,24 +309,26 @@ export class GetPluginConfigResponseBodyData extends $dara.Model {
   readme?: string;
   /**
    * @remarks
-   * The description of the README file that is edited in English.
+   * The README description in English.
    * 
    * @example
    * read me
    */
   readmeEn?: string;
   /**
+   * @remarks
+   * The start index of route-level rules in GatewayConfigList. If no route-level rules exist, the value is -1.
+   * 
    * @example
    * 0
    */
   routeConfigStartIndex?: number;
   /**
    * @remarks
-   * Indicates whether the plug-in is enabled. Valid values:
+   * The enabling status. Valid values:
    * 
-   * 0: disabled
-   * 
-   * 1: enabled
+   * - 0: Disabled.
+   * - 1: Enabled.
    * 
    * @example
    * 1
@@ -306,16 +336,25 @@ export class GetPluginConfigResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The summary of the plug-in.
+   * The plug-in summary.
    * 
    * @example
-   * This is a plug-in.
+   * This is a plug-in
    */
   summary?: string;
+  /**
+   * @remarks
+   * The plug-in summary in English.
+   * 
+   * @example
+   * Convert request/response headers, request query parameters, and request/response body parameters.
+   */
   summaryEn?: string;
   /**
    * @remarks
-   * The type.
+   * The plug-in type. Valid values:
+   * - 0: HTTP filter.
+   * - 1: Network filter.
    * 
    * @example
    * 0
@@ -323,26 +362,29 @@ export class GetPluginConfigResponseBodyData extends $dara.Model {
   type?: number;
   /**
    * @remarks
-   * The version of the plug-in.
+   * The plug-in version.
    * 
    * @example
    * v1
    */
   version?: string;
+  /**
+   * @remarks
+   * The list of gateway plug-in version information.
+   * 
+   * @example
+   * [{"id":1, "version": "1.0.0"}]
+   */
   versionJson?: string;
   /**
    * @remarks
-   * The WebAssembly language. Valid values:
+   * The WebAssembly (Wasm) implementation language. Valid values:
    * 
-   * 0: C++
-   * 
-   * 1: TinyGo
-   * 
-   * 2: Rust
-   * 
-   * 3: AssemblyScript
-   * 
-   * 4: Zig
+   * - 0: C++.
+   * - 1: TinyGo.
+   * - 2: Rust.
+   * - 3: AssemblyScript.
+   * - 4: Zig.
    * 
    * @example
    * 0
@@ -421,7 +463,7 @@ export class GetPluginConfigResponseBodyData extends $dara.Model {
 export class GetPluginConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The code.
    * 
    * @example
    * 200
@@ -450,7 +492,7 @@ export class GetPluginConfigResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * 500
@@ -458,7 +500,7 @@ export class GetPluginConfigResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -466,7 +508,7 @@ export class GetPluginConfigResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The API message.
    * 
    * @example
    * success
@@ -474,7 +516,7 @@ export class GetPluginConfigResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 03A3E2F4-6804-5663-9D5D-2EC47A1*****

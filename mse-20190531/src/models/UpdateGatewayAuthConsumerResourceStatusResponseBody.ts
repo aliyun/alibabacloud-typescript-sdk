@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGatewayAuthConsumerResourceStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of 200 is returned if the request is successful.
+   * The code used only to synchronize with the success status.
    * 
    * @example
    * 200
@@ -13,10 +13,11 @@ export class UpdateGatewayAuthConsumerResourceStatusResponseBody extends $dara.M
   code?: number;
   /**
    * @remarks
-   * Indicates whether the execution was successful. Valid values:
+   * Indicates whether the execution succeeded. Valid values:
    * 
-   * *   true: The execution was successful.
-   * *   false: The execution failed.
+   * - true: Succeeded.
+   * 
+   * - false: Failed.
    * 
    * @example
    * true
@@ -24,7 +25,7 @@ export class UpdateGatewayAuthConsumerResourceStatusResponseBody extends $dara.M
   data?: boolean;
   /**
    * @remarks
-   * The dynamic part in the error message.
+   * The placeholder in the dynamic error message.
    * 
    * @example
    * code
@@ -32,9 +33,9 @@ export class UpdateGatewayAuthConsumerResourceStatusResponseBody extends $dara.M
   dynamicCode?: string;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the `%s` variable in the `ErrMessage` parameter.
+   * The dynamic error message, which is used to replace the `%s` placeholder in the error message of the ErrMessage response parameter.
    * 
-   * >  If the return value of the `ErrMessage` parameter is `The Value of Input Parameter %s is not valid` and the return value of the `DynamicMessage` parameter is `DtsJobId`, the specified `DtsJobId` parameter is invalid.
+   * > If ErrMessage returns `The Value of Input Parameter %s is not valid` and DynamicMessage returns DtsJobId, it indicates that the DtsJobId request parameter is invalid.
    * 
    * @example
    * The specified parameter is invalid.
@@ -42,7 +43,7 @@ export class UpdateGatewayAuthConsumerResourceStatusResponseBody extends $dara.M
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code that is returned.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -50,7 +51,7 @@ export class UpdateGatewayAuthConsumerResourceStatusResponseBody extends $dara.M
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -58,15 +59,15 @@ export class UpdateGatewayAuthConsumerResourceStatusResponseBody extends $dara.M
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned.
+   * The returned message.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 316F5F64-F73D-42DC-8632-01E308B6****
@@ -74,10 +75,10 @@ export class UpdateGatewayAuthConsumerResourceStatusResponseBody extends $dara.M
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * The request result. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request succeeded.
+   * - `false`: The request failed.
    * 
    * @example
    * true

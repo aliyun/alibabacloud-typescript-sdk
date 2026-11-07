@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApplicationShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -34,7 +34,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * MSE命名空间名字。
+   * The name of the MSE namespace.
    * 
    * @example
    * prod
@@ -52,7 +52,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Specifies whether to start the switch.
+   * Specifies whether to enable Sentinel.
    * 
    * @example
    * true
@@ -60,7 +60,7 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   sentinelEnable?: string;
   /**
    * @remarks
-   * The service where the application is deployed. A value of ACK indicates Container Service for Kubernetes.
+   * The deployment method of the application. ACK indicates Container Service for Kubernetes (ACK).
    * 
    * @example
    * ACK
@@ -68,12 +68,16 @@ export class CreateApplicationShrinkRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The name of the Microservices Engine (MSE) namespace.
+   * Specifies whether to enable Switch.
    * 
    * @example
    * true
    */
   switchEnable?: string;
+  /**
+   * @remarks
+   * The Alibaba Cloud tags.
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {

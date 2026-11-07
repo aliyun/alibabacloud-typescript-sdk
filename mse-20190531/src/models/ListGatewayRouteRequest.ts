@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayRouteRequestFilterParams extends $dara.Model {
   /**
    * @remarks
-   * The default service ID.
+   * Default service ID
    * 
    * @example
    * 1
@@ -15,7 +15,7 @@ export class ListGatewayRouteRequestFilterParams extends $dara.Model {
   defaultServiceId?: number;
   /**
    * @remarks
-   * The domain ID.
+   * Domain ID
    * 
    * @example
    * 284
@@ -23,7 +23,7 @@ export class ListGatewayRouteRequestFilterParams extends $dara.Model {
   domainId?: number;
   /**
    * @remarks
-   * The associated domain name.
+   * Associated domain
    * 
    * @example
    * *.alites.com
@@ -31,7 +31,7 @@ export class ListGatewayRouteRequestFilterParams extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The ID of the gateway.
+   * Gateway ID
    * 
    * @example
    * 81
@@ -39,7 +39,7 @@ export class ListGatewayRouteRequestFilterParams extends $dara.Model {
   gatewayId?: number;
   /**
    * @remarks
-   * The unique ID of the gateway.
+   * Gateway unique identifier ID
    * 
    * This parameter is required.
    * 
@@ -49,20 +49,23 @@ export class ListGatewayRouteRequestFilterParams extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The name of the gateway.
+   * Route name
    * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * Route path
+   * 
    * @example
    * /test
    */
   path?: string;
   /**
    * @remarks
-   * The order.
+   * Order (unused)
    * 
    * @example
    * 1
@@ -70,10 +73,22 @@ export class ListGatewayRouteRequestFilterParams extends $dara.Model {
   routeOrder?: number;
   /**
    * @remarks
-   * The status.
+   * Route status:
+   * 
+   * - Unpublished: 0
+   * 
+   * - Publishing: 2
+   * 
+   * - Published: 3
+   * 
+   * - Editing (updates not published): 4
+   * 
+   * - Unpublishing: 5
+   * 
+   * - Unavailable: 6
    * 
    * @example
-   * 1
+   * 3
    */
   status?: number;
   static names(): { [key: string]: string } {
@@ -116,10 +131,11 @@ export class ListGatewayRouteRequestFilterParams extends $dara.Model {
 export class ListGatewayRouteRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * Language type for returned information:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
@@ -127,7 +143,7 @@ export class ListGatewayRouteRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to enable sorting. This parameter is unavailable.
+   * Sorting. This field is currently unavailable and being deprecated.
    * 
    * @example
    * false
@@ -135,12 +151,12 @@ export class ListGatewayRouteRequest extends $dara.Model {
   descSort?: boolean;
   /**
    * @remarks
-   * The parameters that specify filter conditions. The parameters are in the format of {"key1":"value1"}.
+   * Filter conditions in the format {"key1":"value1"}
    */
   filterParams?: ListGatewayRouteRequestFilterParams;
   /**
    * @remarks
-   * The item based on which entries are sorted.
+   * Sorting property.
    * 
    * @example
    * GmtCreate
@@ -148,7 +164,7 @@ export class ListGatewayRouteRequest extends $dara.Model {
   orderItem?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * Page number.
    * 
    * @example
    * 1
@@ -156,7 +172,7 @@ export class ListGatewayRouteRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * Number of instances displayed per page (currently not in effect, queries all instances by default).
    * 
    * @example
    * 10

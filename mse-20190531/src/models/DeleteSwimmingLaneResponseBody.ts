@@ -8,15 +8,15 @@ export class DeleteSwimmingLaneResponseBody extends $dara.Model {
    * The error code.
    * 
    * @example
-   * mse-100-000
+   * Success
    */
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned.
+   * The returned message.
    * 
    * @example
-   * The request was successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
@@ -30,9 +30,8 @@ export class DeleteSwimmingLaneResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request was successful.
+   * - `false`: The request failed.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryClusterSpecificationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The engine specifications that can be used.
+   * The available engine specifications.
    * 
    * @example
    * MSE_SC_1_2_200_c
@@ -13,7 +13,7 @@ export class QueryClusterSpecificationResponseBodyData extends $dara.Model {
   clusterSpecificationName?: string;
   /**
    * @remarks
-   * The number of vCPUs in the specifications.
+   * The number of CPU cores for this specification.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class QueryClusterSpecificationResponseBodyData extends $dara.Model {
   cpuCapacity?: string;
   /**
    * @remarks
-   * The memory size in the specifications. Unit: GB.
+   * The memory size for this specification. Unit: GB.
    * 
    * @example
    * 2
@@ -63,12 +63,12 @@ export class QueryClusterSpecificationResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The details of the data.
+   * The data overview.
    */
   data?: QueryClusterSpecificationResponseBodyData[];
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -76,7 +76,7 @@ export class QueryClusterSpecificationResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -84,15 +84,15 @@ export class QueryClusterSpecificationResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The message.
    * 
    * @example
-   * The request was successfully processed.
+   * Request processed successfully
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EE5C32A1-BC0E-4B79-817C-103E4EDF****
@@ -101,9 +101,8 @@ export class QueryClusterSpecificationResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request was successful.
+   * - `false`: The request failed.
    * 
    * @example
    * true

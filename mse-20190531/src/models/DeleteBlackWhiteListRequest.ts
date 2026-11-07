@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteBlackWhiteListRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the response. Valid values: zh (default): Chinese, en: English.
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The ID of the gateway.
+   * 
    * @example
    * 430
    */
   gatewayId?: number;
   /**
+   * @remarks
+   * The unique ID of the gateway.
+   * 
    * @example
    * gw-9cdcf8e4f58144059e73ff4c5ef9****
    */
   gatewayUniqueId?: string;
   /**
+   * @remarks
+   * The ID of the blacklists and whitelists entry.
+   * 
    * @example
    * 120
    */

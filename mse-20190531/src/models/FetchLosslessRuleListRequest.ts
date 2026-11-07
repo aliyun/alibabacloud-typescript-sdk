@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class FetchLosslessRuleListRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * The language of the returned information. Valid values:
+   * * zh: Chinese.
+   * * en: English.
    * 
    * @example
    * zh-CN
@@ -16,15 +15,15 @@ export class FetchLosslessRuleListRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
-   * hyaziyb6sc@86827c61f5ed8fc
+   * hyaziyb6sc@86827c61f5ed***
    */
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * spring-boot-sample
@@ -60,7 +59,7 @@ export class FetchLosslessRuleListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * This parameter is required.
    * 

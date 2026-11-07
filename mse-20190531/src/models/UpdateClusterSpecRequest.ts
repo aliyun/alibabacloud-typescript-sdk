@@ -7,17 +7,25 @@ export class UpdateClusterSpecRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
    */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * Specifies whether to automatically pay after placing an order. If this value is false, this interface will return a payment URL for the order, which you can manually confirm to pay
+   * 
+   * @example
+   * true
+   */
   autoPay?: boolean;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * mse-09k1q11****
@@ -41,7 +49,7 @@ export class UpdateClusterSpecRequest extends $dara.Model {
   instanceCount?: number;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -57,6 +65,13 @@ export class UpdateClusterSpecRequest extends $dara.Model {
    * mse_pro
    */
   mseVersion?: string;
+  /**
+   * @remarks
+   * Internet bandwidth
+   * 
+   * @example
+   * 1
+   */
   pubNetworkFlow?: number;
   static names(): { [key: string]: string } {
     return {

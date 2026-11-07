@@ -32,7 +32,7 @@ export class ModifyGovernanceKubernetesClusterResponseBody extends $dara.Model {
    * The message returned.
    * 
    * @example
-   * success
+   * The request is processed successfully.
    */
   message?: string;
   /**

@@ -7,8 +7,8 @@ export class DeleteGatewayRouteRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class DeleteGatewayRouteRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The unique ID of the gateway.
+   * The unique identifier of the gateway.
    * 
    * @example
    * gw-492af9b04bb4474cae9d645be850e3d7
@@ -24,7 +24,7 @@ export class DeleteGatewayRouteRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The ID of the route.
+   * The ID of the route entry.
    * 
    * @example
    * 252

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QuerySwimmingLaneByIdResponseBodyDataEntryRulesRestItems extends $dara.Model {
   /**
    * @remarks
-   * 匹配符
+   * The matching character.
    * 
    * @example
    * ==
@@ -13,7 +13,7 @@ export class QuerySwimmingLaneByIdResponseBodyDataEntryRulesRestItems extends $d
   cond?: string;
   /**
    * @remarks
-   * 数值
+   * The number.
    * 
    * @example
    * x
@@ -21,7 +21,7 @@ export class QuerySwimmingLaneByIdResponseBodyDataEntryRulesRestItems extends $d
   datum?: string;
   /**
    * @remarks
-   * 除数
+   * The divisor.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class QuerySwimmingLaneByIdResponseBodyDataEntryRulesRestItems extends $d
   divisor?: number;
   /**
    * @remarks
-   * 名称
+   * The name.
    * 
    * @example
    * 11111
@@ -37,12 +37,12 @@ export class QuerySwimmingLaneByIdResponseBodyDataEntryRulesRestItems extends $d
   name?: string;
   /**
    * @remarks
-   * 名称列表
+   * The names.
    */
   nameList?: string[];
   /**
    * @remarks
-   * 操作符
+   * The filter operator.
    * 
    * @example
    * rawvalue
@@ -50,7 +50,7 @@ export class QuerySwimmingLaneByIdResponseBodyDataEntryRulesRestItems extends $d
   operator?: string;
   /**
    * @remarks
-   * 百分比
+   * The percentage.
    * 
    * @example
    * 30
@@ -58,7 +58,7 @@ export class QuerySwimmingLaneByIdResponseBodyDataEntryRulesRestItems extends $d
   rate?: number;
   /**
    * @remarks
-   * 余数
+   * The remainder.
    * 
    * @example
    * 10
@@ -66,7 +66,7 @@ export class QuerySwimmingLaneByIdResponseBodyDataEntryRulesRestItems extends $d
   remainder?: number;
   /**
    * @remarks
-   * 匹配类型
+   * The matching type.
    * 
    * @example
    * cookie
@@ -74,7 +74,7 @@ export class QuerySwimmingLaneByIdResponseBodyDataEntryRulesRestItems extends $d
   type?: string;
   /**
    * @remarks
-   * 值
+   * The value.
    * 
    * @example
    * hello
@@ -125,7 +125,7 @@ export class QuerySwimmingLaneByIdResponseBodyDataEntryRulesRestItems extends $d
 export class QuerySwimmingLaneByIdResponseBodyDataEntryRules extends $dara.Model {
   /**
    * @remarks
-   * 条件
+   * The condition.
    * 
    * @example
    * AND
@@ -133,7 +133,7 @@ export class QuerySwimmingLaneByIdResponseBodyDataEntryRules extends $dara.Model
   condition?: string;
   /**
    * @remarks
-   * 路径
+   * The path.
    * 
    * @example
    * /
@@ -141,12 +141,12 @@ export class QuerySwimmingLaneByIdResponseBodyDataEntryRules extends $dara.Model
   path?: string;
   /**
    * @remarks
-   * 路径列表
+   * The list of paths.
    */
   paths?: string[];
   /**
    * @remarks
-   * Rest匹配规则列表
+   * The Restful matching rules.
    */
   restItems?: QuerySwimmingLaneByIdResponseBodyDataEntryRulesRestItems[];
   static names(): { [key: string]: string } {
@@ -184,13 +184,16 @@ export class QuerySwimmingLaneByIdResponseBodyDataEntryRules extends $dara.Model
 
 export class QuerySwimmingLaneByIdResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * This parameter is discontinued. This parameter is used to specify whether to enable grayscale by path when Java gateway is used as the entry for the swimming lane group.
+   * 
    * @example
    * false
    */
   pathIndependentPercentageEnable?: boolean;
   /**
    * @remarks
-   * 泳道开关
+   * The swimming lane switch.
    * 
    * @example
    * true
@@ -198,7 +201,7 @@ export class QuerySwimmingLaneByIdResponseBodyData extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * 是否开启规则。
+   * Specifies whether to enable the rule. Valid values:
    * 
    * @example
    * true
@@ -206,7 +209,7 @@ export class QuerySwimmingLaneByIdResponseBodyData extends $dara.Model {
   enableRules?: boolean;
   /**
    * @remarks
-   * 入口应用规则
+   * The entry application rule.
    * 
    * @example
    * {}
@@ -214,12 +217,12 @@ export class QuerySwimmingLaneByIdResponseBodyData extends $dara.Model {
   entryRule?: string;
   /**
    * @remarks
-   * 入口应用规则详情
+   * The details of the entry application rules.
    */
   entryRules?: QuerySwimmingLaneByIdResponseBodyDataEntryRules[];
   /**
    * @remarks
-   * MSE网关路由规则
+   * The MSE gateway routing rule.
    * 
    * @example
    * {}
@@ -227,7 +230,7 @@ export class QuerySwimmingLaneByIdResponseBodyData extends $dara.Model {
   gatewaySwimmingLaneRouteJson?: string;
   /**
    * @remarks
-   * 规则创建时间
+   * Rule Created At
    * 
    * @example
    * 1683598484000
@@ -235,7 +238,7 @@ export class QuerySwimmingLaneByIdResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * 规则修改时间
+   * Rule Modified At
    * 
    * @example
    * 1683598484000
@@ -243,7 +246,7 @@ export class QuerySwimmingLaneByIdResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * 泳道组Id。
+   * The swimming lane group ID.
    * 
    * @example
    * 8
@@ -251,7 +254,7 @@ export class QuerySwimmingLaneByIdResponseBodyData extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * 泳道ID
+   * The swimming lane ID.
    * 
    * @example
    * 1
@@ -259,7 +262,7 @@ export class QuerySwimmingLaneByIdResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * 泳道名称
+   * The swimming lane name.
    * 
    * @example
    * test
@@ -267,7 +270,7 @@ export class QuerySwimmingLaneByIdResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * 区域ID。
+   * The region ID.
    * 
    * @example
    * cn-shanghai
@@ -275,7 +278,7 @@ export class QuerySwimmingLaneByIdResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * 泳道状态
+   * The swimming lane status.
    * 
    * @example
    * 1
@@ -283,7 +286,7 @@ export class QuerySwimmingLaneByIdResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * 泳道对应的标签。
+   * The tag corresponding to the swimming lane.
    * 
    * @example
    * gray
@@ -342,7 +345,7 @@ export class QuerySwimmingLaneByIdResponseBodyData extends $dara.Model {
 export class QuerySwimmingLaneByIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the data.
+   * The returned data.
    * 
    * @example
    * {id:102,name:"test"}
@@ -350,7 +353,7 @@ export class QuerySwimmingLaneByIdResponseBody extends $dara.Model {
   data?: QuerySwimmingLaneByIdResponseBodyData;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -358,15 +361,15 @@ export class QuerySwimmingLaneByIdResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * The message.
    * 
    * @example
-   * The request was successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 69AD2AA7-DB47-449B-941B-B14409DF****
@@ -374,10 +377,11 @@ export class QuerySwimmingLaneByIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

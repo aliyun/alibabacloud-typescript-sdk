@@ -13,7 +13,7 @@ export class UpdateAuthPolicyResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The details of the data.
+   * The returned data.
    * 
    * @example
    * {}
@@ -29,7 +29,10 @@ export class UpdateAuthPolicyResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The message that is returned for the request.
+   * 
+   * @example
+   * The request is processed successfully.
    */
   message?: string;
   /**
@@ -42,7 +45,7 @@ export class UpdateAuthPolicyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values: true: The request was successful. false: The request failed.
+   * The result of the request. Valid values: - true: The request is successful. - false: The request failed.
    * 
    * @example
    * true

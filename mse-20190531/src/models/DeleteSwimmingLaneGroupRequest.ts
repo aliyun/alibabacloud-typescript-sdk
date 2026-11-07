@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSwimmingLaneGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class DeleteSwimmingLaneGroupRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the lane group.
+   * The ID of the end-to-end traffic lane group.
    * 
    * @example
    * 145
@@ -32,7 +32,7 @@ export class DeleteSwimmingLaneGroupRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the Microservices Engine (MSE) namespace.
+   * The name of the MSE namespace.
    * 
    * @example
    * default

@@ -7,17 +7,22 @@ export class UpdateConfigRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
    */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable forced Simple Authentication and Security Layer (SASL) authentication. After this feature is enabled, clients that do not perform SASL authentication cannot access the cluster
+   */
   authEnabled?: boolean;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved field.
    * 
    * @example
    * none
@@ -25,7 +30,7 @@ export class UpdateConfigRequest extends $dara.Model {
   autopurgePurgeInterval?: string;
   /**
    * @remarks
-   * A reserved parameter.
+   * The reserved field.
    * 
    * @example
    * none
@@ -33,7 +38,7 @@ export class UpdateConfigRequest extends $dara.Model {
   autopurgeSnapRetainCount?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * @example
    * mse-09k1q11****
@@ -41,12 +46,13 @@ export class UpdateConfigRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Specifies whether to enable Resource Access Management (RAM) authentication for a configuration center. This parameter is valid for Nacos instances. Valid values:
+   * Specifies whether to enable RAM authentication for the configuration center in Nacos:
    * 
-   * *   `true`: enabled.
-   * *   `false`: disabled.
+   * - `true`: enabled
    * 
-   * > Before you configure this parameter, you must call the QueryConfig operation to obtain the ConfigAuthSupported parameter value to check whether the instance supports the RAM authentication feature.
+   * - `false`: disabled
+   * 
+   * > Before you set this parameter, call the QueryConfig operation to obtain the ConfigAuthSupported parameter to check whether the current cluster supports this feature.
    * 
    * @example
    * true
@@ -54,12 +60,13 @@ export class UpdateConfigRequest extends $dara.Model {
   configAuthEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable configuration encryption for a configuration center. This parameter is valid for Nacos instances. Valid values:
+   * Specifies whether to enable the configuration encryption feature for the configuration center in Nacos. Valid values:
    * 
-   * *   `true`: enabled.
-   * *   `false`: disabled.
+   * - `true`: The request was successful.
    * 
-   * > Before you configure this parameter, you must call the QueryConfig operation to obtain the ConfigSecretSupported parameter value to check whether the instance supports configuration encryption.
+   * - `false`: The request failed.
+   * 
+   * > Before you set this parameter, call the QueryConfig operation to obtain the ConfigSecretSupported parameter to check whether the current cluster supports this feature.
    * 
    * @example
    * true
@@ -67,22 +74,36 @@ export class UpdateConfigRequest extends $dara.Model {
   configSecretEnabled?: boolean;
   /**
    * @remarks
-   * The format of the configuration. Supported formats include TEXT, JSON, XML, and HTML.
+   * The format of the configurations. Supported formats include TEXT, JSON, XML, and HTML.
    * 
    * @example
    * TEXT
    */
   configType?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the Nacos open-source console
+   * 
+   * @example
+   * true
+   */
   consoleUIEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable the four-character command access feature
+   */
   enable4lw?: boolean;
   /**
+   * @remarks
+   * Specifies whether to enable Eureka protocol support in Nacos
+   * 
    * @example
    * true
    */
   eurekaSupported?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the time to live (TTL) configuration. This parameter is valid for ZooKeeper instances.
+   * Specifies whether to enable TTL configuration in ZooKeeper parameters.
    * 
    * @example
    * true
@@ -98,7 +119,7 @@ export class UpdateConfigRequest extends $dara.Model {
   initLimit?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * mse_prepaid_public_cn-st2212****
@@ -106,7 +127,7 @@ export class UpdateConfigRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum amount of data on each node. This parameter is valid for ZooKeeper instances. The default maximum data amount on each node is 1 megabyte. Unit: bytes.
+   * The maximum amount of data on each node. This parameter is valid for ZooKeeper instances. Unit: bytes.
    * 
    * @example
    * 1048575
@@ -114,12 +135,13 @@ export class UpdateConfigRequest extends $dara.Model {
   juteMaxbuffer?: string;
   /**
    * @remarks
-   * Specifies whether to enable Mesh Configuration Protocol (MCP). This parameter is valid for Nacos instances. Valid values:
+   * Specifies whether MCP is enabled in Nacos configuration. Valid values:
    * 
-   * *   `true`: enabled.
-   * *   `false`: disabled.
+   * - `true`: enabled
    * 
-   * > Before you configure this parameter, you must call the QueryConfig operation to obtain the MCPSupported parameter value to check whether the instance supports MCP.
+   * - `false`: disabled
+   * 
+   * > Before you set this parameter, call the QueryConfig operation to obtain the MCPSupported parameter to check whether the current cluster supports this feature.
    * 
    * @example
    * true
@@ -127,8 +149,8 @@ export class UpdateConfigRequest extends $dara.Model {
   MCPEnabled?: boolean;
   /**
    * @remarks
-   * The number of connections between a client and a server. This parameter is valid for ZooKeeper instances.\\
-   * If this parameter is set to 0, no limits are imposed on the number of connections.
+   * The number of connections between a single client and a single server in ZooKeeper configuration.<br>
+   * If this parameter is set to 0, no limits are imposed on the number of connections.<br>
    * 
    * @example
    * 0
@@ -136,7 +158,7 @@ export class UpdateConfigRequest extends $dara.Model {
   maxClientCnxns?: string;
   /**
    * @remarks
-   * The maximum timeout period. This parameter is valid for ZooKeeper instances. Unit: seconds.
+   * The maximum timeout period in ZooKeeper configuration. Unit: seconds.
    * 
    * @example
    * 1000
@@ -144,7 +166,7 @@ export class UpdateConfigRequest extends $dara.Model {
   maxSessionTimeout?: string;
   /**
    * @remarks
-   * The minimum timeout period. This parameter is valid for ZooKeeper instances. Unit: seconds.
+   * The minimum timeout period in ZooKeeper configuration. Unit: seconds.
    * 
    * @example
    * 10
@@ -152,12 +174,13 @@ export class UpdateConfigRequest extends $dara.Model {
   minSessionTimeout?: string;
   /**
    * @remarks
-   * Specifies whether to enable RAM authentication for a registry. This parameter is valid for Nacos instances. Valid values:
+   * Specifies whether to enable RAM authentication for the Accreditation Centre in Nacos:
    * 
-   * *   `true`: enabled.
-   * *   `false`: disabled.
+   * - `true`: enabled
    * 
-   * > Before you configure this parameter, you must call the QueryConfig operation to obtain the NamingAuthSupporte parameter value to check whether the instance supports the RAM authentication feature.
+   * - `false`: disabled
+   * 
+   * > Before you set this parameter, call the QueryConfig operation to obtain the NamingAuthSupporte parameter to check whether the current cluster supports this feature.
    * 
    * @example
    * true
@@ -165,10 +188,11 @@ export class UpdateConfigRequest extends $dara.Model {
   namingAuthEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable super permissions. This parameter is valid for ZooKeeper instances. Valid values:
+   * Specifies whether super permissions are enabled. This parameter is valid for ZooKeeper instances. Valid values:
    * 
-   * *   `true`: enabled
-   * *   `false`: disabled
+   * - `true`: enabled
+   * 
+   * - `false`: disabled
    * 
    * @example
    * true
@@ -176,9 +200,9 @@ export class UpdateConfigRequest extends $dara.Model {
   openSuperAcl?: string;
   /**
    * @remarks
-   * The password that corresponds to the username.
+   * The password of the account.
    * 
-   * > You must specify this parameter if OpenSuperAcl is set to true.
+   * > This parameter is required when OpenSuperAcl is set to true.
    * 
    * @example
    * password
@@ -186,7 +210,7 @@ export class UpdateConfigRequest extends $dara.Model {
   passWord?: string;
   /**
    * @remarks
-   * The extended request parameters in the JSON format.
+   * The extended request parameter in the JSON format.
    * 
    * @example
    * {}
@@ -194,7 +218,7 @@ export class UpdateConfigRequest extends $dara.Model {
   requestPars?: string;
   /**
    * @remarks
-   * The frequency for generating snapshots. This parameter is valid for ZooKeeper instances.
+   * The frequency at which snapshots are generated in ZooKeeper configuration
    * 
    * @example
    * 100000
@@ -209,6 +233,9 @@ export class UpdateConfigRequest extends $dara.Model {
    */
   syncLimit?: string;
   /**
+   * @remarks
+   * Specifies whether to enable TLS transmission link encryption in Nacos
+   * 
    * @example
    * true
    */
@@ -223,9 +250,9 @@ export class UpdateConfigRequest extends $dara.Model {
   tickTime?: string;
   /**
    * @remarks
-   * The name of the user.
+   * The username of the account.
    * 
-   * > You must specify this parameter if OpenSuperAcl is set to true.
+   * > This parameter is required when OpenSuperAcl is set to true.
    * 
    * @example
    * name

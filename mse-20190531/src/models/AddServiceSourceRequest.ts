@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddServiceSourceRequestIngressOptionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The group to which the service belongs.
+   * Specifies whether to enable Ingress.
    * 
    * @example
    * true
@@ -13,11 +13,7 @@ export class AddServiceSourceRequestIngressOptionsRequest extends $dara.Model {
   enableIngress?: boolean;
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
-   * *   zh-CN: Chinese. This is the default value.
-   * *   en-US: English.
-   * *   ja: Japanese.
+   * Specifies whether to update the Ingress status.
    * 
    * @example
    * true
@@ -25,7 +21,7 @@ export class AddServiceSourceRequestIngressOptionsRequest extends $dara.Model {
   enableStatus?: boolean;
   /**
    * @remarks
-   * An array of service root paths.
+   * The Ingress class to listen on.
    * 
    * @example
    * com.test.xxx
@@ -33,7 +29,7 @@ export class AddServiceSourceRequestIngressOptionsRequest extends $dara.Model {
   ingressClass?: string;
   /**
    * @remarks
-   * The root path of the service.
+   * The target namespace to watch.
    * 
    * @example
    * default
@@ -77,7 +73,7 @@ export class AddServiceSourceRequestToAuthorizeSecurityGroups extends $dara.Mode
   description?: string;
   /**
    * @remarks
-   * The authorized port range of the security group. You can select multiple port ranges. Separate each port range with a comma (,).
+   * The authorized port range of the security group. You can specify multiple port ranges separated by commas (,).
    * 
    * @example
    * 8080/8080,9000/10000
@@ -119,11 +115,11 @@ export class AddServiceSourceRequestToAuthorizeSecurityGroups extends $dara.Mode
 export class AddServiceSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The supported languages. Valid values:
    * 
-   * *   zh-CN (default): Chinese
-   * *   en-US: English
-   * *   ja: Japanese
+   * - zh-CN: Chinese. This is the default value.
+   * - en-US: English.
+   * - ja: Japanese.
    * 
    * @example
    * zh-CN
@@ -131,15 +127,20 @@ export class AddServiceSourceRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to monitor Ingress classes.
+   * The access address. This parameter is required.
+   * * Container Service: the ID of the Container Service cluster.
+   * * MSE Nacos: the internal endpoint of the instance.
+   * * MSE ZooKeeper: the internal endpoint of the instance.
+   * * SAE registry: the namespace TID.
+   * * EDAS registry: the microservice namespace.
    * 
    * @example
-   * c9ad2a0717032427e920754e25b49e3b5
+   * mse-********-nacos-ans.mse.aliyuncs.com:8848
    */
   address?: string;
   /**
    * @remarks
-   * Specifies whether to update the Ingress status.
+   * The unique ID of the gateway.
    * 
    * @example
    * gw-c70622ff52fe49beb29bea9a6f52****
@@ -147,52 +148,61 @@ export class AddServiceSourceRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The data structure.
+   * The list of service groups.
    */
   groupList?: string[];
   /**
    * @remarks
-   * The list of service groups.
+   * The Ingress configurations. This parameter is used when the service source type is K8s.
    */
   ingressOptionsRequest?: AddServiceSourceRequestIngressOptionsRequest;
   /**
    * @remarks
-   * The namespace whose resources you want to monitor.
+   * The name.
+   * 
+   * 
+   * > Descriptions for different source types.
+   * - When the type is K8s, the input parameter is the name.
+   * - When the type is NACOS, the input parameter is the instance ID.
    * 
    * @example
-   * istio
+   * nacos
    */
   name?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The array of service root paths.
    */
   pathList?: string[];
   /**
    * @remarks
-   * The service source.
-   * 
-   * *   K8s: ACK cluster
-   * *   NACOS: MSE Nacos instance
+   * The service source type:
+   * - Container Service: K8S
+   * - MSE Nacos: MSE
+   * - MSE ZooKeeper: MSE_ZK
+   * - SAE registry: SAE
+   * - EDAS registry: EDAS
    * 
    * @example
-   * K8s,MSE
+   * MSE
    */
   source?: string;
   /**
    * @remarks
-   * The list of security groups to be authorized. You can specify security groups to allow backend services to access data sources that you create.
+   * The list of security groups to be authorized. This parameter is used to remove security group restrictions for backend services when creating a source.
    */
   toAuthorizeSecurityGroups?: AddServiceSourceRequestToAuthorizeSecurityGroups[];
   /**
    * @remarks
-   * The type of the service source.
-   * 
-   * *   K8s: Container Service for Kubernetes (ACK) cluster
-   * *   NACOS: Nacos instance
+   * The service registration type. Specify the corresponding value based on the source type:
+   * - Container Service: K8S
+   * - MSE Nacos: NACOS
+   * - MSE ZooKeeper: ZOOKEEPER
+   * - SAE registry: NACOS
+   * - EDAS registry: NACOS
    * 
    * @example
-   * The Ingress configuration.
+   * NACOS
    */
   type?: string;
   static names(): { [key: string]: string } {

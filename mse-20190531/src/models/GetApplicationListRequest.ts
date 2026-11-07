@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetApplicationListRequestTags extends $dara.Model {
+  /**
+   * @remarks
+   * The custom tag key. It can contain up to 128 characters and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * tagKey
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * tagValue
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,8 +47,9 @@ export class GetApplicationListRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
@@ -42,7 +57,7 @@ export class GetApplicationListRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of an application.
+   * The application ID.
    * 
    * @example
    * hkhon1po62@c3df23522b*****
@@ -50,7 +65,7 @@ export class GetApplicationListRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of an application.
+   * The application name.
    * 
    * @example
    * rest-container
@@ -58,7 +73,7 @@ export class GetApplicationListRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The programming language of the application, such as Java and Go.
+   * The programming language, such as Java or Go.
    * 
    * @example
    * Java
@@ -74,7 +89,7 @@ export class GetApplicationListRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -84,7 +99,7 @@ export class GetApplicationListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 
@@ -94,7 +109,7 @@ export class GetApplicationListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region.
    * 
    * This parameter is required.
    * 
@@ -104,7 +119,7 @@ export class GetApplicationListRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Specifies whether to enable the Sentinel-compatible mode.
+   * Specifies whether to enable the Sentinel component.
    * 
    * @example
    * true
@@ -120,12 +135,16 @@ export class GetApplicationListRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Specifies whether to enable switching.
+   * Specifies whether to enable the switch.
    * 
    * @example
    * true
    */
   switchEnable?: boolean;
+  /**
+   * @remarks
+   * Alibaba Cloud tags. You can perform filtering by Alibaba Cloud tag.
+   */
   tags?: GetApplicationListRequestTags[];
   static names(): { [key: string]: string } {
     return {

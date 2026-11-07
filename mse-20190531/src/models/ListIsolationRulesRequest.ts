@@ -4,17 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListIsolationRulesRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language in which you want the results to be displayed. Valid values: zh (default): Chinese. en: English.
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The application ID.
+   * 
    * @example
    * hkhon1po62@c3df23522bXXXXX
    */
   appId?: string;
   /**
    * @remarks
+   * The application name.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -23,6 +31,8 @@ export class ListIsolationRulesRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The microservice namespace to which the application belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -30,21 +40,33 @@ export class ListIsolationRulesRequest extends $dara.Model {
    */
   namespace?: string;
   /**
+   * @remarks
+   * The first page. Default value: 1.
+   * 
    * @example
    * 1
    */
   pageIndex?: number;
   /**
+   * @remarks
+   * The page size. Default value: 6.
+   * 
    * @example
    * 10
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Find protection rules for specified interface.
+   * 
    * @example
    * /a
    */
   resource?: string;
   /**
+   * @remarks
+   * Find protection rules that contain the interface keyword.
+   * 
    * @example
    * a
    */

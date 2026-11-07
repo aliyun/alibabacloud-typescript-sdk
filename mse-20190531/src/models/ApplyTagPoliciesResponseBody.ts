@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyTagPoliciesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the field is the primary key.
+   * Indicates whether it is a primary key.
    * 
    * @example
    * true
@@ -13,10 +13,10 @@ export class ApplyTagPoliciesResponseBodyData extends $dara.Model {
   carryData?: boolean;
   /**
    * @remarks
-   * Indicates whether the rule is enabled. Valid values:
+   * Indicates whether the feature is enabled. Valid values:
    * 
-   * *   `true`: The rule is enabled.
-   * *   `false`: The rule is disabled.
+   * - `true`: Enabled.
+   * - `false`: Disabled.
    * 
    * @example
    * true
@@ -24,7 +24,7 @@ export class ApplyTagPoliciesResponseBodyData extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The ID of the primary key.
+   * The primary key ID.
    * 
    * @example
    * 12
@@ -48,7 +48,7 @@ export class ApplyTagPoliciesResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The rate.
+   * The ratio.
    * 
    * @example
    * 10
@@ -56,12 +56,12 @@ export class ApplyTagPoliciesResponseBodyData extends $dara.Model {
   rate?: number;
   /**
    * @remarks
-   * Indicates whether the routing rule was deleted.
+   * Indicates whether the deletion is successful.
    */
   remove?: boolean;
   /**
    * @remarks
-   * The details of the routing rule.
+   * The tag rules.
    * 
    * @example
    * {\\"_base\\": {\\"rate\\": 100, \\"remove\\": true}, \\"blue\\": {\\"rate\\": 0}}
@@ -69,7 +69,7 @@ export class ApplyTagPoliciesResponseBodyData extends $dara.Model {
   rules?: string;
   /**
    * @remarks
-   * The status.
+   * The effective status.
    * 
    * @example
    * 1
@@ -125,12 +125,12 @@ export class ApplyTagPoliciesResponseBodyData extends $dara.Model {
 export class ApplyTagPoliciesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the data.
+   * The data overview.
    */
   data?: ApplyTagPoliciesResponseBodyData[];
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
    * success
@@ -138,7 +138,7 @@ export class ApplyTagPoliciesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 316F5F64-F73D-42DC-8632-01E308B6****
@@ -146,7 +146,7 @@ export class ApplyTagPoliciesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * The request result.
    * 
    * @example
    * true

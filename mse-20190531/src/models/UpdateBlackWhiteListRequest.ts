@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateBlackWhiteListRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -40,7 +40,7 @@ export class UpdateBlackWhiteListRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Specifies whether to enable the whitelist.
+   * Specifies whether the list is a whitelist. Default value: false.
    * 
    * @example
    * true
@@ -64,7 +64,7 @@ export class UpdateBlackWhiteListRequest extends $dara.Model {
   note?: string;
   /**
    * @remarks
-   * The resource IDs in the JSON format.
+   * The JSON string of the resource ID list.
    * 
    * @example
    * [123]
@@ -72,7 +72,7 @@ export class UpdateBlackWhiteListRequest extends $dara.Model {
   resourceIdJsonList?: string;
   /**
    * @remarks
-   * The type of the resource.
+   * The scope of the bound resources.
    * 
    * @example
    * GATEWAY
@@ -80,7 +80,7 @@ export class UpdateBlackWhiteListRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Specifies whether to enable the blacklist or whitelist.
+   * Specifies whether it is enabled.
    * 
    * @example
    * on
@@ -88,7 +88,7 @@ export class UpdateBlackWhiteListRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type of the blacklist or whitelist.
+   * The resource type of blacklists and whitelists.
    * 
    * @example
    * IP

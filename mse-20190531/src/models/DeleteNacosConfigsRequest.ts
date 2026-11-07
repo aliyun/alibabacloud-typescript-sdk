@@ -7,8 +7,8 @@ export class DeleteNacosConfigsRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class DeleteNacosConfigsRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The IDs of configurations.
+   * The configuration IDs.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class DeleteNacosConfigsRequest extends $dara.Model {
   ids?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class DeleteNacosConfigsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the namespace.
+   * The namespace ID.
    * 
    * This parameter is required.
    * 

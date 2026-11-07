@@ -5,16 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The domain name used for fuzzy search.
+   * 
    * @example
    * example.com
    */
@@ -29,7 +32,7 @@ export class ListGatewayDomainRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The type of the domain name.
+   * The domain name type.
    * 
    * @example
    * All

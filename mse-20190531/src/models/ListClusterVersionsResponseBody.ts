@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListClusterVersionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The type of the instance.
+   * The cluster type.
    * 
    * @example
    * Nacos-Ans
@@ -13,7 +13,7 @@ export class ListClusterVersionsResponseBodyData extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The code of the instance type.
+   * The cluster type code.
    * 
    * @example
    * NACOS_2_0_0
@@ -21,7 +21,7 @@ export class ListClusterVersionsResponseBodyData extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The version of the instance.
+   * The cluster version.
    * 
    * @example
    * 2.1.0
@@ -55,7 +55,7 @@ export class ListClusterVersionsResponseBodyData extends $dara.Model {
 export class ListClusterVersionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned.
+   * The response code.
    * 
    * @example
    * 200
@@ -63,12 +63,12 @@ export class ListClusterVersionsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The details of the data.
+   * The data overview.
    */
   data?: ListClusterVersionsResponseBodyData[];
   /**
    * @remarks
-   * The dynamic part in the error message.
+   * The dynamic error message related to the request.
    * 
    * @example
    * The specified parameter is invalid.
@@ -76,7 +76,7 @@ export class ListClusterVersionsResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -84,7 +84,7 @@ export class ListClusterVersionsResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -92,15 +92,15 @@ export class ListClusterVersionsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
-   * The request was successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7717BE5B-C958-5F87-BF49-464AA276EDD1
@@ -108,10 +108,9 @@ export class ListClusterVersionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

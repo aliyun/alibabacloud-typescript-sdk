@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNacosConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code returned.
+   * The response code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteNacosConfigsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -21,7 +21,7 @@ export class DeleteNacosConfigsResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class DeleteNacosConfigsResponseBody extends $dara.Model {
   httpCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * The request message.
    * 
    * @example
    * success
@@ -37,7 +37,7 @@ export class DeleteNacosConfigsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 73EB5563-CBB3-5F48-999D-512F4EFB7377
@@ -45,10 +45,10 @@ export class DeleteNacosConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * The request result. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request succeeded.
+   * - `false`: The request failed.
    * 
    * @example
    * true

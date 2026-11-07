@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems extends $dara.Model {
   /**
    * @remarks
-   * The matching character.
+   * The match operator.
    * 
    * @example
-   * =
+   * ==
    */
   cond?: string;
   /**
@@ -16,7 +16,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems extends 
    * The value.
    * 
    * @example
-   * .params[0]
+   * x
    */
   datum?: string;
   /**
@@ -32,12 +32,12 @@ export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems extends 
    * The name.
    * 
    * @example
-   * ""
+   * x-mse-tag
    */
   name?: string;
   /**
    * @remarks
-   * The matching list.
+   * The list of matching items.
    */
   nameList?: string[];
   /**
@@ -45,7 +45,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems extends 
    * The operator.
    * 
    * @example
-   * mod
+   * rawvalue
    */
   operator?: string;
   /**
@@ -53,7 +53,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems extends 
    * The percentage.
    * 
    * @example
-   * 10
+   * 30
    */
   rate?: number;
   /**
@@ -61,12 +61,12 @@ export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems extends 
    * The remainder.
    * 
    * @example
-   * 3
+   * 10
    */
   remainder?: number;
   /**
    * @remarks
-   * The matching type.
+   * The match type.
    * 
    * @example
    * header
@@ -77,7 +77,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems extends 
    * The value.
    * 
    * @example
-   * ""
+   * gray
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -125,15 +125,15 @@ export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems extends 
 export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRules extends $dara.Model {
   /**
    * @remarks
-   * Specifies how RESTful items are combined into the final condition.
+   * Specifies how RestItems are combined to form the final condition.
    * 
    * @example
-   * ""
+   * AND
    */
   condition?: string;
   /**
    * @remarks
-   * The paths.
+   * The list of paths.
    */
   paths?: string[];
   /**
@@ -146,7 +146,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRules extends $dara.Mod
   priority?: number;
   /**
    * @remarks
-   * The matching list.
+   * The list of matching items.
    */
   restItems?: CreateOrUpdateSwimmingLaneShrinkRequestEntryRulesRestItems[];
   static names(): { [key: string]: string } {
@@ -185,7 +185,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequestEntryRules extends $dara.Mod
 export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values: zh and en. Default value: zh. The value zh indicates Chinese, and the value en indicates English.
+   * The language in which the results are returned. Valid values: zh (Chinese, default) and en (English).
    * 
    * @example
    * zh
@@ -193,7 +193,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to enable the lane.
+   * Specifies whether the lane is enabled.
    * 
    * @example
    * true
@@ -201,7 +201,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * Specifies whether to configure a routing rule for the lane. If an Ingress gateway is used, this parameter is not required.
+   * Specifies whether to configure routing rules for the lane. Configuration is not required if the ingress is a gateway.
    * 
    * @example
    * false
@@ -212,29 +212,24 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
    * The JSON string.
    * 
    * @example
-   * {}
+   * [{"Priority":1,"Paths":[],"Condition":"AND","RestItems":[{"Type":"param","Name":"name","Value":"xiaoming","Cond":"==","Operator":"rawvalue"}]}]
    * 
    * @deprecated
    */
   entryRule?: string;
   /**
    * @remarks
-   * The lane.
+   * The collection of lane rules.
    */
   entryRules?: CreateOrUpdateSwimmingLaneShrinkRequestEntryRules[];
   /**
    * @remarks
-   * The information about the routing rule for the gateway. This parameter is required when a cloud-native gateway is used as the ingress.
+   * The gateway routing information. This parameter is used when a cloud-native gateway is used as the ingress.
    */
   gatewaySwimmingLaneRouteJsonShrink?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:****
-   * 
-   * *   **zh-CN**: Chinese
-   * *   **en-US**: English
-   * 
-   * > Default value: **zh-CN**.
+   * The ID of the lane group to which the lane belongs.
    * 
    * @example
    * 115
@@ -242,7 +237,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The ID of the primary key. The value -1 indicates a request that is used to create a lane. A value greater than 0 indicates a request that is used to modify a lane.
+   * The primary key ID. A value of -1 indicates that a lane is created. A value greater than 0 indicates that a specified lane is updated.
    * 
    * @example
    * -1
@@ -255,18 +250,28 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Test lane
+   * gray
    */
   name?: string;
   /**
+   * @remarks
+   * The name of the MSE namespace.
+   * 
    * @example
    * default
    */
   namespace?: string;
+  /**
+   * @remarks
+   * **[Deprecated]** The Java gateway-related configuration for percentage-based routing by path.
+   * 
+   * @example
+   * false
+   */
   pathIndependentPercentageEnable?: boolean;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -274,7 +279,7 @@ export class CreateOrUpdateSwimmingLaneShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The tag.
+   * The identifier.
    * 
    * @example
    * gray

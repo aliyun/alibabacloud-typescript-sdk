@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListNacosMcpServersResponseBodyDataPageItemsVersionDetail extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether this is the latest version.
+   * 
    * @example
    * true
    */
   isLatest?: boolean;
   /**
+   * @remarks
+   * The release date.
+   * 
    * @example
    * 2025-07-16
    */
   releaseDate?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * 1.0.0
    */
@@ -44,13 +53,23 @@ export class ListNacosMcpServersResponseBodyDataPageItemsVersionDetail extends $
 }
 
 export class ListNacosMcpServersResponseBodyDataPageItems extends $dara.Model {
+  /**
+   * @remarks
+   * The capabilities of the MCP server.
+   */
   capabilities?: string[];
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * test
    */
   description?: string;
   /**
+   * @remarks
+   * The frontend protocol type.
+   * 
    * @example
    * mcp-sse
    */
@@ -64,20 +83,33 @@ export class ListNacosMcpServersResponseBodyDataPageItems extends $dara.Model {
    */
   id?: string;
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * test
    */
   name?: string;
   /**
+   * @remarks
+   * The type of the MCP server.
+   * 
    * @example
    * stdio
    */
   protocol?: string;
   /**
+   * @remarks
+   * The current latest version.
+   * 
    * @example
    * 1.1.0
    */
   version?: string;
+  /**
+   * @remarks
+   * The version details.
+   */
   versionDetail?: ListNacosMcpServersResponseBodyDataPageItemsVersionDetail;
   static names(): { [key: string]: string } {
     return {
@@ -121,6 +153,10 @@ export class ListNacosMcpServersResponseBodyDataPageItems extends $dara.Model {
 }
 
 export class ListNacosMcpServersResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The paginated list of MCP servers.
+   */
   pageItems?: ListNacosMcpServersResponseBodyDataPageItems[];
   /**
    * @remarks
@@ -139,6 +175,9 @@ export class ListNacosMcpServersResponseBodyData extends $dara.Model {
    */
   pagesAvailable?: number;
   /**
+   * @remarks
+   * The total number of entries.
+   * 
    * @example
    * 4
    */
@@ -174,8 +213,15 @@ export class ListNacosMcpServersResponseBodyData extends $dara.Model {
 }
 
 export class ListNacosMcpServersResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The returned data structure.
+   */
   data?: ListNacosMcpServersResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * ADDD8AB7-8D1C-4697-A83E-410D2607****
    */

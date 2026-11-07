@@ -4,10 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DataToolSpecToolsMetaValue extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the tool is enabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
+  /**
+   * @remarks
+   * The protocol conversion template configuration.
+   */
   templates?: { [key: string]: any };
   static names(): { [key: string]: string } {
     return {

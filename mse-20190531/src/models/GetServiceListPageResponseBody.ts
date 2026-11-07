@@ -21,7 +21,7 @@ export class GetServiceListPageResponseBodyDataResult extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The time when the service was last updated.
+   * The last update time of the service.
    * 
    * @example
    * 123456
@@ -29,7 +29,7 @@ export class GetServiceListPageResponseBodyDataResult extends $dara.Model {
   gmtModifyTime?: string;
   /**
    * @remarks
-   * The group to which the service belongs.
+   * The service group.
    * 
    * @example
    * DEFAULT_GROUP
@@ -37,7 +37,7 @@ export class GetServiceListPageResponseBodyDataResult extends $dara.Model {
   group?: string;
   /**
    * @remarks
-   * The number of service nodes.
+   * The number of instances for the service.
    * 
    * @example
    * 1
@@ -51,6 +51,13 @@ export class GetServiceListPageResponseBodyDataResult extends $dara.Model {
    * sc-A
    */
   serviceName?: string;
+  /**
+   * @remarks
+   * The service type.
+   * 
+   * @example
+   * springCloud
+   */
   serviceType?: string;
   /**
    * @remarks
@@ -98,7 +105,7 @@ export class GetServiceListPageResponseBodyDataResult extends $dara.Model {
 export class GetServiceListPageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -119,7 +126,7 @@ export class GetServiceListPageResponseBodyData extends $dara.Model {
   result?: GetServiceListPageResponseBodyDataResult[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -158,7 +165,7 @@ export class GetServiceListPageResponseBodyData extends $dara.Model {
 export class GetServiceListPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response to the request.
+   * The response data.
    */
   data?: GetServiceListPageResponseBodyData;
   /**
@@ -179,7 +186,7 @@ export class GetServiceListPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetGatewayConfigRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language of the returned results. Valid values: zh (default): Chinese. en: English.
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * The unique ID of the gateway.
+   * 
    * This parameter is required.
    * 
    * @example

@@ -5,23 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGatewayRouteShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
+   * @remarks
+   * The description of the route.
+   * 
    * @example
    * a route for xxx
    */
   description?: string;
   /**
    * @remarks
-   * The destination service type.
+   * The type of the destination service.
    * 
    * @example
    * Mock
@@ -29,12 +32,12 @@ export class UpdateGatewayRouteShrinkRequest extends $dara.Model {
   destinationType?: string;
   /**
    * @remarks
-   * The information about service mocking.
+   * The mock content.
    */
   directResponseJSONShrink?: string;
   /**
    * @remarks
-   * The associated domain name.
+   * The associated domain names.
    * 
    * @example
    * [90]
@@ -42,7 +45,7 @@ export class UpdateGatewayRouteShrinkRequest extends $dara.Model {
   domainIdListJSON?: string;
   /**
    * @remarks
-   * Specifies whether to activate Web Application Firewall (WAF).
+   * **[Deprecated]** Use UpdateGatewayRouteWafStatus to update the WAF status of the route.
    * 
    * @example
    * false
@@ -52,7 +55,7 @@ export class UpdateGatewayRouteShrinkRequest extends $dara.Model {
   enableWaf?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the Fallback service.
+   * Specifies whether to enable the fallback service.
    * 
    * @example
    * true
@@ -60,7 +63,7 @@ export class UpdateGatewayRouteShrinkRequest extends $dara.Model {
   fallback?: boolean;
   /**
    * @remarks
-   * The information about the Fallback service.
+   * The fallback services.
    */
   fallbackServicesShrink?: string;
   /**
@@ -99,17 +102,17 @@ export class UpdateGatewayRouteShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The route matching conditions.
+   * The matching conditions of the route.
    */
   predicatesShrink?: string;
   /**
    * @remarks
-   * The information about redirection.
+   * The redirect configuration.
    */
   redirectJSONShrink?: string;
   /**
    * @remarks
-   * The sequence number of the route.
+   * The order of the route.
    * 
    * @example
    * 1
@@ -117,7 +120,7 @@ export class UpdateGatewayRouteShrinkRequest extends $dara.Model {
   routeOrder?: number;
   /**
    * @remarks
-   * The information about destination services.
+   * The destination services. Specify this parameter when the route points to a single service, multiple services, or tag-based routing.
    */
   servicesShrink?: string;
   static names(): { [key: string]: string } {

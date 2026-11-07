@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * The language of the returned information. Valid values:
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -16,7 +15,7 @@ export class ListGatewayShrinkRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to enable the sorting feature. This feature is not available.
+   * The sorting order. This parameter is currently not used.
    * 
    * @example
    * false
@@ -24,7 +23,7 @@ export class ListGatewayShrinkRequest extends $dara.Model {
   descSort?: boolean;
   /**
    * @remarks
-   * The details of parameters.
+   * The filter parameters.
    */
   filterParamsShrink?: string;
   /**
@@ -37,7 +36,7 @@ export class ListGatewayShrinkRequest extends $dara.Model {
   orderItem?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -45,7 +44,7 @@ export class ListGatewayShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of instances per page.
    * 
    * @example
    * 10

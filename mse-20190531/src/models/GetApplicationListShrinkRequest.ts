@@ -7,8 +7,9 @@ export class GetApplicationListShrinkRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
@@ -16,7 +17,7 @@ export class GetApplicationListShrinkRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of an application.
+   * The application ID.
    * 
    * @example
    * hkhon1po62@c3df23522b*****
@@ -24,7 +25,7 @@ export class GetApplicationListShrinkRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of an application.
+   * The application name.
    * 
    * @example
    * rest-container
@@ -32,7 +33,7 @@ export class GetApplicationListShrinkRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The programming language of the application, such as Java and Go.
+   * The programming language, such as Java or Go.
    * 
    * @example
    * Java
@@ -48,7 +49,7 @@ export class GetApplicationListShrinkRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -58,7 +59,7 @@ export class GetApplicationListShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 
@@ -68,7 +69,7 @@ export class GetApplicationListShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region.
    * 
    * This parameter is required.
    * 
@@ -78,7 +79,7 @@ export class GetApplicationListShrinkRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Specifies whether to enable the Sentinel-compatible mode.
+   * Specifies whether to enable the Sentinel component.
    * 
    * @example
    * true
@@ -94,12 +95,16 @@ export class GetApplicationListShrinkRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Specifies whether to enable switching.
+   * Specifies whether to enable the switch.
    * 
    * @example
    * true
    */
   switchEnable?: boolean;
+  /**
+   * @remarks
+   * Alibaba Cloud tags. You can perform filtering by Alibaba Cloud tag.
+   */
   tagsShrink?: string;
   static names(): { [key: string]: string } {
     return {

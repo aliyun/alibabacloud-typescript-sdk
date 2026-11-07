@@ -5,21 +5,33 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOrUpdateSwimmingLaneGroupResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of application IDs that are separated by commas (,).
+   * The IDs of the applications, separated by commas (,).
    * 
    * @example
    * abcd1@abcde123,abcd1@abcde124
    */
   appIds?: string;
+  /**
+   * @remarks
+   * The end-to-end canary release mode. Valid values:
+   * - 0: Route by request content.
+   * - 1: Route by proportion.
+   * 
+   * @example
+   * 0
+   */
   canaryModel?: number;
   /**
+   * @remarks
+   * Indicates whether canary release is enabled for databases.
+   * 
    * @example
    * true
    */
   dbGrayEnable?: string;
   /**
    * @remarks
-   * The ingress application.
+   * The entry application.
    * 
    * @example
    * mse:abcd1@a2345
@@ -27,7 +39,7 @@ export class CreateOrUpdateSwimmingLaneGroupResponseBodyData extends $dara.Model
   entryApp?: string;
   /**
    * @remarks
-   * The ID of the lane group.
+   * The ID of the swimlane group.
    * 
    * @example
    * 2047
@@ -35,7 +47,7 @@ export class CreateOrUpdateSwimmingLaneGroupResponseBodyData extends $dara.Model
   id?: number;
   /**
    * @remarks
-   * The side for message filtering when the canary release for messaging feature is enabled.
+   * The side where message queue canary release filtering is performed.
    * 
    * @example
    * Client
@@ -43,13 +55,16 @@ export class CreateOrUpdateSwimmingLaneGroupResponseBodyData extends $dara.Model
   messageQueueFilterSide?: string;
   /**
    * @remarks
-   * Specifies whether to enable canary release for messaging.
+   * Specifies whether to enable canary release for message queues.
    * 
    * @example
    * true
    */
   messageQueueGrayEnable?: boolean;
   /**
+   * @remarks
+   * The name of the application.
+   * 
    * @example
    * example-app
    */
@@ -62,6 +77,13 @@ export class CreateOrUpdateSwimmingLaneGroupResponseBodyData extends $dara.Model
    * prod
    */
   namespace?: string;
+  /**
+   * @remarks
+   * **[Deprecated]** The paths. This parameter is a list of paths when a Java gateway is used as the entry point.
+   * 
+   * @example
+   * ["/a"]
+   */
   paths?: string;
   /**
    * @remarks
@@ -73,7 +95,7 @@ export class CreateOrUpdateSwimmingLaneGroupResponseBodyData extends $dara.Model
   recordCanaryDetail?: boolean;
   /**
    * @remarks
-   * The region where the application resides.
+   * The region to which the application belongs.
    * 
    * @example
    * cn-hangzhou
@@ -135,7 +157,7 @@ export class CreateOrUpdateSwimmingLaneGroupResponseBodyData extends $dara.Model
 export class CreateOrUpdateSwimmingLaneGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response parameters.
+   * The data overview.
    * 
    * @example
    * {}
@@ -146,20 +168,20 @@ export class CreateOrUpdateSwimmingLaneGroupResponseBody extends $dara.Model {
    * The error code.
    * 
    * @example
-   * mse-100-000
+   * Success
    */
   errorCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
-   * The request was successfully processed.
+   * Succ
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * EE5C32A1-BC0E-4B79-817C-103E4EDF****
@@ -167,9 +189,9 @@ export class CreateOrUpdateSwimmingLaneGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * true: The request was successful. false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

@@ -7,8 +7,8 @@ export class DeleteZnodeRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class DeleteZnodeRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class DeleteZnodeRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The path of the node.
+   * The node path.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class DeleteZnodeRequest extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The extended request parameters in the JSON format.
+   * The extended request parameters in JSON format.
    * 
    * @example
    * {}

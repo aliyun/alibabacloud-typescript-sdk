@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListGatewayFlowRuleRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language in which the returned results are displayed. Valid values: zh (default): Chinese, en: English
+   * 
    * @example
    * zh
    */

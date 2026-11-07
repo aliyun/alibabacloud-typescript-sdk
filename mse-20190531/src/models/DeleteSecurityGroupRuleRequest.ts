@@ -7,13 +7,18 @@ export class DeleteSecurityGroupRuleRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
    */
   acceptLanguage?: string;
+  /**
+   * @remarks
+   * Specifies whether to perform a cascading delete.
+   */
   cascadingDelete?: boolean;
   /**
    * @remarks
@@ -25,7 +30,7 @@ export class DeleteSecurityGroupRuleRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The destination ID.
+   * The ID of the security group rule.
    * 
    * @example
    * 93

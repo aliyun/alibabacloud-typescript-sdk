@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListNacosHistoryConfigsResponseBodyHistoryItems extends $dara.Model {
   /**
    * @remarks
-   * The application tag.
+   * The tags of the application.
    * 
    * @example
    * gateway
@@ -29,7 +29,7 @@ export class ListNacosHistoryConfigsResponseBodyHistoryItems extends $dara.Model
   group?: string;
   /**
    * @remarks
-   * The ID of the configuration.
+   * The configuration ID.
    * 
    * @example
    * 23fdsf
@@ -40,7 +40,7 @@ export class ListNacosHistoryConfigsResponseBodyHistoryItems extends $dara.Model
    * The timestamp when the configuration was last modified.
    * 
    * @example
-   * 16434400
+   * 1643440066000
    */
   lastModifiedTime?: number;
   /**
@@ -51,6 +51,13 @@ export class ListNacosHistoryConfigsResponseBodyHistoryItems extends $dara.Model
    * yaml
    */
   opType?: string;
+  /**
+   * @remarks
+   * The user who modified this version
+   * 
+   * @example
+   * test
+   */
   srcUser?: string;
   static names(): { [key: string]: string } {
     return {
@@ -88,7 +95,7 @@ export class ListNacosHistoryConfigsResponseBodyHistoryItems extends $dara.Model
 export class ListNacosHistoryConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -101,7 +108,7 @@ export class ListNacosHistoryConfigsResponseBody extends $dara.Model {
   historyItems?: ListNacosHistoryConfigsResponseBodyHistoryItems[];
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -109,15 +116,15 @@ export class ListNacosHistoryConfigsResponseBody extends $dara.Model {
   httpCode?: string;
   /**
    * @remarks
-   * The message returned.
+   * The message that is returned for the request.
    * 
    * @example
-   * The request was successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -133,7 +140,7 @@ export class ListNacosHistoryConfigsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 53338ECA-F880-54D8-A9B3-5606355A1B89
@@ -143,8 +150,9 @@ export class ListNacosHistoryConfigsResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

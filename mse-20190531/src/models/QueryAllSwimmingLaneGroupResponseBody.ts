@@ -11,10 +11,21 @@ export class QueryAllSwimmingLaneGroupResponseBodyData extends $dara.Model {
    * abcde@abcde,abcde@abcde
    */
   appIds?: string;
+  /**
+   * @remarks
+   * The routing mode for end-to-end canary release:
+   * 
+   * - 0: routing based on request content
+   * 
+   * - 1: routing based on percentages
+   * 
+   * @example
+   * 0
+   */
   canaryModel?: number;
   /**
    * @remarks
-   * The type and ID of the ingress application.
+   * The type of the ingress application and the ID of the ingress application.
    * 
    * @example
    * mse:abcde@abcde
@@ -30,7 +41,7 @@ export class QueryAllSwimmingLaneGroupResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The side at which canary release for messaging was enabled.
+   * The side at which canary release for messaging is enabled.
    * 
    * @example
    * Client
@@ -46,7 +57,7 @@ export class QueryAllSwimmingLaneGroupResponseBodyData extends $dara.Model {
   messageQueueGrayEnable?: boolean;
   /**
    * @remarks
-   * The name of the lane group.
+   * The name of a lane group.
    * 
    * @example
    * swimmingGroup
@@ -60,10 +71,17 @@ export class QueryAllSwimmingLaneGroupResponseBodyData extends $dara.Model {
    * default
    */
   namespace?: string;
+  /**
+   * @remarks
+   * This parameter is deprecated
+   * 
+   * @example
+   * ["/a"]
+   */
   paths?: string;
   /**
    * @remarks
-   * Indicates whether the request details (metrics of end-to-end canary release) were recorded.
+   * Indicates whether to record the request details (metrics of end-to-end canary release).
    * 
    * @example
    * false
@@ -77,6 +95,13 @@ export class QueryAllSwimmingLaneGroupResponseBodyData extends $dara.Model {
    * cn-hangzhou
    */
   region?: string;
+  /**
+   * @remarks
+   * The canary version. Valid values: 0 and 2. Recommended value: 2.
+   * 
+   * @example
+   * 2
+   */
   swimVersion?: number;
   /**
    * @remarks
@@ -134,7 +159,7 @@ export class QueryAllSwimmingLaneGroupResponseBodyData extends $dara.Model {
 export class QueryAllSwimmingLaneGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of 200 is returned if the request is successful.
+   * The code is used only to synchronize with success.
    * 
    * @example
    * 200
@@ -142,7 +167,7 @@ export class QueryAllSwimmingLaneGroupResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The details of the data.
+   * The data returned.
    * 
    * @example
    * [{id:100,name:"test"}]
@@ -158,7 +183,7 @@ export class QueryAllSwimmingLaneGroupResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -166,7 +191,7 @@ export class QueryAllSwimmingLaneGroupResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -174,18 +199,19 @@ export class QueryAllSwimmingLaneGroupResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The returned message.
+   * The message that is returned for the request.
    * 
-   * *   If the request is successful, a success message is returned.
-   * *   If the request fails, an error message is returned.
+   * - If the request is successful, a success message is returned.
+   * 
+   * - If the request fails, an error message is returned.
    * 
    * @example
-   * The request was successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 54973C90-F379-4372-9AA5-053A3F7****
@@ -195,8 +221,9 @@ export class QueryAllSwimmingLaneGroupResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

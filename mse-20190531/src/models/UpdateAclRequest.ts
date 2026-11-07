@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAclRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class UpdateAclRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The IP addresses or CIDR blocks in the IP address whitelist.
+   * The whitelist.
    * 
    * @example
    * 192.168.0.0/XX,192.168.0.0/XX
@@ -24,12 +24,19 @@ export class UpdateAclRequest extends $dara.Model {
   aclEntryList?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * mse-cn-78v1l83****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The network type to which the access control rule applies. Valid values: Public and Private.
+   * 
+   * @example
+   * Public
+   */
   networkType?: string;
   static names(): { [key: string]: string } {
     return {

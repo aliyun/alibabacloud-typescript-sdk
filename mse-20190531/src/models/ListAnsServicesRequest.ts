@@ -7,8 +7,9 @@ export class ListAnsServicesRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
@@ -18,7 +19,7 @@ export class ListAnsServicesRequest extends $dara.Model {
    * @remarks
    * The ID of the cluster.
    * 
-   * > This operation contains both the InstanceId and ClusterId parameters. You must specify one of them.
+   * > You must specify either this parameter or InstanceId.
    * 
    * @example
    * mse-09k1q11****
@@ -28,7 +29,10 @@ export class ListAnsServicesRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * 查询服务下某个集群的实例列表是所需要的参数
+   * The parameter that is required to query the list of instances in a specific cluster of a service.
+   * 
+   * @example
+   * DEFAULT
    */
   clusterName?: string;
   /**
@@ -41,7 +45,7 @@ export class ListAnsServicesRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * Specifies whether to query the number of instances that are used for the service.
+   * Specifies whether to query the number of service instances.
    * 
    * @example
    * true
@@ -51,7 +55,7 @@ export class ListAnsServicesRequest extends $dara.Model {
    * @remarks
    * The ID of the instance.
    * 
-   * > This operation contains both the InstanceId and ClusterId parameters. You must specify one of them.
+   * > You must specify either this parameter or ClusterId.
    * 
    * @example
    * mse-cn-st21v5****
@@ -67,7 +71,7 @@ export class ListAnsServicesRequest extends $dara.Model {
   namespaceId?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -77,7 +81,7 @@ export class ListAnsServicesRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of instances to display on each page.
    * 
    * This parameter is required.
    * 
@@ -85,6 +89,13 @@ export class ListAnsServicesRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The region.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
   /**
    * @remarks

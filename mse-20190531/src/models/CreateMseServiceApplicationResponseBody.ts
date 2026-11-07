@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMseServiceApplicationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The ID of the application.
    * 
    * @example
    * xxxxxxxx@xxxxxxxxxx
@@ -21,7 +21,7 @@ export class CreateMseServiceApplicationResponseBodyData extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1631001140913
@@ -45,7 +45,7 @@ export class CreateMseServiceApplicationResponseBodyData extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The license key in use.
+   * The license key of the user.
    * 
    * @example
    * xxxxxxxx@xxxxxxxxxx
@@ -53,7 +53,7 @@ export class CreateMseServiceApplicationResponseBodyData extends $dara.Model {
   licenseKey?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -69,7 +69,7 @@ export class CreateMseServiceApplicationResponseBodyData extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The status. Valid values: 1: available; 2: deleted.
+   * The status. A value of 1 indicates the available state, and a value of 2 indicates the deleted state.
    * 
    * @example
    * 1
@@ -77,7 +77,7 @@ export class CreateMseServiceApplicationResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The last modification time.
+   * The last update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1632979237663
@@ -150,10 +150,10 @@ export class CreateMseServiceApplicationResponseBody extends $dara.Model {
   data?: CreateMseServiceApplicationResponseBodyData;
   /**
    * @remarks
-   * The message returned.
+   * The message.
    * 
    * @example
-   * The request was successfully processed.
+   * The request is processed successfully
    */
   message?: string;
   /**
@@ -166,10 +166,10 @@ export class CreateMseServiceApplicationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * The request result. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

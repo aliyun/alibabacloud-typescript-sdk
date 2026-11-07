@@ -89,7 +89,7 @@ export class GetImageResponseBody extends $dara.Model {
    * The message returned.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**

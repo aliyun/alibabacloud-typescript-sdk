@@ -230,7 +230,7 @@ export class ListGatewayAuthConsumerResponseBody extends $dara.Model {
    * The error message returned.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**

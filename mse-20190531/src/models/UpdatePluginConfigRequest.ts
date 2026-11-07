@@ -5,9 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdatePluginConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * zh: Chinese en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -15,19 +16,25 @@ export class UpdatePluginConfigRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The plug-in configuration. Configurations of WebAssembly plug-ins are in the YAML format, and configurations of Lua plug-ins are in the Lua code.
+   * The configuration content of the plug-in. Use YAML for Wasm plug-ins and Lua code for Lua plug-ins.
    * 
    * @example
-   * \\# Configure a check for the required fields of the plug-in, such as name, age, and friends. Sample configuration: name: John age: 18 friends: - David - Anne
+   * name: John
+   * age: 18
+   * friends:
+   * - David
+   * - Anne
    */
   config?: string;
   /**
    * @remarks
-   * The application scope of the plug-in.
+   * The application scope of the plug-in. Valid values:
    * 
-   * *   0: global
-   * *   1: route
-   * *   2: domain name
+   * - 0: Global.
+   * 
+   * - 1: Route.
+   * 
+   * - 2: Domain name.
    * 
    * @example
    * 0
@@ -95,6 +102,10 @@ export class UpdatePluginConfigRequest extends $dara.Model {
    * 2
    */
   pluginId?: number;
+  /**
+   * @remarks
+   * The list of domain name IDs or route IDs, which depends on the value of ConfigLevel.
+   */
   resourceIdList?: number[];
   static names(): { [key: string]: string } {
     return {

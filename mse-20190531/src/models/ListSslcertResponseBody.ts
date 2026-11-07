@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListSSLCertResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the certificate expires. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the certificate expired. The time was formatted as a UNIX timestamp in milliseconds.
    * 
    * @example
-   * 2021-04-01 02:35:12
+   * 1726039184803
    */
   afterDate?: string;
   /**
@@ -21,15 +21,15 @@ export class ListSSLCertResponseBodyData extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The time when the certificate took effect. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The time when the certificate took effect. The time was formatted as a UNIX timestamp in milliseconds.
    * 
    * @example
-   * 2031-03-30 02:35:12
+   * 1694503184803
    */
   beforeDate?: string;
   /**
    * @remarks
-   * The ID of the certificate.
+   * The certificate ID.
    * 
    * @example
    * 1234
@@ -37,7 +37,7 @@ export class ListSSLCertResponseBodyData extends $dara.Model {
   certIdentifier?: string;
   /**
    * @remarks
-   * The name of the certificate.
+   * The certificate name.
    * 
    * @example
    * test.com
@@ -53,23 +53,23 @@ export class ListSSLCertResponseBodyData extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The time when the certificate expires. This value is a GMT timestamp.
+   * The time when the certificate expired. The time was formatted as a GMT timestamp.
    * 
    * @example
-   * 2021-04-01 02:35:12
+   * 2024-09-11T07:19:44.803+0000
    */
   gmtAfter?: string;
   /**
    * @remarks
-   * The time when the certificate took effect. This value is a GMT timestamp.
+   * The time when the certificate took effect. The time was formatted as a GMT timestamp.
    * 
    * @example
-   * 2031-03-30 02:35:12
+   * 2023-09-12T07:19:44.803+0000
    */
   gmtBefore?: string;
   /**
    * @remarks
-   * The issuer of the certificate.
+   * The issuer.
    * 
    * @example
    * test
@@ -125,7 +125,7 @@ export class ListSSLCertResponseBodyData extends $dara.Model {
 export class ListSSLCertResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code returned. A value of 200 indicates that the request is successful.
+   * The status code. A value of 200 indicates that the request is successful.
    * 
    * @example
    * 200
@@ -133,12 +133,12 @@ export class ListSSLCertResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: ListSSLCertResponseBodyData[];
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -146,7 +146,7 @@ export class ListSSLCertResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned.
+   * The error message.
    * 
    * @example
    * You are not authorized to perform this operation.
@@ -154,7 +154,7 @@ export class ListSSLCertResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CAA9A229-141D-5FBA-AC5C-516C02026A11
@@ -162,10 +162,11 @@ export class ListSSLCertResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the call was successful. Valid values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request was successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

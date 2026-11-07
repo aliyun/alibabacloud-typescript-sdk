@@ -32,7 +32,7 @@ export class UpdateGatewaySpecResponseBody extends $dara.Model {
    * The message returned.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**

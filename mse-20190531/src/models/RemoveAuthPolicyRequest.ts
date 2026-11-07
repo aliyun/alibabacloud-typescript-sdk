@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class RemoveAuthPolicyRequest extends $dara.Model {
   /**
+   * @remarks
+   * The language in which the returned results are displayed. Values: zh-CN (default): Chinese, en-US: English
+   * 
    * @example
    * zh
    */
   acceptLanguage?: string;
   /**
    * @remarks
+   * Policy ID.
+   * 
    * This parameter is required.
    * 
    * @example

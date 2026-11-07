@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GatewayBlackWhiteListShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The language in which you want to display the results. Valid values: zh and en. zh indicates Chinese, which is the default value. en indicates English.
+   * The language of the response. Valid values: zh (Chinese, default) and en (English).
    * 
    * @example
    * zh
@@ -13,7 +13,7 @@ export class GatewayBlackWhiteListShrinkRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * This parameter is unavailable for public use.
+   * This parameter is not available.
    * 
    * @example
    * ""
@@ -21,12 +21,12 @@ export class GatewayBlackWhiteListShrinkRequest extends $dara.Model {
   descSort?: boolean;
   /**
    * @remarks
-   * The filter parameters.
+   * parse from filterParams
    */
   filterParamsShrink?: string;
   /**
    * @remarks
-   * This parameter is unavailable for public use.
+   * This parameter is not available.
    * 
    * @example
    * ""
@@ -34,7 +34,7 @@ export class GatewayBlackWhiteListShrinkRequest extends $dara.Model {
   orderItem?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Valid values: integers greater than 0. Default value: 1.
    * 
    * @example
    * 1

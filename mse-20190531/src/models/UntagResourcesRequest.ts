@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response information:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -16,10 +16,10 @@ export class UntagResourcesRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to delete all tags. This parameter takes effect only when the TagKey.N parameter is not specified. Valid values:
+   * Specifies whether to delete all tags. This parameter takes effect only when TagKey.N is empty. Valid values: 
    * 
-   * *   true
-   * *   false
+   * - true
+   * - false
    * 
    * Default value: false.
    * 
@@ -29,7 +29,7 @@ export class UntagResourcesRequest extends $dara.Model {
   all?: boolean;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -39,17 +39,18 @@ export class UntagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource IDs. A maximum of 50 resource IDs can be specified.
+   * The resource IDs. You can specify up to 50 resource IDs.
    * 
    * This parameter is required.
    */
   resourceId?: string[];
   /**
    * @remarks
-   * The type of the resource. Valid values:
+   * The resource type. Valid values:
    * 
-   * *   CLUSTER: MSE instance
-   * *   GATEWAY: cloud-native gateway
+   * - CLUSTER: registration and configuration center.
+   * 
+   * - GATEWAY: cloud-native gateway.
    * 
    * This parameter is required.
    * 
@@ -59,7 +60,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag keys. A maximum of 20 tag keys are supported.
+   * The tag keys. You can specify up to 20 tag keys.
    */
   tagKey?: string[];
   static names(): { [key: string]: string } {

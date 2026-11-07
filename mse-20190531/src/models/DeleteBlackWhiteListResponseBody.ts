@@ -4,56 +4,99 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteBlackWhiteListResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The configuration content.
+   * 
    * @example
    * 1.1.1.1
    */
   content?: string;
   /**
+   * @remarks
+   * The ID of the gateway.
+   * 
    * @example
    * 430
    */
   gatewayId?: number;
   /**
+   * @remarks
+   * The unique ID of the gateway.
+   * 
    * @example
    * gw-9cdcf8e4f58144059e73ff4c5ef9****
    */
   gatewayUniqueId?: string;
   /**
+   * @remarks
+   * The creation time.
+   * 
    * @example
    * 2022-08-10 20:22:34
    */
   gmtCreate?: string;
   /**
+   * @remarks
+   * The update time.
+   * 
    * @example
    * 2022-08-10 20:22:34
    */
   gmtModified?: string;
   /**
+   * @remarks
+   * The ID of the blacklists and whitelists entry.
+   * 
    * @example
    * 120
    */
   id?: number;
   /**
+   * @remarks
+   * Indicates whether the entry is a whitelist.
+   * 
    * @example
    * true
    */
   isWhite?: boolean;
   /**
+   * @remarks
+   * Deprecated.
+   * 
    * @example
    * 1
    */
   resourceId?: number;
   /**
+   * @remarks
+   * The granularity at which the blacklist or whitelist takes effect. Valid values:
+   * 
+   * - GATEWAY: gateway-wide
+   * 
+   * - DOMAIN: domain name
+   * 
+   * - ROUTE: route
+   * 
    * @example
    * GATEWAY
    */
   resourceType?: string;
   /**
+   * @remarks
+   * The enabling status. Valid values:
+   * 
+   * - 0: disabled
+   * 
+   * - 1: enabled
+   * 
    * @example
    * 1
    */
   status?: boolean;
   /**
+   * @remarks
+   * Deprecated. A fixed value.
+   * 
    * @example
    * IP
    */
@@ -101,17 +144,30 @@ export class DeleteBlackWhiteListResponseBodyData extends $dara.Model {
 
 export class DeleteBlackWhiteListResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code, which is used only to indicate whether the request is successful, similar to the Success parameter.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The data structure.
+   */
   data?: DeleteBlackWhiteListResponseBodyData;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * OK
    */
@@ -125,6 +181,11 @@ export class DeleteBlackWhiteListResponseBody extends $dara.Model {
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the request was successful. Valid values:
+   * - `true`: The request was successful.
+   * - `false`: The request failed.
+   * 
    * @example
    * true
    */

@@ -6,7 +6,7 @@ import { TrafficPolicy } from "./TrafficPolicy";
 export class GetGatewayServiceDetailResponseBodyDataLabelDetails extends $dara.Model {
   /**
    * @remarks
-   * The tag.
+   * The label.
    * 
    * @example
    * label
@@ -14,7 +14,7 @@ export class GetGatewayServiceDetailResponseBodyDataLabelDetails extends $dara.M
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The label value.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -70,7 +70,7 @@ export class GetGatewayServiceDetailResponseBodyDataPortTrafficPolicyList extend
   gmtModified?: string;
   /**
    * @remarks
-   * The port ID.
+   * The port configuration ID.
    * 
    * @example
    * 1
@@ -86,7 +86,7 @@ export class GetGatewayServiceDetailResponseBodyDataPortTrafficPolicyList extend
   serviceId?: number;
   /**
    * @remarks
-   * The service port number.
+   * The service port.
    * 
    * @example
    * 8080
@@ -136,7 +136,7 @@ export class GetGatewayServiceDetailResponseBodyDataPortTrafficPolicyList extend
 export class GetGatewayServiceDetailResponseBodyDataVersionDetailsServiceVersionLabels extends $dara.Model {
   /**
    * @remarks
-   * The tag.
+   * The label.
    * 
    * @example
    * version
@@ -144,7 +144,7 @@ export class GetGatewayServiceDetailResponseBodyDataVersionDetailsServiceVersion
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The label value.
    * 
    * @example
    * v2
@@ -176,12 +176,12 @@ export class GetGatewayServiceDetailResponseBodyDataVersionDetailsServiceVersion
 export class GetGatewayServiceDetailResponseBodyDataVersionDetailsServiceVersion extends $dara.Model {
   /**
    * @remarks
-   * The tag.
+   * The label.
    */
   labels?: GetGatewayServiceDetailResponseBodyDataVersionDetailsServiceVersionLabels[];
   /**
    * @remarks
-   * The version number.
+   * The version name.
    * 
    * @example
    * v2
@@ -266,7 +266,7 @@ export class GetGatewayServiceDetailResponseBodyDataVersionDetails extends $dara
 export class GetGatewayServiceDetailResponseBodyDataVersions extends $dara.Model {
   /**
    * @remarks
-   * The tag.
+   * The label.
    * 
    * @example
    * version
@@ -282,7 +282,7 @@ export class GetGatewayServiceDetailResponseBodyDataVersions extends $dara.Model
   type?: string;
   /**
    * @remarks
-   * The tag value.
+   * The label value.
    * 
    * @example
    * v1
@@ -314,10 +314,14 @@ export class GetGatewayServiceDetailResponseBodyDataVersions extends $dara.Model
 }
 
 export class GetGatewayServiceDetailResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of DNS servers. This parameter is only used for DNS domain name services.
+   */
   dnsServerList?: string[];
   /**
    * @remarks
-   * The ID of the gateway.
+   * The gateway ID.
    * 
    * @example
    * 1
@@ -325,7 +329,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $dara.Model {
   gatewayId?: number;
   /**
    * @remarks
-   * The traffic policy of the service.
+   * The service traffic policy.
    * 
    * @example
    * {}
@@ -357,7 +361,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The name of the group.
+   * The group name.
    * 
    * @example
    * test
@@ -365,7 +369,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * Indicates whether the health check is enabled.
+   * Indicates whether health checks are enabled.
    * 
    * @example
    * true
@@ -373,7 +377,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $dara.Model {
   healthCheck?: string;
   /**
    * @remarks
-   * The status of the health check. Valid values:
+   * The health check status.
    * 
    * @example
    * true
@@ -381,7 +385,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $dara.Model {
   healthStatus?: string;
   /**
    * @remarks
-   * The ID of the service.
+   * The service ID.
    * 
    * @example
    * 1
@@ -389,17 +393,17 @@ export class GetGatewayServiceDetailResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The IP address of the service.
+   * The IP addresses of the service.
    */
   ips?: string[];
   /**
    * @remarks
-   * The details of the tag.
+   * The label details.
    */
   labelDetails?: GetGatewayServiceDetailResponseBodyDataLabelDetails[];
   /**
    * @remarks
-   * The basic information about the service.
+   * The basic information of the service.
    * 
    * @example
    * {}
@@ -407,7 +411,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $dara.Model {
   metaInfo?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
    * test
@@ -423,7 +427,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The traffic policy of service ports.
+   * The traffic policies for service ports.
    */
   portTrafficPolicyList?: GetGatewayServiceDetailResponseBodyDataPortTrafficPolicyList[];
   /**
@@ -431,19 +435,33 @@ export class GetGatewayServiceDetailResponseBodyData extends $dara.Model {
    * The array of service ports.
    */
   ports?: number[];
+  /**
+   * @remarks
+   * The fully qualified domain name (FQDN) of the service.
+   * 
+   * @example
+   * demo.default.svc.cluster.local
+   */
   serviceFQDN?: string;
   /**
    * @remarks
-   * The name of the service registered with the service registry.
+   * The name of the service registered in the registry.
    * 
    * @example
    * test
    */
   serviceNameInRegistry?: string;
+  /**
+   * @remarks
+   * The service port.
+   * 
+   * @example
+   * 8080
+   */
   servicePort?: number;
   /**
    * @remarks
-   * The protocol of the service.
+   * The service protocol.
    * 
    * @example
    * HTTP
@@ -451,7 +469,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $dara.Model {
   serviceProtocol?: string;
   /**
    * @remarks
-   * The ID of the service source.
+   * The source ID.
    * 
    * @example
    * 1
@@ -459,7 +477,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $dara.Model {
   sourceId?: number;
   /**
    * @remarks
-   * The source type of the service.
+   * The service source.
    * 
    * @example
    * MSE
@@ -467,12 +485,12 @@ export class GetGatewayServiceDetailResponseBodyData extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The details of versions.
+   * The version details.
    */
   versionDetails?: GetGatewayServiceDetailResponseBodyDataVersionDetails[];
   /**
    * @remarks
-   * The service version. This parameter is deprecated.
+   * The service version numbers. **[Deprecated]**
    */
   versions?: GetGatewayServiceDetailResponseBodyDataVersions[];
   static names(): { [key: string]: string } {
@@ -571,7 +589,7 @@ export class GetGatewayServiceDetailResponseBodyData extends $dara.Model {
 export class GetGatewayServiceDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code returned.
+   * The response code.
    * 
    * @example
    * 1
@@ -579,12 +597,12 @@ export class GetGatewayServiceDetailResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The data overview.
    */
   data?: GetGatewayServiceDetailResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -592,15 +610,15 @@ export class GetGatewayServiceDetailResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
-   * The request is successfully processed.
+   * Succ
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9802C54E-5CC5-5706-927B-993DBB6DCF2F
@@ -608,10 +626,9 @@ export class GetGatewayServiceDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

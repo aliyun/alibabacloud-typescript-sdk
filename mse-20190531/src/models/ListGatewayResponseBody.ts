@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListGatewayResponseBodyDataResultElasticPolicyEnableScaleTimePolicyList extends $dara.Model {
+  /**
+   * @remarks
+   * The end time.
+   * 
+   * @example
+   * 09:00
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 07:00
+   */
   startTime?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,7 +45,7 @@ export class ListGatewayResponseBodyDataResultElasticPolicyEnableScaleTimePolicy
 export class ListGatewayResponseBodyDataResultElasticPolicyTimePolicyList extends $dara.Model {
   /**
    * @remarks
-   * The expected number of replicas for auto scale-out.
+   * The expected number of replicas for auto-scaling.
    * 
    * @example
    * 4
@@ -39,7 +53,7 @@ export class ListGatewayResponseBodyDataResultElasticPolicyTimePolicyList extend
   desiredReplica?: number;
   /**
    * @remarks
-   * The end time of auto scale-out.
+   * The end time for auto-scaling.
    * 
    * @example
    * 09:00
@@ -47,7 +61,7 @@ export class ListGatewayResponseBodyDataResultElasticPolicyTimePolicyList extend
   endTime?: string;
   /**
    * @remarks
-   * The start time of auto scale-out.
+   * The start time for auto-scaling.
    * 
    * @example
    * 07:00
@@ -81,7 +95,7 @@ export class ListGatewayResponseBodyDataResultElasticPolicyTimePolicyList extend
 export class ListGatewayResponseBodyDataResultElasticPolicy extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether auto scale-out is enabled.
+   * Indicates whether auto-scaling is enabled.
    * 
    * @example
    * true
@@ -89,19 +103,27 @@ export class ListGatewayResponseBodyDataResultElasticPolicy extends $dara.Model 
   elastic?: boolean;
   /**
    * @remarks
-   * The type of auto scale-out. Valid value:
+   * The auto-scaling type. Valid values:
    * 
-   * *   CronHPA: scale-out by time
+   * * CronHPA: time-based scaling
    * 
    * @example
    * CronHPA
    */
   elasticType?: string;
+  /**
+   * @remarks
+   * The allowed time periods for scaling in.
+   */
   enableScaleTimePolicyList?: ListGatewayResponseBodyDataResultElasticPolicyEnableScaleTimePolicyList[];
+  /**
+   * @remarks
+   * Specifies the load-based elastic scaling watermark settings for the gateway. true indicates that the warning watermark is enabled, and false indicates that the safe watermark is enabled.
+   */
   loadWarningThreshold?: boolean;
   /**
    * @remarks
-   * The maximum number of instances that are automatically scaled out. This parameter is used for horizontal scale-out.
+   * The maximum number of instances for auto-scaling, used for horizontal scaling.
    * 
    * @example
    * 10
@@ -109,7 +131,7 @@ export class ListGatewayResponseBodyDataResultElasticPolicy extends $dara.Model 
   maxReplica?: number;
   /**
    * @remarks
-   * The time policy list for auto scale-out.
+   * The list of time-based auto-scaling policies.
    */
   timePolicyList?: ListGatewayResponseBodyDataResultElasticPolicyTimePolicyList[];
   static names(): { [key: string]: string } {
@@ -151,20 +173,47 @@ export class ListGatewayResponseBodyDataResultElasticPolicy extends $dara.Model 
 
 export class ListGatewayResponseBodyDataResultGatewayEntry extends $dara.Model {
   /**
+   * @remarks
+   * The entry domain name.
+   * 
    * @example
    * gw-*****5c2cd6144f4bfa1c32289f45ea8.cn-hangzhou.alicloudapi.com
    */
   entryDomain?: string;
+  /**
+   * @remarks
+   * The list of HTTP listener ports.
+   */
   httpPorts?: number[];
+  /**
+   * @remarks
+   * The list of HTTPS listener ports.
+   */
   httpsPorts?: number[];
+  /**
+   * @remarks
+   * The list of entry IP addresses.
+   */
   ipList?: string[];
+  /**
+   * @remarks
+   * The IPv6 address.
+   */
   ipv6List?: string[];
   /**
+   * @remarks
+   * The entry network type. Valid values:
+   * - PRIVATE_NET: private network
+   * - PUB_NET: public network
+   * 
    * @example
    * PUB_NET
    */
   netType?: string;
   /**
+   * @remarks
+   * The readiness status of the gateway entry.
+   * 
    * @example
    * Ready
    */
@@ -217,7 +266,7 @@ export class ListGatewayResponseBodyDataResultGatewayEntry extends $dara.Model {
 export class ListGatewayResponseBodyDataResultInitConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether Web Application Firewall (WAF) is enabled.
+   * Indicates whether WAF is enabled.
    * 
    * @example
    * true
@@ -257,7 +306,7 @@ export class ListGatewayResponseBodyDataResultInitConfig extends $dara.Model {
 export class ListGatewayResponseBodyDataResultInternetSlb extends $dara.Model {
   /**
    * @remarks
-   * The mode of the SLB instance.
+   * The gateway SLB mode.
    * 
    * @example
    * UserHost
@@ -265,7 +314,7 @@ export class ListGatewayResponseBodyDataResultInternetSlb extends $dara.Model {
   gatewaySlbMode?: string;
   /**
    * @remarks
-   * The state of the SLB instance.
+   * The gateway SLB status.
    * 
    * @example
    * Ready
@@ -273,7 +322,7 @@ export class ListGatewayResponseBodyDataResultInternetSlb extends $dara.Model {
   gatewaySlbStatus?: string;
   /**
    * @remarks
-   * The traffic of the gateway.
+   * The gateway traffic.
    * 
    * @example
    * 20
@@ -281,7 +330,7 @@ export class ListGatewayResponseBodyDataResultInternetSlb extends $dara.Model {
   internetNetworkFlow?: string;
   /**
    * @remarks
-   * The ID of the SLB instance.
+   * The SLB ID.
    * 
    * @example
    * lb-bp1ut8asdfgucjk****
@@ -289,7 +338,7 @@ export class ListGatewayResponseBodyDataResultInternetSlb extends $dara.Model {
   slbId?: string;
   /**
    * @remarks
-   * The IP address of the SLB instance.
+   * The SLB IP address.
    * 
    * @example
    * 153.12.XX.XX
@@ -297,7 +346,7 @@ export class ListGatewayResponseBodyDataResultInternetSlb extends $dara.Model {
   slbIp?: string;
   /**
    * @remarks
-   * The port number of the SLB instance.
+   * The SLB port.
    * 
    * @example
    * slb.s2.small
@@ -305,7 +354,7 @@ export class ListGatewayResponseBodyDataResultInternetSlb extends $dara.Model {
   slbPort?: string;
   /**
    * @remarks
-   * The specifications of the SLB instance.
+   * The SLB specification.
    * 
    * @example
    * slb.s2.small
@@ -313,7 +362,7 @@ export class ListGatewayResponseBodyDataResultInternetSlb extends $dara.Model {
   slbSpec?: string;
   /**
    * @remarks
-   * The description of the state.
+   * The status description.
    * 
    * @example
    * Creating
@@ -321,7 +370,7 @@ export class ListGatewayResponseBodyDataResultInternetSlb extends $dara.Model {
   statusDesc?: string;
   /**
    * @remarks
-   * The type of the SLB instance.
+   * The type.
    * 
    * @example
    * PUB_NET
@@ -365,8 +414,29 @@ export class ListGatewayResponseBodyDataResultInternetSlb extends $dara.Model {
 }
 
 export class ListGatewayResponseBodyDataResultMaintenancePeriod extends $dara.Model {
+  /**
+   * @remarks
+   * The end time.
+   * 
+   * @example
+   * 06:00
+   */
   endTime?: string;
+  /**
+   * @remarks
+   * The start time.
+   * 
+   * @example
+   * 02:00
+   */
   startTime?: string;
+  /**
+   * @remarks
+   * The time zone.
+   * 
+   * @example
+   * Asia/Shanghai
+   */
   timeZone?: string;
   static names(): { [key: string]: string } {
     return {
@@ -396,7 +466,7 @@ export class ListGatewayResponseBodyDataResultMaintenancePeriod extends $dara.Mo
 export class ListGatewayResponseBodyDataResultSlb extends $dara.Model {
   /**
    * @remarks
-   * The mode of the SLB instance.
+   * The gateway SLB mode.
    * 
    * @example
    * UserHost
@@ -404,7 +474,7 @@ export class ListGatewayResponseBodyDataResultSlb extends $dara.Model {
   gatewaySlbMode?: string;
   /**
    * @remarks
-   * The state of the SLB instance.
+   * The gateway SLB status.
    * 
    * @example
    * Ready
@@ -412,7 +482,7 @@ export class ListGatewayResponseBodyDataResultSlb extends $dara.Model {
   gatewaySlbStatus?: string;
   /**
    * @remarks
-   * The ID of the SLB instance.
+   * The SLB ID.
    * 
    * @example
    * lb-bp1ut8asdfgucjk****
@@ -420,7 +490,7 @@ export class ListGatewayResponseBodyDataResultSlb extends $dara.Model {
   slbId?: string;
   /**
    * @remarks
-   * The IP address of the SLB instance.
+   * The SLB IP address.
    * 
    * @example
    * 153.12.XX.XX
@@ -428,7 +498,7 @@ export class ListGatewayResponseBodyDataResultSlb extends $dara.Model {
   slbIp?: string;
   /**
    * @remarks
-   * The port number of the SLB instance.
+   * The SLB port.
    * 
    * @example
    * 80
@@ -436,7 +506,7 @@ export class ListGatewayResponseBodyDataResultSlb extends $dara.Model {
   slbPort?: string;
   /**
    * @remarks
-   * The specifications of the SLB instance.
+   * The SLB specification.
    * 
    * @example
    * slb.s2.small
@@ -444,7 +514,7 @@ export class ListGatewayResponseBodyDataResultSlb extends $dara.Model {
   slbSpec?: string;
   /**
    * @remarks
-   * The description of the state.
+   * The status description.
    * 
    * @example
    * Creating
@@ -454,8 +524,8 @@ export class ListGatewayResponseBodyDataResultSlb extends $dara.Model {
    * @remarks
    * The network type. Valid values:
    * 
-   * *   PUB_NET
-   * *   PRIVATE_NET
+   * - PUB_NET: public network
+   * - PRIVATE_NET: private network
    * 
    * @example
    * PUB_NET
@@ -499,7 +569,7 @@ export class ListGatewayResponseBodyDataResultSlb extends $dara.Model {
 export class ListGatewayResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether Application High Availability Service (AHAS) is activated.
+   * Indicates whether AHAS is enabled.
    * 
    * @example
    * false
@@ -507,7 +577,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   ahasOn?: boolean;
   /**
    * @remarks
-   * The version of the application.
+   * The application version.
    * 
    * @example
    * 1.0.1.0
@@ -515,7 +585,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   appVersion?: string;
   /**
    * @remarks
-   * Indicates whether Application Real-Time Monitoring Service (ARMS) is activated.
+   * Indicates whether ARMS is enabled.
    * 
    * @example
    * false
@@ -531,7 +601,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The current version of the gateway.
+   * The current version.
    * 
    * @example
    * 0.1.0-mse-gw
@@ -539,7 +609,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   currentVersion?: string;
   /**
    * @remarks
-   * Indicates whether auto scale-out is enabled.
+   * Indicates whether auto-scaling is enabled.
    * 
    * @example
    * true
@@ -547,7 +617,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   elastic?: boolean;
   /**
    * @remarks
-   * The ID of the elastic gateway. This parameter is returned if auto scale-out is used.
+   * The gateway elastic instance ID. This parameter is returned when auto-scaling is used.
    * 
    * @example
    * mse_ingresselastic_public_cn-uqm3d0*****
@@ -555,12 +625,12 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   elasticInstanceId?: string;
   /**
    * @remarks
-   * The auto scale-out policy.
+   * The auto-scaling policy.
    */
   elasticPolicy?: ListGatewayResponseBodyDataResultElasticPolicy;
   /**
    * @remarks
-   * The number of replicas that are automatically scaled out.
+   * The number of auto-scaling replicas.
    * 
    * @example
    * 2
@@ -568,9 +638,9 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   elasticReplica?: number;
   /**
    * @remarks
-   * The type of auto scale-out. Valid value:
+   * The auto-scaling type. Valid values:
    * 
-   * *   CronHPA: scale-out by time
+   * - CronHPA: time-based scaling
    * 
    * @example
    * CronHPA
@@ -578,12 +648,16 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   elasticType?: string;
   /**
    * @remarks
-   * The time when the instance expires.
+   * The expiration date.
    * 
    * @example
    * 4792060800000
    */
   endDate?: string;
+  /**
+   * @remarks
+   * The gateway entry address. This parameter is applicable to standard Professional Edition instances.
+   */
   gatewayEntry?: ListGatewayResponseBodyDataResultGatewayEntry[];
   /**
    * @remarks
@@ -603,7 +677,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The version of the gateway.
+   * The gateway version.
    * 
    * @example
    * 1.2.9
@@ -611,7 +685,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   gatewayVersion?: string;
   /**
    * @remarks
-   * The time when the gateway was created.
+   * The creation time.
    * 
    * @example
    * 2021-09-13 19:24:23
@@ -619,7 +693,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the gateway was modified.
+   * The modification time.
    * 
    * @example
    * 2021-09-13 19:24:23
@@ -635,7 +709,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The configurations.
+   * The configuration information.
    */
   initConfig?: ListGatewayResponseBodyDataResultInitConfig;
   /**
@@ -648,17 +722,21 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The details of the Internet-facing SLB instances.
+   * The Internet SLB.
    */
   internetSlb?: ListGatewayResponseBodyDataResultInternetSlb[];
   /**
    * @remarks
-   * The latest version of the gateway.
+   * The latest version.
    * 
    * @example
    * 0.1.0-mse-gw
    */
   latestVersion?: string;
+  /**
+   * @remarks
+   * The O&M time window.
+   */
   maintenancePeriod?: ListGatewayResponseBodyDataResultMaintenancePeriod;
   /**
    * @remarks
@@ -668,10 +746,17 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
    * {"tagKey":"tagValue"}
    */
   mseTag?: string;
+  /**
+   * @remarks
+   * The cluster version.
+   * 
+   * @example
+   * mse_pro
+   */
   mseVersion?: string;
   /**
    * @remarks
-   * Indicates whether the instance was forcefully upgraded.
+   * The forced upgrade.
    * 
    * @example
    * false
@@ -695,7 +780,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   primaryUser?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region.
    * 
    * @example
    * cn-hangzhou
@@ -703,7 +788,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The number of replicas.
+   * The backup.
    * 
    * @example
    * 2
@@ -719,7 +804,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Indicates whether rollbacks are allowed.
+   * Indicates whether rollback is supported.
    * 
    * @example
    * false
@@ -727,12 +812,12 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   rollBack?: boolean;
   /**
    * @remarks
-   * The details of Server Load Balancer (SLB) instances.
+   * The SLB list.
    */
   slb?: ListGatewayResponseBodyDataResultSlb[];
   /**
    * @remarks
-   * The specifications of the gateway.
+   * The specification.
    * 
    * @example
    * MSE_GTW_1_2_200_c
@@ -740,20 +825,20 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   spec?: string;
   /**
    * @remarks
-   * The gateway state. Valid values:
+   * The gateway status. Valid values:
    * 
-   * *   0: The gateway is being created.
-   * *   1: The gateway failed to be created.
-   * *   2: The gateway is running.
-   * *   3: The gateway is being changed.
-   * *   4: The gateway is scaling in.
-   * *   6: The gateway is scaling out.
-   * *   8: The gateway is being deleted.
-   * *   9: The gateway is suspended and is to be released.
-   * *   10: The gateway is restarting.
-   * *   11: The gateway is being rebuilt.
-   * *   12: The gateway is being upgraded.
-   * *   13: The gateway failed to be upgraded.
+   * - 0: creating
+   * - 1: creation failed
+   * - 2: running
+   * - 3: modifying
+   * - 4: scaling in
+   * - 6: scaling out
+   * - 8: deleting
+   * - 9: stopped and pending release
+   * - 10: restarting
+   * - 11: rebuilding
+   * - 12: upgrading
+   * - 13: upgrade failed
    * 
    * @example
    * 2
@@ -761,7 +846,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The description of the gateway state.
+   * The status description.
    * 
    * @example
    * Restarting
@@ -769,7 +854,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   statusDesc?: string;
   /**
    * @remarks
-   * Indicates whether WebAssembly (Wasm) is supported.
+   * Indicates whether WASM is supported.
    * 
    * @example
    * true
@@ -785,7 +870,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The total number of replicas, including the number of replicas that are automatically scaled out.
+   * The total number of replicas, including the number of auto-scaling replicas.
    * 
    * @example
    * 4
@@ -793,16 +878,23 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   totalReplica?: number;
   /**
    * @remarks
-   * Indicates whether the instance was upgraded.
+   * The upgrade.
    * 
    * @example
    * false
    */
   upgrade?: boolean;
+  /**
+   * @remarks
+   * The version lifecycle.
+   * 
+   * @example
+   * STABLE
+   */
   versionLifecycle?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) to which the gateway belongs.
+   * The VPC ID of the gateway.
    * 
    * @example
    * vpc-uf6heojei217tv14*****
@@ -810,7 +902,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the secondary vSwitch.
+   * The second vSwitch.
    * 
    * @example
    * vsw-bpbrveck45nf****
@@ -942,7 +1034,7 @@ export class ListGatewayResponseBodyDataResult extends $dara.Model {
 export class ListGatewayResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -950,7 +1042,7 @@ export class ListGatewayResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -958,12 +1050,12 @@ export class ListGatewayResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    */
   result?: ListGatewayResponseBodyDataResult[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 9
@@ -1002,7 +1094,7 @@ export class ListGatewayResponseBodyData extends $dara.Model {
 export class ListGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value.
+   * The return code.
    * 
    * @example
    * 200
@@ -1010,12 +1102,12 @@ export class ListGatewayResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned metadata.
    */
   data?: ListGatewayResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -1023,7 +1115,7 @@ export class ListGatewayResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The returned message.
    * 
    * @example
    * You are not authorized to perform this operation. Action: mse:ListGateway, Resource: acs:mse:cn-hangzhou:102123:*
@@ -1031,7 +1123,7 @@ export class ListGatewayResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 34300B3-52EC-5049-8C96-914098CF****
@@ -1039,10 +1131,9 @@ export class ListGatewayResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

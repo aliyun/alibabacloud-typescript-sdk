@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayRouteResponseBodyDataResultComment extends $dara.Model {
   /**
    * @remarks
-   * The status.
+   * Status.
    * 
    * @example
    * error
@@ -35,7 +35,7 @@ export class ListGatewayRouteResponseBodyDataResultComment extends $dara.Model {
 export class ListGatewayRouteResponseBodyDataResultDirectResponse extends $dara.Model {
   /**
    * @remarks
-   * The return value for service mocking.
+   * Mock return value
    * 
    * @example
    * hello
@@ -43,7 +43,7 @@ export class ListGatewayRouteResponseBodyDataResultDirectResponse extends $dara.
   body?: string;
   /**
    * @remarks
-   * The response code returned.
+   * Response code.
    * 
    * @example
    * 200
@@ -75,7 +75,7 @@ export class ListGatewayRouteResponseBodyDataResultDirectResponse extends $dara.
 export class ListGatewayRouteResponseBodyDataResultFallbackServices extends $dara.Model {
   /**
    * @remarks
-   * The type of the protocol.
+   * Protocol Type.
    * 
    * @example
    * DUBBO
@@ -83,7 +83,7 @@ export class ListGatewayRouteResponseBodyDataResultFallbackServices extends $dar
   agreementType?: string;
   /**
    * @remarks
-   * The name of the group to which the service belongs.
+   * Service group name.
    * 
    * @example
    * test
@@ -91,7 +91,7 @@ export class ListGatewayRouteResponseBodyDataResultFallbackServices extends $dar
   groupName?: string;
   /**
    * @remarks
-   * The name.
+   * Name.
    * 
    * @example
    * name
@@ -99,7 +99,7 @@ export class ListGatewayRouteResponseBodyDataResultFallbackServices extends $dar
   name?: string;
   /**
    * @remarks
-   * The namespace to which the service belongs.
+   * Service namespace.
    * 
    * @example
    * Namespace
@@ -107,7 +107,7 @@ export class ListGatewayRouteResponseBodyDataResultFallbackServices extends $dar
   namespace?: string;
   /**
    * @remarks
-   * The weight in the form of a percentage value.
+   * Weight percentage.
    * 
    * @example
    * 100
@@ -115,7 +115,7 @@ export class ListGatewayRouteResponseBodyDataResultFallbackServices extends $dar
   percent?: number;
   /**
    * @remarks
-   * The ID of the service.
+   * Service ID.
    * 
    * @example
    * 353
@@ -123,7 +123,7 @@ export class ListGatewayRouteResponseBodyDataResultFallbackServices extends $dar
   serviceId?: number;
   /**
    * @remarks
-   * The name of the service.
+   * Service name.
    * 
    * @example
    * service name
@@ -131,7 +131,7 @@ export class ListGatewayRouteResponseBodyDataResultFallbackServices extends $dar
   serviceName?: string;
   /**
    * @remarks
-   * The service port number.
+   * Service port.
    * 
    * @example
    * 8848
@@ -139,7 +139,7 @@ export class ListGatewayRouteResponseBodyDataResultFallbackServices extends $dar
   servicePort?: number;
   /**
    * @remarks
-   * The source type.
+   * Source type.
    * 
    * @example
    * MSE
@@ -147,7 +147,7 @@ export class ListGatewayRouteResponseBodyDataResultFallbackServices extends $dar
   sourceType?: string;
   /**
    * @remarks
-   * The version of the service.
+   * Service version.
    * 
    * @example
    * v1
@@ -195,7 +195,7 @@ export class ListGatewayRouteResponseBodyDataResultFallbackServices extends $dar
 export class ListGatewayRouteResponseBodyDataResultRedirect extends $dara.Model {
   /**
    * @remarks
-   * The response code returned.
+   * Response code.
    * 
    * @example
    * 200
@@ -203,7 +203,7 @@ export class ListGatewayRouteResponseBodyDataResultRedirect extends $dara.Model 
   code?: number;
   /**
    * @remarks
-   * The hostname to be redirected to.
+   * Redirect hostname
    * 
    * @example
    * test.com
@@ -211,7 +211,7 @@ export class ListGatewayRouteResponseBodyDataResultRedirect extends $dara.Model 
   host?: string;
   /**
    * @remarks
-   * The path.
+   * Path.
    * 
    * @example
    * /test
@@ -245,7 +245,7 @@ export class ListGatewayRouteResponseBodyDataResultRedirect extends $dara.Model 
 export class ListGatewayRouteResponseBodyDataResultRoutePredicatesHeaderPredicates extends $dara.Model {
   /**
    * @remarks
-   * The header key.
+   * Header KEY
    * 
    * @example
    * userid
@@ -253,7 +253,7 @@ export class ListGatewayRouteResponseBodyDataResultRoutePredicatesHeaderPredicat
   key?: string;
   /**
    * @remarks
-   * The matching type.
+   * Matching type
    * 
    * @example
    * PRE
@@ -261,7 +261,7 @@ export class ListGatewayRouteResponseBodyDataResultRoutePredicatesHeaderPredicat
   type?: string;
   /**
    * @remarks
-   * The value.
+   * Matching value
    * 
    * @example
    * test
@@ -295,7 +295,7 @@ export class ListGatewayRouteResponseBodyDataResultRoutePredicatesHeaderPredicat
 export class ListGatewayRouteResponseBodyDataResultRoutePredicatesPathPredicates extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether case sensitivity is ignored.
+   * Case insensitive
    * 
    * @example
    * true
@@ -303,7 +303,7 @@ export class ListGatewayRouteResponseBodyDataResultRoutePredicatesPathPredicates
   ignoreCase?: boolean;
   /**
    * @remarks
-   * The path of the node.
+   * Node path.
    * 
    * @example
    * /getIp
@@ -311,7 +311,7 @@ export class ListGatewayRouteResponseBodyDataResultRoutePredicatesPathPredicates
   path?: string;
   /**
    * @remarks
-   * The matching type.
+   * Matching type.
    * 
    * @example
    * PRE
@@ -345,7 +345,7 @@ export class ListGatewayRouteResponseBodyDataResultRoutePredicatesPathPredicates
 export class ListGatewayRouteResponseBodyDataResultRoutePredicatesQueryPredicates extends $dara.Model {
   /**
    * @remarks
-   * The key.
+   * Parameter name
    * 
    * @example
    * userid
@@ -353,7 +353,7 @@ export class ListGatewayRouteResponseBodyDataResultRoutePredicatesQueryPredicate
   key?: string;
   /**
    * @remarks
-   * The matching type.
+   * Matching type
    * 
    * @example
    * PRE
@@ -361,7 +361,7 @@ export class ListGatewayRouteResponseBodyDataResultRoutePredicatesQueryPredicate
   type?: string;
   /**
    * @remarks
-   * The value.
+   * Matching value
    * 
    * @example
    * test
@@ -395,22 +395,22 @@ export class ListGatewayRouteResponseBodyDataResultRoutePredicatesQueryPredicate
 export class ListGatewayRouteResponseBodyDataResultRoutePredicates extends $dara.Model {
   /**
    * @remarks
-   * The headers used for route matching.
+   * Header matching
    */
   headerPredicates?: ListGatewayRouteResponseBodyDataResultRoutePredicatesHeaderPredicates[];
   /**
    * @remarks
-   * The HTTP methods used for route matching.
+   * HTTP method matching
    */
   methodPredicates?: string[];
   /**
    * @remarks
-   * The path used for route matching.
+   * Route Path matching.
    */
   pathPredicates?: ListGatewayRouteResponseBodyDataResultRoutePredicatesPathPredicates;
   /**
    * @remarks
-   * The parameters used for route matching.
+   * Parameter matching
    */
   queryPredicates?: ListGatewayRouteResponseBodyDataResultRoutePredicatesQueryPredicates[];
   static names(): { [key: string]: string } {
@@ -455,7 +455,7 @@ export class ListGatewayRouteResponseBodyDataResultRoutePredicates extends $dara
 export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoderMothedMapListParamMapsList extends $dara.Model {
   /**
    * @remarks
-   * The key extracted from the input parameter.
+   * Extract key from input.
    * 
    * @example
    * name
@@ -463,17 +463,17 @@ export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTransco
   extractKey?: string;
   /**
    * @remarks
-   * The position of the input parameter.
+   * Input parameter position.
    * 
-   * > Valid values:
-   * 
-   * *   `ALL_QUERY_PARAMETER`: request parameter
-   * 
-   * *   `ALL_HEADER`: request header
-   * 
-   * *   `ALL_PATH`: request path
-   * 
-   * *   `ALL_BODY`: request body
+   * > Input parameter position enumeration values.
+   * >
+   * > - Request parameter: `ALL_QUERY_PARAMETER`
+   * >
+   * > - Request header: `ALL_HEADER`
+   * >
+   * > - Request path: `ALL_PATH`
+   * >
+   * > - Request body: `ALL_BODY`
    * 
    * @example
    * ALL_QUERY_PARAMETER
@@ -481,7 +481,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTransco
   extractKeySpec?: string;
   /**
    * @remarks
-   * The type of the backend service parameter.
+   * Backend parameter type.
    * 
    * @example
    * java.lang.String
@@ -515,7 +515,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTransco
 export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoderMothedMapList extends $dara.Model {
   /**
    * @remarks
-   * The method name of the Dubbo service.
+   * Dubbo method name.
    * 
    * @example
    * sayHello
@@ -523,19 +523,19 @@ export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTransco
   dubboMothedName?: string;
   /**
    * @remarks
-   * The HTTP method.
+   * Http method.
    * 
-   * > Valid values:
-   * 
-   * *   ALL_GET
-   * 
-   * *   ALL_POST
-   * 
-   * *   ALL_PUT
-   * 
-   * *   ALL_DELETE
-   * 
-   * *   ALL_PATCH
+   * > Supported HTTP method parameter values.
+   * >
+   * > - ALL_GET
+   * >
+   * > - ALL_POST
+   * >
+   * > - ALL_PUT
+   * >
+   * > - ALL_DELETE
+   * >
+   * > - ALL_PATCH
    * 
    * @example
    * ALL_GET
@@ -543,7 +543,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTransco
   httpMothed?: string;
   /**
    * @remarks
-   * The path used for method matching.
+   * Method matching path.
    * 
    * @example
    * /mytestzbk/sayhello
@@ -551,20 +551,20 @@ export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTransco
   mothedpath?: string;
   /**
    * @remarks
-   * The information about parameter mappings.
+   * Parameter mapping list.
    */
   paramMapsList?: ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoderMothedMapListParamMapsList[];
   /**
    * @remarks
-   * The pass-through type of the header.
+   * Header pass-through type.
    * 
-   * > Valid values:
-   * 
-   * *   PASS_ALL: All headers are passed through.
-   * 
-   * *   PASS_NOT: All headers are not passed through.
-   * 
-   * *   PASS_ASSIGN: Specified headers are passed through.
+   * > Pass-through type enumeration values.
+   * >
+   * > - Pass through all: PASS_ALL
+   * >
+   * > - No pass-through: PASS_NOT
+   * >
+   * > - Specified parameters: PASS_ASSIGN
    * 
    * @example
    * PASS_NOT
@@ -572,7 +572,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTransco
   passThroughAllHeaders?: string;
   /**
    * @remarks
-   * The list of headers to be passed through.
+   * Specified pass-through Header list.
    */
   passThroughList?: string[];
   static names(): { [key: string]: string } {
@@ -615,7 +615,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTransco
 export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoder extends $dara.Model {
   /**
    * @remarks
-   * The Dubbo service group.
+   * Dubbo service group.
    * 
    * @example
    * service group
@@ -623,7 +623,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTransco
   dubboServiceGroup?: string;
   /**
    * @remarks
-   * The name of the Dubbo service.
+   * Dubbo service name.
    * 
    * @example
    * org.apache.dubbo.samples.basic.api.DemoService
@@ -631,7 +631,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTransco
   dubboServiceName?: string;
   /**
    * @remarks
-   * The version of the Dubbo service.
+   * Dubbo service version.
    * 
    * @example
    * 0.0.0
@@ -639,7 +639,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTransco
   dubboServiceVersion?: string;
   /**
    * @remarks
-   * The forwarding rules of the Dubbo service.
+   * Dubbo forwarding rule list.
    */
   mothedMapList?: ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoderMothedMapList[];
   static names(): { [key: string]: string } {
@@ -675,7 +675,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTransco
 export class ListGatewayRouteResponseBodyDataResultRouteServices extends $dara.Model {
   /**
    * @remarks
-   * The type of the protocol.
+   * Protocol Type.
    * 
    * @example
    * DUBBO
@@ -683,25 +683,36 @@ export class ListGatewayRouteResponseBodyDataResultRouteServices extends $dara.M
   agreementType?: string;
   /**
    * @remarks
-   * The name of the group to which the service belongs.
+   * Service group name.
    * 
    * @example
    * api
    */
   groupName?: string;
   /**
+   * @remarks
+   * Health status
+   * 
+   * - Health
+   * 
+   * - Unhealthy
+   * 
+   * - Checking
+   * 
+   * - Unknown
+   * 
    * @example
    * Health
    */
   healthStatus?: string;
   /**
    * @remarks
-   * The transcoder of the Dubbo protocol.
+   * Dubbo protocol conversion body.
    */
   httpDubboTranscoder?: ListGatewayRouteResponseBodyDataResultRouteServicesHttpDubboTranscoder;
   /**
    * @remarks
-   * The name.
+   * Name.
    * 
    * @example
    * test
@@ -709,7 +720,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServices extends $dara.M
   name?: string;
   /**
    * @remarks
-   * The namespace.
+   * Namespace.
    * 
    * @example
    * default
@@ -717,7 +728,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServices extends $dara.M
   namespace?: string;
   /**
    * @remarks
-   * The weight in the form of a percentage value.
+   * Weight percentage
    * 
    * @example
    * 11
@@ -725,7 +736,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServices extends $dara.M
   percent?: number;
   /**
    * @remarks
-   * The ID of the service.
+   * Service ID
    * 
    * @example
    * 1563
@@ -733,7 +744,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServices extends $dara.M
   serviceId?: number;
   /**
    * @remarks
-   * The name of the service.
+   * Service name.
    * 
    * @example
    * hu
@@ -741,7 +752,7 @@ export class ListGatewayRouteResponseBodyDataResultRouteServices extends $dara.M
   serviceName?: string;
   /**
    * @remarks
-   * The Dubbo port number.
+   * Service port.
    * 
    * @example
    * 20880
@@ -749,16 +760,20 @@ export class ListGatewayRouteResponseBodyDataResultRouteServices extends $dara.M
   servicePort?: number;
   /**
    * @remarks
-   * The source type.
+   * Source type
    * 
    * @example
    * MSE
    */
   sourceType?: string;
+  /**
+   * @remarks
+   * Unhealthy Endpoint list
+   */
   unhealthyEndpoints?: string[];
   /**
    * @remarks
-   * The version of the service.
+   * Service version.
    * 
    * @example
    * v1
@@ -818,12 +833,12 @@ export class ListGatewayRouteResponseBodyDataResultRouteServices extends $dara.M
 export class ListGatewayRouteResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The route comment (ingress).
+   * Route comment (ingress)
    */
   comment?: ListGatewayRouteResponseBodyDataResultComment;
   /**
    * @remarks
-   * The default service ID.
+   * Default service ID.
    * 
    * @example
    * 1
@@ -831,7 +846,7 @@ export class ListGatewayRouteResponseBodyDataResult extends $dara.Model {
   defaultServiceId?: number;
   /**
    * @remarks
-   * The default service name.
+   * Default service name.
    * 
    * @example
    * test
@@ -839,7 +854,7 @@ export class ListGatewayRouteResponseBodyDataResult extends $dara.Model {
   defaultServiceName?: string;
   /**
    * @remarks
-   * The destination service type.
+   * Destination type.
    * 
    * @example
    * Single
@@ -847,12 +862,12 @@ export class ListGatewayRouteResponseBodyDataResult extends $dara.Model {
   destinationType?: string;
   /**
    * @remarks
-   * The information about service mocking.
+   * Mock configuration
    */
   directResponse?: ListGatewayRouteResponseBodyDataResultDirectResponse;
   /**
    * @remarks
-   * The domain ID.
+   * Domain ID.
    * 
    * @example
    * 265
@@ -860,12 +875,12 @@ export class ListGatewayRouteResponseBodyDataResult extends $dara.Model {
   domainId?: number;
   /**
    * @remarks
-   * The domain IDs.
+   * Domain list.
    */
   domainIdList?: number[];
   /**
    * @remarks
-   * The domain name.
+   * Domain name.
    * 
    * @example
    * y.com
@@ -873,13 +888,17 @@ export class ListGatewayRouteResponseBodyDataResult extends $dara.Model {
   domainName?: string;
   /**
    * @remarks
-   * The domain names.
+   * Domain name list.
    */
   domainNameList?: string[];
+  /**
+   * @remarks
+   * Whether to enable dynamic routing
+   */
   dynamicRoute?: boolean;
   /**
    * @remarks
-   * Indicates whether Web Application Firewall (WAF) is activated.
+   * Whether to enable WAF
    * 
    * @example
    * false
@@ -887,7 +906,7 @@ export class ListGatewayRouteResponseBodyDataResult extends $dara.Model {
   enableWaf?: string;
   /**
    * @remarks
-   * Indicates whether the Fallback service is enabled.
+   * Whether to enable Fallback service.
    * 
    * @example
    * true
@@ -895,12 +914,12 @@ export class ListGatewayRouteResponseBodyDataResult extends $dara.Model {
   fallback?: boolean;
   /**
    * @remarks
-   * The information about the Fallback service.
+   * Fallback service.
    */
   fallbackServices?: ListGatewayRouteResponseBodyDataResultFallbackServices[];
   /**
    * @remarks
-   * The ID of the gateway.
+   * Gateway ID.
    * 
    * @example
    * 496
@@ -908,7 +927,7 @@ export class ListGatewayRouteResponseBodyDataResult extends $dara.Model {
   gatewayId?: number;
   /**
    * @remarks
-   * The unique ID of the gateway.
+   * Gateway unique identifier.
    * 
    * @example
    * gw-cf0e7f52ecc7429dbc7ba4d5e3656100
@@ -916,7 +935,7 @@ export class ListGatewayRouteResponseBodyDataResult extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The creation time.
+   * Creation time.
    * 
    * @example
    * 2022-01-25T07:14:01.817+0000
@@ -924,7 +943,7 @@ export class ListGatewayRouteResponseBodyDataResult extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time.
+   * Modification time
    * 
    * @example
    * 2022-01-07 18:07:57
@@ -932,7 +951,7 @@ export class ListGatewayRouteResponseBodyDataResult extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The ID.
+   * Route ID.
    * 
    * @example
    * 47
@@ -940,7 +959,7 @@ export class ListGatewayRouteResponseBodyDataResult extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name.
+   * Name.
    * 
    * @example
    * test
@@ -948,7 +967,7 @@ export class ListGatewayRouteResponseBodyDataResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The matching rules.
+   * Matching rules
    * 
    * @example
    * {\\"PathPredicates\\":{\\"Path\\":\\"/rpc/compute \\",\\"Type\\":\\"PRE\\",\\"IgnoreCase\\":true}}
@@ -956,12 +975,12 @@ export class ListGatewayRouteResponseBodyDataResult extends $dara.Model {
   predicates?: string;
   /**
    * @remarks
-   * The information about redirection.
+   * Redirection
    */
   redirect?: ListGatewayRouteResponseBodyDataResultRedirect;
   /**
    * @remarks
-   * The order.
+   * Order
    * 
    * @example
    * 1
@@ -969,17 +988,17 @@ export class ListGatewayRouteResponseBodyDataResult extends $dara.Model {
   routeOrder?: number;
   /**
    * @remarks
-   * The matching rules.
+   * Matching rules
    */
   routePredicates?: ListGatewayRouteResponseBodyDataResultRoutePredicates;
   /**
    * @remarks
-   * The information about services.
+   * Service.
    */
   routeServices?: ListGatewayRouteResponseBodyDataResultRouteServices[];
   /**
    * @remarks
-   * The information about services.
+   * Service.
    * 
    * @example
    * []
@@ -987,7 +1006,7 @@ export class ListGatewayRouteResponseBodyDataResult extends $dara.Model {
   services?: string;
   /**
    * @remarks
-   * The status.
+   * Status.
    * 
    * @example
    * 2
@@ -995,7 +1014,7 @@ export class ListGatewayRouteResponseBodyDataResult extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The route type.
+   * Route type
    * 
    * @example
    * Op
@@ -1101,7 +1120,7 @@ export class ListGatewayRouteResponseBodyDataResult extends $dara.Model {
 export class ListGatewayRouteResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * Page number.
    * 
    * @example
    * 11
@@ -1109,7 +1128,7 @@ export class ListGatewayRouteResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * Page size.
    * 
    * @example
    * 10
@@ -1117,12 +1136,12 @@ export class ListGatewayRouteResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The data structure.
+   * Data structure.
    */
   result?: ListGatewayRouteResponseBodyDataResult[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * Total number of entries.
    * 
    * @example
    * 36
@@ -1161,7 +1180,7 @@ export class ListGatewayRouteResponseBodyData extends $dara.Model {
 export class ListGatewayRouteResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The code returned.
+   * Code.
    * 
    * @example
    * 200
@@ -1169,12 +1188,12 @@ export class ListGatewayRouteResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * Returned data.
    */
   data?: ListGatewayRouteResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * HTTP status code.
    * 
    * @example
    * 200
@@ -1182,7 +1201,7 @@ export class ListGatewayRouteResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned if the request failed.
+   * Error message.
    * 
    * @example
    * You are not authorized to perform this operation.
@@ -1190,7 +1209,7 @@ export class ListGatewayRouteResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Request ID.
    * 
    * @example
    * 83F02EAB-ECDF-55C6-B332-8649E5E7AF2C
@@ -1198,10 +1217,11 @@ export class ListGatewayRouteResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Request result, with the following values:
    * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * - `true`: The request is successful.
+   * 
+   * - `false`: The request failed.
    * 
    * @example
    * true

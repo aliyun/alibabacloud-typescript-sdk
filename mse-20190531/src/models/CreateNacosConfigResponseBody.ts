@@ -32,7 +32,7 @@ export class CreateNacosConfigResponseBody extends $dara.Model {
    * The error message returned.
    * 
    * @example
-   * The request was successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**

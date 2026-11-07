@@ -5,16 +5,25 @@ import { DataToolSpecToolsMetaValue } from "./DataToolSpecToolsMetaValue";
 
 export class GetNacosMcpServerResponseBodyDataAllVersions extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether it is the latest version.
+   * 
    * @example
    * true
    */
   isLatest?: boolean;
   /**
+   * @remarks
+   * The release date.
+   * 
    * @example
    * 2025-07-16
    */
   releaseDate?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * 1.0.9
    */
@@ -46,16 +55,25 @@ export class GetNacosMcpServerResponseBodyDataAllVersions extends $dara.Model {
 
 export class GetNacosMcpServerResponseBodyDataBackendEndpoints extends $dara.Model {
   /**
+   * @remarks
+   * The address.
+   * 
    * @example
    * 127.0.0.1
    */
   address?: string;
   /**
+   * @remarks
+   * The path.
+   * 
    * @example
    * /sse
    */
   path?: string;
   /**
+   * @remarks
+   * The port number.
+   * 
    * @example
    * 80
    */
@@ -87,16 +105,25 @@ export class GetNacosMcpServerResponseBodyDataBackendEndpoints extends $dara.Mod
 
 export class GetNacosMcpServerResponseBodyDataRemoteServerConfigServiceRef extends $dara.Model {
   /**
+   * @remarks
+   * The group to which the service belongs.
+   * 
    * @example
    * DEFAULT
    */
   groupName?: string;
   /**
+   * @remarks
+   * The namespace ID.
+   * 
    * @example
    * public
    */
   namespaceId?: string;
   /**
+   * @remarks
+   * The service name.
+   * 
    * @example
    * mcp-service
    */
@@ -128,10 +155,17 @@ export class GetNacosMcpServerResponseBodyDataRemoteServerConfigServiceRef exten
 
 export class GetNacosMcpServerResponseBodyDataRemoteServerConfig extends $dara.Model {
   /**
+   * @remarks
+   * The exposed path.
+   * 
    * @example
    * /sse
    */
   exportPath?: string;
+  /**
+   * @remarks
+   * The service reference.
+   */
   serviceRef?: GetNacosMcpServerResponseBodyDataRemoteServerConfigServiceRef;
   static names(): { [key: string]: string } {
     return {
@@ -161,12 +195,22 @@ export class GetNacosMcpServerResponseBodyDataRemoteServerConfig extends $dara.M
 
 export class GetNacosMcpServerResponseBodyDataToolSpecTools extends $dara.Model {
   /**
+   * @remarks
+   * The description.
+   * 
    * @example
    * a weather query tool
    */
   description?: string;
+  /**
+   * @remarks
+   * The input schema of the tool.
+   */
   inputSchema?: { [key: string]: any };
   /**
+   * @remarks
+   * The tool name.
+   * 
    * @example
    * get_weather
    */
@@ -200,10 +244,36 @@ export class GetNacosMcpServerResponseBodyDataToolSpecTools extends $dara.Model 
 }
 
 export class GetNacosMcpServerResponseBodyDataToolSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The list of security authentication schemes in the MCP tool definition.
+   */
   securitySchemes?: any;
+  /**
+   * @remarks
+   * The storage format type of the MCP tool definition.
+   * 
+   * @example
+   * cipher-kms-256
+   */
   specificationType?: string;
+  /**
+   * @remarks
+   * The decryption result status of the MCP tool definition.
+   * 
+   * @example
+   * success
+   */
   toolDecryptStatus?: string;
+  /**
+   * @remarks
+   * The list of tools.
+   */
   tools?: GetNacosMcpServerResponseBodyDataToolSpecTools[];
+  /**
+   * @remarks
+   * The tool metadata map.
+   */
   toolsMeta?: { [key: string]: DataToolSpecToolsMetaValue };
   static names(): { [key: string]: string } {
     return {
@@ -242,16 +312,25 @@ export class GetNacosMcpServerResponseBodyDataToolSpec extends $dara.Model {
 
 export class GetNacosMcpServerResponseBodyDataVersionDetail extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether it is the latest version.
+   * 
    * @example
    * true
    */
   isLatest?: boolean;
   /**
+   * @remarks
+   * The release date.
+   * 
    * @example
    * 2025-07-16
    */
   releaseDate?: string;
   /**
+   * @remarks
+   * The version number.
+   * 
    * @example
    * 1.11.0
    */
@@ -282,43 +361,97 @@ export class GetNacosMcpServerResponseBodyDataVersionDetail extends $dara.Model 
 }
 
 export class GetNacosMcpServerResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * All version information of the current MCP server.
+   */
   allVersions?: GetNacosMcpServerResponseBodyDataAllVersions[];
+  /**
+   * @remarks
+   * The backend service endpoints.
+   */
   backendEndpoints?: GetNacosMcpServerResponseBodyDataBackendEndpoints[];
+  /**
+   * @remarks
+   * The capabilities of the current MCP server.
+   */
   capabilities?: string[];
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * Description
+   */
   description?: string;
   /**
+   * @remarks
+   * Indicates whether the gateway is enabled.
+   * 
+   * - true: Enabled.
+   * 
+   * - false: Disabled.
+   * 
    * @example
    * true
    */
   enabled?: boolean;
   /**
+   * @remarks
+   * The exposed protocol type.
+   * 
    * @example
    * mcp-sse
    */
   frontProtocol?: string;
   /**
    * @remarks
-   * ID。
+   * The ID.
    * 
    * @example
    * 5e3c5211-d365-4013-8540-c4106ec2a5dc
    */
   id?: string;
+  /**
+   * @remarks
+   * The local MCP server configuration.
+   */
   localServerConfig?: { [key: string]: any };
   /**
+   * @remarks
+   * The name.
+   * 
    * @example
    * mcp-demo
    */
   name?: string;
   /**
+   * @remarks
+   * The protocol.
+   * 
    * @example
    * mcp-sse
    */
   protocol?: string;
+  /**
+   * @remarks
+   * The remote server configuration.
+   */
   remoteServerConfig?: GetNacosMcpServerResponseBodyDataRemoteServerConfig;
+  /**
+   * @remarks
+   * The tool specification.
+   */
   toolSpec?: GetNacosMcpServerResponseBodyDataToolSpec;
+  /**
+   * @remarks
+   * The version details.
+   */
   versionDetail?: GetNacosMcpServerResponseBodyDataVersionDetail;
   /**
+   * @remarks
+   * The YAML configuration of the AI gateway.
+   * 
    * @example
    * allowTools:
    * - demo-tool
@@ -403,8 +536,15 @@ export class GetNacosMcpServerResponseBodyData extends $dara.Model {
 }
 
 export class GetNacosMcpServerResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: GetNacosMcpServerResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 72FC625E-9629-591B-9C01-3F0BFDAB****
    */

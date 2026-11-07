@@ -6,9 +6,8 @@ export class AddAuthResourceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response. Valid values:
-   * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -16,7 +15,7 @@ export class AddAuthResourceShrinkRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The ID of the authorization record.
+   * The authorization ID.
    * 
    * @example
    * 13
@@ -24,12 +23,12 @@ export class AddAuthResourceShrinkRequest extends $dara.Model {
   authId?: number;
   /**
    * @remarks
-   * The authentication resource headers.
+   * The list of authentication resource headers.
    */
   authResourceHeaderListShrink?: string;
   /**
    * @remarks
-   * The domain ID.
+   * The domain name ID.
    * 
    * @example
    * 128
@@ -37,7 +36,7 @@ export class AddAuthResourceShrinkRequest extends $dara.Model {
   domainId?: number;
   /**
    * @remarks
-   * The unique ID of the gateway.
+   * The unique gateway ID.
    * 
    * @example
    * gw-86575c0bc9f04ecfbacb92b8e392****
@@ -45,7 +44,7 @@ export class AddAuthResourceShrinkRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * Specifies whether the matching is not case-sensitive. Default value: true.
+   * Specifies whether to ignore case. Default value: true.
    * 
    * @example
    * true
@@ -53,14 +52,13 @@ export class AddAuthResourceShrinkRequest extends $dara.Model {
   ignoreCase?: boolean;
   /**
    * @remarks
-   * The matching type. Valid values:
-   * 
-   * *   EQUAL
-   * *   PRE
-   * *   ERGULAR
+   * The match type. Valid values:
+   * - EQUAL: Exact match.
+   * - PRE: Prefix match.
+   * - ERGULAR: Regular expression match.
    * 
    * @example
-   * exact
+   * PRE
    */
   matchType?: string;
   /**

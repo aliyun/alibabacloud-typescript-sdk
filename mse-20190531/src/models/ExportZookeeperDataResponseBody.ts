@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ExportZookeeperDataResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The content of a task.
+   * The task content.
    */
   contentMap?: { [key: string]: any };
   /**
    * @remarks
-   * The creation time.
+   * The time when the task was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1631001140913
@@ -18,10 +18,9 @@ export class ExportZookeeperDataResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The type of the object that is exported. Valid values:
-   * 
-   * *   transactionLog: transaction logs
-   * *   snapshot: snapshots
+   * The export type. Valid values:
+   * - transactionLog: transaction log
+   * - snapshot: snapshot file
    * 
    * @example
    * snapshot
@@ -37,7 +36,7 @@ export class ExportZookeeperDataResponseBodyData extends $dara.Model {
   extend?: string;
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * @example
    * 1
@@ -45,7 +44,7 @@ export class ExportZookeeperDataResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ID of the instance
+   * The instance ID.
    * 
    * @example
    * mse-cn-st21ri2****
@@ -53,7 +52,7 @@ export class ExportZookeeperDataResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the associated task at the underlying layer. This parameter is used only to troubleshoot failures.
+   * The associated underlying task ID. This parameter is used only for troubleshooting when a task fails.
    * 
    * @example
    * 10
@@ -61,13 +60,12 @@ export class ExportZookeeperDataResponseBodyData extends $dara.Model {
   kubeoneTaskIds?: string;
   /**
    * @remarks
-   * The status of the task. Valid values:
-   * 
-   * *   CREATE: The object is being created.
-   * *   RUNNING: The task is running.
-   * *   FINISH: The task is completed.
-   * *   FAILED: The task fails.
-   * *   EXPIRE: The task has expired.
+   * The task status. Valid values:
+   * - CREATE: creating
+   * - RUNNING: running
+   * - FINISH: completed
+   * - FAILED: failed
+   * - EXPIRE: expired
    * 
    * @example
    * FINISH
@@ -75,7 +73,7 @@ export class ExportZookeeperDataResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The last update time.
+   * The time when the task was updated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1632979237663
@@ -124,14 +122,13 @@ export class ExportZookeeperDataResponseBodyData extends $dara.Model {
 export class ExportZookeeperDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the data.
+   * The data overview.
    */
   data?: ExportZookeeperDataResponseBodyData;
   /**
    * @remarks
-   * The dynamic part in the error message. This parameter is used to replace the \\*\\*%s\\*\\* variable in the **ErrMessage** parameter.
-   * 
-   * > If the return value of the **ErrMessage** parameter is **The Value of Input Parameter %s is not valid** and the return value of the **DynamicMessage** parameter is **DtsJobId**, the specified **DtsJobId** parameter is invalid.
+   * The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** response parameter.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the specified **DtsJobId** request parameter is invalid.
    * 
    * @example
    * The specified parameter is invalid.
@@ -139,7 +136,7 @@ export class ExportZookeeperDataResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * The error code returned if the request failed.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -147,7 +144,7 @@ export class ExportZookeeperDataResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -155,18 +152,17 @@ export class ExportZookeeperDataResponseBody extends $dara.Model {
   httpStatusCode?: string;
   /**
    * @remarks
-   * The message returned.
-   * 
-   * *   If the request is successful, a success message is returned.
-   * *   If the request fails, an error message is returned.
+   * The returned message.
+   * - If the request succeeds, a success message is returned.
+   * - If the request fails, the cause of the failure is returned.
    * 
    * @example
-   * The request was successfully processed.
+   * Request processed successfully
    */
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 25EA0A83-9007-4E87-808C-637BE1A****
@@ -174,10 +170,9 @@ export class ExportZookeeperDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * The request result. Valid values:
+   * - `true`: The request succeeded.
+   * - `false`: The request failed.
    * 
    * @example
    * true

@@ -95,7 +95,7 @@ export class GetZookeeperDataImportUrlResponseBody extends $dara.Model {
    * The request was successfully processed.
    * 
    * @example
-   * The dynamic part in the error message.
+   * The request is processed successfully.
    */
   message?: string;
   /**

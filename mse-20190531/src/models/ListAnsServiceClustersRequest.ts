@@ -7,8 +7,9 @@ export class ListAnsServiceClustersRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * 
+   * - en: English
    * 
    * @example
    * zh
@@ -18,10 +19,10 @@ export class ListAnsServiceClustersRequest extends $dara.Model {
    * @remarks
    * The ID of the MSE cluster.
    * 
-   * >  The MSE cluster is different from the cluster of the Nacos service.
+   * > The MSE cluster is different from the cluster of the Nacos service.
    * 
    * @example
-   * mse-09k1q110q01
+   * mse-09k1xxxx
    * 
    * @deprecated
    */
@@ -31,7 +32,7 @@ export class ListAnsServiceClustersRequest extends $dara.Model {
    * The alias of the cluster.
    * 
    * @example
-   * mse-7413****
+   * qewr
    */
   clusterName?: string;
   /**

@@ -29,7 +29,7 @@ export class QueryGatewayTypeResponseBody extends $dara.Model {
    * The message returned. If the request is successful, a success message is returned. If the request fails, an error message is returned.
    * 
    * @example
-   * The request is successfully processed.
+   * The request is processed successfully.
    */
   message?: string;
   /**

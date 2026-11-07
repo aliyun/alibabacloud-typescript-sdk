@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FetchLosslessRuleListResponseBodyDataResults extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether service registration is complete before readiness probe.
+   * Specifies whether to enable completing service registration before passing the readiness check.
    * 
    * @example
    * true
@@ -13,15 +13,15 @@ export class FetchLosslessRuleListResponseBodyDataResults extends $dara.Model {
   aligned?: boolean;
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
-   * hkhon1po62@24810bf4364aea1
+   * hkhon1po62@24810bf4364a***
    */
   appId?: string;
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * echo-demo
@@ -37,7 +37,7 @@ export class FetchLosslessRuleListResponseBodyDataResults extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The registration latency. Unit: seconds.
+   * The delayed registration time in seconds.
    * 
    * @example
    * 60
@@ -45,10 +45,10 @@ export class FetchLosslessRuleListResponseBodyDataResults extends $dara.Model {
   delayTime?: number;
   /**
    * @remarks
-   * Indicates whether graceful start is enabled. Valid values:
+   * The enabling status of graceful start. Valid values:
    * 
-   * *   `true`: enabled
-   * *   `false`: disabled
+   * - `true`: Enabled.
+   * - `false`: Disabled.
    * 
    * @example
    * true
@@ -56,7 +56,7 @@ export class FetchLosslessRuleListResponseBodyDataResults extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The slope of the prefetching curve.
+   * The slope of the warm-up curve.
    * 
    * @example
    * 2
@@ -64,7 +64,7 @@ export class FetchLosslessRuleListResponseBodyDataResults extends $dara.Model {
   funcType?: number;
   /**
    * @remarks
-   * Indicates whether online and offline processing details are displayed.
+   * Specifies whether to enable the processing details for graceful start and shutdown.
    * 
    * @example
    * false
@@ -72,7 +72,7 @@ export class FetchLosslessRuleListResponseBodyDataResults extends $dara.Model {
   lossLessDetail?: boolean;
   /**
    * @remarks
-   * Indicates whether notification is enabled.
+   * Specifies whether to enable proactive notifications.
    * 
    * @example
    * true
@@ -80,7 +80,7 @@ export class FetchLosslessRuleListResponseBodyDataResults extends $dara.Model {
   notice?: boolean;
   /**
    * @remarks
-   * Indicates whether service prefetching is complete before readiness probe.
+   * Specifies whether to enable completing service warm-up before passing the readiness check.
    * 
    * @example
    * false
@@ -88,7 +88,7 @@ export class FetchLosslessRuleListResponseBodyDataResults extends $dara.Model {
   related?: boolean;
   /**
    * @remarks
-   * The prefetching duration. Unit: seconds.
+   * The warm-up duration in seconds.
    * 
    * @example
    * 60
@@ -138,7 +138,7 @@ export class FetchLosslessRuleListResponseBodyDataResults extends $dara.Model {
 export class FetchLosslessRuleListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -146,7 +146,7 @@ export class FetchLosslessRuleListResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -159,7 +159,7 @@ export class FetchLosslessRuleListResponseBodyData extends $dara.Model {
   results?: FetchLosslessRuleListResponseBodyDataResults[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 36
@@ -198,7 +198,7 @@ export class FetchLosslessRuleListResponseBodyData extends $dara.Model {
 export class FetchLosslessRuleListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code returned.
+   * The response code.
    * 
    * @example
    * 200
@@ -210,18 +210,24 @@ export class FetchLosslessRuleListResponseBody extends $dara.Model {
    */
   data?: FetchLosslessRuleListResponseBodyData;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * Success
    */
   errorCode?: string;
   /**
+   * @remarks
+   * The HTTP status code.
+   * 
    * @example
    * 200
    */
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned.
+   * The message.
    * 
    * @example
    * success
@@ -229,7 +235,7 @@ export class FetchLosslessRuleListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 56D9E600-6348-4260-B35F-583413F****
@@ -237,13 +243,12 @@ export class FetchLosslessRuleListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   `true`: The request was successful.
-   * *   `false`: The request failed.
+   * The request result. Valid values:
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
-   * True
+   * true
    */
   success?: boolean;
   static names(): { [key: string]: string } {

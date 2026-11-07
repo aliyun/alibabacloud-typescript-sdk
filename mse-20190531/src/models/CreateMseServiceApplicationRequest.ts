@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMseServiceApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the returned information. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -42,10 +42,10 @@ export class CreateMseServiceApplicationRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The edition of the MSE instance that you want to purchase.
+   * The version of the Microservices Engine (MSE) cluster to be activated. Valid values:
    * 
-   * *   mse_pro: Professional Edition.
-   * *   mse_dev: Developer Edition.
+   * - mse_pro: Professional Edition.
+   * - mse_dev: Developer Edition.
    * 
    * @example
    * mse_pro
@@ -53,13 +53,13 @@ export class CreateMseServiceApplicationRequest extends $dara.Model {
   mseVersion?: string;
   /**
    * @remarks
-   * The ID of the region where the instance resides. Examples:
+   * The region where the cluster is located, including but not limited to:
    * 
-   * *   cn-hangzhou: China (Hangzhou)
-   * *   cn-beijing: China (Beijing)
-   * *   cn-shanghai: China (Shanghai)
-   * *   cn-zhangjiakou: China (Zhangjiakou)
-   * *   cn-shenzhen: China (Shenzhen)
+   * - cn-hangzhou: Hangzhou
+   * - cn-beijing: Beijing
+   * - cn-shanghai: Shanghai
+   * - cn-zhangjiakou: Zhangjiakou
+   * - cn-shenzhen: Shenzhen
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class CreateMseServiceApplicationRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * Specifies whether to enable the Sentinel-compatible mode.
+   * Specifies whether to enable Sentinel.
    * 
    * @example
    * true
@@ -77,7 +77,7 @@ export class CreateMseServiceApplicationRequest extends $dara.Model {
   sentinelEnable?: string;
   /**
    * @remarks
-   * The service source.
+   * The source.
    * 
    * @example
    * edasmsc
@@ -85,7 +85,7 @@ export class CreateMseServiceApplicationRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Specifies whether to enable switching.
+   * Specifies whether to enable Switch.
    * 
    * @example
    * true

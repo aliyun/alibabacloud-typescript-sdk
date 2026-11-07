@@ -7,8 +7,8 @@ export class DeleteGatewayAuthConsumerResourceRequest extends $dara.Model {
    * @remarks
    * The language of the response. Valid values:
    * 
-   * *   zh: Chinese
-   * *   en: English
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -16,7 +16,7 @@ export class DeleteGatewayAuthConsumerResourceRequest extends $dara.Model {
   acceptLanguage?: string;
   /**
    * @remarks
-   * The consumer ID.
+   * The ID of the gateway authentication consumer.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class DeleteGatewayAuthConsumerResourceRequest extends $dara.Model {
   gatewayUniqueId?: string;
   /**
    * @remarks
-   * The IDs of the authorized resources that you want to delete.
+   * The list of authorization IDs to delete.
    * 
    * This parameter is required.
    * 

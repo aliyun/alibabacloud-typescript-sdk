@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CloneNacosConfigResponseBodyDataFailData extends $dara.Model {
   /**
    * @remarks
-   * Data ID.
+   * The data ID.
    * 
    * @example
    * test2.yaml
@@ -13,7 +13,7 @@ export class CloneNacosConfigResponseBodyDataFailData extends $dara.Model {
   dataId?: string;
   /**
    * @remarks
-   * Group ID.
+   * The group ID.
    * 
    * @example
    * test
@@ -21,10 +21,10 @@ export class CloneNacosConfigResponseBodyDataFailData extends $dara.Model {
   group?: string;
   /**
    * @remarks
-   * The reason for the current operation.
+   * The error reason.
    * 
    * @example
-   * param not support
+   * The current import configuration format is invalid.
    */
   reason?: string;
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class CloneNacosConfigResponseBodyDataFailData extends $dara.Model {
 export class CloneNacosConfigResponseBodyDataSkipData extends $dara.Model {
   /**
    * @remarks
-   * Data ID.
+   * The data ID.
    * 
    * @example
    * test.yaml
@@ -63,7 +63,7 @@ export class CloneNacosConfigResponseBodyDataSkipData extends $dara.Model {
   dataId?: string;
   /**
    * @remarks
-   * Group ID.
+   * The group ID.
    * 
    * @example
    * public
@@ -95,12 +95,12 @@ export class CloneNacosConfigResponseBodyDataSkipData extends $dara.Model {
 export class CloneNacosConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Failed configuration information.
+   * The failed configuration information.
    */
   failData?: CloneNacosConfigResponseBodyDataFailData[];
   /**
    * @remarks
-   * Number of skips.
+   * The number of skipped configurations.
    * 
    * @example
    * 1
@@ -108,12 +108,12 @@ export class CloneNacosConfigResponseBodyData extends $dara.Model {
   skipCount?: number;
   /**
    * @remarks
-   * Skipped configuration information.
+   * The skipped configuration information.
    */
   skipData?: CloneNacosConfigResponseBodyDataSkipData[];
   /**
    * @remarks
-   * Number of successes.
+   * The number of successful configurations.
    * 
    * @example
    * 100
@@ -155,7 +155,7 @@ export class CloneNacosConfigResponseBodyData extends $dara.Model {
 export class CloneNacosConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The response code.
    * 
    * @example
    * 200
@@ -163,13 +163,13 @@ export class CloneNacosConfigResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Data overview.
+   * The data overview.
    */
   data?: CloneNacosConfigResponseBodyData;
   /**
    * @remarks
-   * Dynamic error message, used to replace the **%s** in the **ErrMessage** error message.
-   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid**, and **DynamicMessage** returns **DtsJobId**, it indicates that the input request parameter **DtsJobId** is invalid.
+   * The dynamic error message, which is used to replace the **%s** placeholder in the **ErrMessage** error message.
+   * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
    * 
    * @example
    * The specified parameter is invalid.
@@ -177,7 +177,7 @@ export class CloneNacosConfigResponseBody extends $dara.Model {
   dynamicMessage?: string;
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * mse-100-000
@@ -185,7 +185,7 @@ export class CloneNacosConfigResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -193,7 +193,7 @@ export class CloneNacosConfigResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Response message.
+   * The response message.
    * 
    * @example
    * Clone Completed Successfully
@@ -201,7 +201,7 @@ export class CloneNacosConfigResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 6678DBA9-5600-5948-ACF8-ED3105B288A3
@@ -209,9 +209,9 @@ export class CloneNacosConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Request result, with the following values:
-   * - `true`: Request succeeded.
-   * - `false`: Request failed.
+   * The request result. Valid values:
+   * - `true`: The request was successful.
+   * - `false`: The request failed.
    * 
    * @example
    * true
