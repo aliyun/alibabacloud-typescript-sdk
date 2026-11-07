@@ -3653,6 +3653,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询Agent实例版本列表
+   * 
+   * @param request - ListAgentInstanceVersionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAgentInstanceVersionsResponse
+   */
+  async listAgentInstanceVersionsWithOptions(request: $_model.ListAgentInstanceVersionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgentInstanceVersionsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentPlatform)) {
+      query["AgentPlatform"] = request.agentPlatform;
+    }
+
+    if (!$dara.isNull(request.agentProvider)) {
+      query["AgentProvider"] = request.agentProvider;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAgentInstanceVersions",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAgentInstanceVersionsResponse>(await this.callApi(params, req, runtime), new $_model.ListAgentInstanceVersionsResponse({}));
+  }
+
+  /**
+   * 查询Agent实例版本列表
+   * 
+   * @param request - ListAgentInstanceVersionsRequest
+   * @returns ListAgentInstanceVersionsResponse
+   */
+  async listAgentInstanceVersions(request: $_model.ListAgentInstanceVersionsRequest): Promise<$_model.ListAgentInstanceVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listAgentInstanceVersionsWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the valid applications of the current account by paging based on conditions such as the application ID, name, type, and associated product.
    * 
    * @remarks
@@ -4631,6 +4677,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 分页查询浏览器书签列表
+   * 
+   * @param request - ListBrowserBookmarksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBrowserBookmarksResponse
+   */
+  async listBrowserBookmarksWithOptions(request: $_model.ListBrowserBookmarksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListBrowserBookmarksResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.browserInstanceGroupId)) {
+      query["BrowserInstanceGroupId"] = request.browserInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.browserInstanceGroupSetId)) {
+      query["BrowserInstanceGroupSetId"] = request.browserInstanceGroupSetId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBrowserBookmarks",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBrowserBookmarksResponse>(await this.callApi(params, req, runtime), new $_model.ListBrowserBookmarksResponse({}));
+  }
+
+  /**
+   * 分页查询浏览器书签列表
+   * 
+   * @param request - ListBrowserBookmarksRequest
+   * @returns ListBrowserBookmarksResponse
+   */
+  async listBrowserBookmarks(request: $_model.ListBrowserBookmarksRequest): Promise<$_model.ListBrowserBookmarksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listBrowserBookmarksWithOptions(request, runtime);
+  }
+
+  /**
    * Performs a paging query of cloud browser groups and their current statuses.
    * 
    * @remarks
@@ -4747,6 +4851,74 @@ export default class Client extends OpenApi {
   async listBrowserInstanceGroup(request: $_model.ListBrowserInstanceGroupRequest): Promise<$_model.ListBrowserInstanceGroupResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listBrowserInstanceGroupWithOptions(request, runtime);
+  }
+
+  /**
+   * 分页查询浏览器白名单列表
+   * 
+   * @remarks
+   * 调用本接口分页查询云浏览器交付组或交付组集合下配置的访问限制 URL（Restricted URL）列表，用于查看当前访问控制策略中已配置的 URL 明细。
+   * BrowserInstanceGroupId 与 BrowserInstanceGroupSetId 必须且只能指定一个：指定 BrowserInstanceGroupId 时查询该交付组的访问限制 URL；指定 BrowserInstanceGroupSetId 时查询该交付组集合的访问限制 URL。两者同时指定或同时不指定都会返回参数错误。
+   * 可通过 Keyword 对访问限制 URL 做包含匹配筛选（英文不区分大小写），不传时返回全部。分页由 PageNumber 和 PageSize 控制：PageSize 取值范围 1~200，默认 200；PageNumber 默认 0，传入值小于 1 时按第 1 页处理。响应中的 TotalCount 为满足筛选条件的总记录数，Data 为当前页记录，没有数据时返回空数组。
+   * 
+   * @param request - ListBrowserRestrictedURLsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListBrowserRestrictedURLsResponse
+   */
+  async listBrowserRestrictedURLsWithOptions(request: $_model.ListBrowserRestrictedURLsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListBrowserRestrictedURLsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.browserInstanceGroupId)) {
+      query["BrowserInstanceGroupId"] = request.browserInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.browserInstanceGroupSetId)) {
+      query["BrowserInstanceGroupSetId"] = request.browserInstanceGroupSetId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["Keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListBrowserRestrictedURLs",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListBrowserRestrictedURLsResponse>(await this.callApi(params, req, runtime), new $_model.ListBrowserRestrictedURLsResponse({}));
+  }
+
+  /**
+   * 分页查询浏览器白名单列表
+   * 
+   * @remarks
+   * 调用本接口分页查询云浏览器交付组或交付组集合下配置的访问限制 URL（Restricted URL）列表，用于查看当前访问控制策略中已配置的 URL 明细。
+   * BrowserInstanceGroupId 与 BrowserInstanceGroupSetId 必须且只能指定一个：指定 BrowserInstanceGroupId 时查询该交付组的访问限制 URL；指定 BrowserInstanceGroupSetId 时查询该交付组集合的访问限制 URL。两者同时指定或同时不指定都会返回参数错误。
+   * 可通过 Keyword 对访问限制 URL 做包含匹配筛选（英文不区分大小写），不传时返回全部。分页由 PageNumber 和 PageSize 控制：PageSize 取值范围 1~200，默认 200；PageNumber 默认 0，传入值小于 1 时按第 1 页处理。响应中的 TotalCount 为满足筛选条件的总记录数，Data 为当前页记录，没有数据时返回空数组。
+   * 
+   * @param request - ListBrowserRestrictedURLsRequest
+   * @returns ListBrowserRestrictedURLsResponse
+   */
+  async listBrowserRestrictedURLs(request: $_model.ListBrowserRestrictedURLsRequest): Promise<$_model.ListBrowserRestrictedURLsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listBrowserRestrictedURLsWithOptions(request, runtime);
   }
 
   /**
@@ -7803,6 +7975,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 离线每天会话趋势图
+   * 
+   * @remarks
+   * 调用本接口查询当前阿里云账号在指定日期的会话数量趋势数据。数据为离线统计结果，按天组织，返回该日期内各时间点的会话数量。
+   * 返回结果按 10 分钟粒度聚合：每条数据由小时（Hh，取值 00-23）和分钟（Mi，取值 00、10、20、30、40、50）标识一个时间点，SessionCntMi 为该时间点所在 10 分钟区间内的会话数量汇总值。结果按小时、分钟升序排列。
+   * 可通过 BizRegionId 指定业务地域、通过 AppInstanceGroupId 指定交付组进行过滤；两者均不传时，返回当前账号下所有地域、所有交付组的会话数据汇总。实际用于过滤会话数据的地域以 BizRegionId 为准。
+   * StatDate 为统计日期，格式 yyyyMMdd，不传时默认查询昨天，仅支持查询最近 90 天内的日期。当指定日期没有会话数据时返回空列表，且返回码为 NO_DATA。
+   * 
+   * @param request - QuerySessionDataRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns QuerySessionDataResponse
+   */
+  async querySessionDataWithOptions(request: $_model.QuerySessionDataRequest, runtime: $dara.RuntimeOptions): Promise<$_model.QuerySessionDataResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appInstanceGroupId)) {
+      body["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      body["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.statDate)) {
+      body["StatDate"] = request.statDate;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "QuerySessionData",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.QuerySessionDataResponse>(await this.callApi(params, req, runtime), new $_model.QuerySessionDataResponse({}));
+  }
+
+  /**
+   * 离线每天会话趋势图
+   * 
+   * @remarks
+   * 调用本接口查询当前阿里云账号在指定日期的会话数量趋势数据。数据为离线统计结果，按天组织，返回该日期内各时间点的会话数量。
+   * 返回结果按 10 分钟粒度聚合：每条数据由小时（Hh，取值 00-23）和分钟（Mi，取值 00、10、20、30、40、50）标识一个时间点，SessionCntMi 为该时间点所在 10 分钟区间内的会话数量汇总值。结果按小时、分钟升序排列。
+   * 可通过 BizRegionId 指定业务地域、通过 AppInstanceGroupId 指定交付组进行过滤；两者均不传时，返回当前账号下所有地域、所有交付组的会话数据汇总。实际用于过滤会话数据的地域以 BizRegionId 为准。
+   * StatDate 为统计日期，格式 yyyyMMdd，不传时默认查询昨天，仅支持查询最近 90 天内的日期。当指定日期没有会话数据时返回空列表，且返回码为 NO_DATA。
+   * 
+   * @param request - QuerySessionDataRequest
+   * @returns QuerySessionDataResponse
+   */
+  async querySessionData(request: $_model.QuerySessionDataRequest): Promise<$_model.QuerySessionDataResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.querySessionDataWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the total number of sessions, connected sessions, and streaming sessions by statistical granularity.
    * 
    * @remarks
@@ -9584,6 +9822,52 @@ export default class Client extends OpenApi {
   async updateWuyingServerImage(request: $_model.UpdateWuyingServerImageRequest): Promise<$_model.UpdateWuyingServerImageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateWuyingServerImageWithOptions(request, runtime);
+  }
+
+  /**
+   * 校验LLM模板配置有效性
+   * 
+   * @param request - ValidateLlmTemplateConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ValidateLlmTemplateConfigResponse
+   */
+  async validateLlmTemplateConfigWithOptions(request: $_model.ValidateLlmTemplateConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ValidateLlmTemplateConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.config)) {
+      query["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.providerTemplateId)) {
+      query["ProviderTemplateId"] = request.providerTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ValidateLlmTemplateConfig",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ValidateLlmTemplateConfigResponse>(await this.callApi(params, req, runtime), new $_model.ValidateLlmTemplateConfigResponse({}));
+  }
+
+  /**
+   * 校验LLM模板配置有效性
+   * 
+   * @param request - ValidateLlmTemplateConfigRequest
+   * @returns ValidateLlmTemplateConfigResponse
+   */
+  async validateLlmTemplateConfig(request: $_model.ValidateLlmTemplateConfigRequest): Promise<$_model.ValidateLlmTemplateConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.validateLlmTemplateConfigWithOptions(request, runtime);
   }
 
 }
