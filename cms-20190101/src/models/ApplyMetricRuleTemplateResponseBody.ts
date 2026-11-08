@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ApplyMetricRuleTemplateResponseBodyResourceAlertResults extends $dara.Model {
   /**
    * @remarks
-   * The status code.
-   * >A status code of 200 indicates success.
+   * The HTTP status code.
+   * > A status code of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -38,11 +38,11 @@ export class ApplyMetricRuleTemplateResponseBodyResourceAlertResults extends $da
   ruleName?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: The operation is successful.
+   * - true: The operation was successful.
    * 
-   * - false: The operation fails.
+   * - false: The operation failed.
    * 
    * @example
    * true
@@ -120,8 +120,8 @@ export class ApplyMetricRuleTemplateResponseBodyResource extends $dara.Model {
 export class ApplyMetricRuleTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
-   * >A status code of 200 indicates success.
+   * The HTTP status code.
+   * > A status code of 200 indicates that the request was successful.
    * 
    * @example
    * 200
@@ -150,11 +150,11 @@ export class ApplyMetricRuleTemplateResponseBody extends $dara.Model {
   resource?: ApplyMetricRuleTemplateResponseBodyResource;
   /**
    * @remarks
-   * Indicates whether the operation is successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: The operation is successful.
+   * - true: The operation was successful.
    * 
-   * - false: The operation fails.
+   * - false: The operation failed.
    * 
    * @example
    * true

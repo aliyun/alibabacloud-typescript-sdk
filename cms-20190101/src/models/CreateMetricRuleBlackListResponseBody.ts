@@ -7,7 +7,7 @@ export class CreateMetricRuleBlackListResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * > The status code 200 indicates that the request was successful.
+   * > A status code of 200 indicates success.
    * 
    * @example
    * 200
@@ -15,7 +15,7 @@ export class CreateMetricRuleBlackListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The ID of the blacklist policy.
+   * The ID of the alert blacklist policy.
    * 
    * @example
    * 93514c96-ceb8-47d8-8ee3-93b6d98b****
@@ -39,11 +39,11 @@ export class CreateMetricRuleBlackListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - true
+   * - true: The operation was successful.
    * 
-   * - false
+   * - false: The operation failed.
    * 
    * @example
    * true

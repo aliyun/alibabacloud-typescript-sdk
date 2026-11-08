@@ -7,7 +7,7 @@ export class EnableHostAvailabilityResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * > A value of 200 indicates success.
+   * > 200 indicates success.
    * 
    * @example
    * 200
@@ -31,7 +31,7 @@ export class EnableHostAvailabilityResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. A value of true indicates success. A value of false indicates failure.
+   * Indicates whether the operation is successful. true indicates success, and false indicates failure.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

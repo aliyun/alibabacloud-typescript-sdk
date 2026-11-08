@@ -109,7 +109,7 @@ export class DescribeExporterRuleListResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * > A value of 200 indicates success. Any other value indicates failure.
+   * > A status code of 200 indicates success. Other values indicate failure.
    * 
    * @example
    * 200
@@ -142,9 +142,9 @@ export class DescribeExporterRuleListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:  
-   * - `true`: Successful.
-   * - `false`: Failed.
+   * Indicates whether the request is successful. Valid values:  
+   * - `true`: The request is successful.
+   * - `false`: The request fails.
    * 
    * @example
    * true

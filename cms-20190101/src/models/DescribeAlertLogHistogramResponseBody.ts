@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAlertLogHistogramResponseBodyAlertLogHistogramList extends $dara.Model {
   /**
    * @remarks
-   * The number of alert history entries.
+   * The number of alert history records.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class DescribeAlertLogHistogramResponseBodyAlertLogHistogramList extends 
   count?: number;
   /**
    * @remarks
-   * The start timestamp for querying alert history.
+   * The start timestamp of the queried alert history.
    * 
    * Unit: seconds.
    * 
@@ -23,7 +23,7 @@ export class DescribeAlertLogHistogramResponseBodyAlertLogHistogramList extends 
   from?: number;
   /**
    * @remarks
-   * The end timestamp for querying alert history.
+   * The end timestamp of the queried alert history.
    * 
    * Unit: seconds.
    * 
@@ -59,14 +59,14 @@ export class DescribeAlertLogHistogramResponseBodyAlertLogHistogramList extends 
 export class DescribeAlertLogHistogramResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The histogram list of alert history.
+   * The histogram list of the queried alert history.
    */
   alertLogHistogramList?: DescribeAlertLogHistogramResponseBodyAlertLogHistogramList[];
   /**
    * @remarks
    * The status code.
    * 
-   * > The value 200 indicates success.
+   * > 200 indicates success.
    * 
    * @example
    * 200
@@ -90,11 +90,11 @@ export class DescribeAlertLogHistogramResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: Successful.
+   * - true: The operation is successful.
    * 
-   * - false: Failed.
+   * - false: The operation fails.
    * 
    * @example
    * true

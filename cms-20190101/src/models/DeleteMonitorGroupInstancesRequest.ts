@@ -15,11 +15,12 @@ export class DeleteMonitorGroupInstancesRequest extends $dara.Model {
    * ecs
    */
   category?: string;
+  clientToken?: string;
   /**
    * @remarks
    * Specifies whether to perform only a dry run on the request. Valid values:
-   * - **true**: performs a dry run. The system checks the required parameters, request format, and service limits, but does not delete the instances. If the request fails the check, an error is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-   * - **false** (default): performs a normal request. If the request passes the check, the instances are deleted.
+   * - **true**: performs a dry run and does not delete the VPN connection. The system checks whether required parameters are specified, the request format is valid, and the service limits are met. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends a normal request. If the request passes the dry run, the VPN connection is deleted.
    * 
    * @example
    * false
@@ -37,7 +38,7 @@ export class DeleteMonitorGroupInstancesRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The IDs of the instances to be deleted. Separate multiple instance IDs with commas (,). You can delete up to 20 instances at a time.
+   * The instances to delete. Separate multiple instance IDs with commas (,). You can delete up to 20 instances at a time.
    * 
    * This parameter is required.
    * 
@@ -49,6 +50,7 @@ export class DeleteMonitorGroupInstancesRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       category: 'Category',
+      clientToken: 'ClientToken',
       dryRun: 'DryRun',
       groupId: 'GroupId',
       instanceIdList: 'InstanceIdList',
@@ -59,6 +61,7 @@ export class DeleteMonitorGroupInstancesRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       category: 'string',
+      clientToken: 'string',
       dryRun: 'boolean',
       groupId: 'number',
       instanceIdList: 'string',

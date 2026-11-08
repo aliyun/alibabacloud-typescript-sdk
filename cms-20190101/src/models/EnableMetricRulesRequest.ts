@@ -3,11 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class EnableMetricRulesRequest extends $dara.Model {
+  clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run only. Valid values:
-   * - **true**: performs a dry run only and does not bind a security group to the instance. The system checks whether all required parameters are specified, the request format is valid, and the service limits are met. If the request fails the check, the corresponding error is returned. If the request passes the check, the `DryRunOperation` error code is returned.
-   * - **false** (default): sends a normal request. If the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
+   * Specifies whether to perform a dry run on the request. Valid values:
+   * - **true**: sends a check request and does not associate a security group with the instance. The check items include whether the required parameters are specified, the request format, and service limits. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends a regular request. If the check succeeds, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -30,6 +31,7 @@ export class EnableMetricRulesRequest extends $dara.Model {
   ruleId?: string[];
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       dryRun: 'DryRun',
       regionId: 'RegionId',
       ruleId: 'RuleId',
@@ -38,6 +40,7 @@ export class EnableMetricRulesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       dryRun: 'boolean',
       regionId: 'string',
       ruleId: { 'type': 'array', 'itemType': 'string' },

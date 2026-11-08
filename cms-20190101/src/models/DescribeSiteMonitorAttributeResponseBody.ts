@@ -126,7 +126,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomSchedule 
   days?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomScheduleDays;
   /**
    * @remarks
-   * The custom detection end time.
+   * The end time of the custom detection.
    * Unit: hours.
    * 
    * @example
@@ -135,7 +135,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomSchedule 
   endHour?: number;
   /**
    * @remarks
-   * The custom detection start time.
+   * The start time of the custom detection.
    * Unit: hours.
    * 
    * @example
@@ -328,7 +328,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAuthI
 export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAuthInfo extends $dara.Model {
   /**
    * @remarks
-   * Supported only in multi-step synthetic monitoring. The AccessKey ID used for Alibaba Cloud authentication. We recommend that you store it in an encrypted format.
+   * Supported only in multi-step monitoring. The AccessKey ID passed when using Alibaba Cloud authentication. Store it in an encrypted format.
    * 
    * @example
    * testAk
@@ -336,7 +336,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAuthI
   accessKeyId?: string;
   /**
    * @remarks
-   * Supported only in multi-step synthetic monitoring. The AccessKey secret used for Alibaba Cloud authentication. We recommend that you store it in an encrypted format.
+   * Supported only in multi-step monitoring. The AccessKey secret passed when using Alibaba Cloud authentication. Store it in an encrypted format.
    * 
    * @example
    * testSk
@@ -344,7 +344,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAuthI
   accessKeySecret?: string;
   /**
    * @remarks
-   * Supported only in multi-step synthetic monitoring. The API operation requested when using Alibaba Cloud operations.
+   * Supported only in multi-step monitoring. The requested API operation when using Alibaba Cloud operations.
    * 
    * @example
    * example_api
@@ -352,7 +352,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAuthI
   apiAction?: string;
   /**
    * @remarks
-   * Supported only in multi-step synthetic monitoring. The API version requested when using Alibaba Cloud operations.
+   * Supported only in multi-step monitoring. The requested API version when using Alibaba Cloud operations.
    * 
    * @example
    * 2019-01-01
@@ -384,7 +384,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAuthI
   clientSecret?: string;
   /**
    * @remarks
-   * The grant type used in OAuth 2.0 authentication. Valid values: client_credentials and password.
+   * The authentication type used in OAuth 2.0 authentication. Valid values: client_credentials and password.
    * 
    * @example
    * password
@@ -400,7 +400,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAuthI
   password?: string;
   /**
    * @remarks
-   * Supported only in multi-step synthetic monitoring. The region ID requested when using Alibaba Cloud authentication.
+   * Supported only in multi-step monitoring. The region ID of the request when using Alibaba Cloud authentication.
    * 
    * @example
    * cn-hangzhou
@@ -409,7 +409,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAuthI
   scopes?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAuthInfoScopes;
   /**
    * @remarks
-   * The service name requested when using AWS authentication.
+   * The service name when using AWS authentication.
    * 
    * @example
    * example_service_name
@@ -425,7 +425,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAuthI
   sessionToken?: string;
   /**
    * @remarks
-   * The address of the authentication server in OAuth 2.0.
+   * The authentication server address in OAuth 2.0.
    * 
    * @example
    * https://www.example.com
@@ -433,7 +433,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAuthI
   tokenUrl?: string;
   /**
    * @remarks
-   * The authentication type. Currently, only HTTP Basic Authentication is supported. Valid value: basic.
+   * The authentication type. Currently, HTTP Basic Authentication is supported. Valid value: basic.
    * 
    * @example
    * basic
@@ -441,7 +441,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAuthI
   type?: string;
   /**
    * @remarks
-   * Specifies whether the key is stored in the client cookie during digest authentication.
+   * In digest authentication, this parameter specifies whether the key is stored in the cookie of the client.
    * 
    * @example
    * false
@@ -457,7 +457,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonAuthI
   username?: string;
   /**
    * @remarks
-   * Supported only in multi-step synthetic monitoring. Specifies whether the operation involves additional resources when Alibaba Cloud authentication is used in this step.
+   * Supported only in multi-step monitoring. Specifies whether the operation has additional resources when this step uses Alibaba Cloud authentication.
    * 
    * @example
    * false
@@ -1030,8 +1030,8 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   /**
    * @remarks
    * Specifies whether to ignore certificate errors. Valid values:
-   * - false: Certificate errors are not ignored.
-   * - true: Certificate errors are ignored.
+   * - false: do not ignore certificate errors
+   * - true: ignore certificate errors
    * 
    * @example
    * false
@@ -1068,9 +1068,9 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   diagnosisMtr?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable automatic ping network latency detection after a task fails. Valid values:
-   * - false: Automatic ping network latency detection is disabled.
-   * - true: Automatic ping network latency detection is enabled.
+   * Specifies whether to enable automatic PING network latency probing after a task fails. Valid values:
+   * - false: Automatic PING network latency probing is disabled.
+   * - true: Automatic PING network latency probing is enabled.
    * 
    * @example
    * false
@@ -1089,7 +1089,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
    * The DNS matching rule. Valid values:
    * - IN_DNS: The expected aliases or IP addresses are all included in the DNS response.
    * - DNS_IN: All DNS responses are included in the expected aliases or IP addresses.
-   * - EQUAL: The DNS response is exactly the same as the expected aliases or IP addresses.
+   * - EQUAL: The DNS response exactly matches the expected aliases or IP addresses.
    * - ANY: The DNS response and the expected aliases or IP addresses have an intersection.
    * 
    * @example
@@ -1099,7 +1099,8 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   /**
    * @remarks
    * The IP address of the DNS server.
-   * > This parameter applies only to DNS monitoring.
+   * 
+   * > This parameter applies only to the DNS monitoring type.
    * 
    * @example
    * 192.168.XX.XX
@@ -1107,7 +1108,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   dnsServer?: string;
   /**
    * @remarks
-   * The DNS record type. This parameter applies only to DNS monitoring. Valid values:
+   * The DNS record type. This parameter applies only to the DNS monitoring type. Valid values:
    * - A: Specifies the IP address that corresponds to a hostname or domain name.
    * - CNAME: Maps multiple domain names to another domain name.
    * - NS: Specifies the DNS server that resolves a domain name.
@@ -1141,7 +1142,8 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   /**
    * @remarks
    * The alias or address to be resolved.
-   * > This parameter applies only to DNS monitoring.
+   * 
+   * > This parameter applies only to the DNS monitoring type.
    * 
    * @example
    * dns_server
@@ -1150,7 +1152,8 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   /**
    * @remarks
    * The packet loss rate.
-   * > This parameter applies only to ping monitoring.
+   * 
+   * > This parameter applies only to the PING monitoring type.
    * 
    * @example
    * 0.4
@@ -1158,7 +1161,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   failureRate?: number;
   /**
    * @remarks
-   * The HTTP request headers.
+   * The HTTP request header.
    * 
    * @example
    * testKey:testValue
@@ -1166,7 +1169,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   header?: string;
   /**
    * @remarks
-   * The number of hops for traceroute diagnostics when a ping task fails.
+   * The number of hops for traceroute diagnostics when a PING task fails.
    * 
    * @example
    * 20
@@ -1174,7 +1177,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   hops?: number;
   /**
    * @remarks
-   * The custom host for an HTTP task. The format is `ip1,ip2:address`. You can configure multiple lines of mappings. The left side of the colon contains the A records or CNAMEs to which the domain name can be resolved, separated by commas. The right side of the colon is the domain name.
+   * The custom host for an HTTP task. The format is ip1,ip2:address. You can configure multiple lines of mappings. The left side of the colon contains the A records or CNAMEs to which the domain name can be resolved, separated by commas. The right side of the colon is the domain name.
    * 
    * @example
    * 127.0.0.1:www.aliyun.com
@@ -1182,9 +1185,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   hostBinding?: string;
   /**
    * @remarks
-   * The effective method of the custom host. Valid values:
-   * - 0: Random.
-   * - 1: Round-robin.
+   * Specifies the effective mode of the custom host. Valid values: 0: random. 1: round-robin.
    * 
    * @example
    * 0
@@ -1203,7 +1204,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   httpMethod?: string;
   /**
    * @remarks
-   * The timeout period for a single ping in a ping task that uses the ICMP protocol. Unit: milliseconds.
+   * The timeout period for a single PING request in a PING task that uses the ICMP protocol. Unit: milliseconds.
    * 
    * @example
    * 3000
@@ -1211,11 +1212,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   icmpTimeoutMillis?: number;
   /**
    * @remarks
-   * The network type of the task. Valid values:
-   * - v4
-   * - v6
-   * - auto
-   * Default value: v4.
+   * The network type of the task. Valid values: v4, v6, and auto. Default value: v4.
    * 
    * @example
    * v4
@@ -1223,9 +1220,9 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   ipNetwork?: string;
   /**
    * @remarks
-   * Specifies whether to decode and store the password in Base64. Valid values:
-   * - true: The password is decoded and stored in Base64.
-   * - false: The password is not decoded and stored in Base64.
+   * Specifies whether to store the password in Base64 encoding. Valid values:
+   * - true: The password is stored in Base64 encoding.
+   * - false: The password is not stored in Base64 encoding.
    * 
    * @example
    * false
@@ -1233,7 +1230,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   isBase64Encode?: string;
   /**
    * @remarks
-   * Specifies whether to include alert rules. Valid values:
+   * Specifies whether alert rules are included. Valid values:
    * - 0: Yes.
    * - 1: No.
    * 
@@ -1251,7 +1248,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   maxTlsVersion?: string;
   /**
    * @remarks
-   * The minimum TLS version. By default, TLS 1.2 and later versions are supported. TLS 1.0 and 1.1 are disabled. You can modify the configuration if you still need to support them.
+   * The minimum TLS version. By default, TLS 1.2 and later versions are supported. TLS 1.0 and 1.1 are disabled. You can modify the configuration to enable them if needed.
    * 
    * @example
    * tlsv1.2
@@ -1259,7 +1256,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   minTlsVersion?: string;
   /**
    * @remarks
-   * The password for SMTP, POP3, or FTP monitoring.
+   * The password for the SMTP, POP3, or FTP monitoring type.
    * 
    * @example
    * 123****
@@ -1267,7 +1264,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   password?: string;
   /**
    * @remarks
-   * The number of pings for ping monitoring.
+   * The heartbeat for the PING monitoring type.
    * 
    * @example
    * 29
@@ -1275,7 +1272,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   pingNum?: number;
   /**
    * @remarks
-   * The ping port. This parameter applies to TCP ping.
+   * The PING port. This parameter applies to TCP PING.
    * 
    * @example
    * 80
@@ -1283,7 +1280,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   pingPort?: number;
   /**
    * @remarks
-   * The ping protocol type. Valid values:
+   * The PING protocol type. Valid values:
    * - icmp
    * - tcp
    * - udp
@@ -1294,7 +1291,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   pingType?: string;
   /**
    * @remarks
-   * The port for TCP, UDP, SMTP, or POP3 monitoring.
+   * The port for the TCP, UDP, SMTP, or POP3 monitoring type.
    * 
    * @example
    * 110
@@ -1302,7 +1299,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   port?: number;
   /**
    * @remarks
-   * The name of the private certificate file.
+   * The private certificate file name.
    * 
    * @example
    * cert.pem
@@ -1318,7 +1315,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   protocol?: string;
   /**
    * @remarks
-   * Specifies whether to use the QUIC protocol for browser monitoring. Valid values:
+   * Specifies whether the browser monitoring task uses the QUIC protocol. Valid values:
    * - true: The QUIC protocol is used.
    * - false: The QUIC protocol is not used.
    * Default value: false.
@@ -1330,7 +1327,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   quicTarget?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonQuicTarget;
   /**
    * @remarks
-   * The request content for HTTP monitoring.
+   * The request content for the HTTP monitoring type.
    * 
    * @example
    * aa=bb
@@ -1374,7 +1371,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   retryDelay?: number;
   /**
    * @remarks
-   * Applies to SMTP tasks. A value of 1 indicates that a secure connection is used. Default value: 0.
+   * This parameter applies to SMTP tasks. If set to 1, a secure connection is used. Default value: 0.
    * 
    * @example
    * 0
@@ -1390,7 +1387,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   screenShot?: boolean;
   /**
    * @remarks
-   * Specifies whether to scroll to the bottom of the page after the page is opened in a browser monitoring task.
+   * Specifies whether to scroll to the bottom of the page after it is opened. This parameter applies only to browser monitoring tasks.
    * 
    * @example
    * false
@@ -1398,7 +1395,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   scrollEnd?: boolean;
   /**
    * @remarks
-   * The Server Name Indication (SNI).
+   * The server name indication.
    * 
    * @example
    * www.aliyun.com
@@ -1406,7 +1403,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   serverName?: string;
   /**
    * @remarks
-   * Specifies whether to enable Server-Sent Events (SSE) monitoring.
+   * Specifies whether to perform SSE probing.
    */
   sse?: boolean;
   steps?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonSteps;
@@ -1433,7 +1430,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   timeOut?: number;
   /**
    * @remarks
-   * The deployment region of the target application when integrating with the OpenTelemetry edition of Managed Service for Observability.
+   * The deployment region of the target application when integrating with the OpenTelemetry edition of Tracing Analysis.
    * 
    * @example
    * cn-hangzhou
@@ -1441,7 +1438,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   traceRegion?: string;
   /**
    * @remarks
-   * The tracing protocol used for integration with the OpenTelemetry edition of Tracing Analysis. Valid values:
+   * The tracing protocol used when integrating with the OpenTelemetry edition of Tracing Analysis. Valid values:
    * - OpenTelemetry
    * - Zipkin
    * - Jaeger
@@ -1453,7 +1450,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   trafficHijackElementBlacklist?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJsonTrafficHijackElementBlacklist;
   /**
    * @remarks
-   * When a redirect occurs, traffic hijacking is detected if the number of resources loaded by the browser exceeds this value. If this value is set to 0, no verification is performed. Default value: 0.
+   * When a redirect occurs, if the number of resources loaded by the browser exceeds this value, traffic hijacking is considered to have occurred. If this value is 0, no verification is performed. Default value: 0.
    * 
    * @example
    * 0
@@ -1467,7 +1464,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   usePrivateCrt?: boolean;
   /**
    * @remarks
-   * Specifies whether to establish an SSL connection when executing a TCP task.
+   * Specifies whether to use an SSL connection when executing a TCP task.
    * 
    * @example
    * tlsv1.0
@@ -1483,7 +1480,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsOptionJson exte
   username?: string;
   /**
    * @remarks
-   * The additional wait time after a page is opened in a browser probing task.
+   * The additional waiting time after the page is opened in a browser monitoring task.
    * 
    * @example
    * 3
@@ -1690,7 +1687,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsVpcConfig exten
   region?: string;
   /**
    * @remarks
-   * The ID of the security group applied to the internal network probing task.
+   * The ID of the security group associated with the internal network probing task.
    * 
    * @example
    * sg-xxxxxx
@@ -1698,7 +1695,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsVpcConfig exten
   securityGroupId?: string;
   /**
    * @remarks
-   * The ID of the VPC associated with the internal network probing task.
+   * The ID of the VPC to which the internal network probing task is attached.
    * 
    * @example
    * vpc-xxxxxx
@@ -1706,7 +1703,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsVpcConfig exten
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch associated with the internal network probing task.
+   * The ID of the vSwitch to which the internal network probing task is attached.
    * 
    * @example
    * vsw-xxxxxx
@@ -1742,7 +1739,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitorsVpcConfig exten
 export class DescribeSiteMonitorAttributeResponseBodySiteMonitors extends $dara.Model {
   /**
    * @remarks
-   * The detection address of the monitoring task.
+   * The target address of the monitoring task.
    * 
    * @example
    * https://aliyun.com
@@ -1751,8 +1748,8 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitors extends $dara.
   /**
    * @remarks
    * The type of the detection point. Default value: PC. Valid values:
-   * - PC: Fixed-line network.
-   * - MOBILE: Mobile network.
+   * - PC: fixed network
+   * - MOBILE: mobile network
    * 
    * @example
    * PC
@@ -1760,7 +1757,7 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitors extends $dara.
   agentGroup?: string;
   /**
    * @remarks
-   * The custom detection period. You can only select a specific time range from Monday to Sunday for detection.
+   * The custom detection period. You can only select a specific time period from Monday to Sunday for detection.
    */
   customSchedule?: DescribeSiteMonitorAttributeResponseBodySiteMonitorsCustomSchedule;
   /**
@@ -1795,7 +1792,8 @@ export class DescribeSiteMonitorAttributeResponseBodySiteMonitors extends $dara.
   taskName?: string;
   /**
    * @remarks
-   * The status of the monitoring task. Valid values:
+   * The state of the monitoring task. Valid values:
+   * 
    * - 1: Enabled.
    * - 2: Disabled.
    * 
@@ -1904,7 +1902,9 @@ export class DescribeSiteMonitorAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the operation is successful. Valid values:
+   * 
    * - true: Successful.
+   * 
    * - false: Failed.
    * 
    * @example

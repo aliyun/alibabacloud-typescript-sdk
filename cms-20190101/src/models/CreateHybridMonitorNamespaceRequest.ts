@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHybridMonitorNamespaceRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the metric repository.
+   * The description of the metric namespace.
    * 
    * @example
    * Alibaba Cloud product metric repository.
@@ -13,9 +13,9 @@ export class CreateHybridMonitorNamespaceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the metric repository.
+   * The name of the metric namespace.
    * 
-   * Format: consists of lowercase letters, digits, and hyphens (-).
+   * Format: The name can contain only lowercase letters, digits, and hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateHybridMonitorNamespaceRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The region in which monitoring data is stored.
+   * The region where the monitoring data is stored.
    * 
    * @example
    * cn-hangzhou
@@ -35,9 +35,9 @@ export class CreateHybridMonitorNamespaceRequest extends $dara.Model {
    * @remarks
    * The storage solution for monitoring data. Valid values:
    * 
-   * - aliyun_prometheus: monitoring data is stored in Managed Service for Prometheus.
+   * - aliyun_prometheus: Stores monitoring data in Prometheus.
    * 
-   * > For more information about storage solutions for monitoring data, see [Storage solutions for Hybrid Cloud Monitoring data](https://help.aliyun.com/document_detail/2594921.html).
+   * > For more information about storage solutions for monitoring data, see [Storage solutions for monitoring data in Hybrid Cloud Monitoring](https://help.aliyun.com/document_detail/2594921.html).
    * 
    * @example
    * aliyun_prometheus
@@ -48,14 +48,14 @@ export class CreateHybridMonitorNamespaceRequest extends $dara.Model {
    * @remarks
    * The data storage duration. Valid values:
    * 
-   * - cms.s1.large: storage duration of 15 days.
-   * - cms.s1.xlarge: storage duration of 32 days.
-   * - cms.s1.2xlarge: storage duration of 63 days.
-   * - cms.s1.3xlarge (default): storage duration of 93 days.
-   * - cms.s1.6xlarge: storage duration of 185 days.
-   * - cms.s1.12xlarge: storage duration of 376 days.
+   * - cms.s1.large: Stores data for 15 days.
+   * - cms.s1.xlarge: Stores data for 32 days.
+   * - cms.s1.2xlarge: Stores data for 63 days.
+   * - cms.s1.3xlarge (default): Stores data for 93 days.
+   * - cms.s1.6xlarge: Stores data for 185 days.
+   * - cms.s1.12xlarge: Stores data for 376 days.
    * 
-   * For the pricing of different storage duration specifications, see the **Pricing** section in [monitoring dashboard](https://help.aliyun.com/document_detail/223532.html).
+   * For more information about the pricing of different storage durations, see the **Pricing** table in [Dashboard](https://help.aliyun.com/document_detail/223532.html).
    * 
    * @example
    * cms.s1.3xlarge

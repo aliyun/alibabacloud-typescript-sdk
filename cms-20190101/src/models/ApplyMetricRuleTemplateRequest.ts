@@ -7,9 +7,9 @@ export class ApplyMetricRuleTemplateRequest extends $dara.Model {
    * @remarks
    * The application policy of the template. Valid values:
    * 
-   * - all: deletes all rules created by using alert templates on the selected group and then creates new alert rules based on the template. This is the default value.
+   * - all: deletes all rules created by using alert templates for the selected application group, and then creates alert rules based on the current template. This is the default value.
    * 
-   * - append: deletes the rules created by using the current alert template on the selected group and then creates new alert rules based on the current template.
+   * - append: deletes the rules created by using the current alert template for the selected application group, and then creates alert rules based on the current template.
    * 
    * @example
    * all
@@ -19,19 +19,20 @@ export class ApplyMetricRuleTemplateRequest extends $dara.Model {
    * @remarks
    * The application mode of the template. Valid values:
    * 
-   * - GROUP_INSTANCE_FIRST: application group instances take precedence. When the alert template is applied, the instances in the application group take precedence. If an instance specified in the template does not exist in the application group, the rule for the instance in the template is ignored.
+   * - GROUP_INSTANCE_FIRST: The instances in the application group take precedence. When the alert template is applied, the instances in the application group take precedence. If an instance specified in the template does not exist in the application group, the rule for the instance in the template is ignored.
    * 
-   * - ALARM_TEMPLATE_FIRST: alert template instances take precedence. When the alert template is applied, alert rules are created regardless of whether the instances exist in the application group.
+   * - ALARM_TEMPLATE_FIRST: The instances in the alert template take precedence. When the alert template is applied, alert rules are created regardless of whether the instances exist in the application group.
    * 
    * @example
    * GROUP_INSTANCE_FIRST
    */
   applyMode?: string;
+  clientToken?: string;
   /**
    * @remarks
    * Specifies whether to perform a dry run on the request. Valid values:
    * - **true**: performs a dry run and does not bind a security group to the instance. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the request fails the dry run, an error is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * - **false**: performs a normal request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed. This is the default value.
+   * - **false** (default): sends a normal request. If the request passes the dry run, the HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -39,7 +40,7 @@ export class ApplyMetricRuleTemplateRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The end time of the effective period for the alert, in hours. The value is a two-digit string, such as "00", "18", or "23". Valid values: 00 to 23. The value specifies the hour of the end time, and the actual effective period ends at the 59th minute of the hour. For example, "23" indicates that the effective period ends at 23:59. The default time zone is UTC+8.
+   * The end time of the effective period for the alert rule. The value is a two-digit string, such as "00", "18", or "23". Valid values: 00 to 23. The value specifies the hour of the end time, and the effective period ends at the 59th minute of the hour. For example, "23" indicates that the effective period ends at 23:59. The default time zone is UTC+8.
    * 
    * @example
    * 23
@@ -47,7 +48,7 @@ export class ApplyMetricRuleTemplateRequest extends $dara.Model {
   enableEndTime?: number;
   /**
    * @remarks
-   * The start time of the effective period for the alert, in hours. The value is a two-digit string, such as "00", "09", or "23". Valid values: 00 to 23, which represent 00:00 to 23:00. The default time zone is UTC+8.
+   * The start time of the effective period for the alert rule. The value is a two-digit string, such as "00", "09", or "23". Valid values: 00 to 23, which represent 00:00 to 23:00. The default time zone is UTC+8.
    * 
    * @example
    * 00
@@ -88,7 +89,7 @@ export class ApplyMetricRuleTemplateRequest extends $dara.Model {
    * @remarks
    * The mute for. Unit: seconds. Default value: 86400.
    * 
-   * > If the monitoring data continuously exceeds the threshold of the alert rule, the system sends only one alert notification within each epoch.
+   * > If the monitoring data continuously exceeds the threshold of the alert rule, the system will send only one alert notification within each epoch.
    * 
    * @example
    * 86400
@@ -108,7 +109,7 @@ export class ApplyMetricRuleTemplateRequest extends $dara.Model {
   templateIds?: string;
   /**
    * @remarks
-   * The webhook URL to which a POST request is sent when an alert is triggered.
+   * The webhook URL. When an alert is triggered, a POST request is sent to the specified URL.
    * 
    * @example
    * https://www.aliyun.com
@@ -118,6 +119,7 @@ export class ApplyMetricRuleTemplateRequest extends $dara.Model {
     return {
       appendMode: 'AppendMode',
       applyMode: 'ApplyMode',
+      clientToken: 'ClientToken',
       dryRun: 'DryRun',
       enableEndTime: 'EnableEndTime',
       enableStartTime: 'EnableStartTime',
@@ -133,6 +135,7 @@ export class ApplyMetricRuleTemplateRequest extends $dara.Model {
     return {
       appendMode: 'string',
       applyMode: 'string',
+      clientToken: 'string',
       dryRun: 'boolean',
       enableEndTime: 'number',
       enableStartTime: 'number',

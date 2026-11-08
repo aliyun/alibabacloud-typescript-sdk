@@ -5,12 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteHostAvailabilityRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the tasks.
+   * The ID of the task.
    * 
    * This parameter is required.
-   * 
-   * @example
-   * 12456
    */
   id?: number[];
   regionId?: string;

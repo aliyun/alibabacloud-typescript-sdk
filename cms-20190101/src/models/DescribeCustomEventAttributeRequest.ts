@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCustomEventAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time.
    * 
-   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The value is a UNIX timestamp that indicates the number of milliseconds that have elapsed since January 1, 1970.
    * 
    * @example
    * 1552227965971
@@ -23,7 +23,7 @@ export class DescribeCustomEventAttributeRequest extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The ID of the application group.
+   * The application group ID.
    * 
    * @example
    * 123****
@@ -56,11 +56,10 @@ export class DescribeCustomEventAttributeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The keywords that are used to search for the event.
+   * The keywords used to search event content.
    * 
-   * - If you need to query the custom event whose content contains a and b, set the value to a and b.
-   * 
-   * - If you need to query the custom event whose content contains a or b, set the value to a or b.
+   * - If the event content contains both A and B, you can search for A and B.
+   * - If the event content contains either A or B, you can search for A or B.
    * 
    * @example
    * cms
@@ -68,9 +67,9 @@ export class DescribeCustomEventAttributeRequest extends $dara.Model {
   searchKeywords?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time.
    * 
-   * This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The value is a UNIX timestamp that indicates the number of milliseconds that have elapsed since January 1, 1970.
    * 
    * @example
    * 1552224365971

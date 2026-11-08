@@ -45,7 +45,7 @@ export class DescribeAlertLogCountResponseBodyAlertLogCountLogs extends $dara.Mo
 export class DescribeAlertLogCountResponseBodyAlertLogCount extends $dara.Model {
   /**
    * @remarks
-   * The number of alert history statistics.
+   * The number of alert history records.
    * 
    * @example
    * 1
@@ -85,14 +85,14 @@ export class DescribeAlertLogCountResponseBodyAlertLogCount extends $dara.Model 
 export class DescribeAlertLogCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The alert history statistics.
+   * The statistics of the alert history count.
    */
   alertLogCount?: DescribeAlertLogCountResponseBodyAlertLogCount[];
   /**
    * @remarks
    * The status code.
    * 
-   * > The value 200 indicates success.
+   * > 200 indicates success.
    * 
    * @example
    * 200
@@ -116,7 +116,7 @@ export class DescribeAlertLogCountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
    * - true: Successful.
    * 

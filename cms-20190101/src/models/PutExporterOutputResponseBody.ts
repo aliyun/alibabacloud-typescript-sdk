@@ -7,7 +7,7 @@ export class PutExporterOutputResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * > The value 200 indicates that the call is successful.
+   * > 200 indicates success.
    * 
    * @example
    * 200
@@ -31,7 +31,7 @@ export class PutExporterOutputResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. The value true indicates that the call was successful. The value false indicates that the call failed.
+   * Indicates whether the operation was successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * true

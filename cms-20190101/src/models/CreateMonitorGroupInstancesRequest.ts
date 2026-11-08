@@ -7,7 +7,7 @@ export class CreateMonitorGroupInstancesRequestInstances extends $dara.Model {
    * @remarks
    * The abbreviation of the Alibaba Cloud service name.
    * 
-   * To obtain the abbreviation of an Alibaba Cloud service name, call the [DescribeProjectMeta](https://help.aliyun.com/document_detail/114916.html) operation. The `metricCategory` tag in the `Labels` response parameter indicates the abbreviation of the Alibaba Cloud service name.
+   * For more information about how to obtain the abbreviation of the Alibaba Cloud service name, see the `metricCategory` field in the `Labels` response parameter of the [DescribeProjectMeta](https://help.aliyun.com/document_detail/114916.html) operation.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class CreateMonitorGroupInstancesRequestInstances extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class CreateMonitorGroupInstancesRequestInstances extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region where the instance resides.
    * 
    * This parameter is required.
    * 
@@ -73,6 +73,16 @@ export class CreateMonitorGroupInstancesRequestInstances extends $dara.Model {
 }
 
 export class CreateMonitorGroupInstancesRequest extends $dara.Model {
+  clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to only perform a dry run on the request. Valid values:
+   * - **true**: performs a dry run. A check request is sent, and no security group is bound to the instance. The system checks whether the required parameters are specified, the request format is valid, and the service limits are met. If the request fails the check, the corresponding error is returned. If the request passes the check, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends a normal request. If the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: string;
   /**
    * @remarks
@@ -86,7 +96,7 @@ export class CreateMonitorGroupInstancesRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The instances that you want to add to the application group.
+   * The list of instances.
    * 
    * This parameter is required.
    */
@@ -94,6 +104,7 @@ export class CreateMonitorGroupInstancesRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       dryRun: 'DryRun',
       groupId: 'GroupId',
       instances: 'Instances',
@@ -103,6 +114,7 @@ export class CreateMonitorGroupInstancesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       dryRun: 'string',
       groupId: 'string',
       instances: { 'type': 'array', 'itemType': CreateMonitorGroupInstancesRequestInstances },

@@ -5,15 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class PutMonitorGroupDynamicRuleRequestGroupRulesFilters extends $dara.Model {
   /**
    * @remarks
-   * The method that is used to filter instances. Valid values of N: 1 to 3. Valid values:
-   * 
-   * - contains: contains
-   * 
-   * - notContains: does not contain
-   * 
-   * - startWith: starts with a prefix
-   * 
-   * - endWith: ends with a suffix
+   * The filter condition for instances. Valid values of N: 1 to 3. Valid values:
+   * - contains: Contains.
+   * - notContains: Does not contain.
+   * - startWith: Prefix.
+   * - endWith: Suffix.
    * 
    * This parameter is required.
    * 
@@ -23,9 +19,9 @@ export class PutMonitorGroupDynamicRuleRequestGroupRulesFilters extends $dara.Mo
   function?: string;
   /**
    * @remarks
-   * The name of the field based on which instances are filtered. Valid values of N: 1 to 3.
+   * The field name for instance matching. Valid values of N: 1 to 3.
    * 
-   * Only hostnames are supported. Example: hostName.
+   * Currently, only the hostname is supported, such as hostName.
    * 
    * This parameter is required.
    * 
@@ -35,7 +31,7 @@ export class PutMonitorGroupDynamicRuleRequestGroupRulesFilters extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The value to be matched with the specified field. Valid values of N: 1 to 3.
+   * The value that meets the matching condition. Valid values of N: 1 to 3.
    * 
    * This parameter is required.
    * 
@@ -71,13 +67,13 @@ export class PutMonitorGroupDynamicRuleRequestGroupRulesFilters extends $dara.Mo
 export class PutMonitorGroupDynamicRuleRequestGroupRules extends $dara.Model {
   /**
    * @remarks
-   * The cloud service to which the alert rule is applied. Valid values of N: 1 to 3. Valid values:
+   * The type of Alibaba Cloud service for the dynamic alert rule. Valid values of N: 1 to 3. Valid values:
    * 
-   * - ecs: Elastic Compute Service (ECS)
+   * - ecs: Elastic Compute Service (ECS) server.
    * 
-   * - rds: ApsaraDB RDS
+   * - rds: relational database.
    * 
-   * - slb: Server Load Balancer (SLB)
+   * - slb: load balancing.
    * 
    * This parameter is required.
    * 
@@ -87,11 +83,11 @@ export class PutMonitorGroupDynamicRuleRequestGroupRules extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The logical operator used between conditional expressions in the alert rule. Valid values of N: 1 to 3. Valid values:
+   * The combination condition for dynamic matching rules. Valid values of N: 1 to 3. Valid values:
    * 
-   * - and: The instances that meet all the conditional expressions are automatically added to the application group.
+   * - and: Only instances that meet all matching rules are automatically added to the application group.
    * 
-   * - or: The instances that meet one of the conditional expressions are automatically added to the application group.
+   * - or: Instances that meet any matching rule are automatically added to the application group.
    * 
    * This parameter is required.
    * 
@@ -135,6 +131,16 @@ export class PutMonitorGroupDynamicRuleRequestGroupRules extends $dara.Model {
 }
 
 export class PutMonitorGroupDynamicRuleRequest extends $dara.Model {
+  clientToken?: string;
+  /**
+   * @remarks
+   * Specifies whether to only precheck this request. Valid values:
+   * - **true**: sends a check request. No security group is associated with the instance. The check items include whether required parameters are specified, the request format, and service limits. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends a normal request. If the check succeeds, an HTTP 2xx status code is returned and the operation is directly performed.
+   * 
+   * @example
+   * false
+   */
   dryRun?: boolean;
   /**
    * @remarks
@@ -155,11 +161,10 @@ export class PutMonitorGroupDynamicRuleRequest extends $dara.Model {
   groupRules?: PutMonitorGroupDynamicRuleRequestGroupRules[];
   /**
    * @remarks
-   * The mode for creating the alert rule. Valid values:
+   * The mode for creating the dynamic matching rule. Valid values:
    * 
-   * - true: creates asynchronously
-   * 
-   * - false (default): creates synchronously
+   * - true: Asynchronous creation.
+   * - false (default): Synchronous creation.
    * 
    * @example
    * false
@@ -168,6 +173,7 @@ export class PutMonitorGroupDynamicRuleRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       dryRun: 'DryRun',
       groupId: 'GroupId',
       groupRules: 'GroupRules',
@@ -178,6 +184,7 @@ export class PutMonitorGroupDynamicRuleRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       dryRun: 'boolean',
       groupId: 'number',
       groupRules: { 'type': 'array', 'itemType': PutMonitorGroupDynamicRuleRequestGroupRules },

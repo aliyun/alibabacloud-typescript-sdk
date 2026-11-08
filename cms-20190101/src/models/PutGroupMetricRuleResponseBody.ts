@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PutGroupMetricRuleResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The ID of the alert rule.
+   * The alert rule ID.
    * 
    * @example
    * 123456

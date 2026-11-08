@@ -3,11 +3,12 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteMetricRulesRequest extends $dara.Model {
+  clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run of the request. Valid values:
-   * - **true**: performs a dry run. No actual operation is performed. The system checks whether the required parameters are specified, the request format is valid, and the service limits are met. If the request fails the dry run, an error is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * - **false** (default): sends a normal request. If the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
+   * Specifies whether to perform a dry run on the request. Valid values:
+   * - **true**: A check request is sent, and no security group is bound to the instance. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
+   * - **false** (default): A normal request is sent. If the check succeeds, an HTTP 2xx status code is returned and the operation is directly performed.
    * 
    * @example
    * false
@@ -23,6 +24,7 @@ export class DeleteMetricRulesRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       dryRun: 'DryRun',
       id: 'Id',
       regionId: 'RegionId',
@@ -31,6 +33,7 @@ export class DeleteMetricRulesRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       dryRun: 'boolean',
       id: { 'type': 'array', 'itemType': 'string' },
       regionId: 'string',

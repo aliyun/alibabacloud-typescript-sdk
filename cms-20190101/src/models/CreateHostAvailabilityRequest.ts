@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHostAvailabilityRequestAlertConfig extends $dara.Model {
   /**
    * @remarks
-   * The end time when the alert takes effect.
+   * The end time of the effective period for alerting.
    * 
-   * The value is an integer in the range of 0 to 23. Unit: hours. The value indicates the hour at which the effective period ends. The actual end point is 00:00:00 of the specified hour. For example, a value of 22 indicates that the effective period ends at 22:00:00. The time zone is UTC+8.
+   * The value is an integer ranging from 0 to 23. Unit: hours. The value indicates the hour when the effective period ends. The actual end time is 00:00:00 of the specified hour. For example, if you set this parameter to 22, the effective period ends at 22:00:00. The time zone is UTC+8.
    * 
-   * > If the current time is not within the effective time window, alert notifications are not sent even if the threshold is exceeded.
+   * > Note: If the current time is not within the effective time window, the system does not send alert notifications even if the threshold is exceeded.
    * 
    * @example
    * 22
@@ -17,18 +17,18 @@ export class CreateHostAvailabilityRequestAlertConfig extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The alert notification type. Valid values:
+   * The alert notification method. Valid values:
    * 
-   * <props="china">- 2: phone call + text message + email + DingTalk chatbot.
+   * <props="china">- 2: phone call, text message, email, and DingTalk chatbot.
    * 
-   * <props="china">- 1: text message + email + DingTalk chatbot.
+   * <props="china">- 1: text message, email, and DingTalk chatbot.
    * 
-   * <props="china">- 0: email + DingTalk chatbot.
+   * <props="china">- 0: email and DingTalk chatbot.
    * 
    * 
-   * <props="intl">0: email + DingTalk chatbot.
+   * <props="intl">0: email and DingTalk chatbot.
    * 
-   * <props="partner">0: email + DingTalk chatbot.
+   * <props="partner">0: email and DingTalk chatbot.
    * 
    * This parameter is required.
    * 
@@ -46,11 +46,11 @@ export class CreateHostAvailabilityRequestAlertConfig extends $dara.Model {
   silenceTime?: number;
   /**
    * @remarks
-   * The start time when the alert takes effect.
+   * The start time of the effective period for alerting.
    * 
-   * The value is an integer in the range of 0 to 23. Unit: hours. The value indicates the hour at which the effective period starts. The actual start point is 00:00:00 of the specified hour. For example, a value of 0 indicates that the effective period starts at 00:00:00. The time zone is UTC+8.
+   * The value is an integer ranging from 0 to 23. Unit: hours. The value indicates the hour when the effective period starts. The actual start time is 00:00:00 of the specified hour. For example, if you set this parameter to 0, the effective period starts at 00:00:00. The time zone is UTC+8.
    * 
-   * > If the current time is not within the effective time window, alert notifications are not sent even if the threshold is exceeded.
+   * > Note: If the current time is not within the effective time window, the system does not send alert notifications even if the threshold is exceeded.
    * 
    * @example
    * 0
@@ -96,7 +96,7 @@ export class CreateHostAvailabilityRequestAlertConfig extends $dara.Model {
 export class CreateHostAvailabilityRequestTaskOption extends $dara.Model {
   /**
    * @remarks
-   * The header of the HTTP request. The format is `Parameter name:Parameter value`. Separate multiple parameters with line breaks. Example:
+   * The headers of the HTTP request. The format is `Parameter name:Parameter value`. Separate multiple headers with carriage returns. Example:
    * ```
    * params1:value1
    * params2:value2
@@ -108,13 +108,13 @@ export class CreateHostAvailabilityRequestTaskOption extends $dara.Model {
   httpHeader?: string;
   /**
    * @remarks
-   * The method for the detection type. Valid values:
+   * The HTTP method for the probe. Valid values:
    * 
    * - GET
    * - POST
    * - HEAD
    * 
-   * > If the detection type is HTTP, set this parameter.
+   * > If the probe type is HTTP, you must set this parameter.
    * 
    * @example
    * GET
@@ -122,11 +122,11 @@ export class CreateHostAvailabilityRequestTaskOption extends $dara.Model {
   httpMethod?: string;
   /**
    * @remarks
-   * The alert rule for matching HTTP response content. Valid values:
-   * - true: An alert is triggered if the HTTP response content contains the specified alert rule content.
-   * - false: An alert is triggered if the HTTP response content does not contain the specified alert rule content.
+   * The alert rule for matching the HTTP response content. Valid values:
+   * - true: An alert is triggered if the HTTP response content contains the specified string.
+   * - false: An alert is triggered if the HTTP response content does not contain the specified string.
    * 
-   * > This parameter takes effect only when the detection type is HTTP.
+   * > This parameter takes effect only when the probe type is HTTP.
    * 
    * @example
    * true
@@ -134,7 +134,7 @@ export class CreateHostAvailabilityRequestTaskOption extends $dara.Model {
   httpNegative?: boolean;
   /**
    * @remarks
-   * The POST content of the HTTP detection request.
+   * The POST content of the HTTP probe request.
    * 
    * @example
    * params1=paramsValue1
@@ -142,7 +142,7 @@ export class CreateHostAvailabilityRequestTaskOption extends $dara.Model {
   httpPostContent?: string;
   /**
    * @remarks
-   * The response character set for HTTP detection.
+   * The response character set for HTTP probes.
    * 
    * > Only UTF-8 is supported.
    * 
@@ -152,7 +152,7 @@ export class CreateHostAvailabilityRequestTaskOption extends $dara.Model {
   httpResponseCharset?: string;
   /**
    * @remarks
-   * The content to match in the response.
+   * The content to be matched in the response.
    * 
    * @example
    * ok
@@ -160,7 +160,7 @@ export class CreateHostAvailabilityRequestTaskOption extends $dara.Model {
   httpResponseMatchContent?: string;
   /**
    * @remarks
-   * The URI for HTTP or Telnet detection.
+   * The URI for HTTP or Telnet probes.
    * 
    * @example
    * https://www.aliyun.com
@@ -169,9 +169,9 @@ export class CreateHostAvailabilityRequestTaskOption extends $dara.Model {
   httpURI?: string;
   /**
    * @remarks
-   * The detection frequency. Unit: seconds. Valid values: 15, 30, 60, 120, 300, 900, 1800, and 3600.
+   * The probe interval. Unit: seconds. Valid values: 15, 30, 60, 120, 300, 900, 1800, and 3600.
    * 
-   * > Only CloudMonitor agent 3.5.1 or later supports this parameter.
+   * > This parameter is supported only by CloudMonitor agent V3.5.1 or later.
    * 
    * @example
    * 60
@@ -179,8 +179,8 @@ export class CreateHostAvailabilityRequestTaskOption extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The domain name or address to detect.
-   * > If the detection type is PING, set this parameter.
+   * The domain name or IP address to be probed.
+   * > If the probe type is PING, you must set this parameter.
    * 
    * @example
    * www.aliyun.com
@@ -226,7 +226,7 @@ export class CreateHostAvailabilityRequestTaskOption extends $dara.Model {
 export class CreateHostAvailabilityRequestAlertConfigEscalationList extends $dara.Model {
   /**
    * @remarks
-   * The statistical method for the alert. Valid values of N: 1 to 21. The valid values vary based on the metric:
+   * The statistical method for the alert. Valid values of N: 1 to 21. Valid values vary based on the metric:
    * 
    * - HttpStatus: Value.
    * - HttpLatency: Average.
@@ -234,7 +234,7 @@ export class CreateHostAvailabilityRequestAlertConfigEscalationList extends $dar
    * - TelnetLatency: Average.
    * - PingLostRate: Average.
    * 
-   * > The statistical method for status code metrics is the original value (Value). The statistical method for latency or packet loss rate metrics is the average value (Average).
+   * > The statistical method for status codes is the original value (Value), and the statistical method for response time or packet loss rate is the average value (Average).
    * 
    * @example
    * Value
@@ -245,9 +245,9 @@ export class CreateHostAvailabilityRequestAlertConfigEscalationList extends $dar
    * The metric for the alert. Valid values of N: 1 to 21. Valid values:
    * 
    * - HttpStatus: HTTP status code.
-   * - HttpLatency: HTTP latency.
+   * - HttpLatency: HTTP response time.
    * - TelnetStatus: Telnet status code.
-   * - TelnetLatency: Telnet latency.
+   * - TelnetLatency: Telnet response time.
    * - PingLostRate: Ping packet loss rate.
    * 
    * This parameter is required.
@@ -318,20 +318,20 @@ export class CreateHostAvailabilityRequestAlertConfigEscalationList extends $dar
 export class CreateHostAvailabilityRequestAlertConfigTargetList extends $dara.Model {
   /**
    * @remarks
-   * The resource ARN. Format: `acs:{AbbreviatedCloudServiceName}:{regionId}:{userId}:/{ResourceType}/{ResourceName}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. The following list describes the parameters:
+   * The Alibaba Cloud Resource Name (ARN) of the resource. Format: `acs:{service abbreviation}:{regionId}:{userId}:/{resource type}/{resource name}/message`. Example: `acs:mns:cn-hangzhou:120886317861****:/queues/test123/message`. Parameter description:
    * 
-   * - {AbbreviatedCloudServiceName}: Only Simple Message Queue (formerly MNS) is supported.
+   * - {service abbreviation}: The abbreviation of the cloud service. Only Simple Message Queue (formerly MNS) is supported.
    * 
    * - {userId}: The Alibaba Cloud account ID.
    * 
    * - {regionId}: The region where the Simple Message Queue (formerly MNS) queue or topic resides.
    * 
-   * - {ResourceType}: The type of the resource that accepts alerts. Valid values:
+   * - {resource type}: The type of the resource that receives alerts. Valid values:
    * 
    *   - **queues**: queue.
    *   - **topics**: topic.
    * 
-   * - {ResourceName}: The resource name.
+   * - {resource name}: The name of the resource.
    * 
    *   - If the resource type is **queues**, the resource name is the queue name.
    *   - If the resource type is **topics**, the resource name is the topic name.
@@ -342,7 +342,7 @@ export class CreateHostAvailabilityRequestAlertConfigTargetList extends $dara.Mo
   arn?: string;
   /**
    * @remarks
-   * The ID of the alert trigger target.
+   * The ID of the alert target.
    * 
    * @example
    * 1
@@ -350,7 +350,7 @@ export class CreateHostAvailabilityRequestAlertConfigTargetList extends $dara.Mo
   id?: string;
   /**
    * @remarks
-   * The JSON-formatted parameters of the alert callback.
+   * The JSON-formatted parameters for the alert callback.
    * 
    * @example
    * {"customField1":"value1","customField2":"$.name"}
@@ -407,12 +407,12 @@ export class CreateHostAvailabilityRequest extends $dara.Model {
   alertConfigEscalationList?: CreateHostAvailabilityRequestAlertConfigEscalationList[];
   /**
    * @remarks
-   * The alert trigger targets.
+   * The alert targets.
    */
   alertConfigTargetList?: CreateHostAvailabilityRequestAlertConfigTargetList[];
   /**
    * @remarks
-   * The application group ID.
+   * The ID of the application group.
    * 
    * This parameter is required.
    * 
@@ -422,9 +422,9 @@ export class CreateHostAvailabilityRequest extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The list of ECS instances that initiate detection. Valid values of N: 1 to 21.
+   * The list of ECS instances that initiate the probes. Valid values of N: 1 to 21.
    * 
-   * > Set this parameter when `TaskScope` is set to `GROUP_SPEC_INSTANCE`.
+   * > You must set this parameter when `TaskScope` is set to `GROUP_SPEC_INSTANCE`.
    * 
    * @example
    * i-absdfkwl321****
@@ -443,10 +443,10 @@ export class CreateHostAvailabilityRequest extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The detection scope of the availability monitoring task. Valid values:
+   * The probe scope of the availability monitoring task. Valid values:
    * 
-   * - GROUP: uses all ECS instances in the current application group as detection probes.
-   * - GROUP_SPEC_INSTANCE: uses specified ECS instances in the current application group as detection probes. If you set this parameter to GROUP_SPEC_INSTANCE, you must also set InstanceList to specify the ECS instances that initiate detection.
+   * - GROUP: All ECS instances in the current application group are used as probes for the task.
+   * - GROUP_SPEC_INSTANCE: Specified ECS instances in the current application group are used as probes for the task. If you set this parameter to GROUP_SPEC_INSTANCE, you must also set the InstanceList parameter, which specifies the list of ECS instances that initiate the probes.
    * 
    * @example
    * GROUP
@@ -454,7 +454,7 @@ export class CreateHostAvailabilityRequest extends $dara.Model {
   taskScope?: string;
   /**
    * @remarks
-   * The detection type of the availability monitoring task. Valid values:
+   * The probe type of the availability monitoring task. Valid values:
    * 
    * - PING
    * - TELNET

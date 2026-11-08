@@ -7,7 +7,7 @@ export class PutMonitoringConfigResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * 
-   * > 200 indicates success.
+   * > A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -33,9 +33,9 @@ export class PutMonitoringConfigResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: Successful.
+   * - true: The operation was successful.
    * 
-   * - false: Failed.
+   * - false: The operation failed.
    * 
    * @example
    * true

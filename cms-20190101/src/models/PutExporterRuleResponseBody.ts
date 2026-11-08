@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PutExporterRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
    * > 200 indicates success.
    * 
@@ -31,11 +31,11 @@ export class PutExporterRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: The operation was successful.
+   * - true: Successful.
    * 
-   * - false: The operation failed.
+   * - false: Failed.
    * 
    * @example
    * true

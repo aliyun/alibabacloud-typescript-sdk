@@ -3,12 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteMonitorGroupRequest extends $dara.Model {
+  clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run on the request. A dry run includes checks on permissions and instance status. Valid values:
+   * Specifies whether to perform a dry run on the request. The dry run checks permissions and instance status. Valid values:
    * 
-   * - **false** (default): Sends a normal request. If the request passes the check, the name and description of the route table are modified.
-   * - **true**: Sends a dry run request. Only the check is performed, and the name and description of the route table are not modified. Check items include whether required parameters are specified and the request format. If the check fails, the corresponding error is returned. If the check passes, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends a normal request. If the request passes the check, the name and description of the route table are modified.
+   * - **true**: sends a dry run request. Only the check is performed, and the name and description of the route table are not modified. The check items include whether required parameters are specified and the request format. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
    * 
    * @example
    * false
@@ -27,6 +28,7 @@ export class DeleteMonitorGroupRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      clientToken: 'ClientToken',
       dryRun: 'DryRun',
       groupId: 'GroupId',
       regionId: 'RegionId',
@@ -35,6 +37,7 @@ export class DeleteMonitorGroupRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      clientToken: 'string',
       dryRun: 'boolean',
       groupId: 'number',
       regionId: 'string',

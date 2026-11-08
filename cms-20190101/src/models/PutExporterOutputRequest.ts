@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class PutExporterOutputRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration of the data export. The value is a JSONObject string that must contain the following fields:
+   * The data export configuration. It is a JSON object string that must contain the following fields:
    * 
-   * - endpoint: the domain name that corresponds to the data of Log Service (SLS).
+   * - endpoint: the domain name for Simple Log Service (SLS) data.
    * - project: the project.
    * - logstore: the Logstore.
    * - ak: the AccessKey ID.
-   * - as: the AccessKey secret.
+   * - as: the AccessKey Secret.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class PutExporterOutputRequest extends $dara.Model {
   destName?: string;
   /**
    * @remarks
-   * The product to which the data is exported.
+   * The destination service for the export.
    * 
    * @example
    * sls

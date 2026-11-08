@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSiteMonitorRequest extends $dara.Model {
   /**
    * @remarks
-   * The URL or IP address to monitor.
+   * The URL or IP address of the monitoring task.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateSiteMonitorRequest extends $dara.Model {
   address?: string;
   /**
    * @remarks
-   * The group of detection points for the network probe task. \\`PC\\` indicates detection points on PCs. \\`MOBILE\\` indicates detection points on mobile devices. \\`FC\\` indicates detection points in a VPC. The default value is \\`PC\\`.
+   * The detection point group used by the monitoring task. Different options correspond to different detection point types. PC corresponds to PC clients, MOBIEL corresponds to mobile clients, and FC corresponds to VPC internal network detection. If this parameter is not specified, the default value is PC.
    * 
    * @example
    * PC
@@ -25,7 +25,7 @@ export class CreateSiteMonitorRequest extends $dara.Model {
    * @remarks
    * The ID of the alert rule.
    * 
-   * For more information, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
+   * For more information about how to obtain the ID of an existing alert rule in CloudMonitor, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
    * 
    * @example
    * SystemDefault_acs_ecs_dashboard_InternetOutRate_Percent
@@ -33,7 +33,7 @@ export class CreateSiteMonitorRequest extends $dara.Model {
   alertIds?: string;
   /**
    * @remarks
-   * The custom detection schedule. Specify a time period and the days of the week for detection.
+   * The custom detection period. You can only select a specific time period from Monday to Sunday for detection.
    * 
    * @example
    * {"start_hour":0,"end_hour":24, "days":[0], "time_zone":"Local"}
@@ -41,11 +41,11 @@ export class CreateSiteMonitorRequest extends $dara.Model {
   customSchedule?: string;
   /**
    * @remarks
-   * The monitoring frequency in minutes.
+   * The monitoring frequency.
    * 
-   * Valid values: 1, 5, 15, 30, and 60.
+   * Valid values: 1 minute, 5 minutes, 15 minutes, 30 minutes, and 60 minutes.
    * 
-   * Default: 1.
+   * Default value: 1 minute.
    * 
    * @example
    * 1
@@ -53,11 +53,11 @@ export class CreateSiteMonitorRequest extends $dara.Model {
   interval?: string;
   /**
    * @remarks
-   * The detection points. If you do not specify this parameter, the system randomly selects three detection points from different Internet Service Providers (ISPs).
+   * The probe information. If this parameter is left empty, the system randomly selects three detection points.
    * 
-   * The value must be a JSON array. Example: `[{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]`. The values correspond to Beijing, Hangzhou, and Qingdao.
+   * The value is a JSON array. Example: `[{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]`, which correspond to Beijing, Hangzhou, and Qingdao.
    * 
-   * For more information, see [DescribeSiteMonitorISPCityList](https://help.aliyun.com/document_detail/115045.html).
+   * For more information about how to obtain detection point information, see [DescribeSiteMonitorISPCityList](https://help.aliyun.com/document_detail/115045.html).
    * 
    * @example
    * [{"city":"546","isp":"465"},{"city":"572","isp":"465"},{"city":"738","isp":"465"}]
@@ -65,7 +65,7 @@ export class CreateSiteMonitorRequest extends $dara.Model {
   ispCities?: string;
   /**
    * @remarks
-   * The advanced options for the specified protocol. The available options vary based on the protocol type.
+   * The advanced extension options for the protocol type of the monitoring task. Different protocol types correspond to different extension options.
    * 
    * @example
    * {"time_out":5000}
@@ -76,7 +76,7 @@ export class CreateSiteMonitorRequest extends $dara.Model {
    * @remarks
    * The name of the monitoring task.
    * 
-   * The name must be 4 to 100 characters long and can contain letters, digits, underscores (_), and Chinese characters.
+   * The name must be 4 to 100 characters in length and can contain letters, digits, underscores (_), and Chinese characters.
    * 
    * This parameter is required.
    * 
@@ -86,9 +86,9 @@ export class CreateSiteMonitorRequest extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The type of monitoring task.
+   * Site monitoring type of site monitoring task.
    * 
-   * Valid protocols include HTTP(S), PING, TCP, UDP, DNS, SMTP, POP3, FTP, and WEBSOCKET.
+   * Valid values: HTTP(S), PING, TCP, UDP, DNS, SMTP, POP3, FTP, and WEBSOCKET.
    * 
    * This parameter is required.
    * 
@@ -98,7 +98,7 @@ export class CreateSiteMonitorRequest extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The network information required to create a network probe task in a VPC. This must be a JSON object that contains the \\`vpcId\\`, \\`vswitchId\\`, \\`securityGroupId\\`, and \\`region\\` fields.
+   * The network information required when creating a VPC internal network monitoring task. You must provide a JSON string that contains the following four fields: vpcId, vswitchId, securityGroupId, and region.
    * 
    * @example
    * {"vpcId": "vpc-xxxxxx", "vswitchId": "vsw-xxxxxx", "securityGroupId": "sg-xxxxxx", "region": "cn-beijing"}

@@ -32,8 +32,8 @@ export class DisableMetricRulesResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the operation is successful. Valid values:
-   * - true: The operation is successful.
-   * - false: The operation fails.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

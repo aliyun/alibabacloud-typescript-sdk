@@ -66,8 +66,9 @@ export class CreateGroupMetricRulesResponseBodyResources extends $dara.Model {
 export class CreateGroupMetricRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
-   * >A value of 200 indicates success.
+   * The HTTP status code.
+   * 
+   * > 200 indicates success.
    * 
    * @example
    * 200
@@ -92,9 +93,9 @@ export class CreateGroupMetricRulesResponseBody extends $dara.Model {
   resources?: CreateGroupMetricRulesResponseBodyResources;
   /**
    * @remarks
-   * Indicates whether the operation is successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: The operation is successful.
+   * - true: The operation was successful.
    * 
    * - false: The operation failed.
    * 

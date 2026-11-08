@@ -7,17 +7,17 @@ export class PutGroupMetricRuleRequestEscalationsCritical extends $dara.Model {
    * @remarks
    * The threshold comparison operator for Critical-level alerts. Valid values:
    * 
-   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold.
-   * - GreaterThanThreshold: greater than the threshold.
-   * - LessThanOrEqualToThreshold: less than or equal to the threshold.
-   * - LessThanThreshold: less than the threshold.
-   * - NotEqualToThreshold: not equal to the threshold.
-   * - GreaterThanYesterday: greater than the value at the same time yesterday.
-   * - LessThanYesterday: less than the value at the same time yesterday.
-   * - GreaterThanLastWeek: greater than the value at the same time last week.
-   * - LessThanLastWeek: less than the value at the same time last week.
-   * - GreaterThanLastPeriod: greater than the value in the last period.
-   * - LessThanLastPeriod: less than the value in the last period.
+   * - GreaterThanOrEqualToThreshold: Greater than or equal to the threshold.
+   * - GreaterThanThreshold: Greater than the threshold.
+   * - LessThanOrEqualToThreshold: Less than or equal to the threshold.
+   * - LessThanThreshold: Less than the threshold.
+   * - NotEqualToThreshold: Not equal to the threshold.
+   * - GreaterThanYesterday: Greater than the value at the same time yesterday.
+   * - LessThanYesterday: Less than the value at the same time yesterday.
+   * - GreaterThanLastWeek: Greater than the value at the same time last week.
+   * - LessThanLastWeek: Less than the value at the same time last week.
+   * - GreaterThanLastPeriod: Greater than the value in the last period.
+   * - LessThanLastPeriod: Less than the value in the last period.
    * 
    * @example
    * GreaterThanOrEqualToThreshold
@@ -27,7 +27,7 @@ export class PutGroupMetricRuleRequestEscalationsCritical extends $dara.Model {
    * @remarks
    * The statistical method for Critical-level alerts. Separate multiple statistical methods with commas (,).
    * 
-   * The valid values of this parameter are determined by the `Statistics` column corresponding to the `MetricName` of the specified Alibaba Cloud service. Examples: Maximum, Minimum, and Average. For information about how to obtain the valid values of this parameter, see [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * The valid values of this parameter are determined by the Statistics column corresponding to the MetricName of the specified Alibaba Cloud service, such as Maximum, Minimum, and Average. For information about how to obtain the valid values of this parameter, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * @example
    * Average
@@ -81,17 +81,17 @@ export class PutGroupMetricRuleRequestEscalationsInfo extends $dara.Model {
    * @remarks
    * The threshold comparison operator for Info-level alerts. Valid values:
    * 
-   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold.
-   * - GreaterThanThreshold: greater than the threshold.
-   * - LessThanOrEqualToThreshold: less than or equal to the threshold.
-   * - LessThanThreshold: less than the threshold.
-   * - NotEqualToThreshold: not equal to the threshold.
-   * - GreaterThanYesterday: greater than the value at the same time yesterday.
-   * - LessThanYesterday: less than the value at the same time yesterday.
-   * - GreaterThanLastWeek: greater than the value at the same time last week.
-   * - LessThanLastWeek: less than the value at the same time last week.
-   * - GreaterThanLastPeriod: greater than the value in the last period.
-   * - LessThanLastPeriod: less than the value in the last period.
+   * - GreaterThanOrEqualToThreshold: Greater than or equal to the threshold.
+   * - GreaterThanThreshold: Greater than the threshold.
+   * - LessThanOrEqualToThreshold: Less than or equal to the threshold.
+   * - LessThanThreshold: Less than the threshold.
+   * - NotEqualToThreshold: Not equal to the threshold.
+   * - GreaterThanYesterday: Greater than the value at the same time yesterday.
+   * - LessThanYesterday: Less than the value at the same time yesterday.
+   * - GreaterThanLastWeek: Greater than the value at the same time last week.
+   * - LessThanLastWeek: Less than the value at the same time last week.
+   * - GreaterThanLastPeriod: Greater than the value in the last period.
+   * - LessThanLastPeriod: Less than the value in the last period.
    * 
    * @example
    * GreaterThanOrEqualToThreshold
@@ -101,7 +101,7 @@ export class PutGroupMetricRuleRequestEscalationsInfo extends $dara.Model {
    * @remarks
    * The statistical method for Info-level alerts. Separate multiple statistical methods with commas (,).
    * 
-   * The valid values of this parameter are determined by the `Statistics` column corresponding to the `MetricName` of the specified Alibaba Cloud service. Examples: Maximum, Minimum, and Average. For information about how to obtain the valid values of this parameter, see [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * The valid values of this parameter are determined by the Statistics column corresponding to the MetricName of the specified Alibaba Cloud service, such as Maximum, Minimum, and Average. For information about how to obtain the valid values of this parameter, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * @example
    * Average
@@ -155,17 +155,17 @@ export class PutGroupMetricRuleRequestEscalationsWarn extends $dara.Model {
    * @remarks
    * The threshold comparison operator for Warn-level alerts. Valid values:
    * 
-   * - GreaterThanOrEqualToThreshold: greater than or equal to the threshold.
-   * - GreaterThanThreshold: greater than the threshold.
-   * - LessThanOrEqualToThreshold: less than or equal to the threshold.
-   * - LessThanThreshold: less than the threshold.
-   * - NotEqualToThreshold: not equal to the threshold.
-   * - GreaterThanYesterday: greater than the value at the same time yesterday.
-   * - LessThanYesterday: less than the value at the same time yesterday.
-   * - GreaterThanLastWeek: greater than the value at the same time last week.
-   * - LessThanLastWeek: less than the value at the same time last week.
-   * - GreaterThanLastPeriod: greater than the value in the last period.
-   * - LessThanLastPeriod: less than the value in the last period.
+   * - GreaterThanOrEqualToThreshold: Greater than or equal to the threshold.
+   * - GreaterThanThreshold: Greater than the threshold.
+   * - LessThanOrEqualToThreshold: Less than or equal to the threshold.
+   * - LessThanThreshold: Less than the threshold.
+   * - NotEqualToThreshold: Not equal to the threshold.
+   * - GreaterThanYesterday: Greater than the value at the same time yesterday.
+   * - LessThanYesterday: Less than the value at the same time yesterday.
+   * - GreaterThanLastWeek: Greater than the value at the same time last week.
+   * - LessThanLastWeek: Less than the value at the same time last week.
+   * - GreaterThanLastPeriod: Greater than the value in the last period.
+   * - LessThanLastPeriod: Less than the value in the last period.
    * 
    * @example
    * GreaterThanOrEqualToThreshold
@@ -175,7 +175,7 @@ export class PutGroupMetricRuleRequestEscalationsWarn extends $dara.Model {
    * @remarks
    * The statistical method for Warn-level alerts. Separate multiple statistical methods with commas (,).
    * 
-   * The valid values of this parameter are determined by the `Statistics` column corresponding to the `MetricName` of the specified Alibaba Cloud service. Examples: Maximum, Minimum, and Average. For information about how to obtain the valid values of this parameter, see [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * The valid values of this parameter are determined by the Statistics column corresponding to the MetricName of the specified Alibaba Cloud service, such as Maximum, Minimum, and Average. For information about how to obtain the valid values of this parameter, see [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * @example
    * Average
@@ -308,12 +308,13 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
    * @remarks
    * The abbreviation of the Alibaba Cloud service name.
    * 
-   * For information about how to obtain the abbreviation of an Alibaba Cloud service name, see the `metricCategory` field in the `Labels` response parameter of the [DescribeProjectMeta](https://help.aliyun.com/document_detail/114916.html) operation.
+   * For information about how to obtain the abbreviation, see the metricCategory field in the Labels response parameter of the [DescribeProjectMeta](https://help.aliyun.com/document_detail/114916.html) operation.
    * 
    * @example
    * ECS
    */
   category?: string;
+  clientToken?: string;
   /**
    * @remarks
    * The alert contact group.
@@ -326,7 +327,7 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
    * @remarks
    * The first-level dimension of the alert rule in the application group.
    * 
-   * Format: a collection of `key:value` pairs. Examples: `{"userId":"120886317861****"}` and `{"instanceId":"i-m5e1qg6uo38rztr4****"}`.
+   * Format: a collection of key:value pairs, such as `{"userId":"120886317861****"}` and `{"instanceId":"i-m5e1qg6uo38rztr4****"}`.
    * 
    * @example
    * [{"instanceId":"i-m5e1qg6uo38rztr4****"}]
@@ -335,8 +336,8 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to only precheck the request. Valid values:
-   * - **true**: sends a check request. The system does not bind a security group to the instance. The check items include whether required parameters are specified, the request format, and service limits. If the check fails, the system returns an error. If the check succeeds, the system returns the error code `DryRunOperation`.
-   * - **false** (default value): sends a normal request. If the check succeeds, the system returns an HTTP 2xx status code and performs the operation.
+   * - **true**: A check request is sent, and no security group is associated with the instance. The check items include whether required parameters are specified, the request format, and service limits. If the check fails, an error is returned. If the check succeeds, the error code DryRunOperation is returned.
+   * - **false**: A normal request is sent. If the check succeeds, an HTTP 2xx status code is returned and the operation is performed. This is the default value.
    * 
    * @example
    * false
@@ -362,7 +363,7 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
    * @remarks
    * The second-level or third-level dimension of the alert rule in the application group.
    * 
-   * Format: a collection of `key:value` pairs. Examples: `port:80` and `/dev/xvda:d-m5e6yphgzn3aprwu****`.
+   * Format: a collection of key:value pairs, such as `port:80` and `/dev/xvda:d-m5e6yphgzn3aprwu****`.
    * 
    * If the first-level dimension of the alert rule is `{"instanceId":"i-m5e1qg6uo38rztr4****"}`, the second-level dimension is the cloud disk in the instance, such as `{"/dev/xvda":"d-m5e6yphgzn3aprwu****"}`.
    * 
@@ -372,9 +373,9 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
   extraDimensionJson?: string;
   /**
    * @remarks
-   * The ID of the application group.
+   * The application group ID.
    * 
-   * For information about how to obtain the ID of an application group, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
+   * For information about how to obtain the application group ID, see [DescribeMonitorGroups](https://help.aliyun.com/document_detail/115032.html).
    * 
    * This parameter is required.
    * 
@@ -386,7 +387,7 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
    * @remarks
    * The detection period of the alert rule. Unit: seconds.
    * 
-   * > Make sure the detection period of the alert rule is the same as the data reporting period. If the detection period is shorter than the data reporting period, alerts may not be triggered due to insufficient data.
+   * > Set the detection period of the alert rule to the same as the data reporting period. If the detection period is shorter than the data reporting period, alerts cannot be triggered due to insufficient data.
    * 
    * @example
    * 60
@@ -396,14 +397,14 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
    * @remarks
    * The tags of the alert rule.
    * 
-   * Alert notifications include tags.
+   * Alert notifications include the tags.
    */
   labels?: PutGroupMetricRuleRequestLabels[];
   /**
    * @remarks
-   * The name of the metric.
+   * The metric name.
    * 
-   * For information about how to obtain the name of a metric, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * For information about how to obtain the metric name, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * This parameter is required.
    * 
@@ -415,7 +416,7 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
    * @remarks
    * The namespace of the Alibaba Cloud service.
    * 
-   * For information about how to obtain the namespace of an Alibaba Cloud service, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
+   * For information about how to obtain the namespace, see [DescribeMetricMetaList](https://help.aliyun.com/document_detail/98846.html) or [Cloud service monitoring metrics](https://help.aliyun.com/document_detail/163515.html).
    * 
    * This parameter is required.
    * 
@@ -425,10 +426,10 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The action to take when no monitoring data is found. Valid values:
-   * - KEEP_LAST_STATE (default value): Takes no action.
-   * - INSUFFICIENT_DATA: Sends an alert notification indicating that no data is found.
-   * - OK: Sends an alert notification indicating that the status is normal.
+   * The processing method when no monitoring data is available. Valid values:
+   * - KEEP_LAST_STATE: No action is taken. This is the default value.
+   * - INSUFFICIENT_DATA: An alert indicating insufficient data is triggered.
+   * - OK: The status is normal.
    * 
    * @example
    * KEEP_LAST_STATE
@@ -446,7 +447,7 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
    * @remarks
    * The advanced settings.
    * 
-   * Format: `{"key1":"value1","key2":"value2"}`. Example: `{"NotSendOK":true}`, which specifies whether to send alert recovery notifications. The key is `NotSendOK`, and the value is `true` (do not send) or `false` (send by default).
+   * Format: `{"key1":"value1","key2":"value2"}`. Example: `{"NotSendOK":true}`, which specifies whether to send alert recovery notifications. The key is NotSendOK, and the value is true (do not send) or false (send, which is the default value).
    * 
    * @example
    * {"NotSendOK":true}
@@ -456,7 +457,7 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
    * @remarks
    * The reporting period of monitoring data.
    * 
-   * The value of `Period` must be 60 or an integer multiple of 60. Unit: seconds. Default value: 300.
+   * The value of Period must be 60 or an integer multiple of 60. Unit: seconds. Default value: 300.
    * 
    * @example
    * 60
@@ -464,11 +465,11 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
   period?: string;
   /**
    * @remarks
-   * The ID of the alert rule.
+   * The alert rule ID.
    * 
-   * - To create an alert rule for the application group, enter an alert rule ID.
+   * - When you create an alert rule for the application group, enter the alert rule ID.
    * 
-   * - To modify a specified alert rule in the application group, you must obtain the alert rule ID. For information about how to obtain the ID of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
+   * - When you modify a specified alert rule in the application group, you must obtain the alert rule ID. For information about how to obtain the alert rule ID, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
    * 
    * This parameter is required.
    * 
@@ -478,11 +479,11 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The name of the alert rule.
+   * The alert rule name.
    * 
-   * - To create an alert rule for the application group, enter an alert rule name.
+   * - When you create an alert rule for the application group, enter the alert rule name.
    * 
-   * - To modify a specified alert rule in the application group, you must obtain the alert rule name. For information about how to obtain the name of an alert rule, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
+   * - When you modify a specified alert rule in the application group, you must obtain the alert rule name. For information about how to obtain the alert rule name, see [DescribeMetricRuleList](https://help.aliyun.com/document_detail/114941.html).
    * 
    * This parameter is required.
    * 
@@ -492,7 +493,7 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The mute for epoch.
+   * The mute period.
    * 
    * Unit: seconds. Default value: 86400.
    * 
@@ -514,6 +515,7 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
     return {
       escalations: 'Escalations',
       category: 'Category',
+      clientToken: 'ClientToken',
       contactGroups: 'ContactGroups',
       dimensions: 'Dimensions',
       dryRun: 'DryRun',
@@ -540,6 +542,7 @@ export class PutGroupMetricRuleRequest extends $dara.Model {
     return {
       escalations: PutGroupMetricRuleRequestEscalations,
       category: 'string',
+      clientToken: 'string',
       contactGroups: 'string',
       dimensions: 'string',
       dryRun: 'boolean',

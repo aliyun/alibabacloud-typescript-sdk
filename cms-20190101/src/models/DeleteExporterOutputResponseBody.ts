@@ -32,8 +32,8 @@ export class DeleteExporterOutputResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:  
-   * - `true`: success
-   * - `false`: failure
+   * - `true`: The request was successful.
+   * - `false`: The request failed.
    * 
    * @example
    * true

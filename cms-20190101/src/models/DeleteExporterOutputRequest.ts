@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteExporterOutputRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the destination configuration.
+   * The destination name of the configuration.
    * 
    * This parameter is required.
    * 

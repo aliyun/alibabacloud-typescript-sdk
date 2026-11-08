@@ -31,7 +31,7 @@ export class DeleteMonitorGroupInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. Valid values:
+   * Specifies whether the operation is successful. Valid values:
    * 
    * - true: The operation is successful.
    * - false: The operation fails.

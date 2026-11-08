@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGroupMonitoringAgentProcessResponseBodyResource extends $dara.Model {
   /**
    * @remarks
-   * The ID of the group process.
+   * The group process ID.
    * 
    * @example
    * 7F2B0024-4F21-48B9-A764-211CEC48****
@@ -35,9 +35,9 @@ export class CreateGroupMonitoringAgentProcessResponseBodyResource extends $dara
 export class CreateGroupMonitoringAgentProcessResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The HTTP status code.
    * 
-   * > The status code 200 indicates that the call is successful.
+   * > A status code of 200 indicates success.
    * 
    * @example
    * 200
@@ -66,11 +66,11 @@ export class CreateGroupMonitoringAgentProcessResponseBody extends $dara.Model {
   resource?: CreateGroupMonitoringAgentProcessResponseBodyResource;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: The call is successful.
+   * - true: The operation was successful.
    * 
-   * - false: The call fails.
+   * - false: The operation failed.
    * 
    * @example
    * true
