@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeChargeResultResponseBodyModuleDetails extends $dara.Model {
   /**
    * @remarks
-   * The number of Credits for the pricing module.
+   * The number of credits for the billing module.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribeChargeResultResponseBodyModuleDetails extends $dara.Model {
   credit?: number;
   /**
    * @remarks
-   * The pricing module identifier.
+   * The billing module code.
    * 
    * @example
    * domainCount
@@ -21,7 +21,7 @@ export class DescribeChargeResultResponseBodyModuleDetails extends $dara.Model {
   moduleCode?: string;
   /**
    * @remarks
-   * The number of SeCUs for the pricing module.
+   * The number of SeCUs for the billing module.
    * 
    * @example
    * 1080
@@ -68,7 +68,7 @@ export class DescribeChargeResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of calculated Credits.
+   * The total number of calculated credits.
    * 
    * @example
    * 0

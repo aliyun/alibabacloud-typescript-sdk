@@ -45,7 +45,7 @@ export class DescribeFreeUserEventTypesResponseBodyData extends $dara.Model {
 export class DescribeFreeUserEventTypesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of security event types detected by the basic detection feature.
+   * The list of security event types for basic detection.
    */
   data?: DescribeFreeUserEventTypesResponseBodyData[];
   /**

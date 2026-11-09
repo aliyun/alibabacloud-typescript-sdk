@@ -55,7 +55,7 @@ export class DescribeFreeUserAssetCountResponseBodyAsset extends $dara.Model {
 export class DescribeFreeUserAssetCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The statistics information about assets detected by the basic API security feature.
+   * The asset statistics information for basic detection.
    */
   asset?: DescribeFreeUserAssetCountResponseBodyAsset;
   /**

@@ -6,7 +6,7 @@ export class DescribeApisecMatchedHostsRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
-   * > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain hybrid cloud cluster information.
+   * > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain the hybrid cloud cluster information.
    * 
    * @example
    * 433
@@ -16,7 +16,7 @@ export class DescribeApisecMatchedHostsRequest extends $dara.Model {
    * @remarks
    * Instance ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -34,7 +34,7 @@ export class DescribeApisecMatchedHostsRequest extends $dara.Model {
   matchedHost?: string;
   /**
    * @remarks
-   * The page number to return in a paging query. Default value: **1**, which indicates the first page.
+   * The number of the page to return in a paged query. Default value: **1**, which indicates the first page of the paging result.
    * 
    * @example
    * 1
@@ -42,7 +42,7 @@ export class DescribeApisecMatchedHostsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page in a paging query. Default value: **10**, which indicates 10 entries per page.
+   * The number of entries to return on each page in a paged query. Default value: **10**, which indicates that 10 entries are returned on each page during paging.
    * 
    * @example
    * 8
@@ -50,11 +50,11 @@ export class DescribeApisecMatchedHostsRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland
    * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * - **ap-southeast-1**: outside the Chinese mainland
    * 
    * @example
    * cn-hangzhou
@@ -71,9 +71,9 @@ export class DescribeApisecMatchedHostsRequest extends $dara.Model {
   /**
    * @remarks
    * The detection type. Valid values:
-   * - **api**: the domain name list of API assets.
-   * - **abnormal**: the domain name list of risks.
-   * - **event**: the domain name list of security events.
+   * - **api**: the list of domain names for API assets
+   * - **abnormal**: the list of domain names with risks
+   * - **event**: the list of domain names for security events
    * 
    * @example
    * event

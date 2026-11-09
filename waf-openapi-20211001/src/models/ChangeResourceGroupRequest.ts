@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the new resource group. You can view available resource groups in the resource group console.
+   * The ID of the new resource group. You can view available resource groups in the Resource Management console.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the WAF resource to operate on.
+   * The ID of the WAF resource.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -45,7 +45,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The resource type. Fixed value: defenseresource.
+   * The resource type. Set the value to defenseresource.
    * 
    * This parameter is required.
    * 

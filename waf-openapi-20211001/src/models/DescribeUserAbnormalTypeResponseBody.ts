@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserAbnormalTypeResponseBodyAbnormal extends $dara.Model {
   /**
    * @remarks
-   * The code that identifies the specific risk, such as `Risk_InternalWeakPasswd`.
+   * The risk code.
    * 
    * @example
    * Risk_InternalWeakPasswd
@@ -13,7 +13,7 @@ export class DescribeUserAbnormalTypeResponseBodyAbnormal extends $dara.Model {
   abnormalCode?: string;
   /**
    * @remarks
-   * The total number of risks detected for this risk type.
+   * The number of risks.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class DescribeUserAbnormalTypeResponseBodyAbnormal extends $dara.Model {
   abnormalCount?: number;
   /**
    * @remarks
-   * The parent category of the risk, such as `RiskType_Account`.
+   * The parent type of the risk.
    * 
    * @example
    * RiskType_Account
@@ -29,9 +29,9 @@ export class DescribeUserAbnormalTypeResponseBodyAbnormal extends $dara.Model {
   abnormalParentType?: string;
   /**
    * @remarks
-   * The type of the risk detected by API security.
+   * The risk type.
    * 
-   * > Call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to query the supported risk types.
+   * > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to obtain the supported risk types.
    * 
    * @example
    * Risk_InternalWeakPasswd
@@ -67,12 +67,12 @@ export class DescribeUserAbnormalTypeResponseBodyAbnormal extends $dara.Model {
 export class DescribeUserAbnormalTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The risk types detected by API security and the number of risks for each type.
+   * The list of risk types and statistics.
    */
   abnormal?: DescribeUserAbnormalTypeResponseBodyAbnormal[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 3E1CB966-1407-5988-9432-7***D784

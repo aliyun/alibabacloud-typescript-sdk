@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRoleAuthStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the service-linked role for WAF is authorized.
-   * 
-   * - **true**: The service-linked role is authorized.
-   * 
-   * - **false**: The service-linked role is not authorized.
+   * The authorization status. Valid values:
+   * - **false**: Not authorized.
+   * - **true**: Authorized.
    * 
    * @example
    * true

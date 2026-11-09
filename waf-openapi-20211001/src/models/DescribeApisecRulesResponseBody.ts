@@ -13,7 +13,7 @@ export class DescribeApisecRulesResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The details of the rule. The value is a string that is converted from a JSON object.
+   * The rule details, formatted as a JSON string constructed from a series of parameters.
    * 
    * @example
    * {
@@ -30,9 +30,9 @@ export class DescribeApisecRulesResponseBodyData extends $dara.Model {
    * @remarks
    * The status of the rule. Valid values:
    * 
-   * - **1**: enabled
+   * - **1**: Enabled.
    * 
-   * - **0**: disabled
+   * - **0**: Disabled.
    * 
    * @example
    * 1
@@ -40,25 +40,16 @@ export class DescribeApisecRulesResponseBodyData extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The type of the rule. Valid values:
-   * 
-   * - **risk**: threat detection
-   * 
-   * - **event**: security event
-   * 
-   * - **sensitive_word**: sensitive data
-   * 
-   * - **auth_flag**: authentication credential
-   * 
-   * - **api_tag**: business purpose
-   * 
-   * - **desensitization**: data masking
-   * 
-   * - **whitelist**: whitelist
-   * 
-   * - **recognition**: API.
-   * 
-   * - **offline_api**: lifecycle management
+   * The rule type. Valid values:
+   * - **risk**: Risk detection.
+   * - **event**: Security events.
+   * - **sensitive_word**: Sensitive data.
+   * - **auth_flag**: Authentication credentials.
+   * - **api_tag**: Business purpose.
+   * - **desensitization**: Data masking.
+   * - **whitelist**: Whitelist.
+   * - **recognition**: API identification.
+   * - **offline_api**: Lifecycle management.
    * 
    * @example
    * risk
@@ -66,7 +57,7 @@ export class DescribeApisecRulesResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time when the rule was updated. This value is a UNIX timestamp. Unit: seconds.
+   * The update time of the rule. The time is a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1721095301
@@ -109,7 +100,7 @@ export class DescribeApisecRulesResponseBody extends $dara.Model {
   data?: DescribeApisecRulesResponseBodyData[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D7861F61-5B61-46CE-A47C-6B19160D5EB0
@@ -117,7 +108,7 @@ export class DescribeApisecRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned entries.
    * 
    * @example
    * 6

@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeUserAbnormalTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the hybrid cloud cluster.
-   * 
-   * > This parameter applies only to hybrid cloud scenarios. Call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to query the IDs of hybrid cloud clusters.
+   * The ID of the hybrid cloud cluster. 
+   * > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain the hybrid cloud cluster information.
    * 
    * @example
    * 993
@@ -15,7 +14,7 @@ export class DescribeUserAbnormalTypeRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time as a UNIX timestamp in seconds. The time is in UTC.
+   * The end time of the query, in UNIX timestamp format (UTC). Unit: seconds.
    * 
    * @example
    * 1726113600
@@ -23,9 +22,9 @@ export class DescribeUserAbnormalTypeRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The ID of the WAF instance.
+   * Instance ID of the WAF instance. 
    * 
-   * > Call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -55,7 +54,7 @@ export class DescribeUserAbnormalTypeRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time as a UNIX timestamp in seconds. The time is in UTC.
+   * The start time of the query, in UNIX timestamp format (UTC). Unit: seconds.
    * 
    * @example
    * 1723435200
@@ -63,9 +62,9 @@ export class DescribeUserAbnormalTypeRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The list of risk states for which to collect statistics.
+   * The list of statuses for risk statistics.
    * 
-   * > By default, statistics are collected for risks in the **toBeConfirmed**, **toBeFixed**, **toBeVerified**, and **notFixed** states.
+   * > By default, risk data in the **toBeConfirmed**, **toBeFixed**, **toBeVerified**, and **notFixed** states is collected.
    */
   userStatusList?: string[];
   static names(): { [key: string]: string } {

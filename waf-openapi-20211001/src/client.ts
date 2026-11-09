@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "waf-openapi";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-qingdao': "wafopenapi.cn-hangzhou.aliyuncs.com",
@@ -110,7 +114,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the resource group to which a protected object belongs.
+   * Modifies the resource group of a protected object.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -157,7 +161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the resource group to which a protected object belongs.
+   * Modifies the resource group of a protected object.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -560,7 +564,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds an extension certificate for a cloud native mode resource.
+   * Adds an extension certificate for cloud native mode.
    * 
    * @param request - CreateCloudResourceExtensionCertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -607,7 +611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds an extension certificate for a cloud native mode resource.
+   * Adds an extension certificate for cloud native mode.
    * 
    * @param request - CreateCloudResourceExtensionCertRequest
    * @returns CreateCloudResourceExtensionCertResponse
@@ -1916,7 +1920,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an extension certificate for a cloud service connected in cloud native mode.
+   * Deletes the extended certificate for a resource onboarded in cloud native mode.
    * 
    * @param request - DeleteCloudResourceExtensionCertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1963,7 +1967,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an extension certificate for a cloud service connected in cloud native mode.
+   * Deletes the extended certificate for a resource onboarded in cloud native mode.
    * 
    * @param request - DeleteCloudResourceExtensionCertRequest
    * @returns DeleteCloudResourceExtensionCertResponse
@@ -2636,7 +2640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries abnormal cloud resources added in cloud native mode.
+   * Queries abnormal cloud native mode resources.
    * 
    * @param request - DescribeAbnormalCloudResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2675,7 +2679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries abnormal cloud resources added in cloud native mode.
+   * Queries abnormal cloud native mode resources.
    * 
    * @param request - DescribeAbnormalCloudResourcesRequest
    * @returns DescribeAbnormalCloudResourcesResponse
@@ -3948,7 +3952,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the rules of an API security policy.
+   * Queries the configuration rules for API security policies.
    * 
    * @param request - DescribeApisecRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4019,7 +4023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the rules of an API security policy.
+   * Queries the configuration rules for API security policies.
    * 
    * @param request - DescribeApisecRulesRequest
    * @returns DescribeApisecRulesResponse
@@ -4620,7 +4624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag information of bot management rules.
+   * Queries the bot management rule label information.
    * 
    * @param request - DescribeBotRuleLabelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4675,7 +4679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tag information of bot management rules.
+   * Queries the bot management rule label information.
    * 
    * @param request - DescribeBotRuleLabelsRequest
    * @returns DescribeBotRuleLabelsResponse
@@ -4860,7 +4864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the pricing results of WAF pricing modules.
+   * Queries the billing results of WAF billing modules.
    * 
    * @param request - DescribeChargeResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4911,7 +4915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the pricing results of WAF pricing modules.
+   * Queries the billing results of WAF billing modules.
    * 
    * @param request - DescribeChargeResultRequest
    * @returns DescribeChargeResultResponse
@@ -6898,7 +6902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the traffic statistics.
+   * Queries traffic statistics information.
    * 
    * @param request - DescribeFlowChartRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6953,7 +6957,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the traffic statistics.
+   * Queries traffic statistics information.
    * 
    * @param request - DescribeFlowChartRequest
    * @returns DescribeFlowChartResponse
@@ -7084,7 +7088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries statistics information about assets detected by the basic API security feature.
+   * Queries the asset statistics information for basic API security detection.
    * 
    * @param request - DescribeFreeUserAssetCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7123,7 +7127,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries statistics information about assets detected by the basic API security feature.
+   * Queries the asset statistics information for basic API security detection.
    * 
    * @param request - DescribeFreeUserAssetCountRequest
    * @returns DescribeFreeUserAssetCountResponse
@@ -7184,7 +7188,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the types of security events for basic API security detection.
+   * Queries the security event types for basic API security detection.
    * 
    * @param request - DescribeFreeUserEventTypesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7223,7 +7227,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the types of security events for basic API security detection.
+   * Queries the security event types for basic API security detection.
    * 
    * @param request - DescribeFreeUserEventTypesRequest
    * @returns DescribeFreeUserEventTypesResponse
@@ -8354,7 +8358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves supported countries and regions outside China for IP-based region blacklist.
+   * Queries the countries and areas outside China supported by the Location Blacklist.
    * 
    * @param request - DescribeIpAbroadCountryInfosRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8413,7 +8417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves supported countries and regions outside China for IP-based region blacklist.
+   * Queries the countries and areas outside China supported by the Location Blacklist.
    * 
    * @param request - DescribeIpAbroadCountryInfosRequest
    * @returns DescribeIpAbroadCountryInfosResponse
@@ -9628,7 +9632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the region IDs of cloud service resources that can be added to Web Application Firewall (WAF) by using the SDK.
+   * Queries the region IDs of SDK-integrated resources, primarily for ALB and MSE.
    * 
    * @param request - DescribeResourceRegionIdRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9667,7 +9671,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the region IDs of cloud service resources that can be added to Web Application Firewall (WAF) by using the SDK.
+   * Queries the region IDs of SDK-integrated resources, primarily for ALB and MSE.
    * 
    * @param request - DescribeResourceRegionIdRequest
    * @returns DescribeResourceRegionIdResponse
@@ -9802,7 +9806,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the authorization status of the service-linked role for Web Application Firewall (WAF).
+   * Queries the authorization status.
    * 
    * @param request - DescribeRoleAuthStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9837,7 +9841,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the authorization status of the service-linked role for Web Application Firewall (WAF).
+   * Queries the authorization status.
    * 
    * @param request - DescribeRoleAuthStatusRequest
    * @returns DescribeRoleAuthStatusResponse
@@ -10112,7 +10116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 10 most frequently triggered protection rule types.
+   * Queries the top 10 protection types with the most rule hits.
    * 
    * @param request - DescribeRuleHitsTopTuleTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10163,7 +10167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top 10 most frequently triggered protection rule types.
+   * Queries the top 10 protection types with the most rule hits.
    * 
    * @param request - DescribeRuleHitsTopTuleTypeRequest
    * @returns DescribeRuleHitsTopTuleTypeResponse
@@ -11656,7 +11660,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries user risk types and statistics related to API security in Web Application Firewall (WAF).
+   * Queries API security user risk types and statistics.
    * 
    * @param request - DescribeUserAbnormalTypeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11711,7 +11715,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries user risk types and statistics related to API security in Web Application Firewall (WAF).
+   * Queries API security user risk types and statistics.
    * 
    * @param request - DescribeUserAbnormalTypeRequest
    * @returns DescribeUserAbnormalTypeResponse
@@ -13216,7 +13220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the certificate for a cloud native mode resource.
+   * Modifies the certificates for cloud native mode.
    * 
    * @param request - ModifyCloudResourceCertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13271,7 +13275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the certificate for a cloud native mode resource.
+   * Modifies the certificates for cloud native mode.
    * 
    * @param request - ModifyCloudResourceCertRequest
    * @returns ModifyCloudResourceCertResponse
@@ -13282,7 +13286,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the default certificate for a cloud native mode resource.
+   * Modifies the default certificate for cloud native mode.
    * 
    * @param request - ModifyCloudResourceDefaultCertRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13329,7 +13333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the default certificate for a cloud native mode resource.
+   * Modifies the default certificate for cloud native mode.
    * 
    * @param request - ModifyCloudResourceDefaultCertRequest
    * @returns ModifyCloudResourceDefaultCertResponse
@@ -15454,7 +15458,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Re-connects a cloud service to WAF. This operation is used only when the cloud native mode connection status is protection exception.
+   * Re-onboards a cloud service to WAF. This operation is used only when the protection status of the cloud service in cloud native mode is abnormal.
    * 
    * @param request - ReCreateCloudResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15509,7 +15513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Re-connects a cloud service to WAF. This operation is used only when the cloud native mode connection status is protection exception.
+   * Re-onboards a cloud service to WAF. This operation is used only when the protection status of the cloud service in cloud native mode is abnormal.
    * 
    * @param request - ReCreateCloudResourceRequest
    * @returns ReCreateCloudResourceResponse
@@ -15680,7 +15684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from resources and then deletes the tags.
+   * Removes and deletes tags from one or more specified resources.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15727,7 +15731,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from resources and then deletes the tags.
+   * Removes and deletes tags from one or more specified resources.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse

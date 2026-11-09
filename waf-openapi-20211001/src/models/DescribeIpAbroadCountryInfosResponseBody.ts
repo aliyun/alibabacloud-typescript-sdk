@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIpAbroadCountryInfosResponseBodyAbroadInfosRegions extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * US-CA
@@ -13,7 +13,7 @@ export class DescribeIpAbroadCountryInfosResponseBodyAbroadInfosRegions extends 
   abroadRegionId?: string;
   /**
    * @remarks
-   * The name of the region.
+   * The region name.
    * 
    * @example
    * California
@@ -53,7 +53,7 @@ export class DescribeIpAbroadCountryInfosResponseBodyAbroadInfos extends $dara.M
   continent?: string;
   /**
    * @remarks
-   * The ID of the country.
+   * The country ID.
    * 
    * @example
    * US
@@ -61,7 +61,7 @@ export class DescribeIpAbroadCountryInfosResponseBodyAbroadInfos extends $dara.M
   country?: string;
   /**
    * @remarks
-   * The name of the country.
+   * The country name.
    * 
    * @example
    * United States
@@ -69,7 +69,7 @@ export class DescribeIpAbroadCountryInfosResponseBodyAbroadInfos extends $dara.M
   countryName?: string;
   /**
    * @remarks
-   * The list of region information outside China.
+   * The list of overseas region information.
    */
   regions?: DescribeIpAbroadCountryInfosResponseBodyAbroadInfosRegions[];
   static names(): { [key: string]: string } {
@@ -105,12 +105,12 @@ export class DescribeIpAbroadCountryInfosResponseBodyAbroadInfos extends $dara.M
 export class DescribeIpAbroadCountryInfosResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of country information outside China.
+   * The list of overseas country information.
    */
   abroadInfos?: DescribeIpAbroadCountryInfosResponseBodyAbroadInfos[];
   /**
    * @remarks
-   * The number of entries per page in a paged query. Valid values: 1 to 500. Default value: 20.
+   * The number of entries to return on each page for a paging query. Valid values: 1 to 500. Default value: 20.
    * 
    * @example
    * 20
@@ -118,7 +118,7 @@ export class DescribeIpAbroadCountryInfosResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page.
+   * The pagination token for the next page.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0*****
@@ -126,7 +126,7 @@ export class DescribeIpAbroadCountryInfosResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID
+   * The request ID.
    * 
    * @example
    * 66A98669-CC6E-4F3E-80A6-3014697B11AE
@@ -134,7 +134,7 @@ export class DescribeIpAbroadCountryInfosResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned entries.
    * 
    * @example
    * 2

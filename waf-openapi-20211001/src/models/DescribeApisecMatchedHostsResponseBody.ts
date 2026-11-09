@@ -58,7 +58,7 @@ export class DescribeApisecMatchedHostsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned entries.
    * 
    * @example
    * 2

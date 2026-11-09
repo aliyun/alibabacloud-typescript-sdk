@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeChargeResultRequestChargeModules extends $dara.Model {
   /**
    * @remarks
-   * The pricing module identifier.
+   * The billing module code.
    * 
    * @example
    * domainCount
@@ -13,16 +13,25 @@ export class DescribeChargeResultRequestChargeModules extends $dara.Model {
   moduleCode?: string;
   /**
    * @remarks
-   * The usage of the pricing module.
+   * The usage of the billing module.
    * 
    * @example
    * 10
    */
   usage?: number;
+  /**
+   * @remarks
+   * The usage of the billing module, which supports integers and decimals. If the billing module is log storage capacity, the usage supports up to one decimal place, such as 10.5. This parameter is optional and has no default value. If this parameter is specified, it takes precedence even if the value is 0. If this parameter is not specified, Usage is used.
+   * 
+   * @example
+   * 10.5
+   */
+  usageDecimal?: number;
   static names(): { [key: string]: string } {
     return {
       moduleCode: 'ModuleCode',
       usage: 'Usage',
+      usageDecimal: 'UsageDecimal',
     };
   }
 
@@ -30,6 +39,7 @@ export class DescribeChargeResultRequestChargeModules extends $dara.Model {
     return {
       moduleCode: 'string',
       usage: 'number',
+      usageDecimal: 'number',
     };
   }
 
@@ -45,10 +55,10 @@ export class DescribeChargeResultRequestChargeModules extends $dara.Model {
 export class DescribeChargeResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing cycle for the calculation. Valid values:
-   * - **Year**: Calculates the billing result for one year.
-   * - **Month**: Calculates the billing result for one month.
-   * - **Day**: Calculates the billing result for one day.
+   * The billing cycle. Valid values:
+   * - **Year**: calculates the billing result for one year
+   * - **Month**: calculates the billing result for one month
+   * - **Day**: calculates the billing result for one day
    * 
    * @example
    * Day
@@ -56,7 +66,7 @@ export class DescribeChargeResultRequest extends $dara.Model {
   chargeCycle?: string;
   /**
    * @remarks
-   * The list of billing modules to calculate.
+   * The list of billing modules to be calculated.
    * 
    * This parameter is required.
    */
@@ -71,8 +81,8 @@ export class DescribeChargeResultRequest extends $dara.Model {
   chargeUnit?: string;
   /**
    * @remarks
-   * The billing type of the instance. Valid values:
-   * - **POSTPAY**: pay-as-you-go WAF instance.
+   * The billing method of the instance. Valid values:
+   * - **POSTPAY**: pay-as-you-go WAF instances
    * 
    * This parameter is required.
    * 
@@ -82,11 +92,11 @@ export class DescribeChargeResultRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The region where the WAF instance resides. Valid values:
+   * The region of the WAF instance. Valid values:
    * 
-   * - **cn-hangzhou**: the Chinese mainland.
+   * - **cn-hangzhou**: the Chinese mainland
    * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * - **ap-southeast-1**: outside the Chinese mainland
    * 
    * @example
    * cn-hangzhou

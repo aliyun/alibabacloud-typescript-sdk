@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResourceRegionIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F5905D3F-F674-5177-9E48-466DD3B8****
@@ -13,7 +13,7 @@ export class DescribeResourceRegionIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The region IDs of cloud service resources that can be added to WAF by using the SDK.
+   * The list of region IDs of SDK-integrated resources.
    */
   resourceRegionIds?: string[];
   static names(): { [key: string]: string } {
