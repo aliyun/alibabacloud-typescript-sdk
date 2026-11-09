@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFileModerationResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The service supported by the enhanced file moderation feature.
+   * The services supported by the enhanced file moderation edition.
    * 
    * @example
    * document_detection
@@ -13,8 +13,8 @@ export class DescribeFileModerationResultRequest extends $dara.Model {
   service?: string;
   /**
    * @remarks
-   * The set of parameters required by the moderation service, in JSON character string format.
-   * - taskId: Required. The URL of the object to be moderated. Make sure that the URL is accessible through public network access.
+   * The parameter set required by the moderation service, in JSON character string format.
+   * - taskId: Required. The URL of the object to be moderated. Make sure that the URL is accessible via public network access.
    * 
    * @example
    * {\\"taskId\\":\\"vi_f_hPgx9PFIQISdlfA888hOFG-1yJq8v\\"}

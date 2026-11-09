@@ -13,7 +13,7 @@ export class MultiModalGuardAsyncResultRequest extends $dara.Model {
   service?: string;
   /**
    * @remarks
-   * The set of parameters required by the moderation service. The value is a JSON string.
+   * The parameter set required by the moderation service. The value is a JSON string.
    * 
    * @example
    * {

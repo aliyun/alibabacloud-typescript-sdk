@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLabelResult extends $dara.Model {
   /**
    * @remarks
-   * The risk score.
+   * The confidence score.
    * 
    * @example
    * 25.0
@@ -73,7 +73,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLo
   w?: number;
   /**
    * @remarks
-   * The X value of the coordinate point.
+   * The X-coordinate of the point.
    * 
    * @example
    * 11
@@ -81,7 +81,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResultLo
   x?: number;
   /**
    * @remarks
-   * The Y value of the coordinate point.
+   * The Y-coordinate of the point.
    * 
    * @example
    * 22
@@ -143,7 +143,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResult e
   riskLevel?: string;
   /**
    * @remarks
-   * The invoked service.
+   * The called service.
    * 
    * @example
    * baselineCheck
@@ -187,18 +187,18 @@ export class DescribeFileModerationResultResponseBodyDataPageResultImageResult e
 export class DescribeFileModerationResultResponseBodyDataPageResultTextResultResultCustomizedHit extends $dara.Model {
   /**
    * @remarks
-   * The hit keyword.
+   * The matched keywords.
    * 
    * @example
-   * Popular among everyone
+   * Popular items
    */
   keyWords?: string;
   /**
    * @remarks
-   * The vocabulary name.
+   * The name of the dictionary.
    * 
    * @example
-   * TestVocabulary22
+   * Test dictionary 22
    */
   libName?: string;
   static names(): { [key: string]: string } {
@@ -235,10 +235,10 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResultRes
   endPos?: number;
   /**
    * @remarks
-   * The violation word.
+   * The prohibited word.
    * 
    * @example
-   * Visit pornographic website
+   * Visit porn websites
    */
   riskWord?: string;
   /**
@@ -277,7 +277,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResultRes
 export class DescribeFileModerationResultResponseBodyDataPageResultTextResultResult extends $dara.Model {
   /**
    * @remarks
-   * The label confidence score.
+   * The confidence level of the label.
    * 
    * @example
    * 90.50
@@ -285,7 +285,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResultRes
   confidence?: number;
   /**
    * @remarks
-   * The custom vocabulary hit results.
+   * The custom dictionary.
    */
   customizedHit?: DescribeFileModerationResultResponseBodyDataPageResultTextResultResultCustomizedHit[];
   /**
@@ -298,10 +298,10 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResultRes
   description?: string;
   /**
    * @remarks
-   * The text label in page results.
+   * The text labels in the page results.
    * 
    * @example
-   * Political sensitivity
+   * Political content
    */
   label?: string;
   /**
@@ -314,15 +314,15 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResultRes
   riskLevel?: string;
   /**
    * @remarks
-   * The positions of the violation words.
+   * The positions of the prohibited words.
    */
   riskPositions?: DescribeFileModerationResultResponseBodyDataPageResultTextResultResultRiskPositions[];
   /**
    * @remarks
-   * The hit violation words.
+   * The matched prohibited words.
    * 
    * @example
-   * Popular among everyone
+   * Popular items
    */
   riskWords?: string;
   static names(): { [key: string]: string } {
@@ -391,7 +391,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
   labels?: string;
   /**
    * @remarks
-   * The text plus version result.
+   * The generation results of the text plus version.
    */
   result?: DescribeFileModerationResultResponseBodyDataPageResultTextResultResult[];
   /**
@@ -404,7 +404,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
   riskLevel?: string;
   /**
    * @remarks
-   * The hit risk details.
+   * The details of the matched risks.
    * 
    * @example
    * xxx
@@ -412,7 +412,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
   riskTips?: string;
   /**
    * @remarks
-   * The hit risk keywords.
+   * The matched risk keywords.
    * 
    * @example
    * xxx
@@ -431,7 +431,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResultTextResult ex
    * The text content.
    * 
    * @example
-   * blah blah
+   * Sample text
    */
   text?: string;
   /**
@@ -513,7 +513,7 @@ export class DescribeFileModerationResultResponseBodyDataPageResult extends $dar
   textResult?: DescribeFileModerationResultResponseBodyDataPageResultTextResult[];
   /**
    * @remarks
-   * The URL where the text content is stored.
+   * The storage URL for the text content.
    * 
    * @example
    * https://detect-obj.oss-cn-hangzhou.aliyuncs.com/sample/xxxx.txt
@@ -573,7 +573,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary
   label?: string;
   /**
    * @remarks
-   * The number of times the label appears.
+   * The number of occurrences of the label.
    * 
    * @example
    * 1
@@ -647,7 +647,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryImageSummary
 export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExtAigcDataAIGC extends $dara.Model {
   /**
    * @remarks
-   * The content producer code.
+   * The code of the content producer.
    * 
    * @example
    * 00119144030008867405X210001
@@ -655,7 +655,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryE
   contentProducer?: string;
   /**
    * @remarks
-   * The content propagator code.
+   * The code of the content distributor.
    * 
    * @example
    * 00119144030008867405X220001
@@ -666,12 +666,12 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryE
    * The content attribute declared by the implicit label.
    * 
    * @example
-   * AI-generated or synthetic content
+   * Classified as AI-generated and synthetic content
    */
   label?: string;
   /**
    * @remarks
-   * The content production ID.
+   * The production ID of the content.
    * 
    * @example
    * tos-cn-i-tb4s082cfz/ad88d9b125694f57b2c72235e5c42af1
@@ -679,7 +679,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryE
   produceID?: string;
   /**
    * @remarks
-   * The content propagation ID.
+   * The distribution ID of the content.
    * 
    * @example
    * tos-cn-i-tb4s082cfz/ad88d9b125694f57b2c72235e5c42af1
@@ -687,7 +687,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryE
   propagateID?: string;
   /**
    * @remarks
-   * Reserved field 1.
+   * The first reserved field.
    * 
    * @example
    * None
@@ -695,7 +695,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryE
   reservedCode1?: string;
   /**
    * @remarks
-   * Reserved field 2.
+   * The second reserved field.
    * 
    * @example
    * None
@@ -737,18 +737,18 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryE
 export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExtAigcData extends $dara.Model {
   /**
    * @remarks
-   * The implicit label information of AI-generated or synthetic content.
+   * The implicit identification information of AI-generated and synthetic content.
    */
   AIGC?: DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExtAigcDataAIGC;
   /**
    * @remarks
-   * The comprehensive analysis report for forgery detection by the large language model.
+   * The comprehensive forgery detection analysis report generated by the large model.
    * 
    * @example
-   * ### Comprehensive Report for Users
+   * ### Comprehensive user-facing report
    * 
-   * #### Quick Image Overview
-   * - **Image Subject**: A scanned document titled "Letter of Authorization", containing the names of the authorizing and authorized companies and red official seals
+   * #### Quick overall image inspection
+   * - **Image subject**: A scanned document titled "Letter of Authorization", containing the company names of both authorizing parties and a red official seal.
    */
   explain?: string;
   static names(): { [key: string]: string } {
@@ -780,7 +780,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryE
 export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExt extends $dara.Model {
   /**
    * @remarks
-   * The details of AI-generated or synthetic content detection.
+   * The AI-generated and synthetic content detection details.
    */
   aigcData?: DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryExtAigcData;
   static names(): { [key: string]: string } {
@@ -818,7 +818,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryRiskSummaryR
   confidence?: number;
   /**
    * @remarks
-   * The description of the risk label in Chinese.
+   * The Chinese description of the risk label.
    * 
    * @example
    * 疑似AI生成合成内容
@@ -913,7 +913,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryT
    * The label descriptions.
    * 
    * @example
-   * No risk detected
+   * No risks detected
    */
   description?: string;
   /**
@@ -926,7 +926,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummaryTextSummaryT
   label?: string;
   /**
    * @remarks
-   * The number of times the label appears.
+   * The number of occurrences of the label.
    * 
    * @example
    * 1
@@ -1060,7 +1060,7 @@ export class DescribeFileModerationResultResponseBodyDataPageSummary extends $da
 export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AccountId specified by the caller.
+   * The AccountId provided in the request.
    * 
    * @example
    * accountIdtest123
@@ -1076,12 +1076,20 @@ export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
   dataId?: string;
   /**
    * @remarks
-   * The document type. This parameter is optional.
+   * Optional. The document type.
    * 
    * @example
    * doc
    */
   docType?: string;
+  /**
+   * @remarks
+   * The manual review task ID.
+   * 
+   * @example
+   * m_fi_xxx
+   */
+  manualTaskId?: string;
   /**
    * @remarks
    * The list of detection results.
@@ -1102,7 +1110,15 @@ export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The URL for downloading the file.
+   * The task ID.
+   * 
+   * @example
+   * fi_xxx
+   */
+  taskId?: string;
+  /**
+   * @remarks
+   * The file download URL.
    * 
    * @example
    * https://detect-obj.oss-cn-hangzhou.aliyuncs.com/sample/xxxx.pdf
@@ -1113,9 +1129,11 @@ export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
       accountId: 'AccountId',
       dataId: 'DataId',
       docType: 'DocType',
+      manualTaskId: 'ManualTaskId',
       pageResult: 'PageResult',
       pageSummary: 'PageSummary',
       riskLevel: 'RiskLevel',
+      taskId: 'TaskId',
       url: 'Url',
     };
   }
@@ -1125,9 +1143,11 @@ export class DescribeFileModerationResultResponseBodyData extends $dara.Model {
       accountId: 'string',
       dataId: 'string',
       docType: 'string',
+      manualTaskId: 'string',
       pageResult: { 'type': 'array', 'itemType': DescribeFileModerationResultResponseBodyDataPageResult },
       pageSummary: DescribeFileModerationResultResponseBodyDataPageSummary,
       riskLevel: 'string',
+      taskId: 'string',
       url: 'string',
     };
   }
@@ -1158,7 +1178,7 @@ export class DescribeFileModerationResultResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: DescribeFileModerationResultResponseBodyData;
   /**

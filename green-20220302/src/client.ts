@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 import { WebSocketUtils }from '@alicloud/openapi-core';
@@ -12,6 +13,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "Green";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'ap-northeast-1': "green.ap-southeast-1.aliyuncs.com",
@@ -56,7 +60,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The document moderation result.
+   * Queries the document moderation results.
    * 
    * @param request - DescribeFileModerationResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -91,7 +95,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The document moderation result.
+   * Queries the document moderation results.
    * 
    * @param request - DescribeFileModerationResultRequest
    * @returns DescribeFileModerationResultResponse
@@ -1003,10 +1007,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the asynchronous detection results of AI security guardrails for multimodal content, supporting audio and video modalities.
+   * Queries the asynchronous moderation results of the AI security guardrail for multimodal content, including audio and video modalities.
    * 
    * @remarks
-   * If the API operation incurs fees, add the bold text "**Make sure that you fully understand the billing methods and pricing of the XXX product before you call this API operation.**" as the first sentence. Make "pricing" a hyperlink to https://www.aliyun.com/price/product#/ecs/detail.
+   * If the API operation involves fees, add the bold text "**Make sure that you fully understand the billing methods and pricing of the XXX service before you call this API operation.**" as the first sentence. Make "pricing" a hyperlink to https://www.aliyun.com/price/product#/ecs/detail.
    * 
    * @param request - MultiModalGuardAsyncResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1041,10 +1045,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the asynchronous detection results of AI security guardrails for multimodal content, supporting audio and video modalities.
+   * Queries the asynchronous moderation results of the AI security guardrail for multimodal content, including audio and video modalities.
    * 
    * @remarks
-   * If the API operation incurs fees, add the bold text "**Make sure that you fully understand the billing methods and pricing of the XXX product before you call this API operation.**" as the first sentence. Make "pricing" a hyperlink to https://www.aliyun.com/price/product#/ecs/detail.
+   * If the API operation involves fees, add the bold text "**Make sure that you fully understand the billing methods and pricing of the XXX service before you call this API operation.**" as the first sentence. Make "pricing" a hyperlink to https://www.aliyun.com/price/product#/ecs/detail.
    * 
    * @param request - MultiModalGuardAsyncResultRequest
    * @returns MultiModalGuardAsyncResultResponse

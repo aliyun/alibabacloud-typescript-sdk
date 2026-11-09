@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDetailResult extends $dara.Model {
   /**
    * @remarks
-   * The confidence score, which ranges from 0 to 100 and is accurate to two decimal places.
+   * The confidence score. Valid values: 0 to 100. The value is accurate to two decimal places.
    * 
    * @example
    * 90
@@ -21,7 +21,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDe
   description?: string;
   /**
    * @remarks
-   * The extended information of the detection result.
+   * The extended information of the moderation result.
    * 
    * @example
    * {}
@@ -38,7 +38,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDe
   /**
    * @remarks
    * The risk level. Valid values:
-   * - high: High risk. If a custom dictionary is hit, the risk level defaults to high.
+   * - high: High risk. If a custom dictionary is hit, the risk level is high by default.
    * - medium: Medium risk.
    * - low: Low risk.
    * - none: No risk detected.
@@ -80,7 +80,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDe
   /**
    * @remarks
    * The risk level. Valid values:
-   * - high: High risk. If a custom dictionary is hit, the risk level defaults to high.
+   * - high: High risk. If a custom dictionary is hit, the risk level is high by default.
    * - medium: Medium risk.
    * - low: Low risk.
    * - none: No risk detected.
@@ -91,7 +91,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDe
   level?: string;
   /**
    * @remarks
-   * The list of detection results.
+   * The list of moderation results.
    */
   result?: MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDetailResult[];
   /**
@@ -109,8 +109,8 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDe
   suggestion?: string;
   /**
    * @remarks
-   * The detection type. Valid values:
-   * - contentModeration: Content compliance detection.
+   * The moderation type. Valid values:
+   * - contentModeration: Content compliance moderation.
    * - promptAttack: Prompt attack detection.
    * - sensitiveData: Sensitive content detection.
    * - modelHallucination: Model hallucination detection.
@@ -153,7 +153,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDe
 export class MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetails extends $dara.Model {
   /**
    * @remarks
-   * The detection details.
+   * The moderation details.
    */
   detail?: MultiModalGuardAsyncResultResponseBodyDataAudioResultSliceDetailsDetail[];
   /**
@@ -288,7 +288,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataAudioResult extends $dara
 export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetailResult extends $dara.Model {
   /**
    * @remarks
-   * The confidence score, which ranges from 0 to 100 and is accurate to two decimal places.
+   * The confidence score. Valid values: 0 to 100. The value is accurate to two decimal places.
    * 
    * @example
    * 80
@@ -304,7 +304,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetailRe
   description?: string;
   /**
    * @remarks
-   * The extended information of the detection result.
+   * The extended information of the moderation result.
    * 
    * @example
    * {}
@@ -321,7 +321,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetailRe
   /**
    * @remarks
    * The risk level. Valid values:
-   * - high: High risk. If a custom dictionary is hit, the risk level defaults to high.
+   * - high: High risk. If a custom dictionary is hit, the risk level is high by default.
    * - medium: Medium risk.
    * - low: Low risk.
    * - none: No risk detected.
@@ -363,7 +363,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetail e
   /**
    * @remarks
    * The risk level. Valid values:
-   * - high: High risk. If a custom dictionary is hit, the risk level defaults to high.
+   * - high: High risk. If a custom dictionary is hit, the risk level is high by default.
    * - medium: Medium risk.
    * - low: Low risk.
    * - none: No risk detected.
@@ -374,7 +374,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetail e
   level?: string;
   /**
    * @remarks
-   * The detection result.
+   * The moderation result.
    */
   result?: MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetailResult[];
   /**
@@ -392,8 +392,8 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetail e
   suggestion?: string;
   /**
    * @remarks
-   * The detection type. Valid values:
-   * - contentModeration: Content compliance detection.
+   * The moderation type. Valid values:
+   * - contentModeration: Content compliance moderation.
    * - promptAttack: Prompt attack detection.
    * - sensitiveData: Sensitive content detection.
    * - modelHallucination: Model hallucination detection.
@@ -436,7 +436,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetail e
 export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFrames extends $dara.Model {
   /**
    * @remarks
-   * The list of detection results.
+   * The list of moderation results.
    */
   detail?: MultiModalGuardAsyncResultResponseBodyDataFrameResultFramesDetail[];
   /**
@@ -457,7 +457,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFrames extends
   errorMsg?: string;
   /**
    * @remarks
-   * The offset of the captured frame.
+   * The position of the captured frame.
    * 
    * @example
    * 1.5
@@ -531,7 +531,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataFrameResultFrames extends
 export class MultiModalGuardAsyncResultResponseBodyDataFrameResult extends $dara.Model {
   /**
    * @remarks
-   * The frame detection results.
+   * The frame moderation results.
    */
   frames?: MultiModalGuardAsyncResultResponseBodyDataFrameResultFrames[];
   /**
@@ -602,7 +602,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataRedactResult extends $dar
   resultOssBucketName?: string;
   /**
    * @remarks
-   * The name of the masked OSS object.
+   * The name of the OSS object for the masked data.
    * 
    * @example
    * video.mp4
@@ -626,7 +626,7 @@ export class MultiModalGuardAsyncResultResponseBodyDataRedactResult extends $dar
   resultUrl?: string;
   /**
    * @remarks
-   * The original URL.
+   * The URL of the object before masking.
    * 
    * @example
    * https://XX
@@ -676,12 +676,12 @@ export class MultiModalGuardAsyncResultResponseBodyDataRedactResult extends $dar
 export class MultiModalGuardAsyncResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The segmented results of audio moderation.
+   * The segmented audio moderation results.
    */
   audioResult?: MultiModalGuardAsyncResultResponseBodyDataAudioResult;
   /**
    * @remarks
-   * The value of dataId passed in the API request. If dataId is not passed in the request, this field is not returned.
+   * The value of the dataId parameter passed in the API request. If this parameter is not passed in the request, this field is not returned.
    * 
    * @example
    * data1234
