@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListManagedAgentsResponseBodyItemsHarnessConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The ID of the connector account key record bound to qodercli, not the original service account key.
+   * The ID of the connector account key record bound to qodercli, which is not the original service account key.
    * 
    * @example
    * key-xxxx
@@ -50,23 +50,43 @@ export class ListManagedAgentsResponseBodyItemsHarness extends $dara.Model {
   configuration?: ListManagedAgentsResponseBodyItemsHarnessConfiguration;
   /**
    * @remarks
+   * Returned only in queries. The server calculates this value based on the complete instance distribution, which is not affected by the pagination and filtering of the instance list. If the image tag is missing, pagination is incomplete, or the value cannot be confirmed, this parameter is empty, which is not equivalent to 0.
+   * 
+   * @example
+   * 2
+   */
+  outdatedInstanceCount?: number;
+  /**
+   * @remarks
    * The runtime framework type.
    * 
    * @example
    * qodercli
    */
   type?: string;
+  /**
+   * @remarks
+   * Returned only in queries. Currently returns the tag of the pool target image. If the tag cannot be parsed, this parameter is empty and cannot be replaced by the agent configuration version.
+   * 
+   * @example
+   * 202611031754
+   */
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       configuration: 'configuration',
+      outdatedInstanceCount: 'outdatedInstanceCount',
       type: 'type',
+      version: 'version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       configuration: ListManagedAgentsResponseBodyItemsHarnessConfiguration,
+      outdatedInstanceCount: 'number',
       type: 'string',
+      version: 'string',
     };
   }
 
@@ -245,7 +265,7 @@ export class ListManagedAgentsResponseBodyItems extends $dara.Model {
 export class ListManagedAgentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value is SUCCESS when the request is successful.
+   * The business status code. A value of SUCCESS indicates success.
    * 
    * @example
    * SUCCESS
@@ -253,7 +273,7 @@ export class ListManagedAgentsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code. The value is 200 when the request is successful.
+   * The HTTP status code. A value of 200 indicates success.
    * 
    * @example
    * 200

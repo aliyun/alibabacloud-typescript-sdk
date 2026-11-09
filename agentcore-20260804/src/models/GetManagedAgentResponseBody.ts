@@ -328,23 +328,43 @@ export class GetManagedAgentResponseBodyDataHarness extends $dara.Model {
   configuration?: GetManagedAgentResponseBodyDataHarnessConfiguration;
   /**
    * @remarks
+   * 仅查询返回。服务端按完整实例分布统计，不受实例列表分页和筛选影响。镜像 tag 缺失、分页不完整或无法确认时为空，不等同于 0。
+   * 
+   * @example
+   * 2
+   */
+  outdatedInstanceCount?: number;
+  /**
+   * @remarks
    * The type of the runtime framework.
    * 
    * @example
    * qodercli
    */
   type?: string;
+  /**
+   * @remarks
+   * 仅查询返回。当前返回 Pool 目标镜像 tag；无法解析时为空，不能用 Agent 配置版本代替。
+   * 
+   * @example
+   * 202611031754
+   */
+  version?: string;
   static names(): { [key: string]: string } {
     return {
       configuration: 'configuration',
+      outdatedInstanceCount: 'outdatedInstanceCount',
       type: 'type',
+      version: 'version',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       configuration: GetManagedAgentResponseBodyDataHarnessConfiguration,
+      outdatedInstanceCount: 'number',
       type: 'string',
+      version: 'string',
     };
   }
 
@@ -472,11 +492,23 @@ export class GetManagedAgentResponseBodyDataModel extends $dara.Model {
    * The model token quota configuration and the quota usage status for the current cycle. This field is empty if no quota is configured.
    */
   quota?: GetManagedAgentResponseBodyDataModelQuota;
+  /**
+   * @remarks
+   * 未配置时表示 default，空字符串、null 或省略均按模型和 Harness 默认行为处理。可选值 off、low、medium、high、xhigh、max。创建未传或 null 时使用 default；更新提交模型配置时，思考强度未传或为 null 均恢复 default。除 off 转为 none 外原样传给运行框架，不校验模型支持情况、不自动降档；模型不支持时请调整强度。
+   * 
+   * @example
+   * high
+   * 
+   * **if can be null:**
+   * true
+   */
+  thinkingLevel?: string;
   static names(): { [key: string]: string } {
     return {
       modelConnectionId: 'modelConnectionId',
       modelName: 'modelName',
       quota: 'quota',
+      thinkingLevel: 'thinkingLevel',
     };
   }
 
@@ -485,6 +517,7 @@ export class GetManagedAgentResponseBodyDataModel extends $dara.Model {
       modelConnectionId: 'string',
       modelName: 'string',
       quota: GetManagedAgentResponseBodyDataModelQuota,
+      thinkingLevel: 'string',
     };
   }
 

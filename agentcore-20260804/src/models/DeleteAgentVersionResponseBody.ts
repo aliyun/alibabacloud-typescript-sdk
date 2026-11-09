@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAgentVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码，请求成功时为 SUCCESS，失败时为错误码。
+   * The business status code. The value is SUCCESS if the request is successful, or an error code if the request fails.
    * 
    * @example
    * SUCCESS
@@ -13,7 +13,7 @@ export class DeleteAgentVersionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * HTTP 状态码。
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class DeleteAgentVersionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * 响应消息，请求成功时为 success，失败时为错误信息。
+   * The response message. The value is success if the request is successful, or an error message if the request fails.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class DeleteAgentVersionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 请求 ID，用于定位和排查请求。
+   * The request ID, which is used to locate and troubleshoot requests.
    * 
    * @example
    * 5E8F3C2A-1B4D-4F6E-9A7C-0D2B8E6F4A1C
@@ -37,7 +37,7 @@ export class DeleteAgentVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 请求是否成功。
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -31,22 +31,30 @@ class ListSandboxesResponseBodyItems extends $dara.Model {
         return {
             activeSessionCount: 'activeSessionCount',
             createdAt: 'createdAt',
+            harnessVersion: 'harnessVersion',
             lastActiveAt: 'lastActiveAt',
             lastHeartbeatAt: 'lastHeartbeatAt',
+            lastRebuildOperationId: 'lastRebuildOperationId',
             maxConcurrentSessions: 'maxConcurrentSessions',
             phase: 'phase',
             sandboxId: 'sandboxId',
+            updateAvailable: 'updateAvailable',
+            updateFailed: 'updateFailed',
         };
     }
     static types() {
         return {
             activeSessionCount: 'number',
             createdAt: 'string',
+            harnessVersion: 'string',
             lastActiveAt: 'string',
             lastHeartbeatAt: 'string',
+            lastRebuildOperationId: 'string',
             maxConcurrentSessions: 'number',
             phase: 'string',
             sandboxId: 'string',
+            updateAvailable: 'boolean',
+            updateFailed: 'boolean',
         };
     }
     validate() {

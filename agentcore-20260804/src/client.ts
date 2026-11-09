@@ -449,10 +449,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存智能体版本
+   * Saves an agent version.
    * 
    * @remarks
-   * 将指定托管智能体或自定义智能体当前已生效的配置保存为一个不可变的固定版本，并归档版本模板与制品。仅保存版本，不部署实例。其他类型的智能体（如外部智能体）不支持版本，返回 AgentVersionSubtypeUnsupported。Agent 最新发布必须已生效（latestSpecVersion 等于 effectiveSpecVersion）。系统按 Agent 递增生成版本号 agentVersion（v1、v2……），版本号在 Agent 内唯一且已删除版本的序号不复用，查询、删除版本及服务端点引用版本均使用该版本号。每个 Agent 最多保留 50 个未删除的版本，达到上限时返回 AgentVersionQuotaExceeded，删除不再使用的版本后可继续保存。versionName 相同且发布流水号相同的重复提交返回已有版本（不受上限限制）；versionName 相同但发布流水号不同时返回 AgentVersionAlreadyExists。
+   * Saves the currently effective configuration of a specified managed or custom agent as an immutable fixed version, and archives the version template and artifacts. This operation only saves the version and does not deploy an instance. Other types of agents, such as external agents, do not support versions and return AgentVersionSubtypeUnsupported. The latest release of the agent must be effective, meaning latestSpecVersion is equal to effectiveSpecVersion. The system generates an incrementing version number, agentVersion, such as v1 and v2, for each agent. The version number is unique within the agent, and the sequence numbers of deleted versions are not reused. This version number is used for querying, deleting, and referencing versions in service endpoints. Each agent can retain up to 50 undeleted versions. If the limit is reached, AgentVersionQuotaExceeded is returned. You can continue to save versions after deleting unused ones. Duplicate submissions with the same versionName and release serial number return the existing version and are not subject to the limit. Submissions with the same versionName but a different release serial number return AgentVersionAlreadyExists.
    * 
    * @param tmpReq - CreateAgentVersionRequest
    * @param headers - map
@@ -497,10 +497,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 保存智能体版本
+   * Saves an agent version.
    * 
    * @remarks
-   * 将指定托管智能体或自定义智能体当前已生效的配置保存为一个不可变的固定版本，并归档版本模板与制品。仅保存版本，不部署实例。其他类型的智能体（如外部智能体）不支持版本，返回 AgentVersionSubtypeUnsupported。Agent 最新发布必须已生效（latestSpecVersion 等于 effectiveSpecVersion）。系统按 Agent 递增生成版本号 agentVersion（v1、v2……），版本号在 Agent 内唯一且已删除版本的序号不复用，查询、删除版本及服务端点引用版本均使用该版本号。每个 Agent 最多保留 50 个未删除的版本，达到上限时返回 AgentVersionQuotaExceeded，删除不再使用的版本后可继续保存。versionName 相同且发布流水号相同的重复提交返回已有版本（不受上限限制）；versionName 相同但发布流水号不同时返回 AgentVersionAlreadyExists。
+   * Saves the currently effective configuration of a specified managed or custom agent as an immutable fixed version, and archives the version template and artifacts. This operation only saves the version and does not deploy an instance. Other types of agents, such as external agents, do not support versions and return AgentVersionSubtypeUnsupported. The latest release of the agent must be effective, meaning latestSpecVersion is equal to effectiveSpecVersion. The system generates an incrementing version number, agentVersion, such as v1 and v2, for each agent. The version number is unique within the agent, and the sequence numbers of deleted versions are not reused. This version number is used for querying, deleting, and referencing versions in service endpoints. Each agent can retain up to 50 undeleted versions. If the limit is reached, AgentVersionQuotaExceeded is returned. You can continue to save versions after deleting unused ones. Duplicate submissions with the same versionName and release serial number return the existing version and are not subject to the limit. Submissions with the same versionName but a different release serial number return AgentVersionAlreadyExists.
    * 
    * @param request - CreateAgentVersionRequest
    * @returns CreateAgentVersionResponse
@@ -1261,37 +1261,37 @@ export default class Client extends OpenApi {
    * Creates a managed Harness agent in a specified workspace, configures the harness, model, skills, and runtime resources, and deploys the agent asynchronously.
    * 
    * @remarks
-   * Creates an agent by using a platform-managed runtime framework. This corresponds to the "Managed Harness" creation method in the console, where you can configure the model, instructions, and skills.
+   * Creates an agent by using a platform-managed runtime framework. This corresponds to the "Managed Harness" creation method in the console, where you can configure models, instructions, and skills.
    * ### Required configurations
-   * Submit name, model, and runtime. The runtime parameter must include both compute and sessionPolicy. The agent is deployed and run by the platform, so you do not need to provide a code package or container image.
+   * Submit `name`, `model`, and `runtime`. The `runtime` parameter must include both `compute` and `sessionPolicy`. The agent is deployed and run by the platform. You do not need to provide a code package or container image.
    * ### Harness and model
    * | Harness | Model and connector configurations |
    * | --- | --- |
-   * | qwenpaw | If you omit harness during creation, this type is used by default. Set model.modelConnectionId to the workspace model connection ID, and set model.modelName to the name of the model created under this connection. |
-   * | qodercli | The qodercli connector must be enabled in the workspace. Set model.modelConnectionId to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). You can omit model.modelName. |
-   * harness is an object, such as {"type":"qwenpaw"}. For qodercli, set harness.configuration.connectorServiceAccountKey to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. You can omit this parameter if only one key record exists. If multiple records exist, you must specify this parameter. connectorServiceAccountName is the account name. Do not specify these two binding fields for qwenpaw.
+   * | `qwenpaw` | If you omit `harness` during creation, this type is used by default. Set `model.modelConnectionId` to the workspace model connection ID, and set `model.modelName` to the name of the model created under this connection. |
+   * | `qodercli` | The qodercli connector must be enabled in the workspace. Set `model.modelConnectionId` to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). You can omit `model.modelName`. |
+   * `harness` is an object, such as `{"type":"qwenpaw"}`. For qodercli, set `harness.configuration.connectorServiceAccountKey` to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. You can omit this parameter if only one key record exists. You must specify this parameter if multiple records exist. `connectorServiceAccountName` is the account name. Do not specify these two binding fields for qwenpaw.
    * The harness type cannot be changed after creation.
    * ### Instructions, templates, and skills
-   * skills uses the skill names in the workspace AI registry. If sourceType=REFERENCE, the version is referenced by versionSelector: use LABEL with a label name, or VERSION with a specific version number. If the selector is omitted, LABEL/latest is used. If sourceType=STATIC, static files bundled with the package are used, and no version selector is provided.
-   * For template.aiRegistry, specify the agent template name and an optional version. If you omit the version during creation, the published version is resolved and fixed. When a template is used, instruction, promptVariables, and subAgents are derived from the template, and the corresponding fields in the current request do not take effect. Explicit skills and template skills are recorded separately. You can query the target and effective versions by using configuredSkills and skills.
-   * If you do not use a template, you can set instructions by using instruction, declare variables by using promptVariables, and configure up to 20 sub-agents by using subAgents. The name and instruction of a sub-agent cannot be empty. Each sub-agent name must be unique. Tools currently use tools[].type=MCP.
+   * `skills` uses the skill names in the workspace AI registry. If `sourceType=REFERENCE`, versions are referenced by `versionSelector`: use `LABEL` with a label name, or `VERSION` with a specific version number. If the selector is omitted, `LABEL/latest` is used. If `sourceType=STATIC`, static files bundled with the package are used, and no version selector is provided.
+   * `template.aiRegistry` specifies the agent template name and an optional version. If you omit the version during creation, the published version is resolved and fixed. When a template is used, `instruction`, `promptVariables`, and `subAgents` are derived from the template, and the corresponding fields in the current request do not take effect. Explicit skills and template skills are recorded separately. You can query the target and effective versions by using `configuredSkills` and `skills`.
+   * If you do not use a template, you can set instructions by using `instruction`, declare variables by using `promptVariables`, and configure up to 20 sub-agents by using `subAgents`. The name and instruction of a sub-agent cannot be empty. Each sub-agent must have a unique name. Tools currently use `tools[].type=MCP`.
    * ### Runtime configurations and mounts
-   * Omitted fields in runtime.hpa use the following default values:
+   * Omitted fields in `runtime.hpa` use the following default values:
    * | Field | Default value | Valid values and description |
    * | --- | --- | --- |
-   * | enabled | false | Specifies whether to enable elastic scaling. |
-   * | minSandboxCount | 1 | The minimum number of instances. Valid values: 0 to 100. |
-   * | maxSandboxCount | 10 | The maximum number of instances. Valid values: 0 to 100. The value cannot be less than the minimum number. |
-   * | maxConcurrentSessionsPerSandbox | 20 | The maximum number of concurrent sessions per instance. Valid values: 1 to 20. |
-   * | sessionTtlSeconds | 600 | The maximum idle time of a session, in seconds. Valid values: 60 to 86400. |
-   * If sessionPolicy.type=ISOLATED_HEADER_FIELD, you must provide headerName. Do not specify this parameter for other policies.
-   * If you provide network, you must specify both accessInternet.enabled and accessVpc.enabled. Actual access is restricted by the workspace network configurations.
-   * The total number of ossMounts and agenticFsMounts cannot exceed 10. The mount target mountPath uses an absolute path in the container, such as /data/train. The path cannot conflict with platform-reserved directories, and cannot be duplicated or form parent-child directory overwrites.
+   * | `enabled` | `false` | Specifies whether to enable elastic scaling. |
+   * | `minSandboxCount` | `1` | The minimum number of instances. Valid values: 0 to 100. |
+   * | `maxSandboxCount` | `10` | The maximum number of instances. Valid values: 0 to 100. The value cannot be less than the minimum number. |
+   * | `maxConcurrentSessionsPerSandbox` | `20` | The maximum number of concurrent sessions per instance. Valid values: 1 to 20. |
+   * | `sessionTtlSeconds` | `600` | The maximum idle time of a session, in seconds. Valid values: 60 to 86400. |
+   * If `sessionPolicy.type=ISOLATED_HEADER_FIELD`, you must provide `headerName`. Do not specify this parameter for other policies.
+   * If you provide `network`, you must specify both `accessInternet.enabled` and `accessVpc.enabled`. Actual access is restricted by the workspace network configurations.
+   * The total number of `ossMounts` and `agenticFsMounts` cannot exceed 10. The mount target `mountPath` uses an absolute path in the container, such as `/data/train`. The path cannot conflict with platform-reserved directories, and mount targets cannot be duplicated or form parent-child directory overwrites.
    * File mounts are used to allow the agent to access persistent data. When you use AgenticFS, you can first complete the access point authorization by using [GetWorkspaceAgenticFsMountRamAuthorizeUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspaceAgenticFsMountRamAuthorizeUrl).
-   * The path for an OSS mount must be a non-empty directory prefix in the bucket. The server for an AgenticFS mount is the access point domain name, without a protocol, port, or path. The path is an existing non-empty relative directory in the access point. You cannot mount the root directory of the access point. If readOnly is omitted, the default value is false.
-   * environment.variables configures environment variables, and environment.credentialReferences references workspace credentials. Environment variable names must be non-empty and unique, and values must be strings.
+   * The `path` for an OSS mount must be a non-empty directory prefix in a bucket. The `server` for an AgenticFS mount is the access point domain name, without a protocol, port, or path. The `path` is an existing non-empty relative directory in the access point. You cannot mount the root directory of the access point. If `readOnly` is omitted, the default value is `false`.
+   * `environment.variables` configures environment variables, and `environment.credentialReferences` references workspace credentials. Environment variable names must be non-empty and unique, and values must be strings.
    * ### Query deployment results
-   * A successful response indicates that the request is accepted. Save the agentId and use [GetManagedAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetManagedAgent) to query latestVersionStatus, status, and sandboxPhaseCounts to confirm the configuration processing and instance status. clientToken is a reserved query parameter and currently does not provide idempotence guarantees.
+   * A successful response indicates that the request is accepted. Save the `agentId` and use [GetManagedAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetManagedAgent) to query `latestVersionStatus`, `status`, and `sandboxPhaseCounts` to confirm the configuration processing and instance status. `clientToken` is a reserved query parameter and does not provide idempotency guarantees.
    * 
    * @param tmpReq - CreateManagedAgentRequest
    * @param headers - map
@@ -1339,37 +1339,37 @@ export default class Client extends OpenApi {
    * Creates a managed Harness agent in a specified workspace, configures the harness, model, skills, and runtime resources, and deploys the agent asynchronously.
    * 
    * @remarks
-   * Creates an agent by using a platform-managed runtime framework. This corresponds to the "Managed Harness" creation method in the console, where you can configure the model, instructions, and skills.
+   * Creates an agent by using a platform-managed runtime framework. This corresponds to the "Managed Harness" creation method in the console, where you can configure models, instructions, and skills.
    * ### Required configurations
-   * Submit name, model, and runtime. The runtime parameter must include both compute and sessionPolicy. The agent is deployed and run by the platform, so you do not need to provide a code package or container image.
+   * Submit `name`, `model`, and `runtime`. The `runtime` parameter must include both `compute` and `sessionPolicy`. The agent is deployed and run by the platform. You do not need to provide a code package or container image.
    * ### Harness and model
    * | Harness | Model and connector configurations |
    * | --- | --- |
-   * | qwenpaw | If you omit harness during creation, this type is used by default. Set model.modelConnectionId to the workspace model connection ID, and set model.modelName to the name of the model created under this connection. |
-   * | qodercli | The qodercli connector must be enabled in the workspace. Set model.modelConnectionId to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). You can omit model.modelName. |
-   * harness is an object, such as {"type":"qwenpaw"}. For qodercli, set harness.configuration.connectorServiceAccountKey to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. You can omit this parameter if only one key record exists. If multiple records exist, you must specify this parameter. connectorServiceAccountName is the account name. Do not specify these two binding fields for qwenpaw.
+   * | `qwenpaw` | If you omit `harness` during creation, this type is used by default. Set `model.modelConnectionId` to the workspace model connection ID, and set `model.modelName` to the name of the model created under this connection. |
+   * | `qodercli` | The qodercli connector must be enabled in the workspace. Set `model.modelConnectionId` to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). You can omit `model.modelName`. |
+   * `harness` is an object, such as `{"type":"qwenpaw"}`. For qodercli, set `harness.configuration.connectorServiceAccountKey` to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. You can omit this parameter if only one key record exists. You must specify this parameter if multiple records exist. `connectorServiceAccountName` is the account name. Do not specify these two binding fields for qwenpaw.
    * The harness type cannot be changed after creation.
    * ### Instructions, templates, and skills
-   * skills uses the skill names in the workspace AI registry. If sourceType=REFERENCE, the version is referenced by versionSelector: use LABEL with a label name, or VERSION with a specific version number. If the selector is omitted, LABEL/latest is used. If sourceType=STATIC, static files bundled with the package are used, and no version selector is provided.
-   * For template.aiRegistry, specify the agent template name and an optional version. If you omit the version during creation, the published version is resolved and fixed. When a template is used, instruction, promptVariables, and subAgents are derived from the template, and the corresponding fields in the current request do not take effect. Explicit skills and template skills are recorded separately. You can query the target and effective versions by using configuredSkills and skills.
-   * If you do not use a template, you can set instructions by using instruction, declare variables by using promptVariables, and configure up to 20 sub-agents by using subAgents. The name and instruction of a sub-agent cannot be empty. Each sub-agent name must be unique. Tools currently use tools[].type=MCP.
+   * `skills` uses the skill names in the workspace AI registry. If `sourceType=REFERENCE`, versions are referenced by `versionSelector`: use `LABEL` with a label name, or `VERSION` with a specific version number. If the selector is omitted, `LABEL/latest` is used. If `sourceType=STATIC`, static files bundled with the package are used, and no version selector is provided.
+   * `template.aiRegistry` specifies the agent template name and an optional version. If you omit the version during creation, the published version is resolved and fixed. When a template is used, `instruction`, `promptVariables`, and `subAgents` are derived from the template, and the corresponding fields in the current request do not take effect. Explicit skills and template skills are recorded separately. You can query the target and effective versions by using `configuredSkills` and `skills`.
+   * If you do not use a template, you can set instructions by using `instruction`, declare variables by using `promptVariables`, and configure up to 20 sub-agents by using `subAgents`. The name and instruction of a sub-agent cannot be empty. Each sub-agent must have a unique name. Tools currently use `tools[].type=MCP`.
    * ### Runtime configurations and mounts
-   * Omitted fields in runtime.hpa use the following default values:
+   * Omitted fields in `runtime.hpa` use the following default values:
    * | Field | Default value | Valid values and description |
    * | --- | --- | --- |
-   * | enabled | false | Specifies whether to enable elastic scaling. |
-   * | minSandboxCount | 1 | The minimum number of instances. Valid values: 0 to 100. |
-   * | maxSandboxCount | 10 | The maximum number of instances. Valid values: 0 to 100. The value cannot be less than the minimum number. |
-   * | maxConcurrentSessionsPerSandbox | 20 | The maximum number of concurrent sessions per instance. Valid values: 1 to 20. |
-   * | sessionTtlSeconds | 600 | The maximum idle time of a session, in seconds. Valid values: 60 to 86400. |
-   * If sessionPolicy.type=ISOLATED_HEADER_FIELD, you must provide headerName. Do not specify this parameter for other policies.
-   * If you provide network, you must specify both accessInternet.enabled and accessVpc.enabled. Actual access is restricted by the workspace network configurations.
-   * The total number of ossMounts and agenticFsMounts cannot exceed 10. The mount target mountPath uses an absolute path in the container, such as /data/train. The path cannot conflict with platform-reserved directories, and cannot be duplicated or form parent-child directory overwrites.
+   * | `enabled` | `false` | Specifies whether to enable elastic scaling. |
+   * | `minSandboxCount` | `1` | The minimum number of instances. Valid values: 0 to 100. |
+   * | `maxSandboxCount` | `10` | The maximum number of instances. Valid values: 0 to 100. The value cannot be less than the minimum number. |
+   * | `maxConcurrentSessionsPerSandbox` | `20` | The maximum number of concurrent sessions per instance. Valid values: 1 to 20. |
+   * | `sessionTtlSeconds` | `600` | The maximum idle time of a session, in seconds. Valid values: 60 to 86400. |
+   * If `sessionPolicy.type=ISOLATED_HEADER_FIELD`, you must provide `headerName`. Do not specify this parameter for other policies.
+   * If you provide `network`, you must specify both `accessInternet.enabled` and `accessVpc.enabled`. Actual access is restricted by the workspace network configurations.
+   * The total number of `ossMounts` and `agenticFsMounts` cannot exceed 10. The mount target `mountPath` uses an absolute path in the container, such as `/data/train`. The path cannot conflict with platform-reserved directories, and mount targets cannot be duplicated or form parent-child directory overwrites.
    * File mounts are used to allow the agent to access persistent data. When you use AgenticFS, you can first complete the access point authorization by using [GetWorkspaceAgenticFsMountRamAuthorizeUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspaceAgenticFsMountRamAuthorizeUrl).
-   * The path for an OSS mount must be a non-empty directory prefix in the bucket. The server for an AgenticFS mount is the access point domain name, without a protocol, port, or path. The path is an existing non-empty relative directory in the access point. You cannot mount the root directory of the access point. If readOnly is omitted, the default value is false.
-   * environment.variables configures environment variables, and environment.credentialReferences references workspace credentials. Environment variable names must be non-empty and unique, and values must be strings.
+   * The `path` for an OSS mount must be a non-empty directory prefix in a bucket. The `server` for an AgenticFS mount is the access point domain name, without a protocol, port, or path. The `path` is an existing non-empty relative directory in the access point. You cannot mount the root directory of the access point. If `readOnly` is omitted, the default value is `false`.
+   * `environment.variables` configures environment variables, and `environment.credentialReferences` references workspace credentials. Environment variable names must be non-empty and unique, and values must be strings.
    * ### Query deployment results
-   * A successful response indicates that the request is accepted. Save the agentId and use [GetManagedAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetManagedAgent) to query latestVersionStatus, status, and sandboxPhaseCounts to confirm the configuration processing and instance status. clientToken is a reserved query parameter and currently does not provide idempotence guarantees.
+   * A successful response indicates that the request is accepted. Save the `agentId` and use [GetManagedAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetManagedAgent) to query `latestVersionStatus`, `status`, and `sandboxPhaseCounts` to confirm the configuration processing and instance status. `clientToken` is a reserved query parameter and does not provide idempotency guarantees.
    * 
    * @param request - CreateManagedAgentRequest
    * @returns CreateManagedAgentResponse
@@ -2197,10 +2197,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除智能体版本
+   * Deletes a saved fixed version of a specified managed or custom agent.
    * 
    * @remarks
-   * 删除指定托管智能体或自定义智能体已保存的固定版本。仍被服务端点引用的版本不可删除，系统维护的 latest 版本不可删除。
+   * Deletes a saved fixed version of a specified managed or custom agent. You cannot delete versions that are still referenced by service endpoints or the system-maintained latest version.
    * 
    * @param request - DeleteAgentVersionRequest
    * @param headers - map
@@ -2233,10 +2233,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除智能体版本
+   * Deletes a saved fixed version of a specified managed or custom agent.
    * 
    * @remarks
-   * 删除指定托管智能体或自定义智能体已保存的固定版本。仍被服务端点引用的版本不可删除，系统维护的 latest 版本不可删除。
+   * Deletes a saved fixed version of a specified managed or custom agent. You cannot delete versions that are still referenced by service endpoints or the system-maintained latest version.
    * 
    * @param request - DeleteAgentVersionRequest
    * @returns DeleteAgentVersionResponse
@@ -4003,10 +4003,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询智能体版本详情
+   * Queries the details of an agent version.
    * 
    * @remarks
-   * 查询指定托管智能体或自定义智能体已保存的固定版本详情，configuration 返回版本保存时的 Agent 配置。
+   * Queries the details of a saved fixed version for a specified managed or custom agent. The configuration field returns the agent configuration at the time the version was saved.
    * 
    * @param request - GetAgentVersionRequest
    * @param headers - map
@@ -4033,10 +4033,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询智能体版本详情
+   * Queries the details of an agent version.
    * 
    * @remarks
-   * 查询指定托管智能体或自定义智能体已保存的固定版本详情，configuration 返回版本保存时的 Agent 配置。
+   * Queries the details of a saved fixed version for a specified managed or custom agent. The configuration field returns the agent configuration at the time the version was saved.
    * 
    * @param request - GetAgentVersionRequest
    * @returns GetAgentVersionResponse
@@ -5266,11 +5266,62 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified service endpoint, including the target route, access addresses, authentication configuration, and current status.
+   * Queries the overall result of a specified sandbox rebuild task. Always use the initial operationId returned by RebuildSandbox without tracking the rebuild task and subsequent creation tasks separately. Only the SUCCEEDED status indicates completion. Do not treat UNKNOWN, missing status, or query exceptions as success, and do not automatically resubmit the rebuild.
    * 
    * @remarks
-   * Queries the service endpoint of an agent or collaboration component to obtain stable access addresses, authentication configuration, and current status.
-   * A service endpoint associates access addresses with a specified agent version or workspace collaboration component. You can use the target route and address list in the response to verify the access target.
+   * Always use the initial operationId returned by RebuildSandbox for queries. Magic aggregates and returns the rebuildOutcome result from Runtime Manager, so the frontend does not need to track Claim tasks. Only SUCCEEDED indicates overall completion. UNKNOWN, missing fields, or query exceptions must not be treated as success, and the rebuild must not be automatically resubmitted. You can specify the endpoint runtime version by using serviceEndpointId. If omitted, the default latest runtime identity is used.
+   * 
+   * @param request - GetSandboxRebuildOperationRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetSandboxRebuildOperationResponse
+   */
+  async getSandboxRebuildOperationWithOptions(workspaceId: string, agentId: string, sandboxId: string, operationId: string, request: $_model.GetSandboxRebuildOperationRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetSandboxRebuildOperationResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.serviceEndpointId)) {
+      query["serviceEndpointId"] = request.serviceEndpointId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetSandboxRebuildOperation",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/managed-agents/${$dara.URL.percentEncode(agentId)}/sandboxes/${$dara.URL.percentEncode(sandboxId)}/rebuild-operations/${$dara.URL.percentEncode(operationId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetSandboxRebuildOperationResponse>(await this.callApi(params, req, runtime), new $_model.GetSandboxRebuildOperationResponse({}));
+  }
+
+  /**
+   * Queries the overall result of a specified sandbox rebuild task. Always use the initial operationId returned by RebuildSandbox without tracking the rebuild task and subsequent creation tasks separately. Only the SUCCEEDED status indicates completion. Do not treat UNKNOWN, missing status, or query exceptions as success, and do not automatically resubmit the rebuild.
+   * 
+   * @remarks
+   * Always use the initial operationId returned by RebuildSandbox for queries. Magic aggregates and returns the rebuildOutcome result from Runtime Manager, so the frontend does not need to track Claim tasks. Only SUCCEEDED indicates overall completion. UNKNOWN, missing fields, or query exceptions must not be treated as success, and the rebuild must not be automatically resubmitted. You can specify the endpoint runtime version by using serviceEndpointId. If omitted, the default latest runtime identity is used.
+   * 
+   * @param request - GetSandboxRebuildOperationRequest
+   * @returns GetSandboxRebuildOperationResponse
+   */
+  async getSandboxRebuildOperation(workspaceId: string, agentId: string, sandboxId: string, operationId: string, request: $_model.GetSandboxRebuildOperationRequest): Promise<$_model.GetSandboxRebuildOperationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getSandboxRebuildOperationWithOptions(workspaceId, agentId, sandboxId, operationId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the details of a specified service endpoint, including the target route, access URLs, authentication configuration, and current status.
+   * 
+   * @remarks
+   * Queries the service endpoint of an agent or collaboration component to obtain stable access URLs, authentication configuration, and current status.
+   * A service endpoint associates access URLs with a specified agent version or workspace collaboration component. You can use the target route and URL list in the response to verify the access target.
    * 
    * @param request - GetServiceEndpointRequest
    * @param headers - map
@@ -5297,11 +5348,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specified service endpoint, including the target route, access addresses, authentication configuration, and current status.
+   * Queries the details of a specified service endpoint, including the target route, access URLs, authentication configuration, and current status.
    * 
    * @remarks
-   * Queries the service endpoint of an agent or collaboration component to obtain stable access addresses, authentication configuration, and current status.
-   * A service endpoint associates access addresses with a specified agent version or workspace collaboration component. You can use the target route and address list in the response to verify the access target.
+   * Queries the service endpoint of an agent or collaboration component to obtain stable access URLs, authentication configuration, and current status.
+   * A service endpoint associates access URLs with a specified agent version or workspace collaboration component. You can use the target route and URL list in the response to verify the access target.
    * 
    * @param request - GetServiceEndpointRequest
    * @returns GetServiceEndpointResponse
@@ -6233,10 +6284,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询智能体版本列表
+   * Queries a list of agent versions.
    * 
    * @remarks
-   * 分页查询指定托管智能体或自定义智能体已保存的固定版本，按创建时间倒序返回，不包含系统维护的 latest 版本。列表项不返回 configuration，需查看配置时调用 GetAgentVersion。
+   * Performs a paged query for saved fixed versions of a specified managed or custom agent. The paging results are returned in descending order of creation time and do not include the latest version under system maintenance. List items do not return the configuration. To view the configuration, invoke GetAgentVersion.
    * 
    * @param request - ListAgentVersionsRequest
    * @param headers - map
@@ -6273,10 +6324,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询智能体版本列表
+   * Queries a list of agent versions.
    * 
    * @remarks
-   * 分页查询指定托管智能体或自定义智能体已保存的固定版本，按创建时间倒序返回，不包含系统维护的 latest 版本。列表项不返回 configuration，需查看配置时调用 GetAgentVersion。
+   * Performs a paged query for saved fixed versions of a specified managed or custom agent. The paging results are returned in descending order of creation time and do not include the latest version under system maintenance. List items do not return the configuration. To view the configuration, invoke GetAgentVersion.
    * 
    * @param request - ListAgentVersionsRequest
    * @returns ListAgentVersionsResponse
@@ -6967,14 +7018,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query for the identity, harnesses, configuration versions, and status summary of managed Harness agents in a workspace.
+   * Performs a paging query for the identity, harness, configuration version, and status summary of managed Harness agents in a workspace.
    * 
    * @remarks
-   * Performs a paging query for the identity, harnesses, configuration versions, and status summary of managed Harness agents in a workspace.
+   * Performs a paging query for the identity, harness, configuration version, and status summary of managed Harness agents in a workspace.
    * ### Paging query
-   * If `maxResults` is omitted or set to `0`, the default value is 20, and the maximum value is 100. Omit `nextToken` in the first request. For subsequent requests, pass the token returned in the previous response as is, and keep the same workspace and filter conditions. An empty token indicates that no more pages are available.
+   * If maxResults is omitted or set to 0, the default value is 20, and the maximum value is 100. Omit nextToken in the first request. For subsequent requests, pass the token returned in the previous response as is, and keep the same workspace and filter conditions. An empty token indicates that there are no more pages.
    * ### Response content
-   * The list returns summary information, where `harness.type` indicates the runtime framework. You can query the complete configuration, skill targets and effective versions, and instance status statistics by calling [GetManagedAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetManagedAgent).
+   * The list returns summary information, where harness.type indicates the runtime framework. For complete configurations, skill targets and effective versions, and instance status statistics, call [GetManagedAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetManagedAgent).
    * 
    * @param request - ListManagedAgentsRequest
    * @param headers - map
@@ -7011,14 +7062,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query for the identity, harnesses, configuration versions, and status summary of managed Harness agents in a workspace.
+   * Performs a paging query for the identity, harness, configuration version, and status summary of managed Harness agents in a workspace.
    * 
    * @remarks
-   * Performs a paging query for the identity, harnesses, configuration versions, and status summary of managed Harness agents in a workspace.
+   * Performs a paging query for the identity, harness, configuration version, and status summary of managed Harness agents in a workspace.
    * ### Paging query
-   * If `maxResults` is omitted or set to `0`, the default value is 20, and the maximum value is 100. Omit `nextToken` in the first request. For subsequent requests, pass the token returned in the previous response as is, and keep the same workspace and filter conditions. An empty token indicates that no more pages are available.
+   * If maxResults is omitted or set to 0, the default value is 20, and the maximum value is 100. Omit nextToken in the first request. For subsequent requests, pass the token returned in the previous response as is, and keep the same workspace and filter conditions. An empty token indicates that there are no more pages.
    * ### Response content
-   * The list returns summary information, where `harness.type` indicates the runtime framework. You can query the complete configuration, skill targets and effective versions, and instance status statistics by calling [GetManagedAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetManagedAgent).
+   * The list returns summary information, where harness.type indicates the runtime framework. For complete configurations, skill targets and effective versions, and instance status statistics, call [GetManagedAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetManagedAgent).
    * 
    * @param request - ListManagedAgentsRequest
    * @returns ListManagedAgentsResponse
@@ -7796,16 +7847,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query for the current active sessions and their sources in a specified agent instance, supporting paging.
+   * Performs a paging query to retrieve the current active sessions and their sources in a specified agent instance.
    * 
    * @remarks
    * Queries the active sessions in a specified running instance to view the current mapping between sessions and instances.
    * ### Query scope
-   * Locate the instance by using `workspaceId`, `agentId`, and `sandboxId`. You can obtain the `sandboxId` from [ListSandboxes](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxes). This operation queries the current active sessions.
+   * Locates the instance by using workspaceId, agentId, and sandboxId. You can obtain the sandboxId from [ListSandboxes](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxes). This operation queries the current active sessions.
    * ### Pagination
-   * The default value of `maxResults` is 20. Valid values: 1 to 100. Omit `nextToken` in the first request. For subsequent requests, use the returned token as is, and keep the workspace, agent, instance, and page size unchanged. An empty token indicates that no more pages are available.
-   * ### Session source
-   * The source can be `API`, `CONSOLE_DEBUG`, `EXTERNAL_CHANNEL`, or `UNKNOWN`. For external channels, the channel type is additionally returned. If no source information is provided, `UNKNOWN` is returned.
+   * The default value of maxResults is 20. Valid values: 1 to 100. Omit nextToken in the first request. For subsequent requests, use the returned token as is, and keep the workspace, agent, instance, and page size unchanged. An empty token indicates that no more pages are available.
+   * ### Session sources
+   * The source can be API, CONSOLE_DEBUG, EXTERNAL_CHANNEL, or UNKNOWN. For external channels, the channel type is additionally returned. If no source information is provided, UNKNOWN is returned.
    * 
    * @param request - ListSandboxSessionsRequest
    * @param headers - map
@@ -7846,16 +7897,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query for the current active sessions and their sources in a specified agent instance, supporting paging.
+   * Performs a paging query to retrieve the current active sessions and their sources in a specified agent instance.
    * 
    * @remarks
    * Queries the active sessions in a specified running instance to view the current mapping between sessions and instances.
    * ### Query scope
-   * Locate the instance by using `workspaceId`, `agentId`, and `sandboxId`. You can obtain the `sandboxId` from [ListSandboxes](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxes). This operation queries the current active sessions.
+   * Locates the instance by using workspaceId, agentId, and sandboxId. You can obtain the sandboxId from [ListSandboxes](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxes). This operation queries the current active sessions.
    * ### Pagination
-   * The default value of `maxResults` is 20. Valid values: 1 to 100. Omit `nextToken` in the first request. For subsequent requests, use the returned token as is, and keep the workspace, agent, instance, and page size unchanged. An empty token indicates that no more pages are available.
-   * ### Session source
-   * The source can be `API`, `CONSOLE_DEBUG`, `EXTERNAL_CHANNEL`, or `UNKNOWN`. For external channels, the channel type is additionally returned. If no source information is provided, `UNKNOWN` is returned.
+   * The default value of maxResults is 20. Valid values: 1 to 100. Omit nextToken in the first request. For subsequent requests, use the returned token as is, and keep the workspace, agent, instance, and page size unchanged. An empty token indicates that no more pages are available.
+   * ### Session sources
+   * The source can be API, CONSOLE_DEBUG, EXTERNAL_CHANNEL, or UNKNOWN. For external channels, the channel type is additionally returned. If no source information is provided, UNKNOWN is returned.
    * 
    * @param request - ListSandboxSessionsRequest
    * @returns ListSandboxSessionsResponse
@@ -7870,11 +7921,11 @@ export default class Client extends OpenApi {
    * Performs a paging query on the running instances of an agent, and supports filtering by Sandbox ID and current valid session ID fragments.
    * 
    * @remarks
-   * Queries the running instances (sandboxes) of an agent to view the instance distribution and current running status.
+   * Queries the running instances (sandboxes) of an agent to view instance distribution and current running status.
    * ### Filter instances
-   * `searchText` matches Sandbox ID fragments, and `sessionId` matches current valid session ID fragments. Both are case-insensitive. If both are submitted at the same time, they are combined for filtering.
+   * `searchText` matches Sandbox ID fragments, and `sessionId` matches current valid session ID fragments. Both are case-insensitive. If both are submitted, they are combined for filtering.
    * ### Pagination and status
-   * The default value of `maxResults` is 20, and the valid values are 1 to 100. Omit `nextToken` for the first request. For subsequent requests, use the response token as is, and keep `workspaceId`, `agentId`, filter conditions, and `maxResults` unchanged. An empty token indicates that the query is complete.
+   * The default value of `maxResults` is 20. Valid values: 1 to 100. Omit `nextToken` for the first request. For subsequent requests, use the response token as is, and keep `workspaceId`, `agentId`, filter conditions, and `maxResults` unchanged. An empty token indicates that the query is complete.
    * `phase` indicates the instance phase, `activeSessionCount` indicates the number of current active sessions, and `maxConcurrentSessions` indicates the configured concurrency limit for a single instance. You can query the active sessions of an instance by calling [ListSandboxSessions](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxSessions).
    * 
    * @param request - ListSandboxesRequest
@@ -7927,11 +7978,11 @@ export default class Client extends OpenApi {
    * Performs a paging query on the running instances of an agent, and supports filtering by Sandbox ID and current valid session ID fragments.
    * 
    * @remarks
-   * Queries the running instances (sandboxes) of an agent to view the instance distribution and current running status.
+   * Queries the running instances (sandboxes) of an agent to view instance distribution and current running status.
    * ### Filter instances
-   * `searchText` matches Sandbox ID fragments, and `sessionId` matches current valid session ID fragments. Both are case-insensitive. If both are submitted at the same time, they are combined for filtering.
+   * `searchText` matches Sandbox ID fragments, and `sessionId` matches current valid session ID fragments. Both are case-insensitive. If both are submitted, they are combined for filtering.
    * ### Pagination and status
-   * The default value of `maxResults` is 20, and the valid values are 1 to 100. Omit `nextToken` for the first request. For subsequent requests, use the response token as is, and keep `workspaceId`, `agentId`, filter conditions, and `maxResults` unchanged. An empty token indicates that the query is complete.
+   * The default value of `maxResults` is 20. Valid values: 1 to 100. Omit `nextToken` for the first request. For subsequent requests, use the response token as is, and keep `workspaceId`, `agentId`, filter conditions, and `maxResults` unchanged. An empty token indicates that the query is complete.
    * `phase` indicates the instance phase, `activeSessionCount` indicates the number of current active sessions, and `maxConcurrentSessions` indicates the configured concurrency limit for a single instance. You can query the active sessions of an instance by calling [ListSandboxSessions](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxSessions).
    * 
    * @param request - ListSandboxesRequest
@@ -7947,10 +7998,10 @@ export default class Client extends OpenApi {
    * Queries service endpoints in a specified workspace with paging, and supports filtering by target type, agent, collaboration component, and status.
    * 
    * @remarks
-   * Queries service endpoints in a workspace with paging to find the access entries for agents or collaboration components.
-   * - Use `targetType`, `agentId`, `agentVersion`, `resourceBindingId`, `collaborationComponent`, and `status` to filter the results.
-   * - Use `maxResults` to set the number of entries per page. If omitted, the default value is 20.
-   * - Use the returned `nextToken` to query the next page.
+   * Queries service endpoints in a workspace with paging to find the access endpoints for agents or collaboration components.
+   * - Use targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status to filter the results.
+   * - Use maxResults to set the number of entries per page. If omitted, the default value is 20.
+   * - Use the returned nextToken to query the next page.
    * 
    * @param request - ListServiceEndpointsRequest
    * @param headers - map
@@ -8014,10 +8065,10 @@ export default class Client extends OpenApi {
    * Queries service endpoints in a specified workspace with paging, and supports filtering by target type, agent, collaboration component, and status.
    * 
    * @remarks
-   * Queries service endpoints in a workspace with paging to find the access entries for agents or collaboration components.
-   * - Use `targetType`, `agentId`, `agentVersion`, `resourceBindingId`, `collaborationComponent`, and `status` to filter the results.
-   * - Use `maxResults` to set the number of entries per page. If omitted, the default value is 20.
-   * - Use the returned `nextToken` to query the next page.
+   * Queries service endpoints in a workspace with paging to find the access endpoints for agents or collaboration components.
+   * - Use targetType, agentId, agentVersion, resourceBindingId, collaborationComponent, and status to filter the results.
+   * - Use maxResults to set the number of entries per page. If omitted, the default value is 20.
+   * - Use the returned nextToken to query the next page.
    * 
    * @param request - ListServiceEndpointsRequest
    * @returns ListServiceEndpointsResponse
@@ -8668,6 +8719,57 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.publishSkillVersionWithOptions(workspaceId, skillName, skillVersion, request, headers, runtime);
+  }
+
+  /**
+   * Submits a request to rebuild a single sandbox image for a specified managed agent. Existing sessions may be interrupted. An HTTP 200 response only indicates that the request is accepted. Use the returned operationId to call GetSandboxRebuildOperation to query the overall result. Only a SUCCEEDED status indicates that the rebuild is complete. Do not automatically resubmit the rebuild request if the query times out, returns UNKNOWN, or the result is unclear.
+   * 
+   * @remarks
+   * Submits a request to rebuild a single sandbox image for a specified managed agent. Existing sessions may be interrupted. An HTTP 200 response only indicates that the request is successfully submitted and accepted. You must use the returned operationId to call GetSandboxRebuildOperation. Only an overall SUCCEEDED status indicates that the rebuild is complete. Do not automatically resubmit the request if the query times out, returns UNKNOWN, or the result is unclear. You can specify an endpoint runtime version by using serviceEndpointId. If this parameter is omitted, the default latest runtime identity is used.
+   * 
+   * @param request - RebuildSandboxRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RebuildSandboxResponse
+   */
+  async rebuildSandboxWithOptions(workspaceId: string, agentId: string, sandboxId: string, request: $_model.RebuildSandboxRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RebuildSandboxResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.serviceEndpointId)) {
+      query["serviceEndpointId"] = request.serviceEndpointId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RebuildSandbox",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/managed-agents/${$dara.URL.percentEncode(agentId)}/sandboxes/${$dara.URL.percentEncode(sandboxId)}/rebuild`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RebuildSandboxResponse>(await this.callApi(params, req, runtime), new $_model.RebuildSandboxResponse({}));
+  }
+
+  /**
+   * Submits a request to rebuild a single sandbox image for a specified managed agent. Existing sessions may be interrupted. An HTTP 200 response only indicates that the request is accepted. Use the returned operationId to call GetSandboxRebuildOperation to query the overall result. Only a SUCCEEDED status indicates that the rebuild is complete. Do not automatically resubmit the rebuild request if the query times out, returns UNKNOWN, or the result is unclear.
+   * 
+   * @remarks
+   * Submits a request to rebuild a single sandbox image for a specified managed agent. Existing sessions may be interrupted. An HTTP 200 response only indicates that the request is successfully submitted and accepted. You must use the returned operationId to call GetSandboxRebuildOperation. Only an overall SUCCEEDED status indicates that the rebuild is complete. Do not automatically resubmit the request if the query times out, returns UNKNOWN, or the result is unclear. You can specify an endpoint runtime version by using serviceEndpointId. If this parameter is omitted, the default latest runtime identity is used.
+   * 
+   * @param request - RebuildSandboxRequest
+   * @returns RebuildSandboxResponse
+   */
+  async rebuildSandbox(workspaceId: string, agentId: string, sandboxId: string, request: $_model.RebuildSandboxRequest): Promise<$_model.RebuildSandboxResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.rebuildSandboxWithOptions(workspaceId, agentId, sandboxId, request, headers, runtime);
   }
 
   /**
@@ -9927,45 +10029,45 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the model, instructions, skills, and runtime configuration of a managed Harness agent and executes the update asynchronously. Omitted top-level fields retain their original configuration.
+   * Updates the model, instructions, skills, and runtime configuration of a managed Harness agent and executes the update asynchronously. Omitted top-level fields retain their original configurations.
    * 
    * @remarks
    * Updates the model, instructions, skills, or runtime configuration of a managed Harness agent to adjust the capabilities and runtime behavior of an existing agent.
    * ### Update rules
-   * At least one updatable field must be provided. Omitted top-level fields retain their original configuration. You can set description=null to clear the description.
+   * Provide at least one updatable field. Omitted top-level fields retain their original configurations. You can set `description=null` to clear the description.
    * | Configuration | Update method |
    * | --- | --- |
-   * | harness | The type cannot be changed. When updating the qodercli account binding, keep the original type and submit the corresponding configuration. |
-   * | model | Provide a model configuration that matches the current Harness. For qwenpaw, specify the model connection ID and model name. For qodercli, use the available model identifier of the connector. |
-   * | runtime | Specify both compute and sessionPolicy when submitting. Omitting the entire object retains the original runtime configuration. |
-   * | tools, skills, promptVariables, and subAgents | The corresponding lists are entirely replaced upon submission. You must include the items to be retained. Pass [] to clear the corresponding explicit list. |
-   * | environment | The variable list and credential reference list are entirely replaced respectively. Submit the items to be retained together. |
-   * | network | Specify both accessInternet.enabled and accessVpc.enabled when submitting. |
-   * | ossMounts and agenticFsMounts | Entirely replaced respectively. Pass [] to clear the corresponding list. agenticFsMounts does not accept null. |
-   * ### Harness, templates, and skills
+   * | `harness` | The type cannot be changed. When updating the qodercli account binding, keep the original `type` and submit the corresponding `configuration`. |
+   * | `model` | Provide a model configuration that matches the current Harness. For qwenpaw, specify the model connection ID and model name. For qodercli, use the available model identifier of the connector. |
+   * | `runtime` | Specify both `compute` and `sessionPolicy` when submitting. Omitting the entire object retains the original runtime configuration. |
+   * | `tools`, `skills`, `promptVariables`, `subAgents` | The corresponding lists are entirely replaced upon submission. You must include the items to be retained. Pass `[]` to clear the corresponding explicit lists. |
+   * | `environment` | The variable list and credential reference list are entirely replaced respectively. Submit the items to be retained together. |
+   * | `network` | Specify both `accessInternet.enabled` and `accessVpc.enabled` when submitting. |
+   * | `ossMounts`, `agenticFsMounts` | Entirely replaced respectively. Pass `[]` to clear the corresponding lists. `agenticFsMounts` does not accept `null`. |
+   * ### Harnesses, templates, and skills
    * | Harness | Model and connector configuration |
    * | --- | --- |
-   * | qwenpaw | This type is used by default if harness is omitted during creation. Set model.modelConnectionId to the workspace model connection ID, and set model.modelName to the name of the model created under this connection. |
-   * | qodercli | The qodercli Connector must be enabled in the workspace. Set model.modelConnectionId to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). model.modelName can be omitted. |
-   * harness is an object, such as {"type":"qwenpaw"}. For qodercli, set harness.configuration.connectorServiceAccountKey to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original Service Account Key. This field can be omitted if there is only one key record, but must be specified if there are multiple records. connectorServiceAccountName is the account name. Do not specify these two binding fields for qwenpaw.
-   * skills uses the Skill names in the workspace AI Registry. If sourceType=REFERENCE, the version is referenced by versionSelector: use LABEL with a label name, or VERSION with a specific version number. If the selector is omitted, LABEL/latest is used. If sourceType=STATIC, static files bundled with the package are used, and no version selector is provided.
-   * For template.aiRegistry, specify the agent template name and an optional version. If the version is omitted during creation, the published version is resolved and fixed. When a template is used, instruction, promptVariables, and subAgents are derived from the template, and the corresponding fields in the current request do not take effect. Explicit Skills and template Skills are recorded separately. You can query the target and effective versions through configuredSkills and skills.
+   * | `qwenpaw` | This type is used by default if `harness` is omitted during creation. Set `model.modelConnectionId` to the workspace model connection ID, and set `model.modelName` to the name of the model created under this connection. |
+   * | `qodercli` | The qodercli connector must be enabled in the workspace. Set `model.modelConnectionId` to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). `model.modelName` can be omitted. |
+   * `harness` is an object, such as `{"type":"qwenpaw"}`. For qodercli, set `harness.configuration.connectorServiceAccountKey` to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. This field can be omitted if there is only one key record, but must be specified if there are multiple records. `connectorServiceAccountName` is the account name. Do not specify these two binding fields for qwenpaw.
+   * `skills` uses the skill names in the workspace AI Registry. If `sourceType=REFERENCE`, versions are referenced by `versionSelector`: use `LABEL` with a tag name, or `VERSION` with a specific version number. If the selector is omitted, `LABEL/latest` is used. If `sourceType=STATIC`, static files bundled with the package are used, and no version selector is provided.
+   * For `template.aiRegistry`, specify the agent template name and an optional version. If the version is omitted during creation, the published version is resolved and fixed. When a template is used, `instruction`, `promptVariables`, and `subAgents` are derived from the template, and the corresponding fields in the current request do not take effect. Explicit skills and template skills are recorded separately. You can query the target and effective versions through `configuredSkills` and `skills`.
    * ### Elasticity and instances
-   * If runtime is committed but hpa or some of its fields are omitted, the following default values are used for unspecified items. To retain the existing elastic policy, commit the complete hpa together.
+   * If `runtime` is committed but `hpa` or some of its fields are omitted, the following default values are used for unspecified items. To retain the existing elastic policy, commit the complete `hpa`.
    * | Field | Default value | Value and description |
    * | --- | --- | --- |
-   * | enabled | false | Specifies whether to enable elastic scaling. |
-   * | minSandboxCount | 1 | The minimum number of instances. Valid values: 0 to 100. |
-   * | maxSandboxCount | 10 | The maximum number of instances. Valid values: 0 to 100. The value cannot be less than the minimum number. |
-   * | maxConcurrentSessionsPerSandbox | 20 | The maximum number of concurrent sessions per instance. Valid values: 1 to 20. |
-   * | sessionTtlSeconds | 600 | The maximum idle time for a session, in seconds. Valid values: 60 to 86400. |
-   * If you only modify instructions, models, or skills, you can omit the entire runtime object, and the original runtime configuration remains unchanged. The minimum and maximum numbers of instances are configuration borders. You can query the actual number through sandboxPhaseCounts.
+   * | `enabled` | `false` | Specifies whether elastic scaling is enabled. |
+   * | `minSandboxCount` | `1` | The minimum number of instances. Valid values: 0 to 100. |
+   * | `maxSandboxCount` | `10` | The maximum number of instances. Valid values: 0 to 100. The value cannot be less than the minimum number. |
+   * | `maxConcurrentSessionsPerSandbox` | `20` | The maximum number of concurrent sessions per instance. Valid values: 1 to 20. |
+   * | `sessionTtlSeconds` | `600` | The maximum idle time of a session, in seconds. Valid values: 60 to 86400. |
+   * If you only modify instructions, models, or skills, you can omit the entire `runtime` to keep the original runtime configuration unchanged. The minimum and maximum numbers of instances are the configuration border. You can query the actual number through `sandboxPhaseCounts`.
    * ### Environment and mounts
-   * Omitting the entire environment object retains the original configuration. Submitting environment={} or environment=null clears the environment configuration. Environment variable values must be strings, and variable names must be non-empty and unique.
-   * The total number of ossMounts and agenticFsMounts cannot exceed 10. The mount target mountPath uses an absolute path in the container, such as /data/train. It cannot conflict with platform reserved directories, and cannot be duplicated or form parent-child directory overwrites.
-   * The path for an OSS mount must be a non-empty directory prefix in the bucket. For an AgenticFS mount, server is the AccessPoint domain name, without a protocol, port, or path. path is an existing non-empty relative directory in the AccessPoint. You cannot mount the root directory of the AccessPoint. If readOnly is omitted, the default value is false.
+   * Omitting the entire `environment` retains the original configuration. Submitting `environment={}` or `environment=null` clears the environment configuration. Environment variable values must be strings, and variable names must be non-empty and unique.
+   * The total number of `ossMounts` and `agenticFsMounts` cannot exceed 10. The mount target `mountPath` uses an absolute path in the container, such as `/data/train`. It cannot conflict with platform reserved directories, and cannot be duplicated or form parent-child directory overwrites.
+   * The `path` for OSS mounts must be a non-empty directory prefix in the bucket. For AgenticFS mounts, `server` is the AccessPoint domain name, without a protocol, port, or path. `path` is an existing non-empty relative directory in the AccessPoint. You cannot mount the root directory of the AccessPoint. If `readOnly` is omitted, the default value is `false`.
    * ### Query update results
-   * A successful response indicates that the update request has been accepted. Call [GetManagedAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetManagedAgent) to query latestSpecVersion, latestVersionStatus, status, and sandboxPhaseCounts to confirm the configuration processing and instance status. clientToken does not provide idempotency guarantees at this time.
+   * A successful response indicates that the update request has been accepted. Call [GetManagedAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetManagedAgent) to query `latestSpecVersion`, `latestVersionStatus`, `status`, and `sandboxPhaseCounts` to confirm the configuration processing and instance status. `clientToken` does not provide idempotence guarantees at this time.
    * 
    * @param tmpReq - UpdateManagedAgentRequest
    * @param headers - map
@@ -10010,45 +10112,45 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the model, instructions, skills, and runtime configuration of a managed Harness agent and executes the update asynchronously. Omitted top-level fields retain their original configuration.
+   * Updates the model, instructions, skills, and runtime configuration of a managed Harness agent and executes the update asynchronously. Omitted top-level fields retain their original configurations.
    * 
    * @remarks
    * Updates the model, instructions, skills, or runtime configuration of a managed Harness agent to adjust the capabilities and runtime behavior of an existing agent.
    * ### Update rules
-   * At least one updatable field must be provided. Omitted top-level fields retain their original configuration. You can set description=null to clear the description.
+   * Provide at least one updatable field. Omitted top-level fields retain their original configurations. You can set `description=null` to clear the description.
    * | Configuration | Update method |
    * | --- | --- |
-   * | harness | The type cannot be changed. When updating the qodercli account binding, keep the original type and submit the corresponding configuration. |
-   * | model | Provide a model configuration that matches the current Harness. For qwenpaw, specify the model connection ID and model name. For qodercli, use the available model identifier of the connector. |
-   * | runtime | Specify both compute and sessionPolicy when submitting. Omitting the entire object retains the original runtime configuration. |
-   * | tools, skills, promptVariables, and subAgents | The corresponding lists are entirely replaced upon submission. You must include the items to be retained. Pass [] to clear the corresponding explicit list. |
-   * | environment | The variable list and credential reference list are entirely replaced respectively. Submit the items to be retained together. |
-   * | network | Specify both accessInternet.enabled and accessVpc.enabled when submitting. |
-   * | ossMounts and agenticFsMounts | Entirely replaced respectively. Pass [] to clear the corresponding list. agenticFsMounts does not accept null. |
-   * ### Harness, templates, and skills
+   * | `harness` | The type cannot be changed. When updating the qodercli account binding, keep the original `type` and submit the corresponding `configuration`. |
+   * | `model` | Provide a model configuration that matches the current Harness. For qwenpaw, specify the model connection ID and model name. For qodercli, use the available model identifier of the connector. |
+   * | `runtime` | Specify both `compute` and `sessionPolicy` when submitting. Omitting the entire object retains the original runtime configuration. |
+   * | `tools`, `skills`, `promptVariables`, `subAgents` | The corresponding lists are entirely replaced upon submission. You must include the items to be retained. Pass `[]` to clear the corresponding explicit lists. |
+   * | `environment` | The variable list and credential reference list are entirely replaced respectively. Submit the items to be retained together. |
+   * | `network` | Specify both `accessInternet.enabled` and `accessVpc.enabled` when submitting. |
+   * | `ossMounts`, `agenticFsMounts` | Entirely replaced respectively. Pass `[]` to clear the corresponding lists. `agenticFsMounts` does not accept `null`. |
+   * ### Harnesses, templates, and skills
    * | Harness | Model and connector configuration |
    * | --- | --- |
-   * | qwenpaw | This type is used by default if harness is omitted during creation. Set model.modelConnectionId to the workspace model connection ID, and set model.modelName to the name of the model created under this connection. |
-   * | qodercli | The qodercli Connector must be enabled in the workspace. Set model.modelConnectionId to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). model.modelName can be omitted. |
-   * harness is an object, such as {"type":"qwenpaw"}. For qodercli, set harness.configuration.connectorServiceAccountKey to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original Service Account Key. This field can be omitted if there is only one key record, but must be specified if there are multiple records. connectorServiceAccountName is the account name. Do not specify these two binding fields for qwenpaw.
-   * skills uses the Skill names in the workspace AI Registry. If sourceType=REFERENCE, the version is referenced by versionSelector: use LABEL with a label name, or VERSION with a specific version number. If the selector is omitted, LABEL/latest is used. If sourceType=STATIC, static files bundled with the package are used, and no version selector is provided.
-   * For template.aiRegistry, specify the agent template name and an optional version. If the version is omitted during creation, the published version is resolved and fixed. When a template is used, instruction, promptVariables, and subAgents are derived from the template, and the corresponding fields in the current request do not take effect. Explicit Skills and template Skills are recorded separately. You can query the target and effective versions through configuredSkills and skills.
+   * | `qwenpaw` | This type is used by default if `harness` is omitted during creation. Set `model.modelConnectionId` to the workspace model connection ID, and set `model.modelName` to the name of the model created under this connection. |
+   * | `qodercli` | The qodercli connector must be enabled in the workspace. Set `model.modelConnectionId` to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). `model.modelName` can be omitted. |
+   * `harness` is an object, such as `{"type":"qwenpaw"}`. For qodercli, set `harness.configuration.connectorServiceAccountKey` to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. This field can be omitted if there is only one key record, but must be specified if there are multiple records. `connectorServiceAccountName` is the account name. Do not specify these two binding fields for qwenpaw.
+   * `skills` uses the skill names in the workspace AI Registry. If `sourceType=REFERENCE`, versions are referenced by `versionSelector`: use `LABEL` with a tag name, or `VERSION` with a specific version number. If the selector is omitted, `LABEL/latest` is used. If `sourceType=STATIC`, static files bundled with the package are used, and no version selector is provided.
+   * For `template.aiRegistry`, specify the agent template name and an optional version. If the version is omitted during creation, the published version is resolved and fixed. When a template is used, `instruction`, `promptVariables`, and `subAgents` are derived from the template, and the corresponding fields in the current request do not take effect. Explicit skills and template skills are recorded separately. You can query the target and effective versions through `configuredSkills` and `skills`.
    * ### Elasticity and instances
-   * If runtime is committed but hpa or some of its fields are omitted, the following default values are used for unspecified items. To retain the existing elastic policy, commit the complete hpa together.
+   * If `runtime` is committed but `hpa` or some of its fields are omitted, the following default values are used for unspecified items. To retain the existing elastic policy, commit the complete `hpa`.
    * | Field | Default value | Value and description |
    * | --- | --- | --- |
-   * | enabled | false | Specifies whether to enable elastic scaling. |
-   * | minSandboxCount | 1 | The minimum number of instances. Valid values: 0 to 100. |
-   * | maxSandboxCount | 10 | The maximum number of instances. Valid values: 0 to 100. The value cannot be less than the minimum number. |
-   * | maxConcurrentSessionsPerSandbox | 20 | The maximum number of concurrent sessions per instance. Valid values: 1 to 20. |
-   * | sessionTtlSeconds | 600 | The maximum idle time for a session, in seconds. Valid values: 60 to 86400. |
-   * If you only modify instructions, models, or skills, you can omit the entire runtime object, and the original runtime configuration remains unchanged. The minimum and maximum numbers of instances are configuration borders. You can query the actual number through sandboxPhaseCounts.
+   * | `enabled` | `false` | Specifies whether elastic scaling is enabled. |
+   * | `minSandboxCount` | `1` | The minimum number of instances. Valid values: 0 to 100. |
+   * | `maxSandboxCount` | `10` | The maximum number of instances. Valid values: 0 to 100. The value cannot be less than the minimum number. |
+   * | `maxConcurrentSessionsPerSandbox` | `20` | The maximum number of concurrent sessions per instance. Valid values: 1 to 20. |
+   * | `sessionTtlSeconds` | `600` | The maximum idle time of a session, in seconds. Valid values: 60 to 86400. |
+   * If you only modify instructions, models, or skills, you can omit the entire `runtime` to keep the original runtime configuration unchanged. The minimum and maximum numbers of instances are the configuration border. You can query the actual number through `sandboxPhaseCounts`.
    * ### Environment and mounts
-   * Omitting the entire environment object retains the original configuration. Submitting environment={} or environment=null clears the environment configuration. Environment variable values must be strings, and variable names must be non-empty and unique.
-   * The total number of ossMounts and agenticFsMounts cannot exceed 10. The mount target mountPath uses an absolute path in the container, such as /data/train. It cannot conflict with platform reserved directories, and cannot be duplicated or form parent-child directory overwrites.
-   * The path for an OSS mount must be a non-empty directory prefix in the bucket. For an AgenticFS mount, server is the AccessPoint domain name, without a protocol, port, or path. path is an existing non-empty relative directory in the AccessPoint. You cannot mount the root directory of the AccessPoint. If readOnly is omitted, the default value is false.
+   * Omitting the entire `environment` retains the original configuration. Submitting `environment={}` or `environment=null` clears the environment configuration. Environment variable values must be strings, and variable names must be non-empty and unique.
+   * The total number of `ossMounts` and `agenticFsMounts` cannot exceed 10. The mount target `mountPath` uses an absolute path in the container, such as `/data/train`. It cannot conflict with platform reserved directories, and cannot be duplicated or form parent-child directory overwrites.
+   * The `path` for OSS mounts must be a non-empty directory prefix in the bucket. For AgenticFS mounts, `server` is the AccessPoint domain name, without a protocol, port, or path. `path` is an existing non-empty relative directory in the AccessPoint. You cannot mount the root directory of the AccessPoint. If `readOnly` is omitted, the default value is `false`.
    * ### Query update results
-   * A successful response indicates that the update request has been accepted. Call [GetManagedAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetManagedAgent) to query latestSpecVersion, latestVersionStatus, status, and sandboxPhaseCounts to confirm the configuration processing and instance status. clientToken does not provide idempotency guarantees at this time.
+   * A successful response indicates that the update request has been accepted. Call [GetManagedAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetManagedAgent) to query `latestSpecVersion`, `latestVersionStatus`, `status`, and `sandboxPhaseCounts` to confirm the configuration processing and instance status. `clientToken` does not provide idempotence guarantees at this time.
    * 
    * @param request - UpdateManagedAgentRequest
    * @returns UpdateManagedAgentResponse

@@ -13,7 +13,7 @@ export class ListSandboxesResponseBodyItems extends $dara.Model {
   activeSessionCount?: number;
   /**
    * @remarks
-   * The time when the sandbox was created. The time is in the RFC 3339 UTC format.
+   * The time when the sandbox was created, in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-29T00:00:00Z
@@ -21,7 +21,15 @@ export class ListSandboxesResponseBodyItems extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The time of the last activity of the sandbox. The time is in the RFC 3339 UTC format.
+   * The tag of the actual observed image of the currently returned instance. This parameter is empty if the tag cannot be parsed.
+   * 
+   * @example
+   * 202611031754
+   */
+  harnessVersion?: string;
+  /**
+   * @remarks
+   * The time of the last activity of the sandbox, in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-29T00:02:00Z
@@ -29,7 +37,7 @@ export class ListSandboxesResponseBodyItems extends $dara.Model {
   lastActiveAt?: string;
   /**
    * @remarks
-   * The time of the last heartbeat of the sandbox. The time is in the RFC 3339 UTC format.
+   * The time of the last heartbeat of the sandbox, in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-29T00:01:00Z
@@ -37,7 +45,15 @@ export class ListSandboxesResponseBodyItems extends $dara.Model {
   lastHeartbeatAt?: string;
   /**
    * @remarks
-   * The maximum number of concurrent sessions allowed for the sandbox. This value is obtained from the auto-scaling configuration that takes effect at runtime. If auto-scaling is disabled or the configuration is unavailable, this value is empty.
+   * Used to continue calling GetSandboxRebuildOperation to query the overall result after a page refresh. This parameter is empty if there is no historical rebuild. Do not use the ID of a subsequently created task instead.
+   * 
+   * @example
+   * 01a19f98-906d-7e82-96aa-8b7ea1d1a29d
+   */
+  lastRebuildOperationId?: string;
+  /**
+   * @remarks
+   * The maximum number of concurrent sessions allowed for the sandbox, which is obtained from the effective auto-scaling configuration at runtime. This parameter is empty if auto-scaling is disabled or the configuration is unavailable.
    * 
    * @example
    * 7
@@ -59,15 +75,35 @@ export class ListSandboxesResponseBodyItems extends $dara.Model {
    * sbx-2
    */
   sandboxId?: string;
+  /**
+   * @remarks
+   * The server compares the actual image tag of the instance with the pool target image tag. The value is true if the tags are different during the RUNNING, HIBERNATED, or FAILED phase. The value is false if the tags are the same or during other known phases. This parameter is empty if the tag or phase cannot be confirmed, and it cannot be treated as false. The version sequence is not determined by the tag size.
+   * 
+   * @example
+   * true
+   */
+  updateAvailable?: boolean;
+  /**
+   * @remarks
+   * A value of true indicates that the most recent rebuild corresponding to the current instance generation failed as a whole. A value of false indicates that there is no historical rebuild or the rebuild succeeded as a whole. This parameter is empty if the rebuild is in progress, canceled, replaced, the generation does not match, or the result cannot be confirmed.
+   * 
+   * @example
+   * false
+   */
+  updateFailed?: boolean;
   static names(): { [key: string]: string } {
     return {
       activeSessionCount: 'activeSessionCount',
       createdAt: 'createdAt',
+      harnessVersion: 'harnessVersion',
       lastActiveAt: 'lastActiveAt',
       lastHeartbeatAt: 'lastHeartbeatAt',
+      lastRebuildOperationId: 'lastRebuildOperationId',
       maxConcurrentSessions: 'maxConcurrentSessions',
       phase: 'phase',
       sandboxId: 'sandboxId',
+      updateAvailable: 'updateAvailable',
+      updateFailed: 'updateFailed',
     };
   }
 
@@ -75,11 +111,15 @@ export class ListSandboxesResponseBodyItems extends $dara.Model {
     return {
       activeSessionCount: 'number',
       createdAt: 'string',
+      harnessVersion: 'string',
       lastActiveAt: 'string',
       lastHeartbeatAt: 'string',
+      lastRebuildOperationId: 'string',
       maxConcurrentSessions: 'number',
       phase: 'string',
       sandboxId: 'string',
+      updateAvailable: 'boolean',
+      updateFailed: 'boolean',
     };
   }
 
@@ -95,7 +135,7 @@ export class ListSandboxesResponseBodyItems extends $dara.Model {
 export class ListSandboxesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value is SUCCESS when the request is successful.
+   * The business status code. The value is SUCCESS if the request is successful.
    * 
    * @example
    * SUCCESS
@@ -103,7 +143,7 @@ export class ListSandboxesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code. The value is 200 when the request is successful.
+   * The HTTP status code. The value is 200 if the request is successful.
    * 
    * @example
    * 200
@@ -124,7 +164,7 @@ export class ListSandboxesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response message. The value is success when the request is successful.
+   * The response message. The value is success if the request is successful.
    * 
    * @example
    * success

@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListSandboxSessionsResponseBodyItems extends $dara.Model {
     /**
      * @remarks
-     * The type of the external channel, such as DINGTALK, FEISHU, or WECOM. This parameter is empty for non-external channels.
+     * The external channel type, such as DINGTALK, FEISHU, or WECOM. This parameter is empty for non-external channels.
      *
      * @example
      * DINGTALK
@@ -18,7 +18,7 @@ export declare class ListSandboxSessionsResponseBodyItems extends $dara.Model {
     sessionId?: string;
     /**
      * @remarks
-     * The source type of the session. A value of API indicates an API call. A value of CONSOLE_DEBUG indicates console debugging. A value of EXTERNAL_CHANNEL indicates an external channel. A value of UNKNOWN indicates an unknown source.
+     * The source type of the session. A value of API indicates an API call, CONSOLE_DEBUG indicates console debugging, EXTERNAL_CHANNEL indicates an external channel, and UNKNOWN indicates an unknown source.
      *
      * @example
      * EXTERNAL_CHANNEL
@@ -54,7 +54,7 @@ export declare class ListSandboxSessionsResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The list of active sessions in the sandbox.
+     * The list of active sessions for the sandbox.
      */
     items?: ListSandboxSessionsResponseBodyItems[];
     /**

@@ -192,13 +192,17 @@ class GetManagedAgentResponseBodyDataHarness extends $dara.Model {
     static names() {
         return {
             configuration: 'configuration',
+            outdatedInstanceCount: 'outdatedInstanceCount',
             type: 'type',
+            version: 'version',
         };
     }
     static types() {
         return {
             configuration: GetManagedAgentResponseBodyDataHarnessConfiguration,
+            outdatedInstanceCount: 'number',
             type: 'string',
+            version: 'string',
         };
     }
     validate() {
@@ -249,6 +253,7 @@ class GetManagedAgentResponseBodyDataModel extends $dara.Model {
             modelConnectionId: 'modelConnectionId',
             modelName: 'modelName',
             quota: 'quota',
+            thinkingLevel: 'thinkingLevel',
         };
     }
     static types() {
@@ -256,6 +261,7 @@ class GetManagedAgentResponseBodyDataModel extends $dara.Model {
             modelConnectionId: 'string',
             modelName: 'string',
             quota: GetManagedAgentResponseBodyDataModelQuota,
+            thinkingLevel: 'string',
         };
     }
     validate() {

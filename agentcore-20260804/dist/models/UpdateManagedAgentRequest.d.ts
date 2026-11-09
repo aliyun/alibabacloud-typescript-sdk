@@ -10,7 +10,7 @@ export declare class UpdateManagedAgentRequestBodyAgenticFsMounts extends $dara.
     mountPath?: string;
     /**
      * @remarks
-     * The existing non-empty relative directory under the AccessPoint. This field is required and validated by the backend for each mount item. The root directory, absolute paths, or parent directory segments are not allowed.
+     * The existing non-empty relative directory under the AccessPoint. This field is required and validated by the backend for each mount item. Root directories, absolute paths, and parent directory segments are not allowed.
      *
      * @example
      * workspace/data
@@ -18,7 +18,7 @@ export declare class UpdateManagedAgentRequestBodyAgenticFsMounts extends $dara.
     path?: string;
     /**
      * @remarks
-     * Specifies whether to mount as read-only. The default value is false if omitted. This is not a RAM role read-only policy.
+     * Specifies whether the mount is read-only. If omitted, the default value is false. This is not a RAM role read-only policy.
      *
      * @example
      * false
@@ -26,7 +26,7 @@ export declare class UpdateManagedAgentRequestBodyAgenticFsMounts extends $dara.
     readOnly?: boolean;
     /**
      * @remarks
-     * The AccessPoint domain name. This field is required and validated by the backend for each mount item. It does not contain a protocol, port, or path, and takes the DomainName from the NAS ListAccessPoints response.
+     * The AccessPoint domain name. This field is required and validated by the backend for each mount item. It does not include a protocol, port, or path. Use the DomainName from the NAS ListAccessPoints response.
      *
      * @example
      * ap-0123456789abcdef0.0123456789-vlm36.cn-hangzhou.nas.aliyuncs.com
@@ -68,7 +68,7 @@ export declare class UpdateManagedAgentRequestBodyEnvironmentCredentialReference
 export declare class UpdateManagedAgentRequestBodyEnvironmentVariables extends $dara.Model {
     /**
      * @remarks
-     * The name of the environment variable.
+     * The environment variable name.
      *
      * This parameter is required.
      *
@@ -78,7 +78,7 @@ export declare class UpdateManagedAgentRequestBodyEnvironmentVariables extends $
     name?: string;
     /**
      * @remarks
-     * The value of the environment variable.
+     * The environment variable value.
      *
      * This parameter is required.
      *
@@ -122,7 +122,7 @@ export declare class UpdateManagedAgentRequestBodyEnvironment extends $dara.Mode
 export declare class UpdateManagedAgentRequestBodyHarnessConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The account key record ID in the qodercli Connector. You can query it through ListConnectors. It is not the original key. This field can be omitted if there is only one record, but must be specified if there are multiple records. Do not specify this field for qwenpaw.
+     * The account key record ID in the qodercli connector. You can query it through ListConnectors. It is not the original key. This field can be omitted if there is only one record, but must be specified if there are multiple records. Do not specify this field for qwenpaw.
      *
      * @example
      * key-example
@@ -155,7 +155,7 @@ export declare class UpdateManagedAgentRequestBodyHarness extends $dara.Model {
     configuration?: UpdateManagedAgentRequestBodyHarnessConfiguration;
     /**
      * @remarks
-     * The runtime framework type. This field is required when harness is provided, and must be consistent with that specified during creation.
+     * The runtime framework type. This field is required when harness is provided and must be consistent with the value specified during creation.
      *
      * @example
      * qodercli
@@ -175,7 +175,7 @@ export declare class UpdateManagedAgentRequestBodyHarness extends $dara.Model {
 export declare class UpdateManagedAgentRequestBodyModelQuota extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether to enable the token quota. The default value is true if not specified. Passing false disables the quota and deletes existing quota rules.
+     * Specifies whether to enable the token quota. If not specified, the default value is true. If set to false, the quota is disabled and existing quota rules are deleted.
      *
      * @example
      * true
@@ -191,7 +191,7 @@ export declare class UpdateManagedAgentRequestBodyModelQuota extends $dara.Model
     limitType?: string;
     /**
      * @remarks
-     * The quota statistical period. This field is required and validated by the backend when the quota is enabled. Valid values: day (daily) and month (monthly).
+     * The statistical period for the quota. This field is required and validated by the backend when the quota is enabled. Valid values: day and month.
      *
      * @example
      * day
@@ -199,7 +199,7 @@ export declare class UpdateManagedAgentRequestBodyModelQuota extends $dara.Model
     periodType?: string;
     /**
      * @remarks
-     * The maximum number of tokens allowed to be consumed in a single period. This field is required and validated by the backend when the quota is enabled, and must be greater than 0.
+     * The maximum number of tokens allowed to be consumed in a single period. This field is required and validated by the backend when the quota is enabled. The value must be greater than 0.
      *
      * @example
      * 1000000
@@ -237,9 +237,17 @@ export declare class UpdateManagedAgentRequestBodyModel extends $dara.Model {
     modelName?: string;
     /**
      * @remarks
-     * The model token quota configuration. If this field is not passed, no quota is configured.
+     * The model token quota configuration. If not provided, no quota is configured.
      */
     quota?: UpdateManagedAgentRequestBodyModelQuota;
+    /**
+     * @remarks
+     * The thinking level. Valid values: off, low, medium, high, xhigh, and max. If not provided or set to null during creation, default is used. When updating and submitting the model configuration, if the thinking level is not provided or is null, it is restored to default. Except for off which is converted to none, the value is passed to the runtime framework as is. The system does not verify model support or automatically downgrade the level. If the model does not support the level, adjust the level.
+     *
+     * @example
+     * high
+     */
+    thinkingLevel?: string;
     static names(): {
         [key: string]: string;
     };
@@ -254,7 +262,7 @@ export declare class UpdateManagedAgentRequestBodyModel extends $dara.Model {
 export declare class UpdateManagedAgentRequestBodyNetworkAccessInternet extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether to allow access to the Internet.
+     * Specifies whether to allow Internet access.
      *
      * @example
      * false
@@ -274,7 +282,7 @@ export declare class UpdateManagedAgentRequestBodyNetworkAccessInternet extends 
 export declare class UpdateManagedAgentRequestBodyNetworkAccessVpc extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether to allow access to the VPC.
+     * Specifies whether to allow VPC access.
      *
      * @example
      * true
@@ -316,7 +324,7 @@ export declare class UpdateManagedAgentRequestBodyNetwork extends $dara.Model {
 export declare class UpdateManagedAgentRequestBodyOssMounts extends $dara.Model {
     /**
      * @remarks
-     * The name of the OSS bucket. This parameter is required and validated by the backend for each mount item.
+     * The OSS bucket name. This parameter is required and validated by the backend for each mount item.
      *
      * @example
      * bucket-001
@@ -340,7 +348,7 @@ export declare class UpdateManagedAgentRequestBodyOssMounts extends $dara.Model 
     path?: string;
     /**
      * @remarks
-     * Specifies whether the mount is read-only. Default value: false.
+     * Specifies whether to mount the directory in read-only mode. Default value: false.
      */
     readOnly?: boolean;
     static names(): {
@@ -365,7 +373,7 @@ export declare class UpdateManagedAgentRequestBodyPromptVariables extends $dara.
     defaultValue?: string;
     /**
      * @remarks
-     * The description of the variable.
+     * The variable description.
      *
      * @example
      * desc
@@ -373,7 +381,7 @@ export declare class UpdateManagedAgentRequestBodyPromptVariables extends $dara.
     description?: string;
     /**
      * @remarks
-     * The name of the variable.
+     * The variable name.
      *
      * @example
      * brand
@@ -393,7 +401,7 @@ export declare class UpdateManagedAgentRequestBodyPromptVariables extends $dara.
 export declare class UpdateManagedAgentRequestBodyRuntimeCompute extends $dara.Model {
     /**
      * @remarks
-     * The compute specifications.
+     * The compute specification.
      *
      * This parameter is required.
      *
@@ -428,7 +436,7 @@ export declare class UpdateManagedAgentRequestBodyRuntimeHpa extends $dara.Model
     maxConcurrentSessionsPerSandbox?: number;
     /**
      * @remarks
-     * The maximum number of instances. Valid values: 0 to 100. Default value: 10. This value cannot be less than minSandboxCount.
+     * The maximum number of instances. Valid values: 0 to 100. Default value: 10. The value cannot be less than minSandboxCount.
      *
      * @example
      * 3
@@ -436,7 +444,7 @@ export declare class UpdateManagedAgentRequestBodyRuntimeHpa extends $dara.Model
     maxSandboxCount?: number;
     /**
      * @remarks
-     * The minimum number of instances. Valid values: 0 to 100. Default value: 1. This value cannot be greater than maxSandboxCount.
+     * The minimum number of instances. Valid values: 0 to 100. Default value: 1. The value cannot be greater than maxSandboxCount.
      *
      * @example
      * 1
@@ -464,7 +472,7 @@ export declare class UpdateManagedAgentRequestBodyRuntimeHpa extends $dara.Model
 export declare class UpdateManagedAgentRequestBodyRuntimeSessionPolicy extends $dara.Model {
     /**
      * @remarks
-     * The name of the request header used to identify the session. This parameter is required when type is set to ISOLATED_HEADER_FIELD and must be a valid HTTP request header name. Do not specify this parameter for other policy types.
+     * The name of the request header for session identification. Required when type is ISOLATED_HEADER_FIELD, and must be a valid HTTP request header name. Do not specify this parameter for other policies.
      *
      * @example
      * X-Session-Id
@@ -525,7 +533,7 @@ export declare class UpdateManagedAgentRequestBodyRuntime extends $dara.Model {
 export declare class UpdateManagedAgentRequestBodySkillsVersionSelector extends $dara.Model {
     /**
      * @remarks
-     * The type of the version selector. Valid values: LABEL (selects by tag) and VERSION (selects by specific version).
+     * The version selector type.
      *
      * @example
      * LABEL
@@ -533,7 +541,7 @@ export declare class UpdateManagedAgentRequestBodySkillsVersionSelector extends 
     type?: string;
     /**
      * @remarks
-     * The value of the selector. If the type is LABEL, specify a tag name such as latest. If the type is VERSION, specify a specific version number.
+     * The selector value. When the type is LABEL, this is the tag name, such as latest. When the type is VERSION, this is the specific version number.
      *
      * @example
      * latest
@@ -553,7 +561,7 @@ export declare class UpdateManagedAgentRequestBodySkillsVersionSelector extends 
 export declare class UpdateManagedAgentRequestBodySkills extends $dara.Model {
     /**
      * @remarks
-     * The name of the skill.
+     * The skill name.
      *
      * This parameter is required.
      *
@@ -563,7 +571,7 @@ export declare class UpdateManagedAgentRequestBodySkills extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The source type of the skill. REFERENCE indicates that the skill references an AI Registry asset. STATIC indicates that the skill is statically provided with the deployment package.
+     * The skill source type.
      *
      * @example
      * REFERENCE
@@ -571,7 +579,7 @@ export declare class UpdateManagedAgentRequestBodySkills extends $dara.Model {
     sourceType?: string;
     /**
      * @remarks
-     * The skill version field for backward compatibility with legacy requests. For new requests, use sourceType and versionSelector. Do not submit this parameter together with sourceType.
+     * The skill version field for backward compatibility with legacy requests. For new requests, use sourceType and versionSelector. Do not submit this field in combination with sourceType.
      *
      * @example
      * 1.0.0
@@ -579,7 +587,7 @@ export declare class UpdateManagedAgentRequestBodySkills extends $dara.Model {
     version?: string;
     /**
      * @remarks
-     * The version selector for the skill reference. Supports LABEL for tag-based selection and VERSION for specific version selection. If omitted, LABEL/latest is used. Do not specify a selector for STATIC sources.
+     * The version selector for the skill reference. Supports LABEL for tags and VERSION for specific versions. If omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
      */
     versionSelector?: UpdateManagedAgentRequestBodySkillsVersionSelector;
     static names(): {
@@ -596,7 +604,7 @@ export declare class UpdateManagedAgentRequestBodySkills extends $dara.Model {
 export declare class UpdateManagedAgentRequestBodySubAgentsSkills extends $dara.Model {
     /**
      * @remarks
-     * The name of the skill.
+     * The skill name.
      *
      * @example
      * web-search
@@ -604,7 +612,7 @@ export declare class UpdateManagedAgentRequestBodySubAgentsSkills extends $dara.
     name?: string;
     /**
      * @remarks
-     * The version of the skill.
+     * The skill version.
      *
      * @example
      * 1.0.0
@@ -624,17 +632,17 @@ export declare class UpdateManagedAgentRequestBodySubAgentsSkills extends $dara.
 export declare class UpdateManagedAgentRequestBodySubAgents extends $dara.Model {
     /**
      * @remarks
-     * The instruction for the sub-agent.
+     * The sub-agent instruction.
      *
      * This parameter is required.
      *
      * @example
-     * Please review the code
+     * Review the code
      */
     instruction?: string;
     /**
      * @remarks
-     * The name of the sub-agent.
+     * The sub-agent name.
      *
      * This parameter is required.
      *
@@ -644,7 +652,7 @@ export declare class UpdateManagedAgentRequestBodySubAgents extends $dara.Model 
     name?: string;
     /**
      * @remarks
-     * The list of skills for the sub-agent.
+     * The list of sub-agent skills.
      */
     skills?: UpdateManagedAgentRequestBodySubAgentsSkills[];
     static names(): {
@@ -708,7 +716,7 @@ export declare class UpdateManagedAgentRequestBodyTemplate extends $dara.Model {
 export declare class UpdateManagedAgentRequestBodyTools extends $dara.Model {
     /**
      * @remarks
-     * The name of the tool.
+     * The tool name.
      *
      * This parameter is required.
      *
@@ -718,7 +726,7 @@ export declare class UpdateManagedAgentRequestBodyTools extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The type of the tool.
+     * The tool type.
      *
      * This parameter is required.
      *
@@ -756,7 +764,7 @@ export declare class UpdateManagedAgentRequestBody extends $dara.Model {
     accessScope?: string;
     /**
      * @remarks
-     * The NAS storage mount configuration. Currently, the AgenticFS type is supported to mount file directories in access points to agent runtime instances. The AgenticFS directory mount list can contain up to 10 items in total with ossMounts. Omitting this field or passing [] during creation indicates no mounts. During an update, omitting this field retains the original configuration, passing [] clears the list, and null is not accepted.
+     * The NAS storage mount configuration. Currently, only the AgenticFS type is supported, which is used to mount file directories in an access point to agent runtime instances. This is the AgenticFS directory mount list. The total number of items with ossMounts cannot exceed 10. If omitted or set to [] during creation, no mounts are configured. If omitted during an update, the original configuration is retained. If set to [], the list is cleared. null is not accepted.
      */
     agenticFsMounts?: UpdateManagedAgentRequestBodyAgenticFsMounts[];
     /**
@@ -774,7 +782,7 @@ export declare class UpdateManagedAgentRequestBody extends $dara.Model {
     environment?: UpdateManagedAgentRequestBodyEnvironment;
     /**
      * @remarks
-     * The runtime framework object. If omitted, the original framework is retained. If provided, the type must be the same as that specified during creation. You can update the account binding for a framework of the same type.
+     * The runtime framework object. If omitted, the original framework is retained. If provided, the type must be the same as that specified during creation. You can update the account binding for the same type of framework.
      */
     harness?: UpdateManagedAgentRequestBodyHarness;
     /**
@@ -800,12 +808,12 @@ export declare class UpdateManagedAgentRequestBody extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The runtime network configuration. If provided, it must include both accessInternet.enabled and accessVpc.enabled. Actual access is restricted by the workspace network.
+     * The runtime network configuration. If provided, both accessInternet.enabled and accessVpc.enabled must be included. Actual access is subject to workspace network restrictions.
      */
     network?: UpdateManagedAgentRequestBodyNetwork;
     /**
      * @remarks
-     * The list of OSS directory mounts. The total number of OSS mounts and agenticFsMounts cannot exceed 10. When you update this list, the entire list is replaced. Pass an empty array [] to clear existing mounts.
+     * The list of OSS directory mounts. The total number of OSS mounts and agenticFsMounts cannot exceed 10. During an update, this list is replaced entirely. Pass an empty array [] to clear existing mounts.
      */
     ossMounts?: UpdateManagedAgentRequestBodyOssMounts[];
     /**
@@ -815,7 +823,7 @@ export declare class UpdateManagedAgentRequestBody extends $dara.Model {
     promptVariables?: UpdateManagedAgentRequestBodyPromptVariables[];
     /**
      * @remarks
-     * The runtime configuration. If you omit the entire object, the original configuration is retained. If you provide this object, you must specify both compute and sessionPolicy. Omitted fields in hpa use default values.
+     * The runtime configuration. If the entire object is omitted, the original configuration is retained. If provided, both compute and sessionPolicy must be specified. Omitted fields in hpa use default values.
      */
     runtime?: UpdateManagedAgentRequestBodyRuntime;
     /**
@@ -835,7 +843,7 @@ export declare class UpdateManagedAgentRequestBody extends $dara.Model {
     template?: UpdateManagedAgentRequestBodyTemplate;
     /**
      * @remarks
-     * The list of tool configurations.
+     * The tool configuration list.
      */
     tools?: UpdateManagedAgentRequestBodyTools[];
     static names(): {
@@ -857,7 +865,7 @@ export declare class UpdateManagedAgentRequest extends $dara.Model {
     body?: UpdateManagedAgentRequestBody;
     /**
      * @remarks
-     * The reserved query parameter. The backend currently does not provide idempotency guarantees, such as deduplication or returning the original processing result, based on this token.
+     * The reserved query parameter. Currently, the backend does not provide idempotency guarantees for deduplication or recovery of original processing results based on this identifier.
      *
      * @example
      * client-token-1

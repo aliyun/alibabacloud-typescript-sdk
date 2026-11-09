@@ -51,13 +51,17 @@ class ListManagedAgentsResponseBodyItemsHarness extends $dara.Model {
     static names() {
         return {
             configuration: 'configuration',
+            outdatedInstanceCount: 'outdatedInstanceCount',
             type: 'type',
+            version: 'version',
         };
     }
     static types() {
         return {
             configuration: ListManagedAgentsResponseBodyItemsHarnessConfiguration,
+            outdatedInstanceCount: 'number',
             type: 'string',
+            version: 'string',
         };
     }
     validate() {

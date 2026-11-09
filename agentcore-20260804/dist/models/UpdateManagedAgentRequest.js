@@ -194,6 +194,7 @@ class UpdateManagedAgentRequestBodyModel extends $dara.Model {
             modelConnectionId: 'modelConnectionId',
             modelName: 'modelName',
             quota: 'quota',
+            thinkingLevel: 'thinkingLevel',
         };
     }
     static types() {
@@ -201,6 +202,7 @@ class UpdateManagedAgentRequestBodyModel extends $dara.Model {
             modelConnectionId: 'string',
             modelName: 'string',
             quota: UpdateManagedAgentRequestBodyModelQuota,
+            thinkingLevel: 'string',
         };
     }
     validate() {
