@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VisionFlowShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The AI capabilities to apply (1 = Intelligent Element Detection, 2 = Intelligent Matting, 3 = Intelligent Removal, 4 = Image Translation Pro, 5 = Intelligent Cropping, 6 = HD Upscaling). Multiple selections allowed.
+   * The AI capabilities to be processed. Multiple values are supported. Valid values: 1 (Intelligent element recognition), 2 (Intelligent cutout), 3 (Intelligent erasure), 4 (Image translation Pro), 5 (Intelligent cropping), and 6 (High-definition upscaling).
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class VisionFlowShrinkRequest extends $dara.Model {
   abilityShrink?: string;
   /**
    * @remarks
-   * The background type of the output image. Valid values: WHITE_BACKGROUND (white background) and TRANSPARENT (transparent background). This parameter is required when the Intelligent Matting capability is selected.
+   * The background type of the returned image. Valid values: WHITE_BACKGROUND (White background image) and TRANSPARENT (Transparent background image). Required when the intelligent cutout capability is selected.
    * 
    * @example
    * WHITE_BACKGROUND
@@ -23,7 +23,7 @@ export class VisionFlowShrinkRequest extends $dara.Model {
   backGroundType?: string;
   /**
    * @remarks
-   * The glossary ID. Optional. Create a glossary separately in the console and provide its ID. If left empty, translation results are not modified.
+   * The ID of the intervention glossary. Optional. You must create the glossary in the console and provide its ID. If this parameter is left empty, the translation results are not modified.
    * 
    * @example
    * glossary_1
@@ -31,7 +31,7 @@ export class VisionFlowShrinkRequest extends $dara.Model {
   glossary?: string;
   /**
    * @remarks
-   * The URL of the image to process. This parameter is required. Resolution must be greater than 256 × 256, long side no greater than 1920 pixels, short side no greater than 1080 pixels. Maximum size: 5 MB. Supported formats: png, jpeg, jpg, bmp, and webp.
+   * The URL of the image to be processed. Required. The resolution must be greater than 256×256, the long side must not exceed 1920 pixels, and the short side must not exceed 1080 pixels. The size must not exceed 5 MB. Supported formats include PNG, JPEG, JPG, BMP, and WEBP.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class VisionFlowShrinkRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Specifies whether to translate text on the image subject. Optional. Default value: false. Helps protect embedded information such as product names from being translated.
+   * Specifies whether to translate text on the image subject. Optional. Default value: false. This parameter helps protect embedded information such as product names from being translated.
    * 
    * @example
    * false
@@ -49,7 +49,7 @@ export class VisionFlowShrinkRequest extends $dara.Model {
   includingProductArea?: boolean;
   /**
    * @remarks
-   * Specifies whether images with the detected elements proceed to subsequent processing. A value of true indicates that images containing the elements proceed to subsequent processing. A value of false indicates that they do not. This parameter is required when the Intelligent Element Detection capability is selected.
+   * Specifies whether to include images with the specified elements in subsequent processing. A value of true indicates that images with the elements are included in subsequent processing. A value of false indicates that images with the elements are not included. Required when the intelligent element recognition capability is selected.
    * 
    * @example
    * true
@@ -57,7 +57,7 @@ export class VisionFlowShrinkRequest extends $dara.Model {
   isFilter?: boolean;
   /**
    * @remarks
-   * The specific removal region in RLE format. Optional. If provided, this parameter takes priority and the ObjectRemoveElements and NonobjectRemoveElements parameters are ignored.
+   * The specific erasure area in Run-Length Encoding (RLE) format. Optional. If this parameter is specified, it takes precedence and the ObjectRemoveElements and NonobjectRemoveElements parameters are ignored.
    * 
    * @example
    * 474556 160 475356 160
@@ -65,7 +65,7 @@ export class VisionFlowShrinkRequest extends $dara.Model {
   mask?: string;
   /**
    * @remarks
-   * The elements to detect on the non-subject area of the image (1 = Watermark, 2 = Logo, 3 = Text, 4 = Text-bearing color block). Multiple selections allowed. When the Intelligent Element Detection capability is selected, at least one of NonobjectDetectElements or ObjectDetectElements is required.
+   * The elements to detect on the non-subject area of the image. Multiple values are supported. Valid values: 1 (Watermark), 2 (Logo), 3 (Text), and 4 (Text block). When the intelligent element recognition capability is selected, at least one of this parameter and ObjectDetectElements must be specified.
    * 
    * @example
    * [1,2,3]
@@ -73,7 +73,7 @@ export class VisionFlowShrinkRequest extends $dara.Model {
   nonobjectDetectElementsShrink?: string;
   /**
    * @remarks
-   * The elements to remove from the non-subject area of the image (1 = Transparent text block, 2 = Specific name, 3 = Text, 4 = Overlay patch). Multiple selections allowed. When the Intelligent Removal capability is selected, at least one of NonobjectRemoveElements or ObjectRemoveElements is required.
+   * The elements to remove from the non-subject area of the image. Multiple values are supported. Valid values: 1 (Transparent text block), 2 (Specific name), 3 (Text), and 4 (Cluttered text). When the intelligent erasure capability is selected, at least one of this parameter and ObjectRemoveElements must be specified.
    * 
    * @example
    * [1,2,4]
@@ -81,7 +81,7 @@ export class VisionFlowShrinkRequest extends $dara.Model {
   nonobjectRemoveElementsShrink?: string;
   /**
    * @remarks
-   * The elements to detect on the image subject (1 = Watermark, 2 = Logo, 3 = Text, 4 = Text-bearing color block). Multiple selections allowed. When the Intelligent Element Detection capability is selected, at least one of ObjectDetectElements or NonobjectDetectElements is required.
+   * The elements to detect on the image subject. Multiple values are supported. Valid values: 1 (Watermark), 2 (Logo), 3 (Text), and 4 (Text block). When the intelligent element recognition capability is selected, at least one of this parameter and NonobjectDetectElements must be specified.
    * 
    * @example
    * [1,2,3,4]
@@ -89,7 +89,7 @@ export class VisionFlowShrinkRequest extends $dara.Model {
   objectDetectElementsShrink?: string;
   /**
    * @remarks
-   * The elements to remove from the image subject (1 = Transparent text block, 2 = Specific name, 3 = Text, 4 = Overlay patch). Multiple selections allowed. When the Intelligent Removal capability is selected, at least one of ObjectRemoveElements or NonobjectRemoveElements is required.
+   * The elements to remove from the image subject. Multiple values are supported. Valid values: 1 (Transparent text block), 2 (Specific name), 3 (Text), and 4 (Cluttered text). When the intelligent erasure capability is selected, at least one of this parameter and NonobjectRemoveElements must be specified.
    * 
    * @example
    * [1,2,4]
@@ -97,7 +97,7 @@ export class VisionFlowShrinkRequest extends $dara.Model {
   objectRemoveElementsShrink?: string;
   /**
    * @remarks
-   * The source language code. Optional. For supported language pairs, refer to the supported translation language pairs list.
+   * The source language code. Optional. For supported language pairs, see the list of supported translation languages.
    * 
    * @example
    * zh
@@ -105,7 +105,7 @@ export class VisionFlowShrinkRequest extends $dara.Model {
   sourceLanguage?: string;
   /**
    * @remarks
-   * The desired height of the cropped image, in pixels. Valid values: 100 to 5000. This parameter is required when the Intelligent Cropping capability is selected.
+   * The expected height of the cropped image, in pixels. Valid values: 100 to 5000. Required when the intelligent cropping capability is selected.
    * 
    * @example
    * 800
@@ -113,7 +113,7 @@ export class VisionFlowShrinkRequest extends $dara.Model {
   targetHeight?: number;
   /**
    * @remarks
-   * The target language code. Optional. For supported language pairs, refer to the supported translation language pairs list.
+   * The target language code. Optional. For supported language pairs, see the list of supported translation languages.
    * 
    * @example
    * en
@@ -121,7 +121,7 @@ export class VisionFlowShrinkRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
-   * The desired width of the cropped image, in pixels. Valid values: 100 to 5000. This parameter is required when the Intelligent Cropping capability is selected.
+   * The expected width of the cropped image, in pixels. Valid values: 100 to 5000. Required when the intelligent cropping capability is selected.
    * 
    * @example
    * 800
@@ -129,7 +129,7 @@ export class VisionFlowShrinkRequest extends $dara.Model {
   targetWidth?: number;
   /**
    * @remarks
-   * Specifies whether to translate brand names in the image. Optional. Default value: false. Helps protect brand name information from being translated.
+   * Specifies whether to translate brand names in the image. Optional. Default value: false. This parameter helps protect brand name information from being translated.
    * 
    * @example
    * false
@@ -137,7 +137,7 @@ export class VisionFlowShrinkRequest extends $dara.Model {
   translatingBrandInTheProduct?: boolean;
   /**
    * @remarks
-   * The image upscaling factor. Optional. Default value: 2. Valid values: 2 to 4. This parameter is required when the HD Upscaling capability is selected.
+   * The image upscaling factor. Optional. Default value: 2. Valid values: 2 to 4. Required when the high-definition upscaling capability is selected.
    * 
    * @example
    * 2

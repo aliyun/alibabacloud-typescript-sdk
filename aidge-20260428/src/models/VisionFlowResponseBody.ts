@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VisionFlowResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The asynchronous task ID, used to query processing results later through QueryAsyncTaskResult.
+   * The ID of the asynchronous task, which is used to query the processing result by calling QueryAsyncTaskResult.
    * 
    * @example
    * e4c48e88-3c34-91e3-ab8a-08484dc4d402
@@ -35,7 +35,7 @@ export class VisionFlowResponseBodyData extends $dara.Model {
 export class VisionFlowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. The value "success" is returned for a successful call.
+   * The status code. If the call is successful, "success" is returned.
    * 
    * @example
    * success
@@ -43,12 +43,12 @@ export class VisionFlowResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The asynchronous task submit status data, which contains the asynchronous task ID.
+   * The submission result data of the asynchronous task, which includes the asynchronous task ID.
    */
   data?: VisionFlowResponseBodyData;
   /**
    * @remarks
-   * The error message. The value "Success" is returned for a successful call.
+   * The error message. If the call is successful, "Success" is returned.
    * 
    * @example
    * Success
@@ -56,7 +56,7 @@ export class VisionFlowResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, used to uniquely identify a single request.
+   * The request ID, which is used to identify a unique request.
    * 
    * @example
    * F3E65785-0180-1227-91B0-2F5F52F679FB
@@ -64,7 +64,7 @@ export class VisionFlowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. A value of true indicates success. A value of false indicates failure.
+   * Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * true

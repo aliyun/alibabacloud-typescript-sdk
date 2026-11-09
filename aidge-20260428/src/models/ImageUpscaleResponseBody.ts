@@ -13,7 +13,7 @@ export class ImageUpscaleResponseBodyDataData extends $dara.Model {
   imageHeight?: number;
   /**
    * @remarks
-   * The result information of the upscaled single image.
+   * The result information of the high-definition upscaling for a single image.
    * 
    * @example
    * https://example.com/output.png
@@ -90,7 +90,7 @@ export class ImageUpscaleResponseBodyData extends $dara.Model {
   data?: ImageUpscaleResponseBodyDataData;
   /**
    * @remarks
-   * The error code returned when the call fails, such as InvalidParameter or DownstreamUnavailable.
+   * The error code. Returned upon failure, such as InvalidParameter or DownstreamUnavailable.
    * 
    * @example
    * success
@@ -98,7 +98,7 @@ export class ImageUpscaleResponseBodyData extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when the call fails.
+   * The error message. Returned upon failure.
    * 
    * @example
    * Success
@@ -106,7 +106,7 @@ export class ImageUpscaleResponseBodyData extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
+   * Indicates whether the operation is successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * True
@@ -114,7 +114,7 @@ export class ImageUpscaleResponseBodyData extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The ID of the downstream task. This parameter is left empty for synchronous API calls.
+   * The downstream task ID. This parameter is empty for synchronous operations.
    * 
    * @example
    * ed9d8504-6141-9fbb-8345-4fa36433483f
