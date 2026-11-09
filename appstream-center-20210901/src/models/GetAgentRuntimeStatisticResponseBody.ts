@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentRuntimeStatisticResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The display name of the agent, which is determined by both the agent platform and the agent provider. For example, OpenClaw under the ENTERPRISE platform is displayed as OpenClaw, and OpenClaw under the JVS platform is displayed as JVS Claw.
+   * The agent display name, which is determined by both the agent platform and the agent provider. For example, OpenClaw under the ENTERPRISE platform is displayed as OpenClaw, and OpenClaw under the JVS platform is displayed as JVS Claw.
    * 
    * @example
    * Agentic Computer
@@ -110,7 +110,7 @@ export class GetAgentRuntimeStatisticResponseBody extends $dara.Model {
   data?: GetAgentRuntimeStatisticResponseBodyData[];
   /**
    * @remarks
-   * The request ID, which is used to uniquely identify the request.
+   * The request ID, which uniquely identifies the request.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
@@ -118,7 +118,7 @@ export class GetAgentRuntimeStatisticResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of returned statistical records, which is the length of the Data list.
+   * The number of returned statistics records, which is the length of the Data list.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelProviderLlmCodesResponseBodyDataLlmInfoListCreditMultiplier extends $dara.Model {
   /**
    * @remarks
-   * The upper limit of the multiplier. An empty value indicates no upper limit. For example, if the minimum multiplier is 1 and the maximum multiplier is empty, it is displayed as starting from 1x.
+   * The upper limit of the multiplier. An empty value indicates no upper limit. For example, if the minimum value is 1 and the maximum value is empty, it is displayed as starting from 1x.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class ListModelProviderLlmCodesResponseBodyDataLlmInfoListCreditMultiplie
   max?: number;
   /**
    * @remarks
-   * The lower limit of the multiplier. If this value is equal to the maximum multiplier, it is a fixed multiplier. For example, if both the minimum and maximum multipliers are 2, it is displayed as 2x.
+   * The lower limit of the multiplier. If this value is equal to the maximum value, the multiplier is fixed. For example, if both the minimum and maximum values are 2, it is displayed as 2x.
    * 
    * @example
    * 2
@@ -183,7 +183,7 @@ export class ListModelProviderLlmCodesResponseBodyDataLlmInfoList extends $dara.
    * The model description.
    * 
    * @example
-   * Qwen image generation model that supports text-to-image and image editing capabilities
+   * Qwen image generation model that supports text-to-image generation and image editing
    */
   description?: string;
   /**
@@ -214,7 +214,7 @@ export class ListModelProviderLlmCodesResponseBodyDataLlmInfoList extends $dara.
   modelBrand?: string;
   /**
    * @remarks
-   * The model information, such as the context window size and the maximum number of input/output tokens.
+   * The model information, such as context window size and maximum input/output tokens.
    * 
    * @example
    * {"contextWindow":1000000,"maxInputTokens":991808,"maxReasoningTokens":262144,"reasoningMaxInputTokens":983616,"maxOutputTokens":131072,"reasoningMaxOutputTokens":131072}
@@ -251,7 +251,7 @@ export class ListModelProviderLlmCodesResponseBodyDataLlmInfoList extends $dara.
   publishedTime?: string;
   /**
    * @remarks
-   * Indicates whether the model is recommended. Valid values: true (recommended), false (explicitly not recommended), and null (not applicable, such as non-Bailian or unannotated models).
+   * Indicates whether the model is recommended. This is a tri-state value: true indicates that the model is recommended for display, false indicates that the model is explicitly not recommended, and null indicates that the status is not applicable, such as for non-Bailian models or unannotated models.
    */
   recommended?: boolean;
   /**
@@ -325,7 +325,7 @@ export class ListModelProviderLlmCodesResponseBodyDataLlmInfoList extends $dara.
 export class ListModelProviderLlmCodesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of LLM information.
+   * The LLM information list.
    */
   llmInfoList?: ListModelProviderLlmCodesResponseBodyDataLlmInfoList[];
   static names(): { [key: string]: string } {
@@ -355,7 +355,7 @@ export class ListModelProviderLlmCodesResponseBodyData extends $dara.Model {
 export class ListModelProviderLlmCodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The paginated data object that contains the list of LLM information.
+   * The paginated data object that contains a list of LLM information.
    */
   data?: ListModelProviderLlmCodesResponseBodyData;
   /**

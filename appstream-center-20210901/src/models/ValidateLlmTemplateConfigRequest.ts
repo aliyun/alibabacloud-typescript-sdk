@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ValidateLlmTemplateConfigRequest extends $dara.Model {
   /**
    * @remarks
+   * The JSON string of the LLM configuration to be validated.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ValidateLlmTemplateConfigRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
+   * The ID of the provider template.
+   * 
    * This parameter is required.
    * 
    * @example

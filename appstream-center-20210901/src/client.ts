@@ -540,9 +540,16 @@ export default class Client extends OpenApi {
    * Configures the model group for a resource group.
    * 
    * @remarks
-   * You can authorize a model group for the resources to which agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent belong in the Wuying Agent Management Center. The model group serves as the inference engine for agents in the resource group to execute tasks.
-   * If an agent runtime is configured with a model group and its resource group is also configured with a model group, the model group bound to the resource group takes effect. This means that the resource group settings take precedence over the agent runtime settings.
-   * Make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center before you call this operation.
+   * You can assign a model group to the resource group that contains agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. The assigned model group serves as the inference engine for agents within the resource group to execute tasks.
+   * If an agent runtime has a model group configured and its resource group also has a model group configured, the model group assigned to the resource group takes effect. The resource group settings take precedence over the agent runtime settings.
+   * **Before you begin**
+   * - The ResourceGroupId parameter in this operation specifically refers to the WUYING Enterprise Edition resource group ID, which starts with rg-. This resource group is managed by the WUYING Enterprise Edition management and control service. It must be created before you deploy agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent. You do not need to and cannot create it by using the API of this service. Although the account-level resource group ID in Alibaba Cloud Resource Manager also starts with rg-, it does not belong to WUYING resource groups and cannot be passed as this parameter.
+   * - Before you call this operation, obtain an existing WUYING resource group ID by using one of the following methods:
+   *   - Call the DescribeResourceGroups operation of WUYING Workspace eds-user (API version 2021-03-08). The ResourceGroup[].ResourceGroupId field in the response is the resource group ID required for this parameter. You can set the ResourceClassification request parameter to DesktopAgent and filter agent resource groups by AgentType (JVSClaw or HermesAgent). The AliyunResourceGroupId field in the response is the resource group ID of Alibaba Cloud Resource Manager and cannot be used in this operation.
+   *   - Call the GetRuntimeModelConfig operation of this service. The Data.ResourceGroupId field in the response is the WUYING resource group ID to which the specified agent runtime currently belongs. If the runtime does not belong to any resource group, this field is null.
+   *   - When you call the ListDesktopAgentRuntime operation of this service, you can use the ResourceGroupId request parameter to filter agent runtimes by resource group to confirm which runtimes are included in a specific resource group.
+   * - The ListModelTemplateResourceGroup operation returns only the resource groups that have been authorized for a specified model group. It cannot be used to discover resource groups that have not been authorized for any model group.
+   * Make sure that you are fully familiar with the operations and usage of the WUYING Agent Management Center before you use this operation.
    * 
    * @param request - ConfigResourceGroupModelTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -580,9 +587,16 @@ export default class Client extends OpenApi {
    * Configures the model group for a resource group.
    * 
    * @remarks
-   * You can authorize a model group for the resources to which agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent belong in the Wuying Agent Management Center. The model group serves as the inference engine for agents in the resource group to execute tasks.
-   * If an agent runtime is configured with a model group and its resource group is also configured with a model group, the model group bound to the resource group takes effect. This means that the resource group settings take precedence over the agent runtime settings.
-   * Make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center before you call this operation.
+   * You can assign a model group to the resource group that contains agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. The assigned model group serves as the inference engine for agents within the resource group to execute tasks.
+   * If an agent runtime has a model group configured and its resource group also has a model group configured, the model group assigned to the resource group takes effect. The resource group settings take precedence over the agent runtime settings.
+   * **Before you begin**
+   * - The ResourceGroupId parameter in this operation specifically refers to the WUYING Enterprise Edition resource group ID, which starts with rg-. This resource group is managed by the WUYING Enterprise Edition management and control service. It must be created before you deploy agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent. You do not need to and cannot create it by using the API of this service. Although the account-level resource group ID in Alibaba Cloud Resource Manager also starts with rg-, it does not belong to WUYING resource groups and cannot be passed as this parameter.
+   * - Before you call this operation, obtain an existing WUYING resource group ID by using one of the following methods:
+   *   - Call the DescribeResourceGroups operation of WUYING Workspace eds-user (API version 2021-03-08). The ResourceGroup[].ResourceGroupId field in the response is the resource group ID required for this parameter. You can set the ResourceClassification request parameter to DesktopAgent and filter agent resource groups by AgentType (JVSClaw or HermesAgent). The AliyunResourceGroupId field in the response is the resource group ID of Alibaba Cloud Resource Manager and cannot be used in this operation.
+   *   - Call the GetRuntimeModelConfig operation of this service. The Data.ResourceGroupId field in the response is the WUYING resource group ID to which the specified agent runtime currently belongs. If the runtime does not belong to any resource group, this field is null.
+   *   - When you call the ListDesktopAgentRuntime operation of this service, you can use the ResourceGroupId request parameter to filter agent runtimes by resource group to confirm which runtimes are included in a specific resource group.
+   * - The ListModelTemplateResourceGroup operation returns only the resource groups that have been authorized for a specified model group. It cannot be used to discover resource groups that have not been authorized for any model group.
+   * Make sure that you are fully familiar with the operations and usage of the WUYING Agent Management Center before you use this operation.
    * 
    * @param request - ConfigResourceGroupModelTemplateRequest
    * @returns ConfigResourceGroupModelTemplateResponse
@@ -1225,9 +1239,9 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Creates an export task and returns the task ID and initial status. The exported file is not returned synchronously.
-   * After the task is created, save the TaskId and call DescribeExportTasks to query the task status and progress. A polling interval of 5 to 10 seconds is recommended. When the status is FINISHED, use the DownloadUrl in the latest query result to download the XLSX file. When the status is FAILED, check the ErrorMsg and stop polling.
+   * After the task is created, save the TaskId and call DescribeExportTasks to query the task status and progress. We recommend a polling interval of 5 to 10 seconds. If the status is FINISHED, use the DownloadUrl in the latest query result to download the XLSX file. If the status is FAILED, check the ErrorMsg and stop polling.
    * The task is valid for 24 hours after creation. The download URL has an independent signature validity period of up to 1 hour, which does not exceed the remaining validity period of the task. Query the latest URL before downloading. You cannot obtain a valid download URL after the task expires.
-   * Exporting the WUYING server list only accepts the filter fields listed in QueryParamJson. Pagination is controlled by the server, and a single task can export up to 100,000 records. Exporting cloud browser bookmarks and the URL whitelist exports the complete list of the target delivery group, regardless of list search terms or the current page. The system verifies the delivery group ownership and product type before execution. Data is paginated during execution, and no consistent snapshot is provided. A successful creation does not guarantee that subsequent verification, querying, or file generation will succeed.
+   * The WUYING server list export only accepts the filter fields listed in QueryParamJson. Pagination is controlled by the server, and a single task can export up to 100,000 records. The cloud browser bookmarks and URL whitelist exports retrieve the complete list of the target delivery group, which is not affected by the list search terms or the current page. The ownership and product type of the delivery group are verified before execution. Data is read in pages during execution, and no consistent snapshot is provided. A successful creation does not guarantee that subsequent verification, query, or file generation will succeed.
    * 
    * @param request - CreateExportTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1270,9 +1284,9 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Creates an export task and returns the task ID and initial status. The exported file is not returned synchronously.
-   * After the task is created, save the TaskId and call DescribeExportTasks to query the task status and progress. A polling interval of 5 to 10 seconds is recommended. When the status is FINISHED, use the DownloadUrl in the latest query result to download the XLSX file. When the status is FAILED, check the ErrorMsg and stop polling.
+   * After the task is created, save the TaskId and call DescribeExportTasks to query the task status and progress. We recommend a polling interval of 5 to 10 seconds. If the status is FINISHED, use the DownloadUrl in the latest query result to download the XLSX file. If the status is FAILED, check the ErrorMsg and stop polling.
    * The task is valid for 24 hours after creation. The download URL has an independent signature validity period of up to 1 hour, which does not exceed the remaining validity period of the task. Query the latest URL before downloading. You cannot obtain a valid download URL after the task expires.
-   * Exporting the WUYING server list only accepts the filter fields listed in QueryParamJson. Pagination is controlled by the server, and a single task can export up to 100,000 records. Exporting cloud browser bookmarks and the URL whitelist exports the complete list of the target delivery group, regardless of list search terms or the current page. The system verifies the delivery group ownership and product type before execution. Data is paginated during execution, and no consistent snapshot is provided. A successful creation does not guarantee that subsequent verification, querying, or file generation will succeed.
+   * The WUYING server list export only accepts the filter fields listed in QueryParamJson. Pagination is controlled by the server, and a single task can export up to 100,000 records. The cloud browser bookmarks and URL whitelist exports retrieve the complete list of the target delivery group, which is not affected by the list search terms or the current page. The ownership and product type of the delivery group are verified before execution. Data is read in pages during execution, and no consistent snapshot is provided. A successful creation does not guarantee that subsequent verification, query, or file generation will succeed.
    * 
    * @param request - CreateExportTaskRequest
    * @returns CreateExportTaskResponse
@@ -2405,15 +2419,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution status, progress, and download URLs of export tasks by using paging.
+   * Queries the execution status, progress, and download URLs of export tasks by paging.
    * 
    * @remarks
-   * Calls this operation to use paging to query the export tasks under the current Alibaba Cloud account to obtain the task status, execution progress, export file names, and download URLs. Export tasks are created by calling CreateExportTask. This operation only reads task information and does not create, modify, or retry tasks.
+   * You can call this operation to query export tasks under the current Alibaba Cloud account by paging, and obtain the task status, execution progress, export file name, and download URL. Export tasks are created by calling CreateExportTask. This operation only reads task information and does not create, modify, or retry tasks.
    * The query results are returned in descending order of task creation time, with the most recently created tasks listed first. Only tasks in the INIT, RUNNING, FINISHED, and FAILED states are returned. Tasks marked as EXPIRED are not included in the results.
    * When polling a single task by TaskId, set PageNumber to 1 and PageSize to 1, set the polling interval to 5 to 10 seconds, and stop polling after the task enters the FINISHED or FAILED state.
-   * A task is valid for 24 hours after creation and is marked as expired by a background task after 25 hours. Therefore, within the 24- to 25-hour window, a FINISHED task may still be queried, but its DownloadUrl is empty. After a task is marked as expired, the query result is an empty array.
+   * A task is valid for 24 hours after creation and is marked as expired by a background task after 25 hours. Therefore, within the 24- to 25-hour window, you may still query a FINISHED task, but the DownloadUrl is empty. After a task is marked as expired, the query result is an empty array.
    * If the query result is an empty array, it may be because there are no visible tasks under the current account, the task type does not match, the page number is out of bounds, or the tasks have expired. This operation always returns an array structure and does not return an error when the query result is empty.
-   * DownloadUrl is an OSS pre-signed URL. The default maximum validity period is 1 hour and does not exceed the remaining validity period of the task. The server automatically refreshes the URL when it is about to expire. Use the URL returned by the most recent query for downloading and do not cache the initially returned URL for a long time.
+   * The DownloadUrl is an OSS pre-signed URL. The default maximum validity period is 1 hour and does not exceed the remaining validity period of the task. The server automatically refreshes the URL when it is about to expire. Use the URL returned by the most recent query for downloading and do not cache the initially returned URL for a long time.
    * 
    * @param request - DescribeExportTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2456,15 +2470,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution status, progress, and download URLs of export tasks by using paging.
+   * Queries the execution status, progress, and download URLs of export tasks by paging.
    * 
    * @remarks
-   * Calls this operation to use paging to query the export tasks under the current Alibaba Cloud account to obtain the task status, execution progress, export file names, and download URLs. Export tasks are created by calling CreateExportTask. This operation only reads task information and does not create, modify, or retry tasks.
+   * You can call this operation to query export tasks under the current Alibaba Cloud account by paging, and obtain the task status, execution progress, export file name, and download URL. Export tasks are created by calling CreateExportTask. This operation only reads task information and does not create, modify, or retry tasks.
    * The query results are returned in descending order of task creation time, with the most recently created tasks listed first. Only tasks in the INIT, RUNNING, FINISHED, and FAILED states are returned. Tasks marked as EXPIRED are not included in the results.
    * When polling a single task by TaskId, set PageNumber to 1 and PageSize to 1, set the polling interval to 5 to 10 seconds, and stop polling after the task enters the FINISHED or FAILED state.
-   * A task is valid for 24 hours after creation and is marked as expired by a background task after 25 hours. Therefore, within the 24- to 25-hour window, a FINISHED task may still be queried, but its DownloadUrl is empty. After a task is marked as expired, the query result is an empty array.
+   * A task is valid for 24 hours after creation and is marked as expired by a background task after 25 hours. Therefore, within the 24- to 25-hour window, you may still query a FINISHED task, but the DownloadUrl is empty. After a task is marked as expired, the query result is an empty array.
    * If the query result is an empty array, it may be because there are no visible tasks under the current account, the task type does not match, the page number is out of bounds, or the tasks have expired. This operation always returns an array structure and does not return an error when the query result is empty.
-   * DownloadUrl is an OSS pre-signed URL. The default maximum validity period is 1 hour and does not exceed the remaining validity period of the task. The server automatically refreshes the URL when it is about to expire. Use the URL returned by the most recent query for downloading and do not cache the initially returned URL for a long time.
+   * The DownloadUrl is an OSS pre-signed URL. The default maximum validity period is 1 hour and does not exceed the remaining validity period of the task. The server automatically refreshes the URL when it is about to expire. Use the URL returned by the most recent query for downloading and do not cache the initially returned URL for a long time.
    * 
    * @param request - DescribeExportTasksRequest
    * @returns DescribeExportTasksResponse
@@ -2563,7 +2577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics of runtimes of a specified type under the current Alibaba Cloud account, grouped by agent platform and agent provider, including the total number of runtimes, the number of runtimes without model configurations, the number of runtimes without channel configurations, the number of risky runtimes, and the number of expired runtimes.
+   * Queries the statistics of runtimes of a specified type under the current Alibaba Cloud account, grouped by agent platform and agent provider, including the total count, the count of runtimes without model configurations, the count of runtimes without channel configurations, the count of risky runtimes, and the count of expired runtimes.
    * 
    * @param request - GetAgentRuntimeStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2606,7 +2620,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the statistics of runtimes of a specified type under the current Alibaba Cloud account, grouped by agent platform and agent provider, including the total number of runtimes, the number of runtimes without model configurations, the number of runtimes without channel configurations, the number of risky runtimes, and the number of expired runtimes.
+   * Queries the statistics of runtimes of a specified type under the current Alibaba Cloud account, grouped by agent platform and agent provider, including the total count, the count of runtimes without model configurations, the count of runtimes without channel configurations, the count of risky runtimes, and the count of expired runtimes.
    * 
    * @param request - GetAgentRuntimeStatisticRequest
    * @returns GetAgentRuntimeStatisticResponse
@@ -3056,6 +3070,86 @@ export default class Client extends OpenApi {
   async getModelProviderTemplate(request: $_model.GetModelProviderTemplateRequest): Promise<$_model.GetModelProviderTemplateResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getModelProviderTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the authentication credentials, access endpoints, and topic list required for a client to establish an MQTT connection.
+   * 
+   * @remarks
+   * Call this operation to retrieve the credentials and connection information required for a client to establish an MQTT connection.
+   * 1. Use `MqttUsername` and `MqttPassword` as the username and password for the MQTT client connection.
+   * 2. Use `MqttEndpoint` as the connection endpoint. If the VPC network access requirements are met, you can use `MqttVPCEndpoint`. `MqttInstanceId` is used for token authentication, and `MqttGroupId` is used to concatenate the MQTT ClientId.
+   * 3. Distinguish between publish and subscribe topics based on the `topic`, `type`, and `permission` of each item in `TopicList`. `W` indicates the publish permission, and `R` indicates the subscribe permission.
+   * 4. `ExpireTimeStamp` is the UNIX timestamp in milliseconds when the password expires. Credentials may be reused. Retrieve new credentials based on the expiration time returned by the operation.
+   * The device identity and request IDs in the documentation are demo data. The domain name uses the `example.com` sample domain. Credentials and instance identity are exemplified or desensitized. These examples cannot be used directly for actual connections.
+   * 
+   * @param tmpReq - GetMqttTicketRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMqttTicketResponse
+   */
+  async getMqttTicketWithOptions(tmpReq: $_model.GetMqttTicketRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMqttTicketResponse> {
+    tmpReq.validate();
+    let request = new $_model.GetMqttTicketShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.properties)) {
+      request.propertiesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.properties, "Properties", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientOS)) {
+      body["ClientOS"] = request.clientOS;
+    }
+
+    if (!$dara.isNull(request.clientType)) {
+      body["ClientType"] = request.clientType;
+    }
+
+    if (!$dara.isNull(request.clientVersion)) {
+      body["ClientVersion"] = request.clientVersion;
+    }
+
+    if (!$dara.isNull(request.propertiesShrink)) {
+      body["Properties"] = request.propertiesShrink;
+    }
+
+    if (!$dara.isNull(request.uuid)) {
+      body["Uuid"] = request.uuid;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMqttTicket",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMqttTicketResponse>(await this.callApi(params, req, runtime), new $_model.GetMqttTicketResponse({}));
+  }
+
+  /**
+   * Retrieves the authentication credentials, access endpoints, and topic list required for a client to establish an MQTT connection.
+   * 
+   * @remarks
+   * Call this operation to retrieve the credentials and connection information required for a client to establish an MQTT connection.
+   * 1. Use `MqttUsername` and `MqttPassword` as the username and password for the MQTT client connection.
+   * 2. Use `MqttEndpoint` as the connection endpoint. If the VPC network access requirements are met, you can use `MqttVPCEndpoint`. `MqttInstanceId` is used for token authentication, and `MqttGroupId` is used to concatenate the MQTT ClientId.
+   * 3. Distinguish between publish and subscribe topics based on the `topic`, `type`, and `permission` of each item in `TopicList`. `W` indicates the publish permission, and `R` indicates the subscribe permission.
+   * 4. `ExpireTimeStamp` is the UNIX timestamp in milliseconds when the password expires. Credentials may be reused. Retrieve new credentials based on the expiration time returned by the operation.
+   * The device identity and request IDs in the documentation are demo data. The domain name uses the `example.com` sample domain. Credentials and instance identity are exemplified or desensitized. These examples cannot be used directly for actual connections.
+   * 
+   * @param request - GetMqttTicketRequest
+   * @returns GetMqttTicketResponse
+   */
+  async getMqttTicket(request: $_model.GetMqttTicketRequest): Promise<$_model.GetMqttTicketResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMqttTicketWithOptions(request, runtime);
   }
 
   /**
@@ -3653,7 +3747,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Agent实例版本列表
+   * Queries a deduplicated list of version numbers for undeleted agent instances under a specified tenant, aggregated by agent provider and optionally filtered by agent platform. The results are returned in ascending order by version number.
    * 
    * @param request - ListAgentInstanceVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3688,7 +3782,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询Agent实例版本列表
+   * Queries a deduplicated list of version numbers for undeleted agent instances under a specified tenant, aggregated by agent provider and optionally filtered by agent platform. The results are returned in ascending order by version number.
    * 
    * @param request - ListAgentInstanceVersionsRequest
    * @returns ListAgentInstanceVersionsResponse
@@ -4677,7 +4771,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询浏览器书签列表
+   * Performs a paging query to retrieve the list of bookmarks in a specified cloud browser group or delivery group set.
    * 
    * @param request - ListBrowserBookmarksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4724,7 +4818,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询浏览器书签列表
+   * Performs a paging query to retrieve the list of bookmarks in a specified cloud browser group or delivery group set.
    * 
    * @param request - ListBrowserBookmarksRequest
    * @returns ListBrowserBookmarksResponse
@@ -4854,12 +4948,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询浏览器白名单列表
+   * Queries the list of access restriction URLs configured for a specified browser delivery group or delivery group set by using paging.
    * 
    * @remarks
-   * 调用本接口分页查询云浏览器交付组或交付组集合下配置的访问限制 URL（Restricted URL）列表，用于查看当前访问控制策略中已配置的 URL 明细。
-   * BrowserInstanceGroupId 与 BrowserInstanceGroupSetId 必须且只能指定一个：指定 BrowserInstanceGroupId 时查询该交付组的访问限制 URL；指定 BrowserInstanceGroupSetId 时查询该交付组集合的访问限制 URL。两者同时指定或同时不指定都会返回参数错误。
-   * 可通过 Keyword 对访问限制 URL 做包含匹配筛选（英文不区分大小写），不传时返回全部。分页由 PageNumber 和 PageSize 控制：PageSize 取值范围 1~200，默认 200；PageNumber 默认 0，传入值小于 1 时按第 1 页处理。响应中的 TotalCount 为满足筛选条件的总记录数，Data 为当前页记录，没有数据时返回空数组。
+   * You can call this operation to query the list of access restriction URLs configured for a cloud browser delivery group or delivery group set by using paging to view the details of the URLs configured in the current access control policy.
+   * You must specify either BrowserInstanceGroupId or BrowserInstanceGroupSetId, but not both. If you specify BrowserInstanceGroupId, the restricted URLs for the delivery group are queried. If you specify BrowserInstanceGroupSetId, the restricted URLs for the delivery group set are queried. Specifying both or neither returns a parameter error.
+   * You can use Keyword to filter restricted URLs by using a contains match. The match is case-insensitive for English characters. If you do not specify this parameter, all restricted URLs are returned. Pagination is controlled by PageNumber and PageSize. Valid values for PageSize: 1 to 200. Default value: 200. Default value for PageNumber: 0. If the value is less than 1, the first page is returned. In the response, TotalCount indicates the total number of records that meet the filter conditions, and Data contains the records on the current page. If no data is found, an empty array is returned.
    * 
    * @param request - ListBrowserRestrictedURLsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4906,12 +5000,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 分页查询浏览器白名单列表
+   * Queries the list of access restriction URLs configured for a specified browser delivery group or delivery group set by using paging.
    * 
    * @remarks
-   * 调用本接口分页查询云浏览器交付组或交付组集合下配置的访问限制 URL（Restricted URL）列表，用于查看当前访问控制策略中已配置的 URL 明细。
-   * BrowserInstanceGroupId 与 BrowserInstanceGroupSetId 必须且只能指定一个：指定 BrowserInstanceGroupId 时查询该交付组的访问限制 URL；指定 BrowserInstanceGroupSetId 时查询该交付组集合的访问限制 URL。两者同时指定或同时不指定都会返回参数错误。
-   * 可通过 Keyword 对访问限制 URL 做包含匹配筛选（英文不区分大小写），不传时返回全部。分页由 PageNumber 和 PageSize 控制：PageSize 取值范围 1~200，默认 200；PageNumber 默认 0，传入值小于 1 时按第 1 页处理。响应中的 TotalCount 为满足筛选条件的总记录数，Data 为当前页记录，没有数据时返回空数组。
+   * You can call this operation to query the list of access restriction URLs configured for a cloud browser delivery group or delivery group set by using paging to view the details of the URLs configured in the current access control policy.
+   * You must specify either BrowserInstanceGroupId or BrowserInstanceGroupSetId, but not both. If you specify BrowserInstanceGroupId, the restricted URLs for the delivery group are queried. If you specify BrowserInstanceGroupSetId, the restricted URLs for the delivery group set are queried. Specifying both or neither returns a parameter error.
+   * You can use Keyword to filter restricted URLs by using a contains match. The match is case-insensitive for English characters. If you do not specify this parameter, all restricted URLs are returned. Pagination is controlled by PageNumber and PageSize. Valid values for PageSize: 1 to 200. Default value: 200. Default value for PageNumber: 0. If the value is less than 1, the first page is returned. In the response, TotalCount indicates the total number of records that meet the filter conditions, and Data contains the records on the current page. If no data is found, an empty array is returned.
    * 
    * @param request - ListBrowserRestrictedURLsRequest
    * @returns ListBrowserRestrictedURLsResponse
@@ -5338,7 +5432,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of available large language model (LLM) codes for a specified model provider. Supports filtering by LLM code, model brand, recommendation level, and recommendation status, and returns model information such as the model name, description, release time, features, inference modality, pricing, credit multiplier, and risk type.
+   * Queries the list of available LLM model codes for a specified model provider. It supports filtering by LLM code, model brand, recommendation level, and recommendation status, and returns model information such as the model name, description, release time, features, inference modality, pricing, credit multiplier, and risk type.
    * 
    * @param request - ListModelProviderLlmCodesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5401,7 +5495,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of available large language model (LLM) codes for a specified model provider. Supports filtering by LLM code, model brand, recommendation level, and recommendation status, and returns model information such as the model name, description, release time, features, inference modality, pricing, credit multiplier, and risk type.
+   * Queries the list of available LLM model codes for a specified model provider. It supports filtering by LLM code, model brand, recommendation level, and recommendation status, and returns model information such as the model name, description, release time, features, inference modality, pricing, credit multiplier, and risk type.
    * 
    * @param request - ListModelProviderLlmCodesRequest
    * @returns ListModelProviderLlmCodesResponse
@@ -7975,13 +8069,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 离线每天会话趋势图
+   * Queries the trend of session counts at various time points on a specified date, returned in 10-minute intervals.
    * 
    * @remarks
-   * 调用本接口查询当前阿里云账号在指定日期的会话数量趋势数据。数据为离线统计结果，按天组织，返回该日期内各时间点的会话数量。
-   * 返回结果按 10 分钟粒度聚合：每条数据由小时（Hh，取值 00-23）和分钟（Mi，取值 00、10、20、30、40、50）标识一个时间点，SessionCntMi 为该时间点所在 10 分钟区间内的会话数量汇总值。结果按小时、分钟升序排列。
-   * 可通过 BizRegionId 指定业务地域、通过 AppInstanceGroupId 指定交付组进行过滤；两者均不传时，返回当前账号下所有地域、所有交付组的会话数据汇总。实际用于过滤会话数据的地域以 BizRegionId 为准。
-   * StatDate 为统计日期，格式 yyyyMMdd，不传时默认查询昨天，仅支持查询最近 90 天内的日期。当指定日期没有会话数据时返回空列表，且返回码为 NO_DATA。
+   * Call this operation to query the session count trend data for the current Alibaba Cloud account on a specified date. The data is an offline statistical result, organized by day, and returns the session counts at various time points on that date.
+   * The returned results are aggregated in 10-minute intervals. Each data point is identified by an hour (Hh, values 00 to 23) and a minute (Mi, values 00, 10, 20, 30, 40, 50) representing a specific time point. SessionCntMi is the total number of sessions within the 10-minute interval of that time point. The results are sorted in ascending order by hour and minute.
+   * You can specify a business region by using BizRegionId and filter by delivery group by using AppInstanceGroupId. If neither is provided, the summary of session data for all regions and all delivery groups under the current account is returned. The actual region used to filter session data is subject to BizRegionId.
+   * StatDate is the statistical date in the yyyyMMdd format. If not provided, the data for yesterday is queried by default. Only dates within the last 90 days are supported. If there is no session data on the specified date, an empty list is returned, and the return code is NO_DATA.
    * 
    * @param request - QuerySessionDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8024,13 +8118,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 离线每天会话趋势图
+   * Queries the trend of session counts at various time points on a specified date, returned in 10-minute intervals.
    * 
    * @remarks
-   * 调用本接口查询当前阿里云账号在指定日期的会话数量趋势数据。数据为离线统计结果，按天组织，返回该日期内各时间点的会话数量。
-   * 返回结果按 10 分钟粒度聚合：每条数据由小时（Hh，取值 00-23）和分钟（Mi，取值 00、10、20、30、40、50）标识一个时间点，SessionCntMi 为该时间点所在 10 分钟区间内的会话数量汇总值。结果按小时、分钟升序排列。
-   * 可通过 BizRegionId 指定业务地域、通过 AppInstanceGroupId 指定交付组进行过滤；两者均不传时，返回当前账号下所有地域、所有交付组的会话数据汇总。实际用于过滤会话数据的地域以 BizRegionId 为准。
-   * StatDate 为统计日期，格式 yyyyMMdd，不传时默认查询昨天，仅支持查询最近 90 天内的日期。当指定日期没有会话数据时返回空列表，且返回码为 NO_DATA。
+   * Call this operation to query the session count trend data for the current Alibaba Cloud account on a specified date. The data is an offline statistical result, organized by day, and returns the session counts at various time points on that date.
+   * The returned results are aggregated in 10-minute intervals. Each data point is identified by an hour (Hh, values 00 to 23) and a minute (Mi, values 00, 10, 20, 30, 40, 50) representing a specific time point. SessionCntMi is the total number of sessions within the 10-minute interval of that time point. The results are sorted in ascending order by hour and minute.
+   * You can specify a business region by using BizRegionId and filter by delivery group by using AppInstanceGroupId. If neither is provided, the summary of session data for all regions and all delivery groups under the current account is returned. The actual region used to filter session data is subject to BizRegionId.
+   * StatDate is the statistical date in the yyyyMMdd format. If not provided, the data for yesterday is queried by default. Only dates within the last 90 days are supported. If there is no session data on the specified date, an empty list is returned, and the return code is NO_DATA.
    * 
    * @param request - QuerySessionDataRequest
    * @returns QuerySessionDataResponse
@@ -9825,7 +9919,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 校验LLM模板配置有效性
+   * Validates the LLM template configuration.
    * 
    * @param request - ValidateLlmTemplateConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9860,7 +9954,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 校验LLM模板配置有效性
+   * Validates the LLM template configuration.
    * 
    * @param request - ValidateLlmTemplateConfigRequest
    * @returns ValidateLlmTemplateConfigResponse

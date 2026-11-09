@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListBrowserBookmarksResponseBodyData extends $dara.Model {
   /**
+   * @remarks
+   * The bookmark folder.
+   * 
    * @example
-   * 工作
+   * Work
    */
   bookmarkFolder?: string;
   /**
+   * @remarks
+   * The bookmark ID.
+   * 
    * @example
    * bm-0c7loey7fzjq****
    */
   bookmarkId?: string;
   /**
+   * @remarks
+   * The bookmark name.
+   * 
    * @example
-   * 阿里云
+   * Alibaba Cloud
    */
   bookmarkName?: string;
   /**
+   * @remarks
+   * The bookmark URL.
+   * 
    * @example
    * https://www.aliyun.com
    */
@@ -51,23 +63,39 @@ export class ListBrowserBookmarksResponseBodyData extends $dara.Model {
 }
 
 export class ListBrowserBookmarksResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of bookmarks on the current page.
+   */
   data?: ListBrowserBookmarksResponseBodyData[];
   /**
+   * @remarks
+   * The current page number.
+   * 
    * @example
    * 1
    */
   pageNumber?: number;
   /**
+   * @remarks
+   * The number of entries returned per page.
+   * 
    * @example
    * 20
    */
   pageSize?: number;
   /**
+   * @remarks
+   * The request ID, which is used to troubleshoot issues.
+   * 
    * @example
    * 01A0C2ED-95F2-1A37-9FC6-4A395179****
    */
   requestId?: string;
   /**
+   * @remarks
+   * The total number of bookmarks that meet the filtering conditions.
+   * 
    * @example
    * 5
    */

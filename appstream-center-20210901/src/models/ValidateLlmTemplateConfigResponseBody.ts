@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ValidateLlmTemplateConfigResponseBodyDataValidationErrors extends $dara.Model {
   /**
+   * @remarks
+   * The error code, such as MISSING_FIELD, UNKNOWN_FIELD, INVALID_TYPE, or INVALID_JSON.
+   * 
    * @example
    * UNKNOWN_FIELD
    */
   code?: string;
   /**
+   * @remarks
+   * The name of the field where the error occurred, such as id, name, or contextWindow.
+   * 
    * @example
    * unknownField
    */
   field?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Unknown field "unknownField" is not recognized by Agent and will be ignored.
    */
@@ -44,7 +53,15 @@ export class ValidateLlmTemplateConfigResponseBodyDataValidationErrors extends $
 }
 
 export class ValidateLlmTemplateConfigResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the configuration is valid. The value is true if all validation items pass.
+   */
   valid?: boolean;
+  /**
+   * @remarks
+   * The list of validation errors. This list is empty if Valid is true.
+   */
   validationErrors?: ValidateLlmTemplateConfigResponseBodyDataValidationErrors[];
   static names(): { [key: string]: string } {
     return {
@@ -73,8 +90,15 @@ export class ValidateLlmTemplateConfigResponseBodyData extends $dara.Model {
 }
 
 export class ValidateLlmTemplateConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The validation result of the LLM template configuration, which includes whether the configuration is valid and a list of validation errors.
+   */
   data?: ValidateLlmTemplateConfigResponseBodyData;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
