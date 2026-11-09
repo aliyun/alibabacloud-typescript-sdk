@@ -172,6 +172,27 @@ export default class Client extends OpenApi {
      */
     describeGroups(request: $_model.DescribeGroupsRequest): Promise<$_model.DescribeGroupsResponse>;
     /**
+     * Queries the renewal methods.
+     *
+     * @remarks
+     * Filters instances by resource type, instance, and region, and uses paging to query the auto-renewal status.
+     *
+     * @param request - DescribeInstanceAutoRenewalAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstanceAutoRenewalAttributeResponse
+     */
+    describeInstanceAutoRenewalAttributeWithOptions(request: $_model.DescribeInstanceAutoRenewalAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceAutoRenewalAttributeResponse>;
+    /**
+     * Queries the renewal methods.
+     *
+     * @remarks
+     * Filters instances by resource type, instance, and region, and uses paging to query the auto-renewal status.
+     *
+     * @param request - DescribeInstanceAutoRenewalAttributeRequest
+     * @returns DescribeInstanceAutoRenewalAttributeResponse
+     */
+    describeInstanceAutoRenewalAttribute(request: $_model.DescribeInstanceAutoRenewalAttributeRequest): Promise<$_model.DescribeInstanceAutoRenewalAttributeResponse>;
+    /**
      * Queries the prices of Elastic Desktop Service products for order types such as new purchases, renewals, configuration changes, and unsubscriptions.
      *
      * @remarks

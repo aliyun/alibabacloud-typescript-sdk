@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "wss";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("wss", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -446,6 +450,86 @@ export default class Client extends OpenApi {
   async describeGroups(request: $_model.DescribeGroupsRequest): Promise<$_model.DescribeGroupsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeGroupsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the renewal methods.
+   * 
+   * @remarks
+   * Filters instances by resource type, instance, and region, and uses paging to query the auto-renewal status.
+   * 
+   * @param request - DescribeInstanceAutoRenewalAttributeRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInstanceAutoRenewalAttributeResponse
+   */
+  async describeInstanceAutoRenewalAttributeWithOptions(request: $_model.DescribeInstanceAutoRenewalAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInstanceAutoRenewalAttributeResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.autoRenewal)) {
+      query["AutoRenewal"] = request.autoRenewal;
+    }
+
+    if (!$dara.isNull(request.instanceIdList)) {
+      query["InstanceIdList"] = request.instanceIdList;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceType)) {
+      query["ResourceType"] = request.resourceType;
+    }
+
+    if (!$dara.isNull(request.resourceTypeList)) {
+      query["ResourceTypeList"] = request.resourceTypeList;
+    }
+
+    if (!$dara.isNull(request.searchRegionId)) {
+      query["SearchRegionId"] = request.searchRegionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInstanceAutoRenewalAttribute",
+      version: "2021-12-21",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInstanceAutoRenewalAttributeResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInstanceAutoRenewalAttributeResponse({}));
+  }
+
+  /**
+   * Queries the renewal methods.
+   * 
+   * @remarks
+   * Filters instances by resource type, instance, and region, and uses paging to query the auto-renewal status.
+   * 
+   * @param request - DescribeInstanceAutoRenewalAttributeRequest
+   * @returns DescribeInstanceAutoRenewalAttributeResponse
+   */
+  async describeInstanceAutoRenewalAttribute(request: $_model.DescribeInstanceAutoRenewalAttributeRequest): Promise<$_model.DescribeInstanceAutoRenewalAttributeResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeInstanceAutoRenewalAttributeWithOptions(request, runtime);
   }
 
   /**

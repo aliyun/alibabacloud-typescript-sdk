@@ -31,6 +31,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
+const gateway_pop_1 = __importDefault(require("@alicloud/gateway-pop"));
 const openapi_core_1 = __importDefault(require("@alicloud/openapi-core"));
 const openapi_core_2 = require("@alicloud/openapi-core");
 const $_model = __importStar(require("./models/model"));
@@ -38,6 +39,9 @@ __exportStar(require("./models/model"), exports);
 class Client extends openapi_core_1.default {
     constructor(config) {
         super(config);
+        this._productId = "wss";
+        let gatewayClient = new gateway_pop_1.default();
+        this._spi = gatewayClient;
         this._endpointRule = "regional";
         this.checkConfig(config);
         this._endpoint = this.getEndpoint("wss", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -427,6 +431,75 @@ class Client extends openapi_core_1.default {
     async describeGroups(request) {
         let runtime = new $dara.RuntimeOptions({});
         return await this.describeGroupsWithOptions(request, runtime);
+    }
+    /**
+     * Queries the renewal methods.
+     *
+     * @remarks
+     * Filters instances by resource type, instance, and region, and uses paging to query the auto-renewal status.
+     *
+     * @param request - DescribeInstanceAutoRenewalAttributeRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeInstanceAutoRenewalAttributeResponse
+     */
+    async describeInstanceAutoRenewalAttributeWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.autoRenewal)) {
+            query["AutoRenewal"] = request.autoRenewal;
+        }
+        if (!$dara.isNull(request.instanceIdList)) {
+            query["InstanceIdList"] = request.instanceIdList;
+        }
+        if (!$dara.isNull(request.maxResults)) {
+            query["MaxResults"] = request.maxResults;
+        }
+        if (!$dara.isNull(request.nextToken)) {
+            query["NextToken"] = request.nextToken;
+        }
+        if (!$dara.isNull(request.pageNo)) {
+            query["PageNo"] = request.pageNo;
+        }
+        if (!$dara.isNull(request.pageSize)) {
+            query["PageSize"] = request.pageSize;
+        }
+        if (!$dara.isNull(request.resourceType)) {
+            query["ResourceType"] = request.resourceType;
+        }
+        if (!$dara.isNull(request.resourceTypeList)) {
+            query["ResourceTypeList"] = request.resourceTypeList;
+        }
+        if (!$dara.isNull(request.searchRegionId)) {
+            query["SearchRegionId"] = request.searchRegionId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeInstanceAutoRenewalAttribute",
+            version: "2021-12-21",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeInstanceAutoRenewalAttributeResponse({}));
+    }
+    /**
+     * Queries the renewal methods.
+     *
+     * @remarks
+     * Filters instances by resource type, instance, and region, and uses paging to query the auto-renewal status.
+     *
+     * @param request - DescribeInstanceAutoRenewalAttributeRequest
+     * @returns DescribeInstanceAutoRenewalAttributeResponse
+     */
+    async describeInstanceAutoRenewalAttribute(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeInstanceAutoRenewalAttributeWithOptions(request, runtime);
     }
     /**
      * Queries the prices of Elastic Desktop Service products for order types such as new purchases, renewals, configuration changes, and unsubscriptions.

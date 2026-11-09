@@ -20,6 +20,7 @@ export { DescribeDeliveryAddressResponseBodyAddresses } from './DescribeDelivery
 export { DescribeGroupsResponseBodyGroupsInstancesUsageAlertRule } from './DescribeGroupsResponseBody';
 export { DescribeGroupsResponseBodyGroupsInstances } from './DescribeGroupsResponseBody';
 export { DescribeGroupsResponseBodyGroups } from './DescribeGroupsResponseBody';
+export { DescribeInstanceAutoRenewalAttributeResponseBodyInstanceAttribute } from './DescribeInstanceAutoRenewalAttributeResponseBody';
 export { DescribeMultiPriceRequestOrderItemsComponents } from './DescribeMultiPriceRequest';
 export { DescribeMultiPriceRequestOrderItems } from './DescribeMultiPriceRequest';
 export { DescribeMultiPriceResponseBodyPriceInfoPricePriceDetailsModuleDetails } from './DescribeMultiPriceResponseBody';
@@ -50,6 +51,9 @@ export { DescribeDeliveryAddressResponse } from './DescribeDeliveryAddressRespon
 export { DescribeGroupsRequest } from './DescribeGroupsRequest';
 export { DescribeGroupsResponseBody } from './DescribeGroupsResponseBody';
 export { DescribeGroupsResponse } from './DescribeGroupsResponse';
+export { DescribeInstanceAutoRenewalAttributeRequest } from './DescribeInstanceAutoRenewalAttributeRequest';
+export { DescribeInstanceAutoRenewalAttributeResponseBody } from './DescribeInstanceAutoRenewalAttributeResponseBody';
+export { DescribeInstanceAutoRenewalAttributeResponse } from './DescribeInstanceAutoRenewalAttributeResponse';
 export { DescribeMultiPriceRequest } from './DescribeMultiPriceRequest';
 export { DescribeMultiPriceResponseBody } from './DescribeMultiPriceResponseBody';
 export { DescribeMultiPriceResponse } from './DescribeMultiPriceResponse';
