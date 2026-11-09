@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "Yike";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("yike", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -87,6 +91,48 @@ export default class Client extends OpenApi {
   async batchGetMedias(request: $_model.BatchGetMediasRequest): Promise<$_model.BatchGetMediasResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.batchGetMediasWithOptions(request, runtime);
+  }
+
+  /**
+   * Cancels an AI generation task.
+   * 
+   * @param request - CancelGenerationJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CancelGenerationJobResponse
+   */
+  async cancelGenerationJobWithOptions(request: $_model.CancelGenerationJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CancelGenerationJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CancelGenerationJob",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CancelGenerationJobResponse>(await this.callApi(params, req, runtime), new $_model.CancelGenerationJobResponse({}));
+  }
+
+  /**
+   * Cancels an AI generation task.
+   * 
+   * @param request - CancelGenerationJobRequest
+   * @returns CancelGenerationJobResponse
+   */
+  async cancelGenerationJob(request: $_model.CancelGenerationJobRequest): Promise<$_model.CancelGenerationJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.cancelGenerationJobWithOptions(request, runtime);
   }
 
   /**
@@ -432,6 +478,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries an agent asynchronous task.
+   * 
+   * @param request - GetAgentJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAgentJobResponse
+   */
+  async getAgentJobWithOptions(request: $_model.GetAgentJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAgentJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAgentJob",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAgentJobResponse>(await this.callApi(params, req, runtime), new $_model.GetAgentJobResponse({}));
+  }
+
+  /**
+   * Queries an agent asynchronous task.
+   * 
+   * @param request - GetAgentJobRequest
+   * @returns GetAgentJobResponse
+   */
+  async getAgentJob(request: $_model.GetAgentJobRequest): Promise<$_model.GetAgentJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getAgentJobWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the information of a specified category and the list of its subcategories (immediate child categories).
    * 
    * @param request - GetAssetCategoryRequest
@@ -628,11 +716,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a media asset content understanding job.
+   * Queries media content understanding jobs.
    * 
    * @remarks
-   * ## Description
-   * This API is used to query a media asset content understanding job.
+   * ## Request description
+   * This API operation queries media content understanding jobs.
    * 
    * @param request - GetMediaComprehensionJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -663,11 +751,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a media asset content understanding job.
+   * Queries media content understanding jobs.
    * 
    * @remarks
-   * ## Description
-   * This API is used to query a media asset content understanding job.
+   * ## Request description
+   * This API operation queries media content understanding jobs.
    * 
    * @param request - GetMediaComprehensionJobRequest
    * @returns GetMediaComprehensionJobResponse
@@ -720,6 +808,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a video creative generation job.
+   * 
+   * @param request - GetVideoCreativeGenerationJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoCreativeGenerationJobResponse
+   */
+  async getVideoCreativeGenerationJobWithOptions(request: $_model.GetVideoCreativeGenerationJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetVideoCreativeGenerationJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVideoCreativeGenerationJob",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVideoCreativeGenerationJobResponse>(await this.callApi(params, req, runtime), new $_model.GetVideoCreativeGenerationJobResponse({}));
+  }
+
+  /**
+   * Queries a video creative generation job.
+   * 
+   * @param request - GetVideoCreativeGenerationJobRequest
+   * @returns GetVideoCreativeGenerationJobResponse
+   */
+  async getVideoCreativeGenerationJob(request: $_model.GetVideoCreativeGenerationJobRequest): Promise<$_model.GetVideoCreativeGenerationJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getVideoCreativeGenerationJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the status, input parameters, and video result of a video text erasure task.
+   * 
+   * @remarks
+   * Queries the status, input, parameters, and desired state result of a video text erasure task based on `JobId`.
+   * 
+   * @param request - GetVideoDetextJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoDetextJobResponse
+   */
+  async getVideoDetextJobWithOptions(request: $_model.GetVideoDetextJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetVideoDetextJobResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.jobId)) {
+      body["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVideoDetextJob",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVideoDetextJobResponse>(await this.callApi(params, req, runtime), new $_model.GetVideoDetextJobResponse({}));
+  }
+
+  /**
+   * Queries the status, input parameters, and video result of a video text erasure task.
+   * 
+   * @remarks
+   * Queries the status, input, parameters, and desired state result of a video text erasure task based on `JobId`.
+   * 
+   * @param request - GetVideoDetextJobRequest
+   * @returns GetVideoDetextJobResponse
+   */
+  async getVideoDetextJob(request: $_model.GetVideoDetextJobRequest): Promise<$_model.GetVideoDetextJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getVideoDetextJobWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a video generation task.
    * 
    * @param request - GetVideoGenerationJobRequest
@@ -766,7 +944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a video rendering and composition task.
+   * Submits a video rendering and compositing task.
    * 
    * @param request - GetVideoRenderJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -797,7 +975,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a video rendering and composition task.
+   * Submits a video rendering and compositing task.
    * 
    * @param request - GetVideoRenderJobRequest
    * @returns GetVideoRenderJobResponse
@@ -811,7 +989,7 @@ export default class Client extends OpenApi {
    * Queries the status, input parameters, and multilingual outputs of a video translation job.
    * 
    * @remarks
-   * Queries the status, input, parameters, and desired state results of a video translation job based on the `JobId`.
+   * Queries the status, input, parameters, and final results of a video translation job by `JobId`.
    * 
    * @param request - GetVideoTranslationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -845,7 +1023,7 @@ export default class Client extends OpenApi {
    * Queries the status, input parameters, and multilingual outputs of a video translation job.
    * 
    * @remarks
-   * Queries the status, input, parameters, and desired state results of a video translation job based on the `JobId`.
+   * Queries the status, input, parameters, and final results of a video translation job by `JobId`.
    * 
    * @param request - GetVideoTranslationJobRequest
    * @returns GetVideoTranslationJobResponse
@@ -1088,8 +1266,8 @@ export default class Client extends OpenApi {
    * Queries the list of infinite canvases.
    * 
    * @remarks
-   * ## Operation description
-   * This API is used to query media asset content understanding jobs.
+   * ## Request description
+   * This API operation queries media asset content understanding jobs.
    * 
    * @param request - ListInfiniteCanvasesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1147,8 +1325,8 @@ export default class Client extends OpenApi {
    * Queries the list of infinite canvases.
    * 
    * @remarks
-   * ## Operation description
-   * This API is used to query media asset content understanding jobs.
+   * ## Request description
+   * This API operation queries media asset content understanding jobs.
    * 
    * @param request - ListInfiniteCanvasesRequest
    * @returns ListInfiniteCanvasesResponse
@@ -1159,7 +1337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns media asset information that matches the specified filter conditions.
+   * Queries media assets that match the specified parameters.
    * 
    * @param request - SearchMediaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1214,7 +1392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns media asset information that matches the specified filter conditions.
+   * Queries media assets that match the specified parameters.
    * 
    * @param request - SearchMediaRequest
    * @returns SearchMediaResponse
@@ -1225,7 +1403,69 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an image generation task.
+   * Submits an agent asynchronous node.
+   * 
+   * @param request - SubmitAgentJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitAgentJobResponse
+   */
+  async submitAgentJobWithOptions(request: $_model.SubmitAgentJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitAgentJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.model)) {
+      query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.notifyUrl)) {
+      query["NotifyUrl"] = request.notifyUrl;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      query["Prompt"] = request.prompt;
+    }
+
+    if (!$dara.isNull(request.skill)) {
+      query["Skill"] = request.skill;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitAgentJob",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitAgentJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitAgentJobResponse({}));
+  }
+
+  /**
+   * Submits an agent asynchronous node.
+   * 
+   * @param request - SubmitAgentJobRequest
+   * @returns SubmitAgentJobResponse
+   */
+  async submitAgentJob(request: $_model.SubmitAgentJobRequest): Promise<$_model.SubmitAgentJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitAgentJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Submits an image generation request.
    * 
    * @param request - SubmitImageGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1292,7 +1532,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an image generation task.
+   * Submits an image generation request.
    * 
    * @param request - SubmitImageGenerationJobRequest
    * @returns SubmitImageGenerationJobResponse
@@ -1306,8 +1546,8 @@ export default class Client extends OpenApi {
    * Submits a media asset content understanding job.
    * 
    * @remarks
-   * ## Operation description
-   * This API operation performs content understanding based on the provided media asset files (such as video URLs). You can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+   * ## Request description
+   * This operation performs content understanding based on the provided media asset files, such as video URLs. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
    * 
    * @param request - SubmitMediaComprehensionJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1353,8 +1593,8 @@ export default class Client extends OpenApi {
    * Submits a media asset content understanding job.
    * 
    * @remarks
-   * ## Operation description
-   * This API operation performs content understanding based on the provided media asset files (such as video URLs). You can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
+   * ## Request description
+   * This operation performs content understanding based on the provided media asset files, such as video URLs. Additionally, you can pass custom parameters through the `UserData` field, which are returned as-is in the callback.
    * 
    * @param request - SubmitMediaComprehensionJobRequest
    * @returns SubmitMediaComprehensionJobResponse
@@ -1368,7 +1608,7 @@ export default class Client extends OpenApi {
    * Submits a creative script generation task.
    * 
    * @remarks
-   * This API generates a new voiceover script based on content comprehension results and new product/model information by imitating the style of the original script. You can pass custom parameters through the UserData field, which are returned as-is in the callback.
+   * This operation generates a new voiceover script based on content understanding results and new product or avatar information. It also supports passing custom parameters through the UserData field, which are returned as-is in callbacks.
    * 
    * @param request - SubmitRemakeScriptJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1410,7 +1650,7 @@ export default class Client extends OpenApi {
    * Submits a creative script generation task.
    * 
    * @remarks
-   * This API generates a new voiceover script based on content comprehension results and new product/model information by imitating the style of the original script. You can pass custom parameters through the UserData field, which are returned as-is in the callback.
+   * This operation generates a new voiceover script based on content understanding results and new product or avatar information. It also supports passing custom parameters through the UserData field, which are returned as-is in callbacks.
    * 
    * @param request - SubmitRemakeScriptJobRequest
    * @returns SubmitRemakeScriptJobResponse
@@ -1418,6 +1658,144 @@ export default class Client extends OpenApi {
   async submitRemakeScriptJob(request: $_model.SubmitRemakeScriptJobRequest): Promise<$_model.SubmitRemakeScriptJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitRemakeScriptJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Submits a video creative generation job.
+   * 
+   * @param request - SubmitVideoCreativeGenerationJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitVideoCreativeGenerationJobResponse
+   */
+  async submitVideoCreativeGenerationJobWithOptions(request: $_model.SubmitVideoCreativeGenerationJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitVideoCreativeGenerationJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.aspectRatio)) {
+      query["AspectRatio"] = request.aspectRatio;
+    }
+
+    if (!$dara.isNull(request.avatarData)) {
+      query["AvatarData"] = request.avatarData;
+    }
+
+    if (!$dara.isNull(request.jobParams)) {
+      query["JobParams"] = request.jobParams;
+    }
+
+    if (!$dara.isNull(request.outputLanguages)) {
+      query["OutputLanguages"] = request.outputLanguages;
+    }
+
+    if (!$dara.isNull(request.resolution)) {
+      query["Resolution"] = request.resolution;
+    }
+
+    if (!$dara.isNull(request.sceneType)) {
+      query["SceneType"] = request.sceneType;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    if (!$dara.isNull(request.userMaterials)) {
+      query["UserMaterials"] = request.userMaterials;
+    }
+
+    if (!$dara.isNull(request.withSubtitles)) {
+      query["WithSubtitles"] = request.withSubtitles;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitVideoCreativeGenerationJob",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitVideoCreativeGenerationJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitVideoCreativeGenerationJobResponse({}));
+  }
+
+  /**
+   * Submits a video creative generation job.
+   * 
+   * @param request - SubmitVideoCreativeGenerationJobRequest
+   * @returns SubmitVideoCreativeGenerationJobResponse
+   */
+  async submitVideoCreativeGenerationJob(request: $_model.SubmitVideoCreativeGenerationJobRequest): Promise<$_model.SubmitVideoCreativeGenerationJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitVideoCreativeGenerationJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Submits an asynchronous video text removal job. Supports full-frame removal, time range–based removal, and region-based removal.
+   * 
+   * @remarks
+   * Submits an asynchronous video text removal job. The input can be an accessible video URL or a Yike media asset ID. You can configure the removal time range and text regions.
+   * 
+   * @param request - SubmitVideoDetextJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitVideoDetextJobResponse
+   */
+  async submitVideoDetextJobWithOptions(request: $_model.SubmitVideoDetextJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitVideoDetextJobResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.input)) {
+      body["Input"] = request.input;
+    }
+
+    if (!$dara.isNull(request.jobParameters)) {
+      body["JobParameters"] = request.jobParameters;
+    }
+
+    if (!$dara.isNull(request.output)) {
+      body["Output"] = request.output;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      body["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitVideoDetextJob",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitVideoDetextJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitVideoDetextJobResponse({}));
+  }
+
+  /**
+   * Submits an asynchronous video text removal job. Supports full-frame removal, time range–based removal, and region-based removal.
+   * 
+   * @remarks
+   * Submits an asynchronous video text removal job. The input can be an accessible video URL or a Yike media asset ID. You can configure the removal time range and text regions.
+   * 
+   * @param request - SubmitVideoDetextJobRequest
+   * @returns SubmitVideoDetextJobResponse
+   */
+  async submitVideoDetextJob(request: $_model.SubmitVideoDetextJobRequest): Promise<$_model.SubmitVideoDetextJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitVideoDetextJobWithOptions(request, runtime);
   }
 
   /**
@@ -1557,10 +1935,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an asynchronous video translation task that supports subtitle translation, voice translation, main subtitle erasure, and on-screen text translation.
+   * Submits an asynchronous video translation task that supports subtitle translation, voice translation, primary subtitle erasure, and on-screen text translation.
    * 
    * @remarks
-   * Submits an asynchronous video translation task. The input supports a media URL or an Intelligent Media Management (IMM) media asset ID. Task parameters specify the source language, target language, and translation capabilities to enable.
+   * Submits an asynchronous video translation task. The input supports media URLs or Yike media asset IDs. The task parameters are used to select the source language, target language, and the translation capabilities to enable.
    * 
    * @param request - SubmitVideoTranslationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1619,10 +1997,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an asynchronous video translation task that supports subtitle translation, voice translation, main subtitle erasure, and on-screen text translation.
+   * Submits an asynchronous video translation task that supports subtitle translation, voice translation, primary subtitle erasure, and on-screen text translation.
    * 
    * @remarks
-   * Submits an asynchronous video translation task. The input supports a media URL or an Intelligent Media Management (IMM) media asset ID. Task parameters specify the source language, target language, and translation capabilities to enable.
+   * Submits an asynchronous video translation task. The input supports media URLs or Yike media asset IDs. The task parameters are used to select the source language, target language, and the translation capabilities to enable.
    * 
    * @param request - SubmitVideoTranslationJobRequest
    * @returns SubmitVideoTranslationJobResponse

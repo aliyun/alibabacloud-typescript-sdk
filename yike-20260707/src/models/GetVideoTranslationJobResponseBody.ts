@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVideoTranslationJobResponseBodyJob extends $dara.Model {
   /**
    * @remarks
-   * The input video duration, in seconds.
+   * The duration of the input video, in seconds.
    * 
    * @example
    * 60.5
@@ -13,7 +13,7 @@ export class GetVideoTranslationJobResponseBodyJob extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The editing project ID for a single-target-language job. For multi-target-language results, retrieve the ID from Output.AiResult.ResultMap.
+   * The editing project ID for single-target-language jobs. For multi-target-language results, retrieve the value from Output.AiResult.ResultMap.
    * 
    * @example
    * editing-project-001
@@ -21,7 +21,7 @@ export class GetVideoTranslationJobResponseBodyJob extends $dara.Model {
   editingProjectId?: string;
   /**
    * @remarks
-   * The business error code returned when the job fails. This field is typically not returned for non-failed states.
+   * The business error code returned when the job fails. This field is not returned when the job is not in a failed state.
    * 
    * @example
    * InvalidInput
@@ -29,7 +29,7 @@ export class GetVideoTranslationJobResponseBodyJob extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The business error message returned when the job fails. This field is typically not returned for non-failed states.
+   * The business error message returned when the job fails. This field is not returned when the job is not in a failed state.
    * 
    * @example
    * Input video is invalid.
@@ -69,7 +69,7 @@ export class GetVideoTranslationJobResponseBodyJob extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The job output JSON string. When the job succeeds, AiResult.ResultMap organizes the final video, subtitle, and audio outputs by target language.
+   * The job output JSON string. On success, AiResult.ResultMap organizes the final video, subtitle, and audio outputs by target language.
    * 
    * @example
    * {"AiResult":{"ResultMap":{"en":{"EditingProjectId":"editing-project-001","MediaURL":"https://example.com/video-translation/en/result.mp4","MediaId":"media-output-001"}}}}

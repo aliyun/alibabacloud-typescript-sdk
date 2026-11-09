@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteMediasRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The business configuration. It is a JSON string that can contain ProductionId (the project ID).
+   * 
+   * @example
+   * {"ProductionId":"pd_abc1234567"}
+   */
   bizConfig?: string;
   /**
    * @remarks
-   * Specifies whether to delete the physical files at the same time.
+   * Specifies whether to delete physical files at the same time.
    * 
    * @example
    * false

@@ -13,7 +13,7 @@ export class ListInfiniteCanvasesResponseBodyCanvasList extends $dara.Model {
   canvasId?: string;
   /**
    * @remarks
-   * The cover URL.
+   * The URL of the cover image.
    * 
    * @example
    * http://example.com/cover.png
@@ -37,7 +37,7 @@ export class ListInfiniteCanvasesResponseBodyCanvasList extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The thumbnail height, in px.
+   * The height of the thumbnail, in pixels.
    * 
    * @example
    * http://example.com/thumbnail2.png

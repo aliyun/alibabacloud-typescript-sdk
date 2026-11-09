@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVideoRenderJobResponseBodyJob extends $dara.Model {
   /**
    * @remarks
-   * The online editing project ID, which can be used for secondary editing of the output video.
+   * The ID of the online editing project, which can be used for secondary editing of the produced video.
    * 
    * @example
    * 8239345231244512***
@@ -13,7 +13,7 @@ export class GetVideoRenderJobResponseBodyJob extends $dara.Model {
   editingProjectId?: string;
   /**
    * @remarks
-   * The error code. This parameter is returned when the task is in the Failed state.
+   * The error code. This parameter is returned when the job is in the Failed state.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class GetVideoRenderJobResponseBodyJob extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message. This parameter is returned when the task is in the Failed state.
+   * The error message. This parameter is returned when the job is in the Failed state.
    * 
    * @example
    * The specified product does not exist.
@@ -29,7 +29,7 @@ export class GetVideoRenderJobResponseBodyJob extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * @example
    * 68ca759e798b40b4903b255*******
@@ -37,7 +37,7 @@ export class GetVideoRenderJobResponseBodyJob extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The narration language of the output video.
+   * The voiceover language of the produced video.
    * 
    * @example
    * zh
@@ -45,7 +45,7 @@ export class GetVideoRenderJobResponseBodyJob extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The download URL of the rendered and composed video.
+   * The download URL of the rendered and composited video.
    * 
    * @example
    * https://xxxx.mp4
@@ -53,13 +53,13 @@ export class GetVideoRenderJobResponseBodyJob extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The task status. Valid values:
+   * The job status. Valid values:
    * 
-   * - Created: The task is created.
-   * - Executing: The task is being executed.
-   * - Finished: The task is completed.
-   * - Failed: The task has failed.
-   * - Deleted: The task is deleted.
+   * - Created: The job is created.
+   * - Executing: The job is being executed.
+   * - Finished: The job is completed.
+   * - Failed: The job failed.
+   * - Deleted: The job is deleted.
    * 
    * @example
    * Executing
@@ -67,7 +67,7 @@ export class GetVideoRenderJobResponseBodyJob extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The custom user data in JSON format.
+   * The user-defined parameter, which is a JSON-formatted string.
    * 
    * @example
    * {"NotifyAddress": "http://xxx.callback.url"}
@@ -111,7 +111,7 @@ export class GetVideoRenderJobResponseBodyJob extends $dara.Model {
 export class GetVideoRenderJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The video rendering and composition task object.
+   * The video rendering and compositing task object.
    */
   job?: GetVideoRenderJobResponseBodyJob;
   /**

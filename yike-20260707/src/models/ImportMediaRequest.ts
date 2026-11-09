@@ -4,6 +4,10 @@ import * as $dara from '@darabonba/typescript';
 
 export class ImportMediaRequest extends $dara.Model {
   bizConfig?: string;
+  /**
+   * @example
+   * 1
+   */
   categoryId?: number;
   /**
    * @remarks

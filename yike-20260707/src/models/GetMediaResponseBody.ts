@@ -801,7 +801,15 @@ export class GetMediaResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
    * general
    */
   businessType?: string;
+  /**
+   * @example
+   * 1
+   */
   categoryId?: number;
+  /**
+   * @example
+   * 示例分类
+   */
   categoryName?: string;
   /**
    * @remarks

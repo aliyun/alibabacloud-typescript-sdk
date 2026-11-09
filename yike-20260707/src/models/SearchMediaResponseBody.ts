@@ -37,7 +37,7 @@ export class SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo exten
   fileName?: string;
   /**
    * @remarks
-   * The file size, in bytes.
+   * The file size in bytes.
    * 
    * @example
    * 48524
@@ -101,7 +101,7 @@ export class SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo exten
   modifiedTime?: string;
   /**
    * @remarks
-   * The file storage region.
+   * The storage region of the file.
    * 
    * @example
    * cn-shanghai
@@ -165,7 +165,7 @@ export class SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo exten
 export class SearchMediaResponseBodyMediaInfoListFileInfoList extends $dara.Model {
   /**
    * @remarks
-   * The basic file information, including duration and size.
+   * The basic file information, including the duration and size.
    */
   fileBasicInfo?: SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo;
   static names(): { [key: string]: string } {
@@ -490,7 +490,7 @@ export class SearchMediaResponseBodyMediaInfoList extends $dara.Model {
   fileInfoList?: SearchMediaResponseBodyMediaInfoListFileInfoList[];
   /**
    * @remarks
-   * The basic information of the media asset.
+   * The basic media asset information.
    */
   mediaBasicInfo?: SearchMediaResponseBodyMediaInfoListMediaBasicInfo;
   /**
@@ -545,7 +545,7 @@ export class SearchMediaResponseBodyMediaInfoList extends $dara.Model {
 export class SearchMediaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The return code.
    * 
    * @example
    * 200
@@ -553,7 +553,7 @@ export class SearchMediaResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The collection of media assets that meet the specified criteria.
+   * The collection of media assets that meet the requirements.
    */
   mediaInfoList?: SearchMediaResponseBodyMediaInfoList[];
   /**
@@ -566,7 +566,7 @@ export class SearchMediaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The pagination token.
+   * The scroll token.
    * 
    * @example
    * F8C4F642184DBDA5D93907A70AAE****
@@ -574,7 +574,7 @@ export class SearchMediaResponseBody extends $dara.Model {
   scrollToken?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call is successful.
    * 
    * @example
    * True
@@ -582,7 +582,7 @@ export class SearchMediaResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The total number of media assets that meet the specified criteria.
+   * The total number of media assets that meet the requirements.
    * 
    * @example
    * 163

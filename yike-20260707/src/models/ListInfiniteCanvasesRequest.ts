@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInfiniteCanvasesRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword for querying site monitoring tasks. Supports fuzzy match based on task name or task address.
+   * The keyword used to query site monitoring tasks. Note: Fuzzy match is supported based on the task name or task address.
    * 
    * @example
    * v2_
@@ -27,6 +27,13 @@ export class ListInfiniteCanvasesRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * pd_abc1234567
+   */
   productionId?: string;
   /**
    * @remarks
@@ -38,11 +45,9 @@ export class ListInfiniteCanvasesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The sort direction.
-   * 
-   * Valid values:
-   * - Asc: Ascending order.
-   * - Desc: Descending order.
+   * The sort direction. Valid values:
+   * - Asc: ascending order
+   * - Desc: descending order
    * 
    * Default value: Desc.
    * 
@@ -50,6 +55,13 @@ export class ListInfiniteCanvasesRequest extends $dara.Model {
    * Ascending
    */
   sortOrder?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * ws_abc1234567
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {

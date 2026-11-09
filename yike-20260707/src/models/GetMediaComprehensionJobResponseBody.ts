@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaComprehensionJobResponseBodyJob extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is returned when the job is in the Failed state.
+   * The error code. This parameter is returned when the job status is Failed.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class GetMediaComprehensionJobResponseBodyJob extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message. This parameter is returned when the job is in the Failed state.
+   * The error message. This parameter is of the String type and is returned when the job status is Failed.
    * 
    * @example
    * The specified product does not exist.
@@ -21,7 +21,7 @@ export class GetMediaComprehensionJobResponseBodyJob extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The list of media asset IDs. If the input is a URL, the media asset ID registered after input is returned.
+   * The list of media asset IDs. If the input is a URL, the registered media asset IDs are returned.
    */
   mediaIds?: string[];
   /**
@@ -34,13 +34,13 @@ export class GetMediaComprehensionJobResponseBodyJob extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The file status. Valid values:
+   * The job status. Valid values:
    * 
-   * - **Created**: Created.
-   * - **Executing**: Executing.
-   * - **Finished**: Finished.
-   * - **Failed**: Failed.
-   * - **Deleted**: Deleted.
+   * - **Created**: The job is created.
+   * - **Executing**: The job is being executed.
+   * - **Finished**: The job is completed.
+   * - **Failed**: The job failed.
+   * - **Deleted**: The job is deleted.
    * 
    * @example
    * Executing
@@ -48,7 +48,7 @@ export class GetMediaComprehensionJobResponseBodyJob extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The user-defined parameter, which is a JSON-formatted string.
+   * The user-defined parameter. The value is a JSON string.
    * 
    * @example
    * {"NotifyAddress": "http://xxx.callback.url"}
@@ -91,7 +91,7 @@ export class GetMediaComprehensionJobResponseBodyJob extends $dara.Model {
 export class GetMediaComprehensionJobResponseBodyMediaComprehensionJob extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is returned when the job is in the `Failed` state.
+   * The error code. This parameter is returned when the status is `Failed`.
    * 
    * @example
    * 200
@@ -99,7 +99,7 @@ export class GetMediaComprehensionJobResponseBodyMediaComprehensionJob extends $
   errorCode?: string;
   /**
    * @remarks
-   * The error message. This parameter is returned when the job is in the Failed state.
+   * The error message. This parameter is of the String type and is returned when the job status is Failed.
    * 
    * @example
    * The specified product does not exist.
@@ -123,7 +123,7 @@ export class GetMediaComprehensionJobResponseBodyMediaComprehensionJob extends $
   mediaId?: string;
   /**
    * @remarks
-   * The analysis result, which is a JSON string.
+   * The analysis result. The value is a JSON string.
    * 
    * @example
    * "{\\"source_video_url\\":\\"http://xxx.mp4\\",\\"narrative_overview\\":{******}}"
@@ -131,13 +131,13 @@ export class GetMediaComprehensionJobResponseBodyMediaComprehensionJob extends $
   result?: string;
   /**
    * @remarks
-   * The file status. Valid values:
+   * The job status. Valid values:
    * 
-   * - **Created**: Created.
-   * - **Executing**: Executing.
-   * - **Finished**: Finished.
-   * - **Failed**: Failed.
-   * - **Deleted**: Deleted.
+   * - **Created**: The job is created.
+   * - **Executing**: The job is being executed.
+   * - **Finished**: The job is completed.
+   * - **Failed**: The job failed.
+   * - **Deleted**: The job is deleted.
    * 
    * @example
    * Executing
@@ -145,7 +145,7 @@ export class GetMediaComprehensionJobResponseBodyMediaComprehensionJob extends $
   state?: string;
   /**
    * @remarks
-   * The user-defined parameter, which is a JSON-formatted string.
+   * The user-defined parameter. The value is a JSON string.
    * 
    * @example
    * {"NotifyAddress": "http://xxx.callback.url"}
@@ -187,12 +187,12 @@ export class GetMediaComprehensionJobResponseBodyMediaComprehensionJob extends $
 export class GetMediaComprehensionJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The media asset content understanding result object.
+   * The media content understanding result object.
    */
   job?: GetMediaComprehensionJobResponseBodyJob;
   /**
    * @remarks
-   * The media asset content understanding object. This parameter is deprecated.
+   * **[Deprecated]** The media content understanding object.
    */
   mediaComprehensionJob?: GetMediaComprehensionJobResponseBodyMediaComprehensionJob;
   /**

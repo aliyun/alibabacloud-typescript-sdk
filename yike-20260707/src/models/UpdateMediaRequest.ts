@@ -9,6 +9,10 @@ export class UpdateMediaRequest extends $dara.Model {
    */
   appendTags?: boolean;
   bizConfig?: string;
+  /**
+   * @example
+   * 1
+   */
   categoryId?: number;
   /**
    * @remarks

@@ -13,7 +13,7 @@ export class SubmitVideoRenderJobResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * @example
    * 68ca759e798b40b4903b255*******

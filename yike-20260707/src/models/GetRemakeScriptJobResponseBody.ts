@@ -21,7 +21,7 @@ export class GetRemakeScriptJobResponseBodyJob extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * @example
    * 68ca759e798b40b4903b255*******
@@ -29,7 +29,7 @@ export class GetRemakeScriptJobResponseBodyJob extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The file URL of the script imitation result. The file content is in JSON format of the creative script.
+   * The URL of the file that contains the script rewriting result. The file content is the creative script in JSON format.
    * 
    * @example
    * http://xxxx.json
@@ -37,13 +37,13 @@ export class GetRemakeScriptJobResponseBodyJob extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The file status. Valid values:
+   * The status. Valid values:
    * 
-   * - Created: Created.
-   * - Executing: Executing.
-   * - Finished: Finished.
-   * - Failed: Failed.
-   * - Deleted: Deleted.
+   * - Created: The task is created.
+   * - Executing: The task is executing.
+   * - Finished: The task is finished.
+   * - Failed: The task failed.
+   * - Deleted: The task is deleted.
    * 
    * @example
    * Executing
@@ -51,7 +51,7 @@ export class GetRemakeScriptJobResponseBodyJob extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The user-defined parameter, in JSON format string.
+   * The user-defined parameter, which is a string in JSON format.
    * 
    * @example
    * {"NotifyAddress": "http://xxx.callback.url"}
