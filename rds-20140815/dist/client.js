@@ -31,6 +31,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
+const gateway_pop_1 = __importDefault(require("@alicloud/gateway-pop"));
 const openapi_core_1 = __importDefault(require("@alicloud/openapi-core"));
 const openapi_core_2 = require("@alicloud/openapi-core");
 const $_model = __importStar(require("./models/model"));
@@ -38,6 +39,9 @@ __exportStar(require("./models/model"), exports);
 class Client extends openapi_core_1.default {
     constructor(config) {
         super(config);
+        this._productId = "Rds";
+        let gatewayClient = new gateway_pop_1.default();
+        this._spi = gatewayClient;
         this._endpointRule = "regional";
         this._endpointMap = {
             'cn-qingdao': "rds.aliyuncs.com",
@@ -3247,11 +3251,11 @@ class Client extends openapi_core_1.default {
      * Creates a database proxy endpoint for an ApsaraDB RDS instance.
      *
      * @remarks
-     * ### Supported database engines
+     * ### Supported DPI engines
      * - ApsaraDB RDS for MySQL
      * - ApsaraDB RDS for PostgreSQL
      * ### Related feature documentation
-     * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.</notice>
+     * >Notice: Before you invoke this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and impacts of the operation.</notice>
      * - [Create internal and public database proxy endpoints for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
      * - [Create internal and public database proxy endpoints for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
      *
@@ -3315,11 +3319,11 @@ class Client extends openapi_core_1.default {
      * Creates a database proxy endpoint for an ApsaraDB RDS instance.
      *
      * @remarks
-     * ### Supported database engines
+     * ### Supported DPI engines
      * - ApsaraDB RDS for MySQL
      * - ApsaraDB RDS for PostgreSQL
      * ### Related feature documentation
-     * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.</notice>
+     * >Notice: Before you invoke this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and impacts of the operation.</notice>
      * - [Create internal and public database proxy endpoints for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/184921.html)
      * - [Create internal and public database proxy endpoints for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418274.html)
      *
@@ -8300,7 +8304,7 @@ class Client extends openapi_core_1.default {
      * Queries the backup settings of an ApsaraDB RDS instance.
      *
      * @remarks
-     * ### Supported engines
+     * ### Applicable engines
      * - ApsaraDB RDS for MySQL
      * - ApsaraDB RDS for PostgreSQL
      * - ApsaraDB RDS for SQL Server
@@ -8357,7 +8361,7 @@ class Client extends openapi_core_1.default {
      * Queries the backup settings of an ApsaraDB RDS instance.
      *
      * @remarks
-     * ### Supported engines
+     * ### Applicable engines
      * - ApsaraDB RDS for MySQL
      * - ApsaraDB RDS for PostgreSQL
      * - ApsaraDB RDS for SQL Server
@@ -15267,7 +15271,7 @@ class Client extends openapi_core_1.default {
         return await this.describeRCElasticScalingWithOptions(request, runtime);
     }
     /**
-     * Queries the custom images available for creating RDS Custom instances.
+     * Queries a list of custom images available for creating RDS Custom instances.
      *
      * @param request - DescribeRCImageListRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -15293,7 +15297,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeRCImageListResponse({}));
     }
     /**
-     * Queries the custom images available for creating RDS Custom instances.
+     * Queries a list of custom images available for creating RDS Custom instances.
      *
      * @param request - DescribeRCImageListRequest
      * @returns DescribeRCImageListResponse
@@ -20422,10 +20426,10 @@ class Client extends openapi_core_1.default {
      * - ApsaraDB RDS for MariaDB
      * ### Related feature documentation
      * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.
-     * - [Configure an automatic backup policy for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98818.html)
-     * - [Configure an automatic backup policy for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
-     * - [Configure an automatic backup policy for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
-     * - [Configure an automatic backup policy for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97147.html)
+     * - [Configure the automatic backup policy for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98818.html)
+     * - [Configure the automatic backup policy for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
+     * - [Configure the automatic backup policy for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
+     * - [Configure the automatic backup policy for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97147.html)
      *
      * @param request - ModifyBackupPolicyRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -20481,6 +20485,9 @@ class Client extends openapi_core_1.default {
         }
         if (!$dara.isNull(request.enableBackupLog)) {
             query["EnableBackupLog"] = request.enableBackupLog;
+        }
+        if (!$dara.isNull(request.enableImmutableBackup)) {
+            query["EnableImmutableBackup"] = request.enableImmutableBackup;
         }
         if (!$dara.isNull(request.enableIncrementDataBackup)) {
             query["EnableIncrementDataBackup"] = request.enableIncrementDataBackup;
@@ -20557,10 +20564,10 @@ class Client extends openapi_core_1.default {
      * - ApsaraDB RDS for MariaDB
      * ### Related feature documentation
      * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.
-     * - [Configure an automatic backup policy for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98818.html)
-     * - [Configure an automatic backup policy for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
-     * - [Configure an automatic backup policy for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
-     * - [Configure an automatic backup policy for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97147.html)
+     * - [Configure the automatic backup policy for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/98818.html)
+     * - [Configure the automatic backup policy for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/96772.html)
+     * - [Configure the automatic backup policy for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/95717.html)
+     * - [Configure the automatic backup policy for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/97147.html)
      *
      * @param request - ModifyBackupPolicyRequest
      * @returns ModifyBackupPolicyResponse
@@ -22379,10 +22386,10 @@ class Client extends openapi_core_1.default {
      * - ApsaraDB RDS for PostgreSQL
      * - ApsaraDB RDS for SQL Server
      * ### Related feature documentation
-     * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.</notice>
-     * - [Secure Sockets Layer (SSL) encryption settings for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96120.html)
-     * - [Secure Sockets Layer (SSL) encryption settings for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/229517.html)
-     * - [Secure Sockets Layer (SSL) encryption settings for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95715.html)
+     * >Notice: Before you call this operation, read the feature documentation to understand the prerequisites and impacts.
+     * - [Settings for Secure Sockets Layer (SSL) encryption in ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96120.html)
+     * - [Settings for Secure Sockets Layer (SSL) encryption in ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/229517.html)
+     * - [Settings for Secure Sockets Layer (SSL) encryption in ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95715.html)
      *
      * @param request - ModifyDBInstanceSSLRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -22476,10 +22483,10 @@ class Client extends openapi_core_1.default {
      * - ApsaraDB RDS for PostgreSQL
      * - ApsaraDB RDS for SQL Server
      * ### Related feature documentation
-     * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.</notice>
-     * - [Secure Sockets Layer (SSL) encryption settings for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96120.html)
-     * - [Secure Sockets Layer (SSL) encryption settings for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/229517.html)
-     * - [Secure Sockets Layer (SSL) encryption settings for ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95715.html)
+     * >Notice: Before you call this operation, read the feature documentation to understand the prerequisites and impacts.
+     * - [Settings for Secure Sockets Layer (SSL) encryption in ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/96120.html)
+     * - [Settings for Secure Sockets Layer (SSL) encryption in ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/229517.html)
+     * - [Settings for Secure Sockets Layer (SSL) encryption in ApsaraDB RDS for SQL Server](https://help.aliyun.com/document_detail/95715.html)
      *
      * @param request - ModifyDBInstanceSSLRequest
      * @returns ModifyDBInstanceSSLResponse
@@ -22985,12 +22992,12 @@ class Client extends openapi_core_1.default {
      * Enables or modifies the database proxy instance feature for an ApsaraDB RDS instance.
      *
      * @remarks
-     * ### Supported engines
+     * ### Supported database engines
      * - ApsaraDB RDS for MySQL
      * - ApsaraDB RDS for PostgreSQL
-     * > Starting from October 17, 2023, ApsaraDB RDS for MySQL Cluster Edition gradually provides a free dedicated proxy service with one proxy instance across all units. For details, see [Promotion: ApsaraDB RDS for MySQL Cluster Edition provides a free dedicated proxy service with one proxy instance](https://help.aliyun.com/document_detail/2555466.html).
+     * > Starting from October 17, 2023, ApsaraDB RDS for MySQL Cluster Edition gradually provides a free dedicated proxy service with one proxy node in each unit. For details, see [Promotion: Free dedicated proxy service with one proxy node for ApsaraDB RDS for MySQL Cluster Edition](https://help.aliyun.com/document_detail/2555466.html).
      * ### Related feature documentation
-     * >Notice: Before you use this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+     * >Notice: Before you call this operation, read the feature documentation carefully to fully understand the prerequisites and the impacts of this operation.
      * - [Enable the database proxy for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/197456.html)
      * - [Enable the database proxy for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/418272.html)
      *
@@ -23074,12 +23081,12 @@ class Client extends openapi_core_1.default {
      * Enables or modifies the database proxy instance feature for an ApsaraDB RDS instance.
      *
      * @remarks
-     * ### Supported engines
+     * ### Supported database engines
      * - ApsaraDB RDS for MySQL
      * - ApsaraDB RDS for PostgreSQL
-     * > Starting from October 17, 2023, ApsaraDB RDS for MySQL Cluster Edition gradually provides a free dedicated proxy service with one proxy instance across all units. For details, see [Promotion: ApsaraDB RDS for MySQL Cluster Edition provides a free dedicated proxy service with one proxy instance](https://help.aliyun.com/document_detail/2555466.html).
+     * > Starting from October 17, 2023, ApsaraDB RDS for MySQL Cluster Edition gradually provides a free dedicated proxy service with one proxy node in each unit. For details, see [Promotion: Free dedicated proxy service with one proxy node for ApsaraDB RDS for MySQL Cluster Edition](https://help.aliyun.com/document_detail/2555466.html).
      * ### Related feature documentation
-     * >Notice: Before you use this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+     * >Notice: Before you call this operation, read the feature documentation carefully to fully understand the prerequisites and the impacts of this operation.
      * - [Enable the database proxy for ApsaraDB RDS for MySQL](https://help.aliyun.com/document_detail/197456.html)
      * - [Enable the database proxy for ApsaraDB RDS for PostgreSQL](https://help.aliyun.com/document_detail/418272.html)
      *
@@ -23094,11 +23101,11 @@ class Client extends openapi_core_1.default {
      * Configures the access policy for the database proxy endpoint of an ApsaraDB RDS instance.
      *
      * @remarks
-     * ### Supported database engines
+     * ### Supported DPI engines
      * - ApsaraDB RDS for MySQL
      * - ApsaraDB RDS for PostgreSQL
      * ### Related feature documentation
-     * >Notice: Before you call this operation, read the feature documentation carefully to fully understand the prerequisites and the impacts of this operation.
+     * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.
      * - [Configure the access policy for a database proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/2621331.html)
      * - [Configure the access policy for a database proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418273.html)
      *
@@ -23198,11 +23205,11 @@ class Client extends openapi_core_1.default {
      * Configures the access policy for the database proxy endpoint of an ApsaraDB RDS instance.
      *
      * @remarks
-     * ### Supported database engines
+     * ### Supported DPI engines
      * - ApsaraDB RDS for MySQL
      * - ApsaraDB RDS for PostgreSQL
      * ### Related feature documentation
-     * >Notice: Before you call this operation, read the feature documentation carefully to fully understand the prerequisites and the impacts of this operation.
+     * >Notice: Before you call this operation, read the feature documentation to fully understand the prerequisites and impacts.
      * - [Configure the access policy for a database proxy endpoint of an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/2621331.html)
      * - [Configure the access policy for a database proxy endpoint of an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/418273.html)
      *
@@ -25864,7 +25871,7 @@ class Client extends openapi_core_1.default {
         return await this.modifySecurityGroupConfigurationWithOptions(request, runtime);
     }
     /**
-     * Modifies the IP address whitelist configuration of a specified ApsaraDB RDS instance. This operation supports three modification modes: overwrite, append, and delete.
+     * Modifies the IP whitelist configuration of a specified ApsaraDB RDS instance. This operation supports overwrite, append, and delete modes.
      *
      * @remarks
      * ### Supported engines
@@ -25873,11 +25880,11 @@ class Client extends openapi_core_1.default {
      * - ApsaraDB RDS for SQL Server
      * - ApsaraDB RDS for MariaDB
      * ### Related feature documentation
-     * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.
-     * - [Configure an IP address whitelist for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96118.html)
-     * - [Configure an IP address whitelist for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/43187.html)
-     * - [Configure an IP address whitelist for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/43186.html)
-     * - [Configure an IP address whitelist for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/90336.html)
+     * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+     * - [Configure an IP whitelist for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96118.html)
+     * - [Configure an IP whitelist for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/43187.html)
+     * - [Configure an IP whitelist for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/43186.html)
+     * - [Configure an IP whitelist for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/90336.html)
      *
      * @param request - ModifySecurityIpsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -25886,6 +25893,9 @@ class Client extends openapi_core_1.default {
     async modifySecurityIpsWithOptions(request, runtime) {
         request.validate();
         let query = {};
+        if (!$dara.isNull(request.batchMode)) {
+            query["BatchMode"] = request.batchMode;
+        }
         if (!$dara.isNull(request.DBInstanceIPArrayAttribute)) {
             query["DBInstanceIPArrayAttribute"] = request.DBInstanceIPArrayAttribute;
         }
@@ -25897,6 +25907,9 @@ class Client extends openapi_core_1.default {
         }
         if (!$dara.isNull(request.freshWhiteListReadins)) {
             query["FreshWhiteListReadins"] = request.freshWhiteListReadins;
+        }
+        if (!$dara.isNull(request.groupItems)) {
+            query["GroupItems"] = request.groupItems;
         }
         if (!$dara.isNull(request.modifyMode)) {
             query["ModifyMode"] = request.modifyMode;
@@ -25930,7 +25943,7 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.ModifySecurityIpsResponse({}));
     }
     /**
-     * Modifies the IP address whitelist configuration of a specified ApsaraDB RDS instance. This operation supports three modification modes: overwrite, append, and delete.
+     * Modifies the IP whitelist configuration of a specified ApsaraDB RDS instance. This operation supports overwrite, append, and delete modes.
      *
      * @remarks
      * ### Supported engines
@@ -25939,11 +25952,11 @@ class Client extends openapi_core_1.default {
      * - ApsaraDB RDS for SQL Server
      * - ApsaraDB RDS for MariaDB
      * ### Related feature documentation
-     * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of this operation.
-     * - [Configure an IP address whitelist for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96118.html)
-     * - [Configure an IP address whitelist for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/43187.html)
-     * - [Configure an IP address whitelist for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/43186.html)
-     * - [Configure an IP address whitelist for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/90336.html)
+     * >Notice: Before you call this operation, carefully read the feature documentation to ensure that you fully understand the prerequisites and the impacts of the operation.
+     * - [Configure an IP whitelist for an ApsaraDB RDS for MySQL instance](https://help.aliyun.com/document_detail/96118.html)
+     * - [Configure an IP whitelist for an ApsaraDB RDS for PostgreSQL instance](https://help.aliyun.com/document_detail/43187.html)
+     * - [Configure an IP whitelist for an ApsaraDB RDS for SQL Server instance](https://help.aliyun.com/document_detail/43186.html)
+     * - [Configure an IP whitelist for an ApsaraDB RDS for MariaDB instance](https://help.aliyun.com/document_detail/90336.html)
      *
      * @param request - ModifySecurityIpsRequest
      * @returns ModifySecurityIpsResponse

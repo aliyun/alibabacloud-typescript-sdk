@@ -16,8 +16,8 @@ export declare class DescribeBackupPolicyRequest extends $dara.Model {
      * * **0**: no compression
      * * **1**: zlib compression
      * * **2**: parallel zlib compression
-     * * **4**: quicklz compression with database and table restoration enabled
-     * * **8**: quicklz compression without database and table restoration supported
+     * * **4**: QuickLZ compression with database and table restoration enabled
+     * * **8**: QuickLZ compression without database and table restoration supported
      *
      * @example
      * 1
@@ -25,7 +25,7 @@ export declare class DescribeBackupPolicyRequest extends $dara.Model {
     compressType?: string;
     /**
      * @remarks
-     * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+     * The instance ID. You can call the DescribeDBInstances operation to obtain the ID.
      *
      * This parameter is required.
      *
@@ -37,11 +37,11 @@ export declare class DescribeBackupPolicyRequest extends $dara.Model {
     ownerId?: number;
     /**
      * @remarks
-     * The data retention policy for archive backups of deleted **MySQL** instances. Valid values:
+     * The data retention policy for archived backups of a deleted **ApsaraDB RDS for MySQL** instance. Valid values:
      *
-     * * **None**: no retention
-     * * **Lastest**: retains the last archive backup
-     * * **All**: retains all archive backups
+     * * **None**: does not retain archived backups
+     * * **Lastest**: retains only the last archived backup
+     * * **All**: retains all archived backups
      *
      * @example
      * Lastest

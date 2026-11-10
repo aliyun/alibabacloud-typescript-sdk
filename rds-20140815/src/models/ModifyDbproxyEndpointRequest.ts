@@ -13,19 +13,19 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
   causalConsistReadTimeout?: string;
   /**
    * @remarks
-   * Specifies the proxy features to be enabled for the proxy endpoint. Separate multiple features with semicolons (;). Format: `Feature 1:Status;Feature 2:Status;...`. Do not add a semicolon (;) at the end.
+   * The proxy features to be enabled for the proxy endpoint. Separate multiple features with semicolons (;). Format: `Feature 1:Status;Feature 2:Status;...`. Do not add a semicolon (;) at the end.
    * 
    * Valid values for features:
-   * * **ReadWriteSpliting**: Read/write splitting.
-   * * **ConnectionPersist**: Connection pool.
-   * * **TransactionReadSqlRouteOptimizeStatus**: Transaction splitting.
-   * * **AZProximityAccess**: Nearest access.
-   * * **CausalConsistRead**: Read consistency.
-   * * **HtapFilter**: Automatic request distribution among row store and column store nodes for HTAP.
+   * * **ReadWriteSpliting**: read/write splitting
+   * * **ConnectionPersist**: connection pool
+   * * **TransactionReadSqlRouteOptimizeStatus**: transaction splitting
+   * * **AZProximityAccess**: nearest access
+   * * **CausalConsistRead**: read consistency
+   * * **HtapFilter**: HTAP automatic request distribution among row store and column store nodes
    * 
-   * Valid values for the status:
-   * * **1**: The feature is enabled.
-   * * **0**: The feature is disabled.
+   * Valid values for status:
+   * * **1**: enabled
+   * * **0**: disabled
    * 
    * > - ApsaraDB RDS for PostgreSQL supports only **ReadWriteSpliting**.
    * > - The nearest access feature is supported only by dedicated database proxies for MySQL.
@@ -36,7 +36,7 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
   configDBProxyFeatures?: string;
   /**
    * @remarks
-   * The instance ID. You can call the DescribeDBInstances operation to query the ID.
+   * Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
   DBProxyEndpointId?: string;
   /**
    * @remarks
-   * **[Deprecated]** This parameter is deprecated and does not need to be configured.
+   * The database proxy engine type. This parameter is deprecated and does not need to be specified.
    * 
    * @example
    * normal
@@ -65,7 +65,7 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
   DBProxyEngineType?: string;
   /**
    * @remarks
-   * The description of the proxy endpoint.
+   * The description of the proxy terminal.
    * 
    * @example
    * test-proxy
@@ -73,7 +73,7 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
   dbEndpointAliases?: string;
   /**
    * @remarks
-   * The execution cost threshold for SQL statements in automatic request distribution among row store and column store nodes for HTAP.
+   * The execution cost threshold to execute SQL in HTAP automatic request distribution among row store and column store nodes.
    * 
    * @example
    * 30000
@@ -90,9 +90,9 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
   /**
    * @remarks
    * The operation type. Valid values:
-   * * **Modify**: Modifies the proxy endpoint. This is the default value.
-   * * **Create**: Creates a proxy endpoint.
-   * * **Delete**: Deletes a proxy endpoint.
+   * * **Modify**: Modifies the proxy terminal. This is the default value.
+   * * **Create**: Creates a proxy terminal.
+   * * **Delete**: Deletes a proxy terminal.
    * 
    * @example
    * Modify
@@ -101,7 +101,7 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
   /**
    * @remarks
    * The read/write mode. Valid values:
-   * * **ReadWrite**: Connects to the primary instance and can accept write requests.
+   * * **ReadWrite**: Connects to the primary instance and accepts write requests.
    * * **ReadOnly**: Does not connect to the primary instance and cannot accept write requests. This is the default value.
    * 
    * > * This parameter is required when **DbEndpointOperator** is set to **Create**.
@@ -113,7 +113,7 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
   dbEndpointReadWriteMode?: string;
   /**
    * @remarks
-   * The type of the proxy endpoint. This parameter is reserved and does not need to be specified.
+   * The type of the proxy terminal. This parameter is reserved and does not need to be specified.
    * 
    * @example
    * RWSplit
@@ -122,7 +122,7 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
   /**
    * @remarks
    * The specific time when the modification takes effect. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
-   * > This parameter is required when **EffectiveTime** is set to **SpecificTime**.
+   * >This parameter is required when **EffectiveTime** is set to **SpecificTime**.
    * 
    * @example
    * 2023-05-06T07:08:09Z
@@ -132,9 +132,9 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
    * @remarks
    * The effective period. Valid values:
    * 
-   * * **Immediate**: The modification immediately takes effect.
-   * * **MaintainTime**: The modification takes effect within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
-   * * **SpecificTime**: The modification takes effect at a specified time.
+   * * **Immediate**: Takes effect immediately.
+   * * **MaintainTime**: Takes effect within the maintenance window. For more information, see ModifyDBInstanceMaintainTime.
+   * * **SpecificTime**: Takes effect at a specified time.
    * 
    * Default value: **MaintainTime**.
    * 
@@ -147,10 +147,10 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
    * @remarks
    * The read weight allocation pattern. Valid values:
    * 
-   * * **Standard**: Automatically allocates read weights based on instance specifications. This is the default value.
-   * * **Custom**: Custom allocated weights.
+   * * **Standard**: Automatically allocates weights based on instance specifications. This is the default value.
+   * * **Custom**: custom weight allocation
    * 
-   * > This parameter is required only when read/write splitting is enabled. For more information about the read weight allocation pattern, see [Read weight distribution](https://help.aliyun.com/document_detail/96076.html) for MySQL and [Enable and configure the database proxy service](https://help.aliyun.com/document_detail/418272.html) for PostgreSQL.
+   * > This parameter is required only when read/write splitting is enabled. For more information about the weight allocation pattern, see [Read weight allocation](https://help.aliyun.com/document_detail/96076.html) for MySQL and [Enable and configure the database proxy service](https://help.aliyun.com/document_detail/418272.html) for PostgreSQL.
    * 
    * @example
    * Standard
@@ -161,7 +161,7 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
    * The maximum latency threshold for read-only instances in read/write splitting. If the latency of a read-only instance exceeds this threshold, read traffic is not routed to the instance. Unit: seconds. If you do not specify this parameter, the original value is retained. Valid values: **0** to **3600**.
    * 
    * > - This parameter is required only when read/write splitting is enabled.
-   * > - Default value: **30** when the read/write attribute is set to Read/Write (read/write splitting), and **-1** (disabled) when the read/write attribute is set to Read-only.
+   * > - Default value: **30** when the read/write property is set to read/write (read/write splitting), and **-1** (shutdown) when the read/write property is set to read-only.
    * 
    * @example
    * 30
@@ -169,7 +169,7 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
   readOnlyInstanceMaxDelayTime?: string;
   /**
    * @remarks
-   * The custom read weights of the primary and read-only instances. The weight must be a multiple of 100 and cannot exceed 10000. Format:
+   * The custom read weight distribution. You can specify the read request weights for the primary instance and read-only instances. The weight must be a multiple of 100, and the maximum value is 10000. Format:
    * 
    * - Standard instance: `{"Primary instance ID":"Weight","Read-only instance ID":"Weight"...}`
    * 
@@ -177,7 +177,7 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
    * - ApsaraDB RDS for MySQL Cluster Edition instance: `{"Read-only instance ID":"Weight","DBClusterNode":{"Primary node ID":"Weight","Secondary node ID":"Weight","Secondary node ID":"Weight"...}}`
    * 
    *     Example: `{"rr-tfhfgk5****":"200","DBClusterNode":{"rn-2z****":"0","rn-2z****":"400","rn-2z****":"400"...}}`
-   *     > **DBClusterNode** is a request parameter specific to Cluster Edition instances. It contains the **NodeID** and **Weight** of the primary and secondary nodes.
+   *     > **DBClusterNode** is a request parameter specific to Cluster Edition instances and contains the **NodeID** and **Weight** of the primary and secondary nodes.
    * 
    * @example
    * {"rm-uf6wjk5****":"500","rr-tfhfgk5xxx":"200"...}
@@ -185,7 +185,7 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
   readOnlyInstanceWeight?: string;
   /**
    * @remarks
-   * The region ID. You can call the DescribeRegions operation to query the ID.
+   * The region ID. You can call the DescribeRegions operation to query the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -195,7 +195,7 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the vSwitch in the zone of the database proxy endpoint. Default value: the ID of the vSwitch that corresponds to the default endpoint of the proxy instance. You can call the DescribeVSwitches operation to query created vSwitches.
+   * The ID of the vSwitch in the zone of the proxy endpoint. The default value is the ID of the vSwitch associated with the default terminal of the proxy instance. You can call the DescribeVSwitches operation to query existing vSwitches.
    * 
    * @example
    * vsw-uf6adz52c2p****
@@ -203,7 +203,7 @@ export class ModifyDBProxyEndpointRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC in the zone of the database proxy endpoint. Default value: the ID of the VPC that corresponds to the default endpoint of the proxy instance. You can call the DescribeDBInstanceAttribute operation to query the default VPC of the instance.
+   * The ID of the VPC in the zone of the proxy endpoint. The default value is the ID of the VPC associated with the default terminal of the proxy instance. You can call the DescribeDBInstanceAttribute operation to query the default VPC of the instance.
    * 
    * @example
    * vpc-2zeusejj******

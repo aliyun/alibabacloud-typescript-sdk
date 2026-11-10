@@ -23,16 +23,41 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ModifySecurityIpsRequest = void 0;
+exports.ModifySecurityIpsRequest = exports.ModifySecurityIpsRequestGroupItems = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
+class ModifySecurityIpsRequestGroupItems extends $dara.Model {
+    static names() {
+        return {
+            groupName: 'GroupName',
+            groupTag: 'GroupTag',
+            securityIPList: 'SecurityIPList',
+        };
+    }
+    static types() {
+        return {
+            groupName: 'string',
+            groupTag: 'string',
+            securityIPList: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ModifySecurityIpsRequestGroupItems = ModifySecurityIpsRequestGroupItems;
 class ModifySecurityIpsRequest extends $dara.Model {
     static names() {
         return {
+            batchMode: 'BatchMode',
             DBInstanceIPArrayAttribute: 'DBInstanceIPArrayAttribute',
             DBInstanceIPArrayName: 'DBInstanceIPArrayName',
             DBInstanceId: 'DBInstanceId',
             freshWhiteListReadins: 'FreshWhiteListReadins',
+            groupItems: 'GroupItems',
             modifyMode: 'ModifyMode',
             resourceOwnerId: 'ResourceOwnerId',
             securityIPType: 'SecurityIPType',
@@ -42,10 +67,12 @@ class ModifySecurityIpsRequest extends $dara.Model {
     }
     static types() {
         return {
+            batchMode: 'boolean',
             DBInstanceIPArrayAttribute: 'string',
             DBInstanceIPArrayName: 'string',
             DBInstanceId: 'string',
             freshWhiteListReadins: 'string',
+            groupItems: { 'type': 'array', 'itemType': ModifySecurityIpsRequestGroupItems },
             modifyMode: 'string',
             resourceOwnerId: 'number',
             securityIPType: 'string',
@@ -54,6 +81,9 @@ class ModifySecurityIpsRequest extends $dara.Model {
         };
     }
     validate() {
+        if (Array.isArray(this.groupItems)) {
+            $dara.Model.validateArray(this.groupItems);
+        }
         super.validate();
     }
     constructor(map) {

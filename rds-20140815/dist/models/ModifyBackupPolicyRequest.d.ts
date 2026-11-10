@@ -2,13 +2,11 @@ import * as $dara from '@darabonba/typescript';
 export declare class ModifyBackupPolicyRequestAdvancedDataPolicies extends $dara.Model {
     /**
      * @remarks
-     * The operation on the sub-policy.
+     * The operation on this sub-policy. Valid values:
      *
-     * - CREATE: creates a sub-policy.
-     *
-     * - UPDATE: updates a sub-policy.
-     *
-     * - DELETE: deletes a sub-policy.
+     * - CREATE: create.
+     * - UPDATE: update.
+     * - DELETE: delete.
      *
      * @example
      * delete/update
@@ -16,11 +14,10 @@ export declare class ModifyBackupPolicyRequestAdvancedDataPolicies extends $dara
     actionType?: string;
     /**
      * @remarks
-     * The backup type.
+     * The backup type. Valid values:
      *
      * - F: full backup.
-     *
-     * - L: log backup (used for SQL Server).
+     * - L: log backup. This value takes effect only when Engine is set to SQL Server.
      *
      * @example
      * F
@@ -28,7 +25,7 @@ export declare class ModifyBackupPolicyRequestAdvancedDataPolicies extends $dara
     bakType?: string;
     /**
      * @remarks
-     * The region ID of the destination region for data backups.
+     * The region ID of the destination region for data backup.
      *
      * @example
      * ap-northeast-1
@@ -36,12 +33,10 @@ export declare class ModifyBackupPolicyRequestAdvancedDataPolicies extends $dara
     destRegion?: string;
     /**
      * @remarks
-     * The type of the destination storage pool.
+     * The type of the destination storage pool. Valid values:
      *
      * - level1: level-1 storage.
-     *
      * - level2Cross: cross-region backup.
-     *
      * - level2: intra-region backup.
      *
      * @example
@@ -50,10 +45,9 @@ export declare class ModifyBackupPolicyRequestAdvancedDataPolicies extends $dara
     destType?: string;
     /**
      * @remarks
-     * The filter option.
+     * The filter option. Valid values:
      *
      * - backupInterval: fixed interval.
-     *
      * - dayOfWeek: fixed day of the week.
      *
      * @example
@@ -70,11 +64,10 @@ export declare class ModifyBackupPolicyRequestAdvancedDataPolicies extends $dara
     filterType?: string;
     /**
      * @remarks
-     * The filter condition value for data backups. If the filter option is crontab, enter a cron expression.
+     * The filter condition value for data backup. If the filter option is crontab, enter a cron expression.
      *
-     * - If FilterKey is set to backupInterval, this value specifies the backup interval in minutes.
-     *
-     * - If FilterKey is set to dayOfWeek, this value specifies the fixed day of the week for backup.
+     * - When FilterKey is set to backupInterval, this value indicates the backup interval in minutes.
+     * - When FilterKey is set to dayOfWeek, this value indicates the fixed day of the week for backup.
      *
      * @example
      * 0 2 * * 1-5
@@ -92,10 +85,9 @@ export declare class ModifyBackupPolicyRequestAdvancedDataPolicies extends $dara
     onlyPreserveOneEachHour?: boolean;
     /**
      * @remarks
-     * The retention type.
+     * The retention type. Valid values:
      *
      * - delay: fixed retention period.
-     *
      * - never: long-term retention (LTR).
      *
      * @example
@@ -104,7 +96,7 @@ export declare class ModifyBackupPolicyRequestAdvancedDataPolicies extends $dara
     retentionType?: string;
     /**
      * @remarks
-     * The number of days for which data backups are retained. This parameter is valid only when RetentionType is set to delay.
+     * The number of days for which data backups are retained. This parameter takes effect only when RetentionType is set to delay.
      *
      * @example
      * 365
@@ -112,7 +104,7 @@ export declare class ModifyBackupPolicyRequestAdvancedDataPolicies extends $dara
     retentionValue?: number;
     /**
      * @remarks
-     * The region ID of the source region for data backups.
+     * The region ID of the source region for data backup.
      *
      * @example
      * cn-beijing
@@ -148,13 +140,11 @@ export declare class ModifyBackupPolicyRequestAdvancedDataPolicies extends $dara
 export declare class ModifyBackupPolicyRequestAdvancedLogPolicies extends $dara.Model {
     /**
      * @remarks
-     * The operation on the sub-policy.
+     * The operation on this sub-policy. Valid values:
      *
-     * - CREATE: creates a sub-policy.
-     *
-     * - UPDATE: updates a sub-policy.
-     *
-     * - DELETE: deletes a sub-policy.
+     * - CREATE: create.
+     * - UPDATE: update.
+     * - DELETE: delete.
      *
      * @example
      * update
@@ -162,7 +152,7 @@ export declare class ModifyBackupPolicyRequestAdvancedLogPolicies extends $dara.
     actionType?: string;
     /**
      * @remarks
-     * The region ID of the destination region for log backups.
+     * The region ID of the destination region for log backup.
      *
      * @example
      * ap-northeast-1
@@ -170,12 +160,10 @@ export declare class ModifyBackupPolicyRequestAdvancedLogPolicies extends $dara.
     destRegion?: string;
     /**
      * @remarks
-     * The type of the destination storage pool.
+     * The type of the destination storage pool. Valid values:
      *
      * - level1: level-1 storage.
-     *
      * - level2Cross: cross-region backup.
-     *
      * - level2: intra-region backup.
      *
      * @example
@@ -192,10 +180,9 @@ export declare class ModifyBackupPolicyRequestAdvancedLogPolicies extends $dara.
     enableLogBackup?: number;
     /**
      * @remarks
-     * The filter option.
+     * The filter option. Valid values:
      *
      * - backupInterval: fixed interval.
-     *
      * - dayOfWeek: fixed day of the week.
      *
      * @example
@@ -204,11 +191,10 @@ export declare class ModifyBackupPolicyRequestAdvancedLogPolicies extends $dara.
     filterKey?: string;
     /**
      * @remarks
-     * The filter condition value for log backups. If the filter option is crontab, enter a cron expression.
+     * The filter condition value for log backup. If the filter option is crontab, enter a cron expression.
      *
-     * - If FilterKey is set to backupInterval, this value specifies the backup interval in minutes.
-     *
-     * - If FilterKey is set to dayOfWeek, this value specifies the fixed day of the week for backup.
+     * - When FilterKey is set to backupInterval, this value indicates the backup interval in minutes.
+     * - When FilterKey is set to dayOfWeek, this value indicates the fixed day of the week for backup.
      *
      * @example
      * 0 2 * * 1-5
@@ -216,10 +202,9 @@ export declare class ModifyBackupPolicyRequestAdvancedLogPolicies extends $dara.
     filterValue?: string;
     /**
      * @remarks
-     * The log retention type.
+     * The log retention type. Valid values:
      *
      * - delay: fixed retention period.
-     *
      * - never: long-term retention (LTR).
      *
      * @example
@@ -228,7 +213,7 @@ export declare class ModifyBackupPolicyRequestAdvancedLogPolicies extends $dara.
     logRetentionType?: string;
     /**
      * @remarks
-     * The number of days for which logs are retained. This parameter is valid only when LogRetentionType is set to delay.
+     * The number of days for which logs are retained. This parameter takes effect only when LogRetentionType is set to delay.
      *
      * @example
      * 7
@@ -236,7 +221,7 @@ export declare class ModifyBackupPolicyRequestAdvancedLogPolicies extends $dara.
     logRetentionValue?: number;
     /**
      * @remarks
-     * The region ID of the source region for log backups.
+     * The region ID of the source region for log backup.
      *
      * @example
      * cn-beijing
@@ -283,10 +268,10 @@ export declare class ModifyBackupPolicyRequest extends $dara.Model {
     /**
      * @remarks
      * The number of archived backups to retain. Default value: **1**. Valid values:
-     * * If **ArchiveBackupKeepPolicy** is set to **ByMonth**, valid values are **1** to **31**.
-     * * If **ArchiveBackupKeepPolicy** is set to **ByWeek**, valid values are **1** to **7**.
+     * * When **ArchiveBackupKeepPolicy** is set to **ByMonth**, valid values are **1** to **31**.
+     * * When **ArchiveBackupKeepPolicy** is set to **ByWeek**, valid values are **1** to **7**.
      *
-     * > * If **ArchiveBackupKeepPolicy** is set to **KeepAll**, you do not need to specify this parameter.
+     * > * When **ArchiveBackupKeepPolicy** is set to **KeepAll**, you do not need to specify this parameter.
      * > * This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
      *
      * @example
@@ -330,7 +315,7 @@ export declare class ModifyBackupPolicyRequest extends $dara.Model {
      * * **720**: 720 minutes.
      *
      * > * This parameter and the **PreferredBackupPeriod** parameter determine the backup policy together.
-     * > * The ApsaraDB RDS for MySQL instance must be a high availability series or Cluster Edition cloud disk instance running MySQL 5.7 or 8.0.
+     * > * The ApsaraDB RDS for MySQL instance must be a cloud disk instance of MySQL 5.7 or 8.0 in the **high availability series or Cluster Edition**.
      * > * The ApsaraDB RDS for PostgreSQL instance must be a cloud disk instance.
      * > * [**Snapshot backup**](https://help.aliyun.com/document_detail/211143.html) must be **enabled** for the ApsaraDB RDS for SQL Server instance.
      * > * This parameter does not take effect when **Category** is set to **Flash**.
@@ -347,11 +332,11 @@ export declare class ModifyBackupPolicyRequest extends $dara.Model {
      * * **Enable**: enables log backup.
      * * **Disabled**: disables log backup.
      *
-     * **For an ApsaraDB RDS for SQL Server instance**, log backup is enabled by default and cannot be disabled. However, you can change the log backup frequency as follows:
+     * **For ApsaraDB RDS for SQL Server instances**, log backup is enabled by default and cannot be disabled. However, you can modify the log backup frequency as follows:
      *
-     * - To set the log backup frequency to **Every 5 Minutes**: Set BackupLog to Enable and leave LogBackupFrequency empty. For more information, see [5-minute log backup](https://help.aliyun.com/document_detail/2861729.html). **This configuration is not supported when the preferred secondary instance is configured for backup (BackupPriority is set to 1). Otherwise, an error is reported.**
-     * - To set the log backup frequency to **Every 30 Minutes**: Leave BackupLog empty and set LogBackupFrequency to LogInterval.
-     * - To set the log backup frequency to **Same as Data Backup**: Leave both BackupLog and LogBackupFrequency empty.
+     * - To set the log backup frequency to **every 5 minutes**: Set BackupLog to Enable and leave LogBackupFrequency empty. For more information, see [5-minute log backup](https://help.aliyun.com/document_detail/2861729.html). **This configuration is not supported when the preferred secondary instance is configured for backup (BackupPriority is set to 1). Otherwise, an error is reported.**
+     * - To set the log backup frequency to **every 30 minutes**: Leave BackupLog empty and set LogBackupFrequency to LogInterval.
+     * - To set the log backup frequency to **the same as the data backup frequency**: Leave both BackupLog and LogBackupFrequency empty.
      *
      * > This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**. It is used to enable or disable log backup.
      *
@@ -361,7 +346,7 @@ export declare class ModifyBackupPolicyRequest extends $dara.Model {
     backupLog?: string;
     /**
      * @remarks
-     * The backup method for an **ApsaraDB RDS for SQL Server instance with cloud disks**. Valid values:
+     * The backup method for **ApsaraDB RDS for SQL Server instances with cloud disks**. Valid values:
      * * **Physical** (default): physical backup.
      * * **Snapshot**: snapshot backup.
      *
@@ -384,11 +369,11 @@ export declare class ModifyBackupPolicyRequest extends $dara.Model {
     backupPolicyMode?: string;
     /**
      * @remarks
-     * The setting for [secondary instance backup](https://help.aliyun.com/document_detail/95717.html) of an **ApsaraDB RDS for SQL Server Cluster Edition** instance. Valid values:
+     * The setting for [secondary instance backup](https://help.aliyun.com/document_detail/95717.html) of **ApsaraDB RDS for SQL Server Cluster Edition** instances. Valid values:
      * - **1**: prefer the secondary instance.
      * - **2**: force the primary instance.
      *
-     * > - This parameter takes effect only when **BackupMethod** is set to **Physical**. If **BackupMethod** is set to **Snapshot**, backups are forcibly performed on the primary instance for ApsaraDB RDS for SQL Server Cluster Edition instances.
+     * > - This parameter takes effect only when **BackupMethod** is set to **Physical**. If **BackupMethod** is set to **Snapshot**, ApsaraDB RDS for SQL Server Cluster Edition instances are forced to back up data on the primary instance.
      * > - After you set **BackupPriority** to **1** (prefer the secondary instance), the **5-minute log backup** policy (BackupLog is set to Enable and LogBackupFrequency is left empty) is **not supported**. Otherwise, an error is reported. Set the log backup frequency to every 30 minutes or the same as the data backup frequency.
      *
      * @example
@@ -424,8 +409,8 @@ export declare class ModifyBackupPolicyRequest extends $dara.Model {
      * * **0**: no compression.
      * * **1**: zlib compression. The format is tar.gz.
      * * **2**: parallel zlib compression.
-     * * **4**: quicklz compression. The format is xb.gz. This method applies only to MySQL 5.6, MySQL 5.7, and PostgreSQL. You can use this compression method to [restore individual databases and tables](https://help.aliyun.com/document_detail/103175.html).
-     * * **8**: quicklz compression. The format is xb.gz. This method applies only to MySQL 8.0. Restoration of individual databases and tables is not supported.
+     * * **4**: quicklz compression. The format is xb.gz. This method is supported only for MySQL 5.6, MySQL 5.7, and PostgreSQL. You can use this compression method to [restore individual databases and tables](https://help.aliyun.com/document_detail/103175.html).
+     * * **8**: quicklz compression. The format is xb.gz. This method is supported only for MySQL 8.0. Restoration of individual databases and tables is not supported.
      *
      * > This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
      *
@@ -435,7 +420,7 @@ export declare class ModifyBackupPolicyRequest extends $dara.Model {
     compressType?: string;
     /**
      * @remarks
-     * The instance ID. You can call the DescribeDBInstances operation to query the instance ID.
+     * Instance ID of the instance. You can call the DescribeDBInstances operation to query instance ID.
      *
      * This parameter is required.
      *
@@ -453,12 +438,12 @@ export declare class ModifyBackupPolicyRequest extends $dara.Model {
     enableAdvancedBackupPolicy?: number;
     /**
      * @remarks
-     * Specifies whether to enable instance log backup for an **ApsaraDB RDS for MySQL**, **ApsaraDB RDS for PostgreSQL**, or **ApsaraDB RDS for MariaDB** instance. Valid values:
-     * * **True** or **1**: enables instance log backup.
-     * * **False** or **0**: disables instance log backup.
+     * Specifies whether to enable log backup for **ApsaraDB RDS for MySQL**, **ApsaraDB RDS for PostgreSQL**, and **ApsaraDB RDS for MariaDB** instances. Valid values:
+     * * **True** or **1**: enables log backup.
+     * * **False** or **0**: disables log backup.
      *
-     * > - Instance log backup is enabled by default and cannot be disabled for **ApsaraDB RDS for SQL Server** instances. Therefore, you do not need to configure this parameter for ApsaraDB RDS for SQL Server instances.
-     * > - This parameter takes effect only when **BackupPolicyMode** is set to **LogBackupPolicy**. It is used to enable or disable instance log backup.
+     * > - Log backup is enabled by default and cannot be disabled for **ApsaraDB RDS for SQL Server** instances. Therefore, you do not need to configure this parameter for ApsaraDB RDS for SQL Server instances.
+     * > - This parameter takes effect only when **BackupPolicyMode** is set to **LogBackupPolicy**. It is used to enable or disable log backup.
      *
      * @example
      * 1
@@ -466,7 +451,21 @@ export declare class ModifyBackupPolicyRequest extends $dara.Model {
     enableBackupLog?: string;
     /**
      * @remarks
-     * Specifies whether to enable incremental backup for an **ApsaraDB RDS for SQL Server instance with cloud disks** or an **ApsaraDB RDS for MySQL instance with local SSDs**. Valid values:
+     * - **Specifies whether to enable the immutable backup feature.**
+     *   - **Valid values**: Only `true` is supported. If you pass other values, an error is reported. **If you do not pass this parameter, the feature remains disabled.**
+     *   - **Limits**: This parameter is supported only for ApsaraDB RDS for PostgreSQL and takes effect only when `EnableAdvancedBackupPolicy` is set to 1.
+     *   - **⚠️ Important**: After this feature is enabled, it **cannot be disabled**. Evaluate the impact on your business before you enable this feature.
+     *
+     * @example
+     * true
+     *
+     * **if can be null:**
+     * false
+     */
+    enableImmutableBackup?: boolean;
+    /**
+     * @remarks
+     * Specifies whether to enable incremental backup for **ApsaraDB RDS for SQL Server instances with cloud disks and ApsaraDB RDS for MySQL instances with local SSDs**. Valid values:
      * * **False** (default): disables incremental backup.
      * * **True**: enables incremental backup.
      *
@@ -478,11 +477,11 @@ export declare class ModifyBackupPolicyRequest extends $dara.Model {
     enableIncrementDataBackup?: boolean;
     /**
      * @remarks
-     * Specifies whether to enable point-in-time recovery (PITR) for an **ApsaraDB RDS for MySQL** instance. Valid values:
+     * Specifies whether to enable point-in-time recovery (PITR) for **ApsaraDB RDS for MySQL** instances. Valid values:
      * - **True**: enables PITR.
      * - **False**: disables PITR.
      *
-     * > This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy** and **BackupLog** is set to **Enable**. For feature details, see [Settings for point-in-time recovery policy](https://help.aliyun.com/document_detail/2666046.html).
+     * > This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy** and **BackupLog** is set to **Enable**. For feature details, see [Settings for the point-in-time recovery policy](https://help.aliyun.com/document_detail/2666046.html).
      *
      * @example
      * True
@@ -490,7 +489,7 @@ export declare class ModifyBackupPolicyRequest extends $dara.Model {
     enablePitrProtection?: boolean;
     /**
      * @remarks
-     * Specifies whether to unconditionally delete binary log files when the storage usage of the **ApsaraDB RDS for MySQL** instance exceeds 80% or the remaining storage space is less than 5 GB. Valid values: **Enable** and **Disable**. By default, this parameter is not modified.
+     * Specifies whether to unconditionally delete binary log files when the storage usage of the **ApsaraDB RDS for MySQL** instance exceeds 80% or the remaining storage is less than 5 GB. Valid values: **Enable** and **Disable**. By default, this parameter is not modified.
      *
      * > This parameter takes effect only when **BackupPolicyMode** is set to **LogBackupPolicy**. In this case, this parameter is required.
      *
@@ -500,7 +499,7 @@ export declare class ModifyBackupPolicyRequest extends $dara.Model {
     highSpaceUsageProtection?: string;
     /**
      * @remarks
-     * The high-frequency incremental backup frequency for an **ApsaraDB RDS for MySQL instance with local SSDs**. Valid values:
+     * The high-frequency incremental backup frequency for **ApsaraDB RDS for MySQL instances with local SSDs**. Valid values:
      * * **60**: 60 minutes.
      * * **120**: 120 minutes.
      * * **240**: 240 minutes.
@@ -515,7 +514,7 @@ export declare class ModifyBackupPolicyRequest extends $dara.Model {
     incBackupInterval?: number;
     /**
      * @remarks
-     * The number of hours for which instance log backups are retained locally on the **ApsaraDB RDS for MySQL** instance. Valid values: **0** to **168** (7 × 24). A value of 0 indicates that instance log backups are not retained.
+     * The number of hours for which log backups are retained locally on the **ApsaraDB RDS for MySQL** instance. Valid values: **0** to **168** (7 × 24). A value of 0 indicates that log backups are not retained.
      *
      * > This parameter takes effect only when **BackupPolicyMode** is set to **LogBackupPolicy**. In this case, this parameter is required.
      *
@@ -525,7 +524,7 @@ export declare class ModifyBackupPolicyRequest extends $dara.Model {
     localLogRetentionHours?: string;
     /**
      * @remarks
-     * The maximum usage of the local log storage space on the **ApsaraDB RDS for MySQL** instance. If the usage exceeds this value, the earliest binary log files are deleted until the usage drops below this value. Valid values: **0** to **50**. By default, this parameter is not modified.
+     * The maximum usage of the local log circular space for the **ApsaraDB RDS for MySQL** instance. If the usage exceeds this value, the earliest binary log files are deleted until the usage drops below this value. Valid values: **0** to **50**. By default, this parameter is not modified.
      *
      * > This parameter takes effect only when **BackupPolicyMode** is set to **LogBackupPolicy**. In this case, this parameter is required.
      *
@@ -535,7 +534,7 @@ export declare class ModifyBackupPolicyRequest extends $dara.Model {
     localLogRetentionSpace?: string;
     /**
      * @remarks
-     * The log backup frequency for an **ApsaraDB RDS for SQL Server** instance. Valid values:
+     * The log backup frequency for **ApsaraDB RDS for SQL Server** instances. Valid values:
      * * **LogInterval**: every 30 minutes.
      * * **Empty** (no value is required): every 5 minutes or the same as the data backup frequency.
      *
@@ -580,7 +579,7 @@ export declare class ModifyBackupPolicyRequest extends $dara.Model {
      * * **Saturday**: Saturday.
      * * **Sunday**: Sunday.
      *
-     * > * This parameter and the **BackupInterval** parameter determine the backup policy together. For example, if this parameter is set to Saturday and Sunday, and the **BackupInterval** parameter is set to 30, a backup is performed every 30 minutes on Saturdays and Sundays.
+     * > * This parameter and the **BackupInterval** parameter determine the backup policy together. For example, if this parameter is set to Saturday and Sunday, and the **BackupInterval** parameter is set to 30 minutes, a backup is performed every 30 minutes on Saturdays and Sundays.
      * > * This parameter is required when **BackupPolicyMode** is set to **DataBackupPolicy**.
      * > * This parameter takes effect only when **BackupPolicyMode** is set to **DataBackupPolicy**.
      *
@@ -601,7 +600,7 @@ export declare class ModifyBackupPolicyRequest extends $dara.Model {
     preferredBackupTime?: string;
     /**
      * @remarks
-     * The data retention policy for archived backups of a deleted **ApsaraDB RDS for MySQL** instance. Valid values:
+     * The data retention policy for archived backups of deleted **ApsaraDB RDS for MySQL** instances. Valid values:
      * * **None**: no backups are retained.
      * * **Lastest**: the last backup is retained.
      * * **All**: all backups are retained.

@@ -18,7 +18,7 @@ export declare class DescribeRCImageListResponseBodyImagesDiskDeviceMappings ext
     size?: string;
     /**
      * @remarks
-     * The attribute of the cloud disk. Valid values:
+     * The property of the cloud disk. Valid values:
      *
      * - **system**: System cloud disk.
      * - **data**: Data cloud disk.
@@ -68,7 +68,7 @@ export declare class DescribeRCImageListResponseBodyImages extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The mappings between cloud disks and snapshots included in the image.
+     * The mapping between cloud disks and snapshots included in the image.
      */
     diskDeviceMappings?: DescribeRCImageListResponseBodyImagesDiskDeviceMappings[];
     /**
@@ -97,10 +97,10 @@ export declare class DescribeRCImageListResponseBodyImages extends $dara.Model {
     imageVersion?: string;
     /**
      * @remarks
-     * Indicates whether the image is public. Public images include public images provided by Alibaba Cloud and custom images that you have published as community images. Valid values:
+     * Indicates whether the image is a public image. Public images include public images provided by Alibaba Cloud and custom images that you have published as community images. Valid values:
      *
-     * - **true**: The image is public.
-     * - **false**: The image is not public.
+     * - **true**: The image is a public image.
+     * - **false**: The image is not a public image.
      *
      * @example
      * false

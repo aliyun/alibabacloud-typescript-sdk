@@ -4,9 +4,9 @@ export declare class ModifyDBProxyShrinkRequest extends $dara.Model {
      * @remarks
      * Specifies whether to enable or disable the database proxy. Valid values:
      *
-     * * **Startup**: Enables the proxy service.
-     * * **Shutdown**: Disables the proxy service.
-     * * **Modify**: Modifies the proxy service.
+     * * **Startup**: enables the proxy service.
+     * * **Shutdown**: disables the proxy service.
+     * * **Modify**: modifies the proxy service.
      *
      * This parameter is required.
      *
@@ -45,8 +45,8 @@ export declare class ModifyDBProxyShrinkRequest extends $dara.Model {
     /**
      * @remarks
      * The type of the database proxy instance. Valid values:
-     * - **common**: General-purpose database proxy.
-     * - **exclusive**: Dedicated proxy (default).
+     * - **common**: general-purpose database proxy
+     * - **exclusive**: dedicated proxy (default)
      *
      * @example
      * exclusive
@@ -54,7 +54,7 @@ export declare class ModifyDBProxyShrinkRequest extends $dara.Model {
     DBProxyInstanceType?: string;
     /**
      * @remarks
-     * The list of proxy nodes.
+     * The proxy nodes.
      */
     DBProxyNodesShrink?: string;
     /**
@@ -71,10 +71,10 @@ export declare class ModifyDBProxyShrinkRequest extends $dara.Model {
     /**
      * @remarks
      * Specifies whether to enable connection keep-alive. Valid values:
-     * - **Enabled**: Enables connection keep-alive.
-     * - **Disabled**: Disables connection keep-alive.
+     * - **Enabled**: enables connection keep-alive.
+     * - **Disabled**: disables connection keep-alive.
      *
-     * > - Only ApsaraDB RDS for MySQL supports this parameter.
+     * > - This parameter is supported only for ApsaraDB RDS for MySQL.
      * > - When you modify the connection keep-alive status, set **ConfigDBProxyService** to **Modify**.
      *
      * @example

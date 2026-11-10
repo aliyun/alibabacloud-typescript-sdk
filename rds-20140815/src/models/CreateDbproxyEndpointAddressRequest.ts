@@ -37,7 +37,7 @@ export class CreateDBProxyEndpointAddressRequest extends $dara.Model {
   DBProxyConnectStringNetType?: string;
   /**
    * @remarks
-   * The ID of the database proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the database proxy endpoint ID.
+   * The ID of the database proxy endpoint. You can call the DescribeDBProxyEndpoint operation to query the ID.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class CreateDBProxyEndpointAddressRequest extends $dara.Model {
   DBProxyEndpointId?: string;
   /**
    * @remarks
-   * The reserved parameter. You do not need to specify this parameter.
+   * A reserved parameter. No configuration is required.
    * 
    * @example
    * normal
@@ -55,7 +55,7 @@ export class CreateDBProxyEndpointAddressRequest extends $dara.Model {
   DBProxyEngineType?: string;
   /**
    * @remarks
-   * The port of the new database proxy endpoint. Default values:
+   * The port number of the new database proxy endpoint. Default values:
    * 
    * - MySQL: **3306**
    * - PostgreSQL: **5432**

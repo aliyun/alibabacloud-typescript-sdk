@@ -87,7 +87,7 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
     advancedLogPolicies?: DescribeBackupPolicyResponseBodyAdvancedLogPolicies;
     /**
      * @remarks
-     * The number of archive backups retained for the **MySQL** instance.
+     * The number of archived backups retained for an **ApsaraDB RDS for MySQL** instance.
      *
      * @example
      * 1
@@ -95,7 +95,7 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
     archiveBackupKeepCount?: string;
     /**
      * @remarks
-     * The retention period of archive backups for the **MySQL** instance.
+     * The retention cycle of archived backups for an **ApsaraDB RDS for MySQL** instance.
      *
      * @example
      * ByMonth
@@ -103,7 +103,7 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
     archiveBackupKeepPolicy?: string;
     /**
      * @remarks
-     * The number of days for which archive backups are retained for the **MySQL** instance.
+     * The number of days for which archived backups are retained for an **ApsaraDB RDS for MySQL** instance.
      *
      * @example
      * 365
@@ -112,8 +112,8 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
     /**
      * @remarks
      * The backup interval. Unit: minutes.
-     * * For MySQL instances: the [snapshot backup frequency](https://help.aliyun.com/document_detail/98818.html), not the snapshot backup cycle.
-     * * For SQL Server instances: the log backup frequency.
+     * * For an ApsaraDB RDS for MySQL instance, this parameter indicates the [snapshot backup frequency](https://help.aliyun.com/document_detail/98818.html) rather than the snapshot backup cycle.
+     * * For an ApsaraDB RDS for SQL Server instance, this parameter indicates the log backup frequency.
      *
      * @example
      * 30
@@ -125,10 +125,10 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
      * * **Enable**: yes
      * * **Disabled**: no
      *
-     * **For SQL Server instances:**
+     * **For an ApsaraDB RDS for SQL Server instance:**
      *
-     * - **Enable** is returned only when instance log backup frequency is **every 5 minutes**.
-     * - **Disabled** is returned when instance log backup frequency is **every 30 minutes** or **the same as the data backup frequency**. **Refer to the value of BackupInterval**.
+     * - **Enable** is returned only when instance log backup frequency of the instance is set to **Every 5 Minutes**.
+     * - **Disabled** is returned when instance log backup frequency is set to **Every 30 Minutes** or **Same as Data Backup**. **Refer to the value of BackupInterval**.
      *
      * @example
      * Enable
@@ -136,7 +136,7 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
     backupLog?: string;
     /**
      * @remarks
-     * The backup method for **SQL Server instances with cloud disks**. Valid values:
+     * The backup method for an **ApsaraDB RDS for SQL Server instance with cloud disks**. Valid values:
      * * **Physical**: physical backup
      * * **Snapshot**: snapshot backup
      *
@@ -146,11 +146,11 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
     backupMethod?: string;
     /**
      * @remarks
-     * The secondary node backup setting for **SQL Server Enterprise Cluster Edition** instances. Valid values:
-     * - **1**: Prefer secondary node.
-     * - **2**: Force primary node.
+     * The secondary node backup setting for an **ApsaraDB RDS for SQL Server Cluster Edition** instance. Valid values:
+     * - **1**: prefer secondary node
+     * - **2**: force primary node
      *
-     * > This parameter is returned only when SupportModifyBackupPriority is True.
+     * > This parameter is returned only when SupportModifyBackupPriority is set to True.
      *
      * @example
      * 2
@@ -166,7 +166,7 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
     backupRetentionPeriod?: number;
     /**
      * @remarks
-     * Indicates whether backup within seconds is enabled for **MySQL** and **PostgreSQL** instances. Valid values:
+     * Indicates whether backup within seconds is enabled for **ApsaraDB RDS for MySQL** and **ApsaraDB RDS for PostgreSQL** instances. Valid values:
      *
      * - **Flash**: enabled
      * - **Standard**: disabled
@@ -183,8 +183,8 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
      * * **0**: no compression
      * * **1**: zlib compression
      * * **2**: parallel zlib compression
-     * * **4**: quicklz compression with database and table restoration enabled
-     * * **8**: quicklz compression without database and table restoration supported
+     * * **4**: QuickLZ compression with database and table restoration enabled
+     * * **8**: QuickLZ compression without database and table restoration supported
      *
      * @example
      * 1
@@ -196,9 +196,9 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
      * * **1**: enabled
      * * **0**: disabled
      *
-     * **For SQL Server instances:**
-     * - **1** is returned only when instance log backup frequency is **every 5 minutes**.
-     * - **0** is returned when instance log backup frequency is **every 30 minutes** or **the same as the data backup frequency**. **Refer to the value of BackupInterval**.
+     * **For an ApsaraDB RDS for SQL Server instance:**
+     * - **1** is returned only when instance log backup frequency of the instance is set to **Every 5 Minutes**.
+     * - **0** is returned when instance log backup frequency is set to **Every 30 Minutes** or **Same as Data Backup**. **Refer to the value of BackupInterval**.
      *
      * @example
      * 1
@@ -206,7 +206,15 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
     enableBackupLog?: string;
     /**
      * @remarks
-     * Indicates whether incremental backup is enabled for the **SQL Server** instance. Valid values:
+     * Indicates whether immutable backup is enabled. This parameter takes effect only when Engine is set to PostgreSQL.
+     *
+     * @example
+     * False
+     */
+    enableImmutableBackup?: boolean;
+    /**
+     * @remarks
+     * Indicates whether incremental backup is enabled for an **ApsaraDB RDS for SQL Server** instance. Valid values:
      * * **True**: yes
      * * **False**: no
      *
@@ -216,7 +224,7 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
     enableIncrementDataBackup?: boolean;
     /**
      * @remarks
-     * Indicates whether point-in-time recovery (PITR), an upgraded version of log backup, is enabled for the **MySQL** instance. Valid values:
+     * Indicates whether point-in-time recovery (PITR) is enabled for an **ApsaraDB RDS for MySQL** instance. PITR is an upgraded version of log backup. Valid values:
      * - **True**: yes
      * - **False**: no
      *
@@ -228,7 +236,7 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
     enablePitrProtection?: boolean;
     /**
      * @remarks
-     * Indicates whether binary logs are forcibly deleted when the storage usage of the **MySQL** instance exceeds 80% or the remaining storage is less than 5 GB. Valid values:
+     * Indicates whether binary logs are forcibly deleted when the storage usage of an **ApsaraDB RDS for MySQL** instance exceeds 80% or the remaining storage is less than 5 GB. Valid values:
      *
      * * **Disable**: no
      * * **Enable**: yes
@@ -247,7 +255,7 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
     incBackupInterval?: number;
     /**
      * @remarks
-     * The number of hours for which local log backups are retained for the **MySQL** instance.
+     * The number of hours for which local binary log backups are retained for an **ApsaraDB RDS for MySQL** instance.
      *
      * @example
      * 0
@@ -255,7 +263,7 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
     localLogRetentionHours?: number;
     /**
      * @remarks
-     * The maximum storage usage of local binary logs for the **MySQL** instance.
+     * The maximum storage usage of binary logs for an **ApsaraDB RDS for MySQL** instance.
      *
      * @example
      * 30
@@ -263,10 +271,10 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
     localLogRetentionSpace?: string;
     /**
      * @remarks
-     * The log backup frequency for the **SQL Server** instance. Valid values:
+     * The log backup frequency for an **ApsaraDB RDS for SQL Server** instance. Valid values:
      *
      * * **LogInterval**: every 30 minutes
-     * * Default: the same as the data backup cycle specified by **PreferredBackupPeriod**
+     * * Default value: the same as the data backup cycle specified by **PreferredBackupPeriod**.
      *
      * @example
      * LogInterval
@@ -274,7 +282,7 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
     logBackupFrequency?: string;
     /**
      * @remarks
-     * The number of local binary logs retained for the **MySQL** instance.
+     * The number of local binary logs retained for an **ApsaraDB RDS for MySQL** instance.
      *
      * @example
      * 60
@@ -290,7 +298,7 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
     logBackupRetentionPeriod?: number;
     /**
      * @remarks
-     * The number of days for which point-in-time recovery is available for the **MySQL** instance.
+     * The number of days to which an **ApsaraDB RDS for MySQL** instance can be restored by using PITR.
      *
      * @example
      * 7
@@ -329,10 +337,10 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
     preferredNextBackupTime?: string;
     /**
      * @remarks
-     * The data retention policy for archive backups of deleted **MySQL** instances. Valid values:
-     * * **None**: no retention
-     * * **Lastest**: retains the last archive backup
-     * * **All**: retains all archive backups
+     * The data retention policy for archived backups of a deleted **ApsaraDB RDS for MySQL** instance. Valid values:
+     * * **None**: does not retain archived backups
+     * * **Lastest**: retains only the last archived backup
+     * * **All**: retains all archived backups
      *
      * @example
      * None
@@ -348,7 +356,7 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the **SQL Server** instance supports modifying the secondary node backup option. Valid values:
+     * Indicates whether the secondary node backup option can be modified for an **ApsaraDB RDS for SQL Server** instance. Valid values:
      *
      * - **True**: yes
      * - **False**: no
@@ -367,7 +375,7 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
     supportReleasedKeep?: number;
     /**
      * @remarks
-     * Indicates whether the **SQL Server** instance supports snapshot backup. Valid values:
+     * Indicates whether snapshot backup is supported for an **ApsaraDB RDS for SQL Server** instance. Valid values:
      *
      * - **1**: yes
      * - **0**: no
@@ -378,7 +386,7 @@ export declare class DescribeBackupPolicyResponseBody extends $dara.Model {
     supportVolumeShadowCopy?: number;
     /**
      * @remarks
-     * Indicates whether the **SQL Server** instance supports the [5-minute log backup feature](https://help.aliyun.com/document_detail/95717.html). Valid values:
+     * Indicates whether the [5-minute log backup feature](https://help.aliyun.com/document_detail/95717.html) is supported for an **ApsaraDB RDS for SQL Server** instance. Valid values:
      * - **0**: not supported
      * - **1**: supported
      *

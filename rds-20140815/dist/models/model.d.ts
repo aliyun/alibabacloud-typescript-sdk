@@ -414,6 +414,7 @@ export { ModifyPGHbaConfigRequestHbaItem } from './ModifyPghbaConfigRequest';
 export { ModifyRCInstanceChargeTypeResponseBodyFeeOfInstances } from './ModifyRcinstanceChargeTypeResponseBody';
 export { ModifySecurityGroupConfigurationResponseBodyItemsEcsSecurityGroupRelation } from './ModifySecurityGroupConfigurationResponseBody';
 export { ModifySecurityGroupConfigurationResponseBodyItems } from './ModifySecurityGroupConfigurationResponseBody';
+export { ModifySecurityIpsRequestGroupItems } from './ModifySecurityIpsRequest';
 export { ModifyWhitelistTemplateResponseBodyData } from './ModifyWhitelistTemplateResponseBody';
 export { PreCheckCreateOrderForDeleteDBNodesResponseBodyFailuresFailures } from './PreCheckCreateOrderForDeleteDbnodesResponseBody';
 export { PreCheckCreateOrderForDeleteDBNodesResponseBodyFailures } from './PreCheckCreateOrderForDeleteDbnodesResponseBody';

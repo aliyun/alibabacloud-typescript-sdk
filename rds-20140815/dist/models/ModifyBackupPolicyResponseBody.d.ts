@@ -23,12 +23,11 @@ export declare class ModifyBackupPolicyResponseBody extends $dara.Model {
     DBInstanceID?: string;
     /**
      * @remarks
-     * Indicates whether instance log backup is enabled. Valid values:
+     * Indicates whether log backup is enabled. Valid values:
      * * **1**: enabled.
      * * **0**: disabled.
      *
-     *
-     * > Instance log backup is enabled by default and cannot be disabled for ApsaraDB RDS for SQL Server instances.
+     * > Log backup is enabled by default and cannot be disabled for ApsaraDB RDS for SQL Server instances.
      *
      * @example
      * 1
@@ -46,7 +45,7 @@ export declare class ModifyBackupPolicyResponseBody extends $dara.Model {
     enablePitrProtection?: boolean;
     /**
      * @remarks
-     * Indicates whether binary log files are unconditionally deleted when the storage usage of the **ApsaraDB RDS for MySQL** instance exceeds 80% or the remaining storage space is less than 5 GB.
+     * Indicates whether binary log files are unconditionally deleted when the storage usage of the **ApsaraDB RDS for MySQL** instance exceeds 80% or the remaining storage is less than 5 GB.
      *
      * @example
      * Disable
@@ -62,7 +61,7 @@ export declare class ModifyBackupPolicyResponseBody extends $dara.Model {
     incBackupInterval?: number;
     /**
      * @remarks
-     * The number of hours for which instance log backups are retained locally on the **ApsaraDB RDS for MySQL** instance.
+     * The number of hours for which log backups are retained locally on the **ApsaraDB RDS for MySQL** instance.
      *
      * @example
      * 18
@@ -70,7 +69,7 @@ export declare class ModifyBackupPolicyResponseBody extends $dara.Model {
     localLogRetentionHours?: number;
     /**
      * @remarks
-     * The maximum loop space usage of the binary log on the **ApsaraDB RDS for MySQL** instance.
+     * The maximum usage of the local binary log loop space for the **ApsaraDB RDS for MySQL** instance.
      *
      * @example
      * 30
@@ -86,7 +85,7 @@ export declare class ModifyBackupPolicyResponseBody extends $dara.Model {
     logBackupLocalRetentionNumber?: number;
     /**
      * @remarks
-     * The request ID.
+     * The ID of the request.
      *
      * @example
      * DA147739-AEAD-4417-9089-65E9B1D8240D
