@@ -29,6 +29,8 @@ const $dara = __importStar(require("@darabonba/typescript"));
 class CreateContextDatabaseWorkspaceRequest extends $dara.Model {
     static names() {
         return {
+            clusterId: 'ClusterId',
+            generateInitialKey: 'GenerateInitialKey',
             memberName: 'MemberName',
             permissionMode: 'PermissionMode',
             workspaceName: 'WorkspaceName',
@@ -36,6 +38,8 @@ class CreateContextDatabaseWorkspaceRequest extends $dara.Model {
     }
     static types() {
         return {
+            clusterId: 'string',
+            generateInitialKey: 'boolean',
             memberName: 'string',
             permissionMode: 'string',
             workspaceName: 'string',

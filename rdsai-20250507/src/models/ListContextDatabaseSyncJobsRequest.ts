@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListContextDatabaseSyncJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the target knowledge base.
+   * The destination knowledge base ID.
    * 
    * @example
    * kb-as1llqmkol****
@@ -13,7 +13,7 @@ export class ListContextDatabaseSyncJobsRequest extends $dara.Model {
   knowledgeBaseId?: string;
   /**
    * @remarks
-   * The page number. The value starts from 1.
+   * The page number, starting from 1.
    * 
    * @example
    * 1

@@ -23,14 +23,68 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateContextDatabaseWorkspaceResponseBody = void 0;
+exports.CreateContextDatabaseWorkspaceResponseBody = exports.CreateContextDatabaseWorkspaceResponseBodyViewer = exports.CreateContextDatabaseWorkspaceResponseBodyCapabilities = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
+class CreateContextDatabaseWorkspaceResponseBodyCapabilities extends $dara.Model {
+    static names() {
+        return {
+            executableActions: 'ExecutableActions',
+        };
+    }
+    static types() {
+        return {
+            executableActions: { 'type': 'array', 'itemType': 'string' },
+        };
+    }
+    validate() {
+        if (Array.isArray(this.executableActions)) {
+            $dara.Model.validateArray(this.executableActions);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateContextDatabaseWorkspaceResponseBodyCapabilities = CreateContextDatabaseWorkspaceResponseBodyCapabilities;
+class CreateContextDatabaseWorkspaceResponseBodyViewer extends $dara.Model {
+    static names() {
+        return {
+            boundMemberId: 'BoundMemberId',
+            boundMemberRole: 'BoundMemberRole',
+            boundMemberStatus: 'BoundMemberStatus',
+            callerType: 'CallerType',
+            identityMode: 'IdentityMode',
+            selectedMemberId: 'SelectedMemberId',
+        };
+    }
+    static types() {
+        return {
+            boundMemberId: 'string',
+            boundMemberRole: 'string',
+            boundMemberStatus: 'string',
+            callerType: 'string',
+            identityMode: 'string',
+            selectedMemberId: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateContextDatabaseWorkspaceResponseBodyViewer = CreateContextDatabaseWorkspaceResponseBodyViewer;
 class CreateContextDatabaseWorkspaceResponseBody extends $dara.Model {
     static names() {
         return {
             apiKey: 'ApiKey',
             apiKeyName: 'ApiKeyName',
+            capabilities: 'Capabilities',
+            clusterId: 'ClusterId',
+            consolePermissionMode: 'ConsolePermissionMode',
             createdAt: 'CreatedAt',
             memberId: 'MemberId',
             memberName: 'MemberName',
@@ -39,6 +93,7 @@ class CreateContextDatabaseWorkspaceResponseBody extends $dara.Model {
             role: 'Role',
             status: 'Status',
             type: 'Type',
+            viewer: 'Viewer',
             workspaceId: 'WorkspaceId',
             workspaceName: 'WorkspaceName',
         };
@@ -47,6 +102,9 @@ class CreateContextDatabaseWorkspaceResponseBody extends $dara.Model {
         return {
             apiKey: 'string',
             apiKeyName: 'string',
+            capabilities: CreateContextDatabaseWorkspaceResponseBodyCapabilities,
+            clusterId: 'string',
+            consolePermissionMode: 'string',
             createdAt: 'string',
             memberId: 'string',
             memberName: 'string',
@@ -55,11 +113,18 @@ class CreateContextDatabaseWorkspaceResponseBody extends $dara.Model {
             role: 'string',
             status: 'string',
             type: 'string',
+            viewer: CreateContextDatabaseWorkspaceResponseBodyViewer,
             workspaceId: 'string',
             workspaceName: 'string',
         };
     }
     validate() {
+        if (this.capabilities && typeof this.capabilities.validate === 'function') {
+            this.capabilities.validate();
+        }
+        if (this.viewer && typeof this.viewer.validate === 'function') {
+            this.viewer.validate();
+        }
         super.validate();
     }
     constructor(map) {

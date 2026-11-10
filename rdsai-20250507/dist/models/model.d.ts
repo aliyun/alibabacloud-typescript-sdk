@@ -13,6 +13,8 @@ export { CreateContextDatabaseMemberResponseBodyMember } from './CreateContextDa
 export { CreateContextDatabaseSyncConnectionResponseBodyData } from './CreateContextDatabaseSyncConnectionResponseBody';
 export { CreateContextDatabaseSyncJobResponseBodyData } from './CreateContextDatabaseSyncJobResponseBody';
 export { CreateContextDatabaseSyncSourceResponseBodyData } from './CreateContextDatabaseSyncSourceResponseBody';
+export { CreateContextDatabaseWorkspaceResponseBodyCapabilities } from './CreateContextDatabaseWorkspaceResponseBody';
+export { CreateContextDatabaseWorkspaceResponseBodyViewer } from './CreateContextDatabaseWorkspaceResponseBody';
 export { CreateCustomAgentResponseBodySkills } from './CreateCustomAgentResponseBody';
 export { CreateInspectionTaskResponseBodyData } from './CreateInspectionTaskResponseBody';
 export { CreateMOUsageDetailExportResponseBodyDataFilters } from './CreateMousageDetailExportResponseBody';
@@ -23,6 +25,8 @@ export { DeleteContextDatabaseMemberResponseBodyKeys } from './DeleteContextData
 export { DeleteContextDatabaseSyncConnectionResponseBodyData } from './DeleteContextDatabaseSyncConnectionResponseBody';
 export { DeleteContextDatabaseSyncJobResponseBodyData } from './DeleteContextDatabaseSyncJobResponseBody';
 export { DeleteContextDatabaseSyncSourceResponseBodyData } from './DeleteContextDatabaseSyncSourceResponseBody';
+export { DeleteContextDatabaseWorkspaceResponseBodyCapabilities } from './DeleteContextDatabaseWorkspaceResponseBody';
+export { DeleteContextDatabaseWorkspaceResponseBodyViewer } from './DeleteContextDatabaseWorkspaceResponseBody';
 export { DescribeAppInstanceAttributeResponseBodyComponents } from './DescribeAppInstanceAttributeResponseBody';
 export { DescribeAppInstanceAttributeResponseBodyUploadKeyList } from './DescribeAppInstanceAttributeResponseBody';
 export { DescribeAppInstancesResponseBodyInstancesComponents } from './DescribeAppInstancesResponseBody';
@@ -132,6 +136,8 @@ export { UpdateContextDatabaseSyncJobResponseBodyData } from './UpdateContextDat
 export { UpdateContextDatabaseSyncJobScheduleResponseBodyData } from './UpdateContextDatabaseSyncJobScheduleResponseBody';
 export { UpdateContextDatabaseSyncSourceResponseBodyData } from './UpdateContextDatabaseSyncSourceResponseBody';
 export { UpdateContextDatabaseSyncSourceSelectionResponseBodyData } from './UpdateContextDatabaseSyncSourceSelectionResponseBody';
+export { UpdateContextDatabaseWorkspaceResponseBodyCapabilities } from './UpdateContextDatabaseWorkspaceResponseBody';
+export { UpdateContextDatabaseWorkspaceResponseBodyViewer } from './UpdateContextDatabaseWorkspaceResponseBody';
 export { UpdateCustomAgentResponseBodySkills } from './UpdateCustomAgentResponseBody';
 export { UpdateMOQuotaAlertThresholdRequestApikey } from './UpdateMoquotaAlertThresholdRequest';
 export { UpdateMOQuotaAlertThresholdResponseBodyResults } from './UpdateMoquotaAlertThresholdResponseBody';

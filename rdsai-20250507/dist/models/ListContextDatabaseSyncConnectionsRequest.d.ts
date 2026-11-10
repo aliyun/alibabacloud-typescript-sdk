@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListContextDatabaseSyncConnectionsRequest extends $dara.Model {
     /**
      * @remarks
-     * The page number. Pages start from 1.
+     * The page number, starting from 1.
      *
      * @example
      * 1
@@ -18,7 +18,7 @@ export declare class ListContextDatabaseSyncConnectionsRequest extends $dara.Mod
     pageSize?: number;
     /**
      * @remarks
-     * The plug-in ID.
+     * The plugin ID.
      *
      * @example
      * dingtalk

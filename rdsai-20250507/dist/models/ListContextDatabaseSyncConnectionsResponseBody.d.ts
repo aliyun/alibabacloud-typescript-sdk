@@ -18,7 +18,7 @@ export declare class ListContextDatabaseSyncConnectionsResponseBodyDataConnectio
     authState?: string;
     /**
      * @remarks
-     * The time when the datasource configuration was created.
+     * The creation time.
      *
      * @example
      * 2026-09-23T10:00:00+08:00
@@ -29,7 +29,7 @@ export declare class ListContextDatabaseSyncConnectionsResponseBodyDataConnectio
      * The display name.
      *
      * @example
-     * R&D Team DingTalk Datasource
+     * R&D team DingTalk data source
      */
     displayName?: string;
     /**
@@ -42,7 +42,7 @@ export declare class ListContextDatabaseSyncConnectionsResponseBodyDataConnectio
     id?: string;
     /**
      * @remarks
-     * The plug-in ID.
+     * The plugin ID.
      *
      * @example
      * dingtalk
@@ -53,7 +53,7 @@ export declare class ListContextDatabaseSyncConnectionsResponseBodyDataConnectio
      * The remediation suggestion.
      *
      * @example
-     * Re-authorize the datasource configuration
+     * Re-authorize the data source
      */
     remediation?: string;
     /**
@@ -76,7 +76,7 @@ export declare class ListContextDatabaseSyncConnectionsResponseBodyDataConnectio
     secretFingerprint?: string;
     /**
      * @remarks
-     * The time when the credential was last updated.
+     * The credential update time.
      *
      * @example
      * 2026-09-23T10:00:00+08:00
@@ -84,7 +84,7 @@ export declare class ListContextDatabaseSyncConnectionsResponseBodyDataConnectio
     secretUpdatedAt?: string;
     /**
      * @remarks
-     * The time when the datasource configuration was last updated.
+     * The update time.
      *
      * @example
      * 2026-09-23T10:00:00+08:00
@@ -92,7 +92,7 @@ export declare class ListContextDatabaseSyncConnectionsResponseBodyDataConnectio
     updatedAt?: string;
     /**
      * @remarks
-     * The time when the datasource configuration was last verified.
+     * The verification time.
      *
      * @example
      * 2026-09-23T10:00:00+08:00
@@ -112,15 +112,15 @@ export declare class ListContextDatabaseSyncConnectionsResponseBodyDataConnectio
 export declare class ListContextDatabaseSyncConnectionsResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The list of datasource configurations.
+     * The list of data sources.
      *
      * @example
-     * [{"Id":"conn-as1llqmkol****", "PluginId":"dingtalk", "DisplayName":"R&D Team DingTalk Datasource", "AuthKind":"app"}]
+     * [{"Id":"conn-as1llqmkol****", "PluginId":"dingtalk", "DisplayName":"R&D team DingTalk data source", "AuthKind":"app"}]
      */
     connections?: ListContextDatabaseSyncConnectionsResponseBodyDataConnections[];
     /**
      * @remarks
-     * The page number. Pages start from 1.
+     * The page number, starting from 1.
      *
      * @example
      * 1
@@ -159,7 +159,7 @@ export declare class ListContextDatabaseSyncConnectionsResponseBody extends $dar
      * The error code.
      *
      * @example
-     * 示例值
+     * Example value
      */
     code?: string;
     /**
@@ -177,10 +177,10 @@ export declare class ListContextDatabaseSyncConnectionsResponseBody extends $dar
     httpStatusCode?: number;
     /**
      * @remarks
-     * The response message.
+     * The message.
      *
      * @example
-     * 示例值
+     * Example value
      */
     message?: string;
     /**
@@ -193,7 +193,7 @@ export declare class ListContextDatabaseSyncConnectionsResponseBody extends $dar
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the request was successful.
+     * Indicates whether the request is successful.
      */
     success?: boolean;
     static names(): {

@@ -51,6 +51,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
+const gateway_pop_1 = __importDefault(require("@alicloud/gateway-pop"));
 const openapi_core_1 = __importDefault(require("@alicloud/openapi-core"));
 const openapi_core_2 = require("@alicloud/openapi-core");
 const $_model = __importStar(require("./models/model"));
@@ -58,6 +59,9 @@ __exportStar(require("./models/model"), exports);
 class Client extends openapi_core_1.default {
     constructor(config) {
         super(config);
+        this._productId = "RdsAi";
+        let gatewayClient = new gateway_pop_1.default();
+        this._spi = gatewayClient;
         this._endpointRule = "regional";
         this._endpointMap = {
             'cn-wulanchabu': "rdsai.aliyuncs.com",
@@ -902,10 +906,13 @@ class Client extends openapi_core_1.default {
         return await this.createContextDatabaseSyncSourceWithOptions(request, runtime);
     }
     /**
-     * Creates a workspace, the first member, and the first API key in a one-time onboarding flow.
+     * Creates a ContextDB workspace and its first member, and optionally generates an initial API key.
      *
      * @remarks
-     * Creates a workspace, the first member, and the first API key in a one-time onboarding flow, and returns the plaintext API key.
+     * Creates a ContextDB workspace and its first member.
+     * - GenerateInitialKey defaults to `true`. An initial API key is generated during creation, and the plaintext key is returned only once. Save the returned key. If set to `false`, no initial API key is generated, and the ApiKeyName and ApiKey fields in the response are empty.
+     * - You can use ClusterId to specify the cluster to which the workspace belongs.
+     * - You can use PermissionMode to select the compatibility mode or the advanced permission mode. The advanced permission mode can only be selected by the Alibaba Cloud account. It takes effect immediately after the workspace is created and cannot be disabled.
      *
      * @param request - CreateContextDatabaseWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -914,6 +921,12 @@ class Client extends openapi_core_1.default {
     async createContextDatabaseWorkspaceWithOptions(request, runtime) {
         request.validate();
         let query = {};
+        if (!$dara.isNull(request.clusterId)) {
+            query["ClusterId"] = request.clusterId;
+        }
+        if (!$dara.isNull(request.generateInitialKey)) {
+            query["GenerateInitialKey"] = request.generateInitialKey;
+        }
         if (!$dara.isNull(request.memberName)) {
             query["MemberName"] = request.memberName;
         }
@@ -940,10 +953,13 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.CreateContextDatabaseWorkspaceResponse({}));
     }
     /**
-     * Creates a workspace, the first member, and the first API key in a one-time onboarding flow.
+     * Creates a ContextDB workspace and its first member, and optionally generates an initial API key.
      *
      * @remarks
-     * Creates a workspace, the first member, and the first API key in a one-time onboarding flow, and returns the plaintext API key.
+     * Creates a ContextDB workspace and its first member.
+     * - GenerateInitialKey defaults to `true`. An initial API key is generated during creation, and the plaintext key is returned only once. Save the returned key. If set to `false`, no initial API key is generated, and the ApiKeyName and ApiKey fields in the response are empty.
+     * - You can use ClusterId to specify the cluster to which the workspace belongs.
+     * - You can use PermissionMode to select the compatibility mode or the advanced permission mode. The advanced permission mode can only be selected by the Alibaba Cloud account. It takes effect immediately after the workspace is created and cannot be disabled.
      *
      * @param request - CreateContextDatabaseWorkspaceRequest
      * @returns CreateContextDatabaseWorkspaceResponse
@@ -1689,7 +1705,7 @@ class Client extends openapi_core_1.default {
      * Deletes a ContextDB workspace.
      *
      * @remarks
-     * Deletes a workspace. This is a hard delete and cannot be recovered. After the workspace is deleted, the local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
+     * Deletes a workspace. This is a hard deletion and cannot be undone. After the workspace is deleted, local metadata is synchronously soft deleted, and the deleted workspace is no longer counted towards the quota.
      *
      * @param request - DeleteContextDatabaseWorkspaceRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -1721,7 +1737,7 @@ class Client extends openapi_core_1.default {
      * Deletes a ContextDB workspace.
      *
      * @remarks
-     * Deletes a workspace. This is a hard delete and cannot be recovered. After the workspace is deleted, the local metadata is soft-deleted synchronously. Deleted workspaces no longer count toward the quota.
+     * Deletes a workspace. This is a hard deletion and cannot be undone. After the workspace is deleted, local metadata is synchronously soft deleted, and the deleted workspace is no longer counted towards the quota.
      *
      * @param request - DeleteContextDatabaseWorkspaceRequest
      * @returns DeleteContextDatabaseWorkspaceResponse
@@ -4126,11 +4142,11 @@ class Client extends openapi_core_1.default {
         return await this.listContextDatabaseMembersWithOptions(request, runtime);
     }
     /**
-     * Lists the datasource configurations in a workspace.
+     * Lists the data sources in a workspace.
      *
      * @remarks
-     * The list operation returns paginated results by default. Page and PageSize are optional parameters.
-     * The Data list field in the response is returned as an array. Total indicates the total number of records that match the specified conditions.
+     * By default, the list operation returns paginated results. The Page and PageSize parameters are optional.
+     * The Data field in the response is returned as an array, and Total indicates the total number of matching entries.
      *
      * @param request - ListContextDatabaseSyncConnectionsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4168,11 +4184,11 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.ListContextDatabaseSyncConnectionsResponse({}));
     }
     /**
-     * Lists the datasource configurations in a workspace.
+     * Lists the data sources in a workspace.
      *
      * @remarks
-     * The list operation returns paginated results by default. Page and PageSize are optional parameters.
-     * The Data list field in the response is returned as an array. Total indicates the total number of records that match the specified conditions.
+     * By default, the list operation returns paginated results. The Page and PageSize parameters are optional.
+     * The Data field in the response is returned as an array, and Total indicates the total number of matching entries.
      *
      * @param request - ListContextDatabaseSyncConnectionsRequest
      * @returns ListContextDatabaseSyncConnectionsResponse
@@ -4286,11 +4302,11 @@ class Client extends openapi_core_1.default {
         return await this.listContextDatabaseSyncJobExclusionsWithOptions(request, runtime);
     }
     /**
-     * Lists import tasks.
+     * Lists import jobs.
      *
      * @remarks
-     * The list operation returns paginated results by default. Page and PageSize are optional parameters.
-     * The Data list field in the response is returned as an array. Total indicates the total number of records that match the specified conditions.
+     * The list API returns paginated results by default. Page and PageSize are optional parameters.
+     * The Data list field in the response is returned as an array, and Total indicates the total number of matching entries.
      *
      * @param request - ListContextDatabaseSyncJobsRequest
      * @param runtime - runtime options for this request RuntimeOptions
@@ -4328,11 +4344,11 @@ class Client extends openapi_core_1.default {
         return $dara.cast(await this.callApi(params, req, runtime), new $_model.ListContextDatabaseSyncJobsResponse({}));
     }
     /**
-     * Lists import tasks.
+     * Lists import jobs.
      *
      * @remarks
-     * The list operation returns paginated results by default. Page and PageSize are optional parameters.
-     * The Data list field in the response is returned as an array. Total indicates the total number of records that match the specified conditions.
+     * The list API returns paginated results by default. Page and PageSize are optional parameters.
+     * The Data list field in the response is returned as an array, and Total indicates the total number of matching entries.
      *
      * @param request - ListContextDatabaseSyncJobsRequest
      * @returns ListContextDatabaseSyncJobsResponse

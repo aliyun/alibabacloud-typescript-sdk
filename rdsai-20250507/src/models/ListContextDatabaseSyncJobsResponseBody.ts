@@ -8,7 +8,7 @@ export class ListContextDatabaseSyncJobsResponseBodyDataJobsFilters extends $dar
    * The list of exclusion rules.
    * 
    * @example
-   * ["/Archived Documents"]
+   * ["/Archived documents"]
    */
   exclude?: string[];
   /**
@@ -24,7 +24,7 @@ export class ListContextDatabaseSyncJobsResponseBodyDataJobsFilters extends $dar
    * The list of inclusion rules.
    * 
    * @example
-   * ["/R&D Documents"]
+   * ["/R&D documents"]
    */
   include?: string[];
   /**
@@ -87,15 +87,15 @@ export class ListContextDatabaseSyncJobsResponseBodyDataJobsFilters extends $dar
 export class ListContextDatabaseSyncJobsResponseBodyDataJobs extends $dara.Model {
   /**
    * @remarks
-   * The reason for automatic pause.
+   * The auto-pause reason.
    * 
    * @example
-   * Failed 3 consecutive times
+   * Three consecutive run failures
    */
   autoPauseReason?: string;
   /**
    * @remarks
-   * Indicates whether the task is automatically paused.
+   * Indicates whether the job is automatically paused.
    * 
    * @example
    * true
@@ -111,7 +111,7 @@ export class ListContextDatabaseSyncJobsResponseBodyDataJobs extends $dara.Model
   configVersion?: number;
   /**
    * @remarks
-   * Indicates whether the task is enabled.
+   * Indicates whether the job is enabled.
    * 
    * @example
    * true
@@ -122,12 +122,12 @@ export class ListContextDatabaseSyncJobsResponseBodyDataJobs extends $dara.Model
    * The filter conditions.
    * 
    * @example
-   * {"include":["/研发文档/**"],"exclude":["/归档文档/**"],"excludedDocumentIds":[],"sizeLimit":2147483648,"typeAllowlist":["docx","pdf"]}
+   * {"include":["/R&D documents/**"],"exclude":["/Archived documents/**"],"excludedDocumentIds":[],"sizeLimit":2147483648,"typeAllowlist":["docx","pdf"]}
    */
   filters?: ListContextDatabaseSyncJobsResponseBodyDataJobsFilters;
   /**
    * @remarks
-   * The task ID, which is a system-generated UUID.
+   * The job ID, which is a system-generated UUID.
    * 
    * @example
    * 550e8400-e29b-41d4-a716-446655440000
@@ -135,7 +135,7 @@ export class ListContextDatabaseSyncJobsResponseBodyDataJobs extends $dara.Model
   id?: string;
   /**
    * @remarks
-   * The ID of the target knowledge base.
+   * The destination knowledge base ID.
    * 
    * @example
    * kb-as1llqmkol****
@@ -146,12 +146,12 @@ export class ListContextDatabaseSyncJobsResponseBodyDataJobs extends $dara.Model
    * The name.
    * 
    * @example
-   * R&D Team Document Import
+   * R&D team document import
    */
   name?: string;
   /**
    * @remarks
-   * The time of the next run.
+   * The next run time.
    * 
    * @example
    * 2026-09-23T10:00:00+08:00
@@ -159,7 +159,7 @@ export class ListContextDatabaseSyncJobsResponseBodyDataJobs extends $dara.Model
   nextRunAt?: string;
   /**
    * @remarks
-   * The scheduling type. Valid values: interval, daily-times.
+   * The schedule type. Valid values: interval and daily-times.
    * 
    * @example
    * daily-times
@@ -175,7 +175,7 @@ export class ListContextDatabaseSyncJobsResponseBodyDataJobs extends $dara.Model
   sourceId?: string;
   /**
    * @remarks
-   * The target ID, which is a system-generated UUID.
+   * The destination ID, which is a system-generated UUID.
    * 
    * @example
    * 550e8400-e29b-41d4-a716-446655440000
@@ -230,7 +230,7 @@ export class ListContextDatabaseSyncJobsResponseBodyDataJobs extends $dara.Model
 export class ListContextDatabaseSyncJobsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of import tasks.
+   * The list of import jobs.
    * 
    * @example
    * [{"Id":"job-as1llqmkol****", "SourceId":"src-as1llqmkol****", "TargetId":"tg-as1llqmkol****", "KnowledgeBaseId":"kb-as1llqmkol****"}]
@@ -238,7 +238,7 @@ export class ListContextDatabaseSyncJobsResponseBodyData extends $dara.Model {
   jobs?: ListContextDatabaseSyncJobsResponseBodyDataJobs[];
   /**
    * @remarks
-   * The page number. The value starts from 1.
+   * The page number, starting from 1.
    * 
    * @example
    * 1
@@ -314,7 +314,7 @@ export class ListContextDatabaseSyncJobsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message.
+   * The message.
    * 
    * @example
    * Sample value
@@ -330,7 +330,7 @@ export class ListContextDatabaseSyncJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {
