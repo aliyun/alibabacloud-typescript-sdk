@@ -70,7 +70,7 @@ export class DescribeDataAgentSkillDownloadResponseBody extends $dara.Model {
   data?: DescribeDataAgentSkillDownloadResponseBodyData;
   /**
    * @remarks
-   * The error code. This parameter is returned when a request exception occurs.
+   * The error code returned when a request exception occurs.
    * 
    * @example
    * InvalidTid
