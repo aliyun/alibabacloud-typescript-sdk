@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListColumnsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the data object. The value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC.
+   * The creation time of the data object. The value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
    * 
    * @example
    * 1788566400000
@@ -13,7 +13,7 @@ export class ListColumnsResponseBodyItems extends $dara.Model {
   creationTime?: number;
   /**
    * @remarks
-   * The cloud instance identity.
+   * The instance identity of the cloud instance.
    * 
    * @example
    * rm-2ze1abcdefgh****
@@ -53,7 +53,7 @@ export class ListColumnsResponseBodyItems extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The compatibility field for the column encryption status. To query column encryption results, call ListDataMaskingColumns.
+   * The compatibility field for the column encryption status. To query the column encryption results, call ListDataMaskingColumns.
    * 
    * @example
    * 0
@@ -220,7 +220,7 @@ export class ListColumnsResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The list of records returned by the current query.
+   * The list of records returned in the current query.
    */
   items?: ListColumnsResponseBodyItems[];
   /**
@@ -233,7 +233,7 @@ export class ListColumnsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID, which can be used to locate the current API call.
+   * The request ID. You can use the ID to locate this API call.
    * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB

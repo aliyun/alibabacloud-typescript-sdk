@@ -13,7 +13,7 @@ export class ListColumnsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The cloud database instance identity. Set this parameter to the InstanceId in the instance list.
+   * The instance identity of the cloud database. Set this parameter to the InstanceId in the instance list.
    * 
    * @example
    * rm-2ze1abcdefgh****
@@ -37,7 +37,7 @@ export class ListColumnsRequest extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * The compatible parameter for the instance identity. DataAssetSourceId takes precedence. If both are specified, DataAssetSourceId is used.
+   * The compatible parameter for the instance identity. DataAssetSourceId takes precedence. If both parameters are specified, DataAssetSourceId is used.
    * 
    * @example
    * rm-2ze1abcdefgh****
@@ -45,7 +45,7 @@ export class ListColumnsRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The language of the response description. Valid values: zh: Chinese; en: English.
+   * The language of the response description. Valid values: zh: Chinese. en: English.
    * 
    * @example
    * zh
@@ -59,6 +59,14 @@ export class ListColumnsRequest extends $dara.Model {
    * phone
    */
   name?: string;
+  /**
+   * @remarks
+   * Specifies whether the API operation returns only column names.
+   * 
+   * @example
+   * 1
+   */
+  onlyColumnName?: number;
   /**
    * @remarks
    * The number of entries to return on each page. Keep other filter conditions consistent when querying the next page.
@@ -77,7 +85,7 @@ export class ListColumnsRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The identifier of the sensitivity level. You can obtain this value from the return list of ListRiskLevels.
+   * The identifier of the sensitivity level. You can obtain the value from the return list of ListRiskLevels.
    * 
    * @example
    * 1
@@ -101,7 +109,7 @@ export class ListColumnsRequest extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The identifier of the data classification and grading template. You can obtain this value from Items[].Id returned by ListTemplates. Keep this parameter consistent with the selected sensitivity level and detection model.
+   * The identifier of the data classification template. You can obtain the value from Items[].Id returned by ListTemplates. Keep this parameter consistent with the selected sensitivity level and detection model.
    * 
    * @example
    * 1
@@ -116,6 +124,7 @@ export class ListColumnsRequest extends $dara.Model {
       instanceName: 'InstanceName',
       lang: 'Lang',
       name: 'Name',
+      onlyColumnName: 'OnlyColumnName',
       pageSize: 'PageSize',
       productCode: 'ProductCode',
       riskLevelId: 'RiskLevelId',
@@ -134,6 +143,7 @@ export class ListColumnsRequest extends $dara.Model {
       instanceName: 'string',
       lang: 'string',
       name: 'string',
+      onlyColumnName: 'number',
       pageSize: 'number',
       productCode: 'string',
       riskLevelId: 'number',
