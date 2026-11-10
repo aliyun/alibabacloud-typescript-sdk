@@ -13,7 +13,7 @@ export class UpdateUserDeliveryTaskStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the delivery task.
+   * The task status.
    * 
    * @example
    * online
@@ -21,7 +21,7 @@ export class UpdateUserDeliveryTaskStatusResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The name of the delivery task.
+   * The task name.
    * 
    * @example
    * test_project

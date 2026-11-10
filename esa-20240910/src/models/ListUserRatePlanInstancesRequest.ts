@@ -25,7 +25,7 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
   isShared?: boolean;
   /**
    * @remarks
-   * The page number Settings for a paging query. Default value: **1**. Valid values: **1** to **100000**.
+   * The page number Settings for paging in a paged query. Default value: **1**. Valid values: **1** to **100000**.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for a paging query. Valid values: 1 to 500.
+   * The number of entries per page for paging in a paged query. Valid values: 1 to 500.
    * 
    * @example
    * 500
@@ -60,7 +60,7 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
   planType?: string;
   /**
    * @remarks
-   * Queries plan instances whose remaining validity period is less than or equal to the specified number of days. The value must be a positive integer. Unit: days.
+   * Queries plan instances whose remaining validity period is within the specified number of days. The value must be a positive integer. Unit: days.
    * 
    * @example
    * 30
@@ -69,10 +69,10 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
   resourceOwner?: number;
   /**
    * @remarks
-   * The field by which to sort the results. By default, the results are sorted by creation time. Valid values:
+   * The sort field. By default, the instances are sorted by creation time. Valid values:
    * 
-   * - **CreateTime**: Sorts by creation time.
-   * - **ExpireTime**: Sorts by expiration time.
+   * - **CreateTime**: The creation time.
+   * - **ExpireTime**: The expiration time.
    * 
    * @example
    * CreateTime
@@ -80,7 +80,7 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The sort order. By default, the results are sorted in descending order. Valid values:
+   * The sort order. By default, the instances are sorted in descending order. Valid values:
    * 
    * - **asc**: Ascending order.
    * - **desc**: Descending order.
@@ -91,11 +91,11 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
   sortOrder?: string;
   /**
    * @remarks
-   * The instance status. Valid values:
-   * - **online**: The instance is in normal service status.
-   * - **offline**: The instance has expired but is not overdue, and is in an inactive state.
-   * - **disable**: The instance is released.
-   * - **overdue**: The instance has an overdue payment.
+   * The instance status of the plan. Valid values:
+   * - **online**: The normal service status.
+   * - **offline**: The instance has expired but not overdue, and is in an inactive state.
+   * - **disable**: The released status.
+   * - **overdue**: The overdue payment status.
    * 
    * @example
    * online
@@ -108,12 +108,12 @@ export class ListUserRatePlanInstancesRequest extends $dara.Model {
    * @remarks
    * The subscription type of the plan. Valid values:
    * 
-   * - entranceplan: Free Edition (Chinese mainland)
-   * - entranceplan_intl: Free Edition (International)
-   * - basicplan: Basic Edition
-   * - standardplan: Standard Edition
-   * - advancedplan: Advanced Edition
-   * - enterpriseplan: Enterprise Edition
+   * - entranceplan: Free Edition (Chinese mainland).
+   * - entranceplan_intl: Free Edition (International).
+   * - basicplan: Basic Edition.
+   * - standardplan: Standard Edition.
+   * - advancedplan: Advanced Edition.
+   * - enterpriseplan: Enterprise Edition.
    * 
    * @example
    * basicplan

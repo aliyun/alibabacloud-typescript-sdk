@@ -7,8 +7,8 @@ export class UpdateUserDeliveryTaskRequest extends $dara.Model {
    * @remarks
    * The real-time log type. Valid values:
    * 
-   * - **dcdn_log_access_l1 (default)**: access logs.
-   * - **dcdn_log_er**: Edge Routine function logs.
+   * - **dcdn_log_access_l1** (default): access logs.
+   * - **dcdn_log_er**: Edge Routine logs.
    * - **dcdn_log_waf**: security protection logs.
    * - **dcdn_log_ipa**: Layer 4 acceleration logs.
    * 
@@ -18,7 +18,7 @@ export class UpdateUserDeliveryTaskRequest extends $dara.Model {
   businessType?: string;
   /**
    * @remarks
-   * The list of ER PODs to configure.
+   * The list of pods configured for Edge Routine.
    * 
    * @example
    * xxx,xxx
@@ -26,7 +26,7 @@ export class UpdateUserDeliveryTaskRequest extends $dara.Model {
   details?: string;
   /**
    * @remarks
-   * The discard rate. If not specified, the default value is 0.
+   * The discard rate. If you do not specify this parameter, the default value is 0.
    * 
    * @example
    * 0
@@ -46,7 +46,7 @@ export class UpdateUserDeliveryTaskRequest extends $dara.Model {
    * @remarks
    * The version of the filter rule.
    * 
-   * > Compatible with legacy filter rules. The default value is v1. Newly created tasks use v2.
+   * > Compatible with earlier versions of filter rules. The default value is v1. For newly created rules, the value is v2.
    * 
    * @example
    * v2

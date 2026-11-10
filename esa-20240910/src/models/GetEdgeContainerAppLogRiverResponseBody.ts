@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEdgeContainerAppLogRiverResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The log file path of the container. The path must be an absolute path that starts with a forward slash (/). Asterisks (*) and question marks (?) can be used as wildcards.
+   * The log file path of the container. It must be an absolute path starting with a forward slash (/). Asterisks (*) and question marks (?) are supported as wildcards.
    * 
    * @example
    * /root/hello.log

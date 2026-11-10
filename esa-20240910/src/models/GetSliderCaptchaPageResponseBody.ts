@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSliderCaptchaPageResponseBodyConfigsEn extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to display the footer.
+   * Specifies whether to show the footer.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class GetSliderCaptchaPageResponseBodyConfigsEn extends $dara.Model {
   showFooter?: boolean;
   /**
    * @remarks
-   * Specifies whether to display the request ID.
+   * Specifies whether to show the request ID.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class GetSliderCaptchaPageResponseBodyConfigsEn extends $dara.Model {
   showRequestId?: boolean;
   /**
    * @remarks
-   * The slider color.
+   * The color of the slider.
    * 
    * @example
    * #FFFFFF
@@ -65,7 +65,7 @@ export class GetSliderCaptchaPageResponseBodyConfigsEn extends $dara.Model {
 export class GetSliderCaptchaPageResponseBodyConfigsZh extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to display the footer.
+   * Specifies whether to show the footer.
    * 
    * @example
    * false
@@ -73,7 +73,7 @@ export class GetSliderCaptchaPageResponseBodyConfigsZh extends $dara.Model {
   showFooter?: boolean;
   /**
    * @remarks
-   * Specifies whether to display the request ID.
+   * Specifies whether to show the request ID.
    * 
    * @example
    * false
@@ -81,7 +81,7 @@ export class GetSliderCaptchaPageResponseBodyConfigsZh extends $dara.Model {
   showRequestId?: boolean;
   /**
    * @remarks
-   * The slider color.
+   * The color of the slider.
    * 
    * @example
    * #FFFFFF
@@ -165,7 +165,7 @@ export class GetSliderCaptchaPageResponseBodyConfigs extends $dara.Model {
 export class GetSliderCaptchaPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The predefined configurations for the custom slider page.
+   * The predefined configurations of the custom slider page.
    */
   configs?: GetSliderCaptchaPageResponseBodyConfigs;
   /**
@@ -178,7 +178,7 @@ export class GetSliderCaptchaPageResponseBody extends $dara.Model {
   customContent?: string;
   /**
    * @remarks
-   * The forced language.
+   * The forcibly specified language.
    * 
    * @example
    * zh
@@ -210,7 +210,7 @@ export class GetSliderCaptchaPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of bound site IDs.
+   * The list of associated site IDs.
    */
   siteIds?: number[];
   static names(): { [key: string]: string } {

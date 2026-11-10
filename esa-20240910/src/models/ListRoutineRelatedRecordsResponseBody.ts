@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRoutineRelatedRecordsResponseBodyRelatedRecords extends $dara.Model {
   /**
    * @remarks
-   * The record ID of the domain name.
+   * The ID of the record.
    * 
    * @example
    * 509348423011904
@@ -21,7 +21,7 @@ export class ListRoutineRelatedRecordsResponseBodyRelatedRecords extends $dara.M
   recordName?: string;
   /**
    * @remarks
-   * The website ID.
+   * The ID of the site.
    * 
    * @example
    * 54362329990032
@@ -29,7 +29,7 @@ export class ListRoutineRelatedRecordsResponseBodyRelatedRecords extends $dara.M
   siteId?: number;
   /**
    * @remarks
-   * The website name.
+   * The name of the site.
    * 
    * @example
    * example.com
@@ -65,7 +65,7 @@ export class ListRoutineRelatedRecordsResponseBodyRelatedRecords extends $dara.M
 export class ListRoutineRelatedRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The current page number.
    * 
    * @example
    * 1
@@ -81,12 +81,12 @@ export class ListRoutineRelatedRecordsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of records associated with the edge function.
+   * The list of association records for the Edge Routine.
    */
   relatedRecords?: ListRoutineRelatedRecordsResponseBodyRelatedRecords[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
@@ -94,7 +94,7 @@ export class ListRoutineRelatedRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 16

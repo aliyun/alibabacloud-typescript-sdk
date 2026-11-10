@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSliderCaptchaPagesRequestQueryArgs extends $dara.Model {
   /**
    * @remarks
-   * The fuzzy search keyword for the name.
+   * The fuzzy name search.
    * 
    * @example
    * example
@@ -43,7 +43,7 @@ export class ListSliderCaptchaPagesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 20

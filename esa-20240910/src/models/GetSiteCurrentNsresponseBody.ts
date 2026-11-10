@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSiteCurrentNSResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The nameservers of the website.
+   * The list of current name servers for the site.
    */
   NSList?: string[];
   /**

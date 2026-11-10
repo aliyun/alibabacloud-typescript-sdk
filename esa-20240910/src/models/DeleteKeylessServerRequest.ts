@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteKeylessServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyless server ID.
+   * The Keyless server ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteKeylessServerRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The ID of the site, which you can get by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to query the site ID.
    * 
    * This parameter is required.
    * 

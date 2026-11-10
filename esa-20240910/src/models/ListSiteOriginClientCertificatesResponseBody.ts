@@ -13,7 +13,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   commonName?: string;
   /**
    * @remarks
-   * The creation time. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
+   * The creation time. Format: YYYY-MM-DD HH:MM:SS, UTC/GMT time zone.
    * 
    * @example
    * 2024-06-24 07:48:51
@@ -37,7 +37,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   id?: string;
   /**
    * @remarks
-   * The certification authority.
+   * The certificate issuer.
    * 
    * @example
    * DigiCert
@@ -53,7 +53,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The end time of the certificate validity period. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
+   * The expiration time of the certificate. Format: YYYY-MM-DD HH:MM:SS, UTC/GMT time zone.
    * 
    * @example
    * 2024-03-31 02:08:00
@@ -61,7 +61,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   notAfter?: string;
   /**
    * @remarks
-   * The start time of the certificate validity period. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
+   * The start time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, UTC/GMT time zone.
    * 
    * @example
    * 2023-03-31 02:08:00
@@ -77,7 +77,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   pubkeyAlgorithm?: string;
   /**
    * @remarks
-   * The Subject Alternative Name (SAN) of the certificate.
+   * The subject alternative name of the certificate.
    * 
    * @example
    * www.example.com,*.example.com
@@ -85,7 +85,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   SAN?: string;
   /**
    * @remarks
-   * The sequence number of the certificate.
+   * The certificate serial number.
    * 
    * @example
    * babaded901474b9693acf530e0fb1d**
@@ -117,7 +117,7 @@ export class ListSiteOriginClientCertificatesResponseBodyResult extends $dara.Mo
   type?: string;
   /**
    * @remarks
-   * The update time. The time is in the YYYY-MM-DD HH:MM:SS format in the UTC/GMT time zone.
+   * The update time. Format: YYYY-MM-DD HH:MM:SS, UTC/GMT time zone.
    * 
    * @example
    * 2022-09-22 05:33:13

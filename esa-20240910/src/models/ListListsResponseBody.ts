@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListListsResponseBodyLists extends $dara.Model {
   /**
    * @remarks
-   * The list description.
+   * The description of the list.
    * 
    * @example
    * a custom list
@@ -21,7 +21,7 @@ export class ListListsResponseBodyLists extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The kind of the list.
+   * The type of the list.
    * 
    * @example
    * ip
@@ -29,7 +29,7 @@ export class ListListsResponseBodyLists extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * The length of the list content array, which indicates the number of items in the list.
+   * The length of the list content array, which indicates the number of items contained in the list.
    * 
    * @example
    * 100
@@ -37,7 +37,7 @@ export class ListListsResponseBodyLists extends $dara.Model {
   length?: number;
   /**
    * @remarks
-   * The list name.
+   * The name of the list.
    * 
    * @example
    * example
@@ -45,9 +45,9 @@ export class ListListsResponseBodyLists extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The time when the list was last modified.
+   * The last update time of the list.
    * 
-   * Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
+   * Format: RFC 3339 / ISO 8601, UTC standard time zone (ending with Z).
    * 
    * Example: 2026-06-10T14:23:45Z
    * 
@@ -89,7 +89,7 @@ export class ListListsResponseBodyLists extends $dara.Model {
 export class ListListsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total item usage.
+   * The total usage of items.
    * 
    * @example
    * 5000
@@ -134,7 +134,7 @@ export class ListListsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The amount of usage consumed by the user.
+   * The usage of the user.
    * 
    * @example
    * 10

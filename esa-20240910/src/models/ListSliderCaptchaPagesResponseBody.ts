@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSliderCaptchaPagesResponseBodyPages extends $dara.Model {
   /**
    * @remarks
-   * The ID of the custom slider CAPTCHA page.
+   * The ID of the custom slider page.
    * 
    * @example
    * 50000001
@@ -13,7 +13,7 @@ export class ListSliderCaptchaPagesResponseBodyPages extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the custom slider CAPTCHA page.
+   * The name of the custom slider page.
    * 
    * @example
    * example
@@ -55,7 +55,7 @@ export class ListSliderCaptchaPagesResponseBodyPages extends $dara.Model {
 export class ListSliderCaptchaPagesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of custom slider CAPTCHA pages.
+   * The list of custom slider pages.
    */
   pages?: ListSliderCaptchaPagesResponseBodyPages[];
   /**
@@ -68,7 +68,7 @@ export class ListSliderCaptchaPagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total count.
    * 
    * @example
    * 20

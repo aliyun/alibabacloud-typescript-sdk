@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDcvDelegationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The DCV managed domain name.
+   * The DCV delegation domain name.
    * 
    * @example
    * 123456****.dcv.aliyun-esa.com

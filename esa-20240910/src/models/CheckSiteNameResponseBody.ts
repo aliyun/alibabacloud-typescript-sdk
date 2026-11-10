@@ -5,17 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class CheckSiteNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The description of the verification result. Valid values:
+   * The description of the validation result. Valid values:
    * 
-   * - **success**: The verification is successful.
-   * 
-   * - **Site.AlreadyExist**: The website domain name has already been added.
-   * 
-   * - **Site.InvalidName**: Invalid website domain name.
-   * 
-   * - **Site.SubSiteUnavailable**: Subdomains are not allowed.
-   * 
-   * - **Site.InternalError**: An internal error occurs.
+   * - **success**: Success.
+   * - **Site.AlreadyExist**: The user has already added this site.
+   * - **Site.InvalidName**: The site name is invalid.
+   * - **Site.SubSiteUnavailable**: The subsite is unavailable.
+   * - **Site.InternalError**: Other errors.
    * 
    * @example
    * success
@@ -23,11 +19,10 @@ export class CheckSiteNameResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether a subdomain is specified. Valid values:
+   * Indicates whether the site is a subsite. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: The site is a subsite.
+   * - **false**: The site is not a subsite.
    * 
    * @example
    * false
@@ -35,7 +30,7 @@ export class CheckSiteNameResponseBody extends $dara.Model {
   isSubSite?: boolean;
   /**
    * @remarks
-   * The verification message.
+   * The validation message.
    * 
    * @example
    * Site name is available.
@@ -43,11 +38,10 @@ export class CheckSiteNameResponseBody extends $dara.Model {
   messeage?: string;
   /**
    * @remarks
-   * Indicates whether the verification passed.
+   * Indicates whether the validation is passed. Valid values:
    * 
-   * - **true**
-   * 
-   * - **false**
+   * - **true**: Passed.
+   * - **false**: Not passed.
    * 
    * @example
    * true

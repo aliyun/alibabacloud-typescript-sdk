@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CheckSiteProjectNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Valid values:
+   * Indicates whether the project name can be added. Valid values:
    * 
-   * - **true**: Can be added.
-   * - **false**: Cannot be added.
+   * - **true**: The name can be added.
+   * - **false**: The name cannot be added.
    * 
    * @example
    * true
@@ -16,7 +16,7 @@ export class CheckSiteProjectNameResponseBody extends $dara.Model {
   check?: boolean;
   /**
    * @remarks
-   * The result description.
+   * The description of the result.
    * 
    * @example
    * project name pass the check
@@ -24,7 +24,7 @@ export class CheckSiteProjectNameResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The real-time log project name.
+   * The name of the real-time log project.
    * 
    * @example
    * dcdn_waf_userAccount_log

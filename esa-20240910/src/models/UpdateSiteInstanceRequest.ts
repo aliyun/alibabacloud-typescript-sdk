@@ -13,10 +13,17 @@ export class UpdateSiteInstanceRequest extends $dara.Model {
    * esa-site-bckh96ri1eyo
    */
   newInstanceId?: string;
+  /**
+   * @remarks
+   * The UID of the Alibaba Cloud account that owns the new plan instance.
+   * 
+   * @example
+   * 1700594193617909
+   */
   resourceOwner?: number;
   /**
    * @remarks
-   * The site ID. You can call [ListSites](https://help.aliyun.com/document_detail/2850189.html) to obtain the site ID.
+   * The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
    * 
    * This parameter is required.
    * 

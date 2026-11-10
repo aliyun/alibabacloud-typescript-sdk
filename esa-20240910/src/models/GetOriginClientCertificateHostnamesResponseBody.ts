@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOriginClientCertificateHostnamesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The associated hostnames.
+   * The list of bound domain names.
    */
   hostnames?: string[];
   /**

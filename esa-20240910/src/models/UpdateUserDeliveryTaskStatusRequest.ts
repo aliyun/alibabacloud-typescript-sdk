@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserDeliveryTaskStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * Enables or disables the delivery task. Valid values: online and offline.
+   * The method. Valid values: online and offline.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateUserDeliveryTaskStatusRequest extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The name of the delivery task.
+   * The task name.
    * 
    * This parameter is required.
    * 

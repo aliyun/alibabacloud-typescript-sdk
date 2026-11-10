@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateCacheReserveSpecRequest extends $dara.Model {
   /**
    * @remarks
-   * Automatic payment.
+   * Specifies whether to enable automatic payment.
    * 
    * @example
    * true
@@ -13,9 +13,9 @@ export class UpdateCacheReserveSpecRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Billing type. Valid values:
-   * - PREPAY
-   * - POSTPAY
+   * The billing method. Valid values:
+   * - PREPAY: Subscription.
+   * - POSTPAY: Pay-as-you-go.
    * 
    * @example
    * PREPAY
@@ -23,7 +23,7 @@ export class UpdateCacheReserveSpecRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * esa-cr-9tuv*********
@@ -31,7 +31,7 @@ export class UpdateCacheReserveSpecRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Cache requested size, in GB.
+   * The requested cache size, in GB.
    * 
    * @example
    * 1000

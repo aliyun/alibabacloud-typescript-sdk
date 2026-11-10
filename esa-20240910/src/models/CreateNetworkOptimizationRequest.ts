@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNetworkOptimizationRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable gRPC. This feature is disabled by default. Valid values:
-   * - on: enabled
-   * - off: disabled.
+   * Specifies whether to enable gRPC. Default value: off. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -15,9 +15,9 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
   grpc?: string;
   /**
    * @remarks
-   * Specifies whether to enable HTTP/2 back-to-origin. This feature is disabled by default. Valid values:
-   * - on: enabled
-   * - off: disabled.
+   * Specifies whether to enable HTTP/2 back-to-origin. Default value: off. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -25,9 +25,9 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
   http2Origin?: string;
   /**
    * @remarks
-   * The rule content, which uses a conditional expression to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
-   * - Match all incoming requests: set the value to true.
-   * - Match specified requests: set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
+   * The content of the rule. It uses a conditional expression to match user requests. You do not need to specify this parameter when you add a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specific requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -35,9 +35,9 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * The rule switch. This parameter is not required when you add a global configuration. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * Specifies whether to enable the rule. You do not need to specify this parameter when you add a global configuration. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -45,7 +45,7 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name. This parameter is not required when you add a global configuration.
+   * The name of the rule. You do not need to specify this parameter when you add a global configuration.
    * 
    * @example
    * rule_example
@@ -53,7 +53,7 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order. A smaller value indicates a higher priority.
+   * The execution order of the rule. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+   * The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 
@@ -71,7 +71,7 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version on which the configuration takes effect. The default value is 0.
+   * The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
    * 
    * @example
    * 1
@@ -79,9 +79,9 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * Specifies whether to enable smart routing. This feature is disabled by default. Valid values:
-   * - on: enabled
-   * - off: disabled.
+   * Specifies whether to enable the smart routing service. Default value: off. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -89,7 +89,7 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
   smartRouting?: string;
   /**
    * @remarks
-   * The maximum upload file size, in MB. Valid values: 100 to 500.
+   * The maximum size of an uploaded file. Unit: MB. Valid values: 100 to 500.
    * 
    * @example
    * 100
@@ -97,9 +97,9 @@ export class CreateNetworkOptimizationRequest extends $dara.Model {
   uploadMaxFilesize?: string;
   /**
    * @remarks
-   * Specifies whether to enable WebSocket. This feature is enabled by default. Valid values:
-   * - on: enabled
-   * - off: disabled.
+   * Specifies whether to enable WebSocket. Default value: on. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on

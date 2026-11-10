@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWaitingRoomEventRequest extends $dara.Model {
   /**
    * @remarks
-   * The custom content of the waiting room page. This parameter is required when the waiting room type is set to custom. The content must use Base64 encoding.
+   * The custom content of the waiting room page. This parameter is required when the waiting room type is set to custom. The content requires Base64 encoding.
    * 
    * @example
    * SGVsbG8gd29ybGQ=
@@ -16,16 +16,16 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
    * The description of the waiting room.
    * 
    * @example
-   * http://yywyyw.com
+   * waitingroom
    */
   description?: string;
   /**
    * @remarks
    * Specifies whether to disable session renewal. Valid values:
    * 
-   * - **on**: yes.
+   * - **on**: Disables session renewal.
    * 
-   * - **off**: no.
+   * - **off**: Enables session renewal.
    * 
    * @example
    * off
@@ -35,9 +35,9 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
    * @remarks
    * The enabling status. Valid values:
    * 
-   * - **on**: enables the waiting room event.
+   * - **on**: Enables the waiting room event.
    * 
-   * - **off**: disables the waiting room event.
+   * - **off**: Disables the waiting room event.
    * 
    * @example
    * on
@@ -55,9 +55,9 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable JSON responses. Valid values:
    * 
-   * - **on**: yes.
+   * - **on**: Enables JSON responses.
    * 
-   * - **off**: no.
+   * - **off**: Disables JSON responses.
    * 
    * @example
    * off
@@ -67,11 +67,11 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
    * @remarks
    * The default language setting. Valid values:
    * 
-   * - **enus**: English.
+   * - **enus**: English
    * 
-   * - **zhcn**: Simplified Chinese.
+   * - **zhcn**: Simplified Chinese
    * 
-   * - **zhhk**: Traditional Chinese.
+   * - **zhhk**: Traditional Chinese
    * 
    * @example
    * enus
@@ -97,9 +97,9 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable pre-queuing. Valid values:
    * 
-   * - **on**: yes.
+   * - **on**: Enables pre-queuing.
    * 
-   * - **off**: no.
+   * - **off**: Disables pre-queuing.
    * 
    * @example
    * on
@@ -117,13 +117,13 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
    * @remarks
    * The queuing method. Valid values:
    * 
-   * - **random**: random.
+   * - **random**: random
    * 
-   * - **fifo**: first in, first out (FIFO).
+   * - **fifo**: first in, first out (FIFO)
    * 
-   * - **passthrough**: passthrough.
+   * - **passthrough**: passthrough
    * 
-   * - **reject-all**: reject all.
+   * - **reject-all**: reject all
    * 
    * @example
    * fifo
@@ -147,9 +147,9 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable random pre-queuing. Valid values:
    * 
-   * - **on**: yes.
+   * - **on**: Enables random pre-queuing.
    * 
-   * - **off**: no.
+   * - **off**: Disables random pre-queuing.
    * 
    * @example
    * on
@@ -157,7 +157,7 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
   randomPreQueueEnable?: string;
   /**
    * @remarks
-   * The duration of a user session, in minutes.
+   * The duration of a user session in minutes.
    * 
    * @example
    * 5
@@ -165,7 +165,7 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
   sessionDuration?: string;
   /**
    * @remarks
-   * The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -191,7 +191,7 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
   totalActiveUsers?: string;
   /**
    * @remarks
-   * The ID of the waiting room event. You can call the [ListWaitingRoomEvents](https://help.aliyun.com/document_detail/2850279.html) operation to obtain the ID.
+   * The waiting room event ID. You can obtain the event ID by calling the [ListWaitingRoomEvents](https://help.aliyun.com/document_detail/2850279.html) operation.
    * 
    * This parameter is required.
    * 
@@ -201,11 +201,11 @@ export class UpdateWaitingRoomEventRequest extends $dara.Model {
   waitingRoomEventId?: number;
   /**
    * @remarks
-   * The type of the waiting room. Valid values:
+   * The waiting room type. Valid values:
    * 
-   * - **default**: the default type.
+   * - **default**: the default type
    * 
-   * - **custom**: the custom type.
+   * - **custom**: the custom type
    * 
    * @example
    * custom

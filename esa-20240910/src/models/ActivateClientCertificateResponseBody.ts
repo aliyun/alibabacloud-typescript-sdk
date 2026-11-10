@@ -21,7 +21,7 @@ export class ActivateClientCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * @example
    * 1234567890123
@@ -29,7 +29,7 @@ export class ActivateClientCertificateResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The website name.
+   * The site name.
    * 
    * @example
    * example.com

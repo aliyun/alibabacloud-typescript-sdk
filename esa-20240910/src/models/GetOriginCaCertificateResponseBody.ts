@@ -13,7 +13,7 @@ export class GetOriginCaCertificateResponseBodyResult extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The creation time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
+   * The creation time. The time follows the YYYY-MM-DD HH:MM:SS format and is in the UTC/GMT time zone.
    * 
    * @example
    * 2024-03-05 18:24:04
@@ -53,7 +53,7 @@ export class GetOriginCaCertificateResponseBodyResult extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The end time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
+   * The expiration time of the certificate. The time follows the YYYY-MM-DD HH:MM:SS format and is in the UTC/GMT time zone.
    * 
    * @example
    * 2024-03-31 02:08:00
@@ -61,7 +61,7 @@ export class GetOriginCaCertificateResponseBodyResult extends $dara.Model {
   notAfter?: string;
   /**
    * @remarks
-   * The start time of the certificate validity period. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
+   * The start time of the certificate validity period. The time follows the YYYY-MM-DD HH:MM:SS format and is in the UTC/GMT time zone.
    * 
    * @example
    * 2023-03-31 02:08:00
@@ -77,7 +77,7 @@ export class GetOriginCaCertificateResponseBodyResult extends $dara.Model {
   pubkeyAlgorithm?: string;
   /**
    * @remarks
-   * The Subject Alternative Name (SAN) of the certificate.
+   * The subject alternative name (SAN) of the certificate.
    * 
    * @example
    * www.example.com,*.example.com
@@ -117,7 +117,7 @@ export class GetOriginCaCertificateResponseBodyResult extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The update time. Format: YYYY-MM-DD HH:MM:SS, in the UTC/GMT time zone.
+   * The update time. The time follows the YYYY-MM-DD HH:MM:SS format and is in the UTC/GMT time zone.
    * 
    * @example
    * 2024-03-05 18:24:04

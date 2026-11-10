@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWafRulesetsRequestQueryArgs extends $dara.Model {
   /**
    * @remarks
-   * The fuzzy match string for the ruleset ID, ruleset name, rule ID, or rule name.
+   * The ruleset ID, ruleset name, rule ID, or rule name for fuzzy match.
    * 
    * @example
    * example
@@ -18,7 +18,7 @@ export class ListWafRulesetsRequestQueryArgs extends $dara.Model {
   desc?: boolean;
   /**
    * @remarks
-   * The fuzzy match string for the ruleset name.
+   * The ruleset name for fuzzy match.
    * 
    * @example
    * example
@@ -62,7 +62,7 @@ export class ListWafRulesetsRequestQueryArgs extends $dara.Model {
 export class ListWafRulesetsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Specifies the current page number for paging queries.
+   * The page number. This parameter specifies the current page number for paging in a paged query.
    * 
    * @example
    * 1
@@ -70,7 +70,7 @@ export class ListWafRulesetsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Specifies the number of records per page for paging queries.
+   * The page size. This parameter specifies the number of records per page for paging in a paged query.
    * 
    * @example
    * 20
@@ -94,7 +94,7 @@ export class ListWafRulesetsRequest extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The query parameters, passed in JSON format, including various filter conditions.
+   * The query parameters. The parameters are passed in JSON format and contain various filter conditions.
    * 
    * @example
    * http_bot
@@ -102,7 +102,7 @@ export class ListWafRulesetsRequest extends $dara.Model {
   queryArgs?: ListWafRulesetsRequestQueryArgs;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+   * The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWafTemplateRulesRequestQueryArgs extends $dara.Model {
   /**
    * @remarks
-   * A list of template kinds.
+   * The list of template types.
    */
   kinds?: string[];
   /**
@@ -53,7 +53,7 @@ export class ListWafTemplateRulesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The WAF running phase for filtering template rules.
+   * The WAF phase used to filter template rules for a specific phase.
    * 
    * @example
    * http_anti_scan
@@ -61,7 +61,7 @@ export class ListWafTemplateRulesRequest extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The query parameters for filtering template rules by criteria such as the rule type.
+   * The query parameters used to filter template rules based on conditions such as the rule type.
    * 
    * @example
    * http_anti_scan
@@ -69,7 +69,7 @@ export class ListWafTemplateRulesRequest extends $dara.Model {
   queryArgs?: ListWafTemplateRulesRequestQueryArgs;
   /**
    * @remarks
-   * The site ID. To obtain this ID, call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to query the site ID.
    * 
    * @example
    * 1

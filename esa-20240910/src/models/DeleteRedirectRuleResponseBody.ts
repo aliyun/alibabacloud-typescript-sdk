@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRedirectRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * BF9B849D-D847-5B16-9371-8ECB557A5921

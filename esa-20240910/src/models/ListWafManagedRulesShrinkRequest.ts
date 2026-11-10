@@ -7,14 +7,14 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
    * @remarks
    * The attack type of the vulnerability prevention event. Valid values:
    * - SQL injection
-   * - cross-site scripting (XSS)
-   * - code execute
+   * - Cross-site scripting (XSS)
+   * - Code execute
    * - CRLF
-   * - local file inclusion (LFI)
-   * - remote file inclusion (RFI)
+   * - Local file inclusion (LFI)
+   * - Remote file inclusion (RFI)
    * - webshell
-   * - cross-site request forgery
-   * - Others
+   * - Cross-site request forgery
+   * - Other
    * - SEMA
    * 
    * This parameter is required.
@@ -42,7 +42,6 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The language type. The response is returned in the specified language. Valid values:
-   * 
    * - **en**: English.
    * - **zh**: Chinese.
    * 
@@ -52,9 +51,7 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The managed ruleset configuration in JSON string format.
-   * 
-   * Contains the AttackType, ProtectionLevel, Action, and ManagedRules subfields. When ProtectionLevel is set to -1 (custom mode), specify the status and action for each rule through the ManagedRules array.
+   * The managed rule set configuration in JSON string format. This parameter includes the AttackType, ProtectionLevel, Action, and ManagedRules sub-fields. If ProtectionLevel is set to -1 (custom mode), you must specify the status and action for each rule in the ManagedRules array.
    */
   managedRulesetShrink?: string;
   /**
@@ -67,7 +64,7 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -75,11 +72,13 @@ export class ListWafManagedRulesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The currently saved protection level, which represents the existing configuration state in the database.
-   * 
-   * Valid values: -1 (custom mode), 1 (loose), 2 (medium), 3 (strict), 4 (super strict).
-   * 
-   * Difference from ManagedRuleset.ProtectionLevel: this parameter indicates the currently effective configuration, while ManagedRuleset.ProtectionLevel indicates the target value being passed in.
+   * The currently saved protection level, which represents the existing configuration status in the database. Valid values:
+   * - -1: custom mode.
+   * - 1: loose.
+   * - 2: medium.
+   * - 3: strict.
+   * - 4: super strict.
+   * Difference from ManagedRuleset.ProtectionLevel: This field indicates the currently effective configuration, whereas ManagedRuleset.ProtectionLevel indicates the target value passed in the request.
    * 
    * @example
    * 1

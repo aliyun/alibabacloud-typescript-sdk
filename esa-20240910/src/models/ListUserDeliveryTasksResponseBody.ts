@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserDeliveryTasksResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
-   * The log category.
+   * The business type.
    * 
    * @example
    * dcdn_log_er
@@ -14,9 +14,8 @@ export class ListUserDeliveryTasksResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
    * The data center. Valid values:
-   * 
-   * 1.  cn: the Chinese mainland.
-   * 2.  sg: outside the Chinese mainland.
+   * - **cn**: The Chinese mainland.
+   * - **sg**: Global (excluding the Chinese mainland).
    * 
    * @example
    * cn
@@ -24,7 +23,7 @@ export class ListUserDeliveryTasksResponseBodyTasks extends $dara.Model {
   dataCenter?: string;
   /**
    * @remarks
-   * The delivery destination.
+   * The delivery type.
    * 
    * @example
    * oss
@@ -32,7 +31,7 @@ export class ListUserDeliveryTasksResponseBodyTasks extends $dara.Model {
   deliveryType?: string;
   /**
    * @remarks
-   * The status of the delivery task.
+   * The status.
    * 
    * @example
    * online
@@ -40,7 +39,7 @@ export class ListUserDeliveryTasksResponseBodyTasks extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The name of the delivery task.
+   * The name of the task.
    * 
    * @example
    * testoss11
@@ -78,7 +77,7 @@ export class ListUserDeliveryTasksResponseBodyTasks extends $dara.Model {
 export class ListUserDeliveryTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number returned.
+   * The current page number.
    * 
    * @example
    * 1
@@ -102,12 +101,12 @@ export class ListUserDeliveryTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The delivery tasks.
+   * The list of tasks.
    */
   tasks?: ListUserDeliveryTasksResponseBodyTasks[];
   /**
    * @remarks
-   * The total number of delivery tasks.
+   * The total number of tasks.
    * 
    * @example
    * 68

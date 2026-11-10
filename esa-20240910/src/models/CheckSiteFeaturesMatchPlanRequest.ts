@@ -15,7 +15,7 @@ export class CheckSiteFeaturesMatchPlanRequest extends $dara.Model {
   newInstanceId?: string;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+   * The ID of the site. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 

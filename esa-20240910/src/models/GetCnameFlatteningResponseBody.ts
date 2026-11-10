@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetCnameFlatteningResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The CNAME flattening mode. Valid values:
-   * 
-   * *   flatten_all: flattens all CNAMEs.
-   * *   flatten_all (default): flattens only the root domain.
+   * The flattening mode. Valid values:
+   * - flatten_all: Flattens all.
+   * - flatten_at_root: Flattens only the root domain. This is the default value.
    * 
    * @example
    * flatten_all

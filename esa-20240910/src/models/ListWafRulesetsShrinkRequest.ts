@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWafRulesetsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Specifies the current page number for paging queries.
+   * The page number. This parameter specifies the current page number for paging in a paged query.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListWafRulesetsShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Specifies the number of records per page for paging queries.
+   * The page size. This parameter specifies the number of records per page for paging in a paged query.
    * 
    * @example
    * 20
@@ -37,7 +37,7 @@ export class ListWafRulesetsShrinkRequest extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The query parameters, passed in JSON format, including various filter conditions.
+   * The query parameters. The parameters are passed in JSON format and contain various filter conditions.
    * 
    * @example
    * http_bot
@@ -45,7 +45,7 @@ export class ListWafRulesetsShrinkRequest extends $dara.Model {
   queryArgsShrink?: string;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+   * The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * @example
    * 1

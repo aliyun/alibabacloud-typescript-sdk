@@ -10,7 +10,7 @@ export class ListWafRulesetsResponseBodyRulesets extends $dara.Model {
   fields?: string[];
   /**
    * @remarks
-   * The ID of the WAF ruleset. You can call the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation to obtain the ruleset ID.
+   * The ID of the WAF ruleset. You can obtain the ruleset ID by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation.
    * 
    * @example
    * 10000001
@@ -18,7 +18,7 @@ export class ListWafRulesetsResponseBodyRulesets extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ruleset name.
+   * The name of the ruleset.
    * 
    * @example
    * example
@@ -42,7 +42,7 @@ export class ListWafRulesetsResponseBodyRulesets extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The ruleset status.
+   * The status of the ruleset.
    * 
    * @example
    * on
@@ -50,7 +50,7 @@ export class ListWafRulesetsResponseBodyRulesets extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The protection target type in http_bot.
+   * The protection target type for http_bot.
    * 
    * @example
    * web
@@ -63,9 +63,9 @@ export class ListWafRulesetsResponseBodyRulesets extends $dara.Model {
   types?: string[];
   /**
    * @remarks
-   * The last modification time of the ruleset.
+   * The last update time of the ruleset.
    * 
-   * Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
+   * Format: RFC 3339/ISO 8601, UTC time zone (ending with Z).
    * 
    * Example: 2026-06-10T14:23:45Z
    * 
@@ -117,7 +117,7 @@ export class ListWafRulesetsResponseBodyRulesets extends $dara.Model {
 export class ListWafRulesetsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of WAF rulesets used by the instance in this WAF execution phase.
+   * The number of WAF rulesets used by the instance in the current WAF phase.
    * 
    * @example
    * 10
@@ -149,12 +149,12 @@ export class ListWafRulesetsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of rulesets, including detailed information about each ruleset.
+   * The list of rulesets, which contains the detailed information about the rulesets.
    */
   rulesets?: ListWafRulesetsResponseBodyRulesets[];
   /**
    * @remarks
-   * The number of WAF rulesets used by the site in this WAF execution phase.
+   * The number of WAF rulesets used by the site in the current WAF phase.
    * 
    * @example
    * 5

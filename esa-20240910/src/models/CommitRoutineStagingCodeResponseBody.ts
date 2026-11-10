@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CommitRoutineStagingCodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The newly generated code version number.
+   * The version number of the newly generated code.
    * 
    * @example
    * 1710120201067203242

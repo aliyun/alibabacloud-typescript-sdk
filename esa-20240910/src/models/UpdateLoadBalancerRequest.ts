@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLoadBalancerRequestAdaptiveRouting extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to perform origin-pull across address pools.
+   * Specifies whether to enable cross-pool back-to-origin routing.
    * 
-   * - `true`: Enables origin-pull across address pools.
-   * 
-   * - `false`: Disables origin-pull across address pools.
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * false
@@ -42,7 +41,7 @@ export class UpdateLoadBalancerRequestAdaptiveRouting extends $dara.Model {
 export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
   /**
    * @remarks
-   * The number of consecutive failed health checks required to declare an origin server unhealthy. For example, `5`.
+   * The number of consecutive failed probes required to consider the target unhealthy, such as 5.
    * 
    * @example
    * 5
@@ -50,7 +49,7 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
   consecutiveDown?: number;
   /**
    * @remarks
-   * The number of consecutive successful health checks required to declare an origin server healthy. For example, `3`.
+   * The number of consecutive successful probes required to consider the target healthy, such as 3.
    * 
    * @example
    * 3
@@ -58,7 +57,7 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
   consecutiveUp?: number;
   /**
    * @remarks
-   * The expected HTTP status codes that indicate a healthy response. For example, `200,202`.
+   * The expected status codes for a successful HTTP response, such as 200 and 202.
    * 
    * @example
    * 200,202
@@ -66,11 +65,10 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
   expectedCodes?: string;
   /**
    * @remarks
-   * Specifies whether the health check monitor follows HTTP redirections.
+   * Specifies whether to follow redirects.
    * 
-   * - `true`: The monitor follows HTTP redirections.
-   * 
-   * - `false`: The monitor does not follow HTTP redirections.
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * true
@@ -78,7 +76,7 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
   followRedirects?: boolean;
   /**
    * @remarks
-   * The HTTP request headers to send with each health check.
+   * The monitor request header configuration.
    * 
    * @example
    * {
@@ -91,7 +89,7 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
   header?: any;
   /**
    * @remarks
-   * The interval in seconds between each health check. For example, `60`.
+   * The monitor interval, such as 60 seconds. This parameter specifies the check frequency.
    * 
    * @example
    * 100
@@ -99,7 +97,7 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The HTTP method to use for the health check. For example, `GET`.
+   * The monitor request method, such as GET in the HTTP protocol.
    * 
    * @example
    * GET
@@ -107,13 +105,11 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The regions from which the health checks are performed. The default value is `Global`.
+   * The region where the probe nodes are located. Default value: Global. Valid values:
    * 
-   * - `Global`: From probe locations worldwide.
-   * 
-   * - `ChineseMainland`: From probe locations within the Chinese mainland.
-   * 
-   * - `OutsideChineseMainland`: From probe locations outside the Chinese mainland.
+   * - Global: Global.
+   * - ChineseMainland: The Chinese mainland.
+   * - OutsideChineseMainland: Global (excluding the Chinese mainland).
    * 
    * @example
    * Global
@@ -121,7 +117,7 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
   monitoringRegion?: string;
   /**
    * @remarks
-   * The path on the origin server to request for the health check. For example, `/healthcheck`.
+   * The health check path of the monitor, such as /healthcheck, which is the URI of the request.
    * 
    * @example
    * /health
@@ -129,7 +125,7 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The port on the origin server to use for the health check.
+   * The origin server port.
    * 
    * @example
    * 80
@@ -137,7 +133,7 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The timeout for the health check, in seconds. The value must be between 1 and 10, inclusive.
+   * The health check timeout period, in seconds. Valid values: 1 to 10.
    * 
    * @example
    * 5
@@ -145,7 +141,7 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The protocol to use for the health check, such as `HTTP`. If you set this to `off`, no health check is performed.
+   * The monitor protocol type for health checks, such as HTTP. A value of off indicates that health checks are disabled.
    * 
    * @example
    * HTTP
@@ -197,7 +193,7 @@ export class UpdateLoadBalancerRequestMonitor extends $dara.Model {
 export class UpdateLoadBalancerRequestRandomSteering extends $dara.Model {
   /**
    * @remarks
-   * The default weight applied to all address pools that do not have a specific weight defined. The value must be an integer from 0 to 100, inclusive.
+   * The default round-robin weight for all pools that do not have a specific weight configured. Valid values: integers from 0 to 100.
    * 
    * @example
    * 50
@@ -205,7 +201,7 @@ export class UpdateLoadBalancerRequestRandomSteering extends $dara.Model {
   defaultWeight?: number;
   /**
    * @remarks
-   * A map of pool IDs to their corresponding weights. These weights determine the proportion of traffic routed to each backend server pool.
+   * The weight configuration for each backend server pool. The key is the pool ID and the value is the weight coefficient. The weight coefficient indicates the proportion of relative traffic distribution.
    */
   poolWeights?: { [key: string]: number };
   static names(): { [key: string]: string } {
@@ -237,7 +233,7 @@ export class UpdateLoadBalancerRequestRandomSteering extends $dara.Model {
 export class UpdateLoadBalancerRequestRulesFixedResponse extends $dara.Model {
   /**
    * @remarks
-   * The value of the `Content-Type` field in the HTTP response header.
+   * The Content-Type field in the HTTP header.
    * 
    * @example
    * application/json
@@ -245,7 +241,7 @@ export class UpdateLoadBalancerRequestRulesFixedResponse extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The value of the `Location` field in the HTTP response header. This is typically used for redirections.
+   * The Location field in the HTTP response.
    * 
    * @example
    * http://www.example.com/index.html
@@ -253,7 +249,7 @@ export class UpdateLoadBalancerRequestRulesFixedResponse extends $dara.Model {
   location?: string;
   /**
    * @remarks
-   * The content of the response body.
+   * The response body value.
    * 
    * @example
    * Hello World!
@@ -261,7 +257,7 @@ export class UpdateLoadBalancerRequestRulesFixedResponse extends $dara.Model {
   messageBody?: string;
   /**
    * @remarks
-   * The HTTP status code of the response.
+   * The response status code.
    * 
    * @example
    * 200
@@ -297,12 +293,12 @@ export class UpdateLoadBalancerRequestRulesFixedResponse extends $dara.Model {
 export class UpdateLoadBalancerRequestRules extends $dara.Model {
   /**
    * @remarks
-   * The fixed response to return when the rule\\"s condition is met.
+   * The specified content to return in the response after a rule is matched.
    */
   fixedResponse?: UpdateLoadBalancerRequestRulesFixedResponse;
   /**
    * @remarks
-   * The settings to override for requests that match this rule\\"s condition. These settings take precedence over the load balancer\\"s main configuration.
+   * The load balancing configuration to modify for request rewriting after a rule is matched. The configured fields overwrite the corresponding fields in the load balancing instance configuration.
    * 
    * @example
    * {
@@ -351,11 +347,9 @@ export class UpdateLoadBalancerRequestRules extends $dara.Model {
   overrides?: any;
   /**
    * @remarks
-   * The content of the rule, specified as a conditional expression to match user requests. This parameter is not required when you configure global settings. Use cases:
-   * 
-   * - To match all incoming requests, set the value to `true`.
-   * 
-   * - To match specific requests, set the value to a custom expression, such as `(http.host eq "video.example.com")`.
+   * The rule content. This parameter uses conditional expressions to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specific requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
    * 
    * @example
    * http.request.method eq "GET"
@@ -363,11 +357,9 @@ export class UpdateLoadBalancerRequestRules extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Specifies whether the rule is enabled. This parameter is not required when you configure global settings. Valid values:
-   * 
-   * - `on`: Enabled.
-   * 
-   * - `off`: Disabled.
+   * The rule switch. This parameter is not required when you add a global configuration. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -375,7 +367,7 @@ export class UpdateLoadBalancerRequestRules extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The name of the rule. This parameter is not required when you configure global settings.
+   * The rule name. This parameter is not required when you add a global configuration.
    * 
    * @example
    * rule_1
@@ -383,7 +375,7 @@ export class UpdateLoadBalancerRequestRules extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The execution priority of the rule. This parameter is optional. If you do not specify this parameter, rules are executed in the order they are listed. If specified, the value must be an integer greater than 0. A larger value indicates a higher priority.
+   * The rule execution sequence. This parameter is optional. If you do not specify this parameter, rules are executed in the order they appear in the list. If you specify this parameter, the value must be an integer greater than 0. A larger value indicates a higher execution priority.
    * 
    * @example
    * 1
@@ -391,11 +383,9 @@ export class UpdateLoadBalancerRequestRules extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * Specifies whether to stop processing subsequent rules after this rule is matched.
-   * 
-   * - `true`: Stop processing subsequent rules.
-   * 
-   * - `false`: Continue processing subsequent rules. This is the default value.
+   * Specifies whether to stop executing subsequent rules.
+   * - true: Yes.
+   * - false: No. This is the default value.
    * 
    * @example
    * true
@@ -440,17 +430,17 @@ export class UpdateLoadBalancerRequestRules extends $dara.Model {
 export class UpdateLoadBalancerRequest extends $dara.Model {
   /**
    * @remarks
-   * Configures origin-pull behavior across address pools.
+   * The cross-pool back-to-origin configuration.
    */
   adaptiveRouting?: UpdateLoadBalancerRequestAdaptiveRouting;
   /**
    * @remarks
-   * A list of default address pool IDs.
+   * The list of default pool IDs.
    */
   defaultPools?: number[];
   /**
    * @remarks
-   * An optional description of the load balancer for easier identification and management.
+   * The detailed description of the load balancing instance. This description facilitates management and identification.
    * 
    * @example
    * Load balancer description
@@ -458,11 +448,10 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether the load balancer is enabled.
+   * Specifies whether the load balancing instance is enabled.
    * 
-   * - `true`: The load balancer is enabled.
-   * 
-   * - `false`: The load balancer is disabled.
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -470,7 +459,7 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The ID of the fallback address pool. Traffic is routed to this pool when all other address pools are unavailable.
+   * The fallback pool ID. Traffic is routed to this pool when all other pools are unavailable.
    * 
    * @example
    * 96228666776****
@@ -478,7 +467,7 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
   fallbackPool?: number;
   /**
    * @remarks
-   * The ID of the load balancer. You can obtain this ID by calling the [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) API operation.
+   * The load balancing instance ID. You can invoke the [ListLoadBalancers](https://help.aliyun.com/document_detail/2868897.html) operation to obtain the load balancing instance ID.
    * 
    * This parameter is required.
    * 
@@ -488,17 +477,17 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The health check monitor configuration.
+   * The monitor configuration for health checks.
    */
   monitor?: UpdateLoadBalancerRequestMonitor;
   /**
    * @remarks
-   * The configuration for weighted round-robin. This setting controls the weight of traffic distributed to different address pools.
+   * The weighted round-robin configuration. This configuration controls the traffic distribution weights for different pools.
    */
   randomSteering?: UpdateLoadBalancerRequestRandomSteering;
   /**
    * @remarks
-   * A map of primary regions to their corresponding address pools.
+   * The pools that correspond to the primary regions.
    * 
    * @example
    * {
@@ -514,7 +503,7 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
   regionPools?: any;
   /**
    * @remarks
-   * A list of rules that define behavior overrides for specific conditions.
+   * The list of rule configurations. This list is used to define behavior overrides under specific conditions.
    * 
    * **if can be null:**
    * false
@@ -522,13 +511,10 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
   rules?: UpdateLoadBalancerRequestRules[];
   /**
    * @remarks
-   * The method for session affinity, which ensures that requests from the same client are routed to the same origin server. Valid values:
-   * 
-   * - `off`: Disables session affinity.
-   * 
-   * - `ip`: Enables session affinity based on the client IP address.
-   * 
-   * - `cookie`: Enables session affinity based on a cookie.
+   * The session persistence policy. Valid values:
+   * - off: Disabled.
+   * - ip: Session persistence based on IP address.
+   * - cookie: Session persistence based on cookie.
    * 
    * @example
    * ip
@@ -536,7 +522,7 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
   sessionAffinity?: string;
   /**
    * @remarks
-   * The ID of the Site. You can obtain this ID by calling the [ListSites](~~ListSites~~) API operation.
+   * The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 
@@ -546,7 +532,7 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The traffic steering policy, which determines how traffic is distributed among the address pools.
+   * The load balancing policy.
    * 
    * @example
    * order
@@ -554,7 +540,7 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
   steeringPolicy?: string;
   /**
    * @remarks
-   * A map of secondary regions to their corresponding address pools. To assign the same address pools to multiple secondary regions, combine their codes into a single, comma-separated key.
+   * The pools that correspond to the secondary regions. When multiple secondary regions share the same set of pools, you can concatenate multiple secondary regions with commas (,) to use as the key.
    * 
    * @example
    * {"AL,MO": [92298024898****],"CN-SH,CN-SX,CN-SC":[92304347804****,92843536908****]}
@@ -562,7 +548,7 @@ export class UpdateLoadBalancerRequest extends $dara.Model {
   subRegionPools?: any;
   /**
    * @remarks
-   * The Time to Live (TTL) for the DNS record, in seconds. The default is 30. The value must be between 10 and 600, inclusive.
+   * The time-to-live (TTL) value of the DNS record. Default value: 30. Valid values: 10 to 600.
    * 
    * @example
    * 300

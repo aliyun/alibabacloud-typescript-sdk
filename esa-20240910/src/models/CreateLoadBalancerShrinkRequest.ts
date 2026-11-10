@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLoadBalancerShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The cross-origin address pool back-to-origin configuration.
+   * The back-to-origin configuration across origin address pools.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
   adaptiveRoutingShrink?: string;
   /**
    * @remarks
-   * The list of default address pool IDs.
+   * The list of default address pools.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
   defaultPoolsShrink?: string;
   /**
    * @remarks
-   * The description of the load balancer for management and identification purposes.
+   * The detailed description of the load balancer for easy management and identification.
    * 
    * @example
    * Load Balancer Description
@@ -32,9 +32,8 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the load balancer is enabled. Valid values:
-   * 
    * - true: Enabled.
-   * - false: Not enabled.
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -42,7 +41,7 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The fallback address pool ID. Traffic is directed to this pool when all other pools are unavailable.
+   * The ID of the fallback address pool. Traffic is routed to this pool when all other pools are unavailable.
    * 
    * This parameter is required.
    * 
@@ -62,7 +61,7 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
   monitorShrink?: string;
   /**
    * @remarks
-   * The name of the load balancer. The name must be in a valid domain name format and must be a subdomain of the site.
+   * The name of the load balancer. The name must pass the domain name format validation and be a subdomain of the site.
    * 
    * This parameter is required.
    * 
@@ -72,7 +71,7 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The weighted round-robin configuration that controls the traffic distribution weight across different address pools.
+   * The weighted round-robin configuration used to control the traffic distribution weights of different address pools.
    * 
    * @example
    * 123
@@ -80,7 +79,7 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
   randomSteeringShrink?: string;
   /**
    * @remarks
-   * The address pools mapped to primary regions.
+   * The address pools corresponding to primary regions.
    * 
    * @example
    * {
@@ -112,11 +111,11 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
   rulesShrink?: string;
   /**
    * @remarks
-   * The session persistence mode. Valid values:
-   * - off: disabled.
-   * - ip: IP-based session persistence.
-   * - cookie: cookie-based session persistence.
-   * - http_header: HTTP header-based session persistence.
+   * The session persistence configuration. Valid values:
+   * - off: Disabled.
+   * - ip: Session persistence based on IP addresses.
+   * - cookie: Session persistence based on cookies.
+   * - http_header: Session persistence based on HTTP headers.
    * 
    * @example
    * ip
@@ -124,7 +123,7 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
   sessionAffinity?: string;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+   * The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 
@@ -135,10 +134,9 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The load balancing policy. Valid values:
-   * 
-   * - geo: geo-based routing.
-   * - random: weighted round-robin.
-   * - order: primary/secondary mode.
+   * - geo: Geolocation-based policy.
+   * - random: Weighted round-robin.
+   * - order: Active/standby mode.
    * 
    * This parameter is required.
    * 
@@ -148,7 +146,7 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
   steeringPolicy?: string;
   /**
    * @remarks
-   * The address pools mapped to secondary regions. If multiple secondary regions share the same set of address pools, you can concatenate the secondary region names with commas as the key.
+   * The address pools corresponding to secondary regions. When multiple secondary regions share the same set of address pools, you can concatenate the secondary regions with commas (,) to use as the key.
    * 
    * @example
    * {"AL,MO": [92298024898****],"CN-SH,CN-SX,CN-SC":[92304347804****,92843536908****]}
@@ -156,7 +154,7 @@ export class CreateLoadBalancerShrinkRequest extends $dara.Model {
   subRegionPools?: any;
   /**
    * @remarks
-   * The TTL value, which specifies the time-to-live of the DNS record. Default value: 30 seconds. Valid values: 10 to 600.
+   * The time-to-live (TTL) value of the DNS record. Default value: 30. Unit: seconds. Valid values: 10 to 600.
    * 
    * @example
    * 300

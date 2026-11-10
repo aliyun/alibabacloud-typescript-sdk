@@ -25,7 +25,7 @@ export class DeleteHttpDDoSIntelligentRuleRequest extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The ID of the site. Call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 

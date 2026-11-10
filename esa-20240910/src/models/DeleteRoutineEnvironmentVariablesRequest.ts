@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRoutineEnvironmentVariablesRequest extends $dara.Model {
   /**
    * @remarks
-   * The environment name.
-   * 
-   * Valid values:
-   * - `staging`: staging environment
-   * - `production`: production environment
+   * The environment name. Valid values:
+   * - `staging`: the staging environment.
+   * - `production`: the production environment.
    * 
    * This parameter is required.
    * 
@@ -19,7 +17,7 @@ export class DeleteRoutineEnvironmentVariablesRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The list of environment variable keys to delete.
+   * The keys of the environment variables to delete.
    * 
    * This parameter is required.
    * 
@@ -29,7 +27,7 @@ export class DeleteRoutineEnvironmentVariablesRequest extends $dara.Model {
   environmentVariableKeys?: string[];
   /**
    * @remarks
-   * The name of the Routine function.
+   * The name of the routine.
    * 
    * This parameter is required.
    * 

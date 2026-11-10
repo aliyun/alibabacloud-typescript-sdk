@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CheckSiteProjectNameRequest extends $dara.Model {
   /**
    * @remarks
-   * The real-time log project name.
+   * The name of the real-time log project.
    * 
-   * > Allowed character set (hyphens only, no underscores), length range, and naming rule examples (such as \\"ali-dcdn-log-56\\")
+   * > Allowed character set (hyphens only, no underscores), length limits, and naming convention examples (such as \\"ali-dcdn-log-56\\").
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class CheckSiteProjectNameRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The site ID. You can call [ListSites](https://help.aliyun.com/document_detail/2850189.html) to obtain the site ID.
+   * The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * @example
    * 12312312213212

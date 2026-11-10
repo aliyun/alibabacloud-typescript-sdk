@@ -6,8 +6,8 @@ export class ListRoutineRoutesResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
    * The bypass mode. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -25,8 +25,8 @@ export class ListRoutineRoutesResponseBodyConfigs extends $dara.Model {
    * @remarks
    * The configuration type. You can use this parameter to query global configurations or rule configurations. Valid values:
    * 
-   * - global: queries global configurations.
-   * - rule: queries rule configurations.
+   * - global: Global configurations.
+   * - rule: Rule configurations.
    * 
    * @example
    * global
@@ -34,9 +34,9 @@ export class ListRoutineRoutesResponseBodyConfigs extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * The fallback-to-origin switch. After this switch is enabled, requests are sent to the origin server if the function encounters an exception such as CPU usage exceeding the limit. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * The fallback to origin switch. When enabled, if a function exception occurs, such as CPU usage exceeding the limit, the request is routed back to the origin. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -45,8 +45,8 @@ export class ListRoutineRoutesResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
    * The configuration mode. Valid values:
-   * - simple: simple mode.
-   * - custom: custom mode.
+   * - simple: Simple mode.
+   * - custom: Custom mode.
    * 
    * @example
    * simple
@@ -55,8 +55,8 @@ export class ListRoutineRoutesResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
    * The route switch. Valid values:
-   * - on: enabled.
-   * - off: disabled.
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -88,7 +88,7 @@ export class ListRoutineRoutesResponseBodyConfigs extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * The rule execution order.
+   * The execution sequence of the rule.
    * 
    * @example
    * 1
@@ -120,7 +120,7 @@ export class ListRoutineRoutesResponseBodyConfigs extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * The ER timeout period. Valid values: 5 to 60. Unit: seconds.
+   * The Edge Routine (ER) timeout period. Valid values: 5 to 60. Unit: seconds.
    * 
    * @example
    * 5
@@ -205,7 +205,7 @@ export class ListRoutineRoutesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 83

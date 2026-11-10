@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteSiteDeliveryTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The site ID. You can obtain the site ID by calling [ListSites](https://help.aliyun.com/document_detail/2850189.html).
+   * The ID of the site. You can obtain the ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteSiteDeliveryTaskRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The task name.
+   * The name of the task.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWafRulesRequestQueryArgs extends $dara.Model {
   /**
    * @remarks
-   * The value in IP access control for fuzzy match.
+   * The fuzzy value to search for in IP access control.
    * 
    * @example
    * 10.0.0.1
@@ -21,7 +21,7 @@ export class ListWafRulesRequestQueryArgs extends $dara.Model {
   desc?: boolean;
   /**
    * @remarks
-   * The WAF rule ID for exact match.
+   * The exact WAF rule ID to query.
    * 
    * @example
    * 20000001
@@ -29,7 +29,7 @@ export class ListWafRulesRequestQueryArgs extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The WAF rule ID or name for fuzzy match.
+   * The fuzzy WAF rule ID or name to query.
    * 
    * @example
    * example
@@ -37,7 +37,7 @@ export class ListWafRulesRequestQueryArgs extends $dara.Model {
   idNameLike?: string;
   /**
    * @remarks
-   * The WAF rule name for fuzzy match.
+   * The fuzzy WAF rule name to query.
    * 
    * @example
    * example
@@ -45,7 +45,7 @@ export class ListWafRulesRequestQueryArgs extends $dara.Model {
   nameLike?: string;
   /**
    * @remarks
-   * Sorts the returned list by a specified column.
+   * The column by which to sort the returned list.
    * 
    * @example
    * position
@@ -53,7 +53,7 @@ export class ListWafRulesRequestQueryArgs extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The WAF rule status for exact match.
+   * The exact WAF rule status to query.
    * 
    * @example
    * on
@@ -111,15 +111,15 @@ export class ListWafRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The WAF rule execution phase. Valid values:
-   * - http_whitelist: whitelist rule
-   * - http_custom: custom rule
-   * - http_managed: managed rule
-   * - http_anti_scan: scan protection rule
-   * - http_ratelimit: frequency control rule
-   * - ip_access_rule: IP access rule
-   * - http_bot: advanced mode bots
-   * - http_security_level_rule: security rule
+   * The execution phase of the WAF rule. Valid values:
+   * - http_whitelist: whitelist rules
+   * - http_custom: custom rules
+   * - http_managed: managed rules
+   * - http_anti_scan: scan protection rules
+   * - http_ratelimit: rate limiting rules
+   * - ip_access_rule: IP access rules
+   * - http_bot: advanced bot management
+   * - http_security_level_rule: security rules
    * 
    * This parameter is required.
    * 
@@ -155,7 +155,7 @@ export class ListWafRulesRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. The default value is 0.
+   * The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
    * 
    * @example
    * 0

@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class BatchCreateRecordsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of DNS records to create.
+   * The list of DNS records to be created.
    * 
    * This parameter is required.
    */
   recordListShrink?: string;
   /**
    * @remarks
-   * The site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 

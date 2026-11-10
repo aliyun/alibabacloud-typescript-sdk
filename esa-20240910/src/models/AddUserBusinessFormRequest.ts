@@ -10,7 +10,7 @@ export class AddUserBusinessFormRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * xxxx有限公司
+   * xxxx Co., Ltd
    */
   company?: string;
   /**
@@ -40,7 +40,7 @@ export class AddUserBusinessFormRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 经理
+   * Manager
    */
   position?: string;
   /**
@@ -48,7 +48,7 @@ export class AddUserBusinessFormRequest extends $dara.Model {
    * Additional remarks.
    * 
    * @example
-   * 请尽快联系我们
+   * Please contact us as soon as possible
    */
   remark?: string;
   /**
@@ -58,7 +58,7 @@ export class AddUserBusinessFormRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   userName?: string;
   /**

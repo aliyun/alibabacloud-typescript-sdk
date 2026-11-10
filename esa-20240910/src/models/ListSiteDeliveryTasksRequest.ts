@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListSiteDeliveryTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The log category. Valid values:
+   * The real-time log type. Valid values:
    * 
-   * *   dcdn_log_access_l1 (default): access logs.
-   * *   dcdn_log_er: Edge Routine logs.
-   * *   dcdn_log_waf: firewall logs.
-   * *   dcdn_log_ipa: TCP/UDP proxy logs.
+   * - **dcdn_log_access_l1** (default): Access logs.
+   * - **dcdn_log_er**: Edge Routine logs.
+   * - **dcdn_log_waf**: Security protection logs.
+   * - **dcdn_log_ipa**: Layer 4 acceleration logs.
    * 
    * @example
    * dcdn_log_access_l1
@@ -18,7 +18,7 @@ export class ListSiteDeliveryTasksRequest extends $dara.Model {
   businessType?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -26,7 +26,7 @@ export class ListSiteDeliveryTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20.
+   * The number of entries per page. Default value: **20**.
    * 
    * @example
    * 20
@@ -34,7 +34,7 @@ export class ListSiteDeliveryTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The website ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 

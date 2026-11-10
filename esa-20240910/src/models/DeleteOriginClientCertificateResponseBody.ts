@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteOriginClientCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the certificate.
+   * The certificate ID.
    * 
    * @example
    * babaabcd****
@@ -21,7 +21,7 @@ export class DeleteOriginClientCertificateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the site.
+   * The site ID.
    * 
    * @example
    * 123456789****
@@ -29,7 +29,7 @@ export class DeleteOriginClientCertificateResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The name of the site.
+   * The site name.
    * 
    * @example
    * example.com

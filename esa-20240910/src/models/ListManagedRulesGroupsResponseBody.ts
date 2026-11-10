@@ -74,7 +74,7 @@ export class ListManagedRulesGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records after filtering.
+   * The total number of filtered records.
    * 
    * @example
    * 5

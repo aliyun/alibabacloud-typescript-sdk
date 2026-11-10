@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetCompressionRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Brotli compression. Possible values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Brotli compression. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -15,7 +15,7 @@ export class GetCompressionRuleResponseBody extends $dara.Model {
   brotli?: string;
   /**
    * @remarks
-   * Configuration ID.
+   * The ID of the configuration.
    * 
    * @example
    * 35281609698****
@@ -23,9 +23,9 @@ export class GetCompressionRuleResponseBody extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Configuration type. Possible values:
-   * - global: Global configuration.
-   * - rule: Rule-based configuration.
+   * The type of the configuration. Valid values:
+   * - global: global configuration.
+   * - rule: rule configuration.
    * 
    * @example
    * rule
@@ -33,9 +33,9 @@ export class GetCompressionRuleResponseBody extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Gzip compression. Possible values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Gzip compression. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -43,7 +43,7 @@ export class GetCompressionRuleResponseBody extends $dara.Model {
   gzip?: string;
   /**
    * @remarks
-   * Request ID.
+   * The ID of the request.
    * 
    * @example
    * 186C6DF2-D96A-5102-B04E-FB92C16C9867
@@ -51,9 +51,9 @@ export class GetCompressionRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Rule content, using conditional expressions to match user requests. This parameter is not required when adding a global configuration. There are two usage scenarios:
-   * - Match all incoming requests: Set the value to true
-   * - Match specific requests: Set the value to a custom expression, for example: (http.host eq \\"video.example.com\\")
+   * The rule content, which uses a conditional expression to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: set the value to true.
+   * - Match specific requests: set the value to a custom expression, such as (http.host eq "video.example.com").
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -61,9 +61,9 @@ export class GetCompressionRuleResponseBody extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Rule switch. This parameter is not required when adding a global configuration. Possible values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
+   * - on: enabled.
+   * - off: disabled.
    * 
    * @example
    * on
@@ -71,7 +71,7 @@ export class GetCompressionRuleResponseBody extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * Rule name. This parameter is not required when adding a global configuration.
+   * The name of the rule. You do not need to set this parameter when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -79,7 +79,7 @@ export class GetCompressionRuleResponseBody extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * Rule execution order. The smaller the value, the higher the priority.
+   * The execution sequence of the rule. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -87,7 +87,7 @@ export class GetCompressionRuleResponseBody extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The version number of the site configuration. For sites with version management enabled, this parameter can specify the effective version of the configuration, defaulting to version 0.
+   * The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. The default value is version 0.
    * 
    * @example
    * 0
@@ -95,8 +95,8 @@ export class GetCompressionRuleResponseBody extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * Zstd compression. Value range: 
-   * - on: enabled. 
+   * Zstd compression. Valid values:
+   * - on: enabled.
    * - off: disabled.
    * 
    * @example

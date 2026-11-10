@@ -5,19 +5,29 @@ import * as $dara from '@darabonba/typescript';
 export class ListRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The business scenario for record acceleration. Used as a filter condition for queries. Valid values:
-   * - **image_video**: Image and video.
-   * - **api**: API.
-   * - **web**: Web page.
+   * The business scenario for record acceleration. This parameter is used as a filter condition for the query. Valid values:
+   * - **image_video**: images and videos
+   * - **api**: APIs
+   * - **web**: web pages
    * 
    * @example
    * web
    */
   bizName?: string;
+  /**
+   * @remarks
+   * Specifies whether a custom port is enabled for the record. Valid values:
+   * 
+   * - on: enabled
+   * - off: disabled
+   * 
+   * @example
+   * off
+   */
   customPort?: string;
   /**
    * @remarks
-   * The page number for paginated queries. The value must be greater than or equal to 1. Default value: **1**.
+   * The page number for paging. The value must be greater than or equal to 1. Default value: **1**.
    * 
    * @example
    * 1
@@ -25,7 +35,7 @@ export class ListRecordsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paginated queries. Valid values: 1 to 500. Default value: **500**.
+   * The number of entries per page for paging. Valid values: 1 to 500. Default value: **500**.
    * 
    * @example
    * 10
@@ -33,10 +43,10 @@ export class ListRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies whether proxy acceleration is enabled for the record. Used as a filter condition for queries. Valid values:
+   * Specifies whether proxy acceleration is enabled for the record. This parameter is used as a filter condition for the query. Valid values:
    * 
-   * - **true**: Proxy enabled.
-   * - **false**: Proxy acceleration disabled.
+   * - **true**: Proxy acceleration is enabled.
+   * - **false**: Proxy acceleration is disabled.
    * 
    * @example
    * true
@@ -44,12 +54,12 @@ export class ListRecordsRequest extends $dara.Model {
   proxied?: boolean;
   /**
    * @remarks
-   * The search matching mode for record names. Defaults to exact match. Valid values:
+   * The search match mode for the record name. Default value: exact. Valid values:
    * 
-   * - **prefix**: Prefix match.
-   * - **suffix**: Suffix match.
-   * - **exact**: Exact match.
-   * - **fuzzy**: Fuzzy match.
+   * - **prefix**: prefix match
+   * - **suffix**: suffix match
+   * - **exact**: exact match
+   * - **fuzzy**: fuzzy match
    * 
    * @example
    * fuzzy
@@ -57,7 +67,7 @@ export class ListRecordsRequest extends $dara.Model {
   recordMatchType?: string;
   /**
    * @remarks
-   * Record name. Used as a filter condition for queries.
+   * The record name. This parameter is used as a filter condition for the query.
    * 
    * @example
    * www.example.com
@@ -65,7 +75,7 @@ export class ListRecordsRequest extends $dara.Model {
   recordName?: string;
   /**
    * @remarks
-   * Site ID, which can be obtained by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API.
+   * The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -75,12 +85,12 @@ export class ListRecordsRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The origin type of the record. Used as a filter condition for queries (only CNAME records can be filtered by this field). Valid values:
-   * - **OSS**: OSS origin.
-   * - **S3**: S3 origin.
-   * - **LB**: Load balancer origin.
-   * - **OP**: Origin pool.
-   * - **Domain**: Standard domain origin.
+   * The origin server type of the record. This parameter is used as a filter condition for the query. Only CNAME records can be filtered by this field. Valid values:
+   * - **OSS**: OSS origin server
+   * - **S3**: S3 origin server
+   * - **LB**: load balancing origin server
+   * - **OP**: IPAM pool origin server
+   * - **Domain**: regular domain name origin server
    * 
    * @example
    * OSS
@@ -88,7 +98,7 @@ export class ListRecordsRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The DNS record type of the record. Used as a filter condition for queries.
+   * The DNS record type of the record. This parameter is used as a filter condition for the query.
    * 
    * @example
    * CNAME

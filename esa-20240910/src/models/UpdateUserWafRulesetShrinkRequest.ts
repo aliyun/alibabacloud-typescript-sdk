@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserWafRulesetShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the WAF ruleset.
+   * The description of the WAF rule set.
    * 
    * @example
    * example
@@ -13,7 +13,7 @@ export class UpdateUserWafRulesetShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The expression of the WAF ruleset.
+   * The expression of the WAF rule set.
    * 
    * @example
    * ip.src == 1.1.1.1
@@ -21,7 +21,7 @@ export class UpdateUserWafRulesetShrinkRequest extends $dara.Model {
   expression?: string;
   /**
    * @remarks
-   * The WAF ruleset ID.
+   * The WAF rule set ID.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class UpdateUserWafRulesetShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the WAF ruleset.
+   * The name of the WAF rule set.
    * 
    * @example
    * example
@@ -49,7 +49,7 @@ export class UpdateUserWafRulesetShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The position of the WAF ruleset.
+   * The position of the WAF rule set.
    * 
    * @example
    * 1
@@ -57,7 +57,7 @@ export class UpdateUserWafRulesetShrinkRequest extends $dara.Model {
   position?: number;
   /**
    * @remarks
-   * A list of rule configurations in the WAF ruleset.
+   * The list of rule configurations in the WAF rule set.
    * 
    * @example
    * [
@@ -71,12 +71,12 @@ export class UpdateUserWafRulesetShrinkRequest extends $dara.Model {
   rulesShrink?: string;
   /**
    * @remarks
-   * The shared configuration of the WAF ruleset.
+   * The sharing configuration of the WAF rule set.
    */
   sharedShrink?: string;
   /**
    * @remarks
-   * The status of the WAF ruleset.
+   * The status of the WAF rule set.
    * 
    * @example
    * on

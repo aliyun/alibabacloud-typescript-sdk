@@ -19,7 +19,7 @@ export class ListWafTemplateRulesResponseBodyRules extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The WAF running phase.
+   * The WAF phase.
    * 
    * @example
    * http_anti_scan
@@ -84,7 +84,7 @@ export class ListWafTemplateRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of template rules.
+   * The list of returned template rules.
    */
   rules?: ListWafTemplateRulesResponseBodyRules[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRoutineRelatedRecordsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the function.
+   * The name of the Edge Routine.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListRoutineRelatedRecordsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The page number of the returned page. Default value: 1
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -23,7 +23,7 @@ export class ListRoutineRelatedRecordsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: an integer from 1 to 20.
+   * The number of entries per page. Valid values: any integer from 1 to 20.
    * 
    * @example
    * 20
@@ -31,7 +31,7 @@ export class ListRoutineRelatedRecordsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The keyword used for fuzzy search.
+   * The keyword for fuzzy search.
    * 
    * @example
    * hello

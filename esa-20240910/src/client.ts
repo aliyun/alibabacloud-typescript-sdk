@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "ESA";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("esa", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -114,7 +118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activates the client based on the certificate ID.
+   * Activates a client based on the certificate ID.
    * 
    * @param request - ActivateClientCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -141,7 +145,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activates the client based on the certificate ID.
+   * Activates a client based on the certificate ID.
    * 
    * @param request - ActivateClientCertificateRequest
    * @returns ActivateClientCertificateResponse
@@ -152,11 +156,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables version management. This allows a site to support multiple configuration versions and multiple deployment environments, providing more flexible management of site traffic and configuration.
+   * Enables version management to allow a site to support multiple configuration versions and deployment environments for more flexible management of site traffic and configurations.
    * 
    * @remarks
    * Prerequisites for enabling site version management:
-   * 1. The site plan must include the version management quota item `version_management_available`, and its value must be `true`.
+   * 1. The site plan must include the version management quota item `version_management_available` with the value set to `true`.
    * 
    * @param request - ActivateVersionManagementRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -187,11 +191,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables version management. This allows a site to support multiple configuration versions and multiple deployment environments, providing more flexible management of site traffic and configuration.
+   * Enables version management to allow a site to support multiple configuration versions and deployment environments for more flexible management of site traffic and configurations.
    * 
    * @remarks
    * Prerequisites for enabling site version management:
-   * 1. The site plan must include the version management quota item `version_management_available`, and its value must be `true`.
+   * 1. The site plan must include the version management quota item `version_management_available` with the value set to `true`.
    * 
    * @param request - ActivateVersionManagementRequest
    * @returns ActivateVersionManagementResponse
@@ -202,7 +206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a user opportunity order.
+   * Creates a user opportunity ticket.
    * 
    * @param request - AddUserBusinessFormRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -257,7 +261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a user opportunity order.
+   * Creates a user opportunity ticket.
    * 
    * @param request - AddUserBusinessFormRequest
    * @returns AddUserBusinessFormResponse
@@ -322,7 +326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Requests a new free certificate for a Software as a Service (SaaS) domain name. Call this operation only if the previous certificate request failed, or the current certificate is about to expire or has expired.
+   * Reapplies for a free certificate for a SaaS domain name. This operation is supported only when the current free certificate application fails, is about to expire, or has expired.
    * 
    * @param request - ApplyCustomHostnameCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -353,7 +357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Requests a new free certificate for a Software as a Service (SaaS) domain name. Call this operation only if the previous certificate request failed, or the current certificate is about to expire or has expired.
+   * Reapplies for a free certificate for a SaaS domain name. This operation is supported only when the current free certificate application fails, is about to expire, or has expired.
    * 
    * @param request - ApplyCustomHostnameCertificateRequest
    * @returns ApplyCustomHostnameCertificateResponse
@@ -364,11 +368,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates multiple DNS records in a batch. Multiple record types are supported.
+   * Adds DNS records in batches and supports multiple record types.
    * 
    * @remarks
-   * This API operation allows you to create or update multiple DNS records at a time. It is suitable for scenarios that require managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. Detailed configuration items are provided to meet specific requirements, such as Priority, Flag, Tag, and Weight. In addition, for specific record types such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are supported.
-   * Successfully and unsuccessfully processed records are listed separately in the response, so that you can identify which records are processed, which records failed, and the failure reasons.
+   * This API operation allows you to create or update multiple DNS record entries at a time, which is suitable for scenarios that require managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. Detailed configuration items are provided to meet specific requirements, such as priority, flag, tag, and weight. In addition, for specific record types such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are supported.
+   * Successful and failed record operations are listed separately in the response, so that you can understand which records are processed successfully and which records fail and the reasons for the failures.
    * 
    * @param tmpReq - BatchCreateRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -409,11 +413,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates multiple DNS records in a batch. Multiple record types are supported.
+   * Adds DNS records in batches and supports multiple record types.
    * 
    * @remarks
-   * This API operation allows you to create or update multiple DNS records at a time. It is suitable for scenarios that require managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. Detailed configuration items are provided to meet specific requirements, such as Priority, Flag, Tag, and Weight. In addition, for specific record types such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are supported.
-   * Successfully and unsuccessfully processed records are listed separately in the response, so that you can identify which records are processed, which records failed, and the failure reasons.
+   * This API operation allows you to create or update multiple DNS record entries at a time, which is suitable for scenarios that require managing a large number of DNS configurations. Supported record types include but are not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI. Detailed configuration items are provided to meet specific requirements, such as priority, flag, tag, and weight. In addition, for specific record types such as CERT, SSHFP, SMIMEA, and TLSA, advanced settings such as certificate information and encryption algorithms are supported.
+   * Successful and failed record operations are listed separately in the response, so that you can understand which records are processed successfully and which records fail and the reasons for the failures.
    * 
    * @param request - BatchCreateRecordsRequest
    * @returns BatchCreateRecordsResponse
@@ -424,7 +428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch creates rules in a specified WAF phase. You can create multiple rules at a time and configure shared settings for these rules.
+   * Creates multiple rules in a specified WAF phase in a single batch and configures shared settings for the rules.
    * 
    * @param tmpReq - BatchCreateWafRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -487,7 +491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch creates rules in a specified WAF phase. You can create multiple rules at a time and configure shared settings for these rules.
+   * Creates multiple rules in a specified WAF phase in a single batch and configures shared settings for the rules.
    * 
    * @param request - BatchCreateWafRulesRequest
    * @returns BatchCreateWafRulesResponse
@@ -1112,7 +1116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch updates rules in a specified WAF ruleset. You can use this operation to update the configurations of multiple rules at a time.
+   * Modifies multiple rules in a specified WAF rule set in batches. You can use this operation to update the configurations of multiple rules at the same time.
    * 
    * @param tmpReq - BatchUpdateWafRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1175,7 +1179,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch updates rules in a specified WAF ruleset. You can use this operation to update the configurations of multiple rules at a time.
+   * Modifies multiple rules in a specified WAF rule set in batches. You can use this operation to update the configurations of multiple rules at the same time.
    * 
    * @param request - BatchUpdateWafRulesRequest
    * @returns BatchUpdateWafRulesResponse
@@ -1277,7 +1281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Validates whether a site is compatible with the target plan during site plan migration.
+   * Validates whether a site is compatible with the target plan during plan migration.
    * 
    * @param request - CheckSiteFeaturesMatchPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1312,7 +1316,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Validates whether a site is compatible with the target plan during site plan migration.
+   * Validates whether a site is compatible with the target plan during plan migration.
    * 
    * @param request - CheckSiteFeaturesMatchPlanRequest
    * @returns CheckSiteFeaturesMatchPlanResponse
@@ -1323,7 +1327,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a specified website name is available.
+   * Pre-validates whether a site name is available.
    * 
    * @param request - CheckSiteNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1354,7 +1358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a specified website name is available.
+   * Pre-validates whether a site name is available.
    * 
    * @param request - CheckSiteNameRequest
    * @returns CheckSiteNameResponse
@@ -1365,7 +1369,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the project name of a real-time log delivery task.
+   * Checks the project name of a real-time log task.
    * 
    * @param request - CheckSiteProjectNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1392,7 +1396,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks the project name of a real-time log delivery task.
+   * Checks the project name of a real-time log task.
    * 
    * @param request - CheckSiteProjectNameRequest
    * @returns CheckSiteProjectNameResponse
@@ -1487,8 +1491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits the staging (unstable) code of an Edge Routine and generates a production version.
-   * Prerequisite: Before calling this API operation, call GetRoutineStagingCodeUploadInfo to obtain OSS upload credentials. Upload the code file through OSS POST. After the upload callback succeeds, call this API operation to submit the code.
+   * Submits the staging code of an Edge Routine to generate a production version. Before calling this API operation, you must call GetRoutineStagingCodeUploadInfo to obtain the Object Storage Service (OSS) upload credentials, upload the code file by using an OSS POST request, and then call this API operation after the upload callback succeeds.
    * 
    * @param request - CommitRoutineStagingCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1527,8 +1530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits the staging (unstable) code of an Edge Routine and generates a production version.
-   * Prerequisite: Before calling this API operation, call GetRoutineStagingCodeUploadInfo to obtain OSS upload credentials. Upload the code file through OSS POST. After the upload callback succeeds, call this API operation to submit the code.
+   * Submits the staging code of an Edge Routine to generate a production version. Before calling this API operation, you must call GetRoutineStagingCodeUploadInfo to obtain the Object Storage Service (OSS) upload credentials, upload the code file by using an OSS POST request, and then call this API operation after the upload callback succeeds.
    * 
    * @param request - CommitRoutineStagingCodeRequest
    * @returns CommitRoutineStagingCodeResponse
@@ -1905,7 +1907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom response code rule for a site.
+   * Creates a custom response code configuration for a site.
    * 
    * @param request - CreateCustomResponseCodeRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1964,7 +1966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom response code rule for a site.
+   * Creates a custom response code configuration for a site.
    * 
    * @param request - CreateCustomResponseCodeRuleRequest
    * @returns CreateCustomResponseCodeRuleResponse
@@ -2133,7 +2135,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an image secret for the edge container application
+   * Creates an image secret for an edge container application.
    * 
    * @param request - CreateEdgeContainerAppImageSecretRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2176,7 +2178,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create an image secret for the edge container application
+   * Creates an image secret for an edge container application.
    * 
    * @param request - CreateEdgeContainerAppImageSecretRequest
    * @returns CreateEdgeContainerAppImageSecretResponse
@@ -2237,11 +2239,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an edge container application version. You can iteratively release applications by version.
+   * Creates a version for an edge container application to support iterative releases.
    * Note:
-   * 1) Your account must have an ESA plan with the Edge Container feature enabled.
-   * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
-   * 3) Complete call chain example: CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion.
+   * 1) Your account must be subscribed to an ESA plan that includes the Edge Container feature.
+   * 2) You must call CreateEdgeContainerApp to create an application and obtain the AppId.
+   * 3) A complete call chain example is provided (CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion).
    * 
    * @param tmpReq - CreateEdgeContainerAppVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2290,11 +2292,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an edge container application version. You can iteratively release applications by version.
+   * Creates a version for an edge container application to support iterative releases.
    * Note:
-   * 1) Your account must have an ESA plan with the Edge Container feature enabled.
-   * 2) Call CreateEdgeContainerApp first to create an application and obtain the AppId.
-   * 3) Complete call chain example: CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion.
+   * 1) Your account must be subscribed to an ESA plan that includes the Edge Container feature.
+   * 2) You must call CreateEdgeContainerApp to create an application and obtain the AppId.
+   * 3) A complete call chain example is provided (CreateEdgeContainerApp → ListEdgeContainerApps → CreateEdgeContainerAppVersion).
    * 
    * @param request - CreateEdgeContainerAppVersionRequest
    * @returns CreateEdgeContainerAppVersionResponse
@@ -2356,6 +2358,78 @@ export default class Client extends OpenApi {
   async createEnvironment(request: $_model.CreateEnvironmentRequest): Promise<$_model.CreateEnvironmentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createEnvironmentWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an error code redirection rule.
+   * 
+   * @param tmpReq - CreateErrorPagesRedirectRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateErrorPagesRedirectRuleResponse
+   */
+  async createErrorPagesRedirectRuleWithOptions(tmpReq: $_model.CreateErrorPagesRedirectRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateErrorPagesRedirectRuleResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateErrorPagesRedirectRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.errorPagesRedirect)) {
+      request.errorPagesRedirectShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.errorPagesRedirect, "ErrorPagesRedirect", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.errorPagesRedirectShrink)) {
+      query["ErrorPagesRedirect"] = request.errorPagesRedirectShrink;
+    }
+
+    if (!$dara.isNull(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!$dara.isNull(request.ruleEnable)) {
+      query["RuleEnable"] = request.ruleEnable;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateErrorPagesRedirectRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateErrorPagesRedirectRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateErrorPagesRedirectRuleResponse({}));
+  }
+
+  /**
+   * Creates an error code redirection rule.
+   * 
+   * @param request - CreateErrorPagesRedirectRuleRequest
+   * @returns CreateErrorPagesRedirectRuleResponse
+   */
+  async createErrorPagesRedirectRule(request: $_model.CreateErrorPagesRedirectRuleRequest): Promise<$_model.CreateErrorPagesRedirectRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createErrorPagesRedirectRuleWithOptions(request, runtime);
   }
 
   /**
@@ -2985,7 +3059,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom list. Custom lists are typically referenced by the rule matching engine for values used in various security policies to implement complex logic and control.
+   * Creates a custom list for referencing values in rule matching engines to implement complex logic and control in various security policies.
    * 
    * @param tmpReq - CreateListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3034,7 +3108,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom list. Custom lists are typically referenced by the rule matching engine for values used in various security policies to implement complex logic and control.
+   * Creates a custom list for referencing values in rule matching engines to implement complex logic and control in various security policies.
    * 
    * @param request - CreateListRequest
    * @returns CreateListResponse
@@ -3045,11 +3119,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a load balancer instance that supports custom routing policies, session persistence, monitoring configurations, and other advanced features.
+   * Creates a load balancer instance with advanced features such as custom routing policies, session persistence, and monitoring configurations.
    * 
    * @remarks
-   * Creates a load balancing service based on your business requirements. You can configure settings such as adaptive routing, weighted polling, rule matching, and health checks to effectively manage and optimize traffic.
-   * Only Enterprise plans support the load balancing service. To use this feature, contact Alibaba Cloud sales to apply for an Enterprise plan.
+   * This API allows you to configure load balancing services based on your business requirements, including but not limited to adaptive routing, weighted round-robin, rule matching, and health checks, to achieve effective traffic management and optimization.
+   * Only the Enterprise Edition plan supports the load balancer service. To use this service, contact Alibaba Cloud sales to apply for the Enterprise Edition plan.
    * 
    * @param tmpReq - CreateLoadBalancerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3158,11 +3232,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a load balancer instance that supports custom routing policies, session persistence, monitoring configurations, and other advanced features.
+   * Creates a load balancer instance with advanced features such as custom routing policies, session persistence, and monitoring configurations.
    * 
    * @remarks
-   * Creates a load balancing service based on your business requirements. You can configure settings such as adaptive routing, weighted polling, rule matching, and health checks to effectively manage and optimize traffic.
-   * Only Enterprise plans support the load balancing service. To use this feature, contact Alibaba Cloud sales to apply for an Enterprise plan.
+   * This API allows you to configure load balancing services based on your business requirements, including but not limited to adaptive routing, weighted round-robin, rule matching, and health checks, to achieve effective traffic management and optimization.
+   * Only the Enterprise Edition plan supports the load balancer service. To use this service, contact Alibaba Cloud sales to apply for the Enterprise Edition plan.
    * 
    * @param request - CreateLoadBalancerRequest
    * @returns CreateLoadBalancerResponse
@@ -3173,10 +3247,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a network optimization configuration for a site.
+   * Creates a network optimization configuration for a site.
    * 
    * @remarks
-   * The site plan must be Standard Edition or higher to use the WebSocket feature. When calling this API, you must provide at least one feature configuration parameter. Providing only SiteId returns an error.
+   * The site plan must be Standard Edition or higher to use the WebSocket feature. In addition, when you call this API operation, you must specify at least one feature configuration parameter. Specifying only SiteId returns an error.
    * 
    * @param request - CreateNetworkOptimizationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3247,10 +3321,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a network optimization configuration for a site.
+   * Creates a network optimization configuration for a site.
    * 
    * @remarks
-   * The site plan must be Standard Edition or higher to use the WebSocket feature. When calling this API, you must provide at least one feature configuration parameter. Providing only SiteId returns an error.
+   * The site plan must be Standard Edition or higher to use the WebSocket feature. In addition, when you call this API operation, you must specify at least one feature configuration parameter. Specifying only SiteId returns an error.
    * 
    * @param request - CreateNetworkOptimizationRequest
    * @returns CreateNetworkOptimizationResponse
@@ -3563,7 +3637,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a DNS record under a site.
+   * Creates a DNS record under a site.
    * 
    * @param tmpReq - CreateRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3652,7 +3726,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a DNS record under a site.
+   * Creates a DNS record under a site.
    * 
    * @param request - CreateRecordRequest
    * @returns CreateRecordResponse
@@ -5850,7 +5924,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete compression rule
+   * Deletes the compression rule configuration for a site.
    * 
    * @param request - DeleteCompressionRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5885,7 +5959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete compression rule
+   * Deletes the compression rule configuration for a site.
    * 
    * @param request - DeleteCompressionRuleRequest
    * @returns DeleteCompressionRuleResponse
@@ -6262,7 +6336,53 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a rule created by Deep Learning and Protection.
+   * Deletes the error code redirection configuration.
+   * 
+   * @param request - DeleteErrorPagesRedirectRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteErrorPagesRedirectRuleResponse
+   */
+  async deleteErrorPagesRedirectRuleWithOptions(request: $_model.DeleteErrorPagesRedirectRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteErrorPagesRedirectRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteErrorPagesRedirectRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteErrorPagesRedirectRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteErrorPagesRedirectRuleResponse({}));
+  }
+
+  /**
+   * Deletes the error code redirection configuration.
+   * 
+   * @param request - DeleteErrorPagesRedirectRuleRequest
+   * @returns DeleteErrorPagesRedirectRuleResponse
+   */
+  async deleteErrorPagesRedirectRule(request: $_model.DeleteErrorPagesRedirectRuleRequest): Promise<$_model.DeleteErrorPagesRedirectRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteErrorPagesRedirectRuleWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes the rules issued by deep learning and protection.
    * 
    * @param request - DeleteHttpDDoSIntelligentRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6301,7 +6421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a rule created by Deep Learning and Protection.
+   * Deletes the rules issued by deep learning and protection.
    * 
    * @param request - DeleteHttpDDoSIntelligentRuleRequest
    * @returns DeleteHttpDDoSIntelligentRuleResponse
@@ -6634,7 +6754,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a keyless server configuration.
+   * Deletes a Keyless server configuration.
    * 
    * @param request - DeleteKeylessServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6669,7 +6789,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a keyless server configuration.
+   * Deletes a Keyless server configuration.
    * 
    * @param request - DeleteKeylessServerRequest
    * @returns DeleteKeylessServerResponse
@@ -6938,7 +7058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an origin client certificate for a specific site.
+   * Deletes a domain-level back-to-origin client certificate.
    * 
    * @param request - DeleteOriginClientCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6965,7 +7085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an origin client certificate for a specific site.
+   * Deletes a domain-level back-to-origin client certificate.
    * 
    * @param request - DeleteOriginClientCertificateRequest
    * @returns DeleteOriginClientCertificateResponse
@@ -7064,7 +7184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Origin Rule Configuration
+   * Deletes the back-to-origin rule configuration.
    * 
    * @param request - DeleteOriginRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7099,7 +7219,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete Origin Rule Configuration
+   * Deletes the back-to-origin rule configuration.
    * 
    * @param request - DeleteOriginRuleRequest
    * @returns DeleteOriginRuleResponse
@@ -7198,7 +7318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a URL redirect rule for a website.
+   * Deletes the redirect configuration for a site.
    * 
    * @param request - DeleteRedirectRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7233,7 +7353,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a URL redirect rule for a website.
+   * Deletes the redirect configuration for a site.
    * 
    * @param request - DeleteRedirectRuleRequest
    * @returns DeleteRedirectRuleResponse
@@ -7244,7 +7364,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a URL rewrite rule for a website.
+   * Deletes the URL rewrite configuration for a site.
    * 
    * @param request - DeleteRewriteUrlRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7279,7 +7399,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a URL rewrite rule for a website.
+   * Deletes the URL rewrite configuration for a site.
    * 
    * @param request - DeleteRewriteUrlRuleRequest
    * @returns DeleteRewriteUrlRuleResponse
@@ -7420,12 +7540,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes environment variables of a Routine.
+   * Deletes the environment variables of a routine.
    * 
    * @remarks
-   * ## Operation description
-   * - When you create a Routine code version for deployment, the environment name `Env` supports only the staging environment `staging` or the production environment `production`.
-   * - The `CodeVersions` parameter supports canary release of up to two versions, and the total proportion of these versions must equal 100%.
+   * ## Request description
+   * - When you create a deployment for a routine code version, the `Env` parameter only supports `staging` for the staging environment and `production` for the production environment.
+   * - The `CodeVersions` parameter supports canary releases for up to two versions, and the sum of the traffic ratios for these versions must equal 100%.
    * 
    * @param tmpReq - DeleteRoutineEnvironmentVariablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7470,12 +7590,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes environment variables of a Routine.
+   * Deletes the environment variables of a routine.
    * 
    * @remarks
-   * ## Operation description
-   * - When you create a Routine code version for deployment, the environment name `Env` supports only the staging environment `staging` or the production environment `production`.
-   * - The `CodeVersions` parameter supports canary release of up to two versions, and the total proportion of these versions must equal 100%.
+   * ## Request description
+   * - When you create a deployment for a routine code version, the `Env` parameter only supports `staging` for the staging environment and `production` for the production environment.
+   * - The `CodeVersions` parameter supports canary releases for up to two versions, and the sum of the traffic ratios for these versions must equal 100%.
    * 
    * @param request - DeleteRoutineEnvironmentVariablesRequest
    * @returns DeleteRoutineEnvironmentVariablesResponse
@@ -7936,14 +8056,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a user task delivery configuration based on the specified task name and Alibaba Cloud UID.
+   * Deletes the user task delivery configuration based on the specified task name and Alibaba Cloud UID.
    * 
    * @remarks
-   * This operation allows you to delete an existing task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before proceeding, verify that the provided information is accurate to avoid disrupting the processing of related logs or data.
+   * This operation allows you to delete a configured task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before the operation, ensure that the provided information is accurate to avoid affecting the normal processing of related logs or data.
    * **Note:**
-   * - The deletion operation is irreversible. Proceed with caution.
+   * - The delete operation is irreversible. Proceed with caution.
    * - Only accounts with the required permissions can call this operation.
-   * - You can use the returned `RequestId` to track the request progress and troubleshoot issues.
+   * - The returned `RequestId` can be used to track the request processing progress and troubleshoot issues.
    * 
    * @param request - DeleteUserDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7974,14 +8094,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a user task delivery configuration based on the specified task name and Alibaba Cloud UID.
+   * Deletes the user task delivery configuration based on the specified task name and Alibaba Cloud UID.
    * 
    * @remarks
-   * This operation allows you to delete an existing task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before proceeding, verify that the provided information is accurate to avoid disrupting the processing of related logs or data.
+   * This operation allows you to delete a configured task delivery configuration based on the specified **task name** and **Alibaba Cloud UID**. Before the operation, ensure that the provided information is accurate to avoid affecting the normal processing of related logs or data.
    * **Note:**
-   * - The deletion operation is irreversible. Proceed with caution.
+   * - The delete operation is irreversible. Proceed with caution.
    * - Only accounts with the required permissions can call this operation.
-   * - You can use the returned `RequestId` to track the request progress and troubleshoot issues.
+   * - The returned `RequestId` can be used to track the request processing progress and troubleshoot issues.
    * 
    * @param request - DeleteUserDeliveryTaskRequest
    * @returns DeleteUserDeliveryTaskResponse
@@ -10365,7 +10485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports the CNAME values of all records under the current site. When the site access mode is switched to CNAME access, you can call this operation to retrieve pre-configured CNAME values to prevent service interruptions.
+   * Exports the CNAME values of all records for the current site. When you switch the site access mode to CNAME access, you can call this operation to retrieve pre-configured CNAME values and prevent service interruptions.
    * 
    * @param request - ExportRecordCnamesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10392,7 +10512,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports the CNAME values of all records under the current site. When the site access mode is switched to CNAME access, you can call this operation to retrieve pre-configured CNAME values to prevent service interruptions.
+   * Exports the CNAME values of all records for the current site. When you switch the site access mode to CNAME access, you can call this operation to retrieve pre-configured CNAME values and prevent service interruptions.
    * 
    * @param request - ExportRecordCnamesRequest
    * @returns ExportRecordCnamesResponse
@@ -10968,7 +11088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the CNAME flattening configuration of a website
+   * Queries the CNAME flattening configuration of a site.
    * 
    * @param request - GetCnameFlatteningRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10995,7 +11115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the CNAME flattening configuration of a website
+   * Queries the CNAME flattening configuration of a site.
    * 
    * @param request - GetCnameFlatteningRequest
    * @returns GetCnameFlatteningResponse
@@ -11006,7 +11126,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Compression Rule Details
+   * Queries the details of compression rules for a site.
    * 
    * @param request - GetCompressionRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11033,7 +11153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Compression Rule Details
+   * Queries the details of compression rules for a site.
    * 
    * @param request - GetCompressionRuleRequest
    * @returns GetCompressionRuleResponse
@@ -11778,6 +11898,52 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of the error code redirect configuration.
+   * 
+   * @param request - GetErrorPagesRedirectRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetErrorPagesRedirectRuleResponse
+   */
+  async getErrorPagesRedirectRuleWithOptions(request: $_model.GetErrorPagesRedirectRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetErrorPagesRedirectRuleResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetErrorPagesRedirectRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetErrorPagesRedirectRuleResponse>(await this.callApi(params, req, runtime), new $_model.GetErrorPagesRedirectRuleResponse({}));
+  }
+
+  /**
+   * Queries the details of the error code redirect configuration.
+   * 
+   * @param request - GetErrorPagesRedirectRuleRequest
+   * @returns GetErrorPagesRedirectRuleResponse
+   */
+  async getErrorPagesRedirectRule(request: $_model.GetErrorPagesRedirectRuleRequest): Promise<$_model.GetErrorPagesRedirectRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getErrorPagesRedirectRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Downloads the failed file for a specified upload task.
    * 
    * @param request - GetFailFileRequest
@@ -11816,7 +11982,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of an HTTP request header modification rule for a website.
+   * Queries the details of the HTTP incoming request header modification configuration for a site.
    * 
    * @param request - GetHttpIncomingRequestHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11843,7 +12009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the configuration details of an HTTP request header modification rule for a website.
+   * Queries the details of the HTTP incoming request header modification configuration for a site.
    * 
    * @param request - GetHttpIncomingRequestHeaderModificationRuleRequest
    * @returns GetHttpIncomingRequestHeaderModificationRuleResponse
@@ -11892,7 +12058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an HTTP request header modification rule for a site.
+   * Queries the details of the HTTP request header modification configuration for a site.
    * 
    * @param request - GetHttpRequestHeaderModificationRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11919,7 +12085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of an HTTP request header modification rule for a site.
+   * Queries the details of the HTTP request header modification configuration for a site.
    * 
    * @param request - GetHttpRequestHeaderModificationRuleRequest
    * @returns GetHttpRequestHeaderModificationRuleResponse
@@ -12082,7 +12248,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a single site image transformation configuration.
+   * Queries a single image transform configuration for a site.
    * 
    * @param request - GetImageTransformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12109,7 +12275,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a single site image transformation configuration.
+   * Queries a single image transform configuration for a site.
    * 
    * @param request - GetImageTransformRequest
    * @returns GetImageTransformResponse
@@ -12443,7 +12609,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the managed transform configuration for a site.
+   * Queries the site hosting transition configuration.
    * 
    * @param request - GetManagedTransformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12470,7 +12636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the managed transform configuration for a site.
+   * Queries the site hosting transition configuration.
    * 
    * @param request - GetManagedTransformRequest
    * @returns GetManagedTransformResponse
@@ -12563,7 +12729,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the CA certificate information of an origin server.
+   * Retrieves the CA certificate information of the origin server.
    * 
    * @param request - GetOriginCaCertificateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12590,7 +12756,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the CA certificate information of an origin server.
+   * Retrieves the CA certificate information of the origin server.
    * 
    * @param request - GetOriginCaCertificateRequest
    * @returns GetOriginCaCertificateResponse
@@ -12639,7 +12805,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the hostnames associated with a specific origin client certificate.
+   * Retrieves the list of domain names bound to a back-to-origin client certificate at the domain name level.
    * 
    * @param request - GetOriginClientCertificateHostnamesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12666,7 +12832,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the hostnames associated with a specific origin client certificate.
+   * Retrieves the list of domain names bound to a back-to-origin client certificate at the domain name level.
    * 
    * @param request - GetOriginClientCertificateHostnamesRequest
    * @returns GetOriginClientCertificateHostnamesResponse
@@ -12715,7 +12881,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries site origin protection configurations, including the origin protection switch, the origin convergence switch, whether the origin IP whitelist needs to be updated, and detailed information about the origin IP whitelist, including the current origin IP whitelist used by the site, the latest origin IP whitelist, and the differences between them.
+   * Queries the origin server protection configurations for a site, including the origin server protection switch, the back-to-origin convergence switch, and whether the back-to-origin IP addresses whitelist needs to be updated. It also provides detailed information about the back-to-origin IP addresses whitelist, including the current whitelist used by the site, the latest whitelist, and the differences between them.
    * 
    * @param request - GetOriginProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12742,7 +12908,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries site origin protection configurations, including the origin protection switch, the origin convergence switch, whether the origin IP whitelist needs to be updated, and detailed information about the origin IP whitelist, including the current origin IP whitelist used by the site, the latest origin IP whitelist, and the differences between them.
+   * Queries the origin server protection configurations for a site, including the origin server protection switch, the back-to-origin convergence switch, and whether the back-to-origin IP addresses whitelist needs to be updated. It also provides detailed information about the back-to-origin IP addresses whitelist, including the current whitelist used by the site, the latest whitelist, and the differences between them.
    * 
    * @param request - GetOriginProtectionRequest
    * @returns GetOriginProtectionResponse
@@ -13005,7 +13171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the detailed configuration of a single DNS record, including the record value, priority, and back-to-origin authentication configuration (exclusive to CNAME records).
+   * Retrieves the detailed configuration information of a single DNS record, including the record value, priority, and back-to-origin authentication configuration (exclusive to CNAME records).
    * 
    * @param request - GetRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13032,7 +13198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the detailed configuration of a single DNS record, including the record value, priority, and back-to-origin authentication configuration (exclusive to CNAME records).
+   * Retrieves the detailed configuration information of a single DNS record, including the record value, priority, and back-to-origin authentication configuration (exclusive to CNAME records).
    * 
    * @param request - GetRecordRequest
    * @returns GetRecordResponse
@@ -13705,7 +13871,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the nameservers configured for a website.
+   * Queries the DNS server names configured for the current site.
    * 
    * @param request - GetSiteCurrentNSRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13732,7 +13898,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the nameservers configured for a website.
+   * Queries the DNS server names configured for the current site.
    * 
    * @param request - GetSiteCurrentNSRequest
    * @returns GetSiteCurrentNSResponse
@@ -14388,8 +14554,8 @@ export default class Client extends OpenApi {
    * Queries the details of a WAF ruleset for a specified instance.
    * 
    * @remarks
-   * ## Operation description
-   * By calling the `GetUserWafRuleset` operation, you can retrieve information about a specific Web Application Firewall (WAF) ruleset based on the instance ID and ruleset ID. The returned information includes but is not limited to the position, name, description, status, and specific rules of the ruleset. Make sure that you correctly specify the required parameters to avoid request failures.
+   * ## Request instructions
+   * By calling the `GetUserWafRuleset` operation, you can retrieve specific Web Application Firewall (WAF) ruleset information based on the provided instance ID and ruleset ID. The information returned by this operation includes but is not limited to the position, name, description, and status of the ruleset, as well as detailed content such as the specific rules it contains. Correctly specify the required parameters when making a request to avoid request failures.
    * 
    * @param request - GetUserWafRulesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14427,8 +14593,8 @@ export default class Client extends OpenApi {
    * Queries the details of a WAF ruleset for a specified instance.
    * 
    * @remarks
-   * ## Operation description
-   * By calling the `GetUserWafRuleset` operation, you can retrieve information about a specific Web Application Firewall (WAF) ruleset based on the instance ID and ruleset ID. The returned information includes but is not limited to the position, name, description, status, and specific rules of the ruleset. Make sure that you correctly specify the required parameters to avoid request failures.
+   * ## Request instructions
+   * By calling the `GetUserWafRuleset` operation, you can retrieve specific Web Application Firewall (WAF) ruleset information based on the provided instance ID and ruleset ID. The information returned by this operation includes but is not limited to the position, name, description, and status of the ruleset, as well as detailed content such as the specific rules it contains. Correctly specify the required parameters when making a request to avoid request failures.
    * 
    * @param request - GetUserWafRulesetRequest
    * @returns GetUserWafRulesetResponse
@@ -15130,7 +15296,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query TLS Cipher Suite List
+   * Queries the list of cipher suite names based on the cipher suite group name.
    * 
    * @param request - ListCiphersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15157,7 +15323,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query TLS Cipher Suite List
+   * Queries the list of cipher suite names based on the cipher suite group name.
    * 
    * @param request - ListCiphersRequest
    * @returns ListCiphersResponse
@@ -15855,6 +16021,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the error code redirection configurations.
+   * 
+   * @param request - ListErrorPagesRedirectRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListErrorPagesRedirectRulesResponse
+   */
+  async listErrorPagesRedirectRulesWithOptions(request: $_model.ListErrorPagesRedirectRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListErrorPagesRedirectRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.configType)) {
+      query["ConfigType"] = request.configType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    if (!$dara.isNull(request.siteVersion)) {
+      query["SiteVersion"] = request.siteVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListErrorPagesRedirectRules",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListErrorPagesRedirectRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListErrorPagesRedirectRulesResponse({}));
+  }
+
+  /**
+   * Queries the error code redirection configurations.
+   * 
+   * @param request - ListErrorPagesRedirectRulesRequest
+   * @returns ListErrorPagesRedirectRulesResponse
+   */
+  async listErrorPagesRedirectRules(request: $_model.ListErrorPagesRedirectRulesRequest): Promise<$_model.ListErrorPagesRedirectRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listErrorPagesRedirectRulesWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the list of HTTP incoming request header modification configurations for a site.
    * 
    * @param request - ListHttpIncomingRequestHeaderModificationRulesRequest
@@ -16333,7 +16565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all custom lists under the account along with their details. You can use query parameters to filter results and paginate to retrieve a specific set of lists.
+   * Lists all custom lists and their details under the account. You can filter the results by using query parameters and paginate the results to retrieve a specific set of lists.
    * 
    * @param tmpReq - ListListsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16378,7 +16610,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all custom lists under the account along with their details. You can use query parameters to filter results and paginate to retrieve a specific set of lists.
+   * Lists all custom lists and their details under the account. You can filter the results by using query parameters and paginate the results to retrieve a specific set of lists.
    * 
    * @param request - ListListsRequest
    * @returns ListListsResponse
@@ -16485,7 +16717,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of load balancers under a site and returns load balancing information. You can query by load balancer name. Paging is supported.
+   * Queries the list of load balancing instances under a site and returns the load balancing information under the site. Supports querying by load balancing name and paging.
    * 
    * @param request - ListLoadBalancersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16512,7 +16744,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of load balancers under a site and returns load balancing information. You can query by load balancer name. Paging is supported.
+   * Queries the list of load balancing instances under a site and returns the load balancing information under the site. Supports querying by load balancing name and paging.
    * 
    * @param request - ListLoadBalancersRequest
    * @returns ListLoadBalancersResponse
@@ -16523,7 +16755,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all WAF managed rule groups under the current account. You can call this operation to retrieve a list of all rule groups and their summary information.
+   * Lists all Web Application Firewall (WAF) managed rule groups within your account. You can use this operation to retrieve a list of all rule groups and their summary information.
    * 
    * @param request - ListManagedRulesGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16558,7 +16790,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all WAF managed rule groups under the current account. You can call this operation to retrieve a list of all rule groups and their summary information.
+   * Lists all Web Application Firewall (WAF) managed rule groups within your account. You can use this operation to retrieve a list of all rule groups and their summary information.
    * 
    * @param request - ListManagedRulesGroupsRequest
    * @returns ListManagedRulesGroupsResponse
@@ -16683,7 +16915,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all origin pools within a site. Supports pagination and searching by origin pool name (exact or fuzzy).
+   * Queries all origin address pools under a site. Supports pagination and exact or fuzzy search by origin address pool name.
    * 
    * @param request - ListOriginPoolsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16710,7 +16942,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all origin pools within a site. Supports pagination and searching by origin pool name (exact or fuzzy).
+   * Queries all origin address pools under a site. Supports pagination and exact or fuzzy search by origin address pool name.
    * 
    * @param request - ListOriginPoolsRequest
    * @returns ListOriginPoolsResponse
@@ -16759,7 +16991,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all custom response pages created by the user. This operation supports pagination, allowing you to retrieve response pages by page number and page size.
+   * Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by page number and page size.
    * 
    * @param tmpReq - ListPagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16804,7 +17036,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all custom response pages created by the user. This operation supports pagination, allowing you to retrieve response pages by page number and page size.
+   * Lists all custom response pages created by the user. This operation supports pagination and allows you to retrieve the response page list by page number and page size.
    * 
    * @param request - ListPagesRequest
    * @returns ListPagesResponse
@@ -16815,10 +17047,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries pay-as-you-go plan instances.
+   * Queries the pay-as-you-go plan instances.
    * 
    * @remarks
-   * This operation queries pay-as-you-go plan instances under your account and supports filtering and sorting by various conditions.
+   * Queries the pay-as-you-go plan instances under your account. You can filter and sort the instances based on various conditions.
    * 
    * @param request - ListPostpaidRatePlanInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16845,10 +17077,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries pay-as-you-go plan instances.
+   * Queries the pay-as-you-go plan instances.
    * 
    * @remarks
-   * This operation queries pay-as-you-go plan instances under your account and supports filtering and sorting by various conditions.
+   * Queries the pay-as-you-go plan instances under your account. You can filter and sort the instances based on various conditions.
    * 
    * @param request - ListPostpaidRatePlanInstancesRequest
    * @returns ListPostpaidRatePlanInstancesResponse
@@ -16900,7 +17132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the minimum plan edition required for a site plan quota to take effect, that is, the minimum plan edition to which the quota must be upgraded for use.
+   * Queries the minimum required plan version for site plan quotas, indicating the lowest plan version to which you must upgrade to use a quota.
    * 
    * @param request - ListQuotasMinEffectPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16927,7 +17159,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the minimum plan edition required for a site plan quota to take effect, that is, the minimum plan edition to which the quota must be upgraded for use.
+   * Queries the minimum required plan version for site plan quotas, indicating the lowest plan version to which you must upgrade to use a quota.
    * 
    * @param request - ListQuotasMinEffectPlanRequest
    * @returns ListQuotasMinEffectPlanResponse
@@ -16938,10 +17170,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of DNS records under a site, including record values, priorities, authentication configurations, etc. Supports filtering by conditions such as record name and record type.
+   * Queries the DNS records of a site, including record values, priorities, and authentication configurations. Supports filtering by record name, record type, and other conditions.
    * 
    * @remarks
-   * DNS records corresponding to edge containers, edge functions, and Layer 4 acceleration will not be returned by this API.
+   * DNS records associated with edge containers, Edge Routines, and Layer 4 acceleration are not returned by this API operation.
    * 
    * @param request - ListRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16968,10 +17200,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of DNS records under a site, including record values, priorities, authentication configurations, etc. Supports filtering by conditions such as record name and record type.
+   * Queries the DNS records of a site, including record values, priorities, and authentication configurations. Supports filtering by record name, record type, and other conditions.
    * 
    * @remarks
-   * DNS records corresponding to edge containers, edge functions, and Layer 4 acceleration will not be returned by this API.
+   * DNS records associated with edge containers, Edge Routines, and Layer 4 acceleration are not returned by this API operation.
    * 
    * @param request - ListRecordsRequest
    * @returns ListRecordsResponse
@@ -17319,10 +17551,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The records associated with the function.
+   * Queries the association records of an Edge Routine.
    * 
    * @remarks
-   * Queries the list of related records for a specified edge routine. You can use pagination parameters to retrieve partial results, or use fuzzy keywords to filter specific record entries.
+   * Queries the association records of a specified Edge Routine. You can set pagination parameters to retrieve partial results, or use fuzzy keywords to filter specific records.
    * 
    * @param request - ListRoutineRelatedRecordsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17365,10 +17597,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * The records associated with the function.
+   * Queries the association records of an Edge Routine.
    * 
    * @remarks
-   * Queries the list of related records for a specified edge routine. You can use pagination parameters to retrieve partial results, or use fuzzy keywords to filter specific record entries.
+   * Queries the association records of a specified Edge Routine. You can set pagination parameters to retrieve partial results, or use fuzzy keywords to filter specific records.
    * 
    * @param request - ListRoutineRelatedRecordsRequest
    * @returns ListRoutineRelatedRecordsResponse
@@ -17379,7 +17611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the function route list of an Edge Routine.
+   * Queries the function routes of an Edge Routine.
    * 
    * @param request - ListRoutineRoutesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17418,7 +17650,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the function route list of an Edge Routine.
+   * Queries the function routes of an Edge Routine.
    * 
    * @param request - ListRoutineRoutesRequest
    * @returns ListRoutineRoutesResponse
@@ -17505,7 +17737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all log delivery tasks that are in progress.
+   * Lists the delivery status of all ongoing real-time log tasks.
    * 
    * @param request - ListSiteDeliveryTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17532,7 +17764,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all log delivery tasks that are in progress.
+   * Lists the delivery status of all ongoing real-time log tasks.
    * 
    * @param request - ListSiteDeliveryTasksRequest
    * @returns ListSiteDeliveryTasksResponse
@@ -17581,7 +17813,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of back-to-origin client certificates at the site level.
+   * Queries the site-level back-to-origin client certificates.
    * 
    * @param request - ListSiteOriginClientCertificatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17608,7 +17840,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of back-to-origin client certificates at the site level.
+   * Queries the site-level back-to-origin client certificates.
    * 
    * @param request - ListSiteOriginClientCertificatesRequest
    * @returns ListSiteOriginClientCertificatesResponse
@@ -18051,7 +18283,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
+   * Lists all task delivery records for a user, and supports filtering by business type and paging.
    * 
    * @param request - ListUserDeliveryTasksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18078,7 +18310,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all delivery tasks in your Alibaba Cloud account by page. You can filter the delivery tasks by the category of the delivered real-time logs.
+   * Lists all task delivery records for a user, and supports filtering by business type and paging.
    * 
    * @param request - ListUserDeliveryTasksRequest
    * @returns ListUserDeliveryTasksResponse
@@ -18367,7 +18599,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all managed rules under Web Application Firewall (WAF) or filters rules based on specific conditions. You can use this operation to query detailed information about WAF managed rules in a paginated manner.
+   * Lists all managed rules under Web Application Firewall (WAF) or filters the rules based on specific conditions. You can use this operation to query the details of WAF managed rules in a paginated manner.
    * 
    * @param tmpReq - ListWafManagedRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18444,7 +18676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all managed rules under Web Application Firewall (WAF) or filters rules based on specific conditions. You can use this operation to query detailed information about WAF managed rules in a paginated manner.
+   * Lists all managed rules under Web Application Firewall (WAF) or filters the rules based on specific conditions. You can use this operation to query the details of WAF managed rules in a paginated manner.
    * 
    * @param request - ListWafManagedRulesRequest
    * @returns ListWafManagedRulesResponse
@@ -18501,7 +18733,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all rules or filters rules by specific conditions under Web Application Firewall (WAF). You can use this operation to query detailed information about WAF rules in a paged manner.
+   * Lists all Web Application Firewall (WAF) rules or filters rules based on specific conditions. You can call this operation to query the details of WAF rules in a paginated manner.
    * 
    * @param tmpReq - ListWafRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18562,7 +18794,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all rules or filters rules by specific conditions under Web Application Firewall (WAF). You can use this operation to query detailed information about WAF rules in a paged manner.
+   * Lists all Web Application Firewall (WAF) rules or filters rules based on specific conditions. You can call this operation to query the details of WAF rules in a paginated manner.
    * 
    * @param request - ListWafRulesRequest
    * @returns ListWafRulesResponse
@@ -18573,7 +18805,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the rulesets under the current WAF execution phase. Queries basic information and status of rulesets with paging support.
+   * Lists the rulesets in the current WAF phase and retrieves the basic information and status of the rulesets through paging in a paged query.
    * 
    * @param tmpReq - ListWafRulesetsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18630,7 +18862,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the rulesets under the current WAF execution phase. Queries basic information and status of rulesets with paging support.
+   * Lists the rulesets in the current WAF phase and retrieves the basic information and status of the rulesets through paging in a paged query.
    * 
    * @param request - ListWafRulesetsRequest
    * @returns ListWafRulesetsResponse
@@ -18641,7 +18873,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the template rules in WAF. These rules are typically predefined rulesets for quickly enabling protection against common attack types.
+   * Lists the template rules in Web Application Firewall (WAF). These rules are typically predefined rule sets used to quickly enable protection against common attack types.
    * 
    * @param tmpReq - ListWafTemplateRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18690,7 +18922,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the template rules in WAF. These rules are typically predefined rulesets for quickly enabling protection against common attack types.
+   * Lists the template rules in Web Application Firewall (WAF). These rules are typically predefined rule sets used to quickly enable protection against common attack types.
    * 
    * @param request - ListWafTemplateRulesRequest
    * @returns ListWafTemplateRulesResponse
@@ -18751,10 +18983,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries waiting room events for a waiting room.
+   * Queries the details of waiting room events.
    * 
    * @remarks
-   * Use this operation to query details of all waiting room events related to a waiting room in a website.
+   * Queries the details of all waiting room events associated with a specified site ID and waiting room ID.
    * 
    * @param request - ListWaitingRoomEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18781,10 +19013,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries waiting room events for a waiting room.
+   * Queries the details of waiting room events.
    * 
    * @remarks
-   * Use this operation to query details of all waiting room events related to a waiting room in a website.
+   * Queries the details of all waiting room events associated with a specified site ID and waiting room ID.
    * 
    * @param request - ListWaitingRoomEventsRequest
    * @returns ListWaitingRoomEventsResponse
@@ -21437,7 +21669,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cache Reserve Specification Change
+   * Modifies the specifications of cache retention.
    * 
    * @param request - UpdateCacheReserveSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21480,7 +21712,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cache Reserve Specification Change
+   * Modifies the specifications of cache retention.
    * 
    * @param request - UpdateCacheReserveSpecRequest
    * @returns UpdateCacheReserveSpecResponse
@@ -22473,6 +22705,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the error code redirect configuration.
+   * 
+   * @param tmpReq - UpdateErrorPagesRedirectRuleRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateErrorPagesRedirectRuleResponse
+   */
+  async updateErrorPagesRedirectRuleWithOptions(tmpReq: $_model.UpdateErrorPagesRedirectRuleRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateErrorPagesRedirectRuleResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateErrorPagesRedirectRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.errorPagesRedirect)) {
+      request.errorPagesRedirectShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.errorPagesRedirect, "ErrorPagesRedirect", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.configId)) {
+      query["ConfigId"] = request.configId;
+    }
+
+    if (!$dara.isNull(request.errorPagesRedirectShrink)) {
+      query["ErrorPagesRedirect"] = request.errorPagesRedirectShrink;
+    }
+
+    if (!$dara.isNull(request.rule)) {
+      query["Rule"] = request.rule;
+    }
+
+    if (!$dara.isNull(request.ruleEnable)) {
+      query["RuleEnable"] = request.ruleEnable;
+    }
+
+    if (!$dara.isNull(request.ruleName)) {
+      query["RuleName"] = request.ruleName;
+    }
+
+    if (!$dara.isNull(request.sequence)) {
+      query["Sequence"] = request.sequence;
+    }
+
+    if (!$dara.isNull(request.siteId)) {
+      query["SiteId"] = request.siteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateErrorPagesRedirectRule",
+      version: "2024-09-10",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateErrorPagesRedirectRuleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateErrorPagesRedirectRuleResponse({}));
+  }
+
+  /**
+   * Modifies the error code redirect configuration.
+   * 
+   * @param request - UpdateErrorPagesRedirectRuleRequest
+   * @returns UpdateErrorPagesRedirectRuleResponse
+   */
+  async updateErrorPagesRedirectRule(request: $_model.UpdateErrorPagesRedirectRuleRequest): Promise<$_model.UpdateErrorPagesRedirectRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateErrorPagesRedirectRuleWithOptions(request, runtime);
+  }
+
+  /**
    * Modify HTTP incoming request header configuration.
    * 
    * @param tmpReq - UpdateHttpIncomingRequestHeaderModificationRuleRequest
@@ -22761,7 +23065,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update the HTTPS Application Configuration.
+   * Modifies the HTTPS application configuration.
    * 
    * @param request - UpdateHttpsApplicationConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -22864,7 +23168,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update the HTTPS Application Configuration.
+   * Modifies the HTTPS application configuration.
    * 
    * @param request - UpdateHttpsApplicationConfigurationRequest
    * @returns UpdateHttpsApplicationConfigurationResponse
@@ -23161,10 +23465,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * To modify an existing load balancer, you must specify its load balancer ID.
+   * Modifies the information of an existing load balancing instance. The load balancing instance ID is required to identify the load balancing instance to be modified.
    * 
    * @remarks
-   * This operation modifies multiple configurations for a load balancer, including its name, acceleration status, session persistence policy, and advanced traffic routing settings.>Notice: Changes to certain parameters might affect the stability of existing services. Proceed with caution.
+   * This operation allows you to modify multiple configurations of a load balancing instance, including but not limited to the load balancing instance name, acceleration status, session persistence policy, and various advanced settings related to traffic routing.>Notice: Changes to certain parameters may affect the stability of existing services. Proceed with caution.
    * 
    * @param tmpReq - UpdateLoadBalancerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23273,10 +23577,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * To modify an existing load balancer, you must specify its load balancer ID.
+   * Modifies the information of an existing load balancing instance. The load balancing instance ID is required to identify the load balancing instance to be modified.
    * 
    * @remarks
-   * This operation modifies multiple configurations for a load balancer, including its name, acceleration status, session persistence policy, and advanced traffic routing settings.>Notice: Changes to certain parameters might affect the stability of existing services. Proceed with caution.
+   * This operation allows you to modify multiple configurations of a load balancing instance, including but not limited to the load balancing instance name, acceleration status, session persistence policy, and various advanced settings related to traffic routing.>Notice: Changes to certain parameters may affect the stability of existing services. Proceed with caution.
    * 
    * @param request - UpdateLoadBalancerRequest
    * @returns UpdateLoadBalancerResponse
@@ -23287,7 +23591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the site hosting transformation configuration.
+   * Modifies the site hosting transformation configuration.
    * 
    * @param request - UpdateManagedTransformRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23334,7 +23638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the site hosting transformation configuration.
+   * Modifies the site hosting transformation configuration.
    * 
    * @param request - UpdateManagedTransformRequest
    * @returns UpdateManagedTransformResponse
@@ -23487,7 +23791,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the origin protection feature to enable or disable origin fetch convergence.
+   * Modifies the origin protection feature to enable or disable back-to-origin convergence.
    * 
    * @param request - UpdateOriginProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23526,7 +23830,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the origin protection feature to enable or disable origin fetch convergence.
+   * Modifies the origin protection feature to enable or disable back-to-origin convergence.
    * 
    * @param request - UpdateOriginProtectionRequest
    * @returns UpdateOriginProtectionResponse
@@ -23881,16 +24185,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a DNS record. Various record types and origin authentication configurations are supported.
+   * Updates a DNS record and supports multiple record types and origin server authentication configurations.
    * 
    * @remarks
-   * This API operation allows you to update a DNS record, including but not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI record types. You can modify the record content by specifying the corresponding record value, priority, flag, and other fields. For CNAME origin servers that require authentication, such as OSS and S3, this API operation also supports configuring origin authentication information to ensure secure access.
-   * ### Before you begin
-   * - The record value (Value) must match the record type. For example, a CNAME record must correspond to a target domain name.
-   * - Certain record types, such as MX and SRV, require a priority (Priority) value.
-   * - CAA records require specific fields such as Flag and Tag.
-   * - When updating security records such as CERT and SSHFP, accurately set the Type, Algorithm, and other fields.
-   * - When using OSS or S3 as the origin server, configure the authentication details in AuthConf based on the permission settings.
+   * This API operation allows you to update DNS records, including but not limited to A, AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI types. You can modify the record content by passing the corresponding record value, priority, flag, and other fields. For CNAME origin servers that require authentication, such as OSS and S3, this API operation also supports configuring origin server authentication information to ensure secure access.
+   * ### Precautions
+   * - The record value must match the record type. For example, a CNAME record must correspond to the target domain name.
+   * - You must specify the priority for certain record types, such as MX and SRV.
+   * - You must provide specific fields such as Flag and Tag for CAA records.
+   * - When updating security records such as CERT and SSHFP, you must accurately set fields such as Type and Algorithm.
+   * - When using OSS or S3 as the origin server, configure the authentication details in AuthConf based on the permissions.
    * 
    * @param tmpReq - UpdateRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -23975,16 +24279,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a DNS record. Various record types and origin authentication configurations are supported.
+   * Updates a DNS record and supports multiple record types and origin server authentication configurations.
    * 
    * @remarks
-   * This API operation allows you to update a DNS record, including but not limited to A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI record types. You can modify the record content by specifying the corresponding record value, priority, flag, and other fields. For CNAME origin servers that require authentication, such as OSS and S3, this API operation also supports configuring origin authentication information to ensure secure access.
-   * ### Before you begin
-   * - The record value (Value) must match the record type. For example, a CNAME record must correspond to a target domain name.
-   * - Certain record types, such as MX and SRV, require a priority (Priority) value.
-   * - CAA records require specific fields such as Flag and Tag.
-   * - When updating security records such as CERT and SSHFP, accurately set the Type, Algorithm, and other fields.
-   * - When using OSS or S3 as the origin server, configure the authentication details in AuthConf based on the permission settings.
+   * This API operation allows you to update DNS records, including but not limited to A, AAAA, CNAME, NS, MX, TXT, CAA, SRV, and URI types. You can modify the record content by passing the corresponding record value, priority, flag, and other fields. For CNAME origin servers that require authentication, such as OSS and S3, this API operation also supports configuring origin server authentication information to ensure secure access.
+   * ### Precautions
+   * - The record value must match the record type. For example, a CNAME record must correspond to the target domain name.
+   * - You must specify the priority for certain record types, such as MX and SRV.
+   * - You must provide specific fields such as Flag and Tag for CAA records.
+   * - When updating security records such as CERT and SSHFP, you must accurately set fields such as Type and Algorithm.
+   * - When using OSS or S3 as the origin server, configure the authentication details in AuthConf based on the permissions.
    * 
    * @param request - UpdateRecordRequest
    * @returns UpdateRecordResponse
@@ -24713,7 +25017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the status of a real-time log delivery task.
+   * Modifies the delivery status of a real-time log task.
    * 
    * @param request - UpdateSiteDeliveryTaskStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24740,7 +25044,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the status of a real-time log delivery task.
+   * Modifies the delivery status of a real-time log task.
    * 
    * @param request - UpdateSiteDeliveryTaskStatusRequest
    * @returns UpdateSiteDeliveryTaskStatusResponse
@@ -24751,7 +25055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the plan instance associated with a site.
+   * Replaces the plan instance for a site.
    * 
    * @param request - UpdateSiteInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24790,7 +25094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the plan instance associated with a site.
+   * Replaces the plan instance for a site.
    * 
    * @param request - UpdateSiteInstanceRequest
    * @returns UpdateSiteInstanceResponse
@@ -24899,10 +25203,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the custom nameserver (NS) names for a single site.
+   * Modifies the custom NS names for a single site.
    * 
    * @remarks
-   * The site plan must be Enterprise Edition or higher to use the custom NS feature.
+   * The custom NS feature is available only for sites on the Enterprise edition plan.
    * 
    * @param request - UpdateSiteVanityNSRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -24937,10 +25241,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the custom nameserver (NS) names for a single site.
+   * Modifies the custom NS names for a single site.
    * 
    * @remarks
-   * The site plan must be Enterprise Edition or higher to use the custom NS feature.
+   * The custom NS feature is available only for sites on the Enterprise edition plan.
    * 
    * @param request - UpdateSiteVanityNSRequest
    * @returns UpdateSiteVanityNSResponse
@@ -24951,7 +25255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a slider CAPTCHA page.
+   * Updates the slider CAPTCHA page.
    * 
    * @param tmpReq - UpdateSliderCaptchaPageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25012,7 +25316,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a slider CAPTCHA page.
+   * Updates the slider CAPTCHA page.
    * 
    * @param request - UpdateSliderCaptchaPageRequest
    * @returns UpdateSliderCaptchaPageResponse
@@ -25069,11 +25373,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the forwarding rule configurations of a Layer 4 application under a specified site.
+   * Modifies the configurations such as forwarding rules for a Layer 4 application under a specified site.
    * 
    * @remarks
-   * If ListTransportLayerApplications returns an empty Layer 4 acceleration application list, use CreateTransportLayerApplication to create a Layer 4 acceleration application, and then use this API to modify the configurations of the Layer 4 acceleration application.
-   * When creating a Layer 4 acceleration application, the selected site must be an activated site. After creating a site, call the VerifySite API to verify it. A site that passes verification is automatically activated, indicated by the response parameter Passed=true.
+   * If ListTransportLayerApplications returns an empty list of Layer 4 accelerated applications, you must use CreateTransportLayerApplication to create a Layer 4 accelerated application, and then use this API operation to modify multiple configurations of the application.
+   * When you create a Layer 4 accelerated application, the selected site must be activated. After you create a site, call the VerifySite API operation to verify the site. A site that passes the verification is automatically activated, which means the response parameter Passed is set to true.
    * 
    * @param tmpReq - UpdateTransportLayerApplicationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25138,11 +25442,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the forwarding rule configurations of a Layer 4 application under a specified site.
+   * Modifies the configurations such as forwarding rules for a Layer 4 application under a specified site.
    * 
    * @remarks
-   * If ListTransportLayerApplications returns an empty Layer 4 acceleration application list, use CreateTransportLayerApplication to create a Layer 4 acceleration application, and then use this API to modify the configurations of the Layer 4 acceleration application.
-   * When creating a Layer 4 acceleration application, the selected site must be an activated site. After creating a site, call the VerifySite API to verify it. A site that passes verification is automatically activated, indicated by the response parameter Passed=true.
+   * If ListTransportLayerApplications returns an empty list of Layer 4 accelerated applications, you must use CreateTransportLayerApplication to create a Layer 4 accelerated application, and then use this API operation to modify multiple configurations of the application.
+   * When you create a Layer 4 accelerated application, the selected site must be activated. After you create a site, call the VerifySite API operation to verify the site. A site that passes the verification is automatically activated, which means the response parameter Passed is set to true.
    * 
    * @param request - UpdateTransportLayerApplicationRequest
    * @returns UpdateTransportLayerApplicationResponse
@@ -25203,10 +25507,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the delivery task configuration of a user, allowing you to set the task name, select fields, specify the real-time log type, and adjust the discard rate.
+   * Modifies the task delivery configuration for a user, allowing you to set the task name, select fields, specify the real-time log type, and adjust the discard rate.
    * 
    * @remarks
-   * Before calling this operation, you must have successfully created a task with the target TaskName by using CreateUserDeliveryTask. Only then can you use this operation to update the delivery task configuration.
+   * Before calling this operation, you must create a task with the specified TaskName by calling CreateUserDeliveryTask. You can then use this operation to update the delivery task configuration.
    * 
    * @param request - UpdateUserDeliveryTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25257,10 +25561,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the delivery task configuration of a user, allowing you to set the task name, select fields, specify the real-time log type, and adjust the discard rate.
+   * Modifies the task delivery configuration for a user, allowing you to set the task name, select fields, specify the real-time log type, and adjust the discard rate.
    * 
    * @remarks
-   * Before calling this operation, you must have successfully created a task with the target TaskName by using CreateUserDeliveryTask. Only then can you use this operation to update the delivery task configuration.
+   * Before calling this operation, you must create a task with the specified TaskName by calling CreateUserDeliveryTask. You can then use this operation to update the delivery task configuration.
    * 
    * @param request - UpdateUserDeliveryTaskRequest
    * @returns UpdateUserDeliveryTaskResponse
@@ -25271,11 +25575,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the status of a delivery task in your Alibaba Cloud account.
+   * Enables or disables a user task delivery.
    * 
    * @remarks
-   * ## [](#)
-   * Use this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
+   * This operation enables or disables the data delivery feature of a task based on the task name and method. The method must be specified as online or offline. The response returns the latest status of the task and the operation result details.
    * 
    * @param request - UpdateUserDeliveryTaskStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25302,11 +25605,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the status of a delivery task in your Alibaba Cloud account.
+   * Enables or disables a user task delivery.
    * 
    * @remarks
-   * ## [](#)
-   * Use this operation to enable or disable a delivery task by using TaskName and Method. The response includes the most recent status and operation result details of the task.
+   * This operation enables or disables the data delivery feature of a task based on the task name and method. The method must be specified as online or offline. The response returns the latest status of the task and the operation result details.
    * 
    * @param request - UpdateUserDeliveryTaskStatusRequest
    * @returns UpdateUserDeliveryTaskStatusResponse
@@ -25317,13 +25619,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the WAF ruleset configuration for a specified instance, including its position, name, and other properties.
+   * Modifies the configuration of a WAF rule set for a specified instance, including the position and name.
    * 
    * @remarks
    * ## Request description
-   * - This operation updates an existing WAF ruleset. You can modify the position, name, description, status, and expression of the ruleset.
-   * - Include only the parameters that you want to modify. Omit parameters that you do not want to change.
-   * - Note: Before you call this operation, ensure that the `InstanceId` and `Id` values are correct. Otherwise, the request may fail.
+   * - This operation allows you to update an existing WAF rule set. You can modify the position, name, description, status, and expression of the rule set.
+   * - Specify only the parameters that you want to modify. You do not need to pass the key of a parameter that remains unchanged.
+   * - Note: Make sure that you have obtained the correct `InstanceId` and `Id` values before you call this operation. Otherwise, the request may fail.
    * 
    * @param tmpReq - UpdateUserWafRulesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25398,13 +25700,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the WAF ruleset configuration for a specified instance, including its position, name, and other properties.
+   * Modifies the configuration of a WAF rule set for a specified instance, including the position and name.
    * 
    * @remarks
    * ## Request description
-   * - This operation updates an existing WAF ruleset. You can modify the position, name, description, status, and expression of the ruleset.
-   * - Include only the parameters that you want to modify. Omit parameters that you do not want to change.
-   * - Note: Before you call this operation, ensure that the `InstanceId` and `Id` values are correct. Otherwise, the request may fail.
+   * - This operation allows you to update an existing WAF rule set. You can modify the position, name, description, status, and expression of the rule set.
+   * - Specify only the parameters that you want to modify. You do not need to pass the key of a parameter that remains unchanged.
+   * - Note: Make sure that you have obtained the correct `InstanceId` and `Id` values before you call this operation. Otherwise, the request may fail.
    * 
    * @param request - UpdateUserWafRulesetRequest
    * @returns UpdateUserWafRulesetResponse
@@ -25621,7 +25923,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a WAF ruleset based on its ID.
+   * Updates a WAF rule set based on the ID of the rule set.
    * 
    * @param request - UpdateWafRulesetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -25666,7 +25968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a WAF ruleset based on its ID.
+   * Updates a WAF rule set based on the ID of the rule set.
    * 
    * @param request - UpdateWafRulesetRequest
    * @returns UpdateWafRulesetResponse

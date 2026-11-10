@@ -13,7 +13,7 @@ export class BatchGetExpressionFieldsShrinkRequest extends $dara.Model {
   expressionsShrink?: string;
   /**
    * @remarks
-   * The plan instance ID.
+   * The instance ID of the plan.
    * 
    * @example
    * esa-site-bitkull7uubk
@@ -37,7 +37,7 @@ export class BatchGetExpressionFieldsShrinkRequest extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The plan name (in English).
+   * The name of the plan in English.
    * 
    * @example
    * entranceplan

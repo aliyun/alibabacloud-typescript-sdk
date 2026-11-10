@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRecordRequestAuthConf extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey of the account to which the origin server belongs. This parameter is required when the origin server type is OSS and the origin authentication type is private cross-account read, or when the origin server type is S3 and the origin authentication type is private read.
+   * The AccessKey of the account to which the origin server belongs. This parameter is required when the origin server type is OSS and the authentication type is private cross-account read, or when the origin server type is S3 and the authentication type is private read.
    * 
    * @example
    * VIxuvJSA2S03f******kp208dy5w7
@@ -13,11 +13,11 @@ export class UpdateRecordRequestAuthConf extends $dara.Model {
   accessKey?: string;
   /**
    * @remarks
-   * The origin authentication type. Different origin server types support different authentication types. The origin server type refers to the SourceType parameter in this operation. When the origin server type is OSS or S3, you must specify the origin authentication type. Valid values:
+   * The origin server authentication type. Supported authentication types vary based on the origin server type, which is specified by the SourceType parameter in this operation. This parameter is required when the origin server type is OSS or S3. Valid values:
    * 
-   * - **public**: public read. Select this value when the origin server type is OSS or S3 and the origin server allows public read access.
-   * - **private**: private read. Select this value when the origin server type is S3 and the origin server allows only private read access.
-   * - **private_same_account**: private same-account read. Select this value when the origin server type is OSS, the origin server is under the same Alibaba Cloud account, and the origin server allows only private read access.
+   * - **public**: Public read. Select this value when the origin server type is OSS or S3 and the origin server allows public read access.
+   * - **private**: Private read. Select this value when the origin server type is S3 and the origin server allows private read access.
+   * - **private_same_account**: Private read within the same account. Select this value when the origin server type is OSS, the origin server and the current resource belong to the same Alibaba Cloud account, and the origin server allows private read access.
    * 
    * @example
    * private
@@ -25,13 +25,13 @@ export class UpdateRecordRequestAuthConf extends $dara.Model {
   authType?: string;
   /**
    * @remarks
-   * The signature algorithm version. This parameter is required when the origin server type is S3 and the origin authentication type is private read. Valid values:
+   * The signature algorithm version. This parameter is required when the origin server type is S3 and the authentication type is private read. Valid values:
    * 
    * - **v2**
    * 
    * - **v4**
    * 
-   * Default value: v4.
+   * If this parameter is not specified, the default value is **v4**.
    * 
    * @example
    * v2
@@ -39,7 +39,7 @@ export class UpdateRecordRequestAuthConf extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The SecretKey of the account to which the origin server belongs. This parameter is required when the origin server type is OSS and the origin authentication type is private cross-account read, or when the origin server type is S3 and the origin authentication type is private read.
+   * The secret key of the account to which the origin server belongs. This parameter is required when the origin server type is OSS and the authentication type is private cross-account read, or when the origin server type is S3 and the authentication type is private read.
    * 
    * @example
    * u0Nkg5gBK*******QF5wvKMM504JUHt
@@ -47,7 +47,7 @@ export class UpdateRecordRequestAuthConf extends $dara.Model {
   secretKey?: string;
   /**
    * @remarks
-   * The region to which the origin server belongs. This parameter is required when the origin server type is S3. Obtain the region from the official S3 website.
+   * The region to which the origin server belongs. This parameter is required when the origin server type is S3. You can obtain the region of the origin server from the official website of S3.
    * 
    * @example
    * us-east-1
@@ -85,7 +85,7 @@ export class UpdateRecordRequestAuthConf extends $dara.Model {
 export class UpdateRecordRequestData extends $dara.Model {
   /**
    * @remarks
-   * The encryption algorithm used by the record. Valid values: **0 to 255**. This parameter is required when you add CERT or SSHFP records.
+   * The encryption algorithm used by the record. Valid values: **0** to **255**. This parameter is required when you add CERT or SSHFP records.
    * 
    * @example
    * 0
@@ -101,7 +101,7 @@ export class UpdateRecordRequestData extends $dara.Model {
   certificate?: string;
   /**
    * @remarks
-   * The public key fingerprint value of the record. This parameter is required when you add SSHFP records.
+   * The public key fingerprint of the record. This parameter is required when you add an SSHFP record.
    * 
    * @example
    * abcdef1234567890
@@ -109,7 +109,7 @@ export class UpdateRecordRequestData extends $dara.Model {
   fingerprint?: string;
   /**
    * @remarks
-   * The flag of the record. The Flag of a CAA record indicates its priority and processing method. Valid values: **0 to 255**. This parameter is required when you add CAA records.
+   * The flag of the record. For a CAA record, the flag indicates its priority and processing method. Valid values: **0** to **255**. This parameter is required when you add a CAA record.
    * 
    * @example
    * 128
@@ -117,7 +117,7 @@ export class UpdateRecordRequestData extends $dara.Model {
   flag?: number;
   /**
    * @remarks
-   * The public key identifier of the record. Valid values: **0 to 65535**. This parameter is required when you add CERT records.
+   * The public key tag of the record. Valid values: **0** to **65535**. This parameter is required when you add a CERT record.
    * 
    * @example
    * 0
@@ -125,7 +125,7 @@ export class UpdateRecordRequestData extends $dara.Model {
   keyTag?: number;
   /**
    * @remarks
-   * The algorithm policy used by the record for matching or verifying certificates. Valid values: **0 to 255**. This parameter is required when you add SMIMEA or TLSA records.
+   * The algorithm policy used to match or verify the certificate. Valid values: **0** to **255**. This parameter is required when you add SMIMEA or TLSA records.
    * 
    * @example
    * 0
@@ -133,7 +133,7 @@ export class UpdateRecordRequestData extends $dara.Model {
   matchingType?: number;
   /**
    * @remarks
-   * The port of the record. Valid values: **0 to 65535**. This parameter is required when you add SRV records.
+   * The port of the record. Valid values: **0** to **65535**. This parameter is required when you add an SRV record.
    * 
    * @example
    * 0
@@ -141,7 +141,7 @@ export class UpdateRecordRequestData extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The priority of the record. Valid values: **0 to 65535**. A smaller value indicates a higher priority. This parameter is required when you add MX, SRV, or URI records.
+   * The priority of the record. Valid values: **0** to **65535**. A smaller value indicates a higher priority. This parameter is required when you add MX, SRV, or URI records.
    * 
    * @example
    * 10
@@ -149,7 +149,7 @@ export class UpdateRecordRequestData extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The type of certificate or public key used by the record. Valid values: **0 to 255**. This parameter is required when you add SMIMEA or TLSA records.
+   * The type of the certificate or public key used by the record. Valid values: **0** to **255**. This parameter is required when you add SMIMEA or TLSA records.
    * 
    * @example
    * 0
@@ -157,7 +157,7 @@ export class UpdateRecordRequestData extends $dara.Model {
   selector?: number;
   /**
    * @remarks
-   * The tag of the record. The Tag of a CAA record indicates its specific type and purpose. This parameter is required when you add CAA records.
+   * The tag of the record. For a CAA record, the tag indicates its specific type and purpose. This parameter is required when you add a CAA record.
    * 
    * @example
    * issue
@@ -165,7 +165,7 @@ export class UpdateRecordRequestData extends $dara.Model {
   tag?: string;
   /**
    * @remarks
-   * The certificate type of the record (for CERT records) or the public key type (for SSHFP records). This parameter is required when you add CERT or SSHFP records.
+   * The certificate type for a CERT record, or the public key type for an SSHFP record. This parameter is required when you add CERT or SSHFP records.
    * 
    * @example
    * 0
@@ -173,7 +173,7 @@ export class UpdateRecordRequestData extends $dara.Model {
   type?: number;
   /**
    * @remarks
-   * The usage identifier of the record. Valid values: **0 to 255**. This parameter is required when you add SMIMEA or TLSA records.
+   * The usage identifier of the record. Valid values: **0** to **255**. This parameter is required when you add SMIMEA or TLSA records.
    * 
    * @example
    * 0
@@ -181,15 +181,15 @@ export class UpdateRecordRequestData extends $dara.Model {
   usage?: number;
   /**
    * @remarks
-   * The record value or partial content. This parameter is required when you add A/AAAA, CNAME, NS, MX, TXT, CAA, SRV, or URI records. The meaning varies depending on the record type:
+   * The record value or partial content. This parameter is required when you add A, AAAA, CNAME, NS, MX, TXT, CAA, SRV, or URI records. The meaning of this parameter varies based on the record type:
    * 
-   * - **A/AAAA**: The IP address to which the record points. Separate multiple IP addresses with commas (,). At least one IPv4 address is required.
-   * - **CNAME**: The target domain name to which the record points.
-   * - **NS**: The name server for the specified domain name.
-   * - **MX**: A valid target mail server domain name.
+   * - **A/AAAA**: The destination IP address. Separate multiple IP addresses with commas (,). At least one IPv4 address is required.
+   * - **CNAME**: The target domain name.
+   * - **NS**: The name server of the specified domain name.
+   * - **MX**: The valid domain name of the target mail server.
    * - **TXT**: A valid text string.
-   * - **CAA**: A valid certification authority domain name.
-   * - **SRV**: A valid target host domain name.
+   * - **CAA**: The valid domain name of the certificate issuing authority.
+   * - **SRV**: The valid domain name of the target host.
    * - **URI**: A valid URI string.
    * 
    * @example
@@ -198,7 +198,7 @@ export class UpdateRecordRequestData extends $dara.Model {
   value?: string;
   /**
    * @remarks
-   * The weight of the record. Valid values: **0 to 65535**. This parameter is required when you add SRV or URI records.
+   * The weight of the record. Valid values: **0** to **65535**. This parameter is required when you add SRV or URI records.
    * 
    * @example
    * 0
@@ -254,15 +254,15 @@ export class UpdateRecordRequestData extends $dara.Model {
 export class UpdateRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * The origin authentication information of the CNAME record.
+   * The origin server authentication information for a CNAME record.
    */
   authConf?: UpdateRecordRequestAuthConf;
   /**
    * @remarks
-   * The business scenario for record acceleration. This parameter is not required for records without acceleration enabled. Valid values:
-   * - **video_image**: video and image.
+   * The business scenario when record acceleration is enabled. This parameter is not required for records without acceleration enabled. Valid values:
+   * - **video_image**: Video and image.
    * - **api**: API.
-   * - **web**: web page.
+   * - **web**: Web page.
    * 
    * @example
    * web
@@ -270,7 +270,7 @@ export class UpdateRecordRequest extends $dara.Model {
   bizName?: string;
   /**
    * @remarks
-   * The comment for the record.
+   * The description of the record.
    * 
    * @example
    * This is a remark.
@@ -278,7 +278,7 @@ export class UpdateRecordRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The DNS information of the record. The content varies depending on the record type. For more information, see <props="china">[documentation](https://help.aliyun.com/document_detail/2708761.html)<props="intl">[documentation](https://www.alibabacloud.com/help/doc-detail/2708761.html).
+   * The DNS information of the record. The required content for this field varies based on the record type. For more information, see <props="china">[Documentation](https://help.aliyun.com/document_detail/2708761.html)<props="intl">[Documentation](https://www.alibabacloud.com/help/doc-detail/2708761.html).
    * 
    * This parameter is required.
    * 
@@ -290,22 +290,36 @@ export class UpdateRecordRequest extends $dara.Model {
   data?: UpdateRecordRequestData;
   /**
    * @remarks
-   * The back-to-origin HOST policy. This parameter takes effect when the record type is CNAME. Settings the HOST policy for back-to-origin requests. Valid values:
+   * The back-to-origin host policy. This parameter takes effect when the record type is CNAME and specifies the host header policy for back-to-origin requests. Valid values:
    * 
-   * - **follow_hostname**: follows the host record.
-   * - **follow_origin_domain**: follows the Origin Domain Name.
+   * - **follow_hostname**: Follows the host record.
+   * - **follow_origin_domain**: Follows the origin domain name.
    * 
    * @example
    * follow_origin_domain
    */
   hostPolicy?: string;
+  /**
+   * @remarks
+   * The HTTP port. By default, port 80 is supported.
+   * 
+   * @example
+   * 80,2052,2082,2086,2095,8080,8880
+   */
   httpPorts?: string;
+  /**
+   * @remarks
+   * The HTTPS port. By default, port 443 is supported.
+   * 
+   * @example
+   * 443,2053,2083,2087,2096,8443
+   */
   httpsPorts?: string;
   /**
    * @remarks
-   * Specifies whether to enable proxy acceleration for the record. Only CNAME records and A/AAAA records support proxy acceleration. Valid values:
-   * - **true**: Enable proxy acceleration.
-   * - **false**: Disable proxy acceleration.
+   * Specifies whether to enable proxy acceleration for the record. Only CNAME, A, and AAAA records support proxy acceleration. Valid values:
+   * - **true**: Enables proxy acceleration.
+   * - **false**: Disables proxy acceleration.
    * 
    * @example
    * true
@@ -313,7 +327,7 @@ export class UpdateRecordRequest extends $dara.Model {
   proxied?: boolean;
   /**
    * @remarks
-   * The ID of the record. You can call [ListRecords](https://help.aliyun.com/document_detail/2850265.html) to obtain the record ID.
+   * The ID of the record. You can obtain the ID by calling the [ListRecords](https://help.aliyun.com/document_detail/2850265.html) operation.
    * 
    * This parameter is required.
    * 
@@ -323,15 +337,15 @@ export class UpdateRecordRequest extends $dara.Model {
   recordId?: number;
   /**
    * @remarks
-   * The origin server type of the CNAME record. This parameter is required when you add a CNAME record. Valid values:
+   * The origin server type for a CNAME record. This parameter is required when you add a CNAME record. Valid values:
    * 
    * - **OSS**: OSS origin server.
    * - **S3**: S3 origin server.
-   * - **LB**: load balancing origin server.
-   * - **OP**: IPAM pool origin server.
-   * - **Domain**: standard domain name origin server.
+   * - **LB**: Load balancer origin server.
+   * - **OP**: Origin address pool origin server.
+   * - **Domain**: Common domain name origin server.
    * 
-   * If this parameter is not specified or is left empty, the default value is Domain, which indicates a standard domain name origin server type.
+   * If this parameter is not specified or is left empty, the default value is **Domain**, which indicates a common domain name origin server.
    * 
    * @example
    * OSS
@@ -339,7 +353,7 @@ export class UpdateRecordRequest extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The time-to-live (TTL) of the record, in seconds. Valid values: **30 to 86400**, or 1. A value of 1 indicates that the TTL of the record is automatically determined.
+   * The time-to-live (TTL) of the record, in seconds. Valid values: **30** to **86400**, or **1**. A value of 1 indicates that the TTL is automatic.
    * 
    * @example
    * 30
@@ -347,7 +361,7 @@ export class UpdateRecordRequest extends $dara.Model {
   ttl?: number;
   /**
    * @remarks
-   * The DNS type of the record, such as A/AAAA, CNAME, or TXT.
+   * The DNS record type. Examples include A, AAAA, CNAME, and TXT.
    * 
    * @example
    * A/AAAA

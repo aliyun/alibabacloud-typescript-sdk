@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTransportLayerApplicationShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The Layer 4 application ID. You can call the [ListTransportLayerApplications](~~ListTransportLayerApplications~~) operation to obtain the application ID.
+   * The Layer 4 application ID. You can obtain the ID by calling the [ListTransportLayerApplications](~~ListTransportLayerApplications~~) API operation.
    * 
    * This parameter is required.
    * 
@@ -15,10 +15,10 @@ export class UpdateTransportLayerApplicationShrinkRequest extends $dara.Model {
   applicationId?: number;
   /**
    * @remarks
-   * Specifies whether to enable network access optimization for the Chinese mainland. This feature is disabled by default. Valid values:
+   * Specifies whether to enable network access optimization for the Chinese mainland. Default value: off. Valid values:
    * 
-   * - on: enabled.
-   * - off: disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -26,10 +26,10 @@ export class UpdateTransportLayerApplicationShrinkRequest extends $dara.Model {
   crossBorderOptimization?: string;
   /**
    * @remarks
-   * The IP access rule switch. When enabled, WAF IP access rules take effect for the Layer 4 application. Valid values:
+   * Specifies whether to enable the IP access rule. After this feature is enabled, the IP access rules in WAF take effect for the Layer 4 application. Valid values:
    * 
-   * - on: enabled.
-   * - off: disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -37,10 +37,10 @@ export class UpdateTransportLayerApplicationShrinkRequest extends $dara.Model {
   ipAccessRule?: string;
   /**
    * @remarks
-   * The IPv6 switch. Valid values:
+   * Specifies whether to enable IPv6. Valid values:
    * 
-   * - on: enabled.
-   * - off: disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -48,10 +48,10 @@ export class UpdateTransportLayerApplicationShrinkRequest extends $dara.Model {
   ipv6?: string;
   /**
    * @remarks
-   * Specifies whether to enable keep-alive protection. This feature is disabled by default. Valid values:
+   * Specifies whether to enable connection keep-alive protection. Default value: off. Valid values:
    * 
-   * - on: enabled.
-   * - off: disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * off
@@ -59,12 +59,12 @@ export class UpdateTransportLayerApplicationShrinkRequest extends $dara.Model {
   keepAliveProtection?: string;
   /**
    * @remarks
-   * The list of forwarding rules. For each rule, all parameters except the comment are required.
+   * The list of forwarding rules. For rule details, all parameters except the comment are required for each rule.
    */
   rulesShrink?: string;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+   * The site ID. You can obtain the ID by calling the [ListSites](~~ListSites~~) API operation.
    * 
    * This parameter is required.
    * 
@@ -74,10 +74,10 @@ export class UpdateTransportLayerApplicationShrinkRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Specifies whether to enable static IP. This feature is disabled by default. Valid values:
+   * Specifies whether to enable the static IP address feature. Default value: off. Valid values:
    * 
-   * - on: enabled.
-   * - off: disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * off

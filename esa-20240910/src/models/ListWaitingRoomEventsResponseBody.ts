@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Model {
   /**
    * @remarks
-   * The content of the custom waiting room page. This parameter is returned when the waiting room type is set to custom. The content is URL-encoded.
+   * The custom content of the waiting room page. This parameter is required when the waiting room type is custom. The content must be URL-encoded.
    * 
    * @example
    * html-yets-maqi1111
@@ -13,7 +13,7 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
   customPageHtml?: string;
   /**
    * @remarks
-   * The event description.
+   * The detailed description of the event.
    * 
    * @example
    * terraform-example
@@ -21,11 +21,9 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
   description?: string;
   /**
    * @remarks
-   * Indicates whether session renewal is disabled. Valid values:
-   * 
-   * - on
-   * 
-   * - off
+   * Specifies whether session renewal is disabled. Valid values:
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * @example
    * off
@@ -33,11 +31,9 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
   disableSessionRenewalEnable?: string;
   /**
    * @remarks
-   * The event status. Valid values:
-   * 
-   * - on
-   * 
-   * - off
+   * The enabled status of the event. Valid values:
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * @example
    * on
@@ -45,7 +41,7 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
   enable?: string;
   /**
    * @remarks
-   * The end time of the event. This value is a UNIX timestamp.
+   * The end time of the event. The value is a UNIX timestamp.
    * 
    * @example
    * 1719814497
@@ -53,11 +49,10 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
   endTime?: string;
   /**
    * @remarks
-   * Indicates whether JOSN response is enabled. If JSON response is enabled, a JSON body is returned for requests to the waiting room with the header Accept: application/json. Valid values:
+   * Specifies whether to enable JSON responses. If this feature is enabled and the Accept request header contains "application/json", JSON data is returned. Valid values:
    * 
-   * - on
-   * 
-   * - off
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * @example
    * off
@@ -65,13 +60,11 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
   jsonResponseEnable?: string;
   /**
    * @remarks
-   * The language of the waiting room page. This parameter is returned when the waiting room type is set to default. Valid values:
+   * The language of the waiting room page. This parameter is required when the waiting room type is default. Valid values:
    * 
-   * - enus: English.
-   * 
-   * - zhcn: Simplified Chinese.
-   * 
-   * - zhhk: Traditional Chinese.
+   * - **enus**: English.
+   * - **zhcn**: Simplified Chinese.
+   * - **zhhk**: Traditional Chinese.
    * 
    * @example
    * zhcn
@@ -79,7 +72,7 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
   language?: string;
   /**
    * @remarks
-   * The custom event name.
+   * The event name, which is a custom event description.
    * 
    * @example
    * test event
@@ -87,7 +80,7 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The maximum number of new users per minute.
+   * The number of new users per minute.
    * 
    * @example
    * 11
@@ -95,11 +88,10 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
   newUsersPerMinute?: string;
   /**
    * @remarks
-   * Indicates whether pre-queuing is enabled. Valid values:
+   * Specifies whether to enable pre-queuing. Valid values:
    * 
-   * - on
-   * 
-   * - off
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * @example
    * on
@@ -107,7 +99,7 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
   preQueueEnable?: string;
   /**
    * @remarks
-   * The start time for pre-queuing. This value is a UNIX timestamp. This parameter is valid only when pre-queuing is enabled.
+   * The start time of pre-queuing. The value is a UNIX timestamp. This parameter is valid only when pre-queuing is enabled.
    * 
    * @example
    * 1719814097
@@ -117,13 +109,10 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
    * @remarks
    * The queuing method. Valid values:
    * 
-   * - random: Users gain access to the origin randomly, regardless of the arrival time.
-   * 
-   * - fifo: Users gain access to the origin in order of arrival.
-   * 
-   * - passthrough: Users pass through the waiting room and go straight to the origin.
-   * 
-   * - reject-all: Users are blocked from reaching the origin.
+   * - **random**: Random.
+   * - **fifo**: First-in, first-out (FIFO).
+   * - **passthrough**: Passthrough.
+   * - **reject-all**: Reject all.
    * 
    * @example
    * fifo
@@ -131,13 +120,11 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
   queuingMethod?: string;
   /**
    * @remarks
-   * The HTTP status code to return while a user is in the queue. Valid values:
+   * The waiting room status code. Valid values:
    * 
-   * - 200
-   * 
-   * - 202
-   * 
-   * - 429
+   * - **200**
+   * - **202**
+   * - **429**
    * 
    * @example
    * 200
@@ -145,11 +132,10 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
   queuingStatusCode?: string;
   /**
    * @remarks
-   * Indicates whether random queuing is enabled. Valid values:
+   * Specifies whether to enable random pre-queuing. Valid values:
    * 
-   * - on
-   * 
-   * - off
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * @example
    * on
@@ -157,7 +143,7 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
   randomPreQueueEnable?: string;
   /**
    * @remarks
-   * The maximum duration for which a session remains valid after a user leaves the origin. Unit: minutes.
+   * The session duration, in minutes.
    * 
    * @example
    * 3
@@ -165,7 +151,7 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
   sessionDuration?: string;
   /**
    * @remarks
-   * The start time of the event. This value is a UNIX timestamp.
+   * The start time of the event. The value is a UNIX timestamp.
    * 
    * @example
    * 1719814398
@@ -173,7 +159,7 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
   startTime?: string;
   /**
    * @remarks
-   * The maximum number of active users.
+   * The total number of active users.
    * 
    * @example
    * 22
@@ -181,7 +167,7 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
   totalActiveUsers?: string;
   /**
    * @remarks
-   * The unique ID of the waiting room event.
+   * The event ID, which uniquely identifies a waiting room event.
    * 
    * @example
    * 89677721098****
@@ -189,7 +175,7 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
   waitingRoomEventId?: number;
   /**
    * @remarks
-   * The ID of the waiting room associated with the event.
+   * The ID of the associated waiting room.
    * 
    * @example
    * 5c938a045c9ca46607163d34966****
@@ -197,11 +183,10 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
   waitingRoomId?: string;
   /**
    * @remarks
-   * The type of the waiting room. Valid values:
+   * The waiting room type. Valid values:
    * 
-   * - default
-   * 
-   * - custom
+   * - **default**: Default type.
+   * - **custom**: Custom type.
    * 
    * @example
    * custom
@@ -269,7 +254,7 @@ export class ListWaitingRoomEventsResponseBodyWaitingRoomEvents extends $dara.Mo
 export class ListWaitingRoomEventsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID, which is used to trace a call.
+   * The ID of the request.
    * 
    * @example
    * f3c3700a-4c0f-4a24-b576-fd7dbf9e7c55
@@ -277,7 +262,7 @@ export class ListWaitingRoomEventsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The details of the waiting room events.
+   * The list of waiting room events, which contains the specific information of each event.
    */
   waitingRoomEvents?: ListWaitingRoomEventsResponseBodyWaitingRoomEvents[];
   static names(): { [key: string]: string } {

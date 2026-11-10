@@ -13,7 +13,7 @@ export class ListWafManagedRulesResponseBodyRules extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The managed rule ID.
+   * The ID of the managed rule.
    * 
    * @example
    * 100001
@@ -21,7 +21,7 @@ export class ListWafManagedRulesResponseBodyRules extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The managed rule name.
+   * The name of the managed rule.
    * 
    * @example
    * SQL injection
@@ -83,7 +83,7 @@ export class ListWafManagedRulesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -104,7 +104,7 @@ export class ListWafManagedRulesResponseBody extends $dara.Model {
   rules?: ListWafManagedRulesResponseBodyRules[];
   /**
    * @remarks
-   * The total number of rules after filtering.
+   * The total number of filtered rules.
    * 
    * @example
    * 20

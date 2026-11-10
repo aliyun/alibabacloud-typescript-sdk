@@ -5,20 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateEnvironmentRequest extends $dara.Model {
   /**
    * @remarks
-   * The environment name.
+   * The name of the environment.
    * 
    * This parameter is required.
    * 
    * @example
-   * 默认环境
+   * Default environment
    */
   environmentName?: string;
   /**
    * @remarks
-   * The new environment name.
+   * The new name of the environment.
    * 
    * @example
-   * 环境A
+   * Environment A
    */
   newName?: string;
   /**
@@ -43,7 +43,7 @@ export class UpdateEnvironmentRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+   * The ID of the site. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class UpdateEnvironmentRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The new site version number. Only the environment with the highest priority can be modified.
+   * The new version number of the site. You can modify this parameter only for the environment with the highest priority.
    * 
    * @example
    * 10

@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTransportLayerApplicationRequestRules extends $dara.Model {
   /**
    * @remarks
-   * The client IP pass-through protocol. Valid values:
-   * - **off**: disabled.
-   * - **PPv1**: PROXY Protocol v1, which supports client IP pass-through for TCP.
-   * - **PPv2**: PROXY Protocol v2, which supports client IP pass-through for TCP and UDP.
-   * - **SPP**: Simple Proxy Protocol, which supports client IP pass-through for UDP.
+   * The client IP address pass-through protocol. Valid values:
+   * - **off**: Do not pass through.
+   * - **PPv1**: PROXY protocol v1, which supports client IP address pass-through for the TCP protocol.
+   * - **PPv2**: PROXY protocol v2, which supports client IP address pass-through for the TCP and UDP protocols.
+   * - **SPP**: Simple Proxy Protocol, which supports client IP address pass-through for the UDP protocol.
    * 
    * @example
    * SPP
@@ -29,8 +29,8 @@ export class UpdateTransportLayerApplicationRequestRules extends $dara.Model {
    * 
    * - A single port, such as 80.
    * - A port range, such as 81-85, which represents ports 81, 82, 83, 84, and 85.
-   * - A combination of ports and port ranges separated by commas, such as 80,81-85,90, which represents ports 80, 81, 82, 83, 84, 85, and 90.
-   * - Edge ports within a single rule and across multiple rules cannot overlap.
+   * - A combination of ports and port ranges, separated by commas, such as 80,81-85,90, which represents ports 80, 81, 82, 83, 84, 85, and 90.
+   * - The edge ports within a single rule and the edge ports across multiple rules must not overlap.
    * 
    * @example
    * 80
@@ -38,10 +38,10 @@ export class UpdateTransportLayerApplicationRequestRules extends $dara.Model {
   edgePort?: string;
   /**
    * @remarks
-   * The forwarding rule protocol. Valid values:
+   * The protocol of the forwarding rule. Valid values:
    * 
-   * - TCP: TCP protocol.
-   * - UDP: UDP protocol.
+   * - TCP: TCP.
+   * - UDP: UDP.
    * 
    * @example
    * TCP
@@ -49,7 +49,7 @@ export class UpdateTransportLayerApplicationRequestRules extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The specific value of the origin.
+   * The specific value of the origin server.
    * 
    * @example
    * 1.1.1.1
@@ -57,10 +57,10 @@ export class UpdateTransportLayerApplicationRequestRules extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * Origin Server Port. Valid values:
+   * The origin server port. Valid values:
    * 
-   * - A single port. When Origin Server Port is a single port, any valid edge port combination is supported.
-   * - A port range. Origin Server Port can be set to a port range only when the edge port is a port range, and the range size must match the edge port range. For example, if the edge port is 90-93, you cannot set Origin Server Port to 81-85 because Origin Server Port range is 5 while the edge port range is 4, which are inconsistent.
+   * - A single port. If the origin server port is a single port, any valid combination of edge ports is supported.
+   * - A port range. The origin server port can be set to a port range only when the edge port is a port range, and the range size must be the same as that of the edge port. For example, if the edge port is 90-93, you cannot set the origin server port to 81-85 because the origin server port range is 5 and the edge port range is 3, which are inconsistent.
    * 
    * @example
    * 80
@@ -68,11 +68,11 @@ export class UpdateTransportLayerApplicationRequestRules extends $dara.Model {
   sourcePort?: string;
   /**
    * @remarks
-   * The origin type. Valid values:
+   * The origin server type. Valid values:
    * - **ip**: IP address.
-   * - **domain**: domain name.
-   * - **OP**: origin IPAM pool.
-   * - **LB**: load balancing.
+   * - **domain**: Domain name.
+   * - **OP**: Origin IPAM pool.
+   * - **LB**: Load balancing.
    * 
    * @example
    * ip
@@ -114,7 +114,7 @@ export class UpdateTransportLayerApplicationRequestRules extends $dara.Model {
 export class UpdateTransportLayerApplicationRequest extends $dara.Model {
   /**
    * @remarks
-   * The Layer 4 application ID. You can call the [ListTransportLayerApplications](~~ListTransportLayerApplications~~) operation to obtain the application ID.
+   * The Layer 4 application ID. You can obtain the ID by calling the [ListTransportLayerApplications](~~ListTransportLayerApplications~~) API operation.
    * 
    * This parameter is required.
    * 
@@ -124,10 +124,10 @@ export class UpdateTransportLayerApplicationRequest extends $dara.Model {
   applicationId?: number;
   /**
    * @remarks
-   * Specifies whether to enable network access optimization for the Chinese mainland. This feature is disabled by default. Valid values:
+   * Specifies whether to enable network access optimization for the Chinese mainland. Default value: off. Valid values:
    * 
-   * - on: enabled.
-   * - off: disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -135,10 +135,10 @@ export class UpdateTransportLayerApplicationRequest extends $dara.Model {
   crossBorderOptimization?: string;
   /**
    * @remarks
-   * The IP access rule switch. When enabled, WAF IP access rules take effect for the Layer 4 application. Valid values:
+   * Specifies whether to enable the IP access rule. After this feature is enabled, the IP access rules in WAF take effect for the Layer 4 application. Valid values:
    * 
-   * - on: enabled.
-   * - off: disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -146,10 +146,10 @@ export class UpdateTransportLayerApplicationRequest extends $dara.Model {
   ipAccessRule?: string;
   /**
    * @remarks
-   * The IPv6 switch. Valid values:
+   * Specifies whether to enable IPv6. Valid values:
    * 
-   * - on: enabled.
-   * - off: disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * on
@@ -157,10 +157,10 @@ export class UpdateTransportLayerApplicationRequest extends $dara.Model {
   ipv6?: string;
   /**
    * @remarks
-   * Specifies whether to enable keep-alive protection. This feature is disabled by default. Valid values:
+   * Specifies whether to enable connection keep-alive protection. Default value: off. Valid values:
    * 
-   * - on: enabled.
-   * - off: disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * off
@@ -168,12 +168,12 @@ export class UpdateTransportLayerApplicationRequest extends $dara.Model {
   keepAliveProtection?: string;
   /**
    * @remarks
-   * The list of forwarding rules. For each rule, all parameters except the comment are required.
+   * The list of forwarding rules. For rule details, all parameters except the comment are required for each rule.
    */
   rules?: UpdateTransportLayerApplicationRequestRules[];
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+   * The site ID. You can obtain the ID by calling the [ListSites](~~ListSites~~) API operation.
    * 
    * This parameter is required.
    * 
@@ -183,10 +183,10 @@ export class UpdateTransportLayerApplicationRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * Specifies whether to enable static IP. This feature is disabled by default. Valid values:
+   * Specifies whether to enable the static IP address feature. Default value: off. Valid values:
    * 
-   * - on: enabled.
-   * - off: disabled.
+   * - on: Enable.
+   * - off: Disable.
    * 
    * @example
    * off

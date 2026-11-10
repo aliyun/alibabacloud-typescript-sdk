@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListSiteDeliveryTasksResponseBodyTasks extends $dara.Model {
   /**
    * @remarks
-   * The log category. Valid values:
+   * The real-time log type. Valid values:
    * 
-   * *   dcdn_log_access_l1 (default): access logs.
-   * *   dcdn_log_er: Edge Routine logs.
-   * *   dcdn_log_waf: firewall logs.
-   * *   dcdn_log_ipa: TCP/UDP proxy logs.
+   * - **dcdn_log_access_l1** (default): Access logs.
+   * - **dcdn_log_er**: Edge Routine logs.
+   * - **dcdn_log_waf**: Security protection logs.
+   * - **dcdn_log_ipa**: Layer 4 acceleration logs.
    * 
    * @example
    * dcdn_log_access_l1
@@ -20,8 +20,8 @@ export class ListSiteDeliveryTasksResponseBodyTasks extends $dara.Model {
    * @remarks
    * The data center. Valid values:
    * 
-   * *   cn: the Chinese mainland.
-   * *   sg: outside the Chinese mainland.
+   * - **cn**: The Chinese mainland.
+   * - **sg**: Global (excluding the Chinese mainland).
    * 
    * @example
    * cn
@@ -29,14 +29,14 @@ export class ListSiteDeliveryTasksResponseBodyTasks extends $dara.Model {
   dataCenter?: string;
   /**
    * @remarks
-   * The destination of the delivery. Valid values:
+   * The delivery type. Valid values:
    * 
-   * 1.  sls: Alibaba Cloud Simple Log Service (SLS).
-   * 2.  http: HTTP server.
-   * 3.  aws3: Amazon Simple Storage Service (S3).
-   * 4.  oss: Alibaba Cloud Object Storage Service (OSS).
-   * 5.  kafka: Kafka.
-   * 6.  aws3cmpt: S3-compatible storage service.
+   * - **sls**: Simple Log Service.
+   * - **http**: HTTP service.
+   * - **aws3**: Amazon S3 service.
+   * - **oss**: Object Storage Service (OSS).
+   * - **kafka**: Kafka service.
+   * - **aws3cmpt**: Amazon S3-compatible service.
    * 
    * @example
    * sls
@@ -44,10 +44,11 @@ export class ListSiteDeliveryTasksResponseBodyTasks extends $dara.Model {
   deliveryType?: string;
   /**
    * @remarks
-   * The status of the delivery task.
+   * The status. Valid values:
    * 
-   * *   **online**
-   * *   **offline**
+   * - **online**: Pushing.
+   * 
+   * - **offline**: Paused.
    * 
    * @example
    * online
@@ -55,7 +56,7 @@ export class ListSiteDeliveryTasksResponseBodyTasks extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The name of the delivery task.
+   * The task name.
    * 
    * @example
    * cdn-test-task
@@ -93,7 +94,7 @@ export class ListSiteDeliveryTasksResponseBodyTasks extends $dara.Model {
 export class ListSiteDeliveryTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number. Default value: 0.
+   * The page number. Default value: **0**.
    * 
    * @example
    * 0
@@ -101,7 +102,7 @@ export class ListSiteDeliveryTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: **1 to 500**. Default value: **20**.
+   * The number of entries per page. Default value: **20**. Valid values: **1 to 500**.
    * 
    * @example
    * 20
@@ -117,12 +118,12 @@ export class ListSiteDeliveryTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The delivery tasks.
+   * The list of tasks.
    */
   tasks?: ListSiteDeliveryTasksResponseBodyTasks[];
   /**
    * @remarks
-   * The total number of log delivery tasks.
+   * The total number of real-time log projects.
    * 
    * @example
    * 20

@@ -13,7 +13,7 @@ export class ListListsRequestQueryArgs extends $dara.Model {
   desc?: boolean;
   /**
    * @remarks
-   * The value used to fuzzy match list descriptions.
+   * The list description for fuzzy match.
    * 
    * @example
    * a custom list
@@ -21,7 +21,7 @@ export class ListListsRequestQueryArgs extends $dara.Model {
   descriptionLike?: string;
   /**
    * @remarks
-   * The value used to fuzzy match list IDs.
+   * The list ID for fuzzy match.
    * 
    * @example
    * 40000001
@@ -29,7 +29,7 @@ export class ListListsRequestQueryArgs extends $dara.Model {
   idLike?: string;
   /**
    * @remarks
-   * The value used to fuzzy match list content.
+   * The list content for fuzzy match.
    * 
    * @example
    * 10.1.1.1
@@ -37,7 +37,7 @@ export class ListListsRequestQueryArgs extends $dara.Model {
   itemLike?: string;
   /**
    * @remarks
-   * The kind of the custom list.
+   * The type of the custom list.
    * 
    * @example
    * ip
@@ -45,7 +45,7 @@ export class ListListsRequestQueryArgs extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * The value used to fuzzy match both list content and list names simultaneously.
+   * The list name and content for simultaneous fuzzy match.
    * 
    * @example
    * 10.1.1.1
@@ -53,7 +53,7 @@ export class ListListsRequestQueryArgs extends $dara.Model {
   nameItemLike?: string;
   /**
    * @remarks
-   * The value used to fuzzy match list names.
+   * The list name for fuzzy match.
    * 
    * @example
    * example
@@ -105,7 +105,7 @@ export class ListListsRequestQueryArgs extends $dara.Model {
 export class ListListsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number for paging.
+   * The page number for paging in a paged query.
    * 
    * @example
    * 1
@@ -113,7 +113,7 @@ export class ListListsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging.
+   * The number of entries per page for paging in a paged query.
    * 
    * @example
    * 20
@@ -121,7 +121,7 @@ export class ListListsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query parameters passed in JSON format, which contain various filter conditions.
+   * The query parameters, passed in JSON format, which include various filter conditions.
    * 
    * @example
    * ListLists

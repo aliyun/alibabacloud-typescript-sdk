@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckSiteFeaturesMatchPlanResponseBodyUnPassedSiteQuotas extends $dara.Model {
   /**
    * @remarks
-   * The quota value of the current site.
+   * The current quota value of the site.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class CheckSiteFeaturesMatchPlanResponseBodyUnPassedSiteQuotas extends $d
   destQuotaValue?: string;
   /**
    * @remarks
-   * The quota name.
+   * The name of the quota.
    * 
    * @example
    * cache_reserve
@@ -63,7 +63,7 @@ export class CheckSiteFeaturesMatchPlanResponseBody extends $dara.Model {
   isPassed?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 65705631-908C-5D24-997C-17E0397721C8

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListListsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number for paging.
+   * The page number for paging in a paged query.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListListsShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging.
+   * The number of entries per page for paging in a paged query.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListListsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query parameters passed in JSON format, which contain various filter conditions.
+   * The query parameters, passed in JSON format, which include various filter conditions.
    * 
    * @example
    * ListLists

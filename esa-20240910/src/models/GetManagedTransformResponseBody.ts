@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetManagedTransformResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether a header that contains the visitor\\"s geolocation is added. Valid values:
-   * 
-   * - on: Enables this feature.
-   * 
-   * - off: Disables this feature.
+   * Indicates whether the visitor geolocation header is added. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -17,11 +15,9 @@ export class GetManagedTransformResponseBody extends $dara.Model {
   addClientGeolocationHeader?: string;
   /**
    * @remarks
-   * Indicates whether the "ali-real-client-ip" header is added to include the real client IP. Valid values:
-   * 
-   * - on: Enables this feature.
-   * 
-   * - off: Disables this feature.
+   * Indicates whether the ali-real-client-ip header containing the real client IP address is added. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -29,7 +25,7 @@ export class GetManagedTransformResponseBody extends $dara.Model {
   addRealClientIpHeader?: string;
   /**
    * @remarks
-   * The real client IP header name.
+   * The name of the real client IP address header.
    * 
    * @example
    * test-header
@@ -45,7 +41,7 @@ export class GetManagedTransformResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The version of the site for which the configuration is returned.
+   * The site version number. For sites with version management enabled, you can use this parameter to specify the site version to which the configuration applies. Default value: 0.
    * 
    * @example
    * 0

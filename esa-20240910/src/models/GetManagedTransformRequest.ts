@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetManagedTransformRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the site. You can obtain this ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetManagedTransformRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The site version. If version management is enabled for the site, use this parameter to specify the version whose configuration you want to retrieve. The default is 0.
+   * The site version number. For sites with version management enabled, you can use this parameter to specify the site version to which the configuration applies. Default value: 0.
    * 
    * @example
    * 0

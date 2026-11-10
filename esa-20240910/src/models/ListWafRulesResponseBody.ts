@@ -7,11 +7,11 @@ import { WafTimer } from "./WafTimer";
 export class ListWafRulesResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * The action associated with the rule. Valid values:
-   * - deny: Block.
-   * - monitor: Monitor.
-   * - js: JavaScript Challenge.
-   * - captcha: Slider challenge.
+   * The action corresponding to the rule. Valid values:
+   * - deny: block
+   * - monitor: monitor
+   * - js: JavaScript challenge
+   * - captcha: slider challenge
    * 
    * @example
    * deny
@@ -19,7 +19,7 @@ export class ListWafRulesResponseBodyRules extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The list of statistical objects for frequency control rules.
+   * The list of statistical objects for rate limiting rules.
    */
   characteristicsFields?: string[];
   /**
@@ -29,7 +29,7 @@ export class ListWafRulesResponseBodyRules extends $dara.Model {
   config?: WafRuleConfig;
   /**
    * @remarks
-   * The list of matching fields for the rule.
+   * The list of match fields for the rule.
    */
   fields?: string[];
   /**
@@ -50,15 +50,15 @@ export class ListWafRulesResponseBodyRules extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The WAF rule execution phase. Valid values:
-   * - http_whitelist: whitelist rule
-   * - http_custom: custom rule
-   * - http_managed: managed rule
-   * - http_anti_scan: scan protection rule
-   * - http_ratelimit: frequency control rule
-   * - ip_access_rule: IP access rule
-   * - http_bot: advanced mode bots
-   * - http_security_level_rule: security rule
+   * The execution phase of the WAF rule. Valid values:
+   * - http_whitelist: whitelist rules
+   * - http_custom: custom rules
+   * - http_managed: managed rules
+   * - http_anti_scan: scan protection rules
+   * - http_ratelimit: rate limiting rules
+   * - ip_access_rule: IP access rules
+   * - http_bot: advanced bot management
+   * - http_security_level_rule: security rules
    * 
    * @example
    * http_custom
@@ -66,7 +66,7 @@ export class ListWafRulesResponseBodyRules extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The position of the rule in the corresponding ruleset.
+   * The position sequence of the rule in the corresponding ruleset.
    * 
    * @example
    * 1
@@ -98,7 +98,7 @@ export class ListWafRulesResponseBodyRules extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The list of WAF phases to skip for whitelist rules.
+   * The list of skipped WAF phases for whitelist rules.
    */
   tags?: string[];
   /**
@@ -116,9 +116,9 @@ export class ListWafRulesResponseBodyRules extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The last modification time of the rule.
+   * The last update time of the rule.
    * 
-   * Format: RFC 3339 / ISO 8601, UTC time zone (ending with Z).
+   * Format: RFC 3339 or ISO 8601, UTC time zone (ending with Z).
    * 
    * Example: 2026-06-10T14:23:45Z
    * 
@@ -225,7 +225,7 @@ export class ListWafRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of rules returned.
+   * The returned list of rules.
    */
   rules?: ListWafRulesResponseBodyRules[];
   /**

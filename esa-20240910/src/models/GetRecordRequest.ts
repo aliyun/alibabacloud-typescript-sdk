@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the record. You can obtain this value by calling [ListRecords](https://help.aliyun.com/document_detail/2850265.html).
+   * The ID of the record. You can call the [ListRecords](https://help.aliyun.com/document_detail/2850265.html) operation to obtain the ID.
    * 
    * This parameter is required.
    * 

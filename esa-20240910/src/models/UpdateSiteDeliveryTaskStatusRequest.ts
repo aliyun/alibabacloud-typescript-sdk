@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSiteDeliveryTaskStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the delivery task.
+   * Specifies whether to enable or disable task delivery.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateSiteDeliveryTaskStatusRequest extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The website ID.
+   * The site ID.
    * 
    * @example
    * 123456****
@@ -23,7 +23,7 @@ export class UpdateSiteDeliveryTaskStatusRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The name of the delivery task.
+   * The name of the task.
    * 
    * This parameter is required.
    * 

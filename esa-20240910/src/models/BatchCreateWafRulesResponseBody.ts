@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchCreateWafRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the WAF rules. You can call the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) operation to obtain the rule IDs.
+   * The IDs of the WAF rules. You can obtain the rule IDs by calling the [ListWafRules](https://help.aliyun.com/document_detail/2878257.html) operation.
    */
   ids?: number[];
   /**
@@ -18,7 +18,7 @@ export class BatchCreateWafRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the WAF ruleset. You can call the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation to obtain the ruleset ID.
+   * The ID of the WAF ruleset. You can obtain the ruleset ID by calling the [ListWafRulesets](https://help.aliyun.com/document_detail/2878359.html) operation.
    * 
    * @example
    * 10000001

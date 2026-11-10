@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the `Alt-Svc` header. This feature is disabled by default. Valid values:
-   * 
-   * - `on`: Enables the Alt-Svc header.
-   * 
-   * - `off`: Disables the Alt-Svc header.
+   * The feature switch. Default value: off. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -17,11 +15,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   altSvc?: string;
   /**
    * @remarks
-   * Specifies whether to include the `clear` directive in the `Alt-Svc` header. The directive is not included by default. Valid values:
-   * 
-   * - `on`: Includes the directive.
-   * 
-   * - `off`: Does not include the directive.
+   * Specifies whether the Alt-Svc header includes the clear parameter. Default value: off. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -29,7 +25,7 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   altSvcClear?: string;
   /**
    * @remarks
-   * The max-age for the Alt-Svc header, in seconds. The default is 86400.
+   * The validity period of the Alt-Svc header, in seconds. Default value: 86400.
    * 
    * @example
    * 86400
@@ -37,11 +33,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   altSvcMa?: string;
   /**
    * @remarks
-   * Specifies whether to include the `persist` directive in the `Alt-Svc` header. The directive is not included by default. Valid values:
-   * 
-   * - `on`: Includes the directive.
-   * 
-   * - `off`: Does not include the directive.
+   * Specifies whether the Alt-Svc header includes the persist parameter. Default value: off. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -59,11 +53,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Specifies whether to enable HTTP Strict Transport Security (HSTS). This feature is disabled by default. Valid values:
-   * 
-   * - `on`: Enables HSTS.
-   * 
-   * - `off`: Disables HSTS.
+   * Specifies whether to enable HTTP Strict Transport Security (HSTS). Default value: off. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -71,11 +63,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   hsts?: string;
   /**
    * @remarks
-   * Specifies whether to include subdomains in the HSTS policy. Subdomains are not included by default. Valid values:
-   * 
-   * - `on`: Includes subdomains.
-   * 
-   * - `off`: Does not include subdomains.
+   * Specifies whether to include subdomains in HSTS. Default value: off. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -83,7 +73,7 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   hstsIncludeSubdomains?: string;
   /**
    * @remarks
-   * The HSTS max-age in seconds.
+   * The expiration time of HSTS, in seconds.
    * 
    * @example
    * 3600
@@ -91,11 +81,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   hstsMaxAge?: string;
   /**
    * @remarks
-   * Specifies whether to enable HSTS Preload. HSTS Preload is disabled by default. Valid values:
-   * 
-   * - `on`: Enables Preload.
-   * 
-   * - `off`: Disables Preload.
+   * Specifies whether to enable HSTS preload. Default value: off. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -103,11 +91,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   hstsPreload?: string;
   /**
    * @remarks
-   * Specifies whether to enable Force HTTPS. This feature is disabled by default. Valid values:
-   * 
-   * - `on`: Enables Force HTTPS.
-   * 
-   * - `off`: Disables Force HTTPS.
+   * Specifies whether to enable forced HTTPS. Default value: off. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -115,15 +101,11 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   httpsForce?: string;
   /**
    * @remarks
-   * The redirect status code for Force HTTPS. Valid values:
-   * 
-   * - `301`
-   * 
-   * - `302`
-   * 
-   * - `307`
-   * 
-   * - `308`
+   * The HTTP status code for forced HTTPS redirection. Valid values:
+   * - 301
+   * - 302
+   * - 307
+   * - 308
    * 
    * @example
    * 301
@@ -131,11 +113,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   httpsForceCode?: string;
   /**
    * @remarks
-   * Specifies whether to deny TLS handshake requests that do not include an SNI. This feature is disabled by default. Valid values:
-   * 
-   * - `on`: Denies requests without an SNI.
-   * 
-   * - `off`: Allows requests without an SNI.
+   * Specifies whether to reject TLS handshake requests without SNI. Default value: off. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -143,11 +123,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   httpsNoSniDeny?: string;
   /**
    * @remarks
-   * Specifies whether to enable Server Name Indication (SNI) verification. This feature is disabled by default. Valid values:
-   * 
-   * - `on`: Enables SNI verification.
-   * 
-   * - `off`: Disables SNI verification.
+   * Specifies whether to enable Server Name Indication (SNI) verification. Default value: off. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -155,7 +133,7 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   httpsSniVerify?: string;
   /**
    * @remarks
-   * The SNI allowlist. Separate multiple hostnames with spaces.
+   * The SNI whitelist. Separate multiple SNI values with spaces.
    * 
    * @example
    * abc edf
@@ -163,11 +141,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   httpsSniWhitelist?: string;
   /**
    * @remarks
-   * The conditional expression that the rule uses to match requests. This parameter is not required for a global configuration.
-   * 
-   * - To match all incoming requests, set the value to `true`.
-   * 
-   * - To match specific requests, provide a custom expression, such as `(http.host eq "video.example.com")`
+   * The rule content. A conditional expression is used to match user requests. Settings for this parameter are not required when you add a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specific requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -175,11 +151,9 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule. This parameter is not required for a global configuration. Valid values:
-   * 
-   * - `on`: Enables the rule.
-   * 
-   * - `off`: Disables the rule.
+   * The rule switch. This parameter is not required when you add a global configuration. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -187,7 +161,7 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name. This parameter is not required for a global configuration.
+   * The rule name. This parameter is not required when you add a global configuration.
    * 
    * @example
    * rule_example
@@ -195,7 +169,7 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The execution order of the rule. A lower value indicates a higher priority.
+   * The execution sequence of the rule. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -203,7 +177,7 @@ export class UpdateHttpsApplicationConfigurationRequest extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The site ID. To obtain this ID, call the [ListSites](~~ListSites~~) API.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to query the site ID.
    * 
    * This parameter is required.
    * 

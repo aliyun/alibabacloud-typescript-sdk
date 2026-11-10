@@ -7,7 +7,7 @@ export class ListPostpaidRatePlanInstancesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to check for remaining site quotas. Valid values:
    * 
-   * - true: Queries instances that have remaining site quotas.
+   * - true: Queries instances with remaining site quotas.
    * 
    * - false: Does not filter by this condition.
    * 
@@ -17,7 +17,7 @@ export class ListPostpaidRatePlanInstancesRequest extends $dara.Model {
   checkRemainingSiteQuota?: string;
   /**
    * @remarks
-   * The instance ID, which is used to query a specific instance.
+   * The instance ID, which is used to precisely query a single instance.
    * 
    * @example
    * sp-dps-xxxxxx
@@ -25,7 +25,7 @@ export class ListPostpaidRatePlanInstancesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number Settings for paging in a paged query. The value must be greater than or equal to 1.
+   * The page number for paging. The value must be greater than or equal to 1.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class ListPostpaidRatePlanInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging in a paged query. Valid values: 1 to 500.
+   * The page size for paging. Valid values: 1 to 500.
    * 
    * @example
    * 12
@@ -42,9 +42,9 @@ export class ListPostpaidRatePlanInstancesRequest extends $dara.Model {
   resourceOwner?: number;
   /**
    * @remarks
-   * Specifies the field by which to sort the results. Valid values:
+   * The field by which to sort the results. Valid values:
    * 
-   * - CreateTime: sorts by creation time
+   * - CreateTime: Sorts by creation time.
    * 
    * @example
    * CreateTime
@@ -54,9 +54,9 @@ export class ListPostpaidRatePlanInstancesRequest extends $dara.Model {
    * @remarks
    * The sort order. Valid values:
    * 
-   *  * asc: ascending order
+   * - asc: Ascending order.
    * 
-   *  * desc: descending order
+   * - desc: Descending order.
    * 
    * @example
    * desc
@@ -66,11 +66,11 @@ export class ListPostpaidRatePlanInstancesRequest extends $dara.Model {
    * @remarks
    * The instance status. Valid values:
    * 
-   *  * online: normal status
+   * - online: Normal.
    * 
-   *  * overdue: overdue payment
+   * - overdue: Overdue payment.
    * 
-   *  * disable: released
+   * - disable: Released.
    * 
    * @example
    * online
@@ -78,7 +78,7 @@ export class ListPostpaidRatePlanInstancesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Specifies whether bot or DDoS protection is added to the instance.
+   * Specifies whether the instance has the Bot Management or Anti-DDoS add-on.
    * 
    * @example
    * bot

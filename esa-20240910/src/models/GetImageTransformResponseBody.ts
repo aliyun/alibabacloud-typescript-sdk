@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetImageTransformResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable adaptive AVIF. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Specifies whether adaptive AVIF is enabled. Valid values:
+   * - on: enabled
+   * - off: disabled
    * 
    * @example
    * on
@@ -15,9 +15,9 @@ export class GetImageTransformResponseBody extends $dara.Model {
   autoAvif?: string;
   /**
    * @remarks
-   * Specifies whether to enable adaptive WebP. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Specifies whether adaptive WebP is enabled. Valid values:
+   * - on: enabled
+   * - off: disabled
    * 
    * @example
    * on
@@ -25,7 +25,7 @@ export class GetImageTransformResponseBody extends $dara.Model {
   autoWebp?: string;
   /**
    * @remarks
-   * The configuration ID.
+   * The ID of the configuration.
    * 
    * @example
    * 352816096987136
@@ -33,9 +33,9 @@ export class GetImageTransformResponseBody extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The configuration type. Valid values:
-   * - global: global configuration.
-   * - rule: rule configuration.
+   * The type of the configuration. Valid values:
+   * - global: global configuration
+   * - rule: rule configuration
    * 
    * @example
    * global
@@ -43,9 +43,9 @@ export class GetImageTransformResponseBody extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * Specifies whether to enable image transformation. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * Specifies whether image transform is enabled. Valid values:
+   * - on: enabled
+   * - off: disabled
    * 
    * @example
    * on
@@ -53,7 +53,7 @@ export class GetImageTransformResponseBody extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
@@ -61,9 +61,9 @@ export class GetImageTransformResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The rule content, which uses a conditional expression to match user requests. This parameter does not need to be set when you add a global configuration. Two scenarios are supported:
+   * The rule content, which uses a conditional expression to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
    * - Match all incoming requests: Set the value to true.
-   * - Match specified requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
+   * - Match specific requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
    * 
    * @example
    * (http.request.uri.path.file_name eq \\"jpg\\")
@@ -71,9 +71,9 @@ export class GetImageTransformResponseBody extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * The rule switch. This parameter does not need to be set when you add a global configuration. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
+   * - on: enabled
+   * - off: disabled
    * 
    * @example
    * on
@@ -81,7 +81,7 @@ export class GetImageTransformResponseBody extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name. This parameter does not need to be set when you add a global configuration.
+   * The name of the rule. You do not need to set this parameter when adding a global configuration.
    * 
    * @example
    * test
@@ -89,7 +89,7 @@ export class GetImageTransformResponseBody extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The rule execution order. A smaller value indicates a higher priority.
+   * The execution sequence of the rule. A smaller value indicates a higher execution priority.
    * 
    * @example
    * 2
@@ -97,7 +97,7 @@ export class GetImageTransformResponseBody extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The version number of the site configuration. For sites with version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. The default value is version 0.
+   * The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
    * 
    * @example
    * 0

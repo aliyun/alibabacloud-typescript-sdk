@@ -13,13 +13,11 @@ export class GetHttpRequestHeaderModificationRuleResponseBodyRequestHeaderModifi
   name?: string;
   /**
    * @remarks
-   * The operation to perform. Valid values:
+   * The operation type. Valid values:
    * 
-   * - add: Adds a header.
-   * 
-   * - del: Deletes a header.
-   * 
-   * - modify: Modifies a header.
+   * - add: Add.
+   * - del: Delete.
+   * - modify: Modify.
    * 
    * @example
    * add
@@ -27,11 +25,9 @@ export class GetHttpRequestHeaderModificationRuleResponseBodyRequestHeaderModifi
   operation?: string;
   /**
    * @remarks
-   * The type of the value. Valid values:
-   * 
-   * - static: A static value.
-   * 
-   * - dynamic: A dynamic value.
+   * The value type. Valid values:
+   * - static: Static pattern.
+   * - dynamic: Dynamic schema.
    * 
    * @example
    * static
@@ -75,7 +71,7 @@ export class GetHttpRequestHeaderModificationRuleResponseBodyRequestHeaderModifi
 export class GetHttpRequestHeaderModificationRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration ID.
+   * The ID of the configuration.
    * 
    * @example
    * 3528160969****
@@ -84,10 +80,8 @@ export class GetHttpRequestHeaderModificationRuleResponseBody extends $dara.Mode
   /**
    * @remarks
    * The configuration type. Valid values:
-   * 
-   * - global: A global configuration.
-   * 
-   * - rule: A rule-based configuration.
+   * - global: Global configuration.
+   * - rule: Rule configuration.
    * 
    * @example
    * global
@@ -95,12 +89,12 @@ export class GetHttpRequestHeaderModificationRuleResponseBody extends $dara.Mode
   configType?: string;
   /**
    * @remarks
-   * The request header modifications. The add, delete, and modify operations are supported.
+   * The request header modification settings. Add, delete, and modify operations are supported.
    */
   requestHeaderModification?: GetHttpRequestHeaderModificationRuleResponseBodyRequestHeaderModification[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 15C66C7B-671A-4297-9187-2C4477247A74
@@ -108,11 +102,9 @@ export class GetHttpRequestHeaderModificationRuleResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The content of the rule, which uses a conditional expression to match user requests. This parameter is not required for global configurations. There are two scenarios:
-   * 
-   * - To match all incoming requests, set the value to true.
-   * 
-   * - To match specific requests, set the value to a custom expression, such as (http.host eq "video.example.com").
+   * The rule content, which uses a conditional expression to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+   * - Match all incoming requests: Set the value to true.
+   * - Match specific requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -120,11 +112,9 @@ export class GetHttpRequestHeaderModificationRuleResponseBody extends $dara.Mode
   rule?: string;
   /**
    * @remarks
-   * Specifies whether the rule is enabled. This parameter is not required for global configurations. Valid values:
-   * 
-   * - on: The rule is enabled.
-   * 
-   * - off: The rule is disabled.
+   * The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -132,7 +122,7 @@ export class GetHttpRequestHeaderModificationRuleResponseBody extends $dara.Mode
   ruleEnable?: string;
   /**
    * @remarks
-   * The name of the rule. This parameter is not required for global configurations.
+   * The name of the rule. You do not need to set this parameter when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -140,7 +130,7 @@ export class GetHttpRequestHeaderModificationRuleResponseBody extends $dara.Mode
   ruleName?: string;
   /**
    * @remarks
-   * The execution order of the rule. Rules with smaller values are executed first.
+   * The execution sequence of the rule. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -148,7 +138,7 @@ export class GetHttpRequestHeaderModificationRuleResponseBody extends $dara.Mode
   sequence?: number;
   /**
    * @remarks
-   * The version number of the site configuration. For sites with version management enabled, this parameter specifies the site version to which the configuration applies. The default value is 0.
+   * The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
    * 
    * @example
    * 0
