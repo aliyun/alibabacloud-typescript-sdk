@@ -42,7 +42,7 @@ export class UpdateDomainRequest extends $dara.Model {
   domainScope?: string;
   /**
    * @remarks
-   * Specifies whether to enable forced HTTPS redirect when the HTTPS protocol type is set. When the protocol is HTTPS, forceHttps is required.
+   * The Settings for the HTTPS Protocol Type. Specifies whether to enable forced HTTPS redirection. This parameter is required when the protocol is HTTPS.
    * 
    * @example
    * false
@@ -58,15 +58,15 @@ export class UpdateDomainRequest extends $dara.Model {
   http2Option?: string;
   /**
    * @remarks
-   * Specifies whether to enable mutual TLS (mTLS) authentication.
+   * Specifies whether to enable mTLS mutual authentication.
    */
   mTLSEnabled?: boolean;
   /**
    * @remarks
-   * The protocol type supported by the domain name.
+   * The protocol types supported by the domain name.
    * 
-   * - HTTP: Only the HTTP protocol is supported.
-   * - HTTPS: Only the HTTPS protocol is supported.
+   * - HTTP: Supports only the HTTP protocol.
+   * - HTTPS: Supports only the HTTPS protocol.
    * 
    * @example
    * HTTP
@@ -74,12 +74,12 @@ export class UpdateDomainRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The cipher suite configuration.
+   * The cipher suite configurations.
    */
   tlsCipherSuitesConfig?: TlsCipherSuitesConfig;
   /**
    * @remarks
-   * The maximum TLS protocol version. TLS 1.3 is the maximum supported version.
+   * The maximum TLS protocol version. The maximum supported version is TLS 1.3.
    * 
    * @example
    * TLS 1.3
@@ -87,7 +87,7 @@ export class UpdateDomainRequest extends $dara.Model {
   tlsMax?: string;
   /**
    * @remarks
-   * The minimum TLS protocol version. TLS 1.0 is the minimum supported version.
+   * The minimum TLS protocol version. The minimum supported version is TLS 1.0.
    * 
    * @example
    * TLS 1.0

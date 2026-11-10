@@ -16,7 +16,7 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The Ingress class to listen on.
+   * The Ingress class to listen to.
    * 
    * @example
    * mse
@@ -24,7 +24,7 @@ export class UpdateHttpApiRequestIngressConfig extends $dara.Model {
   ingressClass?: string;
   /**
    * @remarks
-   * Specifies whether to update the IP address in the Ingress status.
+   * Specifies whether to update the address in the Ingress status.
    * 
    * @example
    * false
@@ -93,7 +93,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   authConfig?: AuthConfig;
   /**
    * @remarks
-   * The base path of the API. It must start with a forward slash (/).
+   * The base path of the API, which must start with a forward slash (/).
    * 
    * @example
    * /v1
@@ -135,7 +135,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   ingressConfig?: UpdateHttpApiRequestIngressConfig;
   /**
    * @remarks
-   * Specifies whether to only modify the configuration. A value of true indicates that only the configuration is modified without triggering a redeployment.
+   * Specifies whether to modify only the configuration. A value of true indicates that only the configuration is modified without triggering a redeployment.
    * 
    * @example
    * true
@@ -161,7 +161,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   versionConfig?: HttpApiVersionConfig;
   /**
    * @remarks
-   * The idempotent request token. If you call the same HTTP API with the same client token and request parameters, the result of the first successful call is returned.
+   * The idempotency token. If the same HTTP API is repeatedly called with the same client token and request parameters, the first successful result is returned.
    * 
    * @example
    * update-http-api-client-token-001
@@ -169,7 +169,7 @@ export class UpdateHttpApiRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. If you set this parameter to true, all synchronization checks consistent with a real update are performed, but no configurations are updated and no side effects are generated. If this parameter is left empty or set to false, the behavior remains the same as the existing version.
+   * Specifies whether to perform a dry run. A value of true indicates that all synchronization checks identical to a real update are executed without updating any configurations or causing side effects. If omitted or set to false, the behavior remains consistent with the current version.
    */
   dryRun?: boolean;
   static names(): { [key: string]: string } {

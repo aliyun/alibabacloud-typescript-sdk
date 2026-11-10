@@ -136,7 +136,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoFailureRoutes extends $dara.
 export class ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents extends $dara.Model {
   /**
    * @remarks
-   * The action to be performed after the dry run. Valid values:
+   * The action to be performed after the dry run.
    * - Create: Create.
    * - Update: Update.
    * 
@@ -178,7 +178,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents extends $d
 export class ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations extends $dara.Model {
   /**
    * @remarks
-   * The action to be performed after the dry run. Valid values:
+   * The action to be performed after the dry run.
    * - Create: Create.
    * - Update: Update.
    * 
@@ -280,7 +280,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessRoutes extends $dara.
 export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
   /**
    * @remarks
-   * The error messages. If the error messages are not empty, the API cannot be imported.
+   * The error messages. If the error messages are not empty, the API cannot be imported successfully.
    */
   errorMessages?: string[];
   /**
@@ -300,7 +300,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
   failureOperations?: ImportHttpApiResponseBodyDataDryRunInfoFailureOperations[];
   /**
    * @remarks
-   * The list of routes that failed to be imported.
+   * The list of failed routes.
    */
   failureRoutes?: ImportHttpApiResponseBodyDataDryRunInfoFailureRoutes[];
   /**
@@ -323,7 +323,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
   successOperations?: ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations[];
   /**
    * @remarks
-   * The list of routes that were successfully imported.
+   * The list of successfully imported routes.
    */
   successRoutes?: ImportHttpApiResponseBodyDataDryRunInfoSuccessRoutes[];
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayErrorAccessLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of log entries. Each entry is a mapping from field names to field values.
+   * The list of log data. Each entry is a mapping of field names to field values.
    */
   data?: { [key: string]: string }[];
   /**

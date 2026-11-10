@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayLoadBalancersResponseBodyDataItemsLoadBalancerZoneMappingsLoadBalancerAddresses extends $dara.Model {
   /**
    * @remarks
-   * The Elastic IP Address (EIP) allocation ID that corresponds to the public address.
+   * The allocation ID of the elastic IP address (EIP) corresponding to the public IP address.
    * 
    * @example
    * eip-bp1xxxx
@@ -13,7 +13,7 @@ export class ListGatewayLoadBalancersResponseBodyDataItemsLoadBalancerZoneMappin
   allocationId?: string;
   /**
    * @remarks
-   * The ID of the elastic network interface (ENI).
+   * The ID of the elastic network interface controller (NIC).
    * 
    * @example
    * eni-bp1xxxx
@@ -128,7 +128,7 @@ export class ListGatewayLoadBalancersResponseBodyDataItemsLoadBalancerZoneMappin
   status?: string;
   /**
    * @remarks
-   * The vSwitch ID that corresponds to the zone.
+   * The vSwitch ID corresponding to the zone.
    * 
    * @example
    * vsw-bp1xxxx
@@ -223,7 +223,7 @@ export class ListGatewayLoadBalancersResponseBodyDataItemsVirtualServerGroupList
   port?: number;
   /**
    * @remarks
-   * The listener protocol. No backend enumeration validation is performed. The actual values are returned from SLB or NLB OpenAPI. Common values include tcp, udp, http, https, and tls.
+   * The listener protocol. No backend enumeration validation is performed. The actual value is obtained from the SLB or NLB API. Common values include tcp, udp, http, https, and tls.
    * 
    * @example
    * https
@@ -260,7 +260,7 @@ export class ListGatewayLoadBalancersResponseBodyDataItemsVirtualServerGroupList
   listeners?: ListGatewayLoadBalancersResponseBodyDataItemsVirtualServerGroupListListeners[];
   /**
    * @remarks
-   * The virtual server group ID. For CLB, this is the VServerGroupId. For NLB, this is the ServerGroupId.
+   * The ID of the virtual server group. This is VServerGroupId for Classic Load Balancer (CLB) and ServerGroupId for Network Load Balancer (NLB).
    * 
    * @example
    * rsp-xxxx
@@ -268,7 +268,7 @@ export class ListGatewayLoadBalancersResponseBodyDataItemsVirtualServerGroupList
   virtualServiceGroupId?: string;
   /**
    * @remarks
-   * The group name.
+   * The name of the group.
    * 
    * @example
    * 80-tcp
@@ -305,7 +305,7 @@ export class ListGatewayLoadBalancersResponseBodyDataItemsVirtualServerGroupList
 export class ListGatewayLoadBalancersResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether this is the default ingress of the gateway.
+   * Indicates whether the load balancer is the default ingress of the gateway.
    * 
    * @example
    * true
@@ -313,7 +313,7 @@ export class ListGatewayLoadBalancersResponseBodyDataItems extends $dara.Model {
   defaultGatewayIngress?: boolean;
   /**
    * @remarks
-   * Indicates whether the load balancer can be edited. This parameter serves as an edit switch for load balancers that are being migrated.
+   * Indicates whether the load balancer can be edited. This serves as an edit switch for load balancers during migration.
    * 
    * @example
    * false
@@ -329,7 +329,7 @@ export class ListGatewayLoadBalancersResponseBodyDataItems extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The load balancer address (IP address or domain name).
+   * The load balancer address, which can be an IP address or a domain name.
    * 
    * @example
    * 47.x.x.x
@@ -353,7 +353,7 @@ export class ListGatewayLoadBalancersResponseBodyDataItems extends $dara.Model {
   loadBalancerAddressType?: string;
   /**
    * @remarks
-   * The load balancer availability status.
+   * The availability status of the load balancer.
    * 
    * @example
    * Active
@@ -369,7 +369,7 @@ export class ListGatewayLoadBalancersResponseBodyDataItems extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The binding mode.
+   * The association mode.
    * 
    * @example
    * Managed
@@ -419,7 +419,7 @@ export class ListGatewayLoadBalancersResponseBodyDataItems extends $dara.Model {
   ports?: ListGatewayLoadBalancersResponseBodyDataItemsPorts[];
   /**
    * @remarks
-   * The gateway service weight, which ranges from 0 to 100. This parameter is used in migration and traffic shifting scenarios.
+   * The gateway service weight, which ranges from 0 to 100 and is used in migration and traffic switching scenarios.
    * 
    * @example
    * 100
@@ -427,10 +427,10 @@ export class ListGatewayLoadBalancersResponseBodyDataItems extends $dara.Model {
   serviceWeight?: number;
   /**
    * @remarks
-   * The VServerGroup metadata.
+   * The metadata of the vServer group.
    * 
    * @example
-   * -
+   * default-vserver-group
    */
   vServerGroupMetaInfo?: string;
   /**

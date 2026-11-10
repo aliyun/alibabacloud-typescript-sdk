@@ -7,7 +7,7 @@ import { AiPolicyRedisConfig } from "./AiPolicyRedisConfig";
 export class AiCacheConfigEmbeddingConfig extends $dara.Model {
   /**
    * @remarks
-   * The embedding model name.
+   * The name of the embedding model.
    * 
    * @example
    * text-embedding-v2
@@ -15,7 +15,7 @@ export class AiCacheConfigEmbeddingConfig extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The embedding service ID.
+   * The ID of the embedding service.
    * 
    * @example
    * svc-xxx
@@ -23,7 +23,7 @@ export class AiCacheConfigEmbeddingConfig extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The request timeout period, in milliseconds.
+   * The request timeout in milliseconds.
    * 
    * @example
    * 5000
@@ -67,7 +67,7 @@ export class AiCacheConfigEmbeddingConfig extends $dara.Model {
 export class AiCacheConfigVectorConfig extends $dara.Model {
   /**
    * @remarks
-   * The vector database API key.
+   * The API key for the vector database.
    * 
    * @example
    * sk-xxx
@@ -75,7 +75,7 @@ export class AiCacheConfigVectorConfig extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * The vector collection ID.
+   * The ID of the vector collection.
    * 
    * @example
    * col-xxx
@@ -83,7 +83,7 @@ export class AiCacheConfigVectorConfig extends $dara.Model {
   collectionId?: string;
   /**
    * @remarks
-   * The vector database service address.
+   * The vector database service endpoint.
    * 
    * @example
    * vdb-xxx.dashvector.aliyuncs.com
@@ -99,7 +99,7 @@ export class AiCacheConfigVectorConfig extends $dara.Model {
   threshold?: number;
   /**
    * @remarks
-   * The request timeout period, in milliseconds.
+   * The request timeout in milliseconds.
    * 
    * @example
    * 5000
@@ -150,7 +150,7 @@ export class AiCacheConfig extends $dara.Model {
    * The cache key generation strategy.
    * 
    * @example
-   * -
+   * default
    */
   cacheKeyStrategy?: string;
   /**
@@ -163,7 +163,7 @@ export class AiCacheConfig extends $dara.Model {
   cacheMode?: string;
   /**
    * @remarks
-   * The cache expiration time, in seconds.
+   * The cache expiration time in seconds.
    * 
    * @example
    * 3600
@@ -176,7 +176,7 @@ export class AiCacheConfig extends $dara.Model {
   embeddingConfig?: AiCacheConfigEmbeddingConfig;
   /**
    * @remarks
-   * The plugin running status.
+   * The running status of the plugin.
    * 
    * **if can be null:**
    * true

@@ -61,7 +61,7 @@ export class DataPathConfigsFieldPathsValue extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The message direction of the field, which indicates whether it is extracted from the request or the response.
+   * The message direction of the field, which indicates whether the field is extracted from the request or the response.
    * 
    * @example
    * response
@@ -77,7 +77,7 @@ export class DataPathConfigsFieldPathsValue extends $dara.Model {
   sensitive?: boolean;
   /**
    * @remarks
-   * Indicates whether the collection of the field is enabled.
+   * Indicates whether collection is enabled for the field.
    * 
    * @example
    * true

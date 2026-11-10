@@ -80,7 +80,10 @@ export class ListModelCardsResponseBodyData extends $dara.Model {
   availablePaths?: ListModelCardsResponseBodyDataAvailablePaths[];
   /**
    * @remarks
-   * The feature configuration of the model card, structured as a key-value pair mapping. The set of keys is not declared in the API definition.
+   * The feature configuration of the model card, which is a key-value map structure. The set of keys is not declared in the API definition.
+   * 
+   * @example
+   * {"functionCall":true}
    */
   features?: { [key: string]: any };
   /**
@@ -98,12 +101,15 @@ export class ListModelCardsResponseBodyData extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The pricing information of the model card, structured as a key-value pair mapping. The set of keys and billing metrics are not declared in the API definition.
+   * The pricing information of the model card, which is a key-value map structure. The set of keys and the billing criteria are not declared in the API definition.
+   * 
+   * @example
+   * {"input":0.004,"output":0.012}
    */
   pricing?: { [key: string]: any };
   /**
    * @remarks
-   * The model provider identifier corresponding to the model card.
+   * The identifier of the model provider corresponding to the model card.
    * 
    * @example
    * provider-xxxxxxxx
@@ -111,7 +117,7 @@ export class ListModelCardsResponseBodyData extends $dara.Model {
   provider?: string;
   /**
    * @remarks
-   * The list of snapshots for the model card. Array items are mapping structures with undeclared members. The snapshot content and generation rules are not specified in the API definition.
+   * The list of snapshots for the model card. Each array item is a map structure with undeclared members. The snapshot content and generation rules are not specified in the API definition.
    */
   snapshots?: { [key: string]: any }[];
   /**

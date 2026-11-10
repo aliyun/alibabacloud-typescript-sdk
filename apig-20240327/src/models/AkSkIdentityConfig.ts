@@ -8,7 +8,7 @@ export class AkSkIdentityConfig extends $dara.Model {
    * The AK configuration.
    * 
    * @example
-   * xxxx
+   * ak-xxxxxxxx
    */
   ak?: string;
   /**
@@ -24,7 +24,7 @@ export class AkSkIdentityConfig extends $dara.Model {
    * The SK configuration.
    * 
    * @example
-   * xxxx
+   * sk-xxxxxxxx
    */
   sk?: string;
   /**

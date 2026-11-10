@@ -13,7 +13,7 @@ export class ListConsumerQuotaRulesRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The keyword for the rule name, used for fuzzy match.
+   * The keyword in the rule name for fuzzy match.
    * 
    * @example
    * daily
@@ -29,7 +29,7 @@ export class ListConsumerQuotaRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 10

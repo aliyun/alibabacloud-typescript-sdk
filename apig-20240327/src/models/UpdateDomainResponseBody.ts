@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDomainResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The deployment revision ID.
+   * The release version ID.
    * 
    * @example
    * apr-xxxxx
@@ -56,7 +56,7 @@ export class UpdateDomainResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to trace the API call chain.
+   * The request ID, used to trace API calls.
    * 
    * @example
    * 4BACB05C-3FE2-588F-9148-700C5C026B74

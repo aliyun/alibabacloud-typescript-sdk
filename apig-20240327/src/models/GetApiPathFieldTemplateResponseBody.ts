@@ -15,11 +15,14 @@ export class GetApiPathFieldTemplateResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The set of fields defined by the field template, grouped by mapping key, where each group contains a set of template field items.
+   * 
+   * @example
+   * {"model":["$.model"],"messages":["$.messages[*].content"]}
    */
   fieldPaths?: { [key: string]: DataFieldPathsValue[] };
   /**
    * @remarks
-   * The URI of the request corresponding to the field template.
+   * The API request path corresponding to the field template.
    * 
    * @example
    * /v1/chat/completions

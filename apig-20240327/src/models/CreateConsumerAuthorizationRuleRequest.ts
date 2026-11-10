@@ -12,8 +12,8 @@ export class CreateConsumerAuthorizationRuleRequest extends $dara.Model {
   /**
    * @remarks
    * The expiration mode. Valid values:
-   * - LongTerm: long-term
-   * - ShortTerm: short-term
+   * - LongTerm: Long-term.
+   * - ShortTerm: Short-term.
    * 
    * @example
    * LongTerm
@@ -21,7 +21,7 @@ export class CreateConsumerAuthorizationRuleRequest extends $dara.Model {
   expireMode?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration timestamp.
    * 
    * @example
    * 1750852089975

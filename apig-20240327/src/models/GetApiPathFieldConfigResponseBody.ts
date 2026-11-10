@@ -7,6 +7,9 @@ export class GetApiPathFieldConfigResponseBodyDataPathConfigs extends $dara.Mode
   /**
    * @remarks
    * The collection of field configurations under the path, grouped by mapping key, where each group represents a set of field configuration items.
+   * 
+   * @example
+   * {"model":["$.model"],"messages":["$.messages[*].content"]}
    */
   fieldPaths?: { [key: string]: DataPathConfigsFieldPathsValue[] };
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InvokeAIAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The response body of the debug result.
+   * The response body of the test result.
    * 
    * @example
    * {"choices":[{"delta":{"content":"Analysis result..."}}]}
@@ -14,11 +14,14 @@ export class InvokeAIAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The response headers, such as Content-Type: text/event-stream.
+   * 
+   * @example
+   * {"Content-Type":"text/event-stream"}
    */
   headers?: { [key: string]: string };
   /**
    * @remarks
-   * The HTTP status code of the debug result.
+   * The HTTP status code of the test result.
    * 
    * @example
    * 200
@@ -76,7 +79,7 @@ export class InvokeAIAgentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * A60EE5CA-1294-532A-9775-8D2FD1C6EFBF

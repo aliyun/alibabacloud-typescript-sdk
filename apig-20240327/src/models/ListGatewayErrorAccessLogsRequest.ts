@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayErrorAccessLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name filter. This parameter performs an exact match against the authority field in Simple Log Service (SLS).
+   * The domain name filter. This parameter performs an exact match on the authority field in Simple Log Service (SLS).
    * 
    * @example
    * api.example.com
@@ -13,7 +13,7 @@ export class ListGatewayErrorAccessLogsRequest extends $dara.Model {
   authority?: string;
   /**
    * @remarks
-   * The end of the query window, in UNIX seconds. The value cannot be later than the current time, and the time span cannot exceed 24 hours.
+   * The end time of the query window, in UNIX seconds. The value cannot be later than the current time, and the time span must be less than or equal to 24 hours.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListGatewayErrorAccessLogsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The gateway request ID (x-acs-request-id) for exact match filtering.
+   * The exact filter for the gateway request ID (x-acs-request-id).
    * 
    * @example
    * E5D4xxxx
@@ -39,7 +39,7 @@ export class ListGatewayErrorAccessLogsRequest extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The HTTP error code. Only three-digit numbers in the 400–599 range are accepted. This parameter is required. If you do not specify this parameter, the API returns InvalidParameter.WithDetail (400).
+   * The specific HTTP error code. Only three-digit numbers in the range of 400 to 599 are accepted. This parameter is required. If it is not provided, the API returns the InvalidParameter.WithDetail(400) error.
    * 
    * @example
    * 502
@@ -55,7 +55,7 @@ export class ListGatewayErrorAccessLogsRequest extends $dara.Model {
   routeName?: string;
   /**
    * @remarks
-   * The start of the query window, in UNIX seconds. The value must be no earlier than 24 hours before the current time.
+   * The start time of the query window, in UNIX seconds. The value must be greater than or equal to the current time minus 24 hours.
    * 
    * This parameter is required.
    * 

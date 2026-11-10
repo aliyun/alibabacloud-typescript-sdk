@@ -66,7 +66,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
    * The error code for the certificate details.
    * 
    * @example
-   * -
+   * 0
    */
   certDetailErrorCode?: string;
   /**
@@ -74,15 +74,15 @@ export class GetDomainResponseBodyData extends $dara.Model {
    * The error message for the certificate details.
    * 
    * @example
-   * -
+   * Certificate details retrieved successfully
    */
   certDetailErrorMessage?: string;
   /**
    * @remarks
-   * The certificate detail status.
+   * The status of the certificate details.
    * 
    * @example
-   * -
+   * success
    */
   certDetailStatus?: string;
   /**
@@ -118,7 +118,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   clientCACert?: string;
   /**
    * @remarks
-   * The source from which the domain name was created.
+   * The creation source.
    * 
    * @example
    * Console
@@ -158,7 +158,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   domainScope?: string;
   /**
    * @remarks
-   * The HTTPS protocol type settings. Specifies whether forced HTTPS redirection is enabled.
+   * The settings for the HTTPS protocol type. Indicates whether forced HTTPS redirection is enabled.
    * 
    * @example
    * false
@@ -174,7 +174,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   http2Option?: string;
   /**
    * @remarks
-   * The certificate issuer.
+   * The certification authority.
    * 
    * @example
    * Alibaba
@@ -182,7 +182,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * Indicates whether mTLS mutual authentication is enabled.
+   * Specifies whether mTLS mutual authentication is enabled.
    * 
    * @example
    * false
@@ -206,7 +206,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   notAfterTimstamp?: number;
   /**
    * @remarks
-   * The effective period of the certificate.
+   * The effective time of the certificate.
    * 
    * @example
    * 1719386834548
@@ -215,8 +215,9 @@ export class GetDomainResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The protocol types supported by the domain name. Valid values:
-   * - HTTP: Only the HTTP protocol is supported.
-   * - HTTPS: Only the HTTPS protocol is supported.
+   * 
+   * - HTTP: Supports only the HTTP protocol.
+   * - HTTPS: Supports only the HTTPS protocol.
    * 
    * @example
    * HTTP
@@ -240,7 +241,7 @@ export class GetDomainResponseBodyData extends $dara.Model {
   sans?: string;
   /**
    * @remarks
-   * The production resource information.
+   * The online resource information.
    */
   statisticsInfo?: GetDomainResponseBodyDataStatisticsInfo;
   /**
@@ -377,7 +378,7 @@ export class GetDomainResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to trace the API call chain.
+   * The request ID used to trace the API call chain.
    * 
    * @example
    * 3ACFC7A7-45A9-58CF-B2D5-765B60254695

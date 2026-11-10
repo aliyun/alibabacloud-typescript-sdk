@@ -39,12 +39,12 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   addresses?: string[];
   /**
    * @remarks
-   * The agent service configuration. This parameter is required when the sourceType is AGENT.
+   * The agent service configuration. This parameter is required when the source type is AGENT.
    */
   agentServiceConfig?: AgentServiceConfig;
   /**
    * @remarks
-   * The AI service configuration. This parameter is required when the sourceType is AI.
+   * The AI service configuration. This parameter is required when the source type is AI.
    */
   aiServiceConfig?: AiServiceConfig;
   /**
@@ -62,7 +62,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   expressType?: string;
   /**
    * @remarks
-   * The name of the service group. This parameter is required when the sourceType is MSE_NACOS.
+   * The name of the service group. This parameter is required when the source type is MSE_NACOS.
    * 
    * @example
    * DEFAULT_GROUP
@@ -78,7 +78,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   modelProviderId?: string;
   /**
    * @remarks
-   * The name of the service. This parameter is required when the sourceType is FC3.
+   * The name of the service. This parameter is required when the source type is FC3.
    * 
    * @example
    * user-service
@@ -87,9 +87,11 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   /**
    * @remarks
    * The namespace of the service:
-   * - When the sourceType is K8S, this parameter specifies the namespace where the Kubernetes service resides.
-   * - When the sourceType is MSE_NACOS, this parameter specifies the namespace in Nacos.
-   * This parameter is required when the sourceType is K8S or MSE_NACOS.
+   * 
+   * - If the source type is K8S, this parameter specifies the namespace where the Kubernetes service resides.
+   * - If the source type is MSE_NACOS, this parameter specifies the namespace in Nacos.
+   * 
+   * This parameter is required when the source type is K8S or MSE_NACOS.
    * 
    * @example
    * PUBLIC
@@ -113,7 +115,7 @@ export class CreateServiceRequestServiceConfigs extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The validation options, which are configuration options related to service validation.
+   * The validation options, which include configuration options related to service validation.
    */
   validationOptions?: CreateServiceRequestServiceConfigsValidationOptions;
   static names(): { [key: string]: string } {
@@ -199,14 +201,14 @@ export class CreateServiceRequest extends $dara.Model {
   /**
    * @remarks
    * The source of the service. Valid values:
-   * - MSE_NACOS: services in MSE Nacos.
-   * - K8S: services in Container Service for Kubernetes clusters.
-   * - VIP: fixed address services.
+   * - MSE_NACOS: Services in MSE Nacos.
+   * - K8S: Services in Kubernetes clusters of Container Service.
+   * - VIP: Fixed-address services.
    * - DNS: DNS domain name services.
-   * - FC3: services in Function Compute.
+   * - FC3: Services in Function Compute.
    * - SAE_K8S_SERVICE: SAE Kubernetes services.
    * - AI: AI services.
-   * - AGENT: agent services.
+   * - AGENT: Agent services.
    * 
    * @example
    * MSE_NACOS
@@ -217,7 +219,7 @@ export class CreateServiceRequest extends $dara.Model {
    * The client token.
    * 
    * @example
-   * xxx
+   * create-service-client-token-001
    */
   clientToken?: string;
   static names(): { [key: string]: string } {

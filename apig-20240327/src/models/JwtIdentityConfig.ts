@@ -13,7 +13,7 @@ export class JwtIdentityConfigClaimsToHeadersConfigs extends $dara.Model {
   claim?: string;
   /**
    * @remarks
-   * The HTTP header name after conversion.
+   * The converted HTTP header name.
    * 
    * @example
    * X-Consumer-Id
@@ -21,7 +21,7 @@ export class JwtIdentityConfigClaimsToHeadersConfigs extends $dara.Model {
   header?: string;
   /**
    * @remarks
-   * Specifies whether to overwrite an existing header with the same name.
+   * Specifies whether to override an existing header with the same name.
    * 
    * @example
    * true
@@ -95,7 +95,7 @@ export class JwtIdentityConfigJwtPayloadConfig extends $dara.Model {
 export class JwtIdentityConfigJwtTokenConfig extends $dara.Model {
   /**
    * @remarks
-   * The key configuration of the JWT.
+   * The JWT key configuration.
    * 
    * @example
    * Authorization
@@ -103,7 +103,7 @@ export class JwtIdentityConfigJwtTokenConfig extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * Indicates whether the request is passed through.
+   * Specifies whether to pass the token.
    * 
    * @example
    * true
@@ -111,7 +111,7 @@ export class JwtIdentityConfigJwtTokenConfig extends $dara.Model {
   pass?: boolean;
   /**
    * @remarks
-   * The position where the JWT is stored.
+   * The JWT storage location.
    * 
    * @example
    * HEADER
@@ -163,7 +163,7 @@ export class JwtIdentityConfig extends $dara.Model {
    * The JWKS configuration.
    * 
    * @example
-   * xxxx
+   * https://example.com/.well-known/jwks.json
    */
   jwks?: string;
   /**

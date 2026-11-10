@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * A04D0C5B-62C4-5A36-BECB-2032E25BDE80

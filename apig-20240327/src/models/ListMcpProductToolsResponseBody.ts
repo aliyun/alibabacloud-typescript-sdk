@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListMcpProductToolsResponseBodyDataTools extends $dara.Model {
   /**
    * @remarks
-   * The annotations of the tool. This is a map structure. The API definition declares it only as map<any> without specifying its members and usage.
+   * The annotation information of the tool. This field is a map structure. The API definition declares it only as map<any> without specifying its members and purposes.
+   * 
+   * @example
+   * {"readOnly":true}
    */
   annotations?: { [key: string]: any };
   /**
@@ -18,12 +21,18 @@ export class ListMcpProductToolsResponseBodyDataTools extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The input parameter schema of the tool. This is a map structure. The API definition declares it only as map<any> without specifying its members and constraints.
+   * The structure definition of the input parameters for the tool. This field is a map structure. The API definition declares it only as map<any> without specifying its members and constraints.
+   * 
+   * @example
+   * {"type":"object","properties":{"query":{"type":"string"}}}
    */
   inputSchema?: { [key: string]: any };
   /**
    * @remarks
-   * The metadata of the tool. This is a map structure. The API definition declares it only as map<any> without specifying its members and usage.
+   * The metadata of the tool. This field is a map structure. The API definition declares it only as map<any> without specifying its members and purposes.
+   * 
+   * @example
+   * {"version":"1.0.0"}
    */
   meta?: { [key: string]: any };
   /**
@@ -36,7 +45,10 @@ export class ListMcpProductToolsResponseBodyDataTools extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The output schema of the tool. This is a map structure. The API definition declares it only as map<any> without specifying its members and constraints.
+   * The structure definition of the output results for the tool. This field is a map structure. The API definition declares it only as map<any> without specifying its members and constraints.
+   * 
+   * @example
+   * {"type":"object","properties":{"result":{"type":"string"}}}
    */
   outputSchema?: { [key: string]: any };
   /**
