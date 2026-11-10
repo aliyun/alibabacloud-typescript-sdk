@@ -5104,6 +5104,171 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 发起智能助手会话运行（AG-UI 协议）
+   * 
+   * @remarks
+   * 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+   * 
+   * @param request - InvokeAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InvokeAgentResponse
+   */
+  async *invokeAgentWithSSE(request: $_model.InvokeAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.InvokeAgentResponse, any, unknown> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.context)) {
+      body["context"] = request.context;
+    }
+
+    if (!$dara.isNull(request.forwardedProps)) {
+      body["forwardedProps"] = request.forwardedProps;
+    }
+
+    if (!$dara.isNull(request.messages)) {
+      body["messages"] = request.messages;
+    }
+
+    if (!$dara.isNull(request.parentRunId)) {
+      body["parentRunId"] = request.parentRunId;
+    }
+
+    if (!$dara.isNull(request.resume)) {
+      body["resume"] = request.resume;
+    }
+
+    if (!$dara.isNull(request.runId)) {
+      body["runId"] = request.runId;
+    }
+
+    if (!$dara.isNull(request.state)) {
+      body["state"] = request.state;
+    }
+
+    if (!$dara.isNull(request.threadId)) {
+      body["threadId"] = request.threadId;
+    }
+
+    if (!$dara.isNull(request.tools)) {
+      body["tools"] = request.tools;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InvokeAgent",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/intelligence/invoke`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.InvokeAgentResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.InvokeAgentResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * 发起智能助手会话运行（AG-UI 协议）
+   * 
+   * @remarks
+   * 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+   * 
+   * @param request - InvokeAgentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns InvokeAgentResponse
+   */
+  async invokeAgentWithOptions(request: $_model.InvokeAgentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.InvokeAgentResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.context)) {
+      body["context"] = request.context;
+    }
+
+    if (!$dara.isNull(request.forwardedProps)) {
+      body["forwardedProps"] = request.forwardedProps;
+    }
+
+    if (!$dara.isNull(request.messages)) {
+      body["messages"] = request.messages;
+    }
+
+    if (!$dara.isNull(request.parentRunId)) {
+      body["parentRunId"] = request.parentRunId;
+    }
+
+    if (!$dara.isNull(request.resume)) {
+      body["resume"] = request.resume;
+    }
+
+    if (!$dara.isNull(request.runId)) {
+      body["runId"] = request.runId;
+    }
+
+    if (!$dara.isNull(request.state)) {
+      body["state"] = request.state;
+    }
+
+    if (!$dara.isNull(request.threadId)) {
+      body["threadId"] = request.threadId;
+    }
+
+    if (!$dara.isNull(request.tools)) {
+      body["tools"] = request.tools;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "InvokeAgent",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/intelligence/invoke`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.InvokeAgentResponse>(await this.callApi(params, req, runtime), new $_model.InvokeAgentResponse({}));
+  }
+
+  /**
+   * 发起智能助手会话运行（AG-UI 协议）
+   * 
+   * @remarks
+   * 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+   * 
+   * @param request - InvokeAgentRequest
+   * @returns InvokeAgentResponse
+   */
+  async invokeAgent(request: $_model.InvokeAgentRequest): Promise<$_model.InvokeAgentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.invokeAgentWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries a list of available components and retrieves detailed component information based on parameters such as the region, cluster type, cluster profile, and cluster version. The detailed information includes whether the component is managed, the schema of supported custom parameters, and compatible operating system architectures.
    * 
    * @param request - ListAddonsRequest
