@@ -19,7 +19,7 @@ export class ListApiKeysResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message. A value of success indicates a successful request.
+   * The response message. The value is success if the request succeeds.
    * 
    * @example
    * success
@@ -43,7 +43,7 @@ export class ListApiKeysResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7ADFF8D8-D4BA-5F79-AD49-DDABFEA59B6C

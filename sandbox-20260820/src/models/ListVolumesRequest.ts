@@ -13,7 +13,7 @@ export class ListVolumesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Leave this parameter empty for the first request. To query the next page, set this parameter to the nextToken value returned in the previous response.
+   * The pagination token. Leave this parameter empty for the first request. To retrieve the next page, set this parameter to the nextToken value returned in the previous response.
    * 
    * @example
    * qxGrXje86XMrYQ51aJMy
@@ -29,7 +29,11 @@ export class ListVolumesRequest extends $dara.Model {
   resourceGroupID?: string;
   /**
    * @remarks
-   * Filters by storage volume status. Valid values: CREATING (creating), AVAILABLE (available), ERROR (error), and DELETING (deleting).
+   * Filters by storage volume status. Valid values:
+   * - CREATING: The storage volume is being created.
+   * - AVAILABLE: The storage volume is available.
+   * - ERROR: The storage volume is in an error state.
+   * - DELETING: The storage volume is being deleted.
    * 
    * @example
    * CREATING
@@ -37,7 +41,7 @@ export class ListVolumesRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Filters by storage class. Valid values: OSS, AGENTIC_BUCKET, AGENTIC_FS, and JUICE_FS.
+   * Filters storage volumes by storage class. Valid values: OSS, AGENTIC_BUCKET, AGENTIC_FS, and JUICE_FS.
    * 
    * @example
    * OSS
@@ -61,7 +65,7 @@ export class ListVolumesRequest extends $dara.Model {
   userID?: string;
   /**
    * @remarks
-   * The name of the storage volume, which is unique within the team.
+   * The name of the storage volume. The name must be unique within the team.
    * 
    * @example
    * workspace

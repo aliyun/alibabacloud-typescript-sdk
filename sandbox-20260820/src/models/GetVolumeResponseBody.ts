@@ -14,7 +14,7 @@ export class GetVolumeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message. A value of success indicates that the request is successful.
+   * The response message. The value is success for a successful request.
    * 
    * @example
    * success

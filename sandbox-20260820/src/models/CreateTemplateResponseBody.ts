@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. The value is 200 if the request succeeds.
+   * The error code. The value is 200 if the request is successful.
    * 
    * @example
    * 200

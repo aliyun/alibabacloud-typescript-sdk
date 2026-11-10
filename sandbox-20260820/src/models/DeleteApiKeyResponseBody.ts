@@ -13,7 +13,7 @@ export class DeleteApiKeyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message. A value of success indicates success.
+   * The response message. The value is success if the request is successful.
    * 
    * @example
    * success

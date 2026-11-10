@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "Sandbox";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("sandbox", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -815,7 +819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query on the quota configurations for the current account.
+   * Performs a paging query to retrieve the quota configuration list for the current account.
    * 
    * @param request - ListQuotaRequest
    * @param headers - map
@@ -852,7 +856,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query on the quota configurations for the current account.
+   * Performs a paging query to retrieve the quota configuration list for the current account.
    * 
    * @param request - ListQuotaRequest
    * @returns ListQuotaResponse
@@ -925,7 +929,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query of template caches.
+   * Performs a paged query on template caches with paging support.
    * 
    * @param request - ListTemplateCacheRequest
    * @param headers - map
@@ -974,7 +978,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query of template caches.
+   * Performs a paged query on template caches with paging support.
    * 
    * @param request - ListTemplateCacheRequest
    * @returns ListTemplateCacheResponse
@@ -986,7 +990,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query on the template list by using paging.
+   * Performs a paged query to retrieve the template list with paging.
    * 
    * @param request - ListTemplatesRequest
    * @param headers - map
@@ -1027,7 +1031,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query on the template list by using paging.
+   * Performs a paged query to retrieve the template list with paging.
    * 
    * @param request - ListTemplatesRequest
    * @returns ListTemplatesResponse
@@ -1039,7 +1043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of storage volumes by using paging.
+   * Queries the list of storage volumes by using paging.
    * 
    * @param request - ListVolumesRequest
    * @param headers - map
@@ -1100,7 +1104,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of storage volumes by using paging.
+   * Queries the list of storage volumes by using paging.
    * 
    * @param request - ListVolumesRequest
    * @returns ListVolumesResponse

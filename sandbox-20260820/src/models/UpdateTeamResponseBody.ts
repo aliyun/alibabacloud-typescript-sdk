@@ -6,7 +6,7 @@ import { E2BTeam } from "./E2bteam";
 export class UpdateTeamResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates success.
+   * The response code. The value is 200 if the request is successful.
    * 
    * @example
    * 200

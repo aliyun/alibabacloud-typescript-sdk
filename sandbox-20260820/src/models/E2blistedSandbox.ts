@@ -53,7 +53,7 @@ export class E2BListedSandbox extends $dara.Model {
   cpuCount?: number;
   /**
    * @remarks
-   * The ephemeral disk specification.
+   * The ephemeral disk size.
    * 
    * @example
    * 10240
@@ -77,7 +77,7 @@ export class E2BListedSandbox extends $dara.Model {
   generation?: number;
   /**
    * @remarks
-   * The memory specification.
+   * The memory size.
    * 
    * @example
    * 2
@@ -109,6 +109,14 @@ export class E2BListedSandbox extends $dara.Model {
    * sbx-xxxx
    */
   sandboxID?: string;
+  /**
+   * @remarks
+   * The snapshot ID.
+   * 
+   * @example
+   * 0d66****b374
+   */
+  snapshotID?: string;
   /**
    * @remarks
    * The start time.
@@ -193,6 +201,7 @@ export class E2BListedSandbox extends $dara.Model {
       resourceGroupID: 'resourceGroupID',
       resourceTags: 'resourceTags',
       sandboxID: 'sandboxID',
+      snapshotID: 'snapshotID',
       startedAt: 'startedAt',
       state: 'state',
       teamID: 'teamID',
@@ -215,6 +224,7 @@ export class E2BListedSandbox extends $dara.Model {
       resourceGroupID: 'string',
       resourceTags: { 'type': 'array', 'itemType': E2BListedSandboxResourceTags },
       sandboxID: 'string',
+      snapshotID: 'string',
       startedAt: 'string',
       state: 'string',
       teamID: 'string',

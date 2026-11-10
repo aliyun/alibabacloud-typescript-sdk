@@ -29,7 +29,7 @@ export class ListApiKeysRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-acfmwxqyrgwabcd
@@ -37,9 +37,7 @@ export class ListApiKeysRequest extends $dara.Model {
   resourceGroupID?: string;
   /**
    * @remarks
-   * Filters API keys by status. Valid values:
-   * - active: Enabled.
-   * - inactive: Disabled.
+   * Filters API keys by status. Valid values: active (enabled), inactive (disabled).
    * 
    * @example
    * Success
@@ -47,7 +45,7 @@ export class ListApiKeysRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The ID of the team.
+   * The team ID.
    * 
    * @example
    * 70d1c834-0383-58d8-97ac-5336eb91abcd

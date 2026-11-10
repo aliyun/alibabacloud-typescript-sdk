@@ -15,7 +15,7 @@ export class ResetApiKeyResponseBody extends $dara.Model {
   apiKey?: ApiKey;
   /**
    * @remarks
-   * The response code. A value of 200 indicates success.
+   * The response code. The value is 200 if the request is successful.
    * 
    * @example
    * 200

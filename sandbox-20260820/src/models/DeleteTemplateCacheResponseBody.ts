@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTemplateCacheResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. 200 indicates success.
+   * The error code. A value of 200 indicates success.
    * 
    * @example
    * 200

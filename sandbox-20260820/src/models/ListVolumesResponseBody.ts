@@ -14,7 +14,7 @@ export class ListVolumesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The maximum number of entries per page used in this query.
+   * The maximum number of entries per page for the current query.
    * 
    * @example
    * 4
@@ -22,7 +22,7 @@ export class ListVolumesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response message. A value of success indicates a successful request.
+   * The response message. A value of success indicates that the request was successful.
    * 
    * @example
    * success

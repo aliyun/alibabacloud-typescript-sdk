@@ -16,7 +16,7 @@ export class InnerCreateSandboxInput extends $dara.Model {
   allowInternetAccess?: boolean;
   /**
    * @remarks
-   * Specifies whether to automatically pause after timeout.
+   * Specifies whether to automatically pause the sandbox after a timeout.
    * 
    * @example
    * true
@@ -24,7 +24,7 @@ export class InnerCreateSandboxInput extends $dara.Model {
   autoPause?: boolean;
   /**
    * @remarks
-   * Specifies whether to automatically resume.
+   * Specifies whether to automatically resume the sandbox.
    * 
    * @example
    * true
@@ -60,6 +60,22 @@ export class InnerCreateSandboxInput extends $dara.Model {
   secure?: boolean;
   /**
    * @remarks
+   * The snapshot ID.
+   * 
+   * @example
+   * 0d66****b374
+   */
+  snapshotID?: string;
+  /**
+   * @remarks
+   * The snapshot name.
+   * 
+   * @example
+   * name
+   */
+  snapshotName?: string;
+  /**
+   * @remarks
    * The unique identifier of the team.
    * 
    * @example
@@ -76,7 +92,7 @@ export class InnerCreateSandboxInput extends $dara.Model {
   templateID?: string;
   /**
    * @remarks
-   * The timeout period. Unit: seconds.
+   * The timeout period, in seconds.
    * 
    * @example
    * 180
@@ -97,6 +113,8 @@ export class InnerCreateSandboxInput extends $dara.Model {
       network: 'network',
       runtime: 'runtime',
       secure: 'secure',
+      snapshotID: 'snapshotID',
+      snapshotName: 'snapshotName',
       teamID: 'teamID',
       templateID: 'templateID',
       timeout: 'timeout',
@@ -114,6 +132,8 @@ export class InnerCreateSandboxInput extends $dara.Model {
       network: E2BNetwork,
       runtime: InnerSandboxRuntimeConfig,
       secure: 'boolean',
+      snapshotID: 'string',
+      snapshotName: 'string',
       teamID: 'string',
       templateID: 'string',
       timeout: 'number',

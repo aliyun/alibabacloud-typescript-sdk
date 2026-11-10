@@ -13,7 +13,7 @@ export class ListTemplatesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the nextToken value returned in the previous response.
+   * The pagination token. Set this parameter to the nextToken value returned in the response of the previous request.
    * 
    * @example
    * cae5f900-8b1d-4c0e-9c2a-1a2b3c4d5e6f

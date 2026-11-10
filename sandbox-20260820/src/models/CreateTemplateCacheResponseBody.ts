@@ -6,7 +6,7 @@ import { PublicTemplateCache } from "./PublicTemplateCache";
 export class CreateTemplateCacheResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. The value is 200 if the request is successful.
+   * The error code. A value of 200 indicates success.
    * 
    * @example
    * 200

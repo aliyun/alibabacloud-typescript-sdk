@@ -7,11 +7,17 @@ import { InnerSandboxVolumeMount } from "./InnerSandboxVolumeMount";
 
 export class E2BSandboxResourceTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * project
    */
   tagKey?: string;
   /**
+   * @remarks
+   * The tag value.
+   * 
    * @example
    * demo
    */
@@ -116,7 +122,7 @@ export class E2BSandbox extends $dara.Model {
   fcInstanceID?: string;
   /**
    * @remarks
-   * The Function Compute session ID corresponding to the sandbox, in UUID format. This ID is used to locate the underlying session when pausing, resuming, or deleting the sandbox.
+   * The Function Compute session ID of the sandbox, in UUID format. This ID is used to locate the underlying session when pausing, resuming, or deleting the sandbox.
    * 
    * @example
    * 3a7ecd09-****
@@ -156,6 +162,10 @@ export class E2BSandbox extends $dara.Model {
    * rg-****
    */
   resourceGroupID?: string;
+  /**
+   * @remarks
+   * The resource tags.
+   */
   resourceTags?: E2BSandboxResourceTags[];
   /**
    * @remarks
@@ -172,6 +182,14 @@ export class E2BSandbox extends $dara.Model {
   sandboxID?: string;
   /**
    * @remarks
+   * The snapshot ID.
+   * 
+   * @example
+   * 0d66****b374
+   */
+  snapshotID?: string;
+  /**
+   * @remarks
    * The start time.
    * 
    * @example
@@ -181,15 +199,15 @@ export class E2BSandbox extends $dara.Model {
   /**
    * @remarks
    * The sandbox state. Valid values:
-   * - running: The sandbox is running.
-   * - pausing: The sandbox is pausing.
-   * - paused: The sandbox is paused.
-   * - resuming: The sandbox is resuming.
-   * - pause_fail: The pause operation failed.
-   * - resume_fail: The resume operation failed.
-   * - snapshotting: A snapshot is being created.
-   * - snapshot_failed: Snapshot creation failed.
-   * - terminated: The sandbox is terminated.
+   * - running: Running.
+   * - pausing: Pausing.
+   * - paused: Paused.
+   * - resuming: Resuming.
+   * - pause_fail: Pause failed.
+   * - resume_fail: Resume failed.
+   * - snapshotting: Snapshotting.
+   * - snapshot_failed: Snapshot failed.
+   * - terminated: Terminated.
    * 
    * @example
    * running
@@ -213,7 +231,7 @@ export class E2BSandbox extends $dara.Model {
   teamName?: string;
   /**
    * @remarks
-   * The QoS version.
+   * The QoS edition.
    * 
    * @example
    * eco
@@ -269,6 +287,7 @@ export class E2BSandbox extends $dara.Model {
       resourceTags: 'resourceTags',
       runtime: 'runtime',
       sandboxID: 'sandboxID',
+      snapshotID: 'snapshotID',
       startedAt: 'startedAt',
       state: 'state',
       teamID: 'teamID',
@@ -302,6 +321,7 @@ export class E2BSandbox extends $dara.Model {
       resourceTags: { 'type': 'array', 'itemType': E2BSandboxResourceTags },
       runtime: InnerSandboxRuntimeConfig,
       sandboxID: 'string',
+      snapshotID: 'string',
       startedAt: 'string',
       state: 'string',
       teamID: 'string',

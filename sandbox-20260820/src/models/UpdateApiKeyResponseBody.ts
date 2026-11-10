@@ -33,7 +33,7 @@ export class UpdateApiKeyResponseBody extends $dara.Model {
   ipWhitelist?: IPConfig[];
   /**
    * @remarks
-   * The response message. A value of success indicates a successful request.
+   * The response message. The value is success if the request is successful.
    * 
    * @example
    * success
