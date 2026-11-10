@@ -479,6 +479,14 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
    * The collection of user properties.
    */
   userSetPropertiesModels?: FilterUsersResponseBodyUsersUserSetPropertiesModels[];
+  /**
+   * @remarks
+   * 用户来源的企业身份源类型，由后端根据企业身份源自定义列的显隐配置决定是否查询。取值：DINGDING（钉钉）、FEISHU（飞书）、WECHAT（企业微信）、ENTRA_ID（Microsoft Entra ID）。列隐藏、未配置或无企业身份源关联时为空。
+   * 
+   * @example
+   * FEISHU
+   */
+  userSource?: string;
   static names(): { [key: string]: string } {
     return {
       autoLockTime: 'AutoLockTime',
@@ -502,6 +510,7 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
       status: 'Status',
       supportLoginIdps: 'SupportLoginIdps',
       userSetPropertiesModels: 'UserSetPropertiesModels',
+      userSource: 'UserSource',
     };
   }
 
@@ -528,6 +537,7 @@ export class FilterUsersResponseBodyUsers extends $dara.Model {
       status: 'number',
       supportLoginIdps: { 'type': 'array', 'itemType': FilterUsersResponseBodyUsersSupportLoginIdps },
       userSetPropertiesModels: { 'type': 'array', 'itemType': FilterUsersResponseBodyUsersUserSetPropertiesModels },
+      userSource: 'string',
     };
   }
 

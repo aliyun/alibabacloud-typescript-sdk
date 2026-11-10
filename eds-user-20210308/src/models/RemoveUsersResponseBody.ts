@@ -55,15 +55,23 @@ export class RemoveUsersResponseBodyRemoveUsersResultFailedUsers extends $dara.M
 export class RemoveUsersResponseBodyRemoveUsersResult extends $dara.Model {
   /**
    * @remarks
-   * The information about the users that failed to be deleted.
+   * The collection of information about users that failed to be deleted.
    */
   failedUsers?: RemoveUsersResponseBodyRemoveUsersResultFailedUsers[];
+  /**
+   * @remarks
+   * The list of usernames of convenience users for which asynchronous deletion tasks already exist and have not finished. This request does not create duplicate deletion tasks for these users. The return of this field does not indicate that the users have been deleted.
+   */
   processingUsers?: string[];
   /**
    * @remarks
-   * The convenience users that are successfully deleted.
+   * The convenience users that were successfully deleted.
    */
   removedUsers?: string[];
+  /**
+   * @remarks
+   * The list of usernames of convenience users for which asynchronous deletion tasks have been successfully accepted and created in this request. Asynchronous deletion is used when UnbindDesktops is set to true. Task acceptance does not mean that the convenience users have been deleted.
+   */
   submittedUsers?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -107,7 +115,7 @@ export class RemoveUsersResponseBodyRemoveUsersResult extends $dara.Model {
 export class RemoveUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result of deleting the convenience users.
+   * The result of the convenience user deletion operation.
    */
   removeUsersResult?: RemoveUsersResponseBodyRemoveUsersResult;
   /**

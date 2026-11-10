@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateResourceGroupRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The agent subtype of the DesktopAgent resource group. Valid values: JVSClaw and HermesAgent.
+   * 
+   * @example
+   * JVSClaw
+   */
   agentType?: string;
   /**
    * @remarks
@@ -12,6 +19,10 @@ export class CreateResourceGroupRequest extends $dara.Model {
    * ENTERPRISE
    */
   businessChannel?: string;
+  /**
+   * @remarks
+   * Specifies whether to create an Alibaba Cloud resource group at the same time. This is supported only for resource groups in the Default category.
+   */
   enableAliyunResourceGroup?: boolean;
   /**
    * @remarks
@@ -23,7 +34,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   isResourceGroupWithOfficeSite?: number;
   /**
    * @remarks
-   * For Elastic Desktop Service (EDS) Enterprise Edition, set the value to `AliyunConsole`. Other platforms are not supported.
+   * For Elastic Desktop Service Enterprise Edition, set the value to `AliyunConsole`. Other platforms are not supported.
    * 
    * @example
    * AliyunConsole
@@ -31,7 +42,7 @@ export class CreateResourceGroupRequest extends $dara.Model {
   platform?: string;
   /**
    * @remarks
-   * The resource category.
+   * The category of the resource.
    * 
    * @example
    * Default

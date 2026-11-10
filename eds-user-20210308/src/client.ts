@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "eds-user";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("eds-user", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -404,6 +408,9 @@ export default class Client extends OpenApi {
   /**
    * Creates a resource group.
    * 
+   * @remarks
+   * The number of resource groups in each categorization is subject to the enterprise resource group quota limit. By default, a maximum of 20 resource groups are allowed for each categorization, but the quota limit configured for your enterprise may vary. If the quota limit is reached, the ExceedNumberQuota error is returned. You can invoke the DescribeResourceGroups operation to query the number of existing resource groups in the corresponding categorization.
+   * 
    * @param request - CreateResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateResourceGroupResponse
@@ -462,6 +469,9 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a resource group.
+   * 
+   * @remarks
+   * The number of resource groups in each categorization is subject to the enterprise resource group quota limit. By default, a maximum of 20 resource groups are allowed for each categorization, but the quota limit configured for your enterprise may vary. If the quota limit is reached, the ExceedNumberQuota error is returned. You can invoke the DescribeResourceGroups operation to query the number of existing resource groups in the corresponding categorization.
    * 
    * @param request - CreateResourceGroupRequest
    * @returns CreateResourceGroupResponse
@@ -1119,6 +1129,56 @@ export default class Client extends OpenApi {
   async describeUser(request: $_model.DescribeUserRequest): Promise<$_model.DescribeUserResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeUserWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries logon policies.
+   * 
+   * @param request - DescribeUserLoginPoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeUserLoginPoliciesResponse
+   */
+  async describeUserLoginPoliciesWithOptions(request: $_model.DescribeUserLoginPoliciesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeUserLoginPoliciesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.policyIds)) {
+      query["PolicyIds"] = request.policyIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeUserLoginPolicies",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeUserLoginPoliciesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeUserLoginPoliciesResponse({}));
+  }
+
+  /**
+   * Queries logon policies.
+   * 
+   * @param request - DescribeUserLoginPoliciesRequest
+   * @returns DescribeUserLoginPoliciesResponse
+   */
+  async describeUserLoginPolicies(request: $_model.DescribeUserLoginPoliciesRequest): Promise<$_model.DescribeUserLoginPoliciesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeUserLoginPoliciesWithOptions(request, runtime);
   }
 
   /**
@@ -1938,6 +1998,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies the logon policy.
+   * 
+   * @param request - ModifyUserPolicyBasicInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyUserPolicyBasicInfoResponse
+   */
+  async modifyUserPolicyBasicInfoWithOptions(request: $_model.ModifyUserPolicyBasicInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyUserPolicyBasicInfoResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.policyId)) {
+      query["PolicyId"] = request.policyId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyUserPolicyBasicInfo",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyUserPolicyBasicInfoResponse>(await this.callApi(params, req, runtime), new $_model.ModifyUserPolicyBasicInfoResponse({}));
+  }
+
+  /**
+   * Modifies the logon policy.
+   * 
+   * @param request - ModifyUserPolicyBasicInfoRequest
+   * @returns ModifyUserPolicyBasicInfoResponse
+   */
+  async modifyUserPolicyBasicInfo(request: $_model.ModifyUserPolicyBasicInfoRequest): Promise<$_model.ModifyUserPolicyBasicInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyUserPolicyBasicInfoWithOptions(request, runtime);
+  }
+
+  /**
    * Moves an organization.
    * 
    * @param request - MoveOrgRequest
@@ -2277,6 +2387,52 @@ export default class Client extends OpenApi {
   async removeProperty(request: $_model.RemovePropertyRequest): Promise<$_model.RemovePropertyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.removePropertyWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a logon policy.
+   * 
+   * @param request - RemoveUserLoginPoliciesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveUserLoginPoliciesResponse
+   */
+  async removeUserLoginPoliciesWithOptions(request: $_model.RemoveUserLoginPoliciesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveUserLoginPoliciesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.businessChannel)) {
+      query["BusinessChannel"] = request.businessChannel;
+    }
+
+    if (!$dara.isNull(request.policyIds)) {
+      query["PolicyIds"] = request.policyIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveUserLoginPolicies",
+      version: "2021-03-08",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveUserLoginPoliciesResponse>(await this.callApi(params, req, runtime), new $_model.RemoveUserLoginPoliciesResponse({}));
+  }
+
+  /**
+   * Deletes a logon policy.
+   * 
+   * @param request - RemoveUserLoginPoliciesRequest
+   * @returns RemoveUserLoginPoliciesResponse
+   */
+  async removeUserLoginPolicies(request: $_model.RemoveUserLoginPoliciesRequest): Promise<$_model.RemoveUserLoginPoliciesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeUserLoginPoliciesWithOptions(request, runtime);
   }
 
   /**
