@@ -13,16 +13,12 @@ export class CheckCertificateResponseBodyDevelopmentCertInfo extends $dara.Model
   exipreTime?: number;
   /**
    * @remarks
-   * The status of the certificate. Valid values:
+   * The certificate status. Valid values:
    * 
-   * - **EXPIRED**: The certificate is expired.
-   * 
+   * - **EXPIRED**: The certificate has expired.
    * - **NOT_CONFIGURED**: The certificate is not configured.
-   * 
-   * - **NO_PASSWORD**: The password for the certificate is not configured.
-   * 
+   * - **NO_PASSWORD**: The password is not configured.
    * - **OK**: The certificate is normal.
-   * 
    * - **REVOKED**: The certificate is revoked.
    * 
    * @example
@@ -63,16 +59,12 @@ export class CheckCertificateResponseBodyProductionCertInfo extends $dara.Model 
   exipreTime?: number;
   /**
    * @remarks
-   * The status of the certificate. Valid values:
+   * The certificate status. Valid values:
    * 
-   * - **EXPIRED**: The certificate is expired.
-   * 
+   * - **EXPIRED**: The certificate has expired.
    * - **NOT_CONFIGURED**: The certificate is not configured.
-   * 
-   * - **NO_PASSWORD**: The password for the certificate is not configured.
-   * 
+   * - **NO_PASSWORD**: The password is not configured.
    * - **OK**: The certificate is normal.
-   * 
    * - **REVOKED**: The certificate is revoked.
    * 
    * @example
@@ -105,10 +97,8 @@ export class CheckCertificateResponseBodyProductionCertInfo extends $dara.Model 
 export class CheckCertificateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the AppKey belongs to an Android app:
-   * 
+   * Indicates whether the AppKey represents an Android app:
    * - true
-   * 
    * - false
    * 
    * @example
@@ -117,15 +107,13 @@ export class CheckCertificateResponseBody extends $dara.Model {
   android?: boolean;
   /**
    * @remarks
-   * The information about the certificate for the development or sandbox environment.
+   * The certificate information for accessing the development or sandbox environment.
    */
   developmentCertInfo?: CheckCertificateResponseBodyDevelopmentCertInfo;
   /**
    * @remarks
-   * Indicates whether the AppKey belongs to an iOS app:
-   * 
+   * Indicates whether the AppKey represents an iOS app:
    * - true
-   * 
    * - false
    * 
    * @example
@@ -134,12 +122,12 @@ export class CheckCertificateResponseBody extends $dara.Model {
   IOS?: boolean;
   /**
    * @remarks
-   * The information about the certificate for the production environment.
+   * The certificate information for accessing the production environment.
    */
   productionCertInfo?: CheckCertificateResponseBodyProductionCertInfo;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9998B3CC-ED9E-4CB3-A8FB-DCC61296BFBC

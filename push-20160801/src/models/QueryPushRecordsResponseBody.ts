@@ -81,7 +81,7 @@ export class QueryPushRecordsResponseBodyPushInfos extends $dara.Model {
 export class QueryPushRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Deprecated. This parameter is no longer used.
+   * **[Deprecated]** This parameter is deprecated and no longer used.
    * 
    * @example
    * i91D***********kXIh/dVBEQ==
@@ -89,7 +89,7 @@ export class QueryPushRecordsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The current page number.
+   * The current page number of the push records.
    * 
    * @example
    * 11
