@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListStackConfigsResponseBodyConfigsComponentConfigComponent extends $dara.Model {
   /**
    * @remarks
-   * The component name.
+   * The name of the component.
    * 
    * @example
    * log
@@ -35,7 +35,7 @@ export class ListStackConfigsResponseBodyConfigsComponentConfigComponent extends
 export class ListStackConfigsResponseBodyConfigsComponentConfigOutput extends $dara.Model {
   /**
    * @remarks
-   * The output description.
+   * The description of the output.
    * 
    * @example
    * the name of sls project
@@ -43,7 +43,7 @@ export class ListStackConfigsResponseBodyConfigsComponentConfigOutput extends $d
   description?: string;
   /**
    * @remarks
-   * The output name.
+   * The name of the output.
    * 
    * @example
    * project_name
@@ -51,7 +51,7 @@ export class ListStackConfigsResponseBodyConfigsComponentConfigOutput extends $d
   name?: string;
   /**
    * @remarks
-   * The output type.
+   * The type of the output.
    * 
    * @example
    * string
@@ -59,7 +59,7 @@ export class ListStackConfigsResponseBodyConfigsComponentConfigOutput extends $d
   type?: string;
   /**
    * @remarks
-   * The output value.
+   * The value of the output.
    * 
    * @example
    * log-test
@@ -111,19 +111,25 @@ export class ListStackConfigsResponseBodyConfigsComponentConfigVariable extends 
   description?: string;
   /**
    * @remarks
-   * The variable name.
+   * The name of the variable.
    * 
    * @example
    * region
    */
   name?: string;
+  /**
+   * @remarks
+   * Specifies whether the parameter is sensitive. The values of sensitive parameters are invisible in both the console and API. Valid values:
+   * - true: The parameter is sensitive.
+   * - false: The parameter is not sensitive.
+   */
   sensitive?: boolean;
   /**
    * @remarks
-   * The variable type, such as:
+   * The type of the variable. Valid values:
    * - string
    * - list(string)
-   * - map(string).
+   * - map(string)
    * 
    * @example
    * string
@@ -211,7 +217,7 @@ export class ListStackConfigsResponseBodyConfigsComponentConfig extends $dara.Mo
 export class ListStackConfigsResponseBodyConfigsDeploymentConfigDeployment extends $dara.Model {
   /**
    * @remarks
-   * The deployment name.
+   * The name of the deployment.
    * 
    * @example
    * production
@@ -241,7 +247,7 @@ export class ListStackConfigsResponseBodyConfigsDeploymentConfigDeployment exten
 export class ListStackConfigsResponseBodyConfigsDeploymentConfigPublishOutput extends $dara.Model {
   /**
    * @remarks
-   * The output description.
+   * The description of the output.
    * 
    * @example
    * the name of sls project
@@ -249,7 +255,7 @@ export class ListStackConfigsResponseBodyConfigsDeploymentConfigPublishOutput ex
   description?: string;
   /**
    * @remarks
-   * The output name.
+   * The name of the output.
    * 
    * @example
    * project_name
@@ -257,7 +263,7 @@ export class ListStackConfigsResponseBodyConfigsDeploymentConfigPublishOutput ex
   name?: string;
   /**
    * @remarks
-   * The actual output value after the stack deployment is complete.
+   * The actual output value after the stack is deployed.
    * 
    * @example
    * log-test
@@ -265,7 +271,7 @@ export class ListStackConfigsResponseBodyConfigsDeploymentConfigPublishOutput ex
   result?: string;
   /**
    * @remarks
-   * The output type, such as string or list(string).
+   * The type of the output, such as string or list(string).
    * 
    * @example
    * string
@@ -273,7 +279,7 @@ export class ListStackConfigsResponseBodyConfigsDeploymentConfigPublishOutput ex
   type?: string;
   /**
    * @remarks
-   * The original definition of the output value. Currently, string or list(string) is supported. You can reference a deployment output in the format: deployment.{deploymentName}.{deploymentOutputName}.
+   * The original definition of the output value. Currently, string or list(string) is supported. You can reference deployment outputs in the format of deployment.{DeploymentName}.{DeploymentOutputName}.
    * 
    * @example
    * deployment.production.project_name
@@ -311,7 +317,7 @@ export class ListStackConfigsResponseBodyConfigsDeploymentConfigPublishOutput ex
 export class ListStackConfigsResponseBodyConfigsDeploymentConfigUpstreamInput extends $dara.Model {
   /**
    * @remarks
-   * The input name.
+   * The name of the input.
    * 
    * @example
    * network
@@ -319,7 +325,7 @@ export class ListStackConfigsResponseBodyConfigsDeploymentConfigUpstreamInput ex
   name?: string;
   /**
    * @remarks
-   * The input source. Currently, only an upstream stack can be specified. The format is {iacEndpoint}/{accountId}/{upstreamStackName}.
+   * The source of the input. Currently, only upstream stacks are supported. The format is {iacEndpoint}/{accountId}/{upstreamStackName}.
    * 
    * @example
    * IacEndpoint/156718871222312/stack_network
@@ -433,22 +439,26 @@ export class ListStackConfigsResponseBodyConfigs extends $dara.Model {
    * format_version: IaCService/2021-08-06\\ndescription: create ALB\\nupstream_input:\\n  - name: stack_network\\n ...
    */
   deploymentContent?: string;
+  /**
+   * @remarks
+   * The error message indicating that the configuration processing failed.
+   */
   failedReason?: string;
   /**
    * @remarks
-   * The status of the stack configuration.
+   * The status of the stack configuration. Valid values:
    * | Name | Description |
-   * |------|------|
-   * | Creating | Being created. |
-   * | Created | Created. |
-   * | Waiting | Waiting for deployment. |
-   * | Deploying | Being deployed. |
-   * | Deployed | Deployed. |
-   * | Errored | Deployment failed. |
-   * | Deleting | Being deleted. |
-   * | Deleted | Deleted. |
-   * | DeleteFailed | Deletion failed. |
-   * | DetectTriggered | Drift detection triggered. |.
+   * |------|-------------|
+   * | Creating | Creating |
+   * | Created | Created |
+   * | Waiting | Waiting for deployment |
+   * | Deploying | Deploying |
+   * | Deployed | Deployed |
+   * | Errored | Deployment failed |
+   * | Deleting | Deleting |
+   * | Deleted | Deleted |
+   * | DeleteFailed | Deletion failed |
+   * | DetectTriggered | Drift detection triggered successfully |
    * 
    * @example
    * Deployed
@@ -456,7 +466,7 @@ export class ListStackConfigsResponseBodyConfigs extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The configuration version number, such as v1. The initial value is v1. The version number increments each time the stack is updated or refreshed and the configuration changes.
+   * The version number of the configuration, such as v1. The initial value is v1. The version number increments each time the stack is updated or refreshed and the configuration is changed.
    * 
    * @example
    * v1
@@ -511,7 +521,7 @@ export class ListStackConfigsResponseBody extends $dara.Model {
   configs?: ListStackConfigsResponseBodyConfigs[];
   /**
    * @remarks
-   * The maximum number of records returned in this request.
+   * The maximum number of records returned for the current request.
    * 
    * @example
    * 24
@@ -519,7 +529,7 @@ export class ListStackConfigsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The position from which the current call starts reading. An empty value indicates that all data has been read.
+   * The token that indicates the position up to which the current call has read. An empty value indicates that all data has been read.
    * 
    * This parameter is required.
    * 
@@ -537,7 +547,7 @@ export class ListStackConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that match the request conditions. This parameter is optional and may not be returned by default.
+   * The total number of records that meet the request conditions. This parameter is optional and is not returned by default.
    * 
    * @example
    * 43

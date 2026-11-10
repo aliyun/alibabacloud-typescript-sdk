@@ -45,7 +45,7 @@ export class ListGroupResponseBodyGroupsTags extends $dara.Model {
 export class ListGroupResponseBodyGroups extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2022-09-14T07:19:13Z
@@ -186,7 +186,7 @@ export class ListGroupResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size, which indicates the maximum number of results returned per page.
+   * The page size, which specifies the maximum number of results returned per page.
    * 
    * @example
    * 10

@@ -85,7 +85,7 @@ export class UpdateModuleAttributeRequestTags extends $dara.Model {
 export class UpdateModuleAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotence token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
+   * The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
    * 
    * This parameter is required.
    * 
@@ -95,7 +95,7 @@ export class UpdateModuleAttributeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The template description. The description can be up to 256 characters in length.
+   * The description of the template. The description can be up to 256 characters in length.
    * 
    * @example
    * this is description
@@ -108,11 +108,11 @@ export class UpdateModuleAttributeRequest extends $dara.Model {
   groupInfo?: UpdateModuleAttributeRequestGroupInfo;
   /**
    * @remarks
-   * The template name. The name must meet the following requirements:
+   * The name of the template. The name must meet the following requirements:
    * 
    * - The name must be 2 to 128 characters in length.
    * - The name can contain letters, digits, Chinese characters, hyphens (-), underscores (_), and periods (.). It cannot start or end with a hyphen, underscore, or period.
-   * - The name must be unique among all templates within the current account.
+   * - The name must be unique among the template resources within the current account.
    * 
    * @example
    * ModuleName
@@ -120,11 +120,11 @@ export class UpdateModuleAttributeRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The path of the template source.
+   * The path value of the template source.
    * 
-   * - If the source is Registry, set this parameter to <workspace name>/<module name>:<module version>. Example: terraform-alicloud-modules/rds:1.0.0.
-   * - If the source is OSS, set this parameter to oss::<file URL>. The file must be a ZIP file. Example: oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip.
-   * - If the source is ExportTask, set this parameter to <export task ID>:<exported version>. Example: ex-3b6cb9fa4751afff298da723c24ac:v1.
+   * - If the source is Registry, the value is in the <Workspace name>/<Module name>:<Module version> format. Example: terraform-alicloud-modules/rds:1.0.0.
+   * - If the source is OSS, the value is in the oss::<File URL> format. The file must be a ZIP file. Example: oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip.
+   * - If the source is ExportTask, the value is in the <Export task ID>:<Exported version> format. Example: ex-3b6cb9fa4751afff298da723c24ac:v1.
    * 
    * @example
    * oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip
@@ -132,7 +132,7 @@ export class UpdateModuleAttributeRequest extends $dara.Model {
   sourcePath?: string;
   /**
    * @remarks
-   * The path of the state file that corresponds to the template. Currently, only OSS paths are supported. Set this parameter to oss::<OSS file path>/terraform.tfstate.
+   * The path value of the state file corresponding to the template. Currently, only OSS paths are supported. The value is in the oss::<OSS path of the file>/terraform.tfstate format.
    * 
    * @example
    * oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/terraform.tfstate
@@ -140,14 +140,14 @@ export class UpdateModuleAttributeRequest extends $dara.Model {
   statePath?: string;
   /**
    * @remarks
-   * The tags of the template.
+   * The list of tags for the template.
    */
   tags?: UpdateModuleAttributeRequestTags[];
   /**
    * @remarks
    * The version generation strategy. Valid values:
    * 
-   * - Manual: manually generate versions. This is the default value.
+   * - Manual: manually generated version (default).
    * - SourcePathUpdated: a new version is generated when sourcePath is modified.
    * 
    * @example

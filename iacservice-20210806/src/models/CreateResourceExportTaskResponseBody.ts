@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateResourceExportTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The resource export task ID.
+   * The ID of the resource export task.
    * 
    * @example
    * ex-4a1ec8b7003d24528326821be
@@ -13,7 +13,7 @@ export class CreateResourceExportTaskResponseBody extends $dara.Model {
   exportTaskId?: string;
   /**
    * @remarks
-   * The resource export version.
+   * The version of the resource export task.
    * 
    * @example
    * v1

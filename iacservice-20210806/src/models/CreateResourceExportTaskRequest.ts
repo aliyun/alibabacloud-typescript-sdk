@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateResourceExportTaskRequestExportToModule extends $dara.Model {
   /**
    * @remarks
-   * The module type in which the exported template is saved. Valid values:
+   * The module type for saving the exported template. Valid values:
    * 
    * - OSS: OSS.
    * - Registry: Terraform Registry.
@@ -16,7 +16,7 @@ export class CreateResourceExportTaskRequestExportToModule extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The path for saving the template content. Set this parameter when source is set to OSS.
+   * The path for saving the template content. This parameter is required when source is set to OSS.
    * 
    * @example
    * oss::https://iac-daily.oss-ap-southeast-1.aliyuncs.com/iacservice/vpc.zip
@@ -24,7 +24,7 @@ export class CreateResourceExportTaskRequestExportToModule extends $dara.Model {
   sourcePath?: string;
   /**
    * @remarks
-   * The path for saving the template state file. Set this parameter when source is set to OSS.
+   * The path for saving the state file of the template. This parameter is required when source is set to OSS.
    * 
    * @example
    * oss::https://iac-daily.oss-ap-southeast-1.aliyuncs.com/default/terraform.tfstate
@@ -60,13 +60,13 @@ export class CreateResourceExportTaskRequestIncludeRules extends $dara.Model {
    * @remarks
    * The name of the inclusion rule used when exporting resources. Valid values:
    * 
-   * - ResourceType: required. The resource type. Call **ListResourceTypes** to view the list of supported resources. Example: ALIYUN::VPC::VPC.
+   * - ResourceType: required. The resource type. You can call the **ListResourceTypes** operation to query the supported resources. Example: ALIYUN::VPC::VPC.
    * - RegionId: required. The region to which the resource belongs. Only one region is supported. Example: cn-chengdu.
    * - \\<ResourceType>:Id: the resource ID. Example: ALIYUN::VPC::VPC:Id.
    * - ResourceGroupId: the resource group ID. Example: rg-1234.
    * - ZoneId: the zone to which the resource belongs. Only one zone is supported. Example: cn-hangzhou-h.
    * 
-   * By default, multiple filter conditions are evaluated using the AND operator. A resource is considered a match only when all filter conditions are met.
+   * By default, multiple filter conditions are connected by the AND operator. A resource matches the filter conditions only when it meets all the conditions.
    * 
    * @example
    * RegionId
@@ -74,7 +74,7 @@ export class CreateResourceExportTaskRequestIncludeRules extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The list of values for the inclusion rule used when exporting resources.
+   * The list of values for an inclusion rule used when exporting a group of resources.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -106,12 +106,12 @@ export class CreateResourceExportTaskRequestIncludeRules extends $dara.Model {
 export class CreateResourceExportTaskRequestVariables extends $dara.Model {
   /**
    * @remarks
-   * The list of properties of the Terraform resource that corresponds to the resource type.
+   * The list of properties for the Terraform resource that corresponds to the resource type.
    */
   properties?: string[];
   /**
    * @remarks
-   * The resource type. Call **ListResourceTypes** to view the list of supported resources.
+   * The resource type. You can call the **ListResourceTypes** operation to query the supported resources.
    * 
    * @example
    * ALIYUN::VPC::VSwitch
@@ -146,7 +146,7 @@ export class CreateResourceExportTaskRequestVariables extends $dara.Model {
 export class CreateResourceExportTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
+   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. A UUID is recommended.
    * 
    * This parameter is required.
    * 
@@ -164,7 +164,7 @@ export class CreateResourceExportTaskRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Saves the exported template as a module. If this parameter is not specified, the template is automatically saved in the Registry.
+   * The configuration for saving the exported template as a module. If this parameter is not specified, the template is automatically saved in the registry.
    */
   exportToModule?: CreateResourceExportTaskRequestExportToModule;
   /**
@@ -177,8 +177,8 @@ export class CreateResourceExportTaskRequest extends $dara.Model {
    * The name of the resource export task. The name must meet the following requirements:
    * 
    * - The name must be 3 to 63 characters in length.
-   * - The name can contain letters, digits, Chinese characters, hyphens (-), underscores (_), and periods (.). The name cannot start or end with a hyphen, underscore, or period.
-   * - The name must be unique among resource export tasks within the current account.
+   * - The name can contain letters, digits, Chinese characters, hyphens (-), underscores (_), and periods (.). It cannot start or end with a hyphen, underscore, or period.
+   * - The name must be unique among the resource export tasks within the current account.
    * 
    * This parameter is required.
    * 
@@ -188,7 +188,7 @@ export class CreateResourceExportTaskRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The RAM role (1 to 128 characters). The system assumes this role to execute the template when a new job is triggered. This parameter is required when the job trigger method is not manual.
+   * The Resource Access Management (RAM) role. The role name must be 1 to 128 characters in length. The system assumes this role to execute the template when a new job is triggered. This parameter is required when the job is not triggered manually.
    * 
    * @example
    * role-name
@@ -196,7 +196,7 @@ export class CreateResourceExportTaskRequest extends $dara.Model {
   ramRole?: string;
   /**
    * @remarks
-   * The Terraform provider version. Call **ListTerraformProviderVersions** to view the list of supported versions. Default value: the latest version.
+   * The Terraform provider version. You can call the **ListTerraformProviderVersions** operation to query the supported versions. Default value: the latest version.
    * 
    * @example
    * 1.247.0
@@ -204,7 +204,7 @@ export class CreateResourceExportTaskRequest extends $dara.Model {
   terraformProviderVersion?: string;
   /**
    * @remarks
-   * The Terraform version. Call **ListAvailableTerraformVersions** to view the list of supported versions. Default value: 1.5.7.
+   * The Terraform version. You can call the **ListAvailableTerraformVersions** operation to query the supported versions. Default value: 1.5.7.
    * 
    * @example
    * 1.5.7
@@ -213,8 +213,9 @@ export class CreateResourceExportTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The trigger strategy. Valid values:
-   * - Auto: triggered when rules are modified or the trigger strategy is changed to Auto.
-   * - Manual: manually triggered.
+   * 
+   * - Auto: automatically triggers the task when a rule is modified or the trigger strategy is changed to Auto.
+   * - Manual: manually triggers the task.
    * 
    * Default value: Manual.
    * 
@@ -224,7 +225,7 @@ export class CreateResourceExportTaskRequest extends $dara.Model {
   triggerStrategy?: string;
   /**
    * @remarks
-   * The list of variables. Exported resource parameters are set as variables.
+   * The list of variables. The parameters of the exported resources are set as variables.
    */
   variables?: CreateResourceExportTaskRequestVariables[];
   static names(): { [key: string]: string } {

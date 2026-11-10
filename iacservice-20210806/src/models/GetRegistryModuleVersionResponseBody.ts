@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRegistryModuleVersionResponseBodyModuleVersion extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2025-02-08T02:22:16Z
@@ -13,7 +13,7 @@ export class GetRegistryModuleVersionResponseBodyModuleVersion extends $dara.Mod
   createTime?: string;
   /**
    * @remarks
-   * The product page URL.
+   * The URL of the details page.
    * 
    * @example
    * URL
@@ -29,7 +29,7 @@ export class GetRegistryModuleVersionResponseBodyModuleVersion extends $dara.Mod
   downloads?: string;
   /**
    * @remarks
-   * The template name.
+   * The name of the template.
    * 
    * @example
    * ecs-cluster
@@ -37,7 +37,7 @@ export class GetRegistryModuleVersionResponseBodyModuleVersion extends $dara.Mod
   moduleName?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * alibabacloud
@@ -46,7 +46,6 @@ export class GetRegistryModuleVersionResponseBodyModuleVersion extends $dara.Mod
   /**
    * @remarks
    * The provider type. Valid values:
-   * 
    * - alicloud: Alibaba Cloud.
    * 
    * @example
@@ -63,7 +62,7 @@ export class GetRegistryModuleVersionResponseBodyModuleVersion extends $dara.Mod
   source?: string;
   /**
    * @remarks
-   * The template source URL.
+   * The URL of the template source.
    * 
    * @example
    * URL

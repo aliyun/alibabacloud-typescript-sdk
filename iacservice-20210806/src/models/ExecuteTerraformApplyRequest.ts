@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteTerraformApplyRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. A UUID is recommended.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ExecuteTerraformApplyRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The Terraform code to execute. If the execution content has not changed, you can specify only stateId.
+   * The Terraform code to execute. If the code remains unchanged, you can specify only the stateId.
    * 
    * @example
    * terraform {
@@ -39,7 +39,7 @@ export class ExecuteTerraformApplyRequest extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The state file ID. If this parameter is specified, the Apply command continues execution based on the existing state file.
+   * The ID of the state file. If this parameter is not empty, the Apply command continues to run based on the existing state file.
    * 
    * @example
    * task-xxx

@@ -50,7 +50,7 @@ export class GetStackResponseBodyStack extends $dara.Model {
   config?: GetStackResponseBodyStackConfig;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2025-07-24T02:58:53Z
@@ -58,7 +58,7 @@ export class GetStackResponseBodyStack extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The current configuration version number, such as v1. The initial value is v1. The version number increments each time the stack is updated or refreshed and the configuration changes.
+   * The current configuration version number, such as v1. The initial value is v1. The version number is incremented each time the stack is updated or refreshed and the configuration is changed.
    * 
    * @example
    * v1
@@ -74,7 +74,7 @@ export class GetStackResponseBodyStack extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The stack name.
+   * The name of the stack.
    * 
    * @example
    * stack-test
@@ -90,9 +90,14 @@ export class GetStackResponseBodyStack extends $dara.Model {
   ramRole?: string;
   /**
    * @remarks
+   * Indicates whether to skip property constraint validation. Default value: false.
+   */
+  skipPropertyValidation?: boolean;
+  /**
+   * @remarks
    * The configuration source of the stack. Valid values:
-   * - OSS: a template stored in Object Storage Service (OSS).
-   * - IAC_SERVICE_MODULE: a template created in the automation service console.
+   * - OSS: templates from OSS.
+   * - IAC_SERVICE_MODULE: templates created in the IaC service module.
    * 
    * @example
    * OSS
@@ -100,9 +105,9 @@ export class GetStackResponseBodyStack extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The path value of the configuration source. The value cannot exceed 1000 characters.
-   * - If the source is OSS, the value is in the format of oss::<file link>. The file must be a ZIP file. Example: oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip.
-   * - If the source is IAC_SERVICE_MODULE, the value is a template ID. Example: mod-xxxxx.
+   * The path value of the configuration source, which can be up to 1,000 characters in length.
+   * - If the source is OSS, the value is in the oss::<file URL> format and must be a ZIP file. Example: oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip.
+   * - If the source is IAC_SERVICE_MODULE, the value is the template ID. Example: mod-xxxxx.
    * 
    * @example
    * oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip
@@ -110,7 +115,7 @@ export class GetStackResponseBodyStack extends $dara.Model {
   sourcePath?: string;
   /**
    * @remarks
-   * The unique identifier of the stack, which is generated after the stack is created.
+   * The unique identifier of the stack after creation.
    * 
    * @example
    * stack-as1d4vld898ppnqxxxxxx
@@ -118,19 +123,19 @@ export class GetStackResponseBodyStack extends $dara.Model {
   stackId?: string;
   /**
    * @remarks
-   * The stack status.
+   * The status of the stack.
    * | Name | Description |
-   * |------|------|
-   * | Creating | The stack is being created. |
-   * | Created | The stack is created. |
-   * | Waiting | The stack is waiting for deployment. |
-   * | Deploying | The stack is being deployed. |
-   * | Deployed | The stack is deployed. |
-   * | Errored | The deployment failed. |
-   * | Deleting | The stack is being deleted. |
-   * | Deleted | The stack is deleted. |
-   * | DeleteFailed | The deletion failed. |
-   * | DetectTriggered | Drift detection is triggered. |.
+   * |---|---|
+   * | Creating | Creating |
+   * | Created | Created |
+   * | Waiting | Waiting for deployment |
+   * | Deploying | Deploying |
+   * | Deployed | Deployed |
+   * | Errored | Deployment failed |
+   * | Deleting | Deleting |
+   * | Deleted | Deleted |
+   * | DeleteFailed | Deletion failed |
+   * | DetectTriggered | Drift detection triggered successfully |
    * 
    * @example
    * Deployed
@@ -138,7 +143,7 @@ export class GetStackResponseBodyStack extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The deployment trigger method of the stack. This field is not publicly available.
+   * The trigger method for stack deployment. This field is not available to the public. Valid values:
    * - SetUpdated: triggered by file changes.
    * 
    * @example
@@ -147,7 +152,7 @@ export class GetStackResponseBodyStack extends $dara.Model {
   triggerStrategy?: string;
   /**
    * @remarks
-   * The directory where the deployment and component configuration files of the stack are located. Set this parameter to / for the root directory.
+   * The directory where the deployment and component configuration files of the stack are located. The value is / for the root directory.
    * 
    * @example
    * /
@@ -161,6 +166,7 @@ export class GetStackResponseBodyStack extends $dara.Model {
       description: 'description',
       name: 'name',
       ramRole: 'ramRole',
+      skipPropertyValidation: 'skipPropertyValidation',
       source: 'source',
       sourcePath: 'sourcePath',
       stackId: 'stackId',
@@ -178,6 +184,7 @@ export class GetStackResponseBodyStack extends $dara.Model {
       description: 'string',
       name: 'string',
       ramRole: 'string',
+      skipPropertyValidation: 'boolean',
       source: 'string',
       sourcePath: 'string',
       stackId: 'string',

@@ -13,7 +13,7 @@ export class CreateStackResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The stack ID. This is the unique identifier of the stack after it is created.
+   * The stack ID, which is the unique identifier of the stack after it is created.
    * 
    * @example
    * stack-as1d4vld898ppnqbxxxxx

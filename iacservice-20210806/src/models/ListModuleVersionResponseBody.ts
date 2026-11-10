@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListModuleVersionResponseBodyVersions extends $dara.Model {
   /**
    * @remarks
-   * The time when the version was created.
+   * The time when the version was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2022-05-13T02:21:49Z
@@ -45,7 +45,7 @@ export class ListModuleVersionResponseBodyVersions extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The source path of the version.
+   * The path value of the version source.
    * 
    * @example
    * oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip
@@ -93,7 +93,7 @@ export class ListModuleVersionResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+   * The number of results to return per page. Default value: 20. Minimum value: 1. Maximum value: 100.
    * 
    * @example
    * 20
@@ -117,7 +117,7 @@ export class ListModuleVersionResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of version information.
+   * The list of versions.
    */
   versions?: ListModuleVersionResponseBodyVersions[];
   static names(): { [key: string]: string } {

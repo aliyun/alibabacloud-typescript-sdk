@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceExportTaskVersionsResponseBodyExportTasksExportToModule extends $dara.Model {
   /**
    * @remarks
-   * The module type to which the exported template is saved. Valid values:
-   * 
-   * - OSS: OSS
-   * - Registry: Terraform Registry
+   * The module type where the exported template is saved. Valid values:
+   * - OSS: OSS.
+   * - Registry: Terraform Registry.
    * 
    * @example
    * OSS
@@ -17,10 +16,8 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasksExportToModule
   /**
    * @remarks
    * The path where the template content is saved.
-   * 
-   * - If Source is set to Registry, the format is: "cloudregistry::iacservice//"
-   * 
-   * - If Source is set to OSS, the format is: "oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip"
+   * - If Source is set to Registry, the format is "cloudregistry::iacservice//".
+   * - If Source is set to OSS, the format is "oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip".
    * 
    * @example
    * oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip
@@ -28,7 +25,7 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasksExportToModule
   sourcePath?: string;
   /**
    * @remarks
-   * The path of the State file that corresponds to the module.
+   * The path of the state file corresponding to the module.
    * 
    * @example
    * /
@@ -62,15 +59,14 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasksExportToModule
 export class ListResourceExportTaskVersionsResponseBodyExportTasksIncludeRules extends $dara.Model {
   /**
    * @remarks
-   * The name of the include rule for resource export. Valid values:
+   * The name of the inclusion rule for resource export. Valid values:
+   * - ResourceType: Required. The resource type, such as ALIYUN::VPC::VPC.
+   * - RegionId: Required. The region to which the resource belongs. Only one region is supported, such as cn-chengdu.
+   * - <ResourceType>:Id: The resource ID, such as ALIYUN::VPC::VPC:Id.
+   * - ResourceGroupId: The resource group ID, such as rg-1234.
+   * - ZoneId: The zone to which the resource belongs. Only one zone is supported, such as cn-hangzhou-h.
    * 
-   * - ResourceType: required. The resource type. Example: ALIYUN::VPC::VPC.
-   * - RegionId: required. The region to which the resource belongs. Only one region is supported. Example: cn-chengdu.
-   * - \\<ResourceType>:Id: the resource ID. Example: ALIYUN::VPC::VPC:Id.
-   * - ResourceGroupId: the resource group ID. Example: rg-1234.
-   * - ZoneId: the zone to which the resource belongs. Only one zone is supported. Example: cn-hangzhou-h.
-   * 
-   * By default, multiple filter conditions are evaluated with an AND operator. A resource must match all filter conditions to be considered a match.
+   * By default, multiple filter conditions use the AND logical operator. A resource matches the filter conditions only if it meets all the conditions.
    * 
    * @example
    * RegionId
@@ -78,7 +74,7 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasksIncludeRules e
   key?: string;
   /**
    * @remarks
-   * The values of the include rule for resource export.
+   * The values of the inclusion rule for resource export.
    */
   values?: string[];
   static names(): { [key: string]: string } {
@@ -118,11 +114,9 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasksModules extend
   source?: string;
   /**
    * @remarks
-   * The download address of the exported template in the module.
-   * 
-   * - If Source is set to CloudRegistry, the format is: "cloudregistry::iacservice//"
-   * 
-   * - If Source is set to OSS, the format is: "oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip"
+   * The download URL in the module where the exported template is located.
+   * - If Source is set to CloudRegistry, the format is "cloudregistry::iacservice//".
+   * - If Source is set to OSS, the format is "oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip".
    * 
    * @example
    * oss::https://.oss-cn-hangzhou.aliyuncs.com/xxx.zip
@@ -164,7 +158,7 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasksModules extend
 export class ListResourceExportTaskVersionsResponseBodyExportTasksVariables extends $dara.Model {
   /**
    * @remarks
-   * The list of Terraform resource properties that correspond to the resource type.
+   * The list of properties for the Terraform resource corresponding to the resource type.
    */
   properties?: string[];
   /**
@@ -204,7 +198,7 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasksVariables exte
 export class ListResourceExportTaskVersionsResponseBodyExportTasks extends $dara.Model {
   /**
    * @remarks
-   * The creation time in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
+   * The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2025-05-11T02:18:50Z
@@ -236,7 +230,7 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasks extends $dara
   exportTaskId?: string;
   /**
    * @remarks
-   * The module to which the exported template is saved. If this parameter is not specified, the template is automatically saved in the Registry.
+   * Saves the exported template as a module. If this parameter is not specified, the template is automatically saved in the registry.
    */
   exportToModule?: ListResourceExportTaskVersionsResponseBodyExportTasksExportToModule;
   /**
@@ -257,13 +251,20 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasks extends $dara
   failedReason?: string;
   /**
    * @remarks
-   * The list of include rules used when exporting resources.
+   * The list of inclusion rules used when exporting resources.
    */
   includeRules?: ListResourceExportTaskVersionsResponseBodyExportTasksIncludeRules[];
+  /**
+   * @remarks
+   * The ID of the managed task created by this resource export version.
+   * 
+   * @example
+   * task-433aead756057fffeaba4828f5195
+   */
   managedTaskId?: string;
   /**
    * @remarks
-   * The module configurations of the exported resources.
+   * The module configurations after the resources are exported.
    */
   modules?: ListResourceExportTaskVersionsResponseBodyExportTasksModules[];
   /**
@@ -276,12 +277,12 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasks extends $dara
   name?: string;
   /**
    * @remarks
-   * The version export status. Valid values:
-   * - Queue: queued
-   * - Pending: preparing to run
-   * - Success: succeeded
-   * - Errored: failed
-   * - Canceled: canceled
+   * The export status of the version. Valid values:
+   * - Queue: Queued.
+   * - Pending: Ready to run.
+   * - Success: Succeeded.
+   * - Errored: Failed.
+   * - Canceled: Canceled.
    * 
    * @example
    * Running
@@ -289,7 +290,7 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasks extends $dara
   status?: string;
   /**
    * @remarks
-   * The Terraform Provider version.
+   * The Terraform provider version.
    * 
    * @example
    * 1.206.0
@@ -297,7 +298,7 @@ export class ListResourceExportTaskVersionsResponseBodyExportTasks extends $dara
   terraformProviderVersion?: string;
   /**
    * @remarks
-   * The list of variables. Parameters of exported resources are set as variables.
+   * The list of variables. The parameters after the resources are exported are set as variables.
    */
   variables?: ListResourceExportTaskVersionsResponseBodyExportTasksVariables[];
   static names(): { [key: string]: string } {
@@ -375,7 +376,7 @@ export class ListResourceExportTaskVersionsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+   * The number of results to return per page. Default value: 20. Minimum value: 1. Maximum value: 100.
    * 
    * @example
    * 20

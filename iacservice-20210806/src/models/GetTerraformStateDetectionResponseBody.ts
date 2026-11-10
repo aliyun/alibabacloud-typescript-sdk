@@ -21,7 +21,7 @@ export class GetTerraformStateDetectionResponseBodyJobChangedResourcesAttributeC
   remoteValue?: string;
   /**
    * @remarks
-   * The template-declared value.
+   * The value declared in the template.
    * 
    * @example
    * test_hcl
@@ -84,7 +84,7 @@ export class GetTerraformStateDetectionResponseBodyJobChangedResources extends $
   resourceId?: string;
   /**
    * @remarks
-   * The identifier of the resource in the Terraform template. For a Stack task, the value is in the format of <$componetName>:<$resourceName>. For a Task task, the value is <$resourceName>.
+   * The identifier of the resource in the Terraform template. The format is <$componetName>:<$resourceName> for stack tasks and <$resourceName> for tasks.
    * 
    * @example
    * vpc:alicloud_vpc.default
@@ -196,7 +196,7 @@ export class GetTerraformStateDetectionResponseBodyJobDriftedResources extends $
   resourceId?: string;
   /**
    * @remarks
-   * The identifier of the resource in the Terraform template. For a Stack task, the value is in the format of <$componetName>:<$resourceName>. For a Task task, the value is <$resourceName>.
+   * The identifier of the resource in the Terraform template. The format is <$componetName>:<$resourceName> for stack tasks and <$resourceName> for tasks.
    * 
    * @example
    * vpc:alicloud_vpc.default2
@@ -253,7 +253,7 @@ export class GetTerraformStateDetectionResponseBodyJob extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The task identifier. For a Stack task, the value is in the format of <$stackId>:<$deploymentName>. For a Task task, the value is <$TaskId>.
+   * The job identifier. The format is <$stackId>:<$deploymentName> for stack tasks and <$TaskId> for tasks.
    * 
    * @example
    * stack-as181axxxxxx:development_xxxx
@@ -262,13 +262,12 @@ export class GetTerraformStateDetectionResponseBodyJob extends $dara.Model {
   /**
    * @remarks
    * The job status. Valid values:
-   * 
-   * - Pending: the initial status after the job is created.
-   * - PlanQueued: the job is queued because no containers are available after the job is created.
-   * - Planning: the resource job is in the Plan execution phase.
-   * - Planned: the resource job has completed the Plan execution.
-   * - PlannedAndFinished: no differences are found after the Plan execution is complete. The job is in a final status.
-   * - Errored: the job execution encountered an error and entered a final status.
+   * - Pending: The initial state after the job is created.
+   * - PlanQueued: The job is queued and waiting because no containers are available after creation.
+   * - Planning: The resource job is in the plan execution phase.
+   * - Planned: The resource job has completed plan execution.
+   * - PlannedAndFinished: The job is in the final state because no differences are found after plan execution.
+   * - Errored: The job has entered the final state due to an execution error.
    * 
    * @example
    * Errored
@@ -276,7 +275,7 @@ export class GetTerraformStateDetectionResponseBodyJob extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task type.
+   * The job type.
    * 
    * @example
    * Stack

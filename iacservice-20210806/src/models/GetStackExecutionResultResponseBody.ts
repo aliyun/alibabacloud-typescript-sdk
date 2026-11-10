@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStackExecutionResultResponseBodyStackResultsDeployments extends $dara.Model {
   /**
    * @remarks
-   * The deployment name.
+   * The name of the deployment.
    * 
    * @example
    * prod
@@ -21,7 +21,7 @@ export class GetStackExecutionResultResponseBodyStackResultsDeployments extends 
   jobResult?: string;
   /**
    * @remarks
-   * The deployment status.
+   * The status of the deployment.
    * 
    * @example
    * Applied
@@ -29,7 +29,7 @@ export class GetStackExecutionResultResponseBodyStackResultsDeployments extends 
   status?: string;
   /**
    * @remarks
-   * The URL for viewing deployment details.
+   * The URL to view the deployment details.
    * 
    * @example
    * https://iacnext.console.aliyun.com/stack/stack-al181av2bloah5s53hacbp4/details?deploymentName=production&deploymentNo=6&configVersion=v1
@@ -65,12 +65,12 @@ export class GetStackExecutionResultResponseBodyStackResultsDeployments extends 
 export class GetStackExecutionResultResponseBodyStackResults extends $dara.Model {
   /**
    * @remarks
-   * The deployment results of the Stack.
+   * The deployment results of the stack.
    */
   deployments?: GetStackExecutionResultResponseBodyStackResultsDeployments[];
   /**
    * @remarks
-   * Error code of the stack execution
+   * The error code for the stack execution.
    */
   errorCode?: string;
   /**
@@ -83,7 +83,7 @@ export class GetStackExecutionResultResponseBodyStackResults extends $dara.Model
   message?: string;
   /**
    * @remarks
-   * The unique identifier of the Stack.
+   * The unique ID of the stack.
    * 
    * @example
    * stack-al181av2bloah5s53hacbp4
@@ -91,7 +91,7 @@ export class GetStackExecutionResultResponseBodyStackResults extends $dara.Model
   stackId?: string;
   /**
    * @remarks
-   * The Stack name.
+   * The name of the stack.
    * 
    * @example
    * stack-demo
@@ -99,7 +99,7 @@ export class GetStackExecutionResultResponseBodyStackResults extends $dara.Model
   stackName?: string;
   /**
    * @remarks
-   * The execution status of the Stack.
+   * The execution status of the stack.
    * 
    * @example
    * Deployed
@@ -150,7 +150,7 @@ export class GetStackExecutionResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The execution results of the triggered Stacks.
+   * The execution results of the triggered stack.
    */
   stackResults?: GetStackExecutionResultResponseBodyStackResults[];
   /**
@@ -163,10 +163,7 @@ export class GetStackExecutionResultResponseBody extends $dara.Model {
   triggerId?: string;
   /**
    * @remarks
-   * The overall execution status of this trigger task. Valid values:
-   * - Waiting: Processing.
-   * - Success: Processing succeeded.
-   * - Errored: Processing failed.
+   * The overall execution status of the current trigger task. Valid values: Waiting (Processing), Success (Succeeded), and Errored (Failed).
    * 
    * @example
    * Success

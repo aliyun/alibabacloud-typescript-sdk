@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteStackRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to synchronously clean up resources managed by the stack. By default, resources are not cleaned up.
+   * Specifies whether to synchronously clean up the resources managed by the stack. Default value: false.
    * 
    * @example
    * true

@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateRegistryModuleAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The access permission. Valid values:
-   * 
-   * - private: private.
+   * The permissions. Valid values: private: Private.
    * 
    * @example
    * private

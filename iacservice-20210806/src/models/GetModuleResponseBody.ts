@@ -105,7 +105,7 @@ export class GetModuleResponseBodyModuleTags extends $dara.Model {
 export class GetModuleResponseBodyModule extends $dara.Model {
   /**
    * @remarks
-   * The time when the template was created.
+   * The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2022-09-06T06:11:27Z
@@ -158,14 +158,14 @@ export class GetModuleResponseBodyModule extends $dara.Model {
   outputPath?: string;
   /**
    * @remarks
-   * The template source. Valid values:
+   * The source of the template. Valid values:
    * 
-   * - OSS: Imported from OSS.
-   * - Registry: Created from a template in the template center.
-   * - ExportTask: Exported from a resource export task.
-   * - Upload: Uploaded as a file.
-   * - Shared: Cloned from a shared template.
-   * - Editor: Created by using the online editor.
+   * - OSS: imported from OSS
+   * - Registry: created by using a template from the template center
+   * - ExportTask: referenced from a template exported by a resource export task
+   * - Upload: uploaded as a file
+   * - Shared: cloned from a shared template
+   * - Editor: edited online
    * 
    * @example
    * OSS
@@ -173,11 +173,11 @@ export class GetModuleResponseBodyModule extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The source path of the template.
+   * The path value of the template source.
    * 
-   * - If the source is Registry, the value is in the format of <workspace name>/<module name>:<module version>, such as terraform-alicloud-modules/rds:1.0.0.
-   * - If the source is OSS, the value is in the format of oss::<file link>, such as oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip.
-   * - If the source is ExportTask, the value is in the format of <export task ID>:<exported version>, such as ex-3b6cb9fa4751afff298da723c24ac:v1.
+   * - If the source is Registry, the value is in the <Workspace name>/<Module name>:<Module version> format. Example: terraform-alicloud-modules/rds:1.0.0.
+   * - If the source is OSS, the value is in the oss::<File URL> format. Example: oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip.
+   * - If the source is ExportTask, the value is in the <Export task ID>:<Exported version> format. Example: ex-3b6cb9fa4751afff298da723c24ac:v1.
    * 
    * @example
    * oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip
@@ -185,7 +185,7 @@ export class GetModuleResponseBodyModule extends $dara.Model {
   sourcePath?: string;
   /**
    * @remarks
-   * The path of the state file that corresponds to the template. Currently, only OSS paths are supported. The value is in the format of oss::<file OSS path>/terraform.tfstate.
+   * The path of the state file corresponding to the template. This parameter is applicable only to OSS paths. The value is in the oss::<OSS path of the file>/terraform.tfstate format.
    * 
    * @example
    * oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/terraform.tfstate
@@ -193,12 +193,11 @@ export class GetModuleResponseBodyModule extends $dara.Model {
   statePath?: string;
   /**
    * @remarks
-   * The template status. Valid values:
+   * The status of the template. Valid values:
    * 
    * - Creating: The template is being created.
    * - Created: The template is created.
-   * 
-   * After the template is created, you can publish a version.
+   * You can publish a version after the template is created.
    * 
    * @example
    * Created
@@ -206,15 +205,15 @@ export class GetModuleResponseBodyModule extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tags of the template.
+   * The list of tags for the template.
    */
   tags?: GetModuleResponseBodyModuleTags[];
   /**
    * @remarks
    * The version generation strategy. Valid values:
    * 
-   * - Manual: Versions are generated manually. This is the default value.
-   * - SourcePathUpdated: A new version is generated when the sourcePath is modified.
+   * - Manual: manually generates versions (default)
+   * - SourcePathUpdated: generates a new version when sourcePath is modified
    * 
    * @example
    * Manual

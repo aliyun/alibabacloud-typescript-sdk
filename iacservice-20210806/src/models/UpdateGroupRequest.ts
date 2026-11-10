@@ -47,8 +47,8 @@ export class UpdateGroupRequestTriggerConfig extends $dara.Model {
    * @remarks
    * The trigger strategy. Valid values:
    * 
-   * - ProviderNewVersion: triggered when a new Provider version is released.
-   * - Cron: triggered on a schedule.
+   * - ProviderNewVersion: Triggered when a new provider version is released.
+   * - Cron: Triggered on a schedule.
    * 
    * @example
    * Cron
@@ -56,7 +56,7 @@ export class UpdateGroupRequestTriggerConfig extends $dara.Model {
   triggerStrategy?: string;
   /**
    * @remarks
-   * The policy value that must be maintained for scheduled triggers. This value is a cron expression.
+   * The policy value for scheduled triggers. Specify a cron expression.
    * 
    * @example
    * 0 0 * * * ？
@@ -96,7 +96,7 @@ export class UpdateGroupRequest extends $dara.Model {
   autoDestroy?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the automatic trigger policy. Valid values: - **true**: enabled. - **false**: disabled.
+   * Specifies whether to enable the automatic trigger policy. Valid values: - **true**: Enabled. - **false**: Disabled.
    * 
    * @example
    * true
@@ -104,7 +104,7 @@ export class UpdateGroupRequest extends $dara.Model {
   autoTrigger?: boolean;
   /**
    * @remarks
-   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
+   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. A UUID is recommended.
    * 
    * This parameter is required.
    * 
@@ -114,7 +114,7 @@ export class UpdateGroupRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The group description.
+   * The description of the group.
    * 
    * @example
    * test
@@ -122,7 +122,7 @@ export class UpdateGroupRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to forcibly use the group configuration.
+   * Specifies whether to force the use of the group configuration.
    * 
    * @example
    * true
@@ -130,7 +130,7 @@ export class UpdateGroupRequest extends $dara.Model {
   forcedSetting?: boolean;
   /**
    * @remarks
-   * The group name.
+   * The name of the group.
    * 
    * @example
    * test
@@ -148,7 +148,7 @@ export class UpdateGroupRequest extends $dara.Model {
   notifyOperationTypes?: string[];
   /**
    * @remarks
-   * The RAM role (1-128 characters). The system assumes this role to execute the template when a new job is triggered. This parameter is required when the job trigger method is not manual.
+   * The RAM role. Length: 1 to 128 characters. The system assumes this role to execute the template when a new job is triggered. This parameter is required when the job trigger method is not manual.
    * 
    * @example
    * {}
@@ -169,7 +169,7 @@ export class UpdateGroupRequest extends $dara.Model {
   reportExportPath?: string;
   /**
    * @remarks
-   * The Terraform Provider version. Select a Terraform Provider version. Nodes in the group execute plans based on the specified Terraform Provider version. The version configured on a node takes higher priority.
+   * The Terraform provider version. Select a Terraform provider version. Tasks in the group will execute plans based on this version. The version configured on the task takes precedence.
    * 
    * @example
    * 1.183.0
@@ -177,15 +177,15 @@ export class UpdateGroupRequest extends $dara.Model {
   terraformProviderVersion?: string;
   /**
    * @remarks
-   * The trigger policy. This parameter cannot be empty when autoTrigger is set to true.
+   * The trigger policy. This parameter is required when autoTrigger is set to true.
    */
   triggerConfig?: UpdateGroupRequestTriggerConfig[];
   /**
    * @remarks
-   * The resource type that triggers execution. Valid values:
+   * The resource type for trigger execution. Valid values:
    * 
-   * - Task: regular node.
-   * - SceneTestingTask: scenario-based testing node.
+   * - Task: Regular task.
+   * - SceneTestingTask: Scenario-based testing task.
    */
   triggerResourceType?: string[];
   static names(): { [key: string]: string } {

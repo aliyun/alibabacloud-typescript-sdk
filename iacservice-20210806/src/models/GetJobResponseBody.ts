@@ -5,16 +5,25 @@ import { JobStatusDetailValue } from "./JobStatusDetailValue";
 
 export class GetJobResponseBodyJobAllParameters extends $dara.Model {
   /**
+   * @remarks
+   * The parameter name.
+   * 
    * @example
    * regionId
    */
   name?: string;
   /**
+   * @remarks
+   * Specifies whether the parameter is confidential. Confidential parameters are hidden in API responses and console displays, and are stored in an encrypted manner.
+   * 
    * @example
    * false
    */
   secret?: boolean;
   /**
+   * @remarks
+   * The parameter value.
+   * 
    * @example
    * cn-zhangjiakou
    */
@@ -48,12 +57,11 @@ export class GetJobResponseBodyJobAssertCheckDetail extends $dara.Model {
   /**
    * @remarks
    * The comparison operator. Valid values:
-   * 
-   * - eq: equal to
-   * - n_eq: not equal to
-   * - ctn: contains
-   * - n_ctn: does not contain
-   * - regex: regular expression match.
+   * - eq: Equal to.
+   * - n_eq: Not equal to.
+   * - ctn: Contains.
+   * - n_ctn: Does not contain.
+   * - regex: Regular expression match.
    * 
    * @example
    * eq
@@ -64,12 +72,12 @@ export class GetJobResponseBodyJobAssertCheckDetail extends $dara.Model {
    * The expected value.
    * 
    * @example
-   * 期望值
+   * Expected value
    */
   expectedValue?: string;
   /**
    * @remarks
-   * Indicates whether the assertion check is passed.
+   * Indicates whether the check is passed.
    * 
    * @example
    * true
@@ -78,10 +86,9 @@ export class GetJobResponseBodyJobAssertCheckDetail extends $dara.Model {
   /**
    * @remarks
    * The assertion type. Valid values:
-   * 
-   * - state: task status
-   * - result: execution result
-   * - resourceChange: resource change.
+   * - state: Task status.
+   * - result: Execution result.
+   * - resourceChange: Resource change.
    * 
    * @example
    * result
@@ -125,7 +132,7 @@ export class GetJobResponseBodyJobConfig extends $dara.Model {
   autoApply?: boolean;
   /**
    * @remarks
-   * Specifies whether compliance pre-check is performed for this job.
+   * Specifies whether this job performs a compliance pre-check.
    * 
    * @example
    * true
@@ -149,7 +156,7 @@ export class GetJobResponseBodyJobConfig extends $dara.Model {
   moduleVersion?: string;
   /**
    * @remarks
-   * The resource change content.
+   * The resource changes.
    * 
    * @example
    * +0 ~0 -0
@@ -195,10 +202,14 @@ export class GetJobResponseBodyJobConfig extends $dara.Model {
 }
 
 export class GetJobResponseBodyJob extends $dara.Model {
+  /**
+   * @remarks
+   * The full set of job parameters, including sensitive and non-sensitive parameters.
+   */
   allParameters?: GetJobResponseBodyJobAllParameters[];
   /**
    * @remarks
-   * The list of assertion checks. This parameter applies to scenario-based testing tasks.
+   * The list of assertion checks, applicable to scenario-based testing tasks.
    */
   assertCheckDetail?: GetJobResponseBodyJobAssertCheckDetail[];
   /**
@@ -208,7 +219,7 @@ export class GetJobResponseBodyJob extends $dara.Model {
   config?: GetJobResponseBodyJobConfig;
   /**
    * @remarks
-   * The time when the job was created.
+   * The job creation time.
    * 
    * @example
    * 2022-08-31T03:38:40Z
@@ -241,9 +252,8 @@ export class GetJobResponseBodyJob extends $dara.Model {
   /**
    * @remarks
    * The execution type. Valid values:
-   * 
-   * - Manual: manual execution (default)
-   * - Auto: automatic execution.
+   * - Manual: Manual execution (default).
+   * - Auto: Automatic execution.
    * 
    * @example
    * Manual
@@ -275,17 +285,12 @@ export class GetJobResponseBodyJob extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The run logs. The following log content (key values) is currently supported:
-   * 
+   * The runtime logs. Currently, the following log content (that is, the values of the key) can be returned:
    * - tf-init.run.error.log
-   *  
    * - tf-init.plan.log
-   * 
    * - tf-plan.run.log
-   * 
    * - tf-apply.run.log
-   *  
-   * - tf-init.apply.log.
+   * - tf-init.apply.log
    */
   logFile?: { [key: string]: any };
   /**
@@ -335,28 +340,27 @@ export class GetJobResponseBodyJob extends $dara.Model {
   outputJsonPlan?: any;
   /**
    * @remarks
-   * The collection of parameters.
+   * The parameter collection.
    */
   parameters?: { [key: string]: string };
   /**
    * @remarks
    * The job status. Valid values:
-   * 
-   * - Pending: the initial status after the job is created.
-   * - PlanQueued: the job is queued because no available worker is ready after the job is created.
-   * - Planning: the resource job is in the Plan phase.
-   * - ConfigProactiveInProgress: compliance pre-check is in progress. The compliance pre-check feature must be enabled for the account.
-   * - ConfigProactiveSuccess: compliance pre-check succeeded. The compliance pre-check feature must be enabled for the account.
-   * - Planned: the resource job has completed the Plan phase.
-   * - PlannedAndFinished: no diff is found after the Plan phase is completed. This is a final status.
-   * - Confirmed: the resource job is waiting for confirmation after the Plan phase is completed.
-   * - ApplyQueued: the job is queued because no available worker is ready during execution.
-   * - Applying: the resource job is in the Apply phase.
-   * - Applied: the resource job has completed the Apply phase. This is a final status.
-   * - Errored: the job execution encountered an error. This is a final status.
-   * - Canceled: the job execution was canceled. This is a final status.
-   * - Discarded: the plan of the resource job was discarded. This is a final status.
-   * - ConfigProactiveFailure: compliance pre-check failed. The compliance pre-check feature must be enabled for the account.
+   * - Pending: The initial state after the job is created.
+   * - PlanQueued: The state where the job is queued and waiting because no workflow is available after creation.
+   * - Planning: The state where the job is in the Plan phase.
+   * - ConfigProactiveInProgress: The state where the compliance pre-check is in progress. This requires the compliance pre-check feature to be enabled for the account.
+   * - ConfigProactiveSuccess: The state where the compliance pre-check is successful. This requires the compliance pre-check feature to be enabled for the account.
+   * - Planned: The state where the job has completed the Plan phase.
+   * - PlannedAndFinished: The final state where no differences are found after the Plan phase is completed.
+   * - Confirmed: The state where the job is waiting for confirmation after the Plan phase is completed.
+   * - ApplyQueued: The state where the job is queued and waiting because no workflow is available during execution.
+   * - Applying: The state where the job is in the Apply phase.
+   * - Applied: The final state where the job has completed the Apply phase.
+   * - Errored: The final state where an error occurs during job execution.
+   * - Canceled: The final state where the job execution is canceled.
+   * - Discarded: The final state where the plan of the job is discarded.
+   * - ConfigProactiveFailure: The state where the compliance pre-check fails. This requires the compliance pre-check feature to be enabled for the account.
    * 
    * @example
    * Errored
@@ -378,9 +382,8 @@ export class GetJobResponseBodyJob extends $dara.Model {
   /**
    * @remarks
    * The task type. Valid values:
-   * 
-   * - Task: regular task (default)
-   * - SceneTestingTask: scenario-based testing task.
+   * - Task: Regular task (default).
+   * - SceneTestingTask: Scenario-based testing task.
    * 
    * @example
    * SceneTestingTask

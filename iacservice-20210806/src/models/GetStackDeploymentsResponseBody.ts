@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetStackDeploymentsResponseBodyDeploymentsConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically execute the task. Default value: false. Valid values:
-   * - **false**: No.
-   * - **true**: Yes.
+   * Specifies whether to automatically execute the task. Default value: **false**. Valid values: **false**: no. **true**: yes.
    * 
    * @example
    * false
@@ -15,7 +13,7 @@ export class GetStackDeploymentsResponseBodyDeploymentsConfig extends $dara.Mode
   autoApply?: boolean;
   /**
    * @remarks
-   * Indicates whether this is a destroy job.
+   * Specifies whether the job is a destroy job.
    * 
    * @example
    * false
@@ -55,7 +53,7 @@ export class GetStackDeploymentsResponseBodyDeploymentsOutputs extends $dara.Mod
   description?: string;
   /**
    * @remarks
-   * The expression that can reference component outputs, in the format: component.{component name}.{component output name}.
+   * The expression. You can reference component outputs in the format of component.{Component name}.{Component output name}.
    * 
    * @example
    * component.sls.project_name
@@ -141,9 +139,9 @@ export class GetStackDeploymentsResponseBodyDeploymentsParameters extends $dara.
   name?: string;
   /**
    * @remarks
-   * Specifies whether the parameter is sensitive. Sensitive parameter values are not visible in the console or API. Valid values:
-   * - true: Sensitive.
-   * - false: Not sensitive.
+   * Specifies whether the parameter is a sensitive parameter. The values of sensitive parameters are invisible in both the console and API responses. Valid values:
+   * - true: The parameter is a sensitive parameter.
+   * - false: The parameter is not a sensitive parameter.
    */
   sensitive?: boolean;
   /**
@@ -196,7 +194,7 @@ export class GetStackDeploymentsResponseBodyDeploymentsParameters extends $dara.
 export class GetStackDeploymentsResponseBodyDeploymentsPlanOutputsModuleActionDetail extends $dara.Model {
   /**
    * @remarks
-   * The number of resources to be created.
+   * The number of newly created resources.
    * 
    * @example
    * 0
@@ -204,7 +202,7 @@ export class GetStackDeploymentsResponseBodyDeploymentsPlanOutputsModuleActionDe
   add?: number;
   /**
    * @remarks
-   * The number of resources to be changed.
+   * The number of changed resources.
    * 
    * @example
    * 1
@@ -212,7 +210,7 @@ export class GetStackDeploymentsResponseBodyDeploymentsPlanOutputsModuleActionDe
   change?: number;
   /**
    * @remarks
-   * The number of resources to be destroyed.
+   * The number of destroyed resources.
    * 
    * @example
    * 0
@@ -246,7 +244,7 @@ export class GetStackDeploymentsResponseBodyDeploymentsPlanOutputsModuleActionDe
 export class GetStackDeploymentsResponseBodyDeploymentsPlanOutputsResourceChanges extends $dara.Model {
   /**
    * @remarks
-   * The diff information of the resource change.
+   * The difference information of the resource change.
    * 
    * @example
    * ~ resource \\"alicloud_log_store\\" \\"default\\" {\\n        id                    = \\"alb-log-project-v1-ph-xxxxx:alb-log-store-ph\\"\\n      ~ max_split_shard_count = 64 -> 32\\n        name                  = \\"alb-log-store-ph\\"\\n\\n        # (13 unchanged attributes hidden)\\n    }
@@ -254,7 +252,7 @@ export class GetStackDeploymentsResponseBodyDeploymentsPlanOutputsResourceChange
   change?: string;
   /**
    * @remarks
-   * The types of resource change actions included in this resource change.
+   * The types of specific resource change actions included in this resource change.
    */
   resourceActions?: string[];
   /**
@@ -300,7 +298,7 @@ export class GetStackDeploymentsResponseBodyDeploymentsPlanOutputs extends $dara
    * - create: All resource changes in the component are creations.
    * - delete: All resource changes in the component are deletions.
    * - read: All resource changes in the component are reads.
-   * - update: Resource changes in the component include two or more types among creation, deletion, and read.
+   * - update: The resource changes in the component include two or more change types, such as creations, deletions, or reads.
    * 
    * @example
    * update
@@ -360,7 +358,7 @@ export class GetStackDeploymentsResponseBodyDeploymentsPlanOutputs extends $dara
 export class GetStackDeploymentsResponseBodyDeployments extends $dara.Model {
   /**
    * @remarks
-   * The configuration item.
+   * The configuration items.
    */
   config?: GetStackDeploymentsResponseBodyDeploymentsConfig;
   /**
@@ -373,7 +371,7 @@ export class GetStackDeploymentsResponseBodyDeployments extends $dara.Model {
   configVersion?: string;
   /**
    * @remarks
-   * The creation time in UTC, in the format of YYYY-MM-DDTHH:mm:ssZ (ISO 8601).
+   * The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2026-04-01T12:10:18Z
@@ -381,7 +379,7 @@ export class GetStackDeploymentsResponseBodyDeployments extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The deployment name.
+   * The name of the deployment.
    * 
    * @example
    * production
@@ -389,7 +387,7 @@ export class GetStackDeploymentsResponseBodyDeployments extends $dara.Model {
   deploymentName?: string;
   /**
    * @remarks
-   * The deployment number. The deployment number for each stack starts from 1 and increments each time a deployment is successfully triggered.
+   * The deployment number. The deployment number of each stack starts from 1 and increments each time a deployment is successfully triggered.
    * 
    * @example
    * 1
@@ -397,7 +395,7 @@ export class GetStackDeploymentsResponseBodyDeployments extends $dara.Model {
   deploymentNo?: string;
   /**
    * @remarks
-   * Deprecated field.
+   * **[Deprecated]** This field is deprecated.
    * 
    * @example
    * v1
@@ -405,7 +403,7 @@ export class GetStackDeploymentsResponseBodyDeployments extends $dara.Model {
   deploymentVersion?: string;
   /**
    * @remarks
-   * The execution duration, in milliseconds.
+   * The execution duration. Unit: milliseconds.
    * 
    * @example
    * 38000
@@ -413,11 +411,9 @@ export class GetStackDeploymentsResponseBodyDeployments extends $dara.Model {
   elapsedTime?: number;
   /**
    * @remarks
-   * The execution type.
-   * 
-   * Manual: Manual execution (default).
-   * 
-   * Auto: Automatic execution.
+   * The execution type. Valid values:
+   * - Manual: manual execution. This is the default value.
+   * - Auto: automatic execution.
    * 
    * @example
    * Manual
@@ -425,7 +421,7 @@ export class GetStackDeploymentsResponseBodyDeployments extends $dara.Model {
   executeType?: string;
   /**
    * @remarks
-   * The failure reason.
+   * The cause of the failure.
    * 
    * @example
    * \\n Error: Invalid value for input variable\\n \\n   on main.tf line 17, in module \\"alb\\":\\n   17:   log_project           = var.log_project.project_name\\n \\n The given value is not suitable for module.alb.var.log_project declared at\\n modules/alb/main.tf:34,1-23: string required.\\n╵\\n
@@ -441,7 +437,10 @@ export class GetStackDeploymentsResponseBodyDeployments extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * OSS object key prefix for deployment logs
+   * The object key prefix of the deployment logs in OSS.
+   * 
+   * @example
+   * 1234567890123456/default/task/task-al1qqm8wpxb0ezntwsqwcz
    */
   logOutputPath?: string;
   /**
@@ -451,42 +450,42 @@ export class GetStackDeploymentsResponseBodyDeployments extends $dara.Model {
   outputs?: GetStackDeploymentsResponseBodyDeploymentsOutputs[];
   /**
    * @remarks
-   * The parameter set content.
+   * The content of the parameter set.
    */
   parameters?: GetStackDeploymentsResponseBodyDeploymentsParameters[];
   /**
    * @remarks
-   * The state file output results.
+   * The output results of the state file.
    */
   planOutputs?: GetStackDeploymentsResponseBodyDeploymentsPlanOutputs[];
   /**
    * @remarks
-   * The deployment status.
+   * The deployment status. Valid values:
    * | Name | Description |
    * |------|------|
    * | Pending | The initial status after the deployment is created. |
-   * | PriorityQueued | Priority queuing in progress. |
-   * | PlanQueued | The deployment is queuing because no workflow is available after creation. |
-   * | ApplyQueued | The deployment is queuing because no workflow is available during execution. |
-   * | Planning | The resource deployment is in the Plan phase. |
-   * | Planned | The resource deployment has completed the Plan phase. |
-   * | ConfigProactiveInProgress | Compliance pre-check in progress. |
-   * | ConfigProactiveSuccess | Compliance pre-check succeeded. |
-   * | DetectInProgress | Drift detection in progress. |
-   * | ImportQueued | The deployment is queuing because no workflow is available during Import execution. |
-   * | Importing | The resource deployment is in the Import phase. |
-   * | Imported | The resource deployment has completed the Import phase. |
-   * | StateQueued | The deployment is queuing because no workflow is available during state command execution. |
-   * | Stating | The resource deployment is executing the state command. |
-   * | Stated | The resource deployment has completed the state command execution. |
-   * | Confirmed | The resource deployment has been confirmed after the Plan phase. |
-   * | PlannedAndFinished | No diff was found after the Plan phase. The deployment is in a final status. |
-   * | Applying | The resource deployment is in the Apply phase. |
-   * | Applied | The resource deployment has completed the Apply phase. |
-   * | Discarded | The resource deployment has been discarded and is in a final status. |
-   * | Errored | The deployment execution encountered an error and is in a final status. |
-   * | ConfigProactiveFailure | Compliance pre-check failed. |
-   * | Canceled | The deployment execution has been canceled and is in a final status. |
+   * | PriorityQueued | The deployment is queued with priority. |
+   * | PlanQueued | The deployment is queued and waiting for an available workflow after it is created. |
+   * | ApplyQueued | The deployment is queued and waiting for an available workflow during execution. |
+   * | Planning | The deployment is in the plan phase. |
+   * | Planned | The deployment has completed the plan phase. |
+   * | ConfigProactiveInProgress | The compliance precheck is in progress. |
+   * | ConfigProactiveSuccess | The compliance precheck is successful. |
+   * | DetectInProgress | Drift detection is in progress. |
+   * | ImportQueued | The deployment is queued and waiting for an available workflow during the import phase. |
+   * | Importing | The deployment is in the import phase. |
+   * | Imported | The deployment has completed the import phase. |
+   * | StateQueued | The deployment is queued and waiting for an available workflow during the state command execution. |
+   * | Stating | The deployment is executing the state command. |
+   * | Stated | The deployment has completed the execution of the state command. |
+   * | Confirmed | The deployment is confirmed after the plan phase. |
+   * | PlannedAndFinished | The deployment is in the final state because no differences are found after the plan phase. |
+   * | Applying | The deployment is in the apply phase. |
+   * | Applied | The deployment has completed the apply phase. |
+   * | Discarded | The deployment is discarded and enters the final state. |
+   * | Errored | An error occurred during the deployment execution, and the deployment enters the final state. |
+   * | ConfigProactiveFailure | The compliance precheck failed. |
+   * | Canceled | The deployment execution is canceled, and the deployment enters the final state. |
    * 
    * @example
    * Pending

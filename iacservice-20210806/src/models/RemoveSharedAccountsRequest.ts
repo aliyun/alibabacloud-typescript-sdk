@@ -12,11 +12,11 @@ export class RemoveSharedAccountsRequest extends $dara.Model {
   accountIds?: number[];
   /**
    * @remarks
-   * The ID of the resource to unshare.
+   * The ID of the resource to be unshared.
    * 
-   *  - If the type is Namespace, set this parameter to the workspace name. 
+   * - If the type is Namespace, the value is the workspace name. 
    * 
-   * - If the type is RegistryModule, set this parameter to \\<namespaceName>/\\<ModuleName>.
+   * - If the type is RegistryModule, the value is \\<namespaceName>/\\<ModuleName>.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class RemoveSharedAccountsRequest extends $dara.Model {
    * The resource type. Valid values:
    * 
    * - RegistryModule: Registry template.
-   * - Namespace: workspace.
+   * - Namespace: Workspace.
    * 
    * This parameter is required.
    * 

@@ -45,7 +45,7 @@ export class ListResourcesResponseBodyResourcesTags extends $dara.Model {
 export class ListResourcesResponseBodyResources extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID.
+   * The Alibaba Cloud user ID.
    * 
    * @example
    * 365845
@@ -53,7 +53,7 @@ export class ListResourcesResponseBodyResources extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2024-05-03T02:22:59Z
@@ -61,7 +61,7 @@ export class ListResourcesResponseBodyResources extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The dependent resources.
+   * The list of dependent resources.
    */
   dependsOnResourceIds?: string[];
   /**
@@ -98,7 +98,7 @@ export class ListResourcesResponseBodyResources extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource ARN.
+   * The ARN of the resource.
    * 
    * @example
    * acs:vpc:cn-hangzhou:12345:test
@@ -264,7 +264,7 @@ export class ListResourcesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 200.
+   * The number of results to return per page. Default value: 20. Minimum value: 1. Maximum value: 200.
    * 
    * @example
    * 20

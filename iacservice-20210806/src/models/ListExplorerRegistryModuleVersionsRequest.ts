@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListExplorerRegistryModuleVersionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The search keyword. Fuzzy match is supported based on the module name.
+   * The search keyword. Fuzzy matching is supported based on the module name.
    * 
    * @example
    * key
@@ -13,7 +13,7 @@ export class ListExplorerRegistryModuleVersionsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The maximum number of entries to return per page.
    * 
    * Valid values: 0 to 200.
    * 
@@ -41,7 +41,7 @@ export class ListExplorerRegistryModuleVersionsRequest extends $dara.Model {
   moduleVersion?: string;
   /**
    * @remarks
-   * The name of the workspace to which the module belongs.
+   * The name of the workspace where the module resides.
    * 
    * @example
    * alibaba
@@ -49,9 +49,9 @@ export class ListExplorerRegistryModuleVersionsRequest extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * The pagination token for the next page of results.
+   * The token used to return the next page of query results.
    * 
-   * If the total number of entries exceeds the maxResults limit, the data is truncated. You can use nextToken to query the next page of data.
+   * If the total number of entries exceeds the value of maxResults, the returned results are truncated. You can use nextToken to query the next page.
    * 
    * @example
    * lJTuhMWkNH89zZWyYM9GjpAbgRb+bPPPwN0Q3pclzKI=

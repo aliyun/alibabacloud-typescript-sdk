@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteTerraformDestroyRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+   * The idempotency token. The format is [0-9a-zA-Z-]{1,64}. A UUID is recommended.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ExecuteTerraformDestroyRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The state file ID.
+   * The ID of the state file.
    * 
    * This parameter is required.
    * 

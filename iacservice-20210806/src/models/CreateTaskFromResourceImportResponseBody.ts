@@ -5,9 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTaskFromResourceImportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
+   * 
+   * @example
+   * CD478792-6952-5A1C-9F57-78932BF0FAC6
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The task ID.
+   * 
+   * @example
+   * task-433aead756057fffeaba4828f5195
+   */
   taskId?: string;
   static names(): { [key: string]: string } {
     return {

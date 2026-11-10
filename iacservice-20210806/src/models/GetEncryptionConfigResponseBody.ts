@@ -37,11 +37,7 @@ export class GetEncryptionConfigResponseBodyConfig extends $dara.Model {
   keyId?: string;
   /**
    * @remarks
-   * The key status. Valid values:
-   * - Enabled
-   * - Disabled
-   * - PendingDeletion
-   * - PendingImport
+   * The key status. Valid values: Enabled, Disabled, PendingDeletion, and PendingImport.
    * 
    * @example
    * Enabled

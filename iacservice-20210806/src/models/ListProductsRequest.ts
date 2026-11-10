@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProductsRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword for searching products. Fuzzy match is supported.
+   * The keyword used to search for products. Fuzzy matching is supported.
    * 
    * @example
    * ECS
@@ -13,7 +13,7 @@ export class ListProductsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The maximum number of results per page. Valid values: 0 to 200. Default value: 100.
+   * The maximum number of entries to return on each page. Valid values: 0 to 200. Default value: 100.
    * 
    * @example
    * 100
@@ -29,9 +29,9 @@ export class ListProductsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The sort order. Valid values:
-   * - Normal: default sorting (default value)
-   * - Top: sorted by popularity.
+   * The sorting method. Valid values:
+   * - Normal: Default sorting. This is the default value.
+   * - Top: Sorting by popularity.
    * 
    * @example
    * Normal
@@ -39,9 +39,7 @@ export class ListProductsRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The status. Valid values:
-   * - Available
-   * - Deprecated.
+   * The status. Valid values: Available and Deprecated.
    * 
    * @example
    * Available
@@ -57,7 +55,7 @@ export class ListProductsRequest extends $dara.Model {
   supportTerraformer?: boolean;
   /**
    * @remarks
-   * The Terraform Provider version. If this parameter is left empty, the latest version is used by default.
+   * The Terraform provider version. If this parameter is left empty, the latest version is used by default.
    * 
    * @example
    * 1.227.0

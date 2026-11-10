@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateStackRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
+   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. A UUID is recommended.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateStackRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the resource stack. The value cannot exceed 256 characters.
+   * The description of the stack. The description can be up to 256 characters in length.
    * 
    * @example
    * Stack to create ecs and related resource for multiple enviroments.
@@ -23,16 +23,20 @@ export class CreateStackRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The resource stack name. The name must be 2 to 128 characters in length and can contain letters, digits, Chinese characters, hyphens (-), underscores (_), and periods (.). The name cannot start or end with a hyphen, underscore, or period.
+   * The name of the stack. The name must be 2 to 128 characters in length and can contain letters, digits, Chinese characters, hyphens (-), underscores (_), and periods (.). It cannot start or end with a hyphen, underscore, or period.
    * 
    * @example
    * stack-test
    */
   name?: string;
+  /**
+   * @remarks
+   * The associated parameter sets.
+   */
   parameterSetIds?: string[];
   /**
    * @remarks
-   * The RAM role to be assigned to the task. This role is used to automatically continue the execution of scheduled tasks during automatic triggers or offline scenarios.
+   * The RAM role authorized for the task. This role is used to automatically resume the execution of scheduled tasks in auto-triggered or offline scenarios.
    * 
    * @example
    * TestIacRole
@@ -40,9 +44,13 @@ export class CreateStackRequest extends $dara.Model {
   ramRole?: string;
   /**
    * @remarks
-   * The creation source. Valid values:
-   * 
-   * - OSS: a template from OSS.
+   * Specifies whether to skip resource property validation for the provider. Default value: false.
+   */
+  skipPropertyValidation?: boolean;
+  /**
+   * @remarks
+   * The source of the stack. Valid values:
+   * - OSS: a template stored in Object Storage Service (OSS).
    * - IAC_SERVICE_MODULE: a template created in the automation service console.
    * 
    * This parameter is required.
@@ -53,10 +61,9 @@ export class CreateStackRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The path of the configuration source. The value cannot exceed 1000 characters.
-   * 
-   * - If the source is OSS, the value is in the format oss::<file link> and must be a zip file. Example: oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip
-   * - If the source is IAC_SERVICE_MODULE, the value is a template ID. Example: mod-xxxxx
+   * The path of the source. The value can be up to 1,000 characters in length.
+   * - If the source is OSS, the value must be in the oss::<file URL> format and the file must be a ZIP file. Example: oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip.
+   * - If the source is IAC_SERVICE_MODULE, the value must be the template ID. Example: mod-xxxxx.
    * 
    * @example
    * oss::https://terraform-pipeline.oss-eu-central-1.aliyuncs.com/code.zip
@@ -64,7 +71,7 @@ export class CreateStackRequest extends $dara.Model {
   sourcePath?: string;
   /**
    * @remarks
-   * The working directory where the configuration file is located. Enter / if it is in the root directory. Example: config/ or /
+   * The working directory where the configuration file is located. If the file is in the root directory, enter /. Examples: config/ or /.
    * 
    * @example
    * /stack
@@ -77,6 +84,7 @@ export class CreateStackRequest extends $dara.Model {
       name: 'name',
       parameterSetIds: 'parameterSetIds',
       ramRole: 'ramRole',
+      skipPropertyValidation: 'skipPropertyValidation',
       source: 'source',
       sourcePath: 'sourcePath',
       workingDirectory: 'workingDirectory',
@@ -90,6 +98,7 @@ export class CreateStackRequest extends $dara.Model {
       name: 'string',
       parameterSetIds: { 'type': 'array', 'itemType': 'string' },
       ramRole: 'string',
+      skipPropertyValidation: 'boolean',
       source: 'string',
       sourcePath: 'string',
       workingDirectory: 'string',

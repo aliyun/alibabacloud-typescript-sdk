@@ -45,7 +45,7 @@ export class ListProjectResponseBodyProjectsTags extends $dara.Model {
 export class ListProjectResponseBodyProjects extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2022-05-10T10:08:34Z
@@ -141,7 +141,7 @@ export class ListProjectResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+   * The number of results returned per page. Default value: 20. Minimum value: 1. Maximum value: 100.
    * 
    * @example
    * 10

@@ -21,7 +21,7 @@ export class ListExplorerRegistryModuleVersionsResponseBodyExplorerRegistryModul
   moduleFile?: { [key: string]: any };
   /**
    * @remarks
-   * The module name.
+   * The name of the module.
    * 
    * @example
    * eip-slb-ecs-polardb
@@ -29,7 +29,7 @@ export class ListExplorerRegistryModuleVersionsResponseBodyExplorerRegistryModul
   moduleName?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * namespace-test
@@ -109,7 +109,7 @@ export class ListExplorerRegistryModuleVersionsResponseBody extends $dara.Model 
   explorerRegistryModuleVersions?: ListExplorerRegistryModuleVersionsResponseBodyExplorerRegistryModuleVersions[];
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The maximum number of entries to return per page.
    * 
    * Valid values: 0 to 200.
    * 
@@ -121,9 +121,9 @@ export class ListExplorerRegistryModuleVersionsResponseBody extends $dara.Model 
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page of results.
+   * The token used to return the next page of query results.
    * 
-   * If the total number of entries exceeds the maxResults limit, the data is truncated. You can use nextToken to query the next page of data.
+   * If the total number of entries exceeds the value of maxResults, the returned results are truncated. You can use nextToken to query the next page.
    * 
    * @example
    * oIM6ssGyh00noi5zoDR1hJ4dD+2BRJj42DLT6GrZysw=

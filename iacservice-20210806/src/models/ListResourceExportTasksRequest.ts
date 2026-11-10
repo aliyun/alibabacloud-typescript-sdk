@@ -13,7 +13,7 @@ export class ListResourceExportTasksRequest extends $dara.Model {
   exportTaskId?: string;
   /**
    * @remarks
-   * The search keyword. Fuzzy search by task name is supported.
+   * The search keyword. Fuzzy matching is supported for task names.
    * 
    * @example
    * key
@@ -29,7 +29,7 @@ export class ListResourceExportTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+   * The number of results to return per page. Default value: 20. Minimum value: 1. Maximum value: 100.
    * 
    * @example
    * 20

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListModuleVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The search keyword. Fuzzy match on version names is supported.
+   * The search keyword, which supports fuzzy search for version names.
    * 
    * @example
    * key
@@ -21,7 +21,7 @@ export class ListModuleVersionRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+   * The number of results to return per page. Default value: 20. Minimum value: 1. Maximum value: 100.
    * 
    * @example
    * 20

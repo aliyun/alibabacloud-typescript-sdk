@@ -13,7 +13,7 @@ export class ListTerraformProviderVersionsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The maximum number of records to retrieve in a single request.
+   * The maximum number of records to return per request.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListTerraformProviderVersionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page. A value of null indicates that no more pages are available.
+   * The token for the next page. A null value indicates that there are no more pages.
    * 
    * @example
    * ar9lHbaidqWequN5orMba54dD+2BRJj42DLT6GrZysw=
@@ -29,7 +29,7 @@ export class ListTerraformProviderVersionsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The usage. Set to Explorer to retrieve meta information.
+   * The purpose. Used to retrieve metadata for display in Explorer.
    * 
    * @example
    * Explorer

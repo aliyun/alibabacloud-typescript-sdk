@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTerraformProviderVersionsResponseBodyVersions extends $dara.Model {
   /**
    * @remarks
-   * The publish time.
+   * The release time in UTC. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2025-01-24T05:06:51Z
@@ -55,7 +55,7 @@ export class ListTerraformProviderVersionsResponseBodyVersions extends $dara.Mod
 export class ListTerraformProviderVersionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records retrieved in a single request.
+   * The maximum number of records returned per request.
    * 
    * @example
    * 20
@@ -63,7 +63,7 @@ export class ListTerraformProviderVersionsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page. An empty value indicates that no more pages are available.
+   * The pagination token for the next page. An empty value indicates that there are no more pages.
    * 
    * @example
    * rnD7wyAII+yDi0UGlV519J4dD+2BRJj42DLT6GrZysw=

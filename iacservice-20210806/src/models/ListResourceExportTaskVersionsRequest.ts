@@ -13,7 +13,7 @@ export class ListResourceExportTaskVersionsRequest extends $dara.Model {
   exportVersion?: string;
   /**
    * @remarks
-   * The search keyword. Fuzzy search on export version names is supported.
+   * The search keyword. Fuzzy search is supported for export version names.
    * 
    * @example
    * key
@@ -29,7 +29,7 @@ export class ListResourceExportTaskVersionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of results per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+   * The number of results to return per page. Default value: 20. Minimum value: 1. Maximum value: 100.
    * 
    * @example
    * 20
@@ -38,12 +38,11 @@ export class ListResourceExportTaskVersionsRequest extends $dara.Model {
   /**
    * @remarks
    * The export status. Valid values:
-   * 
-   * - Queue: queued
-   * - Pending: preparing to run
-   * - Success: succeeded
-   * - Errored: failed
-   * - Canceled: canceled
+   * - Queue: Queued.
+   * - Pending: Ready to run.
+   * - Success: Succeeded.
+   * - Errored: Failed.
+   * - Canceled: Canceled.
    * 
    * @example
    * Errored

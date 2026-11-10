@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DissociateGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. A UUID is recommended.
    * 
    * @example
    * 2daf4227f747cbf11a5501f18cc5e004
@@ -21,7 +21,6 @@ export class DissociateGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The resource type. Valid values:
-   * 
    * - Module: template.
    * - SceneTestingTask: scenario-based testing task.
    * - Task: regular task.

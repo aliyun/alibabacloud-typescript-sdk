@@ -13,7 +13,7 @@ export class CreateRegistryModuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The template source, which is a concatenation of \\<namespaceName>/\\<ModuleName>.
+   * The template source, which is concatenated in the \\<namespaceName>/\\<ModuleName> format.
    * 
    * @example
    * namespaceName/ModuleName

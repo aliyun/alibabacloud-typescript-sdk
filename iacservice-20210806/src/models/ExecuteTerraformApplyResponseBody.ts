@@ -13,7 +13,7 @@ export class ExecuteTerraformApplyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The state file ID.
+   * The ID of the state file.
    * 
    * @example
    * task-xxxx

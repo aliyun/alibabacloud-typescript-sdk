@@ -13,7 +13,7 @@ export class GetRegistryNamespaceResponseBodyNamespace extends $dara.Model {
   acl?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2025-03-20T02:18:29Z
@@ -37,7 +37,7 @@ export class GetRegistryNamespaceResponseBodyNamespace extends $dara.Model {
   maintainer?: string;
   /**
    * @remarks
-   * The number of Registry templates in the workspace.
+   * The number of registry templates in the workspace.
    * 
    * @example
    * 21

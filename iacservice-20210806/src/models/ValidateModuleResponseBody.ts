@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ValidateModuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The validation message.
+   * The check message.
    * 
    * @example
    * ok
@@ -13,7 +13,7 @@ export class ValidateModuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The validation ID.
+   * The check ID.
    * 
    * @example
    * BF72A6FB-B07
@@ -29,11 +29,11 @@ export class ValidateModuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The validation result. Valid values:
-   * - Initializing: initialization in progress.
-   * - Validating: validation in progress.
-   * - Validated: validation succeeded.
-   * - Errored: validation failed.
+   * The check result. Valid values:
+   * - Initializing: The check is being initialized.
+   * - Validating: The check is in progress.
+   * - Validated: The check succeeded.
+   * - Errored: The check failed.
    * 
    * @example
    * Validating

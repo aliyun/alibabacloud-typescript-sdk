@@ -3,10 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetProviderDocumentRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The Terraform provider version.
+   * 
+   * @example
+   * 1.248.0
+   */
   providerVersion?: string;
   /**
    * @remarks
+   * The Terraform resource type.
+   * 
    * This parameter is required.
+   * 
+   * @example
+   * alicloud_route_table
    */
   terraformResourceType?: string;
   static names(): { [key: string]: string } {

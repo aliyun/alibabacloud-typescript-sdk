@@ -13,7 +13,7 @@ export class UpdateExplorerModuleAttributeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The template description. Length: 0 to 255 characters.
+   * The description of the template. The length is 0 to 255 characters.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class UpdateExplorerModuleAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The template name. Length: 1 to 128 characters. The name must be unique.
+   * The name of the template. The length is 1 to 128 characters. The name must be unique.
    * 
    * @example
    * test

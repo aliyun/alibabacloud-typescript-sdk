@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetEncryptionConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. A UUID is recommended.
    * 
    * @example
    * a65451293e64979ba7a4b573950217fe
@@ -21,7 +21,7 @@ export class SetEncryptionConfigRequest extends $dara.Model {
   kmsKeyId?: string;
   /**
    * @remarks
-   * The region ID of the KMS key.
+   * The ID of the region to which the KMS key belongs.
    * 
    * @example
    * cn-beijing

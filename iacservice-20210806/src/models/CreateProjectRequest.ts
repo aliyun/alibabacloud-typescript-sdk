@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+   * The idempotence token. Format: [0-9a-zA-Z-]{1,64}. A UUID is recommended.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,8 @@ export class CreateProjectRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The project description. Length: 0 to 1024 characters.
+   * The project description.
+   * Length: 0 to 1024 characters.
    * 
    * @example
    * test
@@ -23,7 +24,8 @@ export class CreateProjectRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The project name. Length: 1 to 128 characters.
+   * The project name.
+   * Length: 1 to 128 characters.
    * 
    * This parameter is required.
    * 

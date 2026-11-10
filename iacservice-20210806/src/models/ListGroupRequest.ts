@@ -61,7 +61,7 @@ export class ListGroupRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of results to return per page. Default value: 20. Minimum value: 1. Maximum value: 100.
+   * The number of results returned per page. Default value: 20. Minimum value: 1. Maximum value: 100.
    * 
    * @example
    * 200

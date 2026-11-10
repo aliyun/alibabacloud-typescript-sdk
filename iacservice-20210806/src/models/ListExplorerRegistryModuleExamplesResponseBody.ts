@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListExplorerRegistryModuleExamplesResponseBodyExplorerRegistryModuleExamples extends $dara.Model {
   /**
    * @remarks
-   * The example name.
+   * The name of the example.
    * 
    * @example
    * 201-use-case-create-actiontrail-trail
@@ -13,7 +13,7 @@ export class ListExplorerRegistryModuleExamplesResponseBodyExplorerRegistryModul
   exampleName?: string;
   /**
    * @remarks
-   * The example path.
+   * The path of the example.
    * 
    * @example
    * /
@@ -29,7 +29,7 @@ export class ListExplorerRegistryModuleExamplesResponseBodyExplorerRegistryModul
   exampleSchema?: { [key: string]: any };
   /**
    * @remarks
-   * The module name.
+   * The name of the module.
    * 
    * @example
    * iactestname1
@@ -37,7 +37,7 @@ export class ListExplorerRegistryModuleExamplesResponseBodyExplorerRegistryModul
   moduleName?: string;
   /**
    * @remarks
-   * The module version.
+   * The version of the module.
    * 
    * @example
    * 1.11.0
@@ -45,7 +45,7 @@ export class ListExplorerRegistryModuleExamplesResponseBodyExplorerRegistryModul
   moduleVersion?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * alibaba
@@ -115,9 +115,9 @@ export class ListExplorerRegistryModuleExamplesResponseBody extends $dara.Model 
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page of results.
+   * The token used to query the next page of results.
    * 
-   * If the total number of entries exceeds the maxResults limit, the data is truncated. You can use nextToken to query the next page of data.
+   * If the total number of entries exceeds the maxResults limit, the data is truncated. You can use nextToken to query the next page.
    * 
    * @example
    * VSjwD+sJ8OZJ8fNjV89AZs7o2AdSD25ZQLeWZ8REjXA=

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetProjectResponseBodyProject extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2022-09-06T06:11:27Z
@@ -13,7 +13,7 @@ export class GetProjectResponseBodyProject extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The project description. Length: 0 to 1024 characters.
+   * The project description. The length ranges from 0 to 1,024 characters.
    * 
    * @example
    * abc

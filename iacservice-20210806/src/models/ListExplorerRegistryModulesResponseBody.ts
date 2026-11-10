@@ -29,7 +29,7 @@ export class ListExplorerRegistryModulesResponseBodyExplorerRegistryModules exte
   latestVersion?: string;
   /**
    * @remarks
-   * The module name.
+   * The name of the module.
    * 
    * @example
    * terraform-alicloud-modules/mongodb
@@ -37,7 +37,7 @@ export class ListExplorerRegistryModulesResponseBodyExplorerRegistryModules exte
   moduleName?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * test_namespace
@@ -112,9 +112,9 @@ export class ListExplorerRegistryModulesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page of results.
+   * The token used to query the next page of results.
    * 
-   * If the total number of entries exceeds the maxResults limit, the data is truncated. You can use nextToken to query the next page of data.
+   * If the total number of entries exceeds the value of `maxResults`, the returned data is truncated. You can use `nextToken` to query the next page.
    * 
    * @example
    * DxEkv+3w0EDAQgcRFBp8Ep4dD+2BRJj42DLT6GrZysw=

@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetRegistryModuleResponseBodyRegistryModule extends $dara.Model {
   /**
    * @remarks
-   * The permission. Valid values:
-   * 
-   * - private: private.
+   * The permissions. Valid values:
+   * - private: Private.
    * 
    * @example
    * private
@@ -15,7 +14,7 @@ export class GetRegistryModuleResponseBodyRegistryModule extends $dara.Model {
   acl?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time in the YYYY-MM-DD HH:mm:ss format. The returned value does not include a time zone identifier.
    * 
    * @example
    * 2025-05-28 13:39:05
@@ -23,7 +22,7 @@ export class GetRegistryModuleResponseBodyRegistryModule extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The module description.
+   * The template description.
    * 
    * @example
    * description
@@ -39,7 +38,7 @@ export class GetRegistryModuleResponseBodyRegistryModule extends $dara.Model {
   downloads?: number;
   /**
    * @remarks
-   * The module name.
+   * The name of the template.
    * 
    * @example
    * ecs-cluster
@@ -47,7 +46,7 @@ export class GetRegistryModuleResponseBodyRegistryModule extends $dara.Model {
   moduleName?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * NamespaceName
@@ -56,7 +55,6 @@ export class GetRegistryModuleResponseBodyRegistryModule extends $dara.Model {
   /**
    * @remarks
    * The provider type. Valid values:
-   * 
    * - alicloud: Alibaba Cloud.
    * 
    * @example
@@ -65,12 +63,12 @@ export class GetRegistryModuleResponseBodyRegistryModule extends $dara.Model {
   provider?: string;
   /**
    * @remarks
-   * The list of accounts with which the Registry module is shared.
+   * The list of accounts that share the Registry template.
    */
   sharedAccounts?: number[];
   /**
    * @remarks
-   * The module source, which is a concatenation of <NamespaceName>/<ModuleName>.
+   * The template source, which is concatenated in the <NamespaceName>/<ModuleName> format.
    * 
    * @example
    * namespaceName/ModuleName
@@ -78,7 +76,7 @@ export class GetRegistryModuleResponseBodyRegistryModule extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The module source URL.
+   * The URL of the template source.
    * 
    * @example
    * URL
@@ -88,10 +86,13 @@ export class GetRegistryModuleResponseBodyRegistryModule extends $dara.Model {
    * @remarks
    * The workspace type. Valid values:
    * 
-   * - system: public module
-   * - self: custom module
-   * - shared: shared module
-   * - community: community module.
+   * - system: Public module.
+   * 
+   * - self: Custom module.
+   * 
+   * - shared: Shared module.
+   * 
+   * - community: Community module.
    * 
    * @example
    * system
@@ -154,7 +155,7 @@ export class GetRegistryModuleResponseBodyRegistryModule extends $dara.Model {
 export class GetRegistryModuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Registry module.
+   * The Registry template.
    */
   registryModule?: GetRegistryModuleResponseBodyRegistryModule;
   /**

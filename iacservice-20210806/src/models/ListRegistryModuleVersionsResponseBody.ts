@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRegistryModuleVersionsResponseBodyModuleVersions extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The format is YYYY-MM-DD HH:mm:ss. The returned value does not include a time zone identifier.
    * 
    * @example
    * 2025-05-28 11:15:57
@@ -13,7 +13,7 @@ export class ListRegistryModuleVersionsResponseBodyModuleVersions extends $dara.
   createTime?: string;
   /**
    * @remarks
-   * The template name.
+   * The name of the template.
    * 
    * @example
    * ModuleName
@@ -21,7 +21,7 @@ export class ListRegistryModuleVersionsResponseBodyModuleVersions extends $dara.
   moduleName?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * NamespaceName
@@ -29,8 +29,7 @@ export class ListRegistryModuleVersionsResponseBodyModuleVersions extends $dara.
   namespaceName?: string;
   /**
    * @remarks
-   * The provider type. Valid values:
-   * - alicloud: Alibaba Cloud.
+   * The provider type. Valid value: alicloud: Alibaba Cloud.
    * 
    * @example
    * alicloud
@@ -38,7 +37,7 @@ export class ListRegistryModuleVersionsResponseBodyModuleVersions extends $dara.
   provider?: string;
   /**
    * @remarks
-   * The template source, in the format of namespaceName/ModuleName.
+   * The template source. Format: namespaceName/ModuleName.
    * 
    * @example
    * test_namespace/RegistryModule-test0e
@@ -104,7 +103,7 @@ export class ListRegistryModuleVersionsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Maximum value: 100. Default value: 20.
+   * The number of entries to return per page for paging in a paged query. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -117,7 +116,7 @@ export class ListRegistryModuleVersionsResponseBody extends $dara.Model {
   moduleVersions?: ListRegistryModuleVersionsResponseBodyModuleVersions[];
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+   * The pagination token. Set the value to the NextToken value returned from the previous API call.
    * 
    * @example
    * IbuvZ8iOH447bhHWDavGTOMijI2Jep7c=

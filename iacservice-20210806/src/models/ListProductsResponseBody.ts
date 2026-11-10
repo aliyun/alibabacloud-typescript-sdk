@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListProductsResponseBodyProducts extends $dara.Model {
   /**
    * @remarks
-   * The first-level category name.
+   * The name of the level-1 category.
    * 
    * @example
-   * 企业应用
+   * Enterprise Applications
    */
   firstCategoryName?: string;
   /**
    * @remarks
-   * The first-level category name in English.
+   * The English name of the level-1 category.
    * 
    * @example
    * Enterprise application
@@ -32,12 +32,12 @@ export class ListProductsResponseBodyProducts extends $dara.Model {
    * The product name.
    * 
    * @example
-   * 微服务引擎
+   * Microservices Engine
    */
   productName?: string;
   /**
    * @remarks
-   * The product name in English.
+   * The English name of the product.
    * 
    * @example
    * Microservices Engine
@@ -45,15 +45,15 @@ export class ListProductsResponseBodyProducts extends $dara.Model {
   productNameEn?: string;
   /**
    * @remarks
-   * The second-level category name.
+   * The name of the level-2 category.
    * 
    * @example
-   * 应用服务
+   * Application Services
    */
   secondCategoryName?: string;
   /**
    * @remarks
-   * The second-level category name in English.
+   * The English name of the level-2 category.
    * 
    * @example
    * Application service
@@ -85,7 +85,7 @@ export class ListProductsResponseBodyProducts extends $dara.Model {
   supportTerraformer?: boolean;
   /**
    * @remarks
-   * The Terraform Provider version.
+   * The Terraform provider version.
    * 
    * @example
    * 1.229.0
@@ -143,7 +143,7 @@ export class ListProductsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The maximum number of results per page. Valid values: 0 to 200. Default value: 100.
+   * The maximum number of entries to return on each page. Valid values: 0 to 200. Default value: 100.
    * 
    * @example
    * 30BaZ9ekYWXJdqshYecA++coNg7qT1Zbm3RfLyFIZeY=
@@ -151,7 +151,7 @@ export class ListProductsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The product list.
+   * The list of products.
    */
   products?: ListProductsResponseBodyProducts[];
   /**

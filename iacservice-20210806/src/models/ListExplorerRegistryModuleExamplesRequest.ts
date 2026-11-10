@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListExplorerRegistryModuleExamplesRequest extends $dara.Model {
   /**
    * @remarks
-   * The example name of the module.
+   * The name of the module example.
    * 
    * @example
    * complete
@@ -13,7 +13,7 @@ export class ListExplorerRegistryModuleExamplesRequest extends $dara.Model {
   exampleName?: string;
   /**
    * @remarks
-   * The search keyword. Supports fuzzy match based on the module name or module example name.
+   * The search keyword. Supports fuzzy matching based on the module name or module example name.
    * 
    * @example
    * key
@@ -49,7 +49,7 @@ export class ListExplorerRegistryModuleExamplesRequest extends $dara.Model {
   moduleVersion?: string;
   /**
    * @remarks
-   * The name of the workspace to which the module belongs.
+   * The name of the workspace where the module is located.
    * 
    * @example
    * alibaba
@@ -57,9 +57,9 @@ export class ListExplorerRegistryModuleExamplesRequest extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * The pagination token for the next page of results.
+   * The token used to query the next page of results.
    * 
-   * If the total number of entries exceeds the maxResults limit, the data is truncated. You can use nextToken to query the next page of data.
+   * If the total number of entries exceeds the maxResults limit, the data is truncated. You can use nextToken to query the next page.
    * 
    * @example
    * IbuvZbAXFOiB4nKg8iOH447bhHWDavGTOMijI2Jep7c=

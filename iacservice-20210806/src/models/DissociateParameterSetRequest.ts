@@ -12,7 +12,7 @@ export class DissociateParameterSetRequest extends $dara.Model {
   parameterSetIds?: string[];
   /**
    * @remarks
-   * The resource ID. If the resource type is ModuleVersion, the value is a combination of <moduleId>-<moduleversion>, such as mod-34535345df123fr-v3.
+   * The resource ID. If the resource type is ModuleVersion, the ID is concatenated in the format of <moduleId>-<moduleversion>, such as mod-34535345df123fr-v3.
    * 
    * This parameter is required.
    * 
@@ -26,8 +26,8 @@ export class DissociateParameterSetRequest extends $dara.Model {
    * 
    * - Module: template
    * - ModuleVersion: template version
-   * - Task: node
-   * - Stack: resource stack.
+   * - Task: task
+   * - Stack: stack
    * 
    * This parameter is required.
    * 

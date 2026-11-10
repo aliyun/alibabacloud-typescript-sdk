@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateExplorerModuleAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 25B274BA-E672-58C0-8602-541281B6F758

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExecuteRegistryModuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
+   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. A UUID is recommended.
    * 
    * This parameter is required.
    * 

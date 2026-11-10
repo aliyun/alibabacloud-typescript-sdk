@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRegistryNamespacesRequest extends $dara.Model {
   /**
    * @remarks
-   * The search keyword. Fuzzy search by workspace name is supported.
+   * The search keyword. Fuzzy match is supported for workspace names.
    * 
    * @example
    * key
@@ -13,8 +13,7 @@ export class ListRegistryNamespacesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Maximum value: 100.
-   * Default value: 20.
+   * The number of entries per page for a paging query. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -22,7 +21,7 @@ export class ListRegistryNamespacesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token. Set this parameter to the NextToken value returned in the previous API call.
+   * The query token. Set the value to the NextToken value returned from the previous API call.
    * 
    * @example
    * hg7nXVngyM6tQtvCagmtY=
@@ -31,16 +30,11 @@ export class ListRegistryNamespacesRequest extends $dara.Model {
   /**
    * @remarks
    * The workspace type. Valid values:
-   * 
    * - system: public workspace
-   * 
    * - self: custom workspace
-   * 
    * - shared: shared workspace
-   * 
    * - community: community workspace
-   * 
-   * By default, all workspaces are returned.
+   * By default, all types are returned.
    * 
    * @example
    * self

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRegistryModuleVersionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page in a paged query. Maximum value: 100. Default value: 20.
+   * The number of entries to return per page for paging in a paged query. Maximum value: 100. Default value: 20.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListRegistryModuleVersionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The Registry template name.
+   * The name of the registry template.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListRegistryModuleVersionsRequest extends $dara.Model {
   moduleName?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ListRegistryModuleVersionsRequest extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the NextToken value returned in the previous API call.
+   * The pagination token. Set the value to the NextToken value returned from the previous API call.
    * 
    * @example
    * TRkuCaTw/VsEHrnCZgrBA0ftQSEJU/lzo2ei7MJjplg=

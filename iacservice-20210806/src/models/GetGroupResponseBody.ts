@@ -14,7 +14,7 @@ export class GetGroupResponseBodyGroupNotifyConfig extends $dara.Model {
   /**
    * @remarks
    * The notification type. Valid values:
-   * DingDing.
+   * - DingDing
    * 
    * @example
    * DingDing
@@ -47,9 +47,8 @@ export class GetGroupResponseBodyGroupTriggerConfig extends $dara.Model {
   /**
    * @remarks
    * The trigger strategy. Valid values:
-   * 
-   * - ProviderNewVersion: triggered when a new provider version is released
-   * - Cron: triggered on a schedule.
+   * - ProviderNewVersion: Triggered when a new provider version is released.
+   * - Cron: Triggered on a schedule.
    * 
    * @example
    * Cron
@@ -57,7 +56,7 @@ export class GetGroupResponseBodyGroupTriggerConfig extends $dara.Model {
   triggerStrategy?: string;
   /**
    * @remarks
-   * The policy value that must be maintained for scheduled triggering. This value is a cron expression.
+   * The policy value for scheduled triggers. Specify a cron expression.
    * 
    * @example
    * 0 0 8 * * ?
@@ -105,7 +104,7 @@ export class GetGroupResponseBodyGroup extends $dara.Model {
   autoTrigger?: boolean;
   /**
    * @remarks
-   * The creation time.
+   * The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2022-08-21T10:57:11Z
@@ -121,7 +120,7 @@ export class GetGroupResponseBodyGroup extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the group configuration is forcibly used.
+   * Indicates whether the group configuration is forcibly applied.
    * 
    * @example
    * true
@@ -163,7 +162,7 @@ export class GetGroupResponseBodyGroup extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The RAM role (1 to 128 characters). The system assumes this role to execute the template when a new job is triggered. This parameter is required when the job trigger mode is not manual.
+   * The Resource Access Management (RAM) role. Length: 1 to 128 characters. The system assumes this role to execute the template when a new job is triggered. This parameter is required when the job is not triggered manually.
    * 
    * @example
    * ramRoleName
@@ -171,12 +170,12 @@ export class GetGroupResponseBodyGroup extends $dara.Model {
   ramRole?: string;
   /**
    * @remarks
-   * The list of report export field options.
+   * The list of report export fields.
    */
   reportExportField?: string[];
   /**
    * @remarks
-   * The export address for the execution report. OSS addresses are supported. Format: https://<OSS bucket address>/<path>.
+   * The export path for execution reports. OSS paths are supported, such as https://<OSS bucket endpoint>/<path>.
    * 
    * @example
    * /
@@ -192,7 +191,7 @@ export class GetGroupResponseBodyGroup extends $dara.Model {
   taskCnt?: number;
   /**
    * @remarks
-   * The Terraform provider version. Select a Terraform provider version. Tasks in the group are executed based on the specified Terraform provider version. The version configured on a task takes higher priority. This version may conflict with the Terraform provider version specified in the module.
+   * The Terraform provider version. Select a Terraform provider version. Tasks in the group execute plans based on the specified Terraform provider version. The version configured on the task takes precedence. This setting may conflict with the Terraform provider version specified in the module.
    * 
    * @example
    * 1.191.0
@@ -205,10 +204,9 @@ export class GetGroupResponseBodyGroup extends $dara.Model {
   triggerConfig?: GetGroupResponseBodyGroupTriggerConfig[];
   /**
    * @remarks
-   * The resource type that triggers execution. Valid values:
-   * 
-   * - Task: regular task
-   * - SceneTestingTask: scenario-based testing task.
+   * The resource type for triggered execution. Valid values:
+   * - Task: Regular task.
+   * - SceneTestingTask: Scenario-based testing task.
    */
   triggerResourceType?: string[];
   static names(): { [key: string]: string } {

@@ -13,7 +13,7 @@ export class GetExecuteStateResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The run log.
+   * The execution log.
    * 
    * @example
    * {"tf-plan.run.log":"xxx"}
@@ -29,7 +29,7 @@ export class GetExecuteStateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The state file content.
+   * The content of the state file.
    * 
    * @example
    * {"version": 4, "terraform_version": "1.5.7", "serial": 3, "lineage": "cb71b0b2-1ec2-6483-d409-8cae23186ec6",  "outputs": {}, "resources": [], "check_results": null}
@@ -38,19 +38,18 @@ export class GetExecuteStateResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status. Valid values:
-   * 
-   * - Pending: ready to start.
-   * - PlanQueued: the plan task has been created but is waiting in the queue because no workflow is available.
-   * - ApplyQueued: the apply task has been created but is waiting in the queue because no workflow is available.
-   * - Planning: the plan phase is being executed.
-   * - Planned: the plan execution is complete.
-   * - Confirmed: the plan has been confirmed after execution.
-   * - PlannedAndFinished: the plan execution is complete and no diff was found. The job is in a terminal state.
-   * - Applying: the apply phase is being executed.
-   * - Applied: the apply execution is complete.
-   * - Discarded: the task has been discarded. This is a terminal state.
-   * - Errored: the execution encountered an error. This is a terminal state.
-   * - Canceled: the execution has been canceled. This is a terminal state.
+   * - Pending: The task is ready.
+   * - PlanQueued: The plan task is queued and waiting for an available workflow.
+   * - ApplyQueued: The apply task is queued and waiting for an available workflow.
+   * - Planning: The plan phase is being executed.
+   * - Planned: The plan execution is completed.
+   * - Confirmed: The execution is confirmed after the plan phase.
+   * - PlannedAndFinished: No differences are found after the plan execution is completed, and the job enters the final state.
+   * - Applying: The apply phase is being executed.
+   * - Applied: The apply execution is completed.
+   * - Discarded: The execution task is discarded and enters the final state.
+   * - Errored: An error occurs during the execution, and the job enters the final state.
+   * - Canceled: The execution is canceled and enters the final state.
    * 
    * @example
    * Pending

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ValidateModuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. We recommend that you use a UUID.
+   * The idempotence token. Format: [0-9a-zA-Z-]{1,64}. A UUID is recommended.
    * 
    * @example
    * 2daf4227f747cbf11a5501f18cc5e004
@@ -13,7 +13,7 @@ export class ValidateModuleRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The template text that is directly passed in when source is set to Upload.
+   * The template text. This parameter is required when source is set to Upload.
    * 
    * @example
    * code
@@ -21,7 +21,7 @@ export class ValidateModuleRequest extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Specifies multiple configuration files to pass in.
+   * The configuration file map. You can pass multiple configuration files.
    * 
    * @example
    * {"main.tf":"xxx"}
@@ -30,7 +30,7 @@ export class ValidateModuleRequest extends $dara.Model {
   /**
    * @remarks
    * The template source. Valid values:
-   * Upload: text upload.
+   * - Upload: text upload.
    * 
    * @example
    * Upload

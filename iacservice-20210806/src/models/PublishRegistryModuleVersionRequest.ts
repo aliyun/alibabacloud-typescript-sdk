@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PublishRegistryModuleVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,8 @@ export class PublishRegistryModuleVersionRequest extends $dara.Model {
   namespaceName?: string;
   /**
    * @remarks
-   * The version number. The value must conform to the [semantic version](http://semver.org/) specification, such as 1.0.1. The initial version is 1.0.0.
+   * The version number. It must comply with the [semantic versioning](http://semver.org/) specification, such as 1.0.1.
+   * The initial version is 1.0.0.
    * 
    * This parameter is required.
    * 

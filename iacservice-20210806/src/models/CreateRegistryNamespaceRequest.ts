@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRegistryNamespaceRequest extends $dara.Model {
   /**
    * @remarks
-   * The access permission. Valid values:
-   * 
-   * - private: private access.
+   * The access permissions. Valid values: private: Private.
    * 
    * @example
    * private
@@ -15,7 +13,7 @@ export class CreateRegistryNamespaceRequest extends $dara.Model {
   acl?: string;
   /**
    * @remarks
-   * The idempotence token. Format: [0-9a-zA-Z-]{1,64}. Use a UUID.
+   * The idempotency token. Format: [0-9a-zA-Z-]{1,64}. A UUID is recommended.
    * 
    * This parameter is required.
    * 
@@ -25,7 +23,7 @@ export class CreateRegistryNamespaceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The workspace description.
+   * The description of the workspace.
    * 
    * @example
    * description
@@ -33,7 +31,7 @@ export class CreateRegistryNamespaceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The administrator name.
+   * The name of the administrator.
    * 
    * @example
    * admin
@@ -41,11 +39,11 @@ export class CreateRegistryNamespaceRequest extends $dara.Model {
   maintainer?: string;
   /**
    * @remarks
-   * The workspace name. The name must meet the following requirements:
+   * The name of the workspace. The name must meet the following requirements:
    * 
-   * - The name must be 3 to 63 characters in length.
-   * - The name can contain uppercase and lowercase letters, digits, hyphens (-), and underscores (_), and cannot start or end with a hyphen.
-   * - The name must be unique within the global workspace resources.
+   * - It must be 3 to 63 characters in length.
+   * - It can contain uppercase and lowercase letters, digits, hyphens (-), and underscores (_), and cannot start or end with a hyphen.
+   * - It must be globally unique among workspace resources.
    * 
    * This parameter is required.
    * 
