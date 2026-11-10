@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentSpacesRequest extends $dara.Model {
   /**
    * @remarks
-   * The AgentSpace name.
+   * The name of the AgentSpace.
    * 
    * @example
    * test-agent-space
@@ -13,7 +13,7 @@ export class ListAgentSpacesRequest extends $dara.Model {
   agentSpace?: string;
   /**
    * @remarks
-   * The maximum number of results to return.
+   * The maximum number of results.
    * 
    * @example
    * 50

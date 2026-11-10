@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAgentSpacesResponseBodyAgentSpacesMseNamespace extends $dara.Model {
+  /**
+   * @remarks
+   * The attach method of the MSE namespace. AutoCreated indicates automatic creation by AgentLoop. UserSelected indicates that an existing namespace is selected and attached when the AgentSpace is created.
+   * 
+   * @example
+   * AutoCreated
+   */
   bindType?: string;
   /**
    * @remarks
-   * The MSE namespace ID.
+   * The ID of the MSE namespace.
    * 
    * @example
    * phoenixcloud-raw-logs
@@ -14,7 +21,7 @@ export class ListAgentSpacesResponseBodyAgentSpacesMseNamespace extends $dara.Mo
   namespaceId?: string;
   /**
    * @remarks
-   * The MSE namespace name.
+   * The name of the MSE namespace.
    * 
    * @example
    * terraform-alicloud-modules
@@ -48,7 +55,7 @@ export class ListAgentSpacesResponseBodyAgentSpacesMseNamespace extends $dara.Mo
 export class ListAgentSpacesResponseBodyAgentSpaces extends $dara.Model {
   /**
    * @remarks
-   * The AgentSpace name.
+   * The name of the AgentSpace.
    * 
    * @example
    * test-agent-space
@@ -95,7 +102,7 @@ export class ListAgentSpacesResponseBodyAgentSpaces extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Simple Log Service project name.
+   * The name of the Simple Log Service project.
    * 
    * @example
    * default-cms-1152309027070167-cn-beijing
@@ -152,12 +159,12 @@ export class ListAgentSpacesResponseBodyAgentSpaces extends $dara.Model {
 export class ListAgentSpacesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The AgentSpaces information.
+   * The information about the AgentSpaces.
    */
   agentSpaces?: ListAgentSpacesResponseBodyAgentSpaces[];
   /**
    * @remarks
-   * The maximum number of results returned.
+   * The maximum number of returned results.
    * 
    * @example
    * 100
@@ -165,7 +172,7 @@ export class ListAgentSpacesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. This parameter is empty if no more pages are available.
+   * The pagination token. This parameter is empty if no next page is available.
    * 
    * @example
    * b5754ef15c784abc8696d82790d2985c
@@ -181,7 +188,7 @@ export class ListAgentSpacesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total count.
    * 
    * @example
    * 13

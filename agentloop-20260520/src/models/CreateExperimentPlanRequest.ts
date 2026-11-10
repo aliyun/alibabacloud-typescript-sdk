@@ -7,7 +7,7 @@ import { ExperimentConfig } from "./ExperimentConfig";
 export class CreateExperimentPlanRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the associated dataset. If not specified, the execution phase processes in simple mode.
+   * The ID of the associated dataset. If you do not specify this parameter, the execution phase is processed in simple mode.
    * 
    * @example
    * rca_benckmark_eval
@@ -23,7 +23,7 @@ export class CreateExperimentPlanRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The list of evaluators. When configured, evaluation can be automatically triggered upon experiment completion.
+   * The list of evaluators. After you configure this parameter, an evaluation is automatically triggered when the experiment is completed.
    * 
    * @example
    * [{"evaluatorRef": "Builtin.agent_correctness", "name": "Builtin.agent_correctness", "type": "AGENT", "resultName": "Builtin.agent_correctness", "resultType": "score", "variableMapping": {"input": "experiment_input", "output": "experiment_output", "expected_output": "dataset.ground_truth_json"}, "filters": {"query": "", "sample": "100"}, "config": {"variables": [], "prompt": ""}}, {"evaluatorRef": "rca-toxicity-safety-accuracy", "name": "rca-toxicity-safety-accuracy", "type": "AGENT", "resultName": "rca-toxicity-safety-accuracy", "resultType": "score", "variableMapping": {"input": "experiment_input", "output": "experiment_output", "question": "dataset.question", "expected_output": "dataset.ground_truth_json", "payload_json": "dataset.payload_json"}, "filters": {"query": "", "sample": "100"}, "config": {"variables": [], "prompt": ""}}]
@@ -31,7 +31,7 @@ export class CreateExperimentPlanRequest extends $dara.Model {
   evaluators?: Evaluator[];
   /**
    * @remarks
-   * The experiment type. Set this parameter to `OFFLINE` or `ONLINE`.
+   * The type of the experiment. Valid values: OFFLINE and ONLINE.
    * 
    * This parameter is required.
    * 
@@ -41,12 +41,12 @@ export class CreateExperimentPlanRequest extends $dara.Model {
   experimentType?: string;
   /**
    * @remarks
-   * The list of experiment configurations. A maximum of 5 entries are supported. For offline experiments, this parameter can be omitted or set to an empty array. For online experiments, at least one entry is required.
+   * The list of experiment configurations. You can specify up to 5 configurations. This parameter is optional or can be left empty for offline experiments. For online experiments, you must specify at least one configuration.
    * 
    * This parameter is required.
    * 
    * @example
-   * [{"label": "A", "name": "experimentA", "modelName": "qwen3.7-plus", "modelProvider": "dashscope", "modelParameters": {"temperature": 0.7, "topP": 0.8, "presencePenalty": 0.0, "frequencyPenalty": 0.0}, "promptTemplate": [{"role": "system", "content": "You are an Alibaba Cloud ARMS product Q&A bot"}, {"role": "user", "content": "{{input}}"}]}, {"label": "B", "name": "experimentB", "modelName": "qwen3.7-max", "modelProvider": "dashscope", "modelParameters": {"temperature": 0.7, "topP": 0.8, "presencePenalty": 0.0, "frequencyPenalty": 0.0}, "promptTemplate": [{"role": "system", "content": "You are an Alibaba Cloud ARMS product Q&A bot"}, {"role": "user", "content": "{{input}}"}]}]
+   * [{"label": "A", "name": "experimentA", "modelName": "qwen3.7-plus", "modelProvider": "dashscope", "modelParameters": {"temperature": 0.7, "topP": 0.8, "presencePenalty": 0.0, "frequencyPenalty": 0.0}, "promptTemplate": [{"role": "system", "content": "You are the Alibaba Cloud ARMS product Q&A bot."}, {"role": "user", "content": "{{input}}"}]}, {"label": "B", "name": "experimentB", "modelName": "qwen3.7-max", "modelProvider": "dashscope", "modelParameters": {"temperature": 0.7, "topP": 0.8, "presencePenalty": 0.0, "frequencyPenalty": 0.0}, "promptTemplate": [{"role": "system", "content": "You are the Alibaba Cloud ARMS product Q&A bot."}, {"role": "user", "content": "{{input}}"}]}]
    */
   experiments?: ExperimentConfig[];
   /**
@@ -59,12 +59,12 @@ export class CreateExperimentPlanRequest extends $dara.Model {
   input?: { [key: string]: any };
   /**
    * @remarks
-   * The name of the associated data processing pipeline (optional). After association, when experiment runs under this plan finish writing results to the experiment result Logstore, the system filters by the traceId of the experiment trace, calls PreviewPipeline, and writes the pipeline-processed results together.
+   * The name of the associated data processing pipeline. This parameter is optional. After you associate a pipeline, when the experiment execution under this plan is completed and the experiment results are written to the Logstore, the system filters the data by the traceId of the current experiment trace and calls PreviewPipeline to write the results processed by the pipeline.
    */
   pipelineName?: string;
   /**
    * @remarks
-   * The name of the experiment plan. The name must be unique within the same AgentSpace and account.
+   * The name of the experiment plan. The name must be unique within the same account in an AgentSpace.
    * 
    * This parameter is required.
    * 
@@ -74,7 +74,7 @@ export class CreateExperimentPlanRequest extends $dara.Model {
   planName?: string;
   /**
    * @remarks
-   * The custom query SQL clause for partial dataset mode. This parameter can be used when `selectedItemIds` is empty.
+   * The custom query SQL clause in partial dataset mode. You can use this parameter when selectedItemIds is empty.
    * 
    * @example
    * status=\\"OK\\"
@@ -82,7 +82,7 @@ export class CreateExperimentPlanRequest extends $dara.Model {
   querySql?: string;
   /**
    * @remarks
-   * The list of selected data item IDs for partial dataset mode. This parameter must be used together with `datasetId`.
+   * The list of selected data item IDs in partial dataset mode. This parameter must be used together with the datasetId parameter.
    * 
    * @example
    * ["019ef4d5-a0f0-7114-832d-5542d771cd8c", "019f1729-be9b-7769-a006-8e98023ad7ad"]

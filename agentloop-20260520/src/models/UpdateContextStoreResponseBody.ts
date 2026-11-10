@@ -42,12 +42,12 @@ export class UpdateContextStoreResponseBodyConfig extends $dara.Model {
 export class UpdateContextStoreResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The configuration properties after the runtime recall switch is updated. This block is not returned for other library update operations.
+   * The configuration properties after updating the runtime recall switch. This block is not returned for other library update operations.
    */
   config?: UpdateContextStoreResponseBodyConfig;
   /**
    * @remarks
-   * The request ID, which is used to locate this request during troubleshooting.
+   * The request ID. You can use this ID to locate the request when troubleshooting issues.
    * 
    * @example
    * 9ACFB10A-1B2C-3D4E-5F6G-7H8I9J0K1L2M

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateContextStoreRequestConfigAudit extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to write item events for dropped recall candidates. Default value: false.
+   * Specifies whether to write item events for dropped candidates during retrieval. Default value: false.
    * 
    * @example
    * false
@@ -13,10 +13,7 @@ export class UpdateContextStoreRequestConfigAudit extends $dara.Model {
   droppedCandidates?: boolean;
   /**
    * @remarks
-   * The recording method for recall queries. Valid values:
-   * - raw: Plaintext.
-   * - hash: HMAC only.
-   * Default value: raw.
+   * The method used to record retrieved queries. Valid values: raw (plaintext) and hash (HMAC only). Default value: raw.
    * 
    * @example
    * raw
@@ -96,7 +93,7 @@ export class UpdateContextStoreRequestConfigExtractionPoliciesStoragePolicy exte
   allowedActions?: string[];
   /**
    * @remarks
-   * Specifies whether to enable deduplication in event mode. Default value: true.
+   * Specifies whether to deduplicate data in event mode. Default value: true.
    * 
    * @example
    * true
@@ -104,7 +101,7 @@ export class UpdateContextStoreRequestConfigExtractionPoliciesStoragePolicy exte
   dedupe?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable human edit protection. Default value: true. When enabled, automatic extraction does not overwrite manually modified memories.
+   * Specifies whether to enable human edit protection. Default value: true. When enabled, automatic extraction does not overwrite manually modified memory.
    * 
    * @example
    * true
@@ -112,7 +109,7 @@ export class UpdateContextStoreRequestConfigExtractionPoliciesStoragePolicy exte
   humanEditProtection?: boolean;
   /**
    * @remarks
-   * The merge key for upsert operations. Valid values: factKey, semantic, and both. Default value: semantic.
+   * The merge key for the upsert mode. Valid values: factKey, semantic, and both. Default value: semantic.
    * 
    * @example
    * semantic
@@ -120,10 +117,7 @@ export class UpdateContextStoreRequestConfigExtractionPoliciesStoragePolicy exte
   mergeKey?: string;
   /**
    * @remarks
-   * The storage mode. Valid values:
-   * - event: Event append.
-   * - upsert: Merge and update.
-   * Default value: upsert.
+   * The storage mode. Valid values: event (event append) and upsert (merge and update). Default value: upsert.
    * 
    * @example
    * upsert
@@ -139,7 +133,7 @@ export class UpdateContextStoreRequestConfigExtractionPoliciesStoragePolicy exte
   similarityThreshold?: number;
   /**
    * @remarks
-   * The number of days before memories expire. A value of 0 indicates that memories do not expire.
+   * The number of days before memory expires. A value of 0 indicates that the memory does not expire.
    * 
    * @example
    * 0
@@ -192,7 +186,7 @@ export class UpdateContextStoreRequestConfigExtractionPolicies extends $dara.Mod
   categories?: string[];
   /**
    * @remarks
-   * The custom extraction instructions. This parameter is required when preset is set to custom. Length: 1 to 8000 characters.
+   * The custom extraction instructions. This parameter is required when preset is set to custom. The length must be 1 to 8,000 characters.
    * 
    * @example
    * Extract only user product preferences
@@ -200,7 +194,7 @@ export class UpdateContextStoreRequestConfigExtractionPolicies extends $dara.Mod
   customInstructions?: string;
   /**
    * @remarks
-   * Specifies whether to execute this policy for new inputs. Default value: true. Disabling the policy does not delete historical memories.
+   * Specifies whether to execute this policy for new input. Default value: true. Disabling the policy does not delete historical memory.
    * 
    * @example
    * true
@@ -208,7 +202,7 @@ export class UpdateContextStoreRequestConfigExtractionPolicies extends $dara.Mod
   enabled?: boolean;
   /**
    * @remarks
-   * The list of exclusion rules. Content that matches these rules is not extracted.
+   * The list of exclude rules. Content that matches these rules is not extracted.
    * 
    * @example
    * ["Password","ID number"]
@@ -237,12 +231,12 @@ export class UpdateContextStoreRequestConfigExtractionPolicies extends $dara.Mod
   preset?: string;
   /**
    * @remarks
-   * The independent storage rule for this policy. If omitted, the original value is retained. New policies use the default value. Repeatedly confirmed memories refresh the validity period by default.
+   * The independent storage rules for this policy. If omitted, the original value is retained. New policies use the default value. Repeatedly confirmed memory refreshes the validity period by default.
    */
   storagePolicy?: UpdateContextStoreRequestConfigExtractionPoliciesStoragePolicy;
   /**
    * @remarks
-   * The ID of the extraction policy. This parameter is optional. If omitted, the default value is used. The ID must start with a letter and can contain only letters, digits, underscores, and hyphens. Maximum length: 64 characters. After default processing, the ID must be unique within the same library. Modifying the name or instructions does not change this ID.
+   * The ID of the extraction policy. This parameter is optional. If omitted, the default value is used. The ID must start with a letter and can contain only letters, digits, underscores, and hyphens. It can be up to 64 characters in length. After default processing, the ID must be unique within the same database. Modifying the name or instructions does not change this ID.
    * 
    * @example
    * preferences
@@ -338,7 +332,7 @@ export class UpdateContextStoreRequestConfigExtractionPolicy extends $dara.Model
   categories?: string[];
   /**
    * @remarks
-   * The custom extraction instructions. This parameter is required when preset is set to custom. Length: 1 to 8000 characters.
+   * The custom extraction instructions. This parameter is required when preset is set to custom. The length must be 1 to 8,000 characters.
    * 
    * @example
    * Extract only user product preferences
@@ -346,7 +340,7 @@ export class UpdateContextStoreRequestConfigExtractionPolicy extends $dara.Model
   customInstructions?: string;
   /**
    * @remarks
-   * The list of exclusion rules. Content that matches these rules is not extracted.
+   * The list of exclude rules. Content that matches these rules is not extracted.
    * 
    * @example
    * ["Password","ID number"]
@@ -406,7 +400,7 @@ export class UpdateContextStoreRequestConfigExtractionPolicy extends $dara.Model
 export class UpdateContextStoreRequestConfigScopePolicy extends $dara.Model {
   /**
    * @remarks
-   * Specifies that at least one of the scope fields must be non-empty. Valid values for the elements: userId, agentId, appId, and runId.
+   * Specifies that at least one scope field must be non-empty. Valid values: userId, agentId, appId, and runId.
    * 
    * @example
    * ["userId"]
@@ -439,7 +433,7 @@ export class UpdateContextStoreRequestConfigScopePolicy extends $dara.Model {
 export class UpdateContextStoreRequestConfigSourceDatasetCustomFields extends $dara.Model {
   /**
    * @remarks
-   * The description of the field. This parameter is required when usage is set to extraction-input.
+   * The field description. This parameter is required when usage is set to extraction-input.
    * 
    * @example
    * Customer tier
@@ -447,7 +441,7 @@ export class UpdateContextStoreRequestConfigSourceDatasetCustomFields extends $d
   description?: string;
   /**
    * @remarks
-   * Specifies whether the field is sensitive.
+   * Specifies whether the field is a sensitive field.
    * 
    * @example
    * false
@@ -455,7 +449,7 @@ export class UpdateContextStoreRequestConfigSourceDatasetCustomFields extends $d
   sensitive?: boolean;
   /**
    * @remarks
-   * The name of the source field.
+   * The source field name.
    * 
    * @example
    * customerTier
@@ -463,7 +457,7 @@ export class UpdateContextStoreRequestConfigSourceDatasetCustomFields extends $d
   sourceField?: string;
   /**
    * @remarks
-   * The target write path, such as metadata.customerTier.
+   * The write target path, such as metadata.customerTier.
    * 
    * @example
    * metadata.customerTier
@@ -509,7 +503,7 @@ export class UpdateContextStoreRequestConfigSourceDatasetCustomFields extends $d
 export class UpdateContextStoreRequestConfigSourceDatasetFilter extends $dara.Model {
   /**
    * @remarks
-   * The subset of the Pipeline where clause, which is pushed down to SQL.
+   * The subset of the pipeline where clause, which is pushed down to SQL.
    * 
    * @example
    * appId = \\"crm-service\\"
@@ -539,12 +533,12 @@ export class UpdateContextStoreRequestConfigSourceDatasetFilter extends $dara.Mo
 export class UpdateContextStoreRequestConfigSourceDataset extends $dara.Model {
   /**
    * @remarks
-   * The list of custom field declarations. If provided, the entire list is overwritten.
+   * The list of custom field declarations. If passed, the list is completely overwritten.
    */
   customFields?: UpdateContextStoreRequestConfigSourceDatasetCustomFields[];
   /**
    * @remarks
-   * The row filter condition.
+   * The row filter conditions.
    */
   filter?: UpdateContextStoreRequestConfigSourceDatasetFilter;
   /**
@@ -597,7 +591,7 @@ export class UpdateContextStoreRequestConfigSourceTrajectoryFilter extends $dara
   agentNames?: string[];
   /**
    * @remarks
-   * Specifies whether to exclude degraded trajectories. Default value: false (degraded trajectories are included).
+   * Specifies whether to exclude degraded trajectories. Default value: false, which includes degraded trajectories.
    * 
    * @example
    * false
@@ -605,7 +599,7 @@ export class UpdateContextStoreRequestConfigSourceTrajectoryFilter extends $dara
   excludeDegraded?: boolean;
   /**
    * @remarks
-   * The minimum number of steps. The value must be greater than or equal to 0.
+   * The minimum step count, which must be greater than or equal to 0.
    * 
    * @example
    * 2
@@ -665,7 +659,7 @@ export class UpdateContextStoreRequestConfigSourceTrajectoryFilter extends $dara
 export class UpdateContextStoreRequestConfigSourceTrajectoryScopeMapping extends $dara.Model {
   /**
    * @remarks
-   * The JSONPath expression for agentId. Default value: $.agent_name.
+   * The JSONPath for agentId. Default value: $.agent_name.
    * 
    * @example
    * $.agent_name
@@ -673,7 +667,7 @@ export class UpdateContextStoreRequestConfigSourceTrajectoryScopeMapping extends
   agentId?: string;
   /**
    * @remarks
-   * The JSONPath expression for appId. Default value: $.service_names[0].
+   * The JSONPath for appId. Default value: $.service_names[0].
    * 
    * @example
    * $.service_names[0]
@@ -681,7 +675,7 @@ export class UpdateContextStoreRequestConfigSourceTrajectoryScopeMapping extends
   appId?: string;
   /**
    * @remarks
-   * The JSONPath expression for runId. Default value: $.trajectory_id.
+   * The JSONPath for runId. It is not mapped by default to avoid isolating memory by a single trajectory.
    * 
    * @example
    * $.trajectory_id
@@ -689,7 +683,7 @@ export class UpdateContextStoreRequestConfigSourceTrajectoryScopeMapping extends
   runId?: string;
   /**
    * @remarks
-   * The JSONPath expression for userId. By default, this field is not mapped.
+   * The JSONPath for userId. In version 1, it is not mapped by default. In version 2, it defaults to user.id and then enduser.id from agent attributes.
    * 
    * @example
    * $.trajectory_extensions.user_id
@@ -725,12 +719,12 @@ export class UpdateContextStoreRequestConfigSourceTrajectoryScopeMapping extends
 export class UpdateContextStoreRequestConfigSourceTrajectory extends $dara.Model {
   /**
    * @remarks
-   * The trajectory filter conditions. Conditions are combined with AND, while items within a list are combined with OR.
+   * The trajectory filter conditions. Conditions are combined with AND, and items within a list are combined with OR.
    */
   filter?: UpdateContextStoreRequestConfigSourceTrajectoryFilter;
   /**
    * @remarks
-   * The name of the trajectory Logstore. Default value: agent-trajectory. This parameter cannot be changed after creation.
+   * The name of the trajectory Logstore. Default value: agent-trajectory. It cannot be changed after creation.
    * 
    * @example
    * agent-trajectory
@@ -746,15 +740,24 @@ export class UpdateContextStoreRequestConfigSourceTrajectory extends $dara.Model
   pollIntervalSeconds?: number;
   /**
    * @remarks
-   * The scope field mapping. The value is a JSONPath expression. Only the $.a.b and $.a[0] formats are supported.
+   * The scope field mapping. Dot paths, array indices, and quoted property keys are supported. An empty string indicates no mapping.
    */
   scopeMapping?: UpdateContextStoreRequestConfigSourceTrajectoryScopeMapping;
+  /**
+   * @remarks
+   * The default mapping version for trajectory identity. Version 1 retains the old rules. Version 2 reads user.id or enduser.id from agent attributes. The version is frozen upon creation.
+   * 
+   * @example
+   * 2
+   */
+  scopeMappingVersion?: number;
   static names(): { [key: string]: string } {
     return {
       filter: 'filter',
       logstore: 'logstore',
       pollIntervalSeconds: 'pollIntervalSeconds',
       scopeMapping: 'scopeMapping',
+      scopeMappingVersion: 'scopeMappingVersion',
     };
   }
 
@@ -764,6 +767,7 @@ export class UpdateContextStoreRequestConfigSourceTrajectory extends $dara.Model
       logstore: 'string',
       pollIntervalSeconds: 'number',
       scopeMapping: UpdateContextStoreRequestConfigSourceTrajectoryScopeMapping,
+      scopeMappingVersion: 'number',
     };
   }
 
@@ -785,7 +789,7 @@ export class UpdateContextStoreRequestConfigSourceTrajectory extends $dara.Model
 export class UpdateContextStoreRequestConfigSource extends $dara.Model {
   /**
    * @remarks
-   * The AgentSpace where the trace data source is located. Cross-AgentSpace operations are not supported in the current version. If specified, the value must be equal to the path AgentSpace. Otherwise, a 400 parameter error is returned. The AgentSpace cannot be changed after creation.
+   * The AgentSpace where the trace data source is located. Cross-AgentSpace is not supported in the current phase. If passed, it must be equal to the path AgentSpace. Otherwise, a 400 parameter error is returned. The AgentSpace cannot be changed after creation.
    * 
    * @example
    * my-agent-space
@@ -793,12 +797,12 @@ export class UpdateContextStoreRequestConfigSource extends $dara.Model {
   agentSpace?: string;
   /**
    * @remarks
-   * The updatable items of the Dataset data source. The datasetName cannot be changed after creation.
+   * The updatable items of the dataset data source. The datasetName cannot be changed after creation.
    */
   dataset?: UpdateContextStoreRequestConfigSourceDataset;
   /**
    * @remarks
-   * The start time for data backfill, in ISO 8601 UTC format.
+   * The data backfill start time in ISO 8601 UTC format.
    * 
    * @example
    * 2026-01-01T00:00:00Z
@@ -853,7 +857,7 @@ export class UpdateContextStoreRequestConfigStoragePolicy extends $dara.Model {
   allowedActions?: string[];
   /**
    * @remarks
-   * Specifies whether to enable deduplication in event mode. Default value: true.
+   * Specifies whether to deduplicate data in event mode. Default value: true.
    * 
    * @example
    * true
@@ -861,7 +865,7 @@ export class UpdateContextStoreRequestConfigStoragePolicy extends $dara.Model {
   dedupe?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable human edit protection. Default value: true. When enabled, automatic extraction does not overwrite manually modified memories.
+   * Specifies whether to enable human edit protection. Default value: true. When enabled, automatic extraction does not overwrite manually modified memory.
    * 
    * @example
    * true
@@ -869,7 +873,7 @@ export class UpdateContextStoreRequestConfigStoragePolicy extends $dara.Model {
   humanEditProtection?: boolean;
   /**
    * @remarks
-   * The merge key for upsert operations. Valid values: factKey, semantic, and both. Default value: semantic.
+   * The merge key for the upsert mode. Valid values: factKey, semantic, and both. Default value: semantic.
    * 
    * @example
    * semantic
@@ -877,10 +881,7 @@ export class UpdateContextStoreRequestConfigStoragePolicy extends $dara.Model {
   mergeKey?: string;
   /**
    * @remarks
-   * The storage mode. Valid values:
-   * - event: Event append.
-   * - upsert: Merge and update.
-   * Default value: upsert.
+   * The storage mode. Valid values: event (event append) and upsert (merge and update). Default value: upsert.
    * 
    * @example
    * upsert
@@ -896,7 +897,7 @@ export class UpdateContextStoreRequestConfigStoragePolicy extends $dara.Model {
   similarityThreshold?: number;
   /**
    * @remarks
-   * The number of days before memories expire. A value of 0 indicates that memories do not expire.
+   * The number of days before memory expires. A value of 0 indicates that the memory does not expire.
    * 
    * @example
    * 0
@@ -946,7 +947,7 @@ export class UpdateContextStoreRequestConfig extends $dara.Model {
   audit?: UpdateContextStoreRequestConfigAudit;
   /**
    * @remarks
-   * The extraction policies. You can specify 1 to 10 policies. Compatible fields returned as-is during updates are ignored. strategyVersion indicates the snapshot version of the entire library configuration.
+   * The list of extraction policies. You can specify 1 to 10 policies. During an update, compatible fields returned as-is are ignored. The strategyVersion parameter indicates the snapshot version of the entire database configuration.
    */
   extractionPolicies?: UpdateContextStoreRequestConfigExtractionPolicies[];
   /**
@@ -964,7 +965,7 @@ export class UpdateContextStoreRequestConfig extends $dara.Model {
   metadataField?: { [key: string]: string };
   /**
    * @remarks
-   * Specifies whether runtime recall is allowed for the experience library. When modifying this parameter, you must provide expectedRuntimeRecallRevision and submit only this property in the config.
+   * Specifies whether the experience library allows runtime recall. When modifying this property, you must pass expectedRuntimeRecallRevision and submit only this property in the config.
    */
   runtimeRecallEnabled?: boolean;
   /**
@@ -1041,7 +1042,7 @@ export class UpdateContextStoreRequestConfig extends $dara.Model {
 export class UpdateContextStoreRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the policy change. A new policy version is generated when policy fields in the configuration change.
+   * The description of the policy change. A new policy version is written when a policy field in the config changes.
    * 
    * @example
    * Relax the similarity threshold
@@ -1049,12 +1050,12 @@ export class UpdateContextStoreRequest extends $dara.Model {
   changeNote?: string;
   /**
    * @remarks
-   * The context library configuration. If passed, the entire configuration is overwritten. If not passed, the original configuration is retained.
+   * The context library configuration. If passed, the configuration is completely overwritten. If not passed, the original configuration is retained.
    */
   config?: UpdateContextStoreRequestConfig;
   /**
    * @remarks
-   * The context library type. This field cannot be changed after creation and is provided only for exception correction.
+   * The context library type. This field is typically immutable after creation and is provided only for exception correction.
    * 
    * @example
    * experience
@@ -1062,15 +1063,15 @@ export class UpdateContextStoreRequest extends $dara.Model {
   contextType?: string;
   /**
    * @remarks
-   * The description of the context library, which helps business users understand its purpose.
+   * The description of the context store, which helps business users understand its purpose.
    * 
    * @example
-   * My context library
+   * My context store
    */
   description?: string;
   /**
    * @remarks
-   * The expected runtime recall revision. This field is required when you modify the runtime recall switch and must be equal to the config.runtimeRecallRevision value returned by GetContextStore. A 409 error is returned if a conflict occurs.
+   * Required when modifying the runtime recall switch. The value must be equal to the config.runtimeRecallRevision value returned by GetContextStore. A 409 error is returned if a conflict occurs.
    * 
    * @example
    * 1
@@ -1081,12 +1082,12 @@ export class UpdateContextStoreRequest extends $dara.Model {
    * The audit reason for modifying the runtime recall switch. The maximum length is 2,000 characters.
    * 
    * @example
-   * Pause runtime recall during experience content adjustment
+   * Suspend runtime recall while adjusting experience content
    */
   reason?: string;
   /**
    * @remarks
-   * The running status, which can be Active or Paused. For the memory type, pausing stops data source reading and extraction. For the experience dataset follow type, pausing retains submitted and in-flight checkpoints, and resuming continues to process new records without skipping history from the current time. You do not need to pass back the source if you only update the status.
+   * The running status. Valid values: Active and Paused. For the memory type, Paused suspends data source reading and extraction. For the experience Dataset follow type, Paused retains committed and in-flight checkpoints, and resuming continues to process new records without skipping history from the current time. You do not need to pass back the source parameter if you only update the status.
    * 
    * @example
    * Active
@@ -1094,7 +1095,7 @@ export class UpdateContextStoreRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The client token. This is a unique string generated by the client to ensure the idempotence of the update operation.
+   * The idempotency token. This is a unique string generated by the client to ensure the idempotence of the update operation.
    * 
    * @example
    * a1b2c3d4-1234-5678-90ab-cdef12345678

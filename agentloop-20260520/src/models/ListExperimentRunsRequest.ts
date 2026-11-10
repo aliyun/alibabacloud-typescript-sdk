@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListExperimentRunsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters results by exact dataset ID.
+   * Filters the results by exact dataset ID.
    * 
    * @example
    * arms_customer_agent_level1
@@ -13,7 +13,7 @@ export class ListExperimentRunsRequest extends $dara.Model {
   datasetId?: string;
   /**
    * @remarks
-   * Filters results by fuzzy match on the experiment configuration name.
+   * Filters the results by using a fuzzy match on the name in the experiment configuration.
    * 
    * @example
    * experimentA
@@ -21,7 +21,7 @@ export class ListExperimentRunsRequest extends $dara.Model {
   experimentName?: string;
   /**
    * @remarks
-   * Optional. Use `page` and `pageSize` for pagination instead.
+   * Optional. For pagination, use page and pageSize.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class ListExperimentRunsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Optional. Use `page` and `pageSize` for pagination instead.
+   * Optional. For pagination, use page and pageSize.
    * 
    * @example
    * eyJwYWdlIjoxfQ==
@@ -53,7 +53,7 @@ export class ListExperimentRunsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters results by fuzzy match on the experiment plan name.
+   * Filters the results by using a fuzzy match on the experiment plan name.
    * 
    * @example
    * arms_agent_experiment
@@ -61,7 +61,7 @@ export class ListExperimentRunsRequest extends $dara.Model {
   planName?: string;
   /**
    * @remarks
-   * Filters results by status.
+   * Filters the results by status.
    * 
    * @example
    * evaluating

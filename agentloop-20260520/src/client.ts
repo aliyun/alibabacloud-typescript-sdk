@@ -155,6 +155,10 @@ export default class Client extends OpenApi {
       body["mseNamespaceId"] = request.mseNamespaceId;
     }
 
+    if (!$dara.isNull(request.trajectoryEmbeddingEnabled)) {
+      body["trajectoryEmbeddingEnabled"] = request.trajectoryEmbeddingEnabled;
+    }
+
     if (!$dara.isNull(request.trajectoryStoreEnabled)) {
       body["trajectoryStoreEnabled"] = request.trajectoryStoreEnabled;
     }
@@ -191,7 +195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a context library.
+   * Creates a context store.
    * 
    * @param request - CreateContextStoreRequest
    * @param headers - map
@@ -242,7 +246,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a context library.
+   * Creates a context store.
    * 
    * @param request - CreateContextStoreRequest
    * @returns CreateContextStoreResponse
@@ -620,7 +624,7 @@ export default class Client extends OpenApi {
    * Creates an experiment plan.
    * 
    * @remarks
-   * Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. This operation defines the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
+   * Creates an experiment plan in a specified AgentSpace. You can use this operation to define the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to initiate the execution.
    * 
    * @param request - CreateExperimentPlanRequest
    * @param headers - map
@@ -692,7 +696,7 @@ export default class Client extends OpenApi {
    * Creates an experiment plan.
    * 
    * @remarks
-   * Calls CreateExperimentPlan to create an experiment plan under a specified AgentSpace. This operation defines the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to start the execution.
+   * Creates an experiment plan in a specified AgentSpace. You can use this operation to define the configuration for an offline or online experiment, including the data source, optional evaluators, and experiment groups required for online experiments. After the plan is created, call CreateExperimentRun to initiate the execution.
    * 
    * @param request - CreateExperimentPlanRequest
    * @returns CreateExperimentPlanResponse
@@ -2017,10 +2021,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an experiment run record.
+   * Queries the details of an experiment run.
    * 
    * @remarks
-   * Calls GetExperimentRun to query the details of a specific experiment run record, including the status, progress, configuration snapshot, and associated evaluation task ID.
+   * Calls the GetExperimentRun operation to query the details of an experiment run, including the status, progress, configuration snapshot, and associated evaluation task ID.
    * 
    * @param request - GetExperimentRunRequest
    * @param headers - map
@@ -2047,10 +2051,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an experiment run record.
+   * Queries the details of an experiment run.
    * 
    * @remarks
-   * Calls GetExperimentRun to query the details of a specific experiment run record, including the status, progress, configuration snapshot, and associated evaluation task ID.
+   * Calls the GetExperimentRun operation to query the details of an experiment run, including the status, progress, configuration snapshot, and associated evaluation task ID.
    * 
    * @param request - GetExperimentRunRequest
    * @returns GetExperimentRunResponse
@@ -2826,10 +2830,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of experiment run records.
+   * Queries a list of experiment runs.
    * 
    * @remarks
-   * Calls ListExperimentRuns to query experiment run records under a specified AgentSpace for the current account. You can filter results by status, dataset, plan name, or experiment name, and use `page`/`pageSize` for pagination.
+   * Calls the ListExperimentRuns operation to query the experiment execution records of the current account in a specified AgentSpace. You can filter records by status, dataset, plan name, and experiment name, and paginate results by using page and pageSize.
    * 
    * @param request - ListExperimentRunsRequest
    * @param headers - map
@@ -2890,10 +2894,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of experiment run records.
+   * Queries a list of experiment runs.
    * 
    * @remarks
-   * Calls ListExperimentRuns to query experiment run records under a specified AgentSpace for the current account. You can filter results by status, dataset, plan name, or experiment name, and use `page`/`pageSize` for pagination.
+   * Calls the ListExperimentRuns operation to query the experiment execution records of the current account in a specified AgentSpace. You can filter records by status, dataset, plan name, and experiment name, and paginate results by using page and pageSize.
    * 
    * @param request - ListExperimentRunsRequest
    * @returns ListExperimentRunsResponse
@@ -3939,7 +3943,7 @@ export default class Client extends OpenApi {
    * Updates an experiment plan.
    * 
    * @remarks
-   * Updates a specified experiment plan. Fields that are not specified remain unchanged. You can only update plans created by the current account.
+   * Updates a specified experiment plan. Unspecified fields remain unchanged. Only plans created by the current account can be updated.
    * 
    * @param request - UpdateExperimentPlanRequest
    * @param headers - map
@@ -4015,7 +4019,7 @@ export default class Client extends OpenApi {
    * Updates an experiment plan.
    * 
    * @remarks
-   * Updates a specified experiment plan. Fields that are not specified remain unchanged. You can only update plans created by the current account.
+   * Updates a specified experiment plan. Unspecified fields remain unchanged. Only plans created by the current account can be updated.
    * 
    * @param request - UpdateExperimentPlanRequest
    * @returns UpdateExperimentPlanResponse

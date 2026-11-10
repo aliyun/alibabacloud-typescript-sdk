@@ -1,4 +1,6 @@
 export { AuditTaskStateRuntimeError } from './AuditTaskState';
+export { ModelParametersResponseFormatJsonSchema } from './ModelParameters';
+export { ModelParametersResponseFormat } from './ModelParameters';
 export { CreateContextStoreRequestConfigAudit } from './CreateContextStoreRequest';
 export { CreateContextStoreRequestConfigExtractionPoliciesModel } from './CreateContextStoreRequest';
 export { CreateContextStoreRequestConfigExtractionPoliciesStoragePolicy } from './CreateContextStoreRequest';

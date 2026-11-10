@@ -7,7 +7,7 @@ import { ExperimentConfig } from "./ExperimentConfig";
 export class GetExperimentPlanResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The creation time. The value is a millisecond-level UNIX timestamp.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1782816000000
@@ -15,7 +15,7 @@ export class GetExperimentPlanResponseBody extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * The associated dataset ID.
+   * The ID of the associated dataset.
    * 
    * @example
    * arms_customer_agent_level1
@@ -26,7 +26,7 @@ export class GetExperimentPlanResponseBody extends $dara.Model {
    * The description.
    * 
    * @example
-   * Compare checkout Agent baseline with optimized version
+   * Compare the checkout agent baseline with the optimized version
    */
   description?: string;
   /**
@@ -39,7 +39,7 @@ export class GetExperimentPlanResponseBody extends $dara.Model {
   evaluators?: Evaluator[];
   /**
    * @remarks
-   * The experiment type.
+   * The type of the experiment.
    * 
    * @example
    * online
@@ -58,17 +58,17 @@ export class GetExperimentPlanResponseBody extends $dara.Model {
    * Optional.
    * 
    * @example
-   * {"question": "How do I request a refund?"}
+   * {"question": "How do I get a refund?"}
    */
   input?: { [key: string]: any };
   /**
    * @remarks
-   * The name of the associated data processing pipeline. This value is empty if no pipeline is associated.
+   * The name of the associated data processing pipeline. This field is empty if no pipeline is associated.
    */
   pipelineName?: string;
   /**
    * @remarks
-   * The experiment plan ID.
+   * The ID of the experiment plan.
    * 
    * @example
    * exp-plan-0242d983f5d340fd8479cf2c19eb279e
@@ -76,7 +76,7 @@ export class GetExperimentPlanResponseBody extends $dara.Model {
   planId?: string;
   /**
    * @remarks
-   * The experiment plan name.
+   * The name of the experiment plan.
    * 
    * @example
    * arms_agent_experiment
@@ -108,7 +108,7 @@ export class GetExperimentPlanResponseBody extends $dara.Model {
   selectedItemIds?: string[];
   /**
    * @remarks
-   * The plan status.
+   * The status of the plan.
    * 
    * @example
    * stopped
@@ -116,7 +116,7 @@ export class GetExperimentPlanResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The update time. The value is a millisecond-level UNIX timestamp.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1782816600000

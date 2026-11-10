@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateContextStoreRequestConfigAudit extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to write item events for dropped recall candidates. Default value: false.
+   * Specifies whether to write item events for dropped retrieval candidates. Default value: false.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class CreateContextStoreRequestConfigAudit extends $dara.Model {
   droppedCandidates?: boolean;
   /**
    * @remarks
-   * The recording mode for recall queries. Valid values: raw (plaintext) and hash (HMAC only). Default value: raw.
+   * The recording mode for retrieval queries. Valid values: raw (plaintext) and hash (HMAC only). Default value: raw.
    * 
    * @example
    * raw
@@ -55,7 +55,7 @@ export class CreateContextStoreRequestConfigAudit extends $dara.Model {
 export class CreateContextStoreRequestConfigExtractionPoliciesModel extends $dara.Model {
   /**
    * @remarks
-   * The name of the extraction model. Currently, only qwen3.8-flash is supported. Platform internal credentials are used.
+   * The name of the extraction model. Currently, only qwen3.8-flash is supported, which uses internal platform credentials.
    * 
    * @example
    * qwen3.8-flash
@@ -85,7 +85,7 @@ export class CreateContextStoreRequestConfigExtractionPoliciesModel extends $dar
 export class CreateContextStoreRequestConfigExtractionPoliciesStoragePolicy extends $dara.Model {
   /**
    * @remarks
-   * The allowed storage actions. Default value: all actions (ADD, UPDATE, MERGE, and DELETE).
+   * The allowed storage actions. Default value: all. Valid values: ADD, UPDATE, MERGE, and DELETE.
    * 
    * @example
    * ["ADD","UPDATE","MERGE","DELETE"]
@@ -101,7 +101,7 @@ export class CreateContextStoreRequestConfigExtractionPoliciesStoragePolicy exte
   dedupe?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable human edit protection. Default value: true. When enabled, automatic extraction does not overwrite manually modified memories.
+   * Specifies whether to enable human edit protection. Default value: true. If enabled, automatic extraction does not overwrite manually modified memories.
    * 
    * @example
    * true
@@ -109,7 +109,7 @@ export class CreateContextStoreRequestConfigExtractionPoliciesStoragePolicy exte
   humanEditProtection?: boolean;
   /**
    * @remarks
-   * The merge key for upsert operations. Valid values: factKey, semantic, and both. Default value: semantic.
+   * The upsert merge key. Valid values: factKey, semantic, and both. Default value: semantic.
    * 
    * @example
    * semantic
@@ -117,7 +117,7 @@ export class CreateContextStoreRequestConfigExtractionPoliciesStoragePolicy exte
   mergeKey?: string;
   /**
    * @remarks
-   * The storage mode. Valid values: event (event append) and upsert (merge update). Default value: upsert.
+   * The storage mode. Valid values: event (event append) and upsert (merge and update). Default value: upsert.
    * 
    * @example
    * upsert
@@ -125,7 +125,7 @@ export class CreateContextStoreRequestConfigExtractionPoliciesStoragePolicy exte
   mode?: string;
   /**
    * @remarks
-   * The similarity threshold for semantic merging. Valid values: 0 to 1. Default value: 0.4.
+   * The semantic merge similarity threshold. Valid values: 0 to 1. Default value: 0.4.
    * 
    * @example
    * 0.4
@@ -133,7 +133,7 @@ export class CreateContextStoreRequestConfigExtractionPoliciesStoragePolicy exte
   similarityThreshold?: number;
   /**
    * @remarks
-   * The number of days before memories expire. A value of 0 indicates that memories do not expire.
+   * The number of days before a memory expires. A value of 0 indicates that the memory does not expire.
    * 
    * @example
    * 0
@@ -186,7 +186,7 @@ export class CreateContextStoreRequestConfigExtractionPolicies extends $dara.Mod
   categories?: string[];
   /**
    * @remarks
-   * The custom extraction instructions. This parameter is required when preset is set to custom. Length: 1 to 8,000 characters.
+   * The custom extraction instructions. This parameter is required when preset is set to custom. The length must be 1 to 8,000 characters.
    * 
    * @example
    * Extract only user product preferences
@@ -194,7 +194,7 @@ export class CreateContextStoreRequestConfigExtractionPolicies extends $dara.Mod
   customInstructions?: string;
   /**
    * @remarks
-   * Specifies whether to apply this policy to new inputs. Default value: true. Disabling the policy does not delete historical memories.
+   * Specifies whether to execute this policy for new input. Default value: true. Disabling the policy does not delete historical memories.
    * 
    * @example
    * true
@@ -202,7 +202,7 @@ export class CreateContextStoreRequestConfigExtractionPolicies extends $dara.Mod
   enabled?: boolean;
   /**
    * @remarks
-   * The list of exclusion rules. Content that matches these rules is not extracted.
+   * The list of exclusion rules. Content that matches the rules is not extracted.
    * 
    * @example
    * ["Password","ID number"]
@@ -210,7 +210,7 @@ export class CreateContextStoreRequestConfigExtractionPolicies extends $dara.Mod
   excludeRules?: string[];
   /**
    * @remarks
-   * The extraction model configuration.
+   * The configuration of the extraction model.
    */
   model?: CreateContextStoreRequestConfigExtractionPoliciesModel;
   /**
@@ -231,12 +231,12 @@ export class CreateContextStoreRequestConfigExtractionPolicies extends $dara.Mod
   preset?: string;
   /**
    * @remarks
-   * The independent storage rules for this policy. If omitted, the original values are retained. New policies use default values. Repeatedly confirmed memories refresh the validity period by default.
+   * The independent storage rule for this policy. If omitted, the original value is retained. New policies use the default value. Repeatedly confirmed memories refresh the validity period by default.
    */
   storagePolicy?: CreateContextStoreRequestConfigExtractionPoliciesStoragePolicy;
   /**
    * @remarks
-   * The ID of the extraction policy. This parameter is optional. If omitted, the default value is used. The ID must start with a letter and can contain only letters, digits, underscores, and hyphens. Maximum length: 64 characters. After default processing, the ID must be unique within the same library. Modifying the name or instructions does not change this ID.
+   * The ID of the extraction policy. This parameter is optional. If omitted, the default value is default. The ID must start with a letter and can contain only letters, digits, underscores, and hyphens. It can be up to 64 characters in length. After default value processing, the ID must be unique within the same database. Modifying the name or instructions does not change this ID.
    * 
    * @example
    * preferences
@@ -294,7 +294,7 @@ export class CreateContextStoreRequestConfigExtractionPolicies extends $dara.Mod
 export class CreateContextStoreRequestConfigExtractionPolicyModel extends $dara.Model {
   /**
    * @remarks
-   * The name of the extraction model. Currently, only qwen3.8-flash is supported. Platform internal credentials are used.
+   * The name of the extraction model. Currently, only qwen3.8-flash is supported, which uses internal platform credentials.
    * 
    * @example
    * qwen3.8-flash
@@ -332,7 +332,7 @@ export class CreateContextStoreRequestConfigExtractionPolicy extends $dara.Model
   categories?: string[];
   /**
    * @remarks
-   * The custom extraction instructions. This parameter is required when preset is set to custom. Length: 1 to 8,000 characters.
+   * The custom extraction instructions. This parameter is required when preset is set to custom. The length must be 1 to 8,000 characters.
    * 
    * @example
    * Extract only user product preferences
@@ -340,7 +340,7 @@ export class CreateContextStoreRequestConfigExtractionPolicy extends $dara.Model
   customInstructions?: string;
   /**
    * @remarks
-   * The list of exclusion rules. Content that matches these rules is not extracted.
+   * The list of exclusion rules. Content that matches the rules is not extracted.
    * 
    * @example
    * ["Password","ID number"]
@@ -348,7 +348,7 @@ export class CreateContextStoreRequestConfigExtractionPolicy extends $dara.Model
   excludeRules?: string[];
   /**
    * @remarks
-   * The extraction model configuration.
+   * The configuration of the extraction model.
    */
   model?: CreateContextStoreRequestConfigExtractionPolicyModel;
   /**
@@ -400,7 +400,7 @@ export class CreateContextStoreRequestConfigExtractionPolicy extends $dara.Model
 export class CreateContextStoreRequestConfigScopePolicy extends $dara.Model {
   /**
    * @remarks
-   * Specifies that at least one of the specified scope fields must be non-empty. Valid values for elements: userId, agentId, appId, and runId.
+   * The list of scope fields where at least one must be non-empty. Valid values for elements: userId, agentId, appId, and runId.
    * 
    * @example
    * ["userId"]
@@ -533,7 +533,7 @@ export class CreateContextStoreRequestConfigSourceDatasetFilter extends $dara.Mo
 export class CreateContextStoreRequestConfigSourceDatasetVersionPolicy extends $dara.Model {
   /**
    * @remarks
-   * The consumption mode. Valid values: follow (incremental consumption based on __dataset_seq) and fixed (full consumption of the specified ACTIVE version once).
+   * The version consumption mode. Valid values: follow, which consumes data incrementally by __dataset_seq, and fixed, which consumes the specified ACTIVE version in full at once.
    * 
    * @example
    * follow
@@ -541,7 +541,7 @@ export class CreateContextStoreRequestConfigSourceDatasetVersionPolicy extends $
   mode?: string;
   /**
    * @remarks
-   * The starting __dataset_seq for the follow mode.
+   * The start __dataset_seq for the follow mode.
    * 
    * @example
    * 0
@@ -549,7 +549,7 @@ export class CreateContextStoreRequestConfigSourceDatasetVersionPolicy extends $
   startSeq?: number;
   /**
    * @remarks
-   * The Dataset version specified for the fixed mode.
+   * The dataset version specified for the fixed mode.
    * 
    * @example
    * v3
@@ -588,7 +588,7 @@ export class CreateContextStoreRequestConfigSourceDataset extends $dara.Model {
   customFields?: CreateContextStoreRequestConfigSourceDatasetCustomFields[];
   /**
    * @remarks
-   * The name of the Dataset in the same AgentSpace. This parameter cannot be modified after creation.
+   * The name of the dataset in the same AgentSpace. This parameter cannot be modified after creation.
    * 
    * @example
    * trajectory-with-crm-profile
@@ -609,7 +609,7 @@ export class CreateContextStoreRequestConfigSourceDataset extends $dara.Model {
   pollIntervalSeconds?: number;
   /**
    * @remarks
-   * The row schema contract of the Dataset. In the current version, this parameter is fixed to MemorySourceV1.
+   * The row schema contract for the dataset. In the current phase, the value is fixed to MemorySourceV1.
    * 
    * @example
    * MemorySourceV1
@@ -617,7 +617,7 @@ export class CreateContextStoreRequestConfigSourceDataset extends $dara.Model {
   schemaContract?: string;
   /**
    * @remarks
-   * The version consumption policy of the Dataset.
+   * The version consumption policy for the dataset.
    */
   versionPolicy?: CreateContextStoreRequestConfigSourceDatasetVersionPolicy;
   static names(): { [key: string]: string } {
@@ -671,7 +671,7 @@ export class CreateContextStoreRequestConfigSourceTrajectoryFilter extends $dara
   agentNames?: string[];
   /**
    * @remarks
-   * Specifies whether to exclude degraded trajectories. Default value: false (degraded trajectories are included).
+   * Specifies whether to exclude degraded trajectories. Default value: false, which means degraded trajectories are included.
    * 
    * @example
    * false
@@ -679,7 +679,7 @@ export class CreateContextStoreRequestConfigSourceTrajectoryFilter extends $dara
   excludeDegraded?: boolean;
   /**
    * @remarks
-   * The minimum number of steps, which must be greater than or equal to 0.
+   * The minimum number of steps. The value must be greater than or equal to 0.
    * 
    * @example
    * 2
@@ -687,7 +687,7 @@ export class CreateContextStoreRequestConfigSourceTrajectoryFilter extends $dara
   minStepCount?: number;
   /**
    * @remarks
-   * The native Simple Log Service (SLS) query statement, which is combined with the preceding conditions using AND.
+   * The native Simple Log Service (SLS) query statement. It is combined with the preceding conditions using AND.
    * 
    * @example
    * tool_names:"search_order"
@@ -739,7 +739,7 @@ export class CreateContextStoreRequestConfigSourceTrajectoryFilter extends $dara
 export class CreateContextStoreRequestConfigSourceTrajectoryScopeMapping extends $dara.Model {
   /**
    * @remarks
-   * The JSONPath expression for agentId. Default value: $.agent_name.
+   * The JSONPath for agentId. Default value: $.agent_name.
    * 
    * @example
    * $.agent_name
@@ -747,7 +747,7 @@ export class CreateContextStoreRequestConfigSourceTrajectoryScopeMapping extends
   agentId?: string;
   /**
    * @remarks
-   * The JSONPath expression for appId. Default value: $.service_names[0].
+   * The JSONPath for appId. Default value: $.service_names[0].
    * 
    * @example
    * $.service_names[0]
@@ -755,7 +755,7 @@ export class CreateContextStoreRequestConfigSourceTrajectoryScopeMapping extends
   appId?: string;
   /**
    * @remarks
-   * The JSONPath expression for runId. Default value: $.trajectory_id.
+   * The JSONPath for runId. Default value: $.trajectory_id.
    * 
    * @example
    * $.trajectory_id
@@ -763,7 +763,7 @@ export class CreateContextStoreRequestConfigSourceTrajectoryScopeMapping extends
   runId?: string;
   /**
    * @remarks
-   * The JSONPath expression for userId. By default, this field is not mapped.
+   * The JSONPath for userId. By default, no mapping is applied.
    * 
    * @example
    * $.trajectory_extensions.user_id
@@ -799,7 +799,7 @@ export class CreateContextStoreRequestConfigSourceTrajectoryScopeMapping extends
 export class CreateContextStoreRequestConfigSourceTrajectory extends $dara.Model {
   /**
    * @remarks
-   * The trajectory filter conditions. Conditions are combined with AND, and elements within a list are combined with OR.
+   * The trajectory filter conditions. Conditions are combined with AND, and items within a list are combined with OR.
    */
   filter?: CreateContextStoreRequestConfigSourceTrajectoryFilter;
   /**
@@ -820,12 +820,20 @@ export class CreateContextStoreRequestConfigSourceTrajectory extends $dara.Model
   pollIntervalSeconds?: number;
   /**
    * @remarks
-   * The scope field mapping. The value must be a JSONPath expression. Only the $.a.b and $.a[0] formats are supported.
+   * The scope field mapping. The value is a JSONPath expression, and only the $.a.b and $.a[0] formats are supported.
    */
   scopeMapping?: CreateContextStoreRequestConfigSourceTrajectoryScopeMapping;
   /**
    * @remarks
-   * The start time for trajectory consumption in ISO 8601 UTC format. If you do not specify this parameter, the creation time is used by default.
+   * The default mapping version for the trajectory identity. Version 1 retains the legacy rules. Version 2 reads user.id and enduser.id from agent attributes. The version is frozen upon creation.
+   * 
+   * @example
+   * 2
+   */
+  scopeMappingVersion?: number;
+  /**
+   * @remarks
+   * The start time for trajectory consumption in ISO 8601 UTC format. If this parameter is not specified, the default value is the creation time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -839,6 +847,7 @@ export class CreateContextStoreRequestConfigSourceTrajectory extends $dara.Model
       logstore: 'logstore',
       pollIntervalSeconds: 'pollIntervalSeconds',
       scopeMapping: 'scopeMapping',
+      scopeMappingVersion: 'scopeMappingVersion',
       startTime: 'startTime',
     };
   }
@@ -849,6 +858,7 @@ export class CreateContextStoreRequestConfigSourceTrajectory extends $dara.Model
       logstore: 'string',
       pollIntervalSeconds: 'number',
       scopeMapping: CreateContextStoreRequestConfigSourceTrajectoryScopeMapping,
+      scopeMappingVersion: 'number',
       startTime: 'string',
     };
   }
@@ -871,7 +881,7 @@ export class CreateContextStoreRequestConfigSourceTrajectory extends $dara.Model
 export class CreateContextStoreRequestConfigSourceVersionPolicy extends $dara.Model {
   /**
    * @remarks
-   * The continuous consumption mode. Set the value to follow.
+   * The continuous consumption mode. The value is fixed to follow.
    * 
    * @example
    * follow
@@ -879,7 +889,7 @@ export class CreateContextStoreRequestConfigSourceVersionPolicy extends $dara.Mo
   mode?: string;
   /**
    * @remarks
-   * The initial consumed append sequence number. The value must be a decimal string of a non-negative 64-bit integer. Default value: 0. The __dataset_seq field is used, and the business timestamp is not used as the consumption checkpoint.
+   * The initial consumed append sequence number. It is a decimal string of a non-negative int64 value. Default value: 0. The __dataset_seq field is used, and the business timestamp is not used as the consumption checkpoint.
    * 
    * @example
    * 0
@@ -911,7 +921,7 @@ export class CreateContextStoreRequestConfigSourceVersionPolicy extends $dara.Mo
 export class CreateContextStoreRequestConfigSource extends $dara.Model {
   /**
    * @remarks
-   * The AgentSpace where the trace data source is located. If not specified, the default value is the AgentSpace in the current path. Cross-AgentSpace operations are not supported in the current version. If specified, the value must be the same as the AgentSpace in the path. Otherwise, a 400 parameter error is returned. This parameter cannot be modified after creation.
+   * The AgentSpace where the trace data source resides. If this parameter is not specified, the default value is the AgentSpace in the current path. Cross-AgentSpace is not supported in the current phase. If specified, the value must be the same as the path AgentSpace. Otherwise, a 400 parameter error is returned. This parameter cannot be modified after creation.
    * 
    * @example
    * my-agent-space
@@ -919,7 +929,7 @@ export class CreateContextStoreRequestConfigSource extends $dara.Model {
   agentSpace?: string;
   /**
    * @remarks
-   * The DatasetBinding v1 shared with optimization tasks, which includes version, selection (all/window and structured filters), and customFields. This parameter is validated by the server and does not accept SQL or column mappings.
+   * The DatasetBinding v1 shared with optimization tasks. It includes version, selection (all/window and structured filters), and customFields. It is validated by the server and does not accept SQL or column mappings.
    * 
    * @example
    * {"version":1,"selection":{"mode":"all"}}
@@ -927,12 +937,12 @@ export class CreateContextStoreRequestConfigSource extends $dara.Model {
   binding?: { [key: string]: any };
   /**
    * @remarks
-   * The Dataset datasource config. This parameter is required when source.type is set to dataset.
+   * The dataset datasource config. This parameter is required when the source type is dataset.
    */
   dataset?: CreateContextStoreRequestConfigSourceDataset;
   /**
    * @remarks
-   * The name of the experience Dataset source, which must be located in the current AgentSpace. This parameter is provided only when the type is experience and source.type is set to dataset.
+   * The name of the dataset source for the experience. The dataset must reside in the current AgentSpace. This parameter is provided only when the source type is dataset for an experience.
    * 
    * @example
    * reviewed_trajectories
@@ -940,7 +950,7 @@ export class CreateContextStoreRequestConfigSource extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The input format of the Dataset. For experience library Dataset sources, only atif is supported, and the fixed columns are the same as those for optimization tasks.
+   * The input format of the dataset. For dataset sources in the experience library, only atif is supported, and the fixed columns are the same as those in optimization tasks.
    * 
    * @example
    * atif
@@ -948,7 +958,7 @@ export class CreateContextStoreRequestConfigSource extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * The maximum number of records to read per batch. Valid values: 1 to 1000. Default value: 1000. In manual mode, exceeding the limit causes a failure. In follow mode, bounded pagination is used to continue consumption.
+   * The maximum number of records to read per batch from the dataset. Valid values: 1 to 1000. Default value: 1000. In manual mode, exceeding the limit causes a failure. In follow mode, bounded pagination is used to continue consumption.
    * 
    * @example
    * 1000
@@ -956,7 +966,7 @@ export class CreateContextStoreRequestConfigSource extends $dara.Model {
   maxRecords?: number;
   /**
    * @remarks
-   * The start time for data backfill in ISO 8601 UTC format. If not specified, the backfill starts from the current time.
+   * The start time for data backfill in ISO 8601 UTC format. If this parameter is not specified, the backfill starts from the current time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -966,12 +976,12 @@ export class CreateContextStoreRequestConfigSource extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The trajectory datasource config. This parameter is required when source.type is set to trajectory.
+   * The trajectory datasource config. This parameter is required when the source type is trajectory.
    */
   trajectory?: CreateContextStoreRequestConfigSourceTrajectory;
   /**
    * @remarks
-   * The data source type for the memory type. Valid values: trajectory and dataset. If this parameter is not specified, manual is used, which means only AddContexts can write data. This parameter cannot be modified after creation.
+   * The data source type for the memory type. Valid values: trajectory and dataset. If this parameter is not specified, the value is manual, which means data is written only through AddContexts. This parameter cannot be modified after creation.
    * 
    * @example
    * trajectory
@@ -979,7 +989,7 @@ export class CreateContextStoreRequestConfigSource extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The continuous consumption configuration for the Dataset of the native experience library. Default value: manual. If the value is follow, only binding.selection.mode=all is allowed, and data is consumed based on the append sequence number. This parameter cannot be modified after creation.
+   * The continuous consumption configuration for datasets in the native experience library. The default mode is manual. The follow mode only allows binding.selection.mode=all and consumes data by append sequence number. This configuration cannot be modified after creation.
    */
   versionPolicy?: CreateContextStoreRequestConfigSourceVersionPolicy;
   static names(): { [key: string]: string } {
@@ -1036,7 +1046,7 @@ export class CreateContextStoreRequestConfigSource extends $dara.Model {
 export class CreateContextStoreRequestConfigStoragePolicy extends $dara.Model {
   /**
    * @remarks
-   * The allowed storage actions. Default value: all actions (ADD, UPDATE, MERGE, and DELETE).
+   * The allowed storage actions. Default value: all. Valid values: ADD, UPDATE, MERGE, and DELETE.
    * 
    * @example
    * ["ADD","UPDATE","MERGE","DELETE"]
@@ -1052,7 +1062,7 @@ export class CreateContextStoreRequestConfigStoragePolicy extends $dara.Model {
   dedupe?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable human edit protection. Default value: true. When enabled, automatic extraction does not overwrite manually modified memories.
+   * Specifies whether to enable human edit protection. Default value: true. If enabled, automatic extraction does not overwrite manually modified memories.
    * 
    * @example
    * true
@@ -1060,7 +1070,7 @@ export class CreateContextStoreRequestConfigStoragePolicy extends $dara.Model {
   humanEditProtection?: boolean;
   /**
    * @remarks
-   * The merge key for upsert operations. Valid values: factKey, semantic, and both. Default value: semantic.
+   * The upsert merge key. Valid values: factKey, semantic, and both. Default value: semantic.
    * 
    * @example
    * semantic
@@ -1068,7 +1078,7 @@ export class CreateContextStoreRequestConfigStoragePolicy extends $dara.Model {
   mergeKey?: string;
   /**
    * @remarks
-   * The storage mode. Valid values: event (event append) and upsert (merge update). Default value: upsert.
+   * The storage mode. Valid values: event (event append) and upsert (merge and update). Default value: upsert.
    * 
    * @example
    * upsert
@@ -1076,7 +1086,7 @@ export class CreateContextStoreRequestConfigStoragePolicy extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The similarity threshold for semantic merging. Valid values: 0 to 1. Default value: 0.4.
+   * The semantic merge similarity threshold. Valid values: 0 to 1. Default value: 0.4.
    * 
    * @example
    * 0.4
@@ -1084,7 +1094,7 @@ export class CreateContextStoreRequestConfigStoragePolicy extends $dara.Model {
   similarityThreshold?: number;
   /**
    * @remarks
-   * The number of days before memories expire. A value of 0 indicates that memories do not expire.
+   * The number of days before a memory expires. A value of 0 indicates that the memory does not expire.
    * 
    * @example
    * 0
@@ -1134,7 +1144,7 @@ export class CreateContextStoreRequestConfig extends $dara.Model {
   audit?: CreateContextStoreRequestConfigAudit;
   /**
    * @remarks
-   * The extraction policies. You can configure 1 to 10 policies. Compatible fields passed back as-is during updates are ignored. strategyVersion indicates the snapshot version of the entire library configuration.
+   * The list of extraction policies. You can specify 1 to 10 policies. Compatible fields returned as-is during updates are ignored. strategyVersion indicates the snapshot version of the entire database configuration.
    */
   extractionPolicies?: CreateContextStoreRequestConfigExtractionPolicies[];
   /**
@@ -1144,7 +1154,7 @@ export class CreateContextStoreRequestConfig extends $dara.Model {
   extractionPolicy?: CreateContextStoreRequestConfigExtractionPolicy;
   /**
    * @remarks
-   * The metadata field mapping, where the key is the business field and the value is the storage field.
+   * The metadata field mapping. The key is the business field and the value is the storage field.
    * 
    * @example
    * {"userId":"user_id","sessionId":"session_id"}
@@ -1165,7 +1175,7 @@ export class CreateContextStoreRequestConfig extends $dara.Model {
   scopePolicy?: CreateContextStoreRequestConfigScopePolicy;
   /**
    * @remarks
-   * The list of service names. This parameter is required and cannot be empty. It works with source.agentSpace to locate the trace data source. The trajectory extraction service uses the agentSpace to find the bound CMS workspace and project or logstore, and then filters by serviceName. This parameter cannot be modified after creation.
+   * The list of service names. This parameter is required and cannot be empty. It works with source.agentSpace to locate the trace data source. The trajectory extraction service uses agentSpace to query the bound CMS workspace and project/logstore, and then filters the data by serviceName. This parameter cannot be modified after creation (no modification entry is available in the current release).
    * 
    * @example
    * ["order-service","payment-service"]
@@ -1173,7 +1183,7 @@ export class CreateContextStoreRequestConfig extends $dara.Model {
   serviceNames?: string[];
   /**
    * @remarks
-   * The datasource config, which serves only as the root identity for the data source. This block is optional.
+   * The datasource config, which serves only as the root identity for the data source. This is an optional block.
    */
   source?: CreateContextStoreRequestConfigSource;
   /**
@@ -1250,7 +1260,7 @@ export class CreateContextStoreRequest extends $dara.Model {
   config?: CreateContextStoreRequestConfig;
   /**
    * @remarks
-   * The name of the context store. The name must be globally unique within AgentSpace and 2 to 64 characters in length.
+   * The name of the context store. The name must be globally unique within the AgentSpace and 2 to 64 characters in length.
    * 
    * This parameter is required.
    * 
@@ -1260,7 +1270,7 @@ export class CreateContextStoreRequest extends $dara.Model {
   contextStoreName?: string;
   /**
    * @remarks
-   * The type of the context store. Valid values include experience and memory.
+   * The type of the context store. Example values include experience (experience store) and memory (memory store).
    * 
    * This parameter is required.
    * 
@@ -1278,7 +1288,7 @@ export class CreateContextStoreRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The client token. It is a unique string generated by the client to ensure the idempotency of the create operation.
+   * The idempotency token, a unique string generated by the client to ensure the idempotency of the creation operation.
    * 
    * @example
    * a1b2c3d4-1234-5678-90ab-cdef12345678
