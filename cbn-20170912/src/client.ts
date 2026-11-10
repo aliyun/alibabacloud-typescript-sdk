@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "Cbn";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "central";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("cbn", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -520,6 +524,70 @@ export default class Client extends OpenApi {
   async associateTransitRouterMulticastDomain(request: $_model.AssociateTransitRouterMulticastDomainRequest): Promise<$_model.AssociateTransitRouterMulticastDomainResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.associateTransitRouterMulticastDomainWithOptions(request, runtime);
+  }
+
+  /**
+   * Associates a policy route table.
+   * 
+   * @remarks
+   * The AssociateTransitRouterPolicyTable API operation is asynchronous. The system returns an association ID before the association is fully created, and the creation task continues in the background. You can call the DescribeTransitRouterPolicyTableAssociations API operation to query the status of the policy route table association.
+   * - When the policy route table association is in the Associating state, the association is being created. In this state, you can only perform query operations.
+   * - When the policy route table association is in the Active state, the association is created.
+   * 
+   * @param request - AssociateTransitRouterPolicyTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AssociateTransitRouterPolicyTableResponse
+   */
+  async associateTransitRouterPolicyTableWithOptions(request: $_model.AssociateTransitRouterPolicyTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AssociateTransitRouterPolicyTableResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.attachmentId)) {
+      query["AttachmentId"] = request.attachmentId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.policyTableId)) {
+      query["PolicyTableId"] = request.policyTableId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AssociateTransitRouterPolicyTable",
+      version: "2017-09-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AssociateTransitRouterPolicyTableResponse>(await this.callApi(params, req, runtime), new $_model.AssociateTransitRouterPolicyTableResponse({}));
+  }
+
+  /**
+   * Associates a policy route table.
+   * 
+   * @remarks
+   * The AssociateTransitRouterPolicyTable API operation is asynchronous. The system returns an association ID before the association is fully created, and the creation task continues in the background. You can call the DescribeTransitRouterPolicyTableAssociations API operation to query the status of the policy route table association.
+   * - When the policy route table association is in the Associating state, the association is being created. In this state, you can only perform query operations.
+   * - When the policy route table association is in the Active state, the association is created.
+   * 
+   * @param request - AssociateTransitRouterPolicyTableRequest
+   * @returns AssociateTransitRouterPolicyTableResponse
+   */
+  async associateTransitRouterPolicyTable(request: $_model.AssociateTransitRouterPolicyTableRequest): Promise<$_model.AssociateTransitRouterPolicyTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.associateTransitRouterPolicyTableWithOptions(request, runtime);
   }
 
   /**
@@ -1594,9 +1662,9 @@ export default class Client extends OpenApi {
    * Creates a route map to control the routing behavior between network instances.
    * 
    * @remarks
-   * The `CreateRouteMap` operation is asynchronous. The system first returns a route map ID, but the route map is not yet created. The creation task continues to run in the background. You can call the `ListRouteMaps` operation to query the status of the route map.
-   * - When the route map is in the **Creating** state, the route map is being created. In this state, you can only perform query operations and cannot perform other operations.
-   * - When the route map is in the **Active** state, the route map is created.
+   * The `CreateRouteMap` operation is asynchronous. The system returns a route map ID before the route map is created, and the creation task continues in the background. You can call the `ListRouteMaps` operation to query the status of the route map.
+   * - If the route map is in the **Creating** state, the route map is being created. In this state, you can only perform query operations.
+   * - If the route map is in the **Active** state, the route map is created.
    * 
    * @param request - CreateRouteMapRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1658,9 +1726,9 @@ export default class Client extends OpenApi {
    * Creates a route map to control the routing behavior between network instances.
    * 
    * @remarks
-   * The `CreateRouteMap` operation is asynchronous. The system first returns a route map ID, but the route map is not yet created. The creation task continues to run in the background. You can call the `ListRouteMaps` operation to query the status of the route map.
-   * - When the route map is in the **Creating** state, the route map is being created. In this state, you can only perform query operations and cannot perform other operations.
-   * - When the route map is in the **Active** state, the route map is created.
+   * The `CreateRouteMap` operation is asynchronous. The system returns a route map ID before the route map is created, and the creation task continues in the background. You can call the `ListRouteMaps` operation to query the status of the route map.
+   * - If the route map is in the **Creating** state, the route map is being created. In this state, you can only perform query operations.
+   * - If the route map is in the **Active** state, the route map is created.
    * 
    * @param request - CreateRouteMapRequest
    * @returns CreateRouteMapResponse
@@ -1675,11 +1743,11 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * - `RouteMapId` is a required parameter that specifies the route map to which the new rule belongs.
-   * - `Priority` is a required parameter. A smaller value indicates a higher priority. Rules within the same route map cannot have duplicate priorities.
-   * - `Name` and `Description` are optional parameters used to identify the rule and describe its purpose.
-   * - `MatchConditions` defines the match conditions for the rule, and `SetActions` defines the actions to be executed when a route meets all match conditions. Both are passed as JSON strings.
-   * - `DryRun` is an optional parameter used to precheck the request without actually creating the route map rule.
+   * - RouteMapId is a required parameter that specifies the route map to which the new rule belongs.
+   * - Priority is a required parameter. A smaller value indicates a higher priority. Rules within the same route map cannot have duplicate priorities.
+   * - Name and Description are optional parameters used to identify the rule and describe its purpose.
+   * - MatchConditions defines the match conditions for the rule, and SetActions defines the actions to be performed when a route meets all match conditions. Both are passed as JSON strings.
+   * - DryRun is an optional parameter used to perform a dry run of the request without actually creating the route map rule.
    * 
    * @param tmpReq - CreateRouteMapRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1752,11 +1820,11 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * - `RouteMapId` is a required parameter that specifies the route map to which the new rule belongs.
-   * - `Priority` is a required parameter. A smaller value indicates a higher priority. Rules within the same route map cannot have duplicate priorities.
-   * - `Name` and `Description` are optional parameters used to identify the rule and describe its purpose.
-   * - `MatchConditions` defines the match conditions for the rule, and `SetActions` defines the actions to be executed when a route meets all match conditions. Both are passed as JSON strings.
-   * - `DryRun` is an optional parameter used to precheck the request without actually creating the route map rule.
+   * - RouteMapId is a required parameter that specifies the route map to which the new rule belongs.
+   * - Priority is a required parameter. A smaller value indicates a higher priority. Rules within the same route map cannot have duplicate priorities.
+   * - Name and Description are optional parameters used to identify the rule and describe its purpose.
+   * - MatchConditions defines the match conditions for the rule, and SetActions defines the actions to be performed when a route meets all match conditions. Both are passed as JSON strings.
+   * - DryRun is an optional parameter used to perform a dry run of the request without actually creating the route map rule.
    * 
    * @param request - CreateRouteMapRuleRequest
    * @returns CreateRouteMapRuleResponse
@@ -2079,20 +2147,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * A transit router CIDR block is a custom CIDR block that you define for a transit router, similar to a CIDR block used to assign IP addresses to a router loopback interface. Calls the CreateTransitRouterCidr operation to create a CIDR block for a transit router.
+   * Creates a custom CIDR block for a transit router. The CIDR block is similar to an IP address block assigned to a router loopback interface.
    * 
    * @remarks
-   * A transit router CIDR block is a custom CIDR block that you define for a transit router, similar to a CIDR block used to assign IP addresses to a router loopback interface. Transit router CIDR blocks are used to assign addresses to network instance connections. For more information, see [Transit router CIDR blocks](https://help.aliyun.com/document_detail/462635.html).
-   * The **CreateTransitRouterCidr** operation is used only to add a CIDR block to a transit router after the transit router is created.
-   * Before you create a transit router CIDR block, take note of the following information:
+   * A transit router CIDR block is a custom CIDR block that you configure for a transit router. It is similar to the IP address block assigned to a router loopback interface. Transit router CIDR blocks are used to assign addresses to network instance connections. For more information, see [Transit router CIDR blocks](https://help.aliyun.com/document_detail/462635.html).
+   * The **CreateTransitRouterCidr** operation is applicable only for adding a CIDR block to a transit router after the transit router is created.
+   * Before you create a transit router CIDR block, take note of the following items:
    * - Only Enterprise Edition transit routers support transit router CIDR blocks.
-   * - For limits on transit router CIDR blocks, see [Limits on transit router CIDR blocks](https://help.aliyun.com/document_detail/462635.html).
-   * - A maximum of five CIDR blocks can be configured for a transit router. The subnet mask of each CIDR block must be 16 to 24 bits in length.
-   * - CIDR blocks that fall within 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, or 169.254.0.0/16 and their subnets are not supported.
-   * - Each CIDR block cannot conflict with any CIDR block that needs to communicate within the Cloud Enterprise Network (CEN) instance.
+   * - For the limits on transit router CIDR blocks, see [Limits on transit router CIDR blocks](https://help.aliyun.com/document_detail/462635.html).
+   * - A transit router supports up to five CIDR blocks. The subnet mask of each CIDR block must be 16 to 26 bits in length.
+   * - You cannot create CIDR blocks for 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, 169.254.0.0/16, or their subnets.
+   * - Each CIDR block cannot overlap with the CIDR blocks of the network instances that need to communicate with each other in the Cloud Enterprise Network (CEN) instance.
    * - Each CIDR block must be unique within the same CEN instance.
-   * - After you add a CIDR block to a transit router, the system automatically reserves three CIDR blocks from the CIDR block when you create the first VPN connection on the transit router. The reserved CIDR blocks are used by the system to create VPN connections in the background. The system assigns IP addresses to IPsec connections from the remaining CIDR blocks.
-   *     You can call the [ListTransitRouterCidrAllocation](https://help.aliyun.com/document_detail/464173.html) operation to query the CIDR blocks that are reserved by the system or from which IP addresses are allocated.
+   * - After you add a CIDR block to a transit router and create the first VPN connection under the transit router, the system automatically allocates three CIDR blocks from the CIDR block as system-reserved CIDR blocks for creating VPN connections in the background. The system assigns IP addresses to the IPsec connection from the remaining CIDR blocks.
+   *     You can call the [ListTransitRouterCidrAllocation](https://help.aliyun.com/document_detail/464173.html) operation to query the system-reserved or assigned CIDR blocks.
    * 
    * @param request - CreateTransitRouterCidrRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2167,20 +2235,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * A transit router CIDR block is a custom CIDR block that you define for a transit router, similar to a CIDR block used to assign IP addresses to a router loopback interface. Calls the CreateTransitRouterCidr operation to create a CIDR block for a transit router.
+   * Creates a custom CIDR block for a transit router. The CIDR block is similar to an IP address block assigned to a router loopback interface.
    * 
    * @remarks
-   * A transit router CIDR block is a custom CIDR block that you define for a transit router, similar to a CIDR block used to assign IP addresses to a router loopback interface. Transit router CIDR blocks are used to assign addresses to network instance connections. For more information, see [Transit router CIDR blocks](https://help.aliyun.com/document_detail/462635.html).
-   * The **CreateTransitRouterCidr** operation is used only to add a CIDR block to a transit router after the transit router is created.
-   * Before you create a transit router CIDR block, take note of the following information:
+   * A transit router CIDR block is a custom CIDR block that you configure for a transit router. It is similar to the IP address block assigned to a router loopback interface. Transit router CIDR blocks are used to assign addresses to network instance connections. For more information, see [Transit router CIDR blocks](https://help.aliyun.com/document_detail/462635.html).
+   * The **CreateTransitRouterCidr** operation is applicable only for adding a CIDR block to a transit router after the transit router is created.
+   * Before you create a transit router CIDR block, take note of the following items:
    * - Only Enterprise Edition transit routers support transit router CIDR blocks.
-   * - For limits on transit router CIDR blocks, see [Limits on transit router CIDR blocks](https://help.aliyun.com/document_detail/462635.html).
-   * - A maximum of five CIDR blocks can be configured for a transit router. The subnet mask of each CIDR block must be 16 to 24 bits in length.
-   * - CIDR blocks that fall within 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, or 169.254.0.0/16 and their subnets are not supported.
-   * - Each CIDR block cannot conflict with any CIDR block that needs to communicate within the Cloud Enterprise Network (CEN) instance.
+   * - For the limits on transit router CIDR blocks, see [Limits on transit router CIDR blocks](https://help.aliyun.com/document_detail/462635.html).
+   * - A transit router supports up to five CIDR blocks. The subnet mask of each CIDR block must be 16 to 26 bits in length.
+   * - You cannot create CIDR blocks for 100.64.0.0/10, 224.0.0.0/4, 127.0.0.0/8, 169.254.0.0/16, or their subnets.
+   * - Each CIDR block cannot overlap with the CIDR blocks of the network instances that need to communicate with each other in the Cloud Enterprise Network (CEN) instance.
    * - Each CIDR block must be unique within the same CEN instance.
-   * - After you add a CIDR block to a transit router, the system automatically reserves three CIDR blocks from the CIDR block when you create the first VPN connection on the transit router. The reserved CIDR blocks are used by the system to create VPN connections in the background. The system assigns IP addresses to IPsec connections from the remaining CIDR blocks.
-   *     You can call the [ListTransitRouterCidrAllocation](https://help.aliyun.com/document_detail/464173.html) operation to query the CIDR blocks that are reserved by the system or from which IP addresses are allocated.
+   * - After you add a CIDR block to a transit router and create the first VPN connection under the transit router, the system automatically allocates three CIDR blocks from the CIDR block as system-reserved CIDR blocks for creating VPN connections in the background. The system assigns IP addresses to the IPsec connection from the remaining CIDR blocks.
+   *     You can call the [ListTransitRouterCidrAllocation](https://help.aliyun.com/document_detail/464173.html) operation to query the system-reserved or assigned CIDR blocks.
    * 
    * @param request - CreateTransitRouterCidrRequest
    * @returns CreateTransitRouterCidrResponse
@@ -2552,6 +2620,184 @@ export default class Client extends OpenApi {
   async createTransitRouterPeerAttachment(request: $_model.CreateTransitRouterPeerAttachmentRequest): Promise<$_model.CreateTransitRouterPeerAttachmentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createTransitRouterPeerAttachmentWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a policy-based routing rule in the policy route table of an Enterprise Edition transit router.
+   * 
+   * @remarks
+   * The **CreateTransitRouterPolicyBasedRoute** API operation is asynchronous. The system returns a route entry ID before the route entry is created, and the creation task continues in the background. You can call the **DescribeTransitRouterPolicyBasedRoutes** API operation to query the status of the route entry. 
+   * - If the route entry is in the **Creating** state, the route entry is being created. In this state, you can only query the route entry and cannot perform other operations.
+   * - If the route entry is in the **Active** state, the route entry is created.
+   * 
+   * @param request - CreateTransitRouterPolicyBasedRouteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTransitRouterPolicyBasedRouteResponse
+   */
+  async createTransitRouterPolicyBasedRouteWithOptions(request: $_model.CreateTransitRouterPolicyBasedRouteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTransitRouterPolicyBasedRouteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.addressFamily)) {
+      query["AddressFamily"] = request.addressFamily;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.destPortRange)) {
+      query["DestPortRange"] = request.destPortRange;
+    }
+
+    if (!$dara.isNull(request.destinationCidr)) {
+      query["DestinationCidr"] = request.destinationCidr;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.dscp)) {
+      query["Dscp"] = request.dscp;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.policyTableId)) {
+      query["PolicyTableId"] = request.policyTableId;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.protocol)) {
+      query["Protocol"] = request.protocol;
+    }
+
+    if (!$dara.isNull(request.sourceCidr)) {
+      query["SourceCidr"] = request.sourceCidr;
+    }
+
+    if (!$dara.isNull(request.sourcePortRange)) {
+      query["SourcePortRange"] = request.sourcePortRange;
+    }
+
+    if (!$dara.isNull(request.targetRouteTableId)) {
+      query["TargetRouteTableId"] = request.targetRouteTableId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTransitRouterPolicyBasedRoute",
+      version: "2017-09-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTransitRouterPolicyBasedRouteResponse>(await this.callApi(params, req, runtime), new $_model.CreateTransitRouterPolicyBasedRouteResponse({}));
+  }
+
+  /**
+   * Creates a policy-based routing rule in the policy route table of an Enterprise Edition transit router.
+   * 
+   * @remarks
+   * The **CreateTransitRouterPolicyBasedRoute** API operation is asynchronous. The system returns a route entry ID before the route entry is created, and the creation task continues in the background. You can call the **DescribeTransitRouterPolicyBasedRoutes** API operation to query the status of the route entry. 
+   * - If the route entry is in the **Creating** state, the route entry is being created. In this state, you can only query the route entry and cannot perform other operations.
+   * - If the route entry is in the **Active** state, the route entry is created.
+   * 
+   * @param request - CreateTransitRouterPolicyBasedRouteRequest
+   * @returns CreateTransitRouterPolicyBasedRouteResponse
+   */
+  async createTransitRouterPolicyBasedRoute(request: $_model.CreateTransitRouterPolicyBasedRouteRequest): Promise<$_model.CreateTransitRouterPolicyBasedRouteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createTransitRouterPolicyBasedRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * 创建策略路由表
+   * 
+   * @remarks
+   * - 当前仅企业版转发路由器支持创建策略路由表。关于企业版转发路由器支持的地域和可用区信息，请参见[什么是云企业网](https://help.aliyun.com/document_detail/181681.html)。
+   * - **CreateTransitRouterPolicyTable**接口属于异步接口，即系统会先返回一个策略路由表ID，但该策略路由表并未创建完成，系统后台的创建任务仍在进行。您可以调用**DescribeTransitRouterPolicyTables**接口查询策略路由表的状态。
+   *     - 当策略路由表处于**Creating**状态时，表示策略路由表正在创建中。在该状态下，您只能执行查询操作，不能执行其他操作。
+   *     - 当策略路由表处于**Active**状态时，表示策略路由表创建完成。
+   * 
+   * @param request - CreateTransitRouterPolicyTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateTransitRouterPolicyTableResponse
+   */
+  async createTransitRouterPolicyTableWithOptions(request: $_model.CreateTransitRouterPolicyTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateTransitRouterPolicyTableResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.tag)) {
+      query["Tag"] = request.tag;
+    }
+
+    if (!$dara.isNull(request.transitRouterId)) {
+      query["TransitRouterId"] = request.transitRouterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateTransitRouterPolicyTable",
+      version: "2017-09-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateTransitRouterPolicyTableResponse>(await this.callApi(params, req, runtime), new $_model.CreateTransitRouterPolicyTableResponse({}));
+  }
+
+  /**
+   * 创建策略路由表
+   * 
+   * @remarks
+   * - 当前仅企业版转发路由器支持创建策略路由表。关于企业版转发路由器支持的地域和可用区信息，请参见[什么是云企业网](https://help.aliyun.com/document_detail/181681.html)。
+   * - **CreateTransitRouterPolicyTable**接口属于异步接口，即系统会先返回一个策略路由表ID，但该策略路由表并未创建完成，系统后台的创建任务仍在进行。您可以调用**DescribeTransitRouterPolicyTables**接口查询策略路由表的状态。
+   *     - 当策略路由表处于**Creating**状态时，表示策略路由表正在创建中。在该状态下，您只能执行查询操作，不能执行其他操作。
+   *     - 当策略路由表处于**Active**状态时，表示策略路由表创建完成。
+   * 
+   * @param request - CreateTransitRouterPolicyTableRequest
+   * @returns CreateTransitRouterPolicyTableResponse
+   */
+  async createTransitRouterPolicyTable(request: $_model.CreateTransitRouterPolicyTableRequest): Promise<$_model.CreateTransitRouterPolicyTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createTransitRouterPolicyTableWithOptions(request, runtime);
   }
 
   /**
@@ -3976,9 +4222,9 @@ export default class Client extends OpenApi {
    * @remarks
    * If the route map to be deleted is still associated with any resources, this operation fails.
    * If route map rules exist under the route map, this operation is not supported.
-   * The DeleteRouteMap operation is asynchronous. The system returns a **RequestId**, but the route map is not completely deleted. The deletion task continues in the background. You can call the ListRouteMaps operation to query the status of the route map.
-   * - If the route map is in the **Deleting** state, the route map is being deleted. In this state, you can only perform query operations.
-   * - If the route map cannot be queried by using the ListRouteMaps operation, the route map is completely deleted.
+   * The `DeleteRouteMap` operation is asynchronous. The system first returns a **RequestId**, but the route map is not completely deleted. The deletion task is still running in the background. You can call the `ListRouteMaps` operation to query the status of the route map.
+   * - When the route map is in the **Deleting** state, it indicates that the route map is being deleted. In this state, you can only perform query operations and cannot perform other operations.
+   * - When the route map cannot be queried by calling the `ListRouteMaps` operation, it indicates that the route map is completely deleted.
    * 
    * @param request - DeleteRouteMapRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4022,9 +4268,9 @@ export default class Client extends OpenApi {
    * @remarks
    * If the route map to be deleted is still associated with any resources, this operation fails.
    * If route map rules exist under the route map, this operation is not supported.
-   * The DeleteRouteMap operation is asynchronous. The system returns a **RequestId**, but the route map is not completely deleted. The deletion task continues in the background. You can call the ListRouteMaps operation to query the status of the route map.
-   * - If the route map is in the **Deleting** state, the route map is being deleted. In this state, you can only perform query operations.
-   * - If the route map cannot be queried by using the ListRouteMaps operation, the route map is completely deleted.
+   * The `DeleteRouteMap` operation is asynchronous. The system first returns a **RequestId**, but the route map is not completely deleted. The deletion task is still running in the background. You can call the `ListRouteMaps` operation to query the status of the route map.
+   * - When the route map is in the **Deleting** state, it indicates that the route map is being deleted. In this state, you can only perform query operations and cannot perform other operations.
+   * - When the route map cannot be queried by calling the `ListRouteMaps` operation, it indicates that the route map is completely deleted.
    * 
    * @param request - DeleteRouteMapRequest
    * @returns DeleteRouteMapResponse
@@ -4768,6 +5014,126 @@ export default class Client extends OpenApi {
   async deleteTransitRouterPeerAttachment(request: $_model.DeleteTransitRouterPeerAttachmentRequest): Promise<$_model.DeleteTransitRouterPeerAttachmentResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteTransitRouterPeerAttachmentWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a policy-based route from the policy-based route table of an Enterprise Edition transit router.
+   * 
+   * @remarks
+   * - The **DeleteTransitRouterPolicyBasedRoute** operation is asynchronous. After you call this operation, the system returns a **RequestId**, but the policy-based route is not immediately deleted. The deletion task is still running in the background. You can call the **DescribeTransitRouterPolicyBasedRoutes** operation to query the status of the policy-based route. 
+   *     - If the policy-based route is in the **Deleting** state, the policy-based route is being deleted. In this state, you can only query the policy-based route and cannot perform other operations.
+   *     - If the specified policy-based route cannot be queried, the policy-based route is deleted.
+   * 
+   * @param request - DeleteTransitRouterPolicyBasedRouteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTransitRouterPolicyBasedRouteResponse
+   */
+  async deleteTransitRouterPolicyBasedRouteWithOptions(request: $_model.DeleteTransitRouterPolicyBasedRouteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTransitRouterPolicyBasedRouteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.policyBasedRouteId)) {
+      query["PolicyBasedRouteId"] = request.policyBasedRouteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteTransitRouterPolicyBasedRoute",
+      version: "2017-09-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteTransitRouterPolicyBasedRouteResponse>(await this.callApi(params, req, runtime), new $_model.DeleteTransitRouterPolicyBasedRouteResponse({}));
+  }
+
+  /**
+   * Deletes a policy-based route from the policy-based route table of an Enterprise Edition transit router.
+   * 
+   * @remarks
+   * - The **DeleteTransitRouterPolicyBasedRoute** operation is asynchronous. After you call this operation, the system returns a **RequestId**, but the policy-based route is not immediately deleted. The deletion task is still running in the background. You can call the **DescribeTransitRouterPolicyBasedRoutes** operation to query the status of the policy-based route. 
+   *     - If the policy-based route is in the **Deleting** state, the policy-based route is being deleted. In this state, you can only query the policy-based route and cannot perform other operations.
+   *     - If the specified policy-based route cannot be queried, the policy-based route is deleted.
+   * 
+   * @param request - DeleteTransitRouterPolicyBasedRouteRequest
+   * @returns DeleteTransitRouterPolicyBasedRouteResponse
+   */
+  async deleteTransitRouterPolicyBasedRoute(request: $_model.DeleteTransitRouterPolicyBasedRouteRequest): Promise<$_model.DeleteTransitRouterPolicyBasedRouteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteTransitRouterPolicyBasedRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * DeleteTransitRouterPolicyTable
+   * 
+   * @remarks
+   * - **DeleteTransitRouterPolicyTable**接口属于异步接口，即系统会先返回一个**RequestId**，但策略路由表并未删除完成，系统后台的删除任务仍在进行。您可以调用**DescribeTransitRouterPolicyTables**接口查询策略路由表的状态。 
+   *     - 当策略路由表处于Deleting状态时，表示策略路由表正在删除中。在该状态下，您只能对策略路由表执行查询操作，不能执行其他操作。
+   *     - 当查询不到指定策略路由表时，表示该策略路由表删除完成。
+   * 
+   * @param request - DeleteTransitRouterPolicyTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteTransitRouterPolicyTableResponse
+   */
+  async deleteTransitRouterPolicyTableWithOptions(request: $_model.DeleteTransitRouterPolicyTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteTransitRouterPolicyTableResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.policyTableId)) {
+      query["PolicyTableId"] = request.policyTableId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteTransitRouterPolicyTable",
+      version: "2017-09-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteTransitRouterPolicyTableResponse>(await this.callApi(params, req, runtime), new $_model.DeleteTransitRouterPolicyTableResponse({}));
+  }
+
+  /**
+   * DeleteTransitRouterPolicyTable
+   * 
+   * @remarks
+   * - **DeleteTransitRouterPolicyTable**接口属于异步接口，即系统会先返回一个**RequestId**，但策略路由表并未删除完成，系统后台的删除任务仍在进行。您可以调用**DescribeTransitRouterPolicyTables**接口查询策略路由表的状态。 
+   *     - 当策略路由表处于Deleting状态时，表示策略路由表正在删除中。在该状态下，您只能对策略路由表执行查询操作，不能执行其他操作。
+   *     - 当查询不到指定策略路由表时，表示该策略路由表删除完成。
+   * 
+   * @param request - DeleteTransitRouterPolicyTableRequest
+   * @returns DeleteTransitRouterPolicyTableResponse
+   */
+  async deleteTransitRouterPolicyTable(request: $_model.DeleteTransitRouterPolicyTableRequest): Promise<$_model.DeleteTransitRouterPolicyTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteTransitRouterPolicyTableWithOptions(request, runtime);
   }
 
   /**
@@ -5617,7 +5983,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about bandwidth package instances by calling the DescribeCenBandwidthPackages operation.
+   * Queries the details of bandwidth plan instances.
    * 
    * @param request - DescribeCenBandwidthPackagesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5688,7 +6054,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about bandwidth package instances by calling the DescribeCenBandwidthPackages operation.
+   * Queries the details of bandwidth plan instances.
    * 
    * @param request - DescribeCenBandwidthPackagesRequest
    * @returns DescribeCenBandwidthPackagesResponse
@@ -6295,7 +6661,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about Cloud Enterprise Network (CEN) instances under the current Alibaba Cloud account, including the instance status, whether IPv6 is enabled, and the list of bandwidth packages associated with the instances.
+   * Queries the status, IPv6 status, and list of associated bandwidth plans for Cloud Enterprise Network (CEN) instances under the current Alibaba Cloud account.
    * 
    * @param request - DescribeCensRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6358,7 +6724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries information about Cloud Enterprise Network (CEN) instances under the current Alibaba Cloud account, including the instance status, whether IPv6 is enabled, and the list of bandwidth packages associated with the instances.
+   * Queries the status, IPv6 status, and list of associated bandwidth plans for Cloud Enterprise Network (CEN) instances under the current Alibaba Cloud account.
    * 
    * @param request - DescribeCensRequest
    * @returns DescribeCensResponse
@@ -7175,7 +7541,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resource reservation configuration of a specified transit router.
+   * Queries the resource reservation configurations of a specified transit router.
    * 
    * @param request - DescribeTransitRouterCapacityReservationsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7210,7 +7576,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resource reservation configuration of a specified transit router.
+   * Queries the resource reservation configurations of a specified transit router.
    * 
    * @param request - DescribeTransitRouterCapacityReservationsRequest
    * @returns DescribeTransitRouterCapacityReservationsResponse
@@ -7218,6 +7584,164 @@ export default class Client extends OpenApi {
   async describeTransitRouterCapacityReservations(request: $_model.DescribeTransitRouterCapacityReservationsRequest): Promise<$_model.DescribeTransitRouterCapacityReservationsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeTransitRouterCapacityReservationsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the policy-based route rules in the policy-based route table of an Enterprise Edition transit router.
+   * 
+   * @param request - DescribeTransitRouterPolicyBasedRoutesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTransitRouterPolicyBasedRoutesResponse
+   */
+  async describeTransitRouterPolicyBasedRoutesWithOptions(request: $_model.DescribeTransitRouterPolicyBasedRoutesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTransitRouterPolicyBasedRoutesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.policyTableId)) {
+      query["PolicyTableId"] = request.policyTableId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeTransitRouterPolicyBasedRoutes",
+      version: "2017-09-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeTransitRouterPolicyBasedRoutesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeTransitRouterPolicyBasedRoutesResponse({}));
+  }
+
+  /**
+   * Queries the policy-based route rules in the policy-based route table of an Enterprise Edition transit router.
+   * 
+   * @param request - DescribeTransitRouterPolicyBasedRoutesRequest
+   * @returns DescribeTransitRouterPolicyBasedRoutesResponse
+   */
+  async describeTransitRouterPolicyBasedRoutes(request: $_model.DescribeTransitRouterPolicyBasedRoutesRequest): Promise<$_model.DescribeTransitRouterPolicyBasedRoutesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeTransitRouterPolicyBasedRoutesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the associations of a policy route table.
+   * 
+   * @param request - DescribeTransitRouterPolicyTableAssociationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTransitRouterPolicyTableAssociationsResponse
+   */
+  async describeTransitRouterPolicyTableAssociationsWithOptions(request: $_model.DescribeTransitRouterPolicyTableAssociationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTransitRouterPolicyTableAssociationsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeTransitRouterPolicyTableAssociations",
+      version: "2017-09-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeTransitRouterPolicyTableAssociationsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeTransitRouterPolicyTableAssociationsResponse({}));
+  }
+
+  /**
+   * Queries the associations of a policy route table.
+   * 
+   * @param request - DescribeTransitRouterPolicyTableAssociationsRequest
+   * @returns DescribeTransitRouterPolicyTableAssociationsResponse
+   */
+  async describeTransitRouterPolicyTableAssociations(request: $_model.DescribeTransitRouterPolicyTableAssociationsRequest): Promise<$_model.DescribeTransitRouterPolicyTableAssociationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeTransitRouterPolicyTableAssociationsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the details of the policy route tables of an Enterprise Edition transit router.
+   * 
+   * @param request - DescribeTransitRouterPolicyTablesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeTransitRouterPolicyTablesResponse
+   */
+  async describeTransitRouterPolicyTablesWithOptions(request: $_model.DescribeTransitRouterPolicyTablesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeTransitRouterPolicyTablesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.filter)) {
+      query["Filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.transitRouterId)) {
+      query["TransitRouterId"] = request.transitRouterId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeTransitRouterPolicyTables",
+      version: "2017-09-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeTransitRouterPolicyTablesResponse>(await this.callApi(params, req, runtime), new $_model.DescribeTransitRouterPolicyTablesResponse({}));
+  }
+
+  /**
+   * Queries the details of the policy route tables of an Enterprise Edition transit router.
+   * 
+   * @param request - DescribeTransitRouterPolicyTablesRequest
+   * @returns DescribeTransitRouterPolicyTablesResponse
+   */
+  async describeTransitRouterPolicyTables(request: $_model.DescribeTransitRouterPolicyTablesRequest): Promise<$_model.DescribeTransitRouterPolicyTablesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeTransitRouterPolicyTablesWithOptions(request, runtime);
   }
 
   /**
@@ -7546,6 +8070,66 @@ export default class Client extends OpenApi {
   async disassociateTransitRouterMulticastDomain(request: $_model.DisassociateTransitRouterMulticastDomainRequest): Promise<$_model.DisassociateTransitRouterMulticastDomainResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.disassociateTransitRouterMulticastDomainWithOptions(request, runtime);
+  }
+
+  /**
+   * Disassociates a transit router policy table.
+   * 
+   * @remarks
+   * The **DisassociateTransitRouterPolicyTable** operation is asynchronous. The system first returns a request ID, but the transit router policy routing table association is not immediately deleted. The deletion node continues to run in the background. You can invoke the **DescribeTransitRouterPolicyTableAssociations** operation to query the status of the transit router policy routing table association.
+   * - When the transit router policy routing table association is in the **Dissociating** state, the association is being deleted. In this state, you can only execute query operations and cannot execute other operations.
+   * - If the **DescribeTransitRouterPolicyTableAssociations** operation cannot query the association between the network instance connection and the transit router policy routing table, the association is successfully dissociated.
+   * 
+   * @param request - DisassociateTransitRouterPolicyTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisassociateTransitRouterPolicyTableResponse
+   */
+  async disassociateTransitRouterPolicyTableWithOptions(request: $_model.DisassociateTransitRouterPolicyTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DisassociateTransitRouterPolicyTableResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.associationId)) {
+      query["AssociationId"] = request.associationId;
+    }
+
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisassociateTransitRouterPolicyTable",
+      version: "2017-09-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisassociateTransitRouterPolicyTableResponse>(await this.callApi(params, req, runtime), new $_model.DisassociateTransitRouterPolicyTableResponse({}));
+  }
+
+  /**
+   * Disassociates a transit router policy table.
+   * 
+   * @remarks
+   * The **DisassociateTransitRouterPolicyTable** operation is asynchronous. The system first returns a request ID, but the transit router policy routing table association is not immediately deleted. The deletion node continues to run in the background. You can invoke the **DescribeTransitRouterPolicyTableAssociations** operation to query the status of the transit router policy routing table association.
+   * - When the transit router policy routing table association is in the **Dissociating** state, the association is being deleted. In this state, you can only execute query operations and cannot execute other operations.
+   * - If the **DescribeTransitRouterPolicyTableAssociations** operation cannot query the association between the network instance connection and the transit router policy routing table, the association is successfully dissociated.
+   * 
+   * @param request - DisassociateTransitRouterPolicyTableRequest
+   * @returns DisassociateTransitRouterPolicyTableResponse
+   */
+  async disassociateTransitRouterPolicyTable(request: $_model.DisassociateTransitRouterPolicyTableRequest): Promise<$_model.DisassociateTransitRouterPolicyTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.disassociateTransitRouterPolicyTableWithOptions(request, runtime);
   }
 
   /**
@@ -8395,11 +8979,11 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * - RouteMapId: specifies the route map whose rules you want to query.
-   * - RouteMapRuleIds: the list of rule IDs to query. This parameter and filter conditions can be used together for matching, and they have an OR relationship.
-   * - Filter: the filter. You can filter by attributes such as direction. Supported filter conditions include Status and Direction.
+   * - RouteMapId: specifies the route map to which the rules to be queried belong.
+   * - RouteMapRuleIds: the list of rule IDs to query. This parameter and filter conditions can be used together for matching, and the relationship is OR.
+   * - Filter: the filter conditions. You can filter by attributes such as direction. Supported filter conditions include Status and Direction.
    * - DryRun: specifies whether to enable the dry run mode. Default value: false.
-   * You must specify at least one of RouteMapId and RouteMapRuleIds. If both are provided, a joint query is performed based on these two parameters. If only RouteMapId is provided, all rules under the route map are returned. If only RouteMapRuleIds is provided, the details of the specified rules are returned.
+   * You must specify at least one of RouteMapId and RouteMapRuleIds. If both are provided, a joint query is performed based on these two parameters. If only RouteMapId is provided, all rules under the route map are returned. If only RouteMapRuleIds is provided, the details of these rules are returned.
    * 
    * @param request - ListRouteMapRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8458,11 +9042,11 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * - RouteMapId: specifies the route map whose rules you want to query.
-   * - RouteMapRuleIds: the list of rule IDs to query. This parameter and filter conditions can be used together for matching, and they have an OR relationship.
-   * - Filter: the filter. You can filter by attributes such as direction. Supported filter conditions include Status and Direction.
+   * - RouteMapId: specifies the route map to which the rules to be queried belong.
+   * - RouteMapRuleIds: the list of rule IDs to query. This parameter and filter conditions can be used together for matching, and the relationship is OR.
+   * - Filter: the filter conditions. You can filter by attributes such as direction. Supported filter conditions include Status and Direction.
    * - DryRun: specifies whether to enable the dry run mode. Default value: false.
-   * You must specify at least one of RouteMapId and RouteMapRuleIds. If both are provided, a joint query is performed based on these two parameters. If only RouteMapId is provided, all rules under the route map are returned. If only RouteMapRuleIds is provided, the details of the specified rules are returned.
+   * You must specify at least one of RouteMapId and RouteMapRuleIds. If both are provided, a joint query is performed based on these two parameters. If only RouteMapId is provided, all rules under the route map are returned. If only RouteMapRuleIds is provided, the details of these rules are returned.
    * 
    * @param request - ListRouteMapRulesRequest
    * @returns ListRouteMapRulesResponse
@@ -8477,12 +9061,12 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * - **RouteMapIds**: optional. Specifies a list of one or more route map IDs to query. If you do not specify this parameter, all route maps are queried by default.
-   * - **Filter**: optional. Filters route maps based on specific conditions such as the name and direction.
-   * - **ResourceGroupId**: optional. Specifies the ID of the resource group to further filter the results.
-   * - **DryRun**: optional. Specifies whether to check the request without actually performing the operation.
-   * - **MaxResults** and **NextToken**: pagination parameters. Used to control the number of returned results and obtain the next page of data.
-   * Note: If you specify both `RouteMapIds` and `Filter`, they are connected by an OR logical operator. Route maps that meet either condition are queried.
+   * - **RouteMapIds**: Optional. The IDs of the route maps to query. If you do not specify this parameter, all route maps are queried.
+   * - **Filter**: Optional. The filter conditions used to filter route maps based on specific attributes such as name and direction.
+   * - **ResourceGroupId**: Optional. The ID of the resource group used to further filter the results.
+   * - **DryRun**: Optional. Specifies whether to perform a dry run.
+   * - **MaxResults** and **NextToken**: The pagination parameters used to control the number of returned results and retrieve the next page.
+   * Note: If you specify both RouteMapIds and Filter, the logical OR operator is used. A route map that meets either condition is returned.
    * 
    * @param request - ListRouteMapsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8541,12 +9125,12 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * - **RouteMapIds**: optional. Specifies a list of one or more route map IDs to query. If you do not specify this parameter, all route maps are queried by default.
-   * - **Filter**: optional. Filters route maps based on specific conditions such as the name and direction.
-   * - **ResourceGroupId**: optional. Specifies the ID of the resource group to further filter the results.
-   * - **DryRun**: optional. Specifies whether to check the request without actually performing the operation.
-   * - **MaxResults** and **NextToken**: pagination parameters. Used to control the number of returned results and obtain the next page of data.
-   * Note: If you specify both `RouteMapIds` and `Filter`, they are connected by an OR logical operator. Route maps that meet either condition are queried.
+   * - **RouteMapIds**: Optional. The IDs of the route maps to query. If you do not specify this parameter, all route maps are queried.
+   * - **Filter**: Optional. The filter conditions used to filter route maps based on specific attributes such as name and direction.
+   * - **ResourceGroupId**: Optional. The ID of the resource group used to further filter the results.
+   * - **DryRun**: Optional. Specifies whether to perform a dry run.
+   * - **MaxResults** and **NextToken**: The pagination parameters used to control the number of returned results and retrieve the next page.
+   * Note: If you specify both RouteMapIds and Filter, the logical OR operator is used. A route map that meets either condition is returned.
    * 
    * @param request - ListRouteMapsRequest
    * @returns ListRouteMapsResponse
@@ -8557,15 +9141,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags bound to a Cloud Enterprise Network (CEN) instance.
+   * Queries the tags associated with Cloud Enterprise Network (CEN) instances.
    * 
    * @remarks
-   * When you call the ListTagResources operation, you must specify at least one of the request parameters **ResourceId.N** and **Tag.N.Key**:
-   * - If you specify only **ResourceId.N**, the tags bound to the specified CEN instance are queried.
-   * - If you specify only **Tag.N.Key**, all CEN instances that have the specified tag key bound are queried.
-   * - If you specify both **ResourceId.N** and **Tag.N.Key**, the specified tags bound to the specified CEN instance are queried.
+   * When you call the ListTagResources operation, you must specify at least one of the **ResourceId.N** and **Tag.N.Key** request parameters:
+   * - If you specify only **ResourceId.N**, the system queries the tags associated with the specified CEN instances.
+   * - If you specify only **Tag.N.Key**, the system queries all CEN instances associated with the specified tag key.
+   * - If you specify both **ResourceId.N** and **Tag.N.Key**, the system queries the specified tags associated with the specified CEN instances.
    *     - Make sure that the values of **ResourceId.N** and **Tag.N.Key** correspond to each other. Otherwise, an empty result is returned.
-   *     - If you specify multiple tag keys, the tag keys are evaluated by using the logical AND operator.
+   *     - If you specify multiple tag keys, the logical **AND** relation is applied to the tag keys.
    * 
    * @param request - ListTagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8632,15 +9216,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the tags bound to a Cloud Enterprise Network (CEN) instance.
+   * Queries the tags associated with Cloud Enterprise Network (CEN) instances.
    * 
    * @remarks
-   * When you call the ListTagResources operation, you must specify at least one of the request parameters **ResourceId.N** and **Tag.N.Key**:
-   * - If you specify only **ResourceId.N**, the tags bound to the specified CEN instance are queried.
-   * - If you specify only **Tag.N.Key**, all CEN instances that have the specified tag key bound are queried.
-   * - If you specify both **ResourceId.N** and **Tag.N.Key**, the specified tags bound to the specified CEN instance are queried.
+   * When you call the ListTagResources operation, you must specify at least one of the **ResourceId.N** and **Tag.N.Key** request parameters:
+   * - If you specify only **ResourceId.N**, the system queries the tags associated with the specified CEN instances.
+   * - If you specify only **Tag.N.Key**, the system queries all CEN instances associated with the specified tag key.
+   * - If you specify both **ResourceId.N** and **Tag.N.Key**, the system queries the specified tags associated with the specified CEN instances.
    *     - Make sure that the values of **ResourceId.N** and **Tag.N.Key** correspond to each other. Otherwise, an empty result is returned.
-   *     - If you specify multiple tag keys, the tag keys are evaluated by using the logical AND operator.
+   *     - If you specify multiple tag keys, the logical **AND** relation is applied to the tag keys.
    * 
    * @param request - ListTagResourcesRequest
    * @returns ListTagResourcesResponse
@@ -9675,7 +10259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the ListTransitRouterRouteEntries operation to query the details of route entries in an Enterprise Edition transit router route table.
+   * Queries the details of the route entry in the routing table of an Enterprise Edition forwarding router.
    * 
    * @param request - ListTransitRouterRouteEntriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9782,7 +10366,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Calls the ListTransitRouterRouteEntries operation to query the details of route entries in an Enterprise Edition transit router route table.
+   * Queries the details of the route entry in the routing table of an Enterprise Edition forwarding router.
    * 
    * @param request - ListTransitRouterRouteEntriesRequest
    * @returns ListTransitRouterRouteEntriesResponse
@@ -9977,7 +10561,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of route tables of an Enterprise Edition transit router by calling the ListTransitRouterRouteTables operation.
+   * Queries the details of the route tables of an Enterprise Edition transit router.
    * 
    * @param request - ListTransitRouterRouteTablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10056,7 +10640,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of route tables of an Enterprise Edition transit router by calling the ListTransitRouterRouteTables operation.
+   * Queries the details of the route tables of an Enterprise Edition transit router.
    * 
    * @param request - ListTransitRouterRouteTablesRequest
    * @returns ListTransitRouterRouteTablesResponse
@@ -12222,20 +12806,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a cloud service to add access configurations for on-premises networks by calling the ResolveAndRouteServiceInCen operation.
+   * Configures a cloud service and adds configurations for an on-premises network to access the cloud service by calling the ResolveAndRouteServiceInCen operation.
    * 
    * @remarks
-   * Cloud services refer to Alibaba Cloud services that use the 100.64.0.0/10 CIDR block, such as Object Storage Service (OSS), Simple Log Service (SLS), and Data Transmission Service (DTS). If your on-premises network needs to access cloud services, you must load the Virtual Border Router (VBR) instance or Cloud Connect Network (CCN) instance associated with your on-premises network to a Cloud Enterprise Network (CEN) instance. You must also load a VPC-connected instance in the region where the cloud service resides to the same CEN instance. After loading, your on-premises network can access the VPC-connected instance in the region of the cloud service through CEN, and then access the cloud service through the VPC by forwarding traffic. The CEN handles the routing accordingly.
-   * - Limits: This operation applies only to Basic Edition transit routers. On-premises networks associated with VBR instances can access only cloud services in the same region through CEN.
-   *     For example, if the cloud service resides in the China (Beijing) region, only on-premises networks associated with VBR instances in the China (Beijing) region can access the cloud service.
-   * - The **ResolveAndRouteServiceInCen** operation is asynchronous. After you send a request, the system returns a **RequestId** but the cloud service configuration is not yet complete. The background node for adding the configuration continues to run. You can invoke the **DescribeRouteServicesInCen** operation to query the status of the cloud service. 
-   *     - If the cloud service is in the **Creating** state, the cloud service configuration is being added. In this state, you can only execute a query on the cloud service configuration and cannot execute other operations.
-   *     - If the cloud service is in the **Active** state, the cloud service configuration is added.
-   *     - If the cloud service is in the **Failed** state, the cloud service configuration failed to be added.
+   * Cloud services refer to Alibaba Cloud products that provide services by using the cloud service CIDR block 100.64.0.0/10, such as Object Storage Service (OSS), Simple Log Service (SLS), and Data Transmission Service (DTS). If your on-premises network needs to access cloud services, you must load the virtual border router (VBR) instance that handles routing or the Cloud Connect Network (CCN) instance associated with the on-premises network to a Cloud Enterprise Network (CEN) instance. You must also load a VPC-connected instance in the region where the cloud services are deployed to the CEN instance. After the instances are loaded, your on-premises network can access the VPC-connected instance in the region where the cloud services are deployed through the CEN instance, and then access the cloud services through the VPC-connected instance.
+   * - Limits: This operation is applicable only to Basic Edition transit routers that forward traffic. An on-premises network associated with a VBR instance can access only cloud services in the same region through the CEN instance.
+   *     For example, if the cloud services are deployed in the China (Beijing) region, only the on-premises networks associated with VBR instances in the China (Beijing) region can access the cloud services.
+   * - The **ResolveAndRouteServiceInCen** operation is asynchronous. After you invoke this operation, the system returns a **RequestId**, but the cloud service configurations are not completely added. The addition task is still running in the background. You can invoke the **DescribeRouteServicesInCen** operation to query the status of the cloud services. 
+   *     - If the cloud services are in the **Creating** state, the cloud service configurations are being added. In this state, you can only execute query operations on the cloud service configurations and cannot execute other operations.
+   *     - If the cloud services are in the **Active** state, the cloud service configurations are added.
+   *     - If the cloud services are in the **Failed** state, the cloud service configurations fail to be added.
    * ### Before you begin
    * Before you invoke the ResolveAndRouteServiceInCen operation, make sure that the following conditions are met:
-   * - The VBR or CCN instance with network connectivity to your on-premises network is loaded to the CEN instance.
-   * - A VPC-connected instance in the region where the cloud service resides is loaded to the CEN instance. For more information, see [AttachCenChildInstance](https://help.aliyun.com/document_detail/65902.html).
+   * - The VBR or CCN instance that has network connectivity to your on-premises network is loaded to the CEN instance.
+   * - A VPC-connected instance in the region where the cloud services are deployed is loaded to the CEN instance. For more information, see [AttachCenChildInstance](https://help.aliyun.com/document_detail/65902.html).
    * 
    * @param request - ResolveAndRouteServiceInCenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12306,20 +12890,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures a cloud service to add access configurations for on-premises networks by calling the ResolveAndRouteServiceInCen operation.
+   * Configures a cloud service and adds configurations for an on-premises network to access the cloud service by calling the ResolveAndRouteServiceInCen operation.
    * 
    * @remarks
-   * Cloud services refer to Alibaba Cloud services that use the 100.64.0.0/10 CIDR block, such as Object Storage Service (OSS), Simple Log Service (SLS), and Data Transmission Service (DTS). If your on-premises network needs to access cloud services, you must load the Virtual Border Router (VBR) instance or Cloud Connect Network (CCN) instance associated with your on-premises network to a Cloud Enterprise Network (CEN) instance. You must also load a VPC-connected instance in the region where the cloud service resides to the same CEN instance. After loading, your on-premises network can access the VPC-connected instance in the region of the cloud service through CEN, and then access the cloud service through the VPC by forwarding traffic. The CEN handles the routing accordingly.
-   * - Limits: This operation applies only to Basic Edition transit routers. On-premises networks associated with VBR instances can access only cloud services in the same region through CEN.
-   *     For example, if the cloud service resides in the China (Beijing) region, only on-premises networks associated with VBR instances in the China (Beijing) region can access the cloud service.
-   * - The **ResolveAndRouteServiceInCen** operation is asynchronous. After you send a request, the system returns a **RequestId** but the cloud service configuration is not yet complete. The background node for adding the configuration continues to run. You can invoke the **DescribeRouteServicesInCen** operation to query the status of the cloud service. 
-   *     - If the cloud service is in the **Creating** state, the cloud service configuration is being added. In this state, you can only execute a query on the cloud service configuration and cannot execute other operations.
-   *     - If the cloud service is in the **Active** state, the cloud service configuration is added.
-   *     - If the cloud service is in the **Failed** state, the cloud service configuration failed to be added.
+   * Cloud services refer to Alibaba Cloud products that provide services by using the cloud service CIDR block 100.64.0.0/10, such as Object Storage Service (OSS), Simple Log Service (SLS), and Data Transmission Service (DTS). If your on-premises network needs to access cloud services, you must load the virtual border router (VBR) instance that handles routing or the Cloud Connect Network (CCN) instance associated with the on-premises network to a Cloud Enterprise Network (CEN) instance. You must also load a VPC-connected instance in the region where the cloud services are deployed to the CEN instance. After the instances are loaded, your on-premises network can access the VPC-connected instance in the region where the cloud services are deployed through the CEN instance, and then access the cloud services through the VPC-connected instance.
+   * - Limits: This operation is applicable only to Basic Edition transit routers that forward traffic. An on-premises network associated with a VBR instance can access only cloud services in the same region through the CEN instance.
+   *     For example, if the cloud services are deployed in the China (Beijing) region, only the on-premises networks associated with VBR instances in the China (Beijing) region can access the cloud services.
+   * - The **ResolveAndRouteServiceInCen** operation is asynchronous. After you invoke this operation, the system returns a **RequestId**, but the cloud service configurations are not completely added. The addition task is still running in the background. You can invoke the **DescribeRouteServicesInCen** operation to query the status of the cloud services. 
+   *     - If the cloud services are in the **Creating** state, the cloud service configurations are being added. In this state, you can only execute query operations on the cloud service configurations and cannot execute other operations.
+   *     - If the cloud services are in the **Active** state, the cloud service configurations are added.
+   *     - If the cloud services are in the **Failed** state, the cloud service configurations fail to be added.
    * ### Before you begin
    * Before you invoke the ResolveAndRouteServiceInCen operation, make sure that the following conditions are met:
-   * - The VBR or CCN instance with network connectivity to your on-premises network is loaded to the CEN instance.
-   * - A VPC-connected instance in the region where the cloud service resides is loaded to the CEN instance. For more information, see [AttachCenChildInstance](https://help.aliyun.com/document_detail/65902.html).
+   * - The VBR or CCN instance that has network connectivity to your on-premises network is loaded to the CEN instance.
+   * - A VPC-connected instance in the region where the cloud services are deployed is loaded to the CEN instance. For more information, see [AttachCenChildInstance](https://help.aliyun.com/document_detail/65902.html).
    * 
    * @param request - ResolveAndRouteServiceInCenRequest
    * @returns ResolveAndRouteServiceInCenResponse
@@ -12626,11 +13210,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates and attaches tags to resources.
+   * Creates and attaches tags to a resource.
    * 
    * @remarks
-   * - A tag consists of a tag key and a tag value. Both the tag key and tag value are required when you add a tag.
-   * - If you want to add multiple tags to a Cloud Enterprise Network (CEN) instance, the tag keys of the tags must be unique within the instance.
+   * - A tag consists of a tag key and a tag value. Both the tag key and the tag value are required when you add a tag.
+   * - If you want to add multiple tags to a Cloud Enterprise Network (CEN) instance, the tag keys of the tags attached to the instance must be unique.
    * - You can attach up to 20 tags to a CEN instance.
    * 
    * @param request - TagResourcesRequest
@@ -12690,11 +13274,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates and attaches tags to resources.
+   * Creates and attaches tags to a resource.
    * 
    * @remarks
-   * - A tag consists of a tag key and a tag value. Both the tag key and tag value are required when you add a tag.
-   * - If you want to add multiple tags to a Cloud Enterprise Network (CEN) instance, the tag keys of the tags must be unique within the instance.
+   * - A tag consists of a tag key and a tag value. Both the tag key and the tag value are required when you add a tag.
+   * - If you want to add multiple tags to a Cloud Enterprise Network (CEN) instance, the tag keys of the tags attached to the instance must be unique.
    * - You can attach up to 20 tags to a CEN instance.
    * 
    * @param request - TagResourcesRequest
@@ -12930,7 +13514,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Remove tags from resources.
+   * Removes tags from one or more resources.
    * 
    * @param request - UntagResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12993,7 +13577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Remove tags from resources.
+   * Removes tags from one or more resources.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -13167,7 +13751,7 @@ export default class Client extends OpenApi {
    * Updates the attributes of an existing route map.
    * 
    * @remarks
-   * The UpdateRouteMap operation is asynchronous. After you call this operation, the system returns a **RequestId**, but the route map is not immediately updated. The update task continues to run in the background. You can call the ListRouteMaps operation to query the status of the route map.
+   * The `UpdateRouteMap` operation is asynchronous. After you call this operation, the system returns a **RequestId**, but the route map is not immediately updated. The update task continues to run in the background. You can call the `ListRouteMaps` operation to query the status of the route map.
    * - If the route map is in the **Updating** state, the route map is being updated. In this state, you can only perform query operations.
    * - If the route map is in the **Active** state, the route map is updated.
    * 
@@ -13223,7 +13807,7 @@ export default class Client extends OpenApi {
    * Updates the attributes of an existing route map.
    * 
    * @remarks
-   * The UpdateRouteMap operation is asynchronous. After you call this operation, the system returns a **RequestId**, but the route map is not immediately updated. The update task continues to run in the background. You can call the ListRouteMaps operation to query the status of the route map.
+   * The `UpdateRouteMap` operation is asynchronous. After you call this operation, the system returns a **RequestId**, but the route map is not immediately updated. The update task continues to run in the background. You can call the `ListRouteMaps` operation to query the status of the route map.
    * - If the route map is in the **Updating** state, the route map is being updated. In this state, you can only perform query operations.
    * - If the route map is in the **Active** state, the route map is updated.
    * 
@@ -13242,7 +13826,7 @@ export default class Client extends OpenApi {
    * ## Request description
    * - `RouteMapRuleId` specifies the route map rule to be updated.
    * - `Name`, `Description`, and `Priority` are used to update the name, description, and priority of the rule. Rule priorities under the same route map must be unique.
-   * - `MatchConditions` is used to update the match conditions of the rule, and `SetActions` is used to update the actions to be performed when a route meets the match conditions.
+   * - `MatchConditions` is used to update the match conditions of the rule, and `SetActions` is used to update the actions to be executed after a route meets the match conditions.
    * - `DryRun` is an optional parameter used to precheck the request without actually updating the route map rule.
    * 
    * @param tmpReq - UpdateRouteMapRuleRequest
@@ -13318,7 +13902,7 @@ export default class Client extends OpenApi {
    * ## Request description
    * - `RouteMapRuleId` specifies the route map rule to be updated.
    * - `Name`, `Description`, and `Priority` are used to update the name, description, and priority of the rule. Rule priorities under the same route map must be unique.
-   * - `MatchConditions` is used to update the match conditions of the rule, and `SetActions` is used to update the actions to be performed when a route meets the match conditions.
+   * - `MatchConditions` is used to update the match conditions of the rule, and `SetActions` is used to update the actions to be executed after a route meets the match conditions.
    * - `DryRun` is an optional parameter used to precheck the request without actually updating the route map rule.
    * 
    * @param request - UpdateRouteMapRuleRequest
@@ -13689,6 +14273,122 @@ export default class Client extends OpenApi {
   async updateTransitRouterPeerAttachmentAttribute(request: $_model.UpdateTransitRouterPeerAttachmentAttributeRequest): Promise<$_model.UpdateTransitRouterPeerAttachmentAttributeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateTransitRouterPeerAttachmentAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the name and description of a policy-based routing rule in the route table of an Enterprise Edition transit router.
+   * 
+   * @param request - UpdateTransitRouterPolicyBasedRouteRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTransitRouterPolicyBasedRouteResponse
+   */
+  async updateTransitRouterPolicyBasedRouteWithOptions(request: $_model.UpdateTransitRouterPolicyBasedRouteRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateTransitRouterPolicyBasedRouteResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.policyBasedRouteId)) {
+      query["PolicyBasedRouteId"] = request.policyBasedRouteId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateTransitRouterPolicyBasedRoute",
+      version: "2017-09-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateTransitRouterPolicyBasedRouteResponse>(await this.callApi(params, req, runtime), new $_model.UpdateTransitRouterPolicyBasedRouteResponse({}));
+  }
+
+  /**
+   * Modifies the name and description of a policy-based routing rule in the route table of an Enterprise Edition transit router.
+   * 
+   * @param request - UpdateTransitRouterPolicyBasedRouteRequest
+   * @returns UpdateTransitRouterPolicyBasedRouteResponse
+   */
+  async updateTransitRouterPolicyBasedRoute(request: $_model.UpdateTransitRouterPolicyBasedRouteRequest): Promise<$_model.UpdateTransitRouterPolicyBasedRouteResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateTransitRouterPolicyBasedRouteWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the name and description of a policy route table.
+   * 
+   * @param request - UpdateTransitRouterPolicyTableRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateTransitRouterPolicyTableResponse
+   */
+  async updateTransitRouterPolicyTableWithOptions(request: $_model.UpdateTransitRouterPolicyTableRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateTransitRouterPolicyTableResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.policyTableId)) {
+      query["PolicyTableId"] = request.policyTableId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateTransitRouterPolicyTable",
+      version: "2017-09-12",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateTransitRouterPolicyTableResponse>(await this.callApi(params, req, runtime), new $_model.UpdateTransitRouterPolicyTableResponse({}));
+  }
+
+  /**
+   * Modifies the name and description of a policy route table.
+   * 
+   * @param request - UpdateTransitRouterPolicyTableRequest
+   * @returns UpdateTransitRouterPolicyTableResponse
+   */
+  async updateTransitRouterPolicyTable(request: $_model.UpdateTransitRouterPolicyTableRequest): Promise<$_model.UpdateTransitRouterPolicyTableResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateTransitRouterPolicyTableWithOptions(request, runtime);
   }
 
   /**

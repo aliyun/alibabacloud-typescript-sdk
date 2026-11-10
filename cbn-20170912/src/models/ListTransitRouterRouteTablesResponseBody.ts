@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTablesRouteTableOptions extends $dara.Model {
   /**
    * @remarks
-   * Multi-region equal-cost multi-path (ECMP) routing. Valid values:
-   * - **disable**: Disables multi-region ECMP routing. After multi-region ECMP routing is disabled, routes with the same prefix learned from different regions select the transit router (TR) with the smallest Region ID (sorted alphabetically) as the next hop when other route attributes are the same. This changes the traffic latency and bandwidth consumed between different regions. Make sure that you fully evaluate the impact before disabling this feature.
-   * - **enable**: Enables multi-region ECMP routing. After multi-region ECMP routing is enabled, routes with the same prefix learned from different regions form ECMP routes when other route attributes are the same. This changes the traffic latency and bandwidth consumed between different regions. Make sure that you fully evaluate the impact before enabling this feature.
+   * The multi-region equal-cost multi-path (ECMP) routing feature. Valid values:
+   * - **disable**: disables multi-region ECMP routing. After you disable this feature, if routes with the same prefix are learned from different regions and have the same route attributes, the transit router with the smallest region ID (in alphabetical order) is preferred as the next hop. This changes the traffic latency and the bandwidth consumed between regions. Make sure that you fully evaluate the impact before you disable this feature.
+   * - **enable**: enables multi-region ECMP routing. After you enable this feature, if routes with the same prefix are learned from different regions and have the same route attributes, ECMP routing is formed. This changes the traffic latency and the bandwidth consumed between regions. Make sure that you fully evaluate the impact before you enable this feature.
    * 
    * @example
    * disable
@@ -79,7 +79,7 @@ export class ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTables ex
    * @remarks
    * The time when the route table was created.
    * 
-   * The time is displayed in UTC in the YYYY-MM-DDThh:mmZ format.
+   * The time is displayed in ISO 8601 standard format in UTC. Format: YYYY-MM-DDThh:mmZ.
    * 
    * @example
    * 2021-03-15T09:39Z
@@ -87,7 +87,7 @@ export class ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTables ex
   createTime?: string;
   /**
    * @remarks
-   * The region ID of the Enterprise Edition transit router instance.
+   * The region ID of the Enterprise Edition transit router.
    * 
    * @example
    * cn-beijing
@@ -105,7 +105,7 @@ export class ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTables ex
   tags?: ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTablesTags[];
   /**
    * @remarks
-   * The transit router instance ID.
+   * The instance ID of the transit router, which is used to forward routing information.
    * 
    * @example
    * tr-8vb8bie2koduo5awz****
@@ -139,9 +139,9 @@ export class ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTables ex
    * @remarks
    * The status of the route table.
    * 
-   * - **Creating**: being created.
-   * - **Deleting**: being deleted.
-   * - **Active**: active.
+   * - **Creating**: The route table is being created.
+   * - **Deleting**: The route table is being deleted.
+   * - **Active**: The route table is available.
    * 
    * @example
    * Active
@@ -206,7 +206,7 @@ export class ListTransitRouterRouteTablesResponseBodyTransitRouterRouteTables ex
 export class ListTransitRouterRouteTablesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page when entries are returned by page.
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -214,9 +214,9 @@ export class ListTransitRouterRouteTablesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * - If **NextToken** is empty, no next query exists.
-   * - If **NextToken** is returned, the value indicates the token for the next query.
+   * The token for the next query. Valid values:
+   * - If **NextToken** is empty, no next query is to be sent.
+   * - If **NextToken** returns a value, the value is the token for the next query.
    * 
    * @example
    * dd20****
@@ -232,7 +232,7 @@ export class ListTransitRouterRouteTablesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

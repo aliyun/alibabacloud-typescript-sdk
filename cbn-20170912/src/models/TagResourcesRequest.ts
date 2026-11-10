@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
-   * 
-   * You can specify multiple tag keys. Valid values of **N**: **1** to **20**.
-   * 
-   * The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag key. You can specify multiple tag keys. Valid values of **N**: **1** to **20**. The tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * TagKey
@@ -17,11 +13,7 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
-   * 
-   * Each tag key corresponds to one tag value. Valid values of **N**: **1** to **20**.
-   * 
-   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag value. Each tag key corresponds to a tag value. Valid values of **N**: **1** to **20**. The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * TagValue
@@ -55,9 +47,7 @@ export class TagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the resource instance.
-   * 
-   * This parameter is not required when the resource type is Cen or BandwidthPackage. This parameter is required for all other resource types.
+   * The region ID of the resource. This parameter is not required when the resource type is Cen or BandwidthPackage, but is required for other resource types.
    * 
    * @example
    * cn-hangzhou
@@ -65,7 +55,7 @@ export class TagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resources.
+   * The list of resources.
    * 
    * This parameter is required.
    * 
@@ -81,7 +71,7 @@ export class TagResourcesRequest extends $dara.Model {
    * 
    * **Cen**: CEN instance.
    * 
-   * **BandwidthPackage**: bandwidth package instance.
+   * **BandwidthPackage**: bandwidth plan instance.
    * 
    * **TransitRouter**: transit router instance.
    * 
@@ -89,7 +79,7 @@ export class TagResourcesRequest extends $dara.Model {
    * 
    * **TransitRouterVbrAttachment**: VBR connection instance.
    * 
-   * **TransitRouterPeerAttachment**: inter-region connection instance.
+   * **TransitRouterPeerAttachment**: cross-region connection instance.
    * 
    * **TransitRouterVpnAttachment**: VPN connection instance.
    * 
@@ -107,7 +97,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag list.
+   * The list of tags.
    * 
    * This parameter is required.
    */

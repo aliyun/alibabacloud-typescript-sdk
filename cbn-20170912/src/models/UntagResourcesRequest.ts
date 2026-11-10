@@ -5,12 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to delete all tags. Valid values:
+   * Specifies whether to remove all tags. Valid values:
+   * - **true**: yes.
+   * - **false** (default): no.
    * 
-   * - **true**: Yes
-   * - **false** (default): No
-   * 
-   * > This parameter takes effect only when the **TagKey.N** parameter is empty.
+   * > This parameter takes effect only when **TagKey.N** is left empty.
    * 
    * @example
    * false
@@ -20,9 +19,9 @@ export class UntagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID of the resource.
    * 
-   * This parameter is not required when the resource type is Cen or BandwidthPackage. For all other resource types, this parameter is required.
+   * This parameter is not required when the resource type is Cen or BandwidthPackage. This parameter is required for other resource types.
    * 
    * @example
    * cn-hangzhou
@@ -30,7 +29,7 @@ export class UntagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Resource ID. The value of **N** ranges from **1** to **50**.
+   * The resource ID. **N** ranges from **1** to **50**.
    * 
    * This parameter is required.
    * 
@@ -42,27 +41,27 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * Resource type. Valid values:
+   * The resource type. Valid values:
    * 
-   * **Cen**: Cloud Enterprise Network (CEN).
+   * **Cen**: Cloud Enterprise Network (CEN) instance.
    * 
-   * **BandwidthPackage**: Bandwidth package.
+   * **BandwidthPackage**: bandwidth plan instance.
    * 
-   * **TransitRouter**: Transit router.
+   * **TransitRouter**: transit router instance.
    * 
-   * **TransitRouterVpcAttachment**: VPC attachment.
+   * **TransitRouterVpcAttachment**: VPC connection instance.
    * 
-   * **TransitRouterVbrAttachment**: VBR attachment.
+   * **TransitRouterVbrAttachment**: VBR connection instance.
    * 
-   * **TransitRouterPeerAttachment**: Inter-region attachment.
+   * **TransitRouterPeerAttachment**: cross-region connection instance.
    * 
-   * **TransitRouterVpnAttachment**: VPN attachment.
+   * **TransitRouterVpnAttachment**: VPN connection instance.
    * 
-   * **TransitRouterRouteTable**: Route table.
+   * **TransitRouterRouteTable**: route table instance.
    * 
-   * **Flowlog**: Flow log.
+   * **Flowlog**: flow log instance.
    * 
-   * **TransitRouterMulticastDomain**: Multicast domain.
+   * **TransitRouterMulticastDomain**: multicast domain instance.
    * 
    * This parameter is required.
    * 
@@ -72,11 +71,11 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * Tag key.
+   * The tag key.
    * 
-   * A tag key can contain up to 64 characters. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * A tag key can be up to 64 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
-   * If you specify multiple tag keys, the logical relation among these tag keys is **OR**. Valid values of **N**: **1** to **20**.
+   * If you specify multiple tag keys, they are evaluated by using the **OR** logical operator. **N** ranges from **1** to **20**.
    * 
    * @example
    * FinanceDept

@@ -8,11 +8,11 @@ export class ListTransitRouterRouteEntriesRequestRouteFilter extends $dara.Model
    * The filter condition. Valid values:
    * 
    * - **PrefixExactMatchCidrs**: exact match.
-   * - **LongestPrefixMatchCidrs**: longest prefix match. IP addresses and CIDR blocks are supported.
-   * - **SubnetOfMatchCidrs**: subnet match. Matches subnets of the specified CIDR block, including the specified CIDR block itself.
-   * - **SupernetOfMatchCidrs**: supernet match. Matches supernets of the specified CIDR block, including the specified CIDR block itself.
+   * - **LongestPrefixMatchCidrs**: longest prefix match. Both IP addresses and CIDR blocks are supported.
+   * - **SubnetOfMatchCidrs**: subnet match. Matches the subnets of the specified CIDR block, including the specified CIDR block.
+   * - **SupernetOfMatchCidrs**: supernet match. Matches the supernets of the specified CIDR block, including the specified CIDR block.
    * 
-   * Multiple filter conditions have an **AND** relationship by default, which means that a route entry must meet all filter conditions to be considered a match. You cannot specify the same filter condition more than once.
+   * Multiple filter conditions are connected by the **AND** logical operator by default. A route entry must meet all filter conditions to be considered a match. You cannot specify duplicate filter conditions.
    * 
    * @example
    * PrefixExactMatchCidrs
@@ -52,7 +52,7 @@ export class ListTransitRouterRouteEntriesRequestRouteFilter extends $dara.Model
 export class ListTransitRouterRouteEntriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page when entries are returned in pages. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -60,10 +60,10 @@ export class ListTransitRouterRouteEntriesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the query. Valid values:
+   * The token for the next query. Valid values:
    * 
-   * - You do not need to specify this parameter for the first query or if no subsequent query is to be sent.
-   * - If a subsequent query is to be sent, set the value to the **NextToken** value returned by the previous API call.
+   * - If this is your first query or no next query is to be sent, ignore this parameter.
+   * - If a next query is to be sent, set the value to the **NextToken** value returned from the last API call.
    * 
    * @example
    * fce19****
@@ -83,12 +83,12 @@ export class ListTransitRouterRouteEntriesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The filter conditions for route entry CIDR blocks.
+   * The filter conditions for the CIDR blocks of the route entry in the routing table.
    */
   routeFilter?: ListTransitRouterRouteEntriesRequestRouteFilter[];
   /**
    * @remarks
-   * The destination CIDR block of the route entry (**This parameter will be deprecated. Use the RouteFilter parameter instead**).
+   * The destination CIDR block of the route entry (**This parameter is deprecated. Use the RouteFilter parameter instead**).
    * 
    * @example
    * 192.168.0.0/24
@@ -98,7 +98,7 @@ export class ListTransitRouterRouteEntriesRequest extends $dara.Model {
   transitRouterRouteEntryDestinationCidrBlock?: string;
   /**
    * @remarks
-   * The IDs of the route entries.
+   * The IDs of the route entry in the routing table.
    * 
    * @example
    * rte-oklkgwmj97z6dn****
@@ -106,7 +106,7 @@ export class ListTransitRouterRouteEntriesRequest extends $dara.Model {
   transitRouterRouteEntryIds?: string[];
   /**
    * @remarks
-   * The names of the route entries.
+   * The names of the route entry in the routing table.
    * 
    * @example
    * testname
@@ -122,7 +122,7 @@ export class ListTransitRouterRouteEntriesRequest extends $dara.Model {
   transitRouterRouteEntryNextHopId?: string;
   /**
    * @remarks
-   * The instance ID of the next hop of the route entry.
+   * The next hop instance ID of the route entry in the routing table.
    * 
    * @example
    * vpc-m5ent6du8deaq5*****
@@ -130,12 +130,12 @@ export class ListTransitRouterRouteEntriesRequest extends $dara.Model {
   transitRouterRouteEntryNextHopResourceId?: string;
   /**
    * @remarks
-   * The type of the next hop instance of the route entry. Valid values:
+   * The next hop instance type of the route entry. Valid values:
    * 
-   * - **VPC**: Virtual Private Cloud (VPC) instance.
-   * - **VBR**: Virtual Border Router (VBR) instance.
-   * - **TR**: transit router instance.
-   * - **VPN**: IPsec connection instance.
+   * - **VPC**: VPC.
+   * - **VBR**: VBR.
+   * - **TR**: transit router.
+   * - **VPN**: IPsec connection.
    * 
    * @example
    * VPC
@@ -145,8 +145,8 @@ export class ListTransitRouterRouteEntriesRequest extends $dara.Model {
    * @remarks
    * The next hop type. Valid values:
    * 
-   * - **BlackHole**: the route entry is a blackhole route.
-   * - **Attachment**: the next hop of the route entry is a network instance connection.
+   * - **BlackHole**: specifies that the route entry is a blackhole route.
+   * - **Attachment**: specifies that the next hop of the route entry is a network instance connection.
    * 
    * @example
    * Attachment
@@ -154,7 +154,7 @@ export class ListTransitRouterRouteEntriesRequest extends $dara.Model {
   transitRouterRouteEntryNextHopType?: string;
   /**
    * @remarks
-   * The instance ID of the origin of the route entry.
+   * The origin instance ID of the route entry in the routing table.
    * 
    * @example
    * vpc-m5ent6du8deaq5*****
@@ -162,12 +162,12 @@ export class ListTransitRouterRouteEntriesRequest extends $dara.Model {
   transitRouterRouteEntryOriginResourceId?: string;
   /**
    * @remarks
-   * The type of the origin instance of the route entry. Valid values:
+   * The origin instance type of the route entry. Valid values:
    * 
-   * - **VPC**: Virtual Private Cloud (VPC) instance.
-   * - **VBR**: Virtual Border Router (VBR) instance.
-   * - **TR**: transit router instance.
-   * - **VPN**: IPsec connection instance.
+   * - **VPC**: VPC.
+   * - **VBR**: VBR.
+   * - **TR**: transit router.
+   * - **VPN**: IPsec connection.
    * 
    * @example
    * VPC
@@ -178,13 +178,13 @@ export class ListTransitRouterRouteEntriesRequest extends $dara.Model {
    * The status of the route entry. Valid values:
    * 
    * - **All**: queries route entries in all states.
-   * - **Active (default)**: queries only route entries in the active state.
+   * - **Active** (default): queries only active route entries.
    * - **Rejected**: queries only route entries that are rejected due to route conflicts.
-   * - **Prohibited**: queries only route entries that are prohibited because they match a routing policy.
-   * - **Standby**: queries only route entries that serve as standby routes.
-   * - **Candidate**: queries only route entries that serve as candidate routes.
+   * - **Prohibited**: queries only route entries that are prohibited by route maps.
+   * - **Standby**: queries only standby route entries.
+   * - **Candidate**: queries only candidate route entries.
    * 
-   * If you do not specify this parameter, only route entries in the active state are queried.
+   * If you do not specify this parameter, the system queries only active route entries by default.
    * 
    * @example
    * Active
@@ -192,10 +192,10 @@ export class ListTransitRouterRouteEntriesRequest extends $dara.Model {
   transitRouterRouteEntryStatus?: string;
   /**
    * @remarks
-   * The type of the route entry. Valid values:
+   * The destination type of the route entry. Valid values:
    * 
-   * - **Propagated**: generated by automatic learning on the current route table.
-   * - **Static**: generated by static configuration on the current route table.
+   * - **Propagated**: generated by automatic learning of the current routing table.
+   * - **Static**: statically configured in the current routing table.
    * 
    * @example
    * Propagated
@@ -203,7 +203,7 @@ export class ListTransitRouterRouteEntriesRequest extends $dara.Model {
   transitRouterRouteEntryType?: string;
   /**
    * @remarks
-   * The ID of the Enterprise Edition transit router route table.
+   * The ID of the route table of the Enterprise Edition transit router.
    * 
    * This parameter is required.
    * 

@@ -7,10 +7,10 @@ export class DescribeCensRequestFilter extends $dara.Model {
    * @remarks
    * The filter condition. Valid values:
    * 
-   * - **CenId**: the CEN instance ID.
-   * - **Name**: the CEN instance name.
+   * - **CenId**: the instance ID of the CEN.
+   * - **Name**: the name of the CEN instance.
    * 
-   * The relationship between multiple filter conditions is **AND**, which means that a record must match all filter conditions to be returned.
+   * By default, multiple filter conditions have an **AND** relationship. A CEN instance is matched only when it meets all the filter conditions.
    * 
    * You can specify up to 5 filter conditions at a time.
    * 
@@ -22,9 +22,9 @@ export class DescribeCensRequestFilter extends $dara.Model {
    * @remarks
    * The value of the filter condition.
    * 
-   * Specify filter values based on the **Key** parameter. You can specify multiple filter values for a single **Key**. The relationship between multiple filter values is **OR**, which means that a record is returned if it matches any of the filter values.
+   * Specify the filter value based on the **Key**. You can specify multiple filter values for a single **Key**. Multiple filter values have an **OR** relationship. A CEN instance is matched if it meets any of the filter values.
    * 
-   * You can specify up to 5 filter values for each filter condition.
+   * You can specify up to 5 filter values for a single filter condition.
    * 
    * @example
    * cen-0xyeagctz5sfg9****
@@ -61,7 +61,7 @@ export class DescribeCensRequestTag extends $dara.Model {
    * @remarks
    * The tag key of the resource.
    * 
-   * The tag key cannot be an empty string. The tag key can be up to 64 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag key cannot be an empty string. It can be up to 64 characters in length, and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
    * You can specify up to 20 tag keys at a time.
    * 
@@ -73,9 +73,9 @@ export class DescribeCensRequestTag extends $dara.Model {
    * @remarks
    * The tag value of the resource.
    * 
-   * The tag value can be an empty string or up to 128 characters in length. It cannot start with `aliyun` or `acs:` and cannot contain `http://` or `https://`.
+   * The tag value can be an empty string or a string up to 128 characters in length. It cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
    * 
-   * Each tag key corresponds to one tag value. You can specify up to 20 tag values at a time.
+   * Each tag key corresponds to a tag value. You can specify up to 20 tag values at a time.
    * 
    * @example
    * tagtest
@@ -116,7 +116,7 @@ export class DescribeCensRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number to query. Default value: **1**.
+   * The number of the page to return. Default value: **1**.
    * 
    * @example
    * 1
@@ -124,7 +124,7 @@ export class DescribeCensRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Valid values: **1** to **50**. Default value: **10**.
+   * The number of entries to return per page during paging in a paged query. Valid values: **1** to **50**. Default value: **10**.
    * 
    * @example
    * 10

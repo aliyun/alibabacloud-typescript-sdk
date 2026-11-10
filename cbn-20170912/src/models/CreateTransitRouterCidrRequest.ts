@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTransitRouterCidrRequest extends $dara.Model {
   /**
    * @remarks
-   * The transit router CIDR block.
+   * The CIDR block of the transit router.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class CreateTransitRouterCidrRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the RequestId of the API request as the client token. The RequestId of each API request is different.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426****
@@ -29,7 +29,7 @@ export class CreateTransitRouterCidrRequest extends $dara.Model {
    * @remarks
    * The description of the transit router CIDR block.
    * 
-   * The description can be empty or 1 to 256 characters in length, and cannot start with http:// or https://.
+   * The description can be empty or 1 to 256 characters in length. It cannot start with http:// or https://.
    * 
    * @example
    * desctest
@@ -37,10 +37,10 @@ export class CreateTransitRouterCidrRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
+   * Specifies whether to only precheck the request. Valid values:
    * 
-   * - **true**: performs a dry run. The system checks the required parameters, request syntax, and limits. If the request fails the dry run, an error message is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
-   * - **false** (default): performs a dry run and sends the request. If the request passes the dry run, the transit router CIDR block is created.
+   * - **true**: prechecks the request without creating the transit router CIDR block. The system checks whether the required parameters are specified, the request format is valid, and the service limits are met. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends the request. If the request passes the precheck, the transit router CIDR block is created.
    * 
    * @example
    * false
@@ -50,7 +50,7 @@ export class CreateTransitRouterCidrRequest extends $dara.Model {
    * @remarks
    * The name of the transit router CIDR block.
    * 
-   * The name can be empty or 1 to 128 characters in length, and cannot start with http:// or https://.
+   * The name can be empty or 1 to 128 characters in length. It cannot start with http:// or https://.
    * 
    * @example
    * nametest
@@ -60,14 +60,14 @@ export class CreateTransitRouterCidrRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Specifies whether to allow the system to automatically add a route for the transit router CIDR block to the transit router route table.
+   * Specifies whether to allow the system to automatically add a route for the transit router CIDR block to the transit router route table. Valid values:
    * 
-   * - **true** (default): allows the system to automatically add a route.
+   * - **true** (default): allows the system to automatically add the route.
    *        
-   *      If you select this option, after you create a VPN connection of the private gateway type and create a route learning relationship for the VPN connection, the system automatically adds a route entry to the transit router route table that has a route learning relationship with the VPN connection:
+   *      If you set this parameter to true, after you create a VPN connection of the private network gateway type and create a route learning correlation for the VPN connection, the system automatically adds a route entry to the transit router route table that is associated with the VPN connection:
    *    
-   *   A blackhole route whose destination CIDR block is the transit router CIDR block from which gateway IP addresses are allocated to IPsec connections. This blackhole route is propagated only to the route tables of Virtual Border Router (VBR) instances associated with the transit router.
-   * - **false**: does not allow the system to automatically add a route.
+   *   A blackhole route whose destination CIDR block is the transit router CIDR block. The transit router CIDR block refers to the CIDR block from which a gateway IP address is assigned to the IPsec connection. The blackhole route is propagated only to the route table of the VBR under the transit router.
+   * - **false**: does not allow the system to automatically add the route.
    * 
    * @example
    * true
@@ -89,7 +89,7 @@ export class CreateTransitRouterCidrRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The transit routing instance ID.
+   * The instance ID of the transit router.
    * 
    * This parameter is required.
    * 

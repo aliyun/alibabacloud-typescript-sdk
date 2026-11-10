@@ -66,8 +66,8 @@ export class ListRouteMapsResponseBodyRouteMaps extends $dara.Model {
   /**
    * @remarks
    * The direction of the route map. Valid values: 
-   * - Inbound: inbound.
-   * - Outbound: outbound.
+   * - **Inbound**: inbound.
+   * - **Outbound**: outbound.
    * 
    * @example
    * Inbound
@@ -109,10 +109,10 @@ export class ListRouteMapsResponseBodyRouteMaps extends $dara.Model {
    * @remarks
    * The status of the route map. Valid values:
    * 
-   * - **Creating**: The route map is being created.
-   * - **Updating**: The route map is being updated.
-   * - **Active**: The route map is available.
-   * - **Deleting**: The route map is being deleted.
+   * - **Creating**: creating.
+   * - **Updating**: updating.
+   * - **Active**: active.
+   * - **Deleting**: deleting.
    * 
    * @example
    * Active
@@ -185,10 +185,10 @@ export class ListRouteMapsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. Valid values:
+   * The token that is used to retrieve the next page of results. Valid values:
    * 
-   * - If **NextToken** is empty, no next query is available.
-   * - If **NextToken** returns a value, the value is the token for the next query.
+   * - If NextToken is empty, no subsequent query is to be sent.
+   * - If NextToken is returned, the value indicates the token used to start the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****

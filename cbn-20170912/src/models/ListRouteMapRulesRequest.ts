@@ -10,7 +10,7 @@ export class ListRouteMapRulesRequestFilter extends $dara.Model {
    * - **Name**: the name of the route map rule.
    * - **Priority**: the priority of the route map rule.
    * 
-   * By default, multiple filter conditions have an AND relationship. A match succeeds only when all filter conditions are met.
+   * By default, multiple filter conditions are evaluated by using the AND logical operator. A rule matches the filter conditions only if it meets all the filter conditions.
    * 
    * You can specify up to 5 filter conditions at a time.
    * 
@@ -22,7 +22,7 @@ export class ListRouteMapRulesRequestFilter extends $dara.Model {
    * @remarks
    * The value of the filter condition.
    * 
-   * Specify the filter value based on the Key parameter. You can specify multiple filter values for a single key. Multiple filter values have an OR relationship. A match succeeds if any of the filter values is met.
+   * Specify the filter value based on the Key. You can specify multiple filter values for a single Key. Multiple filter values are evaluated by using the OR logical operator. A rule matches the filter condition if it meets any of the filter values.
    * 
    * You can specify up to 5 filter values for a single filter condition.
    */
@@ -58,7 +58,7 @@ export class ListRouteMapRulesRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can generate a parameter value on your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters.
+   * You can generate a parameter value on your client to ensure that the parameter value is unique across different requests. The ClientToken parameter supports only ASCII characters.
    * 
    * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
@@ -70,20 +70,20 @@ export class ListRouteMapRulesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to only precheck the request. Valid values:
    * 
-   * - **true**: sends a check request and does not query the route map rules. Check items include whether required parameters are specified, request format, and service limits. If the check fails, the corresponding error is returned. If the check succeeds, the error code DryRunOperation is returned.
-   * - **false** (default): sends a normal request and directly queries the route map rules after the check succeeds.
+   * - **true**: sends a check request, and no route map rules are queried. Check items include whether required parameters are specified, the request format, and service limits. If the check fails, the corresponding error is returned. If the check succeeds, the error code DryRunOperation is returned.
+   * - **false** (default): sends a normal request, and route map rules are queried directly after the check succeeds.
    */
   dryRun?: boolean;
   /**
    * @remarks
-   * The information about the filter conditions.
+   * The filter conditions.
    * 
    * You can specify up to 5 filter conditions at a time.
    */
   filter?: ListRouteMapRulesRequestFilter[];
   /**
    * @remarks
-   * The number of entries to return on each page in a paginated query.
+   * The number of entries to return on each page.
    * 
    * @example
    * 20
@@ -91,10 +91,10 @@ export class ListRouteMapRulesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. Valid values:
+   * The token that is used to retrieve the next page of results. Valid values:
    * 
-   * - You do not need to specify this parameter for the first query or when no next query is available.
-   * - If a next query is available, set this parameter to the **NextToken** value returned by the previous API call.
+   * - If this is the first query or no next page exists, you do not need to specify this parameter.
+   * - If a next page exists, set the value to the **NextToken** value returned from the previous API call.
    * 
    * @example
    * dd20****
@@ -110,7 +110,7 @@ export class ListRouteMapRulesRequest extends $dara.Model {
   routeMapId?: string;
   /**
    * @remarks
-   * The list of route map rule IDs to query. This parameter and filter conditions can be used together for matching, and they have an AND relationship.
+   * The list of route map rule IDs to query. This parameter and filter conditions can be used together for matching, and the relationship is AND.
    */
   routeMapRuleIds?: string[];
   static names(): { [key: string]: string } {

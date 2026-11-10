@@ -5,59 +5,59 @@ import * as $dara from '@darabonba/typescript';
 export class ListRouteMapRulesResponseBodyRouteMapRulesMatchConditions extends $dara.Model {
   /**
    * @remarks
-   * The route prefix list for fuzzy matching.
+   * The list of routing prefixes for fuzzy match.
    * 
-   * A match succeeds if the route prefix in the match condition contains the route prefix of the matched route.
+   * A match is successful if the route prefix in the match condition contains the route prefix of the matched route.
    * 
    * For example, a policy defined with 10.0.0.0/8 can fuzzy match a route with 10.10.10.0/24.
    * 
-   * IP address ranges use the CIDR format. Both IPv4 and IPv6 are supported.
+   * The IP CIDR blocks are in CIDR format and support IPv4 and IPv6.
    * 
    * This parameter and **AddressPrefixesMatch** are mutually exclusive and cannot be specified at the same time.
    */
   addressPrefixesInclude?: string[];
   /**
    * @remarks
-   * The route prefix list for exact matching.
+   * The list of routing prefixes for exact match.
    * 
-   * A match succeeds only when the route prefix in the match condition is exactly the same as the route prefix of the matched route.
+   * A match is successful only if the route prefix in the match condition is exactly the same as the route prefix of the matched route.
    * 
-   * For example, a policy defined with 10.0.0.0/8 can only exactly match a route with 10.0.0.0/8.
+   * For example, a policy defined with 10.0.0.0/8 can only exact match a route with 10.0.0.0/8.
    * 
-   * IP address ranges use the CIDR format. Both IPv4 and IPv6 are supported.
+   * The IP CIDR blocks are in CIDR format and support IPv4 and IPv6.
    * 
    * This parameter and **AddressPrefixesInclude** are mutually exclusive and cannot be specified at the same time.
    */
   addressPrefixesMatch?: string[];
   /**
    * @remarks
-   * The list of AS paths for fuzzy matching.
+   * The list of AS paths for fuzzy match.
    * 
-   * A match succeeds if the AS path in the match condition overlaps with the AS path of the matched route.
+   * A match is successful if the AS path in the match condition overlaps with the AS path of the matched route.
    * 
    * This parameter and **AsPathsMatch** are mutually exclusive and cannot be specified at the same time.
    * 
-   * > Only AS SEQUENCE is supported. AS SET, AS CONFED SEQUENCE, and AS CONFED SET are not supported. This means only a list of AS numbers is supported, and sets and sub-lists are not supported.
+   * > Only AS SEQUENCE is supported. AS SET, AS CONFED SEQUENCE, and AS CONFED SET are not supported. This means that only a list of AS numbers is supported, and sets and sublists are not supported.
    */
   asPathsInclude?: number[];
   /**
    * @remarks
-   * The list of AS paths for exact matching.
+   * The list of AS paths for exact match.
    * 
-   * A match succeeds only when the AS path in the match condition is exactly the same as the AS path of the matched route.
+   * A match is successful only if the AS path in the match condition is exactly the same as the AS path of the matched route.
    * 
    * This parameter and **AsPathsInclude** are mutually exclusive and cannot be specified at the same time.
    * 
-   * > Only AS SEQUENCE is supported. AS SET, AS CONFED SEQUENCE, and AS CONFED SET are not supported. This means only a list of AS numbers is supported, and sets and sub-lists are not supported.
+   * > Only AS SEQUENCE is supported. AS SET, AS CONFED SEQUENCE, and AS CONFED SET are not supported. This means that only a list of AS numbers is supported, and sets and sublists are not supported.
    */
   asPathsMatch?: number[];
   /**
    * @remarks
-   * The community set for fuzzy matching.
+   * The community set for fuzzy match.
    * 
-   * A match succeeds if the community in the match condition overlaps with the community of the matched route.
+   * A match is successful if the community in the match condition overlaps with the community of the matched route.
    * 
-   * Each community is in the format of n:m, where n and m range from **1** to **65535**. The community must comply with RFC 1997. Large communities (RFC 8092) are not supported.
+   * Each community is in the n:m format, where n and m range from **1** to **65535**. The community must comply with RFC 1997. Large communities (RFC 8092) are not supported.
    * 
    * This parameter and **CommunitySetMatch** are mutually exclusive and cannot be specified at the same time.
    * 
@@ -66,11 +66,11 @@ export class ListRouteMapRulesResponseBodyRouteMapRulesMatchConditions extends $
   communitySetInclude?: string[];
   /**
    * @remarks
-   * The community set for exact matching.
+   * The community set for exact match.
    * 
-   * A match succeeds only when the community in the match condition is exactly the same as the community of the matched route.
+   * A match is successful only if the community in the match condition is exactly the same as the community of the matched route.
    * 
-   * Each community is in the format of n:m, where n and m range from **1** to **65535**. The community must comply with RFC 1997. Large communities (RFC 8092) are not supported.
+   * Each community is in the n:m format, where n and m range from **1** to **65535**. The community must comply with RFC 1997. Large communities (RFC 8092) are not supported.
    * 
    * This parameter and **CommunitySetInclude** are mutually exclusive and cannot be specified at the same time.
    * 
@@ -81,18 +81,18 @@ export class ListRouteMapRulesResponseBodyRouteMapRulesMatchConditions extends $
    * @remarks
    * The list of destination instance IDs to match. The following instance types are supported:
    * 
-   * - Virtual private cloud (VPC) instance IDs
-   * - Virtual border router (VBR) instance IDs
+   * - Virtual Private Cloud (VPC) instance IDs
+   * - Virtual Border Router (VBR) instance IDs
    * 
    * > The list of destination instance IDs takes effect only when the direction of the route map is outbound.
    */
   destinationInstanceIds?: string[];
   /**
    * @remarks
-   * Specifies whether to use the exclude matching mode for the list of destination instance IDs. Valid values:
+   * Specifies whether to use the reverse match mode for the list of destination instance IDs. Valid values:
    * 
-   * - **false** (default): no. A match succeeds when the destination instance ID of the route is in **DestinationInstanceIds.N**.
-   * - **true**: yes. A match succeeds when the destination instance ID of the route is not in **DestinationInstanceIds.N**.
+   * - **false** (default): no. A match is successful if the destination instance ID of the route is in **DestinationInstanceIds.N**.
+   * - **true**: yes. A match is successful if the destination instance ID of the route is not in **DestinationInstanceIds.N**.
    * 
    * @example
    * false
@@ -127,7 +127,7 @@ export class ListRouteMapRulesResponseBodyRouteMapRulesMatchConditions extends $
    * - **IPv4**: matches only IPv4 routes.
    * - **IPv6**: matches only IPv6 routes.
    * 
-   * You can leave this parameter empty to match routes of all types.
+   * If this parameter is left empty, all types of routes are matched.
    * 
    * @example
    * IPv4
@@ -135,10 +135,12 @@ export class ListRouteMapRulesResponseBodyRouteMapRulesMatchConditions extends $
   matchAddressType?: string;
   /**
    * @remarks
-   * The list of route types to match. The following route types are supported:
+   * The list of routing types to match. The following route types are supported:
    * 
    * - **System**: system route, which is automatically generated by the system.
-   * - **Custom**: custom route, which is manually added by a user.
+   * 
+   * - **Custom**: custom route, which is manually added by the user.
+   * 
    * - **BGP**: BGP route, which is propagated through the BGP routable protocol.
    * 
    * You can specify multiple route types.
@@ -148,16 +150,16 @@ export class ListRouteMapRulesResponseBodyRouteMapRulesMatchConditions extends $
    * @remarks
    * The list of source instance IDs to match. The following instance types are supported:
    * 
-   * - Virtual private cloud (VPC) instance IDs
-   * - Virtual border router (VBR) instance IDs
+   * - Virtual Private Cloud (VPC) instance IDs
+   * - Virtual Border Router (VBR) instance IDs
    */
   sourceInstanceIds?: string[];
   /**
    * @remarks
-   * Specifies whether to use the exclude matching mode for the list of source instance IDs. Valid values:
+   * Specifies whether to use the reverse match mode for the list of source instance IDs. Valid values:
    * 
-   * - **false** (default): no. A match succeeds when the source instance ID of the route is in **SourceInstanceIds.N**.
-   * - **true**: yes. A match succeeds when the source instance ID of the route is not in **SourceInstanceIds.N**.
+   * - **false** (default): no. A match is successful if the source instance ID of the route is in **SourceInstanceIds.N**.
+   * - **true**: yes. A match is successful if the source instance ID of the route is not in **SourceInstanceIds.N**.
    * 
    * @example
    * false
@@ -284,7 +286,7 @@ export class ListRouteMapRulesResponseBodyRouteMapRulesMatchConditions extends $
 export class ListRouteMapRulesResponseBodyRouteMapRulesSetActions extends $dara.Model {
   /**
    * @remarks
-   * The AS path to prepend when the regional gateway receives or advertises routes.
+   * The AS path to prepend when the regional gateway accepts or publishes routing entries.
    * 
    * This parameter and **AsPathReplace** are mutually exclusive and cannot be specified at the same time.
    * 
@@ -293,7 +295,7 @@ export class ListRouteMapRulesResponseBodyRouteMapRulesSetActions extends $dara.
   asPathPrepend?: number[];
   /**
    * @remarks
-   * The AS path to replace when the regional gateway receives or advertises routes. The original AS path of the route is replaced with the list of AS numbers specified in this parameter.
+   * The AS path to replace when the regional gateway accepts or publishes routing entries. The original AS path of the route is replaced with the list of AS numbers specified in this parameter.
    * 
    * This parameter and **AsPathPrepend** are mutually exclusive and cannot be specified at the same time.
    * 
@@ -304,11 +306,11 @@ export class ListRouteMapRulesResponseBodyRouteMapRulesSetActions extends $dara.
    * @remarks
    * The community set to add to the route.
    * 
-   * Each community is in the format of n:m, where n and m range from **1** to **65535**. The community must comply with RFC 1997. Large communities (RFC 8092) are not supported.
+   * Each community is in the n:m format, where n and m range from **1** to **65535**. The community must comply with RFC 1997. Large communities (RFC 8092) are not supported.
    * 
    * This parameter and **CommunityReplace** are mutually exclusive and cannot be specified at the same time.
    * 
-   * This parameter specifies the action to execute after a route meets the match conditions.
+   * This parameter specifies the action to perform after a route meets the match conditions.
    * 
    * > Incorrect community configurations may prevent routes from being advertised to the on-premises data center.
    */
@@ -317,11 +319,11 @@ export class ListRouteMapRulesResponseBodyRouteMapRulesSetActions extends $dara.
    * @remarks
    * The community set to replace the original community of the route.
    * 
-   * Each community is in the format of n:m, where n and m range from **1** to **65535**. The community must comply with RFC 1997. Large communities (RFC 8092) are not supported.
+   * Each community is in the n:m format, where n and m range from **1** to **65535**. The community must comply with RFC 1997. Large communities (RFC 8092) are not supported.
    * 
    * This parameter and **CommunityAdd** are mutually exclusive and cannot be specified at the same time.
    * 
-   * This parameter specifies the action to execute after a route meets the match conditions.
+   * This parameter specifies the action to perform after a route meets the match conditions.
    * 
    * > Incorrect community configurations may prevent routes from being advertised to the on-premises data center.
    */
@@ -339,7 +341,7 @@ export class ListRouteMapRulesResponseBodyRouteMapRulesSetActions extends $dara.
   nextPriority?: number;
   /**
    * @remarks
-   * The policy action after all conditions are met. Valid values:
+   * The policy action to perform after all conditions are met. Valid values:
    * 
    * - **Permit**: permits the matched routes.
    * - **Deny**: denies the matched routes.
@@ -402,7 +404,7 @@ export class ListRouteMapRulesResponseBodyRouteMapRules extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The match conditions of the route map rule. The system executes the actions defined in **SetActions** only when a route meets all the match conditions defined in this parameter.
+   * The match conditions of the route map rule. The system performs the actions defined in **SetActions** only if a route meets all the match conditions defined in this parameter.
    */
   matchConditions?: ListRouteMapRulesResponseBodyRouteMapRulesMatchConditions;
   /**
@@ -439,7 +441,7 @@ export class ListRouteMapRulesResponseBodyRouteMapRules extends $dara.Model {
   routeMapRuleId?: string;
   /**
    * @remarks
-   * The actions to execute for the route map rule. After a route meets all the match conditions defined in **MatchConditions**, the system processes the route based on the actions defined in this parameter.
+   * The actions to perform for the route map rule. After a route meets all the match conditions defined in **MatchConditions**, the system processes the route based on the actions defined in this parameter.
    */
   setActions?: ListRouteMapRulesResponseBodyRouteMapRulesSetActions;
   /**
@@ -500,7 +502,7 @@ export class ListRouteMapRulesResponseBodyRouteMapRules extends $dara.Model {
 export class ListRouteMapRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned on each page in a paginated query.
+   * The number of entries returned on each page.
    * 
    * @example
    * 20
@@ -508,10 +510,10 @@ export class ListRouteMapRulesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. Valid values:
+   * The token that is used to retrieve the next page of results. Valid values:
    * 
-   * - If **NextToken** is empty, no next query is available.
-   * - If **NextToken** has a return value, the value indicates the token for the next query.
+   * - If **NextToken** is empty, no next page exists.
+   * - If **NextToken** has a return value, the value indicates the token used to start the next query.
    * 
    * @example
    * dd20****
