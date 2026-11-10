@@ -2,6 +2,8 @@ export { CreateMultiOrderRequestOrderItemsComponents } from './CreateMultiOrderR
 export { CreateMultiOrderRequestOrderItems } from './CreateMultiOrderRequest';
 export { CreateMultiOrderShrinkRequestOrderItemsComponents } from './CreateMultiOrderShrinkRequest';
 export { CreateMultiOrderShrinkRequestOrderItems } from './CreateMultiOrderShrinkRequest';
+export { DescribeAICallDetailsResponseBodyCallDetailsPointsBreakdown } from './DescribeAicallDetailsResponseBody';
+export { DescribeAICallDetailsResponseBodyCallDetails } from './DescribeAicallDetailsResponseBody';
 export { DescribeCreditPackageAgentsResponseBodyAgents } from './DescribeCreditPackageAgentsResponseBody';
 export { DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoCreditTrendList } from './DescribeCreditUsageInfoResponseBody';
 export { DescribeCreditUsageInfoResponseBodyUsageInfoListUsageInfoRemainCreditInfo } from './DescribeCreditUsageInfoResponseBody';
@@ -37,6 +39,9 @@ export { CreateMultiOrderRequest } from './CreateMultiOrderRequest';
 export { CreateMultiOrderShrinkRequest } from './CreateMultiOrderShrinkRequest';
 export { CreateMultiOrderResponseBody } from './CreateMultiOrderResponseBody';
 export { CreateMultiOrderResponse } from './CreateMultiOrderResponse';
+export { DescribeAICallDetailsRequest } from './DescribeAicallDetailsRequest';
+export { DescribeAICallDetailsResponseBody } from './DescribeAicallDetailsResponseBody';
+export { DescribeAICallDetailsResponse } from './DescribeAicallDetailsResponse';
 export { DescribeCreditPackageAgentsRequest } from './DescribeCreditPackageAgentsRequest';
 export { DescribeCreditPackageAgentsResponseBody } from './DescribeCreditPackageAgentsResponseBody';
 export { DescribeCreditPackageAgentsResponse } from './DescribeCreditPackageAgentsResponse';

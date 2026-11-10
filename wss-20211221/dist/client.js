@@ -122,6 +122,91 @@ class Client extends openapi_core_1.default {
         return await this.createMultiOrderWithOptions(request, runtime);
     }
     /**
+     * 查询 AI 调用明细
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该接口用于分页查询当前阿里云账号下指定业务版本、地域和时间范围内的AI模型调用明细。
+     * - 支持按模型调用请求ID、请求模型和用户ID进行筛选。
+     * - 查询结果按调用时间倒序返回。
+     * - 默认查询北京时间当日零点至当前时间的数据，查询区间不超过30天且不得早于当前时间向前推算3个自然月。
+     * - 调用方仅能查询当前调用身份所属主账号的数据，不能指定其他账号。
+     * - `PageNumber`与`PageSize`的乘积不得超过1000000。
+     * - `BizType`不传时默认为企业版。
+     * - `GatewayRegion`不传时国内站默认上海，国际站默认新加坡。
+     *
+     * @param request - DescribeAICallDetailsRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns DescribeAICallDetailsResponse
+     */
+    async describeAICallDetailsWithOptions(request, runtime) {
+        request.validate();
+        let query = {};
+        if (!$dara.isNull(request.bizType)) {
+            query["BizType"] = request.bizType;
+        }
+        if (!$dara.isNull(request.endTime)) {
+            query["EndTime"] = request.endTime;
+        }
+        if (!$dara.isNull(request.gatewayRegion)) {
+            query["GatewayRegion"] = request.gatewayRegion;
+        }
+        if (!$dara.isNull(request.modelId)) {
+            query["ModelId"] = request.modelId;
+        }
+        if (!$dara.isNull(request.pageNumber)) {
+            query["PageNumber"] = request.pageNumber;
+        }
+        if (!$dara.isNull(request.pageSize)) {
+            query["PageSize"] = request.pageSize;
+        }
+        if (!$dara.isNull(request.searchRequestId)) {
+            query["SearchRequestId"] = request.searchRequestId;
+        }
+        if (!$dara.isNull(request.startTime)) {
+            query["StartTime"] = request.startTime;
+        }
+        if (!$dara.isNull(request.wyIds)) {
+            query["WyIds"] = request.wyIds;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            query: openapi_core_2.OpenApiUtil.query(query),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "DescribeAICallDetails",
+            version: "2021-12-21",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.DescribeAICallDetailsResponse({}));
+    }
+    /**
+     * 查询 AI 调用明细
+     *
+     * @remarks
+     * ## 请求说明
+     * - 该接口用于分页查询当前阿里云账号下指定业务版本、地域和时间范围内的AI模型调用明细。
+     * - 支持按模型调用请求ID、请求模型和用户ID进行筛选。
+     * - 查询结果按调用时间倒序返回。
+     * - 默认查询北京时间当日零点至当前时间的数据，查询区间不超过30天且不得早于当前时间向前推算3个自然月。
+     * - 调用方仅能查询当前调用身份所属主账号的数据，不能指定其他账号。
+     * - `PageNumber`与`PageSize`的乘积不得超过1000000。
+     * - `BizType`不传时默认为企业版。
+     * - `GatewayRegion`不传时国内站默认上海，国际站默认新加坡。
+     *
+     * @param request - DescribeAICallDetailsRequest
+     * @returns DescribeAICallDetailsResponse
+     */
+    async describeAICallDetails(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.describeAICallDetailsWithOptions(request, runtime);
+    }
+    /**
      * Queries the list of agents and usage summary information under the current username.
      *
      * @remarks
