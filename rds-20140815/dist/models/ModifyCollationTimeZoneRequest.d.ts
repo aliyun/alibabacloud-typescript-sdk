@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ModifyCollationTimeZoneRequest extends $dara.Model {
     /**
      * @remarks
-     * The system character set collation. By default, the value is not modified. Valid values:
+     * The system character set collation. By default, this parameter is not modified. Valid values:
      * * **Chinese_PRC_CI_AS**
      * * **Chinese_PRC_CS_AS**
      * * **Chinese_PRC_BIN**
@@ -16,7 +16,7 @@ export declare class ModifyCollationTimeZoneRequest extends $dara.Model {
      * * **Chinese_Taiwan_Stroke_CS_AS**
      *
      * > - The default character set collation of the instance is **Chinese_PRC_CI_AS**.
-     * > - You must specify at least one of **Collation** and **Timezone**.
+     * > - You must specify at least one of the **Collation** and **Timezone** parameters.
      *
      * @example
      * Chinese_PRC_CS_AS
@@ -37,10 +37,10 @@ export declare class ModifyCollationTimeZoneRequest extends $dara.Model {
     resourceOwnerId?: number;
     /**
      * @remarks
-     * The system time zone. By default, the value is not modified.
+     * The system time zone. By default, this parameter is not modified.
      *
      * > - The default time zone of the instance is **China Standard Time**.
-     * > - You must specify at least one of **Collation** and **Timezone**.
+     * > - You must specify at least one of the **Collation** and **Timezone** parameters.
      *
      * @example
      * China Standard Time

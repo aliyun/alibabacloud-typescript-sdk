@@ -20642,10 +20642,10 @@ class Client extends openapi_core_1.default {
      * Modifies the system character set collation and time zone of an ApsaraDB RDS for SQL Server instance.
      *
      * @remarks
-     * ### Applicable engine
-     * RDS SQL Server
+     * ### Supported engines
+     * ApsaraDB RDS for SQL Server
      * ### Related documentation
-     * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * >Notice: Before you call this operation, read the documentation to understand the prerequisites and impacts.
      * [Modify the character set collation and time zone](https://help.aliyun.com/document_detail/95700.html)
      *
      * @param request - ModifyCollationTimeZoneRequest
@@ -20693,10 +20693,10 @@ class Client extends openapi_core_1.default {
      * Modifies the system character set collation and time zone of an ApsaraDB RDS for SQL Server instance.
      *
      * @remarks
-     * ### Applicable engine
-     * RDS SQL Server
+     * ### Supported engines
+     * ApsaraDB RDS for SQL Server
      * ### Related documentation
-     * >Notice: Before you call this operation, read the following documentation and make sure that you fully understand the prerequisites and impacts of this operation.
+     * >Notice: Before you call this operation, read the documentation to understand the prerequisites and impacts.
      * [Modify the character set collation and time zone](https://help.aliyun.com/document_detail/95700.html)
      *
      * @param request - ModifyCollationTimeZoneRequest
