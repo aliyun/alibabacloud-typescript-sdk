@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class StopAppResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 83A9075B-C646-59A9-8232-CAE41AF4B9E3
    */

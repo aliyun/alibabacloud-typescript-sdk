@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class RestartAppResourcesRequest extends $dara.Model {
   /**
    * @remarks
+   * The resource group ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class RestartAppResourcesRequest extends $dara.Model {
    */
   appInstanceGroupId?: string;
   /**
+   * @remarks
+   * The business region ID.
+   * 
    * @example
    * cn-hangzhou
    */
   bizRegionId?: string;
   /**
    * @remarks
+   * The client ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,32 +32,49 @@ export class RestartAppResourcesRequest extends $dara.Model {
    */
   clientId?: string;
   /**
+   * @remarks
+   * The client IP address.
+   * 
    * @example
    * 1.2.3.4
    */
   clientIp?: string;
   /**
+   * @remarks
+   * The client operating system.
+   * 
    * @example
    * windows_\\"Windows 10 Enterprise\\" 10.0 (Build 14393)
    */
   clientOS?: string;
   /**
+   * @remarks
+   * The client version.
+   * 
    * @example
    * 7.5.3-RS-20241127.131156
    */
   clientVersion?: string;
   /**
+   * @remarks
+   * The username.
+   * 
    * @example
    * user001
    */
   endUserId?: string;
   /**
+   * @remarks
+   * The region ID at office network logon.
+   * 
    * @example
    * cn-hangzhou
    */
   loginRegionId?: string;
   /**
    * @remarks
+   * The logon token.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -59,6 +83,8 @@ export class RestartAppResourcesRequest extends $dara.Model {
   loginToken?: string;
   /**
    * @remarks
+   * The product type.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -67,11 +93,15 @@ export class RestartAppResourcesRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
+   * The list of resource IDs.
+   * 
    * This parameter is required.
    */
   resourceIds?: string[];
   /**
    * @remarks
+   * The session ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -79,6 +109,9 @@ export class RestartAppResourcesRequest extends $dara.Model {
    */
   sessionId?: string;
   /**
+   * @remarks
+   * The client UUID.
+   * 
    * @example
    * 2943802884B27030B6759F9132B2****
    */

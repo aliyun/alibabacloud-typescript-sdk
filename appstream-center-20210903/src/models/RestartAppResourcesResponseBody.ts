@@ -4,21 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class RestartAppResourcesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InvalidAppInstanceGroup.NotFound
    */
   code?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * The app instance group is not found.
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
+   * 
    * @example
    * true
    */

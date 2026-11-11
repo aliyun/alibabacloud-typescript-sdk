@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 6EBD4046-2202-5FBD-8595-4B631F0C484B

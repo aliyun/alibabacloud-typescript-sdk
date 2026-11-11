@@ -5,12 +5,61 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class GetConnectionTicketResponseBodyBindQueueInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The queue task status.
+   * 
+   * @example
+   * Waiting
+   */
   queueStatus?: string;
+  /**
+   * @remarks
+   * The ranking information.
+   * 
+   * @example
+   * 1
+   */
   rank?: number;
+  /**
+   * @remarks
+   * The timeout period for manual connection after the turn is reached.
+   * 
+   * @example
+   * 120
+   */
   readyTimeout?: number;
+  /**
+   * @remarks
+   * The remaining wait time. Unit: seconds.
+   * 
+   * @example
+   * 100
+   */
   remainingTime?: number;
+  /**
+   * @remarks
+   * The queue request key.
+   * 
+   * @example
+   * alice******
+   */
   requestKey?: string;
+  /**
+   * @remarks
+   * The queue ID.
+   * 
+   * @example
+   * aig-53fvrq1oa******
+   */
   targetId?: string;
+  /**
+   * @remarks
+   * The time already waited in the queue. Unit: seconds.
+   * 
+   * @example
+   * 100
+   */
   waitTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -46,8 +95,33 @@ export class GetConnectionTicketResponseBodyBindQueueInfo extends $dara.Model {
 }
 
 export class GetConnectionTicketResponseBodyPolicy extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to use adaptive resolution.
+   * 
+   * > 
+   * > - `true`: The session resolution changes with the terminal display area. In this case, `SessionResolutionWidth` and `SessionResolutionHeight` are the maximum values of the resolution change.
+   * > - `false`: The session resolution does not change with the terminal display area. In this case, the resolution is fixed to the values of `SessionResolutionWidth` and `SessionResolutionHeight`.
+   * 
+   * @example
+   * true
+   */
   resolutionAdaptive?: string;
+  /**
+   * @remarks
+   * The resolution height, in pixels.
+   * 
+   * @example
+   * 1080
+   */
   resolutionHeight?: number;
+  /**
+   * @remarks
+   * The resolution width, in pixels.
+   * 
+   * @example
+   * 1920
+   */
   resolutionWidth?: number;
   static names(): { [key: string]: string } {
     return {
@@ -76,38 +150,72 @@ export class GetConnectionTicketResponseBodyPolicy extends $dara.Model {
 
 export class GetConnectionTicketResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The delivery group ID.
+   * 
    * @example
-   * aig-53fvrq1oanz6cxzi3
+   * aig-53fvrq1oa******
    */
   appInstanceGroupId?: string;
   /**
+   * @remarks
+   * The application instance ID.
+   * 
    * @example
-   * ai-gc1gemx6vpa6vlync
+   * ai-gc1gemx6vp******
    */
   appInstanceId?: string;
+  /**
+   * @remarks
+   * The persistent session ID.
+   * 
+   * @example
+   * p-0cdr5c9kl******
+   */
   appInstancePersistentId?: string;
   /**
+   * @remarks
+   * The user avatar ID.
+   * 
    * @example
    * abc
    */
   avatarId?: string;
+  /**
+   * @remarks
+   * The queue information.
+   * 
+   * > This parameter is not available.
+   */
   bindQueueInfo?: GetConnectionTicketResponseBodyBindQueueInfo;
   /**
+   * @remarks
+   * The error code.
+   * 
    * @example
    * InternalError.TicketGenInternalError
    */
   code?: string;
   /**
+   * @remarks
+   * The logon token.
+   * 
    * @example
-   * v15418e331d8d068c29411646996786785303b8f61fd880aeaa50c5b584443cd9e65cc7eec72acdaad0a844666a3b26dab
+   * v2c4e2ef03d62******
    */
   loginToken?: string;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * reenter app instance failed
    */
   message?: string;
   /**
+   * @remarks
+   * The next polling interval, in milliseconds. If this parameter is empty, the value is 1000 ms.
+   * 
    * @example
    * 500
    * 
@@ -116,43 +224,72 @@ export class GetConnectionTicketResponseBody extends $dara.Model {
    */
   nextPollIntervalMs?: number;
   /**
+   * @remarks
+   * The operating system type.
+   * 
    * @example
    * Windows
    */
   osType?: string;
+  /**
+   * @remarks
+   * The session policy.
+   */
   policy?: GetConnectionTicketResponseBodyPolicy;
   /**
+   * @remarks
+   * The ID of the region to which the delivery group belongs.
+   * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
-   * AD2D0761-1FE5-549D-B169-D3F8D19C6CDD
+   * AD2D0761-1FE5-549D-B169******
    */
   requestId?: string;
   /**
+   * @remarks
+   * The number of retries.
+   * 
    * @example
    * 3
    */
   retryTimes?: number;
   /**
+   * @remarks
+   * The task ID.
+   * 
    * @example
-   * f3d1b31c-605e-4d04-a896-015fc9fc03b4
+   * f3d1b31c-605e-******
    */
   taskId?: string;
   /**
+   * @remarks
+   * The task status.
+   * 
    * @example
    * Running
    */
   taskStatus?: string;
+  /**
+   * @remarks
+   * The tenant ID, which is the Alibaba Cloud account UID.
+   * 
+   * @example
+   * 1126819517******
+   */
   tenantId?: number;
   /**
+   * @remarks
+   * The connection ticket.
+   * 
    * @example
-   * n7n9bqZlPrvgUOPSJzfdb$89jWwlVISgrchpY0tOfVYGBBcdoPoH39PVHK63fQTEM14kzajQdWAnHTnSicc35W_eI2LbTSGKquKukwcU7opRwmInhtQH*mlmsZQ3ByOLYVmqI*1hFESs0
+   * n7n9bqZlPrvgUOPY0tOfVYGBBcdoPoH3******
    */
   ticket?: string;
   static names(): { [key: string]: string } {
