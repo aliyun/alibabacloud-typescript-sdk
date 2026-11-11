@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRestoreTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * error code.
+   * The error code.
    * 
    * @example
    * Param.NotFound
@@ -13,7 +13,7 @@ export class CreateRestoreTaskResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * error message.
+   * The error message.
    * 
    * @example
    * The specified parameter %s value is not valid.
@@ -21,7 +21,7 @@ export class CreateRestoreTaskResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class CreateRestoreTaskResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * request ID.
+   * The ID of the request.
    * 
    * @example
    * 60AF7C5D-EF4D-4D48-8FD5-C0823FDF28AC
@@ -37,7 +37,7 @@ export class CreateRestoreTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * restore job ID.
+   * The ID of the restore task.
    * 
    * @example
    * s102h*****
@@ -45,7 +45,7 @@ export class CreateRestoreTaskResponseBody extends $dara.Model {
   restoreTaskId?: string;
   /**
    * @remarks
-   * success.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

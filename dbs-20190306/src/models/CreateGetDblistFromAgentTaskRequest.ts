@@ -15,7 +15,15 @@ export class CreateGetDBListFromAgentTaskRequest extends $dara.Model {
   backupGatewayId?: number;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The unique identifier of the backup gateway.
+   * 
+   * @example
+   * 4DF900B7082BC3****489D765C8D2ABE
+   */
+  backupGatewayIdentifier?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
    * 
    * @example
    * ETnLKlblzczshOTUbOCzxxxxxxxxxx
@@ -26,19 +34,12 @@ export class CreateGetDBListFromAgentTaskRequest extends $dara.Model {
    * The type of the database. Valid values:
    * 
    * - **MySQL**
-   * 
    * - **MSSQL**
-   * 
    * - **Oracle**
-   * 
    * - **MariaDB**
-   * 
    * - **PostgreSQL**
-   * 
    * - **DRDS**
-   * 
    * - **MongoDB**
-   * 
    * - **Redis**
    * 
    * @example
@@ -48,7 +49,7 @@ export class CreateGetDBListFromAgentTaskRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The URL that is used to access the database.
+   * The database connection address.
    * 
    * @example
    * 123.0.XX.XX
@@ -56,7 +57,7 @@ export class CreateGetDBListFromAgentTaskRequest extends $dara.Model {
   sourceEndpointIP?: string;
   /**
    * @remarks
-   * The port that is used to connect to the database.
+   * The database connection port.
    * 
    * @example
    * 3306
@@ -64,7 +65,7 @@ export class CreateGetDBListFromAgentTaskRequest extends $dara.Model {
   sourceEndpointPort?: number;
   /**
    * @remarks
-   * The region in which the backup gateway resides.
+   * The region ID of the backup gateway.
    * 
    * @example
    * cn-hangzhou
@@ -73,6 +74,7 @@ export class CreateGetDBListFromAgentTaskRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       backupGatewayId: 'BackupGatewayId',
+      backupGatewayIdentifier: 'BackupGatewayIdentifier',
       clientToken: 'ClientToken',
       databaseType: 'DatabaseType',
       ownerId: 'OwnerId',
@@ -85,6 +87,7 @@ export class CreateGetDBListFromAgentTaskRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       backupGatewayId: 'number',
+      backupGatewayIdentifier: 'string',
       clientToken: 'string',
       databaseType: 'string',
       ownerId: 'string',

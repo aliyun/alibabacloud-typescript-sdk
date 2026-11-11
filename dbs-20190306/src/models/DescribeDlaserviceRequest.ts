@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDLAServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup schedule. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to obtain the ID of the backup schedule.
+   * The ID of the backup plan. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeDLAServiceRequest extends $dara.Model {
   backupPlanId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * A custom string.
    * 
    * @example
    * DBS

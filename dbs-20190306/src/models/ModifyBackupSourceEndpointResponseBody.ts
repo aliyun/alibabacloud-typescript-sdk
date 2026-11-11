@@ -37,7 +37,7 @@ export class ModifyBackupSourceEndpointResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Indicates whether this change triggers a precheck. If this value is true, call StartBackupPlan to restart the backup plan.
+   * Indicates whether the modification triggers a precheck. If this parameter is set to true, you must call the StartBackupPlan operation to start the backup plan.
    * 
    * @example
    * false
@@ -53,9 +53,9 @@ export class ModifyBackupSourceEndpointResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded. Valid values:
+   * Indicates whether the request was successful. Valid values:
    * 
-   * - **true**: The request succeeded.
+   * - **true**: The request was successful.
    * 
    * - **false**: The request failed.
    * 

@@ -263,7 +263,7 @@ export class DescribeBackupPlanListResponseBodyItems extends $dara.Model {
 export class DescribeBackupPlanListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * InvalidParameterValid
@@ -271,7 +271,7 @@ export class DescribeBackupPlanListResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * The specified parameter %s value is not valid.
@@ -279,16 +279,20 @@ export class DescribeBackupPlanListResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
    */
   httpStatusCode?: number;
+  /**
+   * @remarks
+   * The response items.
+   */
   items?: DescribeBackupPlanListResponseBodyItems;
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -296,7 +300,7 @@ export class DescribeBackupPlanListResponseBody extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -304,7 +308,7 @@ export class DescribeBackupPlanListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 4F1888AC-1138-4995-B9FE-D2734F61C058
@@ -312,7 +316,7 @@ export class DescribeBackupPlanListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true
@@ -320,7 +324,7 @@ export class DescribeBackupPlanListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * Total number of backup plans.
+   * The total number of backup plans.
    * 
    * @example
    * 100
@@ -328,7 +332,7 @@ export class DescribeBackupPlanListResponseBody extends $dara.Model {
   totalElements?: number;
   /**
    * @remarks
-   * Total number of pages.
+   * The total number of pages.
    * 
    * @example
    * 4

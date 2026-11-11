@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyStorageStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Backup plan ID.
+   * The ID of the backup plan.
    * 
    * @example
    * dbsqdss5tmh****
@@ -13,7 +13,7 @@ export class ModifyStorageStrategyResponseBody extends $dara.Model {
   backupPlanId?: string;
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * Param.NotFound
@@ -21,7 +21,7 @@ export class ModifyStorageStrategyResponseBody extends $dara.Model {
   errCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * findValidDBSJob error
@@ -29,7 +29,7 @@ export class ModifyStorageStrategyResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * HTTP status code.
+   * The HTTP status code.
    * 
    * @example
    * 200
@@ -37,10 +37,9 @@ export class ModifyStorageStrategyResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Indicates whether this modification triggers a precheck. Return values:
+   * Indicates whether the modification triggers a precheck. Valid values:
    * 
-   * - **true**: A precheck is triggered. Manually call the [StartBackupPlan](https://help.aliyun.com/document_detail/2869818.html) API to start the backup plan.
-   * 
+   * - **true**: A precheck is triggered. You must manually call the [StartBackupPlan](https://help.aliyun.com/document_detail/2869818.html) operation to start the backup plan.
    * - **false**: No precheck is triggered.
    * 
    * @example
@@ -49,7 +48,7 @@ export class ModifyStorageStrategyResponseBody extends $dara.Model {
   needPrecheck?: boolean;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * E995F91F-6F89-503B-9F7D-502F58FD****
@@ -57,11 +56,9 @@ export class ModifyStorageStrategyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Return values:
-   * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true

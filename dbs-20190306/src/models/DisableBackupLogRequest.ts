@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableBackupLogRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup plan. Call [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) to query it.
+   * The ID of the backup plan. To get this ID, call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation.
    * 
    * This parameter is required.
    * 
@@ -15,13 +15,16 @@ export class DisableBackupLogRequest extends $dara.Model {
   backupPlanId?: string;
   /**
    * @remarks
-   * Ensures idempotence and prevents duplicate requests.
+   * A client token to ensure the idempotence of the request.
    * 
    * @example
    * ETnLKlblzczshOTUbOCziJZNwH****
    */
   clientToken?: string;
   /**
+   * @remarks
+   * Specifies whether to disable only the log backup feature for a physical backup of a MySQL database.
+   * 
    * @example
    * false
    */

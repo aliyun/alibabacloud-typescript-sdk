@@ -7,7 +7,7 @@ export class DescribePreCheckProgressListRequest extends $dara.Model {
    * @remarks
    * The ID of the backup plan.
    * 
-   * > Specify either BackupPlanId or RestoreTaskId.
+   * > Specify BackupPlanId or RestoreTaskId.
    * 
    * @example
    * dbsr1l3ro21****
@@ -15,7 +15,7 @@ export class DescribePreCheckProgressListRequest extends $dara.Model {
   backupPlanId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions.
    * 
    * @example
    * ETnLKlblzczshOTUbOCziJZNwH****
@@ -24,7 +24,7 @@ export class DescribePreCheckProgressListRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The ID of the restore job.
+   * The ID of the restore task.
    * 
    * @example
    * dbasdsa****

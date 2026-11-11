@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeJobErrorCodeRequest extends $dara.Model {
   /**
    * @remarks
-   * A client token. It is used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****

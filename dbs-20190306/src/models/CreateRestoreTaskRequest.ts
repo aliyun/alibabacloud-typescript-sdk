@@ -3,13 +3,27 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateRestoreTaskRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to automatically start the instance after an Oracle physical backup is restored.
+   * 
+   * @example
+   * true
+   */
   autoOpenDatabase?: string;
+  /**
+   * @remarks
+   * Specifies whether to automatically shut down the instance after an Oracle physical backup is restored.
+   * 
+   * @example
+   * true
+   */
   autoShutdownDatabase?: string;
   /**
    * @remarks
-   * backup gateway ID.
+   * The ID of the backup gateway.
    * 
-   * > This parameter is required when **DestinationEndpointInstanceType** is agent.
+   * > This parameter is required if **DestinationEndpointInstanceType** is set to Agent.
    * 
    * @example
    * 4312****
@@ -17,7 +31,7 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   backupGatewayId?: number;
   /**
    * @remarks
-   * backup plan ID.
+   * The ID of the backup plan.
    * 
    * This parameter is required.
    * 
@@ -27,7 +41,7 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   backupPlanId?: string;
   /**
    * @remarks
-   * The ID of the full backup set used for restoration. Mutually exclusive with RestoreTime.
+   * The ID of the full backup set used for restoration. This parameter and RestoreTime are mutually exclusive.
    * 
    * @example
    * dbs1hvb0w*****
@@ -35,7 +49,7 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   backupSetId?: string;
   /**
    * @remarks
-   * Ensures request idempotence and prevents duplicate submissions.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions.
    * 
    * @example
    * ETnLKlblzczshOTUbOC********
@@ -43,7 +57,7 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * UID for cross-Alibaba Cloud account backup.
+   * The UID of the Alibaba Cloud account used for cross-account backup.
    * 
    * @example
    * 2749528728********
@@ -51,44 +65,73 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   crossAliyunId?: string;
   /**
    * @remarks
-   * RAM role name for cross-Alibaba Cloud account backup.
+   * The name of the RAM role used for cross-account backup.
    * 
    * @example
    * test123
    */
   crossRoleName?: string;
   /**
+   * @remarks
+   * The instance specifications of the new database instance to which data is restored.
+   * 
    * @example
    * mysql.x4.large.2
    */
   destDatabaseInstanceClass?: string;
+  /**
+   * @remarks
+   * The database engine version of the new database instance to which data is restored.
+   * 
+   * @example
+   * 8.0
+   */
   destDatabaseInstanceDatabaseVersion?: string;
   /**
+   * @remarks
+   * The region of the new database instance to which data is restored.
+   * 
    * @example
    * cn-beijing
    */
   destDatabaseInstanceRegion?: string;
   /**
+   * @remarks
+   * The instance storage size of the new database to recover.
+   * 
    * @example
    * 500
    */
   destDatabaseInstanceStorageSize?: string;
   /**
+   * @remarks
+   * The instance type of the new database to which data is restored.
+   * 
    * @example
    * rds
    */
   destDatabaseInstanceType?: string;
+  /**
+   * @remarks
+   * The vSwitch of the new database instance to which data is restored.
+   * 
+   * @example
+   * vsw-xx
+   */
   destDatabaseInstanceVSwitch?: string;
   /**
+   * @remarks
+   * The VPC of the new database instance to which data is restored.
+   * 
    * @example
    * vpc-xx
    */
   destDatabaseInstanceVpc?: string;
   /**
    * @remarks
-   * database name.
+   * The name of the database.
    * 
-   * > This parameter is required when the database type is PostgreSQL or MongoDB.
+   * > This parameter is required if the database engine is PostgreSQL or MongoDB.
    * 
    * @example
    * test
@@ -96,9 +139,9 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   destinationEndpointDatabaseName?: string;
   /**
    * @remarks
-   * database endpoint.
+   * The database connection address.
    * 
-   * > This parameter is required when **DestinationEndpointInstanceType** is express, agent, or other.
+   * > This parameter is required if **DestinationEndpointInstanceType** is set to Express, Agent, or Other.
    * 
    * @example
    * rm-bp*****9jv8pxero.mysql.rds.aliyuncs.com
@@ -106,9 +149,9 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   destinationEndpointIP?: string;
   /**
    * @remarks
-   * database instance ID.
+   * The instance ID of the database.
    * 
-   * > This parameter is required when **DestinationEndpointInstanceType** is RDS, ECS, DDS, or Express.
+   * > This parameter is required if **DestinationEndpointInstanceType** is set to RDS, ECS, DDS, or Express.
    * 
    * @example
    * rm-bp1p8c29*****
@@ -116,21 +159,14 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   destinationEndpointInstanceID?: string;
   /**
    * @remarks
-   * database location. Valid values:
-   * 
+   * The location of the database. Valid values:
    * - **RDS**
-   * 
    * - **ECS**
-   * 
-   * - **Express**: databases accessed via leased line/VPN Gateway/Smart Gateway
-   * 
-   * - **Agent**: databases accessed via backup gateway
-   * 
-   * - **DDS**: Cloud MongoDB
-   * 
-   * - **Other**: databases directly connected via IP:Port
-   * 
-   * - **dg**: self-managed databases without public IP:Port (accessed via Database Gateway DG)
+   * - **Express**: databases connected over Express Connect circuits, VPN gateways, or Smart Access Gateway (SAG)
+   * - **Agent**: databases connected over backup gateways
+   * - **DDS**: ApsaraDB for MongoDB
+   * - **Other**: databases connected by using IP addresses and port numbers
+   * - **dg**: self-managed databases that have no public IP addresses or port numbers and are connected over Database Gateway
    * 
    * This parameter is required.
    * 
@@ -140,9 +176,9 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   destinationEndpointInstanceType?: string;
   /**
    * @remarks
-   * Oracle SID name.
+   * The Oracle SID.
    * 
-   * > This parameter is required when the database type is Oracle.
+   * > This parameter is required if the database engine is Oracle.
    * 
    * @example
    * test
@@ -150,9 +186,9 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   destinationEndpointOracleSID?: string;
   /**
    * @remarks
-   * password.
+   * The password of the database account.
    * 
-   * > This parameter is optional when the database type is Redis, or when the database location is agent and the database type is MSSQL. It is required in all other scenarios.
+   * > This parameter is not required if the database engine is Redis, or if the database is connected over a backup gateway and the database engine is SQL Server. In other scenarios, this parameter is required.
    * 
    * @example
    * Test
@@ -160,9 +196,9 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   destinationEndpointPassword?: string;
   /**
    * @remarks
-   * database port.
+   * The port number of the database.
    * 
-   * > This parameter is required when **DestinationEndpointInstanceType** is express, agent, other, or ECS.
+   * > This parameter is required if **DestinationEndpointInstanceType** is set to Express, Agent, Other, or ECS.
    * 
    * @example
    * 3306
@@ -170,9 +206,8 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   destinationEndpointPort?: number;
   /**
    * @remarks
-   * region of the database instance.
-   * 
-   * > This parameter is required when **DestinationEndpointInstanceType** is RDS, ECS, DDS, Express, or Agent.
+   * The region of the database instance.
+   * >This parameter is required if **DestinationEndpointInstanceType** is set to RDS, ECS, DDS, Express, or Agent.
    * 
    * @example
    * cn-hangzhou
@@ -180,9 +215,9 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   destinationEndpointRegion?: string;
   /**
    * @remarks
-   * database account.
+   * The username of the database account.
    * 
-   * > This parameter is optional when the database type is Redis, or when the database location is agent and the database type is MSSQL. It is required in all other scenarios.
+   * > This parameter is not required if the database engine is Redis, or if the database is connected over a backup gateway and the database engine is SQL Server. In other scenarios, this parameter is required.
    * 
    * @example
    * test
@@ -190,24 +225,36 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   destinationEndpointUserName?: string;
   /**
    * @remarks
-   * Conflict handling for objects with the same name. Currently supports:
+   * The method used to handle conflicts between objects with the same name. Valid values:
    * 
-   * **renamenew**: Rename objects if names conflict.
+   * - **renamenew**: renames the object if an object with the same name exists.
    * 
    * @example
    * renamenew
    */
   duplicateConflict?: string;
+  /**
+   * @remarks
+   * Specifies whether to connect to the destination by using an SSL-encrypted connection.
+   * 
+   * @example
+   * true
+   */
   enableDestinationEndpointSsl?: boolean;
   ownerId?: string;
   /**
+   * @remarks
+   * The method used to restore data to the destination. Valid values:
+   * - **EXIST_INSTANCE**: restores data to an existing instance.
+   * - **NEW_INSTANCE**: restores data to a new instance.
+   * 
    * @example
-   * exist_instance
+   * EXIST_INSTANCE
    */
   restoreDestinationMode?: string;
   /**
    * @remarks
-   * Required when **DestinationEndpointInstanceType** is agent and the backup plan is MySQL.
+   * This parameter is required if **DestinationEndpointInstanceType** is set to Agent and the backup plan is for MySQL.
    * 
    * @example
    * test
@@ -215,7 +262,7 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   restoreDir?: string;
   /**
    * @remarks
-   * database program directory.
+   * The directory of the database program.
    * 
    * @example
    * test
@@ -223,22 +270,21 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   restoreHome?: string;
   /**
    * @remarks
-   * restore objects.
+   * The objects to be restored.
    * 
-   * - For details, see the **RestoreObjects** parameter definition below. This parameter is optional when the database location is agent, and required in all other scenarios.
+   * - For more information, see the definition of the **RestoreObjects** parameter below. This parameter is not required if the database is connected over a backup gateway. In other scenarios, this parameter is required.
+   * - Template: `[{ "DBName": "Name of the database to be restored", "NewDBName": "Name of the destination database" }]`
    * 
-   * - Input template: `[{ "DBName": "database name to be restored", "NewDBName": "target database name to be restored" }]`
-   * 
-   * > This API only supports restoring objects at the database level. To configure table-level restoration, use the console. For details, see [Recover databases](https://help.aliyun.com/document_detail/85543.html).
+   * > Restoring objects by calling this API operation only supports restoration at the database level. To restore specific tables, go to the console. For more information, see [Restore a database](https://help.aliyun.com/document_detail/85543.html).
    * 
    * @example
-   * MySQL表级别恢复示例如下：
+   * Example of MySQL table-level restoration:
    * [{\\"DBName\\":\\"dbname\\", \\"NewDBName\\":\\"dbname1\\"}]
    */
   restoreObjects?: string;
   /**
    * @remarks
-   * restore job name.
+   * The name of the restore task.
    * 
    * This parameter is required.
    * 
@@ -248,13 +294,16 @@ export class CreateRestoreTaskRequest extends $dara.Model {
   restoreTaskName?: string;
   /**
    * @remarks
-   * restore time. Value: 1554560477000.
+   * The point in time to which you want to restore the database. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1554560477000
    */
   restoreTime?: number;
   /**
+   * @remarks
+   * The credential for the SSL-encrypted connection to the destination.
+   * 
    * @example
    * -----BEGIN CERTIFICATE----- ... -----END CERTIFICATE-----
    */

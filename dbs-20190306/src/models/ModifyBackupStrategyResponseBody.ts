@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBackupStrategyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup schedule.
+   * The ID of the backup plan.
    * 
    * @example
    * dbstooi01XXXX
@@ -37,7 +37,7 @@ export class ModifyBackupStrategyResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Indicates whether a precheck is triggered. If the value of this parameter is true, you must start the backup schedule by calling the StartBackupPlan operation.
+   * Indicates whether this modification triggers a precheck. If the value is true, a precheck is required, and you must call the StartBackupPlan operation to start the backup plan.
    * 
    * @example
    * false

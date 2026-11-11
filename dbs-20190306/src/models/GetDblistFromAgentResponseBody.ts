@@ -32,7 +32,7 @@ export class GetDBListFromAgentResponseBody extends $dara.Model {
   dbList?: GetDBListFromAgentResponseBodyDbList;
   /**
    * @remarks
-   * The error code.
+   * The error code string.
    * 
    * @example
    * InvalidParameter

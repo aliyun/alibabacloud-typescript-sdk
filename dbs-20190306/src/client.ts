@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "Dbs";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-qingdao': "dbs-api.cn-hangzhou.aliyuncs.com",
@@ -36,6 +40,8 @@ export default class Client extends OpenApi {
       'ap-south-1': "dbs-api.ap-south-1.aliyuncs.com",
       'eu-west-1': "dbs-api.eu-west-1.aliyuncs.com",
       'me-east-1': "dbs-api.me-east-1.aliyuncs.com",
+      'cn-wulanchabu': "dbs-api.cn-wulanchabu.aliyuncs.com",
+      'cn-guangzhou': "dbs-api.cn-guangzhou.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("dbs", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -55,7 +61,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This API is used to configure a DBS backup plan.
+   * Configures a Database Backup (DBS) backup plan.
    * 
    * @param request - ConfigureBackupPlanRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -226,7 +232,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This API is used to configure a DBS backup plan.
+   * Configures a Database Backup (DBS) backup plan.
    * 
    * @param request - ConfigureBackupPlanRequest
    * @returns ConfigureBackupPlanResponse
@@ -607,10 +613,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a task to obtain a database list by using a backup gateway.
+   * Creates a task to retrieve the database list through a backup gateway.
    * 
    * @remarks
-   * This API operation returns a task ID. You can call the [GetDBListFromAgent](https://help.aliyun.com/document_detail/2869852.html) operation to query the task result based on the task ID.
+   * This API operation returns a TaskId. You can call the [GetDBListFromAgent](https://help.aliyun.com/document_detail/2869852.html) operation to query the result.
    * 
    * @param request - CreateGetDBListFromAgentTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -621,6 +627,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.backupGatewayId)) {
       query["BackupGatewayId"] = request.backupGatewayId;
+    }
+
+    if (!$dara.isNull(request.backupGatewayIdentifier)) {
+      query["BackupGatewayIdentifier"] = request.backupGatewayIdentifier;
     }
 
     if (!$dara.isNull(request.clientToken)) {
@@ -665,10 +675,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a task to obtain a database list by using a backup gateway.
+   * Creates a task to retrieve the database list through a backup gateway.
    * 
    * @remarks
-   * This API operation returns a task ID. You can call the [GetDBListFromAgent](https://help.aliyun.com/document_detail/2869852.html) operation to query the task result based on the task ID.
+   * This API operation returns a TaskId. You can call the [GetDBListFromAgent](https://help.aliyun.com/document_detail/2869852.html) operation to query the result.
    * 
    * @param request - CreateGetDBListFromAgentTaskRequest
    * @returns CreateGetDBListFromAgentTaskResponse
@@ -737,12 +747,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This interface creates DBS restore jobs.
+   * Creates a Database Backup (DBS) restore task.
    * 
    * @remarks
    * ### Related operations
-   * - [Recover databases](https://help.aliyun.com/document_detail/85543.html)
-   * - [Tutorials for various database restore configurations](https://help.aliyun.com/document_detail/197144.html)
+   * - [Restore a database](https://help.aliyun.com/document_detail/85543.html)
+   * - [Restore configuration tutorials for various databases](https://help.aliyun.com/document_detail/197144.html)
    * 
    * @param request - CreateRestoreTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -905,12 +915,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This interface creates DBS restore jobs.
+   * Creates a Database Backup (DBS) restore task.
    * 
    * @remarks
    * ### Related operations
-   * - [Recover databases](https://help.aliyun.com/document_detail/85543.html)
-   * - [Tutorials for various database restore configurations](https://help.aliyun.com/document_detail/197144.html)
+   * - [Restore a database](https://help.aliyun.com/document_detail/85543.html)
+   * - [Restore configuration tutorials for various databases](https://help.aliyun.com/document_detail/197144.html)
    * 
    * @param request - CreateRestoreTaskRequest
    * @returns CreateRestoreTaskResponse
@@ -1037,10 +1047,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation lets you view a DBS backup plan.
+   * Queries a DBS backup plan.
    * 
    * @remarks
-   * Before you use this operation, ensure that Object Storage Service (OSS) is enabled. For more information, see [Object Storage Service](https://help.aliyun.com/document_detail/31817.html).
+   * Ensure Object Storage Service (OSS) is enabled before you use this operation. For more information, see [Object Storage Service](https://help.aliyun.com/document_detail/31817.html).
    * 
    * @param request - DescribeBackupPlanListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1119,10 +1129,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation lets you view a DBS backup plan.
+   * Queries a DBS backup plan.
    * 
    * @remarks
-   * Before you use this operation, ensure that Object Storage Service (OSS) is enabled. For more information, see [Object Storage Service](https://help.aliyun.com/document_detail/31817.html).
+   * Ensure Object Storage Service (OSS) is enabled before you use this operation. For more information, see [Object Storage Service](https://help.aliyun.com/document_detail/31817.html).
    * 
    * @param request - DescribeBackupPlanListRequest
    * @returns DescribeBackupPlanListResponse
@@ -1133,7 +1143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of download tasks for backup sets in Database Backup Service (DBS).
+   * Queries the download list of DBS backup sets.
    * 
    * @param request - DescribeBackupSetDownloadTaskListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1184,7 +1194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of download tasks for backup sets in Database Backup Service (DBS).
+   * Queries the download list of DBS backup sets.
    * 
    * @param request - DescribeBackupSetDownloadTaskListRequest
    * @returns DescribeBackupSetDownloadTaskListResponse
@@ -1195,7 +1205,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of the Data Lake Analytics (DLA) service for a backup schedule.
+   * Queries the Data Lake Analytics (DLA) service information for a backup plan.
    * 
    * @param request - DescribeDLAServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1234,7 +1244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of the Data Lake Analytics (DLA) service for a backup schedule.
+   * Queries the Data Lake Analytics (DLA) service information for a backup plan.
    * 
    * @param request - DescribeDLAServiceRequest
    * @returns DescribeDLAServiceResponse
@@ -1245,7 +1255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to list full backup jobs in Database Backup Service (DBS).
+   * Queries the list of full backup tasks in Database Backup (DBS).
    * 
    * @param request - DescribeFullBackupListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1316,7 +1326,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call this operation to list full backup jobs in Database Backup Service (DBS).
+   * Queries the list of full backup tasks in Database Backup (DBS).
    * 
    * @param request - DescribeFullBackupListRequest
    * @returns DescribeFullBackupListResponse
@@ -1397,7 +1407,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the error code of a Database Backup Service (DBS) job.
+   * Queries error code information for a Database Backup (DBS) job.
    * 
    * @param request - DescribeJobErrorCodeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1440,7 +1450,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the error code of a Database Backup Service (DBS) job.
+   * Queries error code information for a Database Backup (DBS) job.
    * 
    * @param request - DescribeJobErrorCodeRequest
    * @returns DescribeJobErrorCodeResponse
@@ -1501,7 +1511,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation queries the precheck progress for a backup plan or a restore job.
+   * Queries the precheck progress of backup plans and restore tasks.
    * 
    * @param request - DescribePreCheckProgressListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1544,7 +1554,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation queries the precheck progress for a backup plan or a restore job.
+   * Queries the precheck progress of backup plans and restore tasks.
    * 
    * @param request - DescribePreCheckProgressListRequest
    * @returns DescribePreCheckProgressListResponse
@@ -1601,7 +1611,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation returns the time ranges available for restoring data from a backup plan.
+   * Queries the details of the recoverable time ranges for a backup plan.
    * 
    * @param request - DescribeRestoreRangeInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1652,7 +1662,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation returns the time ranges available for restoring data from a backup plan.
+   * Queries the details of the recoverable time ranges for a backup plan.
    * 
    * @param request - DescribeRestoreRangeInfoRequest
    * @returns DescribeRestoreRangeInfoResponse
@@ -1737,7 +1747,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Impact
-   * After you disable incremental backup, the backup plan no longer performs incremental backups.
+   * Calling this operation stops the specified backup plan from creating new incremental backups.
    * 
    * @param request - DisableBackupLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1784,7 +1794,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Impact
-   * After you disable incremental backup, the backup plan no longer performs incremental backups.
+   * Calling this operation stops the specified backup plan from creating new incremental backups.
    * 
    * @param request - DisableBackupLogRequest
    * @returns DisableBackupLogResponse
@@ -1795,11 +1805,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation enables incremental backup for a backup plan.
+   * Enable incremental backup for a backup schedule.
    * 
    * @remarks
    * ## Impact
-   * Enabling incremental backup incurs no additional charge. However, this operation generates backup traffic and consumes storage space. The fees for the traffic and storage are the same as those for a full backup. You can use the free quota from a backup plan or a storage plan to cover these costs.
+   * Enabling log backup does not incur direct charges. However, log backups generate backup traffic and storage usage. These resources are billed at the same rate as full backups. You can use the free quota from your backup plan or storage plan to offset these charges.
    * 
    * @param request - EnableBackupLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1842,11 +1852,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation enables incremental backup for a backup plan.
+   * Enable incremental backup for a backup schedule.
    * 
    * @remarks
    * ## Impact
-   * Enabling incremental backup incurs no additional charge. However, this operation generates backup traffic and consumes storage space. The fees for the traffic and storage are the same as those for a full backup. You can use the free quota from a backup plan or a storage plan to cover these costs.
+   * Enabling log backup does not incur direct charges. However, log backups generate backup traffic and storage usage. These resources are billed at the same rate as full backups. You can use the free quota from your backup plan or storage plan to offset these charges.
    * 
    * @param request - EnableBackupLogRequest
    * @returns EnableBackupLogResponse
@@ -1857,10 +1867,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the result of a task that is used to query a database list by using a backup gateway based on the ID of the task.
+   * Retrieves the database and table data of physical backups through a backup gateway.
    * 
    * @remarks
-   * 您需要调用 [CreateGetDBListFromAgentTask](https://help.aliyun.com/document_detail/2869847.html) 接口创建一个异步任务获取 TaskId（异步任务 ID）。将 TaskId 传入 GetDBListFromAgent 接口后，即可获取物理备份库表数据。
+   * You must call the [CreateGetDBListFromAgentTask](https://help.aliyun.com/document_detail/2869847.html) operation to create an asynchronous task and obtain the TaskId (asynchronous task ID). Pass the TaskId to the GetDBListFromAgent operation to retrieve the database and table data of physical backups.
    * 
    * @param request - GetDBListFromAgentRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1871,6 +1881,10 @@ export default class Client extends OpenApi {
     let query = { };
     if (!$dara.isNull(request.backupGatewayId)) {
       query["BackupGatewayId"] = request.backupGatewayId;
+    }
+
+    if (!$dara.isNull(request.backupGatewayIdentifier)) {
+      query["BackupGatewayIdentifier"] = request.backupGatewayIdentifier;
     }
 
     if (!$dara.isNull(request.clientToken)) {
@@ -1907,10 +1921,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the result of a task that is used to query a database list by using a backup gateway based on the ID of the task.
+   * Retrieves the database and table data of physical backups through a backup gateway.
    * 
    * @remarks
-   * 您需要调用 [CreateGetDBListFromAgentTask](https://help.aliyun.com/document_detail/2869847.html) 接口创建一个异步任务获取 TaskId（异步任务 ID）。将 TaskId 传入 GetDBListFromAgent 接口后，即可获取物理备份库表数据。
+   * You must call the [CreateGetDBListFromAgentTask](https://help.aliyun.com/document_detail/2869847.html) operation to create an asynchronous task and obtain the TaskId (asynchronous task ID). Pass the TaskId to the GetDBListFromAgent operation to retrieve the database and table data of physical backups.
    * 
    * @param request - GetDBListFromAgentRequest
    * @returns GetDBListFromAgentResponse
@@ -1926,7 +1940,6 @@ export default class Client extends OpenApi {
    * @remarks
    * DBS uses the service-linked role (AliyunServiceRoleForDBS) to obtain the required access permissions to connect to ApsaraDB databases, such as RDS, MongoDB, Redis, and PolarDB, or self-managed databases on ECS instances. For more information, see [Activate the Database Backup service](https://help.aliyun.com/document_detail/162603.html).
    * 
-   * @param request - InitializeDbsServiceLinkedRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns InitializeDbsServiceLinkedRoleResponse
    */
@@ -2067,10 +2080,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables, configures, or disables the automatic download feature.
+   * Enables, modifies, or disables the automatic download feature.
    * 
    * @remarks
-   * 使用本接口前请先确认备份数据是否存储在 DBS 的内置 OSS 上，您可通过调用 [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) 接口查看 BackupStorageType 取值情况。
+   * Before calling this operation, verify whether the backup data is stored in the built-in OSS of DBS. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to check the value of BackupStorageType.
    * 
    * @param request - ModifyBackupSetDownloadRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2137,10 +2150,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables, configures, or disables the automatic download feature.
+   * Enables, modifies, or disables the automatic download feature.
    * 
    * @remarks
-   * 使用本接口前请先确认备份数据是否存储在 DBS 的内置 OSS 上，您可通过调用 [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) 接口查看 BackupStorageType 取值情况。
+   * Before calling this operation, verify whether the backup data is stored in the built-in OSS of DBS. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to check the value of BackupStorageType.
    * 
    * @param request - ModifyBackupSetDownloadRulesRequest
    * @returns ModifyBackupSetDownloadRulesResponse
@@ -2151,7 +2164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation modifies a Database Backup source endpoint.
+   * Modify a DBS backup source endpoint.
    * 
    * @param request - ModifyBackupSourceEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2254,7 +2267,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation modifies a Database Backup source endpoint.
+   * Modify a DBS backup source endpoint.
    * 
    * @param request - ModifyBackupSourceEndpointRequest
    * @returns ModifyBackupSourceEndpointResponse
@@ -2265,7 +2278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the backup time of a backup schedule.
+   * Modifies the backup time of a backup plan.
    * 
    * @param request - ModifyBackupStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2320,7 +2333,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the backup time of a backup schedule.
+   * Modifies the backup time of a backup plan.
    * 
    * @param request - ModifyBackupStrategyRequest
    * @returns ModifyBackupStrategyResponse
@@ -2331,7 +2344,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the lifecycle of stored data in a backup plan.
+   * Modifies the lifecycle of stored data in a backup plan.
    * 
    * @param request - ModifyStorageStrategyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2410,7 +2423,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify the lifecycle of stored data in a backup plan.
+   * Modifies the lifecycle of stored data in a backup plan.
    * 
    * @param request - ModifyStorageStrategyRequest
    * @returns ModifyStorageStrategyResponse

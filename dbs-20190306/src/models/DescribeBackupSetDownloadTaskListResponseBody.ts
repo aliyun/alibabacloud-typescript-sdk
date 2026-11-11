@@ -141,7 +141,7 @@ export class DescribeBackupSetDownloadTaskListResponseBody extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -157,11 +157,9 @@ export class DescribeBackupSetDownloadTaskListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true
@@ -169,7 +167,7 @@ export class DescribeBackupSetDownloadTaskListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of download records for backup sets.
+   * The total number of backup set download records.
    * 
    * @example
    * 1

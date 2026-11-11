@@ -22,13 +22,16 @@ export class DescribeFullBackupListRequest extends $dara.Model {
    */
   backupSetId?: string;
   /**
+   * @remarks
+   * The status of the backup set.
+   * 
    * @example
    * finish
    */
   backupSetStatus?: string;
   /**
    * @remarks
-   * A token that ensures idempotence and prevents duplicate requests.
+   * The client token that is used to ensure request idempotence and prevent duplicate submissions.
    * 
    * @example
    * ETnLKlblzczshOTUbOCzxxxxxxx
@@ -36,7 +39,7 @@ export class DescribeFullBackupListRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The end time of the backup, in UNIX timestamp format.
+   * The end time of the backup.
    * 
    * @example
    * 1676887128
@@ -45,7 +48,7 @@ export class DescribeFullBackupListRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The page number. Valid values: integers from 0 to the maximum integer value. Default value: 0.
+   * The page number. The value must be greater than or equal to 0 and less than or equal to the maximum value of the Integer data type. Default value: 0.
    * 
    * @example
    * 1
@@ -54,11 +57,8 @@ export class DescribeFullBackupListRequest extends $dara.Model {
   /**
    * @remarks
    * The number of entries per page. Valid values:
-   * 
    * - 30
-   * 
    * - 50
-   * 
    * - 100
    * 
    * Default value: 30.
@@ -68,13 +68,16 @@ export class DescribeFullBackupListRequest extends $dara.Model {
    */
   pageSize?: number;
   /**
+   * @remarks
+   * Specifies whether to display the backup progress.
+   * 
    * @example
    * true
    */
   showProgress?: string;
   /**
    * @remarks
-   * Specifies whether to return the storage class.
+   * Specifies whether to display the storage type.
    * 
    * @example
    * true

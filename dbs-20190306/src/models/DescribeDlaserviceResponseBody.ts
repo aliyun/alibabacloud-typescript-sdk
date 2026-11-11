@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDLAServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the feature of automatically adding incremental data to a data lake. If this feature is enabled, DBS adds the backup sets that are newly generated to the data lake that is created for the backup schedule. Valid values:
-   * 
-   * - **true**: enables the feature.
-   * 
-   * - **false**: disables the feature.
+   * Indicates whether automatic data ingestion into the data lake for incremental data is enabled. If this feature is enabled, the system automatically adds newly generated backup sets to the data lake. Valid values:
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -33,11 +31,9 @@ export class DescribeDLAServiceResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * Indicates whether a failed DLA task exists in the return result. Valid values:
-   * 
-   * - **true**: A failed DLA task exists.
-   * 
-   * - **false**: No failed DLA task exists.
+   * Indicates whether the response contains failed DLA tasks. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * false
@@ -61,13 +57,10 @@ export class DescribeDLAServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the DLA service for the backup schedule. Valid values:
-   * 
-   * - **Running**: DLA is running.
-   * 
-   * - **Closing**: DLA is being disabled.
-   * 
-   * - **Closed**: DLA is disabled.
+   * The DLA service status of the backup plan. Valid values:
+   * - **Running**: The service is running.
+   * - **Closing**: The service is being closed.
+   * - **Closed**: The service is closed.
    * 
    * @example
    * Running
@@ -75,7 +68,7 @@ export class DescribeDLAServiceResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful.
+   * Indicates whether the request was successful.
    * 
    * @example
    * true

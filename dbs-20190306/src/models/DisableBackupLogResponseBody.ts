@@ -39,7 +39,7 @@ export class DisableBackupLogResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether this change triggers a precheck. Valid values:
    * 
-   * - true: A precheck is triggered. You must manually call the [StartBackupPlan](https://help.aliyun.com/document_detail/2869816.html) operation to start the backup plan.
+   * - true: A precheck is triggered. You must then call [StartBackupPlan](https://help.aliyun.com/document_detail/2869816.html) to start the backup plan.
    * 
    * - false: No precheck is triggered.
    * 
@@ -49,7 +49,7 @@ export class DisableBackupLogResponseBody extends $dara.Model {
   needPrecheck?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D6E068C3-25BC-455A-85FE-45F0B22ECB1F

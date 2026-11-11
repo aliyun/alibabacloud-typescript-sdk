@@ -100,7 +100,7 @@ export class DescribePreCheckProgressListResponseBody extends $dara.Model {
   items?: DescribePreCheckProgressListResponseBodyItems;
   /**
    * @remarks
-   * The precheck progress. The value ranges from 0 to 100.
+   * The precheck progress. Valid values: 0 to 100.
    * 
    * @example
    * 100
@@ -117,12 +117,9 @@ export class DescribePreCheckProgressListResponseBody extends $dara.Model {
   /**
    * @remarks
    * The precheck status. Valid values:
-   * 
-   * - **running**: The precheck is in progress.
-   * 
-   * - **failed**: The precheck failed.
-   * 
-   * - **finish**: The precheck is complete.
+   * - **running**: running
+   * - **failed**: failed
+   * - **finish**: completed
    * 
    * @example
    * finish
@@ -133,7 +130,6 @@ export class DescribePreCheckProgressListResponseBody extends $dara.Model {
    * Indicates whether the request was successful. Valid values:
    * 
    * - **true**: The request was successful.
-   * 
    * - **false**: The request failed.
    * 
    * @example

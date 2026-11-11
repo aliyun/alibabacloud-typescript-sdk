@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyStorageStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * Backup plan ID. Obtain this parameter\\"s value by calling the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API.
+   * The ID of the backup plan. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class ModifyStorageStrategyRequest extends $dara.Model {
   backupPlanId?: string;
   /**
    * @remarks
-   * Backup data retention period, in days. Valid values: 0 to 1825.
+   * The retention period of backup data. Unit: days. Valid values: 0 to 1825.
    * 
-   * > Default value: 730 days.
+   * > Default value: 730.
    * 
    * This parameter is required.
    * 
@@ -26,13 +26,16 @@ export class ModifyStorageStrategyRequest extends $dara.Model {
    */
   backupRetentionPeriod?: number;
   /**
+   * @remarks
+   * The encryption method for backup data storage.
+   * 
    * @example
    * encrypted
    */
   backupStorageEncryptMethod?: string;
   /**
    * @remarks
-   * An arbitrary string used to ensure the idempotence of the request and prevent duplicate submissions.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions.
    * 
    * @example
    * dbstest
@@ -40,9 +43,8 @@ export class ModifyStorageStrategyRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Time to convert to Archive Storage. This value must be less than the backup data retention period (BackupRetentionPeriod parameter). For more information about Archive Storage, see [Storage Type Overview](https://help.aliyun.com/document_detail/51374.html).
-   * 
-   * > Default value: 365 days.
+   * The period after which backup data is transitioned to Archive storage. The value must be less than the retention period of backup data (specified by the BackupRetentionPeriod parameter). For more information about Archive storage, see [Storage types](https://help.aliyun.com/document_detail/51374.html).
+   * > Default value: 365.
    * 
    * This parameter is required.
    * 
@@ -52,9 +54,8 @@ export class ModifyStorageStrategyRequest extends $dara.Model {
   duplicationArchivePeriod?: number;
   /**
    * @remarks
-   * Time to convert to Infrequent Access storage. This value must be less than the Archive Storage period (DuplicationArchivePeriod parameter). For more information about Infrequent Access storage, see [Storage Type Overview](https://help.aliyun.com/document_detail/51374.html).
-   * 
-   * > Default value: 180 days.
+   * The period after which backup data is transitioned to Infrequent Access storage. The value must be less than the period after which backup data is transitioned to Archive storage (specified by the DuplicationArchivePeriod parameter). For more information about Infrequent Access storage, see [Storage types](https://help.aliyun.com/document_detail/51374.html).
+   * > Default value: 180.
    * 
    * This parameter is required.
    * 
@@ -63,31 +64,49 @@ export class ModifyStorageStrategyRequest extends $dara.Model {
    */
   duplicationInfrequentAccessPeriod?: number;
   /**
+   * @remarks
+   * The retention period of incremental backup data.
+   * 
    * @example
    * 365
    */
   incrementBackupRetentionPeriod?: string;
   /**
+   * @remarks
+   * The period after which incremental backup data is transitioned to Archive storage.
+   * 
    * @example
    * 365
    */
   incrementDuplicationArchivePeriod?: string;
   /**
+   * @remarks
+   * The period after which incremental backup data is transitioned to Infrequent Access storage.
+   * 
    * @example
    * 365
    */
   incrementDuplicationInfrequentAccessPeriod?: string;
   /**
+   * @remarks
+   * The retention period of log backup data.
+   * 
    * @example
    * 365
    */
   logBackupRetentionPeriod?: string;
   /**
+   * @remarks
+   * The period after which log backup data is transitioned to Infrequent Access storage.
+   * 
    * @example
    * 365
    */
   logDuplicationArchivePeriod?: string;
   /**
+   * @remarks
+   * The period after which log backup data is transitioned to Infrequent Access storage.
+   * 
    * @example
    * 365
    */

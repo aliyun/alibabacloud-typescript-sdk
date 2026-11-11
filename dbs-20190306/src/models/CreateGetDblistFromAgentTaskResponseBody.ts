@@ -21,7 +21,7 @@ export class CreateGetDBListFromAgentTaskResponseBody extends $dara.Model {
   errMessage?: string;
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The HTTP status code.
    * 
    * @example
    * 400

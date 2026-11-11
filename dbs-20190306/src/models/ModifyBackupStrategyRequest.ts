@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBackupStrategyRequest extends $dara.Model {
   /**
    * @remarks
-   * The interval at which you want to perform incremental log backups. Unit: seconds.
-   * 
-   * > This parameter takes effect only when physical backups are performed.
+   * The incremental backup interval in seconds.
+   * > Only physical backups are supported.
    * 
    * @example
    * 1000
@@ -15,21 +14,16 @@ export class ModifyBackupStrategyRequest extends $dara.Model {
   backupLogIntervalSeconds?: number;
   /**
    * @remarks
-   * The day of each week when the full backup task runs. Valid values:
+   * The full backup cycle. Valid values:
+   * - Monday: Monday
+   * - Tuesday: Tuesday
+   * - Wednesday: Wednesday
+   * - Thursday: Thursday
+   * - Friday: Friday
+   * - Saturday: Saturday
+   * - Sunday: Sunday
    * 
-   * - Monday
-   * 
-   * - Tuesday
-   * 
-   * - Wednesday
-   * 
-   * - Thursday
-   * 
-   * - Friday
-   * 
-   * - Saturday
-   * 
-   * - Sunday
+   * > You must specify at least two days of the week for BackupPeriod and separate the days with commas (,).
    * 
    * This parameter is required.
    * 
@@ -39,7 +33,7 @@ export class ModifyBackupStrategyRequest extends $dara.Model {
   backupPeriod?: string;
   /**
    * @remarks
-   * The ID of the backup schedule.
+   * The ID of the backup plan.
    * 
    * This parameter is required.
    * 
@@ -49,7 +43,9 @@ export class ModifyBackupStrategyRequest extends $dara.Model {
   backupPlanId?: string;
   /**
    * @remarks
-   * The start time of the full backup task. Specify the time in the HH:mm format.
+   * The start time of the full backup. Format: HH:mm.
+   * 
+   * > This parameter is required.
    * 
    * @example
    * 14:22
@@ -57,11 +53,9 @@ export class ModifyBackupStrategyRequest extends $dara.Model {
   backupStartTime?: string;
   /**
    * @remarks
-   * The backup method that you want to use for full backups. Valid values:
-   * 
-   * - **simple**: scheduled backup. If you specify this value for the BackupStrategyType parameter, you must also specify the BackupPeriod and BackupStartTime parameters.
-   * 
-   * - **Manual**: manual backup.
+   * The full backup epoch. Valid values:
+   * - **simple**: periodic backup. This value is used together with BackupPeriod and BackupStartTime.
+   * - **manual**: manual backup.
    * 
    * > Default value: **simple**.
    * 
@@ -71,7 +65,7 @@ export class ModifyBackupStrategyRequest extends $dara.Model {
   backupStrategyType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions.
    * 
    * @example
    * ETnLKlblzczshOTUbOCzxxxxxxx

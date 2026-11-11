@@ -188,10 +188,8 @@ export class DescribeRestoreRangeInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded. Valid values:
-   * 
-   * - **true**: The request succeeded.
-   * 
+   * Indicates whether the request was successful. Valid values:
+   * - **true**: The request was successful.
    * - **false**: The request failed.
    * 
    * @example

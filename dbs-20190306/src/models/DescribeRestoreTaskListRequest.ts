@@ -7,7 +7,7 @@ export class DescribeRestoreTaskListRequest extends $dara.Model {
    * @remarks
    * The ID of the backup plan.
    * 
-   * > Specify either BackupPlanId or RestoreTaskId.
+   * > You must specify either this parameter or `RestoreTaskId`.
    * 
    * @example
    * dbs1hvb0wwwXXXXX
@@ -15,7 +15,7 @@ export class DescribeRestoreTaskListRequest extends $dara.Model {
   backupPlanId?: string;
   /**
    * @remarks
-   * A client token that is used to ensure the idempotence of the request. This prevents duplicate requests.
+   * A client-generated token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests.
    * 
    * @example
    * ETnLKlblzczshOTUbOCzxxxxxxx
@@ -23,7 +23,7 @@ export class DescribeRestoreTaskListRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The end time of the backup.
+   * The end of the time range to query restore tasks. Specify the time in the UNIX timestamp format. The timestamp is a millisecond-level timestamp.
    * 
    * @example
    * 1570701361528
@@ -32,7 +32,7 @@ export class DescribeRestoreTaskListRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The page number. The value must be greater than or equal to 0 and not exceed the maximum value of the integer data type. Default value: 0.
+   * The page number. The value must be an integer that is greater than or equal to 0. Default value: 0.
    * 
    * @example
    * 1
@@ -42,7 +42,7 @@ export class DescribeRestoreTaskListRequest extends $dara.Model {
    * @remarks
    * The number of entries to return on each page. Valid values: 1 to 100.
    * 
-   * > Default value: 30.
+   * > The default value is 30.
    * 
    * @example
    * 30
@@ -50,9 +50,9 @@ export class DescribeRestoreTaskListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the restore job. You can specify multiple IDs. Separate them with commas (,). Call the [CreateRestoreTask](https://help.aliyun.com/document_detail/2869836.html) operation to obtain this parameter.
+   * The ID of the restore task. You can specify multiple IDs, separated by commas. You can call the [CreateRestoreTask](https://help.aliyun.com/document_detail/2869836.html) operation to obtain the restore task ID.
    * 
-   * > Specify either RestoreTaskId or BackupPlanId. An error occurs if you specify both parameters.
+   * > You must specify either this parameter or `BackupPlanId`. Specifying both parameters returns an error.
    * 
    * @example
    * s102h7rf5anq
@@ -60,7 +60,7 @@ export class DescribeRestoreTaskListRequest extends $dara.Model {
   restoreTaskId?: string;
   /**
    * @remarks
-   * The start time of the backup.
+   * The beginning of the time range to query restore tasks. Specify the time in the UNIX timestamp format. The timestamp is a millisecond-level timestamp.
    * 
    * @example
    * 1570701361528

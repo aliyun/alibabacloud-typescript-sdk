@@ -248,7 +248,7 @@ export class DescribeRestoreTaskListResponseBody extends $dara.Model {
   totalElements?: number;
   /**
    * @remarks
-   * The total number of pages.
+   * The total number of pages returned.
    * 
    * @example
    * 1

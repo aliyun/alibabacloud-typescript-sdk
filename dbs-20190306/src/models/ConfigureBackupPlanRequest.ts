@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ConfigureBackupPlanRequest extends $dara.Model {
   /**
    * @remarks
-   * Enable automatic backup. Valid values:
+   * Specifies whether to enable automatic backup. Valid values:
    * 
-   * - **true**: Enable
-   * 
-   * - **false**: Disable
+   * - **true**: enables automatic backup
+   * - **false**: disables automatic backup
    * 
    * @example
    * false
@@ -17,9 +16,9 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   autoStartBackup?: boolean;
   /**
    * @remarks
-   * The backup gateway ID. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value.
+   * The ID of the backup gateway. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
    * 
-   * > This parameter is required when **SourceEndpointInstanceType** is **agent**.
+   * > This parameter is required when **SourceEndpointInstanceType** is set to **agent**.
    * 
    * @example
    * 23313123312
@@ -27,9 +26,8 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   backupGatewayId?: number;
   /**
    * @remarks
-   * The incremental interval in seconds (s).
-   * 
-   * > Only physical backup is supported.
+   * The interval for incremental backup, in seconds.
+   * > This parameter is supported only for physical backup.
    * 
    * @example
    * 1000
@@ -37,28 +35,21 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   backupLogIntervalSeconds?: number;
   /**
    * @remarks
-   * The backup objects. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value.
+   * The objects to be backed up. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
    * 
    * @example
-   * [     {         "DBName":"待备份库名",         "SchemaName":"待备份 Schema 名",         "TableIncludes":[{             "TableName":"待备份表表名"         }],         "TableExcludes":[{             "TableName":"待备份库名不需要备份表的表名"         }]     } ]
+   * [     {         "DBName":"DatabaseToBackUp",         "SchemaName":"SchemaToBackUp",         "TableIncludes":[{             "TableName":"TableToBackUp"         }],         "TableExcludes":[{             "TableName":"TableToExclude"         }]     } ]
    */
   backupObjects?: string;
   /**
    * @remarks
-   * The full backup period. Valid values:
-   * 
+   * The full backup cycle. Valid values:
    * - **Monday**: Monday
-   * 
    * - **Tuesday**: Tuesday
-   * 
    * - **Wednesday**: Wednesday
-   * 
    * - **Thursday**: Thursday
-   * 
    * - **Friday**: Friday
-   * 
    * - **Saturday**: Saturday
-   * 
    * - **Sunday**: Sunday
    * 
    * @example
@@ -67,7 +58,7 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   backupPeriod?: string;
   /**
    * @remarks
-   * The backup plan ID. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value.
+   * The ID of the backup plan. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
    * 
    * This parameter is required.
    * 
@@ -77,7 +68,7 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   backupPlanId?: string;
   /**
    * @remarks
-   * The custom backup plan name. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value.
+   * The custom name of the backup plan. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
    * 
    * This parameter is required.
    * 
@@ -87,9 +78,8 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   backupPlanName?: string;
   /**
    * @remarks
-   * The network bandwidth throttling in KB/s. The maximum value is 10 GB.
-   * 
-   * > This parameter is valid only for MySQL physical backup.
+   * The network bandwidth throttling. Unit: KB/s. Maximum value: 10 GB.
+   * > This parameter takes effect only for MySQL physical backup.
    * 
    * @example
    * 262144
@@ -97,7 +87,7 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   backupRateLimit?: number;
   /**
    * @remarks
-   * The retention period for backup data. Valid values: 0 to 1825. Default value: 730 days.
+   * The retention period of backup data. Valid values: 0 to 1825. Default value: 730. Unit: days.
    * 
    * @example
    * 730
@@ -105,9 +95,8 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   backupRetentionPeriod?: number;
   /**
    * @remarks
-   * The disk I/O limit in KB/s.
-   * 
-   * > This parameter is valid only for MySQL physical backup.
+   * The disk I/O limit. Unit: KB/s.
+   * > This parameter takes effect only for MySQL physical backup.
    * 
    * @example
    * 262144
@@ -115,36 +104,35 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   backupSpeedLimit?: number;
   /**
    * @remarks
-   * The full backup start time in *HH:mm*Z (UTC) format. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value.
+   * The start time of the full backup. The time is in the <i>HH:mm</i>Z format and displayed in UTC. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
    * 
    * @example
    * 14:22
    */
   backupStartTime?: string;
   /**
+   * @remarks
+   * The encryption method for backup storage.
+   * 
    * @example
    * encrypted
    */
   backupStorageEncryptMethod?: string;
   /**
    * @remarks
-   * The built-in storage type:
-   * 
-   * - Empty (default): Backup data is stored on your OSS.
-   * 
-   * - system: Backup data is stored on the built-in OSS of DBS.
+   * The built-in storage type. Valid values:
+   * - Empty string (default): Backup data is stored in your OSS bucket.
+   * - system: Backup data is stored in the built-in OSS bucket of DBS.
    * 
    * @example
-   * 无
+   * None
    */
   backupStorageType?: string;
   /**
    * @remarks
-   * The full backup period. Valid values:
-   * 
-   * - **simple**: Periodic backup. Use this value with BackupPeriod and BackupStartTime.
-   * 
-   * - **manual**: Manual backup.
+   * The full backup epoch. Valid values:
+   * - **simple**: periodic backup, which is used together with BackupPeriod and BackupStartTime
+   * - **manual**: manual backup
    * 
    * > Default value: **simple**.
    * 
@@ -154,7 +142,7 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   backupStrategyType?: string;
   /**
    * @remarks
-   * Ensure the idempotence of the request to prevent duplicate submissions. The client generates this parameter value. Ensure its uniqueness across different requests. The maximum length is 64 ASCII characters, and the value cannot contain non-ASCII characters.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can use the client to generate the value, and you must ensure that the value is unique among different requests. The value can be up to 64 ASCII characters in length and cannot contain non-ASCII characters.
    * 
    * @example
    * ETnLKlblzczshOTUbOCzxxxxxxx
@@ -162,7 +150,7 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The UID for cross-Alibaba Cloud account backup. Call the [DescribeRestoreTaskList](https://help.aliyun.com/document_detail/2869838.html) API to get this parameter\\"s value.
+   * The UID of the Alibaba Cloud account for cross-account backup. You can call the [DescribeRestoreTaskList](https://help.aliyun.com/document_detail/2869838.html) operation to query the value of this parameter.
    * 
    * @example
    * 2xxx7778xxxxxxxxxx
@@ -170,7 +158,7 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   crossAliyunId?: string;
   /**
    * @remarks
-   * The RAM role name for cross-Alibaba Cloud account backup. Call the [DescribeRestoreTaskList](https://help.aliyun.com/document_detail/2869838.html) API to get this parameter\\"s value.
+   * The name of the RAM role for cross-account backup. You can call the [DescribeRestoreTaskList](https://help.aliyun.com/document_detail/2869838.html) operation to query the value of this parameter.
    * 
    * @example
    * test123
@@ -178,7 +166,7 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   crossRoleName?: string;
   /**
    * @remarks
-   * The period after which data is converted to archive cold storage. Default value: 365 days.
+   * The period after which backup data is transitioned to Archive storage. Default value: 365. Unit: days.
    * 
    * @example
    * 365
@@ -186,7 +174,7 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   duplicationArchivePeriod?: number;
   /**
    * @remarks
-   * The period after which data is converted to Infrequent Access storage. Default value: 180 days.
+   * The period after which backup data is transitioned to Infrequent Access (IA) storage. Default value: 180. Unit: days.
    * 
    * @example
    * 180
@@ -194,31 +182,35 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   duplicationInfrequentAccessPeriod?: number;
   /**
    * @remarks
-   * Enable incremental log backup. Valid values:
-   * 
-   * - **true**: Enable
-   * 
-   * - **false**: Disable
+   * Specifies whether to enable incremental log backup. Valid values:
+   * - **true**: enables incremental log backup
+   * - **false**: disables incremental log backup
    * 
    * @example
    * true
    */
   enableBackupLog?: boolean;
   /**
+   * @remarks
+   * Specifies whether to enable log backup for MySQL physical backup.
+   * 
    * @example
    * true
    */
   enableMysqlPhysicalBackupBinlog?: string;
   /**
+   * @remarks
+   * Specifies whether to enable an SSL-encrypted connection to the source database instance.
+   * 
    * @example
    * true
    */
   enableSourceEndpointSsl?: string;
   /**
    * @remarks
-   * The OSS bucket name.
+   * The name of the OSS bucket.
    * 
-   * > The system automatically generates a new name by default.
+   * > By default, the system automatically generates a new name.
    * 
    * @example
    * TestOssBucket
@@ -227,7 +219,7 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aekzecovzti****
@@ -235,9 +227,9 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The database name. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value.
+   * The name of the database. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
    * 
-   * > This parameter is required when the database type is **PostgreSQL** or **MongoDB**.
+   * > This parameter is required when the database engine is **PostgreSQL** or **MongoDB**.
    * 
    * @example
    * testRDS
@@ -245,9 +237,9 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   sourceEndpointDatabaseName?: string;
   /**
    * @remarks
-   * The database endpoint. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value.
+   * The database connection address. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
    * 
-   * > This parameter is required when **SourceEndpointInstanceType** is **express**, **agent**, or **other**.
+   * > This parameter is required when **SourceEndpointInstanceType** is set to **express**, **agent**, or **other**.
    * 
    * @example
    * rm-uf6wjk5*******.mysql.rds.aliyuncs.com
@@ -255,9 +247,9 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   sourceEndpointIP?: string;
   /**
    * @remarks
-   * The database instance ID. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value.
+   * The database instance ID. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
    * 
-   * > This parameter is required when **SourceEndpoint**.**InstanceType** is **RDS**, **ECS**, **DDS**, or **Express**.
+   * > This parameter is required when **SourceEndpoint**.**InstanceType** is set to **RDS**, **ECS**, **DDS**, or **Express**.
    * 
    * @example
    * rm-uf6wjk5*********
@@ -265,19 +257,14 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   sourceEndpointInstanceID?: string;
   /**
    * @remarks
-   * The location of the database. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value. Valid values:
+   * The location of the database. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter. Valid values:
    * 
    * - **RDS**
-   * 
    * - **ECS**
-   * 
-   * - **Express**: A database connected through a leased line, VPN Gateway, or Smart Gateway.
-   * 
-   * - **Agent**: A database connected through a backup gateway.
-   * 
-   * - **DDS**: Cloud MongoDB.
-   * 
-   * - **Other**: A database directly connected through IP:Port.
+   * - **Express**: databases connected over Express Connect circuits, VPN gateways, or Smart Access Gateway (SAG)
+   * - **Agent**: databases connected over backup gateways
+   * - **DDS**: ApsaraDB for MongoDB
+   * - **Other**: databases connected by using IP addresses and port numbers
    * 
    * This parameter is required.
    * 
@@ -286,15 +273,18 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
    */
   sourceEndpointInstanceType?: string;
   /**
+   * @remarks
+   * Oracle Home
+   * 
    * @example
    * /home/test
    */
   sourceEndpointOracleHome?: string;
   /**
    * @remarks
-   * The Oracle SID name.
+   * The Oracle system identifier (SID).
    * 
-   * > This parameter is required when the database type is Oracle.
+   * > This parameter is required when the database engine is Oracle.
    * 
    * @example
    * test
@@ -302,9 +292,9 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   sourceEndpointOracleSID?: string;
   /**
    * @remarks
-   * The password.
+   * The password of the database account.
    * 
-   * > This parameter is optional when the database type is **Redis**, or when the database location is **agent** and the database type is **SQL Server**. It is required in other scenarios.
+   * > This parameter is not required when the database engine is **Redis**, or when the database is connected over a backup gateway (**agent**) and the database engine is **SQL Server**. This parameter is required in other scenarios.
    * 
    * @example
    * testPassword
@@ -312,9 +302,9 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   sourceEndpointPassword?: string;
   /**
    * @remarks
-   * The database port. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value.
+   * The port number of the database. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
    * 
-   * > This parameter is required when **SourceEndpoint**.**InstanceType** is **express**, **agent**, **other**, or **ECS**.
+   * > This parameter is required when **SourceEndpoint**.**InstanceType** is set to **express**, **agent**, **other**, or **ECS**.
    * 
    * @example
    * 3306
@@ -322,9 +312,9 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   sourceEndpointPort?: number;
   /**
    * @remarks
-   * The region of the database. Call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) API to get this parameter\\"s value.
+   * The region of the database. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the value of this parameter.
    * 
-   * > This parameter is required when **SourceEndpointInstanceType** is RDS, ECS, DDS, Express, or Agent.
+   * > This parameter is required when **SourceEndpointInstanceType** is set to RDS, ECS, DDS, Express, or Agent.
    * 
    * @example
    * cn-hangzhou
@@ -332,15 +322,18 @@ export class ConfigureBackupPlanRequest extends $dara.Model {
   sourceEndpointRegion?: string;
   /**
    * @remarks
-   * The database account.
+   * The username of the database account.
    * 
-   * > This parameter is optional when the database type is **Redis**, or when the database location is **agent** and the database type is **SQL Server**. It is required in other scenarios.
+   * > This parameter is not required when the database engine is **Redis**, or when the database is connected over a backup gateway (**agent**) and the database engine is **SQL Server**. This parameter is required in other scenarios.
    * 
    * @example
    * testRDS
    */
   sourceEndpointUserName?: string;
   /**
+   * @remarks
+   * The PEM certificate for the SSL-encrypted connection to the source database.
+   * 
    * @example
    * -----BEGIN CERTIFICATE----- ... -----END CERTIFICATE-----
    */

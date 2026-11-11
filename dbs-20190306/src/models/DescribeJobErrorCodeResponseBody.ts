@@ -114,7 +114,7 @@ export class DescribeJobErrorCodeResponseBody extends $dara.Model {
   item?: DescribeJobErrorCodeResponseBodyItem;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1FC2F86D-AFF4-4ED9-BB25-ADDE196CB2B5

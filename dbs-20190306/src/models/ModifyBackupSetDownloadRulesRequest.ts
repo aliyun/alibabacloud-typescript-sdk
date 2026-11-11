@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBackupSetDownloadRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup gateway that is used to download the backup set.
+   * The ID of the backup gateway used to download the backup set.
    * 
    * @example
    * 23312323
@@ -13,7 +13,7 @@ export class ModifyBackupSetDownloadRulesRequest extends $dara.Model {
   backupGatewayId?: number;
   /**
    * @remarks
-   * The ID of the backup schedule.
+   * The ID of the backup plan. You can call the [DescribeBackupPlanList](https://help.aliyun.com/document_detail/2869825.html) operation to query the ID.
    * 
    * This parameter is required.
    * 
@@ -31,9 +31,8 @@ export class ModifyBackupSetDownloadRulesRequest extends $dara.Model {
   backupSetDownloadDir?: string;
   /**
    * @remarks
-   * The type of the destination server to which the backup set is downloaded.
-   * 
-   * > Set the value to agent, which indicates a server on which a backup gateway is installed.
+   * The target type for downloading the backup set.
+   * > Default value: agent. A backup gateway is installed. This is the only supported value.
    * 
    * @example
    * agent
@@ -41,14 +40,10 @@ export class ModifyBackupSetDownloadRulesRequest extends $dara.Model {
   backupSetDownloadTargetType?: string;
   /**
    * @remarks
-   * The type of the destination directory to which the backup set is downloaded. This parameter is required if the automatic download feature is enabled. Valid values:
-   * 
+   * The target directory type for downloading the backup set. This parameter is required if automatic download is enabled. Valid values:
    * - local
-   * 
    * - nas
-   * 
    * - ftp
-   * 
    * - minio
    * 
    * > Default value: local.
@@ -59,7 +54,7 @@ export class ModifyBackupSetDownloadRulesRequest extends $dara.Model {
   backupSetDownloadTargetTypeLocation?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure the idempotence of the request and prevent duplicate request submissions.
    * 
    * @example
    * ETnLKlblzczshOTUbOCzxxxxxxx
@@ -67,14 +62,10 @@ export class ModifyBackupSetDownloadRulesRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The format in which the full backup set is downloaded. Valid values:
-   * 
+   * The format of the full data downloaded from the backup set. Valid values:
    * - Native
-   * 
    * - SQL
-   * 
    * - CSV
-   * 
    * - JSON
    * 
    * > Default value: CSV.
@@ -85,14 +76,10 @@ export class ModifyBackupSetDownloadRulesRequest extends $dara.Model {
   fullDataFormat?: string;
   /**
    * @remarks
-   * The format in which the incremental backup set is downloaded. Valid values:
-   * 
+   * The format of the incremental data downloaded from the backup set. Valid values:
    * - Native
-   * 
    * - SQL
-   * 
    * - CSV
-   * 
    * - JSON
    * 
    * > Default value: Native.
@@ -103,7 +90,7 @@ export class ModifyBackupSetDownloadRulesRequest extends $dara.Model {
   incrementDataFormat?: string;
   /**
    * @remarks
-   * Specifies whether to enable the automatic download feature. Default value: false.
+   * Specifies whether to enable automatic download. Default value: false.
    * 
    * @example
    * false

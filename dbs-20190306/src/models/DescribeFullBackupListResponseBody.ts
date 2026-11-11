@@ -219,7 +219,7 @@ export class DescribeFullBackupListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 636BC118-6080-4119-A6B5-C199CEC1037D
@@ -227,11 +227,9 @@ export class DescribeFullBackupListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation succeeded. Valid values:
-   * 
-   * - **true**: The operation succeeded.
-   * 
-   * - **false**: The operation failed.
+   * Indicates whether the request was successful. Valid values:
+   * - **true**: The request was successful.
+   * - **false**: The request failed.
    * 
    * @example
    * true
@@ -239,7 +237,7 @@ export class DescribeFullBackupListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of full backup jobs.
+   * The total number of full backup tasks.
    * 
    * @example
    * 1

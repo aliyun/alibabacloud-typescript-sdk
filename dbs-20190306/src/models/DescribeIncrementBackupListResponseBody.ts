@@ -146,7 +146,7 @@ export class DescribeIncrementBackupListResponseBody extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 30
@@ -162,9 +162,9 @@ export class DescribeIncrementBackupListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request succeeded. Valid values:
    * 
-   * - **true**: The request was successful.
+   * - **true**: The request succeeded.
    * 
    * - **false**: The request failed.
    * 
@@ -174,7 +174,7 @@ export class DescribeIncrementBackupListResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of incremental backup tasks.
+   * The total number of incremental backups.
    * 
    * @example
    * 1
