@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceAutoRenewalAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The auto-renewal status. Valid values:
-   * - true: Auto-renewal is enabled.
-   * - false: Auto-renewal is disabled.
+   * The auto-renewal status. Valid values: true (auto-renewal enabled) and false (auto-renewal disabled).
    */
   autoRenewal?: boolean;
   /**
@@ -49,7 +47,7 @@ export class DescribeInstanceAutoRenewalAttributeRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource type. Example: CorePackage indicates a core-hour package.
+   * The resource type. Valid value: CorePackage (core-hour package).
    * 
    * @example
    * CorePackage

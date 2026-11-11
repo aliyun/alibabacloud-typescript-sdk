@@ -13,14 +13,12 @@ export class DescribeInstanceAutoRenewalAttributeResponseBodyInstanceAttribute e
   aliUid?: number;
   /**
    * @remarks
-   * The auto-renewal status. Valid values:
-   * - true: Auto-renewal is enabled.
-   * - false: Auto-renewal is disabled.
+   * The auto-renewal status. Valid values: true (auto-renewal enabled) and false (auto-renewal disabled).
    */
   autoRenewal?: boolean;
   /**
    * @remarks
-   * The instance ID, which identifies the purchased instance.
+   * The instance ID, which is used to identify the purchased instance.
    * 
    * @example
    * cp-0bw2ew49****
@@ -83,7 +81,7 @@ export class DescribeInstanceAutoRenewalAttributeResponseBody extends $dara.Mode
   nextToken?: string;
   /**
    * @remarks
-   * The page number of the paging query, starting from 1.
+   * The page number for paging, starting from 1.
    * 
    * @example
    * 1
@@ -99,7 +97,7 @@ export class DescribeInstanceAutoRenewalAttributeResponseBody extends $dara.Mode
   pageSize?: number;
   /**
    * @remarks
-   * The unique identifier of the request. You can use this ID to troubleshoot issues.
+   * The unique identifier of the request, which can be used to troubleshoot issues.
    * 
    * @example
    * 72481C12-69AB-5CE1-8A35-A8EFA921****
