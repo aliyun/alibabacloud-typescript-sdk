@@ -107,7 +107,7 @@ export class CreateCustomFieldRequest extends $dara.Model {
    * Maximum length: 512 characters.
    * 
    * @example
-   * Field test
+   * 字段测试
    */
   description?: string;
   /**

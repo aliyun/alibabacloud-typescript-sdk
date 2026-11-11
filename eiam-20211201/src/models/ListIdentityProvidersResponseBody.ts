@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Model {
   /**
    * @remarks
-   * Whether the advanced configuration is enabled. Valid values:
+   * Specifies whether the advanced configuration capability is enabled. Valid values:
    * 
-   * - Disabled: disabled
+   * - disabled: Disabled.
    * 
-   * - Enabled: enabled
+   * - enabled: Enabled.
    * 
    * @example
    * disabled
@@ -17,24 +17,23 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   advancedStatus?: string;
   /**
    * @remarks
-   * The authentication source product, such as Okta, Google, or Azure AD.
-   * Valid values:
+   * The authentication source product, such as Okta, Google, or Azure AD. Valid values:
    * 
-   * - DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk
+   * - urn:alibaba:idaas:idp:alibaba:dingtalk: DingTalk.
    * 
-   * - LDAP: urn:alibaba:idaas:idp:unknown:ldap
+   * - urn:alibaba:idaas:idp:unknown:ldap: LDAP.
    * 
-   * - Alibaba Cloud IDaaS: urn:alibaba:idaas:idp:alibaba:idaas
+   * - urn:alibaba:idaas:idp:alibaba:idaas: Alibaba Cloud IDaaS.
    * 
-   * - WeCom: urn:alibaba:idaas:idp:tencent:wecom
+   * - urn:alibaba:idaas:idp:tencent:wecom: WeCom.
    * 
-   * - Lark: urn:alibaba:idaas:idp:bytedance:lark
+   * - urn:alibaba:idaas:idp:bytedance:lark: Lark.
    * 
-   * - Active Directory: urn:alibaba:idaas:idp:microsoft:ad
+   * - urn:alibaba:idaas:idp:microsoft:ad: Active Directory.
    * 
-   * - Azure Active Directory: urn:alibaba:idaas:idp:microsoft:aad
+   * - urn:alibaba:idaas:idp:microsoft:aad: Azure Active Directory.
    * 
-   * - Alibaba Cloud SASE: urn:alibaba:idaas:idp:alibaba:sase
+   * - urn:alibaba:idaas:idp:alibaba:sase: Alibaba Cloud SASE.
    * 
    * @example
    * urn:alibaba:idaas:idp:bytedance:lark
@@ -42,11 +41,11 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   authnSourceSupplier?: string;
   /**
    * @remarks
-   * The authentication source type, OIDC or SAML. Valid values:
+   * The authentication method type, which can be OIDC or SAML. Valid values:
    * 
-   * - OIDC: urn:alibaba:idaas:authntype:oidc
+   * - urn:alibaba:idaas:authntype:oidc: OIDC.
    * 
-   * - SAML: urn:alibaba:idaas:authntype:saml2
+   * - urn:alibaba:idaas:authntype:saml2: SAML.
    * 
    * @example
    * urn:alibaba:idaas:authntype:oidc
@@ -54,11 +53,11 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   authnSourceType?: string;
   /**
    * @remarks
-   * Whether the corresponding IdP supports authentication. Valid values:
+   * Specifies whether the IdP supports authentication. Valid values:
    * 
-   * - Disabled: disabled
+   * - disabled: Disabled.
    * 
-   * - Enabled: enabled
+   * - enabled: Enabled.
    * 
    * @example
    * disabled
@@ -66,7 +65,7 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   authnStatus?: string;
   /**
    * @remarks
-   * The creation time, in Unix timestamp format, measured in milliseconds.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1712561597000
@@ -74,7 +73,7 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   createTime?: number;
   /**
    * @remarks
-   * Description of the identity provider.
+   * The description of the identity provider.
    * 
    * @example
    * None
@@ -82,7 +81,7 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   description?: string;
   /**
    * @remarks
-   * External ID of the identity provider.
+   * The external ID of the identity provider.
    * 
    * @example
    * test_123
@@ -90,7 +89,7 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   identityProviderExternalId?: string;
   /**
    * @remarks
-   * Identity provider ID.
+   * The identity provider ID.
    * 
    * @example
    * idp_m5b5wd5s2hpq4t6iaehhXXX
@@ -98,31 +97,31 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   identityProviderId?: string;
   /**
    * @remarks
-   * Name of the identity provider.
+   * The name of the identity provider.
    * 
    * @example
-   * xxxx
+   * test
    */
   identityProviderName?: string;
   /**
    * @remarks
-   * The synchronization type of the identity provider.
+   * The identity provider synchronization type. Valid values:
    * 
-   * - Inbound DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk:pull
+   * - urn:alibaba:idaas:idp:alibaba:dingtalk:pull: Inbound DingTalk.
    * 
-   * - Outbound DingTalk: urn:alibaba:idaas:idp:alibaba:dingtalk:push
+   * - urn:alibaba:idaas:idp:alibaba:dingtalk:push: Outbound DingTalk.
    * 
-   * - Inbound WeCom: urn:alibaba:idaas:idp:tencent:wecom:pull
+   * - urn:alibaba:idaas:idp:tencent:wecom:pull: Inbound WeCom.
    * 
-   * - Inbound Lark: urn:alibaba:idaas:idp:bytedance:lark:pull
+   * - urn:alibaba:idaas:idp:bytedance:lark:pull: Inbound Lark.
    * 
-   * - Inbound AD: urn:alibaba:idaas:idp:microsoft:ad:pull
+   * - urn:alibaba:idaas:idp:microsoft:ad:pull: Inbound Active Directory.
    * 
-   * - Inbound LDAP: urn:alibaba:idaas:idp:unknown:ldap:pull
+   * - urn:alibaba:idaas:idp:unknown:ldap:pull: Inbound LDAP.
    * 
-   * - Standard OIDC: urn:alibaba:idaas:idp:standard:oidc
+   * - urn:alibaba:idaas:idp:standard:oidc: Standard OIDC.
    * 
-   * - SASE Customized OIDC: urn:alibaba:idaas:idp:alibaba:sase
+   * - urn:alibaba:idaas:idp:alibaba:sase: SASE custom OIDC.
    * 
    * @example
    * urn:alibaba:idaas:idp:bytedance:lark:pull
@@ -130,11 +129,11 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   identityProviderType?: string;
   /**
    * @remarks
-   * The incremental callback status, indicating whether incremental callback data from the IdP is processed. Valid values:
+   * The incremental callback status, which specifies whether to process incremental callback data from the IdP. Valid values:
    * 
-   * - Disabled: disabled
+   * - disabled: Disabled.
    * 
-   * - Enabled: enabled
+   * - enabled: Enabled.
    * 
    * @example
    * enabled
@@ -142,7 +141,7 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   incrementalCallbackStatus?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * idaas_pbf4dth34l2qb7mydpntXXX
@@ -150,7 +149,7 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   instanceId?: string;
   /**
    * @remarks
-   * The last status check result. Before synchronization, a sync task can only be triggered when the identity provider status check result is success.
+   * The result of the last status check. A synchronization task can be triggered only when the identity provider status check result is success before synchronization.
    * 
    * @example
    * success
@@ -174,7 +173,7 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   logoUrl?: string;
   /**
    * @remarks
-   * The periodic sync status, indicating whether the data differences between EIAM and the identity provider are periodically checked.
+   * The periodic verification status, which specifies whether to periodically verify data differences between EIAM and the identity provider.
    * 
    * @example
    * disabled
@@ -182,11 +181,11 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   periodicSyncStatus?: string;
   /**
    * @remarks
-   * Whether the inbound sync feature is supported. Valid values:
+   * Specifies whether the inbound synchronization feature is supported. Valid values:
    * 
-   * - Disabled: disabled
+   * - disabled: Disabled.
    * 
-   * - Enabled: enabled
+   * - enabled: Enabled.
    * 
    * @example
    * disabled
@@ -194,7 +193,7 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   udPullStatus?: string;
   /**
    * @remarks
-   * The target node for synchronization.
+   * The synchronization target node.
    * 
    * @example
    * ou_2buqmxsa3ltyqkjgpwfijurXXX
@@ -202,11 +201,11 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   udPullTargetScope?: string;
   /**
    * @remarks
-   * Whether the outbound sync feature is enabled. Valid values:
+   * Specifies whether the outbound synchronization capability is enabled. Valid values:
    * 
-   * - Disabled: disabled
+   * - disabled: Disabled.
    * 
-   * - Enabled: enabled
+   * - enabled: Enabled.
    * 
    * @example
    * disabled
@@ -214,7 +213,7 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
   udPushStatus?: string;
   /**
    * @remarks
-   * The update time, in Unix timestamp format, measured in milliseconds.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1712561597000
@@ -282,12 +281,12 @@ export class ListIdentityProvidersResponseBodyIdentityProviders extends $dara.Mo
 export class ListIdentityProvidersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of identity provider information.
+   * The list of identity providers.
    */
   identityProviders?: ListIdentityProvidersResponseBodyIdentityProviders[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
@@ -295,7 +294,7 @@ export class ListIdentityProvidersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of entries.
+   * The total number of entries.
    * 
    * @example
    * 100

@@ -8,7 +8,7 @@ export class UpdateInstanceDescriptionRequest extends $dara.Model {
    * The new description of the instance.
    * 
    * @example
-   * For production use.
+   * 生产环境使用。
    */
   description?: string;
   /**
@@ -18,7 +18,7 @@ export class UpdateInstanceDescriptionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * idaas_ue2jvisn35ea5lmthk267xxxxx
+   * eiam-111ccc1111
    */
   instanceId?: string;
   static names(): { [key: string]: string } {

@@ -30,7 +30,7 @@ export class BindUserAuthnSourceMappingRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * xxxxxx
+   * user_123131xxasasa
    */
   userExternalId?: string;
   /**

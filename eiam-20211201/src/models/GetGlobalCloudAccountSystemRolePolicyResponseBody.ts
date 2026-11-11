@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetGlobalCloudAccountSystemRolePolicyResponseBody extends $dara.Model {
   /**
    * @remarks
+   * The access policy document for the global cloud account system role (JSON character string).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,7 +15,7 @@ export class GetGlobalCloudAccountSystemRolePolicyResponseBody extends $dara.Mod
   policyDocument?: string;
   /**
    * @remarks
-   * 本次请求的唯一标识。
+   * The unique identifier of the request.
    * 
    * This parameter is required.
    * 

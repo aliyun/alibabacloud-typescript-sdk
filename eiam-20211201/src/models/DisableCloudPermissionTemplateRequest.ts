@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DisableCloudPermissionTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The cloud account ID.
+   * The ID of the cloud account.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DisableCloudPermissionTemplateRequest extends $dara.Model {
   cloudAccountId?: string;
   /**
    * @remarks
-   * The permission template ID.
+   * The ID of the permission template.
    * 
    * This parameter is required.
    * 

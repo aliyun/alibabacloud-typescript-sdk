@@ -76,7 +76,7 @@ export class ListCloudPermissionTemplatesResponseBodyCloudPermissionTemplatesClo
    * The name of the creator.
    * 
    * @example
-   * Zhang San
+   * John Doe
    */
   creatorName?: string;
   /**
@@ -126,7 +126,7 @@ export class ListCloudPermissionTemplatesResponseBodyCloudPermissionTemplatesClo
    * The error message returned when initialization fails.
    * 
    * @example
-   * Permission template initialization failed. Try again later
+   * Failed to initialize the permission template. Try again later
    */
   errorMessage?: string;
   /**
@@ -175,7 +175,7 @@ export class ListCloudPermissionTemplatesResponseBodyCloudPermissionTemplates ex
   applicableScope?: ListCloudPermissionTemplatesResponseBodyCloudPermissionTemplatesApplicableScope;
   /**
    * @remarks
-   * The ID of the cloud account to which the template belongs.
+   * The ID of the cloud account to which the resource belongs.
    * 
    * @example
    * ca_01kmegjc11qa1txxxxx
@@ -377,7 +377,7 @@ export class ListCloudPermissionTemplatesResponseBody extends $dara.Model {
   cloudPermissionTemplates?: ListCloudPermissionTemplatesResponseBodyCloudPermissionTemplates[];
   /**
    * @remarks
-   * The maximum number of items per page for a paged query.
+   * The maximum number of entries per page in a paging query.
    * 
    * @example
    * 20
@@ -385,7 +385,7 @@ export class ListCloudPermissionTemplatesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned by the current call for the next query.
+   * The pagination token returned by the current call for subsequent queries.
    * 
    * @example
    * NTxxxexample
@@ -401,7 +401,7 @@ export class ListCloudPermissionTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of items.
+   * The total number of entries.
    * 
    * @example
    * 100

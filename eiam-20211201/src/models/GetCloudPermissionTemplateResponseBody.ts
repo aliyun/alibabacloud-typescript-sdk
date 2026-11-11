@@ -5,17 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class GetCloudPermissionTemplateResponseBodyCloudPermissionTemplateApplicableScope extends $dara.Model {
   /**
    * @remarks
-   * The list of specified group IDs. This parameter has a value only when ScopeType is set to custom.
+   * The list of specified group IDs. This field is returned only when ScopeType is set to custom.
    */
   groupIds?: string[];
   /**
    * @remarks
-   * The list of specified organizational unit IDs. This parameter has a value only when ScopeType is set to custom.
+   * The list of specified organizational unit IDs. This field is returned only when ScopeType is set to custom.
    */
   organizationalUnitIds?: string[];
   /**
    * @remarks
-   * The type of the applicable scope. Valid values: global and custom.
+   * The type of the applicable scope. Valid values:
+   * - global: Global.
+   * - custom: Custom.
    * 
    * @example
    * global
@@ -23,7 +25,7 @@ export class GetCloudPermissionTemplateResponseBodyCloudPermissionTemplateApplic
   scopeType?: string;
   /**
    * @remarks
-   * The list of specified user IDs. This parameter has a value only when ScopeType is set to custom.
+   * The list of specified user IDs. This field is returned only when ScopeType is set to custom.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {
@@ -81,7 +83,9 @@ export class GetCloudPermissionTemplateResponseBodyCloudPermissionTemplateCloudP
   creatorName?: string;
   /**
    * @remarks
-   * The type of the creator. Valid values: idaas_admin and idaas_user.
+   * The type of the creator. Valid values:
+   * - idaas_admin: IDaaS administrator.
+   * - idaas_user: IDaaS user.
    * 
    * @example
    * idaas_user
@@ -115,7 +119,7 @@ export class GetCloudPermissionTemplateResponseBodyCloudPermissionTemplateCloudP
 export class GetCloudPermissionTemplateResponseBodyCloudPermissionTemplateCloudPermissionTemplateInitResult extends $dara.Model {
   /**
    * @remarks
-   * The error code returned when initialization fails.
+   * The error code returned when the initialization fails.
    * 
    * @example
    * CloudPermissionTemplate.AsyncInitError
@@ -123,7 +127,7 @@ export class GetCloudPermissionTemplateResponseBodyCloudPermissionTemplateCloudP
   errorCode?: string;
   /**
    * @remarks
-   * The error message returned when initialization fails.
+   * The error message returned when the initialization fails.
    * 
    * @example
    * server error
@@ -131,7 +135,9 @@ export class GetCloudPermissionTemplateResponseBodyCloudPermissionTemplateCloudP
   errorMessage?: string;
   /**
    * @remarks
-   * The initialization result. Valid values: success and failed.
+   * The initialization result. Valid values:
+   * - success: The initialization succeeded.
+   * - failed: The initialization failed.
    * 
    * @example
    * success
@@ -165,7 +171,7 @@ export class GetCloudPermissionTemplateResponseBodyCloudPermissionTemplateCloudP
 export class GetCloudPermissionTemplateResponseBodyCloudPermissionTemplate extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether users are allowed to request the permission.
+   * Specifies whether users are allowed to apply for the permission template.
    * 
    * @example
    * true
@@ -173,12 +179,12 @@ export class GetCloudPermissionTemplateResponseBodyCloudPermissionTemplate exten
   allowRequest?: boolean;
   /**
    * @remarks
-   * The applicable scope of the permission template.
+   * The applicable scope for applying for the permission template.
    */
   applicableScope?: GetCloudPermissionTemplateResponseBodyCloudPermissionTemplateApplicableScope;
   /**
    * @remarks
-   * The ID of the cloud account to which the template belongs.
+   * The ID of the cloud account to which the permission template belongs.
    * 
    * @example
    * ca_01kq1us6frlbo3rr8m216vj3bkak2
@@ -186,7 +192,7 @@ export class GetCloudPermissionTemplateResponseBodyCloudPermissionTemplate exten
   cloudAccountId?: string;
   /**
    * @remarks
-   * The creator information of the permission template.
+   * The information about the creator of the permission template.
    */
   cloudPermissionTemplateCreator?: GetCloudPermissionTemplateResponseBodyCloudPermissionTemplateCloudPermissionTemplateCreator;
   /**
@@ -199,7 +205,7 @@ export class GetCloudPermissionTemplateResponseBodyCloudPermissionTemplate exten
   cloudPermissionTemplateId?: string;
   /**
    * @remarks
-   * The initialization result. This parameter is returned only when the status is init_failed.
+   * The initialization result. This field is returned only when the status is init_failed.
    */
   cloudPermissionTemplateInitResult?: GetCloudPermissionTemplateResponseBodyCloudPermissionTemplateCloudPermissionTemplateInitResult;
   /**
@@ -212,7 +218,7 @@ export class GetCloudPermissionTemplateResponseBodyCloudPermissionTemplate exten
   cloudPermissionTemplateName?: string;
   /**
    * @remarks
-   * The ID of the application to which the exclusive template belongs. This parameter is empty for shared templates.
+   * The ID of the application that owns the exclusive template. This field is empty for shared templates.
    * 
    * @example
    * user_01kexamplexxxx
@@ -220,7 +226,10 @@ export class GetCloudPermissionTemplateResponseBodyCloudPermissionTemplate exten
   cloudPermissionTemplateOwnerId?: string;
   /**
    * @remarks
-   * The owner type of the exclusive template. Valid values: application (M2M applications) and user (human users). This parameter is empty for shared templates.
+   * The owner type of the exclusive template. Valid values:
+   * - application: M2M application.
+   * - user: Human user.
+   * This field is empty for shared templates.
    * 
    * @example
    * user
@@ -228,7 +237,9 @@ export class GetCloudPermissionTemplateResponseBodyCloudPermissionTemplate exten
   cloudPermissionTemplateOwnerType?: string;
   /**
    * @remarks
-   * The sharing mode of the permission template. Valid values: shared and exclusive.
+   * The sharing mode of the permission template. Valid values:
+   * - shared: Shared.
+   * - exclusive: Exclusive.
    * 
    * @example
    * shared
@@ -236,7 +247,9 @@ export class GetCloudPermissionTemplateResponseBodyCloudPermissionTemplate exten
   cloudPermissionTemplateSharingMode?: string;
   /**
    * @remarks
-   * The usage type of the permission template. Valid values: user (privilege escalation for human users) and application (privilege escalation for M2M applications).
+   * The usage type of the permission template. Valid values:
+   * - user: Privilege escalation for human users.
+   * - application: Privilege escalation for machine-to-machine (M2M) applications.
    * 
    * @example
    * user
@@ -244,7 +257,7 @@ export class GetCloudPermissionTemplateResponseBodyCloudPermissionTemplate exten
   cloudPermissionTemplateUsageType?: string;
   /**
    * @remarks
-   * The creation time. The value is a UNIX timestamp in milliseconds.
+   * The time when the permission template was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1776239357000
@@ -284,7 +297,7 @@ export class GetCloudPermissionTemplateResponseBodyCloudPermissionTemplate exten
   permissionEntityId?: string;
   /**
    * @remarks
-   * The permission entity type. Fixed value: cloud_account_role.
+   * The type of the permission entity. Fixed value: cloud_account_role.
    * 
    * @example
    * cloud_account_role
@@ -292,7 +305,11 @@ export class GetCloudPermissionTemplateResponseBodyCloudPermissionTemplate exten
   permissionEntityType?: string;
   /**
    * @remarks
-   * The status of the permission template. Valid values: initializing, init_failed, enabled, and disabled.
+   * The status of the permission template. Valid values:
+   * - initializing: The template is being initialized.
+   * - init_failed: The template initialization failed.
+   * - enabled: The template is enabled.
+   * - disabled: The template is disabled.
    * 
    * @example
    * enabled
@@ -300,7 +317,7 @@ export class GetCloudPermissionTemplateResponseBodyCloudPermissionTemplate exten
   status?: string;
   /**
    * @remarks
-   * The last update time. The value is a UNIX timestamp in milliseconds.
+   * The time when the permission template was last updated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1776239357000
@@ -380,7 +397,7 @@ export class GetCloudPermissionTemplateResponseBody extends $dara.Model {
   cloudPermissionTemplate?: GetCloudPermissionTemplateResponseBodyCloudPermissionTemplate;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

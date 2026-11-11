@@ -308,7 +308,7 @@ export class UpdateConditionalAccessPolicyRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * My conditional access policy
+   * 我的条件访问策略
    */
   conditionalAccessPolicyName?: string;
   /**

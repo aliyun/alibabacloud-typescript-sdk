@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIdentityProviderAdvancedConfigurationResponseBodyAdvancedConfigurationDingtalkAdvancedConfig extends $dara.Model {
   /**
    * @remarks
-   * AppKey of the DingTalk first-party application
+   * The AppKey of the DingTalk first-party application.
    * 
    * @example
    * ding5xo9rg0csw3f6xxx
@@ -13,10 +13,10 @@ export class GetIdentityProviderAdvancedConfigurationResponseBodyAdvancedConfigu
   appKey?: string;
   /**
    * @remarks
-   * App secret of the DingTalk first-party application
+   * The AppSecret of the DingTalk first-party application.
    * 
    * @example
-   * ***
+   * REOQ6Cl55kriOd8NOBeqWYLKpHR4p6fdZxxxx
    */
   appSecret?: string;
   static names(): { [key: string]: string } {
@@ -45,12 +45,12 @@ export class GetIdentityProviderAdvancedConfigurationResponseBodyAdvancedConfigu
 export class GetIdentityProviderAdvancedConfigurationResponseBodyAdvancedConfiguration extends $dara.Model {
   /**
    * @remarks
-   * DingTalk advanced configuration
+   * The DingTalk advanced configuration.
    */
   dingtalkAdvancedConfig?: GetIdentityProviderAdvancedConfigurationResponseBodyAdvancedConfigurationDingtalkAdvancedConfig;
   /**
    * @remarks
-   * Identity provider ID
+   * The identity provider ID.
    * 
    * @example
    * idp_na2rzpyc67zr7ixdfy35zgrxxx
@@ -58,7 +58,7 @@ export class GetIdentityProviderAdvancedConfigurationResponseBodyAdvancedConfigu
   identityProviderId?: string;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * @example
    * idaas_kpvmhktvun6u66dgpjh3l4wxxx
@@ -95,12 +95,12 @@ export class GetIdentityProviderAdvancedConfigurationResponseBodyAdvancedConfigu
 export class GetIdentityProviderAdvancedConfigurationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Advanced configuration information
+   * The advanced configuration information.
    */
   advancedConfiguration?: GetIdentityProviderAdvancedConfigurationResponseBodyAdvancedConfiguration;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

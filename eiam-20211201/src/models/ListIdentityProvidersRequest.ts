@@ -13,7 +13,7 @@ export class ListIdentityProvidersRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListIdentityProvidersRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -31,7 +31,7 @@ export class ListIdentityProvidersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 20

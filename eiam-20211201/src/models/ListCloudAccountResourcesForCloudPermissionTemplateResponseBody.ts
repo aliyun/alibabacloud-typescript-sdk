@@ -1,0 +1,264 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class ListCloudAccountResourcesForCloudPermissionTemplateResponseBodyCloudAccountResourcesCloudAccountResourceMeta extends $dara.Model {
+  /**
+   * @remarks
+   * The JSON document of the Tencent Cloud CAM policy. This field is returned only for Tencent Cloud accounts.
+   * 
+   * @example
+   * {"Version":"1","Statement":[]}
+   */
+  camPolicyDocument?: string;
+  /**
+   * @remarks
+   * The type of the Tencent Cloud CAM policy. Valid values: qcs, local. This field is returned only for Tencent Cloud accounts.
+   * 
+   * @example
+   * qcs
+   */
+  camPolicyType?: string;
+  /**
+   * @remarks
+   * The JSON document of the AWS IAM policy. This field is returned only for AWS cloud accounts.
+   * 
+   * @example
+   * {"Version":"2012-10-17","Statement":[]}
+   */
+  iamPolicyDocument?: string;
+  /**
+   * @remarks
+   * The type of the AWS IAM policy. Valid values: aws, local. This field is returned only for AWS cloud accounts.
+   * 
+   * @example
+   * aws
+   */
+  iamPolicyType?: string;
+  /**
+   * @remarks
+   * The JSON document of the RAM policy. This field is returned only by the get operation.
+   * 
+   * @example
+   * {"Version":"1","Statement":[]}
+   */
+  ramPolicyDocument?: string;
+  /**
+   * @remarks
+   * The type of the RAM policy. Valid values: system, custom.
+   * 
+   * @example
+   * custom
+   */
+  ramPolicyType?: string;
+  static names(): { [key: string]: string } {
+    return {
+      camPolicyDocument: 'CamPolicyDocument',
+      camPolicyType: 'CamPolicyType',
+      iamPolicyDocument: 'IamPolicyDocument',
+      iamPolicyType: 'IamPolicyType',
+      ramPolicyDocument: 'RamPolicyDocument',
+      ramPolicyType: 'RamPolicyType',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      camPolicyDocument: 'string',
+      camPolicyType: 'string',
+      iamPolicyDocument: 'string',
+      iamPolicyType: 'string',
+      ramPolicyDocument: 'string',
+      ramPolicyType: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudAccountResourcesForCloudPermissionTemplateResponseBodyCloudAccountResources extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the cloud account to which the resource belongs.
+   * 
+   * @example
+   * 123456789012xxxx
+   */
+  cloudAccountId?: string;
+  /**
+   * @remarks
+   * The resource entity identifier, which is a unique identifier on the remote end.
+   * 
+   * @example
+   * System:AliyunIntelligentcockpitReadOnlyAccessexample
+   */
+  cloudAccountResourceEntityId?: string;
+  /**
+   * @remarks
+   * The resource entity type. Valid value: ram_role.
+   * 
+   * @example
+   * ram_role
+   */
+  cloudAccountResourceEntityType?: string;
+  /**
+   * @remarks
+   * The identifier of the cloud account resource.
+   * 
+   * @example
+   * car_xxxxxxxxxxxxxxxxxxxxxxxxxxxx
+   */
+  cloudAccountResourceId?: string;
+  /**
+   * @remarks
+   * The metadata of the resource.
+   */
+  cloudAccountResourceMeta?: ListCloudAccountResourcesForCloudPermissionTemplateResponseBodyCloudAccountResourcesCloudAccountResourceMeta;
+  /**
+   * @remarks
+   * The name of the resource.
+   * 
+   * @example
+   * eiam-sso-role
+   */
+  cloudAccountResourceName?: string;
+  /**
+   * @remarks
+   * The time when the resource was created. The value is a UNIX timestamp in milliseconds.
+   * 
+   * @example
+   * 1649830225000
+   */
+  createTime?: number;
+  /**
+   * @remarks
+   * The description.
+   * 
+   * @example
+   * Cloud account resource used for SSO
+   */
+  description?: string;
+  /**
+   * @remarks
+   * The time when the resource was last updated. The value is a UNIX timestamp in milliseconds.
+   * 
+   * @example
+   * 1649916625000
+   */
+  updateTime?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cloudAccountId: 'CloudAccountId',
+      cloudAccountResourceEntityId: 'CloudAccountResourceEntityId',
+      cloudAccountResourceEntityType: 'CloudAccountResourceEntityType',
+      cloudAccountResourceId: 'CloudAccountResourceId',
+      cloudAccountResourceMeta: 'CloudAccountResourceMeta',
+      cloudAccountResourceName: 'CloudAccountResourceName',
+      createTime: 'CreateTime',
+      description: 'Description',
+      updateTime: 'UpdateTime',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cloudAccountId: 'string',
+      cloudAccountResourceEntityId: 'string',
+      cloudAccountResourceEntityType: 'string',
+      cloudAccountResourceId: 'string',
+      cloudAccountResourceMeta: ListCloudAccountResourcesForCloudPermissionTemplateResponseBodyCloudAccountResourcesCloudAccountResourceMeta,
+      cloudAccountResourceName: 'string',
+      createTime: 'number',
+      description: 'string',
+      updateTime: 'number',
+    };
+  }
+
+  validate() {
+    if(this.cloudAccountResourceMeta && typeof (this.cloudAccountResourceMeta as any).validate === 'function') {
+      (this.cloudAccountResourceMeta as any).validate();
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListCloudAccountResourcesForCloudPermissionTemplateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The list of cloud account resources.
+   */
+  cloudAccountResources?: ListCloudAccountResourcesForCloudPermissionTemplateResponseBodyCloudAccountResources[];
+  /**
+   * @remarks
+   * The number of entries returned on each page in a paging query.
+   * 
+   * @example
+   * 20
+   */
+  maxResults?: number;
+  /**
+   * @remarks
+   * The query token returned by the current call, which is used for the next paginated query.
+   * 
+   * @example
+   * NTxxxexample
+   */
+  nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 0441BD79-92F3-53AA-8657-F8CE4A2B912A
+   */
+  requestId?: string;
+  /**
+   * @remarks
+   * The total number of entries in the list.
+   * 
+   * @example
+   * 100
+   */
+  totalCount?: number;
+  static names(): { [key: string]: string } {
+    return {
+      cloudAccountResources: 'CloudAccountResources',
+      maxResults: 'MaxResults',
+      nextToken: 'NextToken',
+      requestId: 'RequestId',
+      totalCount: 'TotalCount',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      cloudAccountResources: { 'type': 'array', 'itemType': ListCloudAccountResourcesForCloudPermissionTemplateResponseBodyCloudAccountResources },
+      maxResults: 'number',
+      nextToken: 'string',
+      requestId: 'string',
+      totalCount: 'number',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.cloudAccountResources)) {
+      $dara.Model.validateArray(this.cloudAccountResources);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

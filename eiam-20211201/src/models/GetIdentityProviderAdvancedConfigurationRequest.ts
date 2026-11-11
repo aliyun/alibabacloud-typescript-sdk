@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIdentityProviderAdvancedConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * Identity provider ID
+   * The identity provider ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetIdentityProviderAdvancedConfigurationRequest extends $dara.Model
   identityProviderId?: string;
   /**
    * @remarks
-   * Instance ID
+   * The instance ID.
    * 
    * This parameter is required.
    * 

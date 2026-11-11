@@ -34,7 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activates privileged hosting for a cloud account.
+   * Activates privileged access hosting for a cloud account.
    * 
    * @param request - ActivateCloudAccountPrivilegeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -73,7 +73,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Activates privileged hosting for a cloud account.
+   * Activates privileged access hosting for a cloud account.
    * 
    * @param request - ActivateCloudAccountPrivilegeRequest
    * @returns ActivateCloudAccountPrivilegeResponse
@@ -920,7 +920,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds a third-party logon account.
+   * Associates a third-party logon account.
    * 
    * @param request - BindUserAuthnSourceMappingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -963,7 +963,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds a third-party logon account.
+   * Associates a third-party logon account.
    * 
    * @param request - BindUserAuthnSourceMappingRequest
    * @returns BindUserAuthnSourceMappingResponse
@@ -5368,7 +5368,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables cloud account privileges.
+   * Disables privileges for a cloud account.
    * 
    * @param request - DisableCloudAccountPrivilegeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5407,7 +5407,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables cloud account privileges.
+   * Disables privileges for a cloud account.
    * 
    * @param request - DisableCloudAccountPrivilegeRequest
    * @returns DisableCloudAccountPrivilegeResponse
@@ -8814,6 +8814,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a specified cloud account resource.
+   * 
+   * @param request - GetCloudAccountResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetCloudAccountResourceResponse
+   */
+  async getCloudAccountResourceWithOptions(request: $_model.GetCloudAccountResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetCloudAccountResourceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.cloudAccountResourceId)) {
+      query["CloudAccountResourceId"] = request.cloudAccountResourceId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetCloudAccountResource",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetCloudAccountResourceResponse>(await this.callApi(params, req, runtime), new $_model.GetCloudAccountResourceResponse({}));
+  }
+
+  /**
+   * Queries the details of a specified cloud account resource.
+   * 
+   * @param request - GetCloudAccountResourceRequest
+   * @returns GetCloudAccountResourceResponse
+   */
+  async getCloudAccountResource(request: $_model.GetCloudAccountResourceRequest): Promise<$_model.GetCloudAccountResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getCloudAccountResourceWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the resource information of a cloud role.
    * 
    * @param request - GetCloudAccountRoleRequest
@@ -9330,7 +9380,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询全局云账号系统角色权限模板
+   * Queries the permission template for the global cloud account system role.
    * 
    * @param request - GetGlobalCloudAccountSystemRolePolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9354,7 +9404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询全局云账号系统角色权限模板
+   * Queries the permission template for the global cloud account system role.
    * 
    * @param request - GetGlobalCloudAccountSystemRolePolicyRequest
    * @returns GetGlobalCloudAccountSystemRolePolicyResponse
@@ -9457,7 +9507,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves advanced configuration information.
+   * Retrieves the advanced configuration information.
    * 
    * @param request - GetIdentityProviderAdvancedConfigurationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9492,7 +9542,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves advanced configuration information.
+   * Retrieves the advanced configuration information.
    * 
    * @param request - GetIdentityProviderAdvancedConfigurationRequest
    * @returns GetIdentityProviderAdvancedConfigurationResponse
@@ -9954,6 +10004,52 @@ export default class Client extends OpenApi {
   async getInstanceTrialStatus(request: $_model.GetInstanceTrialStatusRequest): Promise<$_model.GetInstanceTrialStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getInstanceTrialStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries resource synchronization tasks.
+   * 
+   * @param request - GetInventorySynchronizationJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetInventorySynchronizationJobResponse
+   */
+  async getInventorySynchronizationJobWithOptions(request: $_model.GetInventorySynchronizationJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetInventorySynchronizationJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.inventorySynchronizationJobId)) {
+      query["InventorySynchronizationJobId"] = request.inventorySynchronizationJobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetInventorySynchronizationJob",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetInventorySynchronizationJobResponse>(await this.callApi(params, req, runtime), new $_model.GetInventorySynchronizationJobResponse({}));
+  }
+
+  /**
+   * Queries resource synchronization tasks.
+   * 
+   * @param request - GetInventorySynchronizationJobRequest
+   * @returns GetInventorySynchronizationJobResponse
+   */
+  async getInventorySynchronizationJob(request: $_model.GetInventorySynchronizationJobRequest): Promise<$_model.GetInventorySynchronizationJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getInventorySynchronizationJobWithOptions(request, runtime);
   }
 
   /**
@@ -11965,6 +12061,134 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Invokes ListCloudAccountResources to perform a paged query of cloud account resources by using paging.
+   * 
+   * @param request - ListCloudAccountResourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCloudAccountResourcesResponse
+   */
+  async listCloudAccountResourcesWithOptions(request: $_model.ListCloudAccountResourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCloudAccountResourcesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.cloudAccountResourceEntityType)) {
+      query["CloudAccountResourceEntityType"] = request.cloudAccountResourceEntityType;
+    }
+
+    if (!$dara.isNull(request.cloudAccountResourceNameContains)) {
+      query["CloudAccountResourceNameContains"] = request.cloudAccountResourceNameContains;
+    }
+
+    if (!$dara.isNull(request.cloudAccountResourceNamePrefix)) {
+      query["CloudAccountResourceNamePrefix"] = request.cloudAccountResourceNamePrefix;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCloudAccountResources",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCloudAccountResourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListCloudAccountResourcesResponse({}));
+  }
+
+  /**
+   * Invokes ListCloudAccountResources to perform a paged query of cloud account resources by using paging.
+   * 
+   * @param request - ListCloudAccountResourcesRequest
+   * @returns ListCloudAccountResourcesResponse
+   */
+  async listCloudAccountResources(request: $_model.ListCloudAccountResourcesRequest): Promise<$_model.ListCloudAccountResourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCloudAccountResourcesWithOptions(request, runtime);
+  }
+
+  /**
+   * Calls ListCloudAccountResourcesForCloudPermissionTemplate to perform a paging query for the list of cloud account resources associated with a specified cloud permission template.
+   * 
+   * @param request - ListCloudAccountResourcesForCloudPermissionTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCloudAccountResourcesForCloudPermissionTemplateResponse
+   */
+  async listCloudAccountResourcesForCloudPermissionTemplateWithOptions(request: $_model.ListCloudAccountResourcesForCloudPermissionTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCloudAccountResourcesForCloudPermissionTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cloudAccountId)) {
+      query["CloudAccountId"] = request.cloudAccountId;
+    }
+
+    if (!$dara.isNull(request.cloudAccountResourceEntityType)) {
+      query["CloudAccountResourceEntityType"] = request.cloudAccountResourceEntityType;
+    }
+
+    if (!$dara.isNull(request.cloudPermissionTemplateId)) {
+      query["CloudPermissionTemplateId"] = request.cloudPermissionTemplateId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCloudAccountResourcesForCloudPermissionTemplate",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCloudAccountResourcesForCloudPermissionTemplateResponse>(await this.callApi(params, req, runtime), new $_model.ListCloudAccountResourcesForCloudPermissionTemplateResponse({}));
+  }
+
+  /**
+   * Calls ListCloudAccountResourcesForCloudPermissionTemplate to perform a paging query for the list of cloud account resources associated with a specified cloud permission template.
+   * 
+   * @param request - ListCloudAccountResourcesForCloudPermissionTemplateRequest
+   * @returns ListCloudAccountResourcesForCloudPermissionTemplateResponse
+   */
+  async listCloudAccountResourcesForCloudPermissionTemplate(request: $_model.ListCloudAccountResourcesForCloudPermissionTemplateRequest): Promise<$_model.ListCloudAccountResourcesForCloudPermissionTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCloudAccountResourcesForCloudPermissionTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Queries information about one or more cloud roles by using paging.
    * 
    * @param request - ListCloudAccountRolesRequest
@@ -12077,7 +12301,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of one or more permission templates by using a paging query.
+   * Queries the information of one or more permission templates by using paging.
    * 
    * @param request - ListCloudPermissionTemplatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12136,7 +12360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information of one or more permission templates by using a paging query.
+   * Queries the information of one or more permission templates by using paging.
    * 
    * @param request - ListCloudPermissionTemplatesRequest
    * @returns ListCloudPermissionTemplatesResponse
@@ -13186,7 +13410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of identity providers.
+   * Queries the list of identity providers.
    * 
    * @param request - ListIdentityProvidersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13229,7 +13453,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of identity providers.
+   * Queries the list of identity providers.
    * 
    * @param request - ListIdentityProvidersRequest
    * @returns ListIdentityProvidersResponse
@@ -13361,6 +13585,84 @@ export default class Client extends OpenApi {
   async listInstances(request: $_model.ListInstancesRequest): Promise<$_model.ListInstancesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries resource synchronization tasks.
+   * 
+   * @remarks
+   * You can use one of the following two methods to view the returned data:
+   * - Method 1: When paged query the first page, you only need to set MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response, and set MaxResults to limit the number of returned entries. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
+   * - Method 2: Set PageSize to specify the number of entries to return per page, and set PageNumber to specify the page number.
+   * You can use only one of the two methods. Method 1 is recommended when a large number of entries are returned. If you set the MaxResults or NextToken parameter, the PageSize and PageNumber request parameters become invalid.
+   * 
+   * @param request - ListInventorySynchronizationJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListInventorySynchronizationJobsResponse
+   */
+  async listInventorySynchronizationJobsWithOptions(request: $_model.ListInventorySynchronizationJobsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListInventorySynchronizationJobsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.inventorySourceIds)) {
+      query["InventorySourceIds"] = request.inventorySourceIds;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListInventorySynchronizationJobs",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListInventorySynchronizationJobsResponse>(await this.callApi(params, req, runtime), new $_model.ListInventorySynchronizationJobsResponse({}));
+  }
+
+  /**
+   * Queries resource synchronization tasks.
+   * 
+   * @remarks
+   * You can use one of the following two methods to view the returned data:
+   * - Method 1: When paged query the first page, you only need to set MaxResults to limit the number of returned entries. The NextToken value in the response is used as the token to query the next page. When paged query subsequent pages, set the NextToken parameter to the NextToken value obtained from the previous response, and set MaxResults to limit the number of returned entries. If no more pages exist, NextToken is not returned. The maximum value of MaxResults is 100.
+   * - Method 2: Set PageSize to specify the number of entries to return per page, and set PageNumber to specify the page number.
+   * You can use only one of the two methods. Method 1 is recommended when a large number of entries are returned. If you set the MaxResults or NextToken parameter, the PageSize and PageNumber request parameters become invalid.
+   * 
+   * @param request - ListInventorySynchronizationJobsRequest
+   * @returns ListInventorySynchronizationJobsResponse
+   */
+  async listInventorySynchronizationJobs(request: $_model.ListInventorySynchronizationJobsRequest): Promise<$_model.ListInventorySynchronizationJobsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listInventorySynchronizationJobsWithOptions(request, runtime);
   }
 
   /**
@@ -15632,6 +15934,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Runs a resource synchronization task.
+   * 
+   * @param request - RunInventorySynchronizationJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunInventorySynchronizationJobResponse
+   */
+  async runInventorySynchronizationJobWithOptions(request: $_model.RunInventorySynchronizationJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunInventorySynchronizationJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.inventorySourceId)) {
+      query["InventorySourceId"] = request.inventorySourceId;
+    }
+
+    if (!$dara.isNull(request.inventoryTypes)) {
+      query["InventoryTypes"] = request.inventoryTypes;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunInventorySynchronizationJob",
+      version: "2021-12-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunInventorySynchronizationJobResponse>(await this.callApi(params, req, runtime), new $_model.RunInventorySynchronizationJobResponse({}));
+  }
+
+  /**
+   * Runs a resource synchronization task.
+   * 
+   * @param request - RunInventorySynchronizationJobRequest
+   * @returns RunInventorySynchronizationJobResponse
+   */
+  async runInventorySynchronizationJob(request: $_model.RunInventorySynchronizationJobRequest): Promise<$_model.RunInventorySynchronizationJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runInventorySynchronizationJobWithOptions(request, runtime);
+  }
+
+  /**
    * Runs a synchronization task. This creates a new synchronization task and immediately executes it.
    * 
    * @param request - RunSynchronizationJobRequest
@@ -16940,7 +17292,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates a third-party logon account.
+   * Dissociates a third-party logon account.
    * 
    * @param request - UnbindUserAuthnSourceMappingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16983,7 +17335,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates a third-party logon account.
+   * Dissociates a third-party logon account.
    * 
    * @param request - UnbindUserAuthnSourceMappingRequest
    * @returns UnbindUserAuthnSourceMappingResponse

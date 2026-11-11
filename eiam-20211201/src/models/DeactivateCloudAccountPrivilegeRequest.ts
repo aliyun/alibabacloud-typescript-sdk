@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeactivateCloudAccountPrivilegeRequest extends $dara.Model {
   /**
    * @remarks
-   * Ensures the idempotence of the request. You can generate a parameter value on your client to ensure that the value is unique across different requests. The ClientToken parameter supports only ASCII characters and can be up to 64 characters in length.
+   * Ensures the idempotence of the request. You can generate a parameter value on your client to ensure that the value is unique across different requests. ClientToken supports only ASCII characters and can be up to 64 characters in length.
    * 
    * @example
    * client-token-example
@@ -13,7 +13,7 @@ export class DeactivateCloudAccountPrivilegeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The cloud account ID.
+   * The ID of the cloud account.
    * 
    * This parameter is required.
    * 

@@ -112,12 +112,12 @@ export class CreateCloudPermissionTemplateRequest extends $dara.Model {
   allowRequest?: boolean;
   /**
    * @remarks
-   * The applicable scope of the permission template, including the scope type and specified users, groups, or organizational units.
+   * The applicable scope of the permission template, including the scope type and the specified users, groups, or organizational units.
    */
   applicableScope?: CreateCloudPermissionTemplateRequestApplicableScope;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * Ensures the idempotence of the request. You can generate the value from your client to ensure that the value is unique across different requests. The client token supports only ASCII characters and can be up to 64 characters in length.
    * 
    * @example
    * client-token-example
@@ -150,10 +150,7 @@ export class CreateCloudPermissionTemplateRequest extends $dara.Model {
   cloudPermissionTemplateName?: string;
   /**
    * @remarks
-   * The usage type of the permission template. Valid values:
-   * - user: Privilege escalation for human users.
-   * - application: Privilege escalation for M2M applications.
-   * Default value: user.
+   * The usage type of the permission template. Valid values: user (privilege escalation for human users) and application (privilege escalation for M2M applications). Default value: user.
    * 
    * @example
    * user

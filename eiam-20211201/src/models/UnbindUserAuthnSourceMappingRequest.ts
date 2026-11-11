@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UnbindUserAuthnSourceMappingRequest extends $dara.Model {
   /**
    * @remarks
-   * The source IdP ID.
+   * The identity provider ID.
    * 
    * This parameter is required.
    * 
@@ -30,7 +30,7 @@ export class UnbindUserAuthnSourceMappingRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * xxxxxx
+   * user_123131xxasasa
    */
   userExternalId?: string;
   /**

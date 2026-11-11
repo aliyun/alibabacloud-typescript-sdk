@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloudPermissionTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud account.
+   * The cloud account ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListCloudPermissionTemplatesRequest extends $dara.Model {
   cloudAccountId?: string;
   /**
    * @remarks
-   * Filters the results by the prefix of the template name.
+   * Filters the results by template name prefix.
    * 
    * @example
    * AdminAccess
@@ -23,7 +23,7 @@ export class ListCloudPermissionTemplatesRequest extends $dara.Model {
   cloudPermissionTemplateNamePrefix?: string;
   /**
    * @remarks
-   * Filters the results by permission template sharing mode. Valid values: shared and exclusive. If you do not specify this parameter, no filtering is applied.
+   * Filters the results by permission template sharing mode. Valid values: shared and exclusive. If this parameter is not specified, no filtering is applied.
    * 
    * @example
    * shared
@@ -31,7 +31,7 @@ export class ListCloudPermissionTemplatesRequest extends $dara.Model {
   cloudPermissionTemplateSharingMode?: string;
   /**
    * @remarks
-   * Filters the results by permission template usage type. Valid values: user (privilege escalation for human users) and application (privilege escalation for machine-to-machine applications).
+   * Filters the results by permission template usage type. Valid values: user (privilege escalation for human users) and application (privilege escalation for M2M applications).
    * 
    * @example
    * user
@@ -57,7 +57,7 @@ export class ListCloudPermissionTemplatesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return per page in a paging query. Default value: 20. Maximum value: 100.
+   * The number of entries per page for paging. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 20
@@ -65,7 +65,7 @@ export class ListCloudPermissionTemplatesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set the value to the NextToken value returned from the previous call.
+   * The pagination token. Set this parameter to the NextToken value returned from the previous API call.
    * 
    * @example
    * NTxxxxxexample

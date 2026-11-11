@@ -169,7 +169,7 @@ export class GetUserResponseBodyUser extends $dara.Model {
    * The description of the account.
    * 
    * @example
-   * Test account
+   * 测试账户
    */
   description?: string;
   /**
