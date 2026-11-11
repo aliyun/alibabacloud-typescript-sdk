@@ -13,7 +13,7 @@ export class CreateSecurityPolicyResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * D7A8875F-373A-5F48-8484-25B07A61F2AF
@@ -24,7 +24,7 @@ export class CreateSecurityPolicyResponseBody extends $dara.Model {
    * The ID of the TLS security policy.
    * 
    * @example
-   * tls-bp14bb1e7dll4f****
+   * sp-wuytp9pa******
    */
   securityPolicyId?: string;
   static names(): { [key: string]: string } {

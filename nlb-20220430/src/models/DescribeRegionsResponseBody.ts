@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   /**
    * @remarks
-   * The name of the region.
+   * The region name.
    * 
    * @example
-   * us-east-1
+   * China (Hangzhou)
    */
   localName?: string;
   /**
    * @remarks
-   * The endpoint of the region service.
+   * The endpoint of the region.
    * 
    * @example
    * nlb.cn-hangzhou.aliyuncs.com
@@ -21,7 +21,7 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
   regionEndpoint?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -55,12 +55,12 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of regions.
+   * The list of regions.
    */
   regions?: DescribeRegionsResponseBodyRegions[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CEF72CEB-54B6-4AE8-B225-F876FF7BA984

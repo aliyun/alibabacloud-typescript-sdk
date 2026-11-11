@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateListenerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The asynchronous task ID.
+   * The ID of the asynchronous task.
    * 
    * @example
    * 72dcd26b-f12d-4c27-b3af-18f6aed5****
@@ -13,7 +13,7 @@ export class CreateListenerResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The listener ID.
+   * The ID of the listener.
    * 
    * @example
    * lsn-bp1bpn0kn908w4nbw****@80
@@ -21,7 +21,7 @@ export class CreateListenerResponseBody extends $dara.Model {
   listenerId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * CEF72CEB-54B6-4AE8-B225-F876FF7BA984

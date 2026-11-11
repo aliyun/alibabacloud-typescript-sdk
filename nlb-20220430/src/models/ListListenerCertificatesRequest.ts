@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListListenerCertificatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the certificate. Valid values:
+   * The certificate type. Valid values:
    * 
-   * *   **Ca**: CA certificate.
-   * *   **Server**: server certificate
+   * - **Ca**: CA certificate.
+   * - **Server**: Server certificate.
    * 
    * @example
    * Ca
@@ -16,9 +16,9 @@ export class ListListenerCertificatesRequest extends $dara.Model {
   certType?: string;
   /**
    * @remarks
-   * The server certificate. Only one server certificate is supported.
+   * The server certificates. You can add only one server certificate.
    * 
-   * >  This parameter takes effect only for TCP/SSL listeners.
+   * > This parameter takes effect only for TCPSSL listeners.
    * 
    * **if can be null:**
    * true
@@ -26,7 +26,7 @@ export class ListListenerCertificatesRequest extends $dara.Model {
   certificateIds?: string[];
   /**
    * @remarks
-   * The ID of the listener. Specify the ID of a listener that uses SSL over TCP.
+   * The listener ID. This parameter is valid only for TCPSSL listeners.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class ListListenerCertificatesRequest extends $dara.Model {
   listenerId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Valid values: **1** to **50**. Default value: **20**.
+   * The number of entries to return per page. Valid values: **1** to **50**. Default value: **20**.
    * 
    * @example
    * 20
@@ -44,10 +44,9 @@ export class ListListenerCertificatesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The pagination token for the next query.
+   * - Leave this parameter empty for the first query or when no subsequent query is required.
+   * - For subsequent queries, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -55,9 +54,9 @@ export class ListListenerCertificatesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the region where the Network Load Balancer (NLB) instance is deployed.
+   * The region ID of the Network Load Balancer (NLB) instance.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query region IDs.
    * 
    * @example
    * cn-hangzhou

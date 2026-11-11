@@ -13,10 +13,10 @@ export class AssociateAdditionalCertificatesWithListenerResponseBody extends $da
   jobId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
-   * 365F4154-92F6-4AE4-93F8-7FF34B540710
+   * 365F4154-92F6-4AE4-92F8-7FF34B540710
    */
   requestId?: string;
   static names(): { [key: string]: string } {

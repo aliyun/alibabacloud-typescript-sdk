@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetJobStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
+   * Generate a value from your client to ensure that the value is unique among different requests. ClientToken supports only ASCII characters.
    * 
-   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -17,7 +17,7 @@ export class GetJobStatusRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the asynchronous job.
+   * The ID of the asynchronous task.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLoadBalancerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the NLB instance.
+   * The instance ID.
    * 
    * @example
    * nlb-83ckzc8d4xlp8o****
@@ -13,7 +13,7 @@ export class CreateLoadBalancerResponseBody extends $dara.Model {
   loadbalancerId?: string;
   /**
    * @remarks
-   * The ID of the order for the NLB instance.
+   * The order ID of the Network Load Balancing (NLB) instance.
    * 
    * @example
    * 20230000
@@ -21,7 +21,7 @@ export class CreateLoadBalancerResponseBody extends $dara.Model {
   orderId?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CEF72CEB-54B6-4AE8-B225-F876FF7BA984

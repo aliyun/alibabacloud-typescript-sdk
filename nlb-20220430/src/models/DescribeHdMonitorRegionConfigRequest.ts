@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHdMonitorRegionConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region where the resources are deployed.
+   * The ID of the region where the resource resides.
    * 
    * @example
    * cn-hangzhou

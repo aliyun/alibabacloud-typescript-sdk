@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListLoadBalancersResponseBodyLoadBalancersDeletionProtectionConfig extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether deletion protection is enabled. Valid values:
+   * The deletion protection status. Valid values:
    * 
-   * *   **true**: enabled
-   * *   **false**: disabled
+   * - **true**: enabled.
+   * - **false**: disabled.
    * 
    * @example
    * true
@@ -16,18 +16,18 @@ export class ListLoadBalancersResponseBodyLoadBalancersDeletionProtectionConfig 
   enabled?: boolean;
   /**
    * @remarks
-   * The time when deletion protection was enabled. The time is displayed in UTC in `yyyy-MM-ddTHH:mm:ssZ` format.
+   * The time when deletion protection was enabled. The time is displayed in UTC in the `yyyy-MM-ddTHH:mm:ssZ` format.
    * 
    * @example
-   * 2022-12-01T17:22Z
+   * 2022-12-01T17:22:45Z
    */
   enabledTime?: string;
   /**
    * @remarks
-   * The reason why the deletion protection feature is enabled or disabled. The reason must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The reason must start with a letter.
+   * The reason for the change of the deletion protection status. The reason must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
    * 
    * @example
-   * The instance is running
+   * Instance running.
    */
   reason?: string;
   static names(): { [key: string]: string } {
@@ -58,7 +58,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersDeletionProtectionConfig 
 export class ListLoadBalancersResponseBodyLoadBalancersLoadBalancerBillingConfig extends $dara.Model {
   /**
    * @remarks
-   * The billing method of the NLB instance. Only **PostPay** is supported, which indicates the pay-as-you-go billing method.
+   * The billing type of the NLB instance. Only **PostPay** is returned, which indicates the pay-as-you-go billing method.
    * 
    * @example
    * PostPay
@@ -88,30 +88,30 @@ export class ListLoadBalancersResponseBodyLoadBalancersLoadBalancerBillingConfig
 export class ListLoadBalancersResponseBodyLoadBalancersModificationProtectionConfig extends $dara.Model {
   /**
    * @remarks
-   * The time when the configuration read-only mode was enabled. The time is displayed in UTC in `yyyy-MM-ddTHH:mm:ssZ` format.
+   * The time when modification protection was enabled. The time is displayed in UTC in the `yyyy-MM-ddTHH:mm:ssZ` format.
    * 
    * @example
-   * 2022-12-01T17:22Z
+   * 2022-12-01T17:22:45Z
    */
   enabledTime?: string;
   /**
    * @remarks
-   * The reason why the configuration read-only mode is enabled. The reason must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). The reason must start with a letter.
+   * The reason for enabling modification protection. The reason must be 2 to 128 characters in length and can contain letters, digits, periods (.), underscores (_), and hyphens (-). It must start with a letter.
    * 
-   * This parameter takes effect only if **Status** is set to **ConsoleProtection**.
+   * This parameter takes effect only when **Status** is set to **ConsoleProtection**.
    * 
    * @example
-   * Service guarantee period
+   * Business protection period.
    */
   reason?: string;
   /**
    * @remarks
-   * Indicates whether the configuration read-only mode is enabled. Valid values:
+   * The modification protection status of the NLB instance. Valid values:
    * 
-   * *   **NonProtection**: disabled. In this case, **Reason** is not returned. If **Reason** is set, the value is cleared.
-   * *   **ConsoleProtection**: enabled. In this case, **Reason** is returned.
+   * - **NonProtection**: Modification protection is disabled. You cannot specify **Reason**. If **Reason** is specified, the value is cleared.
+   * - **ConsoleProtection**: Modification protection is enabled through the console. You can specify **Reason**.
    * 
-   * >  If you set this parameter to **ConsoleProtection**, you cannot use the NLB console to modify instance configurations. However, you can call API operations to modify instance configurations.
+   * > If the value is **ConsoleProtection**, you cannot modify the instance configuration in the load balancing console. However, you can modify the instance configuration by invoking API operations.
    * 
    * @example
    * ConsoleProtection
@@ -145,20 +145,20 @@ export class ListLoadBalancersResponseBodyLoadBalancersModificationProtectionCon
 export class ListLoadBalancersResponseBodyLoadBalancersOperationLocks extends $dara.Model {
   /**
    * @remarks
-   * The reason why the NLB instance is locked.
+   * The reason for the lock.
    * 
    * @example
-   * Service exception
+   * Business exception.
    */
   lockReason?: string;
   /**
    * @remarks
-   * The type of lock. Valid values:
+   * The type of the lock. Valid values:
    * 
-   * *   **SecurityLocked**: The NLB instance is locked due to security reasons.
-   * *   **RelatedResourceLocked**: The NLB instance is locked due to association issues.
-   * *   **FinancialLocked**: The NLB instance is locked due to overdue payments.
-   * *   **ResidualLocked**: The NLB instance is locked because the payments of the associated resources are overdue and the resources are released.
+   * - **SecurityLocked**: locked due to security reasons.
+   * - **RelatedResourceLocked**: locked due to associated resources.
+   * - **FinancialLocked**: financial lock due to overdue payment.
+   * - **ResidualLocked**: locked due to residual resources.
    * 
    * @example
    * SecurityLocked
@@ -190,7 +190,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersOperationLocks extends $d
 export class ListLoadBalancersResponseBodyLoadBalancersTags extends $dara.Model {
   /**
    * @remarks
-   * The tag key.
+   * The tag key of the instance.
    * 
    * @example
    * KeyTest
@@ -198,7 +198,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersTags extends $dara.Model 
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The tag value of the instance.
    * 
    * @example
    * ValueTest
@@ -230,7 +230,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersTags extends $dara.Model 
 export class ListLoadBalancersResponseBodyLoadBalancersZoneMappingsLoadBalancerAddresses extends $dara.Model {
   /**
    * @remarks
-   * The ID of the elastic IP address (EIP).
+   * The ID of the elastic IP address (EIP) instance.
    * 
    * @example
    * eip-bp1aedxso6u80u0qf****
@@ -238,7 +238,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersZoneMappingsLoadBalancerA
   allocationId?: string;
   /**
    * @remarks
-   * The ID of the elastic network interface (ENI) attached to the NLB instance.
+   * The ID of the ENI attached to the NLB instance.
    * 
    * @example
    * eni-bp12f1xhs5yal61a****
@@ -246,7 +246,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersZoneMappingsLoadBalancerA
   eniId?: string;
   /**
    * @remarks
-   * The IPv6 address used by the NLB instance.
+   * The IPv6 address of the NLB instance.
    * 
    * @example
    * 2001:db8:1:1:1:1:1:1
@@ -254,7 +254,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersZoneMappingsLoadBalancerA
   ipv6Address?: string;
   /**
    * @remarks
-   * The private IPv4 address of the NLB instance.
+   * The private IP IPv4 address of the NLB instance.
    * 
    * @example
    * 192.168.3.32
@@ -262,12 +262,11 @@ export class ListLoadBalancersResponseBodyLoadBalancersZoneMappingsLoadBalancerA
   privateIPv4Address?: string;
   /**
    * @remarks
-   * The health status of the private IPv4 address of the NLB instance. Valid values:
+   * The health check status of the private IP IPv4 address of the NLB instance. Valid values:
+   * - **Healthy**: healthy.
+   * - **Unhealthy**: unhealthy.
    * 
-   * - **Healthy**
-   * - **Unhealthy**
-   * 
-   * > This parameter is returned only when the Status of the zone is Active.
+   * > This parameter is returned only when the zone status (**Status**) is Active.
    * 
    * @example
    * Healthy
@@ -275,12 +274,11 @@ export class ListLoadBalancersResponseBodyLoadBalancersZoneMappingsLoadBalancerA
   privateIPv4HcStatus?: string;
   /**
    * @remarks
-   * The health status of the IPv6 address of the NLB instance. Valid values:
+   * The health check status of the IPv6 address of the NLB instance. Valid values:
+   * - **Healthy**: healthy.
+   * - **Unhealthy**: unhealthy.
    * 
-   * - **Healthy**
-   * - **Unhealthy**
-   * 
-   * > This parameter is returned only when the Status of the zone is Active.
+   * > This parameter is returned only when the zone status (**Status**) is Active.
    * 
    * @example
    * Healthy
@@ -330,22 +328,19 @@ export class ListLoadBalancersResponseBodyLoadBalancersZoneMappingsLoadBalancerA
 export class ListLoadBalancersResponseBodyLoadBalancersZoneMappings extends $dara.Model {
   /**
    * @remarks
-   * The IP addresses that are used by the NLB instance.
+   * The address information of the NLB instance.
    */
   loadBalancerAddresses?: ListLoadBalancersResponseBodyLoadBalancersZoneMappingsLoadBalancerAddresses[];
   /**
    * @remarks
    * The zone status. Valid values:
    * 
-   * - **Active**: The zone is available.
-   * 
-   * - **Stopped**: The zone is disabled. You can set the zone to this status only by using Cloud Architect Design Tools (CADT).
-   * 
-   * - **Shifted**: The DNS record is removed.
-   * 
-   * - **Starting**: The zone is being enabled. You can set the zone to this status only by using CADT.
-   * 
-   * - **Stopping** You can set the zone to this status only by using CADT.
+   * - **Active**: enabled.
+   * - **Stopped**: stopped. This state can only be triggered through service invocation of the CADT disaster recovery management service.
+   * - **Shifted**: DNS manually removed. You can call the [CancelShiftLoadBalancerZones](https://help.aliyun.com/document_detail/2412000.html) operation to restore the zone DNS.
+   * - **AutoShifted**: DNS automatically removed. When a zone encounters an exception or other special conditions, the system automatically removes the IP address of the abnormal zone to ensure that you can access services normally through the NLB domain name. The IP address is automatically restored when the zone recovers. No manual operation is required.
+   * - **Starting**: starting. This state can only be triggered through service invocation of the CADT disaster recovery management service.
+   * - **Stopping**: stopping. This state can only be triggered through service invocation of the CADT disaster recovery management service.
    * 
    * @example
    * Active
@@ -353,7 +348,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersZoneMappings extends $dar
   status?: string;
   /**
    * @remarks
-   * The ID of the vSwitch in the zone. By default, each zone contains one vSwitch and one subnet.
+   * The vSwitch that corresponds to the zone. Each zone uses one vSwitch and one subnet by default.
    * 
    * @example
    * vsw-bp1rmcrwg3erh1fh8****
@@ -361,7 +356,7 @@ export class ListLoadBalancersResponseBodyLoadBalancersZoneMappings extends $dar
   vSwitchId?: string;
   /**
    * @remarks
-   * The name of the zone. You can call the [DescribeZones](https://help.aliyun.com/document_detail/443890.html) operation to query the zones.
+   * The zone name. You can call the [DescribeZones](https://help.aliyun.com/document_detail/443890.html) operation to query zones.
    * 
    * @example
    * cn-hangzhou-a
@@ -400,10 +395,9 @@ export class ListLoadBalancersResponseBodyLoadBalancersZoneMappings extends $dar
 export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   /**
    * @remarks
-   * The IP version. Valid values:
-   * 
-   * *   **ipv4**: IPv4
-   * *   **DualStack**: dual stack
+   * The protocol version. Valid values:
+   * - **ipv4**: IPv4.
+   * - **DualStack**: dual-stack.
    * 
    * @example
    * ipv4
@@ -411,10 +405,9 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   addressIpVersion?: string;
   /**
    * @remarks
-   * The type of IPv4 address used by the NLB instance. Valid values:
-   * 
-   * *   **Internet**: The NLB instance uses a public IP address. The domain name of the NLB instance is resolved to the public IP address. Therefore, the NLB instance can be accessed over the Internet.
-   * *   **Intranet**: The NLB instance uses a private IP address. The domain name of the NLB instance is resolved to the private IP address. Therefore, the NLB instance can be accessed over the VPC where the NLB instance is deployed.
+   * The IPv4 address type of the NLB instance. Valid values:
+   * - **Internet**: The load balancing instance has a public IP address. The DNS domain name is resolved to the public IP address. Therefore, the instance is accessible over the Internet.
+   * - **Intranet**: The load balancing instance has only a private IP address. The DNS domain name is resolved to the private IP address. Therefore, the instance is accessible only within the internal network environment of the VPC where the load balancing instance is deployed.
    * 
    * @example
    * Internet
@@ -422,7 +415,7 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   addressType?: string;
   /**
    * @remarks
-   * The ID of the EIP bandwidth plan that is associated with the NLB instance if the NLB instance uses a public IP address.
+   * The ID of the Internet Shared Bandwidth instance associated with the Internet-facing NLB instance.
    * 
    * @example
    * cbwp-bp1vevu8h3ieh****
@@ -433,15 +426,14 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
    * The time when the resource was created. The time is displayed in UTC in the `yyyy-MM-ddTHH:mm:ssZ` format.
    * 
    * @example
-   * 2022-07-18T17:22Z
+   * 2022-07-18T17:22:45Z
    */
   createTime?: string;
   /**
    * @remarks
    * Indicates whether cross-zone load balancing is enabled for the NLB instance. Valid values:
-   * 
-   * *   **true**: enabled
-   * *   **false**: disabled
+   * - **true**: enabled.
+   * - **false**: disabled.
    * 
    * @example
    * true
@@ -449,7 +441,7 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   crossZoneEnabled?: boolean;
   /**
    * @remarks
-   * The domain name of the NLB instance.
+   * The DNS domain name.
    * 
    * @example
    * nlb-wb7r6dlwetvt5j****.cn-hangzhou.nlb.aliyuncs.com
@@ -457,15 +449,15 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   DNSName?: string;
   /**
    * @remarks
-   * The configuration of the deletion protection feature.
+   * The deletion protection configuration.
    */
   deletionProtectionConfig?: ListLoadBalancersResponseBodyLoadBalancersDeletionProtectionConfig;
   /**
    * @remarks
-   * The type of IPv6 address used by the NLB instance. Valid values:
+   * The IPv6 address type of the NLB instance. Valid values:
    * 
-   * *   **Internet**: The NLB instance uses a public IP address. The domain name of the NLB instance is resolved to the public IP address. Therefore, the NLB instance can be accessed over the Internet.
-   * *   **Intranet**: The NLB instance uses a private IP address. The domain name of the NLB instance is resolved to the private IP address. Therefore, the NLB instance can be accessed over the VPC where the NLB instance is deployed.
+   * - **Internet**: The load balancing instance has a public IP address. The DNS domain name is resolved to the public IP address. Therefore, the instance is accessible over the Internet.
+   * - **Intranet**: The load balancing instance has only a private IP address. The DNS domain name is resolved to the private IP address. Therefore, the instance is accessible only within the internal network environment of the VPC where the load balancing instance is deployed.
    * 
    * @example
    * Internet
@@ -473,15 +465,14 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   ipv6AddressType?: string;
   /**
    * @remarks
-   * The billing settings of the NLB instance.
+   * The billing configuration of the NLB instance.
    */
   loadBalancerBillingConfig?: ListLoadBalancersResponseBodyLoadBalancersLoadBalancerBillingConfig;
   /**
    * @remarks
    * The business status of the NLB instance. Valid values:
-   * 
-   * *   **Abnormal**: The NLB instance is not working as expected.
-   * *   **Normal**: The NLB instance is working as expected.
+   * - **Abnormal**: The instance is in an abnormal state.
+   * - **Normal**: The instance is in a normal state.
    * 
    * @example
    * Normal
@@ -506,13 +497,12 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   /**
    * @remarks
    * The status of the NLB instance. Valid values:
-   * 
-   * *   **Inactive**: The NLB instance is disabled. Listeners of NLB instances in the Inactive state do not forward traffic.
-   * *   **Active**: The NLB instance is running.
-   * *   **Provisioning**: The NLB instance is being created.
-   * *   **Configuring**: The NLB instance is being modified.
-   * *   **Deleting**: The NLB instance is being deleted.
-   * *   **Deleted**: The NLB instance is deleted.
+   * - **Inactive**: The instance is stopped. Listeners of the instance no longer forward traffic.
+   * - **Active**: The instance is running.
+   * - **Provisioning**: The instance is being created.
+   * - **Configuring**: Upgrade/Downgrade in progress.
+   * - **Deleting**: The instance is being deleted.
+   * - **Deleted**: The instance is deleted.
    * 
    * @example
    * Active
@@ -520,7 +510,7 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   loadBalancerStatus?: string;
   /**
    * @remarks
-   * The type of the SLB instance. Only **Network** is returned, which indicates NLB.
+   * The type of the load balancing instance. Only **Network** is returned, which indicates Network Load Balancer (NLB).
    * 
    * @example
    * Network
@@ -528,17 +518,17 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   loadBalancerType?: string;
   /**
    * @remarks
-   * The configuration of the configuration read-only mode.
+   * The modification protection configuration.
    */
   modificationProtectionConfig?: ListLoadBalancersResponseBodyLoadBalancersModificationProtectionConfig;
   /**
    * @remarks
-   * The configuration of the operation lock. This parameter takes effect if the value of `LoadBalancerBussinessStatus` is **Abnormal**.
+   * The operation lock configuration of the NLB instance. This parameter takes effect when `LoadBalancerBussinessStatus` is **Abnormal**.
    */
   operationLocks?: ListLoadBalancersResponseBodyLoadBalancersOperationLocks[];
   /**
    * @remarks
-   * The ID of the region where the NLB instance is deployed.
+   * The region ID of the NLB instance.
    * 
    * @example
    * cn-hangzhou
@@ -546,7 +536,7 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-atstuj3rtop****
@@ -554,17 +544,17 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The security group to which the NLB instance is added.
+   * The security groups to which the NLB instance is added.
    */
   securityGroupIds?: string[];
   /**
    * @remarks
-   * A list of tags.
+   * The list of tags.
    */
   tags?: ListLoadBalancersResponseBodyLoadBalancersTags[];
   /**
    * @remarks
-   * The ID of the VPC where the NLB instance is deployed.
+   * The VPC ID of the NLB instance.
    * 
    * @example
    * vpc-bp1b49rqrybk45nio****
@@ -572,7 +562,7 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The mappings between zones and vSwitches.
+   * The list of zone and vSwitch mappings.
    */
   zoneMappings?: ListLoadBalancersResponseBodyLoadBalancersZoneMappings[];
   static names(): { [key: string]: string } {
@@ -662,12 +652,12 @@ export class ListLoadBalancersResponseBodyLoadBalancers extends $dara.Model {
 export class ListLoadBalancersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The NLB instances.
+   * The list of NLB instances.
    */
   loadBalancers?: ListLoadBalancersResponseBodyLoadBalancers[];
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -675,10 +665,9 @@ export class ListLoadBalancersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that determines the start point of the next query. Valid values:
-   * 
-   * *   If this is your first query and no subsequent queries are to be sent, ignore this parameter.
-   * *   If a subsequent query is to be sent, set the parameter to the value of NextToken that is returned from the last call.
+   * The pagination token that is used in the next request to retrieve a new page of results. Valid values:
+   * - If this is the first request or no next request exists, you do not need to specify this parameter.
+   * - If a next request exists, set the value to the NextToken value returned in the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -686,7 +675,7 @@ export class ListLoadBalancersResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CEF72CEB-54B6-4AE8-B225-F876FF7BA984

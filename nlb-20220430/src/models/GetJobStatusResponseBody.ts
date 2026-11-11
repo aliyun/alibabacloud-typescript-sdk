@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetJobStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 365F4154-92F6-4AE4-92F8-7FF34B540710
@@ -13,10 +13,10 @@ export class GetJobStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The state of the task. Valid values:
+   * The task status. Valid values:
    * 
-   * *   **Succeeded**: The task is successful.
-   * *   **processing**: The ticket is being executed.
+   * - **Succeeded**: The task succeeded.
+   * - **Processing**: The task is in progress.
    * 
    * @example
    * Succeeded

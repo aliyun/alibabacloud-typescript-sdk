@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Model {
   /**
    * @remarks
-   * The backend port that is used for health checks. Valid values: **0** to **65535**. If you set this parameter to **0**, the port that the backend server uses to provide services is also used for health checks.
+   * The port used for health checks on backend servers. Valid values: **0** to **65535**. A value of **0** indicates that the port of the backend server is used for health checks.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
   healthCheckConnectPort?: number;
   /**
    * @remarks
-   * The timeout period for a health check response. Unit: seconds. Valid values: **1 to 300**. Default value: **5**.
+   * The maximum timeout period for a health check response. Unit: seconds. Valid values: **1** to **300**. Default value: **5**.
    * 
    * @example
    * 100
@@ -22,11 +22,10 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
   /**
    * @remarks
    * The domain name used for health checks. Valid values:
+   * - **$SERVER_IP**: the internal IP address of the backend server.
+   * - **domain**: a custom domain name. The domain name must be 1 to 80 characters in length, and can contain only lowercase letters, digits, hyphens (-), and periods (.).
    * 
-   * *   **$SERVER_IP**: the internal IP address of a backend server.
-   * *   **domain**: the specified domain name. The domain name must be 1 to 80 characters in length, and can contain lowercase letters, digits, hyphens (-), and periods (.).
-   * 
-   * >  This parameter takes effect only if you set **HealthCheckType** to **HTTP**.
+   * > This parameter takes effect only when **HealthCheckType** is set to **HTTP**.
    * 
    * @example
    * $SERVER_IP
@@ -36,8 +35,9 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
    * @remarks
    * Specifies whether to enable health checks. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enables health checks.
+   * 
+   * - **false**: Disables health checks.
    * 
    * @example
    * false
@@ -45,7 +45,7 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
   healthCheckEnabled?: boolean;
   /**
    * @remarks
-   * The response string of UDP health checks. The string must be 1 to 512 characters in length, and can contain letters and digits.
+   * The response string used for UDP health checks. The string can contain only letters and digits, and can be up to 512 characters in length.
    * 
    * @example
    * ok
@@ -53,16 +53,15 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
   healthCheckExp?: string;
   /**
    * @remarks
-   * The HTTP status codes to return for health checks. Separate multiple HTTP status codes with commas (,). Valid values: **http_2xx** (default), **http_3xx**, **http_4xx**, and **http_5xx**.
-   * 
-   * >  This parameter takes effect only if you set **HealthCheckType** to **HTTP**.
+   * The HTTP status codes that indicate a successful health check. Separate multiple HTTP status codes with commas (,). Valid values: **http_2xx** (default), **http_3xx**, **http_4xx**, and **http_5xx**.
+   * > This parameter takes effect only when **HealthCheckType** is set to **HTTP**.
    */
   healthCheckHttpCode?: string[];
   /**
    * @remarks
-   * The version of the HTTP protocol. Valid values: **HTTP1.0** and **HTTP1.1**.
+   * The HTTP version used for health checks. Valid values: **HTTP1.0** and **HTTP1.1**.
    * 
-   * >  This parameter takes effect only if you set **HealthCheckType** to **HTTP**.
+   * > This parameter takes effect only when **HealthCheckType** is set to **HTTP**.
    * 
    * @example
    * HTTP1.0
@@ -70,10 +69,11 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
   healthCheckHttpVersion?: string;
   /**
    * @remarks
-   * The interval at which health checks are performed. Unit: seconds. Default value: **5**.
+   * The interval between two consecutive health checks. Unit: seconds. Default value: **5**.
    * 
-   * *   If you set **HealthCheckType** to **TCP** or **HTTP**, valid values are **1 to 50**.
-   * *   If you set **HealthCheckType** to **UDP**, valid values are **1 to 300**. Set the health check interval equal to or larger than the response timeout period to ensure that UDP response timeouts are not determined as no responses.
+   * - If **HealthCheckType** is set to **TCP** or **HTTP**, valid values are **1** to **50**.
+   * 
+   * - If **HealthCheckType** is set to **UDP**, valid values are **1** to **300**. You must set the interval to a value greater than or equal to the response timeout period to ensure that UDP probe responses are not mistakenly identified as timeouts.
    * 
    * @example
    * 5
@@ -81,7 +81,7 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
   healthCheckInterval?: number;
   /**
    * @remarks
-   * The request string of UDP health checks. The string must be 1 to 512 characters in length, and can contain letters and digits.
+   * The request string used for UDP health checks. The string can contain only letters and digits, and can be up to 512 characters in length.
    * 
    * @example
    * hello
@@ -89,11 +89,11 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
   healthCheckReq?: string;
   /**
    * @remarks
-   * The protocol that is used for health checks. Valid values:
+   * The health check protocol. Valid values:
    * 
-   * *   **TCP**
-   * *   **HTTP**
-   * *   **UDP**
+   * - **TCP**
+   * - **HTTP**
+   * - **UDP**
    * 
    * @example
    * TCP
@@ -101,11 +101,10 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
   healthCheckType?: string;
   /**
    * @remarks
-   * The path to which health check probes are sent.
+   * The health check path.
    * 
-   * The path must be 1 to 80 characters in length and can contain only letters, digits, and the following special characters: `- / . % ? # & =`. It can also contain the following extended characters: `_ ; ~ ! ( ) * [ ] @ $ ^ : \\" , +`. It must start with a forward slash (/).
-   * 
-   * >  This parameter takes effect only if you set **HealthCheckType** to **HTTP**.
+   * The path must be 1 to 80 characters in length. It can contain only letters, digits, the characters `-/.%?#&=`, and extension characters `_;~!()*[]@$^:\\",+`. It must start with a forward slash (/).
+   * > This parameter takes effect only when **HealthCheckType** is set to **HTTP**.
    * 
    * @example
    * /test/index.html
@@ -113,7 +112,7 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
   healthCheckUrl?: string;
   /**
    * @remarks
-   * The number of times that an unhealthy backend server must consecutively pass health checks before it is declared healthy. In this case, the health status changes from **fail** to **success**. Valid values: **2** to **10**.
+   * The number of consecutive successful health checks required to change the health status of a backend server from **Failed** to **Success**. Valid values: **2** to **10**.
    * 
    * @example
    * 3
@@ -122,8 +121,7 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
   /**
    * @remarks
    * The HTTP method used for health checks. Valid values: **GET** and **HEAD**.
-   * 
-   * >  This parameter takes effect only if you set **HealthCheckType** to **HTTP**.
+   * > This parameter takes effect only when **HealthCheckType** is set to **HTTP**.
    * 
    * @example
    * GET
@@ -131,7 +129,7 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
   httpCheckMethod?: string;
   /**
    * @remarks
-   * The number of times that a healthy backend server must consecutively fail health checks before it is declared unhealthy. In this case, the health status changes from **success** to **fail**. Valid values: **2** to **10**.
+   * The number of consecutive failed health checks required to change the health status of a backend server from **Success** to **Failed**. Valid values: **2** to **10**.
    * 
    * @example
    * 3
@@ -190,11 +188,19 @@ export class UpdateServerGroupAttributeRequestHealthCheckConfig extends $dara.Mo
 export class UpdateServerGroupAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token used to ensure the idempotence of the request.
+   * The IP version. Valid values: **ipv4** and **dualStack**.
    * 
-   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
+   * @example
+   * ipv4
+   */
+  addressIPVersion?: string;
+  /**
+   * @remarks
+   * The client token that is used to ensure the idempotence of the request.
    * 
-   * >  If you do not specify this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
+   * You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters.
+   * 
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -204,8 +210,9 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable connection draining. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enables connection draining.
+   * 
+   * - **false**: Disables connection draining.
    * 
    * @example
    * false
@@ -213,7 +220,7 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
   connectionDrainEnabled?: boolean;
   /**
    * @remarks
-   * Specify a timeout period for connection draining. Unit: seconds. Valid values: **0** to **900**.
+   * The timeout period for connection draining. Unit: seconds. Valid values: **0** to **900**.
    * 
    * @example
    * 10
@@ -222,9 +229,8 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
-   * 
-   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
-   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
+   * - **true**: performs a dry run without updating the server group. The system checks whether required parameters are specified, the request format is valid, and the service limits are met. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned.
+   * - **false** (default): performs a dry run and sends the actual request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -232,18 +238,30 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Health check configurations.
+   * The health check configuration.
    */
   healthCheckConfig?: UpdateServerGroupAttributeRequestHealthCheckConfig;
+  /**
+   * @remarks
+   * The traffic scheduling policy in dual-stack mode. Valid values:
+   * 
+   * - **NonAffinity**: non-affinity mode. Requests are forwarded to healthy backend servers based on the scheduling algorithm regardless of the IP version of the source address. This is the default value.
+   * - **Affinity**: affinity mode. Requests are forwarded to backend servers based on the IP version of the source address. IPv4 requests are forwarded only to IPv4 backend servers, and IPv6 requests are forwarded only to IPv6 backend servers.
+   * > This parameter takes effect only when **AddressIPVersion** is set to **DualStack**.
+   * 
+   * @example
+   * Affinity
+   */
   ipVersionAffinityMode?: string;
   /**
    * @remarks
    * Specifies whether to enable client IP preservation. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: Enables client IP preservation.
    * 
-   * >  You cannot set this parameter to **true** if **PreserveClientIpEnabled** is set to **false** and the server group is associated with a listener that uses **SSL over TCP**.
+   * - **false**: Disables client IP preservation.
+   * 
+   * > If **PreserveClientIpEnabled** is set to **false** and the server group is associated with a **TCPSSL** listener, you cannot change the value of this parameter to **true**.
    * 
    * @example
    * false
@@ -251,9 +269,9 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
   preserveClientIpEnabled?: boolean;
   /**
    * @remarks
-   * The ID of the region where the NLB instance is deployed.
+   * The region ID of the network load balancing instance.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to obtain the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -263,14 +281,19 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
    * @remarks
    * The scheduling algorithm. Valid values:
    * 
-   * *   **Wrr**: weighted round-robin. Backend servers with higher weights receive more requests.
-   * *   **Wlc**: weighted least connections. Requests are distributed based on the weight and load of each backend server. The load refers to the number of connections on a backend server. If multiple backend servers have the same weight, requests are forwarded to the backend server with the least connections.
-   * *   **rr**: Requests are forwarded to backend servers in sequence.
-   * *   **sch**: source IP hash. Requests from the same source IP address are forwarded to the same backend server.
-   * *   **tch**: consistent hashing based on four factors: source IP address, destination IP address, source port, and destination port. Requests that contain the same four factors are forwarded to the same backend server.
-   * *   **qch**: QUIC ID hash. Requests that contain the same QUIC ID are forwarded to the same backend server.
+   * - **Wrr**: weighted round-robin. Backend servers with higher weights receive more requests.
    * 
-   * >  QUIC ID hash is supported only when the backend protocol is set to UDP.
+   * - **Wlc**: weighted least connections. Requests are distributed based on the weights and actual loads (number of connections) of backend servers. If weights are the same, backend servers with fewer connections receive more requests.
+   * 
+   * - **rr**: round-robin. Requests are distributed to backend servers in sequence.
+   * 
+   * - **sch**: source IP hash. Requests from the same source IP address are distributed to the same backend server.
+   * 
+   * - **tch**: 4-tuple hash. Consistent hashing based on the 4-tuple (source IP address, destination IP address, source port, and destination port). Requests from the same flow are distributed to the same backend server.
+   * 
+   * - **qch**: QUIC ID hash. Requests with the same QUIC ID are distributed to the same backend server.
+   * 
+   * > QUIC ID hash is supported only when the backend protocol is UDP.
    * 
    * @example
    * Wrr
@@ -278,7 +301,7 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
   scheduler?: string;
   /**
    * @remarks
-   * The server group ID.
+   * The ID of the server group.
    * 
    * This parameter is required.
    * 
@@ -290,7 +313,7 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
    * @remarks
    * The new name of the server group.
    * 
-   * The name must be 2 to 128 characters in length, can contain digits, periods (.), underscores (_), and hyphens (-), and must start with a letter.
+   * The name must be 2 to 128 characters in length, and must start with a letter or Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * NLB_ServerGroup1
@@ -298,6 +321,7 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
   serverGroupName?: string;
   static names(): { [key: string]: string } {
     return {
+      addressIPVersion: 'AddressIPVersion',
       clientToken: 'ClientToken',
       connectionDrainEnabled: 'ConnectionDrainEnabled',
       connectionDrainTimeout: 'ConnectionDrainTimeout',
@@ -314,6 +338,7 @@ export class UpdateServerGroupAttributeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      addressIPVersion: 'string',
       clientToken: 'string',
       connectionDrainEnabled: 'boolean',
       connectionDrainTimeout: 'number',

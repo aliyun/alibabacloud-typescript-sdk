@@ -5,10 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateListenerAttributeRequestProxyProtocolV2Config extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to use the Proxy protocol to pass the PrivateLinkEpId parameter to backend servers. Valid values:
+   * Specifies whether to use the Proxy Protocol to pass the CN-ID to backend servers. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
+   * 
+   * - **false**: no.
+   * 
+   * @example
+   * false
+   */
+  ppv2CnIdEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use the Proxy Protocol to pass the PrivateLinkEpId to backend servers. Valid values:
+   * 
+   * - **true**: yes.
+   * 
+   * - **false**: no.
    * 
    * @example
    * false
@@ -16,10 +29,11 @@ export class UpdateListenerAttributeRequestProxyProtocolV2Config extends $dara.M
   ppv2PrivateLinkEpIdEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to use the Proxy protocol to pass the PrivateLinkEpsId parameter to backend servers. Valid values:
+   * Specifies whether to use the Proxy Protocol to pass the PrivateLinkEpsId to backend servers. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
+   * 
+   * - **false**: no.
    * 
    * @example
    * false
@@ -27,10 +41,11 @@ export class UpdateListenerAttributeRequestProxyProtocolV2Config extends $dara.M
   ppv2PrivateLinkEpsIdEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to use the Proxy protocol to pass the VpcId parameter to backend servers. Valid values:
+   * Specifies whether to use the Proxy Protocol to pass the VpcId to backend servers. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
+   * 
+   * - **false**: no.
    * 
    * @example
    * false
@@ -38,6 +53,7 @@ export class UpdateListenerAttributeRequestProxyProtocolV2Config extends $dara.M
   ppv2VpcIdEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
+      ppv2CnIdEnabled: 'Ppv2CnIdEnabled',
       ppv2PrivateLinkEpIdEnabled: 'Ppv2PrivateLinkEpIdEnabled',
       ppv2PrivateLinkEpsIdEnabled: 'Ppv2PrivateLinkEpsIdEnabled',
       ppv2VpcIdEnabled: 'Ppv2VpcIdEnabled',
@@ -46,6 +62,7 @@ export class UpdateListenerAttributeRequestProxyProtocolV2Config extends $dara.M
 
   static types(): { [key: string]: any } {
     return {
+      ppv2CnIdEnabled: 'boolean',
       ppv2PrivateLinkEpIdEnabled: 'boolean',
       ppv2PrivateLinkEpsIdEnabled: 'boolean',
       ppv2VpcIdEnabled: 'boolean',
@@ -66,8 +83,9 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable Application-Layer Protocol Negotiation (ALPN). Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: enables ALPN.
+   * 
+   * - **false**: disables ALPN.
    * 
    * @example
    * false
@@ -75,14 +93,14 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   alpnEnabled?: boolean;
   /**
    * @remarks
-   * The name of the ALPN policy. The following are the possible values:
+   * The ALPN policy. Valid values:
    * 
-   * *   **HTTP1Only**: Negotiate only HTTP/1.\\*. The ALPN preference list is HTTP/1.1, HTTP/1.0.
-   * *   **HTTP2Only**: Negotiate only HTTP/2. The ALPN preference list is HTTP/2.
-   * *   **HTTP2Optional**: Prefer HTTP/1.\\* over HTTP/2. The ALPN preference list is HTTP/1.1, HTTP/1.0, HTTP/2.
-   * *   **HTTP2Preferred**: Prefer HTTP/2 over HTTP/1.\\*. The ALPN preference list is HTTP/2, HTTP/1.1, HTTP/1.0.
+   * - **HTTP1Only**: negotiates only HTTP/1.x. The priority is HTTP/1.1 > HTTP/1.0.
+   * - **HTTP2Only**: negotiates only HTTP/2.
+   * - **HTTP2Optional**: prefers HTTP/1.x but also accepts HTTP/2. The priority is HTTP/1.1 > HTTP/1.0 > HTTP/2.
+   * - **HTTP2Preferred**: prefers HTTP/2 but also accepts HTTP/1.x. The priority is HTTP/2 > HTTP/1.1 > HTTP/1.0.
    * 
-   * >  This parameter is required if AlpnEnabled is set to true.
+   * > You must configure this parameter after ALPN is enabled.
    * 
    * @example
    * HTTP1Only
@@ -93,17 +111,18 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   alpnPolicy?: string;
   /**
    * @remarks
-   * The CA certificate. You can specify only one CA certificate.
+   * The CA certificates. You can add only one CA certificate.
    * 
-   * >  This parameter takes effect only for listeners that use SSL over TCP.
+   * > This parameter takes effect only for TCPSSL listeners.
    */
   caCertificateIds?: string[];
   /**
    * @remarks
    * Specifies whether to enable mutual authentication. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: enables mutual authentication.
+   * 
+   * - **false** (default): disables mutual authentication.
    * 
    * @example
    * false
@@ -111,18 +130,18 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   caEnabled?: boolean;
   /**
    * @remarks
-   * The server certificate. Only one server certificate is supported.
+   * The server certificates. You can add only one server certificate.
    * 
-   * >  This parameter takes effect only for listeners that use SSL over TCP.
+   * > This parameter takes effect only for TCPSSL listeners.
    */
   certificateIds?: string[];
   /**
    * @remarks
-   * The client token used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
+   * You can use the client to generate the value, but you must ensure that it is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -130,7 +149,7 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The maximum number of new connections per second supported by the listener in each zone (virtual IP address). Valid values: **0** to **1000000**. **0** indicates that the number of connections is unlimited.
+   * The maximum number of new connections per second that the listener can process in each zone (VIP). Valid values: **0** to **1000000**. A value of **0** indicates that no limit is applied.
    * 
    * @example
    * 10000
@@ -138,10 +157,9 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   cps?: number;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
-   * 
-   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
-   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
+   * Specifies whether to only precheck the request. Valid values:
+   * - **true**: prechecks the request without updating the listener. The system checks whether required parameters are specified, the request format is valid, and the service limits are met. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -149,10 +167,11 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The timeout period for idle connections. Unit: seconds
+   * The idle connection timeout period. Unit: seconds.
    * 
-   * *   If the listener uses **TCP** or **TCPSSL**, you can set this parameter to a value ranging from **10** to **900**. Default value: **900**
-   * *   If the listener uses **UDP**, you can set this parameter to a value ranging from **10** to **20**. Default value: **20**
+   * - If the listener is a **TCP** or **TCPSSL** listener, valid values are **10** to **900**. Default value: **900**.
+   * 
+   * - If the listener is a **UDP** listener, valid values are **10** to **90**. Default value: **90**.
    * 
    * @example
    * 900
@@ -160,9 +179,9 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   idleTimeout?: number;
   /**
    * @remarks
-   * The name of the listener.
+   * The custom name of the listener.
    * 
-   * The name must be 2 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (_), and hyphens (-).
+   * The name must be 2 to 256 characters in length, and can contain Chinese characters, English letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (_), and hyphens (-).
    * 
    * @example
    * tcpssl_443
@@ -170,7 +189,7 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   listenerDescription?: string;
   /**
    * @remarks
-   * The listener ID.
+   * The listener instance ID.
    * 
    * This parameter is required.
    * 
@@ -180,7 +199,7 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   listenerId?: string;
   /**
    * @remarks
-   * The size of the largest TCP packet segment. Unit: bytes. Valid values: **0** to **1500**. **0** indicates that the maximum segment size (MSS) remains unchanged. This parameter is supported only by TCP listeners and listeners that use SSL over TCP.
+   * The maximum segment size (MSS) of a TCP packet. Unit: bytes. Valid values: **0** to **1500**. A value of **0** indicates that the MSS value of user TCP packets is not modified. This parameter is supported only by TCP and TCPSSL listeners.
    * 
    * @example
    * 344
@@ -188,10 +207,11 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   mss?: number;
   /**
    * @remarks
-   * Specifies whether to use the Proxy protocol to pass the client IP address to the backend server. Valid values:
+   * Specifies whether to use the Proxy Protocol to pass the client source IP address to backend servers. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: yes.
+   * 
+   * - **false**: no.
    * 
    * @example
    * false
@@ -199,14 +219,14 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   proxyProtocolEnabled?: boolean;
   /**
    * @remarks
-   * Specifies that the Proxy protocol passes the VpcId, PrivateLinkEpId, and PrivateLinkEpsId parameters to backend servers.
+   * The configuration for passing the VpcId, PrivateLinkEpId, and PrivateLinkEpsId information to backend servers by using the Proxy Protocol.
    */
   proxyProtocolV2Config?: UpdateListenerAttributeRequestProxyProtocolV2Config;
   /**
    * @remarks
-   * The ID of the region where the NLB instance is deployed.
+   * The ID of the region where the Network Load Balancer (NLB) instance is deployed. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
+   * You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to retrieve the region ID.
    * 
    * @example
    * cn-hangzhou
@@ -214,10 +234,11 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to enable fine-grained monitoring. Valid values:
+   * Specifies whether to enable second-level monitoring. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: enables second-level monitoring.
+   * 
+   * - **false**: disables second-level monitoring.
    * 
    * @example
    * false
@@ -227,7 +248,7 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
    * @remarks
    * The ID of the security policy.
    * 
-   * >  This parameter takes effect only for listeners that use SSL over TCP.
+   * > This parameter takes effect only for TCPSSL listeners.
    * 
    * @example
    * tls_cipher_policy_1_1
@@ -235,15 +256,11 @@ export class UpdateListenerAttributeRequest extends $dara.Model {
   securityPolicyId?: string;
   /**
    * @remarks
-   * The server group ID.
+   * The ID of the server group.
    * 
-   * > 
-   * 
-   * *   If the listener uses **TCP**, you can specify server groups whose protocol is **TCP** or **TCP_UDP**. **UDP** server groups are not supported.
-   * 
-   * *   If the listener uses **UDP**, you can specify server groups whose protocol is **UDP** or **TCP_UDP**. **TCP** server groups are not supported.
-   * 
-   * *   If the listener uses **TCPSSL**, you can specify server groups whose protocol is **TCP** and whose **client IP preservation is disabled**. **TCP** server groups for which **client IP preservation is enabled** and server groups whose protocol is **UDP** or **TCP_UDP** are not supported.
+   * > - If the listener is a **TCP** listener, you can select a server group whose backend protocol is **TCP** or **TCP_UDP**. You cannot select a server group whose backend protocol is **UDP**.
+   * > - If the listener is a **UDP** listener, you can select a server group whose backend protocol is **UDP** or **TCP_UDP**. You cannot select a server group whose backend protocol is **TCP**.
+   * > - If the listener is a **TCPSSL** listener, you can select a server group whose backend protocol is **TCP** and for which **client address preservation is disabled**. You cannot select a server group whose backend protocol is **TCP** and for which **client address preservation is enabled**, or a server group whose backend protocol is **UDP** or **TCP_UDP**.
    * 
    * @example
    * sgp-ppdpc14gdm3x4o****

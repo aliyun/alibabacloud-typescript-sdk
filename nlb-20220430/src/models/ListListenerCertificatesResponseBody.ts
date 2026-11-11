@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListListenerCertificatesResponseBodyCertificates extends $dara.Model {
   /**
    * @remarks
-   * The ID of the certificate. Only one server certificate is supported.
+   * The certificate ID. Only server certificates are supported.
    * 
    * @example
    * 12315790343_166f8204689_1714763408_70998****
@@ -13,7 +13,7 @@ export class ListListenerCertificatesResponseBodyCertificates extends $dara.Mode
   certificateId?: string;
   /**
    * @remarks
-   * The type of the certificate.
+   * The certificate type.
    * 
    * @example
    * Server
@@ -21,10 +21,11 @@ export class ListListenerCertificatesResponseBodyCertificates extends $dara.Mode
   certificateType?: string;
   /**
    * @remarks
-   * Indicates whether the certificate is the default certificate of the listener. Valid values:
+   * Specifies whether the certificate is the default certificate for the listener. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The certificate is the default certificate.
+   * 
+   * - **false**: The certificate is an additional certificate.
    * 
    * @example
    * true
@@ -32,11 +33,13 @@ export class ListListenerCertificatesResponseBodyCertificates extends $dara.Mode
   isDefault?: boolean;
   /**
    * @remarks
-   * Indicates whether the certificate is associated with the listener. Valid values:
+   * The association status between the certificate and the listener. Valid values:
    * 
-   * *   **Associating**
-   * *   **Associated**
-   * *   **Diassociating**
+   * - **Associating**: The certificate is being associated.
+   * 
+   * - **Associated**: The certificate is associated.
+   * 
+   * - **Diassociating**: The certificate is being dissociated.
    * 
    * @example
    * Associating
@@ -82,7 +85,7 @@ export class ListListenerCertificatesResponseBody extends $dara.Model {
   certificates?: ListListenerCertificatesResponseBodyCertificates[];
   /**
    * @remarks
-   * The number of entries returned per page. Valid values: **1** to **50**. Default value: **20**.
+   * The number of entries to return per page. Valid values: **1** to **50**. Default value: **20**.
    * 
    * @example
    * 20
@@ -90,10 +93,9 @@ export class ListListenerCertificatesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The returned value of NextToken is a pagination token, which can be used in the next request to retrieve a new page of results. Valid values:
-   * 
-   * *   You do not need to specify this parameter for the first request.
-   * *   You must specify the token that is obtained from the previous query as the value of NextToken.
+   * The pagination token for the next query.
+   * - Leave this parameter empty for the first query or when no subsequent query is required.
+   * - For subsequent queries, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -109,7 +111,7 @@ export class ListListenerCertificatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

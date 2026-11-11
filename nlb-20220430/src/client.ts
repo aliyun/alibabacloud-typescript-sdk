@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "Nlb";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("nlb", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -30,7 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds backend servers to a specified server group.
+   * Adds backend servers to a Network Load Balancer (NLB) server group.
    * 
    * @param request - AddServersToServerGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -82,7 +86,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds backend servers to a specified server group.
+   * Adds backend servers to a Network Load Balancer (NLB) server group.
    * 
    * @param request - AddServersToServerGroupRequest
    * @returns AddServersToServerGroupResponse
@@ -93,12 +97,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates additional certificates with a listener that uses SSL over TCP.
+   * Associates additional certificates with a TCPSSL listener.
    * 
    * @remarks
-   * *AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) operation to query the status of the task:
-   * *   If the listener is in the **Associating** state, the additional certificates are being associated.
-   * *   If the listener is in the **Associated** state, the additional certificates are associated.
+   * *AssociateAdditionalCertificatesWithListener** is an asynchronous operation. The system returns a request ID, but the additional certificates are not immediately added. The addition task is still running in the background. You can call [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) to query the addition status of the additional certificates:
+   * - When the TCPSSL listener is in the **Associating** state, the additional certificates are being added.
+   * - When the TCPSSL listener is in the **Associated** state, the additional certificates are added.
    * 
    * @param request - AssociateAdditionalCertificatesWithListenerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -145,12 +149,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates additional certificates with a listener that uses SSL over TCP.
+   * Associates additional certificates with a TCPSSL listener.
    * 
    * @remarks
-   * *AssociateAdditionalCertificatesWithListener** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) operation to query the status of the task:
-   * *   If the listener is in the **Associating** state, the additional certificates are being associated.
-   * *   If the listener is in the **Associated** state, the additional certificates are associated.
+   * *AssociateAdditionalCertificatesWithListener** is an asynchronous operation. The system returns a request ID, but the additional certificates are not immediately added. The addition task is still running in the background. You can call [ListListenerCertificates](https://help.aliyun.com/document_detail/615175.html) to query the addition status of the additional certificates:
+   * - When the TCPSSL listener is in the **Associating** state, the additional certificates are being added.
+   * - When the TCPSSL listener is in the **Associated** state, the additional certificates are added.
    * 
    * @param request - AssociateAdditionalCertificatesWithListenerRequest
    * @returns AssociateAdditionalCertificatesWithListenerResponse
@@ -161,7 +165,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates an Internet Shared Bandwidth instance with a Network Load Balancer (NLB) instance.
+   * Associates an Internet Shared Bandwidth with a Network Load Balancer (NLB) instance.
    * 
    * @param request - AttachCommonBandwidthPackageToLoadBalancerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -208,7 +212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates an Internet Shared Bandwidth instance with a Network Load Balancer (NLB) instance.
+   * Associates an Internet Shared Bandwidth with a Network Load Balancer (NLB) instance.
    * 
    * @param request - AttachCommonBandwidthPackageToLoadBalancerRequest
    * @returns AttachCommonBandwidthPackageToLoadBalancerResponse
@@ -219,10 +223,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to the DNS record.
+   * Adds the EIP or VIP of a zone back to DNS resolution.
    * 
    * @remarks
-   * Before you call this operation, the zone of the Network Load Balancer (NLB) instance is removed from the DNS record by using the console or calling the [StartShiftLoadBalancerZones](https://help.aliyun.com/document_detail/2411999.html) API operation.
+   * When you call this operation, you must have already removed a zone from the NLB instance by calling the [StartShiftLoadBalancerZones](https://help.aliyun.com/document_detail/2411999.html) operation or in the console.
    * 
    * @param request - CancelShiftLoadBalancerZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -269,10 +273,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds the elastic IP address (EIP) and virtual IP address (VIP) of a zone to the DNS record.
+   * Adds the EIP or VIP of a zone back to DNS resolution.
    * 
    * @remarks
-   * Before you call this operation, the zone of the Network Load Balancer (NLB) instance is removed from the DNS record by using the console or calling the [StartShiftLoadBalancerZones](https://help.aliyun.com/document_detail/2411999.html) API operation.
+   * When you call this operation, you must have already removed a zone from the NLB instance by calling the [StartShiftLoadBalancerZones](https://help.aliyun.com/document_detail/2411999.html) operation or in the console.
    * 
    * @param request - CancelShiftLoadBalancerZonesRequest
    * @returns CancelShiftLoadBalancerZonesResponse
@@ -283,7 +287,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a TCP or UDP listener, or a listener that uses SSL over TCP for a Network Load Balancer (NLB) instance.
+   * Creates a TCP, UDP, or TCPSSL listener on a Network Load Balancer (NLB) instance.
    * 
    * @param tmpReq - CreateListenerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -408,7 +412,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a TCP or UDP listener, or a listener that uses SSL over TCP for a Network Load Balancer (NLB) instance.
+   * Creates a TCP, UDP, or TCPSSL listener on a Network Load Balancer (NLB) instance.
    * 
    * @param request - CreateListenerRequest
    * @returns CreateListenerResponse
@@ -419,13 +423,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Network Load Balancer (NLB) instance in a specified region.
+   * Creates a Network Load Balancing (NLB) instance.
    * 
    * @remarks
-   *   When you create an NLB instance, the service-linked role AliyunServiceRoleForNlb is automatically created and assigned to you.
-   * *   **CreateLoadBalancer** is an asynchronous operation. After you send a request, the system returns an instance ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) to query the status of an NLB instance.
-   *     *   If an NLB instance is in the **Provisioning** state, the NLB instance is being created.
-   *     *   If an NLB instance is in the **Active** state, the NLB instance is created.
+   * - When you create a Network Load Balancing (NLB) instance, the system automatically creates the AliyunServiceRoleForNlb service-linked role for you.
+   * - The **CreateLoadBalancer** operation is asynchronous. The system returns an instance ID, but the Network Load Balancing (NLB) instance is not yet created and the creation task is still running in the background. You can invoke the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the creation status of the Network Load Balancing (NLB) instance:
+   *     - If the Network Load Balancing (NLB) instance is in the **Provisioning** state, the Network Load Balancing (NLB) instance is being created.
+   *     - If the Network Load Balancing (NLB) instance is in the **Active** state, the Network Load Balancing (NLB) instance is created.
    * 
    * @param request - CreateLoadBalancerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -517,13 +521,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Network Load Balancer (NLB) instance in a specified region.
+   * Creates a Network Load Balancing (NLB) instance.
    * 
    * @remarks
-   *   When you create an NLB instance, the service-linked role AliyunServiceRoleForNlb is automatically created and assigned to you.
-   * *   **CreateLoadBalancer** is an asynchronous operation. After you send a request, the system returns an instance ID and runs the task in the background. You can call [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) to query the status of an NLB instance.
-   *     *   If an NLB instance is in the **Provisioning** state, the NLB instance is being created.
-   *     *   If an NLB instance is in the **Active** state, the NLB instance is created.
+   * - When you create a Network Load Balancing (NLB) instance, the system automatically creates the AliyunServiceRoleForNlb service-linked role for you.
+   * - The **CreateLoadBalancer** operation is asynchronous. The system returns an instance ID, but the Network Load Balancing (NLB) instance is not yet created and the creation task is still running in the background. You can invoke the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the creation status of the Network Load Balancing (NLB) instance:
+   *     - If the Network Load Balancing (NLB) instance is in the **Provisioning** state, the Network Load Balancing (NLB) instance is being created.
+   *     - If the Network Load Balancing (NLB) instance is in the **Active** state, the Network Load Balancing (NLB) instance is created.
    * 
    * @param request - CreateLoadBalancerRequest
    * @returns CreateLoadBalancerResponse
@@ -534,7 +538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom security policy for a TCP/SSL listener.
+   * Creates a custom security policy for a TCPSSL listener in a specified region.
    * 
    * @param request - CreateSecurityPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -593,7 +597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a custom security policy for a TCP/SSL listener.
+   * Creates a custom security policy for a TCPSSL listener in a specified region.
    * 
    * @param request - CreateSecurityPolicyRequest
    * @returns CreateSecurityPolicyResponse
@@ -604,12 +608,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a server group in a region.
+   * Creates a server group in a specified region.
    * 
    * @remarks
-   * *CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the task.
-   *    - If the task is in the **Succeeded** status, the server group is created.
-   * -    If the task is in the **Processing** status, the server group is being created.
+   * The **CreateServerGroup** operation is asynchronous. The system returns a request ID, but the server group of the Network Load Balancer (NLB) is not yet created, and the creation task is still running in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the server group:
+   *    - If the task status is **Succeeded**, the server group is created.
+   *    - If the task status is **Processing**, the server group is being created. In this state, you can only perform query operations and cannot perform other operations.
    * 
    * @param request - CreateServerGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -709,12 +713,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a server group in a region.
+   * Creates a server group in a specified region.
    * 
    * @remarks
-   * *CreateServerGroup** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the task.
-   *    - If the task is in the **Succeeded** status, the server group is created.
-   * -    If the task is in the **Processing** status, the server group is being created.
+   * The **CreateServerGroup** operation is asynchronous. The system returns a request ID, but the server group of the Network Load Balancer (NLB) is not yet created, and the creation task is still running in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation to query the creation status of the server group:
+   *    - If the task status is **Succeeded**, the server group is created.
+   *    - If the task status is **Processing**, the server group is being created. In this state, you can only perform query operations and cannot perform other operations.
    * 
    * @param request - CreateServerGroupRequest
    * @returns CreateServerGroupResponse
@@ -833,7 +837,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a custom TLS security policy from a Network Load Balancer (NLB) instance.
+   * Deletes a custom TLS security policy for Network Load Balancer (NLB).
    * 
    * @param request - DeleteSecurityPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -876,7 +880,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a custom TLS security policy from a Network Load Balancer (NLB) instance.
+   * Deletes a custom TLS security policy for Network Load Balancer (NLB).
    * 
    * @param request - DeleteSecurityPolicyRequest
    * @returns DeleteSecurityPolicyResponse
@@ -887,10 +891,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Network Load Balancer (NLB) server group.
+   * Deletes a server group of a Network Load Balancer (NLB).
    * 
    * @remarks
-   * You can delete server groups that are not associated with listeners.
+   * You can delete a server group only when it is not used by any listener.
    * 
    * @param request - DeleteServerGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -933,10 +937,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Network Load Balancer (NLB) server group.
+   * Deletes a server group of a Network Load Balancer (NLB).
    * 
    * @remarks
-   * You can delete server groups that are not associated with listeners.
+   * You can delete a server group only when it is not used by any listener.
    * 
    * @param request - DeleteServerGroupRequest
    * @returns DeleteServerGroupResponse
@@ -947,7 +951,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the storage configurations of fine-grained monitoring.
+   * Queries the storage configuration for second-level monitoring.
+   * 
+   * @remarks
+   * Queries the data warehouse configured for second-level monitoring storage in the current region.
    * 
    * @param request - DescribeHdMonitorRegionConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -978,7 +985,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the storage configurations of fine-grained monitoring.
+   * Queries the storage configuration for second-level monitoring.
+   * 
+   * @remarks
+   * Queries the data warehouse configured for second-level monitoring storage in the current region.
    * 
    * @param request - DescribeHdMonitorRegionConfigRequest
    * @returns DescribeHdMonitorRegionConfigResponse
@@ -989,7 +999,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries regions that support Network Load Balancer (NLB) instances.
+   * Queries the available regions for NLB.
    * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1030,7 +1040,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries regions that support Network Load Balancer (NLB) instances.
+   * Queries the available regions for NLB.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
@@ -1041,7 +1051,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the zones of a region in which a Network Load Balancer (NLB) instance is deployed.
+   * Queries the zones in a region for Network Load Balancer (NLB).
    * 
    * @param request - DescribeZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1084,7 +1094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the zones of a region in which a Network Load Balancer (NLB) instance is deployed.
+   * Queries the zones in a region for Network Load Balancer (NLB).
    * 
    * @param request - DescribeZonesRequest
    * @returns DescribeZonesResponse
@@ -1095,7 +1105,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates a Network Load Balancer (NLB) instance from an Internet Shared Bandwidth instance.
+   * Disassociates an Internet Shared Bandwidth plan from a Network Load Balancer (NLB) instance.
    * 
    * @param request - DetachCommonBandwidthPackageFromLoadBalancerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1142,7 +1152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disassociates a Network Load Balancer (NLB) instance from an Internet Shared Bandwidth instance.
+   * Disassociates an Internet Shared Bandwidth plan from a Network Load Balancer (NLB) instance.
    * 
    * @param request - DetachCommonBandwidthPackageFromLoadBalancerRequest
    * @returns DetachCommonBandwidthPackageFromLoadBalancerResponse
@@ -1153,7 +1163,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the public IPv6 address of a dual-stack Network Load Balancer (NLB) instance to a private IPv6 address.
+   * Changes the IPv6 address of a dual-stack Network Load Balancer (NLB) instance from public to private.
    * 
    * @param request - DisableLoadBalancerIpv6InternetRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1196,7 +1206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the public IPv6 address of a dual-stack Network Load Balancer (NLB) instance to a private IPv6 address.
+   * Changes the IPv6 address of a dual-stack Network Load Balancer (NLB) instance from public to private.
    * 
    * @param request - DisableLoadBalancerIpv6InternetRequest
    * @returns DisableLoadBalancerIpv6InternetResponse
@@ -1329,7 +1339,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the result of an asynchronous operation performed on a Network Load Balancer (NLB) instance.
+   * Queries the execution result of an asynchronous task for Network Load Balancer (NLB).
    * 
    * @param request - GetJobStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1364,7 +1374,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the result of an asynchronous operation performed on a Network Load Balancer (NLB) instance.
+   * Queries the execution result of an asynchronous task for Network Load Balancer (NLB).
    * 
    * @param request - GetJobStatusRequest
    * @returns GetJobStatusResponse
@@ -1375,7 +1385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a Network Load Balancer (NLB) listener.
+   * Queries the details of a listener on a Network Load Balancer (NLB) instance.
    * 
    * @param request - GetListenerAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1418,7 +1428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a Network Load Balancer (NLB) listener.
+   * Queries the details of a listener on a Network Load Balancer (NLB) instance.
    * 
    * @param request - GetListenerAttributeRequest
    * @returns GetListenerAttributeResponse
@@ -1475,7 +1485,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about a Network Load Balancer (NLB) instance.
+   * Queries the details of a specified Network Load Balancer (NLB) instance.
    * 
    * @param request - GetLoadBalancerAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1518,7 +1528,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details about a Network Load Balancer (NLB) instance.
+   * Queries the details of a specified Network Load Balancer (NLB) instance.
    * 
    * @param request - GetLoadBalancerAttributeRequest
    * @returns GetLoadBalancerAttributeResponse
@@ -1571,7 +1581,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the server certificate of a TCP/SSL listener.
+   * Queries the server certificates of a TCPSSL listener.
    * 
    * @param request - ListListenerCertificatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1622,7 +1632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the server certificate of a TCP/SSL listener.
+   * Queries the server certificates of a TCPSSL listener.
    * 
    * @param request - ListListenerCertificatesRequest
    * @returns ListListenerCertificatesResponse
@@ -1633,7 +1643,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries listeners added to a Network Load Balancer (NLB) instance.
+   * Queries the list of Network Load Balancer (NLB) listeners.
    * 
    * @param request - ListListenersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1692,7 +1702,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries listeners added to a Network Load Balancer (NLB) instance.
+   * Queries the list of Network Load Balancer (NLB) listeners.
    * 
    * @param request - ListListenersRequest
    * @returns ListListenersResponse
@@ -1703,7 +1713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information about Network Load Balancer (NLB) instances.
+   * Queries the basic information about created Network Load Balancer (NLB) instances.
    * 
    * @param request - ListLoadBalancersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1794,7 +1804,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the basic information about Network Load Balancer (NLB) instances.
+   * Queries the basic information about created Network Load Balancer (NLB) instances.
    * 
    * @param request - ListLoadBalancersRequest
    * @returns ListLoadBalancersResponse
@@ -1935,7 +1945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the server groups of a Network Load Balancer (NLB) instance.
+   * Queries the server group list of a Network Load Balancer (NLB) load balancing instance.
    * 
    * @param request - ListServerGroupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2000,7 +2010,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the server groups of a Network Load Balancer (NLB) instance.
+   * Queries the server group list of a Network Load Balancer (NLB) load balancing instance.
    * 
    * @param request - ListServerGroupsRequest
    * @returns ListServerGroupsResponse
@@ -2740,7 +2750,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the attributes of a listener, such as the name and the idle connection timeout period.
+   * Updates the configuration of a Network Load Balancer (NLB) listener.
    * 
    * @param tmpReq - UpdateListenerAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2845,7 +2855,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the attributes of a listener, such as the name and the idle connection timeout period.
+   * Updates the configuration of a Network Load Balancer (NLB) listener.
    * 
    * @param request - UpdateListenerAttributeRequest
    * @returns UpdateListenerAttributeResponse
@@ -2998,10 +3008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the deletion protection feature.
-   * 
-   * @remarks
-   * > You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the details about deletion protection and the configuration read-only mode.
+   * create operation
    * 
    * @param request - UpdateLoadBalancerProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3060,10 +3067,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the deletion protection feature.
-   * 
-   * @remarks
-   * > You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the details about deletion protection and the configuration read-only mode.
+   * create operation
    * 
    * @param request - UpdateLoadBalancerProtectionRequest
    * @returns UpdateLoadBalancerProtectionResponse
@@ -3079,11 +3083,11 @@ export default class Client extends OpenApi {
    * @remarks
    * When you call this operation, make sure that you specify all the zones of the NLB instance, including the existing zones and new zones. If you do not specify the existing zones, the existing zones are removed.
    * Prerequisites
-   * *   An NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
-   * *   You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the zones and zone attributes of an NLB instance.
-   * *   **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation query to query the status of a task:
-   *     *   If the task is in the **Succeeded** state, the zones and zone attributes are modified.
-   *     *   If the task is in the **Processing** state, the zones and zone attributes are being modified. In this case, you can perform only query operations.
+   * - An NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
+   * - You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the zones and zone attributes of an NLB instance.
+   * - **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation query to query the status of a task:
+   *   - If the task is in the **Succeeded** state, the zones and zone attributes are modified.
+   *   - If the task is in the **Processing** state, the zones and zone attributes are being modified. In this case, you can perform only query operations.
    * 
    * @param request - UpdateLoadBalancerZonesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3135,11 +3139,11 @@ export default class Client extends OpenApi {
    * @remarks
    * When you call this operation, make sure that you specify all the zones of the NLB instance, including the existing zones and new zones. If you do not specify the existing zones, the existing zones are removed.
    * Prerequisites
-   * *   An NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
-   * *   You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the zones and zone attributes of an NLB instance.
-   * *   **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation query to query the status of a task:
-   *     *   If the task is in the **Succeeded** state, the zones and zone attributes are modified.
-   *     *   If the task is in the **Processing** state, the zones and zone attributes are being modified. In this case, you can perform only query operations.
+   * - An NLB instance is created. For more information, see [CreateLoadBalancer](https://help.aliyun.com/document_detail/445868.html).
+   * - You can call the [GetLoadBalancerAttribute](https://help.aliyun.com/document_detail/445873.html) operation to query the zones and zone attributes of an NLB instance.
+   * - **UpdateLoadBalancerZones** is an asynchronous operation. After a request is sent, the system returns a request ID and runs the task in the background. You can call the [GetJobStatus](https://help.aliyun.com/document_detail/445904.html) operation query to query the status of a task:
+   *   - If the task is in the **Succeeded** state, the zones and zone attributes are modified.
+   *   - If the task is in the **Processing** state, the zones and zone attributes are being modified. In this case, you can perform only query operations.
    * 
    * @param request - UpdateLoadBalancerZonesRequest
    * @returns UpdateLoadBalancerZonesResponse
@@ -3216,7 +3220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a Network Load Balancer (NLB) server group.
+   * Updates the configuration of a Network Load Balancer (NLB) server group.
    * 
    * @param request - UpdateServerGroupAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3225,6 +3229,10 @@ export default class Client extends OpenApi {
   async updateServerGroupAttributeWithOptions(request: $_model.UpdateServerGroupAttributeRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateServerGroupAttributeResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.addressIPVersion)) {
+      body["AddressIPVersion"] = request.addressIPVersion;
+    }
+
     if (!$dara.isNull(request.clientToken)) {
       body["ClientToken"] = request.clientToken;
     }
@@ -3292,7 +3300,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the configurations of a Network Load Balancer (NLB) server group.
+   * Updates the configuration of a Network Load Balancer (NLB) server group.
    * 
    * @param request - UpdateServerGroupAttributeRequest
    * @returns UpdateServerGroupAttributeResponse

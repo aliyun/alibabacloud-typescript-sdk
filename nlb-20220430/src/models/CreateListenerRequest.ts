@@ -5,10 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class CreateListenerRequestProxyProtocolV2Config extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to use the Proxy protocol to pass the Ppv2PrivateLinkEpId parameter to backend servers. Valid values:
+   * Ppv2CnIdEnabled
+   */
+  ppv2CnIdEnabled?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to use the Proxy Protocol to pass the Ppv2PrivateLinkEpId to backend servers. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: enables the feature.
+   * 
+   * - **false** (default): disables the feature.
    * 
    * @example
    * false
@@ -16,10 +22,11 @@ export class CreateListenerRequestProxyProtocolV2Config extends $dara.Model {
   ppv2PrivateLinkEpIdEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to use the Proxy protocol to pass the PrivateLinkEpsId parameter to backend servers. Valid values:
+   * Specifies whether to use the Proxy Protocol to pass the PrivateLinkEpsId to backend servers. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: enables the feature.
+   * 
+   * - **false** (default): disables the feature.
    * 
    * @example
    * false
@@ -27,10 +34,11 @@ export class CreateListenerRequestProxyProtocolV2Config extends $dara.Model {
   ppv2PrivateLinkEpsIdEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to use the Proxy protocol to pass the VpcId parameter to backend servers. Valid values:
+   * Specifies whether to use the Proxy Protocol to pass the VpcId to backend servers. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: enables the feature.
+   * 
+   * - **false** (default): disables the feature.
    * 
    * @example
    * false
@@ -38,6 +46,7 @@ export class CreateListenerRequestProxyProtocolV2Config extends $dara.Model {
   ppv2VpcIdEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
+      ppv2CnIdEnabled: 'Ppv2CnIdEnabled',
       ppv2PrivateLinkEpIdEnabled: 'Ppv2PrivateLinkEpIdEnabled',
       ppv2PrivateLinkEpsIdEnabled: 'Ppv2PrivateLinkEpsIdEnabled',
       ppv2VpcIdEnabled: 'Ppv2VpcIdEnabled',
@@ -46,6 +55,7 @@ export class CreateListenerRequestProxyProtocolV2Config extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      ppv2CnIdEnabled: 'boolean',
       ppv2PrivateLinkEpIdEnabled: 'boolean',
       ppv2PrivateLinkEpsIdEnabled: 'boolean',
       ppv2VpcIdEnabled: 'boolean',
@@ -64,9 +74,9 @@ export class CreateListenerRequestProxyProtocolV2Config extends $dara.Model {
 export class CreateListenerRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag. The tag key can be up to 64 characters in length, cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`. The tag value can contain letters, digits, and the following special characters: _ . : / = + - @
+   * The tag key. The key can be up to 64 characters in length, and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`. Supported characters include letters, digits, underscores (_), periods (.), colons (:), forward slashes (/), equal signs (=), plus signs (+), hyphens (-), and at signs (@).
    * 
-   * You can specify up to 20 tags in each call.
+   * You can add up to 20 tags in a single call.
    * 
    * @example
    * KeyTest
@@ -74,9 +84,9 @@ export class CreateListenerRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag. The tag value can be up to 128 characters in length, cannot start with `acs:` or `aliyun`, and cannot contain `http://` or `https://`. The tag value can contain letters, digits, and the following special characters: _ . : / = + - @
+   * The tag value. The value can be up to 128 characters in length, and cannot start with `aliyun` or `acs:`, or contain `http://` or `https://`. Supported characters include letters, digits, underscores (_), periods (.), colons (:), forward slashes (/), equal signs (=), plus signs (+), hyphens (-), and at signs (@).
    * 
-   * You can specify up to 20 tags in each call.
+   * You can add up to 20 tags in a single call.
    * 
    * @example
    * Test
@@ -108,10 +118,11 @@ export class CreateListenerRequestTag extends $dara.Model {
 export class CreateListenerRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable Application-Layer Protocol Negotiation (ALPN). Valid values:
+   * Specifies whether to enable ALPN. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: enables ALPN.
+   * 
+   * - **false** (default): disables ALPN.
    * 
    * @example
    * false
@@ -121,12 +132,12 @@ export class CreateListenerRequest extends $dara.Model {
    * @remarks
    * The ALPN policy. Valid values:
    * 
-   * *   **HTTP1Only**: uses only HTTP 1.x. The priority of HTTP 1.1 is higher than that of HTTP 1.0.
-   * *   **HTTP2Only**: uses only HTTP 2.0.
-   * *   **HTTP2Optional**: preferentially uses HTTP 1.x over HTTP 2.0. The priority of HTTP 1.1 is higher than that of HTTP 1.0, and the priority of HTTP 1.0 is higher than that of HTTP 2.0.
-   * *   **HTTP2Preferred**: preferentially uses HTTP 2.0 over HTTP 1.x. The priority of HTTP 2.0 is higher than that of HTTP 1.1, and the priority of HTTP 1.1 is higher than that of HTTP 1.0.
+   * - **HTTP1Only**: negotiates only HTTP/1.x. The priority is HTTP/1.1 > HTTP/1.0.
+   * - **HTTP2Only**: negotiates only HTTP/2.
+   * - **HTTP2Optional**: prefers HTTP/1.x but also accepts HTTP/2. The priority is HTTP/1.1 > HTTP/1.0 > HTTP/2.
+   * - **HTTP2Preferred**: prefers HTTP/2 but also accepts HTTP/1.x. The priority is HTTP/2 > HTTP/1.1 > HTTP/1.0.
    * 
-   * >  This parameter is required if **AlpnEnabled** is set to true.
+   * > You must configure this parameter after **AlpnEnabled** is enabled.
    * 
    * @example
    * HTTP1Only
@@ -134,17 +145,18 @@ export class CreateListenerRequest extends $dara.Model {
   alpnPolicy?: string;
   /**
    * @remarks
-   * The certificate authority (CA) certificate. This parameter is supported only by TCLSSL listeners.
+   * The CA certificate list. This parameter takes effect only for TCPSSL listeners.
    * 
-   * >  You can specify only one CA certificate.
+   * > Currently, you can add only one CA certificate.
    */
   caCertificateIds?: string[];
   /**
    * @remarks
    * Specifies whether to enable mutual authentication. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: enables mutual authentication.
+   * 
+   * - **false** (default): disables mutual authentication.
    * 
    * @example
    * false
@@ -152,18 +164,18 @@ export class CreateListenerRequest extends $dara.Model {
   caEnabled?: boolean;
   /**
    * @remarks
-   * The server certificate. This parameter is supported only by TCLSSL listeners.
+   * The server certificate list. This parameter takes effect only for TCPSSL listeners.
    * 
-   * >  You can specify only one server certificate.
+   * > Currently, you can add only one server certificate.
    */
   certificateIds?: string[];
   /**
    * @remarks
-   * The client token used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
+   * You can generate a parameter value on your client to ensure that the value is unique across different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -171,7 +183,7 @@ export class CreateListenerRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The maximum number of new connections per second supported by the listener in each zone (virtual IP address). Valid values: **0** to **1000000**. **0** indicates that the number of connections is unlimited.
+   * The limit on the number of new connections processed per second by the listener in each zone (VIP). Valid values: **0** to **1000000**. **0** indicates that no limit is applied.
    * 
    * @example
    * 100
@@ -179,10 +191,9 @@ export class CreateListenerRequest extends $dara.Model {
   cps?: number;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without sending the actual request. Valid values:
-   * 
-   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
-   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
+   * Specifies whether to only precheck the request. Valid values:
+   * - **true**: sends a precheck request without creating the listener. The system checks whether required parameters are specified, the request format, and service limits. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the DryRunOperation error code is returned.
+   * - **false** (default): sends a regular request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -190,9 +201,10 @@ export class CreateListenerRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The last port in the listener port range. Valid values: **0** to **65535**. The port number of the last port must be greater than the port number of the first port.
+   * The end port for all-port listening. Valid values: **1** to **65535**.
+   * The end port must be greater than the start port.
    * 
-   * >  This parameter is required when **ListenerPort** is set to **0**.
+   * > You must configure this parameter when **ListenerPort** is set to **0**.
    * 
    * @example
    * 566
@@ -200,10 +212,11 @@ export class CreateListenerRequest extends $dara.Model {
   endPort?: number;
   /**
    * @remarks
-   * The timeout period for idle connections. Unit: seconds.
+   * The idle timeout period for connections. Unit: seconds.
    * 
-   * *   If you set **ListenerProtocol** to **TCP** or **TCPSSL**, this parameter can be set to a value ranging from **10** to **900**. Default value: **900**.
-   * *   If **ListenerProtocol** is set to **UDP**, this parameter can be set to a value ranging from **10** to **20**. Default value: **20**.
+   * - If **ListenerProtocol** is set to **TCP** or **TCPSSL**, the valid values are **10** to **900**. Default value: **900**.
+   * 
+   * - If **ListenerProtocol** is set to **UDP**, the valid values are **10** to **90**. Default value: **90**.
    * 
    * @example
    * 900
@@ -211,9 +224,9 @@ export class CreateListenerRequest extends $dara.Model {
   idleTimeout?: number;
   /**
    * @remarks
-   * The name of the listener.
+   * The custom listener name.
    * 
-   * The name must be 2 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (_), and hyphens (-).
+   * The name must be 2 to 256 characters in length, and can contain Chinese characters, English letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (_), and hyphens (-).
    * 
    * @example
    * tcp_80
@@ -223,7 +236,7 @@ export class CreateListenerRequest extends $dara.Model {
    * @remarks
    * The listener port. Valid values: **0** to **65535**.
    * 
-   * If you set this parameter to **0**, the listener listens by port range. If you set this parameter to **0**, you must also set the **StartPort** and **EndPort** parameters.
+   * **0**: indicates that the all-port feature is used. If you set this parameter to **0**, you must configure **StartPort** and **EndPort**.
    * 
    * This parameter is required.
    * 
@@ -243,7 +256,7 @@ export class CreateListenerRequest extends $dara.Model {
   listenerProtocol?: string;
   /**
    * @remarks
-   * The ID of the NLB instance.
+   * The Network Load Balancer (NLB) instance ID.
    * 
    * This parameter is required.
    * 
@@ -253,9 +266,10 @@ export class CreateListenerRequest extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The size of the largest TCP packet segment. Unit: bytes. Valid values: **0** to **1500**. **0** indicates that the maximum segment size (MSS) value of TCP packets remains unchanged.
+   * The maximum segment size (MSS) of TCP packets. Unit: bytes. Valid values: **0** to **1500**.
+   * **0**: indicates that the MSS value of user TCP packets is not modified.
    * 
-   * >  This parameter takes effect only for TCP and TCPSSL listeners.
+   * > This parameter is supported only by TCP and TCPSSL listeners.
    * 
    * @example
    * 43
@@ -263,10 +277,11 @@ export class CreateListenerRequest extends $dara.Model {
   mss?: number;
   /**
    * @remarks
-   * Specifies whether to use the Proxy protocol to pass client IP addresses to backend servers. Valid values:
+   * Specifies whether to use the Proxy Protocol to pass the client source IP address to backend servers. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: enables the feature.
+   * 
+   * - **false** (default): disables the feature.
    * 
    * @example
    * false
@@ -274,14 +289,14 @@ export class CreateListenerRequest extends $dara.Model {
   proxyProtocolEnabled?: boolean;
   /**
    * @remarks
-   * Specifies whether to use the Proxy protocol to pass the VpcId, PrivateLinkEpId, and PrivateLinkEpsId parameters to backend servers.
+   * The configuration for passing the VpcId, PrivateLinkEpId, and PrivateLinkEpsId information to backend servers by using the Proxy Protocol.
    */
   proxyProtocolV2Config?: CreateListenerRequestProxyProtocolV2Config;
   /**
    * @remarks
-   * The ID of the region where the NLB instance is deployed.
+   * The region ID of the Network Load Balancer (NLB) instance. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
+   * You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -289,10 +304,11 @@ export class CreateListenerRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Specifies whether to enable fine-grained monitoring. Valid values:
+   * Specifies whether to enable second-level monitoring. Valid values:
    * 
-   * *   **true**
-   * *   **false** (default)
+   * - **true**: enables second-level monitoring.
+   * 
+   * - **false** (default): disables second-level monitoring.
    * 
    * @example
    * false
@@ -302,14 +318,12 @@ export class CreateListenerRequest extends $dara.Model {
    * @remarks
    * The ID of the security policy. System security policies and custom security policies are supported.
    * 
-   * *   Valid values for system security policies: **tls_cipher_policy_1_0** (default), **tls_cipher_policy_1_1**, **tls_cipher_policy_1_2**, **tls_cipher_policy_1_2_strict**, and **tls_cipher_policy_1_2_strict_with_1_3**.
+   * - System policies: **tls_cipher_policy_1_0** (default), **tls_cipher_policy_1_1**, **tls_cipher_policy_1_2**, **tls_cipher_policy_1_2_strict**, and **tls_cipher_policy_1_2_strict_with_1_3**.
+   * - Custom security policies: Enter the ID of a custom security policy.
+   *     - To create a custom policy, refer to [CreateSecurityPolicy](https://help.aliyun.com/document_detail/445901.html).
+   *     - To query security policies, refer to [ListSecurityPolicy](https://help.aliyun.com/document_detail/445900.html).
    * 
-   * *   For a custom security policy, enter the policy ID.
-   * 
-   *     *   For information about creating a custom security policy, see [CreateSecurityPolicy](https://help.aliyun.com/document_detail/445901.html).
-   *     *   For information about querying security policies, see [ListSecurityPolicy](https://help.aliyun.com/document_detail/445900.html).
-   * 
-   * >  This parameter takes effect only for TCPSSL listeners.
+   * > This parameter takes effect only for TCPSSL listeners.
    * 
    * @example
    * tls_cipher_policy_1_0
@@ -317,11 +331,10 @@ export class CreateListenerRequest extends $dara.Model {
   securityPolicyId?: string;
   /**
    * @remarks
-   * The server group ID.
-   * 
-   * >  *   If you set **ListenerProtocol** to **TCP**, you can associate the listener with server groups whose backend protocol is **TCP** or **TCP_UDP**. You cannot associate the listener with server groups whose backend protocol is **UDP**.
-   * >  *   If you set **ListenerProtocol** to **UDP**, you can associate the listener with server groups whose backend protocol is **UDP** or **TCP_UDP**. You cannot associate the listener with server groups whose backend protocol is **TCP**.
-   * >  *   If you set **ListenerProtocol** to **TCPSSL**, you can associate the listener with server groups whose backend protocol is **TCP** and have **client IP preservation disabled**. You cannot associate the listener with server groups whose backend protocol is **TCP** and have **client IP preservation enabled** or server groups whose backend protocol is **UDP** or **TCP_UDP**.
+   * The ID of the server group.
+   * > - If **ListenerProtocol** is set to **TCP**, the listener supports server groups whose backend protocol is **TCP** or **TCP_UDP**, but does not support server groups whose backend protocol is **UDP**.
+   * > - If **ListenerProtocol** is set to **UDP**, the listener supports server groups whose backend protocol is **UDP** or **TCP_UDP**, but does not support server groups whose backend protocol is **TCP**.
+   * > - If **ListenerProtocol** is set to **TCPSSL**, the listener supports server groups whose backend protocol is **TCP** and for which **client address preservation is disabled**. It does not support server groups whose backend protocol is **TCP** and for which **client address preservation is enabled**, or server groups whose backend protocol is **UDP** or **TCP_UDP**.
    * 
    * @example
    * sgp-ppdpc14gdm3x4o****
@@ -329,9 +342,9 @@ export class CreateListenerRequest extends $dara.Model {
   serverGroupId?: string;
   /**
    * @remarks
-   * The first port in the listener port range. Valid values: **0** to **65535**.
+   * The start port for all-port listening. Valid values: **1** to **65535**.
    * 
-   * >  This parameter is required when **ListenerPort** is set to **0**.
+   * > You must configure this parameter when **ListenerPort** is set to **0**.
    * 
    * @example
    * 244
@@ -339,7 +352,7 @@ export class CreateListenerRequest extends $dara.Model {
   startPort?: number;
   /**
    * @remarks
-   * The tags.
+   * The list of tags.
    * 
    * **if can be null:**
    * true

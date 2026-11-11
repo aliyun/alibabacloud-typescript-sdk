@@ -21,7 +21,7 @@ export class CreateServerGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The server group ID.
+   * The ID of the server group.
    * 
    * @example
    * sgp-atstuj3rtoptyui****

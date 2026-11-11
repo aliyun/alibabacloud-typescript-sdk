@@ -5,10 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class ListListenersResponseBodyListenersProxyProtocolV2Config extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the Proxy protocol passes the PrivateLinkEpId parameter to backend servers. Valid values:
+   * Indicates whether the Common Name (CN) field of the client certificate is passed to backend servers by using Proxy Protocol V2. Note: This parameter takes effect only when the listener protocol is TCPSSL, mutual authentication (mTLS) is enabled, and Proxy Protocol V2 is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: enabled.
+   * 
+   * - **false**: disabled.
+   * 
+   * @example
+   * false
+   */
+  ppv2CnIdEnabled?: boolean;
+  /**
+   * @remarks
+   * Indicates whether the Proxy Protocol is enabled to pass the PrivateLinkEpId to backend servers. Valid values:
+   * 
+   * - **true**: enabled.
+   * 
+   * - **false**: disabled.
    * 
    * @example
    * false
@@ -16,10 +29,11 @@ export class ListListenersResponseBodyListenersProxyProtocolV2Config extends $da
   ppv2PrivateLinkEpIdEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the Proxy protocol passes the PrivateLinkEpsId parameter to backend servers. Valid values:
+   * Indicates whether the Proxy Protocol is enabled to pass the PrivateLinkEpsId to backend servers. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: enabled.
+   * 
+   * - **false**: disabled.
    * 
    * @example
    * false
@@ -27,10 +41,11 @@ export class ListListenersResponseBodyListenersProxyProtocolV2Config extends $da
   ppv2PrivateLinkEpsIdEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the Proxy protocol passes the VpcId parameter to backend servers. Valid values:
+   * Indicates whether the Proxy Protocol is enabled to pass the VpcId to backend servers. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: enabled.
+   * 
+   * - **false**: disabled.
    * 
    * @example
    * false
@@ -38,6 +53,7 @@ export class ListListenersResponseBodyListenersProxyProtocolV2Config extends $da
   ppv2VpcIdEnabled?: boolean;
   static names(): { [key: string]: string } {
     return {
+      ppv2CnIdEnabled: 'Ppv2CnIdEnabled',
       ppv2PrivateLinkEpIdEnabled: 'Ppv2PrivateLinkEpIdEnabled',
       ppv2PrivateLinkEpsIdEnabled: 'Ppv2PrivateLinkEpsIdEnabled',
       ppv2VpcIdEnabled: 'Ppv2VpcIdEnabled',
@@ -46,6 +62,7 @@ export class ListListenersResponseBodyListenersProxyProtocolV2Config extends $da
 
   static types(): { [key: string]: any } {
     return {
+      ppv2CnIdEnabled: 'boolean',
       ppv2PrivateLinkEpIdEnabled: 'boolean',
       ppv2PrivateLinkEpsIdEnabled: 'boolean',
       ppv2VpcIdEnabled: 'boolean',
@@ -106,8 +123,9 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
    * @remarks
    * Indicates whether Application-Layer Protocol Negotiation (ALPN) is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: enabled.
+   * 
+   * - **false**: disabled.
    * 
    * @example
    * false
@@ -117,10 +135,10 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
    * @remarks
    * The ALPN policy. Valid values:
    * 
-   * *   **HTTP1Only**
-   * *   **HTTP2Only**
-   * *   **HTTP2Preferred**
-   * *   **HTTP2Optional**
+   * - **HTTP1Only**
+   * - **HTTP2Only**
+   * - **HTTP2Preferred**
+   * - **HTTP2Optional**
    * 
    * @example
    * HTTP1Only
@@ -128,17 +146,17 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   alpnPolicy?: string;
   /**
    * @remarks
-   * A list of CA certificates.
-   * 
-   * >  This parameter takes effect only for listeners that use SSL over TCP.
+   * The list of CA certificates.
+   * > This parameter takes effect only for TCPSSL listeners.
    */
   caCertificateIds?: string[];
   /**
    * @remarks
    * Indicates whether mutual authentication is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: enabled.
+   * 
+   * - **false**: disabled.
    * 
    * @example
    * false
@@ -146,14 +164,14 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   caEnabled?: boolean;
   /**
    * @remarks
-   * The server certificate.
+   * The list of server certificates.
    * 
-   * >  This parameter takes effect only for listeners that use SSL over TCP.
+   * > This parameter takes effect only for TCPSSL listeners.
    */
   certificateIds?: string[];
   /**
    * @remarks
-   * The maximum number of new connections per second supported by the listener in each zone (virtual IP address). Valid values: **0** to **1000000**. **0** indicates that the number of connections is unlimited.
+   * The maximum number of new connections per second that the listener can process in each zone (VIP). Valid values: **0** to **1000000**. A value of **0** indicates that no limit is applied.
    * 
    * @example
    * 1000
@@ -161,7 +179,7 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   cps?: number;
   /**
    * @remarks
-   * The last port in the listener port range.
+   * The end port for all-port listening.
    * 
    * @example
    * 455
@@ -169,7 +187,7 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   endPort?: string;
   /**
    * @remarks
-   * The timeout period of idle connections. Unit: seconds. Valid values: **1** to **900**. Default value: **900**.
+   * The idle timeout period for connections. Unit: seconds.
    * 
    * @example
    * 900
@@ -177,9 +195,9 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   idleTimeout?: number;
   /**
    * @remarks
-   * The name of the listener.
+   * The custom name of the listener.
    * 
-   * The name must be 2 to 256 characters in length, and can contain letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (_), and hyphens (-).
+   * The name must be 2 to 256 characters in length and can contain Chinese characters, English letters, digits, commas (,), periods (.), semicolons (;), forward slashes (/), at signs (@), underscores (_), and hyphens (-).
    * 
    * @example
    * tcpssl_443
@@ -195,7 +213,7 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   listenerId?: string;
   /**
    * @remarks
-   * The information about the listener port of your server.
+   * The listener port.
    * 
    * @example
    * 443
@@ -213,14 +231,21 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
    * @remarks
    * The status of the listener. Valid values:
    * 
-   * *   **Provisioning**: The listener is being created.
-   * *   **Running**: The listener is running.
-   * *   **Configuring**: The listener is being configured.
-   * *   **Stopping**: The listener is being stopped.
-   * *   **Stopped**: The listener is stopped.
-   * *   **Starting**: The listener is being started.
-   * *   **Deleting**: The listener is being deleted.
-   * *   **Deleted**: The listener is deleted.
+   * - **Provisioning**: The listener is being created.
+   * 
+   * - **Running**: The listener is running.
+   * 
+   * - **Configuring**: The listener is being configured.
+   * 
+   * - **Stopping**: The listener is being stopped.
+   * 
+   * - **Stopped**: The listener is stopped.
+   * 
+   * - **Starting**: The listener is being started.
+   * 
+   * - **Deleting**: The listener is being deleted.
+   * 
+   * - **Deleted**: The listener is deleted.
    * 
    * @example
    * Running
@@ -228,7 +253,7 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   listenerStatus?: string;
   /**
    * @remarks
-   * The CLB instance ID.
+   * The ID of the Network Load Balancer (NLB) instance.
    * 
    * @example
    * nlb-83ckzc8d4xlp8o****
@@ -236,9 +261,9 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The size of the largest TCP packet segment. Unit: bytes. Valid values: **0** to **1500**. **0** indicates that the Mss value of TCP packets remains unchanged.
+   * The maximum segment size (MSS) of TCP packets. Unit: bytes. Valid values: **0** to **1500**. A value of **0** indicates that the MSS value of user TCP packets is not modified.
    * 
-   * >  This parameter takes effect only for listeners that use SSL over TCP.
+   * > This parameter is supported only by TCP and TCPSSL listeners.
    * 
    * @example
    * 200
@@ -246,10 +271,11 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   mss?: number;
   /**
    * @remarks
-   * Indicates whether the Proxy protocol passes source client IP addresses to backend servers. Valid values:
+   * Indicates whether the Proxy Protocol is enabled to pass the client source IP address to backend servers. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: enabled.
+   * 
+   * - **false**: disabled.
    * 
    * @example
    * false
@@ -257,12 +283,12 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   proxyProtocolEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the Proxy protocol passes the VpcId, PrivateLinkEpId, and PrivateLinkEpsId parameters to backend servers.
+   * The configuration for passing the VpcId, PrivateLinkEpId, and PrivateLinkEpsId information to backend servers by using the Proxy Protocol.
    */
   proxyProtocolV2Config?: ListListenersResponseBodyListenersProxyProtocolV2Config;
   /**
    * @remarks
-   * The region ID of the NLB instance.
+   * The region ID of the Network Load Balancer (NLB) instance.
    * 
    * @example
    * cn-hangzhou
@@ -270,10 +296,11 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Indicates whether fine-grained monitoring is enabled. Valid values:
+   * Indicates whether second-level monitoring is enabled. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: enabled.
+   * 
+   * - **false**: disabled.
    * 
    * @example
    * false
@@ -283,7 +310,7 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
    * @remarks
    * The ID of the security policy.
    * 
-   * >  This parameter takes effect only for listeners that use SSL over TCP.
+   * > This parameter takes effect only for TCPSSL listeners.
    * 
    * @example
    * tls_cipher_policy_1_1
@@ -291,7 +318,7 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   securityPolicyId?: string;
   /**
    * @remarks
-   * The server group ID.
+   * The ID of the server group.
    * 
    * @example
    * sgp-ppdpc14gdm3x4o****
@@ -299,7 +326,7 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   serverGroupId?: string;
   /**
    * @remarks
-   * The first port in the listener port range.
+   * The start port for all-port listening.
    * 
    * @example
    * 233
@@ -307,7 +334,7 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
   startPort?: string;
   /**
    * @remarks
-   * A list of tags.
+   * The list of tags.
    */
   tags?: ListListenersResponseBodyListenersTags[];
   static names(): { [key: string]: string } {
@@ -390,7 +417,7 @@ export class ListListenersResponseBodyListeners extends $dara.Model {
 export class ListListenersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The listeners.
+   * The list of Network Load Balancer (NLB) listeners.
    */
   listeners?: ListListenersResponseBodyListeners[];
   /**
@@ -403,10 +430,9 @@ export class ListListenersResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that is used for the next query. Valid values:
-   * 
-   * *   If **NextToken** is empty, it indicates that no next query is to be sent.
-   * *   If a value of **NextToken** is returned, the value is the token used for the next query.
+   * The pagination token. Valid values:
+   * - If **NextToken** is empty, no next query is required.
+   * - If **NextToken** returns a value, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -414,7 +440,7 @@ export class ListListenersResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CEF72CEB-54B6-4AE8-B225-F876FF7BA984
@@ -422,7 +448,7 @@ export class ListListenersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 4

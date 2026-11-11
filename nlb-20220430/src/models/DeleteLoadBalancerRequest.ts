@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLoadBalancerRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
+   * You can generate the value of this parameter on your client to ensure that the value is unique across different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -17,10 +17,9 @@ export class DeleteLoadBalancerRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
-   * 
-   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
-   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
+   * Specifies whether to perform only a dry run on the request. Valid values:
+   * - **true**: Performs a dry run without deleting the instance. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the request fails the dry run, an error is returned. If the request passes the dry run, the `DryRunOperation` error code is returned.
+   * - **false** (default): Sends a regular request. If the request passes the dry run, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -28,7 +27,7 @@ export class DeleteLoadBalancerRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the NLB instance.
+   * The ID of the Network Load Balancer (NLB) instance.
    * 
    * This parameter is required.
    * 
@@ -38,9 +37,9 @@ export class DeleteLoadBalancerRequest extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The ID of the region where the NLB instance is deployed.
+   * The region ID of the Network Load Balancer (NLB) instance. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query region IDs.
    * 
    * @example
    * cn-hangzhou

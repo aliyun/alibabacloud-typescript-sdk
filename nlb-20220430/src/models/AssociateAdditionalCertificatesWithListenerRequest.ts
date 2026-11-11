@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateAdditionalCertificatesWithListenerRequest extends $dara.Model {
   /**
    * @remarks
-   * The additional certificates. You can associate up to 15 additional certificates with a listener in each call.
+   * The list of additional certificates. You can associate up to 15 additional certificates with a listener in a single call.
    * 
    * This parameter is required.
    */
   additionalCertificateIds?: string[];
   /**
    * @remarks
-   * The client token used to ensure the idempotence of the request.
+   * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token. Ensure that the token is unique among different requests. Only ASCII characters are allowed.
+   * You can generate a value for this parameter on your client to ensure that the value is unique across different requests. The client token can contain only ASCII characters.
    * 
-   * >  If you do not set this parameter, the value of **RequestId** is used.**** The value of **RequestId** is different for each request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426655440000
@@ -24,10 +24,9 @@ export class AssociateAdditionalCertificatesWithListenerRequest extends $dara.Mo
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
-   * 
-   * *   **true**: validates the request without performing the operation. The system checks the request for potential issues, including missing parameter values, incorrect request syntax, and service limits. If the request fails the validation, the corresponding error message is returned. If the request passes the validation, the `DryRunOperation` error code is returned.
-   * *   **false** (default): validates the request and performs the operation. If the request passes the validation, a 2xx HTTP status code is returned and the operation is performed.
+   * Specifies whether to only precheck this request. Valid values:
+   * - **true**: sends a check request and does not add the additional certificates to the TCPSSL listener. The system checks whether the required parameters are specified, the request format is valid, and the service limits are met. If the request fails the check, the system returns an error. If the request passes the check, the system returns the error code `DryRunOperation`.
+   * - **false** (default): sends a standard request. If the request passes the check, the system returns an HTTP 2xx status code and performs the operation.
    * 
    * @example
    * true
@@ -35,7 +34,7 @@ export class AssociateAdditionalCertificatesWithListenerRequest extends $dara.Mo
   dryRun?: boolean;
   /**
    * @remarks
-   * The listener ID. Only TCPSSL listener IDs are supported.
+   * The ID of the listener. This operation only supports TCPSSL listener IDs.
    * 
    * This parameter is required.
    * 
@@ -45,9 +44,9 @@ export class AssociateAdditionalCertificatesWithListenerRequest extends $dara.Mo
   listenerId?: string;
   /**
    * @remarks
-   * The ID of the region where the NLB instance is deployed.
+   * The ID of the region where the Network Load Balancer (NLB) instance is deployed. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query the most recent region list.
+   * You can invoke the [DescribeRegions](https://help.aliyun.com/document_detail/443657.html) operation to query region IDs.
    * 
    * @example
    * cn-hangzhou
