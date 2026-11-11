@@ -5011,6 +5011,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 集群休眠
+   * 
+   * @param request - HibernateClusterRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns HibernateClusterResponse
+   */
+  async hibernateClusterWithOptions(clusterId: string, request: $_model.HibernateClusterRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.HibernateClusterResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["clientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "HibernateCluster",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${$dara.URL.percentEncode(clusterId)}/hibernate`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.HibernateClusterResponse>(await this.callApi(params, req, runtime), new $_model.HibernateClusterResponse({}));
+  }
+
+  /**
+   * 集群休眠
+   * 
+   * @param request - HibernateClusterRequest
+   * @returns HibernateClusterResponse
+   */
+  async hibernateCluster(clusterId: string, request: $_model.HibernateClusterRequest): Promise<$_model.HibernateClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.hibernateClusterWithOptions(clusterId, request, headers, runtime);
+  }
+
+  /**
    * To enhance Kubernetes capabilities, ACK clusters support various components, such as managed core components, and application, logging and monitoring, networking, storage, and security components. You can call the InstallClusterAddons operation to install components by specifying the component name and version.
    * 
    * @param request - InstallClusterAddonsRequest
@@ -5104,10 +5149,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发起智能助手会话运行（AG-UI 协议）
+   * Initiates an intelligent assistant session run over the AG-UI protocol.
    * 
    * @remarks
-   * 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+   * The standalone native AG-UI API that returns a text/event-stream response upon successful stream establishment.
    * 
    * @param request - InvokeAgentRequest
    * @param headers - map
@@ -5186,10 +5231,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发起智能助手会话运行（AG-UI 协议）
+   * Initiates an intelligent assistant session run over the AG-UI protocol.
    * 
    * @remarks
-   * 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+   * The standalone native AG-UI API that returns a text/event-stream response upon successful stream establishment.
    * 
    * @param request - InvokeAgentRequest
    * @param headers - map
@@ -5254,10 +5299,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 发起智能助手会话运行（AG-UI 协议）
+   * Initiates an intelligent assistant session run over the AG-UI protocol.
    * 
    * @remarks
-   * 独立的原生 AG-UI 接口，成功建流后返回 text/event-stream。
+   * The standalone native AG-UI API that returns a text/event-stream response upon successful stream establishment.
    * 
    * @param request - InvokeAgentRequest
    * @returns InvokeAgentResponse
@@ -8600,6 +8645,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.upgradeClusterNodepoolWithOptions(ClusterId, NodepoolId, request, headers, runtime);
+  }
+
+  /**
+   * 集群唤醒
+   * 
+   * @param request - WakeUpClusterRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns WakeUpClusterResponse
+   */
+  async wakeUpClusterWithOptions(clusterId: string, request: $_model.WakeUpClusterRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.WakeUpClusterResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["clientToken"] = request.clientToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "WakeUpCluster",
+      version: "2015-12-15",
+      protocol: "HTTPS",
+      pathname: `/clusters/${$dara.URL.percentEncode(clusterId)}/wakeUp`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.WakeUpClusterResponse>(await this.callApi(params, req, runtime), new $_model.WakeUpClusterResponse({}));
+  }
+
+  /**
+   * 集群唤醒
+   * 
+   * @param request - WakeUpClusterRequest
+   * @returns WakeUpClusterResponse
+   */
+  async wakeUpCluster(clusterId: string, request: $_model.WakeUpClusterRequest): Promise<$_model.WakeUpClusterResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.wakeUpClusterWithOptions(clusterId, request, headers, runtime);
   }
 
 }
