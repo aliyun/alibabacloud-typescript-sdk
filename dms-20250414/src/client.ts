@@ -290,6 +290,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates multiple partitions for a data lakehouse table.
+   * 
+   * @param tmpReq - BatchCreateDataLakePartitionsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchCreateDataLakePartitionsResponse
+   */
+  async batchCreateDataLakePartitionsWithOptions(tmpReq: $_model.BatchCreateDataLakePartitionsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchCreateDataLakePartitionsResponse> {
+    tmpReq.validate();
+    let request = new $_model.BatchCreateDataLakePartitionsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.partitionInputs)) {
+      request.partitionInputsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.partitionInputs, "PartitionInputs", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.catalogName)) {
+      query["CatalogName"] = request.catalogName;
+    }
+
+    if (!$dara.isNull(request.dbName)) {
+      query["DbName"] = request.dbName;
+    }
+
+    if (!$dara.isNull(request.ifNotExists)) {
+      query["IfNotExists"] = request.ifNotExists;
+    }
+
+    if (!$dara.isNull(request.needResult)) {
+      query["NeedResult"] = request.needResult;
+    }
+
+    if (!$dara.isNull(request.tableName)) {
+      query["TableName"] = request.tableName;
+    }
+
+    if (!$dara.isNull(request.tid)) {
+      query["Tid"] = request.tid;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.partitionInputsShrink)) {
+      body["PartitionInputs"] = request.partitionInputsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchCreateDataLakePartitions",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchCreateDataLakePartitionsResponse>(await this.callApi(params, req, runtime), new $_model.BatchCreateDataLakePartitionsResponse({}));
+  }
+
+  /**
+   * Creates multiple partitions for a data lakehouse table.
+   * 
+   * @param request - BatchCreateDataLakePartitionsRequest
+   * @returns BatchCreateDataLakePartitionsResponse
+   */
+  async batchCreateDataLakePartitions(request: $_model.BatchCreateDataLakePartitionsRequest): Promise<$_model.BatchCreateDataLakePartitionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchCreateDataLakePartitionsWithOptions(request, runtime);
+  }
+
+  /**
    * CheckDataAgentMemoryConfig - Queries the memory generation and usage configuration of a DataAgent.
    * 
    * @param request - CheckDataAgentMemoryConfigRequest
@@ -3664,6 +3742,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the OAuth authorization URL required for the current user to bind a Lark account. After the user completes the authorization, the system automatically binds their Lark account.
+   * 
+   * @param request - GetMyAgenticNotificationChannelAuthorizeUrlRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMyAgenticNotificationChannelAuthorizeUrlResponse
+   */
+  async getMyAgenticNotificationChannelAuthorizeUrlWithOptions(request: $_model.GetMyAgenticNotificationChannelAuthorizeUrlRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetMyAgenticNotificationChannelAuthorizeUrlResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channel)) {
+      query["Channel"] = request.channel;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMyAgenticNotificationChannelAuthorizeUrl",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMyAgenticNotificationChannelAuthorizeUrlResponse>(await this.callApi(params, req, runtime), new $_model.GetMyAgenticNotificationChannelAuthorizeUrlResponse({}));
+  }
+
+  /**
+   * Retrieves the OAuth authorization URL required for the current user to bind a Lark account. After the user completes the authorization, the system automatically binds their Lark account.
+   * 
+   * @param request - GetMyAgenticNotificationChannelAuthorizeUrlRequest
+   * @returns GetMyAgenticNotificationChannelAuthorizeUrlResponse
+   */
+  async getMyAgenticNotificationChannelAuthorizeUrl(request: $_model.GetMyAgenticNotificationChannelAuthorizeUrlRequest): Promise<$_model.GetMyAgenticNotificationChannelAuthorizeUrlResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getMyAgenticNotificationChannelAuthorizeUrlWithOptions(request, runtime);
+  }
+
+  /**
    * Submits a task to schedule and run a Notebook file.
    * 
    * @param request - GetNotebookAndSubmitTaskRequest
@@ -6142,6 +6262,56 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the personal notification channel configurations of the current user in the current tenant, including channel status and bound identity information.
+   * 
+   * @param request - ListMyAgenticNotificationChannelConfigsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMyAgenticNotificationChannelConfigsResponse
+   */
+  async listMyAgenticNotificationChannelConfigsWithOptions(request: $_model.ListMyAgenticNotificationChannelConfigsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMyAgenticNotificationChannelConfigsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.channel)) {
+      query["Channel"] = request.channel;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMyAgenticNotificationChannelConfigs",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMyAgenticNotificationChannelConfigsResponse>(await this.callApi(params, req, runtime), new $_model.ListMyAgenticNotificationChannelConfigsResponse({}));
+  }
+
+  /**
+   * Queries the personal notification channel configurations of the current user in the current tenant, including channel status and bound identity information.
+   * 
+   * @param request - ListMyAgenticNotificationChannelConfigsRequest
+   * @returns ListMyAgenticNotificationChannelConfigsResponse
+   */
+  async listMyAgenticNotificationChannelConfigs(request: $_model.ListMyAgenticNotificationChannelConfigsRequest): Promise<$_model.ListMyAgenticNotificationChannelConfigsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMyAgenticNotificationChannelConfigsWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves a list of OSSIE models.
    * 
    * @param request - ListOneMetaOssieModelsRequest
@@ -7094,10 +7264,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * - The default value of `message_type` is `primary`. Set it to `additional` or `cancel` when you need to append information or cancel the session.
-   * - The `reply_to` field specifies the agent message to which this message responds. The default value is `0`.
-   * - The `question` field is required when `message_type` is set to `additional`.
-   * - You can use `quoted_message` to quote previous user messages.
+   * - The default value of message_type is primary. Set this parameter to additional or cancel when you need to append information or cancel the session.
+   * - The reply_to field specifies the agent message to which this message responds. The default value is 0.
+   * - The question field is required when message_type is set to additional.
+   * - You can use quoted_message to quote previous messages from the user.
    * 
    * @param tmpReq - SendChatMessageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7206,10 +7376,10 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * - The default value of `message_type` is `primary`. Set it to `additional` or `cancel` when you need to append information or cancel the session.
-   * - The `reply_to` field specifies the agent message to which this message responds. The default value is `0`.
-   * - The `question` field is required when `message_type` is set to `additional`.
-   * - You can use `quoted_message` to quote previous user messages.
+   * - The default value of message_type is primary. Set this parameter to additional or cancel when you need to append information or cancel the session.
+   * - The reply_to field specifies the agent message to which this message responds. The default value is 0.
+   * - The question field is required when message_type is set to additional.
+   * - You can use quoted_message to quote previous messages from the user.
    * 
    * @param request - SendChatMessageRequest
    * @returns SendChatMessageResponse
@@ -8261,6 +8431,56 @@ export default class Client extends OpenApi {
   async updateKnowledgeBase(request: $_model.UpdateKnowledgeBaseRequest): Promise<$_model.UpdateKnowledgeBaseResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateKnowledgeBaseWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the notification channel switch or Lark account binding information for the current user.
+   * 
+   * @param request - UpdateMyAgenticNotificationChannelConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMyAgenticNotificationChannelConfigResponse
+   */
+  async updateMyAgenticNotificationChannelConfigWithOptions(request: $_model.UpdateMyAgenticNotificationChannelConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMyAgenticNotificationChannelConfigResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.channel)) {
+      body["Channel"] = request.channel;
+    }
+
+    if (!$dara.isNull(request.config)) {
+      body["Config"] = request.config;
+    }
+
+    if (!$dara.isNull(request.enabled)) {
+      body["Enabled"] = request.enabled;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMyAgenticNotificationChannelConfig",
+      version: "2025-04-14",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMyAgenticNotificationChannelConfigResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMyAgenticNotificationChannelConfigResponse({}));
+  }
+
+  /**
+   * Updates the notification channel switch or Lark account binding information for the current user.
+   * 
+   * @param request - UpdateMyAgenticNotificationChannelConfigRequest
+   * @returns UpdateMyAgenticNotificationChannelConfigResponse
+   */
+  async updateMyAgenticNotificationChannelConfig(request: $_model.UpdateMyAgenticNotificationChannelConfigRequest): Promise<$_model.UpdateMyAgenticNotificationChannelConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateMyAgenticNotificationChannelConfigWithOptions(request, runtime);
   }
 
   /**

@@ -34,7 +34,7 @@ export class WorkspaceActionStatusResponseBodyData extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * {\\"phase\\": \\"Created\\", \\"latestExecError\\": {\\"message\\": \\"\\", \\"code\\": \\"\\", \\"requestId\\": \\"\\", \\"extraInfo\\": \\"\\", \\"title\\": \\"\\"}}
+   * ERROR
    */
   status?: string;
   static names(): { [key: string]: string } {

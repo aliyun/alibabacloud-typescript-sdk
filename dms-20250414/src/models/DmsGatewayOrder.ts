@@ -15,6 +15,7 @@ export class DmsGatewayOrder extends $dara.Model {
   payNum?: number;
   region?: string;
   state?: string;
+  tags?: string;
   static names(): { [key: string]: string } {
     return {
       bizType: 'BizType',
@@ -29,6 +30,7 @@ export class DmsGatewayOrder extends $dara.Model {
       payNum: 'PayNum',
       region: 'Region',
       state: 'State',
+      tags: 'Tags',
     };
   }
 
@@ -46,6 +48,7 @@ export class DmsGatewayOrder extends $dara.Model {
       payNum: 'number',
       region: 'string',
       state: 'string',
+      tags: 'string',
     };
   }
 
