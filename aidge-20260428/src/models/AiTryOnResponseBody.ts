@@ -129,7 +129,7 @@ export class AiTryOnResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. It is used to identify a unique API call.
+   * The ID of the request.
    * 
    * @example
    * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
@@ -137,7 +137,9 @@ export class AiTryOnResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * True

@@ -103,6 +103,7 @@ export { PrepaidTextTranslateResponseBodyData } from './PrepaidTextTranslateResp
 export { ProductHotspotDetectionResponseBodyDataProductsBoxes } from './ProductHotspotDetectionResponseBody';
 export { ProductHotspotDetectionResponseBodyDataProducts } from './ProductHotspotDetectionResponseBody';
 export { ProductHotspotDetectionResponseBodyData } from './ProductHotspotDetectionResponseBody';
+export { ProductVideoGenerationResponseBodyData } from './ProductVideoGenerationResponseBody';
 export { QueryAsyncTaskResultResponseBodyData } from './QueryAsyncTaskResultResponseBody';
 export { QueryDisplayKnowledgeResponseBodyDataRecords } from './QueryDisplayKnowledgeResponseBody';
 export { QueryDisplayKnowledgeResponseBodyData } from './QueryDisplayKnowledgeResponseBody';
@@ -269,6 +270,10 @@ export { ProductHotspotDetectionRequest } from './ProductHotspotDetectionRequest
 export { ProductHotspotDetectionShrinkRequest } from './ProductHotspotDetectionShrinkRequest';
 export { ProductHotspotDetectionResponseBody } from './ProductHotspotDetectionResponseBody';
 export { ProductHotspotDetectionResponse } from './ProductHotspotDetectionResponse';
+export { ProductVideoGenerationRequest } from './ProductVideoGenerationRequest';
+export { ProductVideoGenerationShrinkRequest } from './ProductVideoGenerationShrinkRequest';
+export { ProductVideoGenerationResponseBody } from './ProductVideoGenerationResponseBody';
+export { ProductVideoGenerationResponse } from './ProductVideoGenerationResponse';
 export { QueryAsyncTaskResultRequest } from './QueryAsyncTaskResultRequest';
 export { QueryAsyncTaskResultResponseBody } from './QueryAsyncTaskResultResponseBody';
 export { QueryAsyncTaskResultResponse } from './QueryAsyncTaskResultResponse';
