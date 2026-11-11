@@ -45,14 +45,12 @@ export class DescribeTransitRouterPolicyTablesResponseBodyPolicyTablesTags exten
 export class DescribeTransitRouterPolicyTablesResponseBodyPolicyTables extends $dara.Model {
   /**
    * @remarks
-   * The network instance attachments associated with the policy route table.
+   * The attachments associated with the policy route table.
    */
   attachments?: string[];
   /**
    * @remarks
-   * The time when the policy route table was created.
-   * 
-   * The time is displayed in the ISO 8601 standard in the YYYY-MM-DDThh:mmZ format. The time is displayed in UTC.
+   * The time when the policy route table was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDThh:mmZ format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -78,7 +76,7 @@ export class DescribeTransitRouterPolicyTablesResponseBodyPolicyTables extends $
   name?: string;
   /**
    * @remarks
-   * The policy routing table instance ID.
+   * The ID of the policy route table instance.
    * 
    * @example
    * ptbl-44m0p68spvlrqq****
@@ -108,7 +106,7 @@ export class DescribeTransitRouterPolicyTablesResponseBodyPolicyTables extends $
   status?: string;
   /**
    * @remarks
-   * The tags added to the policy route table.
+   * The tags that are added to the policy route table.
    */
   tags?: DescribeTransitRouterPolicyTablesResponseBodyPolicyTablesTags[];
   /**
@@ -173,10 +171,10 @@ export class DescribeTransitRouterPolicyTablesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. Valid values:
+   * The token that is used to retrieve the next page of results. Valid values:
    * 
-   * - If NextToken is empty, no subsequent query is required.
-   * - If NextToken is returned, the value indicates the token for the next query.
+   * If NextToken is empty, no next query is to be sent.
+   * If NextToken is returned, the value indicates the token that is used to start the next query.
    * 
    * @example
    * dd20****

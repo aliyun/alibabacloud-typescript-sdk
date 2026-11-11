@@ -120,6 +120,7 @@ export { DescribeTransitRouterPolicyBasedRoutesResponseBodyPolicyBasedRoutes } f
 export { DescribeTransitRouterPolicyTableAssociationsRequestFilter } from './DescribeTransitRouterPolicyTableAssociationsRequest';
 export { DescribeTransitRouterPolicyTableAssociationsResponseBodyAssociations } from './DescribeTransitRouterPolicyTableAssociationsResponseBody';
 export { DescribeTransitRouterPolicyTablesRequestFilter } from './DescribeTransitRouterPolicyTablesRequest';
+export { DescribeTransitRouterPolicyTablesRequestTag } from './DescribeTransitRouterPolicyTablesRequest';
 export { DescribeTransitRouterPolicyTablesResponseBodyPolicyTablesTags } from './DescribeTransitRouterPolicyTablesResponseBody';
 export { DescribeTransitRouterPolicyTablesResponseBodyPolicyTables } from './DescribeTransitRouterPolicyTablesResponseBody';
 export { ListCenChildInstanceRouteEntriesToAttachmentRequestRouteFilter } from './ListCenChildInstanceRouteEntriesToAttachmentRequest';

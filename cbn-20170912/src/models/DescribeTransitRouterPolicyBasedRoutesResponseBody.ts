@@ -16,7 +16,7 @@ export class DescribeTransitRouterPolicyBasedRoutesResponseBodyPolicyBasedRoutes
   addressFamily?: string;
   /**
    * @remarks
-   * The description of the policy-based route table.
+   * The description of the policy route table instance.
    * 
    * @example
    * OK
@@ -26,14 +26,14 @@ export class DescribeTransitRouterPolicyBasedRoutesResponseBodyPolicyBasedRoutes
    * @remarks
    * The destination port. Valid values: **-1** or **1** to **65535**.
    * 
-   * Matches traffic whose port numbers fall within the destination port range. If this parameter is not specified, traffic to any destination port is matched.
+   * Matches traffic whose port number falls within the destination port range. If this parameter is not specified, traffic to any destination port is matched.
    * 
    * The port range format is described as follows:
    * 
-   * - 80: port 80.
-   * - 80/80: port 80.
-   * - 1/200: ports 1 to 200.
-   * - -1/-1: all ports.
+   * - 80: specifies port 80.
+   * - 80/80: specifies port 80.
+   * - 1/200: specifies ports 1 to 200.
+   * - -1/-1: specifies all ports.
    * 
    * @example
    * 80/80
@@ -51,10 +51,10 @@ export class DescribeTransitRouterPolicyBasedRoutesResponseBodyPolicyBasedRoutes
    * @remarks
    * The Differentiated Services Code Point (DSCP) value of the traffic packets to match. Valid values: **0** to **63**.
    * 
-   * The DSCP value format is described as follows:
+   * The input format is described as follows:
    * 
    * - 1: matches traffic with a DSCP value of 1.
-   * - 1/10: matches traffic with DSCP values from 1 to 10.
+   * - 1/10: matches traffic with a DSCP value from 1 to 10.
    * - -1/-1: matches traffic with any DSCP value.
    * 
    * @example
@@ -81,7 +81,7 @@ export class DescribeTransitRouterPolicyBasedRoutesResponseBodyPolicyBasedRoutes
   policyBasedRouteId?: string;
   /**
    * @remarks
-   * The instance ID of the policy-based routing table.
+   * The instance ID of the policy routing table.
    * 
    * @example
    * ptbl-123adsfzc
@@ -91,7 +91,7 @@ export class DescribeTransitRouterPolicyBasedRoutesResponseBodyPolicyBasedRoutes
    * @remarks
    * The priority of the policy-based route. Valid values: **1** to **100**.
    * 
-   * The priority of each policy-based route in a policy-based route table of a transit router must be unique. A smaller value indicates a higher priority.
+   * The priority of each policy-based route in a transit router policy route table must be unique. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -119,14 +119,14 @@ export class DescribeTransitRouterPolicyBasedRoutesResponseBodyPolicyBasedRoutes
    * @remarks
    * The source port. Valid values: **-1** or **1** to **65535**.
    * 
-   * Matches traffic whose port numbers fall within the source port range. If this parameter is not specified, traffic from any source port is matched.
+   * Matches traffic whose port number falls within the source port range. If this parameter is not specified, traffic from any source port is matched.
    * 
    * The port range format is described as follows:
    * 
-   * - 80: port 80.
-   * - 80/80: port 80.
-   * - 1/200: ports 1 to 200.
-   * - -1/-1: all ports.
+   * - 80: specifies port 80.
+   * - 80/80: specifies port 80.
+   * - 1/200: specifies ports 1 to 200.
+   * - -1/-1: specifies all ports.
    * 
    * @example
    * 80/80
@@ -136,9 +136,9 @@ export class DescribeTransitRouterPolicyBasedRoutesResponseBodyPolicyBasedRoutes
    * @remarks
    * The status of the policy-based route. Valid values:
    * 
-   * - **Creating**: The policy-based route is being created.
-   * - **Active**: The policy-based route is available.
-   * - **Deleting**: The policy-based route is being deleted.
+   * - **Creating**: creating
+   * - **Active**: available
+   * - **Deleting**: deleting
    * 
    * @example
    * Active
@@ -146,7 +146,7 @@ export class DescribeTransitRouterPolicyBasedRoutesResponseBodyPolicyBasedRoutes
   status?: string;
   /**
    * @remarks
-   * The destination route table.
+   * The target route table.
    * 
    * @example
    * vtb-123adf
@@ -202,7 +202,7 @@ export class DescribeTransitRouterPolicyBasedRoutesResponseBodyPolicyBasedRoutes
 export class DescribeTransitRouterPolicyBasedRoutesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned per page. Default value: **20**.
+   * The number of entries returned on each page. Default value: **20**.
    * 
    * @example
    * 20
@@ -210,9 +210,9 @@ export class DescribeTransitRouterPolicyBasedRoutesResponseBody extends $dara.Mo
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. Valid values:
+   * The token that is used to retrieve the next page of results. Valid values:
    * 
-   * - If **NextToken** is empty, no next query is available.
+   * - If **NextToken** is empty, no more results are available.
    * - If **NextToken** returns a value, the value is the token used to start the next query.
    * 
    * @example
@@ -221,12 +221,12 @@ export class DescribeTransitRouterPolicyBasedRoutesResponseBody extends $dara.Mo
   nextToken?: string;
   /**
    * @remarks
-   * The list of policy-based route rules.
+   * The policy-based route rules.
    */
   policyBasedRoutes?: DescribeTransitRouterPolicyBasedRoutesResponseBodyPolicyBasedRoutes[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F7DDDC17-FA06-4AC2-8F35-59D2470FCFC1

@@ -8,7 +8,7 @@ export class DescribeTransitRouterPolicyTablesRequestFilter extends $dara.Model 
    * The filter condition. Valid values:
    * 
    * PolicyTableId: the ID of the Cloud Enterprise Network (CEN) instance.
-   * By default, multiple filter conditions are combined with the AND operator. A resource is considered a match only if it meets all the filter conditions.
+   * By default, multiple filter conditions are evaluated by using the AND operator. A result is returned only if all filter conditions are met.
    * 
    * You can specify up to 5 filter conditions at a time.
    * 
@@ -20,7 +20,7 @@ export class DescribeTransitRouterPolicyTablesRequestFilter extends $dara.Model 
    * @remarks
    * The value of the filter condition.
    * 
-   * Specify the filter value based on the key. You can specify multiple values for a single key. Multiple values are combined with the OR operator. A resource is considered a match if it meets any of the values.
+   * Specify the value based on the key. You can specify multiple values for a key. Multiple values are evaluated by using the OR operator. If one of the values is met, the filter condition is met.
    * 
    * You can specify up to 5 values for each filter condition.
    */
@@ -51,12 +51,36 @@ export class DescribeTransitRouterPolicyTablesRequestFilter extends $dara.Model 
   }
 }
 
+export class DescribeTransitRouterPolicyTablesRequestTag extends $dara.Model {
+  key?: string;
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeTransitRouterPolicyTablesRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter conditions.
-   * 
-   * You can specify up to 5 filter conditions at a time.
+   * The filter conditions. You can specify up to 5 filter conditions at a time.
    */
   filter?: DescribeTransitRouterPolicyTablesRequestFilter[];
   /**
@@ -69,15 +93,16 @@ export class DescribeTransitRouterPolicyTablesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. Valid values:
+   * The token that is used to retrieve the next page of results. Valid values:
    * 
-   * - If this is the first query or no subsequent query is required, you do not need to specify this parameter.
-   * - If a subsequent query is required, set the value to the NextToken value returned from the previous API call.
+   * If this is your first query or no next query is to be sent, ignore this parameter.
+   * If a next query is to be sent, set the value to the NextToken value that is returned from the last API invocation.
    * 
    * @example
    * dd20****
    */
   nextToken?: string;
+  tag?: DescribeTransitRouterPolicyTablesRequestTag[];
   /**
    * @remarks
    * The ID of the Enterprise Edition transit router.
@@ -91,6 +116,7 @@ export class DescribeTransitRouterPolicyTablesRequest extends $dara.Model {
       filter: 'Filter',
       maxResults: 'MaxResults',
       nextToken: 'NextToken',
+      tag: 'Tag',
       transitRouterId: 'TransitRouterId',
     };
   }
@@ -100,6 +126,7 @@ export class DescribeTransitRouterPolicyTablesRequest extends $dara.Model {
       filter: { 'type': 'array', 'itemType': DescribeTransitRouterPolicyTablesRequestFilter },
       maxResults: 'number',
       nextToken: 'string',
+      tag: { 'type': 'array', 'itemType': DescribeTransitRouterPolicyTablesRequestTag },
       transitRouterId: 'string',
     };
   }
@@ -107,6 +134,9 @@ export class DescribeTransitRouterPolicyTablesRequest extends $dara.Model {
   validate() {
     if(Array.isArray(this.filter)) {
       $dara.Model.validateArray(this.filter);
+    }
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
     }
     super.validate();
   }

@@ -21,7 +21,7 @@ export class DescribeTransitRouterPolicyTableAssociationsResponseBodyAssociation
   attachmentId?: string;
   /**
    * @remarks
-   * The instance ID of the policy routing table.
+   * The policy routing table instance ID.
    * 
    * @example
    * ptbl-123adfzcx
@@ -31,9 +31,9 @@ export class DescribeTransitRouterPolicyTableAssociationsResponseBodyAssociation
    * @remarks
    * The status of the association. Valid values:
    * 
-   * - **Active**: Active.
-   * - **Associating**: Associating.
-   * - **Dissociating**: Dissociating.
+   * - **Active**: active.
+   * - **Associating**: associating.
+   * - **Dissociating**: dissociating.
    * 
    * @example
    * Active
@@ -74,7 +74,7 @@ export class DescribeTransitRouterPolicyTableAssociationsResponseBody extends $d
   associations?: DescribeTransitRouterPolicyTableAssociationsResponseBodyAssociations[];
   /**
    * @remarks
-   * The number of entries returned per page in a paginated query.
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -82,7 +82,7 @@ export class DescribeTransitRouterPolicyTableAssociationsResponseBody extends $d
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query in a paginated query.
+   * The token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
