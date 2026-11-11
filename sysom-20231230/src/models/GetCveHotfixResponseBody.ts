@@ -13,7 +13,7 @@ export class GetCveHotfixResponseBodyDataHotfixPackages extends $dara.Model {
   arch?: string;
   /**
    * @remarks
-   * The distribution. This value is null if the distribution is not registered.
+   * The distribution. The value is null if the distribution is not registered.
    * 
    * @example
    * alinux3
@@ -24,7 +24,7 @@ export class GetCveHotfixResponseBodyDataHotfixPackages extends $dara.Model {
   distro?: string;
   /**
    * @remarks
-   * The compatible full kernel version.
+   * The adapted full kernel version.
    * 
    * @example
    * 5.10.134-18.al8.x86_64
@@ -68,7 +68,7 @@ export class GetCveHotfixResponseBodyDataHotfixPackages extends $dara.Model {
 export class GetCveHotfixResponseBodyDataHotfix extends $dara.Model {
   /**
    * @remarks
-   * The hotfix description.
+   * The description of the hotfix.
    * 
    * @example
    * Fixes the kernel issue corresponding to the CVE
@@ -76,7 +76,7 @@ export class GetCveHotfixResponseBodyDataHotfix extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The hotfix name.
+   * The name of the hotfix.
    * 
    * @example
    * 12345678
@@ -84,7 +84,7 @@ export class GetCveHotfixResponseBodyDataHotfix extends $dara.Model {
   hotfixName?: string;
   /**
    * @remarks
-   * The hotfix module name.
+   * The module name of the hotfix.
    * 
    * @example
    * kpatch_example
@@ -92,12 +92,12 @@ export class GetCveHotfixResponseBodyDataHotfix extends $dara.Model {
   moduleName?: string;
   /**
    * @remarks
-   * The list of published packages that meet the kernel requirements.
+   * The list of published packages that meet the kernel conditions.
    */
   packages?: GetCveHotfixResponseBodyDataHotfixPackages[];
   /**
    * @remarks
-   * The hotfix version.
+   * The version of the hotfix.
    * 
    * @example
    * 1.0
@@ -183,7 +183,7 @@ export class GetCveHotfixResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * - If `code == Success`, the authorization is successful.
-   * - Other status codes indicate that the authorization failed. If the authorization failed, check the `message` field for the detailed fault information.
+   * - Other status codes indicate that the authorization failed. If the authorization fails, check the `message` field for the detailed fault message.
    * 
    * @example
    * Success

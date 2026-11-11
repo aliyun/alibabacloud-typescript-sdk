@@ -5,24 +5,30 @@ import * as $dara from '@darabonba/typescript';
 export class ListAlertStrategiesResponseBodyDataStrategy extends $dara.Model {
   /**
    * @remarks
-   * The collection of clusters that receive alerts.
+   * The list of clusters that receive alerts.
    */
   clusters?: string[];
   /**
    * @remarks
-   * The list of alert contacts and policy destinations.
+   * The alert contacts and the list of policy destinations.
    */
   destinations?: number[];
   /**
    * @remarks
-   * The list of exception items that receive alerts.
+   * The list of anomaly items that trigger alerts.
    */
   items?: string[];
+  /**
+   * @remarks
+   * The list of alert levels.
+   */
+  levels?: string[];
   static names(): { [key: string]: string } {
     return {
       clusters: 'clusters',
       destinations: 'destinations',
       items: 'items',
+      levels: 'levels',
     };
   }
 
@@ -31,6 +37,7 @@ export class ListAlertStrategiesResponseBodyDataStrategy extends $dara.Model {
       clusters: { 'type': 'array', 'itemType': 'string' },
       destinations: { 'type': 'array', 'itemType': 'number' },
       items: { 'type': 'array', 'itemType': 'string' },
+      levels: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -43,6 +50,9 @@ export class ListAlertStrategiesResponseBodyDataStrategy extends $dara.Model {
     }
     if(Array.isArray(this.items)) {
       $dara.Model.validateArray(this.items);
+    }
+    if(Array.isArray(this.levels)) {
+      $dara.Model.validateArray(this.levels);
     }
     super.validate();
   }
@@ -79,7 +89,7 @@ export class ListAlertStrategiesResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Indicates whether K8s labels are required.
+   * Specifies whether Kubernetes labels are required.
    */
   k8sLabel?: boolean;
   /**
@@ -154,7 +164,7 @@ export class ListAlertStrategiesResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * - If `code == Success`, the authorization is successful.
-   * - Other status codes indicate that the authorization failed. If the authorization failed, check the `message` field for the detailed error message.
+   * - Other status codes indicate that the authorization failed. If the authorization failed, check the `message` field to obtain the detailed fault message.
    * 
    * @example
    * Success
@@ -162,12 +172,12 @@ export class ListAlertStrategiesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned results.
+   * The returned data.
    */
   data?: ListAlertStrategiesResponseBodyData[];
   /**
    * @remarks
-   * The maximum number of returned results.
+   * The maximum number of returned records.
    * 
    * @example
    * 20
@@ -176,8 +186,8 @@ export class ListAlertStrategiesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The error message.
-   * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the request error message.
+   * - If the value of `code` is `Success`, this field is empty.
+   * - Otherwise, this field contains the error message of the request.
    * 
    * @example
    * success

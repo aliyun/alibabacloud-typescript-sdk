@@ -7,7 +7,7 @@ export class CreateAlertStrategyResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * - If `code == Success`, the authorization is successful.
-   * - Other status codes indicate that the authorization failed. If the authorization fails, check the `message` field for the detailed fault message.
+   * - Other status codes indicate that the authorization failed. If the authorization failed, check the `message` field for the detailed fault message.
    * 
    * @example
    * Success

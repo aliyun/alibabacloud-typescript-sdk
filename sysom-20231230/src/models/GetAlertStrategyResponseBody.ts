@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAlertStrategyResponseBodyDataStrategy extends $dara.Model {
   /**
    * @remarks
-   * The clusters that receive alerts.
+   * The collection of clusters that receive alerts.
    */
   clusters?: string[];
   /**
@@ -18,17 +18,23 @@ export class GetAlertStrategyResponseBodyDataStrategy extends $dara.Model {
   destinations?: any;
   /**
    * @remarks
-   * The list of anomaly items that trigger alerts.
+   * The list of anomaly items that receive alerts.
    * 
    * @example
    * Node CPU usage detection
    */
   items?: any;
+  /**
+   * @remarks
+   * The collection of alert levels.
+   */
+  levels?: string[];
   static names(): { [key: string]: string } {
     return {
       clusters: 'clusters',
       destinations: 'destinations',
       items: 'items',
+      levels: 'levels',
     };
   }
 
@@ -37,12 +43,16 @@ export class GetAlertStrategyResponseBodyDataStrategy extends $dara.Model {
       clusters: { 'type': 'array', 'itemType': 'string' },
       destinations: 'any',
       items: 'any',
+      levels: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
   validate() {
     if(Array.isArray(this.clusters)) {
       $dara.Model.validateArray(this.clusters);
+    }
+    if(Array.isArray(this.levels)) {
+      $dara.Model.validateArray(this.levels);
     }
     super.validate();
   }
@@ -79,7 +89,7 @@ export class GetAlertStrategyResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The Kubernetes label.
+   * The K8s labels.
    */
   k8sLabel?: boolean;
   /**
@@ -154,7 +164,7 @@ export class GetAlertStrategyResponseBody extends $dara.Model {
    * @remarks
    * The status code.
    * - If `code == Success`, the authorization is successful.
-   * - Other status codes indicate that the authorization failed. If the authorization fails, check the `message` field for the detailed fault message.
+   * - Other status codes indicate that the authorization failed. If the authorization failed, check the `message` field to obtain the detailed fault information.
    * 
    * @example
    * Success

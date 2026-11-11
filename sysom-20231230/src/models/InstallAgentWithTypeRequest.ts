@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InstallAgentWithTypeRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * test_tag_key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * test_tag_value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -73,6 +87,10 @@ export class InstallAgentWithTypeRequestInstances extends $dara.Model {
 }
 
 export class InstallAgentWithTypeRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of tags.
+   */
   tag?: InstallAgentWithTypeRequestTag[];
   /**
    * @remarks
@@ -96,7 +114,7 @@ export class InstallAgentWithTypeRequest extends $dara.Model {
   agentVersion?: string;
   /**
    * @remarks
-   * The configuration ID of the component to install.
+   * The ID of the component configuration to install.
    * 
    * @example
    * f0078fbb-4213-11f0-a19b-00163e4ae208

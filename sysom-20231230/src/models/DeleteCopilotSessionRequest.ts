@@ -4,12 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteCopilotSessionRequest extends $dara.Model {
   /**
+   * @remarks
+   * The agent identifier.
+   * 
    * @example
    * sre_agent
    */
   agentId?: string;
   /**
    * @remarks
+   * The session ID.
+   * 
    * This parameter is required.
    * 
    * @example

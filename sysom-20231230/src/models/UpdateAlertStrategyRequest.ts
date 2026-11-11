@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAlertStrategyRequestStrategy extends $dara.Model {
   /**
    * @remarks
-   * The collection of clusters that receive alerts.
+   * The list of clusters that receive alerts.
    */
   clusters?: string[];
   /**
@@ -15,14 +15,20 @@ export class UpdateAlertStrategyRequestStrategy extends $dara.Model {
   destinations?: number[];
   /**
    * @remarks
-   * The collection of exception items that trigger alerts.
+   * The list of anomaly items that trigger alerts.
    */
   items?: string[];
+  /**
+   * @remarks
+   * The list of alert severity levels.
+   */
+  levels?: string[];
   static names(): { [key: string]: string } {
     return {
       clusters: 'clusters',
       destinations: 'destinations',
       items: 'items',
+      levels: 'levels',
     };
   }
 
@@ -31,6 +37,7 @@ export class UpdateAlertStrategyRequestStrategy extends $dara.Model {
       clusters: { 'type': 'array', 'itemType': 'string' },
       destinations: { 'type': 'array', 'itemType': 'number' },
       items: { 'type': 'array', 'itemType': 'string' },
+      levels: { 'type': 'array', 'itemType': 'string' },
     };
   }
 
@@ -43,6 +50,9 @@ export class UpdateAlertStrategyRequestStrategy extends $dara.Model {
     }
     if(Array.isArray(this.items)) {
       $dara.Model.validateArray(this.items);
+    }
+    if(Array.isArray(this.levels)) {
+      $dara.Model.validateArray(this.levels);
     }
     super.validate();
   }
@@ -75,12 +85,12 @@ export class UpdateAlertStrategyRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The Kubernetes label.
+   * The Kubernetes labels.
    */
   k8sLabel?: boolean;
   /**
    * @remarks
-   * The alert policy name.
+   * The alerting Policy Name.
    * 
    * This parameter is required.
    * 

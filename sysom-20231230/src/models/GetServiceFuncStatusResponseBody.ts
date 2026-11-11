@@ -37,7 +37,7 @@ export class GetServiceFuncStatusResponseBodyDataArgs extends $dara.Model {
   locks?: string;
   /**
    * @remarks
-   * The tracing cycle.
+   * The tracing interval.
    * 
    * @example
    * -1
@@ -126,8 +126,8 @@ export class GetServiceFuncStatusResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status code.
-   * - `code == Success` indicates that the authorization is successful.
-   * - Other status codes indicate that the authorization failed. Check the `message` field for the detailed fault information.
+   * - If `code == Success`, the authorization succeeds.
+   * - Other status codes indicate that the authorization failed. If the authorization fails, check the `message` field for the detailed fault message.
    * 
    * @example
    * Success
@@ -135,14 +135,17 @@ export class GetServiceFuncStatusResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned results.
    */
   data?: GetServiceFuncStatusResponseBodyData;
   /**
    * @remarks
    * The error message.
-   * - If `code == Success`, this field is empty.
-   * - Otherwise, this field contains the request error information.
+   * - If code is Success, this field is empty.
+   * - Otherwise, this field contains the request error message.
+   * 
+   * @example
+   * result: code=1 msg=(Request failed, status_code != 200)
    */
   message?: string;
   /**

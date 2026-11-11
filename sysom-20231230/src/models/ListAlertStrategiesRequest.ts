@@ -13,7 +13,7 @@ export class ListAlertStrategiesRequest extends $dara.Model {
   current?: number;
   /**
    * @remarks
-   * The maximum number of records to retrieve per request.
+   * The maximum number of records to return in a single request.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListAlertStrategiesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The Policy Name of the alerting policy.
+   * The alert policy name.
    * 
    * @example
    * strategy1
