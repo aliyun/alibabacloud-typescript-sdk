@@ -15,10 +15,10 @@ export class TextEmbeddingRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The vector dimensions. Default value: the dimensions supported by the embedding model.
+   * The vector dimensions. The default value is the dimension supported by the vectorization algorithm.
    * 
    * > 
-   * > - text-embedding-v3 supports 1024, 768, and 512 dimensions. Default value: 1024.
+   * > - text-embedding-v3 supports 1024, 768, and 512 dimensions. The default value is 1024.
    * 
    * @example
    * 1024
@@ -26,7 +26,7 @@ export class TextEmbeddingRequest extends $dara.Model {
   dimension?: number;
   /**
    * @remarks
-   * The list of text content to vectorize. The list can contain up to 100 entries.
+   * The list of text content to vectorize. The list can contain up to 100 items.
    * 
    * @example
    * What is ADBPG?
@@ -37,7 +37,7 @@ export class TextEmbeddingRequest extends $dara.Model {
    * The embedding model. Valid values:
    * - text-embedding-v1: 1536 dimensions
    * - text-embedding-v2: 1536 dimensions
-   * - text-embedding-v3 (default): 1024, 768, or 512 dimensions
+   * - text-embedding-v3 (default): 1024, 768, and 512 dimensions
    * - text2vec (not recommended): 1024 dimensions
    * - m3e-base (not recommended): 768 dimensions
    * - m3e-small (not recommended): 512 dimensions

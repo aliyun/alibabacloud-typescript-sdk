@@ -60,7 +60,7 @@ export class RerankResponseBodyResults extends $dara.Model {
 export class RerankResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed information returned by the interface.
+   * The detailed information returned in the response.
    * 
    * @example
    * success
@@ -68,7 +68,7 @@ export class RerankResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -77,9 +77,9 @@ export class RerankResponseBody extends $dara.Model {
   results?: RerankResponseBodyResults;
   /**
    * @remarks
-   * API execution status, value description:
-   * - **success**: Execution succeeded.
-   * - **fail**: Execution failed.
+   * The execution status of the API operation. Valid values:
+   * - **success**: The operation is successful.
+   * - **fail**: The operation fails.
    * 
    * @example
    * success
@@ -87,7 +87,7 @@ export class RerankResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Number of consumed tokens.
+   * The number of tokens consumed.
    * 
    * @example
    * 100

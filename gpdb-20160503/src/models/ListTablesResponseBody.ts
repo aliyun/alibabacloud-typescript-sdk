@@ -39,7 +39,7 @@ export class ListTablesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The token that is used to start the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -55,10 +55,9 @@ export class ListTablesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the operation. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * The status. Valid values:
+   * - **success**: Successful.
+   * - **fail**: Failed.
    * 
    * @example
    * success

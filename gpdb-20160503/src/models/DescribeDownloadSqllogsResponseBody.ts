@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDownloadSQLLogsResponseBodyRecords extends $dara.Model {
   /**
    * @remarks
-   * Download record ID.
+   * The ID of the download record.
    * 
    * @example
    * 1150
@@ -13,7 +13,7 @@ export class DescribeDownloadSQLLogsResponseBodyRecords extends $dara.Model {
   downloadId?: number;
   /**
    * @remarks
-   * Download link.
+   * The download URL.
    * 
    * @example
    * https://perth-download-task.oss-cn-beijing.aliyuncs.com/*****
@@ -21,7 +21,7 @@ export class DescribeDownloadSQLLogsResponseBodyRecords extends $dara.Model {
   downloadUrl?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * Error message
@@ -29,7 +29,7 @@ export class DescribeDownloadSQLLogsResponseBodyRecords extends $dara.Model {
   exceptionMsg?: string;
   /**
    * @remarks
-   * File name.
+   * The file name.
    * 
    * @example
    * 20220509113448-20220509173448.csv
@@ -37,7 +37,7 @@ export class DescribeDownloadSQLLogsResponseBodyRecords extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * Task status, with possible values being:
+   * The task status. Valid values:
    * - **running**: Downloading.
    * - **finished**: Completed.
    * - **failed**: Download failed.
@@ -78,12 +78,12 @@ export class DescribeDownloadSQLLogsResponseBodyRecords extends $dara.Model {
 export class DescribeDownloadSQLLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of download records.
+   * The list of download records.
    */
   records?: DescribeDownloadSQLLogsResponseBodyRecords[];
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * FDE9942A-D919-527B-B559-5D0F6F20CCEC

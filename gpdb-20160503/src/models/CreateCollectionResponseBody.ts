@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCollectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response message.
+   * The detailed information returned by the operation.
    * 
    * @example
    * create successfully
@@ -21,11 +21,9 @@ export class CreateCollectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the operation. Valid values:
-   * 
-   * - **success**: The operation succeeded.
-   * 
-   * - **fail**: The operation failed.
+   * The creation status. Valid values:
+   * - **success**: Succeeded.
+   * - **fail**: Failed.
    * 
    * @example
    * success

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSupabaseUpdateVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The latest upgradable version.
+   * The latest available upgrade version.
    * 
    * @example
    * 20240731
@@ -13,7 +13,7 @@ export class GetSupabaseUpdateVersionResponseBody extends $dara.Model {
   latestVersion?: string;
   /**
    * @remarks
-   * The ID of the Supabase project.
+   * The Supabase project ID.
    * 
    * @example
    * spb-xxxx

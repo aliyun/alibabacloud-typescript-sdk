@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckJDBCSourceNetConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Return message: Error message returned when the connection fails, otherwise returns an empty string ("").
+   * The response message. If the connection fails, an error message is returned. Otherwise, an empty string is returned.
    * 
    * @example
    * connection timeout
@@ -13,11 +13,11 @@ export class CheckJDBCSourceNetConnectionResponseBody extends $dara.Model {
   connectionMessage?: string;
   /**
    * @remarks
-   * Service status:
+   * The connection status. Valid values:
    * 
-   * - Network connected: Success
+   * - Success: The network is connected.
    * 
-   * - Network not connected: Failed
+   * - Failed: The network is disconnected.
    * 
    * @example
    * Success
@@ -25,7 +25,7 @@ export class CheckJDBCSourceNetConnectionResponseBody extends $dara.Model {
   connectionStatus?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B

@@ -62,7 +62,7 @@ export class ListApiKeysResponseBodyItems extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The description of the API key.
+   * The plugin description.
    * 
    * @example
    * my first api key
@@ -129,12 +129,12 @@ export class ListApiKeysResponseBodyItems extends $dara.Model {
 export class ListApiKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of API keys.
+   * The list of items.
    */
   items?: ListApiKeysResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of records to return in this query.
+   * The maximum number of records to return in this request.
    * 
    * @example
    * 20
@@ -142,7 +142,7 @@ export class ListApiKeysResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page in a paged query.
+   * The token for the next paging query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

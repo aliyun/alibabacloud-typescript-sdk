@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAIServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all instances in a region, including instance IDs.
+   * The instance ID. You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all instances in a specific region, including instance IDs.
    * 
    * This parameter is required.
    * 

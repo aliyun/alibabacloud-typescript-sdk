@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSupabaseProjectDashboardAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The Supabase project ID.
+   * The Supabase instance ID.
    * 
    * This parameter is required.
    * 

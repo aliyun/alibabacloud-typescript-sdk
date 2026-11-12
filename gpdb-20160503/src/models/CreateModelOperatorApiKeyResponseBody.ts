@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateModelOperatorApiKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * API KEY ID。
+   * The API key ID.
    * 
    * @example
    * 1

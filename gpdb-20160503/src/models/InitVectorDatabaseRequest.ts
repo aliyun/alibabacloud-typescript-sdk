@@ -7,7 +7,7 @@ export class InitVectorDatabaseRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance IDs.
    * 
    * @example
    * gp-xxxxxxxxx
@@ -15,9 +15,9 @@ export class InitVectorDatabaseRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the manager account that has the rds_superuser permission.
+   * The name of the administrator account that has the rds_superuser permission.
    * 
-   * >  You can create an account on the Account Management page of the AnalyticDB for PostgreSQL console or by calling the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) operation.
+   * > You can create an account in the console by navigating to Account Management, or call the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) operation.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class InitVectorDatabaseRequest extends $dara.Model {
   managerAccount?: string;
   /**
    * @remarks
-   * The password of the database account.
+   * The password of the administrator account.
    * 
    * This parameter is required.
    * 
@@ -39,8 +39,7 @@ export class InitVectorDatabaseRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the instance.
-   * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
    * 
    * This parameter is required.
    * 
@@ -50,7 +49,7 @@ export class InitVectorDatabaseRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+   * The ID of the workspace that consists of multiple database instances. This parameter and the DBInstanceId parameter cannot be both empty. If both parameters are specified, this parameter takes precedence.
    * 
    * @example
    * gp-ws-*****

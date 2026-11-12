@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceErrorLogResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * adbtest
@@ -29,7 +29,7 @@ export class DescribeDBInstanceErrorLogResponseBodyItems extends $dara.Model {
   logContext?: string;
   /**
    * @remarks
-   * The level of the queried log.
+   * The level of the collected log.
    * 
    * @example
    * FATAL
@@ -37,7 +37,7 @@ export class DescribeDBInstanceErrorLogResponseBodyItems extends $dara.Model {
   logLevel?: string;
   /**
    * @remarks
-   * The time when the log was generated. The time is displayed in UTC.
+   * The time when the log was generated. The time is in UTC.
    * 
    * @example
    * 2022-04-24 11:28:14
@@ -45,7 +45,7 @@ export class DescribeDBInstanceErrorLogResponseBodyItems extends $dara.Model {
   time?: number;
   /**
    * @remarks
-   * The name of the database account.
+   * The username.
    * 
    * @example
    * adbpguser
@@ -85,12 +85,12 @@ export class DescribeDBInstanceErrorLogResponseBodyItems extends $dara.Model {
 export class DescribeDBInstanceErrorLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The content of the error log.
+   * The list of error logs.
    */
   items?: DescribeDBInstanceErrorLogResponseBodyItems[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -106,7 +106,7 @@ export class DescribeDBInstanceErrorLogResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

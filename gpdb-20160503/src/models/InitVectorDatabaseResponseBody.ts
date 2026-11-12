@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InitVectorDatabaseResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error message returned if the request fails.
+   * The details of the error message.
    * 
    * @example
    * failed to connect database, detailMsg: getConnection fail::SQL State: 28P01, Error Code: 0, Error Message: FATAL: password
@@ -21,10 +21,9 @@ export class InitVectorDatabaseResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **Success**
-   * *   **fail**
+   * The execution status of the API operation. Valid values:
+   * - **success**: The execution succeeded.
+   * - **fail**: The execution failed.
    * 
    * @example
    * success

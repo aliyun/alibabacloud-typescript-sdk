@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBVersionInfosResponseBodyVersionDetails extends $dara.Model {
   /**
    * @remarks
-   * The queried minor version information about the instance in Serverless mode.
+   * The kernel version information for the cloud-native mode.
    * 
    * @example
    * "Serverless": [
@@ -34,7 +34,7 @@ export class DescribeDBVersionInfosResponseBodyVersionDetails extends $dara.Mode
   serverless?: any;
   /**
    * @remarks
-   * The queried minor version information about the instance in elastic storage mode.
+   * The kernel version information for the storage elastic mode.
    * 
    * @example
    * "StorageElasic": [
@@ -99,7 +99,7 @@ export class DescribeDBVersionInfosResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The queried minor versions.
+   * The data structure.
    */
   versionDetails?: DescribeDBVersionInfosResponseBodyVersionDetails;
   static names(): { [key: string]: string } {

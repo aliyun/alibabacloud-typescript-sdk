@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDatabaseExtensionsResponseBodyExtensions extends $dara.Model {
   /**
    * @remarks
-   * The description of the extension.
+   * The plug-in description.
    * 
    * @example
    * zhparser
@@ -13,7 +13,7 @@ export class ListDatabaseExtensionsResponseBodyExtensions extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The extension name.
+   * The plug-in name.
    * 
    * @example
    * zhparser
@@ -21,7 +21,7 @@ export class ListDatabaseExtensionsResponseBodyExtensions extends $dara.Model {
   extensionName?: string;
   /**
    * @remarks
-   * The status of the extension.
+   * The plug-in status.
    * 
    * @example
    * installed
@@ -55,12 +55,12 @@ export class ListDatabaseExtensionsResponseBodyExtensions extends $dara.Model {
 export class ListDatabaseExtensionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Extension list.
+   * The list of plug-ins.
    */
   extensions?: ListDatabaseExtensionsResponseBodyExtensions[];
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521

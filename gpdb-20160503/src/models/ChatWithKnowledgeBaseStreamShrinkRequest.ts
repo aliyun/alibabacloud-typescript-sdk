@@ -7,7 +7,7 @@ export class ChatWithKnowledgeBaseStreamShrinkRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a region.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API operation to view the instance IDs of all AnalyticDB for PostgreSQL instances in the specified region.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class ChatWithKnowledgeBaseStreamShrinkRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Specifies whether to return recall results. Default value: false.
+   * Specifies whether to return the recall results. Default value: false.
    * 
    * @example
    * false
@@ -25,12 +25,12 @@ export class ChatWithKnowledgeBaseStreamShrinkRequest extends $dara.Model {
   includeKnowledgeBaseResults?: boolean;
   /**
    * @remarks
-   * The knowledge retrieval parameter object. If this parameter is not specified, only chat is performed.
+   * The knowledge retrieval parameters. If this parameter is not specified, only the chat feature is used.
    */
   knowledgeParamsShrink?: string;
   /**
    * @remarks
-   * The large language model (LLM) invocation parameter object.
+   * The call parameters for the large language model (LLM).
    * 
    * This parameter is required.
    */
@@ -38,15 +38,15 @@ export class ChatWithKnowledgeBaseStreamShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The system prompt template. The template must include {{ text_chunks }}, {{ user_system_prompt }}, {{ graph_entities }}, and {{ graph_relations }}. If not specified, this part does not take effect.
+   * The system prompt template. It must include {{ text_chunks }}, {{ user_system_prompt }}, {{ graph_entities }}, and {{ graph_relations }}. If this parameter is not specified, this part does not take effect.
    * 
    * @example
-   * "参考以下知识回答问题:{{ text_chunks }}"
+   * "Answer the question based on the following knowledge: {{ text_chunks }}"
    */
   promptParams?: string;
   /**
    * @remarks
-   * The ID of the region where the instance resides.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 

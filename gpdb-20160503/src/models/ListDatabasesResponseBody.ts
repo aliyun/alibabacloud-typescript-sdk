@@ -32,7 +32,7 @@ export class ListDatabasesResponseBody extends $dara.Model {
   databases?: ListDatabasesResponseBodyDatabases;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success
@@ -40,7 +40,7 @@ export class ListDatabasesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The token used to start the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -56,10 +56,9 @@ export class ListDatabasesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the operation. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * The execution status of the API operation. Valid values:
+   * - **success**: The execution was successful.
+   * - **fail**: The execution failed.
    * 
    * @example
    * success

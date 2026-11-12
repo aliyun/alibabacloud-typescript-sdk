@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNamespaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The detailed information returned by the operation.
    * 
    * @example
    * success
@@ -21,10 +21,9 @@ export class CreateNamespaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * The execution status of the API operation. Valid values:
+   * - **success**: The execution succeeded.
+   * - **fail**: The execution failed.
    * 
    * @example
    * success

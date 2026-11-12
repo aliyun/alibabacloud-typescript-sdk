@@ -189,14 +189,10 @@ export class QueryCollectionDataResponseBodyMatches extends $dara.Model {
 }
 
 export class QueryCollectionDataResponseBody extends $dara.Model {
-  /**
-   * @remarks
-   * The matched results.
-   */
   matches?: QueryCollectionDataResponseBodyMatches;
   /**
    * @remarks
-   * Details about the error, returned if the request fails.
+   * The detailed information returned when the request fails.
    * 
    * @example
    * 0.1234
@@ -212,11 +208,9 @@ export class QueryCollectionDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the request. Valid values:
-   * 
-   * - **success**: The request was successful.
-   * 
-   * - **fail**: The request failed.
+   * The status. Valid values:
+   * - **success**: The request is successful.
+   * - **fail**: The request fails.
    * 
    * @example
    * success
@@ -224,7 +218,7 @@ export class QueryCollectionDataResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The total number of hits for the search. This parameter is returned only when the Offset parameter in the request is not 0.
+   * The total number of hits for the search condition. This parameter is returned only when the Offset parameter in the request is not 0.
    * 
    * @example
    * 100

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeStreamingJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Target database account.
+   * The destination database account.
    * 
    * @example
    * test-account
@@ -13,7 +13,7 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   account?: string;
   /**
    * @remarks
-   * Delivery guarantee.
+   * The delivery guarantee.
    * 
    * @example
    * ATLEAST / EXACTLY
@@ -21,7 +21,7 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   consistency?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -31,7 +31,7 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Data source ID.
+   * The data source ID.
    * 
    * @example
    * 2
@@ -39,7 +39,7 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * Data source name.
+   * The data source name.
    * 
    * @example
    * test_kafka
@@ -47,12 +47,12 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   dataSourceName?: string;
   /**
    * @remarks
-   * Target data table mapping field list.
+   * The list of mapped columns in the destination table.
    */
   destColumns?: string[];
   /**
    * @remarks
-   * Target database name.
+   * The destination database name.
    * 
    * @example
    * dest-db
@@ -60,7 +60,7 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   destDatabase?: string;
   /**
    * @remarks
-   * Target namespace.
+   * The destination namespace.
    * 
    * @example
    * dest-schema
@@ -68,7 +68,7 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   destSchema?: string;
   /**
    * @remarks
-   * Target table name.
+   * The destination table name.
    * 
    * @example
    * dest-table
@@ -76,7 +76,7 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   destTable?: string;
   /**
    * @remarks
-   * When data in Kafka does not match the ADBPG target table, it can cause write failures. This value represents the number of error rows allowed; if exceeded, the task will fail.
+   * The maximum number of allowed error rows. If data in Kafka does not match the destination AnalyticDB for PostgreSQL table, a write failure occurs. If the number of error rows exceeds this value, the job fails.
    * 
    * @example
    * 5
@@ -84,7 +84,7 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   errorLimitCount?: number;
   /**
    * @remarks
-   * Service status information, such as the reason for an exception. It is empty in the normal Running state.
+   * The service status message. For example, if an exception occurs, the cause of the exception is displayed. This parameter is empty when the service is in the Running state.
    * 
    * @example
    * ""
@@ -92,9 +92,9 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * Fallback offset, which is the fallback position
+   * The fallback offset.
    * 
-   * - The FallbackOffset parameter defines the behavior when the consumer has not requested a specific offset to consume or the requested offset exceeds the current record\\"s offset information in the Kafka cluster. You can choose to start consuming from the earliest (newest) or latest (oldest) offset.
+   * - The FallbackOffset parameter defines the behavior when a consumer does not request a specific offset to consume, or when the requested offset exceeds the offset range recorded in the current Kafka cluster. You can choose to start consuming from the earliest or latest offset.
    * 
    * @example
    * EARLIEST /  LATEST
@@ -102,7 +102,7 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   fallbackOffset?: string;
   /**
    * @remarks
-   * Kafka group name
+   * The Kafka group name.
    * 
    * @example
    * test_group
@@ -110,7 +110,7 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * Job configuration file.
+   * The job configuration file.
    * 
    * @example
    * DATABASE: adbpgss_test
@@ -237,7 +237,7 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   jobConfig?: string;
   /**
    * @remarks
-   * Job description.
+   * The job description.
    * 
    * @example
    * test_job
@@ -245,7 +245,7 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   jobDescription?: string;
   /**
    * @remarks
-   * Job ID.
+   * The job ID.
    * 
    * @example
    * 1
@@ -253,7 +253,7 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * Job name.
+   * The job name.
    * 
    * @example
    * test-job
@@ -261,14 +261,14 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * Match columns, usually all primary key columns of the target table. If all column values in this configuration are the same, the two rows of data are considered duplicates.
+   * The match columns. Typically, these are all primary key columns of the destination table. If the values of all columns in this configuration are the same, the two rows of data are considered duplicate.
    */
   matchColumns?: string[];
   /**
    * @remarks
-   * Configuration mode
-   * 1. Basic mode requires specifying some configuration fields
-   * 1. Professional mode supports submitting YAML files
+   * The configuration mode.
+   * 1. basic: requires specific configuration fields.
+   * 2. professional: supports submitting YAML files.
    * 
    * @example
    * basic/professional
@@ -276,7 +276,7 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * Last modified time.
+   * The last modification time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -286,7 +286,7 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * Target database password.
+   * The destination database password.
    * 
    * @example
    * pwd123
@@ -294,7 +294,7 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B
@@ -302,20 +302,20 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Source field list.
+   * The list of source columns.
    */
   srcColumns?: string[];
   /**
    * @remarks
-   * Service status, with possible values:
+   * The service status. Valid values:
    * 
-   * - Init: Initializing
+   * - Init: initializing.
    * 
-   * - Running: Running
+   * - Running: running.
    * 
-   * - Exception: Exception
+   * - Exception: an exception occurred.
    * 
-   * - Paused: Paused
+   * - Paused: paused.
    * 
    * @example
    * Running
@@ -323,12 +323,12 @@ export class DescribeStreamingJobResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Update columns, usually all non-primary key columns of the target table. When data duplication is determined through MatchColumns, updating the UpdateColumns column values will result in new data overwriting old data.
+   * The update columns. Typically, these are all non-primary key columns of the destination table. When duplicate data is identified based on the match columns, the values of the update columns are updated so that the new data overwrites the old data.
    */
   updateColumns?: string[];
   /**
    * @remarks
-   * Write mode.
+   * The write mode.
    * 
    * @example
    * INSERT/UPDATE/MERGE

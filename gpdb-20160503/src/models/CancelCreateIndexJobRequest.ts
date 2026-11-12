@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CancelCreateIndexJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the collection.
+   * The collection name.
    * 
-   * > You can call the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) operation to query a list of collections.
+   * > You can call the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) operation to view the collection list.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,8 @@ export class CancelCreateIndexJobRequest extends $dara.Model {
   collection?: string;
   /**
    * @remarks
-   * The cluster ID.
-   * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * The instance ID.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all instances in the specified region, including instance IDs.
    * 
    * @example
    * gp-xxxxxxxxx
@@ -27,7 +26,7 @@ export class CancelCreateIndexJobRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The ID of the index creation job, which is returned from the `CreateIndex` operation.
+   * The ID of the index creation task, which is returned by the CreateIndex operation.
    * 
    * This parameter is required.
    * 
@@ -37,9 +36,9 @@ export class CancelCreateIndexJobRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The namespace name.
+   * The namespace.
    * 
-   * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+   * > You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace, or call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to view the namespace list.
    * 
    * This parameter is required.
    * 
@@ -49,9 +48,9 @@ export class CancelCreateIndexJobRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The password of the namespace.
+   * The password for the namespace.
    * 
-   * > The value of this parameter is specified when you call the CreateNamespace operation.
+   * > This value is specified when you call the CreateNamespace operation.
    * 
    * This parameter is required.
    * 
@@ -62,9 +61,9 @@ export class CancelCreateIndexJobRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
    * 
    * This parameter is required.
    * 
@@ -74,13 +73,7 @@ export class CancelCreateIndexJobRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes precedence.
-   * 
-   * Valid values:
-   * 
-   * *   ip
-   * *   l2
-   * *   cosine
+   * The ID of the workspace that consists of multiple database instances. This parameter and the DBInstanceId parameter cannot be both empty. If both parameters are specified, this parameter takes precedence.
    * 
    * @example
    * gp-ws-*****

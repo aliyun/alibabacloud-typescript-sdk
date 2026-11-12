@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckJDBCSourceNetConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CheckJDBCSourceNetConnectionRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Either DataSourceId or JdbcConnectionString must be specified as input, otherwise an error will occur. If both parameters are specified, JdbcConnectionString will be used preferentially.
+   * You must specify either DataSourceId or JdbcConnectionString. Otherwise, an error occurs. If both parameters are specified, JdbcConnectionString takes precedence.
    * 
    * @example
    * 123
@@ -23,7 +23,7 @@ export class CheckJDBCSourceNetConnectionRequest extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * JDBC connection string.
+   * The JDBC connection string.
    * 
    * @example
    * jdbc:mysql://rm-xxx.mysql.rds.aliyuncs.com:3306/testadmin
@@ -31,7 +31,7 @@ export class CheckJDBCSourceNetConnectionRequest extends $dara.Model {
   jdbcConnectionString?: string;
   /**
    * @remarks
-   * The ID of the region where the instance is located.
+   * The region ID of the instance.
    * 
    * @example
    * cn-hangzhou

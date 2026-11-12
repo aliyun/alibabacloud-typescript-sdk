@@ -49,7 +49,7 @@ export class DescribeSQLLogsV2Request extends $dara.Model {
    * *   **0**: failed.
    * 
    * @example
-   * 1
+   * success
    */
   executeState?: string;
   /**
@@ -99,7 +99,7 @@ export class DescribeSQLLogsV2Request extends $dara.Model {
    * The number of entries to return on each page.
    * 
    * @example
-   * 1
+   * 10
    */
   pageNumber?: string;
   /**
@@ -107,7 +107,7 @@ export class DescribeSQLLogsV2Request extends $dara.Model {
    * The number of the page to return. The maximum value is 200.
    * 
    * @example
-   * 30
+   * 1
    */
   pageSize?: string;
   /**
@@ -135,7 +135,7 @@ export class DescribeSQLLogsV2Request extends $dara.Model {
    * The ID of the resource group to which the instance belongs.
    * 
    * @example
-   * null
+   * rg-bp67acfmxazb4p****
    */
   resourceGroupId?: string;
   /**

@@ -7,7 +7,7 @@ export class DescribeDBInstanceIndexUsageRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeDBInstanceIndexUsageRequest extends $dara.Model {
   database?: string;
   /**
    * @remarks
-   * order by search condition
+   * The sorting condition.
    * 
    * @example
    * {Field: SchemaName, Type: Desc}
@@ -33,7 +33,7 @@ export class DescribeDBInstanceIndexUsageRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: **1**.
+   * The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer type. Default value: **1**.
    * 
    * @example
    * 1
@@ -43,9 +43,9 @@ export class DescribeDBInstanceIndexUsageRequest extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values:
    * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * - **30**
+   * - **50**
+   * - **100**
    * 
    * Default value: **30**.
    * 

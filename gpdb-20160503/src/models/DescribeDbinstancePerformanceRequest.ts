@@ -40,7 +40,7 @@ export class DescribeDBInstancePerformanceRequest extends $dara.Model {
    * This parameter is no longer used.
    * 
    * @example
-   * null
+   * rg-bp67acfmxazb4p****
    */
   resourceGroupId?: string;
   /**

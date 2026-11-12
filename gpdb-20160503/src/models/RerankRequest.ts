@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class RerankRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to view the details of all AnalyticDB for PostgreSQL instances in the specified region, including instance IDs.
    * 
    * This parameter is required.
    * 
@@ -17,25 +17,28 @@ export class RerankRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * List of documents to be re-ordered.
+   * The list of documents to be reranked.
    * 
    * @example
    * ADBPG is an Alibaba Cloud OLAP database.
    */
   documents?: string[];
   /**
+   * @remarks
+   * The description of the custom ranking task type. This parameter can be set when RerankModel.Name is qwen3-rerank. It guides the model to use different ranking strategies.
+   * 
    * @example
    * Given a web search query, retrieve relevant passages that answer the query
    */
   instruct?: string;
   /**
    * @remarks
-   * Maximum number of chunks allowed when the text exceeds the model window:
-   * - bge-reranker-v2-m3: default value is 10.
-   * - bge-reranker-v2-minicpm-layerwise: default value is 5:
+   * The maximum number of chunks allowed when the text exceeds the model window. Valid values:
+   * - bge-reranker-v2-m3: 10. This is the default value.
+   * - bge-reranker-v2-minicpm-layerwise: 5. This is the default value.
    * 
-   * > Example of splitting
-   * > - If using the bge-reranker-v2-minicpm-layerwise model, the maximum single inference window is 2048 tokens. If the query is 48 tokens and the content of a single document parameter is 9000 tokens, it will be divided as follows: 1-2000 for the first, 2001-4000 for the second, and so on. If the number of splits exceeds MaxChunksPerDoc, the remaining sentences will be discarded.
+   * > Chunking example
+   * > - If you use the bge-reranker-v2-minicpm-layerwise model, the maximum single inference window is 2,048 tokens. If the query is 48 tokens and a single document parameter contains 9,000 tokens, the document is split into chunks: tokens 1 to 2,000 form the first chunk, tokens 2,001 to 4,000 form the second chunk, and so on. If the number of chunks exceeds the value of MaxChunksPerDoc, the subsequent text is discarded.
    * 
    * @example
    * 10
@@ -43,9 +46,9 @@ export class RerankRequest extends $dara.Model {
   maxChunksPerDoc?: number;
   /**
    * @remarks
-   * Rerank model, currently supports:
-   * - bge-reranker-v2-m3: (default), better performance, supports 8192 tokens per inference, if exceeded, it will be split, which may reduce the effect.
-   * - bge-reranker-v2-minicpm-layerwise: better performance than v2-m3, supports 2048 tokens per inference, if exceeded, it will be split, which may reduce the effect.
+   * The rerank model. Valid values:
+   * - bge-reranker-v2-m3: provides good performance and supports up to 8,192 tokens for a single inference. Text that exceeds this limit is split into chunks, which may degrade performance. This is the default value.
+   * - bge-reranker-v2-minicpm-layerwise: provides better performance than bge-reranker-v2-m3 and supports up to 2,048 tokens for a single inference. Text that exceeds this limit is split into chunks, which may degrade performance.
    * 
    * @example
    * bge-reranker-v2-m3
@@ -54,7 +57,7 @@ export class RerankRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Query statement for Rerank.
+   * The query statement for reranking.
    * 
    * @example
    * What is ADBPG?
@@ -62,7 +65,7 @@ export class RerankRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * Region ID where the instance is located.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 
@@ -72,7 +75,7 @@ export class RerankRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * If set to false, does not return the Documents text, only returns the index of the document order and the rerank score.
+   * Specifies whether to return the document text. If this parameter is set to false, the document text is not returned. Only the indexes and rerank scores of the sorted documents are returned.
    * 
    * @example
    * false
@@ -80,7 +83,7 @@ export class RerankRequest extends $dara.Model {
   returnDocuments?: boolean;
   /**
    * @remarks
-   * Number of most relevant documents to return.
+   * The number of most relevant documents to return.
    * 
    * @example
    * 3

@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCollectionDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the collection.
+   * The collection name.
+   * 
+   * > You can call the [ListCollections](https://help.aliyun.com/document_detail/2401503.html) operation to view the list.
    * 
    * This parameter is required.
    * 
@@ -15,7 +17,7 @@ export class DeleteCollectionDataRequest extends $dara.Model {
   collection?: string;
   /**
    * @remarks
-   * The data that you want to delete.
+   * The data fields and values to delete. The value is a JSON string in dictionary format, where the key is the field name and the value is a list of data values to delete.
    * 
    * @example
    * {"title":["a","b"]}
@@ -23,7 +25,7 @@ export class DeleteCollectionDataRequest extends $dara.Model {
   collectionData?: string;
   /**
    * @remarks
-   * The filter conditions for the data to be deleted.
+   * The filter condition for the data to delete. The format is SQL WHERE syntax.
    * 
    * @example
    * a < 10
@@ -33,7 +35,7 @@ export class DeleteCollectionDataRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to view the IDs of all AnalyticDB for PostgreSQL instances in the target region.
    * 
    * @example
    * gp-xxxxxxxxx
@@ -41,9 +43,9 @@ export class DeleteCollectionDataRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the namespace. Default value: public.
+   * The namespace. Default value: public.
    * 
-   * >  You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+   * > You can call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to view the list.
    * 
    * @example
    * mynamespace
@@ -51,7 +53,7 @@ export class DeleteCollectionDataRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The password of the namespace.
+   * The password for the namespace.
    * 
    * This parameter is required.
    * 
@@ -62,9 +64,9 @@ export class DeleteCollectionDataRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
-   * >  You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to view the available region IDs.
    * 
    * This parameter is required.
    * 
@@ -74,7 +76,7 @@ export class DeleteCollectionDataRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+   * The ID of the workspace that consists of multiple database instances. This parameter and the DBInstanceId parameter cannot be empty at the same time. If both parameters are specified, this parameter takes precedence.
    * 
    * @example
    * gp-ws-*****

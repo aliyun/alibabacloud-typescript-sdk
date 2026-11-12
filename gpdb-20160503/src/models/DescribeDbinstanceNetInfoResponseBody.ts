@@ -77,9 +77,8 @@ export class DescribeDBInstanceNetInfoResponseBody extends $dara.Model {
   /**
    * @remarks
    * The network type of the instance. Valid values:
-   * 
-   * *   Classic: classic network.
-   * *   VPC: VPC.
+   * - Classic: Classic network.
+   * - VPC: VPC.
    * 
    * @example
    * VPC

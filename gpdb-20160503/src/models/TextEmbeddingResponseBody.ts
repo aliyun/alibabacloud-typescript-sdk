@@ -104,8 +104,8 @@ export class TextEmbeddingResponseBody extends $dara.Model {
   /**
    * @remarks
    * The API execution status. Valid values:
-   * - **success**: The execution is successful.
-   * - **fail**: The execution failed.
+   * - **success**: Execution succeeded.
+   * - **fail**: Execution failed.
    * 
    * @example
    * success
@@ -113,7 +113,7 @@ export class TextEmbeddingResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The total number of tokens consumed.
+   * The total number of consumed tokens.
    * 
    * @example
    * 1000

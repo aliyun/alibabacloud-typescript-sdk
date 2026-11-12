@@ -40,7 +40,7 @@ export class DescribeActiveSQLRecordsResponseBodyQueries extends $dara.Model {
    * The execution duration of the query. Unit: seconds.
    * 
    * @example
-   * 60
+   * 60s
    */
   queryDuration?: string;
   /**
@@ -144,7 +144,7 @@ export class DescribeActiveSQLRecordsResponseBody extends $dara.Model {
    * The instance ID.
    * 
    * @example
-   * gp-bp12ga6v69h86****
+   * gp-bp***************
    */
   DBInstanceId?: string;
   /**

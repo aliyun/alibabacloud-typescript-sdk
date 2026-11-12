@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeApiKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * API KEY ID。
+   * The API key ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class RevokeApiKeyRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of service IDs to be authorized.
+   * The list of service IDs to authorize.
    * 
    * This parameter is required.
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeStreamingJobRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeStreamingJobRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Job ID.
+   * The job ID.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class DescribeStreamingJobRequest extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface to view available region IDs.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
    * 
    * @example
    * cn-beijing

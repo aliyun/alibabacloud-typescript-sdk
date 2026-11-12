@@ -21,7 +21,7 @@ export class GetSecretValueResponseBody extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The description of the access credential.
+   * The description.
    * 
    * @example
    * test secret
@@ -37,7 +37,7 @@ export class GetSecretValueResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The password of the database account.
+   * The password of the target database.
    * 
    * @example
    * pwd123
@@ -45,7 +45,7 @@ export class GetSecretValueResponseBody extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -53,7 +53,7 @@ export class GetSecretValueResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ARN of the access credential for the created Data API account. Format: `acs:gpdb:{{region}}:{{accountId}}:secret/{{secretName}}-{{32 digits random string}`.
+   * The ARN that uniquely specifies the logon credentials and permissions of the Data API account created by the user. Format: ```acs:gpdb:{{region}}:{{accountId}}:secret/{{secretName}}-{{32 digits random string}```
    * 
    * @example
    * acs:gpdb:cn-beijing:1033**:secret/testsecret-eG2AQGRIwQ0zFp4VA7mYL3uiCXTfDQbQ
@@ -61,7 +61,7 @@ export class GetSecretValueResponseBody extends $dara.Model {
   secretArn?: string;
   /**
    * @remarks
-   * The name of the access credential.
+   * The name of the credential.
    * 
    * @example
    * testsecret
@@ -69,10 +69,10 @@ export class GetSecretValueResponseBody extends $dara.Model {
   secretName?: string;
   /**
    * @remarks
-   * The status of the operation. Valid values:
+   * The status. Valid values:
    * 
-   * *   **success**
-   * *   **fail**
+   * - **success**: Successful.
+   * - **fail**: Failed.
    * 
    * @example
    * success
@@ -80,7 +80,7 @@ export class GetSecretValueResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The name of the database account.
+   * The username.
    * 
    * @example
    * testacc

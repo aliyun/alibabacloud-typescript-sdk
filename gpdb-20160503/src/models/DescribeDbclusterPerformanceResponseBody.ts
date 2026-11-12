@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBClusterPerformanceResponseBodyPerformanceKeysSeriesValues extends $dara.Model {
   /**
    * @remarks
-   * The value of the performance metric and the time when the metric value was collected.
+   * The performance metric value.
    */
   point?: string[];
   static names(): { [key: string]: string } {
@@ -45,9 +45,9 @@ export class DescribeDBClusterPerformanceResponseBodyPerformanceKeysSeries exten
    * @remarks
    * The role of the node. Valid values:
    * 
-   * *   **master**: primary coordinator node
-   * *   **standby**: standby coordinator node
-   * *   **segment**: compute node
+   * - **master**: Master node.
+   * - **standby**: Standby node.
+   * - **segment**: Compute node.
    * 
    * @example
    * standby
@@ -55,7 +55,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformanceKeysSeries exten
   role?: string;
   /**
    * @remarks
-   * The value of the performance metric collected at a point in time.
+   * The performance metric values. Each value corresponds to a collection time point.
    */
   values?: DescribeDBClusterPerformanceResponseBodyPerformanceKeysSeriesValues[];
   static names(): { [key: string]: string } {
@@ -89,7 +89,7 @@ export class DescribeDBClusterPerformanceResponseBodyPerformanceKeysSeries exten
 export class DescribeDBClusterPerformanceResponseBodyPerformanceKeys extends $dara.Model {
   /**
    * @remarks
-   * The name of the performance metric. For more information, see [Performance parameters](https://help.aliyun.com/document_detail/86943.html).
+   * The name of the performance metric. For more information, see [Performance metric table](https://help.aliyun.com/document_detail/86943.html).
    * 
    * @example
    * adbpg_group_cpu_used_percent
@@ -97,12 +97,12 @@ export class DescribeDBClusterPerformanceResponseBodyPerformanceKeys extends $da
   name?: string;
   /**
    * @remarks
-   * Details of the performance metric of a node.
+   * The collection of performance metrics.
    */
   series?: DescribeDBClusterPerformanceResponseBodyPerformanceKeysSeries[];
   /**
    * @remarks
-   * The unit of the performance metric.
+   * The unit of the monitoring metrics.
    * 
    * @example
    * %
@@ -147,7 +147,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end time of the query. The time follows the ISO 8601 standard in the `YYYY-MM-DDTHH:mmZ` format. The time is displayed in UTC.
+   * The end time of the query in UTC. Specify the time in the `YYYY-MM-DDTHH:mmZ` format.
    * 
    * @example
    * 2021-11-03T15:10Z
@@ -155,7 +155,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The name of the performance metric. For more information, see [Performance parameters](https://help.aliyun.com/document_detail/86943.html).
+   * The list of performance metric values for the instance.
    */
   performanceKeys?: DescribeDBClusterPerformanceResponseBodyPerformanceKeys[];
   /**
@@ -168,7 +168,7 @@ export class DescribeDBClusterPerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the query. The time follows the ISO 8601 standard in the `YYYY-MM-DDTHH:mmZ` format. The time is displayed in UTC.
+   * The start time of the query in UTC. Specify the time in the `YYYY-MM-DDTHH:mmZ` format.
    * 
    * @example
    * 2021-11-03T15:00Z

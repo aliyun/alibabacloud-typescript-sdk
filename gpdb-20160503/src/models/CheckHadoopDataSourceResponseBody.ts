@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckHadoopDataSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message. If the service failed, an error message is returned. Otherwise, a pair of double quotation marks ("") is returned.
+   * The message returned by the service. If the service is unavailable, an error message is returned. If the service is available, an empty string is returned.
    * 
    * @example
    * serivce unavaliable
@@ -21,10 +21,11 @@ export class CheckHadoopDataSourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the service. Valid values:
+   * The service status. Valid values:
    * 
-   * *   Running
-   * *   Failed
+   * - Running: The service is available.
+   * 
+   * - Failed: The service is unavailable.
    * 
    * @example
    * Running

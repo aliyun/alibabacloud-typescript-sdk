@@ -6,7 +6,7 @@ export class ChatWithKnowledgeBaseShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID.
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all instances in the target region, including the instance ID.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all instances in the target region, including the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -24,12 +24,12 @@ export class ChatWithKnowledgeBaseShrinkRequest extends $dara.Model {
   includeKnowledgeBaseResults?: boolean;
   /**
    * @remarks
-   * The knowledge retrieval parameter object. If not specified, only chat is performed.
+   * The knowledge retrieval parameter object. If this parameter is not specified, only chat is performed.
    */
   knowledgeParamsShrink?: string;
   /**
    * @remarks
-   * The large language model (LLM) invocation parameter object.
+   * The large language model (LLM) call parameter object.
    * 
    * This parameter is required.
    */
@@ -37,10 +37,10 @@ export class ChatWithKnowledgeBaseShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The system prompt template, which must include {{ text_chunks }}, {{ user_system_prompt }}, {{ graph_entities }}, and {{ graph_relations }}. If not specified, this part does not take effect.
+   * The system prompt template. It must include {{ text_chunks }}, {{ user_system_prompt }}, {{ graph_entities }}, and {{ graph_relations }}. If this parameter is not specified, this part does not take effect.
    * 
    * @example
-   * "参考以下知识回答问题:{{ text_chunks }}"
+   * "Answer the question based on the following knowledge: {{ text_chunks }}"
    */
   promptParams?: string;
   /**

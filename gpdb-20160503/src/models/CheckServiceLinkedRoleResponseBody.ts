@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckServiceLinkedRoleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether an SLR is created.
+   * Indicates whether a service-linked role (SLR) is created.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class CheckServiceLinkedRoleResponseBody extends $dara.Model {
   hasServiceLinkedRole?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -21,7 +21,7 @@ export class CheckServiceLinkedRoleResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B4CAF581-2AC7-41AD-8940-D56DF7AADF5B

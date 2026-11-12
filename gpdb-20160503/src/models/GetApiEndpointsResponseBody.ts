@@ -58,12 +58,12 @@ export class GetApiEndpointsResponseBodyItems extends $dara.Model {
 export class GetApiEndpointsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of parameters.
+   * The list of items.
    */
   items?: GetApiEndpointsResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of records to return in this query.
+   * The maximum number of records to return for the current query.
    * 
    * @example
    * 20
@@ -71,7 +71,7 @@ export class GetApiEndpointsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query during paging. Use this token to start the next query.
+   * The paging token for the next paged query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

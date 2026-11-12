@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSupabaseBackupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the backup job. You can call ListSupabaseBackupJobs to query the status and progress of the corresponding job.
+   * The ID of the backup job. You can call ListSupabaseBackupJobs to query the status and progress of the job.
    * 
    * @example
    * 123

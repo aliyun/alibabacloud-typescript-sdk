@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSupabaseBackupRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID of the Supabase instance. You can obtain instance ID on the Supabase page in the console.
+   * Instance ID of the Supabase instance. You can obtain instance ID from the Supabase page in the console.
    * 
    * This parameter is required.
    * 

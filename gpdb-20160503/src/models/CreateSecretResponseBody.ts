@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSecretResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The detailed information returned by the operation.
    * 
    * @example
    * Successful
@@ -21,7 +21,8 @@ export class CreateSecretResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the access credential for the created Data API account. Format: `acs:gpdb:{{region}}:{{accountId}}:secret/{{secretName}}-{{32 digits random string}`.
+   * The ARN that uniquely identifies the logon credential and permissions of the Data API account created by the user.
+   * Format: ```acs:gpdb:{{region}}:{{accountId}}:secret/{{secretName}}-{{32 digits random string}}```
    * 
    * @example
    * acs:gpdb:cn-beijing:1033**:secret/testsecret-eG2AQGRIwQ0zFp4VA7mYL3uiCXTfDQbQ
@@ -29,7 +30,7 @@ export class CreateSecretResponseBody extends $dara.Model {
   secretArn?: string;
   /**
    * @remarks
-   * The name of the access credential.
+   * The name of the credential.
    * 
    * @example
    * testsecret
@@ -37,10 +38,10 @@ export class CreateSecretResponseBody extends $dara.Model {
   secretName?: string;
   /**
    * @remarks
-   * The status of the operation. Valid values:
+   * The status. Valid values:
    * 
-   * *   **success**
-   * *   **fail**
+   * - **success**: The operation is successful.
+   * - **fail**: The operation failed.
    * 
    * @example
    * success

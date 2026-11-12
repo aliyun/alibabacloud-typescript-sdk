@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCreateIndexJobResponseBodyJob extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the operation is complete.
+   * Indicates whether the operation is completed.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class DescribeCreateIndexJobResponseBodyJob extends $dara.Model {
   completed?: boolean;
   /**
    * @remarks
-   * The job creation time.
+   * The time when the task was created.
    * 
    * @example
    * 2024-01-08 16:52:04.864664
@@ -21,7 +21,7 @@ export class DescribeCreateIndexJobResponseBodyJob extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The error message that is returned when the current operation is abnormal or fails.
+   * The error message returned when the current operation encounters an exception or fails.
    * 
    * @example
    * Failed to connect database.
@@ -37,11 +37,9 @@ export class DescribeCreateIndexJobResponseBodyJob extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The progress of the index creation job. Unit: %. A value of 100 indicates that the job is complete.
+   * The creation progress. This value is a percentage, and a value of 100 indicates that the task is completed.
    * 
-   * > 
-   * 
-   * *   Only AnalyticDB for PostgreSQL V7.0 supports the Progress parameter.
+   * >- Only AnalyticDB for PostgreSQL 7.0 instances support progress updates.
    * 
    * @example
    * 20
@@ -49,12 +47,11 @@ export class DescribeCreateIndexJobResponseBodyJob extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * The status of the job. Valid values:
-   * 
-   * *   **Success.**
-   * *   **Failed** (See the Error parameter for failure reasons).
-   * *   **Cancelled.**
-   * *   **Running.
+   * The task status. Valid values:
+   * - **Success**: Successful.
+   * - **Failed**: Failed. You can check the Error field for the cause of the failure.
+   * - **Cancelled**: Canceled.
+   * - **Running**: Running.
    * 
    * @example
    * Running
@@ -62,7 +59,7 @@ export class DescribeCreateIndexJobResponseBodyJob extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The job last updated time.
+   * The time when the task was updated.
    * 
    * @example
    * 2024-01-08 16:53:04.864664
@@ -104,12 +101,12 @@ export class DescribeCreateIndexJobResponseBodyJob extends $dara.Model {
 export class DescribeCreateIndexJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the index creation job.
+   * The details of the index creation task.
    */
   job?: DescribeCreateIndexJobResponseBodyJob;
   /**
    * @remarks
-   * The returned message.
+   * The detailed information returned by the API operation.
    * 
    * @example
    * success
@@ -117,7 +114,7 @@ export class DescribeCreateIndexJobResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -125,10 +122,9 @@ export class DescribeCreateIndexJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the operation. Valid values:
-   * 
-   * *   **success**.
-   * *   **fail**.
+   * The execution status of the API operation. Valid values:
+   * - **success**: Successful.
+   * - **fail**: Failed.
    * 
    * @example
    * success

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChatWithKnowledgeBaseRequestKnowledgeParamsMergeMethodArgsRrf extends $dara.Model {
   /**
    * @remarks
-   * The k constant in the scoring algorithm 1/(k+rank_i). The value must be a positive integer greater than 1.
+   * The constant k in the score calculation formula 1/(k+rank_i). The value must be a positive integer greater than 1.
    * 
    * @example
    * 60
@@ -104,11 +104,17 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsMergeMethodArgs extends 
 
 export class ChatWithKnowledgeBaseRequestKnowledgeParamsRerankModel extends $dara.Model {
   /**
+   * @remarks
+   * Configurable when RerankModel.Name is set to qwen3-rerank. Adds a custom sorting task type description. You can use this parameter to guide the model to adopt different sorting strategies.
+   * 
    * @example
    * Given a web search query, retrieve relevant passages that answer the query
    */
   instruct?: string;
   /**
+   * @remarks
+   * The name of the reranking model. Valid values: qwen3-rerank and gte-rerank-v2.
+   * 
    * @example
    * qwen3-rerank
    */
@@ -139,7 +145,7 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsRerankModel extends $dar
 export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryParamsGraphSearchArgs extends $dara.Model {
   /**
    * @remarks
-   * The number of top entities and relationship edges to return. Default value: 60.
+   * The top number of entities and relationship edges to return. Default value: 60.
    * 
    * @example
    * 60
@@ -168,15 +174,28 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryPar
 
 export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryParamsRerankModel extends $dara.Model {
   /**
+   * @remarks
+   * Configurable when RerankModel.Name is set to qwen3-rerank. Adds a custom sorting task type description. You can use this parameter to guide the model to adopt different sorting strategies.
+   * 
    * @example
    * Given a web search query, retrieve relevant passages that answer the query
    */
   instruct?: string;
   /**
+   * @remarks
+   * The name of the reranking model. Valid values: qwen3-rerank and gte-rerank-v2.
+   * 
    * @example
    * qwen3-rerank
    */
   name?: string;
+  /**
+   * @remarks
+   * The metadata fields that participate in reranking. Separate multiple fields with commas (,). By default, only the document content (content) is used for reranking. The field names must be metadata defined in the collection.
+   * 
+   * @example
+   * title
+   */
   rerankMetadataFields?: string;
   static names(): { [key: string]: string } {
     return {
@@ -206,7 +225,7 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryPar
 export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryParams extends $dara.Model {
   /**
    * @remarks
-   * The filter condition for the data to be updated, in SQL WHERE clause format.
+   * The filter condition for the data to be updated, in the SQL WHERE format.
    * 
    * @example
    * id = \\"llm-t87l87fxuhn56woc_8anu8j2d3f_file_e74635e2cc314e838543e724f6b3b1f2_10658020\\"
@@ -222,18 +241,16 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryPar
   graphEnhance?: boolean;
   /**
    * @remarks
-   * The number of top entities and relationship edges to return. Default value: 60.
+   * The top number of entities and relationship edges to return. Default value: 60.
    */
   graphSearchArgs?: ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryParamsGraphSearchArgs;
   /**
    * @remarks
-   * The multi-path recall algorithm. Default is empty (i.e., directly compares and sorts the dense vector and full-text scores).
+   * The multi-channel recall algorithm. Default value: empty (which means directly comparing and sorting the scores of dense vectors and full text). Valid values:
    * 
-   * Valid values:
-   * 
-   * - RRF: Reciprocal Rank Fusion. Has a parameter k to control the fusion effect. See HybridSearchArgs configuration for details.
-   * - Weight: Weight-based sorting. Uses parameters to control the score weights of vector and full-text retrieval, then sorts. See HybridSearchArgs configuration for details.
-   * - Cascaded: First performs full-text retrieval, then performs vector retrieval on top of it.
+   * - RRF: Reciprocal rank fusion. A parameter k is used to control the fusion effect. For details, see HybridSearchArgs.
+   * - Weight: Weighted sorting. Parameters are used to control the score weights of vectors and full text before sorting. For details, see HybridSearchArgs.
+   * - Cascaded: Full-text retrieve is performed first, followed by vector retrieve based on the results.
    * 
    * @example
    * RRF
@@ -241,9 +258,9 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryPar
   hybridSearch?: string;
   /**
    * @remarks
-   * The algorithm parameters for multi-path recall. Currently supports RRF and Weight. HybridPathsSetting can specify recall of dense vectors (dense), sparse vectors (sparse), and full-text retrieval (fulltext). If the value is empty, dense vectors (dense) and full-text retrieval (fulltext) are recalled by default.
+   * The algorithm parameters for multi-channel recall. RRF and Weight are supported. HybridPathsSetting can be used to specify the recall of dense vectors (dense), sparse vectors (sparse), and full-text retrieve (fulltext). If this value is empty, dense vectors (dense) and full-text retrieve (fulltext) are recalled by default.
    * 
-   * - RRF: Specifies the k constant in the scoring algorithm `1/(k+rank_i)`. The value must be a positive integer greater than 1. Format:
+   * - RRF: The constant k in the score calculation formula 1/(k+rank_i). The value must be a positive integer greater than 1. Format:
    * ```
    * {
    *   "HybridPathsSetting": {
@@ -256,8 +273,8 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryPar
    * ```
    * 
    * - Weight: 
-   *    - Dual-path recall (without specifying HybridPathsSetting, only specifying alpha):
-   *       - Formula: alpha * dense_score + (1-alpha) * fulltext_score. The parameter alpha represents the score weight between dense vector and full-text retrieval, ranging from 0 to 1, where 0 means full-text only and 1 means dense vector only:
+   *    - Dual-channel recall (HybridPathsSetting is not specified, only alpha is specified):
+   *       - Calculation formula: alpha * dense_score + (1-alpha) * fulltext_score. The alpha parameter represents the score weight of dense vectors and full-text retrieve. The value ranges from 0 to 1, where 0 indicates full-text retrieve only and 1 indicates dense vectors only:
    * ```
    * { 
    *    "Weight": {
@@ -265,8 +282,8 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryPar
    *    }
    * }
    * ```
-   *   - Three-path recall mode:
-   *      - Formula: normalized_dense * dense_score + normalized_sparse * sparse_score + normalized_fulltext * fulltext_score. Where dense, sparse, and fulltext represent the weights for dense vector, sparse vector, and full-text retrieval respectively, with values greater than or equal to 0. The system automatically normalizes the weights to the range 0-1 (i.e., normalized_x = x / (dense + sparse + fulltext)).
+   *   - Triple-channel recall pattern:
+   *      - Calculation formula: normalized_dense * dense_score + normalized_sparse * sparse_score + normalized_fulltext * fulltext_score. dense, sparse, and fulltext represent the weights of dense vectors, sparse vectors, and full-text retrieve, respectively. The value must be greater than or equal to 0. The system automatically performs normalization on the weights to 0 to 1 (that is, normalized_x = x / (dense + sparse + fulltext)).
    * ```
    * {
    *   "HybridPathsSetting": {
@@ -283,7 +300,7 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryPar
   hybridSearchArgs?: { [key: string]: any };
   /**
    * @remarks
-   * The method used when building the vector index. Valid values:
+   * The method used to build the vector index. Valid values:
    * - l2: Euclidean distance.
    * - ip: Inner product distance.
    * - cosine: Cosine similarity.
@@ -294,21 +311,28 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryPar
   metrics?: string;
   /**
    * @remarks
-   * The recall window. When this value is not empty, additional context of the retrieval results is returned. The format is a 2-element array: List<A, B>, where -10 <= A <= 0 and 0 <= B <= 10.
-   * > - It is recommended to use this parameter when document segmentation is too granular and retrieval may lose contextual information.
-   * > - Reranking takes priority over windowing, meaning reranking is performed first, then windowing is applied.
+   * The recall window. If this value is not empty, the context of the retrieval results is additionally returned. The format is an array of two elements: List<A, B>, where -10 <= A <= 0 and 0 <= B <= 10.
+   * > - We recommend that you use this parameter when documents are chunked into excessively small pieces and retrieval may lose context information.
+   * > - Reranking takes precedence over windowing. That is, reranking is performed before windowing.
+   * 
+   * @example
+   * [-1,1]
    */
   recallWindow?: number[];
   /**
    * @remarks
-   * The reranking factor. When this value is not empty, the vector retrieval results are reranked. Value range: 1 < RerankFactor <= 5.
-   * > - Reranking is slow when document segmentation is sparse.
-   * > - It is recommended that the number of items to rerank (TopK * Factor, rounded up) does not exceed 50.
+   * The reranking factor. If this value is not empty, the vector retrieve results are reranked. Valid values: 1 < RerankFactor <= 5.
+   * > - When documents are sparsely chunked, the reranking efficiency is low.
+   * > - We recommend that the number of reranked items (TopK × Factor, rounded up) does not exceed 50.
    * 
    * @example
    * 1.5
    */
   rerankFactor?: number;
+  /**
+   * @remarks
+   * The reranking model parameters.
+   */
   rerankModel?: ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryParamsRerankModel;
   /**
    * @remarks
@@ -320,7 +344,7 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryPar
   topK?: number;
   /**
    * @remarks
-   * Specifies whether to use full-text retrieval (dual-path recall). Default value: false, which means only vector retrieval is used.
+   * Specifies whether to use full-text retrieve (dual-channel recall). Default value: false, which indicates that only vector retrieve is used.
    * 
    * @example
    * true
@@ -382,7 +406,7 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryPar
 export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollection extends $dara.Model {
   /**
    * @remarks
-   * The name of the collection to recall.
+   * The name of the collection to be recalled.
    * 
    * This parameter is required.
    * 
@@ -394,7 +418,7 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollection extends
    * @remarks
    * The namespace. Default value: public.
    * 
-   * > You can create a namespace by calling the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation, and view the list by calling the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation.
+   * > You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to view the namespace list.
    * 
    * @example
    * dukang
@@ -404,7 +428,7 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollection extends
    * @remarks
    * The password corresponding to the namespace.
    * 
-   * > This value is specified in the CreateNamespace operation.
+   * > This value is specified when you call the CreateNamespace operation.
    * 
    * This parameter is required.
    * 
@@ -414,7 +438,7 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollection extends
   namespacePassword?: string;
   /**
    * @remarks
-   * The parameters related to knowledge base retrieval.
+   * The parameters related to the retrieval of this knowledge base.
    */
   queryParams?: ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollectionQueryParams;
   static names(): { [key: string]: string } {
@@ -450,7 +474,7 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollection extends
 export class ChatWithKnowledgeBaseRequestKnowledgeParams extends $dara.Model {
   /**
    * @remarks
-   * The method for merging multiple knowledge bases. Default is RRF. Valid values:
+   * The method used to merge multiple knowledge bases. Default value: RRF. Valid values:
    * - RRF
    * - Weight
    * 
@@ -460,19 +484,23 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParams extends $dara.Model {
   mergeMethod?: string;
   /**
    * @remarks
-   * The parameters for multi-knowledge base fusion.
+   * The parameters for merging multiple knowledge bases.
    */
   mergeMethodArgs?: ChatWithKnowledgeBaseRequestKnowledgeParamsMergeMethodArgs;
   /**
    * @remarks
-   * The reranking factor. When this value is not empty, the vector retrieval results are reranked. Value range: 1 < RerankFactor <= 5.
-   * > - Reranking is slow when document segmentation is sparse.
-   * > - It is recommended that the number of items to rerank (TopK * Factor, rounded up) does not exceed 50.
+   * The reranking factor. If this value is not empty, the vector retrieve results are reranked. Valid values: 1 < RerankFactor <= 5.
+   * > - When documents are sparsely chunked, the reranking efficiency is low.
+   * > - We recommend that the number of reranked items (TopK × Factor, rounded up) does not exceed 50.
    * 
    * @example
    * 1.0001
    */
   rerankFactor?: number;
+  /**
+   * @remarks
+   * The reranking model parameters.
+   */
   rerankModel?: ChatWithKnowledgeBaseRequestKnowledgeParamsRerankModel;
   /**
    * @remarks
@@ -483,7 +511,7 @@ export class ChatWithKnowledgeBaseRequestKnowledgeParams extends $dara.Model {
   sourceCollection?: ChatWithKnowledgeBaseRequestKnowledgeParamsSourceCollection[];
   /**
    * @remarks
-   * The number of top results to return after merging the recall results from multiple vector collections.
+   * The number of top results to return after the multi-vector collection recall results are merged.
    * 
    * @example
    * 10
@@ -579,15 +607,15 @@ export class ChatWithKnowledgeBaseRequestModelParamsMessages extends $dara.Model
 export class ChatWithKnowledgeBaseRequestModelParamsToolsFunction extends $dara.Model {
   /**
    * @remarks
-   * The function tool description.
+   * The description of the function tool.
    * 
    * @example
-   * 获取天气。
+   * Get the weather
    */
   description?: string;
   /**
    * @remarks
-   * The function tool name.
+   * The name of the function tool.
    * 
    * @example
    * get_weather
@@ -595,7 +623,7 @@ export class ChatWithKnowledgeBaseRequestModelParamsToolsFunction extends $dara.
   name?: string;
   /**
    * @remarks
-   * The function parameters in JSON Schema format.
+   * The JSON Schema of the function parameters.
    * 
    * @example
    * {"type": "object", ...}
@@ -674,7 +702,7 @@ export class ChatWithKnowledgeBaseRequestModelParams extends $dara.Model {
   messages?: ChatWithKnowledgeBaseRequestModelParamsMessages[];
   /**
    * @remarks
-   * The name of the large model to use. For valid values, see: [Bailian Help Documentation](https://help.aliyun.com/zh/model-studio/compatibility-of-openai-with-dashscope?spm=a2c4g.11186623.help-menu-2400256.d_2_10_0.45b5516eZIciC8&scm=20140722.H_2833609._.OR_help-T_cn~zh-V_1#eadfc13038jd5)
+   * The name of the large language model to use. For valid values, see [Model Studio documentation](https://www.alibabacloud.com/help/en/model-studio/compatibility-of-openai-with-dashscope#eadfc13038jd5).
    * 
    * This parameter is required.
    * 
@@ -692,7 +720,7 @@ export class ChatWithKnowledgeBaseRequestModelParams extends $dara.Model {
   n?: number;
   /**
    * @remarks
-   * The presence penalty coefficient (-2.0 to 2.0).
+   * The presence penalty coefficient. Valid values: -2.0 to 2.0.
    * 
    * @example
    * 1.0
@@ -713,7 +741,7 @@ export class ChatWithKnowledgeBaseRequestModelParams extends $dara.Model {
   stop?: string[];
   /**
    * @remarks
-   * The sampling temperature (0 to 2).
+   * The sampling temperature. Valid values: 0 to 2.
    * 
    * @example
    * 0.6
@@ -726,7 +754,7 @@ export class ChatWithKnowledgeBaseRequestModelParams extends $dara.Model {
   tools?: ChatWithKnowledgeBaseRequestModelParamsTools[];
   /**
    * @remarks
-   * The nucleus sampling probability threshold (0 to 1).
+   * The probability threshold for nucleus sampling. Valid values: 0 to 1.
    * 
    * @example
    * 0.9
@@ -784,7 +812,7 @@ export class ChatWithKnowledgeBaseRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID.
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all instances in the target region, including the instance ID.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all instances in the target region, including the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -802,12 +830,12 @@ export class ChatWithKnowledgeBaseRequest extends $dara.Model {
   includeKnowledgeBaseResults?: boolean;
   /**
    * @remarks
-   * The knowledge retrieval parameter object. If not specified, only chat is performed.
+   * The knowledge retrieval parameter object. If this parameter is not specified, only chat is performed.
    */
   knowledgeParams?: ChatWithKnowledgeBaseRequestKnowledgeParams;
   /**
    * @remarks
-   * The large language model (LLM) invocation parameter object.
+   * The large language model (LLM) call parameter object.
    * 
    * This parameter is required.
    */
@@ -815,10 +843,10 @@ export class ChatWithKnowledgeBaseRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The system prompt template, which must include {{ text_chunks }}, {{ user_system_prompt }}, {{ graph_entities }}, and {{ graph_relations }}. If not specified, this part does not take effect.
+   * The system prompt template. It must include {{ text_chunks }}, {{ user_system_prompt }}, {{ graph_entities }}, and {{ graph_relations }}. If this parameter is not specified, this part does not take effect.
    * 
    * @example
-   * "参考以下知识回答问题:{{ text_chunks }}"
+   * "Answer the question based on the following knowledge: {{ text_chunks }}"
    */
   promptParams?: string;
   /**

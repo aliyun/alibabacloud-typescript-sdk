@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckHadoopNetConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,9 +15,9 @@ export class CheckHadoopNetConnectionRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * 1. Either DataSourceId or EmrInstanceId must be specified as input, otherwise an error will occur.
-   * 2. If both of the above parameters are specified, EmrInstanceId will be used preferentially.
-   * 3. If the data source specified by DataSourceId is a self-built Hadoop cluster, an error will occur directly.
+   * 1. You must specify either DataSourceId or EmrInstanceId. Otherwise, an error is returned.
+   * 2. If both parameters are specified, EmrInstanceId takes precedence.
+   * 3. If the data source specified by DataSourceId is a self-managed Hadoop cluster, an error is returned.
    * 
    * @example
    * 126
@@ -25,7 +25,7 @@ export class CheckHadoopNetConnectionRequest extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * EMR instance ID.
+   * The EMR instance ID.
    * 
    * @example
    * c-xxx
@@ -33,7 +33,7 @@ export class CheckHadoopNetConnectionRequest extends $dara.Model {
   emrInstanceId?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou

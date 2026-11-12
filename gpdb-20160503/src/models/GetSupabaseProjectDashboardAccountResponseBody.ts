@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSupabaseProjectDashboardAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The username for accessing the project\\"s dashboard.
+   * The password for the Supabase dashboard.
    * 
    * @example
    * xxpassword
@@ -13,7 +13,7 @@ export class GetSupabaseProjectDashboardAccountResponseBody extends $dara.Model 
   dashboardPassword?: string;
   /**
    * @remarks
-   * The password associated with the dashboard username.
+   * The username for the Supabase dashboard.
    * 
    * @example
    * xxuser
@@ -21,7 +21,7 @@ export class GetSupabaseProjectDashboardAccountResponseBody extends $dara.Model 
   dashboardUsername?: string;
   /**
    * @remarks
-   * The ID of the Supabase project.
+   * The Supabase instance ID.
    * 
    * @example
    * sbp-twmoe9bakow
@@ -29,7 +29,7 @@ export class GetSupabaseProjectDashboardAccountResponseBody extends $dara.Model 
   projectId?: string;
   /**
    * @remarks
-   * The name of the Supabase project.
+   * The name of the Supabase project. This field is not used.
    * 
    * @example
    * supabase_prod
@@ -37,7 +37,7 @@ export class GetSupabaseProjectDashboardAccountResponseBody extends $dara.Model 
   projectName?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D****

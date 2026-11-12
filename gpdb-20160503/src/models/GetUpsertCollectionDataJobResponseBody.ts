@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUpsertCollectionDataJobResponseBodyJob extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the operation is complete.
+   * Indicates whether the operation is completed.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class GetUpsertCollectionDataJobResponseBodyJob extends $dara.Model {
   completed?: boolean;
   /**
    * @remarks
-   * The time when the job was created.
+   * The time when the task was created.
    * 
    * @example
    * 2024-01-08 16:52:04.864664
@@ -21,7 +21,7 @@ export class GetUpsertCollectionDataJobResponseBodyJob extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The error message.
+   * The error message returned when the current operation is abnormal or fails.
    * 
    * @example
    * Failed to connect database.
@@ -37,7 +37,7 @@ export class GetUpsertCollectionDataJobResponseBodyJob extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The progress of the vector data upload job. The value of this parameter indicates the number of data entries that have been uploaded.
+   * The upload progress. The value indicates the number of data records that have been uploaded.
    * 
    * @example
    * 1600
@@ -45,21 +45,13 @@ export class GetUpsertCollectionDataJobResponseBodyJob extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * The status of the job.
-   * 
-   * >  Valid values:
-   * 
-   * *   Success
-   * 
-   * *   Failed (See the Error parameter for failure reasons.)
-   * 
-   * *   Cancelling
-   * 
-   * *   Cancelled
-   * 
-   * *   Start
-   * 
-   * *   Running
+   * The task status. Valid values:
+   * > - Success: The task is successful.
+   * > - Failed: The task fails. You can view the Error field for the cause of the failure.
+   * > - Cancelling: The task is being canceled.
+   * > - Cancelled: The task is canceled.
+   * > - Start: The task is started.
+   * > - Running: The task is running.
    * 
    * @example
    * Success
@@ -67,7 +59,7 @@ export class GetUpsertCollectionDataJobResponseBodyJob extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the job was updated.
+   * The time when the task was updated.
    * 
    * @example
    * 2024-01-08 16:53:04.864664
@@ -109,7 +101,7 @@ export class GetUpsertCollectionDataJobResponseBodyJob extends $dara.Model {
 export class GetUpsertCollectionDataJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the vector data upload job.
+   * The details of the task for uploading vector data.
    */
   job?: GetUpsertCollectionDataJobResponseBodyJob;
   /**
@@ -131,9 +123,8 @@ export class GetUpsertCollectionDataJobResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status of the operation. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * - **success**: The operation is successful.
+   * - **fail**: The operation fails.
    * 
    * @example
    * success

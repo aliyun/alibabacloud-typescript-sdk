@@ -57,7 +57,7 @@ export class ListDocumentsResponseBodyItems extends $dara.Model {
 export class ListDocumentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 3
@@ -66,7 +66,7 @@ export class ListDocumentsResponseBody extends $dara.Model {
   items?: ListDocumentsResponseBodyItems;
   /**
    * @remarks
-   * The returned message.
+   * The detailed information returned by the API operation.
    * 
    * @example
    * Successful
@@ -74,7 +74,7 @@ export class ListDocumentsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * A pagination token. It can be used in the next request to retrieve a new page of results. If NextToken is empty, no next page exists.
+   * The paging token used to start the next paged query. If this parameter is empty, the current page is the last page.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -90,10 +90,9 @@ export class ListDocumentsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * The execution status of the API operation. Valid values:
+   * - **success**: The operation is successful.
+   * - **fail**: The operation fails.
    * 
    * @example
    * success

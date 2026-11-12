@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeExternalDataServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the service was created.
+   * The creation time.
    * 
    * @example
    * 2019-09-08T16:00:00Z
@@ -13,7 +13,7 @@ export class DescribeExternalDataServiceResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The time when the service was last modified.
+   * The last modification time.
    * 
    * @example
    * 2019-09-08T17:00:00Z
@@ -29,7 +29,7 @@ export class DescribeExternalDataServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The description of the service.
+   * The service description.
    * 
    * @example
    * pxf test
@@ -45,7 +45,7 @@ export class DescribeExternalDataServiceResponseBody extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The name of the service.
+   * The service name.
    * 
    * @example
    * test-pxf
@@ -53,7 +53,7 @@ export class DescribeExternalDataServiceResponseBody extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The specifications of the service. Unit: compute units (CUs).
+   * The service specification (unit: CU).
    * 
    * @example
    * 8
@@ -61,7 +61,15 @@ export class DescribeExternalDataServiceResponseBody extends $dara.Model {
   serviceSpec?: string;
   /**
    * @remarks
-   * The status of the operation.
+   * The service status. Valid values:
+   * 
+   * - Init: The service is being initialized.
+   * 
+   * - Running: The service is running.
+   * 
+   * - Exception: An exception occurred.
+   * 
+   * - Paused: The service is paused.
    * 
    * @example
    * Running

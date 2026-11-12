@@ -31,7 +31,7 @@ export class CreateApiKeyShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of service IDs to authorize.
+   * The IDs of the services to be authorized.
    */
   serviceIdsShrink?: string;
   /**

@@ -7,9 +7,9 @@ export class CreateDatabaseRequest extends $dara.Model {
    * @remarks
    * The character set.
    * 
-   * For more information about the value range, see Document [https://www.postgresql.org/docs/current/multibyte.html](url).
+   * For valid values, see References [https://www.postgresql.org/docs/current/multibyte.html](url).
    * 
-   * Default value: UTF-8.
+   * Default value: UTF8.
    * 
    * @example
    * UTF8
@@ -17,13 +17,10 @@ export class CreateDatabaseRequest extends $dara.Model {
   characterSetName?: string;
   /**
    * @remarks
-   * Database locale parameter (specifies string comparison/sorting rules).
-   * 
-   * > 
-   * 
-   * *   The locale must be compatible with the character set specified by the CharacterSetName parameter.
-   * 
-   * *   Valid values for the Collate field: You can execute the SELECT DISTINCT collname FROM pg_collation; statement to obtain the field value. The default value is en_US.utf8.
+   * The collation parameter of the database, which specifies the string comparison and sorting rules.
+   * >
+   * > - The locale must be compatible with the character set specified by the CharacterSetName parameter.
+   * > - Valid values for Collate: You can run the `SELECT DISTINCT collname FROM pg_collation;` command to query the valid values. If this parameter is not specified, the default value is en_US.utf8.
    * 
    * @example
    * en_US.utf8
@@ -31,13 +28,10 @@ export class CreateDatabaseRequest extends $dara.Model {
   collate?: string;
   /**
    * @remarks
-   * Database locale parameter (defines character classification/case conversion rules).
-   * 
+   * The character type parameter of the database, which specifies the character classification and case conversion rules.
    * > 
-   * 
-   * *   The locale must be compatible with the character set specified by the CharacterSetName parameter.
-   * 
-   * *   You can execute the SELECT DISTINCT collctype FROM pg_collation; statement to obtain the field value. The default value is en_US.utf8.
+   * > - The locale must be compatible with the character set specified by the CharacterSetName parameter.
+   * > - You can run the `SELECT DISTINCT collctype FROM pg_collation;` command to query the valid values. If this parameter is not specified, the default value is en_US.utf8.
    * 
    * @example
    * en_US.utf8
@@ -45,9 +39,9 @@ export class CreateDatabaseRequest extends $dara.Model {
   ctype?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -57,11 +51,10 @@ export class CreateDatabaseRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the database.
-   * 
-   * *   Only contains letters, digits, and underscores (_).
-   * *   Must start with a letter.
-   * *   Up to 63 characters in length.
+   * The name of the database. The name must meet the following requirements:
+   * - It can contain only letters, digits, and underscores (_).
+   * - It must start with a letter.
+   * - It can be up to 63 characters in length.
    * 
    * This parameter is required.
    * 
@@ -73,10 +66,13 @@ export class CreateDatabaseRequest extends $dara.Model {
    * @remarks
    * The description of the database.
    * 
-   * *   Must start with a letter.
-   * *   Cannot start with http:// or https://.
-   * *   Only contains letters, underscores (_), hyphens (-), and digits.
-   * *   Must be 2 to 256 characters in length.
+   * - It must start with a Chinese character or a letter.
+   * 
+   * - It cannot start with http:// or https://.
+   * 
+   * - It can contain Chinese characters, letters, underscores (_), hyphens (-), and digits.
+   * 
+   * - It must be 2 to 256 characters in length.
    * 
    * @example
    * A user management database storing customer profiles.
@@ -86,10 +82,13 @@ export class CreateDatabaseRequest extends $dara.Model {
    * @remarks
    * The owner of the table.
    * 
-   * *   Only contains lowercase letters, digits, and underscores (_).
-   * *   Must start with a lowercase letter and end with a lowercase letter or a digit.
-   * *   Cannot start with gp.
-   * *   Must be 2 to 16 characters in length.
+   * - It can contain only lowercase letters, digits, and underscores (_).
+   * 
+   * - It must start with a lowercase letter and end with a lowercase letter or a digit.
+   * 
+   * - It cannot start with gp.
+   * 
+   * - It must be 2 to 16 characters in length.
    * 
    * This parameter is required.
    * 

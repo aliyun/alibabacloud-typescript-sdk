@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableCollectionGraphRAGResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the job. You can use the `GetGraphRAGJob` to view the job status.
+   * The job ID. You can use this ID to call the GetGraphRAGJob operation to query the job status later.
    * 
    * @example
    * 231460f8-75dc-405e-a669-0c5204887e91
@@ -13,7 +13,7 @@ export class EnableCollectionGraphRAGResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class EnableCollectionGraphRAGResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -29,10 +29,9 @@ export class EnableCollectionGraphRAGResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the operation. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * The status. Valid values:
+   * - **success**: Success.
+   * - **fail**: Failure.
    * 
    * @example
    * success

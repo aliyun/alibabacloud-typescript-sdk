@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateApiKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API key content.
+   * The API key.
    * 
    * @example
    * sk-xxxxxxx
@@ -13,7 +13,7 @@ export class CreateApiKeyResponseBody extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * API KEY ID。
+   * The API key ID.
    * 
    * @example
    * api-xxxxxxx

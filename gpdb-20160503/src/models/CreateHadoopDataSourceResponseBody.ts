@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHadoopDataSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Data source ID.
+   * The data source ID.
    * 
    * @example
    * 123
@@ -13,7 +13,7 @@ export class CreateHadoopDataSourceResponseBody extends $dara.Model {
   dataSourceId?: number;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 2C125605-266F-41CA-8AC5-3A643D4F42C5

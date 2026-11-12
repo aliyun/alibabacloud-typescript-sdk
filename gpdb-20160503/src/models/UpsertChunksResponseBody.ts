@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class UpsertChunksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of tokens that are consumed during vectorization.
+   * The number of tokens used for vectorization.
    * 
-   * > A token is the minimum unit for splitting text. A token can be a word, phrase, punctuation, or character.
+   * > A token is the smallest unit into which input text is divided. A token can be a word, a phrase, a punctuation mark, or a character.
    * 
    * @example
    * 100
@@ -15,9 +15,9 @@ export class UpsertChunksResponseBody extends $dara.Model {
   embeddingTokens?: string;
   /**
    * @remarks
-   * The job ID. You can use the `GetGraphRAGJob` to view the job status.
+   * The job ID. You can use this ID to call the GetGraphRAGJob operation to query the job status later.
    * 
-   * > This parameter is returned only when the knowledge base is enabled.
+   * > This parameter is returned only when knowledge graph construction is enabled for the knowledge base.
    * 
    * @example
    * 231460f8-75dc-405e-a669-0c5204887e91
@@ -25,7 +25,7 @@ export class UpsertChunksResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * Successful
@@ -33,7 +33,7 @@ export class UpsertChunksResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -41,10 +41,9 @@ export class UpsertChunksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the operation. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * The execution status of the API operation. Valid values:
+   * - **success**: The operation is successful.
+   * - **fail**: The operation fails.
    * 
    * @example
    * success

@@ -47,8 +47,8 @@ export class DescribeDBInstanceIndexUsageResponseBodyItems extends $dara.Model {
    * @remarks
    * Indicates whether the table is a partitioned table. Valid values:
    * 
-   * *   **true**: The table is a partitioned table.
-   * *   **false**: The table is not a partitioned table.
+   * - **true**: The table is a partitioned table.
+   * - **false**: The table is not a partitioned table.
    * 
    * @example
    * true
@@ -80,7 +80,7 @@ export class DescribeDBInstanceIndexUsageResponseBodyItems extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The time when the table was last deleted, inserted, or updated.
+   * The time when the table was last updated by a DELETE, INSERT, or UPDATE operation.
    * 
    * @example
    * 2022-08-08T20:00:00Z
@@ -128,12 +128,12 @@ export class DescribeDBInstanceIndexUsageResponseBodyItems extends $dara.Model {
 export class DescribeDBInstanceIndexUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried index usage.
+   * The list of index usage details.
    */
   items?: DescribeDBInstanceIndexUsageResponseBodyItems[];
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -149,7 +149,7 @@ export class DescribeDBInstanceIndexUsageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1

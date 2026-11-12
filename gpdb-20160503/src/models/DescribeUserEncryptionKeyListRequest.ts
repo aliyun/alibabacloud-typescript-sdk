@@ -16,7 +16,7 @@ export class DescribeUserEncryptionKeyListRequest extends $dara.Model {
    * The number of KMS keys to return on each page. Default value: 10.
    * 
    * @example
-   * 30
+   * 10
    */
   pageSize?: string;
   /**
@@ -26,7 +26,7 @@ export class DescribeUserEncryptionKeyListRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cn-hangzhou
+   * ap-southeast-1
    */
   regionId?: string;
   static names(): { [key: string]: string } {

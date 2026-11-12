@@ -14,8 +14,8 @@ export class ListSupabaseBackupJobsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The backup mode. Valid values:
-   * * **Automated**: automatic backup
-   * * **Manual**: manual backup
+   * * **Automated**: automatic backup.
+   * * **Manual**: manual backup.
    * 
    * @example
    * Automated
@@ -23,7 +23,7 @@ export class ListSupabaseBackupJobsResponseBodyItems extends $dara.Model {
   backupMode?: string;
   /**
    * @remarks
-   * The status of the backup task. Valid statuses include: schedule (waiting to be scheduled) and backup (in progress).
+   * The status of the backup task. Known statuses include: schedule (waiting for scheduling) and backup (in progress).
    * 
    * @example
    * backup
@@ -31,7 +31,7 @@ export class ListSupabaseBackupJobsResponseBodyItems extends $dara.Model {
   backupStatus?: string;
   /**
    * @remarks
-   * The progress percentage of the backup task, such as 0%. This value may be an empty string when the task is in the schedule (waiting to be scheduled) state.
+   * The progress of the backup task in percentage, such as 0%. This value may be an empty string when the task is in the schedule state.
    * 
    * @example
    * 0%
@@ -39,7 +39,7 @@ export class ListSupabaseBackupJobsResponseBodyItems extends $dara.Model {
   process?: string;
   /**
    * @remarks
-   * The start time of the backup task. The time is displayed in UTC in the yyyy-MM-ddTHH:mm:ssZ format. This value may be an empty string when the task is in the schedule (waiting to be scheduled) state.
+   * The start time of the backup task. The time is displayed in UTC in the yyyy-MM-ddTHH:mm:ssZ format. This value may be an empty string when the task is in the schedule state.
    * 
    * @example
    * 2026-10-09T04:37:01Z
@@ -90,7 +90,7 @@ export class ListSupabaseBackupJobsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page, which can be used as the NextToken parameter in the next request.
+   * The pagination token for the next page. You can use this value as the NextToken parameter in the next request.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****

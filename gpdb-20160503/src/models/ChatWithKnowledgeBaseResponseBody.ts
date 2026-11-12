@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessageToolCallsFunction extends $dara.Model {
   /**
    * @remarks
-   * The called function parameters.
+   * The arguments of the called function.
    * 
    * @example
    * {"city":"hangzhou"}
@@ -13,7 +13,7 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessageToolCa
   arguments?: string;
   /**
    * @remarks
-   * The called function name.
+   * The name of the called function.
    * 
    * @example
    * "get_weather"
@@ -45,7 +45,7 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessageToolCa
 export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessageToolCalls extends $dara.Model {
   /**
    * @remarks
-   * The called function information.
+   * The information about the called function.
    */
   function?: ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessageToolCallsFunction;
   /**
@@ -58,7 +58,7 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessageToolCa
   id?: string;
   /**
    * @remarks
-   * The tool call sequence number.
+   * The ordinal number of the tool invocation.
    * 
    * @example
    * 1
@@ -111,7 +111,7 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessage exten
   reasoningContent?: string;
   /**
    * @remarks
-   * The message role:
+   * The message role. Valid values:
    * - system
    * - user
    * - assistant
@@ -122,7 +122,7 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessage exten
   role?: string;
   /**
    * @remarks
-   * The tool call response list.
+   * The list of tool invocation responses.
    */
   toolCalls?: ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessageToolCalls[];
   static names(): { [key: string]: string } {
@@ -166,7 +166,7 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoices extends $dar
   finishReason?: string;
   /**
    * @remarks
-   * The reply sequence number.
+   * The reply index.
    * 
    * @example
    * 0
@@ -174,7 +174,7 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoices extends $dar
   index?: number;
   /**
    * @remarks
-   * The large model reply response.
+   * The response message from the large language model.
    */
   message?: ChatWithKnowledgeBaseResponseBodyChatCompletionChoicesMessage;
   static names(): { [key: string]: string } {
@@ -208,7 +208,7 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionChoices extends $dar
 export class ChatWithKnowledgeBaseResponseBodyChatCompletionUsagePromptTokensDetails extends $dara.Model {
   /**
    * @remarks
-   * The number of tokens that hit the cache.
+   * The number of cached tokens.
    * 
    * @example
    * 24
@@ -238,7 +238,7 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionUsagePromptTokensDet
 export class ChatWithKnowledgeBaseResponseBodyChatCompletionUsage extends $dara.Model {
   /**
    * @remarks
-   * The number of tokens consumed for generating content.
+   * The number of tokens consumed to generate the content.
    * 
    * @example
    * 42
@@ -254,7 +254,7 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionUsage extends $dara.
   promptTokens?: number;
   /**
    * @remarks
-   * The prompt token details.
+   * The details of the prompt tokens.
    */
   promptTokensDetails?: ChatWithKnowledgeBaseResponseBodyChatCompletionUsagePromptTokensDetails;
   /**
@@ -298,7 +298,7 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletionUsage extends $dara.
 export class ChatWithKnowledgeBaseResponseBodyChatCompletion extends $dara.Model {
   /**
    * @remarks
-   * The real-time generated text content.
+   * The text content generated in real time.
    */
   choices?: ChatWithKnowledgeBaseResponseBodyChatCompletionChoices[];
   /**
@@ -319,7 +319,7 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletion extends $dara.Model
   id?: string;
   /**
    * @remarks
-   * The model name used.
+   * The name of the model used.
    * 
    * @example
    * qwen-plus
@@ -327,7 +327,7 @@ export class ChatWithKnowledgeBaseResponseBodyChatCompletion extends $dara.Model
   model?: string;
   /**
    * @remarks
-   * The token usage of the large model output.
+   * The number of tokens used for the large language model output.
    */
   usage?: ChatWithKnowledgeBaseResponseBodyChatCompletionUsage;
   static names(): { [key: string]: string } {
@@ -384,9 +384,7 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatches
   fileName?: string;
   /**
    * @remarks
-   * The public URL of the query result image, valid for 2 hours by default.
-   * 
-   * You can specify the validity period using the UrlExpiration input parameter.
+   * The public URL of the image in the query result. The default validity period is 2 hours. You can specify the validity period by using the UrlExpiration request parameter.
    * 
    * @example
    * http://viapi-customer-pop.oss-cn-shanghai.aliyuncs.com/b4d8_207196811002111319_570c0e199f03428f812ab21fcc00dd6a
@@ -402,7 +400,7 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatches
   id?: string;
   /**
    * @remarks
-   * The metadata information loaded by the document loader.
+   * The metadata generated when the document loader loads the document.
    * 
    * @example
    * {"page":1}
@@ -423,7 +421,7 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatches
   rerankScore?: number;
   /**
    * @remarks
-   * The source of the retrieval result. 1 indicates vector retrieval, 2 indicates full-text retrieval, and 3 indicates dual-path recall.
+   * The source of the retrieve results. 1 indicates AISearch, 2 indicates full-text index, and 3 indicates dual-channel recall.
    * 
    * @example
    * 3
@@ -431,7 +429,7 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatches
   retrievalSource?: number;
   /**
    * @remarks
-   * The similarity score of this data entry. The scoring algorithm is related to the algorithm specified when creating the index (l2/ip/cosine).
+   * The similarity score of this data entry. The scoring algorithm is related to the algorithm specified when the index is created, such as l2, ip, or cosine.
    * 
    * @example
    * 12
@@ -492,7 +490,7 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultUsage e
    * @remarks
    * The number of tokens used for vectorization.
    * 
-   * > A token is the smallest unit into which input text is divided. A token can be a word, a phrase, a punctuation mark, a character, etc.
+   * > A token is the smallest unit into which the input text is split. A token can be a word, a phrase, a punctuation mark, or a character.
    * 
    * @example
    * 21
@@ -527,12 +525,12 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResult extend
   entities?: string[];
   /**
    * @remarks
-   * The recall items.
+   * The recalled items.
    */
   matches?: ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultMatches[];
   /**
    * @remarks
-   * The relationship edge details.
+   * The file name.
    */
   relations?: string[];
   /**
@@ -546,8 +544,8 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResult extend
   /**
    * @remarks
    * The API execution status. Valid values:
-   * - **success**: Execution succeeded.
-   * - **fail**: Execution failed.
+   * - **success**: The execution is successful.
+   * - **fail**: The execution fails.
    * 
    * @example
    * success
@@ -563,7 +561,7 @@ export class ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResult extend
   tokens?: number;
   /**
    * @remarks
-   * The tokens or items consumed by document understanding or embedding.
+   * The number of tokens or entries consumed for document understanding or embedding.
    */
   usage?: ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResultUsage;
   static names(): { [key: string]: string } {
@@ -619,7 +617,7 @@ export class ChatWithKnowledgeBaseResponseBody extends $dara.Model {
   chatCompletion?: ChatWithKnowledgeBaseResponseBodyChatCompletion;
   /**
    * @remarks
-   * The return message.
+   * The returned message.
    * 
    * @example
    * Successful
@@ -627,7 +625,7 @@ export class ChatWithKnowledgeBaseResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The multi-knowledge base recall information.
+   * The recall information from multiple knowledge bases.
    */
   multiCollectionRecallResult?: ChatWithKnowledgeBaseResponseBodyMultiCollectionRecallResult;
   /**
@@ -641,8 +639,8 @@ export class ChatWithKnowledgeBaseResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status. Valid values:
-   * - **success**: Succeeded.
-   * - **fail**: Failed.
+   * - **success**: The operation is successful.
+   * - **fail**: The operation fails.
    * 
    * @example
    * success

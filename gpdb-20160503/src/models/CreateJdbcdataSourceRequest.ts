@@ -42,7 +42,7 @@ export class CreateJDBCDataSourceRequest extends $dara.Model {
    * The JDBC connection string.
    * 
    * @example
-   * jdbc:mysql://rm-xxx.mysql.rds.aliyuncs.com:3306/testadmin
+   * xxxxxx
    */
   JDBCConnectionString?: string;
   /**
@@ -50,7 +50,7 @@ export class CreateJDBCDataSourceRequest extends $dara.Model {
    * The password of the database account.
    * 
    * @example
-   * testpasswd
+   * xxxxxx
    */
   JDBCPassword?: string;
   /**
@@ -58,7 +58,7 @@ export class CreateJDBCDataSourceRequest extends $dara.Model {
    * The name of the database account.
    * 
    * @example
-   * testuser
+   * xxxxxx
    */
   JDBCUserName?: string;
   /**

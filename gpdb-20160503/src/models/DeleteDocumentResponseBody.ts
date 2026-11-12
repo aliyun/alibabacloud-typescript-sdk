@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDocumentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Detailed information returned by the API.
+   * The detailed information returned by the API operation.
    * 
    * @example
    * success
@@ -13,7 +13,7 @@ export class DeleteDocumentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -21,7 +21,9 @@ export class DeleteDocumentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Creation status, value description: - **success**: Success - **fail**: Fail
+   * The creation status. Valid values:
+   * - **success**: Successful.
+   * - **fail**: Failed.
    * 
    * @example
    * success

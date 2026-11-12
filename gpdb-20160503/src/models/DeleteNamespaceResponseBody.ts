@@ -8,7 +8,7 @@ export class DeleteNamespaceResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * success
+   * Successful
    */
   message?: string;
   /**

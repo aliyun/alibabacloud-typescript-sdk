@@ -32,7 +32,7 @@ export class ListCollectionsResponseBody extends $dara.Model {
   collections?: ListCollectionsResponseBodyCollections;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -56,7 +56,7 @@ export class ListCollectionsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace.
    * 
    * @example
    * mynamespace
@@ -64,7 +64,7 @@ export class ListCollectionsResponseBody extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -80,10 +80,9 @@ export class ListCollectionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * The execution status of the API operation. Valid values:
+   * - **success**: The operation succeeded.
+   * - **fail**: The operation failed.
    * 
    * @example
    * success

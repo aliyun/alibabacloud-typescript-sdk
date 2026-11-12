@@ -30,7 +30,7 @@ export class DescribeDBInstanceIPArrayListRequest extends $dara.Model {
    * The ID of the resource group to which the instance belongs. For information about how to obtain the ID of a resource group, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
    * 
    * @example
-   * null
+   * rg-bp67acfmxazb4p****
    */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {

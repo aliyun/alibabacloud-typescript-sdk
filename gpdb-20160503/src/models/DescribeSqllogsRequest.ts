@@ -7,7 +7,7 @@ export class DescribeSQLLogsRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances within a region.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the IDs of all AnalyticDB for PostgreSQL instances in a specific region.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class DescribeSQLLogsRequest extends $dara.Model {
   database?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC.
+   * The end time of the query. Specify the time in the <i>YYYY-MM-DDThh:mmZ</i> format. The time must be in UTC.
    * 
-   * > The end time must be later than the start time. The maximum time range that can be specified is seven days.
+   * > The end time must be later than the start time. The interval between the start time and the end time cannot exceed seven days.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class DescribeSQLLogsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The execution duration of the SQL statement. Unit: seconds.
+   * The execution duration. Unit: seconds.
    * 
    * @example
    * 1
@@ -45,10 +45,10 @@ export class DescribeSQLLogsRequest extends $dara.Model {
   executeCost?: string;
   /**
    * @remarks
-   * The execution status of the SQL statement. Valid values:
+   * The execution state. Valid values:
    * 
-   * *   **1**: successful.
-   * *   **0**: failed.
+   * - **1**: Successful.
+   * - **0**: Failed.
    * 
    * @example
    * 1
@@ -56,7 +56,7 @@ export class DescribeSQLLogsRequest extends $dara.Model {
   executeState?: string;
   /**
    * @remarks
-   * The maximum amount of time consumed by a slow query. Unit: seconds. Minimum value: 0.
+   * The maximum execution duration of slow SQL statements. The value must be greater than or equal to 0. Unit: seconds.
    * 
    * @example
    * 1000
@@ -64,7 +64,7 @@ export class DescribeSQLLogsRequest extends $dara.Model {
   maxExecuteCost?: string;
   /**
    * @remarks
-   * The minimum amount of time consumed by a slow query. Unit: seconds. Minimum value: 0.
+   * The minimum execution duration of slow SQL statements. The value must be greater than or equal to 0. Unit: seconds.
    * 
    * @example
    * 1
@@ -72,13 +72,13 @@ export class DescribeSQLLogsRequest extends $dara.Model {
   minExecuteCost?: string;
   /**
    * @remarks
-   * The type of the query language. Valid values:
+   * The operation class. Valid values:
    * 
-   * *   **DQL**
-   * *   **DML**
-   * *   **DDL**
-   * *   **DCL**
-   * *   **TCL**
+   * - **DQL**
+   * - **DML**
+   * - **DDL**
+   * - **DCL**
+   * - **TCL**
    * 
    * @example
    * DQL
@@ -86,14 +86,11 @@ export class DescribeSQLLogsRequest extends $dara.Model {
   operationClass?: string;
   /**
    * @remarks
-   * The type of the SQL statement.
+   * The type of the executed SQL statement.
    * 
-   * > 
-   * 
-   * *   If **OperationClass** is specified, the value of **OperationType** must belong to the corresponding query language. For example, if **OperationClass** is set to **DQL**, the value of **OperationType** must be a **DQL** statement such as **SELECT**.
-   * 
-   * *   If **OperationClass** is not specified, the value of **OperationType** can be an SQL statement of any query language.
-   * *   If **OperationClass** and **OperationType** are not specified, all types of SQL statements are returned.
+   * >- If the **OperationClass** parameter is specified, the value of **OperationType** must belong to the corresponding language type. For example, if the value of **OperationClass** is **DQL**, the value of **OperationType** must be a DQL statement, such as **SELECT**.
+   * - If the **OperationClass** parameter is not specified, the value of **OperationType** can be any type of SQL statement.
+   * - If neither the **OperationClass** parameter nor the **OperationType** parameter is specified, all types of SQL statements are returned.
    * 
    * @example
    * SELECT
@@ -101,7 +98,7 @@ export class DescribeSQLLogsRequest extends $dara.Model {
   operationType?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer type. Default value: 1.
    * 
    * @example
    * 1
@@ -111,9 +108,9 @@ export class DescribeSQLLogsRequest extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values:
    * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * - **30**
+   * - **50**
+   * - **100**
    * 
    * Default value: **30**.
    * 
@@ -123,7 +120,7 @@ export class DescribeSQLLogsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The keywords of the SQL statement.
+   * The SQL keyword.
    * 
    * @example
    * select 1
@@ -139,7 +136,7 @@ export class DescribeSQLLogsRequest extends $dara.Model {
   sourceIP?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-ddTHH:mmZ* format. The time must be in UTC.
+   * The start time of the query. Specify the time in the <i>YYYY-MM-DDThh:mmZ</i> format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -149,7 +146,7 @@ export class DescribeSQLLogsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The name of the database account.
+   * The username.
    * 
    * @example
    * testadmin

@@ -13,10 +13,10 @@ export class DescribeParametersResponseBodyParameters extends $dara.Model {
   currentValue?: string;
   /**
    * @remarks
-   * Indicates whether a restart is required for parameter modifications to take effect. Valid values:
+   * Indicates whether the instance must be restarted. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The instance must be restarted.
+   * - **false**: The instance does not need to be restarted.
    * 
    * @example
    * false
@@ -26,8 +26,8 @@ export class DescribeParametersResponseBodyParameters extends $dara.Model {
    * @remarks
    * Indicates whether the configuration parameter can be modified. Valid values:
    * 
-   * *   **true**
-   * *   **false**
+   * - **true**: The parameter can be modified.
+   * - **false**: The parameter cannot be modified.
    * 
    * @example
    * true
@@ -35,7 +35,7 @@ export class DescribeParametersResponseBodyParameters extends $dara.Model {
   isChangeableConfig?: string;
   /**
    * @remarks
-   * The valid values of the configuration parameter.
+   * The value range of the configuration parameter.
    * 
    * @example
    * [0-2147483647]
@@ -101,12 +101,12 @@ export class DescribeParametersResponseBodyParameters extends $dara.Model {
 export class DescribeParametersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried configuration parameters.
+   * The list of configuration parameters.
    */
   parameters?: DescribeParametersResponseBodyParameters[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 62506167-D284-562A-B7C2-0A**********

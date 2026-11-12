@@ -29,7 +29,7 @@ export class DeleteDBInstanceRequest extends $dara.Model {
    * This parameter is no longer used.
    * 
    * @example
-   * null
+   * rg-bp67acfmxazb4p****
    */
   resourceGroupId?: string;
   static names(): { [key: string]: string } {

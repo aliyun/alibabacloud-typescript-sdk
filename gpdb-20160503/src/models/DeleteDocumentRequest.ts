@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDocumentRequest extends $dara.Model {
   /**
    * @remarks
-   * Document collection name.
+   * The name of the document collection.
    * 
-   * 
-   * > Created by the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) API. You can use the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) API to view the list of created document collections.
+   * > The document collection is created by calling the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) API operation. You can call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) API operation to view the created document collections.
    * 
    * This parameter is required.
    * 
@@ -18,9 +17,9 @@ export class DeleteDocumentRequest extends $dara.Model {
   collection?: string;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API to view details of all AnalyticDB PostgreSQL instances in the target region, including the instance ID.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) API operation to query the details of all AnalyticDB for PostgreSQL instances in the specified region, including the instance ID.
    * 
    * This parameter is required.
    * 
@@ -30,9 +29,9 @@ export class DeleteDocumentRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * File name.
+   * The file name.
    * 
-   * > The name of an uploaded file. You can query the list of files using the [ListDocuments](https://help.aliyun.com/document_detail/2618453.html) API.
+   * > The name of the uploaded file. You can call the [ListDocuments](https://help.aliyun.com/document_detail/2618453.html) API operation to query the file list.
    * 
    * This parameter is required.
    * 
@@ -42,9 +41,9 @@ export class DeleteDocumentRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The name of the namespace. Default value: public.
+   * The namespace. Default value: public.
    * 
-   * >  You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to query a list of namespaces.
+   * > You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API operation to create a namespace, and call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) API operation to view the namespace list.
    * 
    * @example
    * mynamespace
@@ -52,9 +51,9 @@ export class DeleteDocumentRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * Password for the namespace.
+   * The password of the namespace.
    * 
-   * > This value is specified in the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API.
+   * > This value is specified when you call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) API operation.
    * 
    * This parameter is required.
    * 
@@ -65,7 +64,7 @@ export class DeleteDocumentRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * Region ID where the instance is located.
+   * The region ID of the instance.
    * 
    * This parameter is required.
    * 

@@ -21,7 +21,7 @@ export class DescribeNamespaceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace.
    * 
    * @example
    * mynamespace
@@ -29,12 +29,12 @@ export class DescribeNamespaceResponseBody extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The queried namespace.
+   * The namespace information.
    */
   namespaceInfo?: { [key: string]: string };
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -50,10 +50,9 @@ export class DescribeNamespaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * The execution status of the API operation. Valid values:
+   * - **success**: The execution is successful.
+   * - **fail**: The execution fails.
    * 
    * @example
    * success

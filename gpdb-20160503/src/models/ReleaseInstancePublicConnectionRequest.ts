@@ -11,7 +11,7 @@ export class ReleaseInstancePublicConnectionRequest extends $dara.Model {
    * *   **cluster**: cluster endpoint. This type of endpoints can be created only for instances that have multiple coordinator nodes.
    * 
    * @example
-   * primary
+   * Intranet
    */
   addressType?: string;
   /**

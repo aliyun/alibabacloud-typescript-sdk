@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupportedInstanceClassesNodeCount extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of Segment nodes.
+   * The maximum number of segment nodes.
    * 
    * @example
    * 256
@@ -13,7 +13,7 @@ export class DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupp
   maxCount?: string;
   /**
    * @remarks
-   * The minimum number of Segment nodes.
+   * The minimum number of segment nodes.
    * 
    * @example
    * 4
@@ -23,7 +23,7 @@ export class DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupp
    * @remarks
    * The step size for adding nodes.
    * 
-   * For example, if this parameter is set to 4, the number of nodes added must be a multiple of 4 when adding Segment nodes.
+   * For example, if this parameter is set to 4, the number of segment nodes to be added must be a multiple of 4.
    * 
    * @example
    * 4
@@ -57,7 +57,7 @@ export class DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupp
 export class DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupportedInstanceClassesStorageSize extends $dara.Model {
   /**
    * @remarks
-   * The maximum Segment storage capacity.
+   * The maximum storage capacity of the segment node.
    * 
    * @example
    * 1000
@@ -65,7 +65,7 @@ export class DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupp
   maxCount?: string;
   /**
    * @remarks
-   * The minimum Segment storage capacity.
+   * The minimum storage capacity of the segment node.
    * 
    * @example
    * 50
@@ -73,7 +73,7 @@ export class DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupp
   minCount?: string;
   /**
    * @remarks
-   * The Segment storage expansion step size.
+   * The step size for storage expansion of the segment node.
    * 
    * @example
    * 50
@@ -107,11 +107,10 @@ export class DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupp
 export class DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupportedInstanceClasses extends $dara.Model {
   /**
    * @remarks
-   * The instance series. Valid values:
+   * The instance edition. Valid values:
    * 
-   * - **HighAvailability**: High-availability edition.
-   * 
-   * - **Basic**: Basic edition
+   * - **HighAvailability**: High-availability Edition.
+   * - **Basic**: Basic Edition.
    * 
    * @example
    * HighAvailability
@@ -119,7 +118,7 @@ export class DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupp
   category?: string;
   /**
    * @remarks
-   * The description of the segment node instance type.
+   * The description of the segment node specifications.
    * 
    * @example
    * Single-segment node with 2 cores and 16 GB of memory.
@@ -127,7 +126,7 @@ export class DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupp
   description?: string;
   /**
    * @remarks
-   * The display name of the segment node instance type.
+   * The display class of the segment specifications.
    * 
    * @example
    * 2C16G
@@ -135,7 +134,7 @@ export class DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupp
   displayClass?: string;
   /**
    * @remarks
-   * The instance type of the segment node.
+   * The display class of the segment specifications.
    * 
    * @example
    * 2C16G
@@ -143,23 +142,21 @@ export class DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupp
   instanceClass?: string;
   /**
    * @remarks
-   * Details of the segment nodes.
+   * The information about the segment nodes.
    */
   nodeCount?: DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupportedInstanceClassesNodeCount;
   /**
    * @remarks
-   * The Segment storage capacity.
+   * The storage capacity of the segment node.
    */
   storageSize?: DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupportedInstanceClassesStorageSize;
   /**
    * @remarks
    * The storage type. Valid values:
    * 
-   * - **cloud_essd**: ESSD cloud disk.
-   * 
-   * - **cloud_efficiency**: Standard cloud disk.
-   * 
-   * - **oss**:OSS.
+   * - **cloud_essd**: ESSD.
+   * - **cloud_efficiency**: ultra cloud disk.
+   * - **oss**: OSS.
    * 
    * @example
    * cloud_essd
@@ -209,8 +206,7 @@ export class DescribeAvailableResourcesResponseBodyResourcesSupportedEngines ext
    * @remarks
    * The instance resource type. Valid values:
    * 
-   * - **ecs**: Elastic storage mode.
-   * 
+   * - **ecs**: elastic storage mode.
    * - **serverless**: Serverless mode.
    * 
    * @example
@@ -219,7 +215,7 @@ export class DescribeAvailableResourcesResponseBodyResourcesSupportedEngines ext
   mode?: string;
   /**
    * @remarks
-   * The supported engine version.
+   * The supported DPI engine version.
    * 
    * @example
    * 6.0
@@ -227,7 +223,7 @@ export class DescribeAvailableResourcesResponseBodyResourcesSupportedEngines ext
   supportedEngineVersion?: string;
   /**
    * @remarks
-   * The supported instance types.
+   * The supported instance classes.
    */
   supportedInstanceClasses?: DescribeAvailableResourcesResponseBodyResourcesSupportedEnginesSupportedInstanceClasses[];
   static names(): { [key: string]: string } {
@@ -261,7 +257,7 @@ export class DescribeAvailableResourcesResponseBodyResourcesSupportedEngines ext
 export class DescribeAvailableResourcesResponseBodyResources extends $dara.Model {
   /**
    * @remarks
-   * Details of the supported engines and instance types.
+   * The supported engines and instance specifications.
    */
   supportedEngines?: DescribeAvailableResourcesResponseBodyResourcesSupportedEngines[];
   /**
@@ -317,7 +313,7 @@ export class DescribeAvailableResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The available resources.
+   * The information about available resources.
    */
   resources?: DescribeAvailableResourcesResponseBodyResources[];
   static names(): { [key: string]: string } {

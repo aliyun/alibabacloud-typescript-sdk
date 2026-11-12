@@ -14,9 +14,9 @@ export class ModifySupabaseBackupPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable automatic recovery points. Valid values:
-   * - true: Enabled.
-   * - false: Disabled.
-   * If this parameter is not specified, false is used.
+   * - true: enables automatic recovery points.
+   * - false: disables automatic recovery points.
+   * Default value: false.
    */
   enableRecoveryPoint?: boolean;
   /**
@@ -51,7 +51,7 @@ export class ModifySupabaseBackupPolicyRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The interval for the automatic creation of recovery points. Unit: hours. Valid values: 1/6 (10 minutes), 1/2 (30 minutes), 1, 2, 4, and 8. This parameter takes effect only when EnableRecoveryPoint is set to true. If this parameter is not specified, the default value 1 is used. If EnableRecoveryPoint is set to false, this parameter is ignored.
+   * The interval for the automatic creation of recovery points. Unit: hours. Valid values: 1/6 (10 minutes), 1/2 (30 minutes), 1, 2, 4, and 8. This parameter takes effect only when EnableRecoveryPoint is set to true. If EnableRecoveryPoint is set to true and this parameter is not specified, the default value 1 is used. If EnableRecoveryPoint is set to false, this parameter is ignored.
    * 
    * @example
    * 1

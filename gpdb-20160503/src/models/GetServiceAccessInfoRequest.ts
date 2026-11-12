@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceAccessInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID where the SaaS service resides.
+   * The region ID of the SaaS service.
    * 
    * @example
    * cn-beijing

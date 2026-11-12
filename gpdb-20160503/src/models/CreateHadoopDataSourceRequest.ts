@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHadoopDataSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateHadoopDataSourceRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Service description.
+   * The service description.
    * 
    * @example
    * pxf for hdfs data source
@@ -23,7 +23,7 @@ export class CreateHadoopDataSourceRequest extends $dara.Model {
   dataSourceDescription?: string;
   /**
    * @remarks
-   * Service name.
+   * The service name.
    * 
    * @example
    * hdfs_pxf
@@ -31,10 +31,8 @@ export class CreateHadoopDataSourceRequest extends $dara.Model {
   dataSourceName?: string;
   /**
    * @remarks
-   * Type of Hadoop external table to be enabled, with values:
-   * 
-   * - HDFS 
-   * 
+   * The type of the Hadoop external table to enable. Valid values:
+   * - HDFS
    * - Hive
    * 
    * @example
@@ -43,7 +41,7 @@ export class CreateHadoopDataSourceRequest extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * When HadoopCreateType=Emr, this field should contain the EMR instance ID.
+   * The ID of the EMR instance. This parameter is required when HadoopCreateType is set to Emr.
    * 
    * @example
    * c-1234567
@@ -51,7 +49,7 @@ export class CreateHadoopDataSourceRequest extends $dara.Model {
   emrInstanceId?: string;
   /**
    * @remarks
-   * Content string of the Hadoop hdfs-site.xml file. This field is required when enabling an HDFS external table.
+   * The content string of the Hadoop hdfs-site.xml file. This parameter is required when you enable HDFS external tables.
    * 
    * @example
    * <?xml version="1.0" ?>
@@ -70,7 +68,7 @@ export class CreateHadoopDataSourceRequest extends $dara.Model {
   HDFSConf?: string;
   /**
    * @remarks
-   * Content string of the Hadoop core-site.xml file.
+   * The content string of the Hadoop core-site.xml file.
    * 
    * @example
    * <?xml version="1.0" ?>
@@ -93,11 +91,9 @@ export class CreateHadoopDataSourceRequest extends $dara.Model {
   hadoopCoreConf?: string;
   /**
    * @remarks
-   * External service type:
-   * 
+   * The external service type. Valid values:
    * - emr
-   * 
-   * - hadoop: Self-built Hadoop
+   * - hadoop: self-managed Hadoop.
    * 
    * @example
    * emr
@@ -105,7 +101,7 @@ export class CreateHadoopDataSourceRequest extends $dara.Model {
   hadoopCreateType?: string;
   /**
    * @remarks
-   * Address and hostname of the Hadoop cluster\\"s source node in the /etc/hosts file.
+   * The addresses and hostnames of the source nodes in the Hadoop cluster in the /etc/hosts file.
    * 
    * @example
    * 192.168.220.128 master-1-1.c-xxx.cn-shanghai.emr.aliyuncs.com
@@ -115,7 +111,7 @@ export class CreateHadoopDataSourceRequest extends $dara.Model {
   hadoopHostsAddress?: string;
   /**
    * @remarks
-   * Content string of the Hadoop hive-site.xml file. This field is required when enabling a HIVE external table.
+   * The content string of the Hadoop hive-site.xml file. This parameter is required when you enable Hive external tables.
    * 
    * @example
    * <?xml version="1.0" ?>
@@ -134,7 +130,7 @@ export class CreateHadoopDataSourceRequest extends $dara.Model {
   hiveConf?: string;
   /**
    * @remarks
-   * Content string of the Hadoop mapred-site.xml file. This field is required when enabling an HDFS external table.
+   * The content string of the Hadoop mapred-site.xml file. This parameter is required when you enable HDFS external tables.
    * 
    * @example
    * xxxxxx
@@ -142,9 +138,9 @@ export class CreateHadoopDataSourceRequest extends $dara.Model {
   mapReduceConf?: string;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) interface to view available region IDs.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -152,7 +148,7 @@ export class CreateHadoopDataSourceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Content string of the Hadoop yarn-site.xml file. This field is required when enabling an HDFS external table.
+   * The content string of the Hadoop yarn-site.xml file. This parameter is required when you enable HDFS external tables.
    * 
    * @example
    * <?xml version="1.0" ?>

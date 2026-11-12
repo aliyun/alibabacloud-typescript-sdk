@@ -72,7 +72,7 @@ export class ListSecretsResponseBodySecrets extends $dara.Model {
 export class ListSecretsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of access credentials.
+   * The total number of entries.
    * 
    * @example
    * 4
@@ -80,7 +80,7 @@ export class ListSecretsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * Successful
@@ -97,10 +97,9 @@ export class ListSecretsResponseBody extends $dara.Model {
   secrets?: ListSecretsResponseBodySecrets;
   /**
    * @remarks
-   * The status of the operation. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * The API execution status. Valid values:
+   * - **success**: The execution succeeded.
+   * - **fail**: The execution failed.
    * 
    * @example
    * success

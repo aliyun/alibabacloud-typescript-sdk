@@ -6,7 +6,7 @@ export class DescribeDataShareInstancesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer type. Default value: 1.
    * 
    * @example
    * 1
@@ -16,9 +16,9 @@ export class DescribeDataShareInstancesRequest extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values:
    * 
-   * *   **30**
-   * *   **50**
-   * *   **100**
+   * - **30**
+   * - **50**
+   * - **100**
    * 
    * Default value: 30.
    * 
@@ -28,9 +28,9 @@ export class DescribeDataShareInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
    * 
    * This parameter is required.
    * 
@@ -40,7 +40,7 @@ export class DescribeDataShareInstancesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the instance belongs. For information about how to obtain the ID of a resource group, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * The ID of the resource group to which the instance belongs. For more information about how to obtain the resource group ID, see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
    * 
    * @example
    * rg-bp67acfmxazb4p****
@@ -48,9 +48,9 @@ export class DescribeDataShareInstancesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The keyword used to filter instances, which can be an instance ID or instance description.
+   * The search keyword. You can filter instances by instance ID or instance description.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs and instance descriptions.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in the specified region, including the instance IDs and descriptions.
    * 
    * @example
    * gp-bp***************

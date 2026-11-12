@@ -60,7 +60,7 @@ export class ListExternalDataSourcesResponseBodyItems extends $dara.Model {
    * The type of the data source.
    * 
    * @example
-   * hdfs
+   * HDFS
    */
   dataSourceType?: string;
   /**

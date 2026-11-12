@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataSharePerformanceResponseBodyPerformanceKeysSeriesValues extends $dara.Model {
   /**
    * @remarks
-   * An array that contains the timestamp and the corresponding metric value.
+   * The performance metric value.
    */
   point?: string[];
   static names(): { [key: string]: string } {
@@ -43,7 +43,7 @@ export class DescribeDataSharePerformanceResponseBodyPerformanceKeysSeries exten
   name?: string;
   /**
    * @remarks
-   * The data points of the time series.
+   * The list of performance metric values, which consists of one or more values.
    */
   values?: DescribeDataSharePerformanceResponseBodyPerformanceKeysSeriesValues[];
   static names(): { [key: string]: string } {
@@ -83,7 +83,7 @@ export class DescribeDataSharePerformanceResponseBodyPerformanceKeys extends $da
   name?: string;
   /**
    * @remarks
-   * The details of the time series data for the metric.
+   * The performance metric series.
    */
   series?: DescribeDataSharePerformanceResponseBodyPerformanceKeysSeries[];
   /**
@@ -133,7 +133,7 @@ export class DescribeDataSharePerformanceResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The end of the queried time range.
+   * The end time of the query.
    * 
    * @example
    * 2022-08-03T15:10Z
@@ -141,7 +141,7 @@ export class DescribeDataSharePerformanceResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The list of performance metrics.
+   * The list of performance metric values for data sharing.
    */
   performanceKeys?: DescribeDataSharePerformanceResponseBodyPerformanceKeys[];
   /**
@@ -154,7 +154,7 @@ export class DescribeDataSharePerformanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start of the queried time range.
+   * The start time of the query.
    * 
    * @example
    * 2022-08-03T15:00Z

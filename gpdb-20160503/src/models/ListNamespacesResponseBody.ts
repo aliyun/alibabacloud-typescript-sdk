@@ -31,7 +31,7 @@ export class ListNamespacesResponseBodyNamespaces extends $dara.Model {
 export class ListNamespacesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -56,7 +56,7 @@ export class ListNamespacesResponseBody extends $dara.Model {
   namespaces?: ListNamespacesResponseBodyNamespaces;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou
@@ -72,10 +72,9 @@ export class ListNamespacesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * The execution status of the API operation. Valid values:
+   * - **success**: The execution is successful.
+   * - **fail**: The execution fails.
    * 
    * @example
    * success

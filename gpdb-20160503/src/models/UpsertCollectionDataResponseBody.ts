@@ -8,7 +8,7 @@ export class UpsertCollectionDataResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * success
+   * Successful
    */
   message?: string;
   /**

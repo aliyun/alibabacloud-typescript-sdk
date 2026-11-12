@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSQLLogsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The database account that executes the SQL statement.
+   * The database account that executed the SQL statement.
    * 
    * @example
    * testadmin
@@ -21,7 +21,7 @@ export class DescribeSQLLogsResponseBodyItems extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The role of the database.
+   * The database role.
    * 
    * @example
    * master
@@ -29,7 +29,7 @@ export class DescribeSQLLogsResponseBodyItems extends $dara.Model {
   DBRole?: string;
   /**
    * @remarks
-   * The execution duration of the SQL statement.
+   * The execution duration.
    * 
    * @example
    * 2
@@ -37,10 +37,10 @@ export class DescribeSQLLogsResponseBodyItems extends $dara.Model {
   executeCost?: number;
   /**
    * @remarks
-   * The execution status of the SQL statement. Valid values:
+   * The execution state. Valid values:
    * 
-   * *   **success**
-   * *   **fail**
+   * - **success**: Successful.
+   * - **fail**: Failed.
    * 
    * @example
    * success
@@ -48,7 +48,7 @@ export class DescribeSQLLogsResponseBodyItems extends $dara.Model {
   executeState?: string;
   /**
    * @remarks
-   * The type of the query language.
+   * The operation class.
    * 
    * @example
    * DQL
@@ -56,7 +56,7 @@ export class DescribeSQLLogsResponseBodyItems extends $dara.Model {
   operationClass?: string;
   /**
    * @remarks
-   * The time when the SQL statement was executed.
+   * The execution time.
    * 
    * @example
    * 2021-03-15T17:02:32Z
@@ -64,7 +64,7 @@ export class DescribeSQLLogsResponseBodyItems extends $dara.Model {
   operationExecuteTime?: string;
   /**
    * @remarks
-   * The type of the SQL statement.
+   * The type of the executed SQL statement.
    * 
    * @example
    * SELECT
@@ -72,7 +72,7 @@ export class DescribeSQLLogsResponseBodyItems extends $dara.Model {
   operationType?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The number of rows returned in the execution result.
    * 
    * @example
    * 1
@@ -88,7 +88,7 @@ export class DescribeSQLLogsResponseBodyItems extends $dara.Model {
   SQLPlan?: string;
   /**
    * @remarks
-   * The SQL statement.
+   * The content of the SQL statement.
    * 
    * @example
    * select 1
@@ -96,7 +96,7 @@ export class DescribeSQLLogsResponseBodyItems extends $dara.Model {
   SQLText?: string;
   /**
    * @remarks
-   * The number of entries scanned.
+   * The number of scanned rows.
    * 
    * @example
    * 1
@@ -112,7 +112,7 @@ export class DescribeSQLLogsResponseBodyItems extends $dara.Model {
   sourceIP?: string;
   /**
    * @remarks
-   * The number of the source port.
+   * The source port.
    * 
    * @example
    * 50514
@@ -168,12 +168,12 @@ export class DescribeSQLLogsResponseBodyItems extends $dara.Model {
 export class DescribeSQLLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried SQL execution logs.
+   * The list of results.
    */
   items?: DescribeSQLLogsResponseBodyItems[];
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned query result.
    * 
    * @example
    * 1
@@ -181,7 +181,7 @@ export class DescribeSQLLogsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 1

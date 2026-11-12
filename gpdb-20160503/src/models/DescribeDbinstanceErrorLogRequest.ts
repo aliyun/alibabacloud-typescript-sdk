@@ -7,7 +7,7 @@ export class DescribeDBInstanceErrorLogRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribeDBInstanceErrorLogRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * adbtest
@@ -25,7 +25,7 @@ export class DescribeDBInstanceErrorLogRequest extends $dara.Model {
   database?: string;
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC. The end time must be later than the start time.
+   * The end time of the query. The end time must be later than the start time. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
    * @example
    * 2022-04-25T06:59Z
@@ -33,7 +33,7 @@ export class DescribeDBInstanceErrorLogRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * This parameter is not supported in Alibaba Cloud public cloud.
+   * This parameter is not supported in the public cloud. You do not need to specify this parameter.
    * 
    * @example
    * null
@@ -41,7 +41,7 @@ export class DescribeDBInstanceErrorLogRequest extends $dara.Model {
   host?: string;
   /**
    * @remarks
-   * One or more keywords that are used to query error logs.
+   * The keyword used to search for error logs.
    * 
    * @example
    * error
@@ -49,12 +49,12 @@ export class DescribeDBInstanceErrorLogRequest extends $dara.Model {
   keywords?: string;
   /**
    * @remarks
-   * The level of the logs to query. Valid values:
+   * The log level. Valid values:
    * 
-   * *   **ALL**: queries all error logs.
-   * *   **PANIC**: queries only abnormal logs.
-   * *   **FATAL**: queries only critical logs.
-   * *   **ERROR**: queries only error logs.
+   * - **ALL**: displays logs of all levels.
+   * - **PANIC**: displays only panic-level logs.
+   * - **FATAL**: displays only fatal-level logs.
+   * - **ERROR**: displays only error-level logs.
    * 
    * @example
    * ALL
@@ -62,7 +62,7 @@ export class DescribeDBInstanceErrorLogRequest extends $dara.Model {
   logLevel?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: **1**.
+   * The page number. The value must be greater than 0 and cannot exceed the maximum value of the Integer type. Default value: **1**.
    * 
    * @example
    * 1
@@ -72,9 +72,9 @@ export class DescribeDBInstanceErrorLogRequest extends $dara.Model {
    * @remarks
    * The number of entries per page. Valid values:
    * 
-   * *   **20**
-   * *   **50**
-   * *   **100**
+   * - **20**
+   * - **50**
+   * - **100**
    * 
    * Default value: **20**.
    * 
@@ -84,7 +84,7 @@ export class DescribeDBInstanceErrorLogRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the *yyyy-MM-dd*T*HH:mm*Z format. The time must be in UTC.
+   * The start time of the query. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
    * @example
    * 2022-04-24T06:59Z

@@ -7,10 +7,10 @@ export class ListSupabaseBackupJobsRequest extends $dara.Model {
    * @remarks
    * The backup mode. Valid values:
    * 
-   * - Automated: automatic backup
-   * - Manual: manual backup
+   * - Automated: automatic backup.
+   * - Manual: manual backup.
    * 
-   * If this parameter is not specified, all backup tasks are returned.
+   * If you do not specify this parameter, all backup tasks are returned.
    * 
    * @example
    * Automated
@@ -26,7 +26,7 @@ export class ListSupabaseBackupJobsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The paging token. Do not specify this parameter for the first query. For subsequent queries, specify the NextToken value returned in the previous response.
+   * The paging token for a paged query. Do not specify this parameter for the first request. For subsequent requests, specify the NextToken value returned in the previous response.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -34,7 +34,7 @@ export class ListSupabaseBackupJobsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Instance ID of the Supabase instance. You can obtain instance ID from the Supabase page in the console.
+   * Instance ID of the Supabase instance. You can obtain instance ID on the Supabase page in the console.
    * 
    * This parameter is required.
    * 
@@ -44,9 +44,7 @@ export class ListSupabaseBackupJobsRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The region ID.
-   * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
    * 
    * @example
    * cn-hangzhou

@@ -7,7 +7,7 @@ export class EnableCollectionGraphRAGShrinkRequest extends $dara.Model {
    * @remarks
    * The name of the document collection.
    * 
-   * > You can call the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation to create a document collection and call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to query a list of document collections.
+   * > The document collection is created by calling the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation. You can call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to view the created document collections.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class EnableCollectionGraphRAGShrinkRequest extends $dara.Model {
   collection?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class EnableCollectionGraphRAGShrinkRequest extends $dara.Model {
    * @remarks
    * The list of entity types.
    * 
-   * > If the knowledge graph construction is enabled, this parameter is required.
+   * > This parameter is required when knowledge graph construction is enabled.
    * 
    * This parameter is required.
    * 
@@ -41,15 +41,13 @@ export class EnableCollectionGraphRAGShrinkRequest extends $dara.Model {
   entityTypesShrink?: string;
   /**
    * @remarks
-   * The name of the LLM model.
+   * The name of the large language model (LLM).
    * 
    * > Valid values:
+   * > - knowledge-extract-standard: Default value.
+   * > - knowledge-extract-mini
    * 
-   * *   knowledge-extract-standard: the default value.
-   * 
-   * *   knowledge-extract-mini
-   * 
-   * > This parameter takes effect only when the knowledge graph construction is enabled.
+   * > This parameter takes effect only when knowledge graph construction is enabled.
    * 
    * @example
    * knowledge-extract-standard
@@ -57,12 +55,11 @@ export class EnableCollectionGraphRAGShrinkRequest extends $dara.Model {
   LLMModel?: string;
   /**
    * @remarks
-   * The language used to build the knowledge graph. Valid values:
+   * The language used to construct the knowledge graph. Valid values:
+   * - Simplified Chinese: Simplified Chinese. Default value.
+   * - English: English.
    * 
-   * *   Simplified Chinese. The default value.
-   * *   English.
-   * 
-   * > This parameter takes effect only when the knowledge graph construction is enabled.
+   * > This parameter takes effect only when knowledge graph construction is enabled.
    * 
    * @example
    * Simplified Chinese
@@ -70,7 +67,7 @@ export class EnableCollectionGraphRAGShrinkRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The name of the privileged database account that has the rds_superuser permission.
+   * The name of the administrator account that has the rds_superuser permission.
    * 
    * > You can call the [CreateAccount](https://help.aliyun.com/document_detail/2361789.html) operation to create an account.
    * 
@@ -82,7 +79,7 @@ export class EnableCollectionGraphRAGShrinkRequest extends $dara.Model {
   managerAccount?: string;
   /**
    * @remarks
-   * The password for the privileged database account.
+   * The password of the administrator account.
    * 
    * This parameter is required.
    * 
@@ -92,9 +89,9 @@ export class EnableCollectionGraphRAGShrinkRequest extends $dara.Model {
   managerAccountPassword?: string;
   /**
    * @remarks
-   * The name of the namespace. Default value: public.
+   * The namespace. Default value: public.
    * 
-   * > You can call the CreateNamespace operation to create a namespace and call the ListNamespaces operation to query a list of namespaces.
+   * > You can call the CreateNamespace operation to create a namespace and call the ListNamespaces operation to view the namespace list.
    * 
    * @example
    * mynamespace
@@ -102,9 +99,9 @@ export class EnableCollectionGraphRAGShrinkRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The password of the namespace.
+   * The password for the namespace.
    * 
-   * > The value of this parameter is specified by [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation.
+   * > This value is specified when you call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation.
    * 
    * This parameter is required.
    * 
@@ -115,9 +112,9 @@ export class EnableCollectionGraphRAGShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the cluster.
+   * The region ID.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the most recent region list.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
    * 
    * This parameter is required.
    * 
@@ -129,7 +126,7 @@ export class EnableCollectionGraphRAGShrinkRequest extends $dara.Model {
    * @remarks
    * The list of relationship edge types.
    * 
-   * > If the knowledge graph construction is enabled, this parameter is required.
+   * > This parameter is required when knowledge graph construction is enabled.
    * 
    * This parameter is required.
    * 

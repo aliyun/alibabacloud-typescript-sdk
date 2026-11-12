@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetUploadDocumentJobResponseBodyChunkResult extends $dara.Model {
   /**
    * @remarks
-   * The URL of the chunked file. The URL is valid for 2 hours. The file is in JSONL format, and each line is in the format `{"page_content":"*****", "metadata": {"**":"***","**":"***"}`.
+   * The URL of the chunked file. The URL is valid for 2 hours. The file format is JSONL, and each line is in the following format: `{"page_content":"*****", "metadata": {"**":"***","**":"***"}`.
    * 
    * @example
    * http://xxx/test.jsonl
@@ -13,7 +13,7 @@ export class GetUploadDocumentJobResponseBodyChunkResult extends $dara.Model {
   chunkFileUrl?: string;
   /**
    * @remarks
-   * The markdown result file parsed by ADBPGLoader. The URL is valid for 2 hours.
+   * The URL of the Markdown result file parsed by ADBPGLoader. The URL is valid for 2 hours.
    * 
    * @example
    * http://oss.xxx/adbpg_loader_result.md
@@ -21,7 +21,7 @@ export class GetUploadDocumentJobResponseBodyChunkResult extends $dara.Model {
   documentLoaderResultFileUrl?: string;
   /**
    * @remarks
-   * The URL of the chunked file without metadata. The URL is valid for 2 hours. The file is in plain text format, and each line represents a chunk. This file can be conveniently used for embedding.
+   * The URL of the chunked file without metadata. The URL is valid for 2 hours. The file format is plain text, and each line represents a chunk. This file can be conveniently used for embedding.
    * 
    * @example
    * http://xxx/test.txt
@@ -55,7 +55,7 @@ export class GetUploadDocumentJobResponseBodyChunkResult extends $dara.Model {
 export class GetUploadDocumentJobResponseBodyJob extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the operation is complete.
+   * Indicates whether the operation is completed.
    * 
    * @example
    * false
@@ -71,7 +71,7 @@ export class GetUploadDocumentJobResponseBodyJob extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The error message returned when the operation encounters an exception or fails.
+   * The error message returned when the current operation is abnormal or fails.
    * 
    * @example
    * Failed to connect database.
@@ -87,7 +87,7 @@ export class GetUploadDocumentJobResponseBodyJob extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Job ID。
+   * The job ID.
    * 
    * @example
    * 231460f8-75dc-405e-a669-0c5204887e91
@@ -95,7 +95,7 @@ export class GetUploadDocumentJobResponseBodyJob extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The upload progress. This value is a percentage. A value of 100 indicates that the upload is complete.
+   * The upload progress. The value is a percentage. A value of 100 indicates that the upload is completed.
    * 
    * @example
    * 20
@@ -105,10 +105,10 @@ export class GetUploadDocumentJobResponseBodyJob extends $dara.Model {
    * @remarks
    * The task status. Valid values:
    * - Success: The task is successful.
-   * - Failed: The task failed. You can view the Error field for the failure reason.
-   * - Cancelling: The task is being canceled.
-   * - Cancelled: The task is canceled.
-   * - Start: The task has started.
+   * - Failed: The task failed. You can view the Error field for the cause of the failure.
+   * - Cancelling: The task is being cancelled.
+   * - Cancelled: The task is cancelled.
+   * - Start: The task is started.
    * - Running: The task is running.
    * - Pending: The task is pending.
    * 
@@ -118,7 +118,7 @@ export class GetUploadDocumentJobResponseBodyJob extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the task was last updated.
+   * The time when the task was updated.
    * 
    * @example
    * 2024-01-08 16:53:04.864664
@@ -162,7 +162,7 @@ export class GetUploadDocumentJobResponseBodyJob extends $dara.Model {
 export class GetUploadDocumentJobResponseBodyUsage extends $dara.Model {
   /**
    * @remarks
-   * The number of entries used during embedding.
+   * The number of entries used for vectorization.
    * 
    * @example
    * 10
@@ -170,7 +170,7 @@ export class GetUploadDocumentJobResponseBodyUsage extends $dara.Model {
   embeddingEntries?: number;
   /**
    * @remarks
-   * The number of tokens used during embedding.
+   * The number of tokens used for vectorization.
    * 
    * > A token is the smallest unit into which the input text is split. A token can be a word, a phrase, a punctuation mark, or a character.
    * 
@@ -209,7 +209,7 @@ export class GetUploadDocumentJobResponseBody extends $dara.Model {
   chunkResult?: GetUploadDocumentJobResponseBodyChunkResult;
   /**
    * @remarks
-   * The details of the document upload task.
+   * The detailed information of the document upload task.
    */
   job?: GetUploadDocumentJobResponseBodyJob;
   /**
@@ -230,7 +230,7 @@ export class GetUploadDocumentJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of this operation. Valid values:
+   * The status of the operation. Valid values:
    * - **success**: The operation is successful.
    * - **fail**: The operation failed.
    * 

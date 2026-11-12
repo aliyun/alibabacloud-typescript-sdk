@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkspacesResponseBodyItemsApikeysAuthServices extends $dara.Model {
   /**
    * @remarks
-   * The service ID.
+   * The ID of the service.
    * 
    * @example
    * agdb-eqxwj5tj5ojx
@@ -13,7 +13,7 @@ export class ListWorkspacesResponseBodyItemsApikeysAuthServices extends $dara.Mo
   serviceId?: string;
   /**
    * @remarks
-   * The service type. Valid values:
+   * The type of the service. Valid values:
    * 
    * - memory
    * - drama
@@ -53,7 +53,7 @@ export class ListWorkspacesResponseBodyItemsApikeys extends $dara.Model {
   authServices?: ListWorkspacesResponseBodyItemsApikeysAuthServices[];
   /**
    * @remarks
-   * The creation time of the API key.
+   * The time when the API key was created.
    * 
    * @example
    * 2026-03-09T02:26:48Z
@@ -126,11 +126,35 @@ export class ListWorkspacesResponseBodyItemsApikeys extends $dara.Model {
 }
 
 export class ListWorkspacesResponseBodyItemsServicesComponents extends $dara.Model {
+  /**
+   * @example
+   * 2026-03-09T02:26:48Z
+   */
   createTime?: string;
+  /**
+   * @example
+   * 2
+   */
   cu?: string;
+  /**
+   * @example
+   * True
+   */
   deletionProtection?: boolean;
+  /**
+   * @example
+   * true
+   */
   status?: string;
+  /**
+   * @example
+   * sas-xxxx
+   */
   componentId?: string;
+  /**
+   * @example
+   * game
+   */
   componentType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -167,7 +191,7 @@ export class ListWorkspacesResponseBodyItemsServices extends $dara.Model {
   components?: ListWorkspacesResponseBodyItemsServicesComponents[];
   /**
    * @remarks
-   * The creation time.
+   * The time when the workspace was created.
    * 
    * @example
    * 2026-03-09T02:26:48Z
@@ -175,12 +199,16 @@ export class ListWorkspacesResponseBodyItemsServices extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The compute resource.
+   * The compute resources.
    * 
    * @example
    * 1
    */
   cu?: string;
+  /**
+   * @example
+   * false
+   */
   deletionProtection?: boolean;
   /**
    * @remarks
@@ -192,13 +220,13 @@ export class ListWorkspacesResponseBodyItemsServices extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * The billing type. Valid values:
+   * The billing method. Valid values:
    * 
    * - **POSTPAY**: pay-as-you-go.
    * - **PREPAY**: subscription.
    * 
-   * > - If this parameter is not specified, the default value is pay-as-you-go.
-   * > - In subscription billing mode, a discount is available when you purchase a duration of one year or longer. Select the billing type as needed.
+   * > - If this parameter is not specified, the default value is POSTPAY.
+   * > - In subscription mode, a discount is provided if you purchase a subscription for one year or longer. Select a billing method based on your business requirements.
    * 
    * @example
    * POSTPAY
@@ -214,7 +242,7 @@ export class ListWorkspacesResponseBodyItemsServices extends $dara.Model {
   plan?: string;
   /**
    * @remarks
-   * The service ID.
+   * The ID of the service.
    * 
    * @example
    * agdb-xxxx
@@ -222,7 +250,7 @@ export class ListWorkspacesResponseBodyItemsServices extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The service name.
+   * The name of the service.
    * 
    * @example
    * agdb-xxxx
@@ -230,7 +258,7 @@ export class ListWorkspacesResponseBodyItemsServices extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The service type. Valid values:
+   * The type of the service. Valid values:
    * 
    * - memory
    * - drama
@@ -241,7 +269,7 @@ export class ListWorkspacesResponseBodyItemsServices extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The service status. Valid values:
+   * The status of the service. Valid values:
    * 
    * - creating: The service is being created.
    * - active: The service is running.
@@ -297,12 +325,12 @@ export class ListWorkspacesResponseBodyItemsServices extends $dara.Model {
 export class ListWorkspacesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The list of API keys for the workspace.
+   * The list of API keys in the workspace.
    */
   apikeys?: ListWorkspacesResponseBodyItemsApikeys[];
   /**
    * @remarks
-   * The creation time.
+   * The time when the workspace was created.
    * 
    * @example
    * 2021-10-09T04:54:08Z
@@ -315,7 +343,7 @@ export class ListWorkspacesResponseBodyItems extends $dara.Model {
   services?: ListWorkspacesResponseBodyItemsServices[];
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * gp-ws-wkb4fp3j9u79ha
@@ -323,9 +351,9 @@ export class ListWorkspacesResponseBodyItems extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The workspace name.
-   * - Maximum length: 50.
-   * - Must be unique.
+   * The name of the workspace.
+   * - The maximum length is 50 characters.
+   * - The name must be unique.
    * - Special characters are not allowed.
    * 
    * @example
@@ -375,7 +403,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   items?: ListWorkspacesResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of entries to return. Default value: 10.
+   * The maximum number of entries to return in this request. Default value: 10.
    * 
    * @example
    * 50
@@ -383,7 +411,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query.
+   * The token used to start the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -399,7 +427,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 1
@@ -407,7 +435,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -415,7 +443,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 1

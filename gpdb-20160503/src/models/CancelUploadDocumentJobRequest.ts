@@ -7,7 +7,7 @@ export class CancelUploadDocumentJobRequest extends $dara.Model {
    * @remarks
    * The name of the document collection.
    * 
-   * >  You can call the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation to create a document collection and call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to query a list of document collections.
+   * > The document collection is created by calling the [CreateDocumentCollection](https://help.aliyun.com/document_detail/2618448.html) operation. You can call the [ListDocumentCollections](https://help.aliyun.com/document_detail/2618452.html) operation to view the created document collections.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class CancelUploadDocumentJobRequest extends $dara.Model {
   collection?: string;
   /**
    * @remarks
-   * The ID of the instance for which vector engine optimization is enabled.
+   * The ID of the instance for which the vector engine optimization feature is enabled.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class CancelUploadDocumentJobRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The ID of the document upload job. You can call the `UploadDocumentAsync` operation to query the job ID.
+   * The ID of the document upload task. You can obtain the task ID from the response of the UploadDocumentAsync operation.
    * 
    * This parameter is required.
    * 
@@ -39,9 +39,9 @@ export class CancelUploadDocumentJobRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The name of the namespace. Default value: public.
+   * The namespace. Default value: public.
    * 
-   * >  You can call the CreateNamespace operation to create a namespace and call the ListNamespaces operation to query a list of namespaces.
+   * > You can call the CreateNamespace operation to create a namespace and call the ListNamespaces operation to view the namespace list.
    * 
    * @example
    * mynamespace
@@ -51,7 +51,7 @@ export class CancelUploadDocumentJobRequest extends $dara.Model {
    * @remarks
    * The password of the namespace.
    * 
-   * >  The value of this parameter is specified when you call the CreateNamespace operation.
+   * > This value is specified when you call the CreateNamespace operation.
    * 
    * This parameter is required.
    * 

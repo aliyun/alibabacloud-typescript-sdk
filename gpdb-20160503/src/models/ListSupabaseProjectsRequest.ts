@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSupabaseProjectsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return. The default value is 10.
+   * The maximum number of results to return for the current request. Default value: 10.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListSupabaseProjectsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token to retrieve the next page of results.
+   * The next token.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a****
@@ -21,7 +21,7 @@ export class ListSupabaseProjectsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListSupabaseProjectsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 30
@@ -37,30 +37,48 @@ export class ListSupabaseProjectsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region.
-   * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query the available regions.
+   * The region ID.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
   /**
+   * @remarks
+   * The field used for searching. Valid values: ProjectID and ProjectName.
+   * 
    * @example
    * ProjectId
    */
   searchField?: string;
   /**
+   * @remarks
+   * The search keyword. You can filter instances by instance ID or description.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in the specified region, including the instance IDs and descriptions.
+   * 
    * @example
    * gp-bp***************
    */
   searchValue?: string;
   /**
+   * @remarks
+   * The field used for sorting. Valid values: `gmtCreate` and `gmtModified`. Default value: `gmtCreate`.
+   * 
    * @example
    * UpdatedDate
    */
   sortField?: string;
   /**
+   * @remarks
+   * The sort order. Default value: DESC.
+   * 
+   * Valid values:
+   * 
+   * - ASC: ascending order.
+   * 
+   * - DESC: descending order.
+   * 
    * @example
    * desc
    */

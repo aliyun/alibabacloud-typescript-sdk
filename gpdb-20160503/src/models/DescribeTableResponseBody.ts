@@ -41,7 +41,7 @@ export class DescribeTableResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ABB39CC3-4488-4857-905D-2E4A051D0521
@@ -50,8 +50,8 @@ export class DescribeTableResponseBody extends $dara.Model {
   /**
    * @remarks
    * The execution status of the API operation. Valid values:
-   * - **success**: The execution was successful.
-   * - **fail**: The execution failed.
+   * - **success**: Execution succeeded.
+   * - **fail**: Execution failed.
    * 
    * @example
    * success

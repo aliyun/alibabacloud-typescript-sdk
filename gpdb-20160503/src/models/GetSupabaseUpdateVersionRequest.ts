@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSupabaseUpdateVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Supabase project.
+   * The Supabase project ID.
    * 
    * This parameter is required.
    * 

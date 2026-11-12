@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceDataBloatResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The coefficient of data bloat. It is calculated by using the following formula:
+   * The data bloat coefficient. The bloat coefficient is calculated by using the following formula:
    * 
-   * Bloat coefficient = Number of dead rows/Number of active rows.
+   * Number of dead rows counted by the system / Number of live rows counted by the system.
    * 
    * @example
    * 1.03
@@ -15,7 +15,7 @@ export class DescribeDBInstanceDataBloatResponseBodyItems extends $dara.Model {
   bloatCeoff?: string;
   /**
    * @remarks
-   * The bloat size of the table. It indicates the amount of space that can be released.
+   * The size of the bloated data, which indicates the amount of space that can be reclaimed.
    * 
    * @example
    * 0.2MB
@@ -31,9 +31,9 @@ export class DescribeDBInstanceDataBloatResponseBodyItems extends $dara.Model {
   databaseName?: string;
   /**
    * @remarks
-   * The expected size of the table.
+   * The expected table size.
    * 
-   * It indicates the size of the table that has no data bloat.
+   * The expected table size is the estimated size of the table when no data bloat occurs.
    * 
    * @example
    * 1MB
@@ -41,7 +41,7 @@ export class DescribeDBInstanceDataBloatResponseBodyItems extends $dara.Model {
   expectTableSize?: string;
   /**
    * @remarks
-   * The actual size of the table.
+   * The actual table size.
    * 
    * @example
    * 1.2MB
@@ -67,9 +67,9 @@ export class DescribeDBInstanceDataBloatResponseBodyItems extends $dara.Model {
    * @remarks
    * The storage type of the table. Valid values:
    * 
-   * *   **Heap Table**
-   * *   **Append-Only Heap Table**
-   * *   **Append-Only Columnar Table**
+   * - **Heap Table**: heap table
+   * - **Append-Only Heap Table**: append-only heap table
+   * - **Append-Only Columnar Table**: column-oriented table
    * 
    * @example
    * Heap Table
@@ -93,7 +93,7 @@ export class DescribeDBInstanceDataBloatResponseBodyItems extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The time when the table was last deleted, inserted, or updated.
+   * The time when the table was last updated by a DELETE, INSERT, or UPDATE operation.
    * 
    * @example
    * 2022-08-08T20:00:00Z
@@ -153,12 +153,12 @@ export class DescribeDBInstanceDataBloatResponseBodyItems extends $dara.Model {
 export class DescribeDBInstanceDataBloatResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The queried data bloat.
+   * The list of data bloat details.
    */
   items?: DescribeDBInstanceDataBloatResponseBodyItems[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -174,7 +174,7 @@ export class DescribeDBInstanceDataBloatResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of tables. The total number of pages is calculated by dividing this value by the page size.
    * 
    * @example
    * 1

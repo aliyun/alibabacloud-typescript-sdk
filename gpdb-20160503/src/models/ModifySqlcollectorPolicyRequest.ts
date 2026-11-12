@@ -10,7 +10,7 @@ export class ModifySQLCollectorPolicyRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * gp-bp12ga6v69h86****
+   * gp-xxxxxxxx
    */
   DBInstanceId?: string;
   /**

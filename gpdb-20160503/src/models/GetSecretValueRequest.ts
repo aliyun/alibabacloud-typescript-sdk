@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetSecretValueRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in the specified region, including instance IDs.
    * 
    * @example
    * gp-xxxxxxxxx
@@ -26,9 +26,9 @@ export class GetSecretValueRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the access credential for the created Data API account. Format: `acs:gpdb:{{region}}:{{accountId}}:secret/{{secretName}}-{{32 digits random string}`.
+   * The Alibaba Cloud Resource Name (ARN) that uniquely specifies the logon credentials and permissions of the Data API account created by the user. Format: ```acs:gpdb:{{region}}:{{accountId}}:secret/{{secretName}}-{{32 digits random string}```
    * 
-   * >  You must specify one of the SecretArn and SecretName parameters.
+   * > Specify either this parameter or the SecretName parameter.
    * 
    * @example
    * acs:gpdb:cn-beijing:1033**:secret/testsecret-eG2AQGRIwQ0zFp4VA7mYL3uiCXTfDQbQ
@@ -36,9 +36,9 @@ export class GetSecretValueRequest extends $dara.Model {
   secretArn?: string;
   /**
    * @remarks
-   * The name of the access credential.
+   * The name of the user credential.
    * 
-   * >  You must specify one of the SecretArn and SecretName parameters.
+   * > Specify either this parameter or the SecretArn parameter.
    * 
    * @example
    * testsecret
@@ -46,7 +46,7 @@ export class GetSecretValueRequest extends $dara.Model {
   secretName?: string;
   /**
    * @remarks
-   * The ID of the workspace that consists of multiple AnalyticDB for PostgreSQL instances. You must specify one of the WorkspaceId and DBInstanceId parameters. If you specify both parameters, the WorkspaceId parameter takes effect.
+   * The ID of the workspace that consists of multiple database instances. This parameter and the DBInstanceId parameter cannot be empty at the same time. If both parameters are specified, this parameter takes precedence.
    * 
    * @example
    * gp-ws-*****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCollectionDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of rows that are affected by the request.
+   * The applied rows.
    * 
    * @example
    * 10
@@ -29,10 +29,9 @@ export class DeleteCollectionDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * The execution status of the API operation. Valid values:
+   * - **success**: Execution succeeded.
+   * - **fail**: Execution failed.
    * 
    * @example
    * success

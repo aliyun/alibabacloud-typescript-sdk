@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UntagSupabaseProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to unbind all tags from the instance. This parameter takes effect only when TagKey.N is not specified in the request. Valid values:
+   * Specifies whether to remove all tags from the instance. This parameter is valid only when TagKey.N is not specified in the request. Valid values:
    * 
    * - true
    * - false
@@ -32,8 +32,8 @@ export class UntagSupabaseProjectRequest extends $dara.Model {
   /**
    * @remarks
    * The resource type. Valid values:
-   * - `instance`: reserved mode instance.
-   * - `ALIYUN::GPDB::INSTANCE`: elastic mode instance.
+   * - `instance`: reserved mode instance
+   * - `ALIYUN::GPDB::INSTANCE`: elastic mode instance
    * 
    * @example
    * instance

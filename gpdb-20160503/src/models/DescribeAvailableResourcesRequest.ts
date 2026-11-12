@@ -8,7 +8,6 @@ export class DescribeAvailableResourcesRequest extends $dara.Model {
    * The billing method. Valid values:
    * 
    * - **Postpaid**: pay-as-you-go.
-   * 
    * - **Prepaid**: subscription.
    * 
    * @example
@@ -19,7 +18,7 @@ export class DescribeAvailableResourcesRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to query available region IDs.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available region IDs.
    * 
    * This parameter is required.
    * 
@@ -29,9 +28,9 @@ export class DescribeAvailableResourcesRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The availability zone ID.
+   * The zone ID.
    * 
-   * > Call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) API to query available zone IDs.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/86912.html) operation to query available zone IDs.
    * 
    * This parameter is required.
    * 

@@ -21,10 +21,9 @@ export class CancelUpsertCollectionDataJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the operation. Valid values:
-   * 
-   * *   **success**
-   * *   **fail**
+   * The status of the cancellation. Valid values:
+   * - **success**: The cancellation succeeded.
+   * - **fail**: The cancellation failed.
    * 
    * @example
    * success

@@ -10,7 +10,7 @@ export class DescribeRebalanceStatusRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * gp-uf671c65jhszj****
+   * gp-xxxxxxxxx
    */
   DBInstanceId?: string;
   static names(): { [key: string]: string } {

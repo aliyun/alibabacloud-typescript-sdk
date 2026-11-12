@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSupabaseProjectSpecRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID.
+   * The region ID. Specifies the region for the query or operation.
    * 
    * @example
    * cn-hangzhou
