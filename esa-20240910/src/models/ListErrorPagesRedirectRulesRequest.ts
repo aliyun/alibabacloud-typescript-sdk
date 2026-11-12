@@ -13,10 +13,10 @@ export class ListErrorPagesRedirectRulesRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The configuration type. You can use this parameter to query global configurations or rule configurations. Valid values:
+   * The configuration type. You can use this parameter to query global or rule configurations. Valid values:
    * 
-   * - global: queries global configurations.
-   * - rule: queries rule configurations.
+   * - global: Global configurations.
+   * - rule: Rule configurations.
    * 
    * @example
    * global

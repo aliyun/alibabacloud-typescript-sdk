@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetErrorPagesRedirectRuleResponseBodyErrorPagesRedirect extends $dara.Model {
   /**
    * @remarks
-   * The response status code used by the node when responding to the client with a redirect address. Valid values:
+   * The response status code used when the node responds to the client with a redirect address. Valid values:
    * - 400
    * - 403
    * - 404
@@ -24,7 +24,7 @@ export class GetErrorPagesRedirectRuleResponseBodyErrorPagesRedirect extends $da
   statusCode?: string;
   /**
    * @remarks
-   * The target URL after the redirect.
+   * The target URL after redirection.
    * 
    * @example
    * http://example.com/test
@@ -56,7 +56,7 @@ export class GetErrorPagesRedirectRuleResponseBodyErrorPagesRedirect extends $da
 export class GetErrorPagesRedirectRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the configuration. You can call the [ListCompressionRules](https://help.aliyun.com/document_detail/2867498.html) operation to obtain the configuration ID.
+   * The configuration ID. You can obtain the configuration ID by calling the [ListCompressionRules](https://help.aliyun.com/document_detail/2867498.html) operation.
    * 
    * @example
    * 352816096987136
@@ -65,8 +65,8 @@ export class GetErrorPagesRedirectRuleResponseBody extends $dara.Model {
   /**
    * @remarks
    * The configuration type. You can use this parameter to query global configurations or rule configurations. Valid values:
-   * - global: queries global configurations
-   * - rule: queries rule configurations
+   * - global: Queries global configurations.
+   * - rule: Queries rule configurations.
    * 
    * This parameter is optional. If you do not specify this parameter, global and rule configurations are not distinguished. This parameter takes effect only when the functionName parameter is specified.
    * 
@@ -81,7 +81,7 @@ export class GetErrorPagesRedirectRuleResponseBody extends $dara.Model {
   errorPagesRedirect?: GetErrorPagesRedirectRuleResponseBodyErrorPagesRedirect[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * CB1A380B-09F0-41BB-280B-72F8FD6DA2FE
@@ -89,9 +89,9 @@ export class GetErrorPagesRedirectRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The rule content, which uses conditional expressions to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+   * The rule content, which uses a conditional expression to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
    * - Match all incoming requests: Set the value to true.
-   * - Match specific requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
+   * - Match specified requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -100,8 +100,8 @@ export class GetErrorPagesRedirectRuleResponseBody extends $dara.Model {
   /**
    * @remarks
    * The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
-   * - on: enables the rule
-   * - off: disables the rule
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -109,7 +109,7 @@ export class GetErrorPagesRedirectRuleResponseBody extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The name of the rule. You do not need to set this parameter when adding a global configuration.
+   * The rule name. You do not need to set this parameter when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -117,7 +117,7 @@ export class GetErrorPagesRedirectRuleResponseBody extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The execution sequence of the rule. A smaller value indicates a higher priority.
+   * The execution order of the rule. A smaller value indicates a higher priority.
    * 
    * @example
    * 1

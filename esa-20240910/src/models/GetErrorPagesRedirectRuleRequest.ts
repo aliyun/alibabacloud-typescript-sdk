@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetErrorPagesRedirectRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the configuration. You can call the [ListCompressionRules](https://help.aliyun.com/document_detail/2867498.html) operation to obtain the configuration ID.
+   * The configuration ID. You can obtain the configuration ID by calling the [ListCompressionRules](https://help.aliyun.com/document_detail/2867498.html) operation.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetErrorPagesRedirectRuleRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+   * The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 

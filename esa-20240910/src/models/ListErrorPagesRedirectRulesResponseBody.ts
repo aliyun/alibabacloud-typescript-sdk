@@ -65,8 +65,8 @@ export class ListErrorPagesRedirectRulesResponseBodyConfigs extends $dara.Model 
   /**
    * @remarks
    * The configuration type. Valid values:
-   * - global: global configuration.
-   * - rule: rule configuration.
+   * - global: Global configuration.
+   * - rule: Rule configuration.
    * 
    * @example
    * global
@@ -79,7 +79,7 @@ export class ListErrorPagesRedirectRulesResponseBodyConfigs extends $dara.Model 
   errorPagesRedirect?: ListErrorPagesRedirectRulesResponseBodyConfigsErrorPagesRedirect[];
   /**
    * @remarks
-   * The rule content. A conditional expression is used to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+   * The rule content. Uses a conditional expression to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
    * - Match all incoming requests: Set the value to true.
    * - Match specific requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
    * 
@@ -90,8 +90,8 @@ export class ListErrorPagesRedirectRulesResponseBodyConfigs extends $dara.Model 
   /**
    * @remarks
    * The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
-   * - on: enables the rule.
-   * - off: disables the rule.
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * on
@@ -107,7 +107,7 @@ export class ListErrorPagesRedirectRulesResponseBodyConfigs extends $dara.Model 
   ruleName?: string;
   /**
    * @remarks
-   * The execution sequence of the rule. A smaller value indicates a higher priority.
+   * The execution order of the rule. A smaller value indicates a higher priority.
    * 
    * @example
    * 1

@@ -60,14 +60,14 @@ export class CreateErrorPagesRedirectRuleRequestErrorPagesRedirect extends $dara
 export class CreateErrorPagesRedirectRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The error code redirection.
+   * The error code redirect configuration.
    * 
    * This parameter is required.
    */
   errorPagesRedirect?: CreateErrorPagesRedirectRuleRequestErrorPagesRedirect[];
   /**
    * @remarks
-   * The rule content, which uses conditional expressions to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+   * The rule content, which uses conditional expressions to match user requests. You do not need to specify this parameter when adding a global configuration. Two scenarios are supported:
    * - Match all incoming requests: Set the value to true.
    * - Match specific requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
    * 
@@ -77,7 +77,7 @@ export class CreateErrorPagesRedirectRuleRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
+   * Specifies whether to enable the rule. You do not need to specify this parameter when adding a global configuration. Valid values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -87,7 +87,7 @@ export class CreateErrorPagesRedirectRuleRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The name of the rule. You do not need to set this parameter when adding a global configuration.
+   * The name of the rule. You do not need to specify this parameter when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -103,7 +103,7 @@ export class CreateErrorPagesRedirectRuleRequest extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+   * The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 
@@ -113,7 +113,7 @@ export class CreateErrorPagesRedirectRuleRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version for which the configuration takes effect. Default value: 0.
+   * The version number of the site configuration. For sites with configuration version management enabled, you can use this parameter to specify the site version to which the configuration applies. Default value: 0.
    * 
    * @example
    * 0

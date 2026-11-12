@@ -13,7 +13,7 @@ export class FieldContentValueFieldList extends $dara.Model {
   fieldName?: string;
   /**
    * @remarks
-   * The description of the field in English.
+   * The English description of the field.
    * 
    * @example
    * IP address of the client.
@@ -21,7 +21,7 @@ export class FieldContentValueFieldList extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The description of the field in Chinese.
+   * The Chinese description of the field.
    * 
    * @example
    * IP
@@ -29,7 +29,7 @@ export class FieldContentValueFieldList extends $dara.Model {
   descriptionCn?: string;
   /**
    * @remarks
-   * The category of the field.
+   * The category to which the field belongs.
    * 
    * @example
    * Client
@@ -45,7 +45,7 @@ export class FieldContentValueFieldList extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The sequence number of the field.
+   * The sort order of the field in the response.
    * 
    * @example
    * 1
@@ -53,12 +53,20 @@ export class FieldContentValueFieldList extends $dara.Model {
   sortOrder?: number;
   /**
    * @remarks
-   * Indicates whether the field is available by default.
+   * Specifies whether the field is provided by default.
    * 
    * @example
    * true
    */
   isDefault?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the user plan supports the field.
+   * 
+   * @example
+   * false
+   */
+  isSupported?: boolean;
   static names(): { [key: string]: string } {
     return {
       fieldName: 'FieldName',
@@ -68,6 +76,7 @@ export class FieldContentValueFieldList extends $dara.Model {
       dataType: 'DataType',
       sortOrder: 'SortOrder',
       isDefault: 'IsDefault',
+      isSupported: 'IsSupported',
     };
   }
 
@@ -80,6 +89,7 @@ export class FieldContentValueFieldList extends $dara.Model {
       dataType: 'string',
       sortOrder: 'number',
       isDefault: 'boolean',
+      isSupported: 'boolean',
     };
   }
 
@@ -95,7 +105,7 @@ export class FieldContentValueFieldList extends $dara.Model {
 export class FieldContentValue extends $dara.Model {
   /**
    * @remarks
-   * The sequence number of the fields.
+   * The sort order of the fields.
    * 
    * @example
    * 1
@@ -103,7 +113,7 @@ export class FieldContentValue extends $dara.Model {
   sortOrder?: number;
   /**
    * @remarks
-   * The fields.
+   * The list of fields.
    */
   fieldList?: FieldContentValueFieldList[];
   static names(): { [key: string]: string } {

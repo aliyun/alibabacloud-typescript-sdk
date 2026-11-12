@@ -15,12 +15,12 @@ export class UpdateErrorPagesRedirectRuleShrinkRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The error code redirect configuration.
+   * The error code redirect.
    */
   errorPagesRedirectShrink?: string;
   /**
    * @remarks
-   * The content of the rule, which uses a conditional expression to match user requests. You do not need to specify this parameter when you add a global configuration. This parameter applies to the following scenarios:
+   * The rule content, which uses conditional expressions to match user requests. You do not need to specify this parameter when adding a global configuration. This parameter applies to the following scenarios:
    * - Match all incoming requests: Set the value to true.
    * - Match specific requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
    * 
@@ -30,7 +30,7 @@ export class UpdateErrorPagesRedirectRuleShrinkRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule. You do not need to specify this parameter when you add a global configuration. Valid values:
+   * Specifies whether to enable the rule. You do not need to specify this parameter when adding a global configuration. Valid values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -40,7 +40,7 @@ export class UpdateErrorPagesRedirectRuleShrinkRequest extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The name of the rule. You do not need to specify this parameter when you add a global configuration.
+   * The rule name. You do not need to specify this parameter when adding a global configuration.
    * 
    * @example
    * rule_example
@@ -56,7 +56,7 @@ export class UpdateErrorPagesRedirectRuleShrinkRequest extends $dara.Model {
   sequence?: number;
   /**
    * @remarks
-   * The ID of the site. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+   * The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 

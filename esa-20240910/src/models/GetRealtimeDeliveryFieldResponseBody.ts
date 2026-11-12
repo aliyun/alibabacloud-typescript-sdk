@@ -6,7 +6,7 @@ import { FieldContentValue } from "./FieldContentValue";
 export class GetRealtimeDeliveryFieldResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The fields returned.
+   * The list of response fields.
    */
   fieldContent?: { [key: string]: FieldContentValue };
   /**
