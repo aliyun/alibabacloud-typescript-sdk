@@ -10,7 +10,7 @@ export class ModifyInstanceChargeTypeResponseBody extends $dara.Model {
   instanceIds?: string[];
   /**
    * @remarks
-   * The generated order ID.
+   * The ID of the generated order.
    * 
    * @example
    * 21522202681****

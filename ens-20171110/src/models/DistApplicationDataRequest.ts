@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DistApplicationDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application. To obtain the application ID, call the ListApplications operation.
+   * The application ID. To obtain the application ID, see ListApplications.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DistApplicationDataRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The list of data files that you want to distribute. The value must be a JSON string.
+   * The list of data files to distribute, formatted as a JSON array string.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DistApplicationDataRequest extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The canary release policy. The value must be a JSON string. You can specify multiple distribution policies. By default, all data files are distributed.
+   * The canary release distribution strategy, formatted as a JSON string. Multiple distribution strategies are supported. Default value: full distribution.
    * 
    * @example
    * {\\"name\\":\\"ScheduleToAllByMatchExpressions\\",\\"parameters\\":{\\"match_expressions\\":[{\\"key\\":\\"region_id\\",\\"operator\\":\\"In\\",\\"values\\":[\\"cn-wuhan-telecom_unicom_cmcc-2\\"]}]}}

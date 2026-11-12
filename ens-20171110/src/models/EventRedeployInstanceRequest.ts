@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EventRedeployInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The system event ID.
+   * The ID of the system event.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,10 @@ export class EventRedeployInstanceRequest extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The O\\&M task type. Valid values:
+   * The type of the O&M task. Valid values:
    * 
-   * - immediate: Immediate execution.
-   * 
-   * - scheduled: Scheduled execution.
+   * - immediate: Executes the task immediately.
+   * - scheduled: Executes the task at a scheduled time.
    * 
    * This parameter is required.
    * 
@@ -29,7 +28,7 @@ export class EventRedeployInstanceRequest extends $dara.Model {
   opsType?: string;
   /**
    * @remarks
-   * The scheduled execution time, specified as a timestamp in milliseconds. This parameter is required if \\"OpsType\\" is set to \\"scheduled\\".
+   * The scheduled execution time. The value is a timestamp in milliseconds. This parameter is required when OpsType is set to scheduled.
    * 
    * @example
    * 1742452232000
@@ -38,7 +37,7 @@ export class EventRedeployInstanceRequest extends $dara.Model {
   planUtcTime?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The ID of the resource.
    * 
    * This parameter is required.
    * 

@@ -180,7 +180,7 @@ export class DescribeDisksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 50
@@ -196,7 +196,7 @@ export class DescribeDisksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of pages for a paged query.
+   * The total number of pages.
    * 
    * @example
    * 13

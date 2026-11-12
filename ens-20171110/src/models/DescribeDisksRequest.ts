@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDisksRequest extends $dara.Model {
   /**
    * @remarks
-   * The disk category.
+   * The category of the cloud disk. Valid values:
    * 
-   * - cloud_efficiency: ultra cloud disk
-   * - cloud_ssd: all-flash cloud disk
-   * - local_hdd: local HDD
-   * - local_ssd: local SSD
+   * - cloud_efficiency: Ultra cloud disk.
+   * - cloud_ssd: All-flash cloud disk.
+   * - local_hdd: Local HDD.
+   * - local_ssd: Local SSD.
    * 
    * @example
    * local_ssd
@@ -18,10 +18,10 @@ export class DescribeDisksRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The billing type.
+   * The billing method. Valid values:
    * 
-   * - prepay: subscription
-   * - postpay: pay-as-you-go
+   * - prepay: Subscription.
+   * - postpay: Pay-as-you-go.
    * 
    * @example
    * prepay
@@ -29,7 +29,7 @@ export class DescribeDisksRequest extends $dara.Model {
   diskChargeType?: string;
   /**
    * @remarks
-   * The ID of the cloud disk.
+   * The cloud disk ID.
    * 
    * @example
    * d-5soak1gqa507lyfzvz0xo****
@@ -37,7 +37,7 @@ export class DescribeDisksRequest extends $dara.Model {
   diskId?: string;
   /**
    * @remarks
-   * The disk IDs.
+   * The IDs of the cloud disks.
    * 
    * @example
    * [\\"d-wz99njena32z90ki****\\"]
@@ -45,7 +45,7 @@ export class DescribeDisksRequest extends $dara.Model {
   diskIds?: string;
   /**
    * @remarks
-   * The name of the disk.
+   * The name of the cloud disk.
    * 
    * @example
    * DiskName
@@ -53,11 +53,11 @@ export class DescribeDisksRequest extends $dara.Model {
   diskName?: string;
   /**
    * @remarks
-   * The disk purchase method.
+   * The purchase method of the cloud disk. Valid values:
    * 
-   * - ServiceDisk: disk created by an edge service
-   * - ResoureDisk: purchased with an instance
-   * - PostPayDisk: purchased separately
+   * - ServiceDisk: Created by Edge Node Service.
+   * - ResoureDisk: Purchased with an instance.
+   * - PostPayDisk: Purchased separately.
    * 
    * @example
    * PostPayDisk
@@ -73,7 +73,7 @@ export class DescribeDisksRequest extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * The list of edge zones.
+   * The list of edge zone IDs.
    * 
    * @example
    * ["cn-suzhou-telecom","cn-chengdu-telecom"]
@@ -81,7 +81,7 @@ export class DescribeDisksRequest extends $dara.Model {
   ensRegionIds?: string;
   /**
    * @remarks
-   * The instance to which the cloud disk is mounted.
+   * The ID of the instance to which the cloud disk is attached.
    * 
    * @example
    * i-5t77rb0yoz79m28ku60sx****
@@ -89,7 +89,7 @@ export class DescribeDisksRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The sorting parameter. Format example: {"EnsRegionId":"desc"}. By default, results are sorted by edge zone ID in descending order.
+   * The sorting parameter. Format example: {"EnsRegionId":"desc"}. By default, the results are sorted in descending order of edge zone ID.
    * 
    * @example
    * { "DiskNameSort":"desc","EnsRegionIdSort":"asc" }
@@ -97,7 +97,7 @@ export class DescribeDisksRequest extends $dara.Model {
   orderByParams?: string;
   /**
    * @remarks
-   * The page number of the query list. Minimum value: **1**.
+   * The page number of the query list. The minimum value is **1**.
    * 
    * Default value: **1**.
    * 
@@ -107,7 +107,7 @@ export class DescribeDisksRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Maximum value: **50**.
+   * The number of entries per page. Maximum value: **50**.
    * 
    * Default value: **10**.
    * 
@@ -125,17 +125,17 @@ export class DescribeDisksRequest extends $dara.Model {
   snapshotId?: string;
   /**
    * @remarks
-   * The disk status.
+   * The status of the cloud disk. Valid values:
    * 
-   * - In-use: in use
-   * - Available: to be mounted
-   * - Attaching: being mounted
-   * - Detaching: being unmounted
-   * - Creating: being created
-   * - ReIniting: being reset
-   * - Deleting: being released
-   * - Deleted: released
-   * - Expiring: about to expire
+   * - In-use: In use.
+   * - Available: Unattached.
+   * - Attaching: Attaching.
+   * - Detaching: Detaching.
+   * - Creating: Creating.
+   * - ReIniting: Reinitializing.
+   * - Deleting: Releasing.
+   * - Deleted: Released.
+   * - Expiring: Expiring.
    * 
    * @example
    * Available
@@ -143,10 +143,10 @@ export class DescribeDisksRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The disk property.
+   * The type of the cloud disk. Valid values:
    * 
-   * - system: system cloud disk
-   * - data: data cloud disk
+   * - system: System cloud disk.
+   * - data: Data cloud disk.
    * 
    * @example
    * system

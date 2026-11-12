@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class SetLoadBalancerTCPListenerAttributeRequest extends $dara.Model {
   /**
    * @remarks
+   * The port used by the backend server of the load balancing instance. Valid values: 1 to 65535.
+   * 
+   * @example
+   * 8080
+   */
+  backendServerPort?: number;
+  /**
+   * @remarks
    * The description of the listener. The description must be **1** to **80** characters in length.
    * > The description cannot start with `http://` or `https://`.
    * 
@@ -16,8 +24,8 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable EIP pass-through. Valid values:
    * 
-   * - **on**: Enabled.
-   * - **off** (default): Disabled.
+   * - **on**: enables EIP pass-through.
+   * - **off** (default): disables EIP pass-through.
    * 
    * @example
    * on
@@ -33,7 +41,7 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $dara.Model {
   establishedTimeout?: number;
   /**
    * @remarks
-   * The port used for health checks. Valid values: **1** to **65535**. If this parameter is not set, the backend service port (BackendServerPort) is used.
+   * The port used for health checks. Valid values: **1** to **65535**. If you do not configure the Settings for this parameter, the backend service port (BackendServerPort) is used.
    * 
    * @example
    * 8000
@@ -41,12 +49,12 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $dara.Model {
   healthCheckConnectPort?: number;
   /**
    * @remarks
-   * The maximum amount of time to wait for a response from a health check. If the backend ENS does not respond within the specified time, the health check fails.
-   * - Default value: 5 seconds.
+   * The maximum timeout period for a health check response. If a backend ENS instance does not respond within the specified period, the health check fails.
+   * - Default value: 5.
    * - Valid values: **1** to **300**.
    * - Unit: seconds.
    * 
-   * > If the value of HealthCheckConnectTimeout is less than the value of HealthCheckInterval, HealthCheckConnectTimeout becomes invalid and the timeout period is set to the value of HealthCheckInterval.
+   * > If the value of HealthCheckConnectTimeout is less than the value of HealthCheckInterval, HealthCheckConnectTimeout is ignored and the timeout period is the value of HealthCheckInterval.
    * 
    * @example
    * 100
@@ -62,12 +70,12 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $dara.Model {
   healthCheckDomain?: string;
   /**
    * @remarks
-   * The HTTP status code for a Normal health check. Valid values:
+   * The HTTP status codes that indicate a successful health check. Valid values:
    * 
-   * - **http_2xx** (default).
-   * - **http_3xx**.
-   * - **http_4xx**.
-   * - **http_5xx**.
+   * - **http_2xx** (default)
+   * - **http_3xx**
+   * - **http_4xx**
+   * - **http_5xx**
    * 
    * @example
    * http_2xx
@@ -84,8 +92,8 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $dara.Model {
   /**
    * @remarks
    * The health check type. Valid values:
-   * - **tcp** (default).
-   * - **http**.
+   * - **tcp** (default)
+   * - **http**
    * 
    * @example
    * tcp
@@ -94,7 +102,7 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $dara.Model {
   /**
    * @remarks
    * The URI used for health checks. The URI must be **1** to **80** characters in length.
-   * > The URI cannot be only `/` but must start with `/`.
+   * > The URI cannot be only `/`, but must start with `/`.
    * 
    * @example
    * /aliyundoc/index.html
@@ -102,7 +110,7 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $dara.Model {
   healthCheckURI?: string;
   /**
    * @remarks
-   * The number of consecutive successful health checks required before the health check status of a backend server changes from fail (unreachable) to success (reachable). Valid values: **2** to **10**.
+   * The number of consecutive successful health checks that must occur before the health check status of a backend server changes from fail (unreachable) to success (reachable). Valid values: **2** to **10**.
    * 
    * @example
    * 4
@@ -110,7 +118,7 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $dara.Model {
   healthyThreshold?: number;
   /**
    * @remarks
-   * The listener port whose attributes you want to modify. Valid values: **1** to **65535**.
+   * The frontend port of the listener whose attributes you want to modify. Valid values: **1** to **65535**.
    * 
    * This parameter is required.
    * 
@@ -130,9 +138,9 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The timeout period of session persistence.
+   * The timeout period for session persistence.
    * 
-   * - Default value: 0, which indicates that session persistence is disabled.
+   * - Default value: 0. This value indicates that session persistence is disabled.
    * - Valid values: **0** to **3600**.
    * - Unit: seconds.
    * 
@@ -144,10 +152,10 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $dara.Model {
    * @remarks
    * The scheduling algorithm. Valid values:
    * - **wrr**: Backend servers with higher weights receive more requests.
-   * - **wlc**: Requests are distributed based on the weight and actual load (number of connections) of each backend server. When the weights are the same, backend servers with fewer connections receive more requests.
-   * - **rr**: Requests are distributed to backend servers in sequence.
+   * - **wlc**: Requests are distributed based on the weights and actual loads (number of connections) of backend servers. If two backend servers have the same weight, the backend server with fewer connections receives more requests.
+   * - **rr**: Requests are evenly and sequentially distributed to backend servers.
    * - **sch**: Consistent hashing based on source IP addresses. Requests from the same source IP address are distributed to the same backend server.
-   * - **tch**: Consistent hashing based on four factors: source IP address, destination IP address, source port, and destination port. Requests from the same flow are distributed to the same backend server.
+   * - **tch**: Consistent hashing based on four tuples (source IP address, destination IP address, source port, and destination port). Requests from the same stream are distributed to the same backend server.
    * 
    * @example
    * wrr
@@ -155,7 +163,7 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $dara.Model {
   scheduler?: string;
   /**
    * @remarks
-   * The number of consecutive failed health checks required before the health check status of a backend server changes from success (reachable) to fail (unreachable). Valid values: **2** to **10**.
+   * The number of consecutive failed health checks that must occur before the health check status of a backend server changes from success (reachable) to fail (unreachable). Valid values: **2** to **10**.
    * 
    * @example
    * 4
@@ -163,6 +171,7 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $dara.Model {
   unhealthyThreshold?: number;
   static names(): { [key: string]: string } {
     return {
+      backendServerPort: 'BackendServerPort',
       description: 'Description',
       eipTransmit: 'EipTransmit',
       establishedTimeout: 'EstablishedTimeout',
@@ -184,6 +193,7 @@ export class SetLoadBalancerTCPListenerAttributeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      backendServerPort: 'number',
       description: 'string',
       eipTransmit: 'string',
       establishedTimeout: 'number',

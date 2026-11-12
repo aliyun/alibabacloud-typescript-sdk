@@ -49,7 +49,7 @@ export class DescribeMountTargetsResponseBodyMountTargets extends $dara.Model {
    * 
    * - active: Available.
    * - inactive: Unavailable.
-   * - pending: Queued.
+   * - pending: Queuing.
    * - deleting: Deleting.
    * 
    * @example
@@ -90,7 +90,7 @@ export class DescribeMountTargetsResponseBodyMountTargets extends $dara.Model {
 export class DescribeMountTargetsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The mount target information.
+   * The collection of mount targets.
    */
   mountTargets?: DescribeMountTargetsResponseBodyMountTargets[];
   /**

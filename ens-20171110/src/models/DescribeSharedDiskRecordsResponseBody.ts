@@ -29,7 +29,7 @@ export class DescribeSharedDiskRecordsResponseBodySharedDisks extends $dara.Mode
   diskSize?: number;
   /**
    * @remarks
-   * The instance from which the shared disk was last detached.
+   * The ID of the instance from which the shared disk was last detached.
    * 
    * @example
    * standard
@@ -61,7 +61,7 @@ export class DescribeSharedDiskRecordsResponseBodySharedDisks extends $dara.Mode
   performanceLevel?: number;
   /**
    * @remarks
-   * The recycle time of the shared disk.
+   * The reclamation time of the shared disk.
    * 
    * @example
    * 2026-06-15 14:30:00
@@ -149,7 +149,7 @@ export class DescribeSharedDiskRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of shared disk billing records.
+   * The shared disk billing records.
    */
   sharedDisks?: DescribeSharedDiskRecordsResponseBodySharedDisks[];
   /**

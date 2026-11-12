@@ -87,7 +87,7 @@ export class DescribeEnsRegionIdResourceResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page that was specified in the request.
+   * The number of entries per page.
    * 
    * @example
    * 10

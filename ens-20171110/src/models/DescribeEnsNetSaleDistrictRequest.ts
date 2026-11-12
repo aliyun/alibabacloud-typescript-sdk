@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEnsNetSaleDistrictRequest extends $dara.Model {
   /**
    * @remarks
-   * The region code.
+   * The district code.
    * 
-   * - If this parameter is empty, only the nodes under the specified network level (NetLevelCode) are queried.
+   * - If this parameter is left empty, only the nodes under the network level specified by NetLevelCode are queried.
    * 
-   * - If this parameter is not empty, only the child nodes under the specified region code (NetDistrictCode) are queried.
+   * - If this parameter is specified, only the child nodes under the district specified by NetDistrictCode are queried.
    * 
    * @example
    * 100105

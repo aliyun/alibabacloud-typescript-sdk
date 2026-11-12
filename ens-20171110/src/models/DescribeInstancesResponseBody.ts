@@ -781,7 +781,7 @@ export class DescribeInstancesResponseBodyInstances extends $dara.Model {
 export class DescribeInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business code returned. A value of 0 indicates success.
+   * The returned business code. A value of 0 indicates success.
    * 
    * @example
    * 0
@@ -798,7 +798,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page that was specified in the request.
+   * The number of entries per page.
    * 
    * @example
    * 60

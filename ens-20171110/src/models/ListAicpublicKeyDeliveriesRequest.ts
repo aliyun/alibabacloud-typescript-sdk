@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAICPublicKeyDeliveriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * @example
    * aic-xxxx-0
@@ -45,7 +45,7 @@ export class ListAICPublicKeyDeliveriesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records to display per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSharedDiskRecordsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of shared disk IDs.
+   * The shared disk IDs.
    */
   diskIdsShrink?: string;
   /**
@@ -18,12 +18,12 @@ export class DescribeSharedDiskRecordsShrinkRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The list of namespaces.
+   * The namespaces.
    */
   namespacesShrink?: string;
   /**
    * @remarks
-   * The page number used for paging in a paged query.
+   * The page number for the paging query.
    * 
    * @example
    * 1
@@ -39,12 +39,12 @@ export class DescribeSharedDiskRecordsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of region IDs.
+   * The region IDs.
    */
   regionIdsShrink?: string;
   /**
    * @remarks
-   * The list of SDG IDs.
+   * The SDG IDs.
    */
   sdgIdsShrink?: string;
   /**

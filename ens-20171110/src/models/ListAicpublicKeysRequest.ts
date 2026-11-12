@@ -37,7 +37,7 @@ export class ListAICPublicKeysRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records to display per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10

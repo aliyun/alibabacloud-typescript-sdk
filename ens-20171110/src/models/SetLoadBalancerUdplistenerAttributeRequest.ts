@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
   /**
    * @remarks
+   * The port used by the backend server of the load balancing instance. Valid values: 1 to 65535.
+   * 
+   * @example
+   * 8080
+   */
+  backendServerPort?: number;
+  /**
+   * @remarks
    * The name of the listener. The name must be **1** to **80** characters in length.
    * > The name cannot start with `http://` or `https://`.
    * 
@@ -33,7 +41,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
   establishedTimeout?: number;
   /**
    * @remarks
-   * The port used for health checks. Valid values: **1** to **65535**. If no Settings are specified for this parameter, the backend service port (BackendServerPort) is used.
+   * The port used for health checks. Valid values: **1** to **65535**. If you do not specify this parameter in the Settings, the backend service port (BackendServerPort) is used.
    * 
    * @example
    * 8080
@@ -46,7 +54,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
    * - Valid values: **1** to **300**.
    * - Unit: seconds.
    * 
-   * > If the value of HealthCheckConnectTimeout is less than the value of HealthCheckInterval, HealthCheckConnectTimeout is invalid and the timeout period is the value of HealthCheckInterval.
+   * > If the value of HealthCheckConnectTimeout is less than the value of HealthCheckInterval, HealthCheckConnectTimeout is ignored and the value of HealthCheckInterval is used as the timeout period.
    * 
    * @example
    * 100
@@ -112,8 +120,8 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
    * - **rr**: Requests are evenly and sequentially distributed to backend servers.
    * - **sch**: Consistent hashing based on source IP addresses. Requests from the same source IP address are distributed to the same backend server.
    * - **tch**: Consistent hashing based on quadruples (source IP address, destination IP address, source port, and destination port). Requests from the same stream are distributed to the same backend server.
-   * - **qch**: Consistent hashing based on QUIC connection IDs. Requests with the same QUIC connection ID are distributed to the same backend server.
-   * - **iqch**: Consistent hashing based on specific three bytes of the iQUIC CID. Requests with the same second to fourth bytes are distributed to the same backend server.
+   * - **qch**: Consistent hashing based on QUIC Connection IDs. Requests with the same QUIC Connection ID are distributed to the same backend server.
+   * - **iqch**: Consistent hashing based on specific three bytes of the iQUIC CID. Requests with the same 2nd to 4th bytes are distributed to the same backend server.
    * 
    * @example
    * wrr
@@ -129,6 +137,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
   unhealthyThreshold?: number;
   static names(): { [key: string]: string } {
     return {
+      backendServerPort: 'BackendServerPort',
       description: 'Description',
       eipTransmit: 'EipTransmit',
       establishedTimeout: 'EstablishedTimeout',
@@ -147,6 +156,7 @@ export class SetLoadBalancerUDPListenerAttributeRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      backendServerPort: 'number',
       description: 'string',
       eipTransmit: 'string',
       establishedTimeout: 'number',

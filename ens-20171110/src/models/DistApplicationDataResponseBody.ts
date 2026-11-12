@@ -90,7 +90,7 @@ export class DistApplicationDataResponseBody extends $dara.Model {
   distInstanceIds?: DistApplicationDataResponseBodyDistInstanceIds;
   /**
    * @remarks
-   * The total number of ENS instance IDs.
+   * The total number of target edge resource instance IDs.
    * 
    * @example
    * 2
@@ -99,7 +99,7 @@ export class DistApplicationDataResponseBody extends $dara.Model {
   distResults?: DistApplicationDataResponseBodyDistResults;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

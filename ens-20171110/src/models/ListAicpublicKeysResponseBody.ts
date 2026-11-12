@@ -85,7 +85,7 @@ export class ListAICPublicKeysResponseBodyPublicKeys extends $dara.Model {
 export class ListAICPublicKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The current page number in the paginated query.
+   * The current page number.
    * 
    * @example
    * 1
@@ -93,7 +93,7 @@ export class ListAICPublicKeysResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records to display per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10
@@ -114,7 +114,7 @@ export class ListAICPublicKeysResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 10

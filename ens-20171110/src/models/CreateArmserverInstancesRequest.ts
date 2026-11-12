@@ -57,13 +57,20 @@ export class CreateARMServerInstancesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal.
    * 
+   * - true
+   * - false (default)
+   * 
    * @example
    * false
    */
   autoRenew?: boolean;
   /**
    * @remarks
-   * Specifies whether to use coupons. Valid values:
+   * Specifies whether to use vouchers. Valid values:
+   * 
+   * - true: Uses vouchers.
+   * 
+   * - false (default): Does not use vouchers.
    * 
    * @example
    * true
@@ -71,7 +78,7 @@ export class CreateARMServerInstancesRequest extends $dara.Model {
   autoUseCoupon?: boolean;
   /**
    * @remarks
-   * The IPv4 CIDR block used by the instance, in CIDR notation.
+   * The IPv4 CIDR block used by the instance.
    * 
    * @example
    * 10.0.0.0/24
@@ -89,7 +96,7 @@ export class CreateARMServerInstancesRequest extends $dara.Model {
   ensRegionId?: string;
   /**
    * @remarks
-   * One or more environment variables to set during EAIS instance initialization.
+   * Sets one or more environment variables when the EAIS instance is initialized.
    * 
    * @example
    * [object Object]
@@ -97,7 +104,7 @@ export class CreateARMServerInstancesRequest extends $dara.Model {
   environmentVar?: string;
   /**
    * @remarks
-   * The refresh rate, in Hz. Valid values: 30 and 60.
+   * The refresh rate. Unit: Hz. Valid values: 30 and 60.
    * 
    * @example
    * 30
@@ -115,9 +122,7 @@ export class CreateARMServerInstancesRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The instance billing cycle. Valid values:
-   * - Hour
-   * - Day
+   * The billing cycle of the instance. Valid values: Hour and Day.
    * 
    * @example
    * Hour
@@ -125,7 +130,7 @@ export class CreateARMServerInstancesRequest extends $dara.Model {
   instanceBillingCycle?: string;
   /**
    * @remarks
-   * The instance type of the AIC container instance. Valid values:
+   * The AIC container instance specifications. Valid values:
    * 
    * - aic.cf52r.c1.np
    * 
@@ -177,7 +182,7 @@ export class CreateARMServerInstancesRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The key pair name.
+   * The name of the key pair.
    * 
    * @example
    * TestKeyPairName
@@ -193,7 +198,9 @@ export class CreateARMServerInstancesRequest extends $dara.Model {
   nameSpace?: string;
   /**
    * @remarks
-   * The billing type. Valid values: **PrePaid** (subscription).
+   * The billing method. Valid values: **PrePaid** (subscription).
+   * 
+   * > Only subscription is currently supported.
    * 
    * This parameter is required.
    * 
@@ -203,9 +210,9 @@ export class CreateARMServerInstancesRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The duration for which you want to purchase the resource.
+   * The subscription duration of the resource.
    * 
-   * - If you do not specify PeriodUnit, the resource is purchased on a monthly basis by default. Currently, only Days and Month are supported.
+   * - If you do not specify PeriodUnit, the default billing cycle is month. Only Day and Month are supported.
    * - If PeriodUnit is set to Day, Period can only be set to 3.
    * - If PeriodUnit is set to Month, Period can be set to 1 to 9 or 12.
    * 
@@ -215,7 +222,11 @@ export class CreateARMServerInstancesRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the purchase duration.
+   * The unit of the subscription duration.
+   * 
+   * - If you do not specify PeriodUnit, the default billing cycle is month. Only Day and Month are supported.
+   * - If PeriodUnit is set to Day, Period can only be set to 3.
+   * - If PeriodUnit is set to Month, Period can be set to 1 to 9 or 12.
    * 
    * @example
    * Month
@@ -257,7 +268,7 @@ export class CreateARMServerInstancesRequest extends $dara.Model {
   serverName?: string;
   /**
    * @remarks
-   * The ARM board specification. Valid values:
+   * The ARM board specifications. Valid values:
    * 
    * - cas.cf53r
    * - cas.cf52r

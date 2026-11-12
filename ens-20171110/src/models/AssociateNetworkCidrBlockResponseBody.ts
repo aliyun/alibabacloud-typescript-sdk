@@ -14,6 +14,7 @@ export class AssociateNetworkCidrBlockResponseBody extends $dara.Model {
   /**
    * @remarks
    * The IP address type of the secondary CIDR block. Valid values:
+   * 
    * - IPV4: IPv4 address.
    * - IPV6: IPv6 address.
    * 

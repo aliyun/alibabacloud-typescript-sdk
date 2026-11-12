@@ -12,6 +12,8 @@ export class CreateDiskResponseBody extends $dara.Model {
    * @remarks
    * The order ID. Multiple IDs are separated by commas (,).
    * 
+   * > Order IDs are returned only for subscription resources. No order ID is returned for pay-as-you-go resources.
+   * 
    * @example
    * 21127020370****
    */

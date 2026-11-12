@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachKeyPairResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The status code of the operation. A value of 200 indicates that the operation was successful.
+   * The status code of the operation. A value of 200 indicates that the operation is successful.
    * 
    * @example
    * 200
@@ -65,7 +65,7 @@ export class AttachKeyPairResponseBodyResults extends $dara.Model {
 export class AttachKeyPairResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of instances to which the key pair failed to be attached.
+   * The number of instances from which the key pair failed to be detached.
    * 
    * @example
    * 1
@@ -97,12 +97,12 @@ export class AttachKeyPairResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result set that indicates the success or failure of the key pair attachment for each instance.
+   * The results indicating whether the key pair was successfully or unsuccessfully detached from the instances.
    */
   results?: AttachKeyPairResponseBodyResults[];
   /**
    * @remarks
-   * The total number of instances to which the key pair is attached.
+   * The total number of instances from which the key pair was detached.
    * 
    * @example
    * 3

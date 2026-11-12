@@ -33,7 +33,7 @@ export class DescribeMountTargetsRequest extends $dara.Model {
   mountTargetName?: string;
   /**
    * @remarks
-   * The page number. Starting value: 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
