@@ -3,6 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAdvancedMonitorStateResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether the advanced monitoring feature is enabled. Valid values:
+   * 
+   * - **true**: The feature is enabled.
+   * 
+   * - **false**: The feature is disabled.
+   * 
+   * @example
+   * true
+   */
   enable?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -26,9 +37,30 @@ export class GetAdvancedMonitorStateResponseBodyData extends $dara.Model {
 }
 
 export class GetAdvancedMonitorStateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
   data?: GetAdvancedMonitorStateResponseBodyData[];
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * Success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 324223F3-93D3-4CE4-B26F-66C0C3809922
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

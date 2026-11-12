@@ -7,16 +7,16 @@ export class ModifySAGAdminPasswordRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The new logon password of the Smart Access Gateway device.
+   * The new logon password for the Smart Access Gateway device.
    * 
    * Password format requirements: The password must be 8 to 30 characters in length and can contain uppercase letters, lowercase letters, digits, and underscores (_).
    * 
-   * > Asterisks (\\*) are used in the sample value to mask the actual password. This does not mean that asterisks (\\*) are supported in the password. Specify the password based on the format requirements.
+   * > The example shows a partially masked synthetic format for demonstration purposes and does not correspond to a real device password. An asterisk (\\*) indicates a masked character and does not mean that asterisks (\\*) are supported in passwords. When entering a password, refer to the password format requirements.
    * 
    * This parameter is required.
    * 
    * @example
-   * ********
+   * DemoPass_2***
    */
   password?: string;
   /**
@@ -33,7 +33,7 @@ export class ModifySAGAdminPasswordRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The Smart Access Gateway instance ID.
+   * The instance ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 

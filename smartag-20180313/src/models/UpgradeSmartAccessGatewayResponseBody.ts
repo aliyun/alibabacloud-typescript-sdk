@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeSmartAccessGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the order.
+   * The order ID.
    * 
    * @example
    * 203384676330296
@@ -13,7 +13,7 @@ export class UpgradeSmartAccessGatewayResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 45F07029-1783-4B2D-B4CE-45B9EAA58440

@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListAvailableServiceAddressResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The service address.
+   * 
+   * @example
+   * 192.168.1.1
+   */
   address?: string;
+  /**
+   * @remarks
+   * The type of the service address.
+   * 
+   * @example
+   * ProbeTask
+   */
   addressType?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,9 +43,30 @@ export class ListAvailableServiceAddressResponseBodyData extends $dara.Model {
 }
 
 export class ListAvailableServiceAddressResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
   data?: ListAvailableServiceAddressResponseBodyData[];
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * Success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 324223F3-93D3-4CE4-B26F-66C0C3809922
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

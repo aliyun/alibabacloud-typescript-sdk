@@ -13,7 +13,7 @@ export class AttachCcnInstanceToCenRequestRegionBindingList extends $dara.Model 
   cidrBlock?: string;
   /**
    * @remarks
-   * The region ID of the transit router to be attached.
+   * The region ID of the transit router.
    * 
    * @example
    * cn-shanghai-finance-1
@@ -21,7 +21,7 @@ export class AttachCcnInstanceToCenRequestRegionBindingList extends $dara.Model 
   regionId?: string;
   /**
    * @remarks
-   * The transit router instance ID.
+   * The instance ID of the transit router used for forward routing.
    * 
    * @example
    * tr-wz9h1y152p7bajkehs5a3
@@ -63,7 +63,7 @@ export class AttachCcnInstanceToCenRequest extends $dara.Model {
   ccnId?: string;
   /**
    * @remarks
-   * The ID of the CEN instance.
+   * The ID of the CEN instance to which you want to attach the CCN instance.
    * 
    * @example
    * cen-joimmi1s2ob3rdxw79
@@ -71,7 +71,7 @@ export class AttachCcnInstanceToCenRequest extends $dara.Model {
   cenId?: string;
   /**
    * @remarks
-   * The CIDR block allocation mode. Valid values: PER_REGION and UNIFIED. PER_REGION indicates that a custom CIDR block is specified for each region. UNIFIED indicates that CIDR blocks are allocated in a unified manner.
+   * The CIDR block allocation mode. Valid values: - PER_REGION: Custom CIDR blocks are allocated for each region. - UNIFIED: A unified CIDR block is allocated.
    * 
    * @example
    * UNIFIED
@@ -79,12 +79,12 @@ export class AttachCcnInstanceToCenRequest extends $dara.Model {
   cidrAllocationMode?: string;
   /**
    * @remarks
-   * The list of transit routers (TRs) to be attached to the CCN.
+   * The list of transit routers to be newly attached to the CCN instance.
    */
   regionBindingList?: AttachCcnInstanceToCenRequestRegionBindingList[];
   /**
    * @remarks
-   * The region ID of the Cloud Connect Network (CCN) instance. You can call the DescribeRegions operation to query the regions supported by Smart Access Gateway and the corresponding region IDs.
+   * The region ID of the Cloud Connect Network (CCN) instance. You can invoke the DescribeRegions operation to query the regions supported by Smart Access Gateway and the corresponding region IDs.
    * 
    * @example
    * cn-shanghai
@@ -92,7 +92,7 @@ export class AttachCcnInstanceToCenRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Internet CIDR block used when the Cloud Connect Network (CCN) is attached to the Cloud Enterprise Network (CEN).
+   * The Internet CIDR block used to attach the Cloud Connect Network (CCN) to the Cloud Enterprise Network (CEN).
    * 
    * @example
    * 172.16.55.0/24

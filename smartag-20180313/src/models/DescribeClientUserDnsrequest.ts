@@ -19,7 +19,7 @@ export class DescribeClientUserDNSRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The instance ID of the Smart Access Gateway app instance.
+   * The instance ID of the Smart Access Gateway app.
    * 
    * This parameter is required.
    * 

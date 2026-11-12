@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "Smartag";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("smartag", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -774,7 +778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches a Cloud Connect Network (CCN) to a Cloud Enterprise Network (CEN).
+   * Attaches a Cloud Connect Network (CCN) instance to a Cloud Enterprise Network (CEN) instance.
    * 
    * @remarks
    * Attaches a Cloud Connect Network (CCN) instance to a Cloud Enterprise Network (CEN) instance.
@@ -834,7 +838,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches a Cloud Connect Network (CCN) to a Cloud Enterprise Network (CEN).
+   * Attaches a Cloud Connect Network (CCN) instance to a Cloud Enterprise Network (CEN) instance.
    * 
    * @remarks
    * Attaches a Cloud Connect Network (CCN) instance to a Cloud Enterprise Network (CEN) instance.
@@ -1598,6 +1602,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a probe task for a specified Smart Access Gateway device.
+   * 
+   * @remarks
+   * - Currently, only SAG-1000 devices with software version 2.7.0 or later support the probe monitoring feature.
+   * - Before creating a probe task, enable the advanced monitoring feature for the Smart Access Gateway instance. You can call the [SetAdvancedMonitorState](https://help.aliyun.com/document_detail/476404.html) operation to set the advanced monitoring status.
+   * 
    * @param request - CreateProbeTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateProbeTaskResponse
@@ -1667,6 +1677,12 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a probe task for a specified Smart Access Gateway device.
+   * 
+   * @remarks
+   * - Currently, only SAG-1000 devices with software version 2.7.0 or later support the probe monitoring feature.
+   * - Before creating a probe task, enable the advanced monitoring feature for the Smart Access Gateway instance. You can call the [SetAdvancedMonitorState](https://help.aliyun.com/document_detail/476404.html) operation to set the advanced monitoring status.
+   * 
    * @param request - CreateProbeTaskRequest
    * @returns CreateProbeTaskResponse
    */
@@ -2120,6 +2136,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Configures a service address for a specified Smart Access Gateway device.
+   * 
    * @param request - CreateServiceAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateServiceAddressResponse
@@ -2165,6 +2183,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Configures a service address for a specified Smart Access Gateway device.
+   * 
    * @param request - CreateServiceAddressRequest
    * @returns CreateServiceAddressResponse
    */
@@ -2670,10 +2690,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Cloud Connect Network (CCN) instance.
+   * Deletes a Cloud Connect Network (CCN).
    * 
    * @remarks
-   * >  Make sure that the CCN instance you want to delete is not associated with a Smart Access Gateway (SAG) instance or a Cloud Enterprise Network (CEN) instance.
+   * > Ensure that the Cloud Connect Network (CCN) to be deleted is not associated with any Smart Access Gateway instances or Cloud Enterprise Networks.
    * 
    * @param request - DeleteCloudConnectNetworkRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2724,10 +2744,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Cloud Connect Network (CCN) instance.
+   * Deletes a Cloud Connect Network (CCN).
    * 
    * @remarks
-   * >  Make sure that the CCN instance you want to delete is not associated with a Smart Access Gateway (SAG) instance or a Cloud Enterprise Network (CEN) instance.
+   * > Ensure that the Cloud Connect Network (CCN) to be deleted is not associated with any Smart Access Gateway instances or Cloud Enterprise Networks.
    * 
    * @param request - DeleteCloudConnectNetworkRequest
    * @returns DeleteCloudConnectNetworkResponse
@@ -2992,6 +3012,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a probe task.
+   * 
    * @param request - DeleteProbeTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteProbeTaskResponse
@@ -3033,6 +3055,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a probe task.
+   * 
    * @param request - DeleteProbeTaskRequest
    * @returns DeleteProbeTaskResponse
    */
@@ -3462,6 +3486,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a service address configured on a Smart Access Gateway device.
+   * 
    * @param request - DeleteServiceAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteServiceAddressResponse
@@ -3507,6 +3533,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a service address configured on a Smart Access Gateway device.
+   * 
    * @param request - DeleteServiceAddressRequest
    * @returns DeleteServiceAddressResponse
    */
@@ -4066,7 +4094,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of Cloud Connect Network (CCN) instances in a specified region.
+   * Queries the information about Cloud Connect Network (CCN) instances created in a specified region.
    * 
    * @param request - DescribeCloudConnectNetworksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4133,7 +4161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of Cloud Connect Network (CCN) instances in a specified region.
+   * Queries the information about Cloud Connect Network (CCN) instances created in a specified region.
    * 
    * @param request - DescribeCloudConnectNetworksRequest
    * @returns DescribeCloudConnectNetworksResponse
@@ -4358,7 +4386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries flow logs in a specified region.
+   * Queries flow log instances in a specified region.
    * 
    * @param request - DescribeFlowLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4433,7 +4461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries flow logs in a specified region.
+   * Queries flow log instances in a specified region.
    * 
    * @param request - DescribeFlowLogsRequest
    * @returns DescribeFlowLogsResponse
@@ -8364,6 +8392,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the status of the advanced monitoring feature for a specified Smart Access Gateway instance.
+   * 
    * @param request - GetAdvancedMonitorStateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GetAdvancedMonitorStateResponse
@@ -8397,6 +8427,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the status of the advanced monitoring feature for a specified Smart Access Gateway instance.
+   * 
    * @param request - GetAdvancedMonitorStateRequest
    * @returns GetAdvancedMonitorStateResponse
    */
@@ -9056,6 +9088,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists the configured service addresses for a specified Smart Access Gateway device.
+   * 
    * @param request - ListAvailableServiceAddressRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAvailableServiceAddressResponse
@@ -9097,6 +9131,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Lists the configured service addresses for a specified Smart Access Gateway device.
+   * 
    * @param request - ListAvailableServiceAddressRequest
    * @returns ListAvailableServiceAddressResponse
    */
@@ -9400,6 +9436,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a probe task.
+   * 
    * @param request - ListProbeTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListProbeTaskResponse
@@ -9461,6 +9499,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries a probe task.
+   * 
    * @param request - ListProbeTaskRequest
    * @returns ListProbeTaskResponse
    */
@@ -12746,6 +12786,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables or disables the deep packet inspection (DPI) feature for a Smart Access Gateway (SAG) instance.
+   * 
    * @param request - SetAdvancedMonitorStateRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns SetAdvancedMonitorStateResponse
@@ -12783,6 +12825,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Enables or disables the deep packet inspection (DPI) feature for a Smart Access Gateway (SAG) instance.
+   * 
    * @param request - SetAdvancedMonitorStateRequest
    * @returns SetAdvancedMonitorStateResponse
    */
@@ -13194,6 +13238,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies a probe task.
+   * 
    * @param request - UpdateProbeTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns UpdateProbeTaskResponse
@@ -13263,6 +13309,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Modifies a probe task.
+   * 
    * @param request - UpdateProbeTaskRequest
    * @returns UpdateProbeTaskResponse
    */
@@ -14260,7 +14308,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Increases the bandwidth of a Smart Access Gateway (SAG) instance.
+   * Upgrades the bandwidth of a Smart Access Gateway instance.
    * 
    * @param request - UpgradeSmartAccessGatewayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14297,6 +14345,10 @@ export default class Client extends OpenApi {
       query["ResourceOwnerId"] = request.resourceOwnerId;
     }
 
+    if (!$dara.isNull(request.restoreTime)) {
+      query["RestoreTime"] = request.restoreTime;
+    }
+
     if (!$dara.isNull(request.smartAGId)) {
       query["SmartAGId"] = request.smartAGId;
     }
@@ -14319,7 +14371,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Increases the bandwidth of a Smart Access Gateway (SAG) instance.
+   * Upgrades the bandwidth of a Smart Access Gateway instance.
    * 
    * @param request - UpgradeSmartAccessGatewayRequest
    * @returns UpgradeSmartAccessGatewayResponse

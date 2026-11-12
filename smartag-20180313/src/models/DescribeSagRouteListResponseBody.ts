@@ -10,7 +10,7 @@ export class DescribeSagRouteListResponseBodyRoutes extends $dara.Model {
   conflictCidrs?: string[];
   /**
    * @remarks
-   * The routing cost value. The number to the left of the forward slash (/) represents the administrative distance (AD) of the routable protocol. The number to the right of the forward slash (/) represents the metric.
+   * The routing cost value. The number to the left of the forward slash (/) indicates the administrative distance (AD) of the routing protocol. The number to the right of the forward slash (/) indicates the metric.
    * 
    * @example
    * [110/11]
@@ -34,7 +34,7 @@ export class DescribeSagRouteListResponseBodyRoutes extends $dara.Model {
   nextHop?: string;
   /**
    * @remarks
-   * The port name. A port name of -1 indicates that data traffic enters Alibaba Cloud through a VPN connection.
+   * The port name. A value of -1 indicates that data traffic enters Alibaba Cloud through a VPN connection.
    * 
    * @example
    * 2
@@ -42,10 +42,10 @@ export class DescribeSagRouteListResponseBodyRoutes extends $dara.Model {
   portName?: string;
   /**
    * @remarks
-   * The routable protocol type. Valid values:
-   * - **STATIC**: Static routable protocol.
-   * - **OSPF**: OSPF dynamic routable protocol.
-   * - **BGP**: BGP dynamic routable protocol.
+   * The routing protocol type. Valid values:
+   * - **STATIC**: Static routing protocol.
+   * - **OSPF**: OSPF dynamic routing protocol.
+   * - **BGP**: BGP dynamic routing protocol.
    * 
    * @example
    * STATIC
@@ -96,7 +96,7 @@ export class DescribeSagRouteListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The route list.
+   * The list of routes.
    */
   routes?: DescribeSagRouteListResponseBodyRoutes[];
   static names(): { [key: string]: string } {

@@ -5,9 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeSmartAccessGatewayRequest extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to automatically pay the bill for a subscription instance.
+   * Specifies whether automatic payment is enabled for the bills of upfront instances. Valid values:
    * 
-   * Valid values: **true | false**. Default value: false
+   * - **true**: Yes.
+   * 
+   * - **false**: No.
    * 
    * This parameter is required.
    * 
@@ -17,10 +19,11 @@ export class UpgradeSmartAccessGatewayRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The bandwidth of the SAG instance.
+   * The bandwidth of the Smart Access Gateway instance. 
    * 
-   * *   Value range for an SAG-100WM device: 2 to 50. Unit: Mbit/s
-   * *   Value range for an SAG-1000 device: 10 to 500. Unit: Mbit/s
+   * - If the device specification is sag-100wm, the value ranges from 2 to 50 Mbit/s.
+   *           
+   * - If the device specification is sag-1000, the value ranges from 10 to 500 Mbit/s.
    * 
    * @example
    * 3
@@ -30,7 +33,7 @@ export class UpgradeSmartAccessGatewayRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region to which the SAG instance belongs.
+   * The region ID of the Smart Access Gateway.
    * 
    * This parameter is required.
    * 
@@ -42,7 +45,15 @@ export class UpgradeSmartAccessGatewayRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the SAG instance.
+   * The revert epoch for a temporary upgrade. This parameter specifies the expiration epoch of the temporary bandwidth upgrade. By default, if this parameter is left empty, the upgrade remains effective until the end-of-life (EOL) of the instance. If a specific epoch is specified, the bandwidth automatically reverts to the pre-upgrade configuration at the specified epoch.
+   * 
+   * @example
+   * 2026-11-10 18
+   */
+  restoreTime?: string;
+  /**
+   * @remarks
+   * The Smart Access Gateway instance ID.
    * 
    * This parameter is required.
    * 
@@ -59,6 +70,7 @@ export class UpgradeSmartAccessGatewayRequest extends $dara.Model {
       regionId: 'RegionId',
       resourceOwnerAccount: 'ResourceOwnerAccount',
       resourceOwnerId: 'ResourceOwnerId',
+      restoreTime: 'RestoreTime',
       smartAGId: 'SmartAGId',
     };
   }
@@ -72,6 +84,7 @@ export class UpgradeSmartAccessGatewayRequest extends $dara.Model {
       regionId: 'string',
       resourceOwnerAccount: 'string',
       resourceOwnerId: 'number',
+      restoreTime: 'string',
       smartAGId: 'string',
     };
   }

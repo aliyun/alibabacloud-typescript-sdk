@@ -45,7 +45,7 @@ export class DescribeCloudConnectNetworksRequestTag extends $dara.Model {
 export class DescribeCloudConnectNetworksRequest extends $dara.Model {
   /**
    * @remarks
-   * The Cloud Connect Network (CCN) instance ID.
+   * The instance ID of the Cloud Connect Network (CCN).
    * 
    * @example
    * ccn-l9340rlu5enst*****
@@ -55,7 +55,7 @@ export class DescribeCloudConnectNetworksRequest extends $dara.Model {
    * @remarks
    * The name of the Cloud Connect Network (CCN) instance.
    * 
-   * The name must be 2 to 100 characters in length, and must start with a letter or a Chinese character. It can contain digits, underscores (_), periods (.), and hyphens (-).
+   * The name must be 2 to 100 characters in length, and can contain digits, underscores (_), periods (.), and hyphens (-). It must start with a letter or a Chinese character.
    * 
    * @example
    * ccnname
@@ -73,7 +73,7 @@ export class DescribeCloudConnectNetworksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page during paging in a paged query. Default value: **10**. Maximum value: **50**.
+   * The number of entries to return on each page for paging in a paged query. Default value: **10**. Maximum value: **50**.
    * 
    * @example
    * 10
@@ -81,7 +81,7 @@ export class DescribeCloudConnectNetworksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the Cloud Connect Network (CCN) instance.
+   * The ID of the region to which the Cloud Connect Network (CCN) instance belongs.
    * 
    * This parameter is required.
    * 
@@ -93,10 +93,10 @@ export class DescribeCloudConnectNetworksRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The label information used to query Cloud Connect Network (CCN) instances.
+   * The labels used to query Cloud Connect Network (CCN) instances.
    * 
    * @example
-   * DescribeCloudConnectNetworks
+   * [{"Key":"test","Value":"test"}]
    */
   tag?: DescribeCloudConnectNetworksRequestTag[];
   static names(): { [key: string]: string } {

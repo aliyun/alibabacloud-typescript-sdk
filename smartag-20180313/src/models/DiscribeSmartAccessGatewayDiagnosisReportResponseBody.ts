@@ -28,7 +28,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
    * - **正常** (Normal): indicates that the diagnosis item is running as expected. No action is required.
    * 
    * @example
-   * Normal
+   * 正常
    */
   itemLevel?: string;
   /**
@@ -36,7 +36,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
    * The name of the diagnosis item.
    * 
    * @example
-   * Leased line port configuration check
+   * 专线口配置检查
    */
   itemName?: string;
   /**
@@ -48,7 +48,7 @@ export class DiscribeSmartAccessGatewayDiagnosisReportResponseBodyDiagnoseResult
    * - **公网** (Internet): indicates the **Internet quality** type.
    * 
    * @example
-   * Configuration
+   * 配置
    */
   itemType?: string;
   static names(): { [key: string]: string } {

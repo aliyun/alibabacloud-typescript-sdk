@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCloudConnectNetworkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CCN instance.
+   * The ID of the Cloud Connect Network (CCN).
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DeleteCloudConnectNetworkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the CCN instance is deployed.
+   * The ID of the region to which the Cloud Connect Network (CCN) belongs.
    * 
    * @example
    * cn-hangzhou

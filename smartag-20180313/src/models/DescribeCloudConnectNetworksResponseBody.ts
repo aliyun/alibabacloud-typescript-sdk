@@ -379,7 +379,7 @@ export class DescribeCloudConnectNetworksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on each page during paging in a paged query.
+   * The number of entries to return on each page for paging in a paged query.
    * 
    * @example
    * 10

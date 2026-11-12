@@ -59,7 +59,7 @@ export class AddACLRuleResponseBodyDpiSignatureIds extends $dara.Model {
 export class AddACLRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the access control instance.
+   * The instance ID of the access control instance.
    * 
    * @example
    * acl-xhwhyuo43l0*******
@@ -85,7 +85,7 @@ export class AddACLRuleResponseBody extends $dara.Model {
    * @remarks
    * The destination CIDR block.
    * 
-   * The destination CIDR block must be in CIDR format, such as 192.168.10.0/24.
+   * The destination CIDR block must be in CIDR format. Example: 192.168.10.0/24.
    * 
    * @example
    * 192.168.10.0/24
@@ -103,8 +103,8 @@ export class AddACLRuleResponseBody extends $dara.Model {
    * @remarks
    * The direction in which the access control rule is applied. Valid values:
    * 
-   * - **in**: inbound. This value specifies traffic from external networks to the local branch where the Smart Access Gateway (SAG) instance is deployed.
-   * - **out**: outbound. This value specifies traffic from the local branch where the SAG instance is deployed to external networks.
+   * - **in**: inbound. Traffic from external networks to the local branch where the Smart Access Gateway instance is deployed.
+   * - **out**: outbound. Traffic from the local branch where the Smart Access Gateway instance is deployed to external networks.
    * 
    * @example
    * out
@@ -124,7 +124,7 @@ export class AddACLRuleResponseBody extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The protocol used by the access control rule.
+   * The protocol to which the access control rule is applied.
    * 
    * @example
    * TCP
@@ -172,7 +172,7 @@ export class AddACLRuleResponseBody extends $dara.Model {
    * @remarks
    * The source CIDR block.
    * 
-   * The source CIDR block must be in CIDR format, such as 192.168.1.0/24.
+   * The source CIDR block must be in CIDR format. Example: 192.168.1.0/24.
    * 
    * @example
    * 192.168.20.0/24
@@ -190,9 +190,9 @@ export class AddACLRuleResponseBody extends $dara.Model {
    * @remarks
    * The type of the access control rule.
    * 
-   * - **LAN**: private network. This value specifies that the access control rule is applied to traffic destined for private IP addresses.
+   * - **LAN**: private network, indicating the Settings of access control rules for traffic with a private endpoint.
    * 
-   * - **WAN**: public network. This value specifies that the access control rule is applied to traffic destined for public IP addresses.
+   * - **WAN**: public network, indicating the Settings of access control rules for traffic with public IP addresses.
    * 
    * @example
    * LAN

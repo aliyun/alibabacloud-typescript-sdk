@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySAGAdminPasswordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DB0A026C-A8E5-40AB-977E-3A87DD78F694

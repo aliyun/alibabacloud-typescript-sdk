@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class SetAdvancedMonitorStateResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * Success
+   */
   message?: string;
+  /**
+   * @remarks
+   * The ID of the request.
+   * 
+   * @example
+   * 324223F3-93D3-4CE4-B26F-66C0C3809922
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

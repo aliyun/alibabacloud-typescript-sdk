@@ -7,7 +7,7 @@ export class DescribeSagRouteListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the Smart Access Gateway (SAG) instance.
+   * The region ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class DescribeSagRouteListRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The instance ID of the Smart Access Gateway.
+   * The instance ID of the Smart Access Gateway instance.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class DescribeSagRouteListRequest extends $dara.Model {
   smartAGId?: string;
   /**
    * @remarks
-   * The serial number of the attached Smart Access Gateway device.
+   * The serial number of the bound Smart Access Gateway device.
    * 
    * This parameter is required.
    * 

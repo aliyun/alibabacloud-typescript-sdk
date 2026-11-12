@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DeleteServiceAddressResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The response code.
+   * 
+   * @example
+   * 200
+   */
   code?: string;
+  /**
+   * @remarks
+   * The response message.
+   * 
+   * @example
+   * successful
+   */
   message?: string;
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 324223F3-93D3-4CE4-B26F-66C0C3809922
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

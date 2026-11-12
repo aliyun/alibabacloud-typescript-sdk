@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFlowLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the flow log.
+   * The description of the flow log instance.
    * 
    * @example
    * desc
@@ -13,7 +13,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of a flow log.
+   * The ID of the flow log instance.
    * 
    * @example
    * fl-7a56mar1kfw9vj****
@@ -21,7 +21,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   flowLogId?: string;
   /**
    * @remarks
-   * The name of the flow log.
+   * The name of the flow log instance.
    * 
    * @example
    * DDE
@@ -29,11 +29,13 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   flowLogName?: string;
   /**
    * @remarks
-   * The location where the flow log is stored. Valid values:
+   * The output type of the flow log. Valid values:
    * 
-   * *   **sls**: The flow log is stored in Log Service.
-   * *   **netflow**: The flow log is stored on a NetFlow collector.
-   * *   **all**: The flow log is stored both in Log Service and on a NetFlow collector.
+   * - **sls**: Flow logs are stored in Simple Log Service.
+   * 
+   * - **netflow**: Flow logs are stored on the NetFlow server that you configured.
+   * 
+   * - **all**: Flow logs are stored in both Simple Log Service and the NetFlow server that you configured.
    * 
    * @example
    * all
@@ -43,7 +45,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The number of the page to return. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -51,7 +53,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page. Default value: **10**.
+   * The number of entries to return on each page in a paging query. Default value: **10**.
    * 
    * @example
    * 10
@@ -59,7 +61,7 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region that the flow logs are stored.
+   * The region ID of the flow log instance.
    * 
    * This parameter is required.
    * 
@@ -71,10 +73,11 @@ export class DescribeFlowLogsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The status of the flow log. Valid values:
+   * The status of the flow log instance. Valid values:
    * 
-   * *   **Active**: The flow log is enabled.
-   * *   **Inactive**: The flow log is disabled.
+   * - **Active**: Started.
+   * 
+   * - **Inactive**: Not started.
    * 
    * @example
    * Active

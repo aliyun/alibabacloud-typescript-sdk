@@ -97,7 +97,7 @@ export class DescribeFlowLogsResponseBody extends $dara.Model {
   flowLogs?: DescribeFlowLogsResponseBodyFlowLogs;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number.
    * 
    * @example
    * 1
@@ -105,7 +105,7 @@ export class DescribeFlowLogsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned per page in a paging query.
    * 
    * @example
    * 10
@@ -113,7 +113,7 @@ export class DescribeFlowLogsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 44F4E2D0-77F7-4DEC-969B-061688946143
@@ -121,7 +121,7 @@ export class DescribeFlowLogsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of flow logs.
+   * The total number of entries.
    * 
    * @example
    * 5
