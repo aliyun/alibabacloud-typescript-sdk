@@ -21,6 +21,7 @@ export { ListMessagesResponseBodyDataTimeline } from './ListMessagesResponseBody
 export { ListMessagesResponseBodyData } from './ListMessagesResponseBody';
 export { ListSessionsResponseBodyDataSessions } from './ListSessionsResponseBody';
 export { ListSessionsResponseBodyData } from './ListSessionsResponseBody';
+export { SendMessageRequestAttachments } from './SendMessageRequest';
 export { SendMessageRequestResume } from './SendMessageRequest';
 export { UpdateReadonlyModeResponseBodyData } from './UpdateReadonlyModeResponseBody';
 export { UpdateSessionResponseBodyData } from './UpdateSessionResponseBody';

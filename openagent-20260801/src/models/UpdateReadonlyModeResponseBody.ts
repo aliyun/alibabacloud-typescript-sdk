@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateReadonlyModeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the configuration. The value is fixed to readonly.
+   * The configuration name. The value is fixed to readonly.
    * 
    * @example
    * readonly
@@ -29,7 +29,7 @@ export class UpdateReadonlyModeResponseBodyData extends $dara.Model {
   gmtUpdate?: string;
   /**
    * @remarks
-   * The currently active configuration value, returned as the string true or false.
+   * The current effective configuration value. The value is returned as a string, either true or false.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class UpdateReadonlyModeResponseBodyData extends $dara.Model {
   value?: string;
   /**
    * @remarks
-   * The type of the configuration value. The value is BOOL for this API operation.
+   * The type of the configuration value. The value is BOOL for this operation.
    * 
    * @example
    * BOOL
@@ -75,12 +75,12 @@ export class UpdateReadonlyModeResponseBodyData extends $dara.Model {
 export class UpdateReadonlyModeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The currently active configuration information.
+   * The current effective configuration information.
    */
   data?: UpdateReadonlyModeResponseBodyData;
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot issues.
+   * The request ID used to locate and troubleshoot issues.
    * 
    * @example
    * 00000000-0000-4000-8000-000000000001

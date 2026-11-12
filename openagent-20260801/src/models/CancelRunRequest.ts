@@ -8,7 +8,7 @@ export class CancelRunRequest extends $dara.Model {
    * The reason for the cancellation. The value must be 1 to 1,024 characters in length.
    * 
    * @example
-   * The user manually canceled this task
+   * The user manually canceled the task
    */
   reason?: string;
   static names(): { [key: string]: string } {

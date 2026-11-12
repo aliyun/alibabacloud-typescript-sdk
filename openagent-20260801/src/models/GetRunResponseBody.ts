@@ -66,7 +66,7 @@ export class GetRunResponseBodyDataOutcomeInterruptsData extends $dara.Model {
   approvalUrl?: string;
   /**
    * @remarks
-   * Specifies whether the interrupt can be canceled.
+   * Indicates whether it can be canceled.
    * 
    * @example
    * true
@@ -74,7 +74,7 @@ export class GetRunResponseBodyDataOutcomeInterruptsData extends $dara.Model {
   cancellable?: boolean;
   /**
    * @remarks
-   * The change digest.
+   * The change summary.
    * 
    * @example
    * example-change-digest
@@ -130,7 +130,7 @@ export class GetRunResponseBodyDataOutcomeInterrupts extends $dara.Model {
   data?: GetRunResponseBodyDataOutcomeInterruptsData;
   /**
    * @remarks
-   * The expiration time of the interrupt, in ISO 8601 format.
+   * The interrupt expiration time in ISO 8601 format.
    * 
    * @example
    * 2026-01-02T00:00:00Z
@@ -146,7 +146,7 @@ export class GetRunResponseBodyDataOutcomeInterrupts extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The interrupt prompt.
+   * The interrupt message.
    * 
    * @example
    * Specify the region of the target resource
@@ -162,7 +162,11 @@ export class GetRunResponseBodyDataOutcomeInterrupts extends $dara.Model {
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * The reason for the interrupt: `tool_call` (tool calling requires processing), `input_required` (user input is required), `confirmation` (confirmation is required), or `out_of_band_approval` (waiting for out-of-band approval).
+   * The interrupt reason. Valid values:
+   * - `tool_call`: tool invocation requires handling
+   * - `input_required`: user input is required
+   * - `confirmation`: confirmation is required
+   * - `out_of_band_approval`: waiting for out-of-band approval
    * 
    * @example
    * input_required
@@ -170,7 +174,7 @@ export class GetRunResponseBodyDataOutcomeInterrupts extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * The JSON Schema that the payload must conform to when resuming the interrupt.
+   * The JSON schema that the payload must comply with when resuming this interrupt.
    * 
    * @example
    * {"type":"object","properties":{"region":{"type":"string"}},"required":["region"]}
@@ -178,7 +182,7 @@ export class GetRunResponseBodyDataOutcomeInterrupts extends $dara.Model {
   responseSchema?: { [key: string]: any };
   /**
    * @remarks
-   * The ID used to invoke the tool calling.
+   * The tool invocation ID.
    * 
    * @example
    * tool_call_example_001
@@ -231,12 +235,14 @@ export class GetRunResponseBodyDataOutcomeInterrupts extends $dara.Model {
 export class GetRunResponseBodyDataOutcome extends $dara.Model {
   /**
    * @remarks
-   * The list of interrupts.
+   * The interrupt list.
    */
   interrupts?: GetRunResponseBodyDataOutcomeInterrupts[];
   /**
    * @remarks
-   * The outcome type: `success` (completed successfully) or `interrupt` (waiting for interrupt processing).
+   * The result type. Valid values:
+   * - `success`: successfully completed
+   * - `interrupt`: waiting for interrupt handling
    * 
    * @example
    * interrupt
@@ -271,7 +277,7 @@ export class GetRunResponseBodyDataOutcome extends $dara.Model {
 export class GetRunResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the run was created, in ISO 8601 format.
+   * The run creation time in ISO 8601 format.
    * 
    * @example
    * 2026-01-01T00:00:00Z
@@ -300,7 +306,14 @@ export class GetRunResponseBodyData extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The run status: `PENDING` (pending execution), `RUNNING` (running), `WAITING_USER` (waiting for interrupt processing), `COMPLETED` (completed), `FAILED` (failed), `CANCELLED` (canceled), or `REJECTED` (rejected).
+   * The run status. Valid values:
+   * - `PENDING`: pending execution
+   * - `RUNNING`: running
+   * - `WAITING_USER`: waiting for interrupt handling
+   * - `COMPLETED`: completed
+   * - `FAILED`: failed
+   * - `CANCELLED`: canceled
+   * - `REJECTED`: rejected
    * 
    * @example
    * COMPLETED
@@ -308,7 +321,7 @@ export class GetRunResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the run was last updated, in ISO 8601 format.
+   * The last update time of the run in ISO 8601 format.
    * 
    * @example
    * 2026-01-01T00:01:00Z
@@ -364,7 +377,7 @@ export class GetRunResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -13,7 +13,7 @@ export class ListMessagesRequest extends $dara.Model {
   maxResults?: string;
   /**
    * @remarks
-   * The pagination token. Do not specify this parameter for the first request. For subsequent requests, use the value returned from the previous page.
+   * The pagination token. Do not specify this parameter in the first request. For subsequent requests, use the value returned from the previous response.
    * 
    * @example
    * example-next-token
@@ -21,7 +21,7 @@ export class ListMessagesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Filters messages by the specified run ID.
+   * Filters messages by a specified run ID.
    * 
    * @example
    * run_example_001

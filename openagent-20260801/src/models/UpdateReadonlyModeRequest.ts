@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateReadonlyModeRequest extends $dara.Model {
   /**
    * @remarks
-   * Required. Pass the string true to enable read-only mode, or false to disable it. The value is case-insensitive.
+   * Required. Pass the string true to enable read-only mode or false to disable it. The value is case-insensitive.
    * 
    * @example
    * true

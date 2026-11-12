@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "OpenAgent";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("openagent", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -207,7 +211,7 @@ export default class Client extends OpenApi {
    * Queries the read-only mode.
    * 
    * @remarks
-   * Queries the read-only mode switch for the current account. The read-only mode is enabled by default if it is not configured.
+   * Queries the read-only mode switch of the current account. It is enabled by default if not configured.
    * 
    * @param request - GetReadonlyModeRequest
    * @param headers - map
@@ -237,7 +241,7 @@ export default class Client extends OpenApi {
    * Queries the read-only mode.
    * 
    * @remarks
-   * Queries the read-only mode switch for the current account. The read-only mode is enabled by default if it is not configured.
+   * Queries the read-only mode switch of the current account. It is enabled by default if not configured.
    * 
    * @param request - GetReadonlyModeRequest
    * @returns GetReadonlyModeResponse
@@ -297,7 +301,7 @@ export default class Client extends OpenApi {
    * Queries a session.
    * 
    * @remarks
-   * Queries the title, status, pinning information, and the ID and status of the most recent run of a specified session.
+   * Queries the title, status, and pinned state of a specified session, along with the ID and status of its last run.
    * 
    * @param request - GetSessionRequest
    * @param headers - map
@@ -327,7 +331,7 @@ export default class Client extends OpenApi {
    * Queries a session.
    * 
    * @remarks
-   * Queries the title, status, pinning information, and the ID and status of the most recent run of a specified session.
+   * Queries the title, status, and pinned state of a specified session, along with the ID and status of its last run.
    * 
    * @param request - GetSessionRequest
    * @returns GetSessionResponse
@@ -342,7 +346,7 @@ export default class Client extends OpenApi {
    * Lists messages.
    * 
    * @remarks
-   * Performs a paging query on the message timeline of a specified session. Use the returned nextToken to retrieve the next page.
+   * Queries the message timeline of a specified session in pages. Use the returned nextToken to retrieve the next page.
    * 
    * @param request - ListMessagesRequest
    * @param headers - map
@@ -386,7 +390,7 @@ export default class Client extends OpenApi {
    * Lists messages.
    * 
    * @remarks
-   * Performs a paging query on the message timeline of a specified session. Use the returned nextToken to retrieve the next page.
+   * Queries the message timeline of a specified session in pages. Use the returned nextToken to retrieve the next page.
    * 
    * @param request - ListMessagesRequest
    * @returns ListMessagesResponse
@@ -401,7 +405,7 @@ export default class Client extends OpenApi {
    * Lists sessions.
    * 
    * @remarks
-   * Uses paging to query the list of sessions accessible to the current identity used to invoke. Use the returned nextToken to retrieve the next page.
+   * Performs a paging query for the list of sessions accessible to the current invoke identity. Use the returned nextToken to retrieve the next page.
    * 
    * @param request - ListSessionsRequest
    * @param headers - map
@@ -441,7 +445,7 @@ export default class Client extends OpenApi {
    * Lists sessions.
    * 
    * @remarks
-   * Uses paging to query the list of sessions accessible to the current identity used to invoke. Use the returned nextToken to retrieve the next page.
+   * Performs a paging query for the list of sessions accessible to the current invoke identity. Use the returned nextToken to retrieve the next page.
    * 
    * @param request - ListSessionsRequest
    * @returns ListSessionsResponse
@@ -466,6 +470,10 @@ export default class Client extends OpenApi {
   async *sendMessageWithSSE(sessionId: string, request: $_model.SendMessageRequest, headers: $_model.SendMessageHeaders, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.SendMessageResponse, any, unknown> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attachments)) {
+      body["attachments"] = request.attachments;
+    }
+
     if (!$dara.isNull(request.content)) {
       body["content"] = request.content;
     }
@@ -537,6 +545,10 @@ export default class Client extends OpenApi {
   async sendMessageWithOptions(sessionId: string, request: $_model.SendMessageRequest, headers: $_model.SendMessageHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.SendMessageResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.attachments)) {
+      body["attachments"] = request.attachments;
+    }
+
     if (!$dara.isNull(request.content)) {
       body["content"] = request.content;
     }
@@ -650,7 +662,7 @@ export default class Client extends OpenApi {
    * Updates the title or pinned status of a session.
    * 
    * @remarks
-   * Updates the title or pinned status of a specified session. Specify at least one of the title and pinned fields. Unspecified fields remain unchanged.
+   * Updates the title or pinned status of a specified session. You must specify at least one of the title and pinned parameters. Fields that are not specified remain unchanged.
    * 
    * @param request - UpdateSessionRequest
    * @param headers - UpdateSessionHeaders
@@ -699,7 +711,7 @@ export default class Client extends OpenApi {
    * Updates the title or pinned status of a session.
    * 
    * @remarks
-   * Updates the title or pinned status of a specified session. Specify at least one of the title and pinned fields. Unspecified fields remain unchanged.
+   * Updates the title or pinned status of a specified session. You must specify at least one of the title and pinned parameters. Fields that are not specified remain unchanged.
    * 
    * @param request - UpdateSessionRequest
    * @returns UpdateSessionResponse

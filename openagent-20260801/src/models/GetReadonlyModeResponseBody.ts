@@ -29,7 +29,7 @@ export class GetReadonlyModeResponseBodyData extends $dara.Model {
   gmtUpdate?: string;
   /**
    * @remarks
-   * The current effective read-only mode, returned as a string. A value of true indicates that the mode is enabled, and a value of false indicates that the mode is disabled. The value is true if not configured.
+   * The current read-only mode in effect, returned as a string. A value of true indicates that the mode is enabled, and a value of false indicates that the mode is disabled. The default value is true if not configured.
    * 
    * @example
    * true

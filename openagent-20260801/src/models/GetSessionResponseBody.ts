@@ -13,7 +13,7 @@ export class GetSessionResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The ID of the most recent run.
+   * The ID of the last run.
    * 
    * @example
    * run_example_001
@@ -21,7 +21,7 @@ export class GetSessionResponseBodyData extends $dara.Model {
   lastRunId?: string;
   /**
    * @remarks
-   * The status of the most recent run. Valid values: `PENDING` (pending execution), `RUNNING` (running), `WAITING_USER` (waiting for interrupt handling), `COMPLETED` (completed), `FAILED` (failed), `CANCELLED` (cancelled), and `REJECTED` (rejected).
+   * The status of the last run. Valid values: `PENDING` (pending), `RUNNING` (running), `WAITING_USER` (waiting for interrupt handling), `COMPLETED` (completed), `FAILED` (failed), `CANCELLED` (cancelled), `REJECTED` (rejected).
    * 
    * @example
    * COMPLETED
@@ -45,7 +45,7 @@ export class GetSessionResponseBodyData extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The session status. Valid values: `IDLE` (idle), `ACTIVE` (active), `WAITING_USER_INPUT` (waiting for user input), `WAITING_APPROVAL` (waiting for user confirmation), `WAITING_OUT_OF_BAND_APPROVAL` (waiting for out-of-band approval), and `CLOSED` (closed).
+   * The session status. Valid values: `IDLE` (idle), `ACTIVE` (running), `WAITING_USER_INPUT` (waiting for user input), `WAITING_APPROVAL` (waiting for user confirmation), `WAITING_OUT_OF_BAND_APPROVAL` (waiting for out-of-band approval), `CLOSED` (closed).
    * 
    * @example
    * IDLE

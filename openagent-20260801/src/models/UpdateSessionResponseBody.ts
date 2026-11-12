@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSessionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the session was created, in RFC 3339 format.
+   * The time when the session was created. The time is in RFC 3339 format.
    * 
    * @example
    * 2026-01-01T00:00:00Z
@@ -22,13 +22,13 @@ export class UpdateSessionResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The status of the last run. Valid values:
-   * - `PENDING`: Pending.
-   * - `RUNNING`: Running.
-   * - `WAITING_USER`: Waiting for interrupt handling.
-   * - `COMPLETED`: Completed.
-   * - `FAILED`: Failed.
-   * - `CANCELLED`: Cancelled.
-   * - `REJECTED`: Rejected.
+   * - `PENDING`: pending
+   * - `RUNNING`: running
+   * - `WAITING_USER`: waiting for interrupt handling
+   * - `COMPLETED`: completed
+   * - `FAILED`: failed
+   * - `CANCELLED`: cancelled
+   * - `REJECTED`: rejected
    * 
    * @example
    * COMPLETED
@@ -44,7 +44,7 @@ export class UpdateSessionResponseBodyData extends $dara.Model {
   pinned?: boolean;
   /**
    * @remarks
-   * The session ID.
+   * The ID of the session.
    * 
    * @example
    * session_example_001
@@ -52,13 +52,13 @@ export class UpdateSessionResponseBodyData extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The session status. Valid values:
-   * - `IDLE`: Idle.
-   * - `ACTIVE`: Active.
-   * - `WAITING_USER_INPUT`: Waiting for user input.
-   * - `WAITING_APPROVAL`: Waiting for user confirmation.
-   * - `WAITING_OUT_OF_BAND_APPROVAL`: Waiting for out-of-band approval.
-   * - `CLOSED`: Closed.
+   * The status of the session. Valid values:
+   * - `IDLE`: idle
+   * - `ACTIVE`: running
+   * - `WAITING_USER_INPUT`: waiting for user input
+   * - `WAITING_APPROVAL`: waiting for user confirmation
+   * - `WAITING_OUT_OF_BAND_APPROVAL`: waiting for out-of-band approval
+   * - `CLOSED`: closed
    * 
    * @example
    * IDLE
@@ -66,7 +66,7 @@ export class UpdateSessionResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The session title.
+   * The title of the session.
    * 
    * @example
    * Cloud resource inspection example
@@ -74,7 +74,7 @@ export class UpdateSessionResponseBodyData extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The time when the session was last updated, in RFC 3339 format.
+   * The time when the session was last updated. The time is in RFC 3339 format.
    * 
    * @example
    * 2026-01-01T00:01:00Z
@@ -123,7 +123,7 @@ export class UpdateSessionResponseBody extends $dara.Model {
   data?: UpdateSessionResponseBodyData;
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot issues.
+   * The ID of the request. You can use the ID to locate and troubleshoot issues.
    * 
    * @example
    * 00000000-0000-4000-8000-000000000001

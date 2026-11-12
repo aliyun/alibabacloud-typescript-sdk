@@ -16,7 +16,7 @@ export class ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterrup
    * The description of the operation pending approval.
    * 
    * @example
-   * Execute changes on the sample resource
+   * Modify the sample resource
    */
   description?: string;
   static names(): { [key: string]: string } {
@@ -50,7 +50,7 @@ export class ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterrup
   apiCalls?: ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterruptsDataApiCalls[];
   /**
    * @remarks
-   * The associated approval ID.
+   * The ID of the associated approval request.
    * 
    * @example
    * approval_example_001
@@ -58,7 +58,7 @@ export class ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterrup
   approvalId?: string;
   /**
    * @remarks
-   * The URL of the approval page. The example URL cannot be used for actual approval.
+   * The URL of the approval page. The example URL cannot be used for actual approvals.
    * 
    * @example
    * https://example.com/approvals/approval_example_001
@@ -74,7 +74,7 @@ export class ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterrup
   cancellable?: boolean;
   /**
    * @remarks
-   * The digest identifier of the change pending approval.
+   * The summary identifier of the change pending approval.
    * 
    * @example
    * example-change-digest
@@ -82,7 +82,7 @@ export class ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterrup
   changeDigest?: string;
   /**
    * @remarks
-   * The title of the approval item.
+   * The title of the approval request.
    * 
    * @example
    * Sample change approval
@@ -178,7 +178,7 @@ export class ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterrup
   responseSchema?: { [key: string]: any };
   /**
    * @remarks
-   * The ID of the tool invocation associated with the interrupt.
+   * The tool invocation ID associated with the interrupt.
    * 
    * @example
    * tool_call_example_001
@@ -236,7 +236,7 @@ export class ListMessagesResponseBodyDataTimelineMessageInterruptOutcome extends
   interrupts?: ListMessagesResponseBodyDataTimelineMessageInterruptOutcomeInterrupts[];
   /**
    * @remarks
-   * The type of the interrupt result. The value is fixed to `interrupt`.
+   * The interrupt result type. The value is fixed to `interrupt`.
    * 
    * @example
    * interrupt
@@ -279,7 +279,7 @@ export class ListMessagesResponseBodyDataTimelineMessageResumeInputResume extend
   interruptId?: string;
   /**
    * @remarks
-   * The processing result for the corresponding interrupt, which must comply with the responseSchema of the interrupt.
+   * The processing result for the corresponding interrupt. The result must comply with the responseSchema of the interrupt.
    * 
    * @example
    * {"region":"cn-hangzhou"}
@@ -287,7 +287,7 @@ export class ListMessagesResponseBodyDataTimelineMessageResumeInputResume extend
   payload?: any;
   /**
    * @remarks
-   * The response method for the current interrupt. Valid values: `resolved` (the answer, confirmation, or tool result required by the interrupt has been submitted, including the `payload`) and `cancelled` (the interrupt has been canceled, excluding the `payload`).
+   * The response method for this interrupt. Valid values: `resolved` (the answer, confirmation, or tool result required by the interrupt has been submitted, which includes the `payload`) and `cancelled` (the interrupt has been canceled, which does not include the `payload`).
    * 
    * @example
    * resolved
@@ -334,7 +334,7 @@ export class ListMessagesResponseBodyDataTimelineMessageResumeInput extends $dar
   resume?: ListMessagesResponseBodyDataTimelineMessageResumeInputResume[];
   /**
    * @remarks
-   * The ID of the original run that was resumed.
+   * The ID of the original run that is resumed.
    * 
    * @example
    * run_example_001
@@ -381,7 +381,7 @@ export class ListMessagesResponseBodyDataTimelineMessageResumeInput extends $dar
 export class ListMessagesResponseBodyDataTimelineMessageToolCallsFunction extends $dara.Model {
   /**
    * @remarks
-   * The tool parameters in the form of a JSON string.
+   * The tool parameters as a JSON string.
    * 
    * @example
    * {"keyword":"example"}
@@ -421,7 +421,7 @@ export class ListMessagesResponseBodyDataTimelineMessageToolCallsFunction extend
 export class ListMessagesResponseBodyDataTimelineMessageToolCalls extends $dara.Model {
   /**
    * @remarks
-   * The encrypted content of the tool invocation. The example is only a placeholder value.
+   * The encrypted content of the tool invocation. The example is a placeholder value only.
    * 
    * @example
    * EXAMPLE_ENCRYPTED_VALUE
@@ -429,7 +429,7 @@ export class ListMessagesResponseBodyDataTimelineMessageToolCalls extends $dara.
   encryptedValue?: string;
   /**
    * @remarks
-   * The information about the function to be executed.
+   * The information about the function to execute.
    */
   function?: ListMessagesResponseBodyDataTimelineMessageToolCallsFunction;
   /**
@@ -450,7 +450,7 @@ export class ListMessagesResponseBodyDataTimelineMessageToolCalls extends $dara.
   metadata?: { [key: string]: any };
   /**
    * @remarks
-   * The type of the tool invocation. The value is fixed to `function`.
+   * The tool invocation type. The value is fixed to `function`.
    * 
    * @example
    * function
@@ -505,12 +505,12 @@ export class ListMessagesResponseBodyDataTimelineMessage extends $dara.Model {
    * The message content. The structure is determined by the message type.
    * 
    * @example
-   * Query the status of the sample resource
+   * Check the status of the sample resource
    */
   content?: any;
   /**
    * @remarks
-   * The encrypted content. The example is an invalid placeholder value and does not contain real ciphertext.
+   * The encrypted content. The example is an invalid placeholder value and does not contain actual ciphertext.
    * 
    * @example
    * EXAMPLE_ENCRYPTED_VALUE
@@ -518,7 +518,7 @@ export class ListMessagesResponseBodyDataTimelineMessage extends $dara.Model {
   encryptedValue?: string;
   /**
    * @remarks
-   * The error description when tool execution fails.
+   * The error description when the tool execution fails.
    * 
    * @example
    * Sample tool execution failure
@@ -534,7 +534,7 @@ export class ListMessagesResponseBodyDataTimelineMessage extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The result information of historical interrupts.
+   * The result information of the historical interrupt.
    */
   interruptOutcome?: ListMessagesResponseBodyDataTimelineMessageInterruptOutcome;
   /**
@@ -568,7 +568,7 @@ export class ListMessagesResponseBodyDataTimelineMessage extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The ID of the tool invocation associated with the tool result.
+   * The tool invocation ID associated with the tool result.
    * 
    * @example
    * tool_call_example_001
@@ -637,7 +637,7 @@ export class ListMessagesResponseBodyDataTimelineMessage extends $dara.Model {
 export class ListMessagesResponseBodyDataTimeline extends $dara.Model {
   /**
    * @remarks
-   * The message object. Different message types are distinguished by role, and each type uses the corresponding fields.
+   * The message object. Message types are distinguished by role, and each type uses its corresponding fields.
    */
   message?: ListMessagesResponseBodyDataTimelineMessage;
   /**
@@ -693,12 +693,12 @@ export class ListMessagesResponseBodyData extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The message records returned in a timeline.
+   * The message records returned in chronological order.
    */
   timeline?: ListMessagesResponseBodyDataTimeline[];
   /**
    * @remarks
-   * The number of timeline records on the current page, which is equal to the length of the timeline array.
+   * The number of timeline records on the current page. The value is equal to the length of the timeline array.
    * 
    * @example
    * 1
@@ -750,7 +750,7 @@ export class ListMessagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. A value of true indicates success.
+   * Indicates whether the request was successful. A value of true indicates success.
    * 
    * @example
    * true

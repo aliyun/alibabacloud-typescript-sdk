@@ -6,7 +6,7 @@ export class UpdateSessionHeaders extends $dara.Model {
   commonHeaders?: { [key: string]: string };
   /**
    * @remarks
-   * The idempotency key for the request. Use the same value when you retry the same update request.
+   * The idempotency key for the request. Use the same value when retrying the same update request.
    * 
    * @example
    * update-session-example-001
