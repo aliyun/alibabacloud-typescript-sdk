@@ -21,7 +21,7 @@ export class ListBrowserBookmarksRequest extends $dara.Model {
   browserInstanceGroupSetId?: string;
   /**
    * @remarks
-   * The keyword used for substring matching in bookmark names or URLs. The matching is case-insensitive for English characters. The keyword can be up to 1,024 characters in length after leading and trailing spaces are removed. If this parameter is not specified or contains only spaces, no filtering is applied. Special characters are matched literally.
+   * The keyword used for partial matching of the bookmark name or URL. The matching is case-insensitive for English characters. The keyword can be up to 1,024 characters in length after leading and trailing spaces are removed. If this parameter is not specified or contains only spaces, no filtering is performed. Special characters are matched literally.
    * 
    * @example
    * example.com

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveRuntimeModelTemplateResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The error code returned when the operation fails.
+   * The error code returned when the execution fails.
    * 
    * @example
    * Runtime.NotFound
@@ -13,7 +13,7 @@ export class RemoveRuntimeModelTemplateResponseBodyData extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code returned when the operation fails.
+   * The HTTP status code returned when the execution fails.
    * 
    * @example
    * 404
@@ -21,7 +21,7 @@ export class RemoveRuntimeModelTemplateResponseBodyData extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message returned when the operation fails.
+   * The error message returned when the execution fails.
    * 
    * @example
    * The runtime is not found.
@@ -29,10 +29,10 @@ export class RemoveRuntimeModelTemplateResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The Agent runtime ID. The ID mapping is as follows:
+   * The agent runtime ID. The ID mappings are as follows:
    * 
    * - JVS Computer: JVS Computer ID, in the format of jvs-xxxx.
-   * - OpenClaw: cloud computer ID, in the format of ecd-xxxx.
+   * - OpenClaw: Cloud desktop ID, in the format of ecd-xxxx.
    * - Hermes Agent: Hermes Agent ID, in the format of jvs-xxxx.
    * 
    * @example
@@ -41,7 +41,7 @@ export class RemoveRuntimeModelTemplateResponseBodyData extends $dara.Model {
   runtimeId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the execution is successful.
    * 
    * @example
    * true
@@ -92,7 +92,7 @@ export class RemoveRuntimeModelTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total count.
    * 
    * @example
    * 3

@@ -50,7 +50,7 @@ export class ListBrowserRestrictedURLsResponseBody extends $dara.Model {
   data?: ListBrowserRestrictedURLsResponseBodyData[];
   /**
    * @remarks
-   * The actual page number used in this query. This is the echoed value of the PageNumber request parameter.
+   * The actual page number used for this query, which is the echoed value of the PageNumber request parameter.
    * 
    * @example
    * 1
@@ -58,7 +58,7 @@ export class ListBrowserRestrictedURLsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The actual number of entries returned per page in this query. This is the echoed value of the PageSize request parameter.
+   * The actual number of entries returned per page for this query, which is the echoed value of the PageSize request parameter.
    * 
    * @example
    * 10
@@ -66,7 +66,7 @@ export class ListBrowserRestrictedURLsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request. You can use the ID to locate call records and troubleshoot issues. The example value is partially masked.
+   * The ID of the request, which is used to locate call records and troubleshoot issues. The example value is partially masked.
    * 
    * @example
    * D4A13D91-****

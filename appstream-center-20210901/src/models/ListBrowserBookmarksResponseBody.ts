@@ -65,7 +65,7 @@ export class ListBrowserBookmarksResponseBodyData extends $dara.Model {
 export class ListBrowserBookmarksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of bookmarks on the current page.
+   * The bookmarks on the current page.
    */
   data?: ListBrowserBookmarksResponseBodyData[];
   /**

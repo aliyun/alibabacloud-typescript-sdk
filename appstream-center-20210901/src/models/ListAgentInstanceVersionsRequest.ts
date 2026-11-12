@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentInstanceVersionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent platform used to filter version numbers by business type. If not specified, the default value is ENTERPRISE.
+   * The agent platform used to filter version numbers by business type. If this parameter is not specified, the default value ENTERPRISE is used.
    * 
    * @example
    * ENTERPRISE

@@ -2489,6 +2489,48 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the list of Alibaba Cloud accounts to which the current image is shared.
+   * 
+   * @param request - DescribeShareImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeShareImageResponse
+   */
+  async describeShareImageWithOptions(request: $_model.DescribeShareImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeShareImageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeShareImage",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeShareImageResponse>(await this.callApi(params, req, runtime), new $_model.DescribeShareImageResponse({}));
+  }
+
+  /**
+   * Retrieves the list of Alibaba Cloud accounts to which the current image is shared.
+   * 
+   * @param request - DescribeShareImageRequest
+   * @returns DescribeShareImageResponse
+   */
+  async describeShareImage(request: $_model.DescribeShareImageRequest): Promise<$_model.DescribeShareImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeShareImageWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the details of a development host.
    * 
    * @param request - DescribeWuyingServerRequest
@@ -2574,6 +2616,60 @@ export default class Client extends OpenApi {
   async describeWuyingServerEipInfo(request: $_model.DescribeWuyingServerEipInfoRequest): Promise<$_model.DescribeWuyingServerEipInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeWuyingServerEipInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Confirms the successful verification of the image or application creation process.
+   * 
+   * @param request - FinishValidateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns FinishValidateResponse
+   */
+  async finishValidateWithOptions(request: $_model.FinishValidateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.FinishValidateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.appVersionId)) {
+      body["AppVersionId"] = request.appVersionId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "FinishValidate",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.FinishValidateResponse>(await this.callApi(params, req, runtime), new $_model.FinishValidateResponse({}));
+  }
+
+  /**
+   * Confirms the successful verification of the image or application creation process.
+   * 
+   * @param request - FinishValidateRequest
+   * @returns FinishValidateResponse
+   */
+  async finishValidate(request: $_model.FinishValidateRequest): Promise<$_model.FinishValidateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.finishValidateWithOptions(request, runtime);
   }
 
   /**
@@ -2975,6 +3071,78 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the effective versions of an image in various regions, along with its applications, distribution configurations, and tags.
+   * 
+   * @remarks
+   * Queries the effective image versions in various regions by ImageId. If a newer version is configured in the same region, the newer version is returned first. You can specify BizRegionId to limit the query to a specific region. The returned results are also constrained by the product type and the regions visible to the account. To query the details of a specific version, call GetImageById.
+   * 
+   * @param request - GetEffectiveImageByIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetEffectiveImageByIdResponse
+   */
+  async getEffectiveImageByIdWithOptions(request: $_model.GetEffectiveImageByIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetEffectiveImageByIdResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.contentLocale)) {
+      body["ContentLocale"] = request.contentLocale;
+    }
+
+    if (!$dara.isNull(request.ignoreFilter)) {
+      body["IgnoreFilter"] = request.ignoreFilter;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.imageType)) {
+      body["ImageType"] = request.imageType;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.showHidden)) {
+      body["ShowHidden"] = request.showHidden;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetEffectiveImageById",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetEffectiveImageByIdResponse>(await this.callApi(params, req, runtime), new $_model.GetEffectiveImageByIdResponse({}));
+  }
+
+  /**
+   * Queries the effective versions of an image in various regions, along with its applications, distribution configurations, and tags.
+   * 
+   * @remarks
+   * Queries the effective image versions in various regions by ImageId. If a newer version is configured in the same region, the newer version is returned first. You can specify BizRegionId to limit the query to a specific region. The returned results are also constrained by the product type and the regions visible to the account. To query the details of a specific version, call GetImageById.
+   * 
+   * @param request - GetEffectiveImageByIdRequest
+   * @returns GetEffectiveImageByIdResponse
+   */
+  async getEffectiveImageById(request: $_model.GetEffectiveImageByIdRequest): Promise<$_model.GetEffectiveImageByIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getEffectiveImageByIdWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves file upload information.
    * 
    * @remarks
@@ -3020,6 +3188,126 @@ export default class Client extends OpenApi {
   async getFileUploadInfo(request: $_model.GetFileUploadInfoRequest): Promise<$_model.GetFileUploadInfoResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getFileUploadInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the image details, adapted applications, and region distribution information based on the image ID or version ID.
+   * 
+   * @remarks
+   * You must specify at least one of ImageId and VersionId. If you specify only ImageId, the online version is queried. If you specify VersionId, the specified version is queried. If you specify both parameters, the VersionId must belong to the specified image. To query the effective version in each region, call GetEffectiveImageById.
+   * 
+   * @param request - GetImageByIdRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetImageByIdResponse
+   */
+  async getImageByIdWithOptions(request: $_model.GetImageByIdRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetImageByIdResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.ignoreFilter)) {
+      body["IgnoreFilter"] = request.ignoreFilter;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.showHidden)) {
+      body["ShowHidden"] = request.showHidden;
+    }
+
+    if (!$dara.isNull(request.versionId)) {
+      body["VersionId"] = request.versionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetImageById",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetImageByIdResponse>(await this.callApi(params, req, runtime), new $_model.GetImageByIdResponse({}));
+  }
+
+  /**
+   * Queries the image details, adapted applications, and region distribution information based on the image ID or version ID.
+   * 
+   * @remarks
+   * You must specify at least one of ImageId and VersionId. If you specify only ImageId, the online version is queried. If you specify VersionId, the specified version is queried. If you specify both parameters, the VersionId must belong to the specified image. To query the effective version in each region, call GetEffectiveImageById.
+   * 
+   * @param request - GetImageByIdRequest
+   * @returns GetImageByIdResponse
+   */
+  async getImageById(request: $_model.GetImageByIdRequest): Promise<$_model.GetImageByIdResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getImageByIdWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the distribution regions, distribution status, and progress of an image version.
+   * 
+   * @remarks
+   * Queries the region distribution status of an image by ImageId. If VersionId is not specified, the online version is queried. If VersionId is specified, the specified version is queried. Returns the non-deleted region distribution records and the corresponding list of region IDs.
+   * 
+   * @param request - GetImageDistributeInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetImageDistributeInfoResponse
+   */
+  async getImageDistributeInfoWithOptions(request: $_model.GetImageDistributeInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetImageDistributeInfoResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.versionId)) {
+      body["VersionId"] = request.versionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetImageDistributeInfo",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetImageDistributeInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetImageDistributeInfoResponse({}));
+  }
+
+  /**
+   * Queries the distribution regions, distribution status, and progress of an image version.
+   * 
+   * @remarks
+   * Queries the region distribution status of an image by ImageId. If VersionId is not specified, the online version is queried. If VersionId is specified, the specified version is queried. Returns the non-deleted region distribution records and the corresponding list of region IDs.
+   * 
+   * @param request - GetImageDistributeInfoRequest
+   * @returns GetImageDistributeInfoResponse
+   */
+  async getImageDistributeInfo(request: $_model.GetImageDistributeInfoRequest): Promise<$_model.GetImageDistributeInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getImageDistributeInfoWithOptions(request, runtime);
   }
 
   /**
@@ -3076,12 +3364,12 @@ export default class Client extends OpenApi {
    * Retrieves the authentication credentials, access endpoints, and topic list required for a client to establish an MQTT connection.
    * 
    * @remarks
-   * Call this operation to retrieve the credentials and connection information required for a client to establish an MQTT connection.
-   * 1. Use `MqttUsername` and `MqttPassword` as the username and password for the MQTT client connection.
-   * 2. Use `MqttEndpoint` as the connection endpoint. If the VPC network access requirements are met, you can use `MqttVPCEndpoint`. `MqttInstanceId` is used for token authentication, and `MqttGroupId` is used to concatenate the MQTT ClientId.
-   * 3. Distinguish between publish and subscribe topics based on the `topic`, `type`, and `permission` of each item in `TopicList`. `W` indicates the publish permission, and `R` indicates the subscribe permission.
-   * 4. `ExpireTimeStamp` is the UNIX timestamp in milliseconds when the password expires. Credentials may be reused. Retrieve new credentials based on the expiration time returned by the operation.
-   * The device identity and request IDs in the documentation are demo data. The domain name uses the `example.com` sample domain. Credentials and instance identity are exemplified or desensitized. These examples cannot be used directly for actual connections.
+   * Retrieves the credentials and connection information required for a client to establish an MQTT connection.
+   * 1. Use MqttUsername and MqttPassword as the username and password when connecting the MQTT client.
+   * 2. Use MqttEndpoint as the connection endpoint. If the client meets the VPC network access requirements, you can use MqttVPCEndpoint. MqttInstanceId is used for token authentication, and MqttGroupId is used to concatenate the MQTT ClientId.
+   * 3. Distinguish between publish and subscribe topics based on the topic, type, and permission fields of each item in TopicList. W indicates publish permission, and R indicates subscribe permission.
+   * 4. ExpireTimeStamp is the UNIX timestamp in milliseconds when the password expires. Credentials may be reused. Retrieve new credentials based on the expiration time returned in the response.
+   * The device identity and request IDs in the documentation are demonstration data. The domain name uses the `example.com` sample domain. Credentials and instance identity are exemplified or desensitized. These examples cannot be used directly for actual connections.
    * 
    * @param tmpReq - GetMqttTicketRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3137,12 +3425,12 @@ export default class Client extends OpenApi {
    * Retrieves the authentication credentials, access endpoints, and topic list required for a client to establish an MQTT connection.
    * 
    * @remarks
-   * Call this operation to retrieve the credentials and connection information required for a client to establish an MQTT connection.
-   * 1. Use `MqttUsername` and `MqttPassword` as the username and password for the MQTT client connection.
-   * 2. Use `MqttEndpoint` as the connection endpoint. If the VPC network access requirements are met, you can use `MqttVPCEndpoint`. `MqttInstanceId` is used for token authentication, and `MqttGroupId` is used to concatenate the MQTT ClientId.
-   * 3. Distinguish between publish and subscribe topics based on the `topic`, `type`, and `permission` of each item in `TopicList`. `W` indicates the publish permission, and `R` indicates the subscribe permission.
-   * 4. `ExpireTimeStamp` is the UNIX timestamp in milliseconds when the password expires. Credentials may be reused. Retrieve new credentials based on the expiration time returned by the operation.
-   * The device identity and request IDs in the documentation are demo data. The domain name uses the `example.com` sample domain. Credentials and instance identity are exemplified or desensitized. These examples cannot be used directly for actual connections.
+   * Retrieves the credentials and connection information required for a client to establish an MQTT connection.
+   * 1. Use MqttUsername and MqttPassword as the username and password when connecting the MQTT client.
+   * 2. Use MqttEndpoint as the connection endpoint. If the client meets the VPC network access requirements, you can use MqttVPCEndpoint. MqttInstanceId is used for token authentication, and MqttGroupId is used to concatenate the MQTT ClientId.
+   * 3. Distinguish between publish and subscribe topics based on the topic, type, and permission fields of each item in TopicList. W indicates publish permission, and R indicates subscribe permission.
+   * 4. ExpireTimeStamp is the UNIX timestamp in milliseconds when the password expires. Credentials may be reused. Retrieve new credentials based on the expiration time returned in the response.
+   * The device identity and request IDs in the documentation are demonstration data. The domain name uses the `example.com` sample domain. Credentials and instance identity are exemplified or desensitized. These examples cannot be used directly for actual connections.
    * 
    * @param request - GetMqttTicketRequest
    * @returns GetMqttTicketResponse
@@ -3747,7 +4035,159 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a deduplicated list of version numbers for undeleted agent instances under a specified tenant, aggregated by agent provider and optionally filtered by agent platform. The results are returned in ascending order by version number.
+   * Retrieves the Object Storage Service (OSS) endpoint, directory, and Security Token Service (STS) temporary credentials required to upload image task files.
+   * 
+   * @remarks
+   * Currently, FileType only supports TASK. Use the returned OSS endpoint, bucket, file directory, and temporary credentials to upload files. After the file is uploaded, you can pass the complete OSS object path to ImportImage. Expiration is not supported.
+   * 
+   * @param request - GetUploadInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetUploadInfoResponse
+   */
+  async getUploadInfoWithOptions(request: $_model.GetUploadInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetUploadInfoResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.fileType)) {
+      body["FileType"] = request.fileType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetUploadInfo",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetUploadInfoResponse>(await this.callApi(params, req, runtime), new $_model.GetUploadInfoResponse({}));
+  }
+
+  /**
+   * Retrieves the Object Storage Service (OSS) endpoint, directory, and Security Token Service (STS) temporary credentials required to upload image task files.
+   * 
+   * @remarks
+   * Currently, FileType only supports TASK. Use the returned OSS endpoint, bucket, file directory, and temporary credentials to upload files. After the file is uploaded, you can pass the complete OSS object path to ImportImage. Expiration is not supported.
+   * 
+   * @param request - GetUploadInfoRequest
+   * @returns GetUploadInfoResponse
+   */
+  async getUploadInfo(request: $_model.GetUploadInfoRequest): Promise<$_model.GetUploadInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getUploadInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Imports an image file from Object Storage Service (OSS) as a custom cloud desktop image and returns the image ID and version ID.
+   * 
+   * @remarks
+   * Currently, only ProductType=CloudDesktop is supported. Upload the image file first, and then pass its OSS object path to initiate the import. You can call GetUploadInfo to obtain upload credentials. After the API returns the image and version IDs, you can call GetImageById or GetImageDistributeInfo to query the creation and distribution status. A successful response indicates that the import request has been accepted, not that the image is already available.
+   * 
+   * @param request - ImportImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ImportImageResponse
+   */
+  async importImageWithOptions(request: $_model.ImportImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ImportImageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizRegionId)) {
+      body["BizRegionId"] = request.bizRegionId;
+    }
+
+    if (!$dara.isNull(request.bizType)) {
+      body["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.bootMode)) {
+      body["BootMode"] = request.bootMode;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.enableSecurityCheck)) {
+      body["EnableSecurityCheck"] = request.enableSecurityCheck;
+    }
+
+    if (!$dara.isNull(request.gpuCategory)) {
+      body["GpuCategory"] = request.gpuCategory;
+    }
+
+    if (!$dara.isNull(request.gpuDriverType)) {
+      body["GpuDriverType"] = request.gpuDriverType;
+    }
+
+    if (!$dara.isNull(request.imageName)) {
+      body["ImageName"] = request.imageName;
+    }
+
+    if (!$dara.isNull(request.licenseType)) {
+      body["LicenseType"] = request.licenseType;
+    }
+
+    if (!$dara.isNull(request.osType)) {
+      body["OsType"] = request.osType;
+    }
+
+    if (!$dara.isNull(request.ossObjectPath)) {
+      body["OssObjectPath"] = request.ossObjectPath;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.protocolType)) {
+      body["ProtocolType"] = request.protocolType;
+    }
+
+    if (!$dara.isNull(request.systemDiskSize)) {
+      body["SystemDiskSize"] = request.systemDiskSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ImportImage",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ImportImageResponse>(await this.callApi(params, req, runtime), new $_model.ImportImageResponse({}));
+  }
+
+  /**
+   * Imports an image file from Object Storage Service (OSS) as a custom cloud desktop image and returns the image ID and version ID.
+   * 
+   * @remarks
+   * Currently, only ProductType=CloudDesktop is supported. Upload the image file first, and then pass its OSS object path to initiate the import. You can call GetUploadInfo to obtain upload credentials. After the API returns the image and version IDs, you can call GetImageById or GetImageDistributeInfo to query the creation and distribution status. A successful response indicates that the import request has been accepted, not that the image is already available.
+   * 
+   * @param request - ImportImageRequest
+   * @returns ImportImageResponse
+   */
+  async importImage(request: $_model.ImportImageRequest): Promise<$_model.ImportImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.importImageWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a deduplicated list of version numbers of undeleted agent instances under a specified tenant, aggregated by agent provider and optionally filtered by agent platform. The results are returned in ascending order of version numbers.
    * 
    * @param request - ListAgentInstanceVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3782,7 +4222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a deduplicated list of version numbers for undeleted agent instances under a specified tenant, aggregated by agent provider and optionally filtered by agent platform. The results are returned in ascending order by version number.
+   * Queries a deduplicated list of version numbers of undeleted agent instances under a specified tenant, aggregated by agent provider and optionally filtered by agent platform. The results are returned in ascending order of version numbers.
    * 
    * @param request - ListAgentInstanceVersionsRequest
    * @returns ListAgentInstanceVersionsResponse
@@ -3897,7 +4337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of multiple delivery groups. This operation queries all delivery groups that meet the specified conditions instead of a specific delivery group.
+   * Queries the details of multiple app instance groups that meet the specified conditions.
    * 
    * @param request - ListAppInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3982,7 +4422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of multiple delivery groups. This operation queries all delivery groups that meet the specified conditions instead of a specific delivery group.
+   * Queries the details of multiple app instance groups that meet the specified conditions.
    * 
    * @param request - ListAppInstanceGroupRequest
    * @returns ListAppInstanceGroupResponse
@@ -4281,26 +4721,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query on the delivery groups for which a specified user has obtained access permissions through delivery group-level authorization, with support for fuzzy filtering by delivery group ID, delivery group name, application ID, and application name.
+   * Queries the delivery groups for which a specified user has obtained access permissions through delivery group-level authorization. Supports paging and fuzzy filtering by delivery group ID, delivery group name, app ID, and app name.
    * 
    * @remarks
    * ## Operation description
-   * This operation queries the list of delivery groups for which a specified user (EndUserId) has been granted **delivery group-level authorization**. It returns the basic information of each delivery group (such as ID, name, status, region, creation time, and expiration time) and the list of applications deployed in the delivery group.
-   * Return scope:
-   * - Only delivery groups that are authorized to the user as a whole through the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation are returned. Records of individual application authorizations granted through the [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation are not included.
-   * - Only delivery groups that match the specified ProductType and are not deleted are returned. If no applications are deployed in the delivery group image, the delivery group is not returned.
+   * This operation queries the list of delivery groups for which a specified user (EndUserId) has been granted **delivery group-level authorization**. It returns the basic information of each delivery group (such as ID, name, status, region, creation time, and expiration time) and the list of apps deployed in the delivery group.
+   * Scope of returned results:
+   * - Only delivery groups that are authorized to the user as a whole through the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation are returned. Records of individual app authorizations granted through the [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation are not included.
+   * - Only delivery groups whose product type matches ProductType and that are not deleted are returned. If no apps are deployed in the delivery group image, the delivery group is not returned.
    * - Results are sorted in descending order based on the update time of the authorization records. The most recently authorized or modified delivery groups are listed first.
    * ## Before you begin
    * - The [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation has been called to authorize the delivery group to the user.
    * ## Metric description
-   * - **ProductType and EndUserId are required**. If ProductType is not specified, the `InvalidParameter.ProductType` error code is returned. If EndUserId is not specified, the `InvalidParameter.UserId` error code is returned.
-   * - EndUserId uses **exact match** based on the username. AppInstanceGroupId, AppInstanceGroupName, AppId, and AppName use **fuzzy match** (a match is hit if the string is contained). If multiple filter conditions are specified, all conditions must be met.
+   * - **ProductType and EndUserId are required**. If ProductType is not specified, the error code `InvalidParameter.ProductType` is returned. If EndUserId is not specified, the error code `InvalidParameter.UserId` is returned.
+   * - EndUserId uses **exact match** based on the username. AppInstanceGroupId, AppInstanceGroupName, AppId, and AppName use **fuzzy match**. A hit occurs if the string is contained. If multiple filter conditions are specified, all conditions must be met.
    * - PageNumber starts from 1. Valid values for PageSize: 1 to 100.
    * - If the user does not have any authorization delivery groups that meet the conditional requirements, the operation returns a normal response: AppInstanceGroupModels is an empty list and TotalCount is 0.
    * ## Call sequence
    * 1. Call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the delivery group ID, and then call the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation to authorize the delivery group to the user.
-   * 2. Call this operation to query the delivery groups authorized for the user and the applications deployed in the delivery groups.
-   * 3. To obtain the application connection ticket for the user, call the [GetConnectionTicket](~~GetConnectionTicket~~) operation by using the returned AppInstanceGroupId and the AppId in Apps.
+   * 2. Call this operation to query the delivery groups authorized to the user and the apps deployed in the delivery groups.
+   * 3. To obtain the app connection ticket for the user, call the [GetConnectionTicket](~~GetConnectionTicket~~) operation based on the returned AppInstanceGroupId and the AppId in Apps.
    * 
    * @param request - ListAuthorizedAppInstanceGroupByUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4363,26 +4803,26 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query on the delivery groups for which a specified user has obtained access permissions through delivery group-level authorization, with support for fuzzy filtering by delivery group ID, delivery group name, application ID, and application name.
+   * Queries the delivery groups for which a specified user has obtained access permissions through delivery group-level authorization. Supports paging and fuzzy filtering by delivery group ID, delivery group name, app ID, and app name.
    * 
    * @remarks
    * ## Operation description
-   * This operation queries the list of delivery groups for which a specified user (EndUserId) has been granted **delivery group-level authorization**. It returns the basic information of each delivery group (such as ID, name, status, region, creation time, and expiration time) and the list of applications deployed in the delivery group.
-   * Return scope:
-   * - Only delivery groups that are authorized to the user as a whole through the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation are returned. Records of individual application authorizations granted through the [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation are not included.
-   * - Only delivery groups that match the specified ProductType and are not deleted are returned. If no applications are deployed in the delivery group image, the delivery group is not returned.
+   * This operation queries the list of delivery groups for which a specified user (EndUserId) has been granted **delivery group-level authorization**. It returns the basic information of each delivery group (such as ID, name, status, region, creation time, and expiration time) and the list of apps deployed in the delivery group.
+   * Scope of returned results:
+   * - Only delivery groups that are authorized to the user as a whole through the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation are returned. Records of individual app authorizations granted through the [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation are not included.
+   * - Only delivery groups whose product type matches ProductType and that are not deleted are returned. If no apps are deployed in the delivery group image, the delivery group is not returned.
    * - Results are sorted in descending order based on the update time of the authorization records. The most recently authorized or modified delivery groups are listed first.
    * ## Before you begin
    * - The [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation has been called to authorize the delivery group to the user.
    * ## Metric description
-   * - **ProductType and EndUserId are required**. If ProductType is not specified, the `InvalidParameter.ProductType` error code is returned. If EndUserId is not specified, the `InvalidParameter.UserId` error code is returned.
-   * - EndUserId uses **exact match** based on the username. AppInstanceGroupId, AppInstanceGroupName, AppId, and AppName use **fuzzy match** (a match is hit if the string is contained). If multiple filter conditions are specified, all conditions must be met.
+   * - **ProductType and EndUserId are required**. If ProductType is not specified, the error code `InvalidParameter.ProductType` is returned. If EndUserId is not specified, the error code `InvalidParameter.UserId` is returned.
+   * - EndUserId uses **exact match** based on the username. AppInstanceGroupId, AppInstanceGroupName, AppId, and AppName use **fuzzy match**. A hit occurs if the string is contained. If multiple filter conditions are specified, all conditions must be met.
    * - PageNumber starts from 1. Valid values for PageSize: 1 to 100.
    * - If the user does not have any authorization delivery groups that meet the conditional requirements, the operation returns a normal response: AppInstanceGroupModels is an empty list and TotalCount is 0.
    * ## Call sequence
    * 1. Call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the delivery group ID, and then call the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) operation to authorize the delivery group to the user.
-   * 2. Call this operation to query the delivery groups authorized for the user and the applications deployed in the delivery groups.
-   * 3. To obtain the application connection ticket for the user, call the [GetConnectionTicket](~~GetConnectionTicket~~) operation by using the returned AppInstanceGroupId and the AppId in Apps.
+   * 2. Call this operation to query the delivery groups authorized to the user and the apps deployed in the delivery groups.
+   * 3. To obtain the app connection ticket for the user, call the [GetConnectionTicket](~~GetConnectionTicket~~) operation based on the returned AppInstanceGroupId and the AppId in Apps.
    * 
    * @param request - ListAuthorizedAppInstanceGroupByUserRequest
    * @returns ListAuthorizedAppInstanceGroupByUserResponse
@@ -4771,7 +5211,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query to retrieve the list of bookmarks in a specified cloud browser group or delivery group set.
+   * Performs a paging query to retrieve the list of bookmarks under a specified cloud browser group or delivery group set.
    * 
    * @param request - ListBrowserBookmarksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4818,7 +5258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query to retrieve the list of bookmarks in a specified cloud browser group or delivery group set.
+   * Performs a paging query to retrieve the list of bookmarks under a specified cloud browser group or delivery group set.
    * 
    * @param request - ListBrowserBookmarksRequest
    * @returns ListBrowserBookmarksResponse
@@ -4948,12 +5388,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of access restriction URLs configured for a specified browser delivery group or delivery group set by using paging.
+   * Performs a paging query on the list of access restriction URLs configured for a specified browser delivery group or delivery group set.
    * 
    * @remarks
-   * You can call this operation to query the list of access restriction URLs configured for a cloud browser delivery group or delivery group set by using paging to view the details of the URLs configured in the current access control policy.
+   * Invoke this operation to perform a paging query on the list of access restriction URLs (Restricted URLs) configured for a cloud browser delivery group or delivery group set to view the details of the URLs configured in the current access control policy.
    * You must specify either BrowserInstanceGroupId or BrowserInstanceGroupSetId, but not both. If you specify BrowserInstanceGroupId, the restricted URLs for the delivery group are queried. If you specify BrowserInstanceGroupSetId, the restricted URLs for the delivery group set are queried. Specifying both or neither returns a parameter error.
-   * You can use Keyword to filter restricted URLs by using a contains match. The match is case-insensitive for English characters. If you do not specify this parameter, all restricted URLs are returned. Pagination is controlled by PageNumber and PageSize. Valid values for PageSize: 1 to 200. Default value: 200. Default value for PageNumber: 0. If the value is less than 1, the first page is returned. In the response, TotalCount indicates the total number of records that meet the filter conditions, and Data contains the records on the current page. If no data is found, an empty array is returned.
+   * You can use Keyword to filter restricted URLs by using a case-insensitive include match. If this parameter is not specified, all restricted URLs are returned. Pagination is controlled by PageNumber and PageSize. Valid values for PageSize: 1 to 200. Default value: 200. Default value for PageNumber: 0. If the value is less than 1, the first page is returned. In the response, TotalCount indicates the total number of records that meet the filter conditions, and Data contains the records on the current page. If no data is found, an empty array is returned.
    * 
    * @param request - ListBrowserRestrictedURLsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5000,12 +5440,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of access restriction URLs configured for a specified browser delivery group or delivery group set by using paging.
+   * Performs a paging query on the list of access restriction URLs configured for a specified browser delivery group or delivery group set.
    * 
    * @remarks
-   * You can call this operation to query the list of access restriction URLs configured for a cloud browser delivery group or delivery group set by using paging to view the details of the URLs configured in the current access control policy.
+   * Invoke this operation to perform a paging query on the list of access restriction URLs (Restricted URLs) configured for a cloud browser delivery group or delivery group set to view the details of the URLs configured in the current access control policy.
    * You must specify either BrowserInstanceGroupId or BrowserInstanceGroupSetId, but not both. If you specify BrowserInstanceGroupId, the restricted URLs for the delivery group are queried. If you specify BrowserInstanceGroupSetId, the restricted URLs for the delivery group set are queried. Specifying both or neither returns a parameter error.
-   * You can use Keyword to filter restricted URLs by using a contains match. The match is case-insensitive for English characters. If you do not specify this parameter, all restricted URLs are returned. Pagination is controlled by PageNumber and PageSize. Valid values for PageSize: 1 to 200. Default value: 200. Default value for PageNumber: 0. If the value is less than 1, the first page is returned. In the response, TotalCount indicates the total number of records that meet the filter conditions, and Data contains the records on the current page. If no data is found, an empty array is returned.
+   * You can use Keyword to filter restricted URLs by using a case-insensitive include match. If this parameter is not specified, all restricted URLs are returned. Pagination is controlled by PageNumber and PageSize. Valid values for PageSize: 1 to 200. Default value: 200. Default value for PageNumber: 0. If the value is less than 1, the first page is returned. In the response, TotalCount indicates the total number of records that meet the filter conditions, and Data contains the records on the current page. If no data is found, an empty array is returned.
    * 
    * @param request - ListBrowserRestrictedURLsRequest
    * @returns ListBrowserRestrictedURLsResponse
@@ -5287,6 +5727,144 @@ export default class Client extends OpenApi {
   async listImage(request: $_model.ListImageRequest): Promise<$_model.ListImageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listImageWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the basic information of images by using paging and a paged query, including the image name, type, status, and version identity.
+   * 
+   * @remarks
+   * Supports filtering by image ID, name, status, type, package type, operating system, business line, product type, and protocol type. Multiple filter conditions take effect simultaneously, and the results are returned in descending order of image creation time. Returns the basic information and version identifiers of images. To obtain specific version and region distribution information, call ListImage.
+   * 
+   * @param request - ListImageBaseInfoRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListImageBaseInfoResponse
+   */
+  async listImageBaseInfoWithOptions(request: $_model.ListImageBaseInfoRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListImageBaseInfoResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bizType)) {
+      body["BizType"] = request.bizType;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.imageName)) {
+      body["ImageName"] = request.imageName;
+    }
+
+    if (!$dara.isNull(request.imageType)) {
+      body["ImageType"] = request.imageType;
+    }
+
+    if (!$dara.isNull(request.osType)) {
+      body["OsType"] = request.osType;
+    }
+
+    if (!$dara.isNull(request.packageType)) {
+      body["PackageType"] = request.packageType;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.protocolType)) {
+      body["ProtocolType"] = request.protocolType;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      body["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListImageBaseInfo",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListImageBaseInfoResponse>(await this.callApi(params, req, runtime), new $_model.ListImageBaseInfoResponse({}));
+  }
+
+  /**
+   * Retrieves the basic information of images by using paging and a paged query, including the image name, type, status, and version identity.
+   * 
+   * @remarks
+   * Supports filtering by image ID, name, status, type, package type, operating system, business line, product type, and protocol type. Multiple filter conditions take effect simultaneously, and the results are returned in descending order of image creation time. Returns the basic information and version identifiers of images. To obtain specific version and region distribution information, call ListImage.
+   * 
+   * @param request - ListImageBaseInfoRequest
+   * @returns ListImageBaseInfoResponse
+   */
+  async listImageBaseInfo(request: $_model.ListImageBaseInfoRequest): Promise<$_model.ListImageBaseInfoResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listImageBaseInfoWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the built-in tags supported by images.
+   * 
+   * @param request - ListImageTagsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListImageTagsResponse
+   */
+  async listImageTagsWithOptions(request: $_model.ListImageTagsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListImageTagsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.category)) {
+      query["Category"] = request.category;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListImageTags",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListImageTagsResponse>(await this.callApi(params, req, runtime), new $_model.ListImageTagsResponse({}));
+  }
+
+  /**
+   * Queries the built-in tags supported by images.
+   * 
+   * @param request - ListImageTagsRequest
+   * @returns ListImageTagsResponse
+   */
+  async listImageTags(request: $_model.ListImageTagsRequest): Promise<$_model.ListImageTagsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listImageTagsWithOptions(request, runtime);
   }
 
   /**
@@ -6024,23 +6602,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the published delivery groups and their application information for a specified product type under the current Alibaba Cloud account by using paging, and supports filtering by delivery group, application, and user authorization status.
+   * Performs a paged query to retrieve the published delivery groups and their application information for a specified product type under the current Alibaba Cloud account. Supports filtering by delivery group, application, and user authorization during paging.
    * 
    * @remarks
    * ## Prerequisites
-   * When you call this operation as a RAM user or by using STS credentials, you must have the `appstreaming:ListPublishedAppInstanceGroup` permission.
+   * When you call this operation as a RAM user or by using STS credentials, you must have the appstreaming:ListPublishedAppInstanceGroup permission.
    * Only delivery groups that are in the published state and have deployed applications in their images are included in the query results. This operation only queries information. It does not create delivery groups, assign users, or grant application access permissions.
    * ## Query and pagination
-   * - **You must explicitly specify `ProductType`, `PageNumber`, and `PageSize`.** The page number starts from `1`, and the number of entries per page ranges from `1` to `100`.
-   * - `AppInstanceGroupId`, `AppInstanceGroupName`, `AppId`, and `AppName` all support partial matching. You can specify them individually or in combination. If multiple conditions are specified, all conditions must be met. If both `AppId` and `AppName` are specified, they must be met by the same application.
-   * - If an optional filter parameter is not specified or is set to an empty string, the results are not filtered by this condition. The query results are sorted in descending order of the delivery group creation time. A delivery group is not returned multiple times even if it contains multiple matched applications.
-   * - `ExcludeUserId` is used to exclude delivery groups for which all applications have been directly authorized to a specified user. It cannot be used to determine whether the user has no access permissions at all.
-   * - `AppId` and `AppName` only filter delivery groups and **do not restrict the returned `Apps` list to the matched applications**.
-   * ## Invocation sequence
-   * 1. Initiate a query with `PageNumber=1` and the desired `PageSize`. For common scenarios of Wuying Cloud App, set `ProductType` to `CloudApp`.
-   * 2. Read `AppInstanceGroupModels`. To retrieve the next page, keep the product type and filter conditions unchanged, and increment `PageNumber`. If no delivery groups match the conditions, the total count is `0` and the list is empty. If the page number exceeds the range of the current results, the list may also be empty, but the total count still represents the total number of all matched delivery groups.
-   * 3. To obtain the details of a single delivery group, pass the complete `AppInstanceGroupId` returned and the same `ProductType` to [GetAppInstanceGroup](~~GetAppInstanceGroup~~).
-   * The masked identity in the examples is used to demonstrate the format. Replace it with your actual identity when you invoke the operation.
+   * - **You must explicitly specify ProductType, PageNumber, and PageSize.** The page number starts from 1, and the number of entries per page ranges from 1 to 100.
+   * - AppInstanceGroupId, AppInstanceGroupName, AppId, and AppName all support fuzzy match. You can specify them individually or in combination. If multiple conditions are specified, all conditions must be met. If both AppId and AppName are specified, the same application must meet both conditions.
+   * - If an optional filter parameter is not specified or is set to an empty string, the results are not filtered by this condition. The query results are sorted in descending order of the delivery group creation time. The same delivery group is not returned multiple times even if it contains multiple matched applications.
+   * - ExcludeUserId is used to exclude delivery groups for which all applications have been directly authorized to a specified user. It cannot be used to determine whether the user has no access permissions at all.
+   * - AppId and AppName only filter delivery groups and **do not limit the returned Apps list to the matched applications**.
+   * ## Call sequence
+   * 1. Initiate a query with PageNumber=1 and the desired PageSize. For WUYING Cloud App scenarios, set ProductType=CloudApp.
+   * 2. Read AppInstanceGroupModels. To retrieve the next page, keep the product type and filter conditions unchanged and increment PageNumber. If no delivery groups match the conditions, the total count is 0 and the list is empty. If the page number exceeds the range of the current results, the list may also be empty, but the total count still represents the total number of all matched delivery groups.
+   * 3. To obtain the details of a single delivery group, pass the complete AppInstanceGroupId returned and the same ProductType to [GetAppInstanceGroup](~~GetAppInstanceGroup~~).
+   * The masked identity in the examples is used to demonstrate the format. Replace it with your actual identity when you call the operation.
    * 
    * @param request - ListPublishedAppInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6103,23 +6681,23 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the published delivery groups and their application information for a specified product type under the current Alibaba Cloud account by using paging, and supports filtering by delivery group, application, and user authorization status.
+   * Performs a paged query to retrieve the published delivery groups and their application information for a specified product type under the current Alibaba Cloud account. Supports filtering by delivery group, application, and user authorization during paging.
    * 
    * @remarks
    * ## Prerequisites
-   * When you call this operation as a RAM user or by using STS credentials, you must have the `appstreaming:ListPublishedAppInstanceGroup` permission.
+   * When you call this operation as a RAM user or by using STS credentials, you must have the appstreaming:ListPublishedAppInstanceGroup permission.
    * Only delivery groups that are in the published state and have deployed applications in their images are included in the query results. This operation only queries information. It does not create delivery groups, assign users, or grant application access permissions.
    * ## Query and pagination
-   * - **You must explicitly specify `ProductType`, `PageNumber`, and `PageSize`.** The page number starts from `1`, and the number of entries per page ranges from `1` to `100`.
-   * - `AppInstanceGroupId`, `AppInstanceGroupName`, `AppId`, and `AppName` all support partial matching. You can specify them individually or in combination. If multiple conditions are specified, all conditions must be met. If both `AppId` and `AppName` are specified, they must be met by the same application.
-   * - If an optional filter parameter is not specified or is set to an empty string, the results are not filtered by this condition. The query results are sorted in descending order of the delivery group creation time. A delivery group is not returned multiple times even if it contains multiple matched applications.
-   * - `ExcludeUserId` is used to exclude delivery groups for which all applications have been directly authorized to a specified user. It cannot be used to determine whether the user has no access permissions at all.
-   * - `AppId` and `AppName` only filter delivery groups and **do not restrict the returned `Apps` list to the matched applications**.
-   * ## Invocation sequence
-   * 1. Initiate a query with `PageNumber=1` and the desired `PageSize`. For common scenarios of Wuying Cloud App, set `ProductType` to `CloudApp`.
-   * 2. Read `AppInstanceGroupModels`. To retrieve the next page, keep the product type and filter conditions unchanged, and increment `PageNumber`. If no delivery groups match the conditions, the total count is `0` and the list is empty. If the page number exceeds the range of the current results, the list may also be empty, but the total count still represents the total number of all matched delivery groups.
-   * 3. To obtain the details of a single delivery group, pass the complete `AppInstanceGroupId` returned and the same `ProductType` to [GetAppInstanceGroup](~~GetAppInstanceGroup~~).
-   * The masked identity in the examples is used to demonstrate the format. Replace it with your actual identity when you invoke the operation.
+   * - **You must explicitly specify ProductType, PageNumber, and PageSize.** The page number starts from 1, and the number of entries per page ranges from 1 to 100.
+   * - AppInstanceGroupId, AppInstanceGroupName, AppId, and AppName all support fuzzy match. You can specify them individually or in combination. If multiple conditions are specified, all conditions must be met. If both AppId and AppName are specified, the same application must meet both conditions.
+   * - If an optional filter parameter is not specified or is set to an empty string, the results are not filtered by this condition. The query results are sorted in descending order of the delivery group creation time. The same delivery group is not returned multiple times even if it contains multiple matched applications.
+   * - ExcludeUserId is used to exclude delivery groups for which all applications have been directly authorized to a specified user. It cannot be used to determine whether the user has no access permissions at all.
+   * - AppId and AppName only filter delivery groups and **do not limit the returned Apps list to the matched applications**.
+   * ## Call sequence
+   * 1. Initiate a query with PageNumber=1 and the desired PageSize. For WUYING Cloud App scenarios, set ProductType=CloudApp.
+   * 2. Read AppInstanceGroupModels. To retrieve the next page, keep the product type and filter conditions unchanged and increment PageNumber. If no delivery groups match the conditions, the total count is 0 and the list is empty. If the page number exceeds the range of the current results, the list may also be empty, but the total count still represents the total number of all matched delivery groups.
+   * 3. To obtain the details of a single delivery group, pass the complete AppInstanceGroupId returned and the same ProductType to [GetAppInstanceGroup](~~GetAppInstanceGroup~~).
+   * The masked identity in the examples is used to demonstrate the format. Replace it with your actual identity when you call the operation.
    * 
    * @param request - ListPublishedAppInstanceGroupRequest
    * @returns ListPublishedAppInstanceGroupResponse
@@ -6333,6 +6911,56 @@ export default class Client extends OpenApi {
   async listRegions(request: $_model.ListRegionsRequest): Promise<$_model.ListRegionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listRegionsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the number of associated templates, cloud desktops, and cloud desktop pools.
+   * 
+   * @param request - ListRelatedResourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRelatedResourceResponse
+   */
+  async listRelatedResourceWithOptions(request: $_model.ListRelatedResourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListRelatedResourceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRelatedResource",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRelatedResourceResponse>(await this.callApi(params, req, runtime), new $_model.ListRelatedResourceResponse({}));
+  }
+
+  /**
+   * Queries the number of associated templates, cloud desktops, and cloud desktop pools.
+   * 
+   * @param request - ListRelatedResourceRequest
+   * @returns ListRelatedResourceResponse
+   */
+  async listRelatedResource(request: $_model.ListRelatedResourceRequest): Promise<$_model.ListRelatedResourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listRelatedResourceWithOptions(request, runtime);
   }
 
   /**
@@ -6582,10 +7210,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of workstations.
+   * Queries the list of workstations.
    * 
    * @remarks
-   * Retrieves a list of WUYING workstations.
+   * Retrieves the list of WUYING workstations.
    * 
    * @param request - ListWuyingServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6701,10 +7329,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of workstations.
+   * Queries the list of workstations.
    * 
    * @remarks
-   * Retrieves a list of WUYING workstations.
+   * Retrieves the list of WUYING workstations.
    * 
    * @param request - ListWuyingServerRequest
    * @returns ListWuyingServerResponse
@@ -6849,10 +7477,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Logs off all sessions in a pay-as-you-go delivery group that has scheduled auto scaling enabled.
+   * Unregisters all sessions in a pay-as-you-go delivery group that has a scheduled auto scaling policy enabled.
    * 
    * @remarks
-   * > This operation applies only to pay-as-you-go resource delivery groups that have scheduled auto scaling enabled. The operation can be called only outside the scaling time periods specified in the scheduled auto scaling policy.
+   * > This operation is applicable only to pay-as-you-go resource delivery groups that have a scheduled auto scaling policy enabled. It can be called successfully only outside the scaling time windows specified in the scheduled auto scaling policy.
    * 
    * @param request - LogOffAllSessionsInAppInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6887,10 +7515,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Logs off all sessions in a pay-as-you-go delivery group that has scheduled auto scaling enabled.
+   * Unregisters all sessions in a pay-as-you-go delivery group that has a scheduled auto scaling policy enabled.
    * 
    * @remarks
-   * > This operation applies only to pay-as-you-go resource delivery groups that have scheduled auto scaling enabled. The operation can be called only outside the scaling time periods specified in the scheduled auto scaling policy.
+   * > This operation is applicable only to pay-as-you-go resource delivery groups that have a scheduled auto scaling policy enabled. It can be called successfully only outside the scaling time windows specified in the scheduled auto scaling policy.
    * 
    * @param request - LogOffAllSessionsInAppInstanceGroupRequest
    * @returns LogOffAllSessionsInAppInstanceGroupResponse
@@ -8073,8 +8701,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Call this operation to query the session count trend data for the current Alibaba Cloud account on a specified date. The data is an offline statistical result, organized by day, and returns the session counts at various time points on that date.
-   * The returned results are aggregated in 10-minute intervals. Each data point is identified by an hour (Hh, values 00 to 23) and a minute (Mi, values 00, 10, 20, 30, 40, 50) representing a specific time point. SessionCntMi is the total number of sessions within the 10-minute interval of that time point. The results are sorted in ascending order by hour and minute.
-   * You can specify a business region by using BizRegionId and filter by delivery group by using AppInstanceGroupId. If neither is provided, the summary of session data for all regions and all delivery groups under the current account is returned. The actual region used to filter session data is subject to BizRegionId.
+   * The returned results are aggregated in 10-minute intervals: each data point is identified by an hour (Hh, values 00-23) and a minute (Mi, values 00, 10, 20, 30, 40, 50) representing a time point, and SessionCntMi is the total number of sessions within the 10-minute interval of that time point. The results are sorted in ascending order by hour and minute.
+   * You can specify a business region by using BizRegionId and filter session data by delivery group by using AppInstanceGroupId. If neither is provided, the summary of session data for all regions and all delivery groups under the current account is returned. The region actually used to filter session data is subject to BizRegionId.
    * StatDate is the statistical date in the yyyyMMdd format. If not provided, the data for yesterday is queried by default. Only dates within the last 90 days are supported. If there is no session data on the specified date, an empty list is returned, and the return code is NO_DATA.
    * 
    * @param request - QuerySessionDataRequest
@@ -8122,8 +8750,8 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * Call this operation to query the session count trend data for the current Alibaba Cloud account on a specified date. The data is an offline statistical result, organized by day, and returns the session counts at various time points on that date.
-   * The returned results are aggregated in 10-minute intervals. Each data point is identified by an hour (Hh, values 00 to 23) and a minute (Mi, values 00, 10, 20, 30, 40, 50) representing a specific time point. SessionCntMi is the total number of sessions within the 10-minute interval of that time point. The results are sorted in ascending order by hour and minute.
-   * You can specify a business region by using BizRegionId and filter by delivery group by using AppInstanceGroupId. If neither is provided, the summary of session data for all regions and all delivery groups under the current account is returned. The actual region used to filter session data is subject to BizRegionId.
+   * The returned results are aggregated in 10-minute intervals: each data point is identified by an hour (Hh, values 00-23) and a minute (Mi, values 00, 10, 20, 30, 40, 50) representing a time point, and SessionCntMi is the total number of sessions within the 10-minute interval of that time point. The results are sorted in ascending order by hour and minute.
+   * You can specify a business region by using BizRegionId and filter session data by delivery group by using AppInstanceGroupId. If neither is provided, the summary of session data for all regions and all delivery groups under the current account is returned. The region actually used to filter session data is subject to BizRegionId.
    * StatDate is the statistical date in the yyyyMMdd format. If not provided, the data for yesterday is queried by default. Only dates within the last 90 days are supported. If there is no session data on the specified date, an empty list is returned, and the return code is NO_DATA.
    * 
    * @param request - QuerySessionDataRequest
@@ -8485,11 +9113,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a third-party channel configuration from the Agent runtime.
+   * Removes the third-party channel configuration for an agent runtime.
    * 
    * @remarks
-   * You can call this operation to remove a specific third-party channel configuration from Agents such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. After the removal, the Agent cannot use the third-party channel for conversations.
-   * Before calling this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
+   * You can call this operation to remove the specific third-party channel configuration for agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. After the configuration is removed, the agent cannot use the third-party channel for conversations.
+   * Make sure that you are fully familiar with the operations and usage of the WUYING Agent Management Center before you call this operation.
+   * Before you begin:
+   * - The RuntimeIds passed to this operation must be agent runtimes managed by the WUYING Agent Management Center. The cloud desktops that host these runtimes must be created by using API operations such as CreateDesktop of the Elastic Desktop Service (EDS) product. Example of a cross-product call chain: CreateDesktop → ListDesktops → Use the DesktopId as RuntimeIds.
+   * - OpenClaw scenario: RuntimeIds are cloud desktop IDs in the format of ecd-xxxx, which are the DesktopId values returned by the ListDesktops operation of the EDS product.
+   * - JVS Computer and Hermes Agent scenarios: RuntimeIds are the corresponding JVS IDs in the format of jvs-xxxx. The cloud desktops that host these runtimes are also created by using API operations such as CreateDesktop of the EDS product.
+   * - You can call the ListDesktopAgentRuntime operation of this product to query the agent runtimes managed by the WUYING Agent Management Center. If the query result is empty, it indicates that the corresponding cloud desktop is not managed. In this case, you must first call the CreateDesktop operation of the EDS product to create the cloud desktop. The WUYING Agent Management Center automatically manages the cloud desktop after it receives a desktop lifecycle event. After that, you can call this operation.
    * 
    * @param request - RemoveRuntimeChannelRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8536,11 +9169,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a third-party channel configuration from the Agent runtime.
+   * Removes the third-party channel configuration for an agent runtime.
    * 
    * @remarks
-   * You can call this operation to remove a specific third-party channel configuration from Agents such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. After the removal, the Agent cannot use the third-party channel for conversations.
-   * Before calling this operation, make sure that you are familiar with the operations and usage of the Wuying Agent Management Center.
+   * You can call this operation to remove the specific third-party channel configuration for agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. After the configuration is removed, the agent cannot use the third-party channel for conversations.
+   * Make sure that you are fully familiar with the operations and usage of the WUYING Agent Management Center before you call this operation.
+   * Before you begin:
+   * - The RuntimeIds passed to this operation must be agent runtimes managed by the WUYING Agent Management Center. The cloud desktops that host these runtimes must be created by using API operations such as CreateDesktop of the Elastic Desktop Service (EDS) product. Example of a cross-product call chain: CreateDesktop → ListDesktops → Use the DesktopId as RuntimeIds.
+   * - OpenClaw scenario: RuntimeIds are cloud desktop IDs in the format of ecd-xxxx, which are the DesktopId values returned by the ListDesktops operation of the EDS product.
+   * - JVS Computer and Hermes Agent scenarios: RuntimeIds are the corresponding JVS IDs in the format of jvs-xxxx. The cloud desktops that host these runtimes are also created by using API operations such as CreateDesktop of the EDS product.
+   * - You can call the ListDesktopAgentRuntime operation of this product to query the agent runtimes managed by the WUYING Agent Management Center. If the query result is empty, it indicates that the corresponding cloud desktop is not managed. In this case, you must first call the CreateDesktop operation of the EDS product to create the cloud desktop. The WUYING Agent Management Center automatically manages the cloud desktop after it receives a desktop lifecycle event. After that, you can call this operation.
    * 
    * @param request - RemoveRuntimeChannelRequest
    * @returns RemoveRuntimeChannelResponse
@@ -8551,11 +9189,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a model group from an Agent runtime resource.
+   * Removes the model group from an agent runtime resource.
    * 
    * @remarks
-   * You can remove model groups from Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. When an Agent runtime resource needs to switch to a different model group, call this operation first to remove the authorization relationship between the Agent runtime resource and the existing model group.
-   * Make sure that you are familiar with the operations and usage of the WUYING Agent Management Center before calling this operation.
+   * You can remove the model group from agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. When an agent runtime resource needs to change its model group, you must first call this operation to remove the authorization relationship between the agent runtime resource and the original model group.
+   * Make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center before you use this operation.
    * 
    * @param request - RemoveRuntimeModelTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8594,11 +9232,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes a model group from an Agent runtime resource.
+   * Removes the model group from an agent runtime resource.
    * 
    * @remarks
-   * You can remove model groups from Agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. When an Agent runtime resource needs to switch to a different model group, call this operation first to remove the authorization relationship between the Agent runtime resource and the existing model group.
-   * Make sure that you are familiar with the operations and usage of the WUYING Agent Management Center before calling this operation.
+   * You can remove the model group from agent runtime resources such as JVS Computer, OpenClaw, and Hermes Agent in the Wuying Agent Management Center. When an agent runtime resource needs to change its model group, you must first call this operation to remove the authorization relationship between the agent runtime resource and the original model group.
+   * Make sure that you are fully familiar with the operations and usage of the Wuying Agent Management Center before you use this operation.
    * 
    * @param request - RemoveRuntimeModelTemplateRequest
    * @returns RemoveRuntimeModelTemplateResponse
@@ -8808,6 +9446,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Starts an image creation task for an existing image version, or resumes an existing creation task.
+   * 
+   * @param request - StartTaskForCreateImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StartTaskForCreateImageResponse
+   */
+  async startTaskForCreateImageWithOptions(request: $_model.StartTaskForCreateImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StartTaskForCreateImageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.imageCreateMode)) {
+      body["ImageCreateMode"] = request.imageCreateMode;
+    }
+
+    if (!$dara.isNull(request.imageId)) {
+      body["ImageId"] = request.imageId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.jumpStep)) {
+      body["JumpStep"] = request.jumpStep;
+    }
+
+    if (!$dara.isNull(request.performanceType)) {
+      body["PerformanceType"] = request.performanceType;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.resourceList)) {
+      body["ResourceList"] = request.resourceList;
+    }
+
+    if (!$dara.isNull(request.retryType)) {
+      body["RetryType"] = request.retryType;
+    }
+
+    if (!$dara.isNull(request.runMode)) {
+      body["RunMode"] = request.runMode;
+    }
+
+    if (!$dara.isNull(request.sourceRegion)) {
+      body["SourceRegion"] = request.sourceRegion;
+    }
+
+    if (!$dara.isNull(request.subInstanceId)) {
+      body["SubInstanceId"] = request.subInstanceId;
+    }
+
+    if (!$dara.isNull(request.systemDiskSize)) {
+      body["SystemDiskSize"] = request.systemDiskSize;
+    }
+
+    if (!$dara.isNull(request.versionId)) {
+      body["VersionId"] = request.versionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StartTaskForCreateImage",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StartTaskForCreateImageResponse>(await this.callApi(params, req, runtime), new $_model.StartTaskForCreateImageResponse({}));
+  }
+
+  /**
+   * Starts an image creation task for an existing image version, or resumes an existing creation task.
+   * 
+   * @param request - StartTaskForCreateImageRequest
+   * @returns StartTaskForCreateImageResponse
+   */
+  async startTaskForCreateImage(request: $_model.StartTaskForCreateImageRequest): Promise<$_model.StartTaskForCreateImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.startTaskForCreateImageWithOptions(request, runtime);
+  }
+
+  /**
    * Initiates a task to copy an image to other regions.
    * 
    * @param request - StartTaskForDistributeImageRequest
@@ -8973,6 +9701,52 @@ export default class Client extends OpenApi {
   async stopWuyingServer(request: $_model.StopWuyingServerRequest): Promise<$_model.StopWuyingServerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopWuyingServerWithOptions(request, runtime);
+  }
+
+  /**
+   * Confirms the completion of image creation.
+   * 
+   * @param request - SubmitImageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitImageResponse
+   */
+  async submitImageWithOptions(request: $_model.SubmitImageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitImageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.destinationRegionList)) {
+      body["DestinationRegionList"] = request.destinationRegionList;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitImage",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitImageResponse>(await this.callApi(params, req, runtime), new $_model.SubmitImageResponse({}));
+  }
+
+  /**
+   * Confirms the completion of image creation.
+   * 
+   * @param request - SubmitImageRequest
+   * @returns SubmitImageResponse
+   */
+  async submitImage(request: $_model.SubmitImageRequest): Promise<$_model.SubmitImageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitImageWithOptions(request, runtime);
   }
 
   /**

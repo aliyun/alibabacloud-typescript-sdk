@@ -247,6 +247,9 @@ export class ListLlmTemplatesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The model information, such as the context window size and the maximum number of input/output tokens.
+   * 
+   * @example
+   * {"contextWindow":1000000,"maxInputTokens":1048576,"maxOutputTokens":1048576,"maxReasoningTokens":1048576,"reasoningMaxInputTokens":1048576,"reasoningMaxOutputTokens":1048576}
    */
   modelInfo?: { [key: string]: any };
   /**

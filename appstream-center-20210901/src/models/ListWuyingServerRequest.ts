@@ -29,7 +29,7 @@ export class ListWuyingServerRequest extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * The billing type.
+   * The billing method.
    * 
    * @example
    * PrePaid
@@ -37,7 +37,7 @@ export class ListWuyingServerRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The end time of the creation time range, in ISO 8601 format. This time point is exclusive.
+   * The end time of the creation time range. The time is in ISO 8601 format and exclusive.
    * 
    * @example
    * 2026-08-01T00:00:00Z
@@ -45,7 +45,7 @@ export class ListWuyingServerRequest extends $dara.Model {
   createTimeEnd?: string;
   /**
    * @remarks
-   * The start time of the creation time range, in ISO 8601 format. This time point is inclusive.
+   * The start time of the creation time range. The time is in ISO 8601 format and inclusive.
    * 
    * @example
    * 2026-07-01T00:00:00Z
@@ -53,7 +53,7 @@ export class ListWuyingServerRequest extends $dara.Model {
   createTimeStart?: string;
   /**
    * @remarks
-   * The end time of the expiration time range, in ISO 8601 format. This time point is exclusive.
+   * The end time of the expiration time range. The time is in ISO 8601 format and exclusive.
    * 
    * @example
    * 2026-08-01T00:00:00Z
@@ -61,7 +61,7 @@ export class ListWuyingServerRequest extends $dara.Model {
   expiredTimeEnd?: string;
   /**
    * @remarks
-   * The start time of the expiration time range, in ISO 8601 format. This time point is inclusive.
+   * The start time of the expiration time range. The time is in ISO 8601 format and inclusive.
    * 
    * @example
    * 2026-07-01T00:00:00Z
@@ -101,7 +101,7 @@ export class ListWuyingServerRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 100
@@ -117,7 +117,7 @@ export class ListWuyingServerRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The workstation instance type.
+   * The workstation specifications.
    * 
    * @example
    * eds.proworkstation_flagship_elite.32c64g.48g1x

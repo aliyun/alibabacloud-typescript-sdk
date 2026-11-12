@@ -55,12 +55,12 @@ export class ValidateLlmTemplateConfigResponseBodyDataValidationErrors extends $
 export class ValidateLlmTemplateConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the configuration is valid. The value is true if all validation items pass.
+   * Indicates whether the configuration is valid. The value is true if all validation checks pass.
    */
   valid?: boolean;
   /**
    * @remarks
-   * The list of validation errors. This list is empty if Valid is true.
+   * The list of validation errors. This list is empty when Valid is true.
    */
   validationErrors?: ValidateLlmTemplateConfigResponseBodyDataValidationErrors[];
   static names(): { [key: string]: string } {
@@ -92,7 +92,7 @@ export class ValidateLlmTemplateConfigResponseBodyData extends $dara.Model {
 export class ValidateLlmTemplateConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The validation result of the LLM template configuration, which includes whether the configuration is valid and a list of validation errors.
+   * The validation result of the LLM template configuration, including whether the configuration is valid and the list of validation errors.
    */
   data?: ValidateLlmTemplateConfigResponseBodyData;
   /**

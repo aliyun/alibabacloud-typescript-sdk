@@ -21,7 +21,7 @@ export class QuerySessionDataRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * The region ID, which is a common request parameter for the gateway. The actual region used to filter session data in this operation is specified by BizRegionId.
+   * The region ID, which is a common request parameter for the gateway. The region actually used to filter session data in this operation is specified by BizRegionId.
    * 
    * @example
    * cn-hangzhou

@@ -15,7 +15,14 @@ export class GetMqttTicketShrinkRequest extends $dara.Model {
   clientOS?: string;
   /**
    * @remarks
-   * The client type. Valid values: 0: hardware terminal; 1: Windows software terminal; 2: macOS software terminal; 3: iOS client; 4: Android client; 5: web client; 6: tenant console.
+   * The client type. Valid values:
+   * - 0: hardware terminal
+   * - 1: Windows software terminal
+   * - 2: macOS software terminal
+   * - 3: iOS client
+   * - 4: Android client
+   * - 5: web client
+   * - 6: tenant console
    * 
    * This parameter is required.
    * 
@@ -35,7 +42,7 @@ export class GetMqttTicketShrinkRequest extends $dara.Model {
   clientVersion?: string;
   /**
    * @remarks
-   * The extended properties of the client, represented as a JSON object where both keys and values are strings. Example: `{"a":"1","b":"2"}`. If this parameter is not specified, it is processed as an empty property set.
+   * The extended properties of the client, represented as a JSON object where both keys and values are strings. Example: `{"a":"1","b":"2"}`. If this parameter is not specified, an empty property set is used.
    * 
    * @example
    * {"a":"1","b":"2"}
@@ -43,7 +50,7 @@ export class GetMqttTicketShrinkRequest extends $dara.Model {
   propertiesShrink?: string;
   /**
    * @remarks
-   * The device UUID.
+   * The UUID of the device.
    * 
    * This parameter is required.
    * 

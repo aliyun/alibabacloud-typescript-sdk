@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentInstanceVersionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of agent instance version numbers, deduplicated and sorted in ascending order by version number.
+   * The list of agent instance version numbers, which are deduplicated and sorted in ascending order.
    */
   data?: string[];
   /**
