@@ -1,3 +1,13 @@
+export { GetAiReportResponseBodyDataReport } from './GetAiReportResponseBody';
+export { GetAiReportResponseBodyData } from './GetAiReportResponseBody';
+export { ListProductReportsResponseBodyDataReports } from './ListProductReportsResponseBody';
+export { ListProductReportsResponseBodyData } from './ListProductReportsResponseBody';
+export { GetAiReportRequest } from './GetAiReportRequest';
+export { GetAiReportResponseBody } from './GetAiReportResponseBody';
+export { GetAiReportResponse } from './GetAiReportResponse';
 export { InvokeDataProductRequest } from './InvokeDataProductRequest';
 export { InvokeDataProductResponseBody } from './InvokeDataProductResponseBody';
 export { InvokeDataProductResponse } from './InvokeDataProductResponse';
+export { ListProductReportsRequest } from './ListProductReportsRequest';
+export { ListProductReportsResponseBody } from './ListProductReportsResponseBody';
+export { ListProductReportsResponse } from './ListProductReportsResponse';
