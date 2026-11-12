@@ -2,6 +2,46 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListAgentSpacesRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * env
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAgentSpacesRequest extends $dara.Model {
   /**
    * @remarks
@@ -35,12 +75,21 @@ export class ListAgentSpacesRequest extends $dara.Model {
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * Filters only active AgentSpaces in the current region. Multiple conditions use the AND operator, and keys must be unique. Omitting the value matches the existence of the key, and an empty character string is an exact match for an empty value. An empty array is equivalent to not using label filtering and retains the original cross-region resources.
+   * 
+   * @example
+   * [{\\"key\\": \\"env\\", \\"value\\": \\"test\\"}]
+   */
+  tag?: ListAgentSpacesRequestTag[];
   static names(): { [key: string]: string } {
     return {
       agentSpace: 'agentSpace',
       maxResults: 'maxResults',
       nextToken: 'nextToken',
       regionId: 'regionId',
+      tag: 'tag',
     };
   }
 
@@ -50,10 +99,14 @@ export class ListAgentSpacesRequest extends $dara.Model {
       maxResults: 'number',
       nextToken: 'string',
       regionId: 'string',
+      tag: { 'type': 'array', 'itemType': ListAgentSpacesRequestTag },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tag)) {
+      $dara.Model.validateArray(this.tag);
+    }
     super.validate();
   }
 

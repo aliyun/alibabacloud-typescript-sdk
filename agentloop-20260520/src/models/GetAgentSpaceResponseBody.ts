@@ -52,6 +52,40 @@ export class GetAgentSpaceResponseBodyMseNamespace extends $dara.Model {
   }
 }
 
+export class GetAgentSpaceResponseBodyTags extends $dara.Model {
+  /**
+   * @example
+   * env
+   */
+  key?: string;
+  /**
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAgentSpaceResponseBody extends $dara.Model {
   /**
    * @remarks
@@ -125,6 +159,11 @@ export class GetAgentSpaceResponseBody extends $dara.Model {
    */
   slsProject?: string;
   /**
+   * @example
+   * [{\\"key\\": \\"env\\", \\"value\\": \\"test\\"}]
+   */
+  tags?: GetAgentSpaceResponseBodyTags[];
+  /**
    * @remarks
    * The update time.
    * 
@@ -145,6 +184,7 @@ export class GetAgentSpaceResponseBody extends $dara.Model {
       regionId: 'regionId',
       requestId: 'requestId',
       slsProject: 'slsProject',
+      tags: 'tags',
       updateTime: 'updateTime',
     };
   }
@@ -160,6 +200,7 @@ export class GetAgentSpaceResponseBody extends $dara.Model {
       regionId: 'string',
       requestId: 'string',
       slsProject: 'string',
+      tags: { 'type': 'array', 'itemType': GetAgentSpaceResponseBodyTags },
       updateTime: 'string',
     };
   }
@@ -167,6 +208,9 @@ export class GetAgentSpaceResponseBody extends $dara.Model {
   validate() {
     if(this.mseNamespace && typeof (this.mseNamespace as any).validate === 'function') {
       (this.mseNamespace as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }

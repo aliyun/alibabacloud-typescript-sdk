@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentSpacesResponseBodyAgentSpacesMseNamespace extends $dara.Model {
   /**
    * @remarks
-   * The attach method of the MSE namespace. AutoCreated indicates automatic creation by AgentLoop. UserSelected indicates that an existing namespace is selected and attached when the AgentSpace is created.
+   * The method used to attach the MSE namespace. AutoCreated indicates automatic creation by AgentLoop. UserSelected indicates that an existing namespace is selected and attached when the AgentSpace is created.
    * 
    * @example
    * AutoCreated
@@ -40,6 +40,46 @@ export class ListAgentSpacesResponseBodyAgentSpacesMseNamespace extends $dara.Mo
       bindType: 'string',
       namespaceId: 'string',
       namespaceName: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class ListAgentSpacesResponseBodyAgentSpacesTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * env
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value, which can be an empty string.
+   * 
+   * @example
+   * test
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
     };
   }
 
@@ -110,6 +150,14 @@ export class ListAgentSpacesResponseBodyAgentSpaces extends $dara.Model {
   slsProject?: string;
   /**
    * @remarks
+   * Returns only the tags of AgentSpaces that are active in the current region and match the local instance. An empty array is returned when it is confirmed that there are no tags. This field is omitted for entries in other regions, inactive entries, or entries that do not match the local instance. Omission of this field does not indicate the absence of tags.
+   * 
+   * @example
+   * [{\\"key\\": \\"env\\", \\"value\\": \\"test\\"}]
+   */
+  tags?: ListAgentSpacesResponseBodyAgentSpacesTags[];
+  /**
+   * @remarks
    * The update time.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
@@ -127,6 +175,7 @@ export class ListAgentSpacesResponseBodyAgentSpaces extends $dara.Model {
       mseNamespace: 'mseNamespace',
       regionId: 'regionId',
       slsProject: 'slsProject',
+      tags: 'tags',
       updateTime: 'updateTime',
     };
   }
@@ -140,6 +189,7 @@ export class ListAgentSpacesResponseBodyAgentSpaces extends $dara.Model {
       mseNamespace: ListAgentSpacesResponseBodyAgentSpacesMseNamespace,
       regionId: 'string',
       slsProject: 'string',
+      tags: { 'type': 'array', 'itemType': ListAgentSpacesResponseBodyAgentSpacesTags },
       updateTime: 'string',
     };
   }
@@ -147,6 +197,9 @@ export class ListAgentSpacesResponseBodyAgentSpaces extends $dara.Model {
   validate() {
     if(this.mseNamespace && typeof (this.mseNamespace as any).validate === 'function') {
       (this.mseNamespace as any).validate();
+    }
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
     }
     super.validate();
   }
@@ -172,7 +225,7 @@ export class ListAgentSpacesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. This parameter is empty if no next page is available.
+   * The pagination token. This parameter is empty if there are no more pages.
    * 
    * @example
    * b5754ef15c784abc8696d82790d2985c
@@ -188,7 +241,7 @@ export class ListAgentSpacesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count.
+   * The total number of entries.
    * 
    * @example
    * 13

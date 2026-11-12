@@ -368,6 +368,61 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a named historical version for a dataset in a specified agent workspace to preserve the historical state of the dataset. You can call ListDatasetVersions to query version information. If a version is no longer needed, you can call DeleteDatasetVersion to delete the version.
+   * 
+   * @param request - CreateDatasetVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateDatasetVersionResponse
+   */
+  async createDatasetVersionWithOptions(agentSpace: string, datasetName: string, request: $_model.CreateDatasetVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateDatasetVersionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.version)) {
+      body["version"] = request.version;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateDatasetVersion",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/agentspace/${$dara.URL.percentEncode(agentSpace)}/dataset/${$dara.URL.percentEncode(datasetName)}/version`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateDatasetVersionResponse>(await this.callApi(params, req, runtime), new $_model.CreateDatasetVersionResponse({}));
+  }
+
+  /**
+   * Creates a named historical version for a dataset in a specified agent workspace to preserve the historical state of the dataset. You can call ListDatasetVersions to query version information. If a version is no longer needed, you can call DeleteDatasetVersion to delete the version.
+   * 
+   * @param request - CreateDatasetVersionRequest
+   * @returns CreateDatasetVersionResponse
+   */
+  async createDatasetVersion(agentSpace: string, datasetName: string, request: $_model.CreateDatasetVersionRequest): Promise<$_model.CreateDatasetVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createDatasetVersionWithOptions(agentSpace, datasetName, request, headers, runtime);
+  }
+
+  /**
    * Creates an evaluation task.
    * 
    * @remarks
@@ -1159,6 +1214,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteDatasetWithOptions(agentSpace, datasetName, request, headers, runtime);
+  }
+
+  /**
+   * Deletes a historical version of a dataset in a specified agent workspace. After deletion, the version no longer appears in the list returned by ListDatasetVersions. This operation does not delete the dataset itself, the current data, or other historical versions.
+   * 
+   * @param request - DeleteDatasetVersionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteDatasetVersionResponse
+   */
+  async deleteDatasetVersionWithOptions(agentSpace: string, datasetName: string, version: string, request: $_model.DeleteDatasetVersionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteDatasetVersionResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteDatasetVersion",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/agentspace/${$dara.URL.percentEncode(agentSpace)}/dataset/${$dara.URL.percentEncode(datasetName)}/version/${$dara.URL.percentEncode(version)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteDatasetVersionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteDatasetVersionResponse({}));
+  }
+
+  /**
+   * Deletes a historical version of a dataset in a specified agent workspace. After deletion, the version no longer appears in the list returned by ListDatasetVersions. This operation does not delete the dataset itself, the current data, or other historical versions.
+   * 
+   * @param request - DeleteDatasetVersionRequest
+   * @returns DeleteDatasetVersionResponse
+   */
+  async deleteDatasetVersion(agentSpace: string, datasetName: string, version: string, request: $_model.DeleteDatasetVersionRequest): Promise<$_model.DeleteDatasetVersionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteDatasetVersionWithOptions(agentSpace, datasetName, version, request, headers, runtime);
   }
 
   /**
@@ -2280,13 +2374,19 @@ export default class Client extends OpenApi {
    * @remarks
    * Supports filtering by region.
    * 
-   * @param request - ListAgentSpacesRequest
+   * @param tmpReq - ListAgentSpacesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListAgentSpacesResponse
    */
-  async listAgentSpacesWithOptions(request: $_model.ListAgentSpacesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgentSpacesResponse> {
-    request.validate();
+  async listAgentSpacesWithOptions(tmpReq: $_model.ListAgentSpacesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAgentSpacesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListAgentSpacesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.tag)) {
+      request.tagShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tag, "tag", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.agentSpace)) {
       query["agentSpace"] = request.agentSpace;
@@ -2302,6 +2402,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.regionId)) {
       query["regionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.tagShrink)) {
+      query["tag"] = request.tagShrink;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -2445,6 +2549,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listContextStoresWithOptions(agentSpace, request, headers, runtime);
+  }
+
+  /**
+   * Performs a paged query to retrieve the historical versions of a dataset in a specified agent workspace and returns the version names, descriptions, and creation time. Deleted versions are not included in the list. Do not specify nextToken in the first request. For subsequent requests, use the nextToken value from the previous response for paging to retrieve the next page.
+   * 
+   * @param request - ListDatasetVersionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListDatasetVersionsResponse
+   */
+  async listDatasetVersionsWithOptions(agentSpace: string, datasetName: string, request: $_model.ListDatasetVersionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListDatasetVersionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListDatasetVersions",
+      version: "2026-05-20",
+      protocol: "HTTPS",
+      pathname: `/agentspace/${$dara.URL.percentEncode(agentSpace)}/dataset/${$dara.URL.percentEncode(datasetName)}/version`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListDatasetVersionsResponse>(await this.callApi(params, req, runtime), new $_model.ListDatasetVersionsResponse({}));
+  }
+
+  /**
+   * Performs a paged query to retrieve the historical versions of a dataset in a specified agent workspace and returns the version names, descriptions, and creation time. Deleted versions are not included in the list. Do not specify nextToken in the first request. For subsequent requests, use the nextToken value from the previous response for paging to retrieve the next page.
+   * 
+   * @param request - ListDatasetVersionsRequest
+   * @returns ListDatasetVersionsResponse
+   */
+  async listDatasetVersions(agentSpace: string, datasetName: string, request: $_model.ListDatasetVersionsRequest): Promise<$_model.ListDatasetVersionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listDatasetVersionsWithOptions(agentSpace, datasetName, request, headers, runtime);
   }
 
   /**
