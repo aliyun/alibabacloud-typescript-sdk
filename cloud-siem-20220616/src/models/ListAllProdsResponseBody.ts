@@ -5,12 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListAllProdsResponseBodyDataProdList extends $dara.Model {
   /**
    * @remarks
-   * The multicloud code. Valid values:
-   * 
+   * The code of the cloud service provider. Valid values:
    * - qcloud: Tencent Cloud.
-   * 
    * - aliyun: Alibaba Cloud.
-   * 
    * - hcloud: Huawei Cloud.
    * 
    * @example
@@ -19,7 +16,7 @@ export class ListAllProdsResponseBodyDataProdList extends $dara.Model {
   cloudCode?: string;
   /**
    * @remarks
-   * The number of ingested logs for the product.
+   * The number of logs that have been ingested for the product.
    * 
    * @example
    * 10
@@ -27,7 +24,7 @@ export class ListAllProdsResponseBodyDataProdList extends $dara.Model {
   importedLogCount?: number;
   /**
    * @remarks
-   * The time when logs were last ingested for the product.
+   * The most recent time when logs were ingested for the product. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-11-23 12:12:12
@@ -35,7 +32,7 @@ export class ListAllProdsResponseBodyDataProdList extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The code of the cloud product.
+   * The product code.
    * 
    * @example
    * sas
@@ -144,7 +141,7 @@ export class ListAllProdsResponseBodyData extends $dara.Model {
 export class ListAllProdsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: ListAllProdsResponseBodyData;
   /**

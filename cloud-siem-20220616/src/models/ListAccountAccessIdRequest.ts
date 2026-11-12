@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAccountAccessIdRequest extends $dara.Model {
   /**
    * @remarks
-   * The code for the multicloud environment.
+   * The code of the multi-cloud provider.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,9 @@ export class ListAccountAccessIdRequest extends $dara.Model {
   cloudCode?: string;
   /**
    * @remarks
-   * The region of the Data Management center for threat analysis. Select the region of the Management Center based on where your assets are located. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are in the Chinese mainland or China (Hong Kong).
-   * 
-   * - ap-southeast-1: Your assets are in regions outside China.
+   * The location of the data management center for threat detection and response. Select the management center location based on the region of your assets. Valid values:
+   * - cn-hangzhou: Your assets belong to the Chinese mainland or Hong Kong (China).
+   * - ap-southeast-1: Your assets belong to regions outside China.
    * 
    * @example
    * cn-hangzhou
@@ -27,7 +25,7 @@ export class ListAccountAccessIdRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of a member. This parameter allows an administrator to switch to the member\\"s view.
+   * The ID of the member to which the administrator switches the view.
    * 
    * @example
    * 113091674488****
@@ -35,11 +33,10 @@ export class ListAccountAccessIdRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of view. Valid values:
+   * The view type. Valid values:
    * 
-   * - 0: The view of the current Alibaba Cloud account.
-   * 
-   * - 1: The view of all accounts in your enterprise.
+   * - 0: the view of the current Alibaba Cloud account.
+   * - 1: the view of all accounts in the enterprise.
    * 
    * @example
    * 1

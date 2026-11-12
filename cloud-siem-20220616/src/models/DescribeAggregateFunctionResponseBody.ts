@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAggregateFunctionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The aggregate function.
+   * The aggregation function.
    * 
    * @example
    * count
@@ -13,7 +13,7 @@ export class DescribeAggregateFunctionResponseBodyData extends $dara.Model {
   function?: string;
   /**
    * @remarks
-   * The display name of the aggregate function.
+   * The display name of the aggregation function.
    * 
    * @example
    * Count
@@ -45,7 +45,7 @@ export class DescribeAggregateFunctionResponseBodyData extends $dara.Model {
 export class DescribeAggregateFunctionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code of the request.
+   * The status code.
    * 
    * @example
    * 200
@@ -53,7 +53,7 @@ export class DescribeAggregateFunctionResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    * 
    * @example
    * 123456
@@ -61,7 +61,7 @@ export class DescribeAggregateFunctionResponseBody extends $dara.Model {
   data?: DescribeAggregateFunctionResponseBodyData[];
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success
@@ -69,7 +69,7 @@ export class DescribeAggregateFunctionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
@@ -77,11 +77,9 @@ export class DescribeAggregateFunctionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDisposeStrategyRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The UUID of the alert.
+   */
   alertUuid?: string;
   /**
    * @remarks
-   * The current page number, which must be greater than or equal to 1.
+   * The number of the current page. The value must be greater than or equal to 1.
    * 
    * This parameter is required.
    * 
@@ -16,7 +20,9 @@ export class ListDisposeStrategyRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The policy status. Valid values:
+   * The status of the policy. Valid values:
+   * - 0: invalid
+   * - 1: valid
    * 
    * @example
    * 0
@@ -24,7 +30,7 @@ export class ListDisposeStrategyRequest extends $dara.Model {
   effectiveStatus?: number;
   /**
    * @remarks
-   * The query end time, in milliseconds.
+   * The end time of the query. Unit: milliseconds.
    * 
    * This parameter is required.
    * 
@@ -34,7 +40,7 @@ export class ListDisposeStrategyRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The entity characteristic value, which can be used for fuzzy match on response entities.
+   * The identity value of the entity. You can use this parameter to perform a fuzzy search for response entities.
    * 
    * @example
    * test22.php
@@ -42,28 +48,59 @@ export class ListDisposeStrategyRequest extends $dara.Model {
   entityIdentity?: string;
   /**
    * @remarks
-   * The entity type. Valid values:
+   * The type of the entity. Valid values:
+   * - ip: IP address
+   * - process: process
+   * - file: file
    * 
    * @example
    * ip
    */
   entityType?: string;
+  /**
+   * @remarks
+   * The list of entity UUIDs.
+   */
   entityUuidList?: string[];
+  /**
+   * @remarks
+   * The grouping dimension.
+   * 
+   * @example
+   * Incident
+   */
   groupBy?: string;
+  /**
+   * @remarks
+   * The grouping key value.
+   * 
+   * @example
+   * 0123456789abcdef0123456789abcdef
+   */
   groupKey?: string;
   /**
    * @remarks
-   * The event ID.
+   * The ID of the incident.
    * 
    * @example
    * 49670d3bbf7aa9556a2fff3dbaa9****
    */
   incidentUuid?: string;
+  /**
+   * @remarks
+   * The maximum number of records to return in a single query.
+   */
   maxResults?: number;
+  /**
+   * @remarks
+   * The token used to query the next page.
+   */
   nextToken?: string;
   /**
    * @remarks
-   * The sort direction. Valid values:
+   * The sort order. Valid values:
+   * - desc: descending order
+   * - asc: ascending order
    * 
    * @example
    * desc
@@ -71,10 +108,10 @@ export class ListDisposeStrategyRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The field used to sort results. Valid values:
-   * - GmtModified: sorts results by update time.
-   * - GmtCreate: sorts results by creation time.
-   * - FinishTime: sorts results by policy end time.
+   * The field used for sorting. Valid values:
+   * - GmtModified: sort by update time
+   * - GmtCreate: sort by creation time
+   * - FinishTime: sort by policy end time
    * 
    * @example
    * GmtModified
@@ -82,7 +119,7 @@ export class ListDisposeStrategyRequest extends $dara.Model {
   orderField?: string;
   /**
    * @remarks
-   * The number of entries per page, with a maximum of 100.
+   * The number of entries per page. Maximum value: 100.
    * 
    * This parameter is required.
    * 
@@ -92,7 +129,7 @@ export class ListDisposeStrategyRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The unique identifier name of the playbook.
+   * The unique name of the playbook.
    * 
    * @example
    * WafBlockIP
@@ -100,8 +137,8 @@ export class ListDisposeStrategyRequest extends $dara.Model {
   playbookName?: string;
   /**
    * @remarks
-   * The playbook type. Valid values:
-   * - system: manual handling
+   * The type of the playbook. Valid values:
+   * - system: manual response
    * - custom: event-triggered playbook
    * - custom_alert: alert-triggered playbook
    * - soar-manual: manually run playbook
@@ -113,25 +150,38 @@ export class ListDisposeStrategyRequest extends $dara.Model {
   playbookTypes?: string;
   /**
    * @remarks
-   * The playbook UUID.
+   * The UUID of the playbook.
    * 
    * @example
    * system_aliyun_clb_process_book
    */
   playbookUuid?: string;
+  /**
+   * @remarks
+   * The query mode.
+   * 
+   * @example
+   * Group
+   */
   queryMode?: string;
   /**
    * @remarks
-   * The region where the data management center of Cloud Threat Detection and Response (CTDR) is located. Specify the management center based on the region of your assets. Valid values:
+   * The region where the data management center of Cloud Threat Detection and Response (CTDR) is located. You must select the region of the management center based on the region where your assets reside. Valid values:
+   * - cn-hangzhou: assets reside in the Chinese mainland and Hong Kong (China)
+   * - ap-southeast-1: assets reside in regions outside China
    * 
    * @example
    * cn-hangzhou
    */
   regionId?: string;
+  /**
+   * @remarks
+   * The ID of the response rule.
+   */
   responseRuleId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the member to which the administrator switches the view.
+   * The Alibaba Cloud account ID of the member whose perspective the administrator switches to.
    * 
    * @example
    * 113091674488****
@@ -139,7 +189,10 @@ export class ListDisposeStrategyRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The view type.
+   * The type of the view. Valid values:
+   * 
+   * - 0: view of the current Alibaba Cloud account
+   * - 1: view of all accounts in the enterprise
    * 
    * @example
    * 1
@@ -147,7 +200,7 @@ export class ListDisposeStrategyRequest extends $dara.Model {
   roleType?: number;
   /**
    * @remarks
-   * The SOAR response policy ID.
+   * The ID of the Security Orchestration, Automation, and Response (SOAR) response policy.
    * 
    * @example
    * a50a49b7-6044-4593-ab15-2b46567c****
@@ -155,7 +208,7 @@ export class ListDisposeStrategyRequest extends $dara.Model {
   sophonTaskId?: string;
   /**
    * @remarks
-   * The query start time, in milliseconds.
+   * The start time of the query. Unit: milliseconds.
    * 
    * This parameter is required.
    * 
@@ -165,12 +218,16 @@ export class ListDisposeStrategyRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The response policy status.
+   * The status of the response policy.
    * 
    * @example
    * 200
    */
   status?: number;
+  /**
+   * @remarks
+   * The ID of the response policy.
+   */
   strategyId?: string;
   static names(): { [key: string]: string } {
     return {

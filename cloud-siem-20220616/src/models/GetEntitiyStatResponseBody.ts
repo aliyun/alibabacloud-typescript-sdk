@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetEntitiyStatResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The number of alerts associated with the entity.
+   * 
+   * @example
+   * 1
+   */
   alertNum?: number;
   /**
    * @remarks
@@ -28,6 +35,13 @@ export class GetEntitiyStatResponseBodyData extends $dara.Model {
    * 5cde2118666ffda40783ebd7cec9a60a
    */
   entityUuid?: string;
+  /**
+   * @remarks
+   * The number of incidents associated with the entity.
+   * 
+   * @example
+   * 1
+   */
   incidentNum?: number;
   static names(): { [key: string]: string } {
     return {
@@ -61,7 +75,7 @@ export class GetEntitiyStatResponseBodyData extends $dara.Model {
 export class GetEntitiyStatResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -93,10 +107,9 @@ export class GetEntitiyStatResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * - false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

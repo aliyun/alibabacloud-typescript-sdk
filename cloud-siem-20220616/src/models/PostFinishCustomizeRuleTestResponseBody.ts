@@ -13,7 +13,7 @@ export class PostFinishCustomizeRuleTestResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The return value of the request.
    * 
    * @example
    * 123456
@@ -21,7 +21,7 @@ export class PostFinishCustomizeRuleTestResponseBody extends $dara.Model {
   data?: any;
   /**
    * @remarks
-   * The message returned.
+   * The message returned in the response.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class PostFinishCustomizeRuleTestResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
@@ -38,10 +38,8 @@ export class PostFinishCustomizeRuleTestResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request is successful. Valid values:
-   * 
    * - true: The request is successful.
-   * 
-   * - false: The request failed.
+   * - false: The request fails.
    * 
    * @example
    * true

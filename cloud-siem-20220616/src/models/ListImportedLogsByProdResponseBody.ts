@@ -5,25 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class ListImportedLogsByProdResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether logs are automatically ingested for new accounts. Valid values:
-   * 
-   * - 1: Logs are automatically ingested.
-   * 
-   * - 0: Logs are not automatically ingested.
+   * Indicates whether new accounts are automatically onboarded. Valid values:
+   * - 1: Automatically onboarded. 
+   * - 0: Not automatically onboarded.
    * 
    * @example
-   * 2023-11-23 12:30:00
+   * 1
    */
   autoImported?: number;
   /**
    * @remarks
-   * The multicloud code. Valid values:
-   * 
-   * - qcloud: Tencent Cloud.
-   * 
-   * - aliyun: Alibaba Cloud.
-   * 
+   * The multi-cloud code. Valid values:
    * - hcloud: Huawei Cloud.
+   * - qcloud: Tencent Cloud.
+   * - aliyun: Alibaba Cloud.
    * 
    * @example
    * hcloud
@@ -31,19 +26,17 @@ export class ListImportedLogsByProdResponseBodyData extends $dara.Model {
   cloudCode?: string;
   /**
    * @remarks
-   * Indicates whether the log is ingested. Valid values:
-   * 
-   * - 1: The log is ingested.
-   * 
-   * - 0: The log is not ingested.
+   * Indicates whether the log is onboarded. Valid values:
+   * - 1: Onboarded. 
+   * - 0: Not onboarded.
    * 
    * @example
-   * 2023-11-23 12:30:00
+   * 1
    */
   imported?: number;
   /**
    * @remarks
-   * The number of users who have ingested the log.
+   * The number of users that have onboarded the log.
    * 
    * @example
    * 2
@@ -51,7 +44,7 @@ export class ListImportedLogsByProdResponseBodyData extends $dara.Model {
   importedUserCount?: number;
   /**
    * @remarks
-   * The code of the log.
+   * The log code.
    * 
    * @example
    * cloud_siem_waf_xxxxx
@@ -59,7 +52,7 @@ export class ListImportedLogsByProdResponseBodyData extends $dara.Model {
   logCode?: string;
   /**
    * @remarks
-   * The display code of the log.
+   * The log display code.
    * 
    * @example
    * ${siem.prod. cloud_siem_waf_xxxxx}
@@ -68,18 +61,17 @@ export class ListImportedLogsByProdResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The log type. Valid values:
-   * 
-   * - 1: Ingested on the threat analysis side.
-   * 
-   * - 2: Predefined Simple Log Service log. -3: Custom Simple Log Service log.
+   * - 1: Centralized onboarding. 
+   * - 2: Predefined Log Service. 
+   * - 3: Custom Log Service.
    * 
    * @example
-   * 2023-11-23 12:30:00
+   * 1
    */
   logType?: number;
   /**
    * @remarks
-   * The time when the log was last ingested.
+   * The last onboarding time of the log. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-11-23 12:30:00
@@ -87,7 +79,7 @@ export class ListImportedLogsByProdResponseBodyData extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The code of the product to which the log belongs.
+   * The product code corresponding to the log.
    * 
    * @example
    * qcloud_waf
@@ -103,7 +95,7 @@ export class ListImportedLogsByProdResponseBodyData extends $dara.Model {
   totalUserCount?: number;
   /**
    * @remarks
-   * The number of users who have not ingested the log.
+   * The number of users that have not onboarded the log.
    * 
    * @example
    * 3
@@ -153,7 +145,7 @@ export class ListImportedLogsByProdResponseBodyData extends $dara.Model {
 export class ListImportedLogsByProdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: ListImportedLogsByProdResponseBodyData[];
   /**

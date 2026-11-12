@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAlertsWithEventResponseBodyDataPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The current page number of the list.
+   * The current page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeAlertsWithEventResponseBodyDataPageInfo extends $dara.Model
   currentPage?: number;
   /**
    * @remarks
-   * The number of records returned per page.
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -55,7 +55,7 @@ export class DescribeAlertsWithEventResponseBodyDataPageInfo extends $dara.Model
 export class DescribeAlertsWithEventResponseBodyDataResponseDataAlertInfoList extends $dara.Model {
   /**
    * @remarks
-   * The key of the alert detail attribute.
+   * The key of the alert detail property.
    * 
    * @example
    * suspicious.wbd.wb.trojanpath
@@ -63,7 +63,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseDataAlertInfoList ex
   key?: string;
   /**
    * @remarks
-   * The name of the alert detail.
+   * The name of the alert detail data.
    * 
    * @example
    * Trojan Path
@@ -71,7 +71,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseDataAlertInfoList ex
   keyName?: string;
   /**
    * @remarks
-   * The value of the alert detail.
+   * The value of the alert detail data.
    * 
    * @example
    * /root/test33.php
@@ -121,7 +121,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   alertDescCode?: string;
   /**
    * @remarks
-   * The English description of the alert.
+   * The alert description in English.
    * 
    * @example
    * The detection model found a suspicious Webshell file on your server, which may be a backdoor file implanted to maintain permissions after the attacker successfully invaded the website.
@@ -188,7 +188,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   alertSrcProd?: string;
   /**
    * @remarks
-   * The submodule of the source product of the alert associated with the incident.
+   * The source product submodule of the alert associated with the incident.
    * 
    * @example
    * waf
@@ -196,7 +196,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   alertSrcProdModule?: string;
   /**
    * @remarks
-   * The alert status. Valid values: 0: Pending. 1: Handled. 2: Being handled. 3: Whitelisted, false positive, or rejected. 999: Unknown.
+   * The alert status. Valid values: 0: Pending; 1: Processed; 2: Processing; 3: Whitelisted, false positive, or rejected; 999: Unknown.
    * 
    * @example
    * 0
@@ -212,7 +212,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   alertTitle?: string;
   /**
    * @remarks
-   * The English title of the alert.
+   * The alert title in English.
    * 
    * @example
    * Scan-Try SNMP weak password
@@ -236,7 +236,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   alertTypeCode?: string;
   /**
    * @remarks
-   * The English alert type.
+   * The alert type in English.
    * 
    * @example
    * Scan
@@ -298,7 +298,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   detectionRuleId?: string;
   /**
    * @remarks
-   * The time when the alert ended.
+   * The time when the alert ended. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2021-01-06 16:37:29
@@ -314,7 +314,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   entityList?: string;
   /**
    * @remarks
-   * The extended information of the alert.
+   * The extended alert information.
    * 
    * @example
    * {"main_user_id": "165295629792****";"log_uuid_count": "99****"}
@@ -322,7 +322,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   extendContent?: string;
   /**
    * @remarks
-   * The time when the alert was stored.
+   * The time when the alert was created.
    * 
    * @example
    * 2021-01-06 16:37:29
@@ -362,7 +362,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   investigationReport?: string;
   /**
    * @remarks
-   * Indicates whether the threat has been defended against. Valid values:
+   * Indicates whether the threat is blocked. Valid values:
    * 
    * - 0: Detected.
    * - 1: Blocked.
@@ -373,7 +373,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   isDefend?: string;
   /**
    * @remarks
-   * The time when the alert was logged.
+   * The time when the alert was recorded. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2021-01-06 16:37:29
@@ -397,7 +397,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   mainUserId?: number;
   /**
    * @remarks
-   * The time when the alert occurred.
+   * The time when the alert occurred. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2021-01-06 16:37:29
@@ -413,7 +413,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   productId?: string;
   /**
    * @remarks
-   * The time when the alert first occurred.
+   * The time when the alert first occurred. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2021-01-06 16:37:29
@@ -421,7 +421,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   startTime?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID that generated the alert.
+   * The ID of the Alibaba Cloud account that triggered the alert.
    * 
    * @example
    * 176555323***
@@ -429,7 +429,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   subUserId?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID that generated the alert.
+   * The ID of the Alibaba Cloud account that triggered the alert.
    * 
    * @example
    * 176555323***
@@ -599,7 +599,7 @@ export class DescribeAlertsWithEventResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The request return value.
+   * The response data.
    * 
    * @example
    * 123456
@@ -607,7 +607,7 @@ export class DescribeAlertsWithEventResponseBody extends $dara.Model {
   data?: DescribeAlertsWithEventResponseBodyData;
   /**
    * @remarks
-   * The request return message.
+   * The response message.
    * 
    * @example
    * success
@@ -623,7 +623,7 @@ export class DescribeAlertsWithEventResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * - true: Successful.
    * - false: Failed.
    * 

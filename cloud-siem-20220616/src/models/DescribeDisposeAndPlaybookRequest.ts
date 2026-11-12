@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeDisposeAndPlaybookRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to return only available playbooks.
+   */
   availableOnly?: boolean;
   /**
    * @remarks
@@ -15,6 +19,9 @@ export class DescribeDisposeAndPlaybookRequest extends $dara.Model {
   /**
    * @remarks
    * The entity type. Valid values:
+   * - ip: IP address.
+   * - process: Process.
+   * - file: File.
    * 
    * @example
    * ip
@@ -22,16 +29,23 @@ export class DescribeDisposeAndPlaybookRequest extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The entity UUID.
+   * The UUID of the entity.
    * 
    * @example
    * 85ea4241-798f-4684-a876-65d4f0c3****
    */
   entityUuid?: string;
+  /**
+   * @remarks
+   * The list of entity UUIDs. Separate multiple UUIDs with commas (,).
+   * 
+   * @example
+   * 6c740667-80b2-476d-8924-2e706feb****,6c740667-80b2-476d-8924-2e706feb****
+   */
   entityUuidList?: string;
   /**
    * @remarks
-   * The incident UUID.
+   * The UUID of the incident.
    * 
    * @example
    * 85ea4241-798f-4684-a876-65d4f0c3****
@@ -47,9 +61,9 @@ export class DescribeDisposeAndPlaybookRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the threat analysis data management center is located. Specify the management center region based on the region of your assets. Valid values:
-   * - cn-hangzhou: Your assets are located in the Chinese mainland or Hong Kong (China).
-   * - ap-southeast-1: Your assets are located outside China.
+   * The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+   * - ap-southeast-1: Assets are located outside China.
    * 
    * @example
    * cn-hangzhou
@@ -57,7 +71,7 @@ export class DescribeDisposeAndPlaybookRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member to which the administrator switches the view.
+   * The ID of the user whose view the administrator switches to.
    * 
    * @example
    * 113091674488****
@@ -65,7 +79,9 @@ export class DescribeDisposeAndPlaybookRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The view type.
+   * The view type. Valid values:
+   * - 0: Current Alibaba Cloud account view.
+   * - 1: View of all accounts in the enterprise.
    * 
    * @example
    * 1

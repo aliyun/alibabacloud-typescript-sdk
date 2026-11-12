@@ -13,7 +13,7 @@ export class PostRuleStatusChangeResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The returned data.
    * 
    * @example
    * 123456
@@ -21,7 +21,7 @@ export class PostRuleStatusChangeResponseBody extends $dara.Model {
   data?: any;
   /**
    * @remarks
-   * The message returned.
+   * The message returned for the request.
    * 
    * @example
    * success
@@ -38,10 +38,8 @@ export class PostRuleStatusChangeResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request is successful. Valid values:
-   * 
-   * - true: The request is successful.
-   * 
-   * - false: The request failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

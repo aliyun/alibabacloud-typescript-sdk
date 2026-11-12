@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class SetStorageRequest extends $dara.Model {
   /**
    * @remarks
-   * The log storage region.
+   * The log storage region. 
    * 
-   * If the Data Management center is in cn-hangzhou, the default value of Region is **cn-shanghai**. If the Data Management center is in **ap-southeast-1**, the default value of **Region** is **ap-southeast-1**.
+   * If the data management center is located in **cn-hangzhou**, the default value of **Region** is China (Shanghai) (cn-shanghai). If the data management center is located in **ap-southeast-1**, the default value of **Region** is Singapore (ap-southeast-1).
    * 
-   * The log storage region cannot be changed. To change the region, contact the Threat Analysis operations team.
+   * The log storage region cannot be modified. To modify the region, contact the Threat Analysis operations personnel.
    * 
    * @example
    * cn-shanghai
@@ -17,11 +17,9 @@ export class SetStorageRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The region of the Data Management center for Threat Analysis. Select the region for the Data Management center based on the region of your assets. Valid values:
-   * 
-   * - cn-hangzhou: Select this value if your assets are in the Chinese mainland or China (Hong Kong).
-   * 
-   * - ap-southeast-1: Select this value if your assets are in a region outside the Chinese mainland.
+   * The region of the data management center for Threat Analysis. Select the region based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: Select this value if your assets are located in the Chinese mainland and Hong Kong (China).
+   * - ap-southeast-1: Select this value if your assets are located outside China.
    * 
    * @example
    * cn-hangzhou
@@ -29,7 +27,7 @@ export class SetStorageRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member. An administrator can use this parameter to switch to the view of a specific member.
+   * The ID of the user whose view the administrator switches to.
    * 
    * @example
    * 113091674488****
@@ -37,11 +35,9 @@ export class SetStorageRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view.
-   * 
-   * - 0: The view of the current Alibaba Cloud account.
-   * 
-   * - 1: The view of all accounts in your enterprise.
+   * The view type. Valid values:
+   * - 0: the view of the current Alibaba Cloud account
+   * - 1: the view of all accounts in the enterprise
    * 
    * @example
    * 1
@@ -49,7 +45,7 @@ export class SetStorageRequest extends $dara.Model {
   roleType?: number;
   /**
    * @remarks
-   * The log storage duration in days. The default value is 180. The minimum value is 30 and the maximum value is 3000.
+   * The log retention period in days. Default value: 180. Valid values: 30 to 3000.
    * 
    * This parameter is required.
    * 

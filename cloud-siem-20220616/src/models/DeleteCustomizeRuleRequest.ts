@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteCustomizeRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The region where the product is deployed.
+   * The region where the product is located.
    * 
    * @example
-   * cn-shanghai
+   * cn-hangzhou
    */
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member. This parameter is used when an administrator switches to the perspective of a member.
+   * The user ID of the member whose view the administrator switches to. This parameter allows the administrator to switch to the view of a specified member, bypassing the order validity check but still requiring permission verification. The target account must have activated Cloud SIEM, and the caller must have the required RAM permissions.
    * 
    * @example
    * 113091674488****
@@ -21,11 +21,9 @@ export class DeleteCustomizeRuleRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view.
-   * 
-   * - 0: The view of the current Alibaba Cloud account.
-   * 
-   * - 1: The view of all accounts in your enterprise.
+   * The view type. Valid values:
+   * - 0: the view of the current Alibaba Cloud account
+   * - 1: the view of all accounts in the enterprise
    * 
    * @example
    * 1

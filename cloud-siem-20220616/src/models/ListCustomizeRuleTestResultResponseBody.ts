@@ -73,7 +73,7 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   alertDesc?: string;
   /**
    * @remarks
-   * The details of the alert, in JSON format.
+   * The details of the alert in JSON format.
    * 
    * @example
    * {"main_user_id": "165295629792****";"log_uuid_count": "99";"attack_ip": "218.92.XX.XX"}
@@ -81,7 +81,7 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   alertDetail?: string;
   /**
    * @remarks
-   * The source product of the alert that is associated with the event.
+   * The product from which the alert associated with the event originates.
    * 
    * @example
    * sas
@@ -89,7 +89,7 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   alertSrcProd?: string;
   /**
    * @remarks
-   * The sub-module of the source product of the alert that is associated with the event.
+   * The submodule of the product from which the alert associated with the event originates.
    * 
    * @example
    * waf
@@ -97,7 +97,7 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   alertSrcProdModule?: string;
   /**
    * @remarks
-   * The ATT\\&CK attack technique tag.
+   * The ATT&CK technique tag.
    * 
    * @example
    * T1595.002 Vulnerability Scanning
@@ -105,7 +105,7 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   attCk?: string;
   /**
    * @remarks
-   * The name of the alert. This value corresponds to the name of the custom rule.
+   * The name of the alert, which corresponds to the name of the custom rule.
    * 
    * @example
    * waf_scan
@@ -113,7 +113,7 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   eventName?: string;
   /**
    * @remarks
-   * The threat type. This parameter is equivalent to the alert type.
+   * The threat type, which is the alerting type.
    * 
    * @example
    * WEBSHELL
@@ -122,11 +122,8 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   /**
    * @remarks
    * The threat level. Valid values:
-   * 
    * - serious: high
-   * 
    * - suspicious: medium
-   * 
    * - remind: low
    * 
    * @example
@@ -135,7 +132,7 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   level?: string;
   /**
    * @remarks
-   * The log source that corresponds to the rule.
+   * The log source corresponding to the rule.
    * 
    * @example
    * cloud_siem_aegis_sas_alert
@@ -143,7 +140,7 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   logSource?: string;
   /**
    * @remarks
-   * The time when the alert was recorded.
+   * The time when the alert is recorded. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-01-06 16:37:29
@@ -151,7 +148,7 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   logTime?: string;
   /**
    * @remarks
-   * The log type that corresponds to the rule.
+   * The log type corresponding to the rule.
    * 
    * @example
    * ALERT_ACTIVITY
@@ -159,7 +156,7 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   logType?: string;
   /**
    * @remarks
-   * The ID of the main Alibaba Cloud account for Security Information and Event Management (SIEM) that is associated with the alert.
+   * The ID of the primary account associated with the alert in SIEM.
    * 
    * @example
    * 127608589417****
@@ -168,10 +165,8 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   /**
    * @remarks
    * The status of the alert data. Valid values:
-   * 
-   * - test: business test
-   * 
-   * - online: published
+   * - test: business testing
+   * - online: online
    * 
    * @example
    * test
@@ -179,7 +174,7 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   onlineStatus?: string;
   /**
    * @remarks
-   * The ID of the member account that is associated with the alert.
+   * The ID of the Alibaba Cloud account associated with the alert.
    * 
    * @example
    * 176555323***
@@ -195,11 +190,9 @@ export class ListCustomizeRuleTestResultResponseBodyDataResponseData extends $da
   uuid?: string;
   /**
    * @remarks
-   * The result of verifying the alert based on the alert template.
-   * 
-   * - true: The verification is passed.
-   * 
-   * - false: The verification failed.
+   * The verification result of the alert based on the alert template. Valid values:
+   * - true: passed
+   * - false: failed
    * 
    * @example
    * true
@@ -307,7 +300,7 @@ export class ListCustomizeRuleTestResultResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The data returned in the response.
    * 
    * @example
    * 123456
@@ -323,7 +316,7 @@ export class ListCustomizeRuleTestResultResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
@@ -331,11 +324,9 @@ export class ListCustomizeRuleTestResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

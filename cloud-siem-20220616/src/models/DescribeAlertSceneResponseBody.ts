@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAlertSceneResponseBodyDataTargets extends $dara.Model {
   /**
    * @remarks
-   * The display name of the field of the entity that can be added to the whitelist.
+   * The display name of the entity attribute field that can be added to the allowlist.
    * 
    * @example
    * HOST UUID
@@ -13,7 +13,7 @@ export class DescribeAlertSceneResponseBodyDataTargets extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The field of the entity that can be added to the whitelist.
+   * The entity attribute field that can be added to the allowlist.
    * 
    * @example
    * host_uuid
@@ -21,7 +21,7 @@ export class DescribeAlertSceneResponseBodyDataTargets extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The default right operand that is displayed for the whitelist rule.
+   * The default right value displayed for the allowlist rule.
    * 
    * @example
    * 441862da-a539-4cc0-a00d-47395582****
@@ -29,7 +29,7 @@ export class DescribeAlertSceneResponseBodyDataTargets extends $dara.Model {
   value?: string;
   /**
    * @remarks
-   * The available right operands for the whitelist rule.
+   * The optional right values for the allowlist rule.
    * 
    * @example
    * ["441862da-a539-4cc0-a00d-473955826881"]
@@ -68,7 +68,7 @@ export class DescribeAlertSceneResponseBodyDataTargets extends $dara.Model {
 export class DescribeAlertSceneResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The display name of the alert. The value varies based on the language of the environment.
+   * The display value of the alert name, which varies based on the language environment.
    * 
    * @example
    * login_common_ip
@@ -76,7 +76,7 @@ export class DescribeAlertSceneResponseBodyData extends $dara.Model {
   alertName?: string;
   /**
    * @remarks
-   * The ID of the alert name.
+   * The identifier of the alert name.
    * 
    * @example
    * login_common_ip
@@ -84,7 +84,7 @@ export class DescribeAlertSceneResponseBodyData extends $dara.Model {
   alertNameId?: string;
   /**
    * @remarks
-   * The display title of the alert. The value varies based on the language of the environment.
+   * The display value of the alert title, which varies based on the language environment.
    * 
    * @example
    * unusual login-login_common_ip
@@ -92,7 +92,7 @@ export class DescribeAlertSceneResponseBodyData extends $dara.Model {
   alertTile?: string;
   /**
    * @remarks
-   * The ID of the alert title.
+   * The identifier of the alert title.
    * 
    * @example
    * unusual login-login_common_ip
@@ -100,7 +100,7 @@ export class DescribeAlertSceneResponseBodyData extends $dara.Model {
   alertTileId?: string;
   /**
    * @remarks
-   * The display name of the alert type. The value varies based on the language of the environment.
+   * The display value of the alert type, which varies based on the language environment.
    * 
    * @example
    * unusual login
@@ -108,7 +108,7 @@ export class DescribeAlertSceneResponseBodyData extends $dara.Model {
   alertType?: string;
   /**
    * @remarks
-   * The ID of the alert type.
+   * The identifier of the alert type.
    * 
    * @example
    * unusual login
@@ -116,7 +116,7 @@ export class DescribeAlertSceneResponseBodyData extends $dara.Model {
   alertTypeId?: string;
   /**
    * @remarks
-   * The objects that can be added to the whitelist.
+   * The allowlist targets.
    * 
    * @example
    * [{"Type": "host_uuid","Value": "441862da-a539-4cc0-a00d-473955826881","Values": ["441862da-a539-4cc0-a00d-473955826881"],"Name": "${aliyun.siem.entity.host_uuid}"}]
@@ -169,7 +169,7 @@ export class DescribeAlertSceneResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    * 
    * @example
    * 123456
@@ -177,7 +177,7 @@ export class DescribeAlertSceneResponseBody extends $dara.Model {
   data?: DescribeAlertSceneResponseBodyData[];
   /**
    * @remarks
-   * The returned message.
+   * The response message of the request.
    * 
    * @example
    * success
@@ -193,11 +193,9 @@ export class DescribeAlertSceneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

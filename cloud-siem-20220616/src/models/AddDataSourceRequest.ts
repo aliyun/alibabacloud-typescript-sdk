@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddDataSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The ID of the cloud account.
    * 
    * @example
    * 123xxxxxxxx
@@ -13,7 +13,7 @@ export class AddDataSourceRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The code for the multicloud service.
+   * The code of the multi-cloud provider.
    * 
    * This parameter is required.
    * 
@@ -26,12 +26,12 @@ export class AddDataSourceRequest extends $dara.Model {
    * The name of the data source.
    * 
    * @example
-   * XX-Beijing-Kafka
+   * XX Beijing Kafka
    */
   dataSourceInstanceName?: string;
   /**
    * @remarks
-   * The parameters for the data source. The value must be a JSON array.
+   * The parameters of the data source. The value is a JSON array.
    * 
    * @example
    * [{"paraCode":"region_code","paraValue":"ap-guangzhou"}]
@@ -39,7 +39,7 @@ export class AddDataSourceRequest extends $dara.Model {
   dataSourceInstanceParams?: string;
   /**
    * @remarks
-   * The remarks on the data source.
+   * The remark of the data source.
    * 
    * @example
    * XX Cloud Firewall Shanghai instance
@@ -48,11 +48,8 @@ export class AddDataSourceRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the data source. Valid values:
-   * 
-   * - obs: Huawei Cloud Object Storage Service (OBS).
-   * 
-   * - wafApi: Tencent Cloud Web Application Firewall (WAF) download API.
-   * 
+   * - obs: Huawei Cloud OBS.
+   * - wafApi: Tencent Cloud WAF download API. 
    * - ckafka: Tencent Cloud CKafka.
    * 
    * @example
@@ -61,11 +58,9 @@ export class AddDataSourceRequest extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * The region of the data management center for threat analysis. Select a region based on the location of your assets. Valid values:
-   * 
-   * - cn-hangzhou: For assets in the Chinese mainland or China (Hong Kong).
-   * 
-   * - ap-southeast-1: For assets in regions outside China.
+   * The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+   * - ap-southeast-1: Assets are located outside China.
    * 
    * @example
    * cn-hangzhou

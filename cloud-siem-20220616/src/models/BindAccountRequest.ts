@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID of the Alibaba Cloud account.
+   * The AccessKey ID of the cloud account.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class BindAccountRequest extends $dara.Model {
   accessId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The ID of the cloud account.
    * 
    * This parameter is required.
    * 
@@ -25,19 +25,17 @@ export class BindAccountRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The name of the multicloud account.
+   * The name of the multi-cloud account.
    * 
    * This parameter is required.
    * 
    * @example
-   * xxxx
+   * Sample multi-cloud account
    */
   accountName?: string;
   /**
    * @remarks
-   * The code of the cloud service provider. Valid values:
-   * 
-   * - aliyun: Alibaba Cloud
+   * The code of the multi-cloud provider. Valid values:
    * - hcloud: Huawei Cloud
    * - qcloud: Tencent Cloud
    * 
@@ -49,10 +47,9 @@ export class BindAccountRequest extends $dara.Model {
   cloudCode?: string;
   /**
    * @remarks
-   * The region where the data management center of Threat Analysis is located. You must select a region for the data management center based on the region where your assets reside. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are deployed in the Chinese mainland or Hong Kong (China).
-   * - ap-southeast-1: Your assets are deployed in regions outside China.
+   * The region of the data management center for Threat Analysis. Select the region of the management center based on the region of your assets. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+   * - ap-southeast-1: Assets are located outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -60,7 +57,7 @@ export class BindAccountRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member to whose view the administrator switches.
+   * The ID of the user whose perspective the administrator switches to.
    * 
    * @example
    * 113091674488****
@@ -68,10 +65,9 @@ export class BindAccountRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view.
-   * 
-   * - 0: the view of the current Alibaba Cloud account.
-   * - 1: the view of all accounts that belong to the enterprise.
+   * The view type. Valid values:
+   * - 0: The view of the current Alibaba Cloud account.
+   * - 1: The view of all accounts in the enterprise.
    * 
    * @example
    * 1

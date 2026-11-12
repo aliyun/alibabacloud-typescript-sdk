@@ -55,11 +55,10 @@ export class DescribeWhiteRuleListResponseBodyDataPageInfo extends $dara.Model {
 export class DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditionsLeft extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the left operand is a variable. Valid values:
+   * Specifies whether the left value is a variable. Valid values:
    * 
-   * - true: variable
-   * 
-   * - false: constant
+   * - true: Variable.
+   * - false: Constant.
    * 
    * @example
    * true
@@ -67,7 +66,7 @@ export class DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditio
   isVar?: boolean;
   /**
    * @remarks
-   * The remarks.
+   * The remark.
    * 
    * @example
    * length
@@ -75,16 +74,18 @@ export class DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditio
   modifier?: string;
   /**
    * @remarks
-   * The key-value pair for the remarks.
+   * The key-value pair for the remark.
+   * 
+   * @example
+   * {"key":"{\\"tage\\":\\"description\\"}"}
    */
   modifierParam?: { [key: string]: any };
   /**
    * @remarks
-   * Specifies whether the value is a constant. Valid values:
+   * Specifies whether the left value is a constant. Valid values:
    * 
-   * - true: The value is a constant.
-   * 
-   * - false: The value is not a constant.
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * false
@@ -92,7 +93,7 @@ export class DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditio
   type?: string;
   /**
    * @remarks
-   * The variable of the left operand.
+   * The variable name of the left value.
    * 
    * @example
    * ip
@@ -133,11 +134,10 @@ export class DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditio
 export class DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditionsRight extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the right operand is a constant or a runtime variable. A runtime variable obtains a value from the runtime context. Valid values:
+   * Specifies whether the right value is a constant or a runtime variable that obtains its value from the runtime context. Valid values:
    * 
-   * - true: runtime variable
-   * 
-   * - false: constant
+   * - true: Runtime variable.
+   * - false: Constant.
    * 
    * @example
    * false
@@ -145,7 +145,7 @@ export class DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditio
   isVar?: boolean;
   /**
    * @remarks
-   * The remarks.
+   * The remark.
    * 
    * @example
    * length
@@ -153,7 +153,10 @@ export class DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditio
   modifier?: string;
   /**
    * @remarks
-   * The key-value pair for the remarks.
+   * The key-value pair for the remark.
+   * 
+   * @example
+   * {"key":"{\\"tage\\":\\"description\\"}"}
    */
   modifierParam?: { [key: string]: any };
   /**
@@ -166,7 +169,7 @@ export class DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditio
   type?: string;
   /**
    * @remarks
-   * The value of the right operand.
+   * The right value.
    * 
    * @example
    * 12345
@@ -207,11 +210,10 @@ export class DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditio
 export class DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditions extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether to negate the result. Valid values:
+   * Specifies whether to negate the result. Valid values:
    * 
-   * - true: The result is negated.
-   * 
-   * - false: The result is not negated.
+   * - true: Negated.
+   * - false: Not negated.
    * 
    * @example
    * false
@@ -227,24 +229,19 @@ export class DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditio
   itemId?: number;
   /**
    * @remarks
-   * The left operand of the condition.
+   * The left value of the condition.
    */
   left?: DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditionsLeft;
   /**
    * @remarks
-   * The operator. Valid values:
+   * The aggregation method for dispatch rule conditions. Valid values:
    * 
-   * - `=`: equals
-   * 
-   * - `<>`: does not equal
-   * 
-   * - `in`: includes
-   * 
-   * - `not in`: does not include
-   * 
-   * - `REGEXP`: matches a regular expression
-   * 
-   * - `NOT REGEXP`: does not match a regular expression
+   * - `=`: Equal to.
+   * - `<>`: Not equal to.
+   * - `in`: Included in.
+   * - `not in`: Not included in.
+   * - `REGEXP`: Matches the regular expression.
+   * - `NOT REGEXP`: Does not match the regular expression.
    * 
    * @example
    * REGEXP
@@ -252,7 +249,7 @@ export class DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditio
   operator?: string;
   /**
    * @remarks
-   * The right operand.
+   * The right value object.
    */
   right?: DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditionsRight;
   static names(): { [key: string]: string } {
@@ -293,12 +290,12 @@ export class DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditio
 export class DescribeWhiteRuleListResponseBodyDataResponseDataExpression extends $dara.Model {
   /**
    * @remarks
-   * The array of rule conditions.
+   * The array of rule expressions.
    */
   conditions?: DescribeWhiteRuleListResponseBodyDataResponseDataExpressionConditions[];
   /**
    * @remarks
-   * The logical relation for the conditions.
+   * The logical relationship of the conditions.
    * 
    * @example
    * (1&2)|(3&4)
@@ -341,7 +338,7 @@ export class DescribeWhiteRuleListResponseBodyDataResponseData extends $dara.Mod
   alertName?: string;
   /**
    * @remarks
-   * The ID of the alert name.
+   * The identifier of the alert name.
    * 
    * @example
    * Try SNMP weak password
@@ -349,7 +346,7 @@ export class DescribeWhiteRuleListResponseBodyDataResponseData extends $dara.Mod
   alertNameId?: string;
   /**
    * @remarks
-   * The alert type.
+   * The alerting type.
    * 
    * @example
    * scan
@@ -357,7 +354,7 @@ export class DescribeWhiteRuleListResponseBodyDataResponseData extends $dara.Mod
   alertType?: string;
   /**
    * @remarks
-   * The ID of the alert type.
+   * The alerting type identifier.
    * 
    * @example
    * scan
@@ -373,7 +370,7 @@ export class DescribeWhiteRuleListResponseBodyDataResponseData extends $dara.Mod
   alertUuid?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is used to purchase Threat Analysis.
+   * The Alibaba Cloud account ID that activated Cloud Threat Detection and Response (CTDR).
    * 
    * @example
    * 127608589417****
@@ -381,7 +378,7 @@ export class DescribeWhiteRuleListResponseBodyDataResponseData extends $dara.Mod
   aliuid?: number;
   /**
    * @remarks
-   * The rule conditions, which are in the JSON array format.
+   * The rule set in JSON array format.
    * 
    * @example
    * [{"conditions":[{"isNot":false,"itemId":0,"left":{"value":"host_uuid.host_name"},"operator":"containsString","right":{"value":"Cloud-MCH"}}]}]
@@ -397,7 +394,7 @@ export class DescribeWhiteRuleListResponseBodyDataResponseData extends $dara.Mod
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the rule was last modified.
+   * The time when the rule was updated.
    * 
    * @example
    * 2021-01-06 16:37:29
@@ -405,7 +402,7 @@ export class DescribeWhiteRuleListResponseBodyDataResponseData extends $dara.Mod
   gmtModified?: string;
   /**
    * @remarks
-   * The unique ID of the whitelist rule.
+   * The unique ID of the allowlist rule.
    * 
    * @example
    * 123456789
@@ -413,7 +410,7 @@ export class DescribeWhiteRuleListResponseBodyDataResponseData extends $dara.Mod
   id?: number;
   /**
    * @remarks
-   * The UUID of the event.
+   * The globally unique UUID of the incident.
    * 
    * @example
    * 85ea4241-798f-4684-a876-65d4f0c3****
@@ -421,11 +418,9 @@ export class DescribeWhiteRuleListResponseBodyDataResponseData extends $dara.Mod
   incidentUuid?: string;
   /**
    * @remarks
-   * The status of the rule. Valid values:
-   * 
-   * - 1: enabled
-   * 
-   * - 0: disabled
+   * The enabled status of the rule. Valid values:
+   * - 1: Enabled.
+   * - 0: Disabled.
    * 
    * @example
    * 1
@@ -433,7 +428,7 @@ export class DescribeWhiteRuleListResponseBodyDataResponseData extends $dara.Mod
   status?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is used to create the rule.
+   * The Alibaba Cloud account ID that created the rule.
    * 
    * @example
    * 176555323***
@@ -538,7 +533,7 @@ export class DescribeWhiteRuleListResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The return value.
+   * The data returned in the response.
    * 
    * @example
    * 123456
@@ -546,7 +541,7 @@ export class DescribeWhiteRuleListResponseBody extends $dara.Model {
   data?: DescribeWhiteRuleListResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
    * @example
    * success
@@ -562,11 +557,9 @@ export class DescribeWhiteRuleListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAlertSourceWithEventResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Medusa code for the alert data source.
+   * The Medusa code of the alert data source.
    * 
    * @example
    * aliyun.siem.alert_datasource.sas
@@ -53,7 +53,7 @@ export class DescribeAlertSourceWithEventResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    * 
    * @example
    * 123456
@@ -61,7 +61,7 @@ export class DescribeAlertSourceWithEventResponseBody extends $dara.Model {
   data?: DescribeAlertSourceWithEventResponseBodyData[];
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success
@@ -69,7 +69,7 @@ export class DescribeAlertSourceWithEventResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
@@ -77,11 +77,9 @@ export class DescribeAlertSourceWithEventResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

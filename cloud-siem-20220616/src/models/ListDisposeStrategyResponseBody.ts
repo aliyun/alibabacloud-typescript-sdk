@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListDisposeStrategyResponseBodyDataGroupsGroupMeta extends $dara.Model {
+  /**
+   * @remarks
+   * The group information.
+   */
   groupInfo?: any;
   static names(): { [key: string]: string } {
     return {
@@ -26,17 +30,95 @@ export class ListDisposeStrategyResponseBodyDataGroupsGroupMeta extends $dara.Mo
 }
 
 export class ListDisposeStrategyResponseBodyDataGroups extends $dara.Model {
+  /**
+   * @remarks
+   * The number of failed response records in the group.
+   * 
+   * @example
+   * 2
+   */
   failedCount?: number;
+  /**
+   * @remarks
+   * The first occurrence time of the response records in the group.
+   * 
+   * @example
+   * 0
+   */
   firstOccurrenceTime?: number;
+  /**
+   * @remarks
+   * The grouping dimension.
+   * 
+   * @example
+   * Strategy
+   */
   groupBy?: string;
+  /**
+   * @remarks
+   * The grouping key value.
+   * 
+   * @example
+   * fedcba9876543210fedcba9876543210
+   */
   groupKey?: string;
+  /**
+   * @remarks
+   * The group metadata.
+   */
   groupMeta?: ListDisposeStrategyResponseBodyDataGroupsGroupMeta;
+  /**
+   * @remarks
+   * The name of the response record group.
+   * 
+   * @example
+   * Automatic response rule
+   */
   groupName?: string;
+  /**
+   * @remarks
+   * The group title.
+   */
   groupTitle?: string;
+  /**
+   * @remarks
+   * The last occurrence time of handling records in the group.
+   * 
+   * @example
+   * 0
+   */
   lastOccurrenceTime?: number;
+  /**
+   * @remarks
+   * The latest modification time of handling records in the group.
+   * 
+   * @example
+   * 0
+   */
   latestModifiedTime?: number;
+  /**
+   * @remarks
+   * The number of in-progress response records in the group.
+   * 
+   * @example
+   * 2
+   */
   runningCount?: number;
+  /**
+   * @remarks
+   * The number of successful response records in the group.
+   * 
+   * @example
+   * 6
+   */
   successCount?: number;
+  /**
+   * @remarks
+   * The total number of response records in the group.
+   * 
+   * @example
+   * 10
+   */
   totalCount?: number;
   static names(): { [key: string]: string } {
     return {
@@ -87,7 +169,7 @@ export class ListDisposeStrategyResponseBodyDataGroups extends $dara.Model {
 export class ListDisposeStrategyResponseBodyDataPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The current page number of the list.
+   * The current page number.
    * 
    * @example
    * 1
@@ -95,7 +177,7 @@ export class ListDisposeStrategyResponseBodyDataPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of records returned per page.
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -135,6 +217,13 @@ export class ListDisposeStrategyResponseBodyDataPageInfo extends $dara.Model {
 }
 
 export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the associated alert.
+   * 
+   * @example
+   * Try SNMP weak password
+   */
   alertName?: string;
   /**
    * @remarks
@@ -146,7 +235,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   alertUuid?: string;
   /**
    * @remarks
-   * The SIEM primary account ID associated with the policy.
+   * The ID of the SIEM primary account associated with the policy.
    * 
    * @example
    * 127608589417****
@@ -154,7 +243,9 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   aliuid?: number;
   /**
    * @remarks
-   * The policy status. Valid values:
+   * The status of the policy. Valid values:
+   * - 0: invalid
+   * - 1: valid
    * 
    * @example
    * 0
@@ -178,12 +269,22 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   entityId?: number;
   /**
    * @remarks
-   * The entity type. Valid values:
+   * The type of the entity. Valid values:
+   * - ip: IP address
+   * - process: process
+   * - file: file
    * 
    * @example
    * ip
    */
   entityType?: string;
+  /**
+   * @remarks
+   * The error code of the response task.
+   * 
+   * @example
+   * python.Internal.Params
+   */
   errorCode?: string;
   /**
    * @remarks
@@ -195,7 +296,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   errorMessage?: string;
   /**
    * @remarks
-   * The finish time of the task.
+   * The end time of the task. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2021-08-10 21:34:07
@@ -211,7 +312,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2021-01-06 16:37:29
@@ -243,7 +344,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   incidentUuid?: string;
   /**
    * @remarks
-   * The unique identifier name of the playbook.
+   * The unique name of the playbook.
    * 
    * @example
    * WafBlockIP
@@ -251,8 +352,8 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   playbookName?: string;
   /**
    * @remarks
-   * The playbook type. Valid values:
-   * - system: manual handling
+   * The type of the playbook. Valid values:
+   * - system: manual response
    * - custom: event-triggered playbook
    * - custom_alert: alert-triggered playbook
    * - soar-manual: manually run playbook
@@ -264,7 +365,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   playbookType?: string;
   /**
    * @remarks
-   * The playbook UUID.
+   * The UUID of the playbook.
    * 
    * @example
    * system_aliyun_clb_process_book
@@ -272,7 +373,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   playbookUuid?: string;
   /**
    * @remarks
-   * The disposition scope.
+   * The response scope.
    * 
    * @example
    * [{ aliUid: 1766185894104675 }]
@@ -280,7 +381,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   scope?: any[];
   /**
    * @remarks
-   * The SOAR response policy ID.
+   * The ID of the Security Orchestration, Automation, and Response (SOAR) response policy.
    * 
    * @example
    * 577bbf90-a770-44a7-8154-586aa2d3****
@@ -289,6 +390,10 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   /**
    * @remarks
    * The playbook invocation status. Valid values:
+   * - 200: successful
+   * - 10: deleted
+   * - 5: failed
+   * - 0: initial status
    * 
    * @example
    * 10
@@ -296,7 +401,7 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
   status?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID that configured the policy.
+   * The ID of the Alibaba Cloud account that configured the policy.
    * 
    * @example
    * 176555323***
@@ -423,6 +528,10 @@ export class ListDisposeStrategyResponseBodyDataResponseData extends $dara.Model
 }
 
 export class ListDisposeStrategyResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of response record groups.
+   */
   groups?: ListDisposeStrategyResponseBodyDataGroups[];
   /**
    * @remarks
@@ -479,7 +588,7 @@ export class ListDisposeStrategyResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The request return value.
+   * The response data.
    * 
    * @example
    * 123456
@@ -487,7 +596,7 @@ export class ListDisposeStrategyResponseBody extends $dara.Model {
   data?: ListDisposeStrategyResponseBodyData;
   /**
    * @remarks
-   * The request return message.
+   * The response message.
    * 
    * @example
    * success
@@ -503,7 +612,9 @@ export class ListDisposeStrategyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
+   * - true: successful
+   * - false: failed
    * 
    * @example
    * true

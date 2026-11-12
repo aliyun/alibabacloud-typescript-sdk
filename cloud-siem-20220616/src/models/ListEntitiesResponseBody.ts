@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEntitiesResponseBodyDataPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The current page number of the list.
+   * The current page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListEntitiesResponseBodyDataPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of records returned per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListEntitiesResponseBodyDataPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -55,7 +55,7 @@ export class ListEntitiesResponseBodyDataPageInfo extends $dara.Model {
 export class ListEntitiesResponseBodyDataResponseDataAgentDisposes extends $dara.Model {
   /**
    * @remarks
-   * The disposal suggestion recommended by the agent.
+   * The remediation method recommended by the agent.
    * 
    * @example
    * {}
@@ -63,7 +63,7 @@ export class ListEntitiesResponseBodyDataResponseDataAgentDisposes extends $dara
   agentDisposalMethod?: string;
   /**
    * @remarks
-   * The UUID of the playbook recommended by the agent for disposal.
+   * The UUID of the remediation playbook recommended by the agent.
    * 
    * @example
    * 12XAD-SFQ-WAF-2ca2
@@ -99,7 +99,7 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
   agentAnalysisReason?: string;
   /**
    * @remarks
-   * The confidence level of the entity as determined by the agent.
+   * The confidence level of the entity evaluation by the agent.
    * 
    * @example
    * 85
@@ -107,7 +107,7 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
   agentConfidence?: string;
   /**
    * @remarks
-   * The recommended disposal method from the agent.
+   * The remediation method recommended by the agent.
    * 
    * @example
    * delete_file
@@ -115,7 +115,7 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
   agentDisposalMethod?: string;
   /**
    * @remarks
-   * The UUID of the playbook recommended by the agent for disposal.
+   * The UUID of the remediation playbook recommended by the agent.
    * 
    * @example
    * 12XAD-SFQ-WAF-2ca2
@@ -124,7 +124,7 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
   agentDisposalReason?: string;
   /**
    * @remarks
-   * The disposal suggestion recommended by the agent.
+   * The remediation suggestions provided by the agent.
    * 
    * @example
    * {}
@@ -132,7 +132,7 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
   agentDisposalSuggestion?: string;
   /**
    * @remarks
-   * The list of disposal suggestions recommended by the agent.
+   * The list of remediation suggestions provided by the agent.
    */
   agentDisposes?: ListEntitiesResponseBodyDataResponseDataAgentDisposes[];
   /**
@@ -161,7 +161,7 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
   aliuid?: number;
   /**
    * @remarks
-   * The cloud code of the entity source. Valid values:
+   * The code of the source cloud for the entity. Valid values:
    * - aliyun: Alibaba Cloud.
    * - qcloud: Tencent Cloud.
    * - hcloud: Huawei Cloud.
@@ -180,7 +180,7 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
   entityId?: string;
   /**
    * @remarks
-   * The entity display information in JSON format.
+   * The display information of the entity in JSON format.
    * 
    * @example
    * {"file_path": "c:/www/leixi.jsp","file_hash": "aa0ca926ad948cd820e0a3d9a18c****","host_uuid": "efed2cf7-0b77-45d9-a97b-d2cf246b****","malware_type": "${aliyun.siem.sas.alert_tag.webshell}","host_name": "launch-advisor-2023****"}
@@ -197,6 +197,15 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
   /**
    * @remarks
    * The entity type. Valid values:
+   * - ip: IP address
+   * - domain: Domain name
+   * - url: URL
+   * - process: Process
+   * - file: File
+   * - host: Host
+   * - cloud_account: Cloud account
+   * - container: Container
+   * - bucket: OSS bucket
    * 
    * @example
    * ip
@@ -244,7 +253,7 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The incident UUID. You can obtain this value from the incident list operation.
+   * The incident UUID, which can be obtained from the incident list API operation.
    * 
    * @example
    * 85ea4241-798f-4684-a876-65d4f0c3****
@@ -253,6 +262,8 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the entity is an asset. Valid values:
+   * - 0: No.
+   * - 1: Yes.
    * 
    * @example
    * 1
@@ -260,7 +271,9 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
   isAsset?: string;
   /**
    * @remarks
-   * Specifies whether the entity is malicious. Valid values:
+   * Indicates whether the entity is malicious. Valid values:
+   * - 0: No.
+   * - 1: Yes.
    * 
    * @example
    * 0
@@ -276,7 +289,7 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
   malwareType?: string;
   /**
    * @remarks
-   * The linked account ID associated with the entity.
+   * The ID of the account associated with the entity.
    * 
    * @example
    * 113091674488****
@@ -284,7 +297,7 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
   subUserId?: number;
   /**
    * @remarks
-   * The entity tags. The value is a JSON array string in the following format:
+   * The entity tags. The format is a JSON array string:
    * 
    * `"[{"tagKey1":"tagValue1"},{"tagKey2":"tagValue2"}]"`
    * 
@@ -417,7 +430,7 @@ export class ListEntitiesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The request return value.
+   * The response data.
    * 
    * @example
    * 123456
@@ -425,7 +438,7 @@ export class ListEntitiesResponseBody extends $dara.Model {
   data?: ListEntitiesResponseBodyData;
   /**
    * @remarks
-   * The request return message.
+   * The response message.
    * 
    * @example
    * success
@@ -441,7 +454,9 @@ export class ListEntitiesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

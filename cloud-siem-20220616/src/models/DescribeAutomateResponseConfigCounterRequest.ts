@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAutomateResponseConfigCounterRequest extends $dara.Model {
   /**
    * @remarks
-   * The region of the Management Hub. Select the region based on the location of your assets. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are in the Chinese mainland or China (Hong Kong).
-   * 
-   * - ap-southeast-1: Your assets are in a region outside China.
+   * The region where the data management center of Threat Analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+   * - ap-southeast-1: Assets are located outside China.
    * 
    * @example
    * cn-hangzhou
@@ -17,7 +15,7 @@ export class DescribeAutomateResponseConfigCounterRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member whose view the administrator wants to switch to.
+   * The ID of the user whose perspective the administrator switches to.
    * 
    * @example
    * 113091674488****
@@ -25,11 +23,9 @@ export class DescribeAutomateResponseConfigCounterRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The view type.
-   * 
-   * - 0: The view of the current Alibaba Cloud account.
-   * 
-   * - 1: The view of all accounts in the enterprise.
+   * The view type. Valid values:
+   * - 0: the view of the current Alibaba Cloud account
+   * - 1: the view of all accounts in the enterprise
    * 
    * @example
    * 1

@@ -13,7 +13,10 @@ export class DescribeAlertsCountResponseBodyData extends $dara.Model {
   all?: number;
   /**
    * @remarks
-   * The number of alerts for each severity level.
+   * The counts by severity level.
+   * 
+   * @example
+   * {"key":12}
    */
   countMap?: { [key: string]: number };
   /**
@@ -85,7 +88,7 @@ export class DescribeAlertsCountResponseBodyData extends $dara.Model {
 export class DescribeAlertsCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code returned.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -93,7 +96,7 @@ export class DescribeAlertsCountResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The return value of the request.
    * 
    * @example
    * 123456
@@ -101,7 +104,7 @@ export class DescribeAlertsCountResponseBody extends $dara.Model {
   data?: DescribeAlertsCountResponseBodyData;
   /**
    * @remarks
-   * The message returned.
+   * The response message.
    * 
    * @example
    * success
@@ -117,11 +120,9 @@ export class DescribeAlertsCountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

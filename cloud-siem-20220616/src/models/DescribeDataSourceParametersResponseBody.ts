@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDataSourceParametersResponseBodyDataParamValue extends $dara.Model {
   /**
    * @remarks
-   * The displayed content.
+   * The display content.
    * 
    * @example
    * guangzhou
@@ -13,7 +13,7 @@ export class DescribeDataSourceParametersResponseBodyDataParamValue extends $dar
   label?: string;
   /**
    * @remarks
-   * The actual value of the parameter.
+   * The actual parameter content.
    * 
    * @example
    * ap-guangzhou
@@ -46,23 +46,18 @@ export class DescribeDataSourceParametersResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the parameter is editable. Valid values:
-   * 
-   * - **0**: The parameter cannot be modified.
-   * 
-   * - **1**: The parameter can be modified.
+   *  - **0**: Modification is disabled. 
+   *  - **1**: Modification is allowed.
    * 
    * @example
-   * wafApi
+   * 0
    */
   canEditted?: number;
   /**
    * @remarks
-   * The code for the multicloud environment. Valid values:
-   * 
+   * The multi-cloud code. Valid values:
    * - **qcloud**: Tencent Cloud.
-   * 
    * - **aliyun**: Alibaba Cloud.
-   * 
    * - **hcloud**: Huawei Cloud.
    * 
    * @example
@@ -71,13 +66,10 @@ export class DescribeDataSourceParametersResponseBodyData extends $dara.Model {
   cloudCode?: string;
   /**
    * @remarks
-   * The type of the data source. Valid values:
-   * 
-   * - **obs**: Huawei Cloud OBS.
-   * 
-   * - **wafApi**: Tencent Cloud WAF download API.
-   * 
-   * - **ckafka**: Tencent Cloud CKafka.
+   * The data source type. Valid values:
+   *  - **obs**: Huawei Cloud OBS.
+   *  - **wafApi**: Tencent Cloud WAF download API. 
+   *  - **ckafka**: Tencent Cloud CKafka.
    * 
    * @example
    * obs
@@ -85,7 +77,7 @@ export class DescribeDataSourceParametersResponseBodyData extends $dara.Model {
   dataSourceType?: string;
   /**
    * @remarks
-   * The default value of the parameter.
+   * The default parameter value.
    * 
    * @example
    * wafApi
@@ -93,19 +85,17 @@ export class DescribeDataSourceParametersResponseBodyData extends $dara.Model {
   defaultValue?: string;
   /**
    * @remarks
-   * Indicates whether the parameter can be modified. Valid values:
-   * 
-   * - **true**: The parameter cannot be modified.
-   * 
-   * - **false**: The parameter can be modified.
+   * Indicates whether modification is disabled. Valid values:
+   *  - **true**: Modification is disabled. 
+   *  - **false**: Modification is allowed.
    * 
    * @example
-   * wafApi
+   * true
    */
   disabled?: boolean;
   /**
    * @remarks
-   * The format check method.
+   * The format validation method.
    * 
    * @example
    * email
@@ -113,7 +103,7 @@ export class DescribeDataSourceParametersResponseBodyData extends $dara.Model {
   formatCheck?: string;
   /**
    * @remarks
-   * Additional information.
+   * The additional description.
    * 
    * @example
    * obs docment
@@ -121,7 +111,7 @@ export class DescribeDataSourceParametersResponseBodyData extends $dara.Model {
   hit?: string;
   /**
    * @remarks
-   * The code of the parameter.
+   * The parameter code.
    * 
    * @example
    * region_code
@@ -129,11 +119,9 @@ export class DescribeDataSourceParametersResponseBodyData extends $dara.Model {
   paraCode?: string;
   /**
    * @remarks
-   * The level of the parameter. Valid values:
-   * 
-   * - **1**: data source parameter.
-   * 
-   * - **2**: log parameter.
+   * The parameter level. Valid values:
+   *  - **1**: Data source parameter.
+   * - **2**: Log parameter.
    * 
    * @example
    * 1
@@ -141,7 +129,7 @@ export class DescribeDataSourceParametersResponseBodyData extends $dara.Model {
   paraLevel?: number;
   /**
    * @remarks
-   * The name of the parameter.
+   * The parameter name.
    * 
    * @example
    * region local
@@ -149,7 +137,7 @@ export class DescribeDataSourceParametersResponseBodyData extends $dara.Model {
   paraName?: string;
   /**
    * @remarks
-   * The type of the parameter.
+   * The parameter type.
    * 
    * @example
    * string
@@ -157,24 +145,22 @@ export class DescribeDataSourceParametersResponseBodyData extends $dara.Model {
   paraType?: string;
   /**
    * @remarks
-   * The list of parameters.
+   * The specific parameter list.
    */
   paramValue?: DescribeDataSourceParametersResponseBodyDataParamValue[];
   /**
    * @remarks
    * Indicates whether the parameter is required. Valid values:
-   * 
-   * - **1**: The parameter is required.
-   * 
-   * - **0**: The parameter is optional.
+   *  - **1**: Required.
+   *  - **0**: Optional.
    * 
    * @example
-   * string
+   * 1
    */
   required?: number;
   /**
    * @remarks
-   * The prompt for the parameter value.
+   * The parameter value hint.
    * 
    * @example
    * obs bucket name
@@ -233,12 +219,12 @@ export class DescribeDataSourceParametersResponseBodyData extends $dara.Model {
 export class DescribeDataSourceParametersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: DescribeDataSourceParametersResponseBodyData[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

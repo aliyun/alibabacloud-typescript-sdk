@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDataSourceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of data sources that are deleted. A value of 1 indicates success. A value of 0 or less indicates failure.
+   * The number of deleted data sources. A value of 1 indicates success, and a value of 0 or less indicates failure.
    * 
    * @example
    * 1
@@ -35,7 +35,7 @@ export class DeleteDataSourceResponseBodyData extends $dara.Model {
 export class DeleteDataSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value of the request.
+   * The response data.
    */
   data?: DeleteDataSourceResponseBodyData;
   /**

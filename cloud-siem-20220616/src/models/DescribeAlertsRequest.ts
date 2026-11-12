@@ -34,7 +34,7 @@ export class DescribeAlertsRequest extends $dara.Model {
   alertType?: string;
   /**
    * @remarks
-   * The unique ID of the alert.
+   * The ID of the alert associated with the event.
    * 
    * @example
    * sas_71e24437d2797ce8fc59692905a4****
@@ -58,7 +58,7 @@ export class DescribeAlertsRequest extends $dara.Model {
   assetName?: string;
   /**
    * @remarks
-   * The page number. The value must be greater than or equal to 1.
+   * The current page number of the list. The value must be greater than or equal to 1.
    * 
    * This parameter is required.
    * 
@@ -68,7 +68,7 @@ export class DescribeAlertsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The end time of the query. Unit: milliseconds.
    * 
    * @example
    * 1577808000000
@@ -92,11 +92,9 @@ export class DescribeAlertsRequest extends $dara.Model {
   entityName?: string;
   /**
    * @remarks
-   * Specifies whether the threat is defended. Valid values:
-   * 
-   * - `0`: detected
-   * 
-   * - `1`: blocked
+   * Specifies whether the threat is blocked. Valid values:
+   * - 0: Detected.
+   * - 1: Blocked.
    * 
    * @example
    * 1
@@ -104,19 +102,13 @@ export class DescribeAlertsRequest extends $dara.Model {
   isDefend?: string;
   /**
    * @remarks
-   * The alert type. Valid values:
-   * 
-   * - `system`: An alert generated from aggregated analysis
-   * 
-   * - `custom`: An alert generated from custom analysis
-   * 
-   * - `cfw`: firewall
-   * 
-   * - `waf`: web application firewall
-   * 
-   * - `edr`: endpoint detection and response
-   * 
-   * - `other`: other
+   * The alert query type. Valid values:
+   * - system: Aggregation analysis alert.
+   * - custom: Custom analysis alert.
+   * - cfw: Cloud Firewall.
+   * - waf: Web Application Firewall.
+   * - edr: Endpoint Detection and Response.
+   * - other: Other.
    * 
    * @example
    * custom
@@ -124,13 +116,10 @@ export class DescribeAlertsRequest extends $dara.Model {
   labelType?: string;
   /**
    * @remarks
-   * The threat levels. This parameter is a JSON array. Valid values:
-   * 
-   * - `serious`: high
-   * 
-   * - `suspicious`: medium
-   * 
-   * - `remind`: low
+   * The threat level. The value is a JSON array. Valid values:
+   * - serious: High risk.
+   * - suspicious: Medium risk.
+   * - remind: Low risk.
    * 
    * @example
    * ["serious","suspicious","remind"]
@@ -148,11 +137,9 @@ export class DescribeAlertsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the data management center of the threat analysis feature resides. You are required to specify this parameter based on the region where your assets reside. Valid values:
-   * 
-   * - `cn-hangzhou`: Your assets reside in the Chinese mainland or Hong Kong (China).
-   * 
-   * - `ap-southeast-1`: Your assets reside outside the Chinese mainland.
+   * The region where the data management center of Threat Analysis is located. Select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: Assets in the Chinese mainland and Hong Kong (China).
+   * - ap-southeast-1: Assets in regions outside China.
    * 
    * @example
    * cn-hangzhou
@@ -160,7 +147,7 @@ export class DescribeAlertsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the user who is used to switch the account to view the data of the member.
+   * The ID of the user whose view the administrator switches to.
    * 
    * @example
    * 113091674488****
@@ -168,11 +155,9 @@ export class DescribeAlertsRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The view type of the alert. Valid values:
-   * 
-   * - `0`: current account
-   * 
-   * - `1`: all accounts
+   * The view type. Valid values:
+   * - 0: View of the current Alibaba Cloud account.
+   * - 1: View of all accounts in the enterprise.
    * 
    * @example
    * 1
@@ -180,7 +165,7 @@ export class DescribeAlertsRequest extends $dara.Model {
   roleType?: number;
   /**
    * @remarks
-   * The source of the alert.
+   * The source product of the alert associated with the event.
    * 
    * @example
    * sas
@@ -188,7 +173,7 @@ export class DescribeAlertsRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. This value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The start time of the query. Unit: milliseconds.
    * 
    * @example
    * 1577808000000
@@ -196,7 +181,7 @@ export class DescribeAlertsRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is associated with the alert.
+   * The ID of the Alibaba Cloud account actually associated with the alert.
    * 
    * @example
    * 176555323***

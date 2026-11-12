@@ -21,10 +21,10 @@ export class DescribeAlertTypeResponseBodyData extends $dara.Model {
   alertTypeCategory?: string;
   /**
    * @remarks
-   * The threat type category name in the language of the current request. Empty if no translation is available.
+   * The name of the threat type category in the requested language. This parameter is empty if the translation is missing.
    * 
    * @example
-   * Identity and Access
+   * Identity and access
    */
   alertTypeCategoryMds?: string;
   /**
@@ -45,7 +45,7 @@ export class DescribeAlertTypeResponseBodyData extends $dara.Model {
   alertTypeMds?: string;
   /**
    * @remarks
-   * The English name of the threat type. Empty if no translation is available.
+   * The English name of the threat type. This parameter is empty if the translation is missing.
    * 
    * @example
    * Unusual Logon
@@ -53,10 +53,10 @@ export class DescribeAlertTypeResponseBodyData extends $dara.Model {
   alertTypeNameEn?: string;
   /**
    * @remarks
-   * The Chinese name of the threat type. Empty if no translation is available.
+   * The Chinese name of the threat type. This parameter is empty if the translation is missing.
    * 
    * @example
-   * 异常登录
+   * Unusual logon
    */
   alertTypeNameZh?: string;
   static names(): { [key: string]: string } {
@@ -95,7 +95,7 @@ export class DescribeAlertTypeResponseBodyData extends $dara.Model {
 export class DescribeAlertTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request status code.
+   * The status code.
    * 
    * @example
    * 200
@@ -111,7 +111,7 @@ export class DescribeAlertTypeResponseBody extends $dara.Model {
   data?: DescribeAlertTypeResponseBodyData[];
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -128,8 +128,8 @@ export class DescribeAlertTypeResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * - true: successful.
-   * - false: failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

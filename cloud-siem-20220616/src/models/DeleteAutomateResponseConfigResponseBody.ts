@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAutomateResponseConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code of the request.
+   * The status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteAutomateResponseConfigResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The return value of the request.
+   * The response data.
    * 
    * @example
    * 123456
@@ -21,7 +21,7 @@ export class DeleteAutomateResponseConfigResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The message returned for the request.
+   * The returned message.
    * 
    * @example
    * success
@@ -37,10 +37,8 @@ export class DeleteAutomateResponseConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request is successful.
    * - false: The request failed.
    * 
    * @example

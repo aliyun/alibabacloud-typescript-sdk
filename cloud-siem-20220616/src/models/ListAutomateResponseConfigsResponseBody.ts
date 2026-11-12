@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAutomateResponseConfigsResponseBodyDataPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -55,7 +55,7 @@ export class ListAutomateResponseConfigsResponseBodyDataPageInfo extends $dara.M
 export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $dara.Model {
   /**
    * @remarks
-   * The action configuration of the automated response rule. The value is a JSON array.
+   * The action configuration of the automated response rule, in JSON array format.
    * 
    * @example
    * [
@@ -69,13 +69,10 @@ export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $da
   actionConfig?: string;
   /**
    * @remarks
-   * The handling action. Multiple values are separated by commas. Valid values:
-   * 
-   * - **doPlaybook**: executes a playbook.
-   * 
-   * - **changeEventStatus**: changes the status of an event.
-   * 
-   * - **changeThreatLevel**: changes the threat level of an event.
+   * The types of the actions. Multiple values are separated by commas. Valid values:
+   * - **doPlaybook**: Execute a playbook.
+   * - **changeEventStatus**: Change the event status.
+   * - **changeThreatLevel**: Change the event threat level.
    * 
    * @example
    * doPlaybook,changeEventStatus
@@ -83,7 +80,7 @@ export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $da
   actionType?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is associated with the rule.
+   * The ID of the primary Alibaba Cloud account associated with the SIEM rule.
    * 
    * @example
    * 127608589417****
@@ -92,10 +89,8 @@ export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $da
   /**
    * @remarks
    * The type of the automated response. Valid values:
-   * 
-   * - **event**
-   * 
-   * - **alert**
+   * - **event**: Event.
+   * - **alert**: Alert.
    * 
    * @example
    * event
@@ -106,12 +101,12 @@ export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $da
    * The data type of the condition field in the automated response rule.
    * 
    * @example
-   * varchar
+   * 1
    */
   dataType?: number;
   /**
    * @remarks
-   * The trigger condition of the automated response rule. The value is in the JSON format.
+   * The cause of the automated response rule, in JSON format.
    * 
    * @example
    * [{"left":{"value":"alert_name"},"operator":"containsString","right":{"value":"webshell_online"}}]
@@ -143,11 +138,9 @@ export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $da
   id?: number;
   /**
    * @remarks
-   * The type of the response rule.
-   * 
-   * - preset: predefined
-   * 
-   * - custom: custom
+   * The type of the response rule. Valid values:
+   * - preset: Predefined.
+   * - custom: Custom.
    * 
    * @example
    * custom
@@ -164,10 +157,8 @@ export class ListAutomateResponseConfigsResponseBodyDataResponseData extends $da
   /**
    * @remarks
    * The status of the rule. Valid values:
-   * 
-   * - **0**: disabled
-   * 
-   * - **100**: enabled
+   * - **0**: Disabled.
+   * - **100**: Enabled.
    * 
    * @example
    * 0
@@ -269,7 +260,7 @@ export class ListAutomateResponseConfigsResponseBodyData extends $dara.Model {
 export class ListAutomateResponseConfigsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request status code.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -277,7 +268,7 @@ export class ListAutomateResponseConfigsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The data returned in the response.
    * 
    * @example
    * 123456
@@ -285,7 +276,7 @@ export class ListAutomateResponseConfigsResponseBody extends $dara.Model {
   data?: ListAutomateResponseConfigsResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
    * @example
    * success
@@ -293,7 +284,7 @@ export class ListAutomateResponseConfigsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
@@ -301,11 +292,9 @@ export class ListAutomateResponseConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - **true**: Successful.
+   * - **false**: Failed.
    * 
    * @example
    * true

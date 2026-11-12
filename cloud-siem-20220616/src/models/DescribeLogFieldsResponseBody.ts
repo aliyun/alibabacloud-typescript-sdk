@@ -16,7 +16,7 @@ export class DescribeLogFieldsResponseBodyData extends $dara.Model {
    * The Medusa code for the field description.
    * 
    * @example
-   * sas.cloudsiem.prod.activity_name
+   * ${sas.cloudsiem.prod.alert_desc}
    */
   fieldDesc?: string;
   /**

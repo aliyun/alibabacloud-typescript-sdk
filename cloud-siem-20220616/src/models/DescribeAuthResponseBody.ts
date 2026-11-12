@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAuthResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the permissions are granted.
-   * 
-   * - true: The permissions are granted.
-   * 
-   * - false: The permissions are not granted.
+   * The return value of the request. Valid values:
+   * - true: Permissions are enabled.
+   * - false: Permissions are not enabled.
    * 
    * @example
    * true
@@ -17,7 +15,7 @@ export class DescribeAuthResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 4F539347-7D9A-51EA-8ABF-5D5507045C5C

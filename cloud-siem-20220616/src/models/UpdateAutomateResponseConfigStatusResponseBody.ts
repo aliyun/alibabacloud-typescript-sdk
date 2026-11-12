@@ -13,7 +13,7 @@ export class UpdateAutomateResponseConfigStatusResponseBody extends $dara.Model 
   code?: number;
   /**
    * @remarks
-   * The return value of the request.
+   * The response data.
    * 
    * @example
    * 123456
@@ -21,7 +21,7 @@ export class UpdateAutomateResponseConfigStatusResponseBody extends $dara.Model 
   data?: string;
   /**
    * @remarks
-   * The message returned for the request.
+   * The response message.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class UpdateAutomateResponseConfigStatusResponseBody extends $dara.Model 
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
@@ -38,10 +38,8 @@ export class UpdateAutomateResponseConfigStatusResponseBody extends $dara.Model 
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

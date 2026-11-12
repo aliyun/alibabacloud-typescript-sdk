@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBindAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID of the Alibaba Cloud account.
+   * The AccessKey ID of the cloud account.
    * 
    * @example
    * ABCXXXXXXXXX
@@ -13,7 +13,7 @@ export class ModifyBindAccountRequest extends $dara.Model {
   accessId?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The ID of the cloud account.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ModifyBindAccountRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The name of the multicloud account.
+   * The name of the multi-cloud account.
    * 
    * @example
    * sas_account_xxx
@@ -31,7 +31,7 @@ export class ModifyBindAccountRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The ID of the binding record. This is the BindId value returned by the ListBindAccount operation.
+   * The ID of the binding record. This is the BindId returned by the ListBindAccount operation.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,10 @@ export class ModifyBindAccountRequest extends $dara.Model {
   bindId?: number;
   /**
    * @remarks
-   * The code of the multicloud service.
+   * The code of the multi-cloud provider. Valid values:
+   * 
+   * - **hcloud**: Huawei Cloud.
+   * - **qcloud**: Tencent Cloud.
    * 
    * This parameter is required.
    * 
@@ -51,11 +54,9 @@ export class ModifyBindAccountRequest extends $dara.Model {
   cloudCode?: string;
   /**
    * @remarks
-   * The region where the Data Management center for threat analysis is located. Select a region based on the location of your assets. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are in the Chinese mainland or China (Hong Kong).
-   * 
-   * - ap-southeast-1: Your assets are outside China.
+   * The region where the threat detection and response (CTDR) data management center resides. Select the management center based on the region of your assets. Valid values:
+   * - cn-hangzhou: The assets belong to the Chinese mainland or Hong Kong (China).
+   * - ap-southeast-1: The assets belong to regions outside China.
    * 
    * @example
    * cn-hangzhou
@@ -63,7 +64,7 @@ export class ModifyBindAccountRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member. An administrator can specify this parameter to switch to the member\\"s view.
+   * The ID of the member account to which the administrator switches the view.
    * 
    * @example
    * 113091674488****
@@ -71,10 +72,9 @@ export class ModifyBindAccountRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The view type.
+   * The view type. Valid values:
    * 
    * - 0: The view of the current Alibaba Cloud account.
-   * 
    * - 1: The view of all accounts in the enterprise.
    * 
    * @example

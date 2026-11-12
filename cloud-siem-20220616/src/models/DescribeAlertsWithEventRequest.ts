@@ -45,7 +45,7 @@ export class DescribeAlertsWithEventRequest extends $dara.Model {
   assetName?: string;
   /**
    * @remarks
-   * The current page number. The value must be greater than or equal to 1.
+   * The page number of the current page. The value must be greater than or equal to 1.
    * 
    * This parameter is required.
    * 
@@ -87,10 +87,10 @@ export class DescribeAlertsWithEventRequest extends $dara.Model {
   incidentUuid?: string;
   /**
    * @remarks
-   * Specifies whether the alert has been defended. Valid values:
+   * Specifies whether the threat is blocked. Valid values:
    * 
-   * - 0: detected
-   * - 1: blocked
+   * - 0: Detected.
+   * - 1: Blocked.
    * 
    * @example
    * 1
@@ -98,7 +98,7 @@ export class DescribeAlertsWithEventRequest extends $dara.Model {
   isDefend?: string;
   /**
    * @remarks
-   * The threat level in JSON array format. Valid values:
+   * The threat level. The value is a JSON array. Valid values:
    * - serious: High.
    * - suspicious: Medium.
    * - remind: Low.
@@ -119,9 +119,9 @@ export class DescribeAlertsWithEventRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the threat analysis data management center resides. Specify the management center based on the region of your assets. Valid values:
-   * - cn-hangzhou: Your assets reside in Chinese mainland or China (Hong Kong).
-   * - ap-southeast-1: Your assets reside in regions outside China.
+   * The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+   * - ap-southeast-1: Assets are located outside China.
    * 
    * @example
    * cn-hangzhou
@@ -129,7 +129,7 @@ export class DescribeAlertsWithEventRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The member account ID of the resource directory.
+   * The ID of the member account in the resource directory.
    * 
    * @example
    * 113091674488****
@@ -139,8 +139,8 @@ export class DescribeAlertsWithEventRequest extends $dara.Model {
    * @remarks
    * The view type. Valid values:
    * 
-   * - 0: the view of the current Alibaba Cloud account.
-   * - 1: the view of all accounts in the enterprise.
+   * - 0: The view of the current Alibaba Cloud account.
+   * - 1: The view of all accounts in the enterprise.
    * 
    * @example
    * 1
@@ -148,7 +148,7 @@ export class DescribeAlertsWithEventRequest extends $dara.Model {
   roleType?: number;
   /**
    * @remarks
-   * The alert data source.
+   * The data source of the alert.
    * 
    * @example
    * sas

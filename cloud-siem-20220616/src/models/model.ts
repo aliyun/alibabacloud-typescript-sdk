@@ -67,6 +67,7 @@ export { DescribeOperatorsResponseBodyData } from './DescribeOperatorsResponseBo
 export { DescribeProdCountResponseBodyData } from './DescribeProdCountResponseBody';
 export { DescribeScopeUsersResponseBodyData } from './DescribeScopeUsersResponseBody';
 export { DescribeUserBuyStatusResponseBodyData } from './DescribeUserBuyStatusResponseBody';
+export { DescribeUserSiemOrderStatusResponseBodyDataCreditsPostpaidInfo } from './DescribeUserSiemOrderStatusResponseBody';
 export { DescribeUserSiemOrderStatusResponseBodyData } from './DescribeUserSiemOrderStatusResponseBody';
 export { DescribeWafScopeResponseBodyData } from './DescribeWafScopeResponseBody';
 export { DescribeWhiteRuleListResponseBodyDataPageInfo } from './DescribeWhiteRuleListResponseBody';

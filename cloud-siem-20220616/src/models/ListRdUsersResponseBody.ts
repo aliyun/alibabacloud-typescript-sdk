@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRdUsersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the account is delegated to view its own resources.
+   * Specifies whether the account is delegated to view its own resources.
    * 
    * @example
    * true
@@ -13,10 +13,8 @@ export class ListRdUsersResponseBodyData extends $dara.Model {
   delegatedOrNot?: boolean;
   /**
    * @remarks
-   * Indicates whether the account is managed by the multi-account control feature of Threat Analysis. Valid values:
-   * 
+   * Specifies whether the account is managed by the multi-account management feature of Threat Analysis. Valid values:
    * - true: The account is managed.
-   * 
    * - false: The account is not managed.
    * 
    * @example
@@ -25,7 +23,7 @@ export class ListRdUsersResponseBodyData extends $dara.Model {
   joined?: boolean;
   /**
    * @remarks
-   * The time when the account was added.
+   * The time when the account was added to management.
    * 
    * @example
    * 2013-10-01 00:00:00
@@ -33,7 +31,7 @@ export class ListRdUsersResponseBodyData extends $dara.Model {
   joinedTime?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that purchased Threat Analysis.
+   * The Alibaba Cloud account ID that purchased Threat Analysis.
    * 
    * @example
    * 123XXXXXXXXX
@@ -41,7 +39,7 @@ export class ListRdUsersResponseBodyData extends $dara.Model {
   mainUserId?: number;
   /**
    * @remarks
-   * The ID of the member Alibaba Cloud account.
+   * The Alibaba Cloud account ID for Threat Analysis.
    * 
    * @example
    * 123XXXXXXXX
@@ -49,7 +47,7 @@ export class ListRdUsersResponseBodyData extends $dara.Model {
   subUserId?: number;
   /**
    * @remarks
-   * The name of the member Alibaba Cloud account.
+   * The name of the Alibaba Cloud account managed by Threat Analysis.
    * 
    * @example
    * sas_account_xxx
@@ -89,7 +87,7 @@ export class ListRdUsersResponseBodyData extends $dara.Model {
 export class ListRdUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: ListRdUsersResponseBodyData[];
   /**

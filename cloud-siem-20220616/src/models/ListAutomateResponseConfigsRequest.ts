@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListAutomateResponseConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the handling action. Valid values:
-   * 
-   * - **doPlaybook**: executes a playbook.
-   * 
-   * - **changeEventStatus**: changes the status of an event.
-   * 
-   * - **changeThreatLevel**: changes the threat level of an event.
+   * The type of the action. Valid values:
+   * - **doPlaybook**: Execute a playbook.
+   * - **changeEventStatus**: Change the event status.
+   * - **changeThreatLevel**: Change the event threat level.
    * 
    * @example
    * doPlaybook
@@ -20,10 +17,8 @@ export class ListAutomateResponseConfigsRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the automated response. Valid values:
-   * 
-   * - **event**
-   * 
-   * - **alert**
+   * - **event**: Event.
+   * - **alert**: Alert.
    * 
    * @example
    * event
@@ -31,7 +26,7 @@ export class ListAutomateResponseConfigsRequest extends $dara.Model {
   autoResponseType?: string;
   /**
    * @remarks
-   * The page number. The value must be 1 or greater.
+   * The current page number. The value must be greater than or equal to 1.
    * 
    * This parameter is required.
    * 
@@ -49,7 +44,7 @@ export class ListAutomateResponseConfigsRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The number of entries per page. The maximum value is 100.
+   * The number of entries per page. Maximum value: 100.
    * 
    * This parameter is required.
    * 
@@ -59,7 +54,7 @@ export class ListAutomateResponseConfigsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The unique identifier of the playbook.
+   * The UUID of the playbook.
    * 
    * @example
    * system_aliyun_aegis_kill_quara_book
@@ -67,11 +62,9 @@ export class ListAutomateResponseConfigsRequest extends $dara.Model {
   playbookUuid?: string;
   /**
    * @remarks
-   * The region of the Data Management center. Select a region based on the region where your assets are located. Valid values:
-   * 
-   * - **cn-hangzhou**: your assets are in the Chinese mainland or China (Hong Kong).
-   * 
-   * - **ap-southeast-1**: your assets are in a region outside China.
+   * The region where the data management center of Threat Analysis is located. Select the region based on the region where your assets are located. Valid values:
+   * - **cn-hangzhou**: Assets are located in the Chinese mainland and Hong Kong (China).
+   * - **ap-southeast-1**: Assets are located outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -79,11 +72,9 @@ export class ListAutomateResponseConfigsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The type of the response rule.
-   * 
-   * - preset: predefined
-   * 
-   * - custom: custom
+   * The type of the response rule. Valid values:
+   * - preset: Predefined.
+   * - custom: Custom.
    * 
    * @example
    * custom
@@ -91,7 +82,7 @@ export class ListAutomateResponseConfigsRequest extends $dara.Model {
   responseRuleType?: string;
   /**
    * @remarks
-   * The ID of the member to which the administrator switches.
+   * The ID of the user whose perspective the administrator switches to.
    * 
    * @example
    * 113091674488****
@@ -99,11 +90,9 @@ export class ListAutomateResponseConfigsRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The view type.
-   * 
-   * - 0: the view of the current Alibaba Cloud account.
-   * 
-   * - 1: the view of all accounts that belong to the enterprise.
+   * The view type. Valid values:
+   * - 0: Current Alibaba Cloud account view.
+   * - 1: View of all accounts in the enterprise.
    * 
    * @example
    * 1
@@ -120,10 +109,8 @@ export class ListAutomateResponseConfigsRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the rule. Valid values:
-   * 
-   * - **0**: disabled
-   * 
-   * - **100**: enabled
+   * - **0**: Disabled.
+   * - **100**: Enabled.
    * 
    * @example
    * 0

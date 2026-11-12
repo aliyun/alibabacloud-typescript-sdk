@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAlertsWithEntityRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return. The value must be greater than or equal to 1.
+   * The page number of the current page. The value must be greater than or equal to 1.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeAlertsWithEntityRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end time of the query. The unit is milliseconds.
+   * The end time of the query. Unit: milliseconds.
    * 
    * @example
    * 1577808000000
@@ -39,7 +39,7 @@ export class DescribeAlertsWithEntityRequest extends $dara.Model {
   entityUuid?: string;
   /**
    * @remarks
-   * The globally unique ID of the event.
+   * The globally unique ID of the incident.
    * 
    * @example
    * 85ea4241-798f-4684-a876-65d4f0c3****
@@ -47,7 +47,7 @@ export class DescribeAlertsWithEntityRequest extends $dara.Model {
   incidentUuid?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. The maximum value is 100.
+   * The number of entries per page. Maximum value: 100.
    * 
    * This parameter is required.
    * 
@@ -57,11 +57,9 @@ export class DescribeAlertsWithEntityRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region of the data management center for threat analysis. Select a region based on the location of your assets. Valid values:
-   * 
-   * - cn-hangzhou: your assets are in the Chinese mainland and China (Hong Kong).
-   * 
-   * - ap-southeast-1: your assets are outside China.
+   * The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+   * - ap-southeast-1: Assets are located outside China.
    * 
    * @example
    * cn-hangzhou
@@ -69,7 +67,7 @@ export class DescribeAlertsWithEntityRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of the member to which the administrator switches.
+   * The ID of the user whose view the administrator switches to.
    * 
    * @example
    * 113091674488****
@@ -77,11 +75,9 @@ export class DescribeAlertsWithEntityRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view. Valid values:
-   * 
-   * - 0: the view of the current Alibaba Cloud account.
-   * 
-   * - 1: the view of all accounts that are managed by your enterprise.
+   * The view type. Valid values:
+   * - 0: the view of the current Alibaba Cloud account
+   * - 1: the view of all accounts in the enterprise
    * 
    * @example
    * 1
@@ -89,7 +85,7 @@ export class DescribeAlertsWithEntityRequest extends $dara.Model {
   roleType?: number;
   /**
    * @remarks
-   * The ID of the Security Orchestration, Automation, and Response (SOAR) handling policy.
+   * The ID of the SOAR playbook.
    * 
    * @example
    * 577bbf90-a770-44a7-8154-586aa2d318fa
@@ -97,7 +93,7 @@ export class DescribeAlertsWithEntityRequest extends $dara.Model {
   sophonTaskId?: string;
   /**
    * @remarks
-   * The start time of the query. The unit is milliseconds.
+   * The start time of the query. Unit: milliseconds.
    * 
    * @example
    * 1577808000000

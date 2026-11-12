@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCloudSiemAssetsResponseBodyDataPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The number of the current page.
    * 
    * @example
    * 1
@@ -55,7 +55,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataPageInfo extends $dara.Model
 export class DescribeCloudSiemAssetsResponseBodyDataResponseDataAssetInfo extends $dara.Model {
   /**
    * @remarks
-   * The key of the alert property.
+   * The key of the detailed alert property.
    * 
    * @example
    * suspicious.wbd.wb.trojanpath
@@ -63,7 +63,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseDataAssetInfo extend
   key?: string;
   /**
    * @remarks
-   * The name of the alert property.
+   * The name of the detailed alert data.
    * 
    * @example
    * Trojan Path
@@ -71,7 +71,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseDataAssetInfo extend
   keyName?: string;
   /**
    * @remarks
-   * The value of the alert property.
+   * The value of the detailed alert data.
    * 
    * @example
    * /root/test33.php
@@ -105,7 +105,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseDataAssetInfo extend
 export class DescribeCloudSiemAssetsResponseBodyDataResponseData extends $dara.Model {
   /**
    * @remarks
-   * The UUID of the alert that is associated with the event.
+   * The UUID of the alert associated with the incident.
    * 
    * @example
    * sas_71e24437d2797ce8fc59692905a4****
@@ -113,7 +113,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseData extends $dara.M
   alertUuid?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The ID of the primary Alibaba Cloud account for SIEM.
    * 
    * @example
    * 1276085894174392
@@ -129,7 +129,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseData extends $dara.M
   assetId?: string;
   /**
    * @remarks
-   * The asset information, in a JSON array.
+   * The display information of the asset, in JSON array format.
    * 
    * @example
    * [{"KeyName": "${aliyun.siem.asset.asset_name}","Values": "zsw-agentless-ubuntu20","Key": "asset_name"}]
@@ -137,7 +137,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseData extends $dara.M
   assetInfo?: DescribeCloudSiemAssetsResponseBodyDataResponseDataAssetInfo[];
   /**
    * @remarks
-   * The asset name.
+   * The name of the asset.
    * 
    * @example
    * zsw-agentless-centos****
@@ -146,17 +146,11 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseData extends $dara.M
   /**
    * @remarks
    * The asset type. Valid values:
-   * 
    * - ip: IP address
-   * 
    * - domain: domain name
-   * 
    * - url: URL
-   * 
    * - process: process
-   * 
    * - file: file
-   * 
    * - host: host
    * 
    * @example
@@ -165,12 +159,9 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseData extends $dara.M
   assetType?: string;
   /**
    * @remarks
-   * The cloud service provider of the entity. Valid values:
-   * 
+   * The code of the cloud provider from which the entity originates. Valid values:
    * - aliyun: Alibaba Cloud
-   * 
    * - qcloud: Tencent Cloud
-   * 
    * - hcloud: Huawei Cloud
    * 
    * @example
@@ -195,7 +186,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseData extends $dara.M
   gmtModified?: string;
   /**
    * @remarks
-   * The asset ID.
+   * The ID of the asset.
    * 
    * @example
    * 123
@@ -203,7 +194,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseData extends $dara.M
   id?: number;
   /**
    * @remarks
-   * The UUID of the event.
+   * The UUID of the incident.
    * 
    * @example
    * 85ea4241-798f-4684-a876-65d4f0c3****
@@ -211,7 +202,7 @@ export class DescribeCloudSiemAssetsResponseBodyDataResponseData extends $dara.M
   incidentUuid?: string;
   /**
    * @remarks
-   * The ID of the linked account.
+   * The ID of the account associated with the asset.
    * 
    * @example
    * 176555323***
@@ -306,7 +297,7 @@ export class DescribeCloudSiemAssetsResponseBodyData extends $dara.Model {
 export class DescribeCloudSiemAssetsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -314,7 +305,7 @@ export class DescribeCloudSiemAssetsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The data returned in the response.
    * 
    * @example
    * 123456
@@ -322,7 +313,7 @@ export class DescribeCloudSiemAssetsResponseBody extends $dara.Model {
   data?: DescribeCloudSiemAssetsResponseBodyData;
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
    * @example
    * success
@@ -330,7 +321,7 @@ export class DescribeCloudSiemAssetsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
@@ -338,11 +329,9 @@ export class DescribeCloudSiemAssetsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: successful
+   * - false: failed
    * 
    * @example
    * true

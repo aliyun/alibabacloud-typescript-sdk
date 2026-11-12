@@ -21,7 +21,7 @@ export class DeleteCustomizeRuleResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class DeleteCustomizeRuleResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
@@ -37,11 +37,9 @@ export class DeleteCustomizeRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: successful
+   * - false: failed
    * 
    * @example
    * true

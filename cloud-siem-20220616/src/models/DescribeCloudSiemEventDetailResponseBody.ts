@@ -13,7 +13,7 @@ export class DescribeCloudSiemEventDetailResponseBodyDataAttckStages extends $da
   alertNum?: number;
   /**
    * @remarks
-   * The ATT&CK attack stage ID.
+   * The ID of the ATT&CK attack stage.
    * 
    * @example
    * TA0008
@@ -79,7 +79,7 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   assetNum?: number;
   /**
    * @remarks
-   * The collection of ATT&CK attack technique labels.
+   * The collection of ATT&CK attack technique tags.
    * 
    * @example
    * ["T1595.002 Vulnerability Scanning"]
@@ -157,10 +157,10 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The event type. Valid values:
-   * - net-attack: expert rule.
-   * - graph: graph computing.
-   * - singleToSingle: alert pass-through.
-   * - allToSingle: alert aggregation.
+   * - net-attack: expert rule
+   * - graph: graph computing
+   * - singleToSingle: alert pass-through
+   * - allToSingle: alert aggregation
    * 
    * @example
    * graph
@@ -181,7 +181,7 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   referAccount?: string;
   /**
    * @remarks
-   * The remarks of the event.
+   * The remark for the event.
    * 
    * @example
    * dealed
@@ -197,12 +197,12 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The event status. Valid values:
+   * The status of the event. Valid values:
    * 
-   * - 0: unhandled.  
-   * - 1: handling. 
-   * - 5: handling failed. 
-   * - 10: handled.
+   * - 0: unhandled  
+   * - 1: processing 
+   * - 5: processing failed 
+   * - 10: handled
    * 
    * @example
    * 0
@@ -211,9 +211,9 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The threat level. Valid values:
-   * - serious: high.
-   * - suspicious: medium.
-   * - remind: low.
+   * - serious: high
+   * - suspicious: medium
+   * - remind: low
    * 
    * @example
    * remind
@@ -221,7 +221,7 @@ export class DescribeCloudSiemEventDetailResponseBodyData extends $dara.Model {
   threatLevel?: string;
   /**
    * @remarks
-   * The threat score of the event, ranging from 0 to 100. A higher score indicates a higher risk level.
+   * The threat score of the event. Valid values: 0 to 100. A higher score indicates a higher risk level.
    * 
    * @example
    * 90.2
@@ -316,7 +316,7 @@ export class DescribeCloudSiemEventDetailResponseBody extends $dara.Model {
   data?: DescribeCloudSiemEventDetailResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * The message returned in the response.
    * 
    * @example
    * success
@@ -324,7 +324,7 @@ export class DescribeCloudSiemEventDetailResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****
@@ -332,9 +332,9 @@ export class DescribeCloudSiemEventDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * - true: successful.
-   * - false: failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: successful
+   * - false: failed
    * 
    * @example
    * true

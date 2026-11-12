@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAccountsByLogResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The ID of the cloud account.
    * 
    * @example
    * 123xxxxxxx
@@ -13,7 +13,7 @@ export class ListAccountsByLogResponseBodyData extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The name of the Alibaba Cloud account.
+   * The name of the cloud account.
    * 
    * @example
    * sas_account_xxx
@@ -21,9 +21,9 @@ export class ListAccountsByLogResponseBodyData extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * Indicates whether the account has been added. Valid values:
-   * -1: The account has been added.
-   * -0: The account has not been added.
+   * Indicates whether the account is connected. Valid values:
+   *  - 1: Connected.
+   *  - 0: Not connected.
    * 
    * @example
    * 123xxxxxxx
@@ -39,7 +39,7 @@ export class ListAccountsByLogResponseBodyData extends $dara.Model {
   logCode?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is used to purchase Threat Analysis.
+   * The ID of the cloud account that purchased CTDR.
    * 
    * @example
    * 123XXXXXXXXX
@@ -47,7 +47,7 @@ export class ListAccountsByLogResponseBodyData extends $dara.Model {
   mainUserId?: number;
   /**
    * @remarks
-   * The code of the product that corresponds to the log.
+   * The product code corresponding to the log.
    * 
    * @example
    * qcloud_waf
@@ -55,7 +55,7 @@ export class ListAccountsByLogResponseBodyData extends $dara.Model {
   prodCode?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is used for Threat Analysis.
+   * The ID of the CTDR cloud account.
    * 
    * @example
    * 123XXXXXXXX
@@ -97,7 +97,7 @@ export class ListAccountsByLogResponseBodyData extends $dara.Model {
 export class ListAccountsByLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value of the request.
+   * The response data.
    */
   data?: ListAccountsByLogResponseBodyData[];
   /**

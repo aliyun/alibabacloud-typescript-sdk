@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBindAccountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of account bindings that are deleted. A value of 1 indicates that the operation was successful. A value of 0 or less indicates that the operation failed.
+   * The number of deleted account bindings. A value of 1 indicates success, and a value of 0 or less indicates failure.
    * 
    * @example
    * 1
@@ -35,12 +35,12 @@ export class DeleteBindAccountResponseBodyData extends $dara.Model {
 export class DeleteBindAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: DeleteBindAccountResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

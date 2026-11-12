@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListAllProdsRequest extends $dara.Model {
   /**
    * @remarks
-   * The region of the Data Management hub for Threat Analysis. Select the region that corresponds to the location of your assets. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are in the Chinese mainland or China (Hong Kong).
-   * 
-   * - ap-southeast-1: Your assets are in a region outside China.
+   * The region where the data management center of threat detection and response is located. Specify the management center based on the region of your assets. Valid values:
+   * - cn-hangzhou: Your assets belong to the Chinese mainland or Hong Kong (China).
+   * - ap-southeast-1: Your assets belong to regions outside China.
    * 
    * @example
    * cn-hangzhou
@@ -17,7 +15,7 @@ export class ListAllProdsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of a member. An administrator can specify this parameter to switch to the member\\"s view.
+   * The ID of the user to which the administrator switches the view.
    * 
    * @example
    * 113091674488****
@@ -27,9 +25,8 @@ export class ListAllProdsRequest extends $dara.Model {
    * @remarks
    * The view type.
    * 
-   * - 0: The view of the current Alibaba Cloud account.
-   * 
-   * - 1: The view of all accounts that belong to the enterprise.
+   * - 0: the view of the current Alibaba Cloud account.
+   * - 1: the view of all accounts in the enterprise.
    * 
    * @example
    * 1

@@ -45,7 +45,7 @@ export class DescribeAutomateResponseConfigCounterResponseBodyData extends $dara
 export class DescribeAutomateResponseConfigCounterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request status code.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -53,7 +53,7 @@ export class DescribeAutomateResponseConfigCounterResponseBody extends $dara.Mod
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    * 
    * @example
    * 123456
@@ -61,7 +61,7 @@ export class DescribeAutomateResponseConfigCounterResponseBody extends $dara.Mod
   data?: DescribeAutomateResponseConfigCounterResponseBodyData;
   /**
    * @remarks
-   * The message returned.
+   * The message returned by the request.
    * 
    * @example
    * success
@@ -77,11 +77,9 @@ export class DescribeAutomateResponseConfigCounterResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

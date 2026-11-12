@@ -6,10 +6,8 @@ export class OpenDeliveryResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether log delivery is enabled. Valid values:
-   * 
-   * - true: Enabled
-   * 
-   * - false: Failed
+   * - true: Log delivery is enabled.
+   * - false: Log delivery failed to be enabled.
    * 
    * @example
    * true
@@ -17,7 +15,7 @@ export class OpenDeliveryResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 15FD134E-D69B-51E8-B052-73F97BD8****

@@ -13,27 +13,21 @@ export class DescribeEntityInfoResponseBodyData extends $dara.Model {
   entityId?: number;
   /**
    * @remarks
-   * The information about the entity.
+   * The entity information.
    * 
    * @example
-   * { location: "xian", net_connect_dir: "in", malware_type: "${aliyun.siem.sas.alert_tag.login_unusual_account}" }
+   * {"location": "xian", "net_connect_dir": "in", "malware_type": "${aliyun.siem.sas.alert_tag.login_unusual_account}"}
    */
   entityInfo?: { [key: string]: any };
   /**
    * @remarks
-   * The type of the entity. Valid values:
-   * 
+   * The entity type. Valid values:
    * - ip: IP address
-   * 
-   * - domain: domain name
-   * 
+   * - domain: Domain name
    * - url: URL
-   * 
-   * - process: process
-   * 
-   * - file: file
-   * 
-   * - host: host
+   * - process: Process
+   * - file: File
+   * - host: Host
    * 
    * @example
    * ip
@@ -100,7 +94,7 @@ export class DescribeEntityInfoResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    * 
    * @example
    * 123456
@@ -108,7 +102,7 @@ export class DescribeEntityInfoResponseBody extends $dara.Model {
   data?: DescribeEntityInfoResponseBodyData;
   /**
    * @remarks
-   * The message returned for the request.
+   * The response message.
    * 
    * @example
    * success
@@ -124,11 +118,9 @@ export class DescribeEntityInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: successful
+   * - false: failed
    * 
    * @example
    * true

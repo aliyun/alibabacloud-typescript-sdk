@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddUserSourceLogConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The detailed information about the SLS log.
+   * The detailed Simple Log Service (SLS) information for log ingestion.
    * 
    * @example
    * cn-shanghai.siem-project.siem-logstore
@@ -13,23 +13,27 @@ export class AddUserSourceLogConfigResponseBodyData extends $dara.Model {
   diplayLine?: string;
   /**
    * @remarks
-   * Indicates whether the details of the log collection task are returned. Valid values:
+   * Indicates whether the ingestion details are returned. Valid values:
+   * - true: The ingestion details are returned.
+   * - false: The ingestion details are not returned.
    * 
    * @example
-   * 0
+   * true
    */
   displayed?: boolean;
   /**
    * @remarks
-   * Indicates whether the log is collected. Valid values:
+   * Indicates whether the logs are ingested. Valid values:
+   * - true: The logs are ingested.
+   * - false: The logs are not ingested.
    * 
    * @example
-   * 0
+   * true
    */
   imported?: boolean;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that is used to purchase Threat Analysis.
+   * The Alibaba Cloud account ID that purchased Threat Analysis.
    * 
    * @example
    * 123XXXXXXXXX
@@ -37,7 +41,7 @@ export class AddUserSourceLogConfigResponseBodyData extends $dara.Model {
   mainUserId?: number;
   /**
    * @remarks
-   * The code of the log.
+   * The log code.
    * 
    * @example
    * cloud_siem_aegis_proc
@@ -45,7 +49,7 @@ export class AddUserSourceLogConfigResponseBodyData extends $dara.Model {
   sourceLogCode?: string;
   /**
    * @remarks
-   * The code of the product.
+   * The product code.
    * 
    * @example
    * sas
@@ -53,7 +57,7 @@ export class AddUserSourceLogConfigResponseBodyData extends $dara.Model {
   sourceProdCode?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account for which the logs are collected.
+   * The Alibaba Cloud account ID for Threat Analysis.
    * 
    * @example
    * 123XXXXXXXX
@@ -61,7 +65,7 @@ export class AddUserSourceLogConfigResponseBodyData extends $dara.Model {
   subUserId?: number;
   /**
    * @remarks
-   * The name of the Alibaba Cloud account for which the logs are collected.
+   * The name of the Alibaba Cloud account for Threat Analysis.
    * 
    * @example
    * sas_account_xxx
@@ -105,12 +109,12 @@ export class AddUserSourceLogConfigResponseBodyData extends $dara.Model {
 export class AddUserSourceLogConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return value of the request.
+   * The response data.
    */
   data?: AddUserSourceLogConfigResponseBodyData;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBindAccountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AccessKey ID of the account.
+   * The AccessId of the account.
    * 
    * @example
    * ABCXXXXXXXX
@@ -13,7 +13,7 @@ export class ListBindAccountResponseBodyData extends $dara.Model {
   accessId?: string;
   /**
    * @remarks
-   * The ID of the cloud account.
+   * The cloud account ID.
    * 
    * @example
    * 123xxxxxxx
@@ -21,10 +21,10 @@ export class ListBindAccountResponseBodyData extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The name of the account.
+   * The account name.
    * 
    * @example
-   * XXXX Company
+   * SampleCompany
    */
   accountName?: string;
   /**
@@ -37,12 +37,9 @@ export class ListBindAccountResponseBodyData extends $dara.Model {
   bindId?: number;
   /**
    * @remarks
-   * The code of the cloud service provider. Valid values:
-   * 
+   * The code of the multi-cloud provider. Valid values:
    * - qcloud: Tencent Cloud.
-   * 
    * - aliyun: Alibaba Cloud.
-   * 
    * - hcloud: Huawei Cloud.
    * 
    * @example
@@ -59,7 +56,7 @@ export class ListBindAccountResponseBodyData extends $dara.Model {
   createUser?: string;
   /**
    * @remarks
-   * The number of data sources that are bound to the account.
+   * The number of data sources bound to the account.
    * 
    * @example
    * 2
@@ -67,7 +64,7 @@ export class ListBindAccountResponseBodyData extends $dara.Model {
   dataSourceCount?: number;
   /**
    * @remarks
-   * The time when the binding was modified.
+   * The modification time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-11-10 12:20:35

@@ -10,7 +10,7 @@ export class DescribeAlertSourceResponseBodyData extends $dara.Model {
   modules?: string[];
   /**
    * @remarks
-   * The internal code for the alert source.
+   * The Medusa code of the alert data source name.
    * 
    * @example
    * aliyun.siem.alert_datasource.sas
@@ -18,7 +18,7 @@ export class DescribeAlertSourceResponseBodyData extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The name of the alert source.
+   * The name of the alert data source.
    * 
    * @example
    * sas
@@ -55,7 +55,7 @@ export class DescribeAlertSourceResponseBodyData extends $dara.Model {
 export class DescribeAlertSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code of the response. A value of 200 indicates success.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -63,7 +63,7 @@ export class DescribeAlertSourceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The list of alert sources.
+   * The response data.
    * 
    * @example
    * 123456
@@ -71,7 +71,7 @@ export class DescribeAlertSourceResponseBody extends $dara.Model {
   data?: DescribeAlertSourceResponseBodyData[];
   /**
    * @remarks
-   * The response message.
+   * The message returned in the response.
    * 
    * @example
    * success
@@ -88,10 +88,8 @@ export class DescribeAlertSourceResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
-   * - `true`: The request was successful.
-   * 
-   * - `false`: The request failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

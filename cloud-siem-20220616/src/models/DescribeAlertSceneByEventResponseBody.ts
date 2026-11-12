@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAlertSceneByEventResponseBodyDataTargets extends $dara.Model {
   /**
    * @remarks
-   * The display name of the entity property field that can be whitelisted.
+   * The display name of the entity attribute field that can be whitelisted.
    * 
    * @example
    * host uuid
@@ -13,7 +13,7 @@ export class DescribeAlertSceneByEventResponseBodyDataTargets extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * The field of the entity property that can be whitelisted.
+   * The entity attribute field that can be whitelisted.
    * 
    * @example
    * host_uuid
@@ -21,7 +21,7 @@ export class DescribeAlertSceneByEventResponseBodyDataTargets extends $dara.Mode
   type?: string;
   /**
    * @remarks
-   * The default right operand displayed for the whitelisting rule.
+   * The default right value displayed for the whitelist rule.
    * 
    * @example
    * 441862da-a539-4cc0-a00d-47395582****
@@ -29,7 +29,7 @@ export class DescribeAlertSceneByEventResponseBodyDataTargets extends $dara.Mode
   value?: string;
   /**
    * @remarks
-   * The available right operands for the whitelisting rule.
+   * The selectable right values for the whitelist rule.
    * 
    * @example
    * ["441862da-a539-4cc0-a00d-473955826881"]
@@ -68,7 +68,7 @@ export class DescribeAlertSceneByEventResponseBodyDataTargets extends $dara.Mode
 export class DescribeAlertSceneByEventResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The display name of the alert. The value varies based on the language settings.
+   * The display value of the alert name, which varies based on the language environment.
    * 
    * @example
    * login_common_ip
@@ -84,7 +84,7 @@ export class DescribeAlertSceneByEventResponseBodyData extends $dara.Model {
   alertNameId?: string;
   /**
    * @remarks
-   * The display title of the alert. The value varies based on the language settings.
+   * The display value of the alert title, which varies based on the language environment.
    * 
    * @example
    * Unusual Logon-login_common_ip
@@ -100,7 +100,7 @@ export class DescribeAlertSceneByEventResponseBodyData extends $dara.Model {
   alertTileId?: string;
   /**
    * @remarks
-   * The display name of the alert type. The value varies based on the language settings.
+   * The display value of the alert type, which varies based on the language environment.
    * 
    * @example
    * Unusual Logon
@@ -116,7 +116,7 @@ export class DescribeAlertSceneByEventResponseBodyData extends $dara.Model {
   alertTypeId?: string;
   /**
    * @remarks
-   * The objects to be whitelisted.
+   * The whitelist targets.
    * 
    * @example
    * [{"Type": "host_uuid","Value": "441862da-a539-4cc0-a00d-473955826881","Values": ["441862da-a539-4cc0-a00d-473955826881"],"Name": "${aliyun.siem.entity.host_uuid}"}]
@@ -161,7 +161,7 @@ export class DescribeAlertSceneByEventResponseBodyData extends $dara.Model {
 export class DescribeAlertSceneByEventResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code of the request.
+   * The status code.
    * 
    * @example
    * 200
@@ -169,7 +169,7 @@ export class DescribeAlertSceneByEventResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    * 
    * @example
    * 123456
@@ -177,7 +177,7 @@ export class DescribeAlertSceneByEventResponseBody extends $dara.Model {
   data?: DescribeAlertSceneByEventResponseBodyData[];
   /**
    * @remarks
-   * The message returned for the request.
+   * The response message.
    * 
    * @example
    * success
@@ -193,11 +193,9 @@ export class DescribeAlertSceneByEventResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false: The request fails.
    * 
    * @example
    * true

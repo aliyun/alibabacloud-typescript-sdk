@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PostRuleStatusChangeRequest extends $dara.Model {
   /**
    * @remarks
-   * A JSON array of rule IDs.
+   * The list of rule IDs in JSON array format.
    * 
    * @example
    * [123,345]
@@ -13,11 +13,9 @@ export class PostRuleStatusChangeRequest extends $dara.Model {
   ids?: string;
   /**
    * @remarks
-   * The status of the rule. Valid values:
-   * 
-   * - true: enabled
-   * 
-   * - false: disabled
+   * The enabling status of the rule. Valid values:
+   * - true: Enabled.
+   * - false: Disabled.
    * 
    * @example
    * true
@@ -25,11 +23,9 @@ export class PostRuleStatusChangeRequest extends $dara.Model {
   inUse?: boolean;
   /**
    * @remarks
-   * The region where the Data Management center of threat analysis is located. Select a region based on the location of your assets. Valid values:
-   * 
-   * - cn-hangzhou: Your assets are in the Chinese mainland or China (Hong Kong).
-   * 
-   * - ap-southeast-1: Your assets are in a region outside China.
+   * The region where the data management center of Threat Analysis is located. Select the region based on the region where your assets are located. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+   * - ap-southeast-1: Assets are located outside China.
    * 
    * @example
    * cn-hangzhou
@@ -37,7 +33,7 @@ export class PostRuleStatusChangeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The user ID of a member. An administrator can specify this parameter to switch to the perspective of the member.
+   * The ID of the user whose perspective the administrator switches to.
    * 
    * @example
    * 113091674488****
@@ -45,11 +41,9 @@ export class PostRuleStatusChangeRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The type of the view.
-   * 
-   * - 0: the view of the current Alibaba Cloud account.
-   * 
-   * - 1: the view of all accounts that belong to the enterprise.
+   * The view type. Valid values:
+   * - 0: The view of the current Alibaba Cloud account.
+   * - 1: The view of all accounts in the enterprise.
    * 
    * @example
    * 1
@@ -57,11 +51,9 @@ export class PostRuleStatusChangeRequest extends $dara.Model {
   roleType?: number;
   /**
    * @remarks
-   * The type of the rule. Valid values:
-   * 
-   * - predefine: predefined rule
-   * 
-   * - customize: custom rule
+   * The rule type. Valid values:
+   * - predefine: Predefined.
+   * - customize: Custom.
    * 
    * @example
    * customize

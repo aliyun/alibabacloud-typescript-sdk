@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAccountAccessIdResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The attached AccessKey ID.
+   * The bound AccessKeyId.
    * 
    * @example
    * ABCXXXXXXXX
@@ -13,7 +13,7 @@ export class ListAccountAccessIdResponseBodyData extends $dara.Model {
   accessId?: string;
   /**
    * @remarks
-   * The MD5 value of the multicloud AccessKey ID.
+   * The MD5 value of the multi-cloud AccessKeyId.
    * 
    * @example
    * abcXXXXXXXX
@@ -21,7 +21,7 @@ export class ListAccountAccessIdResponseBodyData extends $dara.Model {
   accessIdMd5?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account.
+   * The cloud account ID.
    * 
    * @example
    * 123xxxxxxx
@@ -29,7 +29,7 @@ export class ListAccountAccessIdResponseBodyData extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The information of the account to which the multicloud AccessKey ID belongs. The format is: Alibaba Cloud account ID|Alibaba Cloud account name|Multicloud AccessKey ID.
+   * The account information of the multi-cloud AccessKeyId. The format is Alibaba Cloud account ID|Alibaba Cloud account name|multi-cloud AccessKeyId.
    * 
    * @example
    * 123xxxxxx|xxxx|ABCXXXXX
@@ -37,11 +37,9 @@ export class ListAccountAccessIdResponseBodyData extends $dara.Model {
   accountStr?: string;
   /**
    * @remarks
-   * Indicates whether the AccessKey ID is attached to threat analysis. Valid values:
-   * 
-   * - 0: Not attached.
-   * 
-   * - 1: Attached.
+   * Indicates whether the AccessKeyId is bound to threat detection and response. Valid values:
+   *  - 0: Not bound.
+   *  - 1: Bound.
    * 
    * @example
    * 1
@@ -49,7 +47,7 @@ export class ListAccountAccessIdResponseBodyData extends $dara.Model {
   bound?: number;
   /**
    * @remarks
-   * The code for the multicloud environment.
+   * The code of the multi-cloud provider.
    * 
    * @example
    * hcloud
@@ -57,7 +55,7 @@ export class ListAccountAccessIdResponseBodyData extends $dara.Model {
   cloudCode?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that corresponds to the multicloud AccessKey ID.
+   * The Alibaba Cloud account ID that corresponds to the multi-cloud AccessKeyId.
    * 
    * @example
    * ABCXXXXXXXX
@@ -107,12 +105,12 @@ export class ListAccountAccessIdResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The data returned.
+   * The response data.
    */
   data?: ListAccountAccessIdResponseBodyData[];
   /**
    * @remarks
-   * The returned message.
+   * The returned message description.
    * 
    * @example
    * success
@@ -120,7 +118,7 @@ export class ListAccountAccessIdResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****
@@ -129,10 +127,8 @@ export class ListAccountAccessIdResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the request was successful. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CloseDeliveryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result of the request. Valid values:
-   * 
-   * - true: The request was successful.
-   * 
-   * - false: The request failed.
+   * The result of disabling the service in Threat Analysis. Valid values:
+   * - true: The service is disabled.
+   * - false: The service fails to be disabled.
    * 
    * @example
    * true
@@ -17,7 +15,7 @@ export class CloseDeliveryResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F375A043-4F5B-55F2-A564-CC47FFC6****

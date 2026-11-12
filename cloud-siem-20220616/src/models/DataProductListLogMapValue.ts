@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class DataProductListLogMapValueExtraParameters extends $dara.Model {
   /**
    * @remarks
-   * The ID of the extended parameter.
+   * The identifier of the extended parameter.
    * 
    * @example
    * flag
@@ -47,7 +47,7 @@ export class DataProductListLogMapValueExtraParameters extends $dara.Model {
 export class DataProductListLogMapValue extends $dara.Model {
   /**
    * @remarks
-   * The code of the log.
+   * The log code.
    * 
    * @example
    * cloud_siem_config_log
@@ -55,7 +55,7 @@ export class DataProductListLogMapValue extends $dara.Model {
   logCode?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]** This parameter is deprecated and can be ignored.
    * 
    * @example
    * audit log
@@ -63,7 +63,7 @@ export class DataProductListLogMapValue extends $dara.Model {
   logName?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * **[Deprecated]** This parameter is deprecated and can be ignored.
    * 
    * @example
    * audit log
@@ -71,7 +71,7 @@ export class DataProductListLogMapValue extends $dara.Model {
   logNameEn?: string;
   /**
    * @remarks
-   * The language code of the log that is used to indicate the language in which the log is displayed.
+   * The language code of the log, which is used to display multilingual names.
    * 
    * @example
    * ${sas.cloudsiem.prod.cloud_siem_aegis_crack_from_beaver}
@@ -79,10 +79,9 @@ export class DataProductListLogMapValue extends $dara.Model {
   logNameKey?: string;
   /**
    * @remarks
-   * The status of the log delivery. Valid values:
-   * 
-   * *   true: The logs are being delivered.
-   * *   false: The log delivery feature is disabled.
+   * The log delivery status. Valid values:
+   * - true: Delivery is in progress.  
+   * - false: Delivery is disabled.
    * 
    * @example
    * true
@@ -90,10 +89,9 @@ export class DataProductListLogMapValue extends $dara.Model {
   status?: boolean;
   /**
    * @remarks
-   * Indicates whether the log delivery feature can be enabled or disabled. The feature can be enabled or disabled only by the administrator of the threat analysis feature. Valid values:
-   * 
-   * *   true
-   * *   false
+   * Specifies whether the log delivery switch can be operated. Only the delegated administrator of Threat Analysis can operate the log delivery switch. Valid values:
+   * - true: The switch can be operated.  
+   * - false: The switch cannot be operated.
    * 
    * @example
    * true
@@ -101,7 +99,7 @@ export class DataProductListLogMapValue extends $dara.Model {
   canOperateOrNot?: boolean;
   /**
    * @remarks
-   * The topic of the log in the Logstore. The value is an index field in the Logstore that can be used to distinguish different logs.
+   * The topic of the log in the Logstore. It is an index field of the Logstore and can be used to distinguish different logs.
    * 
    * @example
    * sas_login_event
@@ -109,7 +107,7 @@ export class DataProductListLogMapValue extends $dara.Model {
   topic?: string;
   /**
    * @remarks
-   * The extended parameter.
+   * The extended parameters.
    */
   extraParameters?: DataProductListLogMapValueExtraParameters[];
   static names(): { [key: string]: string } {

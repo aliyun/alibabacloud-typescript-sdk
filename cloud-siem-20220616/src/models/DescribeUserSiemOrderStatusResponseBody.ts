@@ -2,10 +2,66 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeUserSiemOrderStatusResponseBodyDataCreditsPostpaidInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The billing status of the instance. Valid values:
+   * - 1: Normal.
+   * - 2: Suspended due to overdue payment.
+   * 
+   * @example
+   * 2
+   */
+  billingStatus?: number;
+  /**
+   * @remarks
+   * The source of the instance. Valid values:
+   * - POSTPAID: Independent pay-as-you-go instance.
+   * - SUBSCRIPTION_DEFAULT_PAYG: Default pay-as-you-go instance for subscription.
+   * 
+   * @example
+   * POSTPAID
+   */
+  instanceSource?: string;
+  /**
+   * @remarks
+   * The user switch status. Valid values:
+   * - 1: Enabled.
+   * - 0: Disabled.
+   * 
+   * @example
+   * 1
+   */
+  userSwitchStatus?: number;
+  static names(): { [key: string]: string } {
+    return {
+      billingStatus: 'BillingStatus',
+      instanceSource: 'InstanceSource',
+      userSwitchStatus: 'UserSwitchStatus',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      billingStatus: 'number',
+      instanceSource: 'string',
+      userSwitchStatus: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeUserSiemOrderStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Agentic SOC Credits instance ID. If SiemOrderFrom is CREDITS_PRE_PAY, this field returns the Credits subscription instance ID for prepaid orders. If SiemOrderFrom is CREDITS_POST_PAY, this field returns the Credits pay-as-you-go instance ID. This field is empty if no Credits instance is found. For legacy orders, the Security Center instance ID is returned by SasInstanceId.
+   * The ID of the Agentic SOC Credits instance. If SiemOrderFrom is CREDITS_PRE_PAY, the ID of the Credits subscription instance is returned. If SiemOrderFrom is CREDITS_POST_PAY, the ID of the Credits pay-as-you-go instance is returned. If no Credits instance is found, this field is empty. The Security Center instance ID for legacy orders is returned by SasInstanceId.
    * 
    * @example
    * asoc-instance-xxxxx
@@ -13,7 +69,7 @@ export class DescribeUserSiemOrderStatusResponseBodyData extends $dara.Model {
   asocInstanceId?: string;
   /**
    * @remarks
-   * The end time of the Agentic SOC Credits prepaid subscription, expressed as a 13-digit Unix timestamp in milliseconds. This field is returned only when SiemOrderFrom is CREDITS_PRE_PAY. In other cases, this field is empty.
+   * The end time of the Agentic SOC Credits subscription. The value is a UNIX timestamp in milliseconds (13 digits). This field is returned only when SiemOrderFrom is CREDITS_PRE_PAY. Otherwise, this field is empty.
    * 
    * @example
    * 1785542400456
@@ -21,7 +77,7 @@ export class DescribeUserSiemOrderStatusResponseBodyData extends $dara.Model {
   asocSubscriptionInstanceEndTime?: number;
   /**
    * @remarks
-   * The start time of the Agentic SOC Credits prepaid subscription, expressed as a 13-digit Unix timestamp in milliseconds. This field is returned only when SiemOrderFrom is CREDITS_PRE_PAY. In other cases, this field is empty.
+   * The start time of the Agentic SOC Credits subscription. The value is a UNIX timestamp in milliseconds (13 digits). This field is returned only when SiemOrderFrom is CREDITS_PRE_PAY. Otherwise, this field is empty.
    * 
    * @example
    * 1754006400123
@@ -29,9 +85,9 @@ export class DescribeUserSiemOrderStatusResponseBodyData extends $dara.Model {
   asocSubscriptionInstanceStartTime?: number;
   /**
    * @remarks
-   * Indicates whether the current account can perform order operations for threat detection and response. Valid values:
-   * - true: The account can purchase, upgrade, or change specifications.
-   * - false: The account cannot perform order operations for threat detection and response.
+   * Specifies whether the current account can perform operations on threat analysis orders. Valid values:
+   * - true: The account can purchase, upgrade, or change the configuration of threat analysis.
+   * - false: The account cannot perform operations on threat analysis orders.
    * 
    * @example
    * true
@@ -39,7 +95,7 @@ export class DescribeUserSiemOrderStatusResponseBodyData extends $dara.Model {
   canBuy?: boolean;
   /**
    * @remarks
-   * The SLS log storage capacity purchased for threat detection and response, in GB.
+   * The purchased Simple Log Service (SLS) capacity for threat analysis. Unit: GB.
    * 
    * @example
    * 1024
@@ -48,10 +104,10 @@ export class DescribeUserSiemOrderStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The source of the log storage capacity order. Valid values:
-   * - PRE_PAY_CAPACITY: a prepaid capacity order.
-   * - POST_PAY_CAPACITY: a pay-as-you-go capacity order.
+   * - PRE_PAY_CAPACITY: Prepaid capacity order.
+   * - POST_PAY_CAPACITY: Pay-as-you-go capacity order.
    * 
-   * The capacity order source is independent of the traffic order source indicated by SiemOrderFrom.
+   * The source of the capacity order is independent of the traffic order source represented by SiemOrderFrom.
    * 
    * @example
    * PRE_PAY_CAPACITY
@@ -59,7 +115,12 @@ export class DescribeUserSiemOrderStatusResponseBodyData extends $dara.Model {
   capacityOrderFrom?: string;
   /**
    * @remarks
-   * The SLS log storage capacity purchased for threat detection and response 1.0, in GB.
+   * The information about the Credits pay-as-you-go instance. This field is returned when a Credits pay-as-you-go instance is found, and can be returned simultaneously with a valid legacy traffic order.
+   */
+  creditsPostpaidInfo?: DescribeUserSiemOrderStatusResponseBodyDataCreditsPostpaidInfo;
+  /**
+   * @remarks
+   * The purchased SLS capacity for Threat Analysis 1.0. Unit: GB.
    * 
    * @example
    * 1024
@@ -67,7 +128,7 @@ export class DescribeUserSiemOrderStatusResponseBodyData extends $dara.Model {
   deliveryCapacity?: number;
   /**
    * @remarks
-   * The number of days until the threat detection and response service expires.
+   * The number of days until the threat analysis service expires.
    * 
    * @example
    * 3
@@ -75,7 +136,7 @@ export class DescribeUserSiemOrderStatusResponseBodyData extends $dara.Model {
   durationDays?: number;
   /**
    * @remarks
-   * The expiration time of threat detection and response, expressed as a millisecond-level timestamp.
+   * The expiration time of threat analysis. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1669823999000
@@ -83,7 +144,7 @@ export class DescribeUserSiemOrderStatusResponseBodyData extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The traffic capacity purchased for threat detection and response, in GB.
+   * The purchased traffic for threat analysis. Unit: GB.
    * 
    * @example
    * 1024
@@ -91,7 +152,7 @@ export class DescribeUserSiemOrderStatusResponseBodyData extends $dara.Model {
   flowCapacity?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID that purchased threat detection and response.
+   * The Alibaba Cloud account ID that purchased threat analysis.
    * 
    * @example
    * 123XXXXXX
@@ -99,7 +160,7 @@ export class DescribeUserSiemOrderStatusResponseBodyData extends $dara.Model {
   mainUserId?: number;
   /**
    * @remarks
-   * The master account ID of the resource directory.
+   * The ID of the master account in the resource directory.
    * 
    * @example
    * 123XXXXXX
@@ -107,7 +168,7 @@ export class DescribeUserSiemOrderStatusResponseBodyData extends $dara.Model {
   masterUserId?: number;
   /**
    * @remarks
-   * The resource directory ID.
+   * The ID of the resource directory.
    * 
    * @example
    * rd-xxxxxx
@@ -115,7 +176,7 @@ export class DescribeUserSiemOrderStatusResponseBodyData extends $dara.Model {
   rdId?: string;
   /**
    * @remarks
-   * Indicates whether the order is a SIEM public preview order.
+   * Specifies whether the order is a SIEM public preview order.
    * 
    * @example
    * 1
@@ -132,12 +193,12 @@ export class DescribeUserSiemOrderStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The source of the traffic order. Valid values:
-   * - PRE_PAY_FLOW: a prepaid traffic order for threat detection and response.
-   * - POST_PAY_FLOW: a pay-as-you-go traffic order for threat detection and response.
-   * - CREDITS_PRE_PAY: an Agentic SOC Credits prepaid subscription.
-   * - CREDITS_POST_PAY: an Agentic SOC Credits pay-as-you-go instance.
+   * - PRE_PAY_FLOW: Prepaid traffic order for threat analysis.
+   * - POST_PAY_FLOW: Pay-as-you-go traffic order for threat analysis.
+   * - CREDITS_PRE_PAY: Agentic SOC Credits subscription.
+   * - CREDITS_POST_PAY: Agentic SOC Credits pay-as-you-go instance.
    * 
-   * This field describes the traffic order source. The log storage capacity order source is independently indicated by CapacityOrderFrom.
+   * This field describes the source of the traffic order. The source of the log storage capacity order is independently represented by CapacityOrderFrom.
    * 
    * @example
    * CREDITS_PRE_PAY
@@ -145,7 +206,7 @@ export class DescribeUserSiemOrderStatusResponseBodyData extends $dara.Model {
   siemOrderFrom?: string;
   /**
    * @remarks
-   * Indicates whether a valid SIEM order exists. Valid values:
+   * Specifies whether there is a valid SIEM order. Valid values:
    * - 1: The SIEM order is valid.
    * - 0: The SIEM order is invalid.
    * 
@@ -177,6 +238,7 @@ export class DescribeUserSiemOrderStatusResponseBodyData extends $dara.Model {
       canBuy: 'CanBuy',
       capacity: 'Capacity',
       capacityOrderFrom: 'CapacityOrderFrom',
+      creditsPostpaidInfo: 'CreditsPostpaidInfo',
       deliveryCapacity: 'DeliveryCapacity',
       durationDays: 'DurationDays',
       endTime: 'EndTime',
@@ -201,6 +263,7 @@ export class DescribeUserSiemOrderStatusResponseBodyData extends $dara.Model {
       canBuy: 'boolean',
       capacity: 'number',
       capacityOrderFrom: 'string',
+      creditsPostpaidInfo: DescribeUserSiemOrderStatusResponseBodyDataCreditsPostpaidInfo,
       deliveryCapacity: 'number',
       durationDays: 'number',
       endTime: 'number',
@@ -218,6 +281,9 @@ export class DescribeUserSiemOrderStatusResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(this.creditsPostpaidInfo && typeof (this.creditsPostpaidInfo as any).validate === 'function') {
+      (this.creditsPostpaidInfo as any).validate();
+    }
     super.validate();
   }
 
@@ -234,7 +300,7 @@ export class DescribeUserSiemOrderStatusResponseBody extends $dara.Model {
   data?: DescribeUserSiemOrderStatusResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6276D891-*****-55B2-87B9-74D413F7****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAutomateResponseConfigFeatureResponseBodyDataRightValueEnums extends $dara.Model {
   /**
    * @remarks
-   * The enumeration value of the right operand.
+   * The enumeration value of the right value.
    * 
    * @example
    * serious
@@ -13,7 +13,7 @@ export class DescribeAutomateResponseConfigFeatureResponseBodyDataRightValueEnum
   value?: string;
   /**
    * @remarks
-   * The Medusa code for the enumeration value of the right operand.
+   * The Medusa code of the right value enumeration.
    * 
    * @example
    * aliyun.siem.automate.feature.alert_level.serious
@@ -45,11 +45,9 @@ export class DescribeAutomateResponseConfigFeatureResponseBodyDataRightValueEnum
 export class DescribeAutomateResponseConfigFeatureResponseBodyDataSupportOperators extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether a right operand is required. Valid values:
-   * 
-   * - true: A right operand is required.
-   * 
-   * - false: A right operand is not required.
+   * Specifies whether a right value is required. Valid values:
+   * - true: Required.
+   * - false: Not required.
    * 
    * @example
    * false
@@ -57,7 +55,7 @@ export class DescribeAutomateResponseConfigFeatureResponseBodyDataSupportOperato
   hasRightValue?: boolean;
   /**
    * @remarks
-   * The position of the operator in the list of operators.
+   * The position of the operator in the operator list.
    * 
    * @example
    * 3
@@ -97,7 +95,7 @@ export class DescribeAutomateResponseConfigFeatureResponseBodyDataSupportOperato
   operatorName?: string;
   /**
    * @remarks
-   * The data types that the operator supports. Multiple data types are separated by commas.
+   * The data types supported by the current operator, separated by commas.
    * 
    * @example
    * varchar
@@ -105,7 +103,7 @@ export class DescribeAutomateResponseConfigFeatureResponseBodyDataSupportOperato
   supportDataType?: string;
   /**
    * @remarks
-   * The scenarios that the operator supports. Multiple scenarios are separated by commas, such as aggregation. By default, this parameter is empty.
+   * The scenarios supported by the operator. Multiple scenarios are separated by commas, such as aggregation. Default value: empty.
    * 
    * @example
    * [AGGREGATE]
@@ -168,12 +166,12 @@ export class DescribeAutomateResponseConfigFeatureResponseBodyData extends $dara
   feature?: string;
   /**
    * @remarks
-   * The enumeration of the right operand that corresponds to the field.
+   * The enumeration values of the right value corresponding to the field.
    */
   rightValueEnums?: DescribeAutomateResponseConfigFeatureResponseBodyDataRightValueEnums[];
   /**
    * @remarks
-   * The operators that the field supports.
+   * The list of operators supported by the field.
    */
   supportOperators?: DescribeAutomateResponseConfigFeatureResponseBodyDataSupportOperators[];
   static names(): { [key: string]: string } {
@@ -220,7 +218,7 @@ export class DescribeAutomateResponseConfigFeatureResponseBody extends $dara.Mod
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    * 
    * @example
    * 123456
@@ -228,7 +226,7 @@ export class DescribeAutomateResponseConfigFeatureResponseBody extends $dara.Mod
   data?: DescribeAutomateResponseConfigFeatureResponseBodyData[];
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
    * @example
    * success
@@ -245,10 +243,8 @@ export class DescribeAutomateResponseConfigFeatureResponseBody extends $dara.Mod
   /**
    * @remarks
    * Indicates whether the request is successful. Valid values:
-   * 
-   * - true: The request is successful.
-   * 
-   * - false: The request failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

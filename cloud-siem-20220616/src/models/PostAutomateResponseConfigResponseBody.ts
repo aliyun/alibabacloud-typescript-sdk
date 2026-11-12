@@ -13,7 +13,7 @@ export class PostAutomateResponseConfigResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The return value of the request.
+   * The response data.
    * 
    * @example
    * 123456
@@ -21,7 +21,7 @@ export class PostAutomateResponseConfigResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The message returned for the request.
+   * The message returned in the response.
    * 
    * @example
    * success
@@ -37,11 +37,9 @@ export class PostAutomateResponseConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the request is successful. Valid values:
+   * - **true**: The request is successful.
+   * - **false**: The request fails.
    * 
    * @example
    * true
