@@ -21,7 +21,7 @@ export class CreateAlertActionRequestEbParam extends $dara.Model {
   eventBusName?: string;
   /**
    * @remarks
-   * The region.
+   * The region ID.
    * 
    * @example
    * cn-heyuan
@@ -276,7 +276,7 @@ export class CreateAlertActionRequestPagerDutyParam extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The integration webhook for PagerDuty. Both V1 and V2 are supported.
+   * The integration webhook URL for PagerDuty. Both V1 and V2 are supported.
    * 
    * @example
    * https://events.pagerduty.com/v2/enqueue
@@ -366,12 +366,12 @@ export class CreateAlertActionRequestWebhookParam extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * The request headers.
+   * The request header information.
    */
   headers?: { [key: string]: string };
   /**
    * @remarks
-   * The webhook request method.
+   * The HTTP method for the webhook request.
    * 
    * @example
    * POST
@@ -418,7 +418,7 @@ export class CreateAlertActionRequestWebhookParam extends $dara.Model {
 export class CreateAlertActionRequest extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the alert action integration.
+   * The unique identifier of the action integration.
    * 
    * @example
    * testId
@@ -426,7 +426,7 @@ export class CreateAlertActionRequest extends $dara.Model {
   alertActionId?: string;
   /**
    * @remarks
-   * The name of the alert action integration.
+   * The name of the action integration.
    * 
    * This parameter is required.
    * 
@@ -471,7 +471,7 @@ export class CreateAlertActionRequest extends $dara.Model {
   slsParam?: CreateAlertActionRequestSlsParam;
   /**
    * @remarks
-   * The alert action integration type.
+   * The action integration type.
    * 
    * This parameter is required.
    * 

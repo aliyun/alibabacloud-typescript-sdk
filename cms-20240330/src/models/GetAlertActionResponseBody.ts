@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAlertActionResponseBodyAlertActionsEbParam extends $dara.Model {
   /**
    * @remarks
-   * The event provider.
+   * The event source.
    * 
    * @example
    * test
@@ -115,7 +115,7 @@ export class GetAlertActionResponseBodyAlertActionsEssParam extends $dara.Model 
 export class GetAlertActionResponseBodyAlertActionsFc3Param extends $dara.Model {
   /**
    * @remarks
-   * The name of the function.
+   * The function name.
    * 
    * @example
    * test
@@ -181,7 +181,7 @@ export class GetAlertActionResponseBodyAlertActionsFcParam extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The service name in Function Compute.
+   * The service name of Function Compute.
    * 
    * @example
    * test
@@ -215,7 +215,7 @@ export class GetAlertActionResponseBodyAlertActionsFcParam extends $dara.Model {
 export class GetAlertActionResponseBodyAlertActionsMnsParam extends $dara.Model {
   /**
    * @remarks
-   * The resource type of Simple Message Queue (formerly MNS).
+   * The Simple Message Queue (formerly MNS) resource type.
    * 
    * @example
    * queue
@@ -223,7 +223,7 @@ export class GetAlertActionResponseBodyAlertActionsMnsParam extends $dara.Model 
   mnsType?: string;
   /**
    * @remarks
-   * The name of the resource.
+   * The resource name.
    * 
    * - If the resource type is queue, the resource name is the queue name.
    * - If the resource type is topic, the resource name is the topic name.
@@ -268,7 +268,7 @@ export class GetAlertActionResponseBodyAlertActionsMnsParam extends $dara.Model 
 export class GetAlertActionResponseBodyAlertActionsPagerDutyParam extends $dara.Model {
   /**
    * @remarks
-   * The integration key of PagerDuty.
+   * The integration key for PagerDuty.
    * 
    * @example
    * EWR4WR4T4GREG4ET453T5Y
@@ -276,7 +276,7 @@ export class GetAlertActionResponseBodyAlertActionsPagerDutyParam extends $dara.
   key?: string;
   /**
    * @remarks
-   * The PagerDuty integration webhook. Both V1 and V2 are supported.
+   * The PagerDuty integration webhook. Versions 1 and 2 are supported.
    * 
    * @example
    * https://events.pagerduty.com/v2/enqueue
@@ -367,6 +367,9 @@ export class GetAlertActionResponseBodyAlertActionsWebhookParam extends $dara.Mo
   /**
    * @remarks
    * The request header information.
+   * 
+   * @example
+   * {"X-Total-Count":"0"}
    */
   headers?: { [key: string]: string };
   /**
@@ -379,7 +382,7 @@ export class GetAlertActionResponseBodyAlertActionsWebhookParam extends $dara.Mo
   method?: string;
   /**
    * @remarks
-   * The alert callback URL.
+   * The URL for the alert callback.
    * 
    * @example
    * http://www.test.com
@@ -434,7 +437,7 @@ export class GetAlertActionResponseBodyAlertActions extends $dara.Model {
   alertActionName?: string;
   /**
    * @remarks
-   * The event bus parameters.
+   * The EventBridge parameters.
    */
   ebParam?: GetAlertActionResponseBodyAlertActionsEbParam;
   /**
@@ -469,7 +472,7 @@ export class GetAlertActionResponseBodyAlertActions extends $dara.Model {
   slsParam?: GetAlertActionResponseBodyAlertActionsSlsParam;
   /**
    * @remarks
-   * The type of the alert action integration.
+   * The alert action integration type.
    * 
    * @example
    * FC

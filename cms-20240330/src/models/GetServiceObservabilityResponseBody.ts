@@ -79,6 +79,9 @@ export class GetServiceObservabilityResponseBody extends $dara.Model {
   /**
    * @remarks
    * The quota configurations.
+   * 
+   * @example
+   * {"arms_agent_hour":"48"}
    */
   quotas?: { [key: string]: string };
   /**
@@ -100,6 +103,9 @@ export class GetServiceObservabilityResponseBody extends $dara.Model {
   /**
    * @remarks
    * The system configurations.
+   * 
+   * @example
+   * {"trace_aggregate":"enable"}
    */
   settings?: { [key: string]: string };
   /**

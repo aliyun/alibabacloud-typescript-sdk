@@ -6,11 +6,14 @@ export class AlertRuleLabelFilter extends $dara.Model {
   /**
    * @remarks
    * The label filter.
+   * 
+   * @example
+   * {"regionId":"cn-shanghai"}
    */
   labels?: { [key: string]: string };
   /**
    * @remarks
-   * The relational operator between multiple labels.
+   * The relational operator for multiple labels.
    * 
    * @example
    * AND

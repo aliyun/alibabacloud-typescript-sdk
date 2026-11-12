@@ -109,7 +109,7 @@ export class PreviewDataPipelineRequestOutputsProcessorsConfigRules extends $dar
    * The mask character.
    * 
    * @example
-   * *
+   * #
    */
   maskChar?: string;
   /**
@@ -122,7 +122,7 @@ export class PreviewDataPipelineRequestOutputsProcessorsConfigRules extends $dar
   mode?: string;
   /**
    * @remarks
-   * The built-in sensitive data types.
+   * The built-in sensitive types.
    */
   types?: string[];
   static names(): { [key: string]: string } {
@@ -495,6 +495,9 @@ export class PreviewDataPipelineRequestOutputsProcessorsConfig extends $dara.Mod
   /**
    * @remarks
    * The extended parameters.
+   * 
+   * @example
+   * {"vendor":"example"}
    */
   parameters?: { [key: string]: any };
   /**
@@ -795,7 +798,7 @@ export class PreviewDataPipelineRequestProcessorsConfigRules extends $dara.Model
    * The mask character.
    * 
    * @example
-   * *
+   * #
    */
   maskChar?: string;
   /**
@@ -808,7 +811,7 @@ export class PreviewDataPipelineRequestProcessorsConfigRules extends $dara.Model
   mode?: string;
   /**
    * @remarks
-   * The built-in sensitive data types.
+   * The built-in sensitive types.
    */
   types?: string[];
   static names(): { [key: string]: string } {
@@ -1181,6 +1184,9 @@ export class PreviewDataPipelineRequestProcessorsConfig extends $dara.Model {
   /**
    * @remarks
    * The extended parameters.
+   * 
+   * @example
+   * {"vendor":"example"}
    */
   parameters?: { [key: string]: any };
   /**
@@ -1337,7 +1343,7 @@ export class PreviewDataPipelineRequestProcessors extends $dara.Model {
 export class PreviewDataPipelineRequestSinks extends $dara.Model {
   /**
    * @remarks
-   * The list of datasets.
+   * The dataset list.
    */
   datasets?: string[];
   /**
@@ -1350,7 +1356,7 @@ export class PreviewDataPipelineRequestSinks extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The name of the output destination.
+   * The output destination name.
    * 
    * @example
    * error-archive
@@ -1366,7 +1372,7 @@ export class PreviewDataPipelineRequestSinks extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The type of the output destination.
+   * The output destination type.
    * 
    * @example
    * logstore
@@ -1502,7 +1508,7 @@ export class PreviewDataPipelineRequestSource extends $dara.Model {
   config?: PreviewDataPipelineRequestSourceConfig;
   /**
    * @remarks
-   * The type of the data source.
+   * The data source type.
    * 
    * @example
    * traces-default
@@ -1589,7 +1595,7 @@ export class PreviewDataPipelineRequest extends $dara.Model {
   source?: PreviewDataPipelineRequestSource;
   /**
    * @remarks
-   * The end time for the preview. The value is a UNIX timestamp in seconds.
+   * The end time for the preview, specified as a UNIX timestamp in seconds.
    * 
    * @example
    * 1784566800

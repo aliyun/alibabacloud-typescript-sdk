@@ -56,7 +56,7 @@ export class CreateServiceRequest extends $dara.Model {
    * The service description. This parameter is valid only when serviceType is set to RUM.
    * 
    * @example
-   * Mag test application
+   * mag test application
    */
   description?: string;
   /**
@@ -64,7 +64,7 @@ export class CreateServiceRequest extends $dara.Model {
    * The display name. This parameter is valid only when serviceType is set to RUM.
    * 
    * @example
-   * Mag test application
+   * mag test application
    */
   displayName?: string;
   /**
@@ -113,7 +113,7 @@ export class CreateServiceRequest extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The tags.
+   * The tag array.
    */
   tags?: CreateServiceRequestTags[];
   static names(): { [key: string]: string } {

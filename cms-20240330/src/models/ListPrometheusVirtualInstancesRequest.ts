@@ -6,6 +6,9 @@ export class ListPrometheusVirtualInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum number of instances to return per page.
+   * 
+   * @example
+   * 100
    */
   maxResults?: number;
   /**
@@ -18,7 +21,7 @@ export class ListPrometheusVirtualInstancesRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The next token for the paging query.
+   * The next paging token for a paged query.
    */
   nextToken?: string;
   /**

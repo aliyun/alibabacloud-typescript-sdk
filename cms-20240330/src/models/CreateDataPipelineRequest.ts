@@ -85,7 +85,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigProjections extends
 export class CreateDataPipelineRequestOutputsProcessorsConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The length of the prefix to retain.
+   * The length of the retained prefix.
    * 
    * @example
    * 2
@@ -93,7 +93,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigRules extends $dara
   keepPrefix?: number;
   /**
    * @remarks
-   * The length of the suffix to retain.
+   * The length of the retained suffix.
    * 
    * @example
    * 2
@@ -101,7 +101,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigRules extends $dara
   keepSuffix?: number;
   /**
    * @remarks
-   * The sensitive keyword.
+   * The sensitive keywords.
    */
   keys?: string[];
   /**
@@ -109,12 +109,12 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigRules extends $dara
    * The mask character.
    * 
    * @example
-   * *
+   * #
    */
   maskChar?: string;
   /**
    * @remarks
-   * The data masking mode.
+   * The masking mode.
    * 
    * @example
    * keyword
@@ -122,7 +122,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigRules extends $dara
   mode?: string;
   /**
    * @remarks
-   * The built-in sensitive type.
+   * The built-in sensitive data types.
    */
   types?: string[];
   static names(): { [key: string]: string } {
@@ -283,7 +283,7 @@ export class CreateDataPipelineRequestOutputsProcessorsConfigScopeMetricName ext
   matchType?: string;
   /**
    * @remarks
-   * The metric name.
+   * The metric names.
    * 
    * @example
    * ["http_requests_total"]
@@ -495,6 +495,9 @@ export class CreateDataPipelineRequestOutputsProcessorsConfig extends $dara.Mode
   /**
    * @remarks
    * The extension parameters.
+   * 
+   * @example
+   * {"vendor":"example"}
    */
   parameters?: { [key: string]: any };
   /**
@@ -771,7 +774,7 @@ export class CreateDataPipelineRequestProcessorsConfigProjections extends $dara.
 export class CreateDataPipelineRequestProcessorsConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The length of the prefix to retain.
+   * The length of the retained prefix.
    * 
    * @example
    * 2
@@ -779,7 +782,7 @@ export class CreateDataPipelineRequestProcessorsConfigRules extends $dara.Model 
   keepPrefix?: number;
   /**
    * @remarks
-   * The length of the suffix to retain.
+   * The length of the retained suffix.
    * 
    * @example
    * 2
@@ -787,7 +790,7 @@ export class CreateDataPipelineRequestProcessorsConfigRules extends $dara.Model 
   keepSuffix?: number;
   /**
    * @remarks
-   * The sensitive keyword.
+   * The sensitive keywords.
    */
   keys?: string[];
   /**
@@ -795,12 +798,12 @@ export class CreateDataPipelineRequestProcessorsConfigRules extends $dara.Model 
    * The mask character.
    * 
    * @example
-   * *
+   * #
    */
   maskChar?: string;
   /**
    * @remarks
-   * The data masking mode.
+   * The masking mode.
    * 
    * @example
    * keyword
@@ -808,7 +811,7 @@ export class CreateDataPipelineRequestProcessorsConfigRules extends $dara.Model 
   mode?: string;
   /**
    * @remarks
-   * The built-in sensitive type.
+   * The built-in sensitive data types.
    */
   types?: string[];
   static names(): { [key: string]: string } {
@@ -969,7 +972,7 @@ export class CreateDataPipelineRequestProcessorsConfigScopeMetricName extends $d
   matchType?: string;
   /**
    * @remarks
-   * The metric name.
+   * The metric names.
    * 
    * @example
    * ["http_requests_total"]
@@ -1181,6 +1184,9 @@ export class CreateDataPipelineRequestProcessorsConfig extends $dara.Model {
   /**
    * @remarks
    * The extension parameters.
+   * 
+   * @example
+   * {"vendor":"example"}
    */
   parameters?: { [key: string]: any };
   /**
@@ -1571,7 +1577,7 @@ export class CreateDataPipelineRequest extends $dara.Model {
   processors?: CreateDataPipelineRequestProcessors[];
   /**
    * @remarks
-   * The output destination.
+   * The output destinations.
    */
   sinks?: CreateDataPipelineRequestSinks[];
   /**

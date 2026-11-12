@@ -55,7 +55,7 @@ export class AlertRuleAlertMetricParamDefValues extends $dara.Model {
 export class AlertRuleAlertMetricParamDef extends $dara.Model {
   /**
    * @remarks
-   * The maximum width of the input box, which applies only to SELECT_PARAM and INPUT_PARAM.
+   * The maximum width of the input box. This parameter takes effect only for SELECT_PARAM and INPUT_PARAM.
    * 
    * @example
    * 200
@@ -63,7 +63,7 @@ export class AlertRuleAlertMetricParamDef extends $dara.Model {
   maxWidth?: number;
   /**
    * @remarks
-   * The minimum width of the input box, which applies only to SELECT_PARAM and INPUT_PARAM.
+   * The minimum width of the input box. This parameter takes effect only for SELECT_PARAM and INPUT_PARAM.
    * 
    * @example
    * 100
@@ -79,7 +79,7 @@ export class AlertRuleAlertMetricParamDef extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The Chinese placeholder for frontend display, which applies only to INPUT_PARAM.
+   * The Chinese placeholder for frontend display. This parameter takes effect only for INPUT_PARAM.
    * 
    * @example
    * 请输入值
@@ -87,7 +87,7 @@ export class AlertRuleAlertMetricParamDef extends $dara.Model {
   placeholderCn?: string;
   /**
    * @remarks
-   * The English placeholder for frontend display, which applies only to INPUT_PARAM.
+   * The English placeholder for frontend display. This parameter takes effect only for INPUT_PARAM.
    * 
    * @example
    * Enter value
@@ -95,10 +95,9 @@ export class AlertRuleAlertMetricParamDef extends $dara.Model {
   placeholderEn?: string;
   /**
    * @remarks
-   * The parameter type. Valid values:
    * - TEXT_PARAM: Read-only text parameter defined by the backend. No user input control is displayed on the frontend.
    * - INPUT_PARAM: Input box parameter.
-   * - SELECT_PARAM: Selection box parameter.
+   * - SELECT_PARAM: Select box parameter.
    * 
    * @example
    * TEXT_PARAM
@@ -114,7 +113,7 @@ export class AlertRuleAlertMetricParamDef extends $dara.Model {
   value?: string;
   /**
    * @remarks
-   * The list of selectable values for the drop-down list, which applies only to SELECT_PARAM.
+   * The list of selectable values for the drop-down list. This parameter takes effect only for SELECT_PARAM.
    */
   values?: AlertRuleAlertMetricParamDefValues[];
   static names(): { [key: string]: string } {

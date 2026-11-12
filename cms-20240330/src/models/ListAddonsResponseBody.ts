@@ -101,6 +101,9 @@ export class ListAddonsResponseBodyAddonsEnvironmentsDependencies extends $dara.
   /**
    * @remarks
    * The probes required for integration dependencies.
+   * 
+   * @example
+   * {"metric-agent":true}
    */
   features?: { [key: string]: boolean };
   /**
@@ -175,7 +178,7 @@ export class ListAddonsResponseBodyAddonsEnvironmentsPoliciesMetricCheckRule ext
 export class ListAddonsResponseBodyAddonsEnvironmentsPoliciesProtocols extends $dara.Model {
   /**
    * @remarks
-   * The protocol description.
+   * The description of the protocol.
    * 
    * @example
    * Support OpenTelemetry Protocal
@@ -183,7 +186,7 @@ export class ListAddonsResponseBodyAddonsEnvironmentsPoliciesProtocols extends $
   description?: string;
   /**
    * @remarks
-   * The icon URL.
+   * The URL of the icon.
    * 
    * @example
    * http://xxxxxxx
@@ -199,7 +202,7 @@ export class ListAddonsResponseBodyAddonsEnvironmentsPoliciesProtocols extends $
   label?: string;
   /**
    * @remarks
-   * The protocol name.
+   * The name of the protocol.
    * 
    * @example
    * openTelemetry
@@ -243,7 +246,7 @@ export class ListAddonsResponseBodyAddonsEnvironmentsPolicies extends $dara.Mode
   alertDefaultStatus?: string;
   /**
    * @remarks
-   * Specifies whether to install by default.
+   * Specifies whether to install the component by default.
    * 
    * @example
    * true
@@ -264,7 +267,7 @@ export class ListAddonsResponseBodyAddonsEnvironmentsPolicies extends $dara.Mode
   metricCheckRule?: ListAddonsResponseBodyAddonsEnvironmentsPoliciesMetricCheckRule;
   /**
    * @remarks
-   * Specifies whether to initiate a pod restart guide immediately after the plug-in installation is completed during integration.
+   * Specifies whether to trigger a pod restart guide immediately after the plug-in installation is completed during integration.
    * 
    * @example
    * true
@@ -272,7 +275,7 @@ export class ListAddonsResponseBodyAddonsEnvironmentsPolicies extends $dara.Mode
   needRestartAfterIntegration?: boolean;
   /**
    * @remarks
-   * The supported protocol types for configuration.
+   * The supported protocol types in the configuration.
    */
   protocols?: ListAddonsResponseBodyAddonsEnvironmentsPoliciesProtocols[];
   /**
@@ -343,7 +346,7 @@ export class ListAddonsResponseBodyAddonsEnvironments extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether it is enabled.
+   * Specifies whether the integration policy type is enabled.
    * 
    * @example
    * false
@@ -372,7 +375,7 @@ export class ListAddonsResponseBodyAddonsEnvironments extends $dara.Model {
   policies?: ListAddonsResponseBodyAddonsEnvironmentsPolicies;
   /**
    * @remarks
-   * The integration center policy type.
+   * The policy type of the integration center.
    * 
    * @example
    * CS
@@ -433,7 +436,7 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * The list of tags for the integration component.
+   * The list of categories for the integration component.
    */
   categories?: string[];
   /**
@@ -456,7 +459,7 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
   environments?: ListAddonsResponseBodyAddonsEnvironments[];
   /**
    * @remarks
-   * The icon URL.
+   * The URL of the icon.
    * 
    * @example
    * http://xxxxxxx
@@ -477,7 +480,7 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The time of the latest release. The time is in ISO 8601 format and includes the UTC identifier or time zone offset.
+   * The time when the latest version was created. The time follows the ISO 8601 standard and includes a UTC identifier or time zone offset.
    * 
    * @example
    * 2025-09-03T03:15:56Z
@@ -501,7 +504,7 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
   once?: boolean;
   /**
    * @remarks
-   * The component scenario.
+   * The scenario of the component.
    * 
    * @example
    * middleware
@@ -509,7 +512,7 @@ export class ListAddonsResponseBodyAddons extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * The component version.
+   * The version of the component.
    * 
    * @example
    * *

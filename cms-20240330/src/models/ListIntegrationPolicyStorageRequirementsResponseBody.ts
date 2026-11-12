@@ -6,11 +6,17 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   /**
    * @remarks
    * The annotations.
+   * 
+   * @example
+   * {"prometheus.io/path":"/metrics"}
    */
   annotations?: { [key: string]: string };
   /**
    * @remarks
    * The resource labels.
+   * 
+   * @example
+   * {"environment":"production"}
    */
   labels?: { [key: string]: string };
   /**
@@ -65,7 +71,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
 export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsSpec extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. This field can be specified to narrow the scope to the instance level. It depends on the data in EntityStore.
+   * The instance ID. Specify this parameter to narrow down the scope to the instance level. This depends on the data in EntityStore.
    * 
    * @example
    * es-xxxxx
@@ -89,7 +95,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   instanceName?: string;
   /**
    * @remarks
-   * The project. This optional field is determined based on the current environment type.
+   * The project. This optional parameter is determined based on the current environment type.
    * 
    * @example
    * datagrid_cdm
@@ -122,11 +128,17 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   /**
    * @remarks
    * The tags to be added to the destination storage. These tags are injected as system tags.
+   * 
+   * @example
+   * {"system-key":"value"}
    */
   systemTags?: { [key: string]: string };
   /**
    * @remarks
    * The tags to be added to the destination storage. These tags are injected as regular tags.
+   * 
+   * @example
+   * {"environment":"production"}
    */
   tags?: { [key: string]: string };
   /**
@@ -310,7 +322,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   addonReleaseNames?: string[];
   /**
    * @remarks
-   * The version number.
+   * The API version.
    * 
    * @example
    * v1
@@ -331,7 +343,7 @@ export class ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirem
   metadata?: ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsMetadata;
   /**
    * @remarks
-   * The specification of the resource.
+   * The resource specification.
    */
   spec?: ListIntegrationPolicyStorageRequirementsResponseBodyStorageRequirementsSpec;
   /**

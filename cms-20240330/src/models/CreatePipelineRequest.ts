@@ -144,6 +144,9 @@ export class CreatePipelineRequestPipelineNodes extends $dara.Model {
   /**
    * @remarks
    * The parameters.
+   * 
+   * @example
+   * {"output":"ID,key_0,key_2,key_3,key_4","workspace":"workspace-test-dataset","field":"key_0","global":true,"dataset":"dataset_1"}
    */
   parameters?: { [key: string]: any };
   /**
@@ -260,7 +263,7 @@ export class CreatePipelineRequestSink extends $dara.Model {
   dataset?: CreatePipelineRequestSinkDataset;
   /**
    * @remarks
-   * The data sink type.
+   * The sink type.
    * 
    * @example
    * dataset
@@ -411,7 +414,7 @@ export class CreatePipelineRequest extends $dara.Model {
   pipelineName?: string;
   /**
    * @remarks
-   * The data sink.
+   * The sink.
    */
   sink?: CreatePipelineRequestSink;
   /**

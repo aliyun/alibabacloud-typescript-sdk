@@ -35,6 +35,9 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   /**
    * @remarks
    * The mapping of IM user IDs. Multiple instant messaging tools are supported.
+   * 
+   * @example
+   * {"dingtalk":"abc123","wechat":"def456"}
    */
   imUserIds?: { [key: string]: string };
   /**
@@ -55,7 +58,7 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The mobile phone number of the alert contact.
+   * The phone number of the alert contact.
    * 
    * @example
    * 130123456789
@@ -63,7 +66,7 @@ export class ListContactsResponseBodyContacts extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * Indicates whether the mobile phone number is verified.
+   * Indicates whether the phone number is verified.
    * 
    * @example
    * true

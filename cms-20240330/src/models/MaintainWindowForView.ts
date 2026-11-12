@@ -87,7 +87,7 @@ export class MaintainWindowForView extends $dara.Model {
   effectTimeRange?: MaintainWindowForViewEffectTimeRange;
   /**
    * @remarks
-   * The crontab expression.
+   * The Crontab expression.
    * 
    * @example
    * * * 14-18 ? * *

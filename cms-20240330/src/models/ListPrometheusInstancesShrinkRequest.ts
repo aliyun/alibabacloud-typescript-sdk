@@ -29,7 +29,7 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token.
+   * The next token.
    * 
    * @example
    * xxxxxxxxxx
@@ -51,7 +51,7 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
   prometheusInstanceIds?: string;
   /**
    * @remarks
-   * The name of the instance. Partial matching is supported.
+   * The instance name. Partial match is supported.
    * 
    * @example
    * test
@@ -88,7 +88,7 @@ export class ListPrometheusInstancesShrinkRequest extends $dara.Model {
   tagShrink?: string;
   /**
    * @remarks
-   * The version of the instance.
+   * The instance version.
    * 
    * @example
    * V2

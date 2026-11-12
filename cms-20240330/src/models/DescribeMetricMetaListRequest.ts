@@ -53,7 +53,7 @@ export class DescribeMetricMetaListRequest extends $dara.Model {
   aliyunLang?: string;
   /**
    * @remarks
-   * The category.
+   * The directory.
    * 
    * @example
    * ecs
@@ -69,21 +69,18 @@ export class DescribeMetricMetaListRequest extends $dara.Model {
   keywords?: string;
   /**
    * @remarks
-   * Filters resources by label. The following labels are available:
-   * - metricCategory: the metric category description.
+   * Filters resources by label. The existing labels are described as follows:
+   * - metricCategory: the category description of the metric.
    * - alertEnable: specifies whether alerting is required.
    * - alertUnit: the recommended alert unit.
    * - unitFactor: the unit conversion factor.
    * - minAlertPeriod: the minimum alert period.
-   * - productCategory: the product type category.
+   * - productCategory: the product category.
    */
   labels?: DescribeMetricMetaListRequestLabels[];
   /**
    * @remarks
-   * The metadata source. Valid values:
-   * 
-   * - CMS: CloudMonitor Basic monitoring metrics.
-   * - PROM_BASIC: Prometheus CloudMonitor Basic monitoring metrics.
+   * The metadata source. Valid values: CMS for CloudMonitor Basic monitoring metrics, and PROM_BASIC for Prometheus CloudMonitor basic monitoring metrics.
    * 
    * @example
    * CMS
@@ -99,7 +96,7 @@ export class DescribeMetricMetaListRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The namespace, which is used to distinguish between services.
+   * The namespace used to distinguish products.
    * 
    * @example
    * acs_ecs_dashboard

@@ -41,7 +41,7 @@ export class AlertEventIntegrationPolicyForView extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether it is enabled.
+   * Indicates whether it is enabled.
    * 
    * @example
    * true
@@ -62,7 +62,7 @@ export class AlertEventIntegrationPolicyForView extends $dara.Model {
   integrationSetting?: string;
   /**
    * @remarks
-   * The reporting entry key for the integration.
+   * The key for the integrated reporting endpoint.
    * 
    * @example
    * 10-16818f1445e10a1d012922b285bfb334

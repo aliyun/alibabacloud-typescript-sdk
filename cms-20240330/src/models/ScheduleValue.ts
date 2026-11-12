@@ -13,14 +13,6 @@ export class ScheduleValue extends $dara.Model {
   contactId?: string;
   /**
    * @remarks
-   * The name of the on-call contact.
-   * 
-   * @example
-   * testName
-   */
-  contactName?: string;
-  /**
-   * @remarks
    * The end time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
@@ -35,21 +27,29 @@ export class ScheduleValue extends $dara.Model {
    * 2024-10-01 22:00:00
    */
   start?: string;
+  /**
+   * @remarks
+   * The name of the on-call contact.
+   * 
+   * @example
+   * testName
+   */
+  contactName?: string;
   static names(): { [key: string]: string } {
     return {
       contactId: 'contactId',
-      contactName: 'contactName',
       end: 'end',
       start: 'start',
+      contactName: 'contactName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       contactId: 'string',
-      contactName: 'string',
       end: 'string',
       start: 'string',
+      contactName: 'string',
     };
   }
 

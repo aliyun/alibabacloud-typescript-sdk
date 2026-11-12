@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDeliveryTaskRequestSinkList extends $dara.Model {
   /**
    * @remarks
-   * The detailed configuration of the delivery target. The meanings of key/value pairs vary depending on the sinkType.
+   * The detailed configuration of the shipping destination. The meanings of keys and values vary based on the sink type.
+   * 
+   * @example
+   * {"Url":"https://example.com/api/v1/write","Network":"PublicNetwork","AuthType":"None"}
    */
   sinkConfigs?: { [key: string]: string };
   /**
    * @remarks
-   * The delivery target type.
+   * The type of the shipping destination.
    * 
    * @example
    * Prometheus
@@ -48,7 +51,7 @@ export class UpdateDeliveryTaskRequestSinkList extends $dara.Model {
 export class UpdateDeliveryTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The data source ID (Prometheus instance ID).
+   * The data source ID, which is the Prometheus instance ID.
    * 
    * @example
    * rw-5f2b4sc7es4d66
@@ -56,12 +59,18 @@ export class UpdateDeliveryTaskRequest extends $dara.Model {
   dataSourceId?: string;
   /**
    * @remarks
-   * The additional labels attached to all delivered metrics. The key is the label name and the value is the label value.
+   * The additional labels appended to all shipped metrics. The key is the label name, and the value is the label value.
+   * 
+   * @example
+   * {"region":"cn-hangzhou"}
    */
   externalLabels?: { [key: string]: string };
   /**
    * @remarks
-   * The metric filter conditions. The entire value is replaced and incremental merging is not performed.
+   * The metric filtering conditions. The existing conditions are entirely replaced rather than incrementally merged.
+   * 
+   * @example
+   * {"__name__":"up"}
    */
   labelFilters?: { [key: string]: string };
   /**
@@ -82,19 +91,21 @@ export class UpdateDeliveryTaskRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The list of delivery targets.
+   * The list of shipping destinations.
    */
   sinkList?: UpdateDeliveryTaskRequestSinkList[];
   /**
    * @remarks
-   * The task status. This parameter is used to start or stop a task. Valid values:
+   * The task status, which is used to start or stop the task. Valid values:
    * 
-   * - Enable: enables the task.
-   * - Disable: disables the task.
-   * - Running: the task is running.
+   * Enable: Starts the task.
+   * 
+   * Disable: Stops the task.
+   * 
+   * Running: The task is running.
    * 
    * @example
-   * Enable
+   * Running
    */
   status?: string;
   /**
@@ -107,7 +118,7 @@ export class UpdateDeliveryTaskRequest extends $dara.Model {
   taskDescription?: string;
   /**
    * @remarks
-   * The task name. The name can contain letters, digits, underscores (_), and hyphens (-), and can be in Chinese.
+   * The task name. Chinese characters, English letters, underscores (_), and hyphens (-) are supported.
    * 
    * @example
    * new-task-name

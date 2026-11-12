@@ -57,7 +57,7 @@ export class CreateOncallScheduleRequestRotations extends $dara.Model {
   shiftLength?: number;
   /**
    * @remarks
-   * The unit of the shift recurrence cycle. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call person every week.
+   * The unit of the shift recurrence cycle. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call person every 1 week.
    * 
    * This parameter is required.
    * 
@@ -212,7 +212,7 @@ export class CreateOncallScheduleRequest extends $dara.Model {
   rotations?: CreateOncallScheduleRequestRotations[];
   /**
    * @remarks
-   * The ID of the shift reminder chatbot.
+   * The ID of the shift reminder bot.
    * 
    * @example
    * testRobotId
@@ -225,7 +225,7 @@ export class CreateOncallScheduleRequest extends $dara.Model {
   substitudes?: CreateOncallScheduleRequestSubstitudes[];
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * default-cms-5884500827389836-cn-hangzhou

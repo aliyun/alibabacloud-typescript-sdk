@@ -27,6 +27,9 @@ export class CreateDatasetRequest extends $dara.Model {
    * The table schema.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * {"message":{"type":"text","chn":true}}
    */
   schema?: { [key: string]: IndexKey };
   static names(): { [key: string]: string } {

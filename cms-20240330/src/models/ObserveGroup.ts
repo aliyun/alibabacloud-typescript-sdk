@@ -131,6 +131,11 @@ export class ObserveGroup extends $dara.Model {
   sourceOrigin?: string;
   /**
    * @remarks
+   * 源云监控 1.0 分组是否已持久只读，true 时目标 2.0 分组可独立维护。
+   */
+  sourceReadOnly?: boolean;
+  /**
+   * @remarks
    * 资源标签（阿里云标准标签），键值对数组。
    */
   tags?: ObserveGroupTags[];
@@ -159,6 +164,7 @@ export class ObserveGroup extends $dara.Model {
       regionId: 'regionId',
       resourceGroupId: 'resourceGroupId',
       sourceOrigin: 'sourceOrigin',
+      sourceReadOnly: 'sourceReadOnly',
       tags: 'tags',
       workspaceId: 'workspaceId',
     };
@@ -184,6 +190,7 @@ export class ObserveGroup extends $dara.Model {
       regionId: 'string',
       resourceGroupId: 'string',
       sourceOrigin: 'string',
+      sourceReadOnly: 'boolean',
       tags: { 'type': 'array', 'itemType': ObserveGroupTags },
       workspaceId: 'string',
     };

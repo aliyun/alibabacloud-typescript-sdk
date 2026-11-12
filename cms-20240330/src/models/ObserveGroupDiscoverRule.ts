@@ -180,6 +180,11 @@ export class ObserveGroupDiscoverRule extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
+   * 是否自动纳管同 domain、同实体 group 且由指定关系直接出边关联的子实体，历史缺省为 false。
+   */
+  includeRelatedEntities?: boolean;
+  /**
+   * @remarks
    * 手动指定的实例 ID 列表（枚举型，含 1.0 手动实例同步）。
    */
   instanceIds?: string[];
@@ -234,6 +239,7 @@ export class ObserveGroupDiscoverRule extends $dara.Model {
       entityType: 'entityType',
       entityTypes: 'entityTypes',
       gmtCreate: 'gmtCreate',
+      includeRelatedEntities: 'includeRelatedEntities',
       instanceIds: 'instanceIds',
       nameRules: 'nameRules',
       regionIds: 'regionIds',
@@ -253,6 +259,7 @@ export class ObserveGroupDiscoverRule extends $dara.Model {
       entityType: 'string',
       entityTypes: { 'type': 'array', 'itemType': 'string' },
       gmtCreate: 'number',
+      includeRelatedEntities: 'boolean',
       instanceIds: { 'type': 'array', 'itemType': 'string' },
       nameRules: ObserveGroupDiscoverRuleNameRules,
       regionIds: { 'type': 'array', 'itemType': 'string' },

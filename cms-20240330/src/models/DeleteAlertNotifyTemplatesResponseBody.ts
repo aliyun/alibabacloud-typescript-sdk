@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteAlertNotifyTemplatesResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The actual number of deleted records.
+   * 
    * @example
    * 0
    */

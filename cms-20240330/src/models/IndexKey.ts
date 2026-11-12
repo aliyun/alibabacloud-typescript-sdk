@@ -6,11 +6,10 @@ import { IndexJsonKey } from "./IndexJsonKey";
 export class IndexKey extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the value contains Chinese characters.
+   * Specifies whether Chinese characters are included.
    * 
-   * - `true`: Contains Chinese characters.
-   * 
-   * - `false`: Does not contain Chinese characters.
+   * - true: Chinese characters are included.
+   * - false: Chinese characters are not included.
    * 
    * @example
    * true
@@ -18,7 +17,7 @@ export class IndexKey extends $dara.Model {
   chn?: boolean;
   /**
    * @remarks
-   * Specifies the model name.
+   * The model name.
    * 
    * @example
    * text-embedding-v4
@@ -26,12 +25,15 @@ export class IndexKey extends $dara.Model {
   embedding?: string;
   /**
    * @remarks
-   * Describes the json keys.
+   * json key
+   * 
+   * @example
+   * {"message":{"type":"text","chn":true}}
    */
   jsonKeys?: { [key: string]: IndexJsonKey };
   /**
    * @remarks
-   * Specifies the field type.
+   * The field type.
    * 
    * @example
    * text

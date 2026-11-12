@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CloudMonitoringSimpleEscalationEntry extends $dara.Model {
   /**
    * @remarks
-   * The minimum dynamic baseline deviation or absolute deviation dead zone, which takes effect only when the baseline comparisonOperator is used. If the absolute difference between the current value and the boundary is less than the absDeviation value, no alert is triggered. The unit is the same as the metric. The value must be greater than or equal to 0. A value of 0 indicates no limit.
+   * The minimum deviation or absolute deviation dead zone for dynamic baselines (effective only for baseline comparison operators). No alert is triggered if |current value - boundary| < absDeviation. The unit is the same as the metric. The value must be greater than or equal to 0. A value of 0 means no limit.
    * 
    * @example
    * 0.0
@@ -13,7 +13,7 @@ export class CloudMonitoringSimpleEscalationEntry extends $dara.Model {
   absDeviation?: number;
   /**
    * @remarks
-   * The baseline period, which takes effect only when the baseline comparisonOperator is used. Valid values: AUTO for automatic identification, DAILY for daily, WEEKLY for weekly, and NONE for no period. For weekly periods, the backend automatically extends the historical training window to at least 14 days. Automatic identification cannot return specific identification results.
+   * The baseline period (effective only for baseline comparison operators). Valid values: AUTO for automatic identification, DAILY for daily, WEEKLY for weekly, and NONE for no period. For weekly periods, the backend automatically expands the historical training window to 14 days or more. Automatic identification cannot return specific identification results.
    * 
    * @example
    * AUTO
@@ -21,7 +21,7 @@ export class CloudMonitoringSimpleEscalationEntry extends $dara.Model {
   baselinePeriod?: string;
   /**
    * @remarks
-   * The comparison operator.
+   * The comparison operator. GreaterThanThreshold or LessThanThreshold is used for static thresholds. ABOVE_UPPER, BELOW_LOWER, or OUT_OF_BAND is used for dynamic baseline spikes, drops, or bidirectional changes, which requires the sensitivity parameter. The threshold parameter is not used for baselines and can be omitted.
    * 
    * @example
    * GT
@@ -37,7 +37,7 @@ export class CloudMonitoringSimpleEscalationEntry extends $dara.Model {
   preCondition?: string;
   /**
    * @remarks
-   * The sensitivity of the dynamic baseline, which takes effect only when the baseline comparisonOperator is used. Valid values: HIGH for the narrowest and most sensitive band, MEDIUM for medium sensitivity, and LOW for the widest and least sensitive band.
+   * The dynamic baseline sensitivity (effective only for baseline comparison operators). Valid values: HIGH for the narrowest and most sensitive band, MEDIUM for medium, and LOW for the widest and least sensitive band.
    * 
    * @example
    * MEDIUM

@@ -85,7 +85,7 @@ export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigProjec
 export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The length of the prefix to retain.
+   * The length of the retained prefix.
    * 
    * @example
    * 2
@@ -93,7 +93,7 @@ export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigRules 
   keepPrefix?: number;
   /**
    * @remarks
-   * The length of the suffix to retain.
+   * The length of the retained suffix.
    * 
    * @example
    * 2
@@ -101,7 +101,7 @@ export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigRules 
   keepSuffix?: number;
   /**
    * @remarks
-   * The sensitive keyword.
+   * The sensitive keywords.
    */
   keys?: string[];
   /**
@@ -109,12 +109,12 @@ export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigRules 
    * The mask character.
    * 
    * @example
-   * *
+   * #
    */
   maskChar?: string;
   /**
    * @remarks
-   * The data masking mode.
+   * The masking mode.
    * 
    * @example
    * keyword
@@ -122,7 +122,7 @@ export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigRules 
   mode?: string;
   /**
    * @remarks
-   * The built-in sensitive type.
+   * The built-in sensitive data types.
    */
   types?: string[];
   static names(): { [key: string]: string } {
@@ -283,7 +283,7 @@ export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfigScopeM
   matchType?: string;
   /**
    * @remarks
-   * The metric name.
+   * The metric names.
    * 
    * @example
    * ["http_requests_total"]
@@ -495,6 +495,9 @@ export class CreateDataPipelineResponseBodyPipelineOutputsProcessorsConfig exten
   /**
    * @remarks
    * The extension parameters.
+   * 
+   * @example
+   * {"vendor":"example"}
    */
   parameters?: { [key: string]: any };
   /**
@@ -771,7 +774,7 @@ export class CreateDataPipelineResponseBodyPipelineProcessorsConfigProjections e
 export class CreateDataPipelineResponseBodyPipelineProcessorsConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The length of the prefix to retain.
+   * The length of the retained prefix.
    * 
    * @example
    * 2
@@ -779,7 +782,7 @@ export class CreateDataPipelineResponseBodyPipelineProcessorsConfigRules extends
   keepPrefix?: number;
   /**
    * @remarks
-   * The length of the suffix to retain.
+   * The length of the retained suffix.
    * 
    * @example
    * 2
@@ -787,7 +790,7 @@ export class CreateDataPipelineResponseBodyPipelineProcessorsConfigRules extends
   keepSuffix?: number;
   /**
    * @remarks
-   * The sensitive keyword.
+   * The sensitive keywords.
    */
   keys?: string[];
   /**
@@ -795,12 +798,12 @@ export class CreateDataPipelineResponseBodyPipelineProcessorsConfigRules extends
    * The mask character.
    * 
    * @example
-   * *
+   * #
    */
   maskChar?: string;
   /**
    * @remarks
-   * The data masking mode.
+   * The masking mode.
    * 
    * @example
    * keyword
@@ -808,7 +811,7 @@ export class CreateDataPipelineResponseBodyPipelineProcessorsConfigRules extends
   mode?: string;
   /**
    * @remarks
-   * The built-in sensitive type.
+   * The built-in sensitive data types.
    */
   types?: string[];
   static names(): { [key: string]: string } {
@@ -969,7 +972,7 @@ export class CreateDataPipelineResponseBodyPipelineProcessorsConfigScopeMetricNa
   matchType?: string;
   /**
    * @remarks
-   * The metric name.
+   * The metric names.
    * 
    * @example
    * ["http_requests_total"]
@@ -1181,6 +1184,9 @@ export class CreateDataPipelineResponseBodyPipelineProcessorsConfig extends $dar
   /**
    * @remarks
    * The extension parameters.
+   * 
+   * @example
+   * {"vendor":"example"}
    */
   parameters?: { [key: string]: any };
   /**
@@ -1537,7 +1543,7 @@ export class CreateDataPipelineResponseBodyPipelineSource extends $dara.Model {
 export class CreateDataPipelineResponseBodyPipeline extends $dara.Model {
   /**
    * @remarks
-   * The creation time. The time is in UTC and follows the ISO 8601 format. Example: 2026-08-10T05:00:00Z.
+   * The creation time in UTC, following the ISO 8601 format. Example: 2026-08-10T05:00:00Z.
    * 
    * This parameter is required.
    * 
@@ -1601,7 +1607,7 @@ export class CreateDataPipelineResponseBodyPipeline extends $dara.Model {
   signalType?: string;
   /**
    * @remarks
-   * The output destination.
+   * The output destinations.
    * 
    * This parameter is required.
    */
@@ -1633,7 +1639,7 @@ export class CreateDataPipelineResponseBodyPipeline extends $dara.Model {
   statusMessage?: string;
   /**
    * @remarks
-   * The update time. The time is in UTC and follows the ISO 8601 format. Example: 2026-08-10T05:10:00Z.
+   * The update time in UTC, following the ISO 8601 format. Example: 2026-08-10T05:10:00Z.
    * 
    * This parameter is required.
    * 

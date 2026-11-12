@@ -50,7 +50,7 @@ export class ListContactsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The mobile phone number of the alert contact.
+   * The phone number of the alert contact.
    * 
    * @example
    * 15012345678

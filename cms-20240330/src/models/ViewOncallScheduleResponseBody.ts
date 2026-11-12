@@ -14,7 +14,7 @@ export class ViewOncallScheduleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The on-call calendar. The key is the shift name, and the value is a list of on-call shifts for the shift within the query date range.
+   * The on-call calendar. The key is the shift name, and the value is the list of on-call periods for the shift within the queried date range.
    * 
    * @example
    * {"testName":[{"contactId":"testId","contactName":"Zhang San","start":"2024-10-10 09:00","end":"2024-10-15 18:00"}]}

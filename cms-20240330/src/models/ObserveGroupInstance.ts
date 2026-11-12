@@ -20,6 +20,16 @@ export class ObserveGroupInstance extends $dara.Model {
   entityDomain?: string;
   /**
    * @remarks
+   * UModel 实体 ID，与实体域和类型共同标识成员。
+   */
+  entityId?: string;
+  /**
+   * @remarks
+   * 实体角色，main 为主实体、related 为关联子实体。
+   */
+  entityRole?: string;
+  /**
+   * @remarks
    * 实体类型（如 acs.ecs.instance）。
    */
   entityType?: string;
@@ -63,6 +73,8 @@ export class ObserveGroupInstance extends $dara.Model {
       category: 'category',
       dimension: 'dimension',
       entityDomain: 'entityDomain',
+      entityId: 'entityId',
+      entityRole: 'entityRole',
       entityType: 'entityType',
       groupId: 'groupId',
       instanceId: 'instanceId',
@@ -79,6 +91,8 @@ export class ObserveGroupInstance extends $dara.Model {
       category: 'string',
       dimension: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       entityDomain: 'string',
+      entityId: 'string',
+      entityRole: 'string',
       entityType: 'string',
       groupId: 'string',
       instanceId: 'string',

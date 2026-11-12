@@ -7,7 +7,7 @@ import { FilterSetting } from "./FilterSetting";
 export class TransformerForView extends $dara.Model {
   /**
    * @remarks
-   * The transform actions.
+   * The transform operations.
    */
   actions?: TransformAction[];
   /**
@@ -41,7 +41,7 @@ export class TransformerForView extends $dara.Model {
   filterSetting?: FilterSetting;
   /**
    * @remarks
-   * Specifies whether to exit after a match is processed.
+   * Indicates whether to exit after match processing.
    * 
    * @example
    * false

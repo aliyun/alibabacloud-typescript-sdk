@@ -13,7 +13,10 @@ export class UpdateContactRequest extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The mapping of IM user IDs. Multiple instant messaging tools are supported.
+   * The instant messaging (IM) user ID mappings. Multiple IM tools are supported.
+   * 
+   * @example
+   * {"dingtalk":"abc123","wechat":"def456"}
    */
   imUserIds?: { [key: string]: string };
   /**
@@ -34,7 +37,7 @@ export class UpdateContactRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The mobile phone number of the contact. Currently, only Chinese mobile phone numbers are supported.
+   * The mobile phone number of the contact. Only Chinese mobile phone numbers are supported.
    * 
    * @example
    * 150123456789
@@ -42,7 +45,7 @@ export class UpdateContactRequest extends $dara.Model {
   phone?: string;
   /**
    * @remarks
-   * 号码国家码，可带前导 +，如 86、+86。传入后 phone 必须是纯数字，服务端按 <phoneCode>-<phone> 拼号发送，因此 phone 内不能再带 +、00 或区号。不传时按手机号码原样发送。
+   * The country code for the mobile phone number, typically +86 for China.
    * 
    * @example
    * +86

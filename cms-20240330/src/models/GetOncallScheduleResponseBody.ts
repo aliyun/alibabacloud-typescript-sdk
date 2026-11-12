@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOncallScheduleResponseBodyRotations extends $dara.Model {
   /**
    * @remarks
-   * The days of the week when the shift is active.
+   * The days of the week when the rotation takes effect.
    */
   activeDays?: number[];
   /**
@@ -15,7 +15,7 @@ export class GetOncallScheduleResponseBodyRotations extends $dara.Model {
   contacts?: string[];
   /**
    * @remarks
-   * The end time of the shift. Format: HH:mm.
+   * The end time of the rotation. Format: HH:mm.
    * 
    * @example
    * 24:00
@@ -23,7 +23,7 @@ export class GetOncallScheduleResponseBodyRotations extends $dara.Model {
   rotationEndTime?: string;
   /**
    * @remarks
-   * The name of the shift.
+   * The name of the rotation.
    * 
    * @example
    * testName
@@ -31,7 +31,7 @@ export class GetOncallScheduleResponseBodyRotations extends $dara.Model {
   rotationName?: string;
   /**
    * @remarks
-   * The start time of the shift. Format: HH:mm.
+   * The start time of the rotation. Format: HH:mm.
    * 
    * @example
    * 00:00
@@ -39,7 +39,7 @@ export class GetOncallScheduleResponseBodyRotations extends $dara.Model {
   rotationStartTime?: string;
   /**
    * @remarks
-   * The length of the shift recurrence cycle. Used in conjunction with the shift recurrence frequency. For example, rotate to the next on-call contact every 3 days.
+   * The length of the shift recurrence period. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call person every 3 days.
    * 
    * @example
    * 4
@@ -47,7 +47,7 @@ export class GetOncallScheduleResponseBodyRotations extends $dara.Model {
   shiftLength?: number;
   /**
    * @remarks
-   * The unit of the shift recurrence frequency. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call contact every 1 week.
+   * The unit of the shift recurrence frequency. Used in conjunction with shiftRecurrenceFrequency. For example, rotate to the next on-call person every 1 week.
    * 
    * @example
    * WEEKLY
@@ -55,7 +55,7 @@ export class GetOncallScheduleResponseBodyRotations extends $dara.Model {
   shiftRecurrenceFrequency?: string;
   /**
    * @remarks
-   * The start date of the shift. Format: yyyy-MM-dd.
+   * The start date of the rotation. Format: yyyy-MM-dd.
    * 
    * @example
    * 2024-10-10
@@ -199,12 +199,12 @@ export class GetOncallScheduleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of shifts.
+   * The list of rotations.
    */
   rotations?: GetOncallScheduleResponseBodyRotations[];
   /**
    * @remarks
-   * The ID of the shift reminder chatbot.
+   * The ID of the robot for shift change reminders.
    * 
    * @example
    * testId

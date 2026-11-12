@@ -495,6 +495,9 @@ export class ListDataPipelinesResponseBodyPipelinesOutputsProcessorsConfig exten
   /**
    * @remarks
    * The extended parameters.
+   * 
+   * @example
+   * {"vendor":"example"}
    */
   parameters?: { [key: string]: any };
   /**
@@ -1181,6 +1184,9 @@ export class ListDataPipelinesResponseBodyPipelinesProcessorsConfig extends $dar
   /**
    * @remarks
    * The extended parameters.
+   * 
+   * @example
+   * {"vendor":"example"}
    */
   parameters?: { [key: string]: any };
   /**

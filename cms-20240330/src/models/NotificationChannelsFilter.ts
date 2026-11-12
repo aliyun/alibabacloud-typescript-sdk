@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class NotificationChannelsFilter extends $dara.Model {
   /**
    * @remarks
-   * The list of notification contacts in the rule contains any value in the array. This uses OR logic and corresponds to notification.contacts in V1.
+   * The list of notification contacts in the rule contains any value in the array. This uses OR logic and corresponds to V1 notification.contacts.
    * 
    * @example
    * ["张三","李四"]
@@ -13,7 +13,7 @@ export class NotificationChannelsFilter extends $dara.Model {
   containsContacts?: string[];
   /**
    * @remarks
-   * The list of custom webhooks in the rule contains any value in the array. This uses OR logic and corresponds to notification.customWebhooks in V1.
+   * The list of custom webhooks in the rule contains any value in the array. This uses OR logic and corresponds to V1 notification.customWebhooks.
    * 
    * @example
    * ["https://my-service.example.com/webhook/alert"]
@@ -21,7 +21,7 @@ export class NotificationChannelsFilter extends $dara.Model {
   containsCustomWebhooks?: string[];
   /**
    * @remarks
-   * The list of DingTalk webhooks in the rule contains any value in the array. This uses OR logic and corresponds to notification.dingWebhooks in V1.
+   * The list of DingTalk webhooks in the rule contains any value in the array. This uses OR logic and corresponds to V1 notification.dingWebhooks.
    * 
    * @example
    * ["https://oapi.dingtalk.com/robot/send?access_token=abc123"]
@@ -29,7 +29,7 @@ export class NotificationChannelsFilter extends $dara.Model {
   containsDingWebhooks?: string[];
   /**
    * @remarks
-   * The list of Lark webhooks in the rule contains any value in the array. This uses OR logic and corresponds to notification.fsWebhooks in V1.
+   * The list of Lark webhooks in the rule contains any value in the array. This uses OR logic and corresponds to V1 notification.fsWebhooks.
    * 
    * @example
    * ["https://open.feishu.cn/open-apis/bot/v2/hook/abc123"]
@@ -37,7 +37,7 @@ export class NotificationChannelsFilter extends $dara.Model {
   containsFsWebhooks?: string[];
   /**
    * @remarks
-   * The list of contact groups in the rule contains any value in the array. This uses OR logic and corresponds to notification.groups in V1.
+   * The list of notification contact groups in the rule contains any value in the array. This uses OR logic and corresponds to V1 notification.groups.
    * 
    * @example
    * ["运维组","SRE团队"]
@@ -45,7 +45,7 @@ export class NotificationChannelsFilter extends $dara.Model {
   containsGroups?: string[];
   /**
    * @remarks
-   * The list of Slack webhooks in the rule contains any value in the array. This uses OR logic and corresponds to notification.slackWebhooks in V1.
+   * The list of Slack webhooks in the rule contains any value in the array. This uses OR logic and corresponds to V1 notification.slackWebhooks.
    * 
    * @example
    * ["https://hooks.slack.com/services/T00000000/B00000000/XXXXXXXX"]
@@ -53,7 +53,7 @@ export class NotificationChannelsFilter extends $dara.Model {
   containsSlackWebhooks?: string[];
   /**
    * @remarks
-   * The list of WeCom webhooks in the rule contains any value in the array. This uses OR logic and corresponds to notification.wxWebhooks in V1.
+   * The list of WeCom webhooks in the rule contains any value in the array. This uses OR logic and corresponds to V1 notification.wxWebhooks.
    * 
    * @example
    * ["https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key=abc123"]

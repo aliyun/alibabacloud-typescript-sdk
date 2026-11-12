@@ -95,7 +95,7 @@ export class CreatePrometheusViewRequestTags extends $dara.Model {
 export class CreatePrometheusViewRequest extends $dara.Model {
   /**
    * @remarks
-   * Not yet enabled.
+   * Not enabled.
    * 
    * @example
    * {
@@ -114,7 +114,7 @@ export class CreatePrometheusViewRequest extends $dara.Model {
   authFreeReadPolicy?: string;
   /**
    * @remarks
-   * Specifies whether authentication-free read is supported.
+   * Specifies whether password-free read is supported.
    * 
    * @example
    * true
@@ -124,7 +124,7 @@ export class CreatePrometheusViewRequest extends $dara.Model {
   enableAuthFreeRead?: boolean;
   /**
    * @remarks
-   * Specifies whether authToken is supported.
+   * Specifies whether AuthToken is supported.
    * 
    * @example
    * true
@@ -139,7 +139,7 @@ export class CreatePrometheusViewRequest extends $dara.Model {
   prometheusInstances?: CreatePrometheusViewRequestPrometheusInstances[];
   /**
    * @remarks
-   * The Prometheus view name.
+   * The name of the Prometheus view.
    * 
    * This parameter is required.
    * 
@@ -157,22 +157,21 @@ export class CreatePrometheusViewRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * Not yet enabled.
+   * Not enabled.
    * 
    * @example
-   * null
+   * Running
    */
   status?: string;
   /**
    * @remarks
-   * The operation to perform.
+   * The tags.
    */
   tags?: CreatePrometheusViewRequestTags[];
   /**
    * @remarks
-   * Valid values:
-   * - V1: Legacy version.
-   * - V2: New version.
+   * - V1: legacy version
+   * - V2: new version
    * 
    * This parameter is required.
    * 

@@ -101,6 +101,9 @@ export class GetAddonResponseBodyDataEnvironmentsDependencies extends $dara.Mode
   /**
    * @remarks
    * The dependencies on probes.
+   * 
+   * @example
+   * {"metric-agent":true}
    */
   features?: { [key: string]: boolean };
   /**
@@ -145,7 +148,7 @@ export class GetAddonResponseBodyDataEnvironmentsDependencies extends $dara.Mode
 export class GetAddonResponseBodyDataEnvironmentsPoliciesMetricCheckRule extends $dara.Model {
   /**
    * @remarks
-   * The data check rule executed after installation.
+   * The data check rule after installation.
    */
   promQL?: string[];
   static names(): { [key: string]: string } {
@@ -264,7 +267,7 @@ export class GetAddonResponseBodyDataEnvironmentsPolicies extends $dara.Model {
   metricCheckRule?: GetAddonResponseBodyDataEnvironmentsPoliciesMetricCheckRule;
   /**
    * @remarks
-   * Specifies whether to initiate a pod restart guide immediately after the add-on installation is completed during integration.
+   * Specifies whether the pod restart guide is triggered immediately after the add-on is installed during integration.
    * 
    * @example
    * true
@@ -425,7 +428,7 @@ export class GetAddonResponseBodyDataEnvironments extends $dara.Model {
 export class GetAddonResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The alias of the component.
+   * The alias of the integrated component.
    * 
    * @example
    * resume_vector_alias
@@ -433,7 +436,7 @@ export class GetAddonResponseBodyData extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * The list of category directories for the component.
+   * The list of category directories for the integrated component.
    */
   categories?: string[];
   /**
@@ -477,7 +480,7 @@ export class GetAddonResponseBodyData extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The latest creation time.
+   * The latest release creation time.
    * 
    * @example
    * 2023-09-12 12:30:30
@@ -585,7 +588,7 @@ export class GetAddonResponseBodyData extends $dara.Model {
 export class GetAddonResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of data corresponding to the request header.
+   * The data list corresponding to the request header.
    */
   data?: GetAddonResponseBodyData;
   /**

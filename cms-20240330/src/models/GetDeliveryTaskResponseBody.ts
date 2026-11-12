@@ -35,7 +35,10 @@ export class GetDeliveryTaskResponseBodyDeliveryTaskExtraInfo extends $dara.Mode
 export class GetDeliveryTaskResponseBodyDeliveryTaskSinkList extends $dara.Model {
   /**
    * @remarks
-   * The detailed configuration of the delivery destination. The meanings of the key and value vary based on the sinkType. For more information, see the CreateDeliveryTask documentation.
+   * The detailed configuration of the delivery destination. The meanings of the key and value vary based on the sinkType. For more information, see the CreateDeliveryTask description.
+   * 
+   * @example
+   * {"Url":"https://example.com/api/v1/write","Network":"PublicNetwork","AuthType":"None"}
    */
   sinkConfigs?: { [key: string]: string };
   /**
@@ -115,7 +118,9 @@ export class GetDeliveryTaskResponseBodyDeliveryTaskTags extends $dara.Model {
 export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   /**
    * @remarks
-   * The creation time. The time is displayed in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ) in UTC.
+   * The creation time.
+   * 
+   * The time is in the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) in UTC.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -125,7 +130,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the data source, which is the Prometheus instance ID.
+   * The data source ID (Prometheus instance ID).
    * 
    * @example
    * rw-xxxxxx
@@ -134,6 +139,9 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   /**
    * @remarks
    * The additional labels attached to all delivered metrics. The key is the label name and the value is the label value.
+   * 
+   * @example
+   * {"region":"cn-hangzhou"}
    */
   externalLabels?: { [key: string]: string };
   /**
@@ -143,12 +151,15 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   extraInfo?: GetDeliveryTaskResponseBodyDeliveryTaskExtraInfo;
   /**
    * @remarks
-   * The metric filtering conditions, used in conjunction with labelFiltersType. The key is the metric label name and the value is the matching value.
+   * The metric filter conditions used in conjunction with labelFiltersType. The key is the metric label name and the value is the match value.
+   * 
+   * @example
+   * {"__name__":"up"}
    */
   labelFilters?: { [key: string]: string };
   /**
    * @remarks
-   * The metric filtering mode.
+   * The metric filter mode.
    * 
    * @example
    * Allow
@@ -177,7 +188,7 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The resource group tags.
+   * The keys of the resource group tags.
    */
   tags?: GetDeliveryTaskResponseBodyDeliveryTaskTags[];
   /**
@@ -206,7 +217,9 @@ export class GetDeliveryTaskResponseBodyDeliveryTask extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The update time. The time is displayed in ISO 8601 format (YYYY-MM-DDThh:mm:ssZ) in UTC.
+   * The update time.
+   * 
+   * The time is in the ISO 8601 standard format (YYYY-MM-DDThh:mm:ssZ) in UTC.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 

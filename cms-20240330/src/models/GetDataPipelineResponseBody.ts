@@ -85,7 +85,7 @@ export class GetDataPipelineResponseBodyPipelineOutputsProcessorsConfigProjectio
 export class GetDataPipelineResponseBodyPipelineOutputsProcessorsConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The prefix retention length.
+   * The length of the prefix to retain.
    * 
    * @example
    * 2
@@ -93,7 +93,7 @@ export class GetDataPipelineResponseBodyPipelineOutputsProcessorsConfigRules ext
   keepPrefix?: number;
   /**
    * @remarks
-   * The suffix retention length.
+   * The length of the suffix to retain.
    * 
    * @example
    * 2
@@ -109,7 +109,7 @@ export class GetDataPipelineResponseBodyPipelineOutputsProcessorsConfigRules ext
    * The mask character.
    * 
    * @example
-   * *
+   * #
    */
   maskChar?: string;
   /**
@@ -122,7 +122,7 @@ export class GetDataPipelineResponseBodyPipelineOutputsProcessorsConfigRules ext
   mode?: string;
   /**
    * @remarks
-   * The built-in sensitive types.
+   * The built-in sensitive data type.
    */
   types?: string[];
   static names(): { [key: string]: string } {
@@ -408,7 +408,7 @@ export class GetDataPipelineResponseBodyPipelineOutputsProcessorsConfigScope ext
 export class GetDataPipelineResponseBodyPipelineOutputsProcessorsConfigSelector extends $dara.Model {
   /**
    * @remarks
-   * The service name list.
+   * The list of service names.
    * 
    * @example
    * ["checkout-*","order-service"]
@@ -495,6 +495,9 @@ export class GetDataPipelineResponseBodyPipelineOutputsProcessorsConfig extends 
   /**
    * @remarks
    * The extended parameters.
+   * 
+   * @example
+   * {"vendor":"example"}
    */
   parameters?: { [key: string]: any };
   /**
@@ -509,7 +512,7 @@ export class GetDataPipelineResponseBodyPipelineOutputsProcessorsConfig extends 
   rules?: GetDataPipelineResponseBodyPipelineOutputsProcessorsConfigRules[];
   /**
    * @remarks
-   * The pipeline processing scope.
+   * The effective scope of pipeline processing.
    */
   scope?: GetDataPipelineResponseBodyPipelineOutputsProcessorsConfigScope;
   /**
@@ -771,7 +774,7 @@ export class GetDataPipelineResponseBodyPipelineProcessorsConfigProjections exte
 export class GetDataPipelineResponseBodyPipelineProcessorsConfigRules extends $dara.Model {
   /**
    * @remarks
-   * The prefix retention length.
+   * The length of the prefix to retain.
    * 
    * @example
    * 2
@@ -779,7 +782,7 @@ export class GetDataPipelineResponseBodyPipelineProcessorsConfigRules extends $d
   keepPrefix?: number;
   /**
    * @remarks
-   * The suffix retention length.
+   * The length of the suffix to retain.
    * 
    * @example
    * 2
@@ -795,7 +798,7 @@ export class GetDataPipelineResponseBodyPipelineProcessorsConfigRules extends $d
    * The mask character.
    * 
    * @example
-   * *
+   * #
    */
   maskChar?: string;
   /**
@@ -808,7 +811,7 @@ export class GetDataPipelineResponseBodyPipelineProcessorsConfigRules extends $d
   mode?: string;
   /**
    * @remarks
-   * The built-in sensitive types.
+   * The built-in sensitive data type.
    */
   types?: string[];
   static names(): { [key: string]: string } {
@@ -862,7 +865,7 @@ export class GetDataPipelineResponseBodyPipelineProcessorsConfigScopeConditionsF
    * The reference data type.
    * 
    * @example
-   * explorer_link
+   * field
    */
   kind?: string;
   /**
@@ -1094,7 +1097,7 @@ export class GetDataPipelineResponseBodyPipelineProcessorsConfigScope extends $d
 export class GetDataPipelineResponseBodyPipelineProcessorsConfigSelector extends $dara.Model {
   /**
    * @remarks
-   * The service name list.
+   * The list of service names.
    * 
    * @example
    * ["checkout-*","order-service"]
@@ -1181,6 +1184,9 @@ export class GetDataPipelineResponseBodyPipelineProcessorsConfig extends $dara.M
   /**
    * @remarks
    * The extended parameters.
+   * 
+   * @example
+   * {"vendor":"example"}
    */
   parameters?: { [key: string]: any };
   /**
@@ -1350,7 +1356,7 @@ export class GetDataPipelineResponseBodyPipelineSinks extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The name of the data sink.
+   * The name of the output destination.
    * 
    * @example
    * error-archive
@@ -1366,7 +1372,7 @@ export class GetDataPipelineResponseBodyPipelineSinks extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The type of the data sink.
+   * The type of the output destination.
    * 
    * @example
    * logstore
@@ -1455,7 +1461,7 @@ export class GetDataPipelineResponseBodyPipelineSourceConfig extends $dara.Model
   runMode?: string;
   /**
    * @remarks
-   * The starting point for reading.
+   * The read start point.
    * 
    * @example
    * latest
@@ -1502,7 +1508,7 @@ export class GetDataPipelineResponseBodyPipelineSource extends $dara.Model {
   config?: GetDataPipelineResponseBodyPipelineSourceConfig;
   /**
    * @remarks
-   * The type of the data source.
+   * The data source type.
    * 
    * @example
    * traces-default
@@ -1537,7 +1543,7 @@ export class GetDataPipelineResponseBodyPipelineSource extends $dara.Model {
 export class GetDataPipelineResponseBodyPipeline extends $dara.Model {
   /**
    * @remarks
-   * The creation time in ISO 8601 format in UTC, such as 2026-08-10T05:00:00Z.
+   * The creation time in UTC, following the ISO 8601 format, such as 2026-08-10T05:00:00Z.
    * 
    * This parameter is required.
    * 
@@ -1601,7 +1607,7 @@ export class GetDataPipelineResponseBodyPipeline extends $dara.Model {
   signalType?: string;
   /**
    * @remarks
-   * The data sinks.
+   * The output destinations.
    * 
    * This parameter is required.
    */
@@ -1633,7 +1639,7 @@ export class GetDataPipelineResponseBodyPipeline extends $dara.Model {
   statusMessage?: string;
   /**
    * @remarks
-   * The update time in ISO 8601 format in UTC, such as 2026-08-10T05:10:00Z.
+   * The update time in UTC, following the ISO 8601 format, such as 2026-08-10T05:10:00Z.
    * 
    * This parameter is required.
    * 

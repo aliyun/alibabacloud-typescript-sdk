@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CloudMonitoringCompositeEscalationEntry extends $dara.Model {
   /**
    * @remarks
-   * The minimum deviation or absolute deviation dead zone for dynamic baselines. This parameter takes effect only when the comparisonOperator is set to a baseline operator. If the absolute difference between the current value and the boundary is less than the absDeviation value, no alert is triggered. The unit is the same as the metric unit. The value must be greater than or equal to 0. A value of 0 indicates no limit.
+   * The minimum deviation or absolute deviation dead zone for the dynamic baseline. This parameter takes effect only when the comparisonOperator is set to a baseline operator. If the absolute difference between the current value and the boundary is less than the absDeviation value, no alert is triggered. The unit is the same as the metric unit. The value must be greater than or equal to 0. A value of 0 indicates no limit.
    * 
    * @example
    * 0.0
@@ -13,7 +13,7 @@ export class CloudMonitoringCompositeEscalationEntry extends $dara.Model {
   absDeviation?: number;
   /**
    * @remarks
-   * The baseline period. This parameter takes effect only when the comparisonOperator is set to a baseline operator. Valid values: AUTO for automatic identification, DAILY for daily, WEEKLY for weekly, and NONE for no period. When set to WEEKLY, the backend automatically extends the historical training window to 14 days or more. Automatic identification cannot return the specific identification result.
+   * The baseline period. This parameter takes effect only when the comparisonOperator is set to a baseline operator. Valid values: AUTO (automatic identification), DAILY (daily), WEEKLY (weekly), and NONE (no period). If you set this parameter to WEEKLY, the backend automatically extends the historical training window to at least 14 days. Specific identification results are not returned for automatic identification.
    * 
    * @example
    * AUTO
@@ -21,7 +21,7 @@ export class CloudMonitoringCompositeEscalationEntry extends $dara.Model {
   baselinePeriod?: string;
   /**
    * @remarks
-   * The comparison operator. Valid values include GreaterThanThreshold and LessThanThreshold for static thresholds, and ABOVE_UPPER, BELOW_LOWER, and OUT_OF_BAND for dynamic baseline spikes, drops, and bidirectional changes. For dynamic baseline operators, you must specify the sensitivity parameter. The threshold parameter is not used for evaluation and can be left empty.
+   * The comparison operator.
    * 
    * @example
    * GT
@@ -53,7 +53,7 @@ export class CloudMonitoringCompositeEscalationEntry extends $dara.Model {
   preCondition?: string;
   /**
    * @remarks
-   * The dynamic baseline sensitivity. This parameter takes effect only when the comparisonOperator is set to a baseline operator. Valid values: HIGH for the narrowest and most sensitive band, MEDIUM for a medium band, and LOW for the widest and least sensitive band.
+   * The sensitivity of the dynamic baseline. This parameter takes effect only when the comparisonOperator is set to a baseline operator. Valid values: HIGH (narrowest band and most sensitive), MEDIUM (medium), and LOW (widest band and least sensitive).
    * 
    * @example
    * MEDIUM

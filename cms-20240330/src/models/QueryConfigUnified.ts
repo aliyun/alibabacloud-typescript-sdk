@@ -14,7 +14,7 @@ import { Queries } from "./Queries";
 export class QueryConfigUnified extends $dara.Model {
   /**
    * @remarks
-   * The aggregate functions. Used when type is set to UMODEL_METRICSET_QUERY or UMODEL_LOGSET_QUERY.
+   * The aggregation function used when the type is UMODEL_METRICSET_QUERY or UMODEL_LOGSET_QUERY.
    * 
    * @example
    * AVG
@@ -22,7 +22,7 @@ export class QueryConfigUnified extends $dara.Model {
   aggregate?: string;
   /**
    * @remarks
-   * **[Deprecated]** Specifies whether to perform alert detection only after data is complete (originally used when type is set to PROMETHEUS_MULTI_QUERY). This field overlaps with enableDataCompleteCheck. Using this field on write paths returns 400.
+   * **[Deprecated]** Specifies whether to perform alert detection after data completion. This parameter was originally used when the type was PROMETHEUS_MULTI_QUERY. It duplicates enableDataCompleteCheck and returns a 400 error in the write path.
    * 
    * @example
    * true
@@ -32,12 +32,12 @@ export class QueryConfigUnified extends $dara.Model {
   checkAfterDataComplete?: boolean;
   /**
    * @remarks
-   * The dimension list. This parameter is used when type is set to CLOUD_MONITORING_QUERY. Each dimension is a key/value string mapping.
+   * The list of dimensions used when the type is CLOUD_MONITORING_QUERY. Each dimension is a key-value string map.
    */
   dimensions?: { [key: string]: string }[];
   /**
    * @remarks
-   * The duration in seconds. Used when type is set to PROMETHEUS_MULTI_QUERY.
+   * The duration in seconds used when the type is PROMETHEUS_MULTI_QUERY.
    * 
    * @example
    * 100
@@ -45,7 +45,7 @@ export class QueryConfigUnified extends $dara.Model {
   durationSecs?: number;
   /**
    * @remarks
-   * Indicates whether data integrity check is enabled.
+   * Specifies whether the data integrity check is enabled.
    * 
    * @example
    * true
@@ -53,7 +53,7 @@ export class QueryConfigUnified extends $dara.Model {
   enableDataCompleteCheck?: boolean;
   /**
    * @remarks
-   * The entity domain.
+   * The domain to which the entity belongs.
    * 
    * @example
    * k8s
@@ -61,17 +61,17 @@ export class QueryConfigUnified extends $dara.Model {
   entityDomain?: string;
   /**
    * @remarks
-   * The entity fields to include in the response.
+   * The entity fields to be returned in the response.
    */
   entityFields?: EntityFields[];
   /**
    * @remarks
-   * The entity filter list.
+   * The list of entity filters.
    */
   entityFilters?: EntityFilters[];
   /**
    * @remarks
-   * The entity type.
+   * The type of the entity.
    * 
    * @example
    * k8s.pod
@@ -79,30 +79,30 @@ export class QueryConfigUnified extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The query expression or SPL statement. Recommended when type is set to PROMETHEUS_SINGLE_QUERY. Optional when type is set to UMODEL_METRICSET_QUERY for custom SPL. Required when type is set to UMODEL_LOGSET_QUERY, where an SPL query statement must be provided (the business layer enforces this requirement).
+   * The query expression or Search Processing Language (SPL) statement. Recommended when the type is PROMETHEUS_SINGLE_QUERY. Optional when the type is UMODEL_METRICSET_QUERY for custom SPL. Required when the type is UMODEL_LOGSET_QUERY, where an SPL query statement must be provided and validated by the business layer.
    * 
    * @example
-   * Sample value
+   * 示例值
    */
   expr?: string;
   /**
    * @remarks
-   * The APM filter condition list.
+   * The list of Application Performance Monitoring (APM) filter conditions.
    */
   filterList?: FilterList[];
   /**
    * @remarks
-   * The predefined metric filter value list (type=PROMETHEUS_PREDEFINED_METRIC_QUERY / PROMETHEUS_METRIC_GROUP_QUERY [deprecated]).
+   * The list of filter values for predefined metrics when the type is PROMETHEUS_PREDEFINED_METRIC_QUERY or PROMETHEUS_METRIC_GROUP_QUERY [Deprecated].
    */
   filterValues?: PrometheusMetricFilterValue[];
   /**
    * @remarks
-   * The group field list. This parameter is used when type is set to SLS_MULTI_QUERY and groupType is set to custom.
+   * The list of grouping fields used when the type is SLS_MULTI_QUERY and the groupType is custom.
    */
   groupFieldList?: string[];
   /**
    * @remarks
-   * The group ID (type=CLOUD_MONITORING_QUERY). Dual semantics: an og- prefix indicates an observation group (GROUP_V2, the prefix itself conveys the semantics, no relationType is needed, and the backend resolves members through the entity store). A numeric-only value indicates an application group (GROUP_V1 legacy resource group, requires relationType=GROUP).
+   * The group ID used when the type is CLOUD_MONITORING_QUERY. This parameter has dual semantics: an og- prefix indicates an observation group (GROUP_V2, where the prefix defines the semantics and relationType is not required, and the backend resolves members through the entity library); a pure number indicates an application group (GROUP_V1 legacy resource group, which requires relationType=GROUP).
    * 
    * @example
    * og-845e0a26455f437c
@@ -110,7 +110,7 @@ export class QueryConfigUnified extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The grouping policy (used when type is set to SLS_MULTI_QUERY): none / label / custom.
+   * The grouping strategy used when the type is SLS_MULTI_QUERY. Valid values: none, label, and custom.
    * 
    * @example
    * default
@@ -118,7 +118,7 @@ export class QueryConfigUnified extends $dara.Model {
   groupType?: string;
   /**
    * @remarks
-   * The join list (used when type is set to SLS_MULTI_QUERY, with a maximum of 2 entries: joinings[0] corresponds to the set operation between query 0 and query 1, and joinings[1] corresponds to the set operation between query 1 and query 2).
+   * The list of joins used when the type is SLS_MULTI_QUERY. A maximum of two joins are supported. joinings[0] corresponds to the set operation between query 0 and query 1, and joinings[1] corresponds to the set operation between query 1 and query 2.
    */
   joinings?: Joinings[];
   /**
@@ -128,15 +128,15 @@ export class QueryConfigUnified extends $dara.Model {
   labelFilters?: LabelFilters[];
   /**
    * @remarks
-   * The raw V1 query JSON string returned as a fallback when type is set to UNKNOWN_QUERY and the read path fails to parse (contains the field values that triggered the failure, such as filter.operator=ABC). When the frontend detects that this field is not empty, display it as read-only.
+   * The raw V1 query JSON string returned as a fallback when the type is UNKNOWN_QUERY and parsing fails in the read path. This string includes the field values that triggered the failure, such as filter.operator=ABC. The frontend displays this field in read-only mode when it is not empty.
    * 
    * @example
-   * Sample value
+   * 示例值
    */
   legacyRaw?: string;
   /**
    * @remarks
-   * Returned when type is set to UNKNOWN_QUERY, indicating that this rule cannot be edited through the new API. Submit a ticket to contact the CloudMonitor product team.
+   * The legacy type returned when the type is UNKNOWN_QUERY. This parameter indicates that the rule cannot be edited by using the new API. Submit a ticket to contact the CloudMonitor product team.
    * 
    * @example
    * default
@@ -144,28 +144,28 @@ export class QueryConfigUnified extends $dara.Model {
   legacyType?: string;
   /**
    * @remarks
-   * The log set name (type=UMODEL_LOGSET_QUERY).
+   * The name of the logset when the type is UMODEL_LOGSET_QUERY.
    * 
    * @example
-   * Sample name
+   * 示例名称
    */
   logSet?: string;
   /**
    * @remarks
-   * The metric group key. This parameter is optional when type is set to APM_MULTI_QUERY. It corresponds to alertMetricInput.groupKey in V1.
+   * The measure group key. This parameter is optional when the type is APM_MULTI_QUERY and corresponds to alertMetricInput.groupKey in V1.
    * 
    * @example
-   * Sample value
+   * 示例值
    */
   measureGroupKey?: string;
   /**
    * @remarks
-   * The APM metric configuration list.
+   * The list of APM measure configurations.
    */
   measureList?: MeasureList[];
   /**
    * @remarks
-   * The metric name (type=UMODEL_METRICSET_QUERY).
+   * The name of the metric when the type is UMODEL_METRICSET_QUERY.
    * 
    * @example
    * node_cpu_seconds_total
@@ -173,7 +173,7 @@ export class QueryConfigUnified extends $dara.Model {
   metric?: string;
   /**
    * @remarks
-   * The metric group ID (type=PROMETHEUS_PREDEFINED_METRIC_QUERY / PROMETHEUS_METRIC_GROUP_QUERY [deprecated]).
+   * The metric group ID when the type is PROMETHEUS_PREDEFINED_METRIC_QUERY or PROMETHEUS_METRIC_GROUP_QUERY [Deprecated].
    * 
    * @example
    * example-id-001
@@ -181,7 +181,7 @@ export class QueryConfigUnified extends $dara.Model {
   metricGroupId?: string;
   /**
    * @remarks
-   * The predefined metric ID (type=PROMETHEUS_PREDEFINED_METRIC_QUERY).
+   * The predefined metric ID when the type is PROMETHEUS_PREDEFINED_METRIC_QUERY.
    * 
    * @example
    * example-id-001
@@ -189,14 +189,14 @@ export class QueryConfigUnified extends $dara.Model {
   metricId?: string;
   /**
    * @remarks
-   * **[Deprecated]** The predefined metric ID list (originally used with type=PROMETHEUS_METRIC_GROUP_QUERY). This query type is deprecated. Write path returns 400.
+   * **[Deprecated]** The list of predefined metric IDs originally used when the type was PROMETHEUS_METRIC_GROUP_QUERY. This query type is deprecated, and the write path returns a 400 error.
    * 
    * @deprecated
    */
   metricIds?: string[];
   /**
    * @remarks
-   * The metric set name (type=UMODEL_METRICSET_QUERY).
+   * The name of the metricset when the type is UMODEL_METRICSET_QUERY.
    * 
    * @example
    * cms.acs_ecs_dashboard.CPUUtilization
@@ -204,15 +204,15 @@ export class QueryConfigUnified extends $dara.Model {
   metricSet?: string;
   /**
    * @remarks
-   * The CloudMonitor namespace (Alibaba Cloud service name, type=CLOUD_MONITORING_QUERY).
+   * The CloudMonitor namespace, which is the cloud service name, when the type is CLOUD_MONITORING_QUERY.
    * 
    * @example
-   * Sample name
+   * 示例名称
    */
   namespace?: string;
   /**
    * @remarks
-   * The query time offset in seconds. Used when type is set to UMODEL_METRICSET_QUERY or UMODEL_LOGSET_QUERY. Works with windowSecs to implement an offset query over the range [T - windowSecs - offsetSecs, T - offsetSecs]. Valid range: [0, 86400].
+   * The query time offset in seconds used when the type is UMODEL_METRICSET_QUERY or UMODEL_LOGSET_QUERY. This parameter is used together with windowSecs to implement offset queries in the range of [T - windowSecs - offsetSecs, T - offsetSecs]. Valid values: 0 to 86400.
    * 
    * @example
    * 100
@@ -220,12 +220,12 @@ export class QueryConfigUnified extends $dara.Model {
   offsetSecs?: number;
   /**
    * @remarks
-   * The predefined metric parameter value list (type=PROMETHEUS_PREDEFINED_METRIC_QUERY / PROMETHEUS_METRIC_GROUP_QUERY [deprecated]).
+   * The list of parameter values for predefined metrics when the type is PROMETHEUS_PREDEFINED_METRIC_QUERY or PROMETHEUS_METRIC_GROUP_QUERY [Deprecated].
    */
   paramValues?: PrometheusMetricParamValue[];
   /**
    * @remarks
-   * The Prometheus query statement (type=PROMETHEUS_SINGLE_QUERY).
+   * The Prometheus query statement when the type is PROMETHEUS_SINGLE_QUERY.
    * 
    * @example
    * avg(rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100
@@ -235,12 +235,12 @@ export class QueryConfigUnified extends $dara.Model {
   promQl?: string;
   /**
    * @remarks
-   * The subquery list (polymorphic by type): when type is set to SLS_MULTI_QUERY, each entry is a SlsNamedQueryEntry (timeUnit/start/end/window/expr). When type is set to PROMETHEUS_MULTI_QUERY, each entry is a PrometheusNamedQueryEntry (name/expr). When type is set to UMODEL_METRICSET_MULTI_QUERY, each entry is a MetricSetNamedQueryEntry.
+   * The list of subqueries, which is polymorphic based on the type. When the type is SLS_MULTI_QUERY, each entry is an SlsNamedQueryEntry object containing timeUnit, start, end, window, and expr. When the type is PROMETHEUS_MULTI_QUERY, each entry is a PrometheusNamedQueryEntry object containing name and expr. When the type is UMODEL_METRICSET_MULTI_QUERY, each entry is a MetricSetNamedQueryEntry object.
    */
   queries?: Queries[];
   /**
    * @remarks
-   * The resource association type (type=CLOUD_MONITORING_QUERY).
+   * The resource association type when the type is CLOUD_MONITORING_QUERY.
    * 
    * @example
    * INSTANCE
@@ -248,7 +248,7 @@ export class QueryConfigUnified extends $dara.Model {
   relationType?: string;
   /**
    * @remarks
-   * The service ID list (type=APM_MULTI_QUERY).
+   * The list of service IDs (type=APM_MULTI_QUERY).
    */
   serviceIdList?: string[];
   /**
@@ -263,7 +263,7 @@ export class QueryConfigUnified extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The aggregation time window in seconds. Used when type is set to UMODEL_METRICSET_QUERY or UMODEL_LOGSET_QUERY. Valid range: [60, 86400].
+   * The aggregation time window in seconds. Used when type=UMODEL_METRICSET_QUERY or UMODEL_LOGSET_QUERY. Valid range: [60, 86400].
    * 
    * @example
    * 100

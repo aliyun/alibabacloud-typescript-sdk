@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PreviewDataPipelineResponseBodyDatasetsMeta extends $dara.Model {
   /**
    * @remarks
-   * The name of the field.
+   * The field name.
    * 
    * @example
    * trace_id
@@ -13,7 +13,7 @@ export class PreviewDataPipelineResponseBodyDatasetsMeta extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type of the field.
+   * The field type.
    * 
    * @example
    * string
@@ -55,7 +55,7 @@ export class PreviewDataPipelineResponseBodyDatasets extends $dara.Model {
   meta?: PreviewDataPipelineResponseBodyDatasetsMeta[];
   /**
    * @remarks
-   * The name of the dataset.
+   * The dataset name.
    * 
    * @example
    * error_spans
@@ -63,7 +63,7 @@ export class PreviewDataPipelineResponseBodyDatasets extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of samples.
+   * The sample count.
    * 
    * @example
    * 1
@@ -111,6 +111,9 @@ export class PreviewDataPipelineResponseBody extends $dara.Model {
   /**
    * @remarks
    * The aggregation diagnostics.
+   * 
+   * @example
+   * {"emittedPoints":2,"displayTruncated":false}
    */
   diagnostics?: { [key: string]: any };
   /**

@@ -53,7 +53,7 @@ export class UpdatePipelineRequestExecutePolicyScheduled extends $dara.Model {
   fromTime?: number;
   /**
    * @remarks
-   * The execution interval.
+   * The time interval.
    * 
    * @example
    * 86400
@@ -93,12 +93,12 @@ export class UpdatePipelineRequestExecutePolicy extends $dara.Model {
   mode?: string;
   /**
    * @remarks
-   * The one-time execution configuration.
+   * The configuration for one-time execution.
    */
   runOnce?: UpdatePipelineRequestExecutePolicyRunOnce;
   /**
    * @remarks
-   * The scheduled execution configuration.
+   * The configuration for scheduled execution.
    */
   scheduled?: UpdatePipelineRequestExecutePolicyScheduled;
   static names(): { [key: string]: string } {
@@ -143,7 +143,10 @@ export class UpdatePipelineRequestPipelineNodes extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The node parameters.
+   * The parameters.
+   * 
+   * @example
+   * {"output":"ID,key_0,key_2,key_3,key_4","workspace":"workspace-test-dataset","field":"key_0","global":true,"dataset":"dataset_1"}
    */
   parameters?: { [key: string]: any };
   /**
@@ -185,7 +188,7 @@ export class UpdatePipelineRequestPipelineNodes extends $dara.Model {
 export class UpdatePipelineRequestPipeline extends $dara.Model {
   /**
    * @remarks
-   * The pipeline nodes.
+   * The nodes.
    */
   nodes?: UpdatePipelineRequestPipelineNodes[];
   static names(): { [key: string]: string } {
@@ -215,7 +218,7 @@ export class UpdatePipelineRequestPipeline extends $dara.Model {
 export class UpdatePipelineRequestSinkDataset extends $dara.Model {
   /**
    * @remarks
-   * The dataset name.
+   * The dataset.
    * 
    * @example
    * dataset_1
@@ -255,12 +258,12 @@ export class UpdatePipelineRequestSinkDataset extends $dara.Model {
 export class UpdatePipelineRequestSink extends $dara.Model {
   /**
    * @remarks
-   * The destination dataset configuration.
+   * The dataset.
    */
   dataset?: UpdatePipelineRequestSinkDataset;
   /**
    * @remarks
-   * The sink type.
+   * The data sink type.
    * 
    * @example
    * dataset
@@ -295,7 +298,7 @@ export class UpdatePipelineRequestSink extends $dara.Model {
 export class UpdatePipelineRequestSourceLogstore extends $dara.Model {
   /**
    * @remarks
-   * The Logstore name.
+   * The Simple Log Service Logstore name.
    * 
    * @example
    * test-logstore
@@ -303,7 +306,7 @@ export class UpdatePipelineRequestSourceLogstore extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The filter query.
+   * The filter statement.
    * 
    * @example
    * status:500 and method:GET
@@ -335,12 +338,12 @@ export class UpdatePipelineRequestSourceLogstore extends $dara.Model {
 export class UpdatePipelineRequestSource extends $dara.Model {
   /**
    * @remarks
-   * The Log Service Logstore configuration.
+   * The Simple Log Service Logstore information.
    */
   logstore?: UpdatePipelineRequestSourceLogstore;
   /**
    * @remarks
-   * The source type.
+   * The data source type.
    * 
    * @example
    * logstore
@@ -375,7 +378,7 @@ export class UpdatePipelineRequestSource extends $dara.Model {
 export class UpdatePipelineRequest extends $dara.Model {
   /**
    * @remarks
-   * The pipeline description.
+   * The description.
    * 
    * @example
    * test pipeline
@@ -393,12 +396,12 @@ export class UpdatePipelineRequest extends $dara.Model {
   pipeline?: UpdatePipelineRequestPipeline;
   /**
    * @remarks
-   * The data sink configuration.
+   * The data sink.
    */
   sink?: UpdatePipelineRequestSink;
   /**
    * @remarks
-   * The data source configuration.
+   * The data source.
    */
   source?: UpdatePipelineRequestSource;
   static names(): { [key: string]: string } {

@@ -20,6 +20,9 @@ export class TransformAction extends $dara.Model {
   /**
    * @remarks
    * The mapping configuration.
+   * 
+   * @example
+   * {"warning":"WARNING"}
    */
   mapping?: { [key: string]: string };
   /**
@@ -56,7 +59,7 @@ export class TransformAction extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The configured value.
+   * The set value.
    * 
    * @example
    * value1

@@ -45,7 +45,7 @@ export class CreatePrometheusInstanceRequestTags extends $dara.Model {
 export class CreatePrometheusInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of days to automatically archive data after the storage period expires. A value of 0 indicates that data is not archived. Valid values:
+   * The number of days to automatically archive data after the storage period expires. A value of 0 indicates that data is not archived. Valid values for the archive duration:
    * * V1: 60 to 365 days.
    * * V2: 60 to 3650 days. A value of 3650 indicates permanent retention.
    * 
@@ -58,7 +58,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   archiveDuration?: number;
   /**
    * @remarks
-   * The authentication-free read policy, which supports IP address ranges and VPC IDs.
+   * The authentication-free read policy. IP address ranges and VPC IDs are supported.
    * 
    * @example
    * {
@@ -92,7 +92,14 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   authFreeWritePolicy?: string;
   /**
    * @remarks
-   * Specifies whether to enable authentication-free read access. Supported only in V2.
+   * Specifies whether to perform a dry run only. Valid values:
+   * * true: performs a dry run without creating the instance. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the request fails the check, an error is returned. If the request passes the check, the DryRunOperation error code is returned.
+   * * false: sends a normal request and creates the instance directly after the request passes the check. This is the default value.
+   */
+  dryrun?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to enable authentication-free read access. This feature is supported only in V2.
    * 
    * @example
    * true
@@ -100,7 +107,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   enableAuthFreeRead?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable authentication-free write access. Supported only in V2.
+   * Specifies whether to enable authentication-free write access. This feature is supported only in V2.
    * 
    * @example
    * true
@@ -108,7 +115,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   enableAuthFreeWrite?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the authorization token. Supported only in V1.
+   * Specifies whether to enable the authorization token. This feature is supported only in V1.
    * 
    * @example
    * true
@@ -116,10 +123,10 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   enableAuthToken?: boolean;
   /**
    * @remarks
-   * The Billable methods. Valid values:
-   * * POSTPAY: pay-as-you-go by reported metric volume.
-   * * POSTPAY_GB: pay-as-you-go by ingested data volume.
-   * Note: An empty value uses the default Billable methods configured for the user. If no default is configured, the system defaults to billing by reported metric volume.
+   * Billable methods. Valid values:
+   * * POSTPAY: pay-as-you-go based on the volume of reported metrics.
+   * * POSTPAY_GB: pay-as-you-go based on the volume of written metrics.
+   * Note: If this parameter is left empty, the default billing method configured for the user is used. If no default billing method is configured, the system uses the pay-as-you-go billing method based on the volume of reported metrics by default.
    * 
    * @example
    * POSTPAY
@@ -153,9 +160,9 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The storage duration in days. Valid values:
-   * * Pay-by-ingested-data: 90 and 180.
-   * * Pay-by-reported-metrics: 15, 30, 60, 90, and 180.
+   * The storage duration in days.
+   * * By written data volume: 90 and 180.
+   * * By reported metric volume: 15, 30, 60, 90, and 180.
    * 
    * @example
    * 90
@@ -163,7 +170,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
   storageDuration?: number;
   /**
    * @remarks
-   * The tag values.
+   * The tags.
    */
   tags?: CreatePrometheusInstanceRequestTags[];
   /**
@@ -179,6 +186,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
       archiveDuration: 'archiveDuration',
       authFreeReadPolicy: 'authFreeReadPolicy',
       authFreeWritePolicy: 'authFreeWritePolicy',
+      dryrun: 'dryrun',
       enableAuthFreeRead: 'enableAuthFreeRead',
       enableAuthFreeWrite: 'enableAuthFreeWrite',
       enableAuthToken: 'enableAuthToken',
@@ -197,6 +205,7 @@ export class CreatePrometheusInstanceRequest extends $dara.Model {
       archiveDuration: 'number',
       authFreeReadPolicy: 'string',
       authFreeWritePolicy: 'string',
+      dryrun: 'boolean',
       enableAuthFreeRead: 'boolean',
       enableAuthFreeWrite: 'boolean',
       enableAuthToken: 'boolean',

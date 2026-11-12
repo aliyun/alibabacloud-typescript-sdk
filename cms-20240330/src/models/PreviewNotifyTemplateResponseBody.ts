@@ -6,11 +6,17 @@ export class PreviewNotifyTemplateResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The mapping of failed rendering results. The key is the template identifier, and the value is the cause of the failure, such as a template syntax error or a reference to an undefined variable.
+   * 
+   * @example
+   * {"subject":"Template syntax error"}
    */
   failed?: { [key: string]: any };
   /**
    * @remarks
    * The mapping of successful rendering results. The key is the template identifier, which corresponds to templates[].key in the request, and the value is the rendered string content.
+   * 
+   * @example
+   * {"subject":"Alert notification"}
    */
   success?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -66,7 +72,9 @@ export class PreviewNotifyTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values: true and false.
+   * Specifies whether the request is successful. Valid values:
+   * - true: The request is successful.
+   * - false: The request fails.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

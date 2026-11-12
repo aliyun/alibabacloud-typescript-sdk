@@ -181,7 +181,7 @@ export class UpdateAlertActionRequestFcParam extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The service name in Function Compute.
+   * The service name of Function Compute.
    * 
    * @example
    * testService
@@ -215,7 +215,7 @@ export class UpdateAlertActionRequestFcParam extends $dara.Model {
 export class UpdateAlertActionRequestMnsParam extends $dara.Model {
   /**
    * @remarks
-   * The resource type of Simple Message Queue (formerly MNS).
+   * The Simple Message Queue (formerly MNS) resource type.
    * 
    * @example
    * queue
@@ -223,7 +223,7 @@ export class UpdateAlertActionRequestMnsParam extends $dara.Model {
   mnsType?: string;
   /**
    * @remarks
-   * The name of the resource.
+   * The resource name.
    * 
    * - If the resource type is queue, the resource name is the queue name.
    * - If the resource type is topic, the resource name is the topic name.
@@ -268,7 +268,7 @@ export class UpdateAlertActionRequestMnsParam extends $dara.Model {
 export class UpdateAlertActionRequestPagerDutyParam extends $dara.Model {
   /**
    * @remarks
-   * The integration key of PagerDuty.
+   * The integration key for PagerDuty.
    * 
    * @example
    * fwe4rwr543t543t43t43t43
@@ -276,7 +276,7 @@ export class UpdateAlertActionRequestPagerDutyParam extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The integration webhook URL of PagerDuty. V1 and V2 are supported.
+   * The integration webhook URL for PagerDuty. Both V1 and V2 are supported.
    * 
    * @example
    * https://events.pagerduty.com/v2/enqueue
@@ -308,7 +308,7 @@ export class UpdateAlertActionRequestPagerDutyParam extends $dara.Model {
 export class UpdateAlertActionRequestSlsParam extends $dara.Model {
   /**
    * @remarks
-   * The name of the Logstore.
+   * The name of the Simple Log Service Logstore.
    * 
    * @example
    * testLogstore
@@ -316,7 +316,7 @@ export class UpdateAlertActionRequestSlsParam extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The name of the project.
+   * The name of the Simple Log Service project.
    * 
    * @example
    * testProject
@@ -367,6 +367,9 @@ export class UpdateAlertActionRequestWebhookParam extends $dara.Model {
   /**
    * @remarks
    * The request headers.
+   * 
+   * @example
+   * {"X-Total-Count":"0"}
    */
   headers?: { [key: string]: string };
   /**
@@ -379,7 +382,7 @@ export class UpdateAlertActionRequestWebhookParam extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The URL of the alert callback.
+   * The URL for the alert callback.
    * 
    * @example
    * http://www.test.com
@@ -461,7 +464,7 @@ export class UpdateAlertActionRequest extends $dara.Model {
   slsParam?: UpdateAlertActionRequestSlsParam;
   /**
    * @remarks
-   * The type of the action integration.
+   * The action integration type.
    * 
    * @example
    * FC

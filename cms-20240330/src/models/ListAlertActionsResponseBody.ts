@@ -65,7 +65,7 @@ export class ListAlertActionsResponseBodyAlertActionsEbParam extends $dara.Model
 export class ListAlertActionsResponseBodyAlertActionsEssParam extends $dara.Model {
   /**
    * @remarks
-   * The ID of the elastic scaling group.
+   * The ID of the Auto Scaling group.
    * 
    * @example
    * testId
@@ -73,7 +73,7 @@ export class ListAlertActionsResponseBodyAlertActionsEssParam extends $dara.Mode
   essGroupId?: string;
   /**
    * @remarks
-   * The ID of the elastic scaling rule.
+   * The ID of the Auto Scaling rule.
    * 
    * @example
    * testId
@@ -181,7 +181,7 @@ export class ListAlertActionsResponseBodyAlertActionsFcParam extends $dara.Model
   regionId?: string;
   /**
    * @remarks
-   * The service name in Function Compute.
+   * The service name of Function Compute.
    * 
    * @example
    * test
@@ -215,7 +215,7 @@ export class ListAlertActionsResponseBodyAlertActionsFcParam extends $dara.Model
 export class ListAlertActionsResponseBodyAlertActionsMnsParam extends $dara.Model {
   /**
    * @remarks
-   * The resource type in Simple Message Queue (formerly MNS).
+   * The resource type of Simple Message Queue (formerly MNS).
    * 
    * @example
    * queue
@@ -268,7 +268,7 @@ export class ListAlertActionsResponseBodyAlertActionsMnsParam extends $dara.Mode
 export class ListAlertActionsResponseBodyAlertActionsPagerDutyParam extends $dara.Model {
   /**
    * @remarks
-   * The integration key of PagerDuty.
+   * The integration key for PagerDuty.
    * 
    * @example
    * fsfer4543t5t65g4t4
@@ -276,7 +276,7 @@ export class ListAlertActionsResponseBodyAlertActionsPagerDutyParam extends $dar
   key?: string;
   /**
    * @remarks
-   * The integration webhook URL of PagerDuty. Both V1 and V2 are supported.
+   * The integration webhook for PagerDuty. Both V1 and V2 are supported.
    * 
    * @example
    * https://events.pagerduty.com/v2/enqueue
@@ -367,6 +367,9 @@ export class ListAlertActionsResponseBodyAlertActionsWebhookParam extends $dara.
   /**
    * @remarks
    * The request headers.
+   * 
+   * @example
+   * {"X-Total-Count":"0"}
    */
   headers?: { [key: string]: string };
   /**
@@ -418,7 +421,7 @@ export class ListAlertActionsResponseBodyAlertActionsWebhookParam extends $dara.
 export class ListAlertActionsResponseBodyAlertActions extends $dara.Model {
   /**
    * @remarks
-   * The unique identifiers of the alert action integrations.
+   * The unique identifiers of the action integrations.
    * 
    * @example
    * test
@@ -426,7 +429,7 @@ export class ListAlertActionsResponseBodyAlertActions extends $dara.Model {
   alertActionId?: string;
   /**
    * @remarks
-   * The name of the alert action integration.
+   * The name of the action integration.
    * 
    * @example
    * testName
@@ -439,7 +442,7 @@ export class ListAlertActionsResponseBodyAlertActions extends $dara.Model {
   ebParam?: ListAlertActionsResponseBodyAlertActionsEbParam;
   /**
    * @remarks
-   * The elastic scaling parameters.
+   * The Auto Scaling parameters.
    */
   essParam?: ListAlertActionsResponseBodyAlertActionsEssParam;
   /**
@@ -469,7 +472,7 @@ export class ListAlertActionsResponseBodyAlertActions extends $dara.Model {
   slsParam?: ListAlertActionsResponseBodyAlertActionsSlsParam;
   /**
    * @remarks
-   * The type of the alert action integration.
+   * The type of the action integration.
    * 
    * @example
    * FC
@@ -548,7 +551,7 @@ export class ListAlertActionsResponseBodyAlertActions extends $dara.Model {
 export class ListAlertActionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of alert action integration configurations.
+   * The list of action integration configurations.
    */
   alertActions?: ListAlertActionsResponseBodyAlertActions[];
   /**

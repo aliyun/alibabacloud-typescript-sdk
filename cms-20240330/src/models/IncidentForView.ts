@@ -9,10 +9,10 @@ import { EventResourceForIncidentView } from "./EventResourceForIncidentView";
 export class IncidentForView extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the notification block.
+   * The expiration time for suppressing notifications.
    * 
    * @example
-   * -1 indicates that notifications are not blocked
+   * -1
    */
   blockingExpireTimestamp?: number;
   /**
@@ -20,7 +20,7 @@ export class IncidentForView extends $dara.Model {
    * The detailed content of the incident.
    * 
    * @example
-   * "{"description":"High CPU usage on the ECS instance","impact":"Payment service delay"}"
+   * "{"description":"High CPU usage on the ECS instance","impact":"Payment service latency"}"
    */
   content?: string;
   /**
@@ -30,7 +30,7 @@ export class IncidentForView extends $dara.Model {
   escalations?: IncidentEscalationPolicyForView[];
   /**
    * @remarks
-   * The group identifier.
+   * The identifier of the group.
    * 
    * @example
    * "group-123456"
@@ -39,6 +39,9 @@ export class IncidentForView extends $dara.Model {
   /**
    * @remarks
    * The grouping key-value pairs.
+   * 
+   * @example
+   * {"resourceId":"i-bp123456","severity":"Critical"}
    */
   groupingKeys?: { [key: string]: string };
   /**
@@ -67,7 +70,7 @@ export class IncidentForView extends $dara.Model {
   notifyStrategyUuid?: string;
   /**
    * @remarks
-   * The operator information.
+   * The information about the operator.
    */
   operator?: ContactForIncidentView;
   /**
@@ -140,12 +143,15 @@ export class IncidentForView extends $dara.Model {
   subscriptionUuid?: string;
   /**
    * @remarks
-   * The array of tags.
+   * The tag array.
+   * 
+   * @example
+   * {"key":"value"}
    */
   tags?: { [key: string]: string };
   /**
    * @remarks
-   * The timestamp when the incident was created.
+   * The creation timestamp of the incident.
    * 
    * @example
    * 1743876000000

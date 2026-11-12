@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EffectTimeRange extends $dara.Model {
   /**
    * @remarks
-   * The values 0 to 6 indicate Sunday to Saturday.
+   * The day of the week, where 0 to 6 indicate Sunday to Saturday.
    */
   dayInWeek?: number[];
   /**

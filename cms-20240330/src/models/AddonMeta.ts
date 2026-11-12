@@ -10,12 +10,12 @@ export class AddonMetaDashboards extends $dara.Model {
    * The description.
    * 
    * @example
-   * Description
+   * Description information
    */
   description?: string;
   /**
    * @remarks
-   * The dashboard diagram name.
+   * The diagram name.
    * 
    * @example
    * ECS monitoring overview dashboard
@@ -23,7 +23,7 @@ export class AddonMetaDashboards extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The dashboard diagram URL.
+   * The diagram URL.
    * 
    * @example
    * assets/dashboards/ecs.png
@@ -57,7 +57,7 @@ export class AddonMetaDashboards extends $dara.Model {
 export class AddonMetaEnvironmentsCommonSchemaRefs extends $dara.Model {
   /**
    * @remarks
-   * The CommonSchema group name.
+   * The group name of the CommonSchema.
    * 
    * @example
    * acs-ecs
@@ -65,7 +65,7 @@ export class AddonMetaEnvironmentsCommonSchemaRefs extends $dara.Model {
   group?: string;
   /**
    * @remarks
-   * The CommonSchema group version.
+   * The group version of the CommonSchema.
    * 
    * @example
    * 0.1.0
@@ -103,6 +103,9 @@ export class AddonMetaEnvironmentsDependencies extends $dara.Model {
   /**
    * @remarks
    * The probe dependency description and component name. This field is replaced by the collectors field in the new version.
+   * 
+   * @example
+   * {"metric-agent":true}
    */
   features?: { [key: string]: boolean };
   /**
@@ -150,7 +153,7 @@ export class AddonMetaEnvironmentsPoliciesBindEntity extends $dara.Model {
    * Specifies whether it is in group mode.
    * 
    * @example
-   * true/false
+   * true
    */
   entityGroupMode?: boolean;
   /**
@@ -166,12 +169,12 @@ export class AddonMetaEnvironmentsPoliciesBindEntity extends $dara.Model {
    * Specifies whether it is in single-entity mode.
    * 
    * @example
-   * true/false
+   * true
    */
   singleEntityMode?: boolean;
   /**
    * @remarks
-   * The field used to extract the VPC ID from the entity.
+   * The field used to extract the VPC ID information from the entity.
    * 
    * @example
    * vpcId
@@ -240,7 +243,7 @@ export class AddonMetaEnvironmentsPoliciesProtocols extends $dara.Model {
    * The protocol description.
    * 
    * @example
-   * Writes metric data by using the Prometheus protocol
+   * Use the Prometheus protocol to write metric data
    */
   description?: string;
   /**
@@ -297,7 +300,7 @@ export class AddonMetaEnvironmentsPoliciesProtocols extends $dara.Model {
 export class AddonMetaEnvironmentsPolicies extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether alert rules are enabled by default after installation.
+   * Specifies whether alert rules are enabled after default installation.
    * 
    * @example
    * RUNNING
@@ -308,7 +311,7 @@ export class AddonMetaEnvironmentsPolicies extends $dara.Model {
    * The default mode, which is an integration mode that does not require binding entities.
    * 
    * @example
-   * true/false
+   * true
    */
   bindDefaultPolicy?: boolean;
   /**
@@ -318,18 +321,18 @@ export class AddonMetaEnvironmentsPolicies extends $dara.Model {
   bindEntity?: AddonMetaEnvironmentsPoliciesBindEntity;
   /**
    * @remarks
-   * Specifies whether it is installed by default.
+   * Specifies whether to install by default.
    * 
    * @example
-   * true/false
+   * true
    */
   defaultInstall?: boolean;
   /**
    * @remarks
-   * Specifies whether internal authorization token allocation is enabled.
+   * Specifies whether to enable internal authorization token allocation.
    * 
    * @example
-   * true/false
+   * true
    */
   enableServiceAccount?: boolean;
   /**
@@ -339,10 +342,10 @@ export class AddonMetaEnvironmentsPolicies extends $dara.Model {
   metricCheckRule?: AddonMetaEnvironmentsPoliciesMetricCheckRule;
   /**
    * @remarks
-   * Specifies whether to prompt for a workload restart after integration.
+   * Specifies whether to prompt to restart the workload after integration.
    * 
    * @example
-   * true/false
+   * true
    */
   needRestartAfterIntegration?: boolean;
   /**
@@ -352,7 +355,7 @@ export class AddonMetaEnvironmentsPolicies extends $dara.Model {
   protocols?: AddonMetaEnvironmentsPoliciesProtocols[];
   /**
    * @remarks
-   * The target component name for redirection.
+   * The name of the target component to navigate to.
    * 
    * @example
    * cloud-acs-ecs
@@ -407,7 +410,7 @@ export class AddonMetaEnvironmentsPolicies extends $dara.Model {
 export class AddonMetaEnvironments extends $dara.Model {
   /**
    * @remarks
-   * The list of bound CommonSchemas.
+   * The list of associated CommonSchemas.
    */
   commonSchemaRefs?: AddonMetaEnvironmentsCommonSchemaRefs[];
   /**
@@ -417,10 +420,10 @@ export class AddonMetaEnvironments extends $dara.Model {
   dependencies?: AddonMetaEnvironmentsDependencies;
   /**
    * @remarks
-   * The environment type description.
+   * The description of the environment type.
    * 
    * @example
-   * Supports workload monitoring for container clusters
+   * Supports workload coverage monitoring for container clusters
    */
   description?: string;
   /**
@@ -428,12 +431,12 @@ export class AddonMetaEnvironments extends $dara.Model {
    * Specifies whether it is enabled.
    * 
    * @example
-   * true/false
+   * true
    */
   enable?: boolean;
   /**
    * @remarks
-   * The environment type display name.
+   * The display name of the environment type.
    * 
    * @example
    * Container environment
@@ -449,7 +452,7 @@ export class AddonMetaEnvironments extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The control policy combination information for the component.
+   * The control policy combination information of the component.
    */
   policies?: AddonMetaEnvironmentsPolicies;
   /**
@@ -520,7 +523,7 @@ export class AddonMeta extends $dara.Model {
   categories?: string[];
   /**
    * @remarks
-   * The list of component dashboard diagrams.
+   * The list of component diagrams.
    */
   dashboards?: AddonMetaDashboards[];
   /**
@@ -552,7 +555,6 @@ export class AddonMeta extends $dara.Model {
   /**
    * @remarks
    * The language. Valid values:
-   * 
    * - zh: Chinese (default).
    * - en: English.
    * 
@@ -581,7 +583,7 @@ export class AddonMeta extends $dara.Model {
    * Specifies whether the component can be installed only once under the policy.
    * 
    * @example
-   * true/false
+   * true
    */
   once?: boolean;
   /**

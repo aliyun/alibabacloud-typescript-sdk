@@ -2,6 +2,7 @@
 import * as $dara from '@darabonba/typescript';
 import { ObserveGroupDiscoverRule } from "./ObserveGroupDiscoverRule";
 import { ObserveGroupPromInstance } from "./ObserveGroupPromInstance";
+import { ObserveGroupRuleCount } from "./ObserveGroupRuleCount";
 
 
 export class ObserveGroupDetailEntitySummaries extends $dara.Model {
@@ -25,12 +26,24 @@ export class ObserveGroupDetailEntitySummaries extends $dara.Model {
    * 实体类型。
    */
   entityType?: string;
+  /**
+   * @remarks
+   * 该类型主实体数量。
+   */
+  mainCount?: number;
+  /**
+   * @remarks
+   * 该类型关联子实体数量。
+   */
+  relatedCount?: number;
   static names(): { [key: string]: string } {
     return {
       entityCategory: 'entityCategory',
       entityCount: 'entityCount',
       entityDomain: 'entityDomain',
       entityType: 'entityType',
+      mainCount: 'mainCount',
+      relatedCount: 'relatedCount',
     };
   }
 
@@ -40,6 +53,8 @@ export class ObserveGroupDetailEntitySummaries extends $dara.Model {
       entityCount: 'number',
       entityDomain: 'string',
       entityType: 'string',
+      mainCount: 'number',
+      relatedCount: 'number',
     };
   }
 
@@ -165,9 +180,19 @@ export class ObserveGroupDetail extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
+   * 各纳管规则的主实体、关联子实体及总数。
+   */
+  ruleCounts?: ObserveGroupRuleCount[];
+  /**
+   * @remarks
    * 数据来源：native_2_0（2.0 原生）/ synced_from_1_0（从 1.0 应用分组同步）。
    */
   sourceOrigin?: string;
+  /**
+   * @remarks
+   * 源云监控 1.0 分组是否已持久只读，true 时目标 2.0 分组可独立维护。
+   */
+  sourceReadOnly?: boolean;
   /**
    * @remarks
    * 资源标签（阿里云标准标签），键值对数组。
@@ -196,7 +221,9 @@ export class ObserveGroupDetail extends $dara.Model {
       originGroupId: 'originGroupId',
       regionId: 'regionId',
       resourceGroupId: 'resourceGroupId',
+      ruleCounts: 'ruleCounts',
       sourceOrigin: 'sourceOrigin',
+      sourceReadOnly: 'sourceReadOnly',
       tags: 'tags',
       workspaceId: 'workspaceId',
     };
@@ -220,7 +247,9 @@ export class ObserveGroupDetail extends $dara.Model {
       originGroupId: 'string',
       regionId: 'string',
       resourceGroupId: 'string',
+      ruleCounts: { 'type': 'array', 'itemType': ObserveGroupRuleCount },
       sourceOrigin: 'string',
+      sourceReadOnly: 'boolean',
       tags: { 'type': 'array', 'itemType': ObserveGroupDetailTags },
       workspaceId: 'string',
     };
@@ -235,6 +264,9 @@ export class ObserveGroupDetail extends $dara.Model {
     }
     if(Array.isArray(this.ogEntityInfoPromInstances)) {
       $dara.Model.validateArray(this.ogEntityInfoPromInstances);
+    }
+    if(Array.isArray(this.ruleCounts)) {
+      $dara.Model.validateArray(this.ruleCounts);
     }
     if(Array.isArray(this.tags)) {
       $dara.Model.validateArray(this.tags);

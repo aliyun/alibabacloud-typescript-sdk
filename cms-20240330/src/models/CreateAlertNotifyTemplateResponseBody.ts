@@ -13,7 +13,7 @@ export class CreateAlertNotifyTemplateResponseBody extends $dara.Model {
   alertNotifyTemplateId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 8A33DBEA-*****-*****-*****-*****

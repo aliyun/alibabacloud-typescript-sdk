@@ -75,7 +75,7 @@ export class GetIntegrationPolicyResponseBodyPolicyBindResource extends $dara.Mo
 export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesAnnotations extends $dara.Model {
   /**
    * @remarks
-   * The operation to be performed.
+   * The operation performed.
    * 
    * @example
    * add
@@ -138,7 +138,7 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesFieldRu
   fieldValues?: string[];
   /**
    * @remarks
-   * The operation to be performed.
+   * The operation performed.
    * 
    * @example
    * add
@@ -183,7 +183,7 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesIpMatch
   ipCidr?: string;
   /**
    * @remarks
-   * The key of the IP field.
+   * The key of the IP address field.
    * 
    * @example
    * test-key
@@ -215,7 +215,7 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesIpMatch
 export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesLabels extends $dara.Model {
   /**
    * @remarks
-   * The operation to be performed.
+   * The operation performed.
    * 
    * @example
    * add
@@ -265,7 +265,7 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesLabels 
 export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesTags extends $dara.Model {
   /**
    * @remarks
-   * The operation to be performed.
+   * The operation performed.
    * 
    * @example
    * add
@@ -335,12 +335,12 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRules extend
   instanceIds?: string[];
   /**
    * @remarks
-   * The IP matching rule.
+   * The IP address matching rule.
    */
   ipMatchRule?: GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesIpMatchRule;
   /**
    * @remarks
-   * The tags.
+   * The labels.
    */
   labels?: GetIntegrationPolicyResponseBodyPolicyEntityGroupEntityRulesLabels[];
   /**
@@ -428,7 +428,7 @@ export class GetIntegrationPolicyResponseBodyPolicyEntityGroup extends $dara.Mod
    * The description.
    * 
    * @example
-   * xxxxxx
+   * Access policy for production environment resources
    */
   description?: string;
   /**
@@ -618,7 +618,7 @@ export class GetIntegrationPolicyResponseBodyPolicy extends $dara.Model {
   apiVersion?: string;
   /**
    * @remarks
-   * The information about the bound resources.
+   * The bound resource information.
    */
   bindResource?: GetIntegrationPolicyResponseBodyPolicyBindResource;
   /**
@@ -649,7 +649,7 @@ export class GetIntegrationPolicyResponseBodyPolicy extends $dara.Model {
   policyId?: string;
   /**
    * @remarks
-   * The rule name.
+   * The policy name.
    * 
    * @example
    * ControlPolicy4DetailVportInfo

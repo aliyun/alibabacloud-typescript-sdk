@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class IncidentEventStruct extends $dara.Model {
   /**
    * @remarks
-   * The time of automatic recovery.
+   * The automatic recovery time.
    * 
    * @example
    * 1741234567890
@@ -16,12 +16,12 @@ export class IncidentEventStruct extends $dara.Model {
    * The content.
    * 
    * @example
-   * Detected that the CPU usage of the user-service instance i-abc123 has reached 95%, triggering an alert.
+   * The CPU utilization of the user-service instance i-abc123 reached 95%, triggering an alert
    */
   content?: string;
   /**
    * @remarks
-   * The total count.
+   * The statistical count.
    * 
    * @example
    * 6
@@ -30,11 +30,17 @@ export class IncidentEventStruct extends $dara.Model {
   /**
    * @remarks
    * The dimension.
+   * 
+   * @example
+   * {"regionId":"cn-hangzhou"}
    */
   dimension?: { [key: string]: string };
   /**
    * @remarks
-   * The dimension for grouping.
+   * The dimension used for grouping.
+   * 
+   * @example
+   * {"severity":"Critical"}
    */
   groupBy?: { [key: string]: string };
   /**
@@ -55,7 +61,7 @@ export class IncidentEventStruct extends $dara.Model {
   incidentId?: string;
   /**
    * @remarks
-   * The time of the last occurrence.
+   * The last time.
    * 
    * @example
    * 1741234567890
@@ -63,7 +69,7 @@ export class IncidentEventStruct extends $dara.Model {
   lastTime?: number;
   /**
    * @remarks
-   * The time of manual recovery.
+   * The manual recovery time.
    * 
    * @example
    * 1741234567890
@@ -71,7 +77,10 @@ export class IncidentEventStruct extends $dara.Model {
   recoverTime?: number;
   /**
    * @remarks
-   * The resource associated with the event.
+   * The information about the resources associated with the event.
+   * 
+   * @example
+   * {"resourceId":"i-example001"}
    */
   resource?: { [key: string]: string };
   /**
@@ -95,7 +104,7 @@ export class IncidentEventStruct extends $dara.Model {
    * The title.
    * 
    * @example
-   * User service CPU usage is too high.
+   * High CPU utilization of the user service
    */
   title?: string;
   /**

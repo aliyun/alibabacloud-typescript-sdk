@@ -144,6 +144,9 @@ export class GetPipelineResponseBodyPipelineNodes extends $dara.Model {
   /**
    * @remarks
    * The parameters.
+   * 
+   * @example
+   * {"output":"ID,key_0,key_2,key_3,key_4","workspace":"workspace-test-dataset","field":"key_0","global":true,"dataset":"dataset_1"}
    */
   parameters?: { [key: string]: any };
   /**
@@ -260,7 +263,7 @@ export class GetPipelineResponseBodySink extends $dara.Model {
   dataset?: GetPipelineResponseBodySinkDataset;
   /**
    * @remarks
-   * The output destination type.
+   * The data sink type.
    * 
    * @example
    * dataset
@@ -437,7 +440,7 @@ export class GetPipelineResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The output destination.
+   * The data sink.
    */
   sink?: GetPipelineResponseBodySink;
   /**

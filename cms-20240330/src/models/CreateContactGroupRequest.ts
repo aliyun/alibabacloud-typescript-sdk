@@ -13,7 +13,7 @@ export class CreateContactGroupRequest extends $dara.Model {
   contactGroupId?: string;
   /**
    * @remarks
-   * The contact IDs.
+   * The IDs of the contacts.
    */
   contacts?: string[];
   /**

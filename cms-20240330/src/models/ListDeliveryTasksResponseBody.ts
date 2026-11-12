@@ -36,6 +36,9 @@ export class ListDeliveryTasksResponseBodyDeliveryTasksSinkList extends $dara.Mo
   /**
    * @remarks
    * The detailed configuration of the delivery sink. The meanings of the key and value vary based on the sinkType.
+   * 
+   * @example
+   * {"Url":"https://example.com/api/v1/write","Network":"PublicNetwork","AuthType":"None"}
    */
   sinkConfigs?: { [key: string]: string };
   /**
@@ -134,6 +137,9 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   /**
    * @remarks
    * The additional labels attached to all delivered metrics. The key is the label name, and the value is the label value.
+   * 
+   * @example
+   * {"region":"cn-hangzhou"}
    */
   externalLabels?: { [key: string]: string };
   /**
@@ -144,6 +150,9 @@ export class ListDeliveryTasksResponseBodyDeliveryTasks extends $dara.Model {
   /**
    * @remarks
    * The metric filter conditions, used in conjunction with labelFiltersType. The key is the metric label name, and the value is the matched value.
+   * 
+   * @example
+   * {"__name__":"up"}
    */
   labelFilters?: { [key: string]: string };
   /**

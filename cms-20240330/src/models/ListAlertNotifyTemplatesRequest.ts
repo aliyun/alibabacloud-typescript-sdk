@@ -10,7 +10,7 @@ export class ListAlertNotifyTemplatesRequest extends $dara.Model {
   alertNotifyTemplateIds?: string[];
   /**
    * @remarks
-   * The notification template name.
+   * The name of the notification template.
    * 
    * @example
    * Alert notification template
@@ -26,7 +26,7 @@ export class ListAlertNotifyTemplatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -34,7 +34,7 @@ export class ListAlertNotifyTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The template locale.
+   * The template language.
    * 
    * @example
    * GO
