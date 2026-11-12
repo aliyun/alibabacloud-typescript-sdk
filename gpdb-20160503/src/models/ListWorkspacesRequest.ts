@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkspacesRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return in this request. Default value: 10.
+   * The maximum number of entries to return for this request. Default value: 10.
    * 
    * @example
    * 50

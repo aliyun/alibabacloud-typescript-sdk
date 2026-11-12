@@ -90,7 +90,7 @@ export class AddAINodeRequest extends $dara.Model {
   AINodePoolId?: string;
   /**
    * @remarks
-   * The node specifications of the AI node.
+   * The node specifications of the AI nodes.
    * 
    * This parameter is required.
    */

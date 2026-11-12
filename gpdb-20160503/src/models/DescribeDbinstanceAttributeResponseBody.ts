@@ -77,6 +77,14 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   DBInstanceStatus?: string;
   DBInstanceStorage?: number;
   deployMode?: string;
+  /**
+   * @remarks
+   * 实例磁盘告警阈值，百分比字符串；未配置时为空。
+   * 
+   * @example
+   * 80%
+   */
+  diskNotifyThreshold?: string;
   encryptionKey?: string;
   encryptionType?: string;
   engine?: string;
@@ -87,12 +95,28 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   idleTime?: number;
   instanceNetworkType?: string;
   instanceSpec?: string;
+  /**
+   * @remarks
+   * 实例类型：main表示主实例，readonly表示只读实例
+   * 
+   * @example
+   * readonly
+   */
+  instanceType?: string;
   lockMode?: string;
   lockReason?: string;
   maintainEndTime?: string;
   maintainStartTime?: string;
   masterAISpec?: string;
   masterCU?: number;
+  /**
+   * @remarks
+   * master磁盘锁定阈值，百分比字符串；未配置时为空。
+   * 
+   * @example
+   * 95%
+   */
+  masterDiskLockThreshold?: string;
   masterNodeNum?: number;
   maxConnections?: number;
   memoryPerNode?: number;
@@ -101,6 +125,14 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   minorVersion?: string;
   payType?: string;
   port?: string;
+  /**
+   * @remarks
+   * 主实例ID；当前实例为主实例时为空
+   * 
+   * @example
+   * gp-2ze3iph733ou550t7
+   */
+  primaryDBInstanceId?: string;
   prodType?: string;
   readDelayTime?: string;
   regionId?: string;
@@ -111,6 +143,14 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
   segNodeNum?: number;
   segmentAISpec?: string;
   segmentCounts?: number;
+  /**
+   * @remarks
+   * segment磁盘锁定阈值，百分比字符串；未配置时为空。
+   * 
+   * @example
+   * 95%
+   */
+  segmentDiskLockThreshold?: string;
   serverlessMode?: string;
   serverlessResource?: number;
   standbyZoneId?: string;
@@ -149,6 +189,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       DBInstanceStatus: 'DBInstanceStatus',
       DBInstanceStorage: 'DBInstanceStorage',
       deployMode: 'DeployMode',
+      diskNotifyThreshold: 'DiskNotifyThreshold',
       encryptionKey: 'EncryptionKey',
       encryptionType: 'EncryptionType',
       engine: 'Engine',
@@ -159,12 +200,14 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       idleTime: 'IdleTime',
       instanceNetworkType: 'InstanceNetworkType',
       instanceSpec: 'InstanceSpec',
+      instanceType: 'InstanceType',
       lockMode: 'LockMode',
       lockReason: 'LockReason',
       maintainEndTime: 'MaintainEndTime',
       maintainStartTime: 'MaintainStartTime',
       masterAISpec: 'MasterAISpec',
       masterCU: 'MasterCU',
+      masterDiskLockThreshold: 'MasterDiskLockThreshold',
       masterNodeNum: 'MasterNodeNum',
       maxConnections: 'MaxConnections',
       memoryPerNode: 'MemoryPerNode',
@@ -173,6 +216,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       minorVersion: 'MinorVersion',
       payType: 'PayType',
       port: 'Port',
+      primaryDBInstanceId: 'PrimaryDBInstanceId',
       prodType: 'ProdType',
       readDelayTime: 'ReadDelayTime',
       regionId: 'RegionId',
@@ -183,6 +227,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       segNodeNum: 'SegNodeNum',
       segmentAISpec: 'SegmentAISpec',
       segmentCounts: 'SegmentCounts',
+      segmentDiskLockThreshold: 'SegmentDiskLockThreshold',
       serverlessMode: 'ServerlessMode',
       serverlessResource: 'ServerlessResource',
       standbyZoneId: 'StandbyZoneId',
@@ -224,6 +269,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       DBInstanceStatus: 'string',
       DBInstanceStorage: 'number',
       deployMode: 'string',
+      diskNotifyThreshold: 'string',
       encryptionKey: 'string',
       encryptionType: 'string',
       engine: 'string',
@@ -234,12 +280,14 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       idleTime: 'number',
       instanceNetworkType: 'string',
       instanceSpec: 'string',
+      instanceType: 'string',
       lockMode: 'string',
       lockReason: 'string',
       maintainEndTime: 'string',
       maintainStartTime: 'string',
       masterAISpec: 'string',
       masterCU: 'number',
+      masterDiskLockThreshold: 'string',
       masterNodeNum: 'number',
       maxConnections: 'number',
       memoryPerNode: 'number',
@@ -248,6 +296,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       minorVersion: 'string',
       payType: 'string',
       port: 'string',
+      primaryDBInstanceId: 'string',
       prodType: 'string',
       readDelayTime: 'string',
       regionId: 'string',
@@ -258,6 +307,7 @@ export class DescribeDBInstanceAttributeResponseBodyItemsDBInstanceAttribute ext
       segNodeNum: 'number',
       segmentAISpec: 'string',
       segmentCounts: 'number',
+      segmentDiskLockThreshold: 'string',
       serverlessMode: 'string',
       serverlessResource: 'number',
       standbyZoneId: 'string',

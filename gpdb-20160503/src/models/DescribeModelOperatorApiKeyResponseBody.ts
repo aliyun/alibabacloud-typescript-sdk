@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeModelOperatorApiKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API key content.
+   * The content of the API key.
    * 
    * @example
    * QEDGOTAJOG
@@ -13,7 +13,7 @@ export class DescribeModelOperatorApiKeyResponseBody extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * API KEY ID。
+   * The API key ID.
    * 
    * @example
    * 1
@@ -51,6 +51,14 @@ export class DescribeModelOperatorApiKeyResponseBody extends $dara.Model {
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The status of the API key. Valid values: Creating, Running, Locked, and Deleting.
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       apiKey: 'ApiKey',
@@ -59,6 +67,7 @@ export class DescribeModelOperatorApiKeyResponseBody extends $dara.Model {
       description: 'Description',
       endpoint: 'Endpoint',
       requestId: 'RequestId',
+      status: 'Status',
     };
   }
 
@@ -70,6 +79,7 @@ export class DescribeModelOperatorApiKeyResponseBody extends $dara.Model {
       description: 'string',
       endpoint: 'string',
       requestId: 'string',
+      status: 'string',
     };
   }
 

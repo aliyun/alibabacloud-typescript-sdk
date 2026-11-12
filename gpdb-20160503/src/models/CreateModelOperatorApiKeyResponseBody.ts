@@ -19,10 +19,19 @@ export class CreateModelOperatorApiKeyResponseBody extends $dara.Model {
    * ABB39CC3-4488-4857-905D-2E4A051D0521
    */
   requestId?: string;
+  /**
+   * @remarks
+   * Returns Creating after the creation request is accepted. The plaintext and endpoint are not returned.
+   * 
+   * @example
+   * Creating
+   */
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       apiKeyId: 'ApiKeyId',
       requestId: 'RequestId',
+      status: 'Status',
     };
   }
 
@@ -30,6 +39,7 @@ export class CreateModelOperatorApiKeyResponseBody extends $dara.Model {
     return {
       apiKeyId: 'number',
       requestId: 'string',
+      status: 'string',
     };
   }
 

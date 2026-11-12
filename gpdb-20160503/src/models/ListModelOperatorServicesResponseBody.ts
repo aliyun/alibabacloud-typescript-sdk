@@ -11,15 +11,32 @@ export class ListModelOperatorServicesResponseBodyServices extends $dara.Model {
    * agdb-xxx
    */
   serviceId?: string;
+  /**
+   * @remarks
+   * The status of the model operator service. Valid values:
+   * - active: Normal.
+   * - locking: Locking.
+   * - locked: Locked.
+   * - unlocking: Unlocking.
+   * - deleting: Releasing.
+   * 
+   * This status indicates the processing status of the control plane and does not mean that data plane propagation of the MO gateway is complete.
+   * 
+   * @example
+   * active
+   */
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       serviceId: 'ServiceId',
+      status: 'Status',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       serviceId: 'string',
+      status: 'string',
     };
   }
 
@@ -35,7 +52,7 @@ export class ListModelOperatorServicesResponseBodyServices extends $dara.Model {
 export class ListModelOperatorServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The current page number.
+   * The page number.
    * 
    * @example
    * 1

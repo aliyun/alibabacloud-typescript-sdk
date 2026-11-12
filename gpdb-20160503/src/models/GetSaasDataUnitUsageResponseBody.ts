@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSaasDataUnitUsageResponseBodyDistribution extends $dara.Model {
   /**
    * @remarks
-   * 精确非负十进制字符串，不使用浮点或指数格式；金额不完整时为null。
+   * The exact non-negative decimal string. Floating-point or exponential formats are not used. The value is null when the amount is incomplete.
    * 
    * @example
    * 2.82
@@ -16,7 +16,7 @@ export class GetSaasDataUnitUsageResponseBodyDistribution extends $dara.Model {
   dataUnit?: string;
   /**
    * @remarks
-   * 调用时的项目归因；缺失时为null，不影响总量。
+   * The project attribution at the time of the call. The value is null when missing, which does not affect the total amount.
    * 
    * @example
    * project-1
@@ -27,23 +27,26 @@ export class GetSaasDataUnitUsageResponseBodyDistribution extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * 同一场景和项目ID取查询范围内最新非空名称快照，同秒取字典序最大值；缺失为null。
+   * The project name. For the same scenario and project ID, the latest non-empty name snapshot within the query range is used. If multiple snapshots exist in the same second, the maximum value in lexicographical order is used. The value is null when missing.
    * 
    * @example
-   * 场景重制
+   * Scenario remake
    * 
    * **if can be null:**
    * true
    */
   projectName?: string;
   /**
+   * @remarks
+   * The business scenario code.
+   * 
    * @example
    * drama_game_oneshot
    */
   usageScene?: string;
   /**
    * @remarks
-   * 由Meta原值到中文名的字典补充，不是SLS字段。UsageScene始终保留日志原值；无中文名则名称也用原值；空白归其他。同中文名不同编码不合并。
+   * The display name of the business scenario. This name is supplemented by a dictionary that maps the original Meta values to Chinese names, and is not an SLS field. UsageScene always retains the original log value. If no Chinese name is available, the original value is used as the name. Blank values are classified as other. Different codes with the same Chinese name are not merged.
    * 
    * @example
    * 游戏生成
@@ -81,7 +84,7 @@ export class GetSaasDataUnitUsageResponseBodyDistribution extends $dara.Model {
 export class GetSaasDataUnitUsageResponseBodySummary extends $dara.Model {
   /**
    * @remarks
-   * 精确非负十进制字符串，不使用浮点或指数格式；金额不完整时为null。
+   * The exact non-negative decimal string. Floating-point or exponential formats are not used. The value is null when the amount is incomplete.
    * 
    * @example
    * 2.82
@@ -114,7 +117,7 @@ export class GetSaasDataUnitUsageResponseBodySummary extends $dara.Model {
 export class GetSaasDataUnitUsageResponseBodyTimeSeriesScenes extends $dara.Model {
   /**
    * @remarks
-   * 精确非负十进制字符串，不使用浮点或指数格式；金额不完整时为null。
+   * The exact non-negative decimal string. Floating-point or exponential formats are not used. The value is null when the amount is incomplete.
    * 
    * @example
    * 2.82
@@ -125,7 +128,7 @@ export class GetSaasDataUnitUsageResponseBodyTimeSeriesScenes extends $dara.Mode
   dataUnit?: string;
   /**
    * @remarks
-   * 调用时的项目归因；缺失时为null，不影响总量。
+   * The project attribution at the time of the call. The value is null when missing, which does not affect the total amount.
    * 
    * @example
    * project-1
@@ -136,16 +139,19 @@ export class GetSaasDataUnitUsageResponseBodyTimeSeriesScenes extends $dara.Mode
   projectId?: string;
   /**
    * @remarks
-   * 同一场景和项目ID取查询范围内最新非空名称快照，同秒取字典序最大值；缺失为null。
+   * The project name. For the same scenario and project ID, the latest non-empty name snapshot within the query range is used. If multiple snapshots exist in the same second, the maximum value in lexicographical order is used. The value is null when missing.
    * 
    * @example
-   * 场景重制
+   * Scenario remake
    * 
    * **if can be null:**
    * true
    */
   projectName?: string;
   /**
+   * @remarks
+   * The business scenario code.
+   * 
    * @example
    * game_translation
    */
@@ -180,7 +186,7 @@ export class GetSaasDataUnitUsageResponseBodyTimeSeriesScenes extends $dara.Mode
 export class GetSaasDataUnitUsageResponseBodyTimeSeries extends $dara.Model {
   /**
    * @remarks
-   * 精确非负十进制字符串，不使用浮点或指数格式；金额不完整时为null。
+   * The exact non-negative decimal string. Floating-point or exponential formats are not used. The value is null when the amount is incomplete.
    * 
    * @example
    * 2.82
@@ -189,8 +195,15 @@ export class GetSaasDataUnitUsageResponseBodyTimeSeries extends $dara.Model {
    * true
    */
   dataUnit?: string;
+  /**
+   * @remarks
+   * The scenario usage within the bucket.
+   */
   scenes?: GetSaasDataUnitUsageResponseBodyTimeSeriesScenes[];
   /**
+   * @remarks
+   * The start time of the UTC bucket.
+   * 
    * @example
    * 2026-10-20T00:00:00Z
    */
@@ -226,15 +239,18 @@ export class GetSaasDataUnitUsageResponseBodyTimeSeries extends $dara.Model {
 export class GetSaasDataUnitUsageResponseBodyWarnings extends $dara.Model {
   /**
    * @remarks
-   * 包括DATA_INCOMPLETE和DATA_UNIT_PENDING。
+   * The notification code. Valid values include DATA_INCOMPLETE and DATA_UNIT_PENDING.
    * 
    * @example
    * DATA_INCOMPLETE
    */
   code?: string;
   /**
+   * @remarks
+   * The notification message.
+   * 
    * @example
-   * 部分用量尚未就绪
+   * Partial usage is not ready yet
    */
   message?: string;
   static names(): { [key: string]: string } {
@@ -263,35 +279,55 @@ export class GetSaasDataUnitUsageResponseBodyWarnings extends $dara.Model {
 export class GetSaasDataUnitUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 按DataUnit降序，未知金额排末尾，同值按场景码、项目ID和名称升序。按场景和项目ID分组；无ID但有名称按名称分组；两者均缺失的记录为未关联项目。完整结果各项之和等于汇总；缺失或空白的日志场景归other（其他）；有值但未配置映射的场景保留原值作为编码和展示名，正常计入总量；无记录的other不创建空行。
+   * The business distribution. The items are sorted in descending order of DataUnit. Items with unknown amounts are placed at the end. Items with the same value are sorted in ascending order of scenario code, project ID, and name. The items are grouped by scenario and project ID. Items without an ID but with a name are grouped by name. Records missing both are grouped as unassociated projects. The sum of all items in the complete result equals the summary. Missing or blank log scenarios are classified as other. Scenarios with values but no configured mapping retain the original values as codes and display names, and are normally included in the total. No empty rows are created for other if there are no records.
    */
   distribution?: GetSaasDataUnitUsageResponseBodyDistribution[];
   /**
+   * @remarks
+   * The actual end time of the query.
+   * 
    * @example
    * 2026-10-20T02:00:00Z
    */
   endTime?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * mock_req_success
    */
   requestId?: string;
   /**
+   * @remarks
+   * The SaaS service ID.
+   * 
    * @example
    * agdb-example
    */
   serviceId?: string;
   /**
+   * @remarks
+   * The actual start time of the query.
+   * 
    * @example
    * 2026-10-20T00:00:00Z
    */
   startTime?: string;
+  /**
+   * @remarks
+   * The usage summary.
+   */
   summary?: GetSaasDataUnitUsageResponseBodySummary;
   /**
    * @remarks
-   * 按UTC桶起点升序。完整查询补齐零桶；未知金额为null，不以零替代。
+   * The time trend. The items are sorted in ascending order of the UTC bucket start time. Zero buckets are padded for complete queries. The value is null for unknown amounts and is not replaced with zero.
    */
   timeSeries?: GetSaasDataUnitUsageResponseBodyTimeSeries[];
+  /**
+   * @remarks
+   * The product notifications.
+   */
   warnings?: GetSaasDataUnitUsageResponseBodyWarnings[];
   static names(): { [key: string]: string } {
     return {

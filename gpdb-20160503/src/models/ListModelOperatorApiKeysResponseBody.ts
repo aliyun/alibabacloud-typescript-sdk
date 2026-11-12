@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelOperatorApiKeysResponseBodyApiKeys extends $dara.Model {
   /**
    * @remarks
-   * API KEY ID。
+   * The API key ID.
    * 
    * @example
    * 1
@@ -35,12 +35,21 @@ export class ListModelOperatorApiKeysResponseBodyApiKeys extends $dara.Model {
    * https://xxxx
    */
   endpoint?: string;
+  /**
+   * @remarks
+   * The status of the key. Valid values: Creating, Running, Locked, and Deleting.
+   * 
+   * @example
+   * Running
+   */
+  status?: string;
   static names(): { [key: string]: string } {
     return {
       apiKeyId: 'ApiKeyId',
       createTime: 'CreateTime',
       description: 'Description',
       endpoint: 'Endpoint',
+      status: 'Status',
     };
   }
 
@@ -50,6 +59,7 @@ export class ListModelOperatorApiKeysResponseBodyApiKeys extends $dara.Model {
       createTime: 'string',
       description: 'string',
       endpoint: 'string',
+      status: 'string',
     };
   }
 
@@ -78,7 +88,7 @@ export class ListModelOperatorApiKeysResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 1
@@ -94,7 +104,7 @@ export class ListModelOperatorApiKeysResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 2
