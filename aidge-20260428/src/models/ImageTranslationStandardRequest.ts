@@ -15,7 +15,7 @@ export class ImageTranslationStandardRequest extends $dara.Model {
    * @remarks
    * - Image URL: Must be publicly accessible over the Internet.
    * - Formats: PNG, JPEG, JPG, BMP, and WEBP.
-   * - Pixels: Both width and height must not exceed 4,000.
+   * - Pixels: Both width and height must not exceed 4,000 pixels.
    * - File size: The original file must be 10 MB or smaller.
    * 
    * This parameter is required.
@@ -26,10 +26,10 @@ export class ImageTranslationStandardRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Specifies whether to translate the text on the product subject in the image. This parameter is optional. Default value: false. This helps protect information and prevents embedded information such as product names from being translated.
+   * Specifies whether to translate the text on the product subject in the image. This parameter is optional. Default value: true. This helps protect the subject information from being translated, avoiding the translation of embedded information such as product names.
    * 
    * @example
-   * false
+   * true
    */
   includingProductArea?: boolean;
   /**
@@ -66,7 +66,7 @@ export class ImageTranslationStandardRequest extends $dara.Model {
   translatingBrandInTheProduct?: boolean;
   /**
    * @remarks
-   * Specifies whether to return layer information such as text position, font, and color. If set to true, layer information is returned and can be used to integrate with image editors for secondary editing. Default value: false.
+   * Specifies whether to return layer information such as text position, font, and color. If this parameter is set to true, layer information is returned, which can be used to integrate with image editors for secondary editing. Default value: false.
    * 
    * @example
    * false

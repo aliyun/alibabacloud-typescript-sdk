@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EcomVideoRecreationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asynchronous task, which is used to query the task result by calling QueryAsyncTaskResult.
+   * The asynchronous task ID used to query the task result by calling QueryAsyncTaskResult.
    * 
    * @example
    * task_778fa8bd21804828a5d147050e30edac
@@ -43,7 +43,7 @@ export class EcomVideoRecreationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The submission result of the asynchronous task.
+   * The asynchronous task submission result.
    */
   data?: EcomVideoRecreationResponseBodyData;
   /**
@@ -64,7 +64,7 @@ export class EcomVideoRecreationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the submission was successful.
+   * Indicates whether the submission is successful.
    * 
    * @example
    * true

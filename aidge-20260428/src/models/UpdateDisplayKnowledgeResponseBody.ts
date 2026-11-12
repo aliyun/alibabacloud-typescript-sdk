@@ -165,6 +165,9 @@ export class UpdateDisplayKnowledgeResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The usage information. This parameter is empty for free API operations.
+   * 
+   * @example
+   * {"ProcessedImageCount":1}
    */
   usageMap?: { [key: string]: number };
   static names(): { [key: string]: string } {

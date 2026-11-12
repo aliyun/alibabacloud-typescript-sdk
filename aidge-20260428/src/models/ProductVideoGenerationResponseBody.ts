@@ -13,7 +13,7 @@ export class ProductVideoGenerationResponseBodyData extends $dara.Model {
   route?: string;
   /**
    * @remarks
-   * The current status.
+   * The current status of the task.
    * 
    * @example
    * PENDING
@@ -21,7 +21,7 @@ export class ProductVideoGenerationResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task ID of this service.
+   * The task ID of the service.
    * 
    * @example
    * task_778fa8bd21804828a5d147050e30edac

@@ -67,6 +67,9 @@ export class CategoryAttributeMatchResponseBodyDataAttributes extends $dara.Mode
   /**
    * @remarks
    * The list of selected attribute value IDs, such as [30127,30128].
+   * 
+   * @example
+   * [30127,30128]
    */
   selectedVids?: number[];
   static names(): { [key: string]: string } {

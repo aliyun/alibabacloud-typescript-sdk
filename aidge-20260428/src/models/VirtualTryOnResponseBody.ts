@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VirtualTryOnResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asynchronous task. It is used to query the task result later.
+   * The ID of the asynchronous task, which is used to query the task result later.
    * 
    * @example
    * task-xxxx-xxxx-xxxx
@@ -56,7 +56,7 @@ export class VirtualTryOnResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result struct.
+   * The response data struct.
    */
   data?: VirtualTryOnResponseBodyData;
   /**
@@ -69,7 +69,7 @@ export class VirtualTryOnResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. It is used to identify a unique request.
+   * The request ID, which is used to identify a unique request.
    * 
    * @example
    * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F

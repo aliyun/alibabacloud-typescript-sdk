@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ProductVideoGenerationRequest extends $dara.Model {
   /**
    * @remarks
-   * The aspect ratio. Default value: 9:16. Valid values: 16:9, 1:1, 3:4, and 9:16.
+   * The aspect ratio of the video. Default value: 9:16. Valid values: 16:9, 1:1, 3:4, and 9:16.
    * 
    * @example
    * 9:16
@@ -13,7 +13,7 @@ export class ProductVideoGenerationRequest extends $dara.Model {
   aspectRatio?: string;
   /**
    * @remarks
-   * The video duration in seconds. Default value: 15. If no script is provided, the value must be an integer from 5 to 15. If a script is provided, the value must be an integer from 5 to 30. A value of 15.0 is treated as 15.
+   * The duration of the video in seconds. Default value: 15. If no script is provided, the value must be an integer from 5 to 15. If a script is provided, the value must be an integer from 5 to 30. A value of 15.0 is treated as 15.
    * 
    * @example
    * 15
@@ -38,7 +38,7 @@ export class ProductVideoGenerationRequest extends $dara.Model {
   productTitle?: string;
   /**
    * @remarks
-   * The resolution. Default value: 720P. Valid values: 720P and 1080P. The value is case-insensitive and is automatically converted to uppercase by the service.
+   * The resolution of the video. Default value: 720P. Valid values: 720P and 1080P. The value is case-insensitive and is automatically converted to uppercase by the service.
    * 
    * @example
    * 720P

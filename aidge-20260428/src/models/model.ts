@@ -123,6 +123,7 @@ export { TextTranslateAsyncResponseBodyData } from './TextTranslateAsyncResponse
 export { UpdateDisplayKnowledgeRequestRecords } from './UpdateDisplayKnowledgeRequest';
 export { UpdateDisplayKnowledgeResponseBodyDataResults } from './UpdateDisplayKnowledgeResponseBody';
 export { UpdateDisplayKnowledgeResponseBodyData } from './UpdateDisplayKnowledgeResponseBody';
+export { VacancyDetectionResponseBodyData } from './VacancyDetectionResponseBody';
 export { VideoGenerationRequestInputAssetBindings } from './VideoGenerationRequest';
 export { VideoGenerationRequestInput } from './VideoGenerationRequest';
 export { VideoGenerationRequestIntent } from './VideoGenerationRequest';
@@ -313,6 +314,9 @@ export { UpdateDisplayKnowledgeRequest } from './UpdateDisplayKnowledgeRequest';
 export { UpdateDisplayKnowledgeShrinkRequest } from './UpdateDisplayKnowledgeShrinkRequest';
 export { UpdateDisplayKnowledgeResponseBody } from './UpdateDisplayKnowledgeResponseBody';
 export { UpdateDisplayKnowledgeResponse } from './UpdateDisplayKnowledgeResponse';
+export { VacancyDetectionRequest } from './VacancyDetectionRequest';
+export { VacancyDetectionResponseBody } from './VacancyDetectionResponseBody';
+export { VacancyDetectionResponse } from './VacancyDetectionResponse';
 export { VideoGenerationRequest } from './VideoGenerationRequest';
 export { VideoGenerationShrinkRequest } from './VideoGenerationShrinkRequest';
 export { VideoGenerationResponseBody } from './VideoGenerationResponseBody';

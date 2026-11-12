@@ -29,12 +29,12 @@ export class GenerateProductContentResponseBodyData extends $dara.Model {
   outputLanguage?: string;
   /**
    * @remarks
-   * The number of characters for each selling point, which corresponds to data.points one by one. This parameter is returned only when bullet points are successfully processed.
+   * Returned only when bullet point processing is successful. The number of characters for each point, corresponding to data.points one by one.
    */
   pointLengths?: number[];
   /**
    * @remarks
-   * The selling point texts arranged in output order. This parameter is returned only when bullet points are successfully processed.
+   * Returned only when bullet point processing is successful. The selling point texts arranged in output order.
    */
   points?: string[];
   /**
@@ -95,7 +95,7 @@ export class GenerateProductContentResponseBodyData extends $dara.Model {
 export class GenerateProductContentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned for successful calls.
+   * The error code. This parameter is not returned for normal calls.
    * 
    * @example
    * success
@@ -103,12 +103,12 @@ export class GenerateProductContentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The processing result. Contains copy data upon success. Returns null upon business failure.
+   * The processing result. Contains copy data upon success. Returns a fixed value when the business processing fails.
    */
   data?: GenerateProductContentResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned for successful calls.
+   * The error message. This parameter is not returned for normal calls.
    * 
    * @example
    * OK
@@ -116,7 +116,7 @@ export class GenerateProductContentResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used for troubleshooting. This parameter may be empty in extreme exception scenarios.
+   * The request ID, used for troubleshooting. It may be empty in extreme exception cases.
    * 
    * @example
    * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
@@ -124,7 +124,9 @@ export class GenerateProductContentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the business processing is successful. Valid values: true (the output passes verification) and false (the business processing fails).
+   * Specifies whether the business processing is successful. Valid values:
+   * - true: The output passes the verification.
+   * - false: The business processing fails.
    * 
    * @example
    * True

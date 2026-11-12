@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SizeChartExtractAsyncResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The task ID used to query the asynchronous task result.
+   * The task ID, which is used to query the result of the asynchronous task.
    * 
    * @example
    * TID_550e8400-e29b-41d4-a716-446655440000
@@ -35,7 +35,7 @@ export class SizeChartExtractAsyncResponseBodyData extends $dara.Model {
 export class SizeChartExtractAsyncResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned for normal calls.
+   * The error code. This parameter is not returned for successful calls.
    * 
    * @example
    * success
@@ -48,7 +48,7 @@ export class SizeChartExtractAsyncResponseBody extends $dara.Model {
   data?: SizeChartExtractAsyncResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned for normal calls.
+   * The error message. This parameter is not returned for successful calls.
    * 
    * @example
    * OK
@@ -56,7 +56,7 @@ export class SizeChartExtractAsyncResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to identify a unique request.
+   * The request ID. It is used to identify a unique request.
    * 
    * @example
    * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
@@ -64,7 +64,9 @@ export class SizeChartExtractAsyncResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call fails.
    * 
    * @example
    * True

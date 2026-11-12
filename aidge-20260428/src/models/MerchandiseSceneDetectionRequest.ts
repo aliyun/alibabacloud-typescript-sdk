@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MerchandiseSceneDetectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The HTTP(S) URL of the display image to be detected.
+   * The HTTP or HTTPS URL of the display image to be detected.
    * 
    * This parameter is required.
    * 

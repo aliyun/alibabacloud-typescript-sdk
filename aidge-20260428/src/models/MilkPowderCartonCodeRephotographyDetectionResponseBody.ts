@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResultGroundingRegions extends $dara.Model {
   /**
    * @remarks
-   * The coordinates of the bounding box in the `[top-left x, top-left y, bottom-right x, bottom-right y]` format. The value range is 0 to 1000. The left value must be less than the right value, and the top value must be less than the bottom value.
+   * The bounding box coordinates.
+   * - `[top-left x, top-left y, bottom-right x, bottom-right y]`
+   * - Value range: 0 to 1000.
+   * - The left value must be less than the right value, and the top value must be less than the bottom value.
    */
   bbox2d?: number[];
   /**
    * @remarks
-   * The category of the target. For enumerated values, see the following table.
+   * The target category. For valid values, see the following table.
    * 
    * @example
    * milk_powder
@@ -18,7 +21,7 @@ export class MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResultGro
   label?: string;
   /**
    * @remarks
-   * The confirmed short name or text, which contains up to 24 characters. This field is an empty string if the text is unclear.
+   * The confirmed short name or text, up to 24 characters. If the text is unclear, an empty string is returned.
    * 
    * @example
    * Milk powder
@@ -55,7 +58,7 @@ export class MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResultGro
 export class MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResultGrounding extends $dara.Model {
   /**
    * @remarks
-   * The coverage of the grounding. Valid values:
+   * The coverage. Valid values:
    * - `complete`: The relevant visible targets are complete.
    * - `partial`: Only some targets are valid or recognizable.
    * 
@@ -65,7 +68,7 @@ export class MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResultGro
   coverage?: string;
   /**
    * @remarks
-   * The array of targets, which contains up to 12 items. This array can be empty if no relevant targets are found.
+   * The target array, containing up to 12 items. This array can be empty if no relevant targets are found.
    */
   regions?: MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResultGroundingRegions[];
   static names(): { [key: string]: string } {
@@ -97,7 +100,7 @@ export class MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResultGro
 export class MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The supplementary element grounding results.
+   * The supplementary element grounding result.
    */
   grounding?: MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResultGrounding;
   /**
@@ -129,7 +132,7 @@ export class MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResult ex
   photoStatus?: number;
   /**
    * @remarks
-   * The confidence score for recapture detection.
+   * The recapture confidence score.
    * 
    * @example
    * 0.89
@@ -137,7 +140,7 @@ export class MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResult ex
   score?: number;
   /**
    * @remarks
-   * The detection type. The value is fixed to `boxCode`.
+   * Fixed to `boxCode`.
    * 
    * @example
    * boxCode
@@ -185,7 +188,7 @@ export class MilkPowderCartonCodeRephotographyDetectionResponseBodyData extends 
   result?: MilkPowderCartonCodeRephotographyDetectionResponseBodyDataResult;
   /**
    * @remarks
-   * The usage information. The value is `{"ProcessingCount":1}` if the call is successful, or an empty object if the call fails.
+   * The usage information. If the call is successful, the value is `{"ProcessingCount":1}`. If the call fails, the value is an empty object.
    * 
    * @example
    * {"ProcessingCount":1}

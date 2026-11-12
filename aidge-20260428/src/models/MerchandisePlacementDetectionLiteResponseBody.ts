@@ -18,7 +18,7 @@ export class MerchandisePlacementDetectionLiteResponseBodyDataResultGroundingReg
   label?: string;
   /**
    * @remarks
-   * The confirmable short name or text of up to 24 characters. This field is an empty string when the text is unclear.
+   * The confirmable short name or text of up to 24 characters. This field is an empty string if the text is unclear.
    * 
    * @example
    * 5.50
@@ -55,10 +55,10 @@ export class MerchandisePlacementDetectionLiteResponseBodyDataResultGroundingReg
 export class MerchandisePlacementDetectionLiteResponseBodyDataResultGrounding extends $dara.Model {
   /**
    * @remarks
-   * The coverage status. Valid values:
-   * - complete: The relevant visible targets are complete.
+   * The coverage status of the grounding. Valid values:
+   * - complete: All relevant visible targets are complete.
    * - partial: Only some targets are valid or recognizable.
-   * - Empty string: No valid supplementary grounding results are obtained.
+   * - Empty string: No valid supplementary grounding result is obtained.
    * 
    * @example
    * complete
@@ -66,7 +66,7 @@ export class MerchandisePlacementDetectionLiteResponseBodyDataResultGrounding ex
   coverage?: string;
   /**
    * @remarks
-   * The target array, which contains up to 12 items. This array can be empty when no relevant targets are found.
+   * The array of targets, containing up to 12 items. This array can be empty if no relevant targets are found.
    */
   regions?: MerchandisePlacementDetectionLiteResponseBodyDataResultGroundingRegions[];
   static names(): { [key: string]: string } {
@@ -117,7 +117,7 @@ export class MerchandisePlacementDetectionLiteResponseBodyDataResultProductsBoxe
    * The right coordinate.
    * 
    * @example
-   * (\\"874\\")
+   * 874
    */
   right?: number;
   /**
@@ -163,7 +163,7 @@ export class MerchandisePlacementDetectionLiteResponseBodyDataResultProducts ext
   boxes?: MerchandisePlacementDetectionLiteResponseBodyDataResultProductsBoxes[];
   /**
    * @remarks
-   * The recognition code, which is obtained by removing the trailing _ce from the recognition name.
+   * The recognition code, which is obtained by removing the _ce suffix from the recognition name.
    * 
    * @example
    * sku_test
@@ -198,7 +198,7 @@ export class MerchandisePlacementDetectionLiteResponseBodyDataResultProducts ext
 export class MerchandisePlacementDetectionLiteResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The supplementary element grounding results.
+   * The supplementary element grounding result.
    */
   grounding?: MerchandisePlacementDetectionLiteResponseBodyDataResultGrounding;
   /**
@@ -208,12 +208,12 @@ export class MerchandisePlacementDetectionLiteResponseBodyDataResult extends $da
   products?: MerchandisePlacementDetectionLiteResponseBodyDataResultProducts[];
   /**
    * @remarks
-   * The deduplicated list of SkuIds.
+   * The deduplicated list of SkuId values.
    */
   skuIds?: string[];
   /**
    * @remarks
-   * The result type, which is fixed to sku.
+   * The result type. The value is fixed as sku.
    * 
    * @example
    * sku
@@ -263,7 +263,10 @@ export class MerchandisePlacementDetectionLiteResponseBodyData extends $dara.Mod
   result?: MerchandisePlacementDetectionLiteResponseBodyDataResult;
   /**
    * @remarks
-   * The usage map. The value is {"ProcessingCount":1} for a successful call, and an empty object for a failed call.
+   * The usage map. The value is {"ProcessingCount":1} if the call is successful, or an empty object if the call fails.
+   * 
+   * @example
+   * {"ProcessingCount":1}
    */
   usageMap?: { [key: string]: number };
   static names(): { [key: string]: string } {
@@ -311,7 +314,7 @@ export class MerchandisePlacementDetectionLiteResponseBody extends $dara.Model {
   data?: MerchandisePlacementDetectionLiteResponseBodyData;
   /**
    * @remarks
-   * The response message or failure description.
+   * The return message or failure description.
    * 
    * @example
    * Success

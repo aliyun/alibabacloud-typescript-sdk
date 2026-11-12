@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class MilkPowderCanBottomCodeRephotographyDetectionResponseBodyDataResultGroundingRegions extends $dara.Model {
   /**
    * @remarks
-   * The bounding box coordinates in the format of `[top-left x, top-left y, bottom-right x, bottom-right y]`. Valid values: 0 to 1000. The left value must be less than the right value, and the top value must be less than the bottom value.
+   * The bounding box coordinates in the format of `[top-left x, top-left y, bottom-right x, bottom-right y]`. The value range is 0 to 1000. The left coordinate is less than the right coordinate, and the top coordinate is less than the bottom coordinate.
    */
   bbox2d?: number[];
   /**
    * @remarks
-   * The target category. For valid values, see the following table.
+   * The target category. For enumerations, see the following table.
    * 
    * @example
    * milk_powder
@@ -102,7 +102,7 @@ export class MilkPowderCanBottomCodeRephotographyDetectionResponseBodyDataResult
   grounding?: MilkPowderCanBottomCodeRephotographyDetectionResponseBodyDataResultGrounding;
   /**
    * @remarks
-   * Specifies whether the image is recaptured.
+   * Indicates whether the image is recaptured.
    * 
    * @example
    * true
@@ -110,7 +110,7 @@ export class MilkPowderCanBottomCodeRephotographyDetectionResponseBodyDataResult
   isFake?: boolean;
   /**
    * @remarks
-   * The detection type. The value is fixed to canBottom.
+   * The detection type, which is fixed to canBottom.
    * 
    * @example
    * canBottom
@@ -152,7 +152,7 @@ export class MilkPowderCanBottomCodeRephotographyDetectionResponseBodyData exten
   result?: MilkPowderCanBottomCodeRephotographyDetectionResponseBodyDataResult;
   /**
    * @remarks
-   * The usage information. If the call is successful, the value is `{"ProcessingCount":1}`. If the call fails, an empty object is returned.
+   * The usage information. If the call is successful, the value is `{"ProcessingCount":1}`. If the call fails, the value is an empty object.
    * 
    * @example
    * {"ProcessingCount":1}
@@ -203,7 +203,7 @@ export class MilkPowderCanBottomCodeRephotographyDetectionResponseBody extends $
   data?: MilkPowderCanBottomCodeRephotographyDetectionResponseBodyData;
   /**
    * @remarks
-   * The response message or failure description.
+   * The return message or failure description.
    * 
    * @example
    * Success
@@ -219,7 +219,7 @@ export class MilkPowderCanBottomCodeRephotographyDetectionResponseBody extends $
   requestId?: string;
   /**
    * @remarks
-   * Specifies whether the call is successful. A valid business conclusion does not mean that the review is passed.
+   * Indicates whether the call is successful. A valid business conclusion does not mean the review is passed.
    * 
    * @example
    * True

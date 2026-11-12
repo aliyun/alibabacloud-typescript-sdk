@@ -64,7 +64,7 @@ export class ImageTranslationProAsyncResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the submission call is successful. This does not mean that the translation is completed.
+   * Indicates whether the submission call is successful. This does not indicate that the translation is complete.
    * 
    * @example
    * True

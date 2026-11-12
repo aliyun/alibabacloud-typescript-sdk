@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageTranslationProAsyncRequest extends $dara.Model {
   /**
    * @remarks
-   * The business order ID of the caller. This ID is recorded when the request is accepted and returned as-is when you query the asynchronous task result.
+   * The business order number of the caller. This number is recorded upon acceptance and returned as-is when you query the asynchronous task result.
    * 
    * @example
    * order-20260928-001
@@ -21,10 +21,10 @@ export class ImageTranslationProAsyncRequest extends $dara.Model {
   glossary?: string;
   /**
    * @remarks
-   * * Image URL: Must be accessible over the Internet.   
-   * * Format: PNG, JPEG, JPG, BMP, and WebP.   
-   * * Pixels: The width and height must not exceed 4,000.  
-   * * File size: The original file must be less than or equal to 10 MB.
+   * • Image URL: Must be accessible over the Internet.   
+   * • Format: PNG, JPEG, JPG, BMP, or WEBP.   
+   * • Pixels: Both width and height must not exceed 4,000.  
+   * • File size: The original file size must be less than or equal to 10 MB.
    * 
    * This parameter is required.
    * 

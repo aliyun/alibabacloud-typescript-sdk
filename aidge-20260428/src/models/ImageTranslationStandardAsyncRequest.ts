@@ -59,7 +59,7 @@ export class ImageTranslationStandardAsyncRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to translate brand text in the product area.
+   * Specifies whether to translate the brand text in the product area.
    * 
    * @example
    * false

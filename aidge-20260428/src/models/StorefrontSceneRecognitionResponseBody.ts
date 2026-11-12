@@ -8,12 +8,12 @@ export class StorefrontSceneRecognitionResponseBodyDataResultDetails extends $da
    * The non-empty category name.
    * 
    * @example
-   * oppo vivo smartphone specialty store
+   * oppo vivo smartphone store
    */
   clazz?: string;
   /**
    * @remarks
-   * A finite numerical value. The source document does not specify a value range.
+   * A finite numerical value. The source document does not specify the value range.
    * 
    * @example
    * 0.99
@@ -46,6 +46,9 @@ export class StorefrontSceneRecognitionResponseBodyDataResultGroundingRegions ex
   /**
    * @remarks
    * The bounding box coordinates.
+   * 
+   * @example
+   * [0,0,456,398]
    */
   bbox2d?: number[];
   /**
@@ -103,7 +106,7 @@ export class StorefrontSceneRecognitionResponseBodyDataResultGrounding extends $
   coverage?: string;
   /**
    * @remarks
-   * The region list.
+   * The list of regions.
    */
   regions?: StorefrontSceneRecognitionResponseBodyDataResultGroundingRegions[];
   static names(): { [key: string]: string } {
@@ -135,7 +138,7 @@ export class StorefrontSceneRecognitionResponseBodyDataResultGrounding extends $
 export class StorefrontSceneRecognitionResponseBodyDataResult extends $dara.Model {
   /**
    * @remarks
-   * The classification details. This can be an empty array.
+   * The classification details, which can be an empty array.
    */
   details?: StorefrontSceneRecognitionResponseBodyDataResultDetails[];
   /**
@@ -145,7 +148,7 @@ export class StorefrontSceneRecognitionResponseBodyDataResult extends $dara.Mode
   grounding?: StorefrontSceneRecognitionResponseBodyDataResultGrounding;
   /**
    * @remarks
-   * The non-empty scene classification array.
+   * The non-empty array of scene classifications.
    */
   scenes?: string[];
   static names(): { [key: string]: string } {
@@ -185,7 +188,7 @@ export class StorefrontSceneRecognitionResponseBodyDataResult extends $dara.Mode
 export class StorefrontSceneRecognitionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The scene recognition result details.
+   * The details of the scene recognition result.
    */
   result?: StorefrontSceneRecognitionResponseBodyDataResult;
   /**

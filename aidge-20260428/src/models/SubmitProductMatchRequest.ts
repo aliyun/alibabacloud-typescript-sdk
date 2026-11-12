@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitProductMatchRequest extends $dara.Model {
   /**
    * @remarks
-   * The product brand. If this value is not specified, the system attempts to extract the brand from the shop name.
+   * The product brand. If missing, the service attempts to extract it from the shop name.
    * 
    * @example
    * FILA
@@ -13,15 +13,15 @@ export class SubmitProductMatchRequest extends $dara.Model {
   brandName?: string;
   /**
    * @remarks
-   * The Miaojie product category. Currently used for extension and auditing purposes.
+   * The Miaojie product category, which is currently used for extension and auditing.
    * 
    * @example
-   * Children\\"s Shoes
+   * Children\\"s shoes
    */
   category?: string;
   /**
    * @remarks
-   * The HTTP or HTTPS URL of the product main image.
+   * The HTTP/HTTPS URL of the product main image.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class SubmitProductMatchRequest extends $dara.Model {
   itemId?: string;
   /**
    * @remarks
-   * The HTTP or HTTPS URL of the product detail page.
+   * The HTTP/HTTPS URL of the product detail page.
    * 
    * @example
    * https://example.com/items/228516909
@@ -49,12 +49,12 @@ export class SubmitProductMatchRequest extends $dara.Model {
   productUrl?: string;
   /**
    * @remarks
-   * The shop name. This value is also used as the extraction source when the brand name is missing.
+   * The shop name, which is also used as the extraction source when the brand is missing.
    * 
    * This parameter is required.
    * 
    * @example
-   * FILA斐乐官方旗舰店
+   * FILA Official Flagship Store
    */
   shopName?: string;
   /**
@@ -64,7 +64,7 @@ export class SubmitProductMatchRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * FILA Kids Training Shoes
+   * FILA children\\"s training shoes
    */
   title?: string;
   static names(): { [key: string]: string } {

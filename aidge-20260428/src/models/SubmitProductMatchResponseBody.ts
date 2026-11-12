@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitProductMatchResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The task acceptance time in ISO 8601 UTC format.
+   * The time when the task was accepted, in ISO 8601 UTC format.
    * 
    * @example
    * 2026-08-20T09:30:00Z
@@ -13,7 +13,7 @@ export class SubmitProductMatchResponseBodyData extends $dara.Model {
   submittedAt?: string;
   /**
    * @remarks
-   * The asynchronous task ID used for QueryAsyncTaskResult queries.
+   * The ID of the asynchronous task used to query the task result by calling QueryAsyncTaskResult.
    * 
    * @example
    * b7ea15cb609f47b7999d2d68dfbf3c90
@@ -45,7 +45,7 @@ export class SubmitProductMatchResponseBodyData extends $dara.Model {
 export class SubmitProductMatchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned if the call is successful.
+   * The error code. This parameter is not returned for normal calls.
    * 
    * @example
    * 200
@@ -53,12 +53,12 @@ export class SubmitProductMatchResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The submit result of the matching product identification asynchronous task.
+   * The submission result of the asynchronous task for identical product identification.
    */
   data?: SubmitProductMatchResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned if the call is successful.
+   * The error message. This parameter is not returned for normal calls.
    * 
    * @example
    * OK
@@ -75,8 +75,8 @@ export class SubmitProductMatchResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call is successful. Valid values:
-   * - true: The call is successful.
-   * - false: The call failed.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * True

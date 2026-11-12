@@ -173,6 +173,9 @@ export class DeleteDisplayKnowledgeResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The usage information. This field is empty for free API operations.
+   * 
+   * @example
+   * {"ProcessedImageCount":1}
    */
   usageMap?: { [key: string]: number };
   static names(): { [key: string]: string } {

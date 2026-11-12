@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TextTranslateAsyncResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asynchronous task. It is used for result queries and notification association. Do not use the example prefix as a business validation rule.
+   * The ID of the asynchronous task, which is used for result queries and notification association. Do not use the example prefix as a business validation rule.
    * 
    * @example
    * TID_550e8400-e29b-41d4-a716-446655440000
@@ -35,7 +35,7 @@ export class TextTranslateAsyncResponseBodyData extends $dara.Model {
 export class TextTranslateAsyncResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code for the submission call. A success example is success.
+   * The response code of the submission call. Example of a successful call: success.
    * 
    * @example
    * success
@@ -43,12 +43,12 @@ export class TextTranslateAsyncResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The submission result of the text translation asynchronous node.
+   * The commit result of the text translation asynchronous node.
    */
   data?: TextTranslateAsyncResponseBodyData;
   /**
    * @remarks
-   * The call description. A success example is Success. If the call fails, read the actual error message.
+   * The call description. Example of a successful call: Success. If the call fails, read the actual error message.
    * 
    * @example
    * success
@@ -56,7 +56,7 @@ export class TextTranslateAsyncResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the submission request. It is used for troubleshooting.
+   * The ID of the submission request, which is used for troubleshooting.
    * 
    * @example
    * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
@@ -64,7 +64,7 @@ export class TextTranslateAsyncResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the submission call is successful. It does not indicate that the translation is complete.
+   * Indicates whether the submission call is successful. A successful call does not mean that the translation is complete.
    * 
    * @example
    * True

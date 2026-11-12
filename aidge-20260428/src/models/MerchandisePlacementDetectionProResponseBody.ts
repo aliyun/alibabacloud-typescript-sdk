@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class MerchandisePlacementDetectionProResponseBodyDataData extends $dara.Model {
   /**
    * @remarks
-   * The normalized bounding box coordinates [x1,y1,x2,y2], with values in the range 0–1000.
+   * The normalized bounding box coordinates in the [x1,y1,x2,y2] format. Valid values: 0 to 1000.
    */
   bbox2d?: number[];
   /**
    * @remarks
-   * The detected product name. The value is unknown if the name cannot be determined.
+   * The name of the detected product. If the name cannot be determined, the value is unknown.
    * 
    * @example
    * unknown
@@ -18,7 +18,7 @@ export class MerchandisePlacementDetectionProResponseBodyDataData extends $dara.
   detectedSkuName?: string;
   /**
    * @remarks
-   * The bounding box index, starting from 1.
+   * The index of the bounding box, starting from 1.
    * 
    * @example
    * 1
@@ -63,7 +63,7 @@ export class MerchandisePlacementDetectionProResponseBodyData extends $dara.Mode
   boxCount?: number;
   /**
    * @remarks
-   * The list of per-box detection details.
+   * The list of detection details for each bounding box.
    */
   data?: MerchandisePlacementDetectionProResponseBodyDataData[];
   /**
@@ -116,12 +116,12 @@ export class MerchandisePlacementDetectionProResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The detection result of product display detection Pro.
+   * The detection result of the retail display detection Pro edition.
    */
   data?: MerchandisePlacementDetectionProResponseBodyData;
   /**
    * @remarks
-   * The response message or failure description.
+   * The returned message or failure description.
    * 
    * @example
    * Success

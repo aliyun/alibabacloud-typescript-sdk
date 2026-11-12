@@ -252,7 +252,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfoTextAreasTexts exte
   language?: string;
   /**
    * @remarks
-   * The number of lines.
+   * The line count.
    * 
    * @example
    * 1
@@ -367,7 +367,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfoTextAreas extends $
   horizontalLayout?: string;
   /**
    * @remarks
-   * The number of lines.
+   * The line count.
    * 
    * @example
    * 2
@@ -433,7 +433,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfo extends $dara.Mode
   font?: string[];
   /**
    * @remarks
-   * The product area rectangles.
+   * The product area rectangle.
    */
   goodsRects?: ImageTranslationStandardResponseBodyDataEditInfoGoodsRects;
   /**
@@ -454,7 +454,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfo extends $dara.Mode
   languages?: string[];
   /**
    * @remarks
-   * The original image URL.
+   * The URL of the original image.
    * 
    * @example
    * https://xiuxiu-pro.meitudata.com/posters/34d78f9157e5560a4d612949ca6f6485.jpg
@@ -462,7 +462,7 @@ export class ImageTranslationStandardResponseBodyDataEditInfo extends $dara.Mode
   pictUrl?: string;
   /**
    * @remarks
-   * The repaired image URL.
+   * The URL of the repaired image.
    * 
    * @example
    * http://dashscope-a717.oss-cn-beijing.aliyuncs.com/xxx.png
@@ -565,7 +565,7 @@ export class ImageTranslationStandardResponseBodyData extends $dara.Model {
   editInfo?: ImageTranslationStandardResponseBodyDataEditInfo;
   /**
    * @remarks
-   * The URL of the image generated after the image translation.
+   * The URL of the generated translated image.
    * 
    * @example
    * http://dashscope-a717.oss-cn-beijing.aliyuncs.com/xxx.jpg
@@ -621,12 +621,12 @@ export class ImageTranslationStandardResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The translation result data, including the URL of the translated image and usage information.
+   * The translation result data, which includes the URL of the translated image and usage information.
    */
   data?: ImageTranslationStandardResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter returns Success for successful calls and specific error messages for exceptions.
+   * The error message. "Success" is returned for a successful call, and specific error details are returned when an exception occurs.
    * 
    * @example
    * Success
@@ -634,7 +634,7 @@ export class ImageTranslationStandardResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 1CEC4D94-905A-1ED1-A7B4-1BFEFFB3D850
@@ -642,7 +642,7 @@ export class ImageTranslationStandardResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. A value of true indicates success, and a value of false indicates failure.
+   * Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * true

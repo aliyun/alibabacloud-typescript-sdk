@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageRemovalProAsyncRequest extends $dara.Model {
   /**
    * @remarks
-   * The business ID of the caller. This ID is recorded when the request is accepted and returned as-is when you query the asynchronous task result.
+   * The business ID of the caller. It is recorded when the request is accepted and returned as is when you query the result of the asynchronous task.
    * 
    * @example
    * order-20260928-001

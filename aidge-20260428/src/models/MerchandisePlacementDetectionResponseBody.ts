@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MerchandisePlacementDetectionResponseBodyDataDataTop1 extends $dara.Model {
   /**
    * @remarks
-   * The similarity score, ranging from 0 to 1.
+   * The similarity score. Valid values: 0 to 1.
    * 
    * @example
    * 0.53
@@ -13,7 +13,7 @@ export class MerchandisePlacementDetectionResponseBodyDataDataTop1 extends $dara
   score?: number;
   /**
    * @remarks
-   * The ID of the recalled product.
+   * The ID of the retrieved product.
    * 
    * @example
    * 123
@@ -21,10 +21,10 @@ export class MerchandisePlacementDetectionResponseBodyDataDataTop1 extends $dara
   skuId?: string;
   /**
    * @remarks
-   * The name of the recalled product.
+   * The name of the retrieved product.
    * 
    * @example
-   * 光明牛奶500ml
+   * Bright Dairy Milk 500ml
    */
   skuName?: string;
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class MerchandisePlacementDetectionResponseBodyDataDataTop1 extends $dara
 export class MerchandisePlacementDetectionResponseBodyDataDataTopk extends $dara.Model {
   /**
    * @remarks
-   * The recall rank.
+   * The retrieval rank.
    * 
    * @example
    * 1
@@ -63,7 +63,7 @@ export class MerchandisePlacementDetectionResponseBodyDataDataTopk extends $dara
   rank?: number;
   /**
    * @remarks
-   * The similarity score, ranging from 0 to 1.
+   * The similarity score. Valid values: 0 to 1.
    * 
    * @example
    * 0.82
@@ -71,7 +71,7 @@ export class MerchandisePlacementDetectionResponseBodyDataDataTopk extends $dara
   score?: number;
   /**
    * @remarks
-   * The ID of the recalled product.
+   * The ID of the retrieved product.
    * 
    * @example
    * 123
@@ -79,10 +79,10 @@ export class MerchandisePlacementDetectionResponseBodyDataDataTopk extends $dara
   skuId?: string;
   /**
    * @remarks
-   * The name of the recalled product.
+   * The name of the retrieved product.
    * 
    * @example
-   * 光明牛奶500ml
+   * Bright Dairy Milk 500ml
    */
   skuName?: string;
   static names(): { [key: string]: string } {
@@ -115,15 +115,15 @@ export class MerchandisePlacementDetectionResponseBodyDataDataTopk extends $dara
 export class MerchandisePlacementDetectionResponseBodyDataData extends $dara.Model {
   /**
    * @remarks
-   * The detection box position coordinates in the format [x1,y1,x2,y2].
+   * The coordinates of the detection box in the [x1,y1,x2,y2] format.
    */
   bbox?: number[];
   /**
    * @remarks
-   * The failure reason for a single detection box. The value is null if the detection is successful.
+   * The reason for the failure of the detection box. This parameter is null if the detection is successful.
    * 
    * @example
-   * "embedding failed"
+   * "Embedding failed"
    */
   error?: string;
   /**
@@ -136,12 +136,12 @@ export class MerchandisePlacementDetectionResponseBodyDataData extends $dara.Mod
   idx?: number;
   /**
    * @remarks
-   * The top-1 recalled product for the detection box.
+   * The top-1 retrieved product for the detection box.
    */
   top1?: MerchandisePlacementDetectionResponseBodyDataDataTop1;
   /**
    * @remarks
-   * The list of top-K recalled products for the detection box.
+   * The list of top-K retrieved products for the detection box.
    */
   topk?: MerchandisePlacementDetectionResponseBodyDataDataTopk[];
   static names(): { [key: string]: string } {
@@ -198,7 +198,7 @@ export class MerchandisePlacementDetectionResponseBodyData extends $dara.Model {
   data?: MerchandisePlacementDetectionResponseBodyDataData[];
   /**
    * @remarks
-   * The usage information, where the key is the usage name and the value is the count.
+   * The usage information. The key is the usage metric name and the value is the count.
    * 
    * @example
    * {"ProcessingCount":1}
@@ -238,7 +238,7 @@ export class MerchandisePlacementDetectionResponseBodyData extends $dara.Model {
 export class MerchandisePlacementDetectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned for successful calls.
+   * The error code. This parameter is not returned when the call is successful.
    * 
    * @example
    * 200
@@ -246,12 +246,12 @@ export class MerchandisePlacementDetectionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The display detection result.
+   * The display detection results.
    */
   data?: MerchandisePlacementDetectionResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned for successful calls.
+   * The error message. This parameter is not returned when the call is successful.
    * 
    * @example
    * OK
@@ -269,7 +269,7 @@ export class MerchandisePlacementDetectionResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the call is successful. Valid values:
    * - true: The call is successful.
-   * - false: The call failed.
+   * - false: The call fails.
    * 
    * @example
    * True

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StorefrontSceneRecognitionRequest extends $dara.Model {
   /**
    * @remarks
-   * The HTTP(S) URL of the image to be reviewed.
+   * The HTTP(S) URL of the image to be checked.
    * 
    * This parameter is required.
    * 

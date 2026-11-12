@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageMattingAsyncResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The task ID used to query the result of the asynchronous task.
+   * The ID of the node, which is used to query the result of the asynchronous node.
    * 
    * @example
    * TID_550e8400-e29b-41d4-a716-446655440000
@@ -43,7 +43,7 @@ export class ImageMattingAsyncResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The submission result of the intelligent image matting asynchronous task.
+   * The submit result of the intelligent image matting asynchronous node.
    */
   data?: ImageMattingAsyncResponseBodyData;
   /**

@@ -6,6 +6,9 @@ export class MerchandiseSceneDetectionResponseBodyDataResultGroundingRegions ext
   /**
    * @remarks
    * The 2D bounding box in the format of [top-left x, top-left y, bottom-right x, bottom-right y]. Valid values: 0 to 1000. The left coordinate must be less than the right coordinate, and the top coordinate must be less than the bottom coordinate.
+   * 
+   * @example
+   * [0,130,1000,850]
    */
   bbox2d?: number[];
   /**
@@ -21,7 +24,7 @@ export class MerchandiseSceneDetectionResponseBodyDataResultGroundingRegions ext
    * The recognized text.
    * 
    * @example
-   * Multi-tier product display shelf
+   * Multi-layer product display shelf
    */
   text?: string;
   static names(): { [key: string]: string } {
@@ -95,7 +98,7 @@ export class MerchandiseSceneDetectionResponseBodyDataResultGrounding extends $d
 export class MerchandiseSceneDetectionResponseBodyDataResultScenesSceneLocation extends $dara.Model {
   /**
    * @remarks
-   * The x-coordinate of the region point.
+   * The x-coordinate of the area point.
    * 
    * @example
    * 0.431
@@ -103,7 +106,7 @@ export class MerchandiseSceneDetectionResponseBodyDataResultScenesSceneLocation 
   x?: number;
   /**
    * @remarks
-   * The y-coordinate of the region point.
+   * The y-coordinate of the area point.
    * 
    * @example
    * 0.973
@@ -143,7 +146,7 @@ export class MerchandiseSceneDetectionResponseBodyDataResultScenes extends $dara
   areaRate?: number;
   /**
    * @remarks
-   * Optional. The purity metric for proprietary products. The specific business criteria are subject to the recognition service.
+   * Optional. The purity metric for proprietary products. The specific business definition is subject to the recognition service.
    * 
    * @example
    * 0
@@ -151,7 +154,7 @@ export class MerchandiseSceneDetectionResponseBodyDataResultScenes extends $dara
   ownPurity?: number;
   /**
    * @remarks
-   * Optional. The display plumpness metric.
+   * Optional. The display fullness metric.
    * 
    * @example
    * 0
@@ -162,17 +165,20 @@ export class MerchandiseSceneDetectionResponseBodyDataResultScenes extends $dara
    * The display name of the scene. If omitted, the value is an empty string.
    * 
    * @example
-   * Air-cooled display cabinet
+   * Refrigerated display cabinet
    */
   sceneActualName?: string;
   /**
    * @remarks
    * The center point of the scene, which retains the original normalized coordinates. If omitted, the value is an empty array.
+   * 
+   * @example
+   * [0.501,0.493]
    */
   sceneCenter?: number[];
   /**
    * @remarks
-   * The list of region points. Each item is in the {x,y} format and retains the original normalized coordinates. If omitted, the value is an empty array.
+   * The list of area points. Each item is in the format of {x,y} and retains the original normalized coordinates. If omitted, the value is an empty array.
    */
   sceneLocation?: MerchandiseSceneDetectionResponseBodyDataResultScenesSceneLocation[];
   /**
@@ -185,7 +191,7 @@ export class MerchandiseSceneDetectionResponseBodyDataResultScenes extends $dara
   sceneName?: string;
   /**
    * @remarks
-   * Optional. The shelf distribution proportion metric. The specific business criteria are subject to the recognition service.
+   * Optional. The shelf distribution proportion metric. The specific business definition is subject to the recognition service.
    * 
    * @example
    * 0
@@ -245,7 +251,7 @@ export class MerchandiseSceneDetectionResponseBodyDataResult extends $dara.Model
   scenes?: MerchandiseSceneDetectionResponseBodyDataResultScenes[];
   /**
    * @remarks
-   * Fixed value: scene.
+   * The type. Fixed value: scene.
    * 
    * @example
    * scene
@@ -341,7 +347,7 @@ export class MerchandiseSceneDetectionResponseBody extends $dara.Model {
   data?: MerchandiseSceneDetectionResponseBodyData;
   /**
    * @remarks
-   * The response message or failure description.
+   * The return message or failure description.
    * 
    * @example
    * Success

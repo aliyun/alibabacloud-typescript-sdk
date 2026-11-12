@@ -22,6 +22,9 @@ export class ImageRemovalProResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The usage details. This parameter is returned in synchronous mode.
+   * 
+   * @example
+   * {"ProcessedImageCount":1}
    */
   usageMap?: { [key: string]: number };
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageRecognitionAsyncRequest extends $dara.Model {
   /**
    * @remarks
-   * The business order ID of the caller. It is recorded upon acceptance and returned as is when you query the result of the asynchronous task.
+   * The business order ID of the caller. It is recorded upon acceptance and returned as is when querying the asynchronous task result.
    * 
    * @example
    * order-20260928-001
@@ -23,17 +23,23 @@ export class ImageRecognitionAsyncRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The types of elements to be detected outside the image subject. Valid values: 1: Watermark. 2: Logo. 3: Text. 4: Text-containing color block. You can specify multiple values. This parameter and ObjectDetectElements cannot be both empty.
+   * The types of elements to detect outside the image subject. Valid values: 1 (watermark), 2 (logo), 3 (text), and 4 (text-containing color block). You can specify multiple values. This parameter and ObjectDetectElements cannot be empty at the same time.
+   * 
+   * @example
+   * [1,2,3,4]
    */
   nonObjectDetectElements?: number[];
   /**
    * @remarks
-   * The types of elements to be detected on the image subject. Valid values: 1: Watermark. 2: Logo. 3: Text. 4: Text-containing color block. You can specify multiple values.
+   * The types of elements to detect on the image subject. Valid values: 1 (watermark), 2 (logo), 3 (text), and 4 (text-containing color block). You can specify multiple values.
+   * 
+   * @example
+   * [1,2,3,4]
    */
   objectDetectElements?: number[];
   /**
    * @remarks
-   * Specifies whether to return the marginalization distance of the subject. Valid values: 1: Yes. 0: No. Default value: 0.
+   * Specifies whether to return the marginalization distance of the subject. Valid values: 1 (yes) and 0 (no). Default value: 0.
    * 
    * @example
    * 1
@@ -41,7 +47,7 @@ export class ImageRecognitionAsyncRequest extends $dara.Model {
   returnBorderPixel?: number;
   /**
    * @remarks
-   * Specifies whether to return the OCR result of the text in the recognized area. Valid values: 1: Yes. 0: No. Default value: 0.
+   * Specifies whether to return the OCR results of the text in the recognized area. Valid values: 1 (yes) and 0 (no). Default value: 0.
    * 
    * @example
    * 1
@@ -49,10 +55,7 @@ export class ImageRecognitionAsyncRequest extends $dara.Model {
   returnCharacter?: number;
   /**
    * @remarks
-   * Specifies whether to return the text proportion. Valid values: 1: Yes. 0: No. Default value: 0.
-   * This parameter takes effect only when the following two conditions are met:
-   * 1. ReturnCharacter is set to 1.
-   * 2. ObjectDetectElements or NonObjectDetectElements is set to 3, which means text recognition is required.
+   * Specifies whether to return the text proportion. Valid values: 1 (yes) and 0 (no). Default value: 0. This parameter takes effect only when the following conditions are met: 1. ReturnCharacter is set to 1. 2. ObjectDetectElements or NonObjectDetectElements is set to 3, which means text recognition is required.
    * 
    * @example
    * 1
@@ -60,7 +63,7 @@ export class ImageRecognitionAsyncRequest extends $dara.Model {
   returnCharacterProp?: number;
   /**
    * @remarks
-   * Specifies whether to return the number of subjects. Valid values: 1: Yes. 0: No. Default value: 0.
+   * Specifies whether to return the number of subjects. Valid values: 1 (yes) and 0 (no). Default value: 0.
    * 
    * @example
    * 1
@@ -68,7 +71,7 @@ export class ImageRecognitionAsyncRequest extends $dara.Model {
   returnProductNum?: number;
   /**
    * @remarks
-   * Specifies whether to return the area proportion of the subject. Valid values: 1: Yes. 0: No. Default value: 0.
+   * Specifies whether to return the area proportion of the subject. Valid values: 1 (yes) and 0 (no). Default value: 0.
    * 
    * @example
    * 1

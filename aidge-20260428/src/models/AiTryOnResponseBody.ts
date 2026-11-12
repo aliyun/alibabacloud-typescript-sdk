@@ -13,7 +13,7 @@ export class AiTryOnResponseBodyDataUsageMap extends $dara.Model {
   processedImageCount?: number;
   /**
    * @remarks
-   * The resolution of the processed images.
+   * The resolution of the image.
    * 
    * @example
    * 1K
@@ -45,7 +45,7 @@ export class AiTryOnResponseBodyDataUsageMap extends $dara.Model {
 export class AiTryOnResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The height of the result image in pixels.
+   * The actual height of the generated image.
    * 
    * @example
    * 1360
@@ -53,7 +53,7 @@ export class AiTryOnResponseBodyData extends $dara.Model {
   imageHeight?: string;
   /**
    * @remarks
-   * The URL of the virtual try-on result image.
+   * The URL of the generated image.
    * 
    * @example
    * https://example.com/virtual-try-on-result.png
@@ -61,7 +61,7 @@ export class AiTryOnResponseBodyData extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * The width of the result image in pixels.
+   * The actual width of the generated image.
    * 
    * @example
    * 768
@@ -69,7 +69,7 @@ export class AiTryOnResponseBodyData extends $dara.Model {
   imageWidth?: string;
   /**
    * @remarks
-   * The usage details.
+   * The usage fields.
    * 
    * @example
    * {"ProcessedImageCount":1,"Resolution":"1K"}
@@ -108,7 +108,7 @@ export class AiTryOnResponseBodyData extends $dara.Model {
 export class AiTryOnResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is not returned when the call is successful.
+   * The error code. This parameter is not returned if the call is successful.
    * 
    * @example
    * 200
@@ -121,7 +121,7 @@ export class AiTryOnResponseBody extends $dara.Model {
   data?: AiTryOnResponseBodyData;
   /**
    * @remarks
-   * The error message. This parameter is not returned when the call is successful.
+   * The error message. This parameter is not returned if the call is successful.
    * 
    * @example
    * OK
@@ -129,7 +129,7 @@ export class AiTryOnResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The ID of the request, which is used to identify a unique API call.
    * 
    * @example
    * E1AD60F1-BAC7-546B-9533-E7AD02B16E3F
@@ -137,9 +137,7 @@ export class AiTryOnResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - true: The call was successful.
-   * - false: The call failed.
+   * Indicates whether the call is successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * True

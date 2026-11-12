@@ -203,6 +203,9 @@ export class QueryDisplayKnowledgeResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The usage information. This parameter is empty for free API operations.
+   * 
+   * @example
+   * {"ProcessingCount":1}
    */
   usageMap?: { [key: string]: number };
   static names(): { [key: string]: string } {
