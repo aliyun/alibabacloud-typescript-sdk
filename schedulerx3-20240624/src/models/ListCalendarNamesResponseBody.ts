@@ -13,7 +13,7 @@ export class ListCalendarNamesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * -
+   * The list of calendar names.
    */
   data?: string[];
   /**
@@ -34,11 +34,9 @@ export class ListCalendarNamesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * - **true**: The request succeeded.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the call was successful.
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

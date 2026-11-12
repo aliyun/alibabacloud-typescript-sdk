@@ -6,11 +6,17 @@ export class CreateClusterRequestTag extends $dara.Model {
   /**
    * @remarks
    * The tag key.
+   * 
+   * @example
+   * environment
    */
   key?: string;
   /**
    * @remarks
    * The tag value.
+   * 
+   * @example
+   * test
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -39,12 +45,18 @@ export class CreateClusterRequestTag extends $dara.Model {
 export class CreateClusterRequestVSwitches extends $dara.Model {
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-2ze745n3r2sfqtahhubpl
    */
   vSwitchId?: string;
   /**
    * @remarks
    * The zone ID of the vSwitch.
+   * 
+   * @example
+   * cn-hangzhou-j
    */
   zoneId?: string;
   static names(): { [key: string]: string } {
@@ -73,7 +85,7 @@ export class CreateClusterRequestVSwitches extends $dara.Model {
 export class CreateClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing type.
+   * The billing method.
    * 
    * @example
    * POSTPAY
@@ -84,6 +96,9 @@ export class CreateClusterRequest extends $dara.Model {
    * The name of the cluster.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * qianxi-test-0812
    */
   clusterName?: string;
   /**
@@ -93,7 +108,10 @@ export class CreateClusterRequest extends $dara.Model {
    * - scx.small.x1
    * - scx.small.x2
    * - scx.medium.x1
-   * - scx.medium.x2.
+   * - scx.medium.x2
+   * 
+   * @example
+   * scx.dev.x1
    */
   clusterSpec?: string;
   /**
@@ -115,6 +133,9 @@ export class CreateClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The engine type. Valid values: xxljob.
+   * 
+   * @example
+   * xxljob
    */
   engineType?: string;
   /**
@@ -135,17 +156,20 @@ export class CreateClusterRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The list of tags. A maximum of 20 tags are supported.
+   * The list of tags. You can add up to 20 tags.
    */
   tag?: CreateClusterRequestTag[];
   /**
    * @remarks
-   * The information about the vSwitches.
+   * The vSwitch information.
    */
   vSwitches?: CreateClusterRequestVSwitches[];
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-aa1a18236n90rqhuhhnhh
    */
   vpcId?: string;
   static names(): { [key: string]: string } {

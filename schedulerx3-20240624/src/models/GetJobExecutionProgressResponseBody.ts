@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetJobExecutionProgressResponseBodyDataRootProgress extends $dara.Model {
   /**
    * @remarks
-   * The number of finished items.
+   * The number of completed tasks.
    * 
    * @example
    * 2
@@ -61,7 +61,10 @@ export class GetJobExecutionProgressResponseBodyDataShardingProgressStatusType e
   name?: string;
   /**
    * @remarks
-   * The tip information.
+   * The prompt message.
+   * 
+   * @example
+   * {"error":"Task execution failed"}
    */
   tips?: { [key: string]: string };
   static names(): { [key: string]: string } {
@@ -95,7 +98,7 @@ export class GetJobExecutionProgressResponseBodyDataShardingProgressStatusType e
 export class GetJobExecutionProgressResponseBodyDataShardingProgress extends $dara.Model {
   /**
    * @remarks
-   * ID。
+   * The ID.
    * 
    * @example
    * 1
@@ -103,7 +106,7 @@ export class GetJobExecutionProgressResponseBodyDataShardingProgress extends $da
   id?: number;
   /**
    * @remarks
-   * The shard execution ID.
+   * The sharding execution ID.
    * 
    * @example
    * 1306189481388277762
@@ -111,7 +114,7 @@ export class GetJobExecutionProgressResponseBodyDataShardingProgress extends $da
   jobExecutionId?: string;
   /**
    * @remarks
-   * The shard execution result.
+   * The sharding execution result.
    * 
    * @example
    * 2,4,6,8,10
@@ -181,7 +184,7 @@ export class GetJobExecutionProgressResponseBodyDataShardingProgress extends $da
 export class GetJobExecutionProgressResponseBodyDataTaskProgress extends $dara.Model {
   /**
    * @remarks
-   * The number of failed items.
+   * The number of failed tasks.
    * 
    * @example
    * 100
@@ -197,7 +200,7 @@ export class GetJobExecutionProgressResponseBodyDataTaskProgress extends $dara.M
   name?: string;
   /**
    * @remarks
-   * The number of pulled items.
+   * The number of pulled tasks.
    * 
    * @example
    * 10
@@ -205,7 +208,7 @@ export class GetJobExecutionProgressResponseBodyDataTaskProgress extends $dara.M
   pulled?: number;
   /**
    * @remarks
-   * The number of items in the queue.
+   * The number of tasks in the queue.
    * 
    * @example
    * 100
@@ -213,7 +216,7 @@ export class GetJobExecutionProgressResponseBodyDataTaskProgress extends $dara.M
   queue?: number;
   /**
    * @remarks
-   * The number of running items.
+   * The number of running tasks.
    * 
    * @example
    * 1
@@ -221,7 +224,7 @@ export class GetJobExecutionProgressResponseBodyDataTaskProgress extends $dara.M
   running?: number;
   /**
    * @remarks
-   * The number of successful items.
+   * The number of successful tasks.
    * 
    * @example
    * 100
@@ -271,7 +274,7 @@ export class GetJobExecutionProgressResponseBodyDataTaskProgress extends $dara.M
 export class GetJobExecutionProgressResponseBodyDataTotalProgress extends $dara.Model {
   /**
    * @remarks
-   * The number of finished items.
+   * The number of completed tasks.
    * 
    * @example
    * 15
@@ -311,7 +314,7 @@ export class GetJobExecutionProgressResponseBodyDataTotalProgress extends $dara.
 export class GetJobExecutionProgressResponseBodyDataWorkerProgress extends $dara.Model {
   /**
    * @remarks
-   * The number of failed items.
+   * The number of failed tasks.
    * 
    * @example
    * 20
@@ -319,7 +322,7 @@ export class GetJobExecutionProgressResponseBodyDataWorkerProgress extends $dara
   failed?: number;
   /**
    * @remarks
-   * The number of pulled items.
+   * The number of pulled tasks.
    * 
    * @example
    * 20
@@ -327,7 +330,7 @@ export class GetJobExecutionProgressResponseBodyDataWorkerProgress extends $dara
   pulled?: number;
   /**
    * @remarks
-   * The number of items in the queue.
+   * The number of tasks in the queue.
    * 
    * @example
    * 20
@@ -335,7 +338,7 @@ export class GetJobExecutionProgressResponseBodyDataWorkerProgress extends $dara
   queue?: number;
   /**
    * @remarks
-   * The number of running items.
+   * The number of running tasks.
    * 
    * @example
    * 20
@@ -343,7 +346,7 @@ export class GetJobExecutionProgressResponseBodyDataWorkerProgress extends $dara
   running?: number;
   /**
    * @remarks
-   * The number of successful items.
+   * The number of successful tasks.
    * 
    * @example
    * 20
@@ -411,7 +414,7 @@ export class GetJobExecutionProgressResponseBodyDataWorkerProgress extends $dara
 export class GetJobExecutionProgressResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The end time.
+   * The end time. The value is a UNIX timestamp string in milliseconds.
    * 
    * @example
    * 1758594961000
@@ -419,10 +422,10 @@ export class GetJobExecutionProgressResponseBodyData extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The task description.
+   * The job description.
    * 
    * @example
-   * 测试任务
+   * Test task
    */
   jobDescription?: string;
   /**
@@ -437,7 +440,7 @@ export class GetJobExecutionProgressResponseBodyData extends $dara.Model {
   shardingProgress?: GetJobExecutionProgressResponseBodyDataShardingProgress[];
   /**
    * @remarks
-   * The start time.
+   * The start time. The value is a UNIX timestamp string in milliseconds.
    * 
    * @example
    * 1758506761000
@@ -455,7 +458,7 @@ export class GetJobExecutionProgressResponseBodyData extends $dara.Model {
   totalProgress?: GetJobExecutionProgressResponseBodyDataTotalProgress;
   /**
    * @remarks
-   * The execution progress by worker.
+   * The worker-level execution progress.
    */
   workerProgress?: GetJobExecutionProgressResponseBodyDataWorkerProgress[];
   static names(): { [key: string]: string } {
@@ -519,7 +522,7 @@ export class GetJobExecutionProgressResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * -
+   * The task execution progress information.
    */
   data?: GetJobExecutionProgressResponseBodyData;
   /**
@@ -532,7 +535,7 @@ export class GetJobExecutionProgressResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID generated by Alibaba Cloud for this request. You can use this ID to troubleshoot issues.
+   * The ID of the request. This ID is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot and locate issues.
    * 
    * @example
    * 9B57FDD7-ABBE-5030-B348-86EB9943DB59

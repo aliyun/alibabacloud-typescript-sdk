@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperateHoldWorkflowExecutionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Response Code.
+   * The response code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class OperateHoldWorkflowExecutionResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The Error Message returned if the request fails.
+   * The error message.
    * 
    * @example
    * not support query script history, please upgrade engine version to 2.2.2+
@@ -21,7 +21,7 @@ export class OperateHoldWorkflowExecutionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique ID generated for this request.
+   * Id of the request
    * 
    * @example
    * D0DE9C33-992A-580B-89C4-B609A292748D
@@ -29,10 +29,8 @@ export class OperateHoldWorkflowExecutionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**: The call was successful.
-   * 
+   * Indicates whether the call is successful. Valid values:
+   * - **true**: The call is successful.
    * - **false**: The call failed.
    * 
    * @example

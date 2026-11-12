@@ -25,7 +25,7 @@ export class OperateStopWorkflowExecutionRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The workflow execution ID.
+   * The workflow instance ID.
    * 
    * This parameter is required.
    * 

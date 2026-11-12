@@ -25,7 +25,7 @@ export class UpdateWorkflowDAGVersionRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The Workflow DAG version.
+   * The workflow DAG version number.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class UpdateWorkflowDAGVersionRequest extends $dara.Model {
   dagVersion?: string;
   /**
    * @remarks
-   * The Workflow ID.
+   * The workflow ID.
    * 
    * This parameter is required.
    * 

@@ -25,7 +25,7 @@ export class DeleteWorkflowsShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * If set to `true`, all jobs within the specified workflows are also deleted.
+   * Specifies whether to delete all jobs in the workflow.
    * 
    * @example
    * false
@@ -33,7 +33,7 @@ export class DeleteWorkflowsShrinkRequest extends $dara.Model {
   deleteJobs?: boolean;
   /**
    * @remarks
-   * A list of workflow IDs to delete.
+   * The list of workflow IDs.
    * 
    * This parameter is required.
    */

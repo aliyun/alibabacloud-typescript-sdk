@@ -29,7 +29,7 @@ export class GetJobExecutionThreadDumpRequest extends $dara.Model {
   executorAddr?: string;
   /**
    * @remarks
-   * The job execution ID.
+   * The task execution ID.
    * 
    * @example
    * 1310630367761285120

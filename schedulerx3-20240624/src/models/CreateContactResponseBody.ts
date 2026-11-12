@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateContactResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * 新建联系人的 id，后续 Update/Delete 时使用
+   * The contact ID.
    * 
    * @example
    * 5000
@@ -34,22 +34,40 @@ export class CreateContactResponseBodyData extends $dara.Model {
 
 export class CreateContactResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The returned result.
+   */
   data?: CreateContactResponseBodyData;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter error: content is null.
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 2C3E52FF-CBE9-5C0E-8252-37ACFF1F5EFF
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call fails.
+   * 
    * @example
    * true
    */

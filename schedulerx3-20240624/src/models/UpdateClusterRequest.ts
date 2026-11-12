@@ -10,7 +10,7 @@ export class UpdateClusterRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * xxljob-c20f7ec9a78
+   * xxljob-b6ec1xxxx
    */
   clusterId?: string;
   /**
@@ -18,10 +18,13 @@ export class UpdateClusterRequest extends $dara.Model {
    * The cluster name.
    * 
    * @example
-   * xx-test-1107
+   * qianxi-test-0812
    */
   clusterName?: string;
   /**
+   * @remarks
+   * The instance-level IP whitelist.
+   * 
    * @example
    * 192.168.1.0/24
    */

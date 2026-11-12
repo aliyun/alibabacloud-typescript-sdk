@@ -25,7 +25,7 @@ export class OperateDisableWorkflowsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * A list of workflow IDs.
+   * The list of workflow IDs.
    * 
    * This parameter is required.
    */

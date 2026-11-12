@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDatasourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The response code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteDatasourceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * Parameter error: content is null.
@@ -21,7 +21,7 @@ export class DeleteDatasourceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * CF99C381-C8F6-5A8D-8C24-57F46B706D2D
@@ -29,9 +29,9 @@ export class DeleteDatasourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the invocation succeeded.  
-   * - true: The invocation succeeded.  
-   * - false: The invocation failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

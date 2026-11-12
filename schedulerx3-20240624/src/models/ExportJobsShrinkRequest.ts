@@ -25,7 +25,7 @@ export class ExportJobsShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The type of jobs to export. The default value is 1.
+   * The export task type. Default value: 1.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class ExportJobsShrinkRequest extends $dara.Model {
   exportJobType?: number;
   /**
    * @remarks
-   * A list of job IDs.
+   * The list of task IDs.
    */
   jobIdsShrink?: string;
   static names(): { [key: string]: string } {

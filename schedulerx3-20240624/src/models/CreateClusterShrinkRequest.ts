@@ -6,11 +6,17 @@ export class CreateClusterShrinkRequestTag extends $dara.Model {
   /**
    * @remarks
    * The tag key.
+   * 
+   * @example
+   * environment
    */
   key?: string;
   /**
    * @remarks
    * The tag value.
+   * 
+   * @example
+   * test
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -39,7 +45,7 @@ export class CreateClusterShrinkRequestTag extends $dara.Model {
 export class CreateClusterShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The billing type.
+   * The billing method.
    * 
    * @example
    * POSTPAY
@@ -50,6 +56,9 @@ export class CreateClusterShrinkRequest extends $dara.Model {
    * The name of the cluster.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * qianxi-test-0812
    */
   clusterName?: string;
   /**
@@ -59,7 +68,10 @@ export class CreateClusterShrinkRequest extends $dara.Model {
    * - scx.small.x1
    * - scx.small.x2
    * - scx.medium.x1
-   * - scx.medium.x2.
+   * - scx.medium.x2
+   * 
+   * @example
+   * scx.dev.x1
    */
   clusterSpec?: string;
   /**
@@ -81,6 +93,9 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The engine type. Valid values: xxljob.
+   * 
+   * @example
+   * xxljob
    */
   engineType?: string;
   /**
@@ -101,17 +116,20 @@ export class CreateClusterShrinkRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The list of tags. A maximum of 20 tags are supported.
+   * The list of tags. You can add up to 20 tags.
    */
   tag?: CreateClusterShrinkRequestTag[];
   /**
    * @remarks
-   * The information about the vSwitches.
+   * The vSwitch information.
    */
   vSwitchesShrink?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-aa1a18236n90rqhuhhnhh
    */
   vpcId?: string;
   static names(): { [key: string]: string } {

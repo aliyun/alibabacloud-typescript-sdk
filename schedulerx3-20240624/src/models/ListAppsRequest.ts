@@ -6,6 +6,9 @@ export class ListAppsRequest extends $dara.Model {
   /**
    * @remarks
    * The application name.
+   * 
+   * @example
+   * test-app
    */
   appName?: string;
   /**
@@ -13,6 +16,9 @@ export class ListAppsRequest extends $dara.Model {
    * The cluster ID.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * xxljob-b6ec1xxxx
    */
   clusterId?: string;
   /**
@@ -28,12 +34,15 @@ export class ListAppsRequest extends $dara.Model {
    * The page size.
    * 
    * @example
-   * 20
+   * 10
    */
   pageSize?: number;
   /**
    * @remarks
    * The title.
+   * 
+   * @example
+   * Test application
    */
   title?: string;
   static names(): { [key: string]: string } {

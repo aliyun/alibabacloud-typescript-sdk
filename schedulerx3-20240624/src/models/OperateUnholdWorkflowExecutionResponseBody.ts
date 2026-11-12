@@ -13,7 +13,7 @@ export class OperateUnholdWorkflowExecutionResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The response message.
+   * The detailed information.
    * 
    * @example
    * Parameter error: content is null.
@@ -21,7 +21,7 @@ export class OperateUnholdWorkflowExecutionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 3835AA29-2298-5434-BC53-9CC377CDFD2C
@@ -29,11 +29,9 @@ export class OperateUnholdWorkflowExecutionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * - `true`: The request was successful.
-   * 
-   * - `false`: The request failed.
+   * Indicates whether the call was successful.
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

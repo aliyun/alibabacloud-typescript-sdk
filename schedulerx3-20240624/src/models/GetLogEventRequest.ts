@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLogEventRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * xxl-job-executor-perf-test-241
@@ -13,7 +13,7 @@ export class GetLogEventRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The unique identifier for the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class GetLogEventRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end of the query\\"s time range, specified as a Unix timestamp in milliseconds.
+   * The end time.
    * 
    * @example
    * 1721636220
@@ -31,7 +31,7 @@ export class GetLogEventRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The severity level for filtering events.
+   * The event.
    * 
    * @example
    * INFO
@@ -39,7 +39,7 @@ export class GetLogEventRequest extends $dara.Model {
   event?: string;
   /**
    * @remarks
-   * The type of event to retrieve.
+   * The event type.
    * 
    * @example
    * JOB
@@ -47,7 +47,7 @@ export class GetLogEventRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * The unique identifier for the job execution.
+   * The job execution ID.
    * 
    * @example
    * 101
@@ -55,7 +55,7 @@ export class GetLogEventRequest extends $dara.Model {
   jobExecutionId?: number;
   /**
    * @remarks
-   * The name of the job.
+   * The job name.
    * 
    * @example
    * test
@@ -63,7 +63,7 @@ export class GetLogEventRequest extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * A keyword to search for in log events.
+   * The keyword.
    * 
    * @example
    * test_partition_tbl
@@ -71,7 +71,7 @@ export class GetLogEventRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The page number to retrieve.
+   * The page number.
    * 
    * @example
    * 1
@@ -79,7 +79,7 @@ export class GetLogEventRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The maximum number of results to return per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -87,11 +87,9 @@ export class GetLogEventRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies the sort order of events.
-   * 
-   * - **true**: Sorts events in descending order.
-   * 
-   * - **false**: Sorts events in ascending order.
+   * Specifies whether to sort the results in descending order. Valid values:
+   * - **true**: Sorts the results in descending order.
+   * - **false**: Sorts the results in ascending order.
    * 
    * @example
    * false
@@ -99,7 +97,7 @@ export class GetLogEventRequest extends $dara.Model {
   reverse?: boolean;
   /**
    * @remarks
-   * The start of the query\\"s time range, specified as a Unix timestamp in milliseconds.
+   * The start time. Specify a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1721268302000
@@ -107,7 +105,7 @@ export class GetLogEventRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The unique identifier for the workflow execution.
+   * The workflow execution ID.
    * 
    * @example
    * 1450568762586578000
@@ -115,10 +113,10 @@ export class GetLogEventRequest extends $dara.Model {
   workflowExecutionId?: number;
   /**
    * @remarks
-   * The name of the workflow.
+   * The workflow name.
    * 
    * @example
-   * 流程001
+   * Workflow001
    */
   workflowName?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCalendarsResponseBodyDataRecords extends $dara.Model {
   /**
    * @remarks
-   * The name of the calendar.
+   * The calendar name.
    * 
    * @example
    * workday
@@ -13,7 +13,7 @@ export class ListCalendarsResponseBodyDataRecords extends $dara.Model {
   calendarName?: string;
   /**
    * @remarks
-   * A JSON string that represents an array of months and their corresponding days.
+   * The calendar for each month in JSON array format.
    * 
    * @example
    * [
@@ -68,7 +68,7 @@ export class ListCalendarsResponseBodyDataRecords extends $dara.Model {
 export class ListCalendarsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned per page.
+   * The maximum number of entries to return for the current request. Default value: 10.
    * 
    * @example
    * 10
@@ -76,7 +76,7 @@ export class ListCalendarsResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results. If this parameter is not returned, all results have been retrieved.
+   * The token that is returned by the server when the data that meets the query conditions is not completely read. You can use this token to continue reading the remaining data. You do not need to specify this parameter for the first query.
    * 
    * @example
    * eCKqVlS5FKF5EWGGOo8EgQ==
@@ -84,7 +84,7 @@ export class ListCalendarsResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * A list of calendars.
+   * The list of records.
    */
   records?: ListCalendarsResponseBodyDataRecords[];
   /**
@@ -136,7 +136,7 @@ export class ListCalendarsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * - The returned data.
+   * The calendar list and pagination information.
    */
   data?: ListCalendarsResponseBodyData;
   /**
@@ -149,7 +149,7 @@ export class ListCalendarsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * Id of the request
    * 
    * @example
    * 3835AA29-2298-5434-BC53-9CC377CDFD2C
@@ -157,11 +157,9 @@ export class ListCalendarsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * - **true**: The request succeeded.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the call is successful.
+   * - **true**: The call is successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

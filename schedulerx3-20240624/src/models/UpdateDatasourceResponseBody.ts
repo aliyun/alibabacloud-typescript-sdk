@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDatasourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code
+   * The response code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UpdateDatasourceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * Parameter format error
@@ -29,9 +29,9 @@ export class UpdateDatasourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the invocation succeeded.  
-   * - true: The invocation succeeded.  
-   * - false: The invocation failed.
+   * Indicates whether the call is successful.
+   * - true: The call is successful.
+   * - false: The call failed.
    * 
    * @example
    * true

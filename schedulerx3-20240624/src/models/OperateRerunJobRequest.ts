@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OperateRerunJobRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * 1625
+   */
   appId?: number;
   /**
    * @remarks
@@ -26,7 +33,7 @@ export class OperateRerunJobRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The data timestamp.
+   * The data timestamp, in the HH:mm:ss format.
    * 
    * This parameter is required.
    * 
@@ -36,7 +43,7 @@ export class OperateRerunJobRequest extends $dara.Model {
   dataTime?: string;
   /**
    * @remarks
-   * The end time.
+   * The end time, specified as a UNIX timestamp in milliseconds.
    * 
    * This parameter is required.
    * 
@@ -46,7 +53,7 @@ export class OperateRerunJobRequest extends $dara.Model {
   endDate?: number;
   /**
    * @remarks
-   * The node ID.
+   * The job ID.
    * 
    * This parameter is required.
    * 
@@ -56,7 +63,7 @@ export class OperateRerunJobRequest extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
-   * The start time.
+   * The start time, specified as a UNIX timestamp in milliseconds.
    * 
    * This parameter is required.
    * 

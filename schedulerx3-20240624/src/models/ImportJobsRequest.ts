@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImportJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * Determines whether to automatically create the Application if it does not exist.
+   * Specifies whether to enable automatic creation of applications.
    * 
    * @example
    * true
@@ -23,7 +23,7 @@ export class ImportJobsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The jobs to import, formatted as a JSON string.
+   * The content to import.
    * 
    * @example
    * {
@@ -85,11 +85,9 @@ export class ImportJobsRequest extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Determines whether to overwrite jobs if they already exist. The default is **true**.
-   * 
-   * - **true**: Overwrites existing jobs.
-   * 
-   * - **false**: Does not overwrite existing jobs.
+   * Specifies whether to overwrite the task if it already exists. Default value: true.
+   * - true: Overwrite.
+   * - false: Do not overwrite.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperateUnholdJobExecutionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Response Code.
+   * The response code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class OperateUnholdJobExecutionResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The Error Message.
+   * The error message.
    * 
    * @example
    * Parameter error: content is null.
@@ -21,7 +21,7 @@ export class OperateUnholdJobExecutionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The Request ID.
+   * Id of the request
    * 
    * @example
    * D0DE9C33-992A-580B-89C4-B609A292748D
@@ -29,11 +29,9 @@ export class OperateUnholdJobExecutionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded:
-   * 
-   * - true: The request succeeded.
-   * 
-   * - false: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

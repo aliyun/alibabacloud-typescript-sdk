@@ -25,7 +25,7 @@ export class UpdateJobScriptRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * This parameter is required.
    * 
@@ -41,10 +41,10 @@ export class UpdateJobScriptRequest extends $dara.Model {
    * #!/bin/bash
    * echo "xxl-job: hello shell"
    * 
-   * echo "脚本位置: $0"
-   * echo "任务参数: $1"
-   * echo "分片序号 = $2"
-   * echo "分片总数 = $3"
+   * echo "Script path: $0"
+   * echo "Task parameter: $1"
+   * echo "Shard index = $2"
+   * echo "Total shards = $3"
    * 
    * echo "Good bye!"
    * exit 0
@@ -52,7 +52,7 @@ export class UpdateJobScriptRequest extends $dara.Model {
   scriptContent?: string;
   /**
    * @remarks
-   * The description of the script version.
+   * The script version description.
    * 
    * This parameter is required.
    * 

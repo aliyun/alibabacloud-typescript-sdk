@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateDatasourceRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateDatasourceRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Data source connection parameters
+   * The datasource connection parameters.
    * 
    * @example
    * {"host":"rm-bp1f03mxxxxx.mysql.rds.aliyuncs.com","port":3306,"userName":"test01","database":"test01","other":{"useSSL":"false"}}
@@ -23,7 +23,7 @@ export class UpdateDatasourceRequest extends $dara.Model {
   connectionParams?: string;
   /**
    * @remarks
-   * DataSource ID, which can be obtained by calling the ListDatasources API.
+   * The datasource ID. You can obtain this ID by calling the ListDatasources operation.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class UpdateDatasourceRequest extends $dara.Model {
   datasourceId?: number;
   /**
    * @remarks
-   * Data source description
+   * The datasource description.
    * 
    * @example
    * None
@@ -41,15 +41,15 @@ export class UpdateDatasourceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Datasource Name
+   * The datasource name.
    * 
    * @example
-   * 账单拉取-支付宝团购
+   * Bill pull - Alipay group buying
    */
   name?: string;
   /**
    * @remarks
-   * Database password
+   * The database password.
    * 
    * @example
    * 2F9e9@a69c!e18b569c8

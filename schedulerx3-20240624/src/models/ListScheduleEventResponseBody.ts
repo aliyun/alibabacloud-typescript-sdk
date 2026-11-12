@@ -13,7 +13,7 @@ export class ListScheduleEventResponseBodyDataRecords extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The event content.
+   * The content.
    * 
    * @example
    * hello word
@@ -21,7 +21,7 @@ export class ListScheduleEventResponseBodyDataRecords extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The event status.
+   * The event ID.
    * 
    * @example
    * Failed
@@ -53,7 +53,7 @@ export class ListScheduleEventResponseBodyDataRecords extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The timestamp of the event. The time is in the `yyyy-MM-dd HH:mm:ss` format.
+   * The log printing time, in the `yyyy-MM-dd HH:mm:ss` format.
    * 
    * @example
    * 2024-10-31 16:43:51
@@ -69,7 +69,7 @@ export class ListScheduleEventResponseBodyDataRecords extends $dara.Model {
   workerAddr?: string;
   /**
    * @remarks
-   * The workflow execution ID.
+   * The workflow execution record ID.
    * 
    * @example
    * 1450568762586578000
@@ -80,7 +80,7 @@ export class ListScheduleEventResponseBodyDataRecords extends $dara.Model {
    * The workflow name.
    * 
    * @example
-   * 工作流0001
+   * Workflow0001
    */
   workflowName?: string;
   static names(): { [key: string]: string } {
@@ -141,12 +141,12 @@ export class ListScheduleEventResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The array of event records.
+   * The result set.
    */
   records?: ListScheduleEventResponseBodyDataRecords[];
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 100
@@ -193,12 +193,12 @@ export class ListScheduleEventResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The paginated results of scheduling events.
    */
   data?: ListScheduleEventResponseBodyData;
   /**
    * @remarks
-   * The returned error message.
+   * The error message.
    * 
    * @example
    * Parameter check error
@@ -206,7 +206,7 @@ export class ListScheduleEventResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier for the request, which is used to troubleshoot issues.
+   * The ID of the request.
    * 
    * @example
    * B880122A-B0E4-52E8-8F54-87DB7779EB74
@@ -214,10 +214,8 @@ export class ListScheduleEventResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
-   * 
-   * - **true**: The call succeeded.
-   * 
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
    * - **false**: The call failed.
    * 
    * @example

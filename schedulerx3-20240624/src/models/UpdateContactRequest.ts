@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateContactRequest extends $dara.Model {
   /**
    * @remarks
-   * 渠道参数配置 JSON 字符串（可选，传入则更新）
+   * The JSON character string for channel parameter settings. This parameter is optional. If specified, the settings are updated.
    * 
    * @example
    * {"channels":[{"channelType":"dingtalk","clientId":"xxx","clientSecret":"xxx","targetType":"group","targetId":"xxx","robotCode":"xxx"}]}
@@ -13,6 +13,8 @@ export class UpdateContactRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
+   * The name of the contact to update.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -21,7 +23,7 @@ export class UpdateContactRequest extends $dara.Model {
   contactName?: string;
   /**
    * @remarks
-   * 是否启用（true/false，可选）
+   * Specifies whether to enable or disable the notification channel for the contact.
    * 
    * @example
    * true
@@ -29,7 +31,7 @@ export class UpdateContactRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * 渠道大类（可选，传入则更新）
+   * The type of the contact.
    * 
    * @example
    * IM

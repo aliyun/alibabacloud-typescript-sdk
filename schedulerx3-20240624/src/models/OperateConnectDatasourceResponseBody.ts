@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperateConnectDatasourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code
+   * The response code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class OperateConnectDatasourceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * Parameter error: content is null.
@@ -21,7 +21,7 @@ export class OperateConnectDatasourceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * BAC1ADB5-EEB5-5834-93D8-522E067AF8D9
@@ -29,9 +29,9 @@ export class OperateConnectDatasourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the invocation succeeded.  
-   * - true: The invocation succeeded.  
-   * - false: The invocation failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

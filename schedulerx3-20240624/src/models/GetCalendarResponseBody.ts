@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCalendarResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the calendar.
+   * The calendar name.
    * 
    * @example
    * workday
@@ -13,7 +13,7 @@ export class GetCalendarResponseBodyData extends $dara.Model {
   calendarName?: string;
   /**
    * @remarks
-   * A JSON string that represents an array of objects. Each object specifies the days for a particular month.
+   * The months.
    * 
    * @example
    * [
@@ -76,7 +76,7 @@ export class GetCalendarResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * - The data returned.
+   * The calendar information for the specified year.
    */
   data?: GetCalendarResponseBodyData;
   /**
@@ -89,7 +89,7 @@ export class GetCalendarResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 2C3E52FF-CBE9-5C0E-8252-37ACFF1F5EFF
@@ -97,11 +97,9 @@ export class GetCalendarResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * - **true**
-   * 
-   * - **false**
+   * Indicates whether the call was successful.
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

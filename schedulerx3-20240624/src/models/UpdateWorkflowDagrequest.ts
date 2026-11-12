@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWorkflowDAGRequestDagEdges extends $dara.Model {
   /**
    * @remarks
-   * The job ID of the source node.
+   * The ID of the source node for the edge.
    * 
    * @example
    * 3
@@ -13,7 +13,7 @@ export class UpdateWorkflowDAGRequestDagEdges extends $dara.Model {
   source?: number;
   /**
    * @remarks
-   * The job ID of the target node.
+   * The ID of the target node for the edge.
    * 
    * @example
    * 4
@@ -45,7 +45,7 @@ export class UpdateWorkflowDAGRequestDagEdges extends $dara.Model {
 export class UpdateWorkflowDAGRequestDagNodesCoordinate extends $dara.Model {
   /**
    * @remarks
-   * Optional. The height of the node.
+   * The node height. This parameter is optional.
    * 
    * @example
    * 20
@@ -53,7 +53,7 @@ export class UpdateWorkflowDAGRequestDagNodesCoordinate extends $dara.Model {
   height?: number;
   /**
    * @remarks
-   * Optional. The width of the node.
+   * The node width. This parameter is optional.
    * 
    * @example
    * 100
@@ -61,7 +61,7 @@ export class UpdateWorkflowDAGRequestDagNodesCoordinate extends $dara.Model {
   width?: number;
   /**
    * @remarks
-   * The x-coordinate.
+   * The X coordinate.
    * 
    * @example
    * 50
@@ -69,7 +69,7 @@ export class UpdateWorkflowDAGRequestDagNodesCoordinate extends $dara.Model {
   x?: number;
   /**
    * @remarks
-   * The y-coordinate.
+   * The Y coordinate.
    * 
    * @example
    * 50
@@ -105,7 +105,7 @@ export class UpdateWorkflowDAGRequestDagNodesCoordinate extends $dara.Model {
 export class UpdateWorkflowDAGRequestDagNodes extends $dara.Model {
   /**
    * @remarks
-   * The logical expression of the node.
+   * The logical node expression.
    * 
    * @example
    * {
@@ -165,12 +165,12 @@ export class UpdateWorkflowDAGRequestDagNodes extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The coordinates of the node.
+   * The node coordinates.
    */
   coordinate?: UpdateWorkflowDAGRequestDagNodesCoordinate;
   /**
    * @remarks
-   * The job ID.
+   * The node ID.
    * 
    * @example
    * 1
@@ -207,12 +207,12 @@ export class UpdateWorkflowDAGRequestDagNodes extends $dara.Model {
 export class UpdateWorkflowDAGRequestDag extends $dara.Model {
   /**
    * @remarks
-   * A list of edges in the workflow.
+   * The list of workflow edges.
    */
   edges?: UpdateWorkflowDAGRequestDagEdges[];
   /**
    * @remarks
-   * A list of nodes in the workflow.
+   * The list of workflow nodes.
    */
   nodes?: UpdateWorkflowDAGRequestDagNodes[];
   static names(): { [key: string]: string } {
@@ -267,14 +267,14 @@ export class UpdateWorkflowDAGRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The directed acyclic graph (DAG) of the workflow.
+   * The workflow DAG information.
    * 
    * This parameter is required.
    */
   dag?: UpdateWorkflowDAGRequestDag;
   /**
    * @remarks
-   * The version of the DAG. To obtain this value, call the [ListDAGVersions](https://help.aliyun.com/document_detail/465989.html) operation.
+   * The workflow version number. You can call the [ListDAGVersions](https://help.aliyun.com/document_detail/465989.html) operation to obtain the value of this parameter.
    * 
    * @example
    * 1137005

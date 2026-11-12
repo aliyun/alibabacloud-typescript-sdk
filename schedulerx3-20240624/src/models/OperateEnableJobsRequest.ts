@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OperateEnableJobsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * 1625
+   */
   appGroupId?: number;
   /**
    * @remarks
@@ -24,6 +31,10 @@ export class OperateEnableJobsRequest extends $dara.Model {
    * xxljob-b6ec1xxxx
    */
   clusterId?: string;
+  /**
+   * @remarks
+   * The list of task IDs to operate on.
+   */
   jobIds?: number[];
   static names(): { [key: string]: string } {
     return {

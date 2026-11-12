@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ListClustersRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * environment
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * test
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -46,6 +60,9 @@ export class ListClustersRequest extends $dara.Model {
    */
   clusterName?: string;
   /**
+   * @remarks
+   * The cluster type.
+   * 
    * @example
    * 1
    */
@@ -60,12 +77,16 @@ export class ListClustersRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The number of entries per page in a paging query.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The list of tags used to filter clusters.
+   */
   tag?: ListClustersRequestTag[];
   static names(): { [key: string]: string } {
     return {

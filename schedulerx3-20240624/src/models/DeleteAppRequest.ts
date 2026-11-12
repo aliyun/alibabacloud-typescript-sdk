@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the App Group.
+   * The application name.
    * 
    * This parameter is required.
    * 

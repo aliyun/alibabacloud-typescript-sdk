@@ -13,7 +13,7 @@ export class DeleteCalendarResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The response message.
+   * The error message.
    * 
    * @example
    * Parameter error: content is null.
@@ -21,7 +21,7 @@ export class DeleteCalendarResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier for the request.
+   * Id of the request
    * 
    * @example
    * CF99C381-C8F6-5A8D-8C24-57F46B706D2D
@@ -29,11 +29,9 @@ export class DeleteCalendarResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
-   * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the call is successful.
+   * - **true**: The call is successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

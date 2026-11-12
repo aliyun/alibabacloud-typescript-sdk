@@ -23,7 +23,7 @@ export class ListJobExecutionsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end time.
+   * The end time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-11-12 20:50:56
@@ -71,7 +71,7 @@ export class ListJobExecutionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time.
+   * The start time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-11-12 20:50:55

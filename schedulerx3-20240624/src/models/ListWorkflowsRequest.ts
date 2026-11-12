@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkflowsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * @example
    * test-app
@@ -13,7 +13,7 @@ export class ListWorkflowsRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListWorkflowsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The description of the workflow.
+   * The workflow description.
    * 
    * @example
    * my first workflow
@@ -31,7 +31,7 @@ export class ListWorkflowsRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The maximum number of entries to return. The default value is 10.
+   * The maximum number of entries to return for this request. Default value: 10.
    * 
    * @example
    * 10
@@ -39,7 +39,7 @@ export class ListWorkflowsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The name of the workflow.
+   * The workflow name.
    * 
    * @example
    * myWorkflow
@@ -47,7 +47,7 @@ export class ListWorkflowsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. You do not need to specify this parameter for the first request. If the return value is empty, no more data is returned.
+   * The token that specifies the position where the current call returns the read data. An empty value indicates that all data has been read. You do not need to specify this parameter for the first query.
    * 
    * @example
    * eCKqVlS5FKF5EWGGOo8EgQ==
@@ -63,7 +63,7 @@ export class ListWorkflowsRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 50
@@ -71,11 +71,9 @@ export class ListWorkflowsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The status of the workflow. If this parameter is not specified, workflows in the `disabled` state are returned by default. Valid values:
-   * 
-   * - `0`: disabled
-   * 
-   * - `1`: enabled
+   * The workflow status. Default value: 0. Valid values:
+   * - 0: Disabled.
+   * - 1: Enabled.
    * 
    * @example
    * 1
@@ -83,7 +81,7 @@ export class ListWorkflowsRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The ID of the workflow.
+   * The workflow ID.
    * 
    * @example
    * 20

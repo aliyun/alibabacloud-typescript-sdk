@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OperateRetryJobExecutionShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * 1625
+   */
   appGroupId?: number;
   /**
    * @remarks
@@ -36,8 +43,8 @@ export class OperateRetryJobExecutionShrinkRequest extends $dara.Model {
   jobExecutionId?: string;
   /**
    * @remarks
-   * The list of subtask execution IDs (for broadcast jobs).
-   * >To rerun a subtask of a broadcast job, set this field to the execution ID of the corresponding subtask.
+   * The list of subtask execution IDs for sharded broadcast tasks.
+   * > To rerun a subtask of a sharded broadcast task, set this field to the execution ID of the corresponding subtask.
    */
   taskListShrink?: string;
   /**

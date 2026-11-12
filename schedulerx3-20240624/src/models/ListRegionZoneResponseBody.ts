@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRegionZoneResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Local name.
+   * The local name.
    * 
    * @example
    * E
@@ -13,7 +13,7 @@ export class ListRegionZoneResponseBodyData extends $dara.Model {
   localName?: string;
   /**
    * @remarks
-   * zone id
+   * The zone ID.
    * 
    * @example
    * cn-beijing-j
@@ -45,7 +45,7 @@ export class ListRegionZoneResponseBodyData extends $dara.Model {
 export class ListRegionZoneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The response code.
    * 
    * @example
    * 200
@@ -53,12 +53,12 @@ export class ListRegionZoneResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * -
+   * The response data.
    */
   data?: ListRegionZoneResponseBodyData[];
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * IllegalRequest
@@ -66,7 +66,7 @@ export class ListRegionZoneResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * Parameter check error
@@ -74,7 +74,7 @@ export class ListRegionZoneResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Request UUID.
+   * The unique ID of the request.
    * 
    * @example
    * 438737AC-760A-57D9-B646-B7EF79426243
@@ -82,9 +82,9 @@ export class ListRegionZoneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the invocation succeeded.
-   * - **true**: The invocation succeeded.
-   * - **false**: Failed to invoke.
+   * Indicates whether the call is successful. Valid values:
+   * - **true**: The call is successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

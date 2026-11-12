@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateExecutorsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Application Group ID.
+   * The application group ID.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class UpdateExecutorsResponseBodyData extends $dara.Model {
   appGroupId?: number;
   /**
    * @remarks
-   * The Application type.
+   * The application type.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class UpdateExecutorsResponseBodyData extends $dara.Model {
   appType?: number;
   /**
    * @remarks
-   * The Kubernetes services that failed to import.
+   * The Kubernetes services that failed to be imported.
    * 
    * @example
    * [{"cluster":"xxxxx","namespace":"xxxxx","service":"xxxxx"}]
@@ -29,7 +29,7 @@ export class UpdateExecutorsResponseBodyData extends $dara.Model {
   failedService?: string;
   /**
    * @remarks
-   * The Worker ID.
+   * The executor ID.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class UpdateExecutorsResponseBodyData extends $dara.Model {
   workId?: number;
   /**
    * @remarks
-   * The Worker type.
+   * The executor type.
    * 
    * @example
    * k8s_service
@@ -45,7 +45,7 @@ export class UpdateExecutorsResponseBodyData extends $dara.Model {
   workerType?: string;
   /**
    * @remarks
-   * A JSON-formatted string that contains a list of Workers.
+   * The list of specified machines in JSON format.
    * 
    * @example
    * [{"cluster":"xxxxx","namespace":"xxxxx","service":"xxxxx"}]
@@ -93,12 +93,12 @@ export class UpdateExecutorsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * - The returned data.
+   * -
    */
   data?: UpdateExecutorsResponseBodyData;
   /**
    * @remarks
-   * The returned error message.
+   * The error message.
    * 
    * @example
    * Parameter error: content is null.
@@ -106,7 +106,7 @@ export class UpdateExecutorsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The Request ID.
+   * Id of the request
    * 
    * @example
    * 3835AA29-2298-5434-BC53-9CC377CDFD2C
@@ -114,10 +114,8 @@ export class UpdateExecutorsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call was successful.
-   * 
+   * Indicates whether the call was successful.
    * - **true**: The call was successful.
-   * 
    * - **false**: The call failed.
    * 
    * @example

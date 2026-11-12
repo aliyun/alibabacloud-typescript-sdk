@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteWorkflowRequest extends $dara.Model {
   /**
    * @remarks
-   * The Application name.
+   * The application name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteWorkflowRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The Cluster ID.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteWorkflowRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Specifies whether to delete all Jobs in the Workflow.
+   * Specifies whether to delete all jobs in the workflow.
    * 
    * @example
    * false
@@ -33,7 +33,7 @@ export class DeleteWorkflowRequest extends $dara.Model {
   deleteJobs?: boolean;
   /**
    * @remarks
-   * The Workflow ID.
+   * The workflow ID.
    * 
    * This parameter is required.
    * 

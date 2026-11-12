@@ -4,21 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class ImportAgentJobsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The detailed information.
+   * 
    * @example
    * Parameter error: content is null.
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 2C3E52FF-CBE9-5C0E-8252-37ACFF1F5EFF
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
+   * 
    * @example
    * true
    */

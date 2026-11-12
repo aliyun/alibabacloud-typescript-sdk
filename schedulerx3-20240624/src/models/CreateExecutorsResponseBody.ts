@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateExecutorsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The App Group ID.
+   * The task group ID.
    * 
    * @example
    * test-app
@@ -21,7 +21,7 @@ export class CreateExecutorsResponseBodyData extends $dara.Model {
   appType?: number;
   /**
    * @remarks
-   * A list of Kubernetes Services that failed to import.
+   * The Kubernetes services that failed to be imported.
    * 
    * @example
    * [{"cluster":"xxxxx","namespace":"xxxxx","service":"xxxxx"}]
@@ -29,7 +29,7 @@ export class CreateExecutorsResponseBodyData extends $dara.Model {
   failedService?: string;
   /**
    * @remarks
-   * The ID of the worker. You can obtain this ID by calling the [ListWorkerResource](https://help.aliyun.com/document_detail/2712224.html) operation.
+   * The worker ID of the deployment task. You can obtain this ID by calling the [ListWorkerResource](https://help.aliyun.com/document_detail/2712224.html) operation.
    * 
    * @example
    * ins-95mfvqrtg6fkijt1uko000
@@ -37,7 +37,7 @@ export class CreateExecutorsResponseBodyData extends $dara.Model {
   workerId?: number;
   /**
    * @remarks
-   * The worker type.
+   * The executor type.
    * 
    * @example
    * k8s_service
@@ -45,7 +45,7 @@ export class CreateExecutorsResponseBodyData extends $dara.Model {
   workerType?: string;
   /**
    * @remarks
-   * A JSON string that represents the list of imported workers.
+   * The list of specified machines in JSON format.
    * 
    * @example
    * [{"cluster":"xxxxx","namespace":"xxxxx","service":"xxxxx"}]
@@ -93,12 +93,12 @@ export class CreateExecutorsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: CreateExecutorsResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * The error message.
    * 
    * @example
    * Parameter error: content is null.
@@ -106,7 +106,7 @@ export class CreateExecutorsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique ID of the request.
+   * Id of the request
    * 
    * @example
    * F131C3E0-3FAA-5FA4-A6F3-E974D69EF3C5
@@ -114,11 +114,9 @@ export class CreateExecutorsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request succeeded.
-   * 
-   * - true: The request succeeded.
-   * 
-   * - false: The request failed.
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call failed.
    * 
    * @example
    * true

@@ -23,7 +23,7 @@ export class GetLogRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end time. This value is a UNIX timestamp.
+   * The end time.
    * 
    * @example
    * 1721636220
@@ -39,7 +39,7 @@ export class GetLogRequest extends $dara.Model {
   jobExecutionId?: string;
   /**
    * @remarks
-   * The keyword to search for.
+   * The search keyword.
    * 
    * @example
    * hello word
@@ -55,7 +55,7 @@ export class GetLogRequest extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The number of log entries to return.
+   * The LineNum.
    * 
    * @example
    * 2
@@ -79,11 +79,10 @@ export class GetLogRequest extends $dara.Model {
   offset?: number;
   /**
    * @remarks
-   * Specifies whether to sort the results in descending order.
+   * Specifies whether to sort the results in descending order. Valid values:
    * 
-   * - **true**: sorts the results in descending order.
-   * 
-   * - **false**: sorts the results in ascending order.
+   * - **true**: Sorts the results in descending order.
+   * - **false**: Sorts the results in ascending order.
    * 
    * @example
    * true
@@ -91,15 +90,15 @@ export class GetLogRequest extends $dara.Model {
   reverse?: boolean;
   /**
    * @remarks
-   * The time when the job was scheduled. This value is a UNIX timestamp.
+   * The scheduling time.
    * 
    * @example
-   * 2023-10-01 12:00:00
+   * 1696132800000
    */
   scheduleTime?: number;
   /**
    * @remarks
-   * The start time. This value is a UNIX timestamp.
+   * The start time.
    * 
    * @example
    * 1721636220

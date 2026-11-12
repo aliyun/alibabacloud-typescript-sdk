@@ -21,7 +21,7 @@ export class OperateSkipJobExecutionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * C78E2AD2-5985-515B-BAD2-31A248AFC263
@@ -29,11 +29,9 @@ export class OperateSkipJobExecutionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * - true: The request succeeded.
-   * 
-   * - false: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

@@ -25,7 +25,7 @@ export class OperateBackfillWorkflowRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end date of the backfill, in YYYY-MM-DD format.
+   * The end date for backfilling data. The format is YYYY-MM-DD.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class OperateBackfillWorkflowRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The start date of the backfill, in YYYY-MM-DD format.
+   * The start date for backfilling data. The format is YYYY-MM-DD.
    * 
    * This parameter is required.
    * 

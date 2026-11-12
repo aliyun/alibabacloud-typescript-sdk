@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkflowDAGPreviewResponseBodyDataEdges extends $dara.Model {
   /**
    * @remarks
-   * The ID of the source node.
+   * The ID of the source node of the edge.
    * 
    * @example
    * 3
@@ -13,7 +13,7 @@ export class GetWorkflowDAGPreviewResponseBodyDataEdges extends $dara.Model {
   source?: number;
   /**
    * @remarks
-   * The ID of the target node.
+   * The ID of the target node of the edge.
    * 
    * @example
    * 4
@@ -45,7 +45,7 @@ export class GetWorkflowDAGPreviewResponseBodyDataEdges extends $dara.Model {
 export class GetWorkflowDAGPreviewResponseBodyDataNodesCoordinate extends $dara.Model {
   /**
    * @remarks
-   * The node height. This parameter is optional.
+   * The height of the node. This field is optional.
    * 
    * @example
    * 20
@@ -53,7 +53,7 @@ export class GetWorkflowDAGPreviewResponseBodyDataNodesCoordinate extends $dara.
   height?: number;
   /**
    * @remarks
-   * The node width. This parameter is optional.
+   * The width of the node. This field is optional.
    * 
    * @example
    * 100
@@ -61,7 +61,7 @@ export class GetWorkflowDAGPreviewResponseBodyDataNodesCoordinate extends $dara.
   width?: number;
   /**
    * @remarks
-   * The x-coordinate.
+   * The X-axis coordinate of the node.
    * 
    * @example
    * 50
@@ -69,7 +69,7 @@ export class GetWorkflowDAGPreviewResponseBodyDataNodesCoordinate extends $dara.
   x?: number;
   /**
    * @remarks
-   * The y-coordinate.
+   * The Y-axis coordinate of the node.
    * 
    * @example
    * 50
@@ -113,20 +113,20 @@ export class GetWorkflowDAGPreviewResponseBodyDataNodes extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The node coordinates.
+   * The coordinate information of the node.
    */
   coordinate?: GetWorkflowDAGPreviewResponseBodyDataNodesCoordinate;
   /**
    * @remarks
-   * The dependency strategy.
+   * The dependency policy.
    * 
    * @example
-   * all_success
+   * 1
    */
   dependentStrategy?: number;
   /**
    * @remarks
-   * The job ID.
+   * The node ID.
    * 
    * @example
    * 3
@@ -134,7 +134,7 @@ export class GetWorkflowDAGPreviewResponseBodyDataNodes extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The job type.
+   * The node type.
    * 
    * @example
    * script_shell
@@ -142,7 +142,7 @@ export class GetWorkflowDAGPreviewResponseBodyDataNodes extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The job name.
+   * The node name.
    * 
    * @example
    * job1
@@ -150,11 +150,9 @@ export class GetWorkflowDAGPreviewResponseBodyDataNodes extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The job status. Valid values:
-   * 
-   * - `0`: Disabled
-   * 
-   * - `1`: Enabled
+   * The node status. Valid values:
+   * - 0: Disabled.
+   * - 1: Enabled.
    * 
    * @example
    * 1
@@ -199,12 +197,12 @@ export class GetWorkflowDAGPreviewResponseBodyDataNodes extends $dara.Model {
 export class GetWorkflowDAGPreviewResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The workflow edges.
+   * The list of edges in the workflow.
    */
   edges?: GetWorkflowDAGPreviewResponseBodyDataEdges[];
   /**
    * @remarks
-   * The workflow nodes.
+   * The list of workflow nodes.
    */
   nodes?: GetWorkflowDAGPreviewResponseBodyDataNodes[];
   static names(): { [key: string]: string } {
@@ -247,7 +245,7 @@ export class GetWorkflowDAGPreviewResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: GetWorkflowDAGPreviewResponseBodyData;
   /**
@@ -260,7 +258,7 @@ export class GetWorkflowDAGPreviewResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier for the request.
+   * Id of the request
    * 
    * @example
    * B8733786-C045-59F1-8D79-99A52863F62D
@@ -268,11 +266,9 @@ export class GetWorkflowDAGPreviewResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * - `true`: The request was successful.
-   * 
-   * - `false`: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

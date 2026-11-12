@@ -46,8 +46,8 @@ export class GetClusterResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
-   * - PREPAY: subscription.
-   * - POSTPAY: pay-as-you-go.
+   * - PREPAY: Subscription.
+   * - POSTPAY: Pay-as-you-go.
    * 
    * @example
    * POSTPAY
@@ -71,25 +71,28 @@ export class GetClusterResponseBodyData extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The cluster specification. Valid values:
-   * - scx.dev.x1.
-   * - scx.small.x1.
-   * - scx.small.x2.
-   * - scx.medium.x1.
-   * - scx.medium.x2.
+   * The cluster specifications. Valid values:
+   * - scx.dev.x1
+   * - scx.small.x1
+   * - scx.small.x2
+   * - scx.medium.x1
+   * - scx.medium.x2
    * 
    * @example
    * scx.small.x2
    */
   clusterSpec?: string;
   /**
+   * @remarks
+   * The cluster type.
+   * 
    * @example
    * 1
    */
   clusterType?: number;
   /**
    * @remarks
-   * The time when the cluster was created.
+   * The creation time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-10-29 15:56:36
@@ -97,7 +100,7 @@ export class GetClusterResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-10-29 15:56:36
@@ -113,7 +116,7 @@ export class GetClusterResponseBodyData extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * The engine version.
+   * The DPI engine version.
    * 
    * @example
    * 2.0.0
@@ -121,29 +124,32 @@ export class GetClusterResponseBodyData extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The public endpoint.
-   * > Currently not supported.
+   * The public domain name.
+   * > Not supported.
    * 
    * @example
-   * 暂无
+   * None
    */
   internetDomain?: string;
   /**
    * @remarks
-   * The internal endpoint.
+   * The internal domain name.
    * 
    * @example
    * http://xxljob-xxxxxx.schedulerx.mse.aliyuncs.com
    */
   intranetDomain?: string;
   /**
+   * @remarks
+   * The IP whitelist. Separate multiple IP addresses with commas (,).
+   * 
    * @example
    * 192.168.1.0/24
    */
   ipWhitelist?: string;
   /**
    * @remarks
-   * The maximum number of jobs for the current specification.
+   * The maximum number of tasks supported by the specifications.
    * 
    * @example
    * 100
@@ -151,7 +157,7 @@ export class GetClusterResponseBodyData extends $dara.Model {
   jobNum?: number;
   /**
    * @remarks
-   * The configuration of the Kubernetes server.
+   * The configuration information of the Kubernetes server.
    * 
    * @example
    * {
@@ -182,7 +188,7 @@ export class GetClusterResponseBodyData extends $dara.Model {
   kubeConfig?: string;
   /**
    * @remarks
-   * The maximum number of jobs for the current specification.
+   * The maximum number of tasks supported by the specifications.
    * 
    * @example
    * 1000
@@ -190,7 +196,7 @@ export class GetClusterResponseBodyData extends $dara.Model {
   maxJobNum?: number;
   /**
    * @remarks
-   * The maximum number of workflows supported.
+   * The maximum number of supported workflows.
    * 
    * @example
    * 100
@@ -198,22 +204,26 @@ export class GetClusterResponseBodyData extends $dara.Model {
   maxWorkflowNum?: number;
   /**
    * @remarks
-   * The product edition.
-   * 
+   * The product edition. Valid values:
    * - 1: Developer Edition.
-   * 
    * - 2: Professional Edition.
-   * 
    * - 3: Enterprise Edition.
    * 
    * @example
    * 2
    */
   productType?: number;
+  /**
+   * @remarks
+   * The source.
+   * 
+   * @example
+   * schedulerx
+   */
   source?: string;
   /**
    * @remarks
-   * The peak number of scheduling operations per minute.
+   * The peak scheduling rate per minute.
    * 
    * @example
    * 10
@@ -221,12 +231,11 @@ export class GetClusterResponseBodyData extends $dara.Model {
   spm?: number;
   /**
    * @remarks
-   * The cluster status.
-   * 
-   * - 1: Being created.
+   * The cluster status. Valid values:
+   * - 1: Creating.
    * - 2: Running.
    * - 3: Restarting.
-   * - 4: Being released.
+   * - 4: Destroying.
    * - 5: Creation failed.
    * - 6: Stopped.
    * - 99: Deleted.
@@ -235,12 +244,29 @@ export class GetClusterResponseBodyData extends $dara.Model {
    * 2
    */
   status?: number;
+  /**
+   * @remarks
+   * The cluster tags.
+   * 
+   * @example
+   * {"environment":"test"}
+   */
   tags?: { [key: string]: any };
   /**
    * @remarks
-   * The vSwitch information of zones.
+   * The vSwitch information of the zones.
    */
   vSwitches?: GetClusterResponseBodyDataVSwitches[];
+  /**
+   * @remarks
+   * The DPI engine version life epoch. Valid values:
+   * - STABLE: The version is stable.
+   * - EXPIRED: The version has expired.
+   * - OFFLINE: The version is offline.
+   * 
+   * @example
+   * STABLE
+   */
   versionLifecycle?: string;
   /**
    * @remarks
@@ -252,7 +278,7 @@ export class GetClusterResponseBodyData extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The number of workers.
+   * The number of executors.
    * 
    * @example
    * 10
@@ -362,6 +388,10 @@ export class GetClusterResponseBody extends $dara.Model {
    * 200
    */
   code?: number;
+  /**
+   * @remarks
+   * The cluster details.
+   */
   data?: GetClusterResponseBodyData;
   /**
    * @remarks
@@ -373,7 +403,7 @@ export class GetClusterResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID. The value is a unique identifier that Alibaba Cloud generates for the request and can be used to troubleshoot issues.
+   * The ID of the request. It is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting.
    * 
    * @example
    * D0DE9C33-992A-580B-89C4-B609A292748D
@@ -381,7 +411,7 @@ export class GetClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call was successful. Valid values:
    * - **true**: The call was successful.
    * - **false**: The call failed.
    * 

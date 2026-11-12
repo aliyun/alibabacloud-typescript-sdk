@@ -25,14 +25,14 @@ export class UpdateWorkflowDAGShrinkRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The directed acyclic graph (DAG) of the workflow.
+   * The workflow DAG information.
    * 
    * This parameter is required.
    */
   dagShrink?: string;
   /**
    * @remarks
-   * The version of the DAG. To obtain this value, call the [ListDAGVersions](https://help.aliyun.com/document_detail/465989.html) operation.
+   * The workflow version number. You can call the [ListDAGVersions](https://help.aliyun.com/document_detail/465989.html) operation to obtain the value of this parameter.
    * 
    * @example
    * 1137005

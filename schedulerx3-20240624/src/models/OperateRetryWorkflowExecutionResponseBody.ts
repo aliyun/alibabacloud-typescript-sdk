@@ -21,7 +21,7 @@ export class OperateRetryWorkflowExecutionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 3835AA29-2298-5434-BC53-9CC377CDFD2C
@@ -29,10 +29,8 @@ export class OperateRetryWorkflowExecutionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call succeeded.
-   * 
-   * - true: The call succeeded.
-   * 
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
    * - false: The call failed.
    * 
    * @example

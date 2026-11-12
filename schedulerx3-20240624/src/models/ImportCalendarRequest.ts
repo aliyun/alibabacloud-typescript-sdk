@@ -15,7 +15,7 @@ export class ImportCalendarRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The days of each month, in JSON format.
+   * The month.
    * 
    * This parameter is required.
    * 

@@ -15,7 +15,7 @@ export class ListScheduleTimesRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The name of the calendar to use for scheduling, such as a business day calendar.
+   * The calendar.
    * 
    * @example
    * workday
@@ -33,7 +33,7 @@ export class ListScheduleTimesRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The time expression, such as a cron expression.
+   * The time expression. For cron scheduling, use the Quartz cron format (second minute hour day-of-month month day-of-week).
    * 
    * This parameter is required.
    * 
@@ -43,9 +43,8 @@ export class ListScheduleTimesRequest extends $dara.Model {
   timeExpression?: string;
   /**
    * @remarks
-   * The time type. The only supported type is cron.
-   * 
-   * - 1: cron
+   * The time type. Currently, only cron is supported. Valid values:
+   * - 1: cron.
    * 
    * This parameter is required.
    * 
@@ -55,7 +54,7 @@ export class ListScheduleTimesRequest extends $dara.Model {
   timeType?: number;
   /**
    * @remarks
-   * The time zone used to evaluate the time expression.
+   * The time zone.
    * 
    * @example
    * Asia/Beijing

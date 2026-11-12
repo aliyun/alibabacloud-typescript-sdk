@@ -8,7 +8,7 @@ export class UpdateAppRequest extends $dara.Model {
    * The access token.
    * 
    * @example
-   * f312159702f4469585586ed5a6904163v3
+   * demo-app-key-20261109
    */
   accessToken?: string;
   /**
@@ -35,24 +35,26 @@ export class UpdateAppRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable logging.
    * 
-   * - `true`: Enables logging.
+   * - true: Enabled.
    * 
-   * - `false`: Disables logging.
+   * - false: Disabled.
    * 
    * @example
    * true
    */
   enableLog?: boolean;
   /**
+   * @remarks
+   * The label routing strategy.
+   * 
    * @example
    * 1
    */
   labelRouteStrategy?: number;
   /**
    * @remarks
-   * The task execution queue size.
-   * 
-   * > Sets the maximum number of concurrent task instances in the application group. Additional task instances are queued for execution and not discarded.
+   * The size of the task execution queue.
+   * > The maximum number of task instances that can run concurrently for an application. Task instances that exceed the concurrency limit are not discarded, but are placed in a queue to wait for execution.
    * 
    * @example
    * 10
@@ -65,10 +67,13 @@ export class UpdateAppRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 测试应用
+   * Test application
    */
   title?: string;
   /**
+   * @remarks
+   * The primary key ID of the worker group.
+   * 
    * @example
    * 1
    */

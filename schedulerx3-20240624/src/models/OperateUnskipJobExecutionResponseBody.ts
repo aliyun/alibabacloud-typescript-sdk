@@ -13,7 +13,7 @@ export class OperateUnskipJobExecutionResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The response message.
+   * The error message.
    * 
    * @example
    * Parameter check error
@@ -21,7 +21,7 @@ export class OperateUnskipJobExecutionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * AA3538A0-FBE6-5E31-AD88-A02C6FF0DACC
@@ -29,11 +29,9 @@ export class OperateUnskipJobExecutionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * - `true`: The request was successful.
-   * 
-   * - `false`: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

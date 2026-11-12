@@ -13,7 +13,7 @@ export class CreateCalendarResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The returned message.
+   * The error message.
    * 
    * @example
    * CalendarName is already existed
@@ -21,7 +21,7 @@ export class CreateCalendarResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * B880122A-B0E4-52E8-8F54-87DB7779EB74
@@ -29,11 +29,9 @@ export class CreateCalendarResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
-   * 
-   * - `true`: The call was successful.
-   * 
-   * - `false`: The call failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

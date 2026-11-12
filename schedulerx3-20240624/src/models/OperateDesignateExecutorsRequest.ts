@@ -10,6 +10,13 @@ export class OperateDesignateExecutorsRequest extends $dara.Model {
    * This parameter is required.
    */
   addressList?: string[];
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * 1625
+   */
   appGroupId?: number;
   /**
    * @remarks
@@ -33,9 +40,9 @@ export class OperateDesignateExecutorsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The type of the designated machine. Valid values:
-   * - **1**: designated worker.
-   * - **2**: designated label.
+   * The type of machine to designate. Valid values:
+   * - **1**: Designates a worker.
+   * - **2**: Designates a label.
    * 
    * This parameter is required.
    * 
@@ -45,7 +52,7 @@ export class OperateDesignateExecutorsRequest extends $dara.Model {
   designateType?: number;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * This parameter is required.
    * 
@@ -55,7 +62,7 @@ export class OperateDesignateExecutorsRequest extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
-   * Specifies whether to enable failover.
+   * Specifies whether failover is enabled.
    * 
    * @example
    * true

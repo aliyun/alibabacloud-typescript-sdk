@@ -4,21 +4,35 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteExecutorGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response code.
+   * 
    * @example
    * 200
    */
   code?: number;
   /**
+   * @remarks
+   * The error message.
+   * 
    * @example
    * Parameter check error
    */
   message?: string;
   /**
+   * @remarks
+   * Id of the request
+   * 
    * @example
    * 3835AA29-2298-5434-BC53-9CC377CDFD2C
    */
   requestId?: string;
   /**
+   * @remarks
+   * Indicates whether the call is successful.
+   * - true: The call is successful.
+   * - false: The call failed.
+   * 
    * @example
    * true
    */

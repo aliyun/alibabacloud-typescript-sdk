@@ -5,14 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ImportAgentJobsRequest extends $dara.Model {
   /**
    * @remarks
+   * agentname
+   * 
    * This parameter is required.
    * 
    * @example
-   * 名称
+   * Name
    */
   agentName?: string;
   /**
    * @remarks
+   * The cluster ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -20,6 +24,11 @@ export class ImportAgentJobsRequest extends $dara.Model {
    */
   clusterId?: string;
   /**
+   * @remarks
+   * The strategy for synchronizing scheduled tasks. Valid values:  
+   * - 1: Migrates both the content and the scheduling time of local scheduled tasks from the agent to the cloud.  
+   * - 2: Migrates only the scheduling time to the cloud. When the scheduled time arrives, the platform notifies the agent, and the agent executes the task based on the local task content. The task content is always retained locally.
+   * 
    * @example
    * 1
    */

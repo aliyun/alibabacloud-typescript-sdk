@@ -21,7 +21,7 @@ export class OperateMarkSuccessJobExecutionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * AA3538A0-FBE6-5E31-AD88-A02C6FF0DACC
@@ -29,11 +29,9 @@ export class OperateMarkSuccessJobExecutionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call was successful.
-   * 
-   * - `true`: The call was successful.
-   * 
-   * - `false`: The call failed.
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call failed.
    * 
    * @example
    * true

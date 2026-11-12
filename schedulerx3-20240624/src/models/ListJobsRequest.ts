@@ -13,7 +13,7 @@ export class ListJobsRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * The cluster.
    * 
    * This parameter is required.
    * 
@@ -26,12 +26,12 @@ export class ListJobsRequest extends $dara.Model {
    * The description.
    * 
    * @example
-   * job01 standalone task
+   * job01 standalone job
    */
   description?: string;
   /**
    * @remarks
-   * The `jobhandler` name.
+   * The jobhandler name.
    * 
    * @example
    * jobDemoHandler
@@ -39,7 +39,7 @@ export class ListJobsRequest extends $dara.Model {
   jobHandler?: string;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * @example
    * 10
@@ -47,7 +47,7 @@ export class ListJobsRequest extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
-   * The task name.
+   * The job name.
    * 
    * @example
    * job01
@@ -55,7 +55,7 @@ export class ListJobsRequest extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The task label filter condition.
+   * The job label condition.
    * 
    * @example
    * {key:value}
@@ -87,6 +87,14 @@ export class ListJobsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
+   * The list of time types.
+   * 
+   * @example
+   * 1
+   */
+  timeType?: number[];
+  /**
+   * @remarks
    * The workflow ID.
    * 
    * @example
@@ -105,6 +113,7 @@ export class ListJobsRequest extends $dara.Model {
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       status: 'Status',
+      timeType: 'TimeType',
       workflowId: 'WorkflowId',
     };
   }
@@ -121,11 +130,15 @@ export class ListJobsRequest extends $dara.Model {
       pageNum: 'number',
       pageSize: 'number',
       status: 'string',
+      timeType: { 'type': 'array', 'itemType': 'number' },
       workflowId: 'number',
     };
   }
 
   validate() {
+    if(Array.isArray(this.timeType)) {
+      $dara.Model.validateArray(this.timeType);
+    }
     super.validate();
   }
 

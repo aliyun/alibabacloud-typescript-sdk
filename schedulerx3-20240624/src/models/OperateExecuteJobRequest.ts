@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OperateExecuteJobRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * 1625
+   */
   appGroupId?: number;
   /**
    * @remarks
@@ -34,7 +41,7 @@ export class OperateExecuteJobRequest extends $dara.Model {
   instanceParameters?: string;
   /**
    * @remarks
-   * The node ID.
+   * The job ID.
    * 
    * This parameter is required.
    * 
@@ -52,7 +59,7 @@ export class OperateExecuteJobRequest extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * The workerAddr of the specified machine.
+   * The worker address of the specified machine.
    * 
    * @example
    * http://192.168.***.5:9999/

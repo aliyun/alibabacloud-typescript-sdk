@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetJobExecutionProgressRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The application ID.
+   * 
+   * @example
+   * 1625
+   */
   appGroupId?: number;
   /**
    * @remarks
@@ -26,7 +33,7 @@ export class GetJobExecutionProgressRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The task execution ID.
+   * The job execution ID.
    * 
    * This parameter is required.
    * 

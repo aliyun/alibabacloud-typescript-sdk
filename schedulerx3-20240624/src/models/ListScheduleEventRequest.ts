@@ -13,7 +13,7 @@ export class ListScheduleEventRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The Cluster ID.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListScheduleEventRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end of the time range to query events. This is a Unix timestamp in milliseconds.
+   * The end time of the retrieved events, specified as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1728872796295
@@ -31,21 +31,14 @@ export class ListScheduleEventRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The event status to filter by. Valid values:
-   * 
-   * - Scheduled
-   * 
-   * - Running
-   * 
-   * - Succeeded
-   * 
-   * - Failed
-   * 
-   * - Failing_Auto_Retry
-   * 
-   * - Skip_Schedule
-   * 
-   * - Execute_Log
+   * The event ID. Valid values:
+   * - Scheduled.
+   * - Running.
+   * - Succeed.
+   * - Failed.
+   * - Failing_Auto_Retry.
+   * - Skip_Schedule.
+   * - Execute_Log.
    * 
    * @example
    * Failed
@@ -77,7 +70,7 @@ export class ListScheduleEventRequest extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The search keyword.
+   * The query keyword.
    * 
    * @example
    * hello word
@@ -85,7 +78,7 @@ export class ListScheduleEventRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -93,7 +86,7 @@ export class ListScheduleEventRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of events to return per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -101,7 +94,7 @@ export class ListScheduleEventRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies whether to sort the results in descending order. Set to `true` for descending order or `false` for ascending order. Default is `false`.
+   * Specifies whether to sort the results in descending order.
    * 
    * @example
    * true
@@ -109,7 +102,7 @@ export class ListScheduleEventRequest extends $dara.Model {
   reverse?: boolean;
   /**
    * @remarks
-   * The start of the time range to query events. This is a Unix timestamp in milliseconds.
+   * The start time of the retrieved events, specified as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1581317873000
@@ -128,7 +121,7 @@ export class ListScheduleEventRequest extends $dara.Model {
    * The workflow name.
    * 
    * @example
-   * 流程001
+   * Workflow001
    */
   workflowName?: string;
   static names(): { [key: string]: string } {

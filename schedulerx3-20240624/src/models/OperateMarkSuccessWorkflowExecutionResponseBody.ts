@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperateMarkSuccessWorkflowExecutionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of `200` indicates a successful request.
+   * The response code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class OperateMarkSuccessWorkflowExecutionResponseBody extends $dara.Model
   code?: number;
   /**
    * @remarks
-   * Additional details about the result.
+   * The detailed information.
    * 
    * @example
    * Parameter error: content is null.
@@ -21,7 +21,7 @@ export class OperateMarkSuccessWorkflowExecutionResponseBody extends $dara.Model
   message?: string;
   /**
    * @remarks
-   * The unique ID of the request, used for troubleshooting.
+   * Id of the request
    * 
    * @example
    * 1DF6732E-15D8-5E1F-95E3-C10077F556B5
@@ -29,11 +29,9 @@ export class OperateMarkSuccessWorkflowExecutionResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * Indicates if the operation succeeded.
-   * 
-   * - `true`: The operation succeeded.
-   * 
-   * - `false`: The operation failed.
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call succeeded.
+   * - false: The call failed.
    * 
    * @example
    * true

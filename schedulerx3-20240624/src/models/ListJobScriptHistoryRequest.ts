@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobScriptHistoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListJobScriptHistoryRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListJobScriptHistoryRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the job.
+   * The job ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ListJobScriptHistoryRequest extends $dara.Model {
   jobId?: number;
   /**
    * @remarks
-   * The maximum number of entries to return per page. Default value: 10.
+   * The maximum number of entries to return for this request. Default value: 10.
    * 
    * @example
    * 10
@@ -43,7 +43,7 @@ export class ListJobScriptHistoryRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. You do not need to set this parameter for the first request.
+   * The token that indicates the position from which the current call returns data. An empty value indicates that all data has been read. You do not need to specify this parameter for the first query.
    * 
    * @example
    * eCKqVlS5FKF5EWGGOo8EgQ==

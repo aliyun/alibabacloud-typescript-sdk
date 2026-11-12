@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListContactsRequest extends $dara.Model {
   /**
+   * @remarks
+   * The name of the alert contact.
+   * 
    * @example
    * Tom
    */
   contactName?: string;
   /**
    * @remarks
-   * 页码，从 1 开始，默认 1
+   * The page number.
    * 
    * @example
    * 1
@@ -18,7 +21,7 @@ export class ListContactsRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * 每页条数，默认 20，最大 100
+   * The number of entries per page.
    * 
    * @example
    * 20

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDatasourcesResponseBodyDataRecords extends $dara.Model {
   /**
    * @remarks
-   * Data source connection parameters.
+   * The connection parameters of the data source.
    * 
    * @example
    * {"host":"rm-bp1f03mxxxxx.mysql.rds.aliyuncs.com","port":3306,"userName":"test01","database":"test01","other":{"useSSL":"false"}}
@@ -13,7 +13,7 @@ export class ListDatasourcesResponseBodyDataRecords extends $dara.Model {
   connectionParams?: string;
   /**
    * @remarks
-   * DataSource ID.
+   * The data source ID.
    * 
    * @example
    * 145
@@ -21,7 +21,7 @@ export class ListDatasourcesResponseBodyDataRecords extends $dara.Model {
   datasourceId?: number;
   /**
    * @remarks
-   * Job description.
+   * The task description.
    * 
    * @example
    * my first workflow
@@ -29,7 +29,7 @@ export class ListDatasourcesResponseBodyDataRecords extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Job name.
+   * The task name.
    * 
    * @example
    * job01
@@ -37,17 +37,16 @@ export class ListDatasourcesResponseBodyDataRecords extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specific pronunciation rule Type. Options:
-   * 
-   * - replacement: A rule that directly replaces Word with Pronunciation.
+   * The specific pronunciation rule type. Valid values:
+   * - replacement: A rule that directly replaces a word with its pronunciation.
    * 
    * @example
-   * target
+   * 0
    */
   type?: number;
   /**
    * @remarks
-   * Updater.
+   * The updater.
    * 
    * @example
    * 1827811800555555
@@ -87,7 +86,7 @@ export class ListDatasourcesResponseBodyDataRecords extends $dara.Model {
 export class ListDatasourcesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Maximum Data Volume to read in this request. Default Value is 10.
+   * The maximum number of entries to return for this request. Default value: 10.
    * 
    * @example
    * 10
@@ -95,7 +94,7 @@ export class ListDatasourcesResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * When the data matching the query conditions has not been fully read, the server returns a nextToken. You can use this nextToken to continue reading subsequent data. This parameter is not required for the first query.
+   * The token used to retrieve the next page of results. If the data that meets the query conditions is not completely read, the server returns this token. You can use this token to continue reading the subsequent data. You do not need to specify this parameter for the first query.
    * 
    * @example
    * eCKqVlS5FKF5EWGGOo8EgQ==
@@ -103,7 +102,7 @@ export class ListDatasourcesResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -111,7 +110,7 @@ export class ListDatasourcesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 10
@@ -119,12 +118,12 @@ export class ListDatasourcesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * -
+   * The list of data source records on the current page.
    */
   records?: ListDatasourcesResponseBodyDataRecords[];
   /**
    * @remarks
-   * Total number of records.
+   * The total number of entries.
    * 
    * @example
    * 30
@@ -167,7 +166,7 @@ export class ListDatasourcesResponseBodyData extends $dara.Model {
 export class ListDatasourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The response code.
    * 
    * @example
    * 200
@@ -175,12 +174,12 @@ export class ListDatasourcesResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * Returned data.
+   * The returned data.
    */
   data?: ListDatasourcesResponseBodyData;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
    * Parameter error: content is null.
@@ -188,7 +187,7 @@ export class ListDatasourcesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request
+   * Id of the request
    * 
    * @example
    * BAC1ADB5-EEB5-5834-93D8-522E067AF8D9
@@ -196,9 +195,9 @@ export class ListDatasourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the invocation succeeded.
-   * - **true**: The invocation succeeded.
-   * - **false**: Failed to invoke.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

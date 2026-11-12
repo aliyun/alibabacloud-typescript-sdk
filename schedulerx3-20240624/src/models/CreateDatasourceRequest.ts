@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDatasourceRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateDatasourceRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Connection parameters of the data source, in JSON format
+   * The connection parameters of the data source in JSON format.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateDatasourceRequest extends $dara.Model {
   connectionParams?: string;
   /**
    * @remarks
-   * Datasource Name
+   * The name of the data source.
    * 
    * @example
    * my first datasource
@@ -33,7 +33,7 @@ export class CreateDatasourceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Datasource Name
+   * The name of the data source.
    * 
    * This parameter is required.
    * 
@@ -43,18 +43,18 @@ export class CreateDatasourceRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Database password
+   * The database password.
    * 
    * This parameter is required.
    * 
    * @example
-   * ***
+   * Demo****1234
    */
   password?: string;
   /**
    * @remarks
-   * Data Source Type  
-   * - 0: MySQL  
+   * The type of the data source.
+   * - 0: MySQL
    * - 1: PostgreSQL
    * 
    * This parameter is required.

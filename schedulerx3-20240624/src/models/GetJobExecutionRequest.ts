@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetJobExecutionRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetJobExecutionRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetJobExecutionRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the job execution.
+   * The job execution ID.
    * 
    * This parameter is required.
    * 
@@ -33,6 +33,13 @@ export class GetJobExecutionRequest extends $dara.Model {
    * 1310630367761285120
    */
   jobExecutionId?: string;
+  /**
+   * @remarks
+   * The MSE session ID.
+   * 
+   * @example
+   * 1234567890123456_1794190484000
+   */
   mseSessionId?: string;
   static names(): { [key: string]: string } {
     return {

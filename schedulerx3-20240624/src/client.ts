@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "SchedulerX3";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("schedulerx3", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -30,7 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an app.
+   * Creates an application.
    * 
    * @param request - CreateAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -89,7 +93,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an app.
+   * Creates an application.
    * 
    * @param request - CreateAppRequest
    * @returns CreateAppResponse
@@ -103,7 +107,7 @@ export default class Client extends OpenApi {
    * Creates a custom calendar.
    * 
    * @remarks
-   * Creates a custom calendar for SchedulerX.
+   * Creates a custom calendar.
    * 
    * @param request - CreateCalendarRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -153,7 +157,7 @@ export default class Client extends OpenApi {
    * Creates a custom calendar.
    * 
    * @remarks
-   * Creates a custom calendar for SchedulerX.
+   * Creates a custom calendar.
    * 
    * @param request - CreateCalendarRequest
    * @returns CreateCalendarResponse
@@ -254,10 +258,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建通知联系人
+   * Creates a notification contact.
    * 
    * @remarks
-   * 创建自定义联系人
+   * Creates a custom contact.
    * 
    * @param request - CreateContactRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -296,10 +300,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建通知联系人
+   * Creates a notification contact.
    * 
    * @remarks
-   * 创建自定义联系人
+   * Creates a custom contact.
    * 
    * @param request - CreateContactRequest
    * @returns CreateContactResponse
@@ -310,7 +314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a data source
+   * Creates a data source.
    * 
    * @param request - CreateDatasourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -361,7 +365,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a data source
+   * Creates a data source.
    * 
    * @param request - CreateDatasourceRequest
    * @returns CreateDatasourceResponse
@@ -372,10 +376,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加执行器组
+   * Adds an executor group.
    * 
    * @remarks
-   * 手动导入执行器
+   * Manually imports executors.
    * 
    * @param request - CreateExecutorGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -454,10 +458,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加执行器组
+   * Adds an executor group.
    * 
    * @remarks
-   * 手动导入执行器
+   * Manually imports executors.
    * 
    * @param request - CreateExecutorGroupRequest
    * @returns CreateExecutorGroupResponse
@@ -468,10 +472,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports one or more executors.
+   * Manually imports executors.
    * 
    * @remarks
-   * Imports one or more executors.
+   * Manually imports executors.
    * 
    * @param request - CreateExecutorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -514,10 +518,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports one or more executors.
+   * Manually imports executors.
    * 
    * @remarks
-   * Imports one or more executors.
+   * Manually imports executors.
    * 
    * @param request - CreateExecutorsRequest
    * @returns CreateExecutorsResponse
@@ -528,7 +532,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a node.
+   * Creates a job.
    * 
    * @param tmpReq - CreateJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -685,7 +689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a node.
+   * Creates a job.
    * 
    * @param request - CreateJobRequest
    * @returns CreateJobResponse
@@ -778,7 +782,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an App Group.
+   * Deletes an application group.
    * 
    * @param request - DeleteAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -813,7 +817,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an App Group.
+   * Deletes an application group.
    * 
    * @param request - DeleteAppRequest
    * @returns DeleteAppResponse
@@ -824,7 +828,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the specified calendar.
+   * Deletes a specified calendar.
    * 
    * @param request - DeleteCalendarRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -863,7 +867,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the specified calendar.
+   * Deletes a specified calendar.
    * 
    * @param request - DeleteCalendarRequest
    * @returns DeleteCalendarResponse
@@ -874,7 +878,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a cluster.
+   * Releases and deletes a cluster.
    * 
    * @param request - DeleteClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -905,7 +909,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a cluster.
+   * Releases and deletes a cluster.
    * 
    * @param request - DeleteClusterRequest
    * @returns DeleteClusterResponse
@@ -916,10 +920,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除通知联系人
+   * Deletes a notification contact.
    * 
    * @remarks
-   * 删除自定义联系人
+   * Deletes a custom contact.
    * 
    * @param request - DeleteContactRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -950,10 +954,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除通知联系人
+   * Deletes a notification contact.
    * 
    * @remarks
-   * 删除自定义联系人
+   * Deletes a custom contact.
    * 
    * @param request - DeleteContactRequest
    * @returns DeleteContactResponse
@@ -964,7 +968,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete data source
+   * Deletes a data source.
    * 
    * @param request - DeleteDatasourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -999,7 +1003,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete data source
+   * Deletes a data source.
    * 
    * @param request - DeleteDatasourceRequest
    * @returns DeleteDatasourceResponse
@@ -1010,7 +1014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加执行器组
+   * Adds an executor group.
    * 
    * @param request - DeleteExecutorGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1053,7 +1057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 添加执行器组
+   * Adds an executor group.
    * 
    * @param request - DeleteExecutorGroupRequest
    * @returns DeleteExecutorGroupResponse
@@ -1064,7 +1068,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes nodes in batches.
+   * Deletes tasks in batches.
    * 
    * @param tmpReq - DeleteJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1113,7 +1117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes nodes in batches.
+   * Deletes tasks in batches.
    * 
    * @param request - DeleteJobsRequest
    * @returns DeleteJobsResponse
@@ -1124,7 +1128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Workflow.
+   * Deletes a workflow.
    * 
    * @param request - DeleteWorkflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1167,7 +1171,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Workflow.
+   * Deletes a workflow.
    * 
    * @param request - DeleteWorkflowRequest
    * @returns DeleteWorkflowResponse
@@ -1178,7 +1182,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes one or more workflows.
+   * Deletes multiple workflows.
    * 
    * @param tmpReq - DeleteWorkflowsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1227,7 +1231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes one or more workflows.
+   * Deletes multiple workflows.
    * 
    * @param request - DeleteWorkflowsRequest
    * @returns DeleteWorkflowsResponse
@@ -1238,7 +1242,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports job information in bulk.
+   * Exports export task information in batches.
    * 
    * @param tmpReq - ExportJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1287,7 +1291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports job information in bulk.
+   * Exports export task information in batches.
    * 
    * @param request - ExportJobsRequest
    * @returns ExportJobsResponse
@@ -1298,7 +1302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports the definitions of one or more Workflows in JSON format. The exported data includes the basic information, all Nodes, and the Directed Acyclic Graph (DAG) dependencies for each Workflow.
+   * Exports a workflow in JSON format, including the basic information of the workflow, information about all nodes in the workflow, and the DAG dependencies of the workflow.
    * 
    * @param tmpReq - ExportWorkflowsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1343,7 +1347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Exports the definitions of one or more Workflows in JSON format. The exported data includes the basic information, all Nodes, and the Directed Acyclic Graph (DAG) dependencies for each Workflow.
+   * Exports a workflow in JSON format, including the basic information of the workflow, information about all nodes in the workflow, and the DAG dependencies of the workflow.
    * 
    * @param request - ExportWorkflowsRequest
    * @returns ExportWorkflowsResponse
@@ -1354,7 +1358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified application.
+   * Retrieves a specified application.
    * 
    * @param request - GetAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1389,7 +1393,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified application.
+   * Retrieves a specified application.
    * 
    * @param request - GetAppRequest
    * @returns GetAppResponse
@@ -1400,7 +1404,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified calendar.
+   * Retrieves the calendar.
    * 
    * @param request - GetCalendarRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1439,7 +1443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a specified calendar.
+   * Retrieves the calendar.
    * 
    * @param request - GetCalendarRequest
    * @returns GetCalendarResponse
@@ -1450,7 +1454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of a cluster.
+   * Retrieves the details of a cluster.
    * 
    * @param request - GetClusterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1477,7 +1481,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the details of a cluster.
+   * Retrieves the details of a cluster.
    * 
    * @param request - GetClusterRequest
    * @returns GetClusterResponse
@@ -1488,7 +1492,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the information about a specified machine.
+   * Retrieves the information of a specified machine.
    * 
    * @param request - GetDesigateInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1515,7 +1519,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the information about a specified machine.
+   * Retrieves the information of a specified machine.
    * 
    * @param request - GetDesigateInfoRequest
    * @returns GetDesigateInfoResponse
@@ -1526,13 +1530,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the configuration for a specified Executor.
+   * Retrieves the configuration information of a specified executor.
    * 
    * @remarks
    * # Add the enhancement plugin
-   * Add the Enhancement Plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
-   * **Note**: Place this plugin **before** the `xxl-job-core` dependency in the `pom.xml` file.
-   * **For more information, see**: [Plugin Version Documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+   * Add the enhancement plugin to the `pom.xml` file to enhance the capabilities of the executor.
+   * **Note**: Make sure that the plugin is placed **above** the `xxl-job-core` dependency in the pom file.
+   * **For more information**, refer to [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description).
    * 
    * @param request - GetExecutorConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1567,13 +1571,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the configuration for a specified Executor.
+   * Retrieves the configuration information of a specified executor.
    * 
    * @remarks
    * # Add the enhancement plugin
-   * Add the Enhancement Plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
-   * **Note**: Place this plugin **before** the `xxl-job-core` dependency in the `pom.xml` file.
-   * **For more information, see**: [Plugin Version Documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+   * Add the enhancement plugin to the `pom.xml` file to enhance the capabilities of the executor.
+   * **Note**: Make sure that the plugin is placed **above** the `xxl-job-core` dependency in the pom file.
+   * **For more information**, refer to [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description).
    * 
    * @param request - GetExecutorConfigRequest
    * @returns GetExecutorConfigResponse
@@ -1584,7 +1588,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns the details of a Task Execution.
+   * Retrieves the details of a task execution.
    * 
    * @param request - GetJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1627,7 +1631,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns the details of a Task Execution.
+   * Retrieves the details of a task execution.
    * 
    * @param request - GetJobExecutionRequest
    * @returns GetJobExecutionResponse
@@ -1638,13 +1642,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the execution details of a sharding task.
+   * Retrieves the details of a sharding task execution.
    * 
    * @remarks
-   * # Import the enhanced plugin
-   * Add the enhanced plugin to the `pom.xml` file to improve the capabilities of the Executor.
-   * **Note**: Make sure this plugin is placed **above** the `xxl-job-core` dependency in the pom file.
-   * **For more information, refer to**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+   * # Import the enhancement plugin
+   * Add the enhancement plugin to the `pom.xml` file to improve the capabilities of the Executor.
+   * **Note**: Make sure that the plugin is placed **above** the `xxl-job-core` dependency in the pom file.
+   * **For more information, see**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - GetJobExecutionProgressRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1671,13 +1675,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the execution details of a sharding task.
+   * Retrieves the details of a sharding task execution.
    * 
    * @remarks
-   * # Import the enhanced plugin
-   * Add the enhanced plugin to the `pom.xml` file to improve the capabilities of the Executor.
-   * **Note**: Make sure this plugin is placed **above** the `xxl-job-core` dependency in the pom file.
-   * **For more information, refer to**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+   * # Import the enhancement plugin
+   * Add the enhancement plugin to the `pom.xml` file to improve the capabilities of the Executor.
+   * **Note**: Make sure that the plugin is placed **above** the `xxl-job-core` dependency in the pom file.
+   * **For more information, see**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - GetJobExecutionProgressRequest
    * @returns GetJobExecutionProgressResponse
@@ -1688,13 +1692,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the thread dump for a specific job execution.
+   * Queries the task execution stack.
    * 
    * @remarks
-   * # Add the enhancement plugin
-   * Add the Enhancement Plugin to your `pom.xml` file to extend the executor\\"s capabilities.
-   * **Note**: Place this plugin **above** the `xxl-job-core` dependency.
-   * **For more information, see**: [Plugin versioning documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+   * # Import the enhancement plug-in
+   * Add the enhancement plug-in to the `pom.xml` file to enhance the capabilities of the executor.
+   * **Note**: Make sure that the plug-in is placed **above** the `xxl-job-core` dependency in the POM file.
+   * **For more information, see**: [Plug-in version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - GetJobExecutionThreadDumpRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1721,13 +1725,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the thread dump for a specific job execution.
+   * Queries the task execution stack.
    * 
    * @remarks
-   * # Add the enhancement plugin
-   * Add the Enhancement Plugin to your `pom.xml` file to extend the executor\\"s capabilities.
-   * **Note**: Place this plugin **above** the `xxl-job-core` dependency.
-   * **For more information, see**: [Plugin versioning documentation](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+   * # Import the enhancement plug-in
+   * Add the enhancement plug-in to the `pom.xml` file to enhance the capabilities of the executor.
+   * **Note**: Make sure that the plug-in is placed **above** the `xxl-job-core` dependency in the POM file.
+   * **For more information, see**: [Plug-in version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - GetJobExecutionThreadDumpRequest
    * @returns GetJobExecutionThreadDumpResponse
@@ -1738,7 +1742,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves log entries.
+   * Queries logs.
    * 
    * @param request - GetLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1765,7 +1769,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves log entries.
+   * Queries logs.
    * 
    * @param request - GetLogRequest
    * @returns GetLogResponse
@@ -1776,7 +1780,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Events.
+   * Queries events.
    * 
    * @param request - GetLogEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1803,7 +1807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Events.
+   * Queries events.
    * 
    * @param request - GetLogEventRequest
    * @returns GetLogEventResponse
@@ -1814,13 +1818,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取分页日志
+   * Retrieves paginated logs.
    * 
    * @remarks
-   * # 引入增强插件
-   * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
-   * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
-   * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+   * # Add the enhancement plugin
+   * Add the enhancement plugin to the pom.xml file to enhance the capabilities of the executor.
+   * **Note**: Make sure that this plugin is placed **above** the xxl-job-core dependency in the pom file.
+   * **For more information, see**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - GetPageLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1891,13 +1895,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取分页日志
+   * Retrieves paginated logs.
    * 
    * @remarks
-   * # 引入增强插件
-   * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
-   * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
-   * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+   * # Add the enhancement plugin
+   * Add the enhancement plugin to the pom.xml file to enhance the capabilities of the executor.
+   * **Note**: Make sure that this plugin is placed **above** the xxl-job-core dependency in the pom file.
+   * **For more information, see**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - GetPageLogRequest
    * @returns GetPageLogResponse
@@ -1908,7 +1912,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the basic information for a specified workflow.
+   * Retrieves the basic information of a workflow.
    * 
    * @param request - GetWorkflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1947,7 +1951,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the basic information for a specified workflow.
+   * Retrieves the basic information of a workflow.
    * 
    * @param request - GetWorkflowRequest
    * @returns GetWorkflowResponse
@@ -1958,7 +1962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the Directed Acyclic Graph (DAG) of a workflow.
+   * Retrieves the DAG information of a workflow.
    * 
    * @param request - GetWorkflowDAGRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1997,7 +2001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the Directed Acyclic Graph (DAG) of a workflow.
+   * Retrieves the DAG information of a workflow.
    * 
    * @param request - GetWorkflowDAGRequest
    * @returns GetWorkflowDAGResponse
@@ -2008,7 +2012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the DAG for a previous workflow version.
+   * Retrieves the DAG of a historical workflow version.
    * 
    * @param request - GetWorkflowDAGPreviewRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2051,7 +2055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Gets the DAG for a previous workflow version.
+   * Retrieves the DAG of a historical workflow version.
    * 
    * @param request - GetWorkflowDAGPreviewRequest
    * @returns GetWorkflowDAGPreviewResponse
@@ -2062,7 +2066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the DAG information for a workflow instance.
+   * Retrieves the DAG information of a workflow instance.
    * 
    * @param request - GetWorkflowExecutionDAGRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2101,7 +2105,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the DAG information for a workflow instance.
+   * Retrieves the DAG information of a workflow instance.
    * 
    * @param request - GetWorkflowExecutionDAGRequest
    * @returns GetWorkflowExecutionDAGResponse
@@ -2112,10 +2116,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+   * Imports scheduled tasks from an agent to the scheduler platform (SSE). You cannot call this API operation by using the cluster ID of an XXL-JOB cluster, and XXL-JOB clusters are not supported. This API operation is exclusively available for AI task scheduling clusters.
    * 
    * @remarks
-   * 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+   * Imports scheduled tasks from an agent to the scheduler platform (SSE). You cannot call this API operation by using the cluster ID of an XXL-JOB cluster, and XXL-JOB clusters are not supported. This API operation is exclusively available for AI task scheduling clusters.
    * 
    * @param request - ImportAgentJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2168,10 +2172,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+   * Imports scheduled tasks from an agent to the scheduler platform (SSE). You cannot call this API operation by using the cluster ID of an XXL-JOB cluster, and XXL-JOB clusters are not supported. This API operation is exclusively available for AI task scheduling clusters.
    * 
    * @remarks
-   * 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+   * Imports scheduled tasks from an agent to the scheduler platform (SSE). You cannot call this API operation by using the cluster ID of an XXL-JOB cluster, and XXL-JOB clusters are not supported. This API operation is exclusively available for AI task scheduling clusters.
    * 
    * @param request - ImportAgentJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2210,10 +2214,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+   * Imports scheduled tasks from an agent to the scheduler platform (SSE). You cannot call this API operation by using the cluster ID of an XXL-JOB cluster, and XXL-JOB clusters are not supported. This API operation is exclusively available for AI task scheduling clusters.
    * 
    * @remarks
-   * 导入agent中的定时任务到scheduler平台（SSE），该接口禁止使用xxljob的clusterid调用，不支持XXLJOB相关集群，这个接口仅限AI任务调度集群使用。
+   * Imports scheduled tasks from an agent to the scheduler platform (SSE). You cannot call this API operation by using the cluster ID of an XXL-JOB cluster, and XXL-JOB clusters are not supported. This API operation is exclusively available for AI task scheduling clusters.
    * 
    * @param request - ImportAgentJobsRequest
    * @returns ImportAgentJobsResponse
@@ -2278,7 +2282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports jobs in bulk.
+   * Imports tasks in batches.
    * 
    * @param request - ImportJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2321,7 +2325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports jobs in bulk.
+   * Imports tasks in batches.
    * 
    * @param request - ImportJobsRequest
    * @returns ImportJobsResponse
@@ -2332,7 +2336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports one or more workflows.
+   * Imports a workflow.
    * 
    * @param request - ImportWorkflowsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2375,7 +2379,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports one or more workflows.
+   * Imports a workflow.
    * 
    * @param request - ImportWorkflowsRequest
    * @returns ImportWorkflowsResponse
@@ -2424,7 +2428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a list of application names.
+   * Retrieves the list of application names.
    * 
    * @param request - ListAppNamesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2451,7 +2455,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a list of application names.
+   * Retrieves the list of application names.
    * 
    * @param request - ListAppNamesRequest
    * @returns ListAppNamesResponse
@@ -2462,7 +2466,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the list of applications.
+   * Retrieves a list of applications.
    * 
    * @param request - ListAppsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2489,7 +2493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get the list of applications.
+   * Retrieves a list of applications.
    * 
    * @param request - ListAppsRequest
    * @returns ListAppsResponse
@@ -2500,7 +2504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all Calendar names.
+   * Retrieves a list of calendar names.
    * 
    * @param request - ListCalendarNamesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2527,7 +2531,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all Calendar names.
+   * Retrieves a list of calendar names.
    * 
    * @param request - ListCalendarNamesRequest
    * @returns ListCalendarNamesResponse
@@ -2638,10 +2642,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询通知联系人列表
+   * Queries the list of notification contacts.
    * 
    * @remarks
-   * 查看联系人
+   * Views the contacts.
    * 
    * @param request - ListContactsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2680,10 +2684,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询通知联系人列表
+   * Queries the list of notification contacts.
    * 
    * @remarks
-   * 查看联系人
+   * Views the contacts.
    * 
    * @param request - ListContactsRequest
    * @returns ListContactsResponse
@@ -2694,7 +2698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the data source list
+   * Retrieves a list of data sources.
    * 
    * @param request - ListDatasourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2749,7 +2753,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieve the data source list
+   * Retrieves a list of data sources.
    * 
    * @param request - ListDatasourcesRequest
    * @returns ListDatasourcesResponse
@@ -2760,13 +2764,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取执行器组列表
+   * Queries the list of executor groups.
    * 
    * @remarks
-   * # 引入增强插件
-   * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
-   * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
-   * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+   * # Import the enhancement plugin
+   * Add the enhancement plugin to the `pom.xml` file to enhance the capabilities of the executor.
+   * **Note**: Make sure that this plugin is placed **above** the `xxl-job-core` dependency in the pom file.
+   * **For more information, see**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - ListExecutorGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2799,6 +2803,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.timeType)) {
+      query["TimeType"] = request.timeType;
+    }
+
     if (!$dara.isNull(request.workerType)) {
       query["WorkerType"] = request.workerType;
     }
@@ -2821,13 +2829,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取执行器组列表
+   * Queries the list of executor groups.
    * 
    * @remarks
-   * # 引入增强插件
-   * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
-   * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
-   * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+   * # Import the enhancement plugin
+   * Add the enhancement plugin to the `pom.xml` file to enhance the capabilities of the executor.
+   * **Note**: Make sure that this plugin is placed **above** the `xxl-job-core` dependency in the pom file.
+   * **For more information, see**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - ListExecutorGroupRequest
    * @returns ListExecutorGroupResponse
@@ -2958,7 +2966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the script history for a job.
+   * Retrieves the task script history list.
    * 
    * @param request - ListJobScriptHistoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3005,7 +3013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the script history for a job.
+   * Retrieves the task script history list.
    * 
    * @param request - ListJobScriptHistoryRequest
    * @returns ListJobScriptHistoryResponse
@@ -3016,7 +3024,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of tasks.
+   * Retrieves a list of jobs.
    * 
    * @param request - ListJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3065,6 +3073,10 @@ export default class Client extends OpenApi {
       query["Status"] = request.status;
     }
 
+    if (!$dara.isNull(request.timeType)) {
+      query["TimeType"] = request.timeType;
+    }
+
     if (!$dara.isNull(request.workflowId)) {
       query["WorkflowId"] = request.workflowId;
     }
@@ -3087,7 +3099,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of tasks.
+   * Retrieves a list of jobs.
    * 
    * @param request - ListJobsRequest
    * @returns ListJobsResponse
@@ -3098,13 +3110,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists k8s resources.
+   * Retrieves Kubernetes resources.
    * 
    * @remarks
-   * # Add the enhancement plugin
-   * Add the enhancement plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
-   * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml file.
-   * **For more information:** [Plugin version release notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+   * # Add the enhancement plug-in
+   * Add the enhancement plug-in to the `pom.xml` file to enhance the capabilities of the executor.
+   * **Note**: Make sure that this plug-in is placed **above** the `xxl-job-core` dependency in the POM file.
+   * **For more information, see**: [Plug-in version descriptions](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - ListK8sResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3151,13 +3163,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists k8s resources.
+   * Retrieves Kubernetes resources.
    * 
    * @remarks
-   * # Add the enhancement plugin
-   * Add the enhancement plugin to your `pom.xml` file to extend the Executor\\"s capabilities.
-   * **Note**: Place this plugin **above** the `xxl-job-core` dependency in your pom.xml file.
-   * **For more information:** [Plugin version release notes](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+   * # Add the enhancement plug-in
+   * Add the enhancement plug-in to the `pom.xml` file to enhance the capabilities of the executor.
+   * **Note**: Make sure that this plug-in is placed **above** the `xxl-job-core` dependency in the POM file.
+   * **For more information, see**: [Plug-in version descriptions](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - ListK8sResourceRequest
    * @returns ListK8sResourceResponse
@@ -3168,7 +3180,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of labels for an Executor.
+   * Retrieves the list of labels for an executor.
    * 
    * @param request - ListLablesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3195,7 +3207,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of labels for an Executor.
+   * Retrieves the list of labels for an executor.
    * 
    * @param request - ListLablesRequest
    * @returns ListLablesResponse
@@ -3206,7 +3218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the zone list.
+   * Queries the list of zones.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRegionZoneResponse
@@ -3228,7 +3240,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the zone list.
+   * Queries the list of zones.
    * @returns ListRegionZoneResponse
    */
   async listRegionZone(): Promise<$_model.ListRegionZoneResponse> {
@@ -3237,7 +3249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the List of all Regions.
+   * Retrieves a list of all regions.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListRegionsResponse
@@ -3259,7 +3271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtain the List of all Regions.
+   * Retrieves a list of all regions.
    * @returns ListRegionsResponse
    */
   async listRegions(): Promise<$_model.ListRegionsResponse> {
@@ -3268,7 +3280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists scheduled events.
+   * Queries scheduling events.
    * 
    * @param request - ListScheduleEventRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3295,7 +3307,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists scheduled events.
+   * Queries scheduling events.
    * 
    * @param request - ListScheduleEventRequest
    * @returns ListScheduleEventResponse
@@ -3306,7 +3318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the next five scheduled times based on the specified time type and time expression.
+   * Retrieves the next five scheduling times for a specified time type and expression.
    * 
    * @param request - ListScheduleTimesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3333,7 +3345,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the next five scheduled times based on the specified time type and time expression.
+   * Retrieves the next five scheduling times for a specified time type and expression.
    * 
    * @param request - ListScheduleTimesRequest
    * @returns ListScheduleTimesResponse
@@ -3430,7 +3442,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the versions for a specified workflow.
+   * Retrieves a list of workflow versions.
    * 
    * @param request - ListWorkflowVersionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3477,7 +3489,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the versions for a specified workflow.
+   * Retrieves a list of workflow versions.
    * 
    * @param request - ListWorkflowVersionsRequest
    * @returns ListWorkflowVersionsResponse
@@ -3488,7 +3500,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists your workflows.
+   * Retrieves a list of workflows.
    * 
    * @param request - ListWorkflowsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3555,7 +3567,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists your workflows.
+   * Retrieves a list of workflows.
    * 
    * @param request - ListWorkflowsRequest
    * @returns ListWorkflowsResponse
@@ -3566,7 +3578,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Backfills historical data for a specified workflow.
+   * Backfills the historical data of a workflow.
    * 
    * @param request - OperateBackfillWorkflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3613,7 +3625,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Backfills historical data for a specified workflow.
+   * Backfills the historical data of a workflow.
    * 
    * @param request - OperateBackfillWorkflowRequest
    * @returns OperateBackfillWorkflowResponse
@@ -3624,7 +3636,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Connect to a data source
+   * Tests the connection to a data source.
    * 
    * @param request - OperateConnectDatasourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3667,7 +3679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Connect to a data source
+   * Tests the connection to a data source.
    * 
    * @param request - OperateConnectDatasourceRequest
    * @returns OperateConnectDatasourceResponse
@@ -3750,7 +3762,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables nodes in batches.
+   * Disables tasks in batches.
    * 
    * @param tmpReq - OperateDisableJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3799,7 +3811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables nodes in batches.
+   * Disables tasks in batches.
    * 
    * @param request - OperateDisableJobsRequest
    * @returns OperateDisableJobsResponse
@@ -3810,10 +3822,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables one or more workflows.
+   * Disables a workflow.
    * 
    * @remarks
-   * Disables one or more specified workflows.
+   * Manually imports an executor.
    * 
    * @param tmpReq - OperateDisableWorkflowsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3858,10 +3870,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables one or more workflows.
+   * Disables a workflow.
    * 
    * @remarks
-   * Disables one or more specified workflows.
+   * Manually imports an executor.
    * 
    * @param request - OperateDisableWorkflowsRequest
    * @returns OperateDisableWorkflowsResponse
@@ -3872,7 +3884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts nodes in batches.
+   * Enables multiple tasks.
    * 
    * @param tmpReq - OperateEnableJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3921,7 +3933,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts nodes in batches.
+   * Enables multiple tasks.
    * 
    * @param request - OperateEnableJobsRequest
    * @returns OperateEnableJobsResponse
@@ -3932,7 +3944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables one or more workflows.
+   * Enables a workflow.
    * 
    * @param tmpReq - OperateEnableWorkflowsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3977,7 +3989,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables one or more workflows.
+   * Enables a workflow.
    * 
    * @param request - OperateEnableWorkflowsRequest
    * @returns OperateEnableWorkflowsResponse
@@ -3988,7 +4000,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a node once.
+   * Runs a task once.
    * 
    * @param request - OperateExecuteJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4043,7 +4055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Runs a node once.
+   * Runs a task once.
    * 
    * @param request - OperateExecuteJobRequest
    * @returns OperateExecuteJobResponse
@@ -4054,10 +4066,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes a workflow.
+   * Runs a workflow.
    * 
    * @remarks
-   * This operation starts a new workflow instance.
+   * Manually imports an executor.
    * 
    * @param request - OperateExecuteWorkflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4096,10 +4108,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Executes a workflow.
+   * Runs a workflow.
    * 
    * @remarks
-   * This operation starts a new workflow instance.
+   * Manually imports an executor.
    * 
    * @param request - OperateExecuteWorkflowRequest
    * @returns OperateExecuteWorkflowResponse
@@ -4110,7 +4122,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Holds a pending job execution.
+   * Suspends task instances that have not yet been executed.
    * 
    * @param request - OperateHoldJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4149,7 +4161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Holds a pending job execution.
+   * Suspends task instances that have not yet been executed.
    * 
    * @param request - OperateHoldJobExecutionRequest
    * @returns OperateHoldJobExecutionResponse
@@ -4160,7 +4172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Puts a Workflow Execution on hold, suspending all its unexecuted nodes.
+   * Suspends a workflow instance, which suspends the unexecuted nodes in the workflow.
    * 
    * @param request - OperateHoldWorkflowExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4199,7 +4211,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Puts a Workflow Execution on hold, suspending all its unexecuted nodes.
+   * Suspends a workflow instance, which suspends the unexecuted nodes in the workflow.
    * 
    * @param request - OperateHoldWorkflowExecutionRequest
    * @returns OperateHoldWorkflowExecutionResponse
@@ -4210,7 +4222,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Marks a job execution as successful.
+   * Marks a job instance as successful.
    * 
    * @param request - OperateMarkSuccessJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4249,7 +4261,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Marks a job execution as successful.
+   * Marks a job instance as successful.
    * 
    * @param request - OperateMarkSuccessJobExecutionRequest
    * @returns OperateMarkSuccessJobExecutionResponse
@@ -4260,7 +4272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Marks a workflow execution as successful.
+   * Marks a workflow instance as successful.
    * 
    * @param request - OperateMarkSuccessWorkflowExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4299,7 +4311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Marks a workflow execution as successful.
+   * Marks a workflow instance as successful.
    * 
    * @param request - OperateMarkSuccessWorkflowExecutionRequest
    * @returns OperateMarkSuccessWorkflowExecutionResponse
@@ -4310,7 +4322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reruns historical data for a node.
+   * Reruns historical data for a task.
    * 
    * @param request - OperateRerunJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4365,7 +4377,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reruns historical data for a node.
+   * Reruns historical data for a task.
    * 
    * @param request - OperateRerunJobRequest
    * @returns OperateRerunJobResponse
@@ -4376,7 +4388,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reruns a failed job instance.
+   * Reruns failed task instances.
    * 
    * @param tmpReq - OperateRetryJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4433,7 +4445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Reruns a failed job instance.
+   * Reruns failed task instances.
    * 
    * @param request - OperateRetryJobExecutionRequest
    * @returns OperateRetryJobExecutionResponse
@@ -4444,7 +4456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retries a workflow execution.
+   * Reruns a workflow instance.
    * 
    * @param request - OperateRetryWorkflowExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4487,7 +4499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retries a workflow execution.
+   * Reruns a workflow instance.
    * 
    * @param request - OperateRetryWorkflowExecutionRequest
    * @returns OperateRetryWorkflowExecutionResponse
@@ -4498,7 +4510,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Skips a job execution.
+   * Skips a task instance.
    * 
    * @param request - OperateSkipJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4537,7 +4549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Skips a job execution.
+   * Skips a task instance.
    * 
    * @param request - OperateSkipJobExecutionRequest
    * @returns OperateSkipJobExecutionResponse
@@ -4612,7 +4624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a running workflow execution.
+   * Stops a running workflow instance.
    * 
    * @param request - OperateStopWorkflowExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4651,7 +4663,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a running workflow execution.
+   * Stops a running workflow instance.
    * 
    * @param request - OperateStopWorkflowExecutionRequest
    * @returns OperateStopWorkflowExecutionResponse
@@ -4662,7 +4674,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes a Job Execution that is in the Hold state.
+   * Resumes a suspended task instance.
    * 
    * @param request - OperateUnholdJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4701,7 +4713,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes a Job Execution that is in the Hold state.
+   * Resumes a suspended task instance.
    * 
    * @param request - OperateUnholdJobExecutionRequest
    * @returns OperateUnholdJobExecutionResponse
@@ -4712,7 +4724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes a workflow execution that is on hold.
+   * Resumes the execution of a suspended workflow instance.
    * 
    * @param request - OperateUnholdWorkflowExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4751,7 +4763,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes a workflow execution that is on hold.
+   * Resumes the execution of a suspended workflow instance.
    * 
    * @param request - OperateUnholdWorkflowExecutionRequest
    * @returns OperateUnholdWorkflowExecutionResponse
@@ -4762,7 +4774,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes a skipped job execution.
+   * Resumes a skipped task instance.
    * 
    * @param request - OperateUnskipJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4801,7 +4813,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resumes a skipped job execution.
+   * Resumes a skipped task instance.
    * 
    * @param request - OperateUnskipJobExecutionRequest
    * @returns OperateUnskipJobExecutionResponse
@@ -4812,7 +4824,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Synchronizes jobs.
+   * Synchronizes nodes.
    * 
    * @param tmpReq - SyncJobsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4865,7 +4877,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Synchronizes jobs.
+   * Synchronizes nodes.
    * 
    * @param request - SyncJobsRequest
    * @returns SyncJobsResponse
@@ -5058,10 +5070,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新通知联系人
+   * Updates a notification contact.
    * 
    * @remarks
-   * 更新通知联系人
+   * Updates a notification contact.
    * 
    * @param request - UpdateContactRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5104,10 +5116,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新通知联系人
+   * Updates a notification contact.
    * 
    * @remarks
-   * 更新通知联系人
+   * Updates a notification contact.
    * 
    * @param request - UpdateContactRequest
    * @returns UpdateContactResponse
@@ -5118,7 +5130,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update data source
+   * Updates a datasource.
    * 
    * @param request - UpdateDatasourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5169,7 +5181,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update data source
+   * Updates a datasource.
    * 
    * @param request - UpdateDatasourceRequest
    * @returns UpdateDatasourceResponse
@@ -5180,13 +5192,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新执行器组
+   * Updates an executor group.
    * 
    * @remarks
-   * # 引入增强插件
-   * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
-   * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
-   * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+   * # Import the enhancement plugin
+   * Add the enhancement plugin to the `pom.xml` file to improve the capabilities of the executor.
+   * **Note**: Make sure that the plugin is placed **above** the `xxl-job-core` dependency in the POM file.
+   * **For more information, see**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - UpdateExecutorGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5265,13 +5277,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新执行器组
+   * Updates an executor group.
    * 
    * @remarks
-   * # 引入增强插件
-   * 在`pom.xml`文件中添加增强插件以提升Executor的能力。
-   * **注意**：请确保该插件在pom中放置在`xxl-job-core` 依赖的**上方**。
-   * **详细信息请参考**：[插件版本说明文档](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
+   * # Import the enhancement plugin
+   * Add the enhancement plugin to the `pom.xml` file to improve the capabilities of the executor.
+   * **Note**: Make sure that the plugin is placed **above** the `xxl-job-core` dependency in the POM file.
+   * **For more information, see**: [Plugin version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description)
    * 
    * @param request - UpdateExecutorGroupRequest
    * @returns UpdateExecutorGroupResponse
@@ -5282,13 +5294,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of one or more Executors.
+   * Updates an executor.
    * 
    * @remarks
-   * # Add the enhancement plugin
-   * Add the enhancement plugin to the `pom.xml` file to extend the capabilities of the Executor.
-   * **Note**: Place this plugin **above** the `xxl-job-core` dependency in the pom.xml file.
-   * **For more information, see the** [Plugin Version Description Document](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description).
+   * # Import the enhancement plug-in
+   * Add the enhancement plug-in to the `pom.xml` file to enhance the capabilities of the executor.
+   * **Note**: Make sure that the plug-in is placed **above** the `xxl-job-core` dependency in the POM file.
+   * **For more information**, see [Plug-in version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description).
    * 
    * @param request - UpdateExecutorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5331,13 +5343,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the configuration of one or more Executors.
+   * Updates an executor.
    * 
    * @remarks
-   * # Add the enhancement plugin
-   * Add the enhancement plugin to the `pom.xml` file to extend the capabilities of the Executor.
-   * **Note**: Place this plugin **above** the `xxl-job-core` dependency in the pom.xml file.
-   * **For more information, see the** [Plugin Version Description Document](https://help.aliyun.com/zh/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description).
+   * # Import the enhancement plug-in
+   * Add the enhancement plug-in to the `pom.xml` file to enhance the capabilities of the executor.
+   * **Note**: Make sure that the plug-in is placed **above** the `xxl-job-core` dependency in the POM file.
+   * **For more information**, see [Plug-in version description](https://www.alibabacloud.com/help/en/schedulerx/schedulerx-xxljob/product-overview/plugin-version-description).
    * 
    * @param request - UpdateExecutorsRequest
    * @returns UpdateExecutorsResponse
@@ -5348,7 +5360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates node information.
+   * Updates the job information.
    * 
    * @param tmpReq - UpdateJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5497,7 +5509,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates node information.
+   * Updates the job information.
    * 
    * @param request - UpdateJobRequest
    * @returns UpdateJobResponse
@@ -5508,7 +5520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update task instance
+   * Updates a job instance.
    * 
    * @param request - UpdateJobExecutionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5551,7 +5563,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Update task instance
+   * Updates a job instance.
    * 
    * @param request - UpdateJobExecutionRequest
    * @returns UpdateJobExecutionResponse
@@ -5562,7 +5574,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a job script.
+   * Updates the task execution script.
    * 
    * @param request - UpdateJobScriptRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5609,7 +5621,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a job script.
+   * Updates the task execution script.
    * 
    * @param request - UpdateJobScriptRequest
    * @returns UpdateJobScriptResponse
@@ -5620,7 +5632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an existing workflow.
+   * Updates a workflow.
    * 
    * @param request - UpdateWorkflowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5691,7 +5703,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates an existing workflow.
+   * Updates a workflow.
    * 
    * @param request - UpdateWorkflowRequest
    * @returns UpdateWorkflowResponse
@@ -5702,7 +5714,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a workflow\\"s Directed Acyclic Graph (DAG), including node coordinates and edges.
+   * Updates the directed acyclic graph (DAG) information of a workflow, including node coordinates and edges.
    * 
    * @param tmpReq - UpdateWorkflowDAGRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5755,7 +5767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a workflow\\"s Directed Acyclic Graph (DAG), including node coordinates and edges.
+   * Updates the directed acyclic graph (DAG) information of a workflow, including node coordinates and edges.
    * 
    * @param request - UpdateWorkflowDAGRequest
    * @returns UpdateWorkflowDAGResponse
@@ -5766,7 +5778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the Directed Acyclic Graph (DAG) version for a Workflow.
+   * Switches the workflow DAG version.
    * 
    * @param request - UpdateWorkflowDAGVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5809,7 +5821,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the Directed Acyclic Graph (DAG) version for a Workflow.
+   * Switches the workflow DAG version.
    * 
    * @param request - UpdateWorkflowDAGVersionRequest
    * @returns UpdateWorkflowDAGVersionResponse

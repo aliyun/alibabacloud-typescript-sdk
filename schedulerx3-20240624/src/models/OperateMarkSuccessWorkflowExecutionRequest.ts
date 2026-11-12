@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperateMarkSuccessWorkflowExecutionRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class OperateMarkSuccessWorkflowExecutionRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class OperateMarkSuccessWorkflowExecutionRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The ID of the workflow execution.
+   * The workflow instance ID.
    * 
    * This parameter is required.
    * 

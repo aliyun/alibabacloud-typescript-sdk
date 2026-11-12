@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDatasourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Cluster ID.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListDatasourcesRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * Maximum data volume to read in this request. Default value is 10.
+   * The maximum number of entries to return for this request. Default value: 10.
    * 
    * @example
    * 10
@@ -23,15 +23,15 @@ export class ListDatasourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Job Name.
+   * The task name.
    * 
    * @example
-   * 修正券统计数据
+   * Corrected voucher statistics
    */
   name?: string;
   /**
    * @remarks
-   * Indicates the current read position returned by the call. An empty value means all data has been read. This parameter is not required for the first query.
+   * The token that indicates the position from which the current call returns data. An empty value indicates that all data has been read. You do not need to specify this parameter for the first query.
    * 
    * @example
    * eCKqVlS5FKF5EWGGOo8EgQ==
@@ -39,7 +39,7 @@ export class ListDatasourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class ListDatasourcesRequest extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * Page size.
+   * The page size.
    * 
    * @example
    * 10
@@ -55,10 +55,12 @@ export class ListDatasourcesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Grafana dashboard type, including: dash-db: Dashboard; dash-folder: Folder (which can contain dashboards).
+   * The Grafana dashboard type. Valid values:
+   * - dash-db: Dashboard.
+   * - dash-folder: Folder, which can contain dashboards.
    * 
    * @example
-   * REDIS
+   * 0
    */
   type?: number;
   static names(): { [key: string]: string } {

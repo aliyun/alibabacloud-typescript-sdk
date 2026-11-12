@@ -5,10 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteContactRequest extends $dara.Model {
   /**
    * @remarks
+   * The name of the alert contact.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 黄永丰
+   * Huang Yongfeng
    */
   contactName?: string;
   static names(): { [key: string]: string } {

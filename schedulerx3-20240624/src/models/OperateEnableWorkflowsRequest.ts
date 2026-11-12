@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OperateEnableWorkflowsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the application.
+   * The application name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class OperateEnableWorkflowsRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The ID of the cluster.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class OperateEnableWorkflowsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * A list of workflow IDs.
+   * The list of workflow IDs.
    * 
    * This parameter is required.
    */

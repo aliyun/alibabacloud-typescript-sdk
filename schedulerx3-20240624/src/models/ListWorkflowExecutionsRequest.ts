@@ -23,7 +23,7 @@ export class ListWorkflowExecutionsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end of the time range for filtering executions. The time must be in `YYYY-MM-DD HH:mm:ss` format.
+   * The end time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-10-13 16:00:00
@@ -31,7 +31,7 @@ export class ListWorkflowExecutionsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The maximum number of results to return. Defaults to 10.
+   * The maximum number of entries to return for this request. Default value: 10.
    * 
    * @example
    * 10
@@ -39,7 +39,7 @@ export class ListWorkflowExecutionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token to retrieve the next page of results. For the first request, do not specify this parameter. If the response does not include a `NextToken`, no more results are available.
+   * The token that specifies the position from which the query starts. An empty value indicates that all data has been read. You do not need to specify this parameter for the first query.
    * 
    * @example
    * eCKqVlS5FKF5EWGGOo8EgQ==
@@ -47,7 +47,7 @@ export class ListWorkflowExecutionsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -63,7 +63,7 @@ export class ListWorkflowExecutionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start of the time range for filtering executions. The time must be in `YYYY-MM-DD HH:mm:ss` format.
+   * The start time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-10-27 02:15:00
@@ -71,26 +71,16 @@ export class ListWorkflowExecutionsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The workflow execution status. Use this parameter to filter executions by status. Valid values:
-   * 
+   * The workflow execution status. Valid values:
    * - 0: unknown
-   * 
    * - 1: waiting
-   * 
    * - 2: queued
-   * 
    * - 3: running
-   * 
    * - 4: success
-   * 
    * - 5: failed
-   * 
    * - 6: killed
-   * 
    * - 7: held
-   * 
    * - 8: mark_success
-   * 
    * - 9: skipped
    * 
    * @example
@@ -99,7 +89,7 @@ export class ListWorkflowExecutionsRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The workflow execution ID.
+   * The workflow instance ID.
    * 
    * @example
    * 100

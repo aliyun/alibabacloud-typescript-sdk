@@ -13,7 +13,7 @@ export class ListWorkflowExecutionsResponseBodyDataRecords extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The data time of the workflow execution.
+   * The node data timestamp. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-11-12 14:52:42
@@ -21,7 +21,7 @@ export class ListWorkflowExecutionsResponseBodyDataRecords extends $dara.Model {
   dataTime?: string;
   /**
    * @remarks
-   * The end time of the workflow execution.
+   * The task end time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-11-12 14:52:42
@@ -37,7 +37,7 @@ export class ListWorkflowExecutionsResponseBodyDataRecords extends $dara.Model {
   executor?: string;
   /**
    * @remarks
-   * The schedule time of the workflow execution.
+   * The task scheduling time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-11-12 14:52:42
@@ -45,7 +45,7 @@ export class ListWorkflowExecutionsResponseBodyDataRecords extends $dara.Model {
   scheduleTime?: string;
   /**
    * @remarks
-   * The start time of the workflow execution.
+   * The start time. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-11-04 01:09:27
@@ -53,33 +53,20 @@ export class ListWorkflowExecutionsResponseBodyDataRecords extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the workflow execution. Valid values:
-   * 
-   * - 0: UNKNOWN
-   * 
-   * - 1: WAITING
-   * 
-   * - 2: READY
-   * 
-   * - 3: RUNNING
-   * 
-   * - 4: SUCCESS
-   * 
-   * - 5: FAILED
-   * 
-   * - 6: PAUSED
-   * 
-   * - 7: SUBMITTED
-   * 
-   * - 8: REJECTED
-   * 
-   * - 9: ACCEPTED
-   * 
-   * - 10: PARTIAL_FAILED
-   * 
-   * - 11: SKIPPED
-   * 
-   * - 12: REMOVED
+   * The task execution status. Valid values:
+   * - 0: UNKNOWN (Unknown).
+   * - 1: WAITING (Waiting).
+   * - 2: READY (Ready).
+   * - 3: RUNNING (Running).
+   * - 4: SUCCESS (Successful).
+   * - 5: FAILED (Failed).
+   * - 6: PAUSED (Paused).
+   * - 7: SUBMITTED (Submitted).
+   * - 8: REJECTED (Rejected).
+   * - 9: ACCEPTED (Accepted).
+   * - 10: PARTIAL_FAILED (Partially failed).
+   * - 11: SKIPPED (Skipped).
+   * - 12: REMOVED (Removed).
    * 
    * @example
    * 4
@@ -87,7 +74,7 @@ export class ListWorkflowExecutionsResponseBodyDataRecords extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The workflow execution ID.
+   * The workflow instance ID.
    * 
    * @example
    * 100
@@ -159,7 +146,7 @@ export class ListWorkflowExecutionsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -167,12 +154,12 @@ export class ListWorkflowExecutionsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * -
+   * The workflow execution records on the current page.
    */
   records?: ListWorkflowExecutionsResponseBodyDataRecords[];
   /**
    * @remarks
-   * The total number of matching workflow executions.
+   * The total number of entries.
    * 
    * @example
    * 65
@@ -211,7 +198,7 @@ export class ListWorkflowExecutionsResponseBodyData extends $dara.Model {
 export class ListWorkflowExecutionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of `200` indicates a successful request.
+   * The total number of entries that meet the request conditions. This parameter is optional and is not returned by default.
    * 
    * @example
    * 200
@@ -219,12 +206,12 @@ export class ListWorkflowExecutionsResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * -
+   * The paginated results of workflow execution records.
    */
   data?: ListWorkflowExecutionsResponseBodyData;
   /**
    * @remarks
-   * The maximum number of entries to return per page.
+   * The maximum number of entries to return for this request. Default value: 10.
    * 
    * @example
    * 10
@@ -232,7 +219,7 @@ export class ListWorkflowExecutionsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response message. If the request fails, this parameter provides details about the error.
+   * The position from which the current call returns data. An empty value indicates that all data has been read.
    * 
    * This parameter is required.
    * 
@@ -242,7 +229,7 @@ export class ListWorkflowExecutionsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The token to retrieve the next page of results. If this parameter is not returned, all results have been returned.
+   * The token that specifies the position from which the query starts. An empty value indicates that all data has been read. You do not need to specify this parameter for the first query.
    * 
    * @example
    * eCKqVlS5FKF5EWGGOo8EgQ==
@@ -250,7 +237,7 @@ export class ListWorkflowExecutionsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The unique request ID. Use this ID to troubleshoot issues.
+   * Id of the request
    * 
    * @example
    * BAC1ADB5-EEB5-5834-93D8-522E067AF8D9
@@ -258,11 +245,9 @@ export class ListWorkflowExecutionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - `true`: The request was successful.
-   * 
-   * - `false`: The request failed.
+   * Indicates whether the call is successful. Valid values:
+   * - true: The call is successful.
+   * - false: The call fails.
    * 
    * @example
    * true

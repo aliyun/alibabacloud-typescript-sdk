@@ -3,6 +3,10 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class OperateStopJobExecutionShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The application ID.
+   */
   appGroupId?: number;
   /**
    * @remarks
@@ -36,7 +40,7 @@ export class OperateStopJobExecutionShrinkRequest extends $dara.Model {
   jobExecutionId?: string;
   /**
    * @remarks
-   * The subtask IDs.
+   * The subtask ID.
    */
   taskListShrink?: string;
   static names(): { [key: string]: string } {

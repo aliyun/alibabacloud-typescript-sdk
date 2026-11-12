@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListK8sResourceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the k8s resource.
+   * The ID of the Kubernetes resource.
    * 
    * @example
    * xxljob-01632622cda2f
@@ -13,7 +13,7 @@ export class ListK8sResourceResponseBodyData extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The name of the k8s resource.
+   * The name of the Kubernetes resource.
    * 
    * @example
    * q_ecs_enterprise_spot_c
@@ -53,7 +53,7 @@ export class ListK8sResourceResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * - An array of k8s resources.
+   * The list of Kubernetes resources.
    */
   data?: ListK8sResourceResponseBodyData[];
   /**
@@ -66,7 +66,7 @@ export class ListK8sResourceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The Request ID.
+   * Id of the request
    * 
    * @example
    * 2ECA6FC9-7557-5576-AF5F-FC3E7BCC9C21
@@ -74,11 +74,9 @@ export class ListK8sResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
-   * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

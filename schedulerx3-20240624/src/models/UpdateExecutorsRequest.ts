@@ -15,7 +15,7 @@ export class UpdateExecutorsRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The Cluster ID.
+   * The cluster ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdateExecutorsRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The Worker type.
+   * The executor type.
    * 
    * @example
    * k8s_service
@@ -33,7 +33,7 @@ export class UpdateExecutorsRequest extends $dara.Model {
   workerType?: string;
   /**
    * @remarks
-   * A JSON-formatted string that contains a list of Workers.
+   * The list of specified machines in JSON format.
    * 
    * @example
    * [{"cluster":"xxxxx","namespace":"xxxxx","service":"xxxxx"}]
