@@ -35,6 +35,7 @@ class ModifyAppInstanceShrinkRequest extends $dara.Model {
             DBInstanceName: 'DBInstanceName',
             instanceClass: 'InstanceClass',
             instanceName: 'InstanceName',
+            migrationMode: 'MigrationMode',
             regionId: 'RegionId',
         };
     }
@@ -46,6 +47,7 @@ class ModifyAppInstanceShrinkRequest extends $dara.Model {
             DBInstanceName: 'string',
             instanceClass: 'string',
             instanceName: 'string',
+            migrationMode: 'string',
             regionId: 'string',
         };
     }

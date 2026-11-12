@@ -72,12 +72,21 @@ export class ModifyAppInstanceResponseBody extends $dara.Model {
    * FE9C65D7-930F-57A5-A207-8C396329****
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The reserved parameter.
+   * 
+   * @example
+   * Reserved parameter
+   */
+  targetInstanceName?: string;
   static names(): { [key: string]: string } {
     return {
       branchName: 'BranchName',
       components: 'Components',
       instanceName: 'InstanceName',
       requestId: 'RequestId',
+      targetInstanceName: 'TargetInstanceName',
     };
   }
 
@@ -87,6 +96,7 @@ export class ModifyAppInstanceResponseBody extends $dara.Model {
       components: { 'type': 'array', 'itemType': ModifyAppInstanceResponseBodyComponents },
       instanceName: 'string',
       requestId: 'string',
+      targetInstanceName: 'string',
     };
   }
 

@@ -1809,14 +1809,14 @@ export default class Client extends OpenApi {
      */
     listCustomAgent(request: $_model.ListCustomAgentRequest): Promise<$_model.ListCustomAgentResponse>;
     /**
-     * Queries the list of Agent tools for a user.
+     * Queries the list of user agent tools.
      *
      * @param runtime - runtime options for this request RuntimeOptions
      * @returns ListCustomAgentToolsResponse
      */
     listCustomAgentToolsWithOptions(runtime: $dara.RuntimeOptions): Promise<$_model.ListCustomAgentToolsResponse>;
     /**
-     * Queries the list of Agent tools for a user.
+     * Queries the list of user agent tools.
      * @returns ListCustomAgentToolsResponse
      */
     listCustomAgentTools(): Promise<$_model.ListCustomAgentToolsResponse>;
@@ -1874,12 +1874,12 @@ export default class Client extends OpenApi {
      */
     listSkill(request: $_model.ListSkillRequest): Promise<$_model.ListSkillResponse>;
     /**
-     * Modifies the modules of an ApsaraDB RDS AI application instance.
+     * Modifies the modules of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
-     * RDS PostgreSQL
-     * ### Related documentation
+     * ### Supported engines
+     * ApsaraDB RDS for PostgreSQL
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param tmpReq - ModifyAppInstanceRequest
@@ -1888,12 +1888,12 @@ export default class Client extends OpenApi {
      */
     modifyAppInstanceWithOptions(tmpReq: $_model.ModifyAppInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyAppInstanceResponse>;
     /**
-     * Modifies the modules of an ApsaraDB RDS AI application instance.
+     * Modifies the modules of an RDS AI application instance.
      *
      * @remarks
-     * ### Applicable engine
-     * RDS PostgreSQL
-     * ### Related documentation
+     * ### Supported engines
+     * ApsaraDB RDS for PostgreSQL
+     * ### Related feature documentation
      * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
      *
      * @param request - ModifyAppInstanceRequest

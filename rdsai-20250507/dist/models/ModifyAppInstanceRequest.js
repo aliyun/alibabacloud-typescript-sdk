@@ -56,6 +56,7 @@ class ModifyAppInstanceRequest extends $dara.Model {
             DBInstanceName: 'DBInstanceName',
             instanceClass: 'InstanceClass',
             instanceName: 'InstanceName',
+            migrationMode: 'MigrationMode',
             regionId: 'RegionId',
         };
     }
@@ -67,6 +68,7 @@ class ModifyAppInstanceRequest extends $dara.Model {
             DBInstanceName: 'string',
             instanceClass: 'string',
             instanceName: 'string',
+            migrationMode: 'string',
             regionId: 'string',
         };
     }

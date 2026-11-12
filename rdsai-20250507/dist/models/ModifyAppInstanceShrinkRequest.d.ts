@@ -3,11 +3,14 @@ export declare class ModifyAppInstanceShrinkRequest extends $dara.Model {
     /**
      * @remarks
      * The reserved parameter.
+     *
+     * @example
+     * Reserved parameter
      */
     branchName?: string;
     /**
      * @remarks
-     * The client token that is used to ensure idempotence.
+     * The idempotency parameter.
      *
      * @example
      * ETnLKlblzczshOTUbOCz****
@@ -19,13 +22,18 @@ export declare class ModifyAppInstanceShrinkRequest extends $dara.Model {
      */
     componentsShrink?: string;
     /**
+     * @remarks
+     * The instance ID of the ApsaraDB RDS for PostgreSQL database connected to the AI application.
+     *
+     * <notice>Only **newly purchased empty ApsaraDB RDS for PostgreSQL instances** are supported. The major engine version must be **17**, and the minor engine version must be **20250630 or later**.</notice>
+     *
      * @example
      * pgm-2ze49qv594vi****
      */
     DBInstanceName?: string;
     /**
      * @remarks
-     * The instance type. Currently, only **rdsai.supabase.basic** is supported.
+     * The instance type. Only **rdsai.supabase.basic** is supported.
      *
      * @example
      * rdsai.supabase.basic
@@ -39,6 +47,14 @@ export declare class ModifyAppInstanceShrinkRequest extends $dara.Model {
      * ra-8moov5lxba****
      */
     instanceName?: string;
+    /**
+     * @remarks
+     * The reserved parameter.
+     *
+     * @example
+     * Reserved parameter
+     */
+    migrationMode?: string;
     /**
      * @remarks
      * The region ID.

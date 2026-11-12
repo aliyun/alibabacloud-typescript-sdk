@@ -5236,7 +5236,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of Agent tools for a user.
+   * Queries the list of user agent tools.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListCustomAgentToolsResponse
@@ -5258,7 +5258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of Agent tools for a user.
+   * Queries the list of user agent tools.
    * @returns ListCustomAgentToolsResponse
    */
   async listCustomAgentTools(): Promise<$_model.ListCustomAgentToolsResponse> {
@@ -5453,12 +5453,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the modules of an ApsaraDB RDS AI application instance.
+   * Modifies the modules of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
-   * RDS PostgreSQL
-   * ### Related documentation
+   * ### Supported engines
+   * ApsaraDB RDS for PostgreSQL
+   * ### Related feature documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param tmpReq - ModifyAppInstanceRequest
@@ -5498,6 +5498,10 @@ export default class Client extends OpenApi {
       query["InstanceName"] = request.instanceName;
     }
 
+    if (!$dara.isNull(request.migrationMode)) {
+      query["MigrationMode"] = request.migrationMode;
+    }
+
     if (!$dara.isNull(request.regionId)) {
       query["RegionId"] = request.regionId;
     }
@@ -5520,12 +5524,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the modules of an ApsaraDB RDS AI application instance.
+   * Modifies the modules of an RDS AI application instance.
    * 
    * @remarks
-   * ### Applicable engine
-   * RDS PostgreSQL
-   * ### Related documentation
+   * ### Supported engines
+   * ApsaraDB RDS for PostgreSQL
+   * ### Related feature documentation
    * [RDS Supabase](https://help.aliyun.com/document_detail/2938735.html)
    * 
    * @param request - ModifyAppInstanceRequest

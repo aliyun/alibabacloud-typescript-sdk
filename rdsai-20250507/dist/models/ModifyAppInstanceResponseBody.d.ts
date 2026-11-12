@@ -57,6 +57,14 @@ export declare class ModifyAppInstanceResponseBody extends $dara.Model {
      * FE9C65D7-930F-57A5-A207-8C396329****
      */
     requestId?: string;
+    /**
+     * @remarks
+     * The reserved parameter.
+     *
+     * @example
+     * Reserved parameter
+     */
+    targetInstanceName?: string;
     static names(): {
         [key: string]: string;
     };

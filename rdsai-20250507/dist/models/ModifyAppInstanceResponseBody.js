@@ -54,6 +54,7 @@ class ModifyAppInstanceResponseBody extends $dara.Model {
             components: 'Components',
             instanceName: 'InstanceName',
             requestId: 'RequestId',
+            targetInstanceName: 'TargetInstanceName',
         };
     }
     static types() {
@@ -62,6 +63,7 @@ class ModifyAppInstanceResponseBody extends $dara.Model {
             components: { 'type': 'array', 'itemType': ModifyAppInstanceResponseBodyComponents },
             instanceName: 'string',
             requestId: 'string',
+            targetInstanceName: 'string',
         };
     }
     validate() {

@@ -34,7 +34,7 @@ export declare class ListCustomAgentToolsResponseBodyData extends $dara.Model {
     tc?: string;
     /**
      * @remarks
-     * The read/write type of the tool.
+     * The tool read/write type.
      *
      * @example
      * get
