@@ -9,11 +9,17 @@ export declare class AppOperationAddress extends $dara.Model {
     /**
      * @remarks
      * The customer service design URL.
+     *
+     * @example
+     * https://example.com/customer-service/config
      */
     aiCustomerConfigUrl?: string;
     /**
      * @remarks
      * The AI design URL.
+     *
+     * @example
+     * https://example.com/ai-design
      */
     aiDesignUrl?: string;
     /**

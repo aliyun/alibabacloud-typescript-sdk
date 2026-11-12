@@ -14,6 +14,9 @@ export class CreateAppAssistantAgentSsoLoginResponseBodyModule extends $dara.Mod
   /**
    * @remarks
    * The platform-specific extension fields.
+   * 
+   * @example
+   * {}
    */
   extra?: { [key: string]: string };
   /**

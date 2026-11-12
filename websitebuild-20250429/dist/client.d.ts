@@ -1154,6 +1154,41 @@ export default class Client extends OpenApi {
      */
     getAppPluginConfig(request: $_model.GetAppPluginConfigRequest): Promise<$_model.GetAppPluginConfigResponse>;
     /**
+     * Retrieves the plugin configuration of a Wanxiaozhi site for internal services and returns an encrypted configuration string.
+     *
+     * @remarks
+     * ## Request description
+     * - The service design of this operation is exclusively for internal platform services to read the plugin configuration of a specific site by using a service identity.
+     * - Authentication relies entirely on gateway RAM control and is available only to trusted internal service accounts.
+     * - If the specified plugin is not installed on the site or the request parameters are empty, the operation returns a success status with an empty Module. Clients that invoke the operation should treat this as unconfigured.
+     * - The returned `PluginConfig` field contains an AES-encrypted JSON character string. Clients that invoke the operation must perform decryption before use.
+     * - To invoke in user mode, continue to use the `GetAppPluginConfig` operation instead of this operation.
+     * - The `BizId` and `PluginId` parameters are both required in the contract. Passing empty character strings is not blocked by the gateway but causes the backend to return an empty Module. This is a fault-tolerance behavior, and clients that invoke the operation should not rely on it.
+     * - This operation supports HTTPS and RPC-style POST requests, with parameters passed through formData.
+     *
+     * @param request - GetAppPluginConfigForAdminRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAppPluginConfigForAdminResponse
+     */
+    getAppPluginConfigForAdminWithOptions(request: $_model.GetAppPluginConfigForAdminRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetAppPluginConfigForAdminResponse>;
+    /**
+     * Retrieves the plugin configuration of a Wanxiaozhi site for internal services and returns an encrypted configuration string.
+     *
+     * @remarks
+     * ## Request description
+     * - The service design of this operation is exclusively for internal platform services to read the plugin configuration of a specific site by using a service identity.
+     * - Authentication relies entirely on gateway RAM control and is available only to trusted internal service accounts.
+     * - If the specified plugin is not installed on the site or the request parameters are empty, the operation returns a success status with an empty Module. Clients that invoke the operation should treat this as unconfigured.
+     * - The returned `PluginConfig` field contains an AES-encrypted JSON character string. Clients that invoke the operation must perform decryption before use.
+     * - To invoke in user mode, continue to use the `GetAppPluginConfig` operation instead of this operation.
+     * - The `BizId` and `PluginId` parameters are both required in the contract. Passing empty character strings is not blocked by the gateway but causes the backend to return an empty Module. This is a fault-tolerance behavior, and clients that invoke the operation should not rely on it.
+     * - This operation supports HTTPS and RPC-style POST requests, with parameters passed through formData.
+     *
+     * @param request - GetAppPluginConfigForAdminRequest
+     * @returns GetAppPluginConfigForAdminResponse
+     */
+    getAppPluginConfigForAdmin(request: $_model.GetAppPluginConfigForAdminRequest): Promise<$_model.GetAppPluginConfigForAdminResponse>;
+    /**
      * Queries the publish status.
      *
      * @remarks

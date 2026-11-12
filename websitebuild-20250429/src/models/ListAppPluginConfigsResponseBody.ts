@@ -34,6 +34,9 @@ export class ListAppPluginConfigsResponseBodyModule extends $dara.Model {
   /**
    * @remarks
    * The extension information.
+   * 
+   * @example
+   * {}
    */
   extend?: { [key: string]: string };
   /**

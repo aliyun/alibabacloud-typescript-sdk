@@ -14,6 +14,9 @@ export class ListIsvPaymentPluginConfigsResponseBodyModule extends $dara.Model {
   /**
    * @remarks
    * The extended information.
+   * 
+   * @example
+   * {}
    */
   extend?: { [key: string]: string };
   /**

@@ -20,6 +20,9 @@ export declare class ModuleVersionsValue extends $dara.Model {
     /**
      * @remarks
      * components
+     *
+     * @example
+     * {}
      */
     components?: {
         [key: string]: ModuleVersionsValueComponentsValue;

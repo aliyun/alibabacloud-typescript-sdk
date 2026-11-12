@@ -6,6 +6,9 @@ export class RenewAppSandboxResponseBodyModule extends $dara.Model {
   /**
    * @remarks
    * The preview URLs.
+   * 
+   * @example
+   * {}
    */
   previewUrls?: { [key: string]: string };
   static names(): { [key: string]: string } {

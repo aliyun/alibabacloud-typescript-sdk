@@ -19,6 +19,9 @@ export declare class ListAppAssistantAgentsResponseBodyModuleCredential extends 
     /**
      * @remarks
      * The extension field.
+     *
+     * @example
+     * {}
      */
     extra?: {
         [key: string]: string;
@@ -28,7 +31,7 @@ export declare class ListAppAssistantAgentsResponseBodyModuleCredential extends 
      * The password.
      *
      * @example
-     * ***
+     * Demo****2026
      */
     password?: string;
     /**
@@ -54,6 +57,9 @@ export declare class ListAppAssistantAgentsResponseBodyModuleEmbedConfig extends
     /**
      * @remarks
      * The extension field.
+     *
+     * @example
+     * {}
      */
     extra?: {
         [key: string]: string;
@@ -112,6 +118,9 @@ export declare class ListAppAssistantAgentsResponseBodyModule extends $dara.Mode
     /**
      * @remarks
      * The extension parameters.
+     *
+     * @example
+     * {}
      */
     extraParams?: {
         [key: string]: string;

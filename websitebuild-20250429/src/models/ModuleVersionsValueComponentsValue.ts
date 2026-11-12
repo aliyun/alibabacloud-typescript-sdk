@@ -138,6 +138,9 @@ export class ModuleVersionsValueComponentsValue extends $dara.Model {
   /**
    * @remarks
    * 组件实例属性配置
+   * 
+   * @example
+   * {}
    */
   properties?: { [key: string]: ModuleVersionsValueComponentsValuePropertiesValue };
   /**
@@ -145,7 +148,7 @@ export class ModuleVersionsValueComponentsValue extends $dara.Model {
    * 模块属性状态
    * 
    * @example
-   * attr
+   * 1
    */
   moduleAttrStatus?: number;
   static names(): { [key: string]: string } {

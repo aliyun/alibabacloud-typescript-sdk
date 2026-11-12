@@ -9,6 +9,9 @@ export declare class BatchCheckResourceMeasureResponseBodyModule extends $dara.M
     /**
      * @remarks
      * The check results for each resource, where the key is the resourceCode.
+     *
+     * @example
+     * {"InspirationTokens":{"Passed":true,"ResourceCode":"InspirationTokens"}}
      */
     results?: {
         [key: string]: ModuleResultsValue;

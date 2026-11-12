@@ -6,6 +6,9 @@ export class CreateAppAssistantAgentResponseBodyModuleCredential extends $dara.M
   /**
    * @remarks
    * The extended field.
+   * 
+   * @example
+   * {}
    */
   extra?: { [key: string]: string };
   /**
@@ -46,6 +49,9 @@ export class CreateAppAssistantAgentResponseBodyModuleEmbedConfig extends $dara.
   /**
    * @remarks
    * The extended field.
+   * 
+   * @example
+   * {}
    */
   extra?: { [key: string]: string };
   /**
@@ -117,6 +123,9 @@ export class CreateAppAssistantAgentResponseBodyModule extends $dara.Model {
   /**
    * @remarks
    * The extended parameters.
+   * 
+   * @example
+   * {}
    */
   extraParams?: { [key: string]: string };
   /**

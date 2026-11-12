@@ -78,6 +78,7 @@ export { GetAppInstanceForPartnerResponseBodyModule } from './GetAppInstanceForP
 export { GetAppInstanceTempShortUrlResponseBodyModule } from './GetAppInstanceTempShortUrlResponseBody';
 export { GetAppPluginResponseBodyModule } from './GetAppPluginResponseBody';
 export { GetAppPluginConfigResponseBodyModule } from './GetAppPluginConfigResponseBody';
+export { GetAppPluginConfigForAdminResponseBodyModule } from './GetAppPluginConfigForAdminResponseBody';
 export { GetAppPublishStatusResponseBodyModule } from './GetAppPublishStatusResponseBody';
 export { GetAppRecommendedCommoditiesResponseBodyModuleCommodities } from './GetAppRecommendedCommoditiesResponseBody';
 export { GetAppRecommendedCommoditiesResponseBodyModule } from './GetAppRecommendedCommoditiesResponseBody';
@@ -452,6 +453,9 @@ export { GetAppPluginResponse } from './GetAppPluginResponse';
 export { GetAppPluginConfigRequest } from './GetAppPluginConfigRequest';
 export { GetAppPluginConfigResponseBody } from './GetAppPluginConfigResponseBody';
 export { GetAppPluginConfigResponse } from './GetAppPluginConfigResponse';
+export { GetAppPluginConfigForAdminRequest } from './GetAppPluginConfigForAdminRequest';
+export { GetAppPluginConfigForAdminResponseBody } from './GetAppPluginConfigForAdminResponseBody';
+export { GetAppPluginConfigForAdminResponse } from './GetAppPluginConfigForAdminResponse';
 export { GetAppPublishStatusRequest } from './GetAppPublishStatusRequest';
 export { GetAppPublishStatusResponseBody } from './GetAppPublishStatusResponseBody';
 export { GetAppPublishStatusResponse } from './GetAppPublishStatusResponse';

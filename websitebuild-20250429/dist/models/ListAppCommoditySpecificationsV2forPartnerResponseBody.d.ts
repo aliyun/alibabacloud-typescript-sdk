@@ -15,6 +15,9 @@ export declare class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModul
     /**
      * @remarks
      * The default values.
+     *
+     * @example
+     * {"deploy_area":{"Code":"deploy_area","Name":"部署地区","ModuleAttrStatus":1,"Properties":{"deploy_area":{"Code":"deploy_area","Name":"部署地区","Value":"HongKong","Values":[{"Value":"HongKong","Name":"中国香港"}]}}}}
      */
     components?: {
         [key: string]: ModuleDataComponentsValue;
@@ -30,6 +33,9 @@ export declare class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModul
     /**
      * @remarks
      * The duration.
+     *
+     * @example
+     * {"version":{"Code":"version","Values":[{"Value":"V2.0"}]}}
      */
     properties?: {
         [key: string]: ModuleDataPropertiesValue;
@@ -57,6 +63,9 @@ export declare class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModul
     /**
      * @remarks
      * The default values.
+     *
+     * @example
+     * {"deploy_area":{"Code":"deploy_area","Name":"部署地区","ModuleAttrStatus":1,"Properties":{"deploy_area":{"Code":"deploy_area","Name":"部署地区","Value":"HongKong","Values":[{"Value":"HongKong","Name":"中国香港"}]}}}}
      */
     components?: {
         [key: string]: ModuleNextComponentsValue;
@@ -72,6 +81,9 @@ export declare class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModul
     /**
      * @remarks
      * The frame rate.
+     *
+     * @example
+     * {"version":{"Code":"version","Values":[{"Value":"V2.0"}]}}
      */
     properties?: {
         [key: string]: ModuleNextPropertiesValue;

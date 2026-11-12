@@ -18,6 +18,9 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModuleData ex
   /**
    * @remarks
    * The default values.
+   * 
+   * @example
+   * {"deploy_area":{"Code":"deploy_area","Name":"部署地区","ModuleAttrStatus":1,"Properties":{"deploy_area":{"Code":"deploy_area","Name":"部署地区","Value":"HongKong","Values":[{"Value":"HongKong","Name":"中国香港"}]}}}}
    */
   components?: { [key: string]: ModuleDataComponentsValue };
   /**
@@ -31,6 +34,9 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModuleData ex
   /**
    * @remarks
    * The duration.
+   * 
+   * @example
+   * {"version":{"Code":"version","Values":[{"Value":"V2.0"}]}}
    */
   properties?: { [key: string]: ModuleDataPropertiesValue };
   static names(): { [key: string]: string } {
@@ -78,6 +84,9 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModuleNext ex
   /**
    * @remarks
    * The default values.
+   * 
+   * @example
+   * {"deploy_area":{"Code":"deploy_area","Name":"部署地区","ModuleAttrStatus":1,"Properties":{"deploy_area":{"Code":"deploy_area","Name":"部署地区","Value":"HongKong","Values":[{"Value":"HongKong","Name":"中国香港"}]}}}}
    */
   components?: { [key: string]: ModuleNextComponentsValue };
   /**
@@ -91,6 +100,9 @@ export class ListAppCommoditySpecificationsV2ForPartnerResponseBodyModuleNext ex
   /**
    * @remarks
    * The frame rate.
+   * 
+   * @example
+   * {"version":{"Code":"version","Values":[{"Value":"V2.0"}]}}
    */
   properties?: { [key: string]: ModuleNextPropertiesValue };
   static names(): { [key: string]: string } {

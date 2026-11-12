@@ -3,6 +3,9 @@ export declare class QuerySupabaseConfigsForAdminResponseBodyModule extends $dar
     /**
      * @remarks
      * The scope. Valid values: subUser and owner.
+     *
+     * @example
+     * {"SMS_ALIYUN_SIGN_NAME":"示例签名"}
      */
     configs?: {
         [key: string]: any;

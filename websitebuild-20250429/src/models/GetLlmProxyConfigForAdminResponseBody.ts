@@ -126,7 +126,7 @@ export class GetLlmProxyConfigForAdminResponseBodyModule extends $dara.Model {
    * trial,draft,live,refunded,expired,released
    * 
    * @example
-   * NORMAL
+   * 1
    */
   status?: number;
   /**
@@ -134,7 +134,7 @@ export class GetLlmProxyConfigForAdminResponseBodyModule extends $dara.Model {
    * The reason for suspension.
    * 
    * @example
-   * xxx
+   * 服务已暂停。
    */
   suspendReason?: string;
   static names(): { [key: string]: string } {

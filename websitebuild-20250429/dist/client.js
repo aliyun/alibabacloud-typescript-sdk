@@ -51,6 +51,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
+const gateway_pop_1 = __importDefault(require("@alicloud/gateway-pop"));
 const openapi_core_1 = __importDefault(require("@alicloud/openapi-core"));
 const openapi_core_2 = require("@alicloud/openapi-core");
 const $_model = __importStar(require("./models/model"));
@@ -58,6 +59,9 @@ __exportStar(require("./models/model"), exports);
 class Client extends openapi_core_1.default {
     constructor(config) {
         super(config);
+        this._productId = "WebsiteBuild";
+        let gatewayClient = new gateway_pop_1.default();
+        this._spi = gatewayClient;
         this._endpointRule = "regional";
         this._endpointMap = {
             'cn-zhangjiakou': "websitebuild.aliyuncs.com",
@@ -3157,6 +3161,68 @@ class Client extends openapi_core_1.default {
     async getAppPluginConfig(request) {
         let runtime = new $dara.RuntimeOptions({});
         return await this.getAppPluginConfigWithOptions(request, runtime);
+    }
+    /**
+     * Retrieves the plugin configuration of a Wanxiaozhi site for internal services and returns an encrypted configuration string.
+     *
+     * @remarks
+     * ## Request description
+     * - The service design of this operation is exclusively for internal platform services to read the plugin configuration of a specific site by using a service identity.
+     * - Authentication relies entirely on gateway RAM control and is available only to trusted internal service accounts.
+     * - If the specified plugin is not installed on the site or the request parameters are empty, the operation returns a success status with an empty Module. Clients that invoke the operation should treat this as unconfigured.
+     * - The returned `PluginConfig` field contains an AES-encrypted JSON character string. Clients that invoke the operation must perform decryption before use.
+     * - To invoke in user mode, continue to use the `GetAppPluginConfig` operation instead of this operation.
+     * - The `BizId` and `PluginId` parameters are both required in the contract. Passing empty character strings is not blocked by the gateway but causes the backend to return an empty Module. This is a fault-tolerance behavior, and clients that invoke the operation should not rely on it.
+     * - This operation supports HTTPS and RPC-style POST requests, with parameters passed through formData.
+     *
+     * @param request - GetAppPluginConfigForAdminRequest
+     * @param runtime - runtime options for this request RuntimeOptions
+     * @returns GetAppPluginConfigForAdminResponse
+     */
+    async getAppPluginConfigForAdminWithOptions(request, runtime) {
+        request.validate();
+        let body = {};
+        if (!$dara.isNull(request.bizId)) {
+            body["BizId"] = request.bizId;
+        }
+        if (!$dara.isNull(request.pluginId)) {
+            body["PluginId"] = request.pluginId;
+        }
+        let req = new openapi_core_2.$OpenApiUtil.OpenApiRequest({
+            body: openapi_core_2.OpenApiUtil.parseToMap(body),
+        });
+        let params = new openapi_core_2.$OpenApiUtil.Params({
+            action: "GetAppPluginConfigForAdmin",
+            version: "2025-04-29",
+            protocol: "HTTPS",
+            pathname: "/",
+            method: "POST",
+            authType: "AK",
+            style: "RPC",
+            reqBodyType: "formData",
+            bodyType: "json",
+        });
+        return $dara.cast(await this.callApi(params, req, runtime), new $_model.GetAppPluginConfigForAdminResponse({}));
+    }
+    /**
+     * Retrieves the plugin configuration of a Wanxiaozhi site for internal services and returns an encrypted configuration string.
+     *
+     * @remarks
+     * ## Request description
+     * - The service design of this operation is exclusively for internal platform services to read the plugin configuration of a specific site by using a service identity.
+     * - Authentication relies entirely on gateway RAM control and is available only to trusted internal service accounts.
+     * - If the specified plugin is not installed on the site or the request parameters are empty, the operation returns a success status with an empty Module. Clients that invoke the operation should treat this as unconfigured.
+     * - The returned `PluginConfig` field contains an AES-encrypted JSON character string. Clients that invoke the operation must perform decryption before use.
+     * - To invoke in user mode, continue to use the `GetAppPluginConfig` operation instead of this operation.
+     * - The `BizId` and `PluginId` parameters are both required in the contract. Passing empty character strings is not blocked by the gateway but causes the backend to return an empty Module. This is a fault-tolerance behavior, and clients that invoke the operation should not rely on it.
+     * - This operation supports HTTPS and RPC-style POST requests, with parameters passed through formData.
+     *
+     * @param request - GetAppPluginConfigForAdminRequest
+     * @returns GetAppPluginConfigForAdminResponse
+     */
+    async getAppPluginConfigForAdmin(request) {
+        let runtime = new $dara.RuntimeOptions({});
+        return await this.getAppPluginConfigForAdminWithOptions(request, runtime);
     }
     /**
      * Queries the publish status.

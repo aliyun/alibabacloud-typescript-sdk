@@ -19,6 +19,9 @@ export declare class CreateAIStaffChatRequestMessages extends $dara.Model {
     /**
      * @remarks
      * The business extension metadata in Map format. The value must be a JSON string.
+     *
+     * @example
+     * {}
      */
     metaData?: {
         [key: string]: string;
@@ -83,6 +86,9 @@ export declare class CreateAIStaffChatRequest extends $dara.Model {
     /**
      * @remarks
      * The additional information for the conversation.
+     *
+     * @example
+     * {}
      */
     metaData?: {
         [key: string]: string;

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AppInstanceProfileIndependentDeployment extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether retries are allowed after the independent server fails to be enabled.
+   * Specifies whether retries are allowed after the independent server fails to start.
    */
   canRetry?: boolean;
   /**
    * @remarks
-   * The code of the region where the independent server is deployed.
+   * The code of the deployment area for the independent server.
    * 
    * @example
    * HongKong
@@ -18,7 +18,7 @@ export class AppInstanceProfileIndependentDeployment extends $dara.Model {
   deployArea?: string;
   /**
    * @remarks
-   * The type of the DNS record used when an independent IP address is bound to a domain name.
+   * The DNS record type used when binding a domain name to an independent IP address.
    * 
    * @example
    * A
@@ -26,7 +26,7 @@ export class AppInstanceProfileIndependentDeployment extends $dara.Model {
   dnsRecordType?: string;
   /**
    * @remarks
-   * The eligibility status of the independent server. UPGRADE_REQUIRED indicates that an upgrade is required, AVAILABLE indicates that the feature can be enabled, and UNAVAILABLE indicates that the feature is currently unavailable.
+   * The eligibility status of the independent server. Valid values: UPGRADE_REQUIRED (an upgrade is required), AVAILABLE (the feature can be enabled), and UNAVAILABLE (the feature is currently unavailable).
    * 
    * @example
    * AVAILABLE
@@ -34,7 +34,7 @@ export class AppInstanceProfileIndependentDeployment extends $dara.Model {
   eligibility?: string;
   /**
    * @remarks
-   * The status of the independent server. NOT_ENABLED indicates that the feature is not enabled, ENABLING indicates that the feature is being enabled, ACTIVE indicates that the feature is enabled, and FAILED indicates that the feature failed to be enabled.
+   * The status of the independent server. Valid values: NOT_ENABLED (not enabled), ENABLING (enabling), ACTIVE (enabled), and FAILED (failed to enable).
    * 
    * @example
    * ACTIVE
@@ -174,7 +174,7 @@ export class AppInstanceProfile extends $dara.Model {
   customerService?: string;
   /**
    * @remarks
-   * The code of the region where the application is deployed.
+   * The code of the application deployment area.
    * 
    * @example
    * HongKong
@@ -195,7 +195,7 @@ export class AppInstanceProfile extends $dara.Model {
   independentDeployment?: AppInstanceProfileIndependentDeployment;
   /**
    * @remarks
-   * The ID of the associated Lingxiao instance.
+   * The associated Lingxiao instance ID.
    * 
    * @example
    * lx-1
@@ -203,7 +203,7 @@ export class AppInstanceProfile extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Specifies whether the current user is included in the grayscale whitelist for the ChatBI feature.
+   * Specifies whether the current user is included in the canary release whitelist for the ChatBI feature.
    */
   openChatBi?: boolean;
   /**
@@ -248,7 +248,7 @@ export class AppInstanceProfile extends $dara.Model {
   seoSite?: string;
   /**
    * @remarks
-   * Specifies whether to enable the watermark for shared rendering. A value of 1 indicates that the feature is enabled, and a value of 0 indicates that the feature is disabled. If this parameter is not configured, it is left empty.
+   * Specifies whether to enable the share rendering watermark. Valid values: 1 (enabled) and 0 (disabled). If not configured, this parameter is empty.
    * 
    * @example
    * 1
@@ -264,7 +264,7 @@ export class AppInstanceProfile extends $dara.Model {
   siteVersion?: string;
   /**
    * @remarks
-   * The display name of the site version, which includes the deployment region.
+   * The display name of the site version, which includes the deployment area.
    * 
    * @example
    * Ultimate Edition [Hong Kong]
@@ -296,7 +296,7 @@ export class AppInstanceProfile extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The upgrade status of the instance. DOING indicates that the upgrade is in progress, SUCC indicates that the upgrade is successful, and FAIL indicates that the upgrade failed.
+   * The upgrade status of the instance. Valid values: DOING (upgrading), SUCC (upgraded successfully), and FAIL (upgrade failed).
    * 
    * @example
    * SUCC

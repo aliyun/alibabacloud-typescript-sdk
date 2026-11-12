@@ -138,6 +138,9 @@ export class ModuleDataComponentsValue extends $dara.Model {
   /**
    * @remarks
    * Component instance property configuration
+   * 
+   * @example
+   * {"deploy_area":{"Code":"deploy_area","Name":"部署地区","Value":"HongKong","Values":[{"Value":"HongKong","Name":"中国香港"}]}}
    */
   properties?: { [key: string]: ModuleDataComponentsValuePropertiesValue };
   /**
@@ -145,7 +148,7 @@ export class ModuleDataComponentsValue extends $dara.Model {
    * Module property status
    * 
    * @example
-   * placeholder
+   * 1
    */
   moduleAttrStatus?: number;
   static names(): { [key: string]: string } {

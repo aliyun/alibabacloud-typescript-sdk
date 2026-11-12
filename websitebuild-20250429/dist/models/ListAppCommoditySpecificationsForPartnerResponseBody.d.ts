@@ -4,6 +4,9 @@ export declare class ListAppCommoditySpecificationsForPartnerResponseBodyModule 
     /**
      * @remarks
      * The domain name for container health checks.
+     *
+     * @example
+     * {}
      */
     versions?: {
         [key: string]: ModuleVersionsValue;

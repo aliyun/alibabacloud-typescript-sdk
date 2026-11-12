@@ -3,6 +3,9 @@ export declare class GetAIStaffPreviewUrlResponseBodyModule extends $dara.Model 
     /**
      * @remarks
      * The preview URL information, including fields such as previewUrl and sessionId.
+     *
+     * @example
+     * {}
      */
     urlMap?: {
         [key: string]: string;
@@ -57,7 +60,7 @@ export declare class GetAIStaffPreviewUrlResponseBody extends $dara.Model {
      * > If **ErrMessage** returns **The Value of Input Parameter %s is not valid** and **DynamicMessage** returns **DtsJobId**, the request parameter **DtsJobId** is invalid.
      *
      * @example
-     * xxx
+     * DtsJobId
      */
     dynamicMessage?: string;
     /**

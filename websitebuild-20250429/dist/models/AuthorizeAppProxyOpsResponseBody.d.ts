@@ -5,7 +5,7 @@ export declare class AuthorizeAppProxyOpsResponseBodyModule extends $dara.Model 
      * Indicates whether the service-linked role is authorized.
      *
      * @example
-     * Y
+     * true
      */
     authorized?: boolean;
     /**
@@ -73,7 +73,7 @@ export declare class AuthorizeAppProxyOpsResponseBody extends $dara.Model {
      * The dynamic error message.
      *
      * @example
-     * xxx
+     * 请求参数不合法。
      */
     dynamicMessage?: string;
     /**

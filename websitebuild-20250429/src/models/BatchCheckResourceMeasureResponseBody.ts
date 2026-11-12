@@ -12,6 +12,9 @@ export class BatchCheckResourceMeasureResponseBodyModule extends $dara.Model {
   /**
    * @remarks
    * The check results for each resource, where the key is the resourceCode.
+   * 
+   * @example
+   * {"InspirationTokens":{"Passed":true,"ResourceCode":"InspirationTokens"}}
    */
   results?: { [key: string]: ModuleResultsValue };
   static names(): { [key: string]: string } {

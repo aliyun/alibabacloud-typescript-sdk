@@ -13,7 +13,7 @@ export class GetAppInstanceEntitlementResponseBodyModuleItems extends $dara.Mode
    * Indicates whether this entitlement item is currently available.
    * 
    * @example
-   * on
+   * true
    */
   available?: boolean;
   /**
@@ -106,7 +106,7 @@ export class GetAppInstanceEntitlementResponseBodyModuleItems extends $dara.Mode
    * Indicates whether the instance is running.
    * 
    * @example
-   * 0
+   * true
    */
   running?: boolean;
   /**

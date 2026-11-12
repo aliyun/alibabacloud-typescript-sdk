@@ -7,6 +7,9 @@ export class ListAppCommoditySpecificationsForPartnerResponseBodyModule extends 
   /**
    * @remarks
    * The domain name for container health checks.
+   * 
+   * @example
+   * {}
    */
   versions?: { [key: string]: ModuleVersionsValue };
   static names(): { [key: string]: string } {

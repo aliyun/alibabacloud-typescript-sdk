@@ -25,7 +25,7 @@ export class AppServiceAggregate extends $dara.Model {
   deleted?: number;
   /**
    * @remarks
-   * The end time. It is in ISO 8601 format and uses the UTC time zone (Z).
+   * The end time in ISO 8601 format in the UTC time zone (Z).
    * 
    * @example
    * 2025-07-18T02:23:00Z
@@ -83,7 +83,7 @@ export class AppServiceAggregate extends $dara.Model {
   nodeList?: TreeNode[];
   /**
    * @remarks
-   * Uniquely identifies an operation.
+   * The address used to uniquely identify an operation.
    */
   operationAddress?: AppOperationAddress;
   /**
@@ -101,7 +101,10 @@ export class AppServiceAggregate extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The description of the service type.
+   * The service type description.
+   * 
+   * @example
+   * Website design service
    */
   serviceTypeText?: string;
   /**
@@ -114,7 +117,7 @@ export class AppServiceAggregate extends $dara.Model {
   slug?: string;
   /**
    * @remarks
-   * The start time. It is a UNIX timestamp in milliseconds.
+   * The start time as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1754447102000

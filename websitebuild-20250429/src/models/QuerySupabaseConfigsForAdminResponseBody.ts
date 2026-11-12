@@ -6,6 +6,9 @@ export class QuerySupabaseConfigsForAdminResponseBodyModule extends $dara.Model 
   /**
    * @remarks
    * The scope. Valid values: subUser and owner.
+   * 
+   * @example
+   * {"SMS_ALIYUN_SIGN_NAME":"示例签名"}
    */
   configs?: { [key: string]: any };
   static names(): { [key: string]: string } {
