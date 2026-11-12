@@ -6,8 +6,8 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   /**
    * @remarks
    * The authorization resource scope. Valid values:
-   * - global: All resources under the project.
-   * - custom: Specified resources within the project scope.
+   * - global: Global resources under the project.
+   * - custom: Resources under a specified project scope.
    * 
    * @example
    * global
@@ -17,7 +17,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
    * @remarks
    * The creation type of the authorization rule. Valid values:
    * - system_init: Created by the system.
-   * - user_custom: Created by the user.
+   * - user_custom: Created by a user.
    * 
    * @example
    * user_custom
@@ -51,7 +51,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   authorizationRuleScenarioLabel?: string;
   /**
    * @remarks
-   * The subject ID associated with the authorization rule.
+   * The ID of the subject associated with the authorization rule.
    * 
    * @example
    * user_d6sbsuumeta4h66ec3il7yxxxx
@@ -69,7 +69,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   authorizationRuleSubjectScope?: string;
   /**
    * @remarks
-   * The subject type associated with the authorization rule. This parameter is valid only when the authorization rule subject scope is exclusive. Valid values:
+   * The subject type associated with the authorization rule. This parameter is valid only when the subject scope of the authorization rule is exclusive. Valid values:
    * - application: Application.
    * - user: Account.
    * 
@@ -79,7 +79,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   authorizationRuleSubjectType?: string;
   /**
    * @remarks
-   * The creation time, in UNIX timestamp format. Unit: milliseconds.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1652085686179
@@ -103,7 +103,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   instanceId?: string;
   /**
    * @remarks
-   * The project ID associated with the authorization rule.
+   * The ID of the project associated with the authorization rule.
    * 
    * @example
    * iprj_system_default
@@ -111,7 +111,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   projectId?: string;
   /**
    * @remarks
-   * The authorization rule status. Valid values:
+   * The status of the authorization rule. Valid values:
    * - enabled: Enabled.
    * - disabled: Disabled.
    * 
@@ -121,7 +121,7 @@ export class GetAuthorizationRuleResponseBodyAuthorizationRule extends $dara.Mod
   status?: string;
   /**
    * @remarks
-   * The last update time, in UNIX timestamp format. Unit: milliseconds.
+   * The last update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1652085686179

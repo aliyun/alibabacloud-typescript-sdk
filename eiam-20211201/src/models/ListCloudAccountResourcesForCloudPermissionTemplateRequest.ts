@@ -15,7 +15,7 @@ export class ListCloudAccountResourcesForCloudPermissionTemplateRequest extends 
   cloudAccountId?: string;
   /**
    * @remarks
-   * Filters by resource entity type. Valid value: ram_policy.
+   * The resource entity type used for filtering. Valid values: ram_policy.
    * 
    * @example
    * ram_policy
@@ -43,7 +43,7 @@ export class ListCloudAccountResourcesForCloudPermissionTemplateRequest extends 
   instanceId?: string;
   /**
    * @remarks
-   * The number of entries to return on each page in a paging query. Default value: 20. Maximum value: 100.
+   * The number of entries per page in a paging query. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 20

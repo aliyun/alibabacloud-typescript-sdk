@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCloudAccountResourceResponseBodyCloudAccountResourceCloudAccountResourceMeta extends $dara.Model {
   /**
    * @remarks
-   * The JSON string of the Tencent Cloud CAM policy document. This parameter is returned only for Tencent Cloud accounts.
+   * The Tencent Cloud CAM policy document in JSON format. This parameter is returned only for Tencent Cloud accounts.
    * 
    * @example
    * {"Version":"1","Statement":[]}
@@ -13,7 +13,7 @@ export class GetCloudAccountResourceResponseBodyCloudAccountResourceCloudAccount
   camPolicyDocument?: string;
   /**
    * @remarks
-   * The type of the Tencent Cloud CAM policy. Valid values: qcs and local. This parameter is returned only for Tencent Cloud accounts.
+   * The Tencent Cloud CAM policy type. Valid values: qcs and local. This parameter is returned only for Tencent Cloud accounts.
    * 
    * @example
    * qcs
@@ -21,7 +21,7 @@ export class GetCloudAccountResourceResponseBodyCloudAccountResourceCloudAccount
   camPolicyType?: string;
   /**
    * @remarks
-   * The JSON string of the AWS IAM policy document. This parameter is returned only for AWS cloud accounts.
+   * The AWS IAM policy document in JSON format. This parameter is returned only for AWS cloud accounts.
    * 
    * @example
    * {"Version":"2012-10-17","Statement":[]}
@@ -29,7 +29,7 @@ export class GetCloudAccountResourceResponseBodyCloudAccountResourceCloudAccount
   iamPolicyDocument?: string;
   /**
    * @remarks
-   * The type of the AWS IAM policy. Valid values: aws and local. This parameter is returned only for AWS cloud accounts.
+   * The AWS IAM policy type. Valid values: aws and local. This parameter is returned only for AWS cloud accounts.
    * 
    * @example
    * aws
@@ -37,7 +37,7 @@ export class GetCloudAccountResourceResponseBodyCloudAccountResourceCloudAccount
   iamPolicyType?: string;
   /**
    * @remarks
-   * The JSON string of the RAM policy document. This parameter is returned only by the Get operation.
+   * The RAM policy document in JSON format. This parameter is returned only by the Get operation.
    * 
    * @example
    * {"Version":"1","Statement":[]}
@@ -45,7 +45,7 @@ export class GetCloudAccountResourceResponseBodyCloudAccountResourceCloudAccount
   ramPolicyDocument?: string;
   /**
    * @remarks
-   * The type of the RAM policy. Valid values: system and custom.
+   * The RAM policy type. Valid values: system and custom.
    * 
    * @example
    * custom
@@ -85,7 +85,7 @@ export class GetCloudAccountResourceResponseBodyCloudAccountResourceCloudAccount
 export class GetCloudAccountResourceResponseBodyCloudAccountResource extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cloud account.
+   * The cloud account ID.
    * 
    * @example
    * 123456789012xxxx
@@ -93,7 +93,7 @@ export class GetCloudAccountResourceResponseBodyCloudAccountResource extends $da
   cloudAccountId?: string;
   /**
    * @remarks
-   * The identifier of the resource entity, which is a unique remote identifier.
+   * The unique remote identifier of the resource entity.
    * 
    * @example
    * System:AliyunIntelligentcockpitReadOnlyAccess
@@ -101,7 +101,7 @@ export class GetCloudAccountResourceResponseBodyCloudAccountResource extends $da
   cloudAccountResourceEntityId?: string;
   /**
    * @remarks
-   * The type of the resource entity. Valid values: ram_policy.
+   * The resource entity type. Valid values: ram_policy.
    * 
    * @example
    * ram_policy
@@ -109,7 +109,7 @@ export class GetCloudAccountResourceResponseBodyCloudAccountResource extends $da
   cloudAccountResourceEntityType?: string;
   /**
    * @remarks
-   * The ID of the cloud account resource.
+   * The cloud account resource ID.
    * 
    * @example
    * car_xxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -117,12 +117,12 @@ export class GetCloudAccountResourceResponseBodyCloudAccountResource extends $da
   cloudAccountResourceId?: string;
   /**
    * @remarks
-   * The metadata information of the resource.
+   * The resource metadata information.
    */
   cloudAccountResourceMeta?: GetCloudAccountResourceResponseBodyCloudAccountResourceCloudAccountResourceMeta;
   /**
    * @remarks
-   * The name of the resource.
+   * The resource name.
    * 
    * @example
    * eiam-sso-role
@@ -130,7 +130,7 @@ export class GetCloudAccountResourceResponseBodyCloudAccountResource extends $da
   cloudAccountResourceName?: string;
   /**
    * @remarks
-   * The time when the resource was created. The value is a UNIX timestamp in milliseconds.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1649830225000
@@ -146,7 +146,7 @@ export class GetCloudAccountResourceResponseBodyCloudAccountResource extends $da
   description?: string;
   /**
    * @remarks
-   * The time when the resource was updated.
+   * The update time.
    * 
    * @example
    * 1649916625000
@@ -200,7 +200,7 @@ export class GetCloudAccountResourceResponseBody extends $dara.Model {
   cloudAccountResource?: GetCloudAccountResourceResponseBodyCloudAccountResource;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

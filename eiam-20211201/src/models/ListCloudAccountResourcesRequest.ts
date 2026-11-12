@@ -23,7 +23,7 @@ export class ListCloudAccountResourcesRequest extends $dara.Model {
   cloudAccountResourceEntityType?: string;
   /**
    * @remarks
-   * Performs a fuzzy match on the resource name, which is equivalent to LIKE \\"%value%\\".
+   * The keyword used for fuzzy matching of the resource name. This is equivalent to LIKE \\"%value%\\".
    * 
    * @example
    * sso
@@ -31,7 +31,7 @@ export class ListCloudAccountResourcesRequest extends $dara.Model {
   cloudAccountResourceNameContains?: string;
   /**
    * @remarks
-   * Matches resources by resource name prefix.
+   * The prefix of the resource name used for matching.
    * 
    * @example
    * eiam-
@@ -49,7 +49,7 @@ export class ListCloudAccountResourcesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return per page for paging in a paged query. Default value: 20. Maximum value: 100.
+   * The maximum number of entries to return per page during paging in a paged query. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 20
@@ -57,7 +57,7 @@ export class ListCloudAccountResourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token. The value is the NextToken parameter value returned by the previous API call.
+   * The query token. Set the value to the NextToken value returned by the previous API call.
    * 
    * @example
    * NTxxxxxexample

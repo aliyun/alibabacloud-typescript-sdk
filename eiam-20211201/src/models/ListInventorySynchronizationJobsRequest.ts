@@ -28,7 +28,7 @@ export class ListInventorySynchronizationJobsRequest extends $dara.Model {
   inventorySourceIds?: string[];
   /**
    * @remarks
-   * The maximum number of entries to return per page in a paging query. Default value: 20. Maximum value: 100.
+   * The number of entries to return per page in paging. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 20
@@ -36,7 +36,7 @@ export class ListInventorySynchronizationJobsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token. The value is the NextToken parameter value returned from the previous API call.
+   * The query token. Set the value to the NextToken value returned in the previous API call.
    * 
    * @example
    * NTxxxxxexample

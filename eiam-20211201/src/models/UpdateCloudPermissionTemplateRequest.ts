@@ -8,7 +8,7 @@ export class UpdateCloudPermissionTemplateRequestApplicableScope extends $dara.M
    * The list of group IDs.
    * 
    * @example
-   * group_d6sbsusdfa4h66ec3il7yxxxx
+   * ["group_d6sbsusdfa4h66ec3il7yxxxx"]
    */
   groupIds?: string[];
   /**
@@ -16,12 +16,12 @@ export class UpdateCloudPermissionTemplateRequestApplicableScope extends $dara.M
    * The list of organizational unit IDs.
    * 
    * @example
-   * ou_d6sbsuudfgf4h66ec3il7yxxxx
+   * ["ou_d6sbsuudfgf4h66ec3il7yxxxx"]
    */
   organizationalUnitIds?: string[];
   /**
    * @remarks
-   * The application scope type. Valid values: global and custom.
+   * The application scope type. Valid values: global, custom.
    * 
    * @example
    * global
@@ -32,7 +32,7 @@ export class UpdateCloudPermissionTemplateRequestApplicableScope extends $dara.M
    * The list of account IDs.
    * 
    * @example
-   * user_d6sbsuumeta4h66ec3il7yxxxx
+   * ["user_d6sbsuumeta4h66ec3il7yxxxx"]
    */
   userIds?: string[];
   static names(): { [key: string]: string } {

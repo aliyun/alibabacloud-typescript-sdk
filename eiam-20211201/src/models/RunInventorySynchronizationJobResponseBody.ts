@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunInventorySynchronizationJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the synchronization task.
+   * The ID of the synchronization job.
    * 
    * @example
    * sync_xxxxxxxxxx
@@ -13,7 +13,7 @@ export class RunInventorySynchronizationJobResponseBody extends $dara.Model {
   inventorySynchronizationJobId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0441BD79-92F3-53AA-8657-F8CE4A2B912A

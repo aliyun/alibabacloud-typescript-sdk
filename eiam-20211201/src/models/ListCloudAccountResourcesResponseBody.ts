@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCloudAccountResourcesResponseBodyCloudAccountResourcesCloudAccountResourceMeta extends $dara.Model {
   /**
    * @remarks
-   * The JSON document of the Tencent Cloud CAM policy. This parameter is returned only for Tencent Cloud accounts.
+   * The JSON string of the Tencent Cloud CAM policy document. This parameter is returned only for Tencent Cloud accounts.
    * 
    * @example
    * {"Version":"1","Statement":[]}
@@ -21,7 +21,7 @@ export class ListCloudAccountResourcesResponseBodyCloudAccountResourcesCloudAcco
   camPolicyType?: string;
   /**
    * @remarks
-   * The JSON document of the AWS IAM policy. This parameter is returned only for AWS cloud accounts.
+   * The JSON string of the AWS IAM policy document. This parameter is returned only for AWS cloud accounts.
    * 
    * @example
    * {"Version":"2012-10-17","Statement":[]}
@@ -37,7 +37,7 @@ export class ListCloudAccountResourcesResponseBodyCloudAccountResourcesCloudAcco
   iamPolicyType?: string;
   /**
    * @remarks
-   * The JSON document of the RAM policy. This parameter is returned only by the Get operation.
+   * The JSON string of the RAM policy document. This parameter is returned only by the Get operation.
    * 
    * @example
    * {"Version":"1","Statement":[]}
@@ -93,7 +93,7 @@ export class ListCloudAccountResourcesResponseBodyCloudAccountResources extends 
   cloudAccountId?: string;
   /**
    * @remarks
-   * The identifier of the resource entity, which is a unique identifier on the remote end.
+   * The unique remote identifier of the resource entity.
    * 
    * @example
    * System:AliyunIntelligentcockpitReadOnlyAccessexample
@@ -101,7 +101,7 @@ export class ListCloudAccountResourcesResponseBodyCloudAccountResources extends 
   cloudAccountResourceEntityId?: string;
   /**
    * @remarks
-   * The resource entity type. Valid values: ram_role.
+   * The type of the resource entity. Valid values: ram_role.
    * 
    * @example
    * ram_role
@@ -200,7 +200,7 @@ export class ListCloudAccountResourcesResponseBody extends $dara.Model {
   cloudAccountResources?: ListCloudAccountResourcesResponseBodyCloudAccountResources[];
   /**
    * @remarks
-   * The maximum number of entries returned per page for paging in a paged query.
+   * The maximum number of entries returned per page during paging in a paged query.
    * 
    * @example
    * 20
@@ -208,7 +208,7 @@ export class ListCloudAccountResourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token returned by the current call, which is used for the next paginated query.
+   * The query token returned by the current call for the next pagination query.
    * 
    * @example
    * NTxxxexample
@@ -224,7 +224,7 @@ export class ListCloudAccountResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries returned.
    * 
    * @example
    * 100

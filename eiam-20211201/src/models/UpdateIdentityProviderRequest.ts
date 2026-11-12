@@ -91,7 +91,7 @@ export class UpdateIdentityProviderRequestLarkConfig extends $dara.Model {
   appSecret?: string;
   /**
    * @remarks
-   * The EncryptKey of the custom Lark application.
+   * The encryptKey of the custom Lark application.
    * 
    * @example
    * VkdWw91mdkrjVFr3ObNwefap21dfbZbKxxxx
@@ -99,7 +99,7 @@ export class UpdateIdentityProviderRequestLarkConfig extends $dara.Model {
   encryptKey?: string;
   /**
    * @remarks
-   * The VerificationToken of the custom Lark application.
+   * The verificationToken of the custom Lark application.
    * 
    * @example
    * feishuVerifyTokenxxxxx
@@ -369,7 +369,7 @@ export class UpdateIdentityProviderRequestOidcConfig extends $dara.Model {
    * The list of OIDC grant scopes.
    * 
    * @example
-   * openid
+   * ["openid"]
    */
   grantScopes?: string[];
   /**
@@ -509,7 +509,7 @@ export class UpdateIdentityProviderRequestSamlConfig extends $dara.Model {
   maxClockSkew?: number;
   /**
    * @remarks
-   * Specifies whether to require the request to be signed.
+   * Specifies whether to require requests to be signed.
    * 
    * @example
    * true
@@ -572,7 +572,7 @@ export class UpdateIdentityProviderRequestSamlConfig extends $dara.Model {
 export class UpdateIdentityProviderRequestWeComConfig extends $dara.Model {
   /**
    * @remarks
-   * The AgentId of the WeCom custom application.
+   * The AgentId of the WeCom self-built application.
    * 
    * @example
    * 1237403
@@ -596,7 +596,7 @@ export class UpdateIdentityProviderRequestWeComConfig extends $dara.Model {
   contactSecret?: string;
   /**
    * @remarks
-   * The CorpSecret of the WeCom custom application.
+   * The CorpSecret of the WeCom self-built application.
    * 
    * @example
    * CSEHDddddddxxxxuxkJEHPveWRXBGqVqRsxxxx
@@ -709,7 +709,7 @@ export class UpdateIdentityProviderRequest extends $dara.Model {
   networkAccessEndpointId?: string;
   /**
    * @remarks
-   * The OIDC-related configuration.
+   * The OIDC configuration.
    */
   oidcConfig?: UpdateIdentityProviderRequestOidcConfig;
   /**

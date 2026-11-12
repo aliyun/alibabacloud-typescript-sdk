@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAgentStatisticsCreated extends $dara.Model {
   /**
    * @remarks
-   * The number of failed creations.
+   * The number of failed items.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   failed?: number;
   /**
    * @remarks
-   * The number of skipped creations.
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   skipped?: number;
   /**
    * @remarks
-   * The number of successful creations.
+   * The number of successful items.
    * 
    * @example
    * 3
@@ -29,7 +29,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   success?: number;
   /**
    * @remarks
-   * The total number.
+   * The total number of items.
    * 
    * @example
    * 5
@@ -65,7 +65,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
 export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAgentStatisticsDeleted extends $dara.Model {
   /**
    * @remarks
-   * The number of failed creations.
+   * The number of failed items.
    * 
    * @example
    * 1
@@ -73,7 +73,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   failed?: number;
   /**
    * @remarks
-   * The number of skipped creations.
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -81,7 +81,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   skipped?: number;
   /**
    * @remarks
-   * The number of successful creations.
+   * The number of successful items.
    * 
    * @example
    * 3
@@ -89,7 +89,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   success?: number;
   /**
    * @remarks
-   * The total number.
+   * The total number of items.
    * 
    * @example
    * 5
@@ -125,7 +125,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
 export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAgentStatisticsSame extends $dara.Model {
   /**
    * @remarks
-   * The number of failed creations.
+   * The number of failed items.
    * 
    * @example
    * 1
@@ -133,7 +133,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   failed?: number;
   /**
    * @remarks
-   * The number of skipped creations.
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -141,7 +141,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   skipped?: number;
   /**
    * @remarks
-   * The number of successful creations.
+   * The number of successful items.
    * 
    * @example
    * 3
@@ -149,7 +149,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   success?: number;
   /**
    * @remarks
-   * The total number.
+   * The total number of items.
    * 
    * @example
    * 5
@@ -185,7 +185,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
 export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAgentStatisticsUpdated extends $dara.Model {
   /**
    * @remarks
-   * The number of failed creations.
+   * The number of failed items.
    * 
    * @example
    * 1
@@ -193,7 +193,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   failed?: number;
   /**
    * @remarks
-   * The number of skipped creations.
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -201,7 +201,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   skipped?: number;
   /**
    * @remarks
-   * The number of successful creations.
+   * The number of successful items.
    * 
    * @example
    * 3
@@ -209,7 +209,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   success?: number;
   /**
    * @remarks
-   * The total number.
+   * The total number of items.
    * 
    * @example
    * 5
@@ -245,22 +245,22 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
 export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAgentStatistics extends $dara.Model {
   /**
    * @remarks
-   * The statistics of the creation results.
+   * The statistics of the creation result.
    */
   created?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAgentStatisticsCreated;
   /**
    * @remarks
-   * The statistics of the deletion results.
+   * The statistics of the deletion result.
    */
   deleted?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAgentStatisticsDeleted;
   /**
    * @remarks
-   * The statistics of the unchanged results.
+   * The statistics of unchanged items.
    */
   same?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAgentStatisticsSame;
   /**
    * @remarks
-   * The statistics of the update results.
+   * The statistics of the update result.
    */
   updated?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAgentStatisticsUpdated;
   static names(): { [key: string]: string } {
@@ -305,7 +305,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
 export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAssetStatisticsCreated extends $dara.Model {
   /**
    * @remarks
-   * The number of failed creations.
+   * The number of failed items.
    * 
    * @example
    * 1
@@ -313,7 +313,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   failed?: number;
   /**
    * @remarks
-   * The number of skipped creations.
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -321,7 +321,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   skipped?: number;
   /**
    * @remarks
-   * The number of successful creations.
+   * The number of successful items.
    * 
    * @example
    * 3
@@ -329,7 +329,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   success?: number;
   /**
    * @remarks
-   * The total number.
+   * The total number of items.
    * 
    * @example
    * 5
@@ -365,7 +365,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
 export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAssetStatisticsDeleted extends $dara.Model {
   /**
    * @remarks
-   * The number of failed creations.
+   * The number of failed items.
    * 
    * @example
    * 1
@@ -373,7 +373,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   failed?: number;
   /**
    * @remarks
-   * The number of skipped creations.
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -381,7 +381,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   skipped?: number;
   /**
    * @remarks
-   * The number of successful creations.
+   * The number of successful items.
    * 
    * @example
    * 3
@@ -389,7 +389,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   success?: number;
   /**
    * @remarks
-   * The total number.
+   * The total number of items.
    * 
    * @example
    * 5
@@ -425,7 +425,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
 export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAssetStatisticsSame extends $dara.Model {
   /**
    * @remarks
-   * The number of failed creations.
+   * The number of failed items.
    * 
    * @example
    * 1
@@ -433,7 +433,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   failed?: number;
   /**
    * @remarks
-   * The number of skipped creations.
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -441,7 +441,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   skipped?: number;
   /**
    * @remarks
-   * The number of successful creations.
+   * The number of successful items.
    * 
    * @example
    * 3
@@ -449,7 +449,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   success?: number;
   /**
    * @remarks
-   * The total number.
+   * The total number of items.
    * 
    * @example
    * 5
@@ -485,7 +485,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
 export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAssetStatisticsUpdated extends $dara.Model {
   /**
    * @remarks
-   * The number of failed creations.
+   * The number of failed items.
    * 
    * @example
    * 1
@@ -493,7 +493,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   failed?: number;
   /**
    * @remarks
-   * The number of skipped creations.
+   * The number of skipped items.
    * 
    * @example
    * 1
@@ -501,7 +501,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   skipped?: number;
   /**
    * @remarks
-   * The number of successful creations.
+   * The number of successful items.
    * 
    * @example
    * 3
@@ -509,7 +509,7 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
   success?: number;
   /**
    * @remarks
-   * The total number.
+   * The total number of items.
    * 
    * @example
    * 5
@@ -545,22 +545,22 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
 export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAssetStatistics extends $dara.Model {
   /**
    * @remarks
-   * The statistics of the creation results.
+   * The statistics of the creation result.
    */
   created?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAssetStatisticsCreated;
   /**
    * @remarks
-   * The statistics of the deletion results.
+   * The statistics of the deletion result.
    */
   deleted?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAssetStatisticsDeleted;
   /**
    * @remarks
-   * The statistics of the unchanged results.
+   * The statistics of unchanged items.
    */
   same?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAssetStatisticsSame;
   /**
    * @remarks
-   * The statistics of the update results.
+   * The statistics of the update result.
    */
   updated?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAssetStatisticsUpdated;
   static names(): { [key: string]: string } {
@@ -605,12 +605,12 @@ export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizatio
 export class ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResult extends $dara.Model {
   /**
    * @remarks
-   * The statistics of the agent synchronization results.
+   * The statistics of the agent synchronization result.
    */
   agentStatistics?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAgentStatistics;
   /**
    * @remarks
-   * The statistics of the asset synchronization results.
+   * The statistics of the asset synchronization result.
    */
   assetStatistics?: ListInventorySynchronizationJobsResponseBodyInventorySynchronizationJobsResultAssetStatistics;
   /**
@@ -778,7 +778,7 @@ export class ListInventorySynchronizationJobsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned by the current call, which is used to retrieve the next page.
+   * The pagination token returned by the current call for subsequent paged queries.
    * 
    * @example
    * NTxxxexample

@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAuthorizationRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The authorization resource scope. Valid values:
-   * 
-   * - global: all resources under the project.
-   * - custom: specified resources under the project.
+   * The scope of authorized resources. Valid values:
+   * - global: global resources under the project
+   * - custom: resources under a specified project scope
    * 
    * @example
    * global
@@ -34,7 +33,7 @@ export class CreateAuthorizationRuleRequest extends $dara.Model {
   authorizationRuleScenarioLabel?: string;
   /**
    * @remarks
-   * Ensures the idempotence of the request. Generate a parameter value from your client to ensure that the value is unique across different requests. ClientToken supports only ASCII characters and cannot exceed 64 characters in length. For more information, see References [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
+   * The client token that is used to ensure the idempotence of the request. You can generate the value from your client and make sure that the value is unique across different requests. The ClientToken parameter only supports ASCII characters and cannot exceed 64 characters in length. For more information, see References: [How to ensure idempotence](https://www.alibabacloud.com/help/zh/ecs/developer-reference/how-to-ensure-idempotence).
    * 
    * This parameter is required.
    * 
@@ -62,7 +61,7 @@ export class CreateAuthorizationRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the project associated with the authorization rule. If you are unsure which project to associate, you can associate the default project. The default project ID is iprj_system_default.
+   * The ID of the project associated with the authorization rule. If you are unsure about the project to associate, you can use the default project. The ID of the default project is iprj_system_default.
    * 
    * This parameter is required.
    * 
@@ -70,6 +69,14 @@ export class CreateAuthorizationRuleRequest extends $dara.Model {
    * iprj_system_default
    */
   projectId?: string;
+  /**
+   * @remarks
+   * The type of subject to which the authorization rule applies, such as user (for human users) or application (for machine users). When explicitly specified, only privileged cloud account rules with a custom resource scope are supported. If this field is omitted for custom scope rules in this scenario, the default value is user.
+   * 
+   * @example
+   * application
+   */
+  subjectType?: string;
   static names(): { [key: string]: string } {
     return {
       authorizationResourceScope: 'AuthorizationResourceScope',
@@ -79,6 +86,7 @@ export class CreateAuthorizationRuleRequest extends $dara.Model {
       description: 'Description',
       instanceId: 'InstanceId',
       projectId: 'ProjectId',
+      subjectType: 'SubjectType',
     };
   }
 
@@ -91,6 +99,7 @@ export class CreateAuthorizationRuleRequest extends $dara.Model {
       description: 'string',
       instanceId: 'string',
       projectId: 'string',
+      subjectType: 'string',
     };
   }
 
