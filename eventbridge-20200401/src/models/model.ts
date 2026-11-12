@@ -54,6 +54,7 @@ export { CreateConnectionRequestAuthParametersOAuthParameters } from './CreateCo
 export { CreateConnectionRequestAuthParameters } from './CreateConnectionRequest';
 export { CreateConnectionRequestNetworkParameters } from './CreateConnectionRequest';
 export { CreateConnectionResponseBodyData } from './CreateConnectionResponseBody';
+export { CreateEventBusRequestTags } from './CreateEventBusRequest';
 export { CreateEventBusResponseBodyData } from './CreateEventBusResponseBody';
 export { CreateEventSourceRequestSourceHttpEventParameters } from './CreateEventSourceRequest';
 export { CreateEventSourceRequestSourceKafkaParameters } from './CreateEventSourceRequest';
@@ -274,6 +275,7 @@ export { GetConnectionResponseBodyDataConnectionsNetworkParameters } from './Get
 export { GetConnectionResponseBodyDataConnections } from './GetConnectionResponseBody';
 export { GetConnectionResponseBodyData } from './GetConnectionResponseBody';
 export { GetDocumentDownloadUrlResponseBodyData } from './GetDocumentDownloadUrlResponseBody';
+export { GetEventBusResponseBodyDataTags } from './GetEventBusResponseBody';
 export { GetEventBusResponseBodyData } from './GetEventBusResponseBody';
 export { GetEventStreamingResponseBodyDataDetailedStatus } from './GetEventStreamingResponseBody';
 export { GetEventStreamingResponseBodyDataRunOptionsBatchWindow } from './GetEventStreamingResponseBody';
@@ -446,6 +448,7 @@ export { ListConnectionsResponseBodyDataConnectionsNetworkParameters } from './L
 export { ListConnectionsResponseBodyDataConnections } from './ListConnectionsResponseBody';
 export { ListConnectionsResponseBodyData } from './ListConnectionsResponseBody';
 export { ListDocumentsResponseBodyData } from './ListDocumentsResponseBody';
+export { ListEventBusesResponseBodyDataEventBusesTags } from './ListEventBusesResponseBody';
 export { ListEventBusesResponseBodyDataEventBuses } from './ListEventBusesResponseBody';
 export { ListEventBusesResponseBodyData } from './ListEventBusesResponseBody';
 export { ListEventHouseRuntimesResponseBodyData } from './ListEventHouseRuntimesResponseBody';
@@ -644,6 +647,7 @@ export { UpdateConnectionRequestAuthParametersOAuthParametersOAuthHttpParameters
 export { UpdateConnectionRequestAuthParametersOAuthParameters } from './UpdateConnectionRequest';
 export { UpdateConnectionRequestAuthParameters } from './UpdateConnectionRequest';
 export { UpdateConnectionRequestNetworkParameters } from './UpdateConnectionRequest';
+export { UpdateEventBusRequestTags } from './UpdateEventBusRequest';
 export { UpdateEventSourceRequestSourceHttpEventParameters } from './UpdateEventSourceRequest';
 export { UpdateEventSourceRequestSourceKafkaParameters } from './UpdateEventSourceRequest';
 export { UpdateEventSourceRequestSourceMNSParameters } from './UpdateEventSourceRequest';

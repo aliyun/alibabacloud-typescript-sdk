@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "eventbridge";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-wulanchabu': "eventbridge-console.cn-wulanchabu.aliyuncs.com",
@@ -388,8 +392,18 @@ export default class Client extends OpenApi {
       query["EventBusName"] = request.eventBusName;
     }
 
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tags)) {
+      body["Tags"] = request.tags;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "CreateEventBus",
@@ -587,13 +601,18 @@ export default class Client extends OpenApi {
       request.transformsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.transforms, "Transforms", "json");
     }
 
+    let query = { };
+    if (!$dara.isNull(request.eventStreamingName)) {
+      query["EventStreamingName"] = request.eventStreamingName;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.description)) {
       body["Description"] = request.description;
-    }
-
-    if (!$dara.isNull(request.eventStreamingName)) {
-      body["EventStreamingName"] = request.eventStreamingName;
     }
 
     if (!$dara.isNull(request.filterPattern)) {
@@ -625,6 +644,7 @@ export default class Client extends OpenApi {
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
@@ -2316,10 +2336,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detailed information about an event bus.
+   * Retrieves the details of an event bus.
    * 
    * @remarks
-   * You can call this API operation to query the detailed information about an event bus.
+   * Retrieves the details of an event bus.
    * 
    * @param request - GetEventBusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2350,10 +2370,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detailed information about an event bus.
+   * Retrieves the details of an event bus.
    * 
    * @remarks
-   * You can call this API operation to query the detailed information about an event bus.
+   * Retrieves the details of an event bus.
    * 
    * @param request - GetEventBusRequest
    * @returns GetEventBusResponse
@@ -3530,7 +3550,7 @@ export default class Client extends OpenApi {
    * Queries all event buses.
    * 
    * @remarks
-   * You can call this API operation to query all event buses.
+   * Queries all event buses.
    * 
    * @param request - ListEventBusesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3549,6 +3569,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -3572,7 +3596,7 @@ export default class Client extends OpenApi {
    * Queries all event buses.
    * 
    * @remarks
-   * You can call this API operation to query all event buses.
+   * Queries all event buses.
    * 
    * @param request - ListEventBusesRequest
    * @returns ListEventBusesResponse
@@ -5771,10 +5795,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an event bus.
+   * Updates an event bus.
    * 
    * @remarks
-   * Modifies an event bus.
+   * Updates an event bus.
    * 
    * @param request - UpdateEventBusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5791,8 +5815,14 @@ export default class Client extends OpenApi {
       query["EventBusName"] = request.eventBusName;
     }
 
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tags)) {
+      body["Tags"] = request.tags;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
       action: "UpdateEventBus",
@@ -5809,10 +5839,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies an event bus.
+   * Updates an event bus.
    * 
    * @remarks
-   * Modifies an event bus.
+   * Updates an event bus.
    * 
    * @param request - UpdateEventBusRequest
    * @returns UpdateEventBusResponse

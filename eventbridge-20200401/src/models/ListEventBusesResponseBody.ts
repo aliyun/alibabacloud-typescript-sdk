@@ -2,10 +2,50 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListEventBusesResponseBodyDataEventBusesTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the event bus tag.
+   * 
+   * @example
+   * department
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the event bus tag.
+   * 
+   * @example
+   * R&D
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListEventBusesResponseBodyDataEventBuses extends $dara.Model {
   /**
    * @remarks
-   * The timestamp that indicates when the event bus was created.
+   * The creation timestamp.
    * 
    * @example
    * 1607071602000
@@ -24,7 +64,7 @@ export class ListEventBusesResponseBodyDataEventBuses extends $dara.Model {
    * The Alibaba Cloud Resource Name (ARN) of the event bus.
    * 
    * @example
-   * acs:eventbridge:cn-hangzhou:123456789098***:eventbus/default
+   * acs:eventbridge:cn-hangzhou:12345678909****:eventbus/default
    */
   eventBusARN?: string;
   /**
@@ -35,12 +75,27 @@ export class ListEventBusesResponseBodyDataEventBuses extends $dara.Model {
    * default
    */
   eventBusName?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the event bus belongs.
+   * 
+   * @example
+   * rg-acfmxazb4ph6aiy****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tag information of the event bus.
+   */
+  tags?: ListEventBusesResponseBodyDataEventBusesTags[];
   static names(): { [key: string]: string } {
     return {
       createTimestamp: 'CreateTimestamp',
       description: 'Description',
       eventBusARN: 'EventBusARN',
       eventBusName: 'EventBusName',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
     };
   }
 
@@ -50,10 +105,15 @@ export class ListEventBusesResponseBodyDataEventBuses extends $dara.Model {
       description: 'string',
       eventBusARN: 'string',
       eventBusName: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': ListEventBusesResponseBodyDataEventBusesTags },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -65,12 +125,12 @@ export class ListEventBusesResponseBodyDataEventBuses extends $dara.Model {
 export class ListEventBusesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The event buses.
+   * The list of queried event buses.
    */
   eventBuses?: ListEventBusesResponseBodyDataEventBuses[];
   /**
    * @remarks
-   * If excess return values exist, this parameter is returned.
+   * The pagination token. This token is returned if more results are available.
    * 
    * @example
    * 10
@@ -115,10 +175,9 @@ export class ListEventBusesResponseBodyData extends $dara.Model {
 export class ListEventBusesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. Valid values:
-   * 
-   * *   Success: The request was successful.
-   * *   Other codes: The request failed. For information about error codes, see Error codes.
+   * The response code:
+   * - Success: indicates that the request is successful.                                 
+   * - Other values: indicate error codes. For more information, see Error codes.
    * 
    * @example
    * 200
@@ -131,7 +190,7 @@ export class ListEventBusesResponseBody extends $dara.Model {
   data?: ListEventBusesResponseBodyData;
   /**
    * @remarks
-   * The returned error message.
+   * The error message.
    * 
    * @example
    * InvalidArgument
@@ -142,12 +201,12 @@ export class ListEventBusesResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * D1DCF64A-3F2C-5323-ADCB-3F4DF30FAD2D
+   * D1DCF64A-3F2C-5323-ADCB-3F4DF30F****
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. If the operation was successful, the value true is returned.
+   * Indicates whether the operation is successful. A value of true indicates that the operation is successful.
    * 
    * @example
    * true

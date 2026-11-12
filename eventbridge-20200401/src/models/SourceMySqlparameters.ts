@@ -21,7 +21,7 @@ export class SourceMySQLParameters extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * Indicates whether to include schema changes.
+   * Specifies whether database structure schema evolution is included.
    * 
    * @example
    * false
@@ -37,7 +37,7 @@ export class SourceMySQLParameters extends $dara.Model {
   networkType?: string;
   /**
    * @remarks
-   * The password for the user.
+   * The password of the database user.
    * 
    * @example
    * admin
@@ -45,7 +45,7 @@ export class SourceMySQLParameters extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The database server port.
+   * The port of the database server.
    * 
    * @example
    * 80
@@ -53,7 +53,7 @@ export class SourceMySQLParameters extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The ID of the region that contains the data source.
+   * The ID of the region where the data source is located.
    * 
    * @example
    * cn-hangzhou
@@ -77,7 +77,7 @@ export class SourceMySQLParameters extends $dara.Model {
   snapshotMode?: string;
   /**
    * @remarks
-   * The names of tables to synchronize. Separate multiple table names with a comma.
+   * The names of the tables to synchronize. Separate multiple table names with commas.
    * 
    * @example
    * database1.table1
@@ -93,7 +93,7 @@ export class SourceMySQLParameters extends $dara.Model {
   user?: string;
   /**
    * @remarks
-   * The VSwitch IDs. Separate multiple IDs with a comma.
+   * The vSwitch IDs. Separate multiple IDs with commas.
    * 
    * @example
    * [vsw-a1b2c3d4e5f6g7h8i9j0k]
@@ -101,7 +101,7 @@ export class SourceMySQLParameters extends $dara.Model {
   vSwitchIds?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The ID of the virtual private cloud (VPC).
    * 
    * @example
    * vpc-a1b2c3d4e5f6g7h8i9j0k

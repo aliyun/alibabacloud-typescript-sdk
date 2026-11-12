@@ -6,8 +6,8 @@ export class UpdateEventBusResponseBody extends $dara.Model {
   /**
    * @remarks
    * The return code of the API operation. Valid values:
-   * - Success: Indicates success.                                 
-   * - Other: Indicates an error code. For more information, see Error codes.
+   * - Success: indicates success.                                 
+   * - Other values: indicates an error code. For more information, see Error codes.
    * 
    * @example
    * Success
@@ -31,7 +31,7 @@ export class UpdateEventBusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returns true if the operation is successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

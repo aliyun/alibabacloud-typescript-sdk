@@ -2,10 +2,50 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetEventBusResponseBodyDataTags extends $dara.Model {
+  /**
+   * @remarks
+   * The key of the first tag.
+   * 
+   * @example
+   * department
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The value of the first tag.
+   * 
+   * @example
+   * R&D
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'Key',
+      value: 'Value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetEventBusResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The timestamp that indicates when the event bus was created.
+   * The creation timestamp.
    * 
    * @example
    * 1641781825000
@@ -35,12 +75,27 @@ export class GetEventBusResponseBodyData extends $dara.Model {
    * MyEventBus
    */
   eventBusName?: string;
+  /**
+   * @remarks
+   * The ID of the resource group to which the event bus belongs.
+   * 
+   * @example
+   * rg-acfmxazb4ph6aiy****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
+   * The tag information.
+   */
+  tags?: GetEventBusResponseBodyDataTags[];
   static names(): { [key: string]: string } {
     return {
       createTimestamp: 'CreateTimestamp',
       description: 'Description',
       eventBusARN: 'EventBusARN',
       eventBusName: 'EventBusName',
+      resourceGroupId: 'ResourceGroupId',
+      tags: 'Tags',
     };
   }
 
@@ -50,10 +105,15 @@ export class GetEventBusResponseBodyData extends $dara.Model {
       description: 'string',
       eventBusARN: 'string',
       eventBusName: 'string',
+      resourceGroupId: 'string',
+      tags: { 'type': 'array', 'itemType': GetEventBusResponseBodyDataTags },
     };
   }
 
   validate() {
+    if(Array.isArray(this.tags)) {
+      $dara.Model.validateArray(this.tags);
+    }
     super.validate();
   }
 
@@ -65,7 +125,7 @@ export class GetEventBusResponseBodyData extends $dara.Model {
 export class GetEventBusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. The value Success indicates that the request was successful. Other values indicate that the request failed. For more information about error codes, see Error codes.
+   * The response code. A value of Success indicates that the request is successful. Other values indicate error codes. For more information, see Error codes.
    * 
    * @example
    * Success
@@ -73,12 +133,12 @@ export class GetEventBusResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data returned.
+   * The returned result.
    */
   data?: GetEventBusResponseBodyData;
   /**
    * @remarks
-   * The error message that is returned if the request failed.
+   * The error message.
    * 
    * @example
    * EventBusNotExist
@@ -94,7 +154,7 @@ export class GetEventBusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. If the operation was successful, the value true is returned.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true

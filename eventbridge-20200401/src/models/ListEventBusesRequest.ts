@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListEventBusesRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return in a request. You can use this parameter and NextToken to implement paging.
+   * The maximum number of entries to return per page. You can use this parameter together with NextToken to implement pagination.
    * 
-   * >  A maximum of 100 entries can be returned in a request.
+   * >Notice: The maximum number of entries returned per request is 100.</notice>
    * 
    * @example
    * 10
@@ -15,7 +15,7 @@ export class ListEventBusesRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The prefix of the names of the event buses that you want to query.
+   * The name prefix of the event buses to retrieve.
    * 
    * @example
    * My
@@ -23,17 +23,26 @@ export class ListEventBusesRequest extends $dara.Model {
   namePrefix?: string;
   /**
    * @remarks
-   * If you configure Limit and excess return values exist, this parameter is returned. You can use this parameter and Limit to implement paging.
+   * The pagination token. If the specified Limit is reached and more results are available, this token is returned. You can use this token together with Limit to implement pagination.
    * 
    * @example
    * 10
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The ID of the resource group, used to filter event buses in the specified resource group.
+   * 
+   * @example
+   * rg-acfmxazb4ph6aiy****
+   */
+  resourceGroupId?: string;
   static names(): { [key: string]: string } {
     return {
       limit: 'Limit',
       namePrefix: 'NamePrefix',
       nextToken: 'NextToken',
+      resourceGroupId: 'ResourceGroupId',
     };
   }
 
@@ -42,6 +51,7 @@ export class ListEventBusesRequest extends $dara.Model {
       limit: 'number',
       namePrefix: 'string',
       nextToken: 'string',
+      resourceGroupId: 'string',
     };
   }
 

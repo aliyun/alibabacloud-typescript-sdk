@@ -8509,6 +8509,14 @@ export class ListEventStreamingsResponseBodyDataEventStreamings extends $dara.Mo
   metadata?: string;
   /**
    * @remarks
+   * 该事件流所属的资源组ID。
+   * 
+   * @example
+   * rg-acfmxazb4ph6aiy****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
    * The runtime environment parameters.
    */
   runOptions?: ListEventStreamingsResponseBodyDataEventStreamingsRunOptions;
@@ -8541,6 +8549,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamings extends $dara.Mo
       eventStreamingName: 'EventStreamingName',
       filterPattern: 'FilterPattern',
       metadata: 'Metadata',
+      resourceGroupId: 'ResourceGroupId',
       runOptions: 'RunOptions',
       sink: 'Sink',
       source: 'Source',
@@ -8555,6 +8564,7 @@ export class ListEventStreamingsResponseBodyDataEventStreamings extends $dara.Mo
       eventStreamingName: 'string',
       filterPattern: 'string',
       metadata: 'string',
+      resourceGroupId: 'string',
       runOptions: ListEventStreamingsResponseBodyDataEventStreamingsRunOptions,
       sink: ListEventStreamingsResponseBodyDataEventStreamingsSink,
       source: ListEventStreamingsResponseBodyDataEventStreamingsSource,

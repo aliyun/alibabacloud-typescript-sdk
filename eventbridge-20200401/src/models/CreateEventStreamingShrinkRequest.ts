@@ -63,7 +63,7 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
   eventStreamingName?: string;
   /**
    * @remarks
-   * The event filtering rule. If this parameter is not specified, all events are matched.
+   * The event filtering rule. If you do not specify this parameter, all events are matched.
    * 
    * @example
    * {
@@ -87,7 +87,7 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
   filterPattern?: string;
   /**
    * @remarks
-   * The common JSON configurations for the event provider. This parameter is mutually exclusive with the Source parameter.
+   * The common JSON configurations for the event provider. This parameter is mutually exclusive with Source.
    * 
    * @example
    * {"key":"value"}
@@ -95,17 +95,25 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
   metadata?: string;
   /**
    * @remarks
+   * The resource group ID. If you do not specify this parameter, the created event stream belongs to the default resource group of the account.
+   * 
+   * @example
+   * rg-acfmxazb4ph6aiy****
+   */
+  resourceGroupId?: string;
+  /**
+   * @remarks
    * The runtime environment parameters.
    */
   runOptionsShrink?: string;
   /**
    * @remarks
-   * The event target. You must select one and only one sink.
+   * The event target. You must select exactly one type of sink to configure.
    */
   sinkShrink?: string;
   /**
    * @remarks
-   * The event provider. You must specify exactly one source.
+   * The event provider. You must select exactly one source type and configure its parameters.
    */
   sourceShrink?: string;
   /**
@@ -115,7 +123,7 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
   tags?: CreateEventStreamingShrinkRequestTags[];
   /**
    * @remarks
-   * The transform configurations.
+   * The configuration for transforms.
    */
   transformsShrink?: string;
   static names(): { [key: string]: string } {
@@ -124,6 +132,7 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
       eventStreamingName: 'EventStreamingName',
       filterPattern: 'FilterPattern',
       metadata: 'Metadata',
+      resourceGroupId: 'ResourceGroupId',
       runOptionsShrink: 'RunOptions',
       sinkShrink: 'Sink',
       sourceShrink: 'Source',
@@ -138,6 +147,7 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
       eventStreamingName: 'string',
       filterPattern: 'string',
       metadata: 'string',
+      resourceGroupId: 'string',
       runOptionsShrink: 'string',
       sinkShrink: 'string',
       sourceShrink: 'string',
