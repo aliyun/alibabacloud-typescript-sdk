@@ -13,7 +13,7 @@ export class CheckPolarClawSkillRequest extends $dara.Model {
   bucketRegionId?: string;
   /**
    * @remarks
-   * The type of the bucket used for skill files. UserOwned indicates a user-owned bucket. Hosted indicates a hosted bucket. You must have the required permissions to use a hosted bucket.
+   * The type of the bucket used for skill files. UserOwned indicates a user-owned bucket. Hosted indicates a hosted bucket, which requires corresponding permissions. Usage notes: The parameter dependencies for each value specify that OSSBucket is required for UserOwned, and whitelist permissions are required for Hosted.
    * 
    * @example
    * UserOwned
@@ -57,10 +57,10 @@ export class CheckPolarClawSkillRequest extends $dara.Model {
   skillVersion?: string;
   /**
    * @remarks
-   * The brief description of the skill.
+   * The brief description of the skill. This parameter is actually required. If it is not provided, the service returns InvalidParam (404).
    * 
    * @example
-   * An example used to manage PolarDB skills
+   * Sample for managing PolarDB skills
    */
   summary?: string;
   /**
@@ -73,7 +73,7 @@ export class CheckPolarClawSkillRequest extends $dara.Model {
   tags?: string;
   /**
    * @remarks
-   * The title.
+   * The title. This parameter is actually required. If it is not provided, the service returns InvalidParam (404).
    * 
    * @example
    * PolarClawHub

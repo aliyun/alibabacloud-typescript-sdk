@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DescribeDBClusterAccessWhitelistResponseBody = exports.DescribeDBClusterAccessWhitelistResponseBodyItems = exports.DescribeDBClusterAccessWhitelistResponseBodyItemsDBClusterIPArray = exports.DescribeDBClusterAccessWhitelistResponseBodyDBClusterSecurityGroups = exports.DescribeDBClusterAccessWhitelistResponseBodyDBClusterSecurityGroupsDBClusterSecurityGroup = void 0;
+exports.DescribeDBClusterAccessWhitelistResponseBody = exports.DescribeDBClusterAccessWhitelistResponseBodyProjectItems = exports.DescribeDBClusterAccessWhitelistResponseBodyProjectItemsDBClusterProjectIPArray = exports.DescribeDBClusterAccessWhitelistResponseBodyItems = exports.DescribeDBClusterAccessWhitelistResponseBodyItemsDBClusterIPArray = exports.DescribeDBClusterAccessWhitelistResponseBodyDBClusterSecurityGroups = exports.DescribeDBClusterAccessWhitelistResponseBodyDBClusterSecurityGroupsDBClusterSecurityGroup = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
 class DescribeDBClusterAccessWhitelistResponseBodyDBClusterSecurityGroupsDBClusterSecurityGroup extends $dara.Model {
@@ -114,11 +114,59 @@ class DescribeDBClusterAccessWhitelistResponseBodyItems extends $dara.Model {
     }
 }
 exports.DescribeDBClusterAccessWhitelistResponseBodyItems = DescribeDBClusterAccessWhitelistResponseBodyItems;
+class DescribeDBClusterAccessWhitelistResponseBodyProjectItemsDBClusterProjectIPArray extends $dara.Model {
+    static names() {
+        return {
+            defaultOpen: 'DefaultOpen',
+            projectId: 'ProjectId',
+            revision: 'Revision',
+            securityIps: 'SecurityIps',
+        };
+    }
+    static types() {
+        return {
+            defaultOpen: 'boolean',
+            projectId: 'string',
+            revision: 'number',
+            securityIps: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.DescribeDBClusterAccessWhitelistResponseBodyProjectItemsDBClusterProjectIPArray = DescribeDBClusterAccessWhitelistResponseBodyProjectItemsDBClusterProjectIPArray;
+class DescribeDBClusterAccessWhitelistResponseBodyProjectItems extends $dara.Model {
+    static names() {
+        return {
+            DBClusterProjectIPArray: 'DBClusterProjectIPArray',
+        };
+    }
+    static types() {
+        return {
+            DBClusterProjectIPArray: { 'type': 'array', 'itemType': DescribeDBClusterAccessWhitelistResponseBodyProjectItemsDBClusterProjectIPArray },
+        };
+    }
+    validate() {
+        if (Array.isArray(this.DBClusterProjectIPArray)) {
+            $dara.Model.validateArray(this.DBClusterProjectIPArray);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.DescribeDBClusterAccessWhitelistResponseBodyProjectItems = DescribeDBClusterAccessWhitelistResponseBodyProjectItems;
 class DescribeDBClusterAccessWhitelistResponseBody extends $dara.Model {
     static names() {
         return {
             DBClusterSecurityGroups: 'DBClusterSecurityGroups',
             items: 'Items',
+            projectItems: 'ProjectItems',
             requestId: 'RequestId',
         };
     }
@@ -126,6 +174,7 @@ class DescribeDBClusterAccessWhitelistResponseBody extends $dara.Model {
         return {
             DBClusterSecurityGroups: DescribeDBClusterAccessWhitelistResponseBodyDBClusterSecurityGroups,
             items: DescribeDBClusterAccessWhitelistResponseBodyItems,
+            projectItems: DescribeDBClusterAccessWhitelistResponseBodyProjectItems,
             requestId: 'string',
         };
     }
@@ -135,6 +184,9 @@ class DescribeDBClusterAccessWhitelistResponseBody extends $dara.Model {
         }
         if (this.items && typeof this.items.validate === 'function') {
             this.items.validate();
+        }
+        if (this.projectItems && typeof this.projectItems.validate === 'function') {
+            this.projectItems.validate();
         }
         super.validate();
     }

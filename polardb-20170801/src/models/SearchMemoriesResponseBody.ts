@@ -7,12 +7,20 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
    * @remarks
    * The creation time.
    * 
-   * The time follows the ISO 8601 standard and is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The time is in ISO 8601 format and follows the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2025-09-26T08:25:44Z
    */
   createTime?: string;
+  /**
+   * @remarks
+   * The event information.
+   * 
+   * @example
+   * abc
+   */
+  event?: string;
   /**
    * @remarks
    * The memory ID.
@@ -21,6 +29,11 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
    * 423
    */
   id?: string;
+  /**
+   * @remarks
+   * The first input item in the result list.
+   */
+  input?: any[];
   /**
    * @remarks
    * The memory content.
@@ -39,6 +52,14 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
   memoryAgentId?: string;
   /**
    * @remarks
+   * The first memory ID in the result set.
+   * 
+   * @example
+   * abc
+   */
+  memoryId?: string;
+  /**
+   * @remarks
    * The user to whom the memory belongs.
    * 
    * @example
@@ -50,9 +71,25 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
    * The metadata.
    * 
    * @example
-   * {\\"tags\\":\\"Issue_date_2023-11-30,VD_Active\\"}
+   * {"tags":"Issue_date_2023-11-30,VD_Active"}
    */
   metadata?: string;
+  /**
+   * @remarks
+   * The first new memory information in the result.
+   * 
+   * @example
+   * abc
+   */
+  newMemory?: string;
+  /**
+   * @remarks
+   * The first old memory value in the result.
+   * 
+   * @example
+   * abc
+   */
+  oldMemory?: string;
   /**
    * @remarks
    * The score.
@@ -63,9 +100,17 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
   score?: string;
   /**
    * @remarks
+   * The number of update records.
+   * 
+   * @example
+   * 1
+   */
+  updateCount?: number;
+  /**
+   * @remarks
    * The update time.
    * 
-   * The time follows the ISO 8601 standard and is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The time is in ISO 8601 format and follows the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2025-10-16T02:27:33Z
@@ -74,12 +119,18 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       createTime: 'CreateTime',
+      event: 'Event',
       id: 'Id',
+      input: 'Input',
       memory: 'Memory',
       memoryAgentId: 'MemoryAgentId',
+      memoryId: 'MemoryId',
       memoryUserId: 'MemoryUserId',
       metadata: 'Metadata',
+      newMemory: 'NewMemory',
+      oldMemory: 'OldMemory',
       score: 'Score',
+      updateCount: 'UpdateCount',
       updateTime: 'UpdateTime',
     };
   }
@@ -87,17 +138,26 @@ export class SearchMemoriesResponseBodyResults extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       createTime: 'string',
+      event: 'string',
       id: 'string',
+      input: { 'type': 'array', 'itemType': 'any' },
       memory: 'string',
       memoryAgentId: 'string',
+      memoryId: 'string',
       memoryUserId: 'string',
       metadata: 'string',
+      newMemory: 'string',
+      oldMemory: 'string',
       score: 'string',
+      updateCount: 'number',
       updateTime: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.input)) {
+      $dara.Model.validateArray(this.input);
+    }
     super.validate();
   }
 
@@ -117,7 +177,7 @@ export class SearchMemoriesResponseBody extends $dara.Model {
   page?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records per page.
    * 
    * @example
    * 10
@@ -138,7 +198,7 @@ export class SearchMemoriesResponseBody extends $dara.Model {
   results?: SearchMemoriesResponseBodyResults[];
   /**
    * @remarks
-   * The total number of entries that meet the conditions.
+   * The total number of records that meet the specified conditions.
    * 
    * @example
    * 1

@@ -6,8 +6,8 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   /**
    * @remarks
    * The cloud service type of the application group. Valid values:
-   * - **web**: Web application.
-   * - **native**: Native application.
+   * - **web**: Web applications.
+   * - **native**: Native applications.
    * 
    * @example
    * web
@@ -15,7 +15,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   cmsProduct?: string;
   /**
    * @remarks
-   * The database type.
+   * The type of the database.
    * 
    * @example
    * mysql
@@ -31,10 +31,10 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   detailImpact?: string;
   /**
    * @remarks
-   * The instance operation details.
+   * The details of the instance operation.
    * 
    * @example
-   * The instance needs to be restarted for system maintenance
+   * The instance needs to be restarted due to system maintenance
    */
   detailReason?: string;
   /**
@@ -47,7 +47,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The system event category. Valid values:
+   * The category of the system event. Valid values:
    * - **Exception**: Exception events.
    * - **Optimize**: Optimization events.
    * - **Notification**: Notification events.
@@ -75,7 +75,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   eventDetail?: string;
   /**
    * @remarks
-   * The event ID.
+   * The ID of the event.
    * 
    * @example
    * 600324
@@ -83,7 +83,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The event impact overview.
+   * The impact overview of the event.
    * 
    * @example
    * The instance connection may be briefly interrupted
@@ -110,7 +110,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   eventReason?: string;
   /**
    * @remarks
-   * The event status. Valid values:
+   * The status of the event. Valid values:
    * - **Inquiring**: Inquiring.
    * - **Scheduled**: Scheduled.
    * - **Running**: Running.
@@ -126,11 +126,11 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
    * @remarks
    * The system event type. Valid values: 
    * - **SystemMaintenance.Reboot**: The instance is restarted due to system maintenance.
-   * - **SystemMaintenance.Redeploy**: The instance is redeployed due to system maintenance.
-   * - **SystemFailure.Reboot**: The instance is restarted due to a system failure.
-   * - **SystemFailure.Redeploy**: The instance is redeployed due to a system failure.
-   * - **SystemFailure.Delete**: The instance is released due to a creation failure.
-   * - **InstanceFailure.Reboot**: The instance is restarted due to an instance failure.
+   * - **SystemMaintenance.Redeploy**: Redeployment of the instance due to system maintenance.
+   * - **SystemFailure.Reboot**: The instance is restarted due to a system fault.
+   * - **SystemFailure.Redeploy**: Redeployment of the instance due to a system fault.
+   * - **SystemFailure.Delete**: The instance is released because instance creation failed.
+   * - **InstanceFailure.Reboot**: The instance is restarted due to an instance fault.
    * - **InstanceExpiration.Stop**: The subscription instance is stopped due to expiration.
    * - **InstanceExpiration.Delete**: The subscription instance is released due to expiration.
    * - **AccountUnbalanced.Stop**: The pay-as-you-go instance is stopped due to an overdue payment.
@@ -182,7 +182,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * dhimgsearch
@@ -190,7 +190,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * Indicates whether the event is closed. Valid values:
+   * Indicates whether the item is closed. Valid values:
    * - **0**: Closed.
    * - **1**: Open.
    * 
@@ -200,7 +200,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   isClosed?: number;
   /**
    * @remarks
-   * The product name.
+   * The name of the product.
    * 
    * @example
    * polardb
@@ -216,7 +216,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource type. Valid values:
+   * The type of the resource. Valid values:
    * - **Instance**: Instance resources.
    * - **Host**: Host resources.
    * - **User**: User resources.
@@ -227,7 +227,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The source data type.
+   * The type of the source data.
    * 
    * @example
    * loanBill
@@ -235,7 +235,7 @@ export class DescribeHistoryEventsResponseBodyItemsData extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The start time of the query. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format (UTC time).
+   * The start time of the query. Format: `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
    * 
    * @example
    * 2025-02-27T02:00:00Z
@@ -326,11 +326,14 @@ export class DescribeHistoryEventsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The data overview.
+   * 
+   * @example
+   * {}
    */
   data?: DescribeHistoryEventsResponseBodyItemsData;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 123
@@ -338,7 +341,7 @@ export class DescribeHistoryEventsResponseBodyItems extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The region ID of the region where the task resides.
+   * The region ID of the region where the task is located.
    * 
    * @example
    * cn-hangzhou
@@ -346,7 +349,7 @@ export class DescribeHistoryEventsResponseBodyItems extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The event source.
+   * The source of the event.
    * 
    * @example
    * loanBill
@@ -362,7 +365,7 @@ export class DescribeHistoryEventsResponseBodyItems extends $dara.Model {
   specversion?: string;
   /**
    * @remarks
-   * The name of the pending event.
+   * The name of the event to be processed.
    * 
    * @example
    * QiTian
@@ -370,7 +373,7 @@ export class DescribeHistoryEventsResponseBodyItems extends $dara.Model {
   subject?: string;
   /**
    * @remarks
-   * The running time of the query task. Unit: seconds.
+   * The running time of the queried task. Unit: seconds.
    * 
    * @example
    * 1758680209206
@@ -425,7 +428,10 @@ export class DescribeHistoryEventsResponseBodyItems extends $dara.Model {
 export class DescribeHistoryEventsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The event list.
+   * The list of events.
+   * 
+   * @example
+   * []
    */
   items?: DescribeHistoryEventsResponseBodyItems[];
   /**
@@ -452,7 +458,7 @@ export class DescribeHistoryEventsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EB07CFF0-D8A4-5C76-AED7-D00E26FC2***

@@ -3,8 +3,8 @@ export declare class DisableDBClusterOrcaRequest extends $dara.Model {
     /**
      * @remarks
      * Specifies whether to clean up data. Valid values:
-     * - **Enable**: Enables data cleanup.
-     * - **Disable**: Disables data cleanup.
+     * - **Enable**: Cleans up data.
+     * - **Disable**: Does not clean up data.
      *
      * @example
      * Enable
@@ -13,7 +13,7 @@ export declare class DisableDBClusterOrcaRequest extends $dara.Model {
     /**
      * @remarks
      * The cluster ID.
-     * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query all clusters in the specified region, including the cluster ID.
+     * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query all clusters in the specified region, including their cluster IDs.
      *
      * This parameter is required.
      *

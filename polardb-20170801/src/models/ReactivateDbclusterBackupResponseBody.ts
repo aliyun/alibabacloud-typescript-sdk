@@ -13,7 +13,7 @@ export class ReactivateDBClusterBackupResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the order.
+   * The ID of the generated order.
    * 
    * @example
    * 2035629******
@@ -21,7 +21,7 @@ export class ReactivateDBClusterBackupResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * F2A9EFA7-915F-4572-8299-85A307******

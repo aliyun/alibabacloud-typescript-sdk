@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeAIDBClusterTasksRequest extends $dara.Model {
     /**
      * @remarks
-     * The type of the model operator.
+     * The model operator type.
      *
      * @example
      * aitrain
@@ -20,7 +20,7 @@ export declare class DescribeAIDBClusterTasksRequest extends $dara.Model {
     pageNumber?: number;
     /**
      * @remarks
-     * The number of entries per page.
+     * The number of items to display on each page.
      *
      * @example
      * 30
@@ -36,7 +36,7 @@ export declare class DescribeAIDBClusterTasksRequest extends $dara.Model {
     regionId?: string;
     /**
      * @remarks
-     * The instance ID of the associated PolarDB instance.
+     * The ID of the associated PolarDB cluster. This parameter is required. If you do not specify this parameter, the service returns the InvalidDBClusterId.NotFound (404) error.
      *
      * @example
      * pc-2ze88***

@@ -16,12 +16,12 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
    * The complete API key. This value is returned only in the current response.
    * 
    * @example
-   * xxxxxxxx
+   * ak_example_7f3d9c2a
    */
   apiKey?: string;
   /**
    * @remarks
-   * The ID of the consumer group.
+   * The consumer group ID.
    * 
    * @example
    * cg-xxxxxx
@@ -29,7 +29,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   consumerGroupId?: string;
   /**
    * @remarks
-   * The name of the consumer group.
+   * The consumer group name.
    * 
    * @example
    * test
@@ -37,7 +37,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   consumerGroupName?: string;
   /**
    * @remarks
-   * The ID of the consumer.
+   * The consumer ID.
    * 
    * @example
    * c-mqveroemc***
@@ -85,7 +85,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   mtdCostCount?: number;
   /**
    * @remarks
-   * The cumulative total cost.
+   * The cumulative cost.
    * 
    * @example
    * 10000
@@ -93,7 +93,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
   mtdTokenCount?: number;
   /**
    * @remarks
-   * The name of the consumer.
+   * The consumer name.
    * 
    * @example
    * test
@@ -155,7 +155,7 @@ export class DescribeConsumersResponseBodyItems extends $dara.Model {
 export class DescribeConsumersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of consumers.
+   * The consumer list.
    */
   items?: DescribeConsumersResponseBodyItems[];
   /**
@@ -184,7 +184,7 @@ export class DescribeConsumersResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 24A1990B-4F6E-482B-B8CB-75C612******

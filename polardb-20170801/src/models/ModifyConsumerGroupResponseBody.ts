@@ -13,7 +13,7 @@ export class ModifyConsumerGroupResponseBody extends $dara.Model {
   consumerGroupId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * A7E6A8FD-C50B-46B2-BA85-D8B8D3******

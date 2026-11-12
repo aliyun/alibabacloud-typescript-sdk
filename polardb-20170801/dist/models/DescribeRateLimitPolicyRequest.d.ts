@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeRateLimitPolicyRequest extends $dara.Model {
     /**
      * @remarks
-     * The ID of the gateway instance.
+     * The gateway instance ID.
      *
      * This parameter is required.
      *
@@ -12,7 +12,7 @@ export declare class DescribeRateLimitPolicyRequest extends $dara.Model {
     gwClusterId?: string;
     /**
      * @remarks
-     * The page number to return. The default value is 1.
+     * The page number for paging. Default value: 1.
      *
      * @example
      * 1
@@ -21,12 +21,10 @@ export declare class DescribeRateLimitPolicyRequest extends $dara.Model {
     /**
      * @remarks
      * The number of entries per page. Valid values:
-     *
-     * - **30**
-     *
-     * - **50**
-     *
-     * - **100**. The default value is **30**.
+     * * **30**
+     * * **50**
+     * * **100**
+     * Default value: **30**.
      *
      * @example
      * 30
@@ -34,7 +32,7 @@ export declare class DescribeRateLimitPolicyRequest extends $dara.Model {
     pageSize?: number;
     /**
      * @remarks
-     * The ID of the rate limit policy.
+     * The ID of the throttling policy.
      *
      * @example
      * 02eccf7c61cf4d05a543075ee907f3**
@@ -50,7 +48,7 @@ export declare class DescribeRateLimitPolicyRequest extends $dara.Model {
     regionId?: string;
     /**
      * @remarks
-     * The ID of the target resource, which can be a consumer group or a consumer, depending on the `ScopeType` value.
+     * The ID of the throttling dimension, which is the consumer group ID or consumer ID.
      *
      * @example
      * cg-xxxxxxxx
@@ -58,11 +56,11 @@ export declare class DescribeRateLimitPolicyRequest extends $dara.Model {
     scopeRefId?: string;
     /**
      * @remarks
-     * The scope of the rate limit policy. Valid values:
+     * The throttling dimension. Valid values:
      *
-     * - **ConsumerGroup**: The policy applies to a consumer group.
+     * - **ConsumerGroup**: consumer group
      *
-     * - **Consumer**: The policy applies to a specific consumer.
+     * - **Consumer**: consumer
      *
      * @example
      * ConsumerGroup

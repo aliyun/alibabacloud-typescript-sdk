@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyTaskInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned when the task update fails.
+   * The error code returned when the task modification fails.
    * 
    * @example
    * InvalidParameter
@@ -13,7 +13,7 @@ export class ModifyTaskInfoResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The ID of the task that failed to be updated.
+   * The ID of the task that failed to be modified.
    * 
    * @example
    * 32077061
@@ -29,7 +29,7 @@ export class ModifyTaskInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of successfully updated tasks.
+   * The number of successfully modified tasks.
    * 
    * @example
    * 1

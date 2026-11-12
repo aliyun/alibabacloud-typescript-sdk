@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateGlobalDataNetworkResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The unique ID of the newly created synchronization channel.
+     * The ID of the synchronization link.
      *
      * @example
      * gdc-xxx
@@ -10,7 +10,7 @@ export declare class CreateGlobalDataNetworkResponseBody extends $dara.Model {
     channelId?: string;
     /**
      * @remarks
-     * The unique ID of the newly created GDN.
+     * The ID of the global database network (GDN).
      *
      * @example
      * gdn-xxx
@@ -18,7 +18,7 @@ export declare class CreateGlobalDataNetworkResponseBody extends $dara.Model {
     networkId?: string;
     /**
      * @remarks
-     * The unique request ID.
+     * The request ID.
      *
      * @example
      * 6BD9CDE4-5E7B-4BF3-9BB8-83C73E******

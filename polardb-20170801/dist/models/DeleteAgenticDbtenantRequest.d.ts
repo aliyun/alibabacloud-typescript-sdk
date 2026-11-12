@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DeleteAgenticDBTenantRequest extends $dara.Model {
     /**
      * @remarks
-     * The AgenticDB cluster ID.
+     * The AgenticDB cluster ID, which must start with pagc-. You must first call CreateDBCluster and set AgenticDbType to dedicated to create a cluster, and then use the returned DBClusterId. Regular PolarDB cluster IDs are not supported.
      *
      * This parameter is required.
      *

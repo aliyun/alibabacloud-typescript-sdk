@@ -36,8 +36,9 @@ export class CreateAINodesRequest extends $dara.Model {
   /**
    * @remarks
    * The cluster ID.
+   * > You can call the [DescribeAIDBClusters](https://api.aliyun.com/api/polardb/2017-08-01/DescribeAIDBClusters) operation to query the information about all clusters under your account, including the cluster ID.
    * 
-   * > Call the [DescribeAIDBClusters](https://api.aliyun.com/api/polardb/2017-08-01/DescribeAIDBClusters) operation to query information about all clusters in your account, including cluster IDs.
+   * > The AiNodeType of the target cluster must be vnode or container. The maas type is not supported. You can query the AiNodeType by calling DescribeAIDBClusters.
    * 
    * @example
    * pm-xxxxxx
@@ -45,7 +46,9 @@ export class CreateAINodesRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The information about the nodes to add.
+   * The list of node information to add.
+   * 
+   * > You must specify at least 1 and at most 100 DBNode elements when you call this operation. If you omit this parameter or pass an empty array, the InvalidNewNodeNum.Malformed error is returned.
    */
   DBNodes?: CreateAINodesRequestDBNodes[];
   static names(): { [key: string]: string } {

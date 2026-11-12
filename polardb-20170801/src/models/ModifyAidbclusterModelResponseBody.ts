@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAIDBClusterModelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the request is a dry run.
+   * Indicates whether the request is a preview request.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class ModifyAIDBClusterModelResponseBody extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The model type of the instance.
+   * The instance model type.
    * 
    * @example
    * custom
@@ -21,7 +21,7 @@ export class ModifyAIDBClusterModelResponseBody extends $dara.Model {
   modelType?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 3AA6E0E4-1234-5678-90AB-1234567890AB
@@ -29,7 +29,7 @@ export class ModifyAIDBClusterModelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The parsed target model name.
+   * The resolved target model name.
    * 
    * @example
    * Qwen3-32B
@@ -37,7 +37,7 @@ export class ModifyAIDBClusterModelResponseBody extends $dara.Model {
   targetModelName?: string;
   /**
    * @remarks
-   * The parsed target OSS path.
+   * The resolved target OSS path.
    * 
    * @example
    * /my-model-bucket/models/qwen3
@@ -45,7 +45,7 @@ export class ModifyAIDBClusterModelResponseBody extends $dara.Model {
   targetOssPath?: string;
   /**
    * @remarks
-   * The ID of the asynchronous task. This parameter is empty when DryRun is set to true.
+   * The asynchronous task ID. This parameter is empty when DryRun is set to true.
    * 
    * @example
    * 123456
@@ -53,7 +53,7 @@ export class ModifyAIDBClusterModelResponseBody extends $dara.Model {
   taskId?: number;
   /**
    * @remarks
-   * The total number of modification batches.
+   * The total number of change batches.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class ModifyAIDBClusterModelResponseBody extends $dara.Model {
   totalMsds?: number;
   /**
    * @remarks
-   * The modification warnings returned by the upstream service. The caller must display these warnings.
+   * The change warnings returned by the upstream service. Callers must display these warnings.
    */
   warnings?: string[];
   static names(): { [key: string]: string } {

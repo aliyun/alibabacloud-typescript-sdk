@@ -17,7 +17,7 @@ export declare class ModifyPolarFsMappingAuthRequest extends $dara.Model {
      * This parameter is required.
      *
      * @example
-     * xxx
+     * LTAI5tExampleAccessKeyId
      */
     bucketAccessKeyId?: string;
     /**
@@ -27,13 +27,12 @@ export declare class ModifyPolarFsMappingAuthRequest extends $dara.Model {
      * This parameter is required.
      *
      * @example
-     * xxx
+     * exampleAccessKeySecret1234567890
      */
     bucketAccessKeySecret?: string;
     /**
      * @remarks
-     * The cluster ID.
-     * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query information about all clusters in a specified region, including the cluster ID.
+     * The cluster ID. This parameter is required. If you do not provide this parameter, the service returns InvalidDBClusterId.Malformed. You can call DescribeDBClusters to query the cluster ID in the destination region.
      *
      * @example
      * pc-******************

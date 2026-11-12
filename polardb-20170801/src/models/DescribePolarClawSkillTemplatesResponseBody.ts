@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolarClawSkillTemplatesResponseBodySkillTemplates extends $dara.Model {
   /**
    * @remarks
-   * The time when the skill template was created in UTC.
+   * The time when the skill template was created. The time is in UTC.
    * 
    * @example
    * 2022-11-15T16:00Z
@@ -21,7 +21,7 @@ export class DescribePolarClawSkillTemplatesResponseBodySkillTemplates extends $
   id?: string;
   /**
    * @remarks
-   * The time when the skill template was last modified in UTC.
+   * The time when the skill template was last modified. The time is in UTC.
    * 
    * @example
    * 2022-11-16T16:00Z
@@ -61,7 +61,9 @@ export class DescribePolarClawSkillTemplatesResponseBodySkillTemplates extends $
   skillTemplateName?: string;
   /**
    * @remarks
-   * The skill templatetype. Valid values: 0: system template. 1: user template.
+   * The skill templatetype. Valid values:
+   * - 0: System template.
+   * - 1: User template.
    * 
    * @example
    * 1
@@ -145,12 +147,15 @@ export class DescribePolarClawSkillTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The skill template group.
+   * The skill templates.
+   * 
+   * @example
+   * []
    */
   skillTemplates?: DescribePolarClawSkillTemplatesResponseBodySkillTemplates[];
   /**
    * @remarks
-   * The total number of entries. This parameter is returned only when you query a list.
+   * The total number of entries. This parameter is returned only for list queries.
    * 
    * @example
    * 1

@@ -12,7 +12,7 @@ export declare class ModifyConsumerGroupRequest extends $dara.Model {
     consumerGroupName?: string;
     /**
      * @remarks
-     * The ID of the gateway instance.
+     * The gateway instance ID.
      *
      * This parameter is required.
      *
@@ -22,7 +22,7 @@ export declare class ModifyConsumerGroupRequest extends $dara.Model {
     gwClusterId?: string;
     /**
      * @remarks
-     * Indicates whether the consumer group is the default group. Valid values: `0` (false) and `1` (true).
+     * Specifies whether the group is the default group. Valid values: 0: No. 1: Yes.
      *
      * @example
      * 0

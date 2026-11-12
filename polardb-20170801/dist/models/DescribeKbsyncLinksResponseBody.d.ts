@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeKBSyncLinksResponseBodyItems extends $dara.Model {
     /**
      * @remarks
-     * The client identifier.
+     * The client ID.
      *
      * @example
      * cli_xxxxxxbe8
@@ -42,7 +42,7 @@ export declare class DescribeKBSyncLinksResponseBodyItems extends $dara.Model {
     linkId?: string;
     /**
      * @remarks
-     * The name of the synchronization link.
+     * The name of the link.
      *
      * @example
      * testName
@@ -91,11 +91,14 @@ export declare class DescribeKBSyncLinksResponseBody extends $dara.Model {
     /**
      * @remarks
      * The list of synchronization links.
+     *
+     * @example
+     * []
      */
     items?: DescribeKBSyncLinksResponseBodyItems[];
     /**
      * @remarks
-     * The page number of the returned results.
+     * The page number of the returned page.
      *
      * @example
      * 1
@@ -103,7 +106,7 @@ export declare class DescribeKBSyncLinksResponseBody extends $dara.Model {
     pageNumber?: number;
     /**
      * @remarks
-     * The number of records returned on each page.
+     * The number of records per page in the returned results.
      *
      * @example
      * 30
@@ -111,7 +114,7 @@ export declare class DescribeKBSyncLinksResponseBody extends $dara.Model {
     pageSize?: number;
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * EB07CFF0-D8A4-5C76-AED7-D00E26FC2***

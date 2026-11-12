@@ -214,7 +214,7 @@ export class DescribeDBClusterPriceResponseBody extends $dara.Model {
    * * BUY: new purchase.
    * * UPGRADE: specification change.
    * * RENEW: renewal.
-   * * CONVERT: billing method conversion.
+   * * CONVERT: billing method change.
    * 
    * @example
    * BUY
@@ -222,7 +222,7 @@ export class DescribeDBClusterPriceResponseBody extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * The price details.
+   * The pricing details.
    */
   priceInfo?: DescribeDBClusterPriceResponseBodyPriceInfo;
   /**

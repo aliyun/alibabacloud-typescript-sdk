@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckDBNameZonalRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
-   * 
-   * > Note: This parameter accepts only edge cluster IDs obtained by calling DescribeDBClustersZonal. Regular PolarDB cluster IDs obtained by calling DescribeDBClusters are not supported.
+   * The ID of the edge cluster. You must first create an edge cluster in the MyBase console, call DescribeDBClustersZonal to obtain the cluster ID, and then call CheckDBNameZonal. Standard PolarDB cluster IDs are not supported.
    * 
    * This parameter is required.
    * 
@@ -17,7 +15,7 @@ export class CheckDBNameZonalRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * This parameter is required.
    * 

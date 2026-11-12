@@ -10,7 +10,7 @@ export declare class DescribeRateLimitPolicyResponseBodyItems extends $dara.Mode
     gmtCreated?: string;
     /**
      * @remarks
-     * The modification time.
+     * The update time.
      *
      * @example
      * 2026-01-19T16:47:25+08:00
@@ -18,7 +18,7 @@ export declare class DescribeRateLimitPolicyResponseBodyItems extends $dara.Mode
     gmtModified?: string;
     /**
      * @remarks
-     * The ID of the gateway instance.
+     * The gateway instance ID.
      *
      * @example
      * pg-xxxxxxxx
@@ -26,7 +26,7 @@ export declare class DescribeRateLimitPolicyResponseBodyItems extends $dara.Mode
     gwClusterId?: string;
     /**
      * @remarks
-     * The ID of the rate limit policy.
+     * The ID of the throttling policy.
      *
      * @example
      * 02eccf7c61cf4d05a543075ee907f3**
@@ -42,7 +42,7 @@ export declare class DescribeRateLimitPolicyResponseBodyItems extends $dara.Mode
     policyType?: string;
     /**
      * @remarks
-     * The maximum requests per minute (RPM).
+     * The limit on the number of requests per minute.
      *
      * @example
      * 10
@@ -50,7 +50,7 @@ export declare class DescribeRateLimitPolicyResponseBodyItems extends $dara.Mode
     rateLimitRpm?: string;
     /**
      * @remarks
-     * The maximum tokens per minute (TPM).
+     * The limit on the number of tokens per minute.
      *
      * @example
      * 10
@@ -58,7 +58,7 @@ export declare class DescribeRateLimitPolicyResponseBodyItems extends $dara.Mode
     rateLimitTpm?: string;
     /**
      * @remarks
-     * The ID of the object within the policy\\"s scope, such as a consumer group or a consumer.
+     * The ID of the throttling dimension, which is the consumer group ID or consumer ID.
      *
      * @example
      * cg-xxxxxxx
@@ -66,11 +66,11 @@ export declare class DescribeRateLimitPolicyResponseBodyItems extends $dara.Mode
     scopeRefId?: string;
     /**
      * @remarks
-     * The scope of the policy. Valid values:
+     * The throttling dimension. Valid values:
      *
-     * - **ConsumerGroup**: The policy applies to a consumer group.
+     * - **ConsumerGroup**: consumer group
      *
-     * - **Consumer**: The policy applies to a specific consumer.
+     * - **Consumer**: consumer
      *
      * @example
      * ConsumerGroup
@@ -78,11 +78,11 @@ export declare class DescribeRateLimitPolicyResponseBodyItems extends $dara.Mode
     scopeType?: string;
     /**
      * @remarks
-     * The status of the policy. Valid values:
+     * The status of the throttling policy. Valid values:
      *
-     * - **Enabled**: The policy is enabled.
      *
-     * - **Disabled**: The policy is disabled.
+     * - **Enabled**: enabled
+     * - **Disabled**: disabled
      *
      * @example
      * Enabled
@@ -102,12 +102,12 @@ export declare class DescribeRateLimitPolicyResponseBodyItems extends $dara.Mode
 export declare class DescribeRateLimitPolicyResponseBody extends $dara.Model {
     /**
      * @remarks
-     * An array of rate limit policy objects.
+     * The list of throttling policies.
      */
     items?: DescribeRateLimitPolicyResponseBodyItems[];
     /**
      * @remarks
-     * The returned page number.
+     * The page number.
      *
      * @example
      * 1
@@ -115,7 +115,7 @@ export declare class DescribeRateLimitPolicyResponseBody extends $dara.Model {
     pageNumber?: string;
     /**
      * @remarks
-     * The number of entries returned on the current page.
+     * The number of entries on the current page.
      *
      * @example
      * 30
@@ -123,7 +123,7 @@ export declare class DescribeRateLimitPolicyResponseBody extends $dara.Model {
     pageRecordCount?: string;
     /**
      * @remarks
-     * The number of entries returned per page.
+     * The number of entries per page. Valid values: 30, 50, and 100. Default value: 30.
      *
      * @example
      * 30
@@ -139,7 +139,7 @@ export declare class DescribeRateLimitPolicyResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * The total number of matching entries.
+     * The total number of records.
      *
      * @example
      * 1

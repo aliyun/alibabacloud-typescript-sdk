@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CloseAITaskResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The ID of the request.
+     * The request ID.
      *
      * @example
      * 936C7025-27A5-4CB1-BB31-540E1F0CCA12
@@ -10,7 +10,7 @@ export declare class CloseAITaskResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * The ID of the task.
+     * The task ID.
      *
      * @example
      * 53879cdb-9a00-428e-acaf-ff4cff******

@@ -20,7 +20,8 @@ export declare class DescribeEncryptionDBSecretResponseBody extends $dara.Model 
      * @remarks
      * Indicates whether encryption is enabled. Valid values:
      *
-     * Enabled: Encryption is enabled. Disabled: Encryption is disabled.
+     * - Enabled: Encryption is enabled.
+     * - Disabled: Encryption is disabled.
      *
      * @example
      * cn-beijing
@@ -28,7 +29,7 @@ export declare class DescribeEncryptionDBSecretResponseBody extends $dara.Model 
     encryptionDBStatus?: string;
     /**
      * @remarks
-     * The custom key ID.
+     * The ID of the custom key.
      *
      * @example
      * 2a4f4ac2-****-****-****-************
@@ -37,10 +38,8 @@ export declare class DescribeEncryptionDBSecretResponseBody extends $dara.Model 
     /**
      * @remarks
      * The status of the key. Valid values:
-     *
-     * - **Enabled**
-     *
-     * - **Disabled**
+     * - **Enabled**: Enabled.
+     * - **Disabled**: Disabled.
      *
      * @example
      * Disabled

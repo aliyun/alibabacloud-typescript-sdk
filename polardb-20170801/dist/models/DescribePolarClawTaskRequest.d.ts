@@ -12,7 +12,7 @@ export declare class DescribePolarClawTaskRequest extends $dara.Model {
     applicationId?: string;
     /**
      * @remarks
-     * The asynchronous task ID.
+     * The ID of the asynchronous task.
      *
      * This parameter is required.
      *

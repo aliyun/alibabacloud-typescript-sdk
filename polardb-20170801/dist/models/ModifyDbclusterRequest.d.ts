@@ -19,7 +19,7 @@ export declare class ModifyDBClusterRequest extends $dara.Model {
     /**
      * @remarks
      * The cluster ID.
-     * > You can call the DescribeDBClusters operation to query all clusters in the specified region, including cluster IDs.
+     * >You can call the DescribeDBClusters operation to query all clusters in the specified region, including their cluster IDs.
      *
      * This parameter is required.
      *
@@ -29,8 +29,8 @@ export declare class ModifyDBClusterRequest extends $dara.Model {
     DBClusterId?: string;
     /**
      * @remarks
-     * The list of drill node instance names.
-     * > Node dimension drills support only a single node. For zone dimension drills, you can omit this parameter or pass all nodes.
+     * The list of instance names of the nodes to be drilled.
+     * > A node-level drill supports only a single node. For a zone-level drill, you can leave this parameter empty or pass all nodes.
      *
      * @example
      * pi-rwxxx
@@ -40,8 +40,8 @@ export declare class ModifyDBClusterRequest extends $dara.Model {
      * @remarks
      * The cross-zone data replication mode of the cluster. Valid values:
      *
-     * - **AsyncSync**: Asynchronous.
-     * - **SemiSync**: Semi-synchronous.
+     * - **AsyncSync**: Asynchronous replication.
+     * - **SemiSync**: Semi-synchronous replication.
      *
      * @example
      * AsynSync
@@ -51,19 +51,19 @@ export declare class ModifyDBClusterRequest extends $dara.Model {
      * @remarks
      * The fault injection method. Valid values:
      *
-     * - 0: Instance fault injection based on `Crash SQL`.
+     * - 0: instance fault injection based on `Crash SQL`.
      *
      * @example
-     * 0
+     * CrashSQLInjection
      */
     faultInjectionType?: string;
     /**
      * @remarks
-     * The fault drill dimension for the cluster. Valid values:
-     * - `0` or `FaultInjection`: Primary zone dimension fault drill.
-     * - `1`: Node dimension fault drill.
-     * > - In the **primary zone dimension fault drill** scenario, all compute nodes in the primary zone become unavailable, and the disaster recovery switchover in this scenario is lossy.
-     * > - In the **node dimension fault drill** scenario, only a single compute node can be drilled. Pass the desired compute node name through `DBNodeCrashList`.
+     * The fault drill dimension of the cluster. Valid values:
+     * - `0` or `FaultInjection`: fault drill at the primary zone level.
+     * - `1`: fault drill at the node level.
+     * > - In the **fault drill at the primary zone level** scenario, all compute nodes in the primary zone become unavailable, and the disaster recovery switchover in this scenario is lossy.
+     * > - In the **fault drill at the node level** scenario, only a single compute node can be drilled. You can pass the desired compute node name through `DBNodeCrashList`.
      *
      * @example
      * 0
@@ -72,11 +72,11 @@ export declare class ModifyDBClusterRequest extends $dara.Model {
     /**
      * @remarks
      * The automatic IMCI-based query acceleration feature. Valid values:
-     * - `ON`: Enabled.
-     * - `OFF`: Disabled.
+     * - `ON`: Enables the feature.
+     * - `OFF`: Disables the feature.
      *
-     * > - Only PolarDB for MySQL clusters are supported.
-     * > - For cluster version limits, refer to [Automatic IMCI-based query acceleration (AutoIndex)](https://help.aliyun.com/document_detail/2854119.html).
+     * > - This feature is supported only by PolarDB for MySQL clusters.
+     * > - For cluster version limits, refer to [Automatic seamless acceleration (AutoIndex)](https://help.aliyun.com/document_detail/2854119.html).
      *
      * @example
      * OFF
@@ -120,7 +120,7 @@ export declare class ModifyDBClusterRequest extends $dara.Model {
      * @remarks
      * The upper limit for automatic storage scaling of a Standard Edition cluster. Unit: GB.
      *
-     * > The maximum value is 32000.
+     * > The maximum value is 32,000.
      *
      * @example
      * 800
@@ -143,7 +143,7 @@ export declare class ModifyDBClusterRequest extends $dara.Model {
      *        "newname":"testdb_restore"
      *    }
      * ]`.
-     * > You can call the [DescribeMetaList](https://help.aliyun.com/document_detail/194770.html) operation to view the details of the database and table names that support restoration, and fill the supported database and table information into the corresponding positions in the preceding example.
+     * > You can call the [DescribeMetaList](https://help.aliyun.com/document_detail/194770.html) operation to query the details of the database and table names that support restoration, and fill the supported database and table information into the corresponding positions in the preceding example.
      *
      * @example
      * [ { "tables":[ { "name":"testtb", "type":"table", "newname":"testtb_restore" } ], "name":"testdb", "type":"db", "newname":"testdb_restore" } ]

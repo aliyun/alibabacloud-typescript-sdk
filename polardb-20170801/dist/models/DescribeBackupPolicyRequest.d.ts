@@ -4,7 +4,7 @@ export declare class DescribeBackupPolicyRequest extends $dara.Model {
      * @remarks
      * The cluster ID.
      *
-     * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/2319131.html) operation to query all clusters in the target region, including cluster IDs.
+     * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/2319131.html) operation to query all clusters in a specified region, including their cluster IDs.
      *
      * This parameter is required.
      *

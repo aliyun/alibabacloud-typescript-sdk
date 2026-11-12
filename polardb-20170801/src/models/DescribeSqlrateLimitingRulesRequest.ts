@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSQLRateLimitingRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The cluster ID. Note: The SQL throttling feature is supported only by clusters that use the PostgreSQL or Oracle database engine. Clusters that use the MySQL database engine do not support this feature.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeSQLRateLimitingRulesRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page in a paging query.
    * 
    * Maximum value: 100.
    * 
@@ -27,7 +27,7 @@ export class DescribeSQLRateLimitingRulesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results.
+   * The pagination token.
    * 
    * @example
    * AAAAARbaCuN6hiD08qrLdwJ9Fh3QbdIPYBaCDXsvvjLHCQfi
@@ -39,9 +39,8 @@ export class DescribeSQLRateLimitingRulesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The name of the SQL throttling rule that you want to query. You can specify multiple rule names for a batch query. Separate the rule names with commas (,).
-   * 
-   * > Call the [DescribeSQLRateLimitingRules](https://help.aliyun.com/document_detail/212573.html) operation to query the details of all SQL throttling rules for the cluster, including the rule names.
+   * The names of the SQL throttling rules to query. You can specify multiple rule names for a batch query. Separate multiple names with commas (,).
+   * > You can call the [DescribeSQLRateLimitingRules](https://help.aliyun.com/document_detail/212573.html) operation to view the details of all rules in the specified cluster, including the rule names.
    * 
    * @example
    * testrule

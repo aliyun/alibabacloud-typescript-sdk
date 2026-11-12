@@ -13,12 +13,12 @@ export class CreateAINodesResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The IDs of the created DB nodes.
+   * The list of created DBNode IDs.
    */
   DBNodeIds?: string[];
   /**
    * @remarks
-   * The ID of the order.
+   * The ID of the generated order.
    * 
    * @example
    * 2148126708*****

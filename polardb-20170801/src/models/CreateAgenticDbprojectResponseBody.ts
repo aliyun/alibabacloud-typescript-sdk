@@ -13,7 +13,9 @@ export class CreateAgenticDBProjectResponseBody extends $dara.Model {
   branchComputeClusterId?: string;
   /**
    * @remarks
-   * The time when the project was created. The time is displayed in ISO 8601 format in UTC (YYYY-MM-DDTHH:mm:ssZ).
+   * The time when the project was created.
+   * 
+   * The time follows the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-06-10T11:00:00Z
@@ -37,7 +39,7 @@ export class CreateAgenticDBProjectResponseBody extends $dara.Model {
   defaultBranchName?: string;
   /**
    * @remarks
-   * The retention period for recent records of the project. This parameter may be empty for older projects. To query the current effective value, call DescribeAgenticDBProjectHistoryRetention.
+   * The retention period of historical data, in seconds.
    * 
    * @example
    * 604800

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSearchParametersResponseBodyRunningParametersParameter extends $dara.Model {
   /**
    * @remarks
-   * The value rule of the template, which can be a numeric range, an enumeration, or a regular expression. This rule must be interpreted in combination with the DataType field.
+   * The value validation rule of the template. The rule can be a numeric range, an enumeration, or a regular expression, and must be interpreted in combination with the data type.
    * 
    * @example
    * [true\\|false]
@@ -21,7 +21,7 @@ export class DescribeSearchParametersResponseBodyRunningParametersParameter exte
   dataType?: string;
   /**
    * @remarks
-   * The default value of the current active template, which is independent of the value modified by the user.
+   * The default value of the current active template. This value is independent of the value modified by the user.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class DescribeSearchParametersResponseBodyRunningParametersParameter exte
   defaultParameterValue?: string;
   /**
    * @remarks
-   * The divisibility factor. If the value is not zero, the numeric value parsed based on the templatetype must be a multiple of this factor.
+   * The divisibility factor. If the value is not zero, the numeric value parsed based on the template type must be a multiple of this factor.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class DescribeSearchParametersResponseBodyRunningParametersParameter exte
   factor?: string;
   /**
    * @remarks
-   * Specifies whether a restart is required for the modification to take effect. The value is true for static parameters and false for dynamic parameters.
+   * Specifies whether a restart is required for the parameter to take effect. The value is true for static parameters and false for dynamic parameters.
    * 
    * @example
    * false
@@ -45,7 +45,7 @@ export class DescribeSearchParametersResponseBodyRunningParametersParameter exte
   forceRestart?: boolean;
   /**
    * @remarks
-   * Specifies whether the user is allowed to modify the parameter.
+   * Specifies whether the parameter is modifiable.
    * 
    * @example
    * false
@@ -163,7 +163,7 @@ export class DescribeSearchParametersResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The Search engine version, which is not the MySQL version of the primary cluster.
+   * The Search engine version. This is not the MySQL version of the primary cluster.
    * 
    * @example
    * 3.0
@@ -187,7 +187,7 @@ export class DescribeSearchParametersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The visible parameters and their modification statuses.
+   * The visible parameters and their modification status.
    */
   runningParameters?: DescribeSearchParametersResponseBodyRunningParameters;
   static names(): { [key: string]: string } {

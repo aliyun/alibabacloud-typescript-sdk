@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeDBClusterVersionZonalRequest extends $dara.Model {
   /**
    * @remarks
-   * A unique, case-sensitive token that you provide to ensure the idempotence of the request. The token can contain only ASCII characters and cannot exceed 64 characters in length.
+   * The client token that is used to ensure the idempotence of the request and prevent duplicate submissions. You can generate the value on the client side. The value must be unique across different requests and is case-sensitive. It can contain up to 64 ASCII characters.
    * 
    * @example
    * 6000170000591aed949d0f54a343f1a4233c1e7d1c5c******
@@ -13,7 +13,7 @@ export class UpgradeDBClusterVersionZonalRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the PolarDB on ENS cluster. Only cluster IDs returned by the DescribeDBClustersZonal operation are supported. Before you call this operation, you must create an edge cluster by using ENS infrastructure. Standard PolarDB cluster IDs are not supported. Note: Only edge cluster IDs returned by DescribeDBClustersZonal are accepted, and the edge cluster must be created based on ENS.
    * 
    * This parameter is required.
    * 
@@ -23,13 +23,13 @@ export class UpgradeDBClusterVersionZonalRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to immediately perform or schedule the kernel upgrade. Valid values:
+   * Specifies whether to immediately execute or schedule the kernel version upgrade. Valid values:
    * 
-   * - **false** (default): Schedules the upgrade.
+   * - **false** (default): Scheduled execution.
    * 
-   * - **true**: Immediately performs the upgrade.
+   * - **true**: Immediate execution.
    * 
-   * > You do not need to specify this parameter when you call this operation.
+   * > You do not need to specify this parameter when you invoke this operation.
    * 
    * @example
    * false
@@ -39,11 +39,9 @@ export class UpgradeDBClusterVersionZonalRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The latest time to start the scheduled task. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format. The time is in UTC.
-   * 
-   * > - The latest start time must be at least 30 minutes later than the earliest start time.
-   * >
-   * > - If you specify `PlannedStartTime` but not this parameter, the latest start time is 30 minutes after the value of `PlannedStartTime` by default. For example, if you set `PlannedStartTime` to `2021-01-14T09:00:00Z` and leave this parameter empty, the task starts no later than `2021-01-14T09:30:00Z`.
+   * The latest time to start the scheduled task. The time must be in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
+   * > * The latest time must be at least 30 minutes later than the start time.
+   * > * If you specify `PlannedStartTime` but do not specify this parameter, the latest time to start the task defaults to 30 minutes after the start time. For example, if you set `PlannedStartTime` to `2021-01-14T09:00:00Z` and leave this parameter empty, the task starts at `2021-01-14T09:30:00Z` at the latest.
    * 
    * @example
    * 2021-01-14T09:30:00Z
@@ -51,11 +49,9 @@ export class UpgradeDBClusterVersionZonalRequest extends $dara.Model {
   plannedEndTime?: string;
   /**
    * @remarks
-   * The earliest time to start the scheduled kernel upgrade. Specify the time in the `YYYY-MM-DDThh:mm:ssZ` format. The time is in UTC.
-   * 
-   * > - The start time can be any point in time within the next 24 hours. For example, if the current time is `2021-01-14T09:00:00Z`, you can specify a time in the range of `2021-01-14T09:00:00Z` to `2021-01-15T09:00:00Z`.
-   * 
-   * - If you do not specify this parameter, the upgrade task is executed immediately.
+   * The earliest time to start the scheduled Milvus version upgrade task. The time must be in the `YYYY-MM-DDThh:mm:ssZ` format. The time must be in UTC.
+   * > * The start time must be within the next 24 hours. For example, if the current time is `2021-01-14T09:00:00Z`, the allowed start time ranges from `2021-01-14T09:00:00Z` to `2021-01-15T09:00:00Z`.
+   * > * If you leave this parameter empty, the Milvus version upgrade task is immediately executed by default.
    * 
    * @example
    * 2022-04-28T14:00:00Z
@@ -65,7 +61,7 @@ export class UpgradeDBClusterVersionZonalRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The version code of the target DB version. You can obtain this value by calling the [DescribeDBClusterVersion](https://help.aliyun.com/document_detail/2319145.html) operation.
+   * The version code of the target database engine version. You can obtain the value from the [DescribeDBClusterVersion](https://help.aliyun.com/document_detail/2319145.html) operation.
    * 
    * @example
    * 20230707
@@ -73,7 +69,7 @@ export class UpgradeDBClusterVersionZonalRequest extends $dara.Model {
   targetDBRevisionVersionCode?: string;
   /**
    * @remarks
-   * The version code of the target proxy version. You can obtain this value by calling the [DescribeDBClusterVersion](https://help.aliyun.com/document_detail/2319145.html) operation.
+   * The version code of the target PolarProxy version. You can obtain the value from the [DescribeDBClusterVersion](https://help.aliyun.com/document_detail/2319145.html) operation.
    * 
    * @example
    * 20240702
@@ -81,10 +77,9 @@ export class UpgradeDBClusterVersionZonalRequest extends $dara.Model {
   targetProxyRevisionVersionCode?: string;
   /**
    * @remarks
-   * The label for the kernel version upgrade. Set the value to **INNOVATE**.
+   * The kernel version upgrade label. Set the value to **INNOVATE**.
    * 
-   * > - This parameter is applicable only when you upgrade a PolarDB for MySQL 8.0.1 cluster to PolarDB for MySQL 8.0.2.
-   * >
+   * > - This parameter applies only to upgrades from PolarDB for MySQL 8.0.1 to PolarDB for MySQL 8.0.2.
    * > - If you specify this parameter, you must set `UpgradePolicy` to **COLD**.
    * 
    * @example
@@ -93,11 +88,11 @@ export class UpgradeDBClusterVersionZonalRequest extends $dara.Model {
   upgradeLabel?: string;
   /**
    * @remarks
-   * The upgrade policy for the kernel version. Valid values:
+   * The kernel version upgrade policy. Valid values:
    * 
-   * - **HOT**: hot upgrade
+   * - **HOT**: Hot upgrade.
    * 
-   * - **COLD**: cold upgrade. This upgrade method is supported only for PolarDB for MySQL 8.0 clusters.
+   * - **COLD**: Cold upgrade. Only PolarDB for MySQL 8.0 Cluster Edition supports this upgrade method.
    * 
    * @example
    * HOT
@@ -107,11 +102,11 @@ export class UpgradeDBClusterVersionZonalRequest extends $dara.Model {
    * @remarks
    * The upgrade type. Valid values:
    * 
-   * - **PROXY**: Upgrades only the database proxy (PolarProxy).
+   * - **PROXY**: Upgrades only PolarProxy.
    * 
-   * - **DB**: Upgrades only the kernel.
+   * - **DB**: Upgrades only the database engine.
    * 
-   * - **ALL** (default): Upgrades both the database proxy (PolarProxy) and the kernel.
+   * - **ALL** (default): Upgrades both PolarProxy and the database engine.
    * 
    * @example
    * PROXY

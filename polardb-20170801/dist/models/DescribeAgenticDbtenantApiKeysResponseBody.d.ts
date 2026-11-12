@@ -10,7 +10,7 @@ export declare class DescribeAgenticDBTenantApiKeysResponseBodyItems extends $da
     apiKeyId?: string;
     /**
      * @remarks
-     * The masked API key value.
+     * The masked API key.
      *
      * @example
      * pagc_key_cGFnYy1icDFhMmIz****
@@ -18,9 +18,7 @@ export declare class DescribeAgenticDBTenantApiKeysResponseBodyItems extends $da
     apiKeyMasked?: string;
     /**
      * @remarks
-     * The time when the API key was created.
-     *
-     * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+     * The creation time. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example
      * 2026-06-10T10:30:00Z
@@ -28,7 +26,7 @@ export declare class DescribeAgenticDBTenantApiKeysResponseBodyItems extends $da
     createTime?: string;
     /**
      * @remarks
-     * The description of the API key.
+     * The description.
      *
      * @example
      * MCP server token
@@ -36,9 +34,7 @@ export declare class DescribeAgenticDBTenantApiKeysResponseBodyItems extends $da
     description?: string;
     /**
      * @remarks
-     * The time when the API key expires.
-     *
-     * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+     * The expiration time. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example
      * 2027-01-01T00:00:00Z
@@ -46,7 +42,7 @@ export declare class DescribeAgenticDBTenantApiKeysResponseBodyItems extends $da
     expireTime?: string;
     /**
      * @remarks
-     * The status of the API key.
+     * The status.
      *
      * @example
      * Active
@@ -95,7 +91,7 @@ export declare class DescribeAgenticDBTenantApiKeysResponseBody extends $dara.Mo
     pageNumber?: number;
     /**
      * @remarks
-     * The number of entries per page.
+     * The number of entries returned per page.
      *
      * @example
      * 30
@@ -111,7 +107,7 @@ export declare class DescribeAgenticDBTenantApiKeysResponseBody extends $dara.Mo
     requestId?: string;
     /**
      * @remarks
-     * The total number of entries returned.
+     * The total number of entries.
      *
      * @example
      * 2

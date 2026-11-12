@@ -10,7 +10,7 @@ export declare class RegisterAIDBClusterCustomModelResponseBody extends $dara.Mo
     created?: boolean;
     /**
      * @remarks
-     * The display name and the initial invocation name for clients.
+     * The display name and the initial client invocation name.
      *
      * @example
      * my-qwen3
@@ -26,7 +26,7 @@ export declare class RegisterAIDBClusterCustomModelResponseBody extends $dara.Mo
     imageImportStatus?: string;
     /**
      * @remarks
-     * The registration ID of the model.
+     * The ID of the model registration.
      *
      * @example
      * 123456
@@ -58,7 +58,7 @@ export declare class RegisterAIDBClusterCustomModelResponseBody extends $dara.Mo
     ossPath?: string;
     /**
      * @remarks
-     * Id of the request
+     * The ID of the request.
      *
      * @example
      * 3AA6E0E4-1234-5678-90AB-1234567890AB

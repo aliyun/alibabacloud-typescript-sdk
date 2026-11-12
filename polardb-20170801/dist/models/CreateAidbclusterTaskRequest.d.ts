@@ -28,7 +28,7 @@ export declare class CreateAIDBClusterTaskRequest extends $dara.Model {
     DBInstanceClass?: string;
     /**
      * @remarks
-     * The data service mode. A value of custom indicates that custom OSS is used, and a value of cold_storage indicates that cold storage is used.
+     * The data service mode. A value of custom indicates that custom OSS is used. A value of cold_storage indicates that cold storage is used.
      *
      * @example
      * cold_storage
@@ -53,7 +53,7 @@ export declare class CreateAIDBClusterTaskRequest extends $dara.Model {
     /**
      * @remarks
      * The type of the model service. Valid values:
-     *  * **aitrain**: model operator fine-tuning.
+     *  * **aitrain**: model operator tuning
      *
      * This parameter is required.
      *
@@ -64,8 +64,8 @@ export declare class CreateAIDBClusterTaskRequest extends $dara.Model {
     /**
      * @remarks
      * The name of the model.
-     * * **For a preset model, specify the name of the selected model.**
-     * * **For a custom model, specify the path of the model (the model trained in a cold storage instance).**
+     * * **For a preset model, specify the selected model name.**
+     * * **For a custom model, specify the path of the model (the trained model in a cold storage instance).**
      *
      * This parameter is required.
      *
@@ -76,8 +76,8 @@ export declare class CreateAIDBClusterTaskRequest extends $dara.Model {
     /**
      * @remarks
      * The source of the model. Valid values:
-     * * **public**: preset model.
-     * * **custom**: custom model.
+     * * **public**: preset model
+     * * **custom**: custom model
      *
      * This parameter is required.
      *
@@ -107,7 +107,7 @@ export declare class CreateAIDBClusterTaskRequest extends $dara.Model {
     resourceOwnerId?: number;
     /**
      * @remarks
-     * The runtime parameters. The value is a JSON string.
+     * The runtime parameters in JSON string format.
      *
      * This parameter is required.
      *
@@ -117,7 +117,7 @@ export declare class CreateAIDBClusterTaskRequest extends $dara.Model {
     runningParameter?: string;
     /**
      * @remarks
-     * The security group ID.
+     * The ID of the security group. This parameter is actually required. If it is not provided, the service returns InvalidEcsSecurityGroupId.Malformed (400).
      *
      * @example
      * sg-bp**************
@@ -128,7 +128,7 @@ export declare class CreateAIDBClusterTaskRequest extends $dara.Model {
      * The description of the model service.
      *
      * @example
-     * xxxx
+     * Model operator instance
      */
     taskName?: string;
     /**
@@ -141,7 +141,7 @@ export declare class CreateAIDBClusterTaskRequest extends $dara.Model {
     tuneArch?: string;
     /**
      * @remarks
-     * The VPC ID.
+     * The ID of the virtual private cloud (VPC). This parameter is actually required. If it is not provided, the service returns InvalidVpcId.Malformed (400).
      *
      * @example
      * vpc-*******************
@@ -149,7 +149,7 @@ export declare class CreateAIDBClusterTaskRequest extends $dara.Model {
     VPCId?: string;
     /**
      * @remarks
-     * The ID of the vSwitch.
+     * The ID of the vSwitch. This parameter is actually required and must belong to the VPC specified by VPCId.
      *
      * @example
      * vsw-*********************

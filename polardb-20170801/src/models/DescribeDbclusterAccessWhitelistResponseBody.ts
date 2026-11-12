@@ -109,9 +109,79 @@ export class DescribeDBClusterAccessWhitelistResponseBodyItems extends $dara.Mod
   }
 }
 
+export class DescribeDBClusterAccessWhitelistResponseBodyProjectItemsDBClusterProjectIPArray extends $dara.Model {
+  defaultOpen?: boolean;
+  projectId?: string;
+  revision?: number;
+  securityIps?: string;
+  static names(): { [key: string]: string } {
+    return {
+      defaultOpen: 'DefaultOpen',
+      projectId: 'ProjectId',
+      revision: 'Revision',
+      securityIps: 'SecurityIps',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      defaultOpen: 'boolean',
+      projectId: 'string',
+      revision: 'number',
+      securityIps: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class DescribeDBClusterAccessWhitelistResponseBodyProjectItems extends $dara.Model {
+  DBClusterProjectIPArray?: DescribeDBClusterAccessWhitelistResponseBodyProjectItemsDBClusterProjectIPArray[];
+  static names(): { [key: string]: string } {
+    return {
+      DBClusterProjectIPArray: 'DBClusterProjectIPArray',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      DBClusterProjectIPArray: { 'type': 'array', 'itemType': DescribeDBClusterAccessWhitelistResponseBodyProjectItemsDBClusterProjectIPArray },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.DBClusterProjectIPArray)) {
+      $dara.Model.validateArray(this.DBClusterProjectIPArray);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeDBClusterAccessWhitelistResponseBody extends $dara.Model {
   DBClusterSecurityGroups?: DescribeDBClusterAccessWhitelistResponseBodyDBClusterSecurityGroups;
   items?: DescribeDBClusterAccessWhitelistResponseBodyItems;
+  /**
+   * @example
+   * [
+   *     {
+   *       "ProjectId": "proj-xxxxxxxxxxxxxxxxxxxxxxxxxx",
+   *       "SecurityIps": "192.168.1.1,192.168.2.0/24",
+   *       "DefaultOpen": false,
+   *       "Revision": 3
+   *     }
+   *   ]
+   */
+  projectItems?: DescribeDBClusterAccessWhitelistResponseBodyProjectItems;
   /**
    * @remarks
    * The request ID.
@@ -124,6 +194,7 @@ export class DescribeDBClusterAccessWhitelistResponseBody extends $dara.Model {
     return {
       DBClusterSecurityGroups: 'DBClusterSecurityGroups',
       items: 'Items',
+      projectItems: 'ProjectItems',
       requestId: 'RequestId',
     };
   }
@@ -132,6 +203,7 @@ export class DescribeDBClusterAccessWhitelistResponseBody extends $dara.Model {
     return {
       DBClusterSecurityGroups: DescribeDBClusterAccessWhitelistResponseBodyDBClusterSecurityGroups,
       items: DescribeDBClusterAccessWhitelistResponseBodyItems,
+      projectItems: DescribeDBClusterAccessWhitelistResponseBodyProjectItems,
       requestId: 'string',
     };
   }
@@ -142,6 +214,9 @@ export class DescribeDBClusterAccessWhitelistResponseBody extends $dara.Model {
     }
     if(this.items && typeof (this.items as any).validate === 'function') {
       (this.items as any).validate();
+    }
+    if(this.projectItems && typeof (this.projectItems as any).validate === 'function') {
+      (this.projectItems as any).validate();
     }
     super.validate();
   }

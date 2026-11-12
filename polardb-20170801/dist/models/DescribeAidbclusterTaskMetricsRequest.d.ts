@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeAIDBClusterTaskMetricsRequest extends $dara.Model {
     /**
      * @remarks
-     * The cluster ID.
+     * The cluster ID. Usage note: This parameter accepts only the ID of a training AIDB cluster created by calling CreateAIDBClusterTask. MaaS clusters with RunType set to maas are not supported.
      *
      * This parameter is required.
      *
@@ -12,7 +12,7 @@ export declare class DescribeAIDBClusterTaskMetricsRequest extends $dara.Model {
     DBClusterId?: string;
     /**
      * @remarks
-     * The end time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format in UTC.
+     * The end time of the query. Format: `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
      *
      * This parameter is required.
      *
@@ -23,14 +23,11 @@ export declare class DescribeAIDBClusterTaskMetricsRequest extends $dara.Model {
     /**
      * @remarks
      * The metric type. Valid values:
-     *
      * - `all`
-     *
      * - `train`
-     *
      * - `eval`
      *
-     * > The default value is *all*.
+     * > Default value: *all*.
      *
      * @example
      * all
@@ -38,7 +35,7 @@ export declare class DescribeAIDBClusterTaskMetricsRequest extends $dara.Model {
     metricType?: string;
     /**
      * @remarks
-     * The page number of the query result.
+     * The page number of the query results.
      *
      * @example
      * 1
@@ -46,15 +43,12 @@ export declare class DescribeAIDBClusterTaskMetricsRequest extends $dara.Model {
     pageNumber?: number;
     /**
      * @remarks
-     * The number of records to return on each page. Valid values:
+     * The number of entries per page. Valid values:
+     * * **30**
+     * * **50**
+     * * **100**
      *
-     * - **30**
-     *
-     * - **50**
-     *
-     * - **100**
-     *
-     * The default value is 100.
+     * Default value: 100.
      *
      * @example
      * 100
@@ -62,7 +56,7 @@ export declare class DescribeAIDBClusterTaskMetricsRequest extends $dara.Model {
     pageSize?: number;
     /**
      * @remarks
-     * The ID of the associated PolarDB instance.
+     * The instance ID of the associated PolarDB.
      *
      * @example
      * pc-2zejpr***
@@ -70,7 +64,7 @@ export declare class DescribeAIDBClusterTaskMetricsRequest extends $dara.Model {
     relativeDBClusterId?: string;
     /**
      * @remarks
-     * Specifies whether to sort the results in reverse order. The default value is *false*.
+     * Specifies whether to sort the results in descending order. Default value: *false*.
      *
      * @example
      * false
@@ -78,7 +72,7 @@ export declare class DescribeAIDBClusterTaskMetricsRequest extends $dara.Model {
     reverse?: boolean;
     /**
      * @remarks
-     * The start time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format in UTC.
+     * The start time of the query. Format: `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
      *
      * This parameter is required.
      *

@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeBackupRegionsResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The list of regions where the backup sets are stored.
+     * The list of regions where backup sets are located.
      */
     regions?: string[];
     /**

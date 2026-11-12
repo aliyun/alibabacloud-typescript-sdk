@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class EnableAIDBClusterDatasetServiceRequest extends $dara.Model {
     /**
      * @remarks
-     * The instance ID of the PolarFS cold storage instance attached to the dataset management service.
+     * The instance ID of the PolarFS cold storage instance that you attach to the dataset management service. Instructions to invoke: Note: This parameter is actually required. If it is not provided, the API returns InvalidDBClusterId.Malformed (400). Instructions to invoke: Valid ID format description: specifies the accepted prefix families (such as pcs-xxx), separator conventions (hyphen character vs. underscore character), and the corresponding resource types.
      *
      * @example
      * pcs-2ze26***
@@ -20,7 +20,7 @@ export declare class EnableAIDBClusterDatasetServiceRequest extends $dara.Model 
     regionId?: string;
     /**
      * @remarks
-     * The instance ID of the database instance attached to the dataset management service.
+     * The instance ID of the database instance that you attach to the dataset management service.
      *
      * @example
      * pc-2ze88***

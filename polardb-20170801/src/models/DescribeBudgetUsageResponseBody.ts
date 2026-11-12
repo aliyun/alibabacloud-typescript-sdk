@@ -13,7 +13,7 @@ export class DescribeBudgetUsageResponseBodyPolicies extends $dara.Model {
   alertThresholdPct?: string;
   /**
    * @remarks
-   * The budget dimension reference ID to which the policy applies.
+   * The reference ID of the budget dimension to which the policy applies.
    * 
    * @example
    * ref-001
@@ -29,7 +29,7 @@ export class DescribeBudgetUsageResponseBodyPolicies extends $dara.Model {
   budgetDimensionType?: string;
   /**
    * @remarks
-   * The number of budget points set by the policy.
+   * The number of budget points configured in the policy.
    * 
    * @example
    * 10000
@@ -37,7 +37,7 @@ export class DescribeBudgetUsageResponseBodyPolicies extends $dara.Model {
   budgetPoints?: string;
   /**
    * @remarks
-   * The budget policy ID.
+   * The ID of the budget policy.
    * 
    * @example
    * bp-001
@@ -53,7 +53,7 @@ export class DescribeBudgetUsageResponseBodyPolicies extends $dara.Model {
   budgetType?: string;
   /**
    * @remarks
-   * The day of the month when the budget is reset. For example, 1 indicates the first day of each month.
+   * The day of the month on which the budget is reset. For example, 1 indicates the first day of each month.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class DescribeBudgetUsageResponseBodyPolicies extends $dara.Model {
   resetDayOfMonth?: string;
   /**
    * @remarks
-   * The budget policy status.
+   * The status of the budget policy.
    * 
    * @example
    * Active
@@ -137,7 +137,7 @@ export class DescribeBudgetUsageResponseBody extends $dara.Model {
   exceeded?: string;
   /**
    * @remarks
-   * The creation time of the budget usage record in RFC 3339 UTC format.
+   * The creation time of the budget usage record, in RFC 3339 UTC format.
    * 
    * @example
    * 2025-01-01T00:00:00Z
@@ -145,7 +145,7 @@ export class DescribeBudgetUsageResponseBody extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The last modification time of the budget usage record in RFC 3339 UTC format.
+   * The time when the budget usage record was last modified, in RFC 3339 UTC format.
    * 
    * @example
    * 2025-01-15T12:00:00Z
@@ -153,7 +153,7 @@ export class DescribeBudgetUsageResponseBody extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The gateway instance ID.
+   * The ID of the gateway instance.
    * 
    * @example
    * pc-123
@@ -162,6 +162,9 @@ export class DescribeBudgetUsageResponseBody extends $dara.Model {
   /**
    * @remarks
    * The list of associated budget policies.
+   * 
+   * @example
+   * []
    */
   policies?: DescribeBudgetUsageResponseBodyPolicies[];
   /**
@@ -182,7 +185,7 @@ export class DescribeBudgetUsageResponseBody extends $dara.Model {
   usedPoints?: string;
   /**
    * @remarks
-   * The end time of the budget statistical window in RFC 3339 UTC format.
+   * The end time of the budget statistical window, in RFC 3339 UTC format.
    * 
    * @example
    * 2025-01-31T23:59:59Z
@@ -190,7 +193,7 @@ export class DescribeBudgetUsageResponseBody extends $dara.Model {
   windowEndTime?: string;
   /**
    * @remarks
-   * The start time of the budget statistical window in RFC 3339 UTC format.
+   * The start time of the budget statistical window, in RFC 3339 UTC format.
    * 
    * @example
    * 2025-01-01T00:00:00Z

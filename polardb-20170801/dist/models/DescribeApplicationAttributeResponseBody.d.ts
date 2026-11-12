@@ -138,7 +138,7 @@ export declare class DescribeApplicationAttributeResponseBodyComponents extends 
     componentClass?: string;
     /**
      * @remarks
-     * The description of the application subcomponent specifications.
+     * The description of the specifications for the application subcomponent.
      *
      * @example
      * 2C4GB
@@ -225,7 +225,7 @@ export declare class DescribeApplicationAttributeResponseBodyComponents extends 
 export declare class DescribeApplicationAttributeResponseBodyDnatMappings extends $dara.Model {
     /**
      * @remarks
-     * The access address in the NatIp:FrontPort format, which can be directly used on the office network.
+     * The access address in the NatIp:FrontPort format, which can be directly used in the office network.
      *
      * @example
      * 10.64.0.10:10001
@@ -355,7 +355,7 @@ export declare class DescribeApplicationAttributeResponseBodyEndpoints extends $
 export declare class DescribeApplicationAttributeResponseBodyMemApplicationAttributeSessionStore extends $dara.Model {
     /**
      * @remarks
-     * The account source. Valid values: reuse_vector, existing. This parameter is returned only when the status is ENABLED.
+     * The account source. Valid values: reuse_vector and existing. This parameter is returned only when the status is ENABLED.
      *
      * @example
      * existing
@@ -379,7 +379,7 @@ export declare class DescribeApplicationAttributeResponseBodyMemApplicationAttri
     DBName?: string;
     /**
      * @remarks
-     * The session storage status. Valid values: DISABLED, ENABLING, ENABLED, DISABLING.
+     * The status of the session store. Valid values: DISABLED, ENABLING, ENABLED, and DISABLING.
      *
      * @example
      * ENABLED
@@ -431,7 +431,7 @@ export declare class DescribeApplicationAttributeResponseBodyMemApplicationAttri
     llmModelName?: string;
     /**
      * @remarks
-     * The currently active memory type.
+     * The active memory type.
      *
      * @example
      * MULTIMODAL_TEXT
@@ -439,7 +439,7 @@ export declare class DescribeApplicationAttributeResponseBodyMemApplicationAttri
     memoryType?: string;
     /**
      * @remarks
-     * Indicates whether multimodal capabilities are currently enabled.
+     * Indicates whether multimodal capabilities are enabled.
      *
      * @example
      * true
@@ -455,7 +455,7 @@ export declare class DescribeApplicationAttributeResponseBodyMemApplicationAttri
     projectName?: string;
     /**
      * @remarks
-     * The name of the Reranker model.
+     * The name of the reranker model.
      *
      * @example
      * qwen3-rerank
@@ -476,7 +476,7 @@ export declare class DescribeApplicationAttributeResponseBodyMemApplicationAttri
     userName?: string;
     /**
      * @remarks
-     * The current VisualEmbedder dimensions.
+     * The current dimensions of the VisualEmbedder.
      *
      * @example
      * 2560
@@ -517,7 +517,7 @@ export declare class DescribeApplicationAttributeResponseBodyMemApplicationAttri
 export declare class DescribeApplicationAttributeResponseBodyPolarClawApplicationAttributeLangfuseBinding extends $dara.Model {
     /**
      * @remarks
-     * The effective period of the attachment. The value is a UNIX timestamp.
+     * The attachment effective period (UNIX timestamp).
      *
      * @example
      * 1788771141
@@ -525,7 +525,7 @@ export declare class DescribeApplicationAttributeResponseBodyPolarClawApplicatio
     activatedAt?: number;
     /**
      * @remarks
-     * Langfuse API Key ID
+     * The Langfuse API key ID.
      *
      * @example
      * api-key-xxx
@@ -541,7 +541,7 @@ export declare class DescribeApplicationAttributeResponseBodyPolarClawApplicatio
     bindingTaskId?: number;
     /**
      * @remarks
-     * The Langfuse application ID.
+     * The ID of the Langfuse application.
      *
      * @example
      * pa-xxx
@@ -549,7 +549,7 @@ export declare class DescribeApplicationAttributeResponseBodyPolarClawApplicatio
     langfuseApplicationId?: string;
     /**
      * @remarks
-     * The binding phase.
+     * The phase of the binding.
      *
      * @example
      * ACTIVE
@@ -557,7 +557,7 @@ export declare class DescribeApplicationAttributeResponseBodyPolarClawApplicatio
     phase?: string;
     /**
      * @remarks
-     * The Langfuse project ID.
+     * The ID of the Langfuse project.
      *
      * @example
      * project-xxx
@@ -607,7 +607,7 @@ export declare class DescribeApplicationAttributeResponseBodyPolarClawSaaSApplic
     authProviders?: string[];
     /**
      * @remarks
-     * The Supabase cluster identifier.
+     * The identifier of the Supabase cluster.
      *
      * @example
      * pa-**************
@@ -814,7 +814,7 @@ export declare class DescribeApplicationAttributeResponseBody extends $dara.Mode
     creationTime?: string;
     /**
      * @remarks
-     * The PolarDB instance ID on which the application depends.
+     * The instance ID of the PolarDB instance that the application depends on.
      *
      * @example
      * pc-**************
@@ -830,7 +830,7 @@ export declare class DescribeApplicationAttributeResponseBody extends $dara.Mode
     description?: string;
     /**
      * @remarks
-     * The NAT mapping: the list of DNAT mapping entries.
+     * The list of DNAT mapping entries for NAT mapping.
      */
     dnatMappings?: DescribeApplicationAttributeResponseBodyDnatMappings[];
     /**
@@ -878,8 +878,8 @@ export declare class DescribeApplicationAttributeResponseBody extends $dara.Mode
      * @remarks
      * The lock mode. Valid values:
      *
-     * - Unlock: unlocked.
-     * - Lock: locked.
+     * - Unlock: Unlocked.
+     * - Lock: Locked.
      *
      * @example
      * Unlock
@@ -920,7 +920,7 @@ export declare class DescribeApplicationAttributeResponseBody extends $dara.Mode
     minorVersion?: string;
     /**
      * @remarks
-     * The NAT gateway ID.
+     * The ID of the NAT gateway.
      *
      * @example
      * pc-xxx
@@ -928,7 +928,7 @@ export declare class DescribeApplicationAttributeResponseBody extends $dara.Mode
     natGatewayId?: string;
     /**
      * @remarks
-     * The NAT mapping: the SNAT IP address bound to the vSwitch where the application resides. This refers to a customer-managed SNAT entry that is discovered and returned in real time by the control plane, and is unrelated to the SNAT of the Internet NAT gateway.
+     * The SNAT IP address bound to the vSwitch where the application resides. This address is from a customer-managed SNAT entry, which is discovered and returned in real time by the control plane. It is independent of the SNAT configuration of the Internet NAT gateway.
      *
      * @example
      * 10.64.0.20
@@ -954,7 +954,7 @@ export declare class DescribeApplicationAttributeResponseBody extends $dara.Mode
     polarClawSaaSApplicationAttribute?: DescribeApplicationAttributeResponseBodyPolarClawSaaSApplicationAttribute;
     /**
      * @remarks
-     * The instance ID of the PolarFS Cold Storage Edition or High-performance Edition.
+     * The instance ID of the PolarFS Archive or High-performance Edition.
      *
      * @example
      * pfs-**************
@@ -989,7 +989,7 @@ export declare class DescribeApplicationAttributeResponseBody extends $dara.Mode
     /**
      * @remarks
      * The Serverless type. Valid values:
-     * - 2: Agile.
+     * - 2: Dynamic.
      * - 3: Stable.
      *
      * @example
@@ -998,7 +998,7 @@ export declare class DescribeApplicationAttributeResponseBody extends $dara.Mode
     serverlessType?: string;
     /**
      * @remarks
-     * The SNAT status. Valid values: on, off.
+     * The SNAT status. Valid values: on and off.
      *
      * @example
      * off
@@ -1010,7 +1010,7 @@ export declare class DescribeApplicationAttributeResponseBody extends $dara.Mode
      * - Creating: The application is being created.
      * - Activated: The application is running.
      * - Maintaining: The application is under maintenance.
-     * - ClassChanging: The application configuration is being changed.
+     * - ClassChanging: The configurations of the application are being changed.
      * - Transing: The application is being migrated.
      * - MinorVersionUpgrading: The minor version of the application is being upgraded.
      * - NetCreating: The endpoint of the application is being created.
@@ -1028,7 +1028,7 @@ export declare class DescribeApplicationAttributeResponseBody extends $dara.Mode
     status?: string;
     /**
      * @remarks
-     * The storage resource description.
+     * The storage resources.
      */
     storages?: DescribeApplicationAttributeResponseBodyStorages[];
     /**
@@ -1041,7 +1041,7 @@ export declare class DescribeApplicationAttributeResponseBody extends $dara.Mode
     upgradeAvailable?: string;
     /**
      * @remarks
-     * VPC ID
+     * The VPC ID.
      *
      * @example
      * vpc-*******************
@@ -1049,7 +1049,7 @@ export declare class DescribeApplicationAttributeResponseBody extends $dara.Mode
     VPCId?: string;
     /**
      * @remarks
-     * VSwitch ID
+     * The vSwitch ID.
      *
      * @example
      * vsw-*******************
@@ -1065,7 +1065,7 @@ export declare class DescribeApplicationAttributeResponseBody extends $dara.Mode
     version?: string;
     /**
      * @remarks
-     * The NAT mapping: the customer-managed VPC NAT gateway ID.
+     * The customer-managed VPC NAT gateway ID for NAT mapping.
      *
      * @example
      * ngw-xxx
@@ -1073,7 +1073,7 @@ export declare class DescribeApplicationAttributeResponseBody extends $dara.Mode
     vpcNatGatewayId?: string;
     /**
      * @remarks
-     * The zone ID.
+     * The zone.
      *
      * @example
      * cn-beijing-l

@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class EnableSQLRateLimitingRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response message.
-   * 
-   * > If the request is successful, `Successful` is returned. If the request fails, an error message is returned.
+   * The message returned for the request.
+   * > If the request is successful, `Successful` is returned. If the request fails, an error message such as an error code is returned.
    * 
    * @example
    * Successful
@@ -15,7 +14,7 @@ export class EnableSQLRateLimitingRulesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 4CE6DF97-AEA4-484F-906F-C407EE******
@@ -23,11 +22,11 @@ export class EnableSQLRateLimitingRulesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - **true**: The request was successful.
+   * - **true**: The request is successful.
    * 
-   * - **false**: The request failed.
+   * - **false**: The request fails.
    * 
    * @example
    * true

@@ -74,7 +74,7 @@ export declare class CreatePolarClawChannelResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the gateway is restarted.
+     * Indicates whether the gateway has been restarted.
      *
      * @example
      * true

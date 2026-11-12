@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyTaskInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameters for the task operation.
+   * The operation parameters for the task.
    * 
    * @example
    * {}
@@ -26,7 +26,7 @@ export class ModifyTaskInfoRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The name of the task step to update.
+   * The name of the task step to modify. Usage note: These two parameters are required in actual calls. If they are not provided, the Param.Invalid error is returned.
    * 
    * @example
    * create_instance
@@ -34,7 +34,7 @@ export class ModifyTaskInfoRequest extends $dara.Model {
   stepName?: string;
   /**
    * @remarks
-   * The name of the API operation associated with the task.
+   * The name of the API operation associated with the task. Usage note: These two parameters are required in actual calls. If they are not provided, the Param.Invalid error is returned. Usage note: Provide a complete list of valid values or instructions on how to obtain them (such as by calling an associated query API), and correct the current invalid example value CreateDBInstance to an actual valid TaskAction value.
    * 
    * @example
    * CreateDBInstance
@@ -42,7 +42,7 @@ export class ModifyTaskInfoRequest extends $dara.Model {
   taskAction?: string;
   /**
    * @remarks
-   * The ID of the task to update.
+   * The ID of the task to modify.
    * 
    * This parameter is required.
    * 

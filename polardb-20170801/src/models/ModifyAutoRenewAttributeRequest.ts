@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAutoRenewAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The cloud provider of the cluster.
+   * The cloud service provider to which the instance belongs.
    * 
    * @example
    * ENS
@@ -13,7 +13,7 @@ export class ModifyAutoRenewAttributeRequest extends $dara.Model {
   cloudProvider?: string;
   /**
    * @remarks
-   * The ID of the database cluster.
+   * The IDs of the database clusters. The billing method of the clusters must be subscription. If you call this operation for a pay-as-you-go cluster, the OperationDenied.DBClusterPayType error may be returned. You can first call the TransformDBClusterPayType operation to change the billing method. Usage notes: The billing method of the cluster must be subscription. Calling this operation for a pay-as-you-go cluster returns the OperationDenied.DBClusterPayType error.
    * 
    * This parameter is required.
    * 
@@ -23,12 +23,11 @@ export class ModifyAutoRenewAttributeRequest extends $dara.Model {
   DBClusterIds?: string;
   /**
    * @remarks
-   * The auto-renewal period. Valid values:
+   * The auto-renewal duration for the instance. Valid values: 
    * 
-   * - When **PeriodUnit** is **Month**, the valid values are `[1,2,3,6,12]`.
-   * 
-   * - When **PeriodUnit** is **Year**, the valid values are `[1-3]`.
-   * 
+   * - If **PeriodUnit** is set to **Month**, valid values are `1`, `2`, `3`, `6`, and `12`.
+   * - If **PeriodUnit** is set to **Year**, valid values are `1`, `2`, and `3`.
+   *  
    * Default value: **1**.
    * 
    * @example
@@ -39,12 +38,11 @@ export class ModifyAutoRenewAttributeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The unit of the auto-renewal period. Valid values:
+   * The unit of the renewal duration. Valid values: 
    * 
-   * - **Year**
-   * 
-   * - **Month**
-   * 
+   * - **Year**: Year.
+   * - **Month**: Month.
+   *  
    * Default value: **Month**.
    * 
    * @example
@@ -53,7 +51,7 @@ export class ModifyAutoRenewAttributeRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The region ID. The ID can be up to 50 characters in length.
+   * The region ID. The value can be up to 50 characters in length.
    * 
    * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/2319134.html) operation to query available regions.
    * 
@@ -65,17 +63,15 @@ export class ModifyAutoRenewAttributeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The auto-renewal status. Valid values:
+   * The auto-renewal status. Valid values: 
    * 
-   * - **AutoRenewal**: Enables auto-renewal.
+   * - **AutoRenewal**: Auto-renewal.
+   * - **Normal**: Manual renewal. 
+   * - **NotRenewal**: No renewal. 
    * 
-   * - **Normal**: Enables manual renewal.
+   * Default value: **AutoRenewal**. 
    * 
-   * - **NotRenewal**: Disables renewal.
-   * 
-   * Default value: **AutoRenewal**.
-   * 
-   * > When you set this parameter to **NotRenewal**, the system stops sending expiration reminders and sends only a non-renewal notification three days before the expiration date.
+   * > If you set this parameter to **NotRenewal**, the system no longer sends expiration reminders and only sends a non-renewal reminder three days before expiration.
    * 
    * @example
    * AutoRenewal

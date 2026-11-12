@@ -18,9 +18,7 @@ export declare class DescribeLakebaseMountParameterTemplateListResponseBodyParam
     defaultValue?: string;
     /**
      * @remarks
-     * Indicates whether the parameter takes effect dynamically. Valid values:
-     * - 1: Yes.
-     * - 0: No.
+     * Indicates whether the parameter takes effect dynamically. Valid values: 1 and 0.
      *
      * @example
      * 1
@@ -28,9 +26,7 @@ export declare class DescribeLakebaseMountParameterTemplateListResponseBodyParam
     isDynamic?: string;
     /**
      * @remarks
-     * Indicates whether users are allowed to modify the parameter. Valid values:
-     * - 1: Yes.
-     * - 0: No.
+     * Indicates whether the parameter can be modified by users. Valid values: 1 and 0.
      *
      * @example
      * 1
@@ -38,7 +34,7 @@ export declare class DescribeLakebaseMountParameterTemplateListResponseBodyParam
     isUserChangeable?: string;
     /**
      * @remarks
-     * The value range or enumerated values, such as [0-3600].
+     * The value range or valid values. Example: [0-3600].
      *
      * @example
      * [0-3600]

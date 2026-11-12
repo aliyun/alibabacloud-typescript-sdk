@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class RegisterAIDBClusterCustomModelShrinkRequest extends $dara.Model {
     /**
      * @remarks
-     * The startup environment variables of the container. The variable name cannot be empty or contain whitespace, and the variable value can be an empty string.
+     * The startup environment variables of the container. Variable names cannot be empty or contain whitespace. Variable values can be empty strings.
      *
      * @example
      * {"HF_HOME":"/cache/hf","EMPTY_VALUE":""}
@@ -46,7 +46,7 @@ export declare class RegisterAIDBClusterCustomModelShrinkRequest extends $dara.M
     directCommand?: string;
     /**
      * @remarks
-     * The display name in the candidate list and the initial invocation name for clients.
+     * The display name in the candidate list and the initial client invocation name.
      *
      * @example
      * my-qwen3
@@ -54,7 +54,7 @@ export declare class RegisterAIDBClusterCustomModelShrinkRequest extends $dara.M
     displayModelName?: string;
     /**
      * @remarks
-     * The full reference of the customer-owned inference image, in the format of registry/repository:tag.
+     * The full reference of the custom inference image, in the format of registry/repository:tag.
      *
      * @example
      * registry.example.com/customer/model:v1
@@ -80,7 +80,7 @@ export declare class RegisterAIDBClusterCustomModelShrinkRequest extends $dara.M
     modelName?: string;
     /**
      * @remarks
-     * The startup parameters of the model. The parameter key must start with --.
+     * The startup parameters of the model. Parameter keys must start with --.
      *
      * @example
      * {"--max-model-len":"32768"}
@@ -98,7 +98,7 @@ export declare class RegisterAIDBClusterCustomModelShrinkRequest extends $dara.M
     regionId?: string;
     /**
      * @remarks
-     * The password or temporary token for the customer\\"s image repository. This parameter is required when ImageName is specified.
+     * The password or temporary token for the image repository. This parameter is required when ImageName is specified.
      *
      * @example
      * temporary-token
@@ -106,7 +106,7 @@ export declare class RegisterAIDBClusterCustomModelShrinkRequest extends $dara.M
     registryPassword?: string;
     /**
      * @remarks
-     * The username for the customer\\"s image repository. This parameter is required when ImageName is specified.
+     * The username for the image repository. This parameter is required when ImageName is specified.
      *
      * @example
      * temporary-user

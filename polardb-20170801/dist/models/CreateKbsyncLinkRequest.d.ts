@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateKBSyncLinkRequest extends $dara.Model {
     /**
      * @remarks
-     * The client ID.
+     * The client identifier.
      *
      * This parameter is required.
      *
@@ -30,7 +30,7 @@ export declare class CreateKBSyncLinkRequest extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The time-to-live (TTL) of the successful snapshot of Lark chat members for fallback reuse, in seconds. This parameter can be explicitly set only for FEISHU synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 disables snapshot fallback reuse. A positive integer indicates the maximum age of the snapshot allowed for reuse. Default value: -1. If this parameter is not specified, the default value -1 is used.
+     * The validity period of the successful snapshot of Lark chat members for fallback reuse, in seconds. This parameter can be explicitly set only for Lark synchronization links. A value of -1 indicates that the snapshot never expires. A value of 0 indicates that snapshot fallback reuse is disabled. A positive integer indicates the maximum age of the snapshot allowed for reuse. Default value: -1. If this parameter is not specified, the default value -1 is used.
      *
      * @example
      * -1
@@ -94,7 +94,7 @@ export declare class CreateKBSyncLinkRequest extends $dara.Model {
     sourceDir?: string;
     /**
      * @remarks
-     * The data source type. Valid values: FEISHU, SHAREPOINT.
+     * The data source type. Valid values: OSS, DINGTALK, FEISHU, and SHAREPOINT.
      *
      * This parameter is required.
      *
@@ -112,7 +112,7 @@ export declare class CreateKBSyncLinkRequest extends $dara.Model {
     syncIntervalMinutes?: number;
     /**
      * @remarks
-     * The tenant ID. This parameter is required when SourceType is set to SHAREPOINT.
+     * The ID of the source tenant. This parameter is required and must be set to the Entra tenant ID when SourceType is set to SHAREPOINT, the tenant_key when SourceType is set to FEISHU, or the corpId when SourceType is set to DINGTALK. This parameter is not required when SourceType is set to OSS.
      *
      * @example
      * 63eexxxx-xxxx-xxxx-xxxx-xxxxxx090f82
@@ -128,7 +128,7 @@ export declare class CreateKBSyncLinkRequest extends $dara.Model {
     userAccessToken?: string;
     /**
      * @remarks
-     * The ID of the DingTalk user who performs the operation.
+     * The ID of the DingTalk user that performs the operation.
      *
      * @example
      * 123***56
@@ -136,7 +136,7 @@ export declare class CreateKBSyncLinkRequest extends $dara.Model {
     userId?: string;
     /**
      * @remarks
-     * The Lark user refresh token. This token must be provided together with UserAccessToken to automatically rotate the fallback identity for expanding chat members.
+     * The Lark user refresh token. This token must be provided together with UserAccessToken and is used to automatically rotate the fallback identity for expanding chat members.
      *
      * @example
      * example-user-refresh-token

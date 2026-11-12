@@ -47,9 +47,9 @@ export class DescribeConsumerGroupsResponseBodyItems extends $dara.Model {
    * @remarks
    * Indicates whether the consumer group is the default group. Valid values:
    * 
-   * - **0**: No
    * 
-   * - **1**: Yes
+   * - **0**: No.
+   * - **1**: Yes.
    * 
    * @example
    * 0
@@ -99,7 +99,10 @@ export class DescribeConsumerGroupsResponseBodyItems extends $dara.Model {
 export class DescribeConsumerGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of consumer groups.
+   * The list of consumer groups.
+   * 
+   * @example
+   * []
    */
   items?: DescribeConsumerGroupsResponseBodyItems[];
   /**
@@ -112,7 +115,7 @@ export class DescribeConsumerGroupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records on the current page.
+   * The number of entries on the current page.
    * 
    * @example
    * 30
@@ -120,7 +123,7 @@ export class DescribeConsumerGroupsResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The number of records returned per page. Valid values: 30, 50, and 100. Default value: 30.
+   * The number of entries per page. Valid values: 30, 50, and 100. Default value: 30.
    * 
    * @example
    * 30
@@ -136,7 +139,7 @@ export class DescribeConsumerGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 1

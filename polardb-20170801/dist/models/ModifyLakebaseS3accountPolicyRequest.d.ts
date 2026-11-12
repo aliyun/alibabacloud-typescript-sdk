@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ModifyLakebaseS3AccountPolicyRequest extends $dara.Model {
     /**
      * @remarks
-     * The PolarFS instance ID.
+     * The PolarFS instance ID. You can call the DescribePolarFs operation to query available instances and their IDs.
      *
      * This parameter is required.
      *
@@ -13,7 +13,7 @@ export declare class ModifyLakebaseS3AccountPolicyRequest extends $dara.Model {
     /**
      * @remarks
      * The region ID.
-     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query the regions of all clusters under the target account.
+     * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view the regions of all clusters under the target account.
      *
      * This parameter is required.
      *
@@ -27,6 +27,8 @@ export declare class ModifyLakebaseS3AccountPolicyRequest extends $dara.Model {
      *
      * > You cannot modify the default account.
      *
+     * > You can call the ListLakebaseS3Accounts operation to obtain the account access key. Select an account with AccountType set to user.
+     *
      * This parameter is required.
      *
      * @example
@@ -35,7 +37,7 @@ export declare class ModifyLakebaseS3AccountPolicyRequest extends $dara.Model {
     userAccAk?: string;
     /**
      * @remarks
-     * The user account policy.
+     * The user account policy in JSON object format. The Version and Statement fields are required. Statement.Action must specify explicit actions such as s3:GetObject and s3:PutObject. The s3:* wildcard is not supported. Statement.Resource must specify explicit ARNs such as arn:aws:s3:::bucket-name/*. A standalone asterisk (*) is not supported.
      *
      * This parameter is required.
      *

@@ -5,12 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyApplicationServerlessConfRequestServerlessConfList extends $dara.Model {
   /**
    * @remarks
-   * The type of the application sub-component.
-   * 
-   * For Supabase, valid values are:
+   * The type of the application subcomponent. For supabase, valid values:
    * 
    * - gateway
-   * 
    * - backend
    * 
    * @example
@@ -19,7 +16,7 @@ export class ModifyApplicationServerlessConfRequestServerlessConfList extends $d
   componentType?: string;
   /**
    * @remarks
-   * The maximum number of PCUs for a single node. Valid values: 0 to 16.
+   * The upper limit of scaling per node. Valid values: 0 to 16 PCUs.
    * 
    * @example
    * 16
@@ -27,7 +24,7 @@ export class ModifyApplicationServerlessConfRequestServerlessConfList extends $d
   scaleMax?: string;
   /**
    * @remarks
-   * The minimum number of PolarDB Capacity Units (PCUs) for a single node. Valid values: 0 to 16.
+   * The lower limit of scaling per node. Valid values: 0 to 16 PCUs.
    * 
    * @example
    * 1
@@ -71,9 +68,12 @@ export class ModifyApplicationServerlessConfRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The list of Serverless configurations.
+   * The serverless configuration list.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * []
    */
   serverlessConfList?: ModifyApplicationServerlessConfRequestServerlessConfList[];
   static names(): { [key: string]: string } {

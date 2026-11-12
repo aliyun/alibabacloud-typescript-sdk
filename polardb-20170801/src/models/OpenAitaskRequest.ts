@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OpenAITaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The ID of the cluster.
    * 
    * This parameter is required.
    * 
@@ -15,11 +15,7 @@ export class OpenAITaskRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The node type. Valid values:
-   * 
-   * - **DLNode**: AI node.
-   * 
-   * - **SearchNode**: search AI node.
+   * The node type. DLNode indicates an AI node. SearchNode is available only if search AI nodes are already created in the target cluster. Otherwise, the InvalidParameter.NodeType error (HTTP 400) may be returned. You can call DescribeAIDBClusters to check the node types of the cluster before the call. SearchNode is available only if search AI nodes are already created in the cluster. Otherwise, the InvalidParameter.NodeType error is returned.
    * 
    * @example
    * DLNode
@@ -29,7 +25,7 @@ export class OpenAITaskRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The password of the database account.
+   * The password of the database account for which you want to enable the PolarDB for AI feature.
    * 
    * @example
    * testPassword
@@ -47,7 +43,7 @@ export class OpenAITaskRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-************
@@ -57,7 +53,7 @@ export class OpenAITaskRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The database account on which to enable the PolarDB for AI feature.
+   * The database account for which you want to enable the PolarDB for AI feature.
    * 
    * @example
    * testAccountName

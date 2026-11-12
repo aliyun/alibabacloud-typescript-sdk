@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeDBLinksResponseBodyDBLinkInfos extends $dara.Model {
     /**
      * @remarks
-     * The ID of the source cluster that the database link connects.
+     * The ID of the source cluster for the DBLink.
      *
      * @example
      * pc-a*************
@@ -10,7 +10,7 @@ export declare class DescribeDBLinksResponseBodyDBLinkInfos extends $dara.Model 
     DBInstanceName?: string;
     /**
      * @remarks
-     * The name of the database link.
+     * The name of the DBLink.
      *
      * @example
      * dblink_test
@@ -18,7 +18,7 @@ export declare class DescribeDBLinksResponseBodyDBLinkInfos extends $dara.Model 
     DBLinkName?: string;
     /**
      * @remarks
-     * The name of the source database of the database link.
+     * The name of the source database for the DBLink.
      *
      * @example
      * testdb1
@@ -26,7 +26,7 @@ export declare class DescribeDBLinksResponseBodyDBLinkInfos extends $dara.Model 
     sourceDBName?: string;
     /**
      * @remarks
-     * The account of the destination database of the database link.
+     * The target database account for the DBLink.
      *
      * @example
      * testacc
@@ -34,9 +34,9 @@ export declare class DescribeDBLinksResponseBodyDBLinkInfos extends $dara.Model 
     targetAccount?: string;
     /**
      * @remarks
-     * The ID of the destination cluster that the database link connects.
+     * The ID of the target cluster for the DBLink.
      *
-     * > If the destination cluster is not a PolarDB for Oracle cluster, the returned value is empty.
+     * > If the target is not a PolarDB for PostgreSQL (Compatible with Oracle) cluster, this parameter is empty.
      *
      * @example
      * pc-b************
@@ -44,7 +44,7 @@ export declare class DescribeDBLinksResponseBodyDBLinkInfos extends $dara.Model 
     targetDBInstanceName?: string;
     /**
      * @remarks
-     * The name of the destination database of the database link.
+     * The name of the target database for the DBLink.
      *
      * @example
      * testdb2
@@ -64,7 +64,7 @@ export declare class DescribeDBLinksResponseBodyDBLinkInfos extends $dara.Model 
 export declare class DescribeDBLinksResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The ID of the cluster.
+     * The cluster ID.
      *
      * @example
      * pc-a*************
@@ -72,12 +72,12 @@ export declare class DescribeDBLinksResponseBody extends $dara.Model {
     DBInstanceName?: string;
     /**
      * @remarks
-     * Details about the database links.
+     * The DBLink information set.
      */
     DBLinkInfos?: DescribeDBLinksResponseBodyDBLinkInfos[];
     /**
      * @remarks
-     * The ID of the request.
+     * The request ID.
      *
      * @example
      * 45D24263-7E3A-4140-9472-************

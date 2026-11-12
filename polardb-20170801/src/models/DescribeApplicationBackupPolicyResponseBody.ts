@@ -29,7 +29,7 @@ export class DescribeApplicationBackupPolicyResponseBody extends $dara.Model {
   preferredBackupPeriod?: string;
   /**
    * @remarks
-   * The retention period of level-1 backups, in days.
+   * The retention period of level-1 backups. Unit: days.
    * 
    * @example
    * 7
@@ -37,7 +37,7 @@ export class DescribeApplicationBackupPolicyResponseBody extends $dara.Model {
   preferredBackupRetentionPeriod?: number;
   /**
    * @remarks
-   * The time period when automatic backups are performed. The time is in the HH:mmZ-HH:mmZ format and in UTC.
+   * The time window when automatic backups are performed. The format is HH:mmZ-HH:mmZ in UTC.
    * 
    * @example
    * 07:00Z-08:00Z

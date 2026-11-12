@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListPolarClawBindingsRequest extends $dara.Model {
     /**
      * @remarks
-     * A list of agent IDs to filter the bindings.
+     * Filters by a list of agent IDs.
      *
      * @example
      * work,research

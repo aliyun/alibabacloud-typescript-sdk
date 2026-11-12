@@ -12,7 +12,7 @@ export declare class DeleteCostRuleRequest extends $dara.Model {
     costRuleId?: string;
     /**
      * @remarks
-     * The ID of the gateway instance.
+     * The gateway instance ID.
      *
      * This parameter is required.
      *
@@ -22,7 +22,7 @@ export declare class DeleteCostRuleRequest extends $dara.Model {
     gwClusterId?: string;
     /**
      * @remarks
-     * The ID of the region.
+     * The region ID.
      *
      * @example
      * cn-beijing

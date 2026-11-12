@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ModifyBudgetPolicyResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The ID of the gateway instance.
+     * The instance ID of the gateway instance.
      *
      * @example
      * pg-xxxxxxxx
@@ -10,7 +10,7 @@ export declare class ModifyBudgetPolicyResponseBody extends $dara.Model {
     gwClusterId?: string;
     /**
      * @remarks
-     * The ID of the request.
+     * The request ID.
      *
      * @example
      * 925B84D9-CA72-432C-95CF-738C22******

@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ModifyModelApiResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The model API ID.
+     * The ID of the model API.
      *
      * @example
      * mi-xxxxx
@@ -10,7 +10,7 @@ export declare class ModifyModelApiResponseBody extends $dara.Model {
     modelApiId?: string;
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * 925B84D9-CA72-432C-95CF-738C22******

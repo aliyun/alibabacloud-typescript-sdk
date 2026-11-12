@@ -13,7 +13,7 @@ export class RemovePolarClawDevicePairResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The returned status code.
+   * The response status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class RemovePolarClawDevicePairResponseBody extends $dara.Model {
   deviceId?: string;
   /**
    * @remarks
-   * The returned message.
+   * The response message.
    * 
    * @example
    * successful
@@ -37,7 +37,7 @@ export class RemovePolarClawDevicePairResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 580EF224-9647-59E7-9950-D9EBFD6A2921

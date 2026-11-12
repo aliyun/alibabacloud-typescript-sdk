@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListPolarClawDevicePairsResponseBodyPaired extends $dara.Model {
     /**
      * @remarks
-     * The client identifier.
+     * The client ID.
      *
      * @example
      * cli
@@ -91,7 +91,7 @@ export declare class ListPolarClawDevicePairsResponseBodyPaired extends $dara.Mo
 export declare class ListPolarClawDevicePairsResponseBodyPending extends $dara.Model {
     /**
      * @remarks
-     * The client identifier.
+     * The client ID.
      *
      * @example
      * cli
@@ -251,7 +251,7 @@ export declare class ListPolarClawDevicePairsResponseBody extends $dara.Model {
     pending?: ListPolarClawDevicePairsResponseBodyPending[];
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * A7E6A8FD-C50B-46B2-BA85-D8B8D3******

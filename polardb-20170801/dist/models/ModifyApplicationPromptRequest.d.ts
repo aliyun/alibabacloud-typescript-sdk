@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ModifyApplicationPromptRequest extends $dara.Model {
     /**
      * @remarks
-     * The ID of the application.
+     * The application ID. Usage note: Only applications of the mem0 type support prompt operations. You can verify this by checking the ApplicationType field by calling DescribeApplicationAttribute.
      *
      * This parameter is required.
      *
@@ -12,7 +12,7 @@ export declare class ModifyApplicationPromptRequest extends $dara.Model {
     applicationId?: string;
     /**
      * @remarks
-     * The ID of the prompt.
+     * The prompt ID. The value is an identifier that starts with papt-.
      *
      * This parameter is required.
      *
@@ -22,7 +22,7 @@ export declare class ModifyApplicationPromptRequest extends $dara.Model {
     promptId?: string;
     /**
      * @remarks
-     * The name of the prompt.
+     * The prompt name.
      *
      * @example
      * prompt name
@@ -30,7 +30,7 @@ export declare class ModifyApplicationPromptRequest extends $dara.Model {
     promptName?: string;
     /**
      * @remarks
-     * The content of the prompt.
+     * The prompt content.
      *
      * @example
      * prompt value

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolarClawAgentFileRequest extends $dara.Model {
   /**
    * @remarks
-   * Agent ID
+   * The PolarClaw agent ID.
    * 
    * This parameter is required.
    * 

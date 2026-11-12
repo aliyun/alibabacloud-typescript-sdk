@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolarClawSkillTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The application ID. This parameter is required. If this parameter is not provided, an InvalidApplicationId.Malformed (HTTP 400) error is returned.
    * 
    * @example
    * pa-**************
@@ -25,7 +25,7 @@ export class CreatePolarClawSkillTemplateRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all available regions for the current account, including region IDs.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view all available regions for the current account, including region IDs.
    * 
    * @example
    * cn-beijing
@@ -51,12 +51,12 @@ export class CreatePolarClawSkillTemplateRequest extends $dara.Model {
   skillTemplateName?: string;
   /**
    * @remarks
-   * The skill template parameters.
+   * The skill template parameters. Specify a standard JSON object string with the skill identifier as the key, such as {"skill1":{"skillName":"polarclawhub","version":"0.0.0"}}. JSON arrays or single-quote formats are not accepted.
    * 
    * This parameter is required.
    * 
    * @example
-   * [{\\"skillName\\":\\"polarclawhub\\",\\"version\\":\\"0.0.0\\"},{\\"skillName\\":\\"github\\",\\"version\\":\\"1.0.0\\"}]
+   * {"skill1":{"skillName":"polarclawhub","version":"0.0.0"}}
    */
   skillTemplateParam?: string;
   static names(): { [key: string]: string } {

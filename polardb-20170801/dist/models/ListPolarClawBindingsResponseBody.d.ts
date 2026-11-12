@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListPolarClawBindingsResponseBodyBindings extends $dara.Model {
     /**
      * @remarks
-     * The agent ID.
+     * The PolarClaw agent ID.
      *
      * @example
      * work
@@ -18,7 +18,7 @@ export declare class ListPolarClawBindingsResponseBodyBindings extends $dara.Mod
     channel?: string;
     /**
      * @remarks
-     * The account ID.
+     * The channel account ID.
      *
      * @example
      * default
@@ -51,7 +51,7 @@ export declare class ListPolarClawBindingsResponseBody extends $dara.Model {
     bindings?: ListPolarClawBindingsResponseBodyBindings[];
     /**
      * @remarks
-     * The status code.
+     * The response status code.
      *
      * @example
      * 200
@@ -67,7 +67,7 @@ export declare class ListPolarClawBindingsResponseBody extends $dara.Model {
     message?: string;
     /**
      * @remarks
-     * The ID of the request.
+     * The request ID.
      *
      * @example
      * 7F2007D3-7E74-4ECB-89A8-BF130D******

@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLakebaseMountParameterGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance category. Valid values:
-   * - basic: Basic Edition.
-   * - high_performance: High-performance Edition.
+   * The instance category. Valid values: basic (Basic Edition) and high_performance (High-performance Edition).
    * 
    * @example
    * basic

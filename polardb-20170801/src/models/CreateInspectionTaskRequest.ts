@@ -13,7 +13,7 @@ export class CreateInspectionTaskRequestDBClusterList extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The ID of the region where the cluster to be inspected is located.
+   * The region ID of the cluster to be inspected.
    * 
    * @example
    * cn-beijing
@@ -45,7 +45,7 @@ export class CreateInspectionTaskRequestDBClusterList extends $dara.Model {
 export class CreateInspectionTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The cron expression for the inspection task, which specifies the periodic execution schedule.
+   * The cron expression of the inspection task, which specifies the periodic execution schedule.
    * 
    * @example
    * 0 0 * * *
@@ -58,7 +58,7 @@ export class CreateInspectionTaskRequest extends $dara.Model {
   DBClusterList?: CreateInspectionTaskRequestDBClusterList[];
   /**
    * @remarks
-   * The ID of the region where the task is located.
+   * The region ID of the task.
    * 
    * @example
    * cn-beijing
@@ -74,7 +74,7 @@ export class CreateInspectionTaskRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the inspection workspace.
+   * The ID of the inspection space. This parameter is required. If it is not provided, the API returns InvalidSpaceId.Malformed (HTTP 400).
    * 
    * @example
    * space-123

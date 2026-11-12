@@ -37,7 +37,7 @@ export class InstallPolarClawSkillResponseBody extends $dara.Model {
   ok?: boolean;
   /**
    * @remarks
-   * The operation name. This parameter is returned when Async is set to true.
+   * The name of the operation. This parameter is returned when Async is set to true.
    * 
    * @example
    * InstallPolarClawSkill
@@ -45,7 +45,7 @@ export class InstallPolarClawSkillResponseBody extends $dara.Model {
   operation?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * F45FFACC-xxx

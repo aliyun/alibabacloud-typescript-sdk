@@ -28,7 +28,7 @@ export declare class ModifyModelApiRequest extends $dara.Model {
     gwClusterId?: string;
     /**
      * @remarks
-     * The model API ID.
+     * The ID of the model API.
      *
      * This parameter is required.
      *
@@ -62,6 +62,7 @@ export declare class ModifyModelApiRequest extends $dara.Model {
     /**
      * @remarks
      * The protocol. Valid values:
+     *
      * * **openai**
      * * **anthropic**
      * * **bailian**
@@ -99,7 +100,7 @@ export declare class ModifyModelApiRequest extends $dara.Model {
     regionId?: string;
     /**
      * @remarks
-     * The list of routing rules. The value is a JSON array string.
+     * The list of routing rules, formatted as a JSON array string. Usage notes: Correct the value of FallbackMode in the RouteRules parameter example by replacing it with a valid value or removing the field, and add the list of valid values and their meanings for the FallbackMode subfield to the description of RouteRules.
      *
      * This parameter is required.
      *

@@ -10,7 +10,7 @@ export declare class InstallPolarClawPluginResponseBody extends $dara.Model {
     applicationId?: string;
     /**
      * @remarks
-     * The status code.
+     * The response status code.
      *
      * @example
      * 200
@@ -42,7 +42,7 @@ export declare class InstallPolarClawPluginResponseBody extends $dara.Model {
     ok?: boolean;
     /**
      * @remarks
-     * The ID of the installed plug-in.
+     * The ID of the installed plugin.
      *
      * @example
      * openclaw-lark
@@ -50,7 +50,7 @@ export declare class InstallPolarClawPluginResponseBody extends $dara.Model {
     pluginId?: string;
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * CDB3258F-B5DE-43C4-8935-CBA0CA******
@@ -58,7 +58,7 @@ export declare class InstallPolarClawPluginResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the gateway has been restarted.
+     * Indicates whether the gateway was restarted.
      *
      * @example
      * true

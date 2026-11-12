@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeActivationCodesRequest extends $dara.Model {
     /**
      * @remarks
-     * The ID of the Alibaba Cloud order (including virtual orders) used to purchase the activation codes.
+     * The Alibaba Cloud order ID, including virtual orders. Usage note: Append the following to the end of the AliyunOrderId description: If an empty string is passed, all activation codes are returned. This parameter is actually optional.
      *
      * This parameter is required.
      *
@@ -12,7 +12,7 @@ export declare class DescribeActivationCodesRequest extends $dara.Model {
     aliyunOrderId?: string;
     /**
      * @remarks
-     * Filters the list to return only the activation code matching the specified MAC address.
+     * The MAC address used to filter the activation codes.
      *
      * @example
      * aa:bb:cc:dd:ee:ff
@@ -22,7 +22,7 @@ export declare class DescribeActivationCodesRequest extends $dara.Model {
     ownerId?: number;
     /**
      * @remarks
-     * Page number
+     * The page number.
      *
      * @example
      * 1
@@ -30,7 +30,7 @@ export declare class DescribeActivationCodesRequest extends $dara.Model {
     pageNumber?: number;
     /**
      * @remarks
-     * Number of records to return per page
+     * The number of entries per page.
      *
      * @example
      * 30
@@ -40,7 +40,7 @@ export declare class DescribeActivationCodesRequest extends $dara.Model {
     resourceOwnerId?: number;
     /**
      * @remarks
-     * Filters the list to return only the activation code matching the specified system identifier.
+     * The system identifier used to filter the activation codes.
      *
      * @example
      * 3312548696141831911

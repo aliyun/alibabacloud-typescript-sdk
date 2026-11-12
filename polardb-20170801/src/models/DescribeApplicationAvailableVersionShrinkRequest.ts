@@ -22,6 +22,9 @@ export class DescribeApplicationAvailableVersionShrinkRequest extends $dara.Mode
   /**
    * @remarks
    * The list of application subcomponents.
+   * 
+   * @example
+   * []
    */
   componentsShrink?: string;
   /**

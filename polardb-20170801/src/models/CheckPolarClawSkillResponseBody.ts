@@ -6,6 +6,9 @@ export class CheckPolarClawSkillResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned message.
+   * 
+   * @example
+   * []
    */
   message?: string[];
   /**
@@ -34,7 +37,7 @@ export class CheckPolarClawSkillResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * The request result. Valid values:
    * 
    * - **true**: The request is successful.
    * 

@@ -161,6 +161,10 @@ export class DescribeApplicationComponentPerformanceResponseBody extends $dara.M
    * 2020-09-23T02:00Z
    */
   endTime?: string;
+  /**
+   * @example
+   * []
+   */
   performanceKeys?: DescribeApplicationComponentPerformanceResponseBodyPerformanceKeys;
   /**
    * @remarks

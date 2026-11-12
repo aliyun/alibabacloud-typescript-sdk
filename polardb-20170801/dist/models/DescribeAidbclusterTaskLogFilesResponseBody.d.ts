@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeAIDBClusterTaskLogFilesResponseBodyItemsSlsLogItems extends $dara.Model {
     /**
      * @remarks
-     * The time when the log was recorded.
+     * The log time. The time is displayed in the ISO 8601 standard in UTC. The seconds can contain a fractional part.
      *
      * @example
      * 2026-01-15T14:13:50.830295892Z
@@ -18,7 +18,7 @@ export declare class DescribeAIDBClusterTaskLogFilesResponseBodyItemsSlsLogItems
     message?: string;
     /**
      * @remarks
-     * The specific point in time when the metric was recorded. The value is a UNIX timestamp. Unit: seconds.
+     * The specific time point of the monitoring metrics. The format is a UNIX timestamp in seconds.
      *
      * @example
      * 1765677660
@@ -55,7 +55,7 @@ export declare class DescribeAIDBClusterTaskLogFilesResponseBodyItems extends $d
 export declare class DescribeAIDBClusterTaskLogFilesResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The end of the time range to query.
+     * The end time of the query. The time is displayed in the ISO 8601 standard in the `YYYY-MM-DDTHH:mm:ssZ` format. The time is in UTC.
      *
      * @example
      * 2026-01-15T15:00:00Z
@@ -68,7 +68,7 @@ export declare class DescribeAIDBClusterTaskLogFilesResponseBody extends $dara.M
     items?: DescribeAIDBClusterTaskLogFilesResponseBodyItems;
     /**
      * @remarks
-     * The page number of the returned page. The default value is 1.
+     * The page number. Default value: 1.
      *
      * @example
      * 1
@@ -76,7 +76,7 @@ export declare class DescribeAIDBClusterTaskLogFilesResponseBody extends $dara.M
     pageNumber?: number;
     /**
      * @remarks
-     * The total number of entries that meet the query conditions. This parameter is optional and may not be returned.
+     * The total number of entries that meet the query conditions. This parameter is optional and may not be returned by default.
      *
      * @example
      * 7
@@ -84,7 +84,7 @@ export declare class DescribeAIDBClusterTaskLogFilesResponseBody extends $dara.M
     pageRecordCount?: number;
     /**
      * @remarks
-     * The maximum number of records returned for the current request.
+     * The maximum number of entries returned for the current request.
      *
      * @example
      * 30
@@ -92,7 +92,7 @@ export declare class DescribeAIDBClusterTaskLogFilesResponseBody extends $dara.M
     pageSize?: number;
     /**
      * @remarks
-     * The ID of the request.
+     * The request ID.
      *
      * @example
      * 7E2FE3BB-C677-5FF9-9FC5-9CF364BD6BE5
@@ -100,7 +100,7 @@ export declare class DescribeAIDBClusterTaskLogFilesResponseBody extends $dara.M
     requestId?: string;
     /**
      * @remarks
-     * The start of the time range to query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format and is displayed in UTC.
+     * The start time of the query. Specify the time in the `yyyy-MM-ddTHH:mm:ssZ` format. The time must be in UTC.
      *
      * @example
      * 2026-01-15T14:00:00Z

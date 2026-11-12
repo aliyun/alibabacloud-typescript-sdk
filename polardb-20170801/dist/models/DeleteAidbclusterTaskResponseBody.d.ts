@@ -10,7 +10,7 @@ export declare class DeleteAIDBClusterTaskResponseBody extends $dara.Model {
     DBClusterId?: string;
     /**
      * @remarks
-     * The ID of the PolarDB database instance for the AI model service.
+     * The ID of the PolarDB instance for AI model services.
      *
      * @example
      * pc-2zejpr***

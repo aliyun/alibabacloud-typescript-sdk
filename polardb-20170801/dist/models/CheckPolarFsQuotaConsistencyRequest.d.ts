@@ -2,11 +2,10 @@ import * as $dara from '@darabonba/typescript';
 export declare class CheckPolarFsQuotaConsistencyRequest extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether to repair an inconsistent quota. Valid values:
+     * Specifies whether to repair inconsistent quotas. Valid values:
      *
-     * - false
-     *
-     * - true
+     * * false
+     * * true
      *
      * @example
      * false
@@ -16,9 +15,8 @@ export declare class CheckPolarFsQuotaConsistencyRequest extends $dara.Model {
      * @remarks
      * Specifies whether to calculate the total usage of the directory in strict mode. Valid values:
      *
-     * - false
-     *
-     * - true
+     * * false
+     * * true
      *
      * @example
      * false
@@ -26,7 +24,7 @@ export declare class CheckPolarFsQuotaConsistencyRequest extends $dara.Model {
     enableStrictCalculate?: boolean;
     /**
      * @remarks
-     * The directory path.
+     * The directory.
      *
      * @example
      * /test
@@ -34,7 +32,7 @@ export declare class CheckPolarFsQuotaConsistencyRequest extends $dara.Model {
     path?: string;
     /**
      * @remarks
-     * The ID of the PolarFS instance.
+     * The PolarFS instance ID.
      *
      * This parameter is required.
      *

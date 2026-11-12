@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class RestartAIDBClusterResponseBody extends $dara.Model {
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * 24A1990B-4F6E-482B-B8CB-75C612******

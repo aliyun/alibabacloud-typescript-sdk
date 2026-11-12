@@ -32,7 +32,7 @@ export declare class CreateRateLimitPolicyRequest extends $dara.Model {
     rateLimitTpm?: string;
     /**
      * @remarks
-     * The ID of the region.
+     * The region ID.
      *
      * @example
      * cn-beijing
@@ -40,7 +40,7 @@ export declare class CreateRateLimitPolicyRequest extends $dara.Model {
     regionId?: string;
     /**
      * @remarks
-     * The ID of the consumer group or consumer.
+     * The ID of the throttling dimension (ConsumerGroup ID or Consumer ID).
      *
      * This parameter is required.
      *
@@ -50,11 +50,11 @@ export declare class CreateRateLimitPolicyRequest extends $dara.Model {
     scopeRefId?: string;
     /**
      * @remarks
-     * The rate limiting dimension. Valid values:
+     * The throttling dimension. Valid values:
      *
-     * - **ConsumerGroup**: Consumer group
+     * - **ConsumerGroup**: user group
      *
-     * - **Consumer**: Consumer
+     * - **Consumer**: user
      *
      * This parameter is required.
      *

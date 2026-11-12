@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ModifyAIDBClusterTaskRequest extends $dara.Model {
     /**
      * @remarks
-     * The task ID.
+     * The task ID. Note: This parameter refers to the training task ID, not the cluster ID. You can obtain a valid value by calling CreateAIDBClusterTask.
      *
      * @example
      * pm-2ze9***
@@ -11,7 +11,7 @@ export declare class ModifyAIDBClusterTaskRequest extends $dara.Model {
     /**
      * @remarks
      * The operation to perform. Valid values:
-     * * **stop**: Stops training. This value takes effect only for tasks that are currently in the training state.
+     * * **stop**: Stops the training. This value takes effect only for tasks that are in the training state.
      *
      * @example
      * stop

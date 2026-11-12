@@ -13,7 +13,11 @@ export class DeletePolarFsObjectsShrinkRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The list of objects to delete.
+   * The list of files to delete. Parameter value examples:
+   * - **Cold Storage Edition** Example directory path to delete: test001/
+   * - **Cold Storage Edition** Example file path to delete: test001/file.txt
+   * - **Basic Edition** Example directory path to delete: /dir
+   * - **Basic Edition** Example file path to delete: /dir/file.txt
    * 
    * This parameter is required.
    */

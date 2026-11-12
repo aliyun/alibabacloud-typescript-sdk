@@ -15,7 +15,7 @@ export class ListLakebaseS3AccountsResponseBodyS3Accounts extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
-   * The access key of the S3 account.
+   * The AccessKey ID of the S3 account.
    * 
    * @example
    * accname
@@ -23,7 +23,7 @@ export class ListLakebaseS3AccountsResponseBodyS3Accounts extends $dara.Model {
   userAccAk?: string;
   /**
    * @remarks
-   * The secret key of the S3 account (displayed in masked format).
+   * The AccessKey secret of the S3 account (masked).
    * 
    * @example
    * password***
@@ -81,7 +81,7 @@ export class ListLakebaseS3AccountsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of S3 accounts.
+   * The S3 accounts.
    */
   s3Accounts?: ListLakebaseS3AccountsResponseBodyS3Accounts[];
   /**

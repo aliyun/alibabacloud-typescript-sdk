@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateGlobalDataNetworkRequest extends $dara.Model {
     /**
      * @remarks
-     * The description or remarks for the GDN.
+     * The description or remark of the GDN.
      *
      * @example
      * mygdn
@@ -10,7 +10,7 @@ export declare class CreateGlobalDataNetworkRequest extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * Destination path
+     * The destination path.
      *
      * @example
      * /
@@ -18,7 +18,7 @@ export declare class CreateGlobalDataNetworkRequest extends $dara.Model {
     destinationFileSystemPath?: string;
     /**
      * @remarks
-     * Target PolarFileSystem (PolarFS) instance
+     * The destination Polarlakebase instance. Note: This parameter is required.
      *
      * @example
      * pfs-xxx
@@ -26,7 +26,7 @@ export declare class CreateGlobalDataNetworkRequest extends $dara.Model {
     destinationId?: string;
     /**
      * @remarks
-     * The region of the destination PolarFS instance.
+     * The region of the destination Polarlakebase instance.
      *
      * @example
      * cn-beijing
@@ -34,11 +34,9 @@ export declare class CreateGlobalDataNetworkRequest extends $dara.Model {
     destinationRegion?: string;
     /**
      * @remarks
-     * The type of the destination instance. Valid values:
-     *
-     * - **pfs**: PolarFS High-Performance Edition.
-     *
-     * - **pcs**: PolarFS Cold Storage Edition.
+     * The destination type. Valid values:
+     *   - **pfs**: Polarlakebase High-performance Edition.
+     *   - **pcs**: Polarlakebase Cold Storage Edition.
      *
      * @example
      * pfs
@@ -46,13 +44,11 @@ export declare class CreateGlobalDataNetworkRequest extends $dara.Model {
     destinationType?: string;
     /**
      * @remarks
-     * Whether to freeze the source path during transmission. Valid values:
+     * Specifies whether to freeze the source path during data transmission. Valid values:
+     *   - **true**: Freezes the source path.
+     *   - **false**: Does not freeze the source path.
      *
-     * - **true**: Freeze.
-     *
-     * - **false**: Do not freeze.
-     *
-     * > Currently only supports oss source.
+     * > Currently, only OSS sources are supported.
      *
      * @example
      * true
@@ -68,7 +64,7 @@ export declare class CreateGlobalDataNetworkRequest extends $dara.Model {
     sourceFileSystemPath?: string;
     /**
      * @remarks
-     * Source PolarFileSystem (PolarFS) instance.
+     * The source Polarlakebase instance. Note: This parameter is required.
      *
      * @example
      * pcs-xxx
@@ -76,7 +72,7 @@ export declare class CreateGlobalDataNetworkRequest extends $dara.Model {
     sourceId?: string;
     /**
      * @remarks
-     * The region of the source PolarFS instance.
+     * The region of the source Polarlakebase instance.
      *
      * @example
      * cn-wulanchabu
@@ -84,11 +80,9 @@ export declare class CreateGlobalDataNetworkRequest extends $dara.Model {
     sourceRegion?: string;
     /**
      * @remarks
-     * The type of the source instance. Valid values:
-     *
-     * - **pfs**: PolarFS High-Performance Edition.
-     *
-     * - **pcs**: PolarFS Cold Storage Edition.
+     * The source type. Valid values:
+     *   - **pfs**: Polarlakebase High-performance Edition.
+     *   - **pcs**: Polarlakebase Cold Storage Edition.
      *
      * @example
      * pcs

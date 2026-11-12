@@ -12,7 +12,7 @@ export declare class DescribePolarClawSkillDetailRequest extends $dara.Model {
     applicationId?: string;
     /**
      * @remarks
-     * The Skill identifier.
+     * The skill identifier.
      *
      * This parameter is required.
      *

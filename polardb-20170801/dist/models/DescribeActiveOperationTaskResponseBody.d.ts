@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
     /**
      * @remarks
-     * The time when the task was created. The time is in the `yyyy-MM-ddTHH:mmZ` format (UTC).
+     * The time when the task was created. The time is displayed in the `yyyy-MM-ddTHH:mmZ` format (UTC).
      *
      * @example
      * 2020-06-09T22:00:42Z
@@ -26,7 +26,7 @@ export declare class DescribeActiveOperationTaskResponseBodyItems extends $dara.
     dbVersion?: string;
     /**
      * @remarks
-     * The latest deadline for adjusting the task execution time. The time is in the `yyyy-MM-ddTHH:mmZ` format (UTC).
+     * The latest deadline within the adjustable range for task execution time. The time is displayed in the `yyyy-MM-ddTHH:mmZ` format (UTC).
      *
      * @example
      * 2020-06-11T15:59:59Z
@@ -50,7 +50,7 @@ export declare class DescribeActiveOperationTaskResponseBodyItems extends $dara.
     insName?: string;
     /**
      * @remarks
-     * The modification time. The time is in the `yyyy-MM-ddTHH:mmZ` format (UTC).
+     * The time when the task was modified. The time is displayed in the `yyyy-MM-ddTHH:mmZ` format (UTC).
      *
      * @example
      * 2020-06-09T22:00:42Z
@@ -58,7 +58,7 @@ export declare class DescribeActiveOperationTaskResponseBodyItems extends $dara.
     modifiedTime?: string;
     /**
      * @remarks
-     * The preparation time before the transient disconnection. The time is in the `HH:mm:ss` format.
+     * The preparation time before the transient disconnection. The time is displayed in the `HH:mm:ss` format.
      *
      * @example
      * 04:00:00
@@ -82,7 +82,7 @@ export declare class DescribeActiveOperationTaskResponseBodyItems extends $dara.
     resultInfo?: string;
     /**
      * @remarks
-     * The time when the task is executed in the background. The time is in the `yyyy-MM-ddTHH:mmZ` format (UTC).
+     * The time when the task is executed in the background. The time is displayed in the `yyyy-MM-ddTHH:mmZ` format (UTC).
      *
      * @example
      * 2020-06-09T18:00:00Z
@@ -93,14 +93,14 @@ export declare class DescribeActiveOperationTaskResponseBodyItems extends $dara.
      * The task status.
      * * If you set `IsHistory` to **0**, the details of the pending task status are returned. Valid values:
      *
-     *     * **2**: waiting for the user to set the task start time
-     *     * **3**: waiting to be processed
-     *     * **4**: being processed
+     *     * **2**: Waiting for the user to set the task start time.
+     *     * **3**: Waiting to be processed.
+     *     * **4**: The task is being processed.
      *
      * * If you set `IsHistory` to **1**, the details of the historical task status are returned. Valid values:
-     *      * **5**: task completed and executed successfully
-     *      * **6**: task completed but execution failed
-     *      * **7**: task canceled
+     *      * **5**: The task is completed and executed successfully.
+     *      * **6**: The task is completed but failed.
+     *      * **7**: The task is canceled.
      *
      * @example
      * 5
@@ -108,7 +108,7 @@ export declare class DescribeActiveOperationTaskResponseBodyItems extends $dara.
     status?: number;
     /**
      * @remarks
-     * The time of the transient disconnection. The time is in the `yyyy-MM-ddTHH:mmZ` format (UTC).
+     * The time when the transient disconnection occurs. The time is displayed in the `yyyy-MM-ddTHH:mmZ` format (UTC).
      *
      * @example
      * 2020-06-09T22:00:00Z
@@ -144,7 +144,7 @@ export declare class DescribeActiveOperationTaskResponseBodyItems extends $dara.
 export declare class DescribeActiveOperationTaskResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The task list.
+     * The list of tasks.
      */
     items?: DescribeActiveOperationTaskResponseBodyItems[];
     /**

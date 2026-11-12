@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The number of all undeleted branches in the project, including hibernated branches and branches not bound to compute nodes. This parameter is empty if not provided by earlier backend versions, which does not indicate zero branches.
+   * The number of undeleted branches.
    * 
    * @example
    * 3
@@ -13,9 +13,9 @@ export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
   branchCount?: number;
   /**
    * @remarks
-   * The creation time.
+   * The time when the project was created.
    * 
-   * The time follows the ISO 8601 standard in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The time is in ISO 8601 format in the UTC time zone (YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-06-10T11:00:00Z
@@ -47,7 +47,7 @@ export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
   defaultBranchName?: string;
   /**
    * @remarks
-   * The description.
+   * The description of the project.
    * 
    * @example
    * Production analytics database
@@ -55,7 +55,7 @@ export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The retention period of recent records for the project. This parameter may be empty for earlier projects. To query the current effective value, call DescribeAgenticDBProjectHistoryRetention.
+   * The retention period of historical data, in seconds.
    * 
    * @example
    * 604800
@@ -63,7 +63,7 @@ export class DescribeAgenticDBProjectsResponseBodyItems extends $dara.Model {
   historyRetentionSeconds?: number;
   /**
    * @remarks
-   * Project ID
+   * The project ID.
    * 
    * @example
    * proj-a1b2c3d4e5f6
@@ -150,7 +150,7 @@ export class DescribeAgenticDBProjectsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 30
@@ -166,7 +166,7 @@ export class DescribeAgenticDBProjectsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of projects.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSharedBackupsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The end time of the backup, in UTC.
+   * The end time of the backup. The time is displayed in UTC.
    * 
    * @example
    * 2020-05-12T03:25:55Z
@@ -21,7 +21,7 @@ export class DescribeSharedBackupsResponseBodyItems extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The backup method. Only snapshot backup is supported. The value is fixed to **Snapshot**.
+   * The data backup method. Only snapshot backups are supported. The value is fixed as **Snapshot**.
    * 
    * @example
    * Snapshot
@@ -29,11 +29,9 @@ export class DescribeSharedBackupsResponseBodyItems extends $dara.Model {
   backupMethod?: string;
   /**
    * @remarks
-   * The backup mode. Valid values:
-   * 
-   * - **Automated**: automated backup
-   * 
-   * - **Manual**: manual backup
+   * The backup mode. Valid values: 
+   * * **Automated**: automatic backup
+   * * **Manual**: manual backup
    * 
    * @example
    * Manual
@@ -41,7 +39,7 @@ export class DescribeSharedBackupsResponseBodyItems extends $dara.Model {
   backupMode?: string;
   /**
    * @remarks
-   * The size of the backup set, in bytes.
+   * The size of the backup file. Unit: bytes.
    * 
    * @example
    * 4639948800
@@ -49,7 +47,7 @@ export class DescribeSharedBackupsResponseBodyItems extends $dara.Model {
   backupSetSize?: string;
   /**
    * @remarks
-   * The start time of the backup, in UTC.
+   * The start time of the backup. The time is displayed in UTC.
    * 
    * @example
    * 2020-11-15T07:30:05Z
@@ -58,10 +56,8 @@ export class DescribeSharedBackupsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The backup status. Valid values:
-   * 
-   * - **Success**: The backup is complete.
-   * 
-   * - **Failed**: The backup failed.
+   * * **Success**: The backup is completed.
+   * * **Failed**: The backup failed.
    * 
    * @example
    * Success
@@ -69,7 +65,7 @@ export class DescribeSharedBackupsResponseBodyItems extends $dara.Model {
   backupStatus?: string;
   /**
    * @remarks
-   * The backup type. Only full backups are supported. The value is fixed to **FullBackup**.
+   * The backup type. Only full backups are supported. The value is fixed as **FullBackup**.
    * 
    * @example
    * FullBackup
@@ -77,11 +73,9 @@ export class DescribeSharedBackupsResponseBodyItems extends $dara.Model {
   backupType?: string;
   /**
    * @remarks
-   * The backup level. Valid values:
-   * 
-   * - **Level-1**: Level-1 backup.
-   * 
-   * - **Level-2**: Level-2 backup.
+   * The backup set level. Valid values:
+   * * **Level-1**: level-1 backup
+   * * **Level-2**: level-2 backup
    * 
    * @example
    * Level-2
@@ -89,7 +83,7 @@ export class DescribeSharedBackupsResponseBodyItems extends $dara.Model {
   backupsLevel?: string;
   /**
    * @remarks
-   * The UNIX timestamp of the consistent snapshot, in seconds.
+   * The point in time of the consistent snapshot. The value is a UNIX timestamp. Unit: seconds.
    * 
    * @example
    * 1589253947
@@ -122,10 +116,8 @@ export class DescribeSharedBackupsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
-   * 
-   * - **Postpaid**: pay-as-you-go.
-   * 
-   * - **Prepaid**: prepaid (subscription)
+   * * **Postpaid**: pay-as-you-go
+   * * **Prepaid**: subscription
    * 
    * @example
    * Postpaid
@@ -141,7 +133,7 @@ export class DescribeSharedBackupsResponseBodyItems extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Serverless type. A value of **AgileServerless** indicates a Serverless cluster, while an empty value indicates a standard cluster.
+   * The Serverless type. A value of **AgileServerless** indicates that the current cluster is a Serverless cluster. An empty value indicates that the current cluster is one of the common clusters.
    * 
    * @example
    * AgileServerless
@@ -157,7 +149,7 @@ export class DescribeSharedBackupsResponseBodyItems extends $dara.Model {
   shareType?: string;
   /**
    * @remarks
-   * The UID of the account that shared the backup set.
+   * The UID of the sharer.
    * 
    * @example
    * 170*************
@@ -221,7 +213,7 @@ export class DescribeSharedBackupsResponseBodyItems extends $dara.Model {
 export class DescribeSharedBackupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of shared backup sets.
+   * The list of shared backup sets.
    */
   items?: DescribeSharedBackupsResponseBodyItems[];
   /**
@@ -250,7 +242,7 @@ export class DescribeSharedBackupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total record count.
+   * The total number of entries.
    * 
    * @example
    * 16

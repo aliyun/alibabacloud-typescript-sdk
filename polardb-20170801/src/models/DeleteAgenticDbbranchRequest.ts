@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAgenticDBBranchRequest extends $dara.Model {
   /**
    * @remarks
-   * The branch ID.
+   * The branch ID. You can obtain this ID by calling CreateAgenticDBBranch.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DeleteAgenticDBBranchRequest extends $dara.Model {
   branchId?: string;
   /**
    * @remarks
-   * The AgenticDB cluster ID.
+   * The AgenticDB cluster ID. You can obtain this ID by calling CreateDBCluster and setting AgenticDbType to dedicated. The ID starts with pagc-.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteAgenticDBBranchRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The project ID.
+   * The project ID. You can obtain this ID by calling CreateAgenticDBProject.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class DeleteAgenticDBBranchRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The tenant ID.
+   * The tenant ID. You can obtain this ID by calling CreateAgenticDBTenant or CreateAgenticDBProject.
    * 
    * This parameter is required.
    * 

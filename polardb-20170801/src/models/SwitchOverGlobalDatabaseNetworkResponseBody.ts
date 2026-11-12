@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchOverGlobalDatabaseNetworkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 67F2E75F-AE67-4FB2-821F-A81237EACD15

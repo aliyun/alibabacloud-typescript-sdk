@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CloseAITaskRequest extends $dara.Model {
     /**
      * @remarks
-     * The ID of the cluster.
+     * The cluster ID.
      *
      * This parameter is required.
      *
@@ -14,7 +14,7 @@ export declare class CloseAITaskRequest extends $dara.Model {
     ownerId?: number;
     /**
      * @remarks
-     * The ID of the region.
+     * The region ID.
      *
      * This parameter is required.
      *

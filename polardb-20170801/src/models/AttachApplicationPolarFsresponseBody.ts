@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachApplicationPolarFSResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Application ID
+   * The application ID.
    * 
    * @example
    * pa-**************
@@ -13,7 +13,7 @@ export class AttachApplicationPolarFSResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * PolarLakeBase instance ID
+   * The Polarlakebase instance ID.
    * 
    * @example
    * pcs-**************
@@ -21,7 +21,7 @@ export class AttachApplicationPolarFSResponseBody extends $dara.Model {
   polarFSInstanceId?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 3E5CD764-FCCA-5C9C-838E-20E0DE84B2AF

@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateConsumerRequest extends $dara.Model {
     /**
      * @remarks
-     * The consumer group ID. You can obtain the ID from the ConsumerGroupId parameter returned by the CreateConsumerGroup operation.
+     * The ID of the user group. You can obtain the ID from the ConsumerGroupId parameter returned by CreateConsumerGroup. This parameter is actually required. If it is not provided, the API returns an InvalidParameters.Format (400) error. Although the parameter is named ConsumerGroupName, you must pass the ConsumerGroupId in the cg-xxxx format. You can obtain the ID from the ConsumerGroupId field returned by CreateConsumerGroup or DescribeConsumerGroups.
      *
      * @example
      * cg-p3gk2oh55c**
@@ -10,7 +10,7 @@ export declare class CreateConsumerRequest extends $dara.Model {
     consumerGroupName?: string;
     /**
      * @remarks
-     * The gateway instance ID. You can obtain the ID from the GwClusterId parameter returned by the CreateGateway operation.
+     * The ID of the gateway instance. You can obtain the ID from the GwClusterId parameter returned by CreateGateway.
      *
      * This parameter is required.
      *
@@ -20,7 +20,7 @@ export declare class CreateConsumerRequest extends $dara.Model {
     gwClusterId?: string;
     /**
      * @remarks
-     * The key type. Default value: ApiKey. Valid values: ApiKey.
+     * The key type. Default value: ApiKey. Currently, only ApiKey is supported.
      *
      * @example
      * ApiKey
@@ -38,7 +38,7 @@ export declare class CreateConsumerRequest extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The nickname.
+     * The nickname of the user.
      *
      * @example
      * test

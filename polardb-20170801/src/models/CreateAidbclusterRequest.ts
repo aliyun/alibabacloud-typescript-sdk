@@ -13,7 +13,7 @@ export class CreateAIDBClusterRequestTimeSlices extends $dara.Model {
   beginTime?: number;
   /**
    * @remarks
-   * The end time of the query. The end time must be later than the start time. Specify the time in the `YYYY-MM-DDThh:mmZ` format. The time must be in UTC.
+   * The end time. The end time must be later than the start time. Specify the time in the `YYYY-MM-DDThh:mmZ` format. The time must be in UTC.
    * 
    * @example
    * 1758733200
@@ -54,12 +54,9 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
-   * 
-   * - **true**: enables auto-renewal.
-   * - **false**: disables auto-renewal.
-   * 
+   * - **true**: enables auto-renewal
+   * - **false**: disables auto-renewal
    * Default value: **false**.
-   * 
    * > This parameter takes effect only when the **PayType** parameter is set to **Prepaid**.
    * 
    * @example
@@ -68,9 +65,9 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   autoRenew?: string;
   /**
    * @remarks
-   * Specifies whether to automatically use coupons. Valid values:
-   * * true (default): uses coupons.
-   * * false: does not use coupons.
+   * Specifies whether to automatically apply coupons. Valid values:
+   * * **true** (default): applies coupons
+   * * **false**: does not apply coupons
    * 
    * @example
    * false
@@ -102,7 +99,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   createPublicEndpoint?: string;
   /**
    * @remarks
-   * The description of the cluster. Fuzzy match is supported.
+   * The cluster description. Fuzzy match is supported.
    * 
    * @example
    * test
@@ -118,7 +115,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The node specifications.
+   * The node specifications. Call DescribeAvailableModels to query the specifications supported by the target ModelName, and select a DBNodeClass that is compatible with the model, such as polar.pg.g4.6xlarge.gu4.
    * 
    * @example
    * polar.pg.g4.6xlarge.gu4
@@ -142,10 +139,10 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   inferenceEngine?: string;
   /**
    * @remarks
-   * The ID of the ACK cluster.
+   * The ACK cluster ID.
    * 
    * @example
-   * xxxxxxxxxxxxxxxxxxxxxxx
+   * c1234567890abcdef
    */
   kubeClusterId?: string;
   /**
@@ -153,12 +150,16 @@ export class CreateAIDBClusterRequest extends $dara.Model {
    * The Kubernetes configuration.
    * 
    * @example
-   * xxx
+   * apiVersion: v1
+   * clusters: []
+   * contexts: []
+   * kind: Config
+   * users: []
    */
   kubeConfig?: string;
   /**
    * @remarks
-   * The management mode of the Kubernetes cluster.
+   * The Kubernetes cluster management mode.
    * 
    * @example
    * self_k8s
@@ -166,7 +167,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   kubeManagement?: string;
   /**
    * @remarks
-   * aideploy
+   * The deployment type.
    * 
    * @example
    * aideploy
@@ -177,7 +178,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
    * The Kubernetes configuration.
    * 
    * @example
-   * xxx
+   * {"namespace":"default"}
    */
   kubernetesConfig?: string;
   /**
@@ -190,7 +191,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   managementMode?: string;
   /**
    * @remarks
-   * The name of the model.
+   * The model name.
    * 
    * @example
    * Qwen3-30B-A3B
@@ -211,15 +212,14 @@ export class CreateAIDBClusterRequest extends $dara.Model {
    * The password.
    * 
    * @example
-   * xxx
+   * Example@123
    */
   password?: string;
   /**
    * @remarks
-   * The billing method. Valid values: 
-   * 
-   * - **Postpaid**: pay-as-you-go.
-   * - **Prepaid**: subscription.
+   * The billing method. Valid values:
+   * - **Postpaid**: pay-as-you-go
+   * - **Prepaid**: subscription
    * 
    * This parameter is required.
    * 
@@ -229,10 +229,9 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * This parameter is required when the **PayType** parameter is set to **Prepaid**. Specifies the billing cycle of the subscription cluster. Valid values: 
-   * 
-   * - **Year**: yearly subscription.
-   * - **Month**: monthly subscription.
+   * If the billing method is **Prepaid**, this parameter is required. Specifies the billing cycle of the subscription cluster. Valid values:
+   * - **Year**: yearly. The unit is year when you select the subscription billing method.
+   * - **Month**: monthly. The unit is month when you select the subscription billing method.
    * 
    * @example
    * 5
@@ -260,7 +259,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group ID. This parameter is actually required. If it is not provided, the service returns MethodArgumentNotValidException (400). You can call the ECS DescribeSecurityGroups operation to obtain the security group ID.
    * 
    * @example
    * sg-bp**************
@@ -285,13 +284,16 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   /**
    * @remarks
    * The pay-as-you-go time ranges.
+   * 
+   * @example
+   * []
    */
   timeSlices?: CreateAIDBClusterRequestTimeSlices[];
   /**
    * @remarks
-   * The subscription duration. This parameter is required when the **PayType** parameter is set to **Prepaid**.
-   * - If the **Period** parameter is set to **Month**, the value of **UsedTime** must be an integer in the range of `[1-9]`.
-   * - If the **Period** parameter is set to **Year**, the value of **UsedTime** must be an integer in the range of `[1-3]`.
+   * The subscription duration. This parameter is required when the billing method is **Prepaid**.
+   * - If **Period** is set to **Month**, the value of **UsedTime** is an integer ranging from `1` to `9`.
+   * - If **Period** is set to **Year**, the value of **UsedTime** is an integer ranging from `1` to `3`.
    * 
    * @example
    * 1
@@ -299,7 +301,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   usedTime?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC ID.
    * 
    * This parameter is required.
    * 
@@ -309,7 +311,7 @@ export class CreateAIDBClusterRequest extends $dara.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * This parameter is required.
    * 

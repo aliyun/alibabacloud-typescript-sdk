@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAgenticDBProjectHistoryRetentionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * DBClusterId
+   * The database cluster ID.
    * 
    * @example
    * pagc-bp1abcdef1234567
@@ -13,7 +13,7 @@ export class ModifyAgenticDBProjectHistoryRetentionResponseBody extends $dara.Mo
   DBClusterId?: string;
   /**
    * @remarks
-   * The current effective history retention period for the project. For the actual recoverable range, query the branch recovery window.
+   * The effective retention period for historical data, in seconds.
    * 
    * @example
    * 604800
@@ -21,7 +21,7 @@ export class ModifyAgenticDBProjectHistoryRetentionResponseBody extends $dara.Mo
   historyRetentionSeconds?: number;
   /**
    * @remarks
-   * ProjectId
+   * The project ID.
    * 
    * @example
    * proj-a1b2c3d4e5f6
@@ -37,7 +37,7 @@ export class ModifyAgenticDBProjectHistoryRetentionResponseBody extends $dara.Mo
   requestId?: string;
   /**
    * @remarks
-   * TenantId
+   * The tenant ID.
    * 
    * @example
    * t-4b83e0da66674951

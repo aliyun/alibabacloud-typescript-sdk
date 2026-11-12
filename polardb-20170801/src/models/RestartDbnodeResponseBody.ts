@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RestartDBNodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * D0CEC6AC-7760-409A-A0D5-E6CD86******

@@ -21,7 +21,7 @@ export class GetPolarClawConfigResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The configuration object.
+   * The configuration.
    * 
    * @example
    * {
@@ -31,7 +31,7 @@ export class GetPolarClawConfigResponseBody extends $dara.Model {
   config?: { [key: string]: any };
   /**
    * @remarks
-   * The configuration hash.
+   * The configuration hash, which is used as an optimistic lock for subsequent patch operations.
    * 
    * @example
    * 005b55a8e870aaf866598e48a6af0bdbfa3fef704770c5e1cbad99648beaa661
@@ -47,7 +47,7 @@ export class GetPolarClawConfigResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The version of OpenClaw.
+   * The OpenClaw version.
    * 
    * @example
    * 2026.3.28

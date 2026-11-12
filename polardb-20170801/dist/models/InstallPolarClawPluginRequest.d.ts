@@ -20,7 +20,7 @@ export declare class InstallPolarClawPluginRequest extends $dara.Model {
     npmPackage?: string;
     /**
      * @remarks
-     * The plug-in ID.
+     * The plugin identifier.
      *
      * This parameter is required.
      *

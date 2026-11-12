@@ -13,7 +13,7 @@ export class DescribeAgenticDBTenantApiKeysResponseBodyItems extends $dara.Model
   apiKeyId?: string;
   /**
    * @remarks
-   * The masked API key value.
+   * The masked API key.
    * 
    * @example
    * pagc_key_cGFnYy1icDFhMmIz****
@@ -21,9 +21,7 @@ export class DescribeAgenticDBTenantApiKeysResponseBodyItems extends $dara.Model
   apiKeyMasked?: string;
   /**
    * @remarks
-   * The time when the API key was created.
-   * 
-   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The creation time. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2026-06-10T10:30:00Z
@@ -31,7 +29,7 @@ export class DescribeAgenticDBTenantApiKeysResponseBodyItems extends $dara.Model
   createTime?: string;
   /**
    * @remarks
-   * The description of the API key.
+   * The description.
    * 
    * @example
    * MCP server token
@@ -39,9 +37,7 @@ export class DescribeAgenticDBTenantApiKeysResponseBodyItems extends $dara.Model
   description?: string;
   /**
    * @remarks
-   * The time when the API key expires.
-   * 
-   * The time is in ISO 8601 format in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The expiration time. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2027-01-01T00:00:00Z
@@ -49,7 +45,7 @@ export class DescribeAgenticDBTenantApiKeysResponseBodyItems extends $dara.Model
   expireTime?: string;
   /**
    * @remarks
-   * The status of the API key.
+   * The status.
    * 
    * @example
    * Active
@@ -122,7 +118,7 @@ export class DescribeAgenticDBTenantApiKeysResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 30
@@ -138,7 +134,7 @@ export class DescribeAgenticDBTenantApiKeysResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 2

@@ -21,7 +21,7 @@ export class CreateAIDBClusterTaskResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * CED079B7-A408-41A1-BFF1-EC608E******

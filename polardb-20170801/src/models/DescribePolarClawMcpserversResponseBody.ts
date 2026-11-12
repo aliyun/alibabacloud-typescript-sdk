@@ -21,7 +21,7 @@ export class DescribePolarClawMCPServersResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The message returned for the request.
+   * The response message.
    * 
    * @example
    * successful
@@ -37,7 +37,7 @@ export class DescribePolarClawMCPServersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The configurations of the MCP servers.
+   * The MCP server configurations.
    * 
    * @example
    * {

@@ -10,7 +10,7 @@ export declare class DescribeConsumerGroupsRequest extends $dara.Model {
     consumerGroupId?: string;
     /**
      * @remarks
-     * The ID of the gateway instance.
+     * The ID of the gateway instance. Usage note: The description of the GwClusterId parameter in DescribeConsumerGroups is updated to specify that it is the AI gateway instance ID. You can obtain a valid ID by calling the CreateGateway or DescribeGatewayList operation.
      *
      * This parameter is required.
      *
@@ -20,7 +20,7 @@ export declare class DescribeConsumerGroupsRequest extends $dara.Model {
     gwClusterId?: string;
     /**
      * @remarks
-     * The page number to return. The default value is 1.
+     * The page number. Default value: 1.
      *
      * @example
      * 1
@@ -28,15 +28,12 @@ export declare class DescribeConsumerGroupsRequest extends $dara.Model {
     pageNumber?: number;
     /**
      * @remarks
-     * The number of records to return per page. Valid values:
+     * The number of entries per page. Valid values:
+     * * **30**
+     * * **50**
+     * * **100**
      *
-     * - **30**
-     *
-     * - **50**
-     *
-     * - **100**
-     *
-     * The default value is 30.
+     * Default value: 30.
      *
      * @example
      * 30
@@ -44,7 +41,7 @@ export declare class DescribeConsumerGroupsRequest extends $dara.Model {
     pageSize?: number;
     /**
      * @remarks
-     * The ID of the region.
+     * The region ID.
      *
      * @example
      * cn-beijing

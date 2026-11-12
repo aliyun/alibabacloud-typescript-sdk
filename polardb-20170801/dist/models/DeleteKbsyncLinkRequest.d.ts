@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DeleteKBSyncLinkRequest extends $dara.Model {
     /**
      * @remarks
-     * The unique identifier of the knowledge base. You can obtain the ID from the response of the CreateKnowledgeBase operation.
+     * The unique identifier of the knowledge base. You can obtain it from the response of the CreateKnowledgeBase operation.
      *
      * This parameter is required.
      *
@@ -12,7 +12,7 @@ export declare class DeleteKBSyncLinkRequest extends $dara.Model {
     knowledgeBaseId?: string;
     /**
      * @remarks
-     * The ID of the synchronization link to delete. You can obtain the ID from the response of the CreateKBSyncLink operation.
+     * The ID of the synchronization link to delete. You can obtain it from the response of the CreateKBSyncLink operation.
      *
      * This parameter is required.
      *

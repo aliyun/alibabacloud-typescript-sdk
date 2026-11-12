@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DeleteConsumerRequest extends $dara.Model {
     /**
      * @remarks
-     * The consumer ID.
+     * The ID of the consumer.
      *
      * This parameter is required.
      *

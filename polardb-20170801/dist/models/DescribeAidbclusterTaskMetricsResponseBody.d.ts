@@ -18,7 +18,7 @@ export declare class DescribeAIDBClusterTaskMetricsResponseBodyItemsSlsMetricsIt
     epoch?: number;
     /**
      * @remarks
-     * The total number of steps.
+     * The global step.
      *
      * @example
      * 90
@@ -27,6 +27,8 @@ export declare class DescribeAIDBClusterTaskMetricsResponseBodyItemsSlsMetricsIt
     /**
      * @remarks
      * The log time.
+     *
+     * The time is in the ISO 8601 format and the UTC time zone. The seconds part can include a fractional component.
      *
      * @example
      * 2026-01-15T14:16:49.52140317Z
@@ -52,7 +54,7 @@ export declare class DescribeAIDBClusterTaskMetricsResponseBodyItemsSlsMetricsIt
     metricType?: string;
     /**
      * @remarks
-     * The specific point in time when the monitoring metric was collected. The value is a UNIX timestamp. Unit: seconds.
+     * The specific time point of the monitoring metrics. The format is a UNIX timestamp in seconds.
      *
      * @example
      * 1742090703
@@ -73,6 +75,9 @@ export declare class DescribeAIDBClusterTaskMetricsResponseBodyItems extends $da
     /**
      * @remarks
      * The list of metrics.
+     *
+     * @example
+     * []
      */
     slsMetricsItems?: DescribeAIDBClusterTaskMetricsResponseBodyItemsSlsMetricsItems[];
     static names(): {
@@ -97,7 +102,7 @@ export declare class DescribeAIDBClusterTaskMetricsResponseBody extends $dara.Mo
     DBClusterId?: string;
     /**
      * @remarks
-     * The end time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format in UTC.
+     * The end time of the query. Format: `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
      *
      * @example
      * 2026-01-15T15:00:00Z
@@ -106,6 +111,9 @@ export declare class DescribeAIDBClusterTaskMetricsResponseBody extends $dara.Mo
     /**
      * @remarks
      * The list.
+     *
+     * @example
+     * {}
      */
     items?: DescribeAIDBClusterTaskMetricsResponseBodyItems;
     /**
@@ -118,7 +126,7 @@ export declare class DescribeAIDBClusterTaskMetricsResponseBody extends $dara.Mo
     metricType?: string;
     /**
      * @remarks
-     * The page number of the returned page. The default value is 1.
+     * The page number of the returned page. Default value: 1.
      *
      * @example
      * 1
@@ -126,7 +134,7 @@ export declare class DescribeAIDBClusterTaskMetricsResponseBody extends $dara.Mo
     pageNumber?: number;
     /**
      * @remarks
-     * The total number of entries that match the query conditions. This parameter is optional and is not returned by default.
+     * The total number of entries that meet the query conditions. This parameter is optional and is not returned by default.
      *
      * @example
      * 5
@@ -150,7 +158,7 @@ export declare class DescribeAIDBClusterTaskMetricsResponseBody extends $dara.Mo
     relativeDbClusterId?: string;
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * 5E71541A-6007-4DCC-A38A-F872C31FEB45
@@ -158,7 +166,7 @@ export declare class DescribeAIDBClusterTaskMetricsResponseBody extends $dara.Mo
     requestId?: string;
     /**
      * @remarks
-     * The start time of the query. The time is in the `yyyy-MM-ddTHH:mm:ssZ` format in UTC.
+     * The start time of the query. Format: `yyyy-MM-ddTHH:mm:ssZ` (UTC time).
      *
      * @example
      * 2026-01-15T14:00:00Z

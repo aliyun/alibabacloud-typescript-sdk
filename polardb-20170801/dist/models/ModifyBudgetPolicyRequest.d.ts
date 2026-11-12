@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ModifyBudgetPolicyRequest extends $dara.Model {
     /**
      * @remarks
-     * The budget usage percentage that triggers an alert. Valid values: 0 to 100.
+     * The alert threshold percentage. Valid values: 0 to 100.
      *
      * @example
      * 80
@@ -10,7 +10,7 @@ export declare class ModifyBudgetPolicyRequest extends $dara.Model {
     alertThresholdPct?: string;
     /**
      * @remarks
-     * The budget amount in points.
+     * The budget points.
      *
      * @example
      * 10000
@@ -28,7 +28,7 @@ export declare class ModifyBudgetPolicyRequest extends $dara.Model {
     budgetPolicyId?: string;
     /**
      * @remarks
-     * The ID of the gateway instance.
+     * The instance ID of the gateway instance. Usage note: In the full API reference, the description of the GwClusterId parameter must specify the resource type (gateway instance), how to obtain the instance ID (which Describe or List API to invoke), and the difference between GwClusterId and DBClusterId.
      *
      * This parameter is required.
      *
@@ -38,7 +38,7 @@ export declare class ModifyBudgetPolicyRequest extends $dara.Model {
     gwClusterId?: string;
     /**
      * @remarks
-     * The ID of the region.
+     * The region ID.
      *
      * @example
      * cn-beijing
@@ -46,7 +46,7 @@ export declare class ModifyBudgetPolicyRequest extends $dara.Model {
     regionId?: string;
     /**
      * @remarks
-     * The day of the month when the budget is reset. Valid values: 1 to 28.
+     * The day of the month when the reset occurs. Valid values: 1 to 28.
      *
      * @example
      * 2

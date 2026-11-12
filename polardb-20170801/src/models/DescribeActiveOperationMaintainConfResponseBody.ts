@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
-   * 
-   * The time is in the YYYY-MM-DDTHH:mm:ss format.
+   * The time when the configuration was created. Format: YYYY-MM-DDTHH:mm:ss.
    * 
    * @example
    * 2023-07-04T19:28:46
@@ -16,9 +14,8 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   /**
    * @remarks
    * The cycle time.
-   * 
-   * - If CycleType is set to Month, a number from 1 to 28 is returned, indicating the day of the month. Multiple values are separated by commas (,).
-   * - If CycleType is set to Week, a number from 1 to 7 is returned, indicating the day of the week. Multiple values are separated by commas (,).
+   * - If CycleType is set to Month, the return value is a number from 1 to 28, which indicates the day of the month. Multiple values are separated by commas (,).
+   * - If CycleType is set to Week, the return value is a number from 1 to 7, which indicates the day of the week. Multiple values are separated by commas (,).
    * 
    * @example
    * 1
@@ -27,19 +24,16 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   /**
    * @remarks
    * The cycle type. Valid values:
-   * 
-   * - Month: monthly
-   * - Week: weekly
+   * - Month: Monthly.
+   * - Week: Weekly.
    * 
    * @example
-   * Week
+   * 1
    */
   cycleType?: number;
   /**
    * @remarks
-   * The end time of the maintenance window.
-   * 
-   * The time is in UTC in the HH:mmZ format.
+   * The end time of the maintenance window. The time is in UTC and in the HH:mmZ format.
    * 
    * @example
    * 09:00Z
@@ -47,9 +41,7 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   maintainEndTime?: string;
   /**
    * @remarks
-   * The start time of the maintenance window.
-   * 
-   * The time is in UTC. Example: 8:00Z.
+   * The start time of the maintenance window. The time is in UTC, for example, 8:00Z.
    * 
    * @example
    * 8:00Z
@@ -57,9 +49,7 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   maintainStartTime?: string;
   /**
    * @remarks
-   * The modification time.
-   * 
-   * The time is in the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
+   * The time when the configuration was modified. The time follows the ISO 8601 standard and is in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2025-04-02T02:10:08Z
@@ -67,7 +57,9 @@ export class DescribeActiveOperationMaintainConfResponseBodyConfig extends $dara
   modifiedTime?: string;
   /**
    * @remarks
-   * Indicates whether the configuration is effective. Valid values: 1 (yes) and 2 (no).
+   * Indicates whether the configuration is effective. Valid values:
+   * - 1: Yes.
+   * - 2: No.
    * 
    * @example
    * 1
@@ -114,7 +106,9 @@ export class DescribeActiveOperationMaintainConfResponseBody extends $dara.Model
   config?: DescribeActiveOperationMaintainConfResponseBodyConfig;
   /**
    * @remarks
-   * Indicates whether the configuration has been set. Valid values: 1 (yes) and 0 (no). On the first visit, HasConfig is 0.
+   * Indicates whether the configuration has been created. Valid values:
+   * - 1: Yes.
+   * - 0: No. If this is your first access, the value is 0.
    * 
    * @example
    * 0

@@ -13,7 +13,7 @@ export class DescribeAccountsResponseBodyAccountsDatabasePrivileges extends $dar
   accountPrivilege?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * DBtest
@@ -45,7 +45,7 @@ export class DescribeAccountsResponseBodyAccountsDatabasePrivileges extends $dar
 export class DescribeAccountsResponseBodyAccounts extends $dara.Model {
   /**
    * @remarks
-   * The description of the database account.
+   * The description of the account.
    * 
    * @example
    * test
@@ -56,7 +56,6 @@ export class DescribeAccountsResponseBodyAccounts extends $dara.Model {
    * The lock status of the account. Valid values:
    * 
    * - **UnLock**: The account is not locked.
-   * 
    * - **Lock**: The account is locked.
    * 
    * @example
@@ -65,7 +64,7 @@ export class DescribeAccountsResponseBodyAccounts extends $dara.Model {
   accountLockState?: string;
   /**
    * @remarks
-   * The name of the database account.
+   * The name of the account.
    * 
    * @example
    * test_acc
@@ -73,7 +72,7 @@ export class DescribeAccountsResponseBodyAccounts extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The validity period of the password.
+   * The validity period of the account password. A value of `undefined` indicates that no validity period is set. A value of `infinity` indicates that the password never expires. A value of `-infinity` indicates that the password has expired. If an expiration time is specified, a UTC time string in the ISO 8601 format (`YYYY-MM-DDThh:mm:ssZ`) is returned instead of a timestamp.
    * 
    * @example
    * undefined
@@ -81,12 +80,10 @@ export class DescribeAccountsResponseBodyAccounts extends $dara.Model {
   accountPasswordValidTime?: string;
   /**
    * @remarks
-   * The status of the database account. Valid values:
+   * The status of the account. Valid values:
    * 
    * - **Creating**: The account is being created.
-   * 
    * - **Available**: The account is available.
-   * 
    * - **Deleting**: The account is being deleted.
    * 
    * @example
@@ -97,11 +94,9 @@ export class DescribeAccountsResponseBodyAccounts extends $dara.Model {
    * @remarks
    * The type of the account. Valid values:
    * 
-   * - **Normal**: standard account.
-   * 
-   * - **Super**: privileged account.
-   * 
-   * - **ReadOnly**: global read-only account.
+   * - **Normal**: standard account
+   * - **Super**: privileged account
+   * - **ReadOnly**: global read-only account
    * 
    * @example
    * Normal
@@ -109,7 +104,7 @@ export class DescribeAccountsResponseBodyAccounts extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
-   * The list of database permissions that are granted to the account.
+   * The details of the database permissions owned by the account.
    */
   databasePrivileges?: DescribeAccountsResponseBodyAccountsDatabasePrivileges[];
   static names(): { [key: string]: string } {
@@ -151,12 +146,12 @@ export class DescribeAccountsResponseBodyAccounts extends $dara.Model {
 export class DescribeAccountsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the account.
+   * The details of the account information.
    */
   accounts?: DescribeAccountsResponseBodyAccounts[];
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number.
    * 
    * @example
    * 1
@@ -164,7 +159,7 @@ export class DescribeAccountsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries on the current page.
    * 
    * @example
    * 1

@@ -29,7 +29,7 @@ export class DescribeLakebaseMountParameterGroupChangeLogsResponseBodyChangeLogs
   creator?: string;
   /**
    * @remarks
-   * Indicates whether the change has been applied. Valid values: 0 (no) and 1 (yes).
+   * Indicates whether the change is applied. Valid values: 0: No. 1: Yes.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribeLakebaseMountParameterGroupChangeLogsResponseBodyChangeLogs
   modifyTime?: string;
   /**
    * @remarks
-   * The new value after the change. This parameter is empty for delete operations.
+   * The new value after the change. This value is empty if the change type is delete.
    * 
    * @example
    * 2
@@ -53,7 +53,7 @@ export class DescribeLakebaseMountParameterGroupChangeLogsResponseBodyChangeLogs
   newValue?: string;
   /**
    * @remarks
-   * The old value before the change. This parameter is empty for create operations.
+   * The old value before the change. This value is empty if the change type is create.
    * 
    * @example
    * 1
@@ -105,7 +105,7 @@ export class DescribeLakebaseMountParameterGroupChangeLogsResponseBodyChangeLogs
 export class DescribeLakebaseMountParameterGroupChangeLogsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The change records, sorted in descending order by CreateTime. An empty array is returned if no data is found.
+   * The change logs, sorted in descending order by CreateTime. An empty array is returned if no data is found.
    */
   changeLogs?: DescribeLakebaseMountParameterGroupChangeLogsResponseBodyChangeLogs[];
   /**

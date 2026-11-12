@@ -18,7 +18,7 @@ export declare class CreateBudgetPolicyResponseBody extends $dara.Model {
     gwClusterId?: string;
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * 3E5CD764-FCCA-5C9C-838E-20E0DE84B2AF

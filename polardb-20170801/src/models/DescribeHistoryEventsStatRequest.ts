@@ -16,7 +16,7 @@ export class DescribeHistoryEventsStatRequest extends $dara.Model {
   archiveStatus?: string;
   /**
    * @remarks
-   * The start time of the time range for task start times to query, in the YYYY-MM-DDThh:mm:ssZ format (UTC).
+   * The start time of the query time range for the task start time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time must be in UTC. This parameter is required. If you do not specify this parameter, the service returns a Param.Invalid (400) error.
    * 
    * @example
    * 2025-01-02T11:31:03Z
@@ -32,7 +32,7 @@ export class DescribeHistoryEventsStatRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The end time of the time range for task start times to query, in the YYYY-MM-DDThh:mm:ssZ format (UTC).
+   * The end time of the query time range for the task start time. Specify the time in the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time must be in UTC. This parameter is required. If you do not specify this parameter, the service returns a Param.Invalid (400) error.
    * 
    * @example
    * 2025-01-03T12:31:03Z

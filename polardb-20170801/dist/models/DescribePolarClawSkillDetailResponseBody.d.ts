@@ -10,7 +10,7 @@ export declare class DescribePolarClawSkillDetailResponseBodyLatestVersion exten
     changelog?: string;
     /**
      * @remarks
-     * The version publish timestamp in Unix milliseconds.
+     * The version release timestamp in Unix milliseconds.
      *
      * @example
      * 1767545394459
@@ -54,7 +54,7 @@ export declare class DescribePolarClawSkillDetailResponseBodyOwner extends $dara
     handle?: string;
     /**
      * @remarks
-     * The profile picture URL.
+     * The avatar URL.
      *
      * @example
      * https://avatars.githubusercontent.com/u/58493?v=4
@@ -98,7 +98,7 @@ export declare class DescribePolarClawSkillDetailResponseBodySkillStats extends 
     downloads?: number;
     /**
      * @remarks
-     * The total number of installations of all time.
+     * The total number of historical installations.
      *
      * @example
      * 3787
@@ -106,7 +106,7 @@ export declare class DescribePolarClawSkillDetailResponseBodySkillStats extends 
     installsAllTime?: number;
     /**
      * @remarks
-     * The current number of installations.
+     * The number of current installations.
      *
      * @example
      * 3664
@@ -142,7 +142,7 @@ export declare class DescribePolarClawSkillDetailResponseBodySkillStats extends 
 export declare class DescribePolarClawSkillDetailResponseBodySkill extends $dara.Model {
     /**
      * @remarks
-     * The first publish timestamp in Unix milliseconds.
+     * The initial release timestamp in Unix milliseconds.
      *
      * @example
      * 1767545394459
@@ -158,7 +158,7 @@ export declare class DescribePolarClawSkillDetailResponseBodySkill extends $dara
     displayName?: string;
     /**
      * @remarks
-     * The Skill identifier.
+     * The skill identifier.
      *
      * @example
      * weather
@@ -171,7 +171,7 @@ export declare class DescribePolarClawSkillDetailResponseBodySkill extends $dara
     stats?: DescribePolarClawSkillDetailResponseBodySkillStats;
     /**
      * @remarks
-     * The brief description.
+     * The short description.
      *
      * @example
      * Get current weather and forecasts (no API key required).
@@ -191,7 +191,7 @@ export declare class DescribePolarClawSkillDetailResponseBodySkill extends $dara
     };
     /**
      * @remarks
-     * The last update timestamp in Unix milliseconds.
+     * The last updated timestamp in Unix milliseconds.
      *
      * @example
      * 1778485729679
@@ -240,12 +240,12 @@ export declare class DescribePolarClawSkillDetailResponseBody extends $dara.Mode
     message?: string;
     /**
      * @remarks
-     * The Skill author information.
+     * The skill author information.
      */
     owner?: DescribePolarClawSkillDetailResponseBodyOwner;
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * F45FFACC-xxx
@@ -253,7 +253,7 @@ export declare class DescribePolarClawSkillDetailResponseBody extends $dara.Mode
     requestId?: string;
     /**
      * @remarks
-     * The core information of the Skill.
+     * The core skill information.
      */
     skill?: DescribePolarClawSkillDetailResponseBodySkill;
     static names(): {

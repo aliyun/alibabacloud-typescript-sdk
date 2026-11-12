@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDatabasesZonalResponseBodyDatabasesAccounts extends $dara.Model {
   /**
    * @remarks
-   * The account name.
+   * The name of the account.
    * 
    * > If the cluster is a PolarDB for MySQL cluster, privileged accounts are not included.
    * 
@@ -17,15 +17,11 @@ export class DescribeDatabasesZonalResponseBodyDatabasesAccounts extends $dara.M
    * @remarks
    * The permissions of the account. Valid values:
    * 
-   * - **ReadWrite**
-   * 
-   * - **ReadOnly**
-   * 
-   * - **DMLOnly**
-   * 
-   * - **DDLOnly**
-   * 
-   * - **ReadIndex**
+   * * **ReadWrite**: read and write
+   * * **ReadOnly**: read-only 
+   * * **DMLOnly**: DML only
+   * * **DDLOnly**: DDL only
+   * * **ReadIndex**: read and index
    * 
    * @example
    * ReadOnly
@@ -33,13 +29,11 @@ export class DescribeDatabasesZonalResponseBodyDatabasesAccounts extends $dara.M
   accountPrivilege?: string;
   /**
    * @remarks
-   * The status of the account. Valid values:
+   * The status of the account. Valid values: 
    * 
-   * - **Creating**
-   * 
-   * - **Available**
-   * 
-   * - **Deleting**
+   * - **Creating**: The account is being created.
+   * - **Available**: The account is available.
+   * - **Deleting**: The account is being deleted.
    * 
    * @example
    * Available
@@ -47,13 +41,11 @@ export class DescribeDatabasesZonalResponseBodyDatabasesAccounts extends $dara.M
   accountStatus?: string;
   /**
    * @remarks
-   * The authorization status. Valid values:
+   * The authorization status. Valid values: 
    * 
-   * - **Empowering**: Permissions are being granted.
-   * 
-   * - **Empowered**: Permissions are granted.
-   * 
-   * - **Removing**: Permissions are being revoked.
+   * - **Empowering**: The account is being authorized.
+   * - **Empowered**: The account is authorized.
+   * - **Removing**: The permissions are being revoked.
    * 
    * @example
    * Empowered
@@ -96,7 +88,7 @@ export class DescribeDatabasesZonalResponseBodyDatabases extends $dara.Model {
   accounts?: DescribeDatabasesZonalResponseBodyDatabasesAccounts[];
   /**
    * @remarks
-   * The character set.
+   * The name of the character set.
    * 
    * @example
    * utf8mb4
@@ -120,13 +112,11 @@ export class DescribeDatabasesZonalResponseBodyDatabases extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The status of the database. Valid values:
+   * The status of the database. Valid values: 
    * 
-   * - **Creating**
-   * 
-   * - **Running**
-   * 
-   * - **Deleting**
+   * - **Creating**: The database is being created.
+   * - **Running**: The database is running.
+   * - **Deleting**: The database is being deleted.
    * 
    * @example
    * Running
@@ -134,13 +124,10 @@ export class DescribeDatabasesZonalResponseBodyDatabases extends $dara.Model {
   DBStatus?: string;
   /**
    * @remarks
-   * The database engine type. Valid values:
-   * 
-   * - **MySQL**
-   * 
-   * - **Oracle**
-   * 
-   * - **PostgreSQL**
+   * The type of the database engine. Valid values:
+   * * **MySQL**
+   * * **Oracle**
+   * * **PostgreSQL**
    * 
    * @example
    * MySQL
@@ -148,7 +135,7 @@ export class DescribeDatabasesZonalResponseBodyDatabases extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The ID of the primary node that corresponds to the database in a Multi-master Cluster (Database/Table) edition cluster.
+   * The ID of the primary node that corresponds to the database in a Multi-master Cluster (Database/Table) Edition cluster.
    * 
    * @example
    * 2
@@ -198,7 +185,7 @@ export class DescribeDatabasesZonalResponseBody extends $dara.Model {
   databases?: DescribeDatabasesZonalResponseBodyDatabases[];
   /**
    * @remarks
-   * The maximum number of entries returned for the current request.
+   * The maximum number of entries to return in this call.
    * 
    * @example
    * 10
@@ -206,7 +193,7 @@ export class DescribeDatabasesZonalResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The query token. This is the NextToken value from the previous API call. If there are no more results, do not specify this parameter.
+   * The query token. Set the value to the NextToken value returned from the previous API call. If no subsequent query is required, do not specify this parameter.
    * 
    * @example
    * 212db86sca4384811e0b5e8707e******
@@ -230,7 +217,7 @@ export class DescribeDatabasesZonalResponseBody extends $dara.Model {
   pageRecordCount?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 2FED790E-FB61-4721-8C1C-07C627******

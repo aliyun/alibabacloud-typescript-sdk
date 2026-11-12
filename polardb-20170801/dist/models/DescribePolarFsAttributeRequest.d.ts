@@ -23,7 +23,7 @@ export declare class DescribePolarFsAttributeRequest extends $dara.Model {
      * @remarks
      * Specifies whether to query FUSE mount information. Valid values:
      * - **true**: Yes.
-     * - **false**: No. Default value: false.
+     * - **false**: No. This is the default value.
      *
      * @example
      * false

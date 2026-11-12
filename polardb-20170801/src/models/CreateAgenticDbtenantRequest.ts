@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAgenticDBTenantRequest extends $dara.Model {
   /**
    * @remarks
-   * The AgenticDB cluster ID.
+   * The AgenticDB cluster ID, which starts with pagc-. You can obtain this ID after creating a cluster by calling CreateDBCluster with AgenticDbType set to dedicated. Standard PolarDB cluster IDs start with pc- and are not supported by this operation.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateAgenticDBTenantRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The description of the tenant. The description can be up to 256 characters in length.
+   * The tenant description. The description can be up to 256 characters in length.
    * 
    * @example
    * Sample tenant
@@ -33,7 +33,7 @@ export class CreateAgenticDBTenantRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The tenant name. The name must be 1 to 64 characters in length, start with a letter, and contain only letters, digits, underscores (_), and hyphens (-).
+   * The tenant name.
    * 
    * This parameter is required.
    * 

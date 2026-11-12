@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolarClawSkillTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The application ID. You can call the DescribeApplications operation to obtain a valid ApplicationId value. This parameter is conditionally required. If SkillTemplateId is not specified, you must provide a valid ApplicationId.
    * 
    * @example
    * pa-**************
@@ -15,7 +15,7 @@ export class DescribePolarClawSkillTemplatesRequest extends $dara.Model {
    * @remarks
    * The application type.
    * 
-   * > If you are calling this operation for the first time, you do not need to specify this parameter.
+   * > If you call this operation for the first time, you do not need to specify this parameter.
    * 
    * @example
    * supabase
@@ -23,7 +23,7 @@ export class DescribePolarClawSkillTemplatesRequest extends $dara.Model {
   applicationType?: string;
   /**
    * @remarks
-   * The end time of the query in UTC.
+   * The end time of the query. The time is in UTC.
    * 
    * @example
    * 2022-11-16T16:00Z
@@ -31,7 +31,7 @@ export class DescribePolarClawSkillTemplatesRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The current page number.
+   * The page number.
    * 
    * @example
    * 1
@@ -49,7 +49,7 @@ export class DescribePolarClawSkillTemplatesRequest extends $dara.Model {
    * @remarks
    * The region ID.
    * 
-   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all available regions for the current account, including region IDs.
+   * > You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to query all available regions under the current account, including region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -65,7 +65,7 @@ export class DescribePolarClawSkillTemplatesRequest extends $dara.Model {
   skillTemplateId?: string;
   /**
    * @remarks
-   * The start time of the query in UTC.
+   * The start time of the query. The time is in UTC.
    * 
    * @example
    * 2022-11-15T16:00Z

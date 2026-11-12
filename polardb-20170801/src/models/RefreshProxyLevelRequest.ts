@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RefreshProxyLevelRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the PolarDB cluster.
+   * The PolarDB cluster ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RefreshProxyLevelRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether the execution is initiated by the scheduled task service. Default value: false. If this parameter is set to false and PlannedStartTime is specified, a scheduled task is created. If this parameter is set to true, the task is executed immediately.
+   * Specifies whether the execution is initiated by the scheduled task service. Default value: false. If this parameter is set to false and PlannedStartTime is specified, a scheduled task is created. If this parameter is set to true, the task is executed immediately. Usage notes: If the DBClusterStatus of the cluster is not Running, you must specify the PlannedStartTime and PlannedEndTime parameters to create a scheduled task. The description of this parameter specifies that the task can be executed immediately only when the cluster is in the Running state and this parameter is set to true.
    * 
    * @example
    * false
@@ -25,7 +25,7 @@ export class RefreshProxyLevelRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The latest time to execute the proxy specification upgrade. Specify the time in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+   * The latest time to start the proxy upgrade, in the YYYY-MM-DDThh:mm:ssZ format (UTC). Usage notes: If the DBClusterStatus of the cluster is not Running, you must specify both the PlannedStartTime and PlannedEndTime parameters to create a scheduled task. The description of the FromTimeService parameter specifies that the task can be executed immediately only when the cluster is in the Running state and FromTimeService is set to true.
    * 
    * @example
    * 2022-04-28T14:30:00Z
@@ -33,7 +33,7 @@ export class RefreshProxyLevelRequest extends $dara.Model {
   plannedEndTime?: string;
   /**
    * @remarks
-   * The earliest time to execute the proxy specification upgrade. Specify the time in the YYYY-MM-DDThh:mm:ssZ format. The time must be in UTC.
+   * The earliest time to start the proxy upgrade, in the YYYY-MM-DDThh:mm:ssZ format (UTC). Usage notes: If the DBClusterStatus of the cluster is not Running, you must specify both the PlannedStartTime and PlannedEndTime parameters to create a scheduled task. The description of the FromTimeService parameter specifies that the task can be executed immediately only when the cluster is in the Running state and FromTimeService is set to true.
    * 
    * @example
    * 2022-04-28T14:00:00Z
@@ -51,7 +51,7 @@ export class RefreshProxyLevelRequest extends $dara.Model {
   proxyTargetClass?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-************

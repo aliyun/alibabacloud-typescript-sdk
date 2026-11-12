@@ -10,9 +10,7 @@ export declare class DescribeLakebaseMountParameterGroupsResponseBodyParameterGr
     createTime?: string;
     /**
      * @remarks
-     * Indicates whether the parameter template is applied. Valid values:
-     * - 0: No.
-     * - 1: Yes.
+     * Indicates whether the parameter template is applied. Valid values: 0 (no) and 1 (yes).
      *
      * @example
      * 0
@@ -44,7 +42,7 @@ export declare class DescribeLakebaseMountParameterGroupsResponseBodyParameterGr
     parameterGroupDesc?: string;
     /**
      * @remarks
-     * The ID of the parameter template.
+     * The parameter template ID.
      *
      * @example
      * pcpg-lakebase-xxx
@@ -60,9 +58,7 @@ export declare class DescribeLakebaseMountParameterGroupsResponseBodyParameterGr
     parameterGroupName?: string;
     /**
      * @remarks
-     * The templatetype. Valid values:
-     * - 0: System.
-     * - 1: User.
+     * The templatetype. Valid values: 0 (system) and 1 (user).
      *
      * @example
      * 0

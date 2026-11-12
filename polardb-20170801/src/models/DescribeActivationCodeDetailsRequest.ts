@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActivationCodeDetailsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the activation code.
+   * The activation code ID. This parameter is required. If it is not provided, the API returns a 400 error.
    * 
    * @example
    * 123

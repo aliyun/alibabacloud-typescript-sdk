@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBClusterVpcRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster ID.
+   * The cluster ID. This operation is supported only for clusters of specific categories. MySQL Normal and Exclusive clusters are not supported. You can call the DescribeDBClusters operation to query the cluster category before you call this operation. Note: This operation is supported only for clusters of specific categories. MySQL Normal and Exclusive clusters are not supported. Before calling this operation, call DescribeDBClusters to confirm the cluster category.
    * 
    * This parameter is required.
    * 
@@ -16,10 +16,8 @@ export class ModifyDBClusterVpcRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to switch existing endpoints. Valid values:
-   * 
    * - **NONE**: Does not switch existing endpoints.
-   * 
-   * - **ALL**: Switches all existing endpoints.
+   * - **ALL**: Switches existing endpoints.
    * 
    * This parameter is required.
    * 
@@ -33,7 +31,7 @@ export class ModifyDBClusterVpcRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC).
+   * The specified VPC ID.
    * 
    * @example
    * vpc-*******************
@@ -41,7 +39,7 @@ export class ModifyDBClusterVpcRequest extends $dara.Model {
   VPCId?: string;
   /**
    * @remarks
-   * The ID of the virtual switch.
+   * The specified vSwitch ID.
    * 
    * This parameter is required.
    * 

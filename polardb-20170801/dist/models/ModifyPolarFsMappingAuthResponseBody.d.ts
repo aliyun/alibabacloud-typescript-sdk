@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ModifyPolarFsMappingAuthResponseBody extends $dara.Model {
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * 2281C6C9-CBAB-1AFD-8400-670750CF6025_2212

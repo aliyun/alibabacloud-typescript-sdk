@@ -13,7 +13,7 @@ export class EnableAIDBClusterDatasetServiceResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * C890995A-CF06-4F4D-8DB8-DD26C2******

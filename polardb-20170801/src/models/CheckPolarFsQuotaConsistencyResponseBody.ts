@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckPolarFsQuotaConsistencyResponseBodyQuotaItem extends $dara.Model {
   /**
    * @remarks
-   * The storage capacity quota.
+   * The quota capacity.
    * 
    * @example
    * 104857600
@@ -13,7 +13,7 @@ export class CheckPolarFsQuotaConsistencyResponseBodyQuotaItem extends $dara.Mod
   capacity?: number;
   /**
    * @remarks
-   * The inode quota.
+   * The number of inodes in the file system.
    * 
    * @example
    * 50000
@@ -21,7 +21,7 @@ export class CheckPolarFsQuotaConsistencyResponseBodyQuotaItem extends $dara.Mod
   inodes?: number;
   /**
    * @remarks
-   * The directory path.
+   * The path.
    * 
    * @example
    * /zookeepertest718
@@ -29,7 +29,7 @@ export class CheckPolarFsQuotaConsistencyResponseBodyQuotaItem extends $dara.Mod
   path?: string;
   /**
    * @remarks
-   * The used capacity, in bytes.
+   * The used capacity. Unit: bytes.
    * 
    * @example
    * 104857600
@@ -75,7 +75,7 @@ export class CheckPolarFsQuotaConsistencyResponseBodyQuotaItem extends $dara.Mod
 export class CheckPolarFsQuotaConsistencyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the PolarFS instance.
+   * The PolarFS instance ID.
    * 
    * @example
    * pfs-2ze0i74ka607*****
@@ -83,7 +83,10 @@ export class CheckPolarFsQuotaConsistencyResponseBody extends $dara.Model {
   polarFsInstanceId?: string;
   /**
    * @remarks
-   * An object that contains details about the quota.
+   * The quota consistency check.
+   * 
+   * @example
+   * {}
    */
   quotaItem?: CheckPolarFsQuotaConsistencyResponseBodyQuotaItem;
   /**

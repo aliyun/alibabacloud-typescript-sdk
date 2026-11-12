@@ -45,7 +45,10 @@ export class DeletePolarFsPathMappingRequestCustomBucketPathList extends $dara.M
 export class DeletePolarFsPathMappingRequest extends $dara.Model {
   /**
    * @remarks
-   * The bucket and corresponding path information.
+   * The bucket and corresponding path information. Usage notes: This parameter is required. You must provide at least one element, and each element must include Bucket (the OSS internal endpoint, in the format of {bucket}.oss-{regionId}-internal.aliyuncs.com) and Path. If this parameter is not provided or an empty array is provided, the API returns InvalidPolarFsPathList.Malformed (400).
+   * 
+   * @example
+   * []
    */
   customBucketPathList?: DeletePolarFsPathMappingRequestCustomBucketPathList[];
   /**

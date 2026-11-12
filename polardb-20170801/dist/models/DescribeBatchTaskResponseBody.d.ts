@@ -78,7 +78,7 @@ export declare class DescribeBatchTaskResponseBody extends $dara.Model {
     batchId?: string;
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * 25C70FF3-D49B-594D-BECE-0DE2BA1D8BBB
@@ -86,7 +86,7 @@ export declare class DescribeBatchTaskResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * The status of the task.
+     * The task status.
      *
      * @example
      * RUNNING
@@ -131,7 +131,7 @@ export declare class DescribeBatchTaskResponseBody extends $dara.Model {
     taskName?: string;
     /**
      * @remarks
-     * The type of the task.
+     * The task type.
      *
      * @example
      * polarclaw_install_skills
@@ -139,7 +139,7 @@ export declare class DescribeBatchTaskResponseBody extends $dara.Model {
     taskType?: string;
     /**
      * @remarks
-     * The number of entries in the list.
+     * The total number of entries in the list.
      *
      * @example
      * 10

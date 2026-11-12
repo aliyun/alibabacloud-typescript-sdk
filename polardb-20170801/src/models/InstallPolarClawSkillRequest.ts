@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InstallPolarClawSkillRequest extends $dara.Model {
   /**
    * @remarks
-   * The target agent in the workspace. If not specified, the default agent is used.
+   * The target agent in the workspace. If this parameter is not specified, the default agent is used.
    * 
    * @example
    * test1
@@ -55,7 +55,7 @@ export class InstallPolarClawSkillRequest extends $dara.Model {
   slug?: string;
   /**
    * @remarks
-   * The source. Default value: polarhub.
+   * The source.
    * 
    * @example
    * clawhub
@@ -63,7 +63,7 @@ export class InstallPolarClawSkillRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * URL
+   * The URL for installing the skill. This parameter is not supported. If a value is provided, a 400 InvalidParameters error is returned.
    * 
    * @example
    * https://example.com/skill.tar.gz

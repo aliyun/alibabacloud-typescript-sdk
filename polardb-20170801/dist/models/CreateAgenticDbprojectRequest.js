@@ -36,6 +36,7 @@ class CreateAgenticDBProjectRequest extends $dara.Model {
             projectName: 'ProjectName',
             regionId: 'RegionId',
             tenantId: 'TenantId',
+            zoneId: 'ZoneId',
         };
     }
     static types() {
@@ -47,6 +48,7 @@ class CreateAgenticDBProjectRequest extends $dara.Model {
             projectName: 'string',
             regionId: 'string',
             tenantId: 'string',
+            zoneId: 'string',
         };
     }
     validate() {

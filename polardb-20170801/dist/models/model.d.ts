@@ -193,6 +193,8 @@ export { DescribeDBClusterAccessWhitelistResponseBodyDBClusterSecurityGroupsDBCl
 export { DescribeDBClusterAccessWhitelistResponseBodyDBClusterSecurityGroups } from './DescribeDbclusterAccessWhitelistResponseBody';
 export { DescribeDBClusterAccessWhitelistResponseBodyItemsDBClusterIPArray } from './DescribeDbclusterAccessWhitelistResponseBody';
 export { DescribeDBClusterAccessWhitelistResponseBodyItems } from './DescribeDbclusterAccessWhitelistResponseBody';
+export { DescribeDBClusterAccessWhitelistResponseBodyProjectItemsDBClusterProjectIPArray } from './DescribeDbclusterAccessWhitelistResponseBody';
+export { DescribeDBClusterAccessWhitelistResponseBodyProjectItems } from './DescribeDbclusterAccessWhitelistResponseBody';
 export { DescribeDBClusterAttributeResponseBodyBranchChildBranch } from './DescribeDbclusterAttributeResponseBody';
 export { DescribeDBClusterAttributeResponseBodyBranch } from './DescribeDbclusterAttributeResponseBody';
 export { DescribeDBClusterAttributeResponseBodyDBNodes } from './DescribeDbclusterAttributeResponseBody';
@@ -1803,6 +1805,9 @@ export { ModifyApplicationParameterResponse } from './ModifyApplicationParameter
 export { ModifyApplicationPromptRequest } from './ModifyApplicationPromptRequest';
 export { ModifyApplicationPromptResponseBody } from './ModifyApplicationPromptResponseBody';
 export { ModifyApplicationPromptResponse } from './ModifyApplicationPromptResponse';
+export { ModifyApplicationSSLRequest } from './ModifyApplicationSslrequest';
+export { ModifyApplicationSSLResponseBody } from './ModifyApplicationSslresponseBody';
+export { ModifyApplicationSSLResponse } from './ModifyApplicationSslresponse';
 export { ModifyApplicationServerlessConfRequest } from './ModifyApplicationServerlessConfRequest';
 export { ModifyApplicationServerlessConfResponseBody } from './ModifyApplicationServerlessConfResponseBody';
 export { ModifyApplicationServerlessConfResponse } from './ModifyApplicationServerlessConfResponse';

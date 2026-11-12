@@ -13,7 +13,7 @@ export class DescribeApplicationAvailableVersionRequestComponents extends $dara.
   componentClass?: string;
   /**
    * @remarks
-   * The maximum number of application subcomponents of the same specifications. Default value: the value of ComponentReplica. This parameter is supported only for raycluster applications.
+   * The maximum number of application subcomponents of the same specifications. Default value: the value of ComponentReplica. This parameter is supported only by raycluster applications.
    * 
    * @example
    * 1
@@ -82,6 +82,9 @@ export class DescribeApplicationAvailableVersionRequest extends $dara.Model {
   /**
    * @remarks
    * The list of application subcomponents.
+   * 
+   * @example
+   * []
    */
   components?: DescribeApplicationAvailableVersionRequestComponents[];
   /**

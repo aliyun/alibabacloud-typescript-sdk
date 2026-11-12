@@ -13,7 +13,7 @@ export class DescribePolarFsMappingResponseBodyPathMappingItems extends $dara.Mo
   bucket?: string;
   /**
    * @remarks
-   * The AccessKey ID of the storage bucket.
+   * The AccessKey ID for the storage bucket.
    * 
    * @example
    * LTAI5tExample1234
@@ -55,7 +55,7 @@ export class DescribePolarFsMappingResponseBodyPathMappingItems extends $dara.Mo
 export class DescribePolarFsMappingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance-level default AccessKey ID.
+   * The default AccessKey ID for the instance.
    * 
    * @example
    * LTAI5tExample1234

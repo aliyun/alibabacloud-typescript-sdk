@@ -4,7 +4,7 @@ export declare class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Mod
      * @remarks
      * The task completion time.
      *
-     * The time follows the ISO 8601 standard and is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+     * The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example
      * 2020-06-09T18:00:00Z
@@ -14,7 +14,7 @@ export declare class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Mod
      * @remarks
      * The creation time.
      *
-     * The time follows the ISO 8601 standard and is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+     * The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example
      * 2025-03-25T09:37:10Z
@@ -70,7 +70,7 @@ export declare class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Mod
     engine?: string;
     /**
      * @remarks
-     * The database engine version.
+     * The DPI engine version.
      *
      * @example
      * 3.1
@@ -81,7 +81,7 @@ export declare class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Mod
      * The model name.
      *
      * @example
-     * ***
+     * Sample model
      */
     modelName?: string;
     /**
@@ -89,7 +89,7 @@ export declare class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Mod
      * The path.
      *
      * @example
-     * ***
+     * /models/example-model
      */
     modelPath?: string;
     /**
@@ -102,17 +102,17 @@ export declare class DescribeAIDBClusterTasksResponseBodyItems extends $dara.Mod
     modelSource?: string;
     /**
      * @remarks
-     * The runtime parameters.
+     * The number of task executions.
      *
      * @example
-     * xxx
+     * 1
      */
     runningTimes?: string;
     /**
      * @remarks
      * The task start time.
      *
-     * The time follows the ISO 8601 standard and is displayed in UTC (format: YYYY-MM-DDTHH:mm:ssZ).
+     * The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
      *
      * @example
      * 2020-06-09T18:00:00Z
@@ -164,7 +164,7 @@ export declare class DescribeAIDBClusterTasksResponseBody extends $dara.Model {
     engine?: string;
     /**
      * @remarks
-     * The database engine version.
+     * The DPI engine version.
      *
      * @example
      * 3.1
@@ -185,7 +185,7 @@ export declare class DescribeAIDBClusterTasksResponseBody extends $dara.Model {
     pageNumber?: number;
     /**
      * @remarks
-     * The total number of entries on the current page.
+     * The total number of records on the current page.
      *
      * @example
      * 1
@@ -193,7 +193,7 @@ export declare class DescribeAIDBClusterTasksResponseBody extends $dara.Model {
     pageRecordCount?: string;
     /**
      * @remarks
-     * The number of entries per page.
+     * The number of records to display on each page.
      *
      * @example
      * 30
@@ -201,7 +201,7 @@ export declare class DescribeAIDBClusterTasksResponseBody extends $dara.Model {
     pageSize?: string;
     /**
      * @remarks
-     * The ID of the associated PolarDB cluster.
+     * The ID of the PolarDB cluster to which the resource belongs.
      *
      * @example
      * pc-2ze***
@@ -209,7 +209,7 @@ export declare class DescribeAIDBClusterTasksResponseBody extends $dara.Model {
     relativeDBClusterId?: string;
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * 925B84D9-CA72-432C-95CF-738C22******
@@ -225,7 +225,7 @@ export declare class DescribeAIDBClusterTasksResponseBody extends $dara.Model {
     taskType?: string;
     /**
      * @remarks
-     * The total number of entries.
+     * The total number of records.
      *
      * @example
      * 2

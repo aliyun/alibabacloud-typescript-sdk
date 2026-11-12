@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckDBNameZonalResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * test_db
@@ -13,7 +13,7 @@ export class CheckDBNameZonalResponseBody extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * CDB3258F-B5DE-43C4-8935-CBA0CA******

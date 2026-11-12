@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateAIDBClusterDatasetRequest extends $dara.Model {
     /**
      * @remarks
-     * The ID of the PolarDB database cluster.
+     * The ID of the AI database cluster. The cluster must have DBType set to polardb_ai. This parameter is required. If it is not provided, the service returns InvalidDBClusterId.Malformed (404).
      *
      * @example
      * pc-2ze88***
@@ -10,7 +10,7 @@ export declare class CreateAIDBClusterDatasetRequest extends $dara.Model {
     DBClusterId?: string;
     /**
      * @remarks
-     * The dataset name.
+     * The name of the dataset.
      *
      * @example
      * dataset01
@@ -18,11 +18,9 @@ export declare class CreateAIDBClusterDatasetRequest extends $dara.Model {
     datasetName?: string;
     /**
      * @remarks
-     * The type of the dataset. Valid values:
-     *
-     * - **train**: training set
-     *
-     * - **eval**: evaluation set
+     * The dataset type. Valid values:
+     * * **train**: training dataset
+     * * **eval**: evaluation dataset
      *
      * @example
      * train
@@ -31,8 +29,7 @@ export declare class CreateAIDBClusterDatasetRequest extends $dara.Model {
     /**
      * @remarks
      * The import method. Valid values:
-     *
-     * - **LocalImport**: local import
+     * * **LocalImport**: local import
      *
      * @example
      * LocalImport
@@ -52,13 +49,10 @@ export declare class CreateAIDBClusterDatasetRequest extends $dara.Model {
     resourceOwnerId?: number;
     /**
      * @remarks
-     * The training mode for the dataset. The dataset format depends on the mode. Valid values:
-     *
-     * - **sft**: supervised fine-tuning. For training sets only.
-     *
-     * - **grpo**: reinforcement learning optimization. For training sets only.
-     *
-     * - **text**: text generation. For validation sets only.
+     * The training mode for the dataset. Dataset formats vary by mode. Valid values:
+     * * **sft**: supervised fine-tuning, dedicated to training datasets
+     * * **grpo**: reinforcement learning optimization, dedicated to training datasets
+     * * **text**: text generation, dedicated to validation datasets
      *
      * @example
      * sft

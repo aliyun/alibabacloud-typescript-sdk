@@ -21,7 +21,7 @@ export class DescribeInspectionTaskListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the region where the task is located.
+   * The ID of the region where the task resides.
    * 
    * @example
    * cn-beijing
@@ -29,7 +29,7 @@ export class DescribeInspectionTaskListRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the inspection workspace, which is used to filter tasks.
+   * The ID of the inspection space used to filter tasks.
    * 
    * @example
    * space-123

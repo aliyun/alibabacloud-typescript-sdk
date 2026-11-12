@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class GetPolarAgentRequest extends $dara.Model {
     /**
      * @remarks
-     * Additional information, as a JSON string.
+     * The additional information. The value is a JSON string.
      *
      * @example
      * {}
@@ -10,7 +10,7 @@ export declare class GetPolarAgentRequest extends $dara.Model {
     extraInfo?: string;
     /**
      * @remarks
-     * The session query. Get this value from the return value of the "Start a digital human" API.
+     * The session query. You can obtain this value from the response of the Start a digital human API.
      *
      * This parameter is required.
      *
@@ -20,7 +20,7 @@ export declare class GetPolarAgentRequest extends $dara.Model {
     query?: string;
     /**
      * @remarks
-     * The session ID. Get this value from the return value of the "Start a digital human" API.
+     * The session ID. You can obtain this value from the response of the Start a digital human API.
      *
      * @example
      * c4d242f3-c909-4846-91d9-f84c238a9820
@@ -28,7 +28,7 @@ export declare class GetPolarAgentRequest extends $dara.Model {
     sessionId?: string;
     /**
      * @remarks
-     * The product type source. Valid value: polardb-console.
+     * The product type source. Valid values: polardb-console.
      *
      * @example
      * polardb-console

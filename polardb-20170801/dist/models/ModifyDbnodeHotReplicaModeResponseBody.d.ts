@@ -2,17 +2,16 @@ import * as $dara from '@darabonba/typescript';
 export declare class ModifyDBNodeHotReplicaModeResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The ID of the cluster.
-     *
-     * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query information about all clusters that are deployed in a specified region, such as the cluster ID.
+     * The cluster ID.
+     * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/98094.html) operation to query the information of all clusters in the target region, including the cluster ID.
      *
      * @example
-     * pc-2vc327c2a14a3u858
+     * pc-*****************
      */
     DBClusterId?: string;
     /**
      * @remarks
-     * The ID of the order.
+     * The ID of the generated order.
      *
      * @example
      * 2148126708*****
@@ -20,10 +19,10 @@ export declare class ModifyDBNodeHotReplicaModeResponseBody extends $dara.Model 
     orderId?: string;
     /**
      * @remarks
-     * The ID of the request.
+     * The request ID.
      *
      * @example
-     * 9F4DDFBF-205C-5A3E-8DC2-C60F3E3FDC38
+     * 9F4DDFBF-205C-5A3E-8DC2-C6**********
      */
     requestId?: string;
     static names(): {

@@ -2,7 +2,10 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeSQLRateLimitingRulesResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The list of rules.
+     * The rule list.
+     *
+     * @example
+     * []
      */
     ruleList?: string[];
     static names(): {
@@ -20,11 +23,14 @@ export declare class DescribeSQLRateLimitingRulesResponseBody extends $dara.Mode
     /**
      * @remarks
      * The result set.
+     *
+     * @example
+     * {}
      */
     data?: DescribeSQLRateLimitingRulesResponseBodyData;
     /**
      * @remarks
-     * The maximum number of entries returned for the current request. Default value: 10.
+     * The maximum number of entries returned in this request. Default value: 10.
      *
      * @example
      * 10
@@ -32,9 +38,8 @@ export declare class DescribeSQLRateLimitingRulesResponseBody extends $dara.Mode
     maxResults?: number;
     /**
      * @remarks
-     * The response message.
-     *
-     * > If the request is successful, \\`Successful\\` is returned. If the request fails, an error message is returned.
+     * The message returned for the request.
+     * > If the request is successful, Successful is returned. If the request fails, an exception message such as an error code is returned.
      *
      * @example
      * Successful
@@ -42,7 +47,7 @@ export declare class DescribeSQLRateLimitingRulesResponseBody extends $dara.Mode
     message?: string;
     /**
      * @remarks
-     * The token for the next page of results.
+     * The pagination token for the next page.
      *
      * @example
      * AAAAARbaCuN6hiD08qrLdwJ9Fh0vHYf39hc0J5qELgsazkBk

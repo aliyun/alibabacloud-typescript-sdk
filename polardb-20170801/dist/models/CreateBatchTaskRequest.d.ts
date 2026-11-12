@@ -17,7 +17,7 @@ export declare class CreateBatchTaskRequest extends $dara.Model {
     instanceIds?: string[];
     /**
      * @remarks
-     * The per-instance parameter overrides (JSON object: instanceId -> param). This parameter is used in scenarios where multiple instances have different targets, such as different agent workspaces.
+     * The per-instance task parameters in JSON object format (instanceId -> param). This parameter is used in scenarios where multiple instances have different targets, such as different agent workspaces.
      *
      * @example
      * {"pa-xxx1":{"agentId":"test1"},"pa-xxx2":{"scope":"global"}}
@@ -25,7 +25,7 @@ export declare class CreateBatchTaskRequest extends $dara.Model {
     instanceParams?: string;
     /**
      * @remarks
-     * The archive parameters.
+     * The task parameters.
      *
      * @example
      * [{"skillName":"github","version":"1.0.0"},{"skillName":"skill-vetter","version":"1.0.1"}]
@@ -33,7 +33,7 @@ export declare class CreateBatchTaskRequest extends $dara.Model {
     param?: string;
     /**
      * @remarks
-     * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view the regions of all clusters under the target account.
+     * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/98041.html) operation to view the region information of all clusters under the account.
      *
      * This parameter is required.
      *

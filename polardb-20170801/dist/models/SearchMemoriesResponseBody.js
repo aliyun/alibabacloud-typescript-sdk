@@ -30,28 +30,43 @@ class SearchMemoriesResponseBodyResults extends $dara.Model {
     static names() {
         return {
             createTime: 'CreateTime',
+            event: 'Event',
             id: 'Id',
+            input: 'Input',
             memory: 'Memory',
             memoryAgentId: 'MemoryAgentId',
+            memoryId: 'MemoryId',
             memoryUserId: 'MemoryUserId',
             metadata: 'Metadata',
+            newMemory: 'NewMemory',
+            oldMemory: 'OldMemory',
             score: 'Score',
+            updateCount: 'UpdateCount',
             updateTime: 'UpdateTime',
         };
     }
     static types() {
         return {
             createTime: 'string',
+            event: 'string',
             id: 'string',
+            input: { 'type': 'array', 'itemType': 'any' },
             memory: 'string',
             memoryAgentId: 'string',
+            memoryId: 'string',
             memoryUserId: 'string',
             metadata: 'string',
+            newMemory: 'string',
+            oldMemory: 'string',
             score: 'string',
+            updateCount: 'number',
             updateTime: 'string',
         };
     }
     validate() {
+        if (Array.isArray(this.input)) {
+            $dara.Model.validateArray(this.input);
+        }
         super.validate();
     }
     constructor(map) {

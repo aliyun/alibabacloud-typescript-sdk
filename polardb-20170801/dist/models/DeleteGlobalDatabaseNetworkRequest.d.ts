@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DeleteGlobalDatabaseNetworkRequest extends $dara.Model {
     /**
      * @remarks
-     * The ID of the GDN.
+     * The ID of the global database network (GDN).
      *
      * This parameter is required.
      *

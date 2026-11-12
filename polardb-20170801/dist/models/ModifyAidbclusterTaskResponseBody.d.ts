@@ -18,7 +18,7 @@ export declare class ModifyAIDBClusterTaskResponseBody extends $dara.Model {
     relativeDBClusterId?: string;
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * 6BD9CDE4-5E7B-4BF3-9BB8-83C73E******

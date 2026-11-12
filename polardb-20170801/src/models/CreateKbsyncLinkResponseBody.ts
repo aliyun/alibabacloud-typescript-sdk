@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateKBSyncLinkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The client ID.
+   * The client identifier.
    * 
    * @example
    * cli_xxxxxxbe8
@@ -13,9 +13,7 @@ export class CreateKBSyncLinkResponseBody extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * The creation time.
-   * 
-   * The time is displayed in ISO 8601 format in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
+   * The creation time. The time is displayed in ISO 8601 format in the UTC time zone (format: YYYY-MM-DDTHH:mm:ssZ).
    * 
    * @example
    * 2026-08-14T05:58:42Z
@@ -31,9 +29,7 @@ export class CreateKBSyncLinkResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The source channel of the synchronization link. Valid values:
-   * - FEISHU 
-   * - SHAREPOINT
+   * The source channel of the synchronization link. Valid values: OSS, DINGTALK, FEISHU, and SHAREPOINT.
    * 
    * @example
    * FEISHU

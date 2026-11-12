@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInspectionTaskListResponseBodyTaskLists extends $dara.Model {
   /**
    * @remarks
-   * The last modification date of the task.
+   * The last modification date of the task, in the YYYY-MM-DD format.
    * 
    * @example
    * 2024-06-01
@@ -13,7 +13,7 @@ export class DescribeInspectionTaskListResponseBodyTaskLists extends $dara.Model
   createTime?: string;
   /**
    * @remarks
-   * The cron expression for periodically executing the inspection.
+   * The cron expression for scheduled inspections.
    * 
    * @example
    * 0 0 2 * * ?
@@ -29,7 +29,7 @@ export class DescribeInspectionTaskListResponseBodyTaskLists extends $dara.Model
   DBClusterIds?: string;
   /**
    * @remarks
-   * The expiration date of the inspection task.
+   * The expiration date of the inspection task, in the YYYY-MM-DD format.
    * 
    * @example
    * 2025-12-31
@@ -40,7 +40,7 @@ export class DescribeInspectionTaskListResponseBodyTaskLists extends $dara.Model
    * The description of the inspection task.
    * 
    * @example
-   * Periodic inspection task
+   * Scheduled inspection task
    */
   taskDescription?: string;
   /**
@@ -94,6 +94,9 @@ export class DescribeInspectionTaskListResponseBody extends $dara.Model {
   /**
    * @remarks
    * The list of inspection tasks.
+   * 
+   * @example
+   * []
    */
   taskLists?: DescribeInspectionTaskListResponseBodyTaskLists[];
   static names(): { [key: string]: string } {

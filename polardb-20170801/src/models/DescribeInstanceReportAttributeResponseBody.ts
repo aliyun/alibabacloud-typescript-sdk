@@ -21,7 +21,7 @@ export class DescribeInstanceReportAttributeResponseBodyReportSubItems extends $
   score?: number;
   /**
    * @remarks
-   * The name of the inspection skill that generated the result.
+   * The name of the inspection skill that generated the inspection result.
    * 
    * @example
    * performance
@@ -65,7 +65,10 @@ export class DescribeInstanceReportAttributeResponseBodyReportSubItems extends $
 export class DescribeInstanceReportAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the report is the latest one.
+   * Indicates whether the report is the latest report.
+   * 
+   * @example
+   * false
    */
   latest?: boolean;
   /**
@@ -103,6 +106,9 @@ export class DescribeInstanceReportAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
    * The inspection results for each item in the report.
+   * 
+   * @example
+   * []
    */
   reportSubItems?: DescribeInstanceReportAttributeResponseBodyReportSubItems[];
   /**

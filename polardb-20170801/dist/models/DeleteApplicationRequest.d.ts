@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DeleteApplicationRequest extends $dara.Model {
     /**
      * @remarks
-     * Application ID
+     * The application ID.
      *
      * This parameter is required.
      *

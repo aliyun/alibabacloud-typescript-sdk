@@ -10,7 +10,7 @@ export declare class SetPolarFsFileQuotaResponseBody extends $dara.Model {
     polarFsInstanceId?: string;
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * 925B84D9-CA72-432C-95CF-738C22******

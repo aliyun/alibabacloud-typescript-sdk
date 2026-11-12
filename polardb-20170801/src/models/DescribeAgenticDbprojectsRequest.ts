@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAgenticDBProjectsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the AgenticDB cluster.
+   * The ID of the AgenticDB cluster. The ID starts with pagc-. You can create the cluster by calling CreateDBCluster and setting AgenticDbType to dedicated.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DescribeAgenticDBProjectsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 30. Maximum value: 100.
+   * The number of entries to return on each page. Default value: 30. Maximum value: 100.
    * 
    * @example
    * 30
@@ -31,7 +31,7 @@ export class DescribeAgenticDBProjectsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The project ID for exact match.
+   * The project ID for exact matching.
    * 
    * @example
    * proj-a1b2c3d4e5f6
@@ -39,7 +39,7 @@ export class DescribeAgenticDBProjectsRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The project name for fuzzy match.
+   * The project name for fuzzy matching.
    * 
    * @example
    * analytics

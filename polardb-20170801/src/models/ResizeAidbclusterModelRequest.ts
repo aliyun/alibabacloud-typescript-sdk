@@ -15,7 +15,7 @@ export class ResizeAIDBClusterModelRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * Specifies whether to perform a read-only capacity dry run.
+   * Specifies whether to perform only a read-only capacity dry run.
    * 
    * @example
    * true

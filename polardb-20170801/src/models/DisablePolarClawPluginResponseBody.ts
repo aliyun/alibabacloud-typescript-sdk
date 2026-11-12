@@ -13,7 +13,7 @@ export class DisablePolarClawPluginResponseBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * 200
@@ -29,7 +29,7 @@ export class DisablePolarClawPluginResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class DisablePolarClawPluginResponseBody extends $dara.Model {
   ok?: boolean;
   /**
    * @remarks
-   * The ID of the disabled plugin.
+   * The ID of the disabled plug-in.
    * 
    * @example
    * openclaw-lark
@@ -53,7 +53,7 @@ export class DisablePolarClawPluginResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the gateway was restarted.
+   * Indicates whether the gateway is restarted.
    * 
    * @example
    * true

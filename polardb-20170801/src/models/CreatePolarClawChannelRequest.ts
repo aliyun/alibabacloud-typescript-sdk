@@ -49,7 +49,7 @@ export class CreatePolarClawChannelRequest extends $dara.Model {
   npmPackage?: string;
   /**
    * @remarks
-   * The channel plugin name.
+   * The name of the channel plugin.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class CreatePolarClawChannelRequest extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * Specifies whether to restart the gateway after creation. Default value: true.
+   * Specifies whether to restart the gateway after creation. Default value: true. Note: &#39;The value must be the string true or false. JSON boolean values are not accepted.&#39; Coordinate to confirm whether the type field should be updated to string accordingly.
    * 
    * @example
    * true

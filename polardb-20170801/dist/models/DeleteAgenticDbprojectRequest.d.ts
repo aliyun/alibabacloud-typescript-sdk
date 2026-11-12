@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DeleteAgenticDBProjectRequest extends $dara.Model {
     /**
      * @remarks
-     * The AgenticDB cluster ID.
+     * The ID of the AgenticDB cluster. The ID must start with pagc-. You can obtain the ID by calling the CreateDBCluster operation and setting AgenticDbType to dedicated. Regular cluster IDs that start with pc- are not supported. Usage notes: Append the following format note to the end of the description for the DBClusterId parameter: The ID must be prefixed with pagc-, and regular PolarDB cluster IDs (prefixed with pc-) are not supported by this API operation.
      *
      * This parameter is required.
      *
@@ -12,7 +12,7 @@ export declare class DeleteAgenticDBProjectRequest extends $dara.Model {
     DBClusterId?: string;
     /**
      * @remarks
-     * The target project ID.
+     * The ID of the target project. You can obtain the ID after creating a project by calling CreateAgenticDBProject.
      *
      * This parameter is required.
      *
@@ -32,7 +32,7 @@ export declare class DeleteAgenticDBProjectRequest extends $dara.Model {
     regionId?: string;
     /**
      * @remarks
-     * The tenant ID.
+     * The ID of the tenant. You can obtain the ID after creating a tenant by calling CreateAgenticDBTenant.
      *
      * This parameter is required.
      *

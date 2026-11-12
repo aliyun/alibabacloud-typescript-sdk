@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteDBLinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the source cluster that contains the DBLink you want to delete.
+   * The ID of the source cluster from which the database link is to be deleted.
    * 
-   * > Call the [DescribeDBClusters](https://help.aliyun.com/document_detail/173433.html) operation to view the list of PolarDB clusters.
+   * > You can call the [DescribeDBClusters](https://help.aliyun.com/document_detail/173433.html) operation to query the list of PolarDB clusters.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DeleteDBLinkRequest extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The name of the DBLink to delete.
+   * The name of the database link to be deleted.
    * 
    * This parameter is required.
    * 

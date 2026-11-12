@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachApplicationPolarFSRequest extends $dara.Model {
   /**
    * @remarks
-   * Application ID
+   * The application ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AttachApplicationPolarFSRequest extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * AccessKey ID of the Alibaba Cloud account or RAM user. Ensure that you granted permissions to this account or user when you created the PolarLakeBase instance.
+   * The AccessKey ID of the Alibaba Cloud account or RAM user. Ensure that the account or RAM user is authorized when you create the Polarlakebase instance.
    * 
    * @example
    * LT**********************
@@ -23,7 +23,7 @@ export class AttachApplicationPolarFSRequest extends $dara.Model {
   polarFSAccessKeyId?: string;
   /**
    * @remarks
-   * AccessKey secret of the Alibaba Cloud account or RAM user
+   * The AccessKey secret of the Alibaba Cloud account or RAM user.
    * 
    * @example
    * H3****************************
@@ -31,11 +31,10 @@ export class AttachApplicationPolarFSRequest extends $dara.Model {
   polarFSAccessKeySecret?: string;
   /**
    * @remarks
-   * PolarLakeBase cold-storage instance ID
+   * The instance ID of the Polarlakebase cold storage instance.
    * 
-   * Only the following applications support cold-storage instances:
-   * 
-   * - Supabase
+   * Currently, only the following applications support cold storage instances:
+   * - supabase
    * 
    * This parameter is required.
    * 

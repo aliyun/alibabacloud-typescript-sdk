@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeApplicationAvailableVersionResponseBodyVersions extends $dara.Model {
   /**
    * @remarks
-   * The release date.
+   * The release date in RFC 3339 UTC format.
    * 
    * @example
    * 2019-08-01T00:00:00Z
@@ -92,6 +92,9 @@ export class DescribeApplicationAvailableVersionResponseBody extends $dara.Model
   /**
    * @remarks
    * The list of versions.
+   * 
+   * @example
+   * []
    */
   versions?: DescribeApplicationAvailableVersionResponseBodyVersions[];
   static names(): { [key: string]: string } {

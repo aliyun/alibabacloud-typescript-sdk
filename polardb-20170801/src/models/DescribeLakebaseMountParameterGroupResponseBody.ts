@@ -45,7 +45,7 @@ export class DescribeLakebaseMountParameterGroupResponseBodyParameterDetail exte
 export class DescribeLakebaseMountParameterGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The creation time (UTC).
+   * The creation time in UTC.
    * 
    * @example
    * 2026-08-01T00:00:00Z
@@ -61,7 +61,7 @@ export class DescribeLakebaseMountParameterGroupResponseBody extends $dara.Model
   isApply?: number;
   /**
    * @remarks
-   * The modification time (UTC).
+   * The modification time in UTC.
    * 
    * @example
    * 2026-08-10T12:00:00Z
@@ -69,7 +69,7 @@ export class DescribeLakebaseMountParameterGroupResponseBody extends $dara.Model
   modifyTime?: string;
   /**
    * @remarks
-   * The parameter details of the template. An empty array is returned if no data is available.
+   * The details of the parameters in the template. An empty array is returned if no data is available.
    */
   parameterDetail?: DescribeLakebaseMountParameterGroupResponseBodyParameterDetail[];
   /**

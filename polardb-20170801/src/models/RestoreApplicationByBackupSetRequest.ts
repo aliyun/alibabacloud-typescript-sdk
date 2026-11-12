@@ -23,7 +23,7 @@ export class RestoreApplicationByBackupSetRequest extends $dara.Model {
   applicationType?: string;
   /**
    * @remarks
-   * The ID of the backup set used to restore the application.
+   * The ID of the backup set used to restore the application. This parameter is required. If it is not provided, the API returns InvalidBackupSetID.NotFound (404).
    * 
    * @example
    * bs-123456

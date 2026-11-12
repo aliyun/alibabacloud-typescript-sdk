@@ -13,7 +13,7 @@ export class DescribeInstanceReportAttributeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the instance inspection report to query.
+   * The ID of the instance inspection report.
    * 
    * @example
    * report-001

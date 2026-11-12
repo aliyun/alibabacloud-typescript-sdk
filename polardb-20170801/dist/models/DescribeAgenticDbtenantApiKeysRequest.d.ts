@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeAgenticDBTenantApiKeysRequest extends $dara.Model {
     /**
      * @remarks
-     * The AgenticDB cluster ID.
+     * The cluster ID. Both pagc- and pc- prefixes are supported. The pagc- prefix indicates an AgenticDB dedicated cluster. The pc- prefix indicates a standard PolarDB cluster that supports AgenticDB tenant capabilities.
      *
      * This parameter is required.
      *
@@ -20,7 +20,7 @@ export declare class DescribeAgenticDBTenantApiKeysRequest extends $dara.Model {
     pageNumber?: number;
     /**
      * @remarks
-     * The number of entries per page. Default value: 30. Maximum value: 100.
+     * The number of entries to return on each page. Default value: 30. Maximum value: 100.
      *
      * @example
      * 30
@@ -38,7 +38,7 @@ export declare class DescribeAgenticDBTenantApiKeysRequest extends $dara.Model {
     regionId?: string;
     /**
      * @remarks
-     * Filters results by tenant name.
+     * Filters the results by tenant name.
      *
      * @example
      * my-saas-app

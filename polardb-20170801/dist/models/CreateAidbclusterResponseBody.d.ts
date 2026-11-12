@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateAIDBClusterResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The ID of the cluster.
+     * The cluster ID.
      *
      * @example
      * pc-******************
@@ -10,7 +10,7 @@ export declare class CreateAIDBClusterResponseBody extends $dara.Model {
     DBClusterId?: string;
     /**
      * @remarks
-     * The ID of the order.
+     * The order ID.
      *
      * @example
      * 2035638*******
@@ -18,7 +18,7 @@ export declare class CreateAIDBClusterResponseBody extends $dara.Model {
     orderId?: string;
     /**
      * @remarks
-     * Id of the request
+     * The request ID.
      *
      * @example
      * CDB3258F-B5DE-43C4-8935-CBA0CA******
@@ -26,7 +26,7 @@ export declare class CreateAIDBClusterResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * The ID of the resource group.
+     * The resource group ID.
      *
      * @example
      * rg-************

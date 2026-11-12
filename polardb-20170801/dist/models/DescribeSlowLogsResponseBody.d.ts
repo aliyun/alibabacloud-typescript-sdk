@@ -52,7 +52,7 @@ export declare class DescribeSlowLogsResponseBody extends $dara.Model {
      * @remarks
      * The end date of the query.
      *
-     * The date is in UTC. Format: YYYY-MM-DDZ.
+     * The date is in UTC and formatted as YYYY-MM-DDZ.
      *
      * @example
      * 2021-05-30Z
@@ -95,7 +95,7 @@ export declare class DescribeSlowLogsResponseBody extends $dara.Model {
      * @remarks
      * The start date of the query.
      *
-     * The date is in UTC. Format: YYYY-MM-DDZ.
+     * The date is in UTC and formatted as YYYY-MM-DDZ.
      *
      * @example
      * 2021-05-01Z
@@ -103,7 +103,7 @@ export declare class DescribeSlowLogsResponseBody extends $dara.Model {
     startTime?: string;
     /**
      * @remarks
-     * The total number of records.
+     * The total number of entries.
      *
      * @example
      * 5

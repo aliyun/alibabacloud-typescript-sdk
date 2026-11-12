@@ -29,7 +29,7 @@ export class DescribePolarClawAgentsResponseBodyAgentsFiles extends $dara.Model 
   path?: string;
   /**
    * @remarks
-   * The file size, in bytes.
+   * The file size in bytes.
    * 
    * @example
    * 1024
@@ -37,7 +37,7 @@ export class DescribePolarClawAgentsResponseBodyAgentsFiles extends $dara.Model 
   size?: number;
   /**
    * @remarks
-   * The last updated timestamp, in milliseconds.
+   * The timestamp of the last update in milliseconds.
    * 
    * @example
    * 1716000000000
@@ -91,7 +91,7 @@ export class DescribePolarClawAgentsResponseBodyAgentsIdentity extends $dara.Mod
   avatarUrl?: string;
   /**
    * @remarks
-   * The emoji identifier in Unicode format such as U+1F99E, or a direct emoji character.
+   * The emoji identifier, in Unicode format such as U+1F99E or as a direct emoji character.
    * 
    * @example
    * U+1F99E
@@ -145,7 +145,7 @@ export class DescribePolarClawAgentsResponseBodyAgentsIdentity extends $dara.Mod
 export class DescribePolarClawAgentsResponseBodyAgentsModel extends $dara.Model {
   /**
    * @remarks
-   * The fallback model list.
+   * The list of fallback models.
    */
   fallbacks?: string[];
   /**
@@ -185,7 +185,7 @@ export class DescribePolarClawAgentsResponseBodyAgentsModel extends $dara.Model 
 export class DescribePolarClawAgentsResponseBodyAgents extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether this is the default agent.
+   * Indicates whether the agent is the default agent.
    * 
    * @example
    * true
@@ -193,12 +193,12 @@ export class DescribePolarClawAgentsResponseBodyAgents extends $dara.Model {
   default?: boolean;
   /**
    * @remarks
-   * The agent file list.
+   * The list of agent files.
    */
   files?: DescribePolarClawAgentsResponseBodyAgentsFiles[];
   /**
    * @remarks
-   * Agent ID
+   * The PolarClaw agent ID.
    * 
    * @example
    * main
@@ -314,7 +314,7 @@ export class DescribePolarClawAgentsResponseBody extends $dara.Model {
   defaultId?: string;
   /**
    * @remarks
-   * The primary agent key name.
+   * The main agent key name.
    * 
    * @example
    * main
@@ -330,7 +330,7 @@ export class DescribePolarClawAgentsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 24A1990B-4F6E-482B-B8CB-75C612******

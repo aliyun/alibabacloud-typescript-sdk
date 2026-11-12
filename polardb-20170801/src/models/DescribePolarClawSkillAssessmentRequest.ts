@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePolarClawSkillAssessmentRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the application.
+   * The application ID.
    * 
    * @example
    * pa-**************
@@ -23,7 +23,7 @@ export class DescribePolarClawSkillAssessmentRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the skill.
+   * The name of the skill. This parameter is required. If it is not provided, the API returns an InvalidParameter.SkillName error (HTTP 400).
    * 
    * @example
    * polarclawhub
@@ -31,7 +31,7 @@ export class DescribePolarClawSkillAssessmentRequest extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * The version of the skill.
+   * The version of the skill. This parameter is required. If it is not provided, the API returns an InvalidParameter.SkillVersion error (HTTP 400).
    * 
    * @example
    * 1.0.0
@@ -39,7 +39,7 @@ export class DescribePolarClawSkillAssessmentRequest extends $dara.Model {
   skillVersion?: string;
   /**
    * @remarks
-   * The source of the skill. Valid values: PUBLIC, SELF, and OTHER.
+   * The source of the skill. Valid values: PUBLIC, SELF, and OTHER. This parameter is required. If it is not provided, the API returns an InvalidParameter.Source error (HTTP 400).
    * 
    * @example
    * PUBLIC

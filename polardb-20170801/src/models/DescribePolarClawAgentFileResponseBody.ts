@@ -37,7 +37,7 @@ export class DescribePolarClawAgentFileResponseBodyFile extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The file size, in bytes.
+   * The file size in bytes.
    * 
    * @example
    * 1024
@@ -45,7 +45,7 @@ export class DescribePolarClawAgentFileResponseBodyFile extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The last updated UNIX timestamp, in milliseconds.
+   * The last updated timestamp in milliseconds.
    * 
    * @example
    * 1716000000000
@@ -85,7 +85,7 @@ export class DescribePolarClawAgentFileResponseBodyFile extends $dara.Model {
 export class DescribePolarClawAgentFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Agent ID
+   * The PolarClaw agent ID.
    * 
    * @example
    * main
@@ -122,7 +122,7 @@ export class DescribePolarClawAgentFileResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * F45FFACC-xxx

@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class UpgradeDBClusterVersionResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The ID of the request.
+     * The request ID.
      *
      * @example
      * CAE6755F-B79A-4861-B227-801FE8******

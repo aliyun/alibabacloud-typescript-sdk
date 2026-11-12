@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPolarAgentResponseBodyFunctionCall extends $dara.Model {
   /**
    * @remarks
-   * The operation-related output result.
+   * The output results related to the operation.
    * 
    * @example
    * ---narguments:n  parameters: []n
@@ -13,7 +13,7 @@ export class GetPolarAgentResponseBodyFunctionCall extends $dara.Model {
   arguments?: string;
   /**
    * @remarks
-   * The quota ID.
+   * The ID of the quota.
    * 
    * @example
    * 393
@@ -32,7 +32,7 @@ export class GetPolarAgentResponseBodyFunctionCall extends $dara.Model {
    * The status.
    * 
    * @example
-   * xxx
+   * Success
    */
   status?: string;
   static names(): { [key: string]: string } {
@@ -65,18 +65,18 @@ export class GetPolarAgentResponseBodyFunctionCall extends $dara.Model {
 export class GetPolarAgentResponseBodyUiFunctionCall extends $dara.Model {
   /**
    * @remarks
-   * xxx
+   * The JSON text of the tool calling parameters.
    * 
    * @example
-   * xxx
+   * {"RegionId":"cn-hangzhou"}
    */
   argsText?: string;
   /**
    * @remarks
-   * The tool command that is invoked.
+   * The command of the called tool.
    * 
    * @example
-   * xxx
+   * DescribeDBClusters
    */
   toolName?: string;
   static names(): { [key: string]: string } {
@@ -105,7 +105,7 @@ export class GetPolarAgentResponseBodyUiFunctionCall extends $dara.Model {
 export class GetPolarAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Id of the request
+   * The content returned by the agent.
    * 
    * @example
    * QZ-13661677-80
@@ -113,7 +113,7 @@ export class GetPolarAgentResponseBody extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Indicates whether FunctionCall is supported.
+   * Specifies whether function calling is supported.
    */
   functionCall?: GetPolarAgentResponseBodyFunctionCall[];
   /**
@@ -134,10 +134,10 @@ export class GetPolarAgentResponseBody extends $dara.Model {
   queryId?: string;
   /**
    * @remarks
-   * The model\\"s reasoning content.
+   * The reasoning content of the model.
    * 
    * @example
-   * xxxx
+   * Extract the key information based on the input content
    */
   reasoningContent?: string;
   /**
@@ -158,7 +158,7 @@ export class GetPolarAgentResponseBody extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * Indicates whether UiFunctionCall is supported.
+   * Specifies whether UI function calling is supported.
    */
   uiFunctionCall?: GetPolarAgentResponseBodyUiFunctionCall[];
   static names(): { [key: string]: string } {

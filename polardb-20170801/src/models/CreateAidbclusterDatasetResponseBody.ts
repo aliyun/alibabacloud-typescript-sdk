@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAIDBClusterDatasetResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the PolarDB database cluster.
+   * The instance ID of the PolarDB database for the AI model service.
    * 
    * @example
    * pc-****************
@@ -13,7 +13,7 @@ export class CreateAIDBClusterDatasetResponseBody extends $dara.Model {
   DBClusterId?: string;
   /**
    * @remarks
-   * The dataset management service ID.
+   * The instance ID of the dataset management service.
    * 
    * @example
    * pcs-2zeei***
@@ -29,7 +29,7 @@ export class CreateAIDBClusterDatasetResponseBody extends $dara.Model {
   datasetId?: string;
   /**
    * @remarks
-   * The dataset name.
+   * The name of the dataset.
    * 
    * @example
    * dataset01
@@ -37,7 +37,7 @@ export class CreateAIDBClusterDatasetResponseBody extends $dara.Model {
   datasetName?: string;
   /**
    * @remarks
-   * The path to the dataset.
+   * The path of the dataset.
    * 
    * @example
    * polardb_ai/datasets/train/sft/dataset01

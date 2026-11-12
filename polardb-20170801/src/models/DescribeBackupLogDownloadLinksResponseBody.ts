@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupLogDownloadLinksResponseBodyBackupLogDownloadLinkItem extends $dara.Model {
   /**
    * @remarks
-   * The ID of the physical backup log.
+   * The redo log backup ID.
    * 
    * @example
    * 78167430
@@ -13,12 +13,12 @@ export class DescribeBackupLogDownloadLinksResponseBodyBackupLogDownloadLinkItem
   backupLogId?: string;
   /**
    * @remarks
-   * The public download URL of the physical backup log.
+   * The public download link of the redo log backup.
    */
   downloadLink?: string;
   /**
    * @remarks
-   * The error code for a single item. This parameter is empty if the request is successful.
+   * The error code for the single entry. Empty if the operation is successful.
    * 
    * @example
    * BackupLogNotFound
@@ -26,12 +26,12 @@ export class DescribeBackupLogDownloadLinksResponseBodyBackupLogDownloadLinkItem
   errorCode?: string;
   /**
    * @remarks
-   * The internal network download URL of the physical backup log.
+   * The internal network download link of the redo log backup.
    */
   intranetDownloadLink?: string;
   /**
    * @remarks
-   * The expiration time of the download URL. The time is displayed in UTC.
+   * The expiration time of the download links, in UTC.
    * 
    * @example
    * 2026-10-23T03:00:00Z
@@ -39,7 +39,7 @@ export class DescribeBackupLogDownloadLinksResponseBodyBackupLogDownloadLinkItem
   linkExpiredTime?: string;
   /**
    * @remarks
-   * The error message for a single item. This parameter is empty if the request is successful.
+   * The error message for the single entry. Empty if the operation is successful.
    * 
    * @example
    * The specified archived log file does not exist or has been cleaned up.
@@ -79,7 +79,7 @@ export class DescribeBackupLogDownloadLinksResponseBodyBackupLogDownloadLinkItem
 export class DescribeBackupLogDownloadLinksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the redo log backups.
+   * The redo log backup details.
    */
   backupLogDownloadLinkItem?: DescribeBackupLogDownloadLinksResponseBodyBackupLogDownloadLinkItem[];
   /**

@@ -26,7 +26,7 @@ export declare class LoginPolarClawChannelResponseBody extends $dara.Model {
     message?: string;
     /**
      * @remarks
-     * The name of the operation.
+     * The operation name.
      *
      * @example
      * LoginPolarClawChannel
@@ -42,7 +42,7 @@ export declare class LoginPolarClawChannelResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * The state of the asynchronous task.
+     * The task status.
      *
      * @example
      * running
@@ -50,7 +50,7 @@ export declare class LoginPolarClawChannelResponseBody extends $dara.Model {
     state?: string;
     /**
      * @remarks
-     * The ID of the asynchronous task.
+     * The asynchronous task ID.
      *
      * @example
      * dc6762fb-20ad-4796-84fe-5c5d0dc413ce

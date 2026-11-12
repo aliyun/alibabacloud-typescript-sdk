@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchMemoriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID. Example: pa-**************. The application must be of the mem0 type. When creating the application by using CreateApplication, set ApplicationType to mem0. Calling this operation on a non-mem0 application returns the IncorrectDBInstanceEngine (403) error.
+   * The application ID. Example: pa-**************. The application must be of the mem0 type. When you create the application by calling CreateApplication, set ApplicationType to mem0. If you call this operation on a non-mem0 application, the IncorrectDBInstanceEngine (403) error is returned.
    * 
    * This parameter is required.
    * 
@@ -39,9 +39,15 @@ export class SearchMemoriesRequest extends $dara.Model {
   memoryAgentId?: string;
   /**
    * @remarks
-   * The ID of the memory user.
+   * The memory ID. If you specify this parameter, the complete change history of the memory is queried.
    * 
-   * This parameter is required.
+   * @example
+   * 4d83591f-******-4efaf8c3
+   */
+  memoryId?: string;
+  /**
+   * @remarks
+   * The ID of the memory user.
    * 
    * @example
    * user1
@@ -57,7 +63,7 @@ export class SearchMemoriesRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records to display on each page.
    * 
    * @example
    * 10
@@ -85,6 +91,7 @@ export class SearchMemoriesRequest extends $dara.Model {
       createTimeBegin: 'CreateTimeBegin',
       createTimeEnd: 'CreateTimeEnd',
       memoryAgentId: 'MemoryAgentId',
+      memoryId: 'MemoryId',
       memoryUserId: 'MemoryUserId',
       page: 'Page',
       pageSize: 'PageSize',
@@ -99,6 +106,7 @@ export class SearchMemoriesRequest extends $dara.Model {
       createTimeBegin: 'string',
       createTimeEnd: 'string',
       memoryAgentId: 'string',
+      memoryId: 'string',
       memoryUserId: 'string',
       page: 'number',
       pageSize: 'number',

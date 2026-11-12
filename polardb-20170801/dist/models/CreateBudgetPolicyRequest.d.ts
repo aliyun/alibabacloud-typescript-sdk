@@ -29,10 +29,11 @@ export declare class CreateBudgetPolicyRequest extends $dara.Model {
     /**
      * @remarks
      * The budget type. Valid values:
-     * - **GlobalTotal**: Global total budget.
-     * - **ConsumerGroupTotal**: Total budget for a consumer group.
-     * - **ConsumerGroupMemberDefault**: Default budget for a consumer group member.
-     * - **Consumer**: Budget for a single consumer.
+     *
+     * - **GlobalTotal**: global total budget
+     * - **ConsumerGroupTotal**: total budget of a consumer group
+     * - **ConsumerGroupMemberDefault**: default budget for consumer group members
+     * - **Consumer**: budget for a single consumer
      *
      * This parameter is required.
      *

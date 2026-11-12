@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class EnableDBClusterDynamoDBResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The ID of the request
+     * The request ID.
      *
      * @example
      * CD3FA5F3-FAF3-44CA-AFFF-BAF869******

@@ -10,7 +10,7 @@ export declare class SetPolarFsFileQuotaRequestFilePathQuotas extends $dara.Mode
     capacity?: number;
     /**
      * @remarks
-     * The directory path.
+     * The directory.
      *
      * @example
      * /a/project
@@ -18,7 +18,7 @@ export declare class SetPolarFsFileQuotaRequestFilePathQuotas extends $dara.Mode
     filePathId?: string;
     /**
      * @remarks
-     * The quota inodes.
+     * The inode quota.
      *
      * @example
      * 100
@@ -26,7 +26,7 @@ export declare class SetPolarFsFileQuotaRequestFilePathQuotas extends $dara.Mode
     inodes?: number;
     /**
      * @remarks
-     * The number of subdirectory levels to traverse under `FilePathId`. A value of 1 indicates that only the first-level subdirectories are traversed. A value of 0 indicates that all levels are traversed to the deepest level.
+     * The number of directory levels to traverse under `FilePathId`. A value of 1 indicates that only the first-level subdirectories are traversed. A value of 0 indicates that the traversal goes to the deepest level.
      *
      * @example
      * 1
@@ -34,7 +34,7 @@ export declare class SetPolarFsFileQuotaRequestFilePathQuotas extends $dara.Mode
     maxDepth?: number;
     /**
      * @remarks
-     * The IDs of the rules to apply, separated by commas (,).
+     * The list of rule IDs to be applied, separated by commas (`,`).
      *
      * @example
      * 1,2
@@ -42,10 +42,9 @@ export declare class SetPolarFsFileQuotaRequestFilePathQuotas extends $dara.Mode
     quotaIds?: string;
     /**
      * @remarks
-     * The mode in which rules take effect on existing files. Valid values:
-     *
-     * - **missing**: Rules take effect only when they are missing. This is the default value.
-     * - **all**: Rules take effect on all files.
+     * The mode in which the rules take effect on existing files. Valid values:
+     * - **missing**: The rules take effect only when they are missing. This is the default value.
+     * - **all**: The rules take effect on all files.
      *
      * @example
      * missing
@@ -73,9 +72,12 @@ export declare class SetPolarFsFileQuotaRequest extends $dara.Model {
     DBClusterId?: string;
     /**
      * @remarks
-     * The details of the quota rules to apply to directories.
+     * The details of the quota rules applied to directories.
      *
      * This parameter is required.
+     *
+     * @example
+     * []
      */
     filePathQuotas?: SetPolarFsFileQuotaRequestFilePathQuotas[];
     /**

@@ -45,12 +45,7 @@ export class DescribeDBClusterPriceRequestDBNodes extends $dara.Model {
 export class DescribeDBClusterPriceRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster edition. Valid values:
-   * - Normal: Cluster Edition.
-   * - Basic: Single Node Edition.
-   * - ArchiveNormal: Archive Database.
-   * - SENormal: Standard Edition.
-   * - NormalMultimaster: Multi-master Cluster.
+   * The cluster edition. Valid values: Normal (Cluster Edition), Basic (Single Node Edition), ArchiveNormal (Archive Database Cluster Edition), SENormal (Standard Edition), and NormalMultimaster (Multi-master Cluster).
    * 
    * @example
    * Normal
@@ -77,12 +72,12 @@ export class DescribeDBClusterPriceRequest extends $dara.Model {
    * The list of node IDs to delete. Used when ModifyType is set to DELETE.
    * 
    * @example
-   * pi-**************
+   * ["pi-***************"]
    */
   DBNodeIds?: string[];
   /**
    * @remarks
-   * The number of nodes. Valid for the BUY scenario. This value includes the read/write node. Minimum value: 1. Default value: 1.
+   * The number of nodes. Valid for the BUY scenario. This number includes read/write nodes. Minimum value: 1. Default value: 1.
    * 
    * @example
    * 2
@@ -90,7 +85,7 @@ export class DescribeDBClusterPriceRequest extends $dara.Model {
   DBNodeNum?: number;
   /**
    * @remarks
-   * The list of heterogeneous specification change nodes. Used for specification change scenarios to specify the target specifications for each node.
+   * The list of nodes for heterogeneous specification changes. Used in specification change scenarios to specify the target specifications for each node.
    */
   DBNodes?: DescribeDBClusterPriceRequestDBNodes[];
   /**
@@ -111,11 +106,7 @@ export class DescribeDBClusterPriceRequest extends $dara.Model {
   DBVersion?: string;
   /**
    * @remarks
-   * Specifies whether to enable the hot standby cluster. Valid values:
-   * - ON: Enable.
-   * - OFF: Disable.
-   * 
-   * Valid for the BUY and specification change scenarios.
+   * Specifies whether to enable the hot standby cluster. Valid values: ON and OFF. Valid for the BUY and specification change scenarios.
    * 
    * @example
    * ON
@@ -123,14 +114,7 @@ export class DescribeDBClusterPriceRequest extends $dara.Model {
   hotStandbyCluster?: string;
   /**
    * @remarks
-   * The specification change direction. Valid values:
-   * - ADD: add nodes.
-   * - DELETE: remove nodes.
-   * - UPGRADE: upgrade specifications.
-   * - DOWNGRADE: downgrade specifications.
-   * - HOT_STANDBY: hot standby change.
-   * - STORAGE: storage space change.
-   * - STORAGE_TYPE: storage type change.
+   * The modification type. Valid values: ADD (add nodes), DELETE (remove nodes), UPGRADE (upgrade), DOWNGRADE (downgrade), HOT_STANDBY (hot standby change), STORAGE (storage space change), and STORAGE_TYPE (storage type change).
    * 
    * @example
    * UPGRADE
@@ -138,12 +122,7 @@ export class DescribeDBClusterPriceRequest extends $dara.Model {
   modifyType?: string;
   /**
    * @remarks
-   * The order type. Valid values:
-   * - BUY: new purchase.
-   * - CONVERT: billing method conversion.
-   * - RENEW: renewal.
-   * - UPGRADE: upgrade specifications or add nodes.
-   * - DOWNGRADE: downgrade specifications or remove nodes.
+   * The order type. Valid values: BUY (new purchase), CONVERT (billing method change), RENEW (renewal), UPGRADE (upgrade or add nodes), and DOWNGRADE (downgrade or remove nodes).
    * 
    * This parameter is required.
    * 
@@ -153,9 +132,7 @@ export class DescribeDBClusterPriceRequest extends $dara.Model {
   orderType?: string;
   /**
    * @remarks
-   * The billing method. Required for the BUY and CONVERT scenarios. Valid values:
-   * - Prepaid: subscription.
-   * - Postpaid: pay-as-you-go.
+   * The billing method. Required for the BUY and CONVERT scenarios. Valid values: Prepaid (subscription) and Postpaid (pay-as-you-go).
    * 
    * @example
    * Prepaid
@@ -163,9 +140,7 @@ export class DescribeDBClusterPriceRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The subscription cycle. Valid values:
-   * - Month: monthly.
-   * - Year: yearly.
+   * The subscription period. Valid values: Month and Year.
    * 
    * @example
    * Month
@@ -191,7 +166,7 @@ export class DescribeDBClusterPriceRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The serverless type. Valid values: AgileServerless.
+   * The Serverless type. Valid value: AgileServerless.
    * 
    * @example
    * AgileServerless
@@ -199,9 +174,7 @@ export class DescribeDBClusterPriceRequest extends $dara.Model {
   serverlessType?: string;
   /**
    * @remarks
-   * The storage billing type. Valid values:
-   * - Prepaid: subscription.
-   * - Postpaid: pay-as-you-go.
+   * The storage billing method. Valid values: Prepaid (subscription) and Postpaid (pay-as-you-go).
    * 
    * @example
    * Prepaid
@@ -209,7 +182,7 @@ export class DescribeDBClusterPriceRequest extends $dara.Model {
   storageChargeType?: string;
   /**
    * @remarks
-   * The storage space, in GB. Used for prepaid storage or storage specification change scenarios.
+   * The storage space. Unit: GB. Used for prepaid storage or storage specification change scenarios.
    * 
    * @example
    * 50
@@ -217,14 +190,7 @@ export class DescribeDBClusterPriceRequest extends $dara.Model {
   storageSpace?: string;
   /**
    * @remarks
-   * The storage type. Valid values:
-   * - PSL5: high performance.
-   * - PSL4: standard.
-   * - ESSDPL0
-   * - ESSDPL1
-   * - ESSDPL2
-   * - ESSDPL3
-   * - ESSDAUTOPL
+   * The storage type. Valid values: PSL5 (premium performance), PSL4 (standard performance), ESSDPL0, ESSDPL1, ESSDPL2, ESSDPL3, and ESSDAUTOPL.
    * 
    * @example
    * PSL5
@@ -232,7 +198,7 @@ export class DescribeDBClusterPriceRequest extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * The subscription duration. Used together with Period. Valid for the BUY, CONVERT, and RENEW scenarios when the billing method is Prepaid.
+   * The purchase duration. Used in combination with Period. Valid for the BUY, CONVERT, and RENEW scenarios when the billing method is Prepaid.
    * 
    * @example
    * 1
@@ -240,7 +206,7 @@ export class DescribeDBClusterPriceRequest extends $dara.Model {
   usedTime?: string;
   /**
    * @remarks
-   * The zone ID. We recommend that you specify this parameter for the BUY scenario.
+   * The zone ID. Recommended for the BUY scenario.
    * 
    * @example
    * cn-hangzhou-h

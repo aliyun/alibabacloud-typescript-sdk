@@ -46,6 +46,9 @@ export class DescribeHistoryEventsStatResponseBody extends $dara.Model {
   /**
    * @remarks
    * The statistical results summarized by event category.
+   * 
+   * @example
+   * []
    */
   items?: DescribeHistoryEventsStatResponseBodyItems[];
   /**

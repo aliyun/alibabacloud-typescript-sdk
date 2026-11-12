@@ -10,7 +10,7 @@ export declare class DescribePolarClawTaskResponseBodyTaskError extends $dara.Mo
     code?: string;
     /**
      * @remarks
-     * The error message.
+     * The error details.
      *
      * @example
      * channelId format invalid
@@ -38,12 +38,15 @@ export declare class DescribePolarClawTaskResponseBodyTask extends $dara.Model {
     createdAtMs?: number;
     /**
      * @remarks
-     * The error object. This parameter is returned only if the task fails.
+     * The error object. This object is returned when the task fails.
+     *
+     * @example
+     * {}
      */
     error?: DescribePolarClawTaskResponseBodyTaskError;
     /**
      * @remarks
-     * The operation name.
+     * The name of the operation.
      *
      * @example
      * LoginPolarClawChannel
@@ -51,7 +54,7 @@ export declare class DescribePolarClawTaskResponseBodyTask extends $dara.Model {
     operation?: string;
     /**
      * @remarks
-     * The task result object. This parameter is returned only if the task succeeds. The content of this object varies by operation.
+     * The task result object. This object is returned when the task succeeds. The content varies based on the operation.
      *
      * @example
      * {}
@@ -61,7 +64,7 @@ export declare class DescribePolarClawTaskResponseBodyTask extends $dara.Model {
     };
     /**
      * @remarks
-     * The task state. Valid values: pending, running, succeeded, and failed.
+     * The task status. Valid values: pending, running, succeeded, and failed.
      *
      * @example
      * running
@@ -69,7 +72,7 @@ export declare class DescribePolarClawTaskResponseBodyTask extends $dara.Model {
     state?: string;
     /**
      * @remarks
-     * The task ID, which is a universally unique identifier (UUID).
+     * The task ID (UUID).
      *
      * @example
      * 5956e600-ce6e-4d11-9648-939ef3286e94
@@ -77,7 +80,7 @@ export declare class DescribePolarClawTaskResponseBodyTask extends $dara.Model {
     taskId?: string;
     /**
      * @remarks
-     * The timestamp when the task was last updated, in milliseconds.
+     * The timestamp when the task was updated, in milliseconds.
      *
      * @example
      * 1778564750541
@@ -105,7 +108,7 @@ export declare class DescribePolarClawTaskResponseBody extends $dara.Model {
     applicationId?: string;
     /**
      * @remarks
-     * The status code.
+     * The response status code.
      *
      * @example
      * 200
@@ -130,6 +133,9 @@ export declare class DescribePolarClawTaskResponseBody extends $dara.Model {
     /**
      * @remarks
      * The task object.
+     *
+     * @example
+     * {}
      */
     task?: DescribePolarClawTaskResponseBodyTask;
     static names(): {

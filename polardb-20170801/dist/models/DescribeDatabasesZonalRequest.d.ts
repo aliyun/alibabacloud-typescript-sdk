@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DescribeDatabasesZonalRequest extends $dara.Model {
     /**
      * @remarks
-     * The cluster ID.
+     * The ID of the edge cluster. Only edge clusters are supported. You can call the DescribeDBClustersZonal operation to obtain a list of valid edge clusters and call the DescribeEdgeCloudRegion operation to query the regions that support edge clusters.
      *
      * This parameter is required.
      *
@@ -12,7 +12,7 @@ export declare class DescribeDatabasesZonalRequest extends $dara.Model {
     DBClusterId?: string;
     /**
      * @remarks
-     * The database name.
+     * The name of the database.
      *
      * @example
      * test_db
@@ -20,7 +20,7 @@ export declare class DescribeDatabasesZonalRequest extends $dara.Model {
     DBName?: string;
     /**
      * @remarks
-     * The maximum number of entries to return for the current request.
+     * The maximum number of entries to return in this call.
      *
      * @example
      * 10
@@ -28,7 +28,7 @@ export declare class DescribeDatabasesZonalRequest extends $dara.Model {
     maxResults?: number;
     /**
      * @remarks
-     * The query token. This is the NextToken value from the previous API call. If there are no more results, do not specify this parameter.
+     * The query token. Set the value to the NextToken value returned from the previous API call. If no subsequent query is required, do not specify this parameter.
      *
      * @example
      * 212db86sca4384811e0b5e8707e******
@@ -38,7 +38,7 @@ export declare class DescribeDatabasesZonalRequest extends $dara.Model {
     ownerId?: number;
     /**
      * @remarks
-     * The page number. The value must be an integer that is greater than 0 and does not exceed the maximum value of the Integer data type. The default value is 1.
+     * The page number. Valid values: integers greater than 0 and less than or equal to the maximum value of the Integer data type. Default value: 1.
      *
      * @example
      * 1
@@ -46,15 +46,13 @@ export declare class DescribeDatabasesZonalRequest extends $dara.Model {
     pageNumber?: number;
     /**
      * @remarks
-     * The number of entries to return on each page. Valid values:
+     * The number of entries per page. Valid values:
      *
      * - 30
-     *
      * - 50
-     *
      * - 100
      *
-     * The default value is 30.
+     * Default value: 30.
      *
      * @example
      * 30
