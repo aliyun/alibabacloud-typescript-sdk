@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The message returned in the response.
    * 
    * @example
    * Service [foo] in region [cn-shanghai] is starting

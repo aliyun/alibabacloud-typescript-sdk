@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CloneServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The public endpoint of the service.
+   * The public network access endpoint.
    * 
    * @example
    * http://10123*****.cn-shanghai.aliyuncs.com/api/predict/echo
@@ -13,7 +13,7 @@ export class CloneServiceResponseBody extends $dara.Model {
   internetEndpoint?: string;
   /**
    * @remarks
-   * The private endpoint of the service.
+   * The internal endpoint.
    * 
    * @example
    * http://10123*****.vpc.cn-shanghai.aliyuncs.com/api/predict/echo
@@ -29,7 +29,7 @@ export class CloneServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The service ID.
+   * The ID of the service.
    * 
    * @example
    * eas-m-r9knx7n9guf2p*****
@@ -37,7 +37,7 @@ export class CloneServiceResponseBody extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The service name.
+   * The name of the service.
    * 
    * @example
    * foo
@@ -45,7 +45,7 @@ export class CloneServiceResponseBody extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The service status.
+   * The status of the service.
    * 
    * @example
    * Creating

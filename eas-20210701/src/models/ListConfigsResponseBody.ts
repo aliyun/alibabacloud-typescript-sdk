@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConfigsResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * The time when the dynamic parameter was created, in UTC and ISO 8601 format.
+   * The time when the dynamic parameter was created, in UTC in RFC 3339 format.
    * 
    * @example
    * 2024-01-01T10:00:00Z
@@ -21,7 +21,7 @@ export class ListConfigsResponseBodyConfigs extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The time when the dynamic parameter was last updated, in UTC and ISO 8601 format.
+   * The time when the dynamic parameter was last updated, in UTC in RFC 3339 format.
    * 
    * @example
    * 2024-01-01T10:00:00Z
@@ -73,7 +73,7 @@ export class ListConfigsResponseBody extends $dara.Model {
   configs?: ListConfigsResponseBodyConfigs[];
   /**
    * @remarks
-   * Indicates if more entries are available. `true` if more entries exist; otherwise, `false`.
+   * Indicates whether more data exists.
    * 
    * @example
    * true
@@ -97,7 +97,7 @@ export class ListConfigsResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of entries per page.
    * 
    * @example
    * 100
@@ -105,7 +105,7 @@ export class ListConfigsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries found.
+   * The total number of entries.
    * 
    * @example
    * 150

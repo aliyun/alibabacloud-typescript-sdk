@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateResourceLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The operation result message.
    * 
    * @example
    * Resource [eas-r-asdasdasd****] is deleted.

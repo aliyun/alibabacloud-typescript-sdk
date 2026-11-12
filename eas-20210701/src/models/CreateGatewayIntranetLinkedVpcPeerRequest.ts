@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGatewayIntranetLinkedVpcPeerRequestPeerVpcs extends $dara.Model {
   /**
    * @remarks
-   * The region where the VPC peer resides.
+   * The region where the peered VPC resides.
    * 
    * @example
    * cn-shanghai
@@ -13,7 +13,7 @@ export class CreateGatewayIntranetLinkedVpcPeerRequestPeerVpcs extends $dara.Mod
   region?: string;
   /**
    * @remarks
-   * The ID of the VPC peer. To obtain the VPC ID, see [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html).
+   * The ID of the peered VPC. For information about how to obtain the VPC ID, see [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html).
    * 
    * @example
    * vpc-uf66uio7md****
@@ -45,12 +45,12 @@ export class CreateGatewayIntranetLinkedVpcPeerRequestPeerVpcs extends $dara.Mod
 export class CreateGatewayIntranetLinkedVpcPeerRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of VPC peers.
+   * The list of peered VPCs.
    */
   peerVpcs?: CreateGatewayIntranetLinkedVpcPeerRequestPeerVpcs[];
   /**
    * @remarks
-   * The VPC ID. To obtain the VPC ID, see [ListGatewayIntranetLinkedVpc](https://help.aliyun.com/document_detail/2621223.html).
+   * The ID of the VPC. For information about how to obtain the VPC ID, see [ListGatewayIntranetLinkedVpc](https://help.aliyun.com/document_detail/2621223.html).
    * 
    * @example
    * vpc-2zetuli9ws0qgjd******

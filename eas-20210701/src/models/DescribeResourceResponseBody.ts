@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cluster that contains the resource group.
+   * The ID of the cluster where the resource group resides.
    * 
    * @example
    * cn-beijing
@@ -29,7 +29,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
   cpuUsed?: number;
   /**
    * @remarks
-   * The time the resource group was created.
+   * The time when the resource group was created, in UTC and RFC 3339 format.
    * 
    * @example
    * 2020-05-19T14:19:42Z
@@ -37,7 +37,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Additional information, such as the VPC connection status and the SLS log status.
+   * The additional information, such as the VPC connectivity status and Simple Log Service status.
    * 
    * @example
    * {"vswitch_id":"vsw-bp17uo6xebcusy****","gpu_share":true,"aux_vswitch_id_list":["vsw-bp13b3pvjap3vxn****","vsw-bp1nls8o5hk8mt8*****"],"security_group_id":"sg-bp1j1z7297hcink*****","vpc_id":"vpc-bp1kjr3rfyhx01*****","destination_cidr":"172.16.0.12/28","role_arn":"acs:ram::1157703270*****:role/AliyunServiceRoleForPaiEas","sls_project":"","sls_logstore":"","sls_status":"ResourceReady","sls_message":"","update_time":""}
@@ -45,7 +45,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
   extraData?: string;
   /**
    * @remarks
-   * The features that the resource group supports.
+   * The set of features supported by the resource group.
    */
   features?: string[];
   /**
@@ -66,7 +66,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
   gpuUsed?: number;
   /**
    * @remarks
-   * The total number of instances in the resource group.
+   * The total number of machine instances in the resource group.
    * 
    * @example
    * 4
@@ -74,7 +74,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
   instanceCount?: number;
   /**
    * @remarks
-   * The maximum number of CPU cores that can be allocated to a single instance in the resource group.
+   * The maximum number of allocatable CPU cores per node in the resource group.
    * 
    * @example
    * 16
@@ -82,7 +82,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
   instanceMaxAllocatableCPU?: number;
   /**
    * @remarks
-   * The maximum number of GPUs that can be allocated to a single instance in the resource group.
+   * The maximum number of allocatable GPUs per node in the resource group.
    * 
    * @example
    * 2
@@ -90,7 +90,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
   instanceMaxAllocatableGPU?: number;
   /**
    * @remarks
-   * The maximum amount of memory that can be allocated to a single instance in the resource group, in MB.
+   * The maximum allocatable memory size per node in the resource group.
    * 
    * @example
    * 2048
@@ -98,7 +98,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
   instanceMaxAllocatableMemory?: number;
   /**
    * @remarks
-   * The total memory size, in MB.
+   * The total memory, in MB.
    * 
    * @example
    * 8192
@@ -114,7 +114,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
   memoryUsed?: number;
   /**
    * @remarks
-   * A message that provides details about the status of the resource group.
+   * The returned message.
    * 
    * @example
    * Resource is ready
@@ -130,7 +130,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
   ownerUid?: string;
   /**
    * @remarks
-   * The total number of pay-as-you-go instances in the resource group.
+   * The total number of pay-as-you-go machine instances in the resource group.
    * 
    * @example
    * 3
@@ -138,7 +138,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
   postPaidInstanceCount?: number;
   /**
    * @remarks
-   * The total number of subscription instances in the resource group.
+   * The total number of subscription machine instances in the resource group.
    * 
    * @example
    * 1
@@ -154,7 +154,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The Elastic Algorithm Service resource ID.
    * 
    * @example
    * eas-r-glkfpsxuw57x1h*****
@@ -162,7 +162,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The name of the resource group.
+   * The Elastic Algorithm Service resource name.
    * 
    * @example
    * my-resouce****
@@ -170,11 +170,10 @@ export class DescribeResourceResponseBody extends $dara.Model {
   resourceName?: string;
   /**
    * @remarks
-   * The type of the resource group. Valid values:
+   * The resource group type. Valid values:
    * 
-   * - `Dedicated`: a dedicated resource group.
-   * 
-   * - `SelfManaged`: a self-managed resource group.
+   * - Dedicated: dedicated resource group
+   * - SelfManaged: self-managed resource group
    * 
    * @example
    * Dedicated
@@ -198,7 +197,7 @@ export class DescribeResourceResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time the resource group was last updated.
+   * The time when the resource group was last updated, in UTC and RFC 3339 format.
    * 
    * @example
    * 2021-02-24T11:52:17Z

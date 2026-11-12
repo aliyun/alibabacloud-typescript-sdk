@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopBenchmarkTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The operation result message.
    * 
    * @example
    * Benchmark task [benchmark-larec-test-dbe5] is Stopping

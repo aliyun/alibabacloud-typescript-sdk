@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CommitServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The returned result message.
    * 
    * @example
    * Success

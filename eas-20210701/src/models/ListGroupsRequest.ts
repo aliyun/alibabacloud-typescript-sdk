@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter name. Fuzzy match is supported.
+   * The name filter. Fuzzy match is supported.
    * 
    * @example
    * foo
@@ -13,12 +13,15 @@ export class ListGroupsRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The user-defined labels.
+   * The custom labels.
+   * 
+   * @example
+   * {"key1":"value1","key2":null}
    */
   labels?: { [key: string]: string };
   /**
    * @remarks
-   * The sort order of the results.
+   * The sort order.
    * 
    * @example
    * desc
@@ -34,7 +37,7 @@ export class ListGroupsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of service groups to display on each page in a paged query. Settings for paging default to 100.
+   * The Settings for the number of service groups to return on each page during paging in a paged query. Default value: 100.
    * 
    * @example
    * 20
@@ -42,7 +45,7 @@ export class ListGroupsRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The field by which to sort the results.
+   * The sort field.
    * 
    * @example
    * CreateTime
@@ -50,7 +53,7 @@ export class ListGroupsRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The traffic allocation method used to filter service groups.
+   * The traffic distribution mode filter.
    * 
    * @example
    * auto

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceVersionsResponseBodyVersions extends $dara.Model {
   /**
    * @remarks
-   * The time when the service version was created. The time is displayed in UTC.
+   * The UTC time when the version was created.
    * 
    * @example
    * 2022-08-29T22:02:14Z
@@ -13,13 +13,10 @@ export class ListServiceVersionsResponseBodyVersions extends $dara.Model {
   buildTime?: string;
   /**
    * @remarks
-   * Indicates whether the image is available. Valid values:
-   * 
-   * - true: The image is available.
-   * 
-   * - false: The image is unavailable.
-   * 
-   * - unknown: The availability of the image is unknown.
+   * The availability of the image. Valid values:
+   * - true: Available.
+   * - false: Unavailable.
+   * - unknown: Unknown.
    * 
    * @example
    * true
@@ -35,7 +32,7 @@ export class ListServiceVersionsResponseBodyVersions extends $dara.Model {
   imageId?: number;
   /**
    * @remarks
-   * The returned message.
+   * The summary of the service.
    * 
    * @example
    * Service is Running
@@ -43,7 +40,15 @@ export class ListServiceVersionsResponseBodyVersions extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The service deployment configurations. This parameter is returned only if the service is deployed by using a custom image.
+   * The remarks.
+   * 
+   * @example
+   * new version.
+   */
+  remark?: string;
+  /**
+   * @remarks
+   * The deployment configuration of the service. This field is returned only for custom image deployments.
    * 
    * @example
    * {
@@ -58,13 +63,10 @@ export class ListServiceVersionsResponseBodyVersions extends $dara.Model {
   serviceConfig?: string;
   /**
    * @remarks
-   * Indicates whether Elastic Algorithm service (EAS) is activated. Valid values:
-   * 
-   * - true: EAS is activated.
-   * 
-   * - false: EAS is not activated.
-   * 
-   * - unknown: The activation of EAS is unknown.
+   * Indicates whether the EAS service is enabled. Valid values:
+   * - true: Enabled.
+   * - false: Disabled.
+   * - unknown: Unknown.
    * 
    * @example
    * true
@@ -76,6 +78,7 @@ export class ListServiceVersionsResponseBodyVersions extends $dara.Model {
       imageAvailable: 'ImageAvailable',
       imageId: 'ImageId',
       message: 'Message',
+      remark: 'Remark',
       serviceConfig: 'ServiceConfig',
       serviceRunnable: 'ServiceRunnable',
     };
@@ -87,6 +90,7 @@ export class ListServiceVersionsResponseBodyVersions extends $dara.Model {
       imageAvailable: 'string',
       imageId: 'number',
       message: 'string',
+      remark: 'string',
       serviceConfig: 'string',
       serviceRunnable: 'string',
     };
@@ -104,7 +108,7 @@ export class ListServiceVersionsResponseBodyVersions extends $dara.Model {
 export class ListServiceVersionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number of the returned historical versions.
    * 
    * @example
    * 1
@@ -112,7 +116,7 @@ export class ListServiceVersionsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of historical versions returned on each page.
    * 
    * @example
    * 10
@@ -128,7 +132,7 @@ export class ListServiceVersionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of versions.
    * 
    * @example
    * 166
@@ -136,7 +140,7 @@ export class ListServiceVersionsResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The historical versions of the service.
+   * The list of versions.
    */
   versions?: ListServiceVersionsResponseBodyVersions[];
   static names(): { [key: string]: string } {

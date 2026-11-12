@@ -13,7 +13,7 @@ export class ListServiceVersionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 100.
+   * The number of versions to return on each page in the paging Settings for a paged query. Default value: 100.
    * 
    * @example
    * 10

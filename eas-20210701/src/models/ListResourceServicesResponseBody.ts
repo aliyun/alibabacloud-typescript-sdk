@@ -6,7 +6,7 @@ import { Service } from "./Service";
 export class ListResourceServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned service list.
    * 
    * @example
    * 1
@@ -14,7 +14,7 @@ export class ListResourceServicesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of services returned on each page.
    * 
    * @example
    * 20
@@ -22,7 +22,7 @@ export class ListResourceServicesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 40325405-579C-4D82****
@@ -30,12 +30,12 @@ export class ListResourceServicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The services.
+   * The list of services.
    */
   services?: Service[];
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of services.
    * 
    * @example
    * 2

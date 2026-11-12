@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time the configuration was created.
+   * The time when the dynamic parameter was created, in UTC in RFC 3339 format.
    * 
    * @example
    * 2024-01-15T10:30:00Z
@@ -21,7 +21,7 @@ export class UpdateConfigResponseBody extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The time the configuration was last updated.
+   * The time when the dynamic parameter was last updated, in UTC in RFC 3339 format.
    * 
    * @example
    * 2024-01-15T11:00:00Z

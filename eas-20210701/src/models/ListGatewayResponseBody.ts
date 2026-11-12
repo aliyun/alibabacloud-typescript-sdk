@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayResponseBodyGatewaysLabels extends $dara.Model {
   /**
    * @remarks
-   * The key of the gateway tag.
+   * The key of the gateway label.
    * 
    * @example
    * key1
@@ -13,7 +13,7 @@ export class ListGatewayResponseBodyGatewaysLabels extends $dara.Model {
   labelKey?: string;
   /**
    * @remarks
-   * The value of the gateway tag.
+   * The value of the gateway label.
    * 
    * @example
    * value1
@@ -46,10 +46,8 @@ export class ListGatewayResponseBodyGateways extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
-   * 
-   * - PrePaid: Subscription.
-   * 
-   * - PostPaid: Pay-as-you-go.
+   * - PrePaid: subscription.
+   * - PostPaid: pay-as-you-go.
    * 
    * @example
    * PostPaid
@@ -57,7 +55,7 @@ export class ListGatewayResponseBodyGateways extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The time when the private gateway was created. The time is in UTC.
+   * The time when the private gateway was created. The time is displayed in UTC.
    * 
    * @example
    * 2020-05-19T14:19:42Z
@@ -89,7 +87,7 @@ export class ListGatewayResponseBodyGateways extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The public network endpoint.
+   * The domain name for public network access.
    * 
    * @example
    * gw-1uhcqmsc7x22******-1801786532******.cn-wulanchabu.pai-eas.aliyuncs.com
@@ -105,7 +103,7 @@ export class ListGatewayResponseBodyGateways extends $dara.Model {
   internetEnabled?: boolean;
   /**
    * @remarks
-   * The internal network endpoint.
+   * The domain name for internal network access.
    * 
    * @example
    * gw-1uhcqmsc7x22******-1801786532******-vpc.cn-wulanchabu.pai-eas.aliyuncs.com
@@ -118,7 +116,7 @@ export class ListGatewayResponseBodyGateways extends $dara.Model {
   intranetEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether it is the default private gateway.
+   * Indicates whether the private gateway is the default private gateway.
    * 
    * @example
    * true
@@ -126,12 +124,12 @@ export class ListGatewayResponseBodyGateways extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The list of gateway tags.
+   * The list of gateway labels.
    */
   labels?: ListGatewayResponseBodyGatewaysLabels[];
   /**
    * @remarks
-   * The number of nodes for the private gateway.
+   * The number of nodes in the private gateway.
    * 
    * @example
    * 2
@@ -155,7 +153,7 @@ export class ListGatewayResponseBodyGateways extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the private gateway was last updated. The time is in UTC.
+   * The time when the private gateway was updated. The time is displayed in UTC.
    * 
    * @example
    * 2021-02-24T11:52:17Z
@@ -221,7 +219,7 @@ export class ListGatewayResponseBody extends $dara.Model {
   gateways?: ListGatewayResponseBodyGateways[];
   /**
    * @remarks
-   * The page number of the returned page.
+   * The page number of the returned gateway list.
    * 
    * @example
    * 1
@@ -229,7 +227,7 @@ export class ListGatewayResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of gateways returned on each page.
    * 
    * @example
    * 100
@@ -237,7 +235,7 @@ export class ListGatewayResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 40325405-579C-4D82****

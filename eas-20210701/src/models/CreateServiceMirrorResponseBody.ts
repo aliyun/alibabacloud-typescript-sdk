@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateServiceMirrorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The message returned in the response.
    * 
    * @example
    * Traffic mirroring is ON for service [foo] in region [cn-shanghai], ratio [70%]

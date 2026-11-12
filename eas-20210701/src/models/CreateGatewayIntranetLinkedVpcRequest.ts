@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGatewayIntranetLinkedVpcRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the VPC belongs.
+   * The Alibaba Cloud account ID to which the VPC belongs.
    * 
    * @example
    * 19*****10
@@ -13,7 +13,7 @@ export class CreateGatewayIntranetLinkedVpcRequest extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * Specifies whether to enable authoritative DNS parsing. The default value is false.
+   * Specifies whether to enable authoritative DNS resolution. Default value: false.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class CreateGatewayIntranetLinkedVpcRequest extends $dara.Model {
   enableAuthoritativeDns?: boolean;
   /**
    * @remarks
-   * The ID of the virtual switch. For more information, see [DescribeVpcs](https://help.aliyun.com/document_detail/448581.html).
+   * The ID of the vSwitch. To obtain the vSwitch ID, refer to [DescribeVpcs](https://help.aliyun.com/document_detail/448581.html).
    * 
    * @example
    * vsw-8vbqn2at0kljjxxxx****
@@ -29,7 +29,7 @@ export class CreateGatewayIntranetLinkedVpcRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC). For more information, see [DescribeVpcs](https://help.aliyun.com/document_detail/448581.html).
+   * The ID of the VPC. To obtain the VPC ID, refer to [DescribeVpcs](https://help.aliyun.com/document_detail/448581.html).
    * 
    * @example
    * vpc-uf66uio7md****

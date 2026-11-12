@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeGatewayResponseBodyLabels extends $dara.Model {
   /**
+   * @remarks
+   * The gateway label key.
+   * 
    * @example
    * key1
    */
   labelKey?: string;
   /**
+   * @remarks
+   * The gateway label value.
+   * 
    * @example
    * value1
    */
@@ -39,7 +45,7 @@ export class DescribeGatewayResponseBodyLabels extends $dara.Model {
 export class DescribeGatewayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The billing method.
+   * The billing method. Valid values:
    * 
    * @example
    * PrePaid
@@ -103,7 +109,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   internetEnabled?: boolean;
   /**
    * @remarks
-   * The status of public network access enablement or disablement.
+   * The status of public network access. Valid values:
    * 
    * @example
    * Running
@@ -117,15 +123,26 @@ export class DescribeGatewayResponseBody extends $dara.Model {
    * gw-1uhcqmsc7x22******-1801786532******-vpc.cn-wulanchabu.pai-eas.aliyuncs.com
    */
   intranetDomain?: string;
+  /**
+   * @remarks
+   * Indicates whether internal network access is enabled. A value of true indicates that internal network access is enabled. A value of false indicates that internal network access is not enabled.
+   * 
+   * @example
+   * true
+   */
   intranetEnabled?: boolean;
   /**
    * @remarks
-   * Indicates whether the dedicated gateway is the default one.
+   * Indicates whether the dedicated gateway is the default gateway.
    * 
    * @example
    * true
    */
   isDefault?: boolean;
+  /**
+   * @remarks
+   * The list of gateway labels.
+   */
   labels?: DescribeGatewayResponseBodyLabels[];
   /**
    * @remarks
@@ -153,7 +170,7 @@ export class DescribeGatewayResponseBody extends $dara.Model {
   SSLRedirectionEnabled?: boolean;
   /**
    * @remarks
-   * The status of the dedicated gateway.
+   * The status of the dedicated gateway. Valid values:
    * 
    * @example
    * Running

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBenchmarkTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The message returned for the request.
    * 
    * @example
    * Benchmark  task [foo] is Creating
@@ -13,7 +13,7 @@ export class CreateBenchmarkTaskResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the region where the stress testing task is performed.
+   * The region where the stress testing task resides.
    * 
    * @example
    * cn-shanghai

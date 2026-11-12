@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The creation time.
+   * The creation time in UTC, in RFC 3339 format.
    * 
    * @example
    * 2024-01-01T00:00:00Z
@@ -21,7 +21,7 @@ export class CreateConfigResponseBody extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The update time.
+   * The update time in UTC, in RFC 3339 format.
    * 
    * @example
    * 2024-01-01T00:00:00Z

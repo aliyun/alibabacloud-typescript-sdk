@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListTenantAddonsResponseBodyAddons extends $dara.Model {
   /**
    * @remarks
-   * The attributes of the plug-in.
+   * The plugin attributes.
    */
   attributes?: { [key: string]: string };
   /**
    * @remarks
-   * The name of the plug-in.
+   * The plugin name.
    * 
    * @example
    * prometheus_discovery
@@ -45,7 +45,7 @@ export class ListTenantAddonsResponseBodyAddons extends $dara.Model {
 export class ListTenantAddonsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the plug-in.
+   * The plugin information.
    */
   addons?: ListTenantAddonsResponseBodyAddons[];
   /**

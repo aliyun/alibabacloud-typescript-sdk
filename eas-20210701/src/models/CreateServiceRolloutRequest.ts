@@ -13,7 +13,7 @@ export class CreateServiceRolloutRequestBatch extends $dara.Model {
   batchSize?: string;
   /**
    * @remarks
-   * The wait interval after each batch completes.
+   * The wait interval after each batch update is completed.
    * 
    * @example
    * 5m
@@ -75,17 +75,17 @@ export class CreateServiceRolloutRequestPartition extends $dara.Model {
 export class CreateServiceRolloutRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration for the Batch strategy.
+   * The configuration for automatic batching.
    */
   batch?: CreateServiceRolloutRequestBatch;
   /**
    * @remarks
-   * The configuration for the Partition strategy.
+   * The configuration for manual batching.
    */
   partition?: CreateServiceRolloutRequestPartition;
   /**
    * @remarks
-   * Specifies whether to pause the rollout.
+   * Specifies whether to pause the update.
    * 
    * @example
    * False

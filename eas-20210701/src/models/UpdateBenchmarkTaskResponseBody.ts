@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateBenchmarkTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The success message of the operation.
    * 
    * @example
    * Benchmark task [benchmark-larec-test-1076] is Updating

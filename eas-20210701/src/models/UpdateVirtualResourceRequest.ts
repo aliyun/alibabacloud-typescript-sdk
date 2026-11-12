@@ -6,8 +6,7 @@ export class UpdateVirtualResourceRequestResources extends $dara.Model {
   /**
    * @remarks
    * The instance type of the public resource group.
-   * 
-   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
+   * >Notice: You must specify exactly one of the following fields: InstanceType, ResourceId, and QuotaId.
    * 
    * @example
    * ecs.s6-c1m2.xlarge
@@ -15,7 +14,7 @@ export class UpdateVirtualResourceRequestResources extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The priority of resource scheduling. A greater number indicates a higher priority.
+   * The scheduling priority of the resource. A larger value indicates a higher scheduling priority.
    * 
    * @example
    * 6
@@ -23,9 +22,8 @@ export class UpdateVirtualResourceRequestResources extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The ID of the Lingjun resource quota.
-   * 
-   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
+   * The Lingjun resource quota ID.
+   * >Notice: You must specify exactly one of the following fields: InstanceType, ResourceId, and QuotaId.
    * 
    * @example
    * quota185lqf994k6
@@ -33,7 +31,7 @@ export class UpdateVirtualResourceRequestResources extends $dara.Model {
   quotaId?: string;
   /**
    * @remarks
-   * The region in which the resource resides.
+   * The region where the resource resides.
    * 
    * @example
    * cn-hangzhou
@@ -41,9 +39,8 @@ export class UpdateVirtualResourceRequestResources extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The ID of the dedicated resource group. For information about how to obtain the ID of a dedicated resource group, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
-   * 
-   * >  You must specify one and only one of the InstanceType, ResourceId, and QuotaId parameters.
+   * The ID of the dedicated resource group. For more information about how to query the ID of a dedicated resource group, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
+   * >Notice: You must specify exactly one of the following fields: InstanceType, ResourceId, and QuotaId.
    * 
    * @example
    * eas-r-g55ieatgg3butwrn7a
@@ -51,9 +48,8 @@ export class UpdateVirtualResourceRequestResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The maximum price of preemptible instances in a public resource group.
-   * 
-   * >  If you leave this parameter empty, preemptible instances are not used.
+   * The maximum price for spot instances in the public resource group.
+   * <notice>If not specified, spot instances are not used.
    * 
    * @example
    * 10.05
@@ -93,7 +89,7 @@ export class UpdateVirtualResourceRequestResources extends $dara.Model {
 export class UpdateVirtualResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to disable the retention period of preemptible instances.
+   * Specifies whether to disable the protection period for spot instances.
    * 
    * @example
    * true
@@ -101,9 +97,8 @@ export class UpdateVirtualResourceRequest extends $dara.Model {
   disableSpotProtectionPeriod?: boolean;
   /**
    * @remarks
-   * The resources in the virtual resource group.
-   * 
-   * >  If you specify this parameter, previous data is overwritten.
+   * The list of resources contained in the virtual resource group.
+   * >Notice: If specified, the previous data is overwritten.
    */
   resources?: UpdateVirtualResourceRequestResources[];
   /**

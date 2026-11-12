@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteBenchmarkTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The message returned in the response.
    * 
    * @example
    * Benchmark task [benchmark-test-service-234c] is Deleting

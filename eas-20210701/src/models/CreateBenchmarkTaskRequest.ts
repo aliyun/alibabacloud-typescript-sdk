@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBenchmarkTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body. The body includes the parameters that are set to create a stress testing task.
+   * The configuration parameters of the stress testing task.
    * 
    * @example
    * {

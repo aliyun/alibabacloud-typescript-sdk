@@ -13,7 +13,7 @@ export class DescribeVirtualResourceResponseBodyResources extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The scheduling priority of the resource. A larger value indicates a higher priority.
+   * The scheduling priority of the resource. A larger value indicates a higher scheduling priority.
    * 
    * @example
    * 3
@@ -21,7 +21,7 @@ export class DescribeVirtualResourceResponseBodyResources extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The ID of the Lingjun resource quota.
+   * The Lingjun resource quota ID.
    * 
    * @example
    * quota185lqxxxxxx
@@ -29,7 +29,7 @@ export class DescribeVirtualResourceResponseBodyResources extends $dara.Model {
   quotaId?: string;
   /**
    * @remarks
-   * The region where the resource is located.
+   * The region where the resource resides.
    * 
    * @example
    * cn-hangzhou
@@ -37,7 +37,7 @@ export class DescribeVirtualResourceResponseBodyResources extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The ID of the dedicated resource group.
+   * The dedicated resource group ID.
    * 
    * @example
    * eas-r-g55ieatgg3buxxxxxx
@@ -45,7 +45,7 @@ export class DescribeVirtualResourceResponseBodyResources extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The maximum price for a spot instance in the public resource group.
+   * The maximum price for spot instances in the public resource group.
    * 
    * @example
    * 10.05
@@ -85,7 +85,7 @@ export class DescribeVirtualResourceResponseBodyResources extends $dara.Model {
 export class DescribeVirtualResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the virtual resource group was created.
+   * The time when the virtual resource group was created, in UTC in RFC 3339 format.
    * 
    * @example
    * 2024-10-16T17:52:49Z
@@ -101,7 +101,7 @@ export class DescribeVirtualResourceResponseBody extends $dara.Model {
   disableSpotProtectionPeriod?: boolean;
   /**
    * @remarks
-   * The collection of features for the virtual resource group. This identifies the attributes that the resource group supports.
+   * The set of features of the virtual resource group, which identifies the capabilities supported by the resource group.
    */
   features?: string[];
   /**
@@ -114,7 +114,7 @@ export class DescribeVirtualResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of resources in the virtual resource group.
+   * The list of resources contained in the virtual resource group.
    */
   resources?: DescribeVirtualResourceResponseBodyResources[];
   /**
@@ -127,7 +127,7 @@ export class DescribeVirtualResourceResponseBody extends $dara.Model {
   serviceCount?: number;
   /**
    * @remarks
-   * The time when the virtual resource group was last updated.
+   * The time when the virtual resource group was last updated, in UTC in RFC 3339 format.
    * 
    * @example
    * 2024-10-16T19:52:49Z
@@ -135,7 +135,7 @@ export class DescribeVirtualResourceResponseBody extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The ID of the virtual resource group.
+   * The virtual resource group ID.
    * 
    * @example
    * eas-vr-npovr28onap1xxxxxx

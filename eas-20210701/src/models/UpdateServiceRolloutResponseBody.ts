@@ -5,13 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateServiceRolloutResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A message that indicates the result of the request. Possible values include:
-   * 
-   * - "Rollout updated successfully"
-   * 
-   * - "Rollout paused successfully"
-   * 
-   * - "Rollout resumed successfully"
+   * The returned message. Describes the request processing result. Valid values:
+   * - "Rollout updated successfully": The rollout policy is updated.
+   * - "Rollout paused successfully": The rollout is paused.
+   * - "Rollout resumed successfully": The rollout is resumed.
    * 
    * @example
    * Rollout updated successfully
@@ -19,7 +16,7 @@ export class UpdateServiceRolloutResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * A unique identifier for the request. You can use this request ID for troubleshooting and tracking.
+   * The request ID. The unique identifier returned for each request, used for troubleshooting and tracking.
    * 
    * @example
    * 40325405-579C-4D82****

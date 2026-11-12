@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeServiceRolloutResponseBodyRolloutStatus extends $dara.Model {
   /**
    * @remarks
-   * The identifier for the currently running revision.
+   * The current revision. The identifier of the version that is currently running.
    * 
    * @example
    * service-abc123-v1
@@ -13,7 +13,7 @@ export class DescribeServiceRolloutResponseBodyRolloutStatus extends $dara.Model
   currentRevision?: string;
   /**
    * @remarks
-   * The scheduled start time for the next batch.
+   * The time when the next batch starts updating, in the format of YYYY/MM/DD HH:mm:ss.
    * 
    * @example
    * 2026/05/08 16:10:56
@@ -21,17 +21,12 @@ export class DescribeServiceRolloutResponseBodyRolloutStatus extends $dara.Model
   nextBatchStartTime?: string;
   /**
    * @remarks
-   * The current release phase. Valid values:
-   * 
-   * - `Pending`: The rollout is waiting to start.
-   * 
-   * - `Running`: The rollout is in progress.
-   * 
-   * - `Paused`: The rollout is paused.
-   * 
-   * - `Completed`: The rollout is complete.
-   * 
-   * - `Failed`: The rollout has failed.
+   * The rollout phase. Valid values:
+   * - Pending: Waiting to start the rollout.
+   * - Running: The rollout is in progress.
+   * - Paused: The rollout is paused.
+   * - Completed: The rollout is completed.
+   * - Failed: The rollout failed.
    * 
    * @example
    * Running
@@ -39,7 +34,7 @@ export class DescribeServiceRolloutResponseBodyRolloutStatus extends $dara.Model
   phase?: string;
   /**
    * @remarks
-   * The total number of desired replicas for the service.
+   * The total number of replicas for the service.
    * 
    * @example
    * 10
@@ -47,7 +42,7 @@ export class DescribeServiceRolloutResponseBodyRolloutStatus extends $dara.Model
   totalReplicas?: number;
   /**
    * @remarks
-   * The identifier for the target revision.
+   * The update revision. The identifier of the target version to which the service is being updated.
    * 
    * @example
    * service-abc123-v2
@@ -55,7 +50,7 @@ export class DescribeServiceRolloutResponseBodyRolloutStatus extends $dara.Model
   updateRevision?: string;
   /**
    * @remarks
-   * The number of replicas updated to the new revision.
+   * The number of replicas that have been updated to the new version.
    * 
    * @example
    * 5
@@ -95,7 +90,7 @@ export class DescribeServiceRolloutResponseBodyRolloutStatus extends $dara.Model
 export class DescribeServiceRolloutResponseBodyRolloutStrategyBatch extends $dara.Model {
   /**
    * @remarks
-   * The number or percentage of replicas to update in each batch.
+   * The batch size. The number or percentage of replicas to update in each batch.
    * 
    * @example
    * 1
@@ -103,7 +98,7 @@ export class DescribeServiceRolloutResponseBodyRolloutStrategyBatch extends $dar
   batchSize?: string;
   /**
    * @remarks
-   * The time to wait between batches.
+   * The batch interval. The wait time between two consecutive rollout batches.
    * 
    * @example
    * 5m
@@ -135,7 +130,7 @@ export class DescribeServiceRolloutResponseBodyRolloutStrategyBatch extends $dar
 export class DescribeServiceRolloutResponseBodyRolloutStrategyPartition extends $dara.Model {
   /**
    * @remarks
-   * Specifies the number or percentage of old replicas to keep. For example, a value of `50%` indicates that 50% of the old replicas are retained.
+   * The partition value. Specifies the number or percentage of old replicas to retain. For example, \\"50%\\" indicates that 50% of the old replicas are retained.
    * 
    * @example
    * 50%
@@ -165,12 +160,12 @@ export class DescribeServiceRolloutResponseBodyRolloutStrategyPartition extends 
 export class DescribeServiceRolloutResponseBodyRolloutStrategy extends $dara.Model {
   /**
    * @remarks
-   * The configuration for a batch release. This object is returned only when the batch release strategy is used.
+   * The batch rollout configuration. This field is returned only if a batch-based rollout strategy is used.
    */
   batch?: DescribeServiceRolloutResponseBodyRolloutStrategyBatch;
   /**
    * @remarks
-   * The configuration for a canary release. This object is returned only when the canary release strategy is used.
+   * The partition rollout configuration. This field is returned only if a partition-based rollout strategy is used.
    */
   partition?: DescribeServiceRolloutResponseBodyRolloutStrategyPartition;
   static names(): { [key: string]: string } {
@@ -205,12 +200,12 @@ export class DescribeServiceRolloutResponseBodyRolloutStrategy extends $dara.Mod
 export class DescribeServiceRolloutResponseBodyRollout extends $dara.Model {
   /**
    * @remarks
-   * The current progress and phase of the rollout.
+   * The rollout execution status. Contains the current rollout progress and phase information.
    */
   status?: DescribeServiceRolloutResponseBodyRolloutStatus;
   /**
    * @remarks
-   * The rollout strategy configuration. This object contains the parameters for a canary release or batch release.
+   * The rollout strategy configuration. Contains the specific configuration parameters for partition-based or batch-based rollout.
    */
   strategy?: DescribeServiceRolloutResponseBodyRolloutStrategy;
   static names(): { [key: string]: string } {
@@ -245,7 +240,7 @@ export class DescribeServiceRolloutResponseBodyRollout extends $dara.Model {
 export class DescribeServiceRolloutResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. This ID is unique to each request and is used for troubleshooting.
+   * The request ID. A unique identifier returned with each request, used for troubleshooting and tracing.
    * 
    * @example
    * 40325405-579C-4D82****
@@ -253,7 +248,7 @@ export class DescribeServiceRolloutResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Details of the service rollout, including the rollout strategy (`Strategy`) and execution status (`Status`).
+   * The rollout strategy information. Contains the strategy configuration (Strategy) and execution status (Status).
    */
   rollout?: DescribeServiceRolloutResponseBodyRollout;
   static names(): { [key: string]: string } {

@@ -445,6 +445,9 @@ export { UpdateServiceSafetyLockResponse } from './UpdateServiceSafetyLockRespon
 export { UpdateServiceVersionRequest } from './UpdateServiceVersionRequest';
 export { UpdateServiceVersionResponseBody } from './UpdateServiceVersionResponseBody';
 export { UpdateServiceVersionResponse } from './UpdateServiceVersionResponse';
+export { UpdateServiceVersionRemarkRequest } from './UpdateServiceVersionRemarkRequest';
+export { UpdateServiceVersionRemarkResponseBody } from './UpdateServiceVersionRemarkResponseBody';
+export { UpdateServiceVersionRemarkResponse } from './UpdateServiceVersionRemarkResponse';
 export { UpdateVirtualResourceRequest } from './UpdateVirtualResourceRequest';
 export { UpdateVirtualResourceResponseBody } from './UpdateVirtualResourceResponseBody';
 export { UpdateVirtualResourceResponse } from './UpdateVirtualResourceResponse';

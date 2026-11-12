@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateResourceRequestSelfManagedResourceOptionsNodeTolerations extends $dara.Model {
   /**
    * @remarks
-   * The effect of the toleration.
+   * The effect.
    * 
    * @example
    * NoSchedule
@@ -13,7 +13,7 @@ export class CreateResourceRequestSelfManagedResourceOptionsNodeTolerations exte
   effect?: string;
   /**
    * @remarks
-   * The key of the toleration.
+   * The key.
    * 
    * @example
    * key1
@@ -21,7 +21,7 @@ export class CreateResourceRequestSelfManagedResourceOptionsNodeTolerations exte
   key?: string;
   /**
    * @remarks
-   * The toleration operator, which defines the relationship between the key and value.
+   * The operator that defines the relationship between the key and the value.
    * 
    * @example
    * Equal
@@ -29,7 +29,7 @@ export class CreateResourceRequestSelfManagedResourceOptionsNodeTolerations exte
   operator?: string;
   /**
    * @remarks
-   * The toleration value.
+   * The value.
    * 
    * @example
    * value1
@@ -73,17 +73,20 @@ export class CreateResourceRequestSelfManagedResourceOptions extends $dara.Model
   externalClusterId?: string;
   /**
    * @remarks
-   * The node labels to match, specified as key-value pairs.
+   * The label key-value pairs for nodes.
+   * 
+   * @example
+   * "key1": "value1"
    */
   nodeMatchLabels?: { [key: string]: string };
   /**
    * @remarks
-   * A list of tolerations for node taints.
+   * The list of tolerations for node taints.
    */
   nodeTolerations?: CreateResourceRequestSelfManagedResourceOptionsNodeTolerations[];
   /**
    * @remarks
-   * The name of the RAM role that grants PAI-EAS the required permissions.
+   * The name of the RAM role to which PAI-EAS-related permissions are granted.
    * 
    * @example
    * clusterrole
@@ -126,10 +129,8 @@ export class CreateResourceRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
-   * 
-   * - `false` (default): Auto-renewal is disabled.
-   * 
-   * - `true`: Auto-renewal is enabled.
+   * - false (default): disables auto-renewal.
+   * - true: enables auto-renewal.
    * 
    * @example
    * false
@@ -138,12 +139,9 @@ export class CreateResourceRequest extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
-   * 
-   * - `PrePaid`: subscription.
-   * 
-   * - `PostPaid`: pay-as-you-go.
-   * 
-   * > This parameter is required when `ResourceType` is set to `Dedicated`.
+   * - PrePaid: subscription.
+   * - PostPaid: pay-as-you-go.
+   * > This parameter is required when ResourceType is set to Dedicated.
    * 
    * @example
    * PostPaid
@@ -152,8 +150,7 @@ export class CreateResourceRequest extends $dara.Model {
   /**
    * @remarks
    * The number of instances.
-   * 
-   * > This parameter is required when `ResourceType` is set to `Dedicated`.
+   * > This parameter is required when ResourceType is set to Dedicated.
    * 
    * @example
    * 5
@@ -162,8 +159,7 @@ export class CreateResourceRequest extends $dara.Model {
   /**
    * @remarks
    * The ECS instance type.
-   * 
-   * > This parameter is required when `ResourceType` is set to `Dedicated`.
+   * > This parameter is required when ResourceType is set to Dedicated.
    * 
    * @example
    * ecs.c6.8xlarge
@@ -172,6 +168,9 @@ export class CreateResourceRequest extends $dara.Model {
   /**
    * @remarks
    * The user-defined labels.
+   * 
+   * @example
+   * {"key":"value"}
    */
   labels?: { [key: string]: string };
   /**
@@ -185,12 +184,9 @@ export class CreateResourceRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the resource group. Valid values:
-   * 
-   * - `Dedicated`: a dedicated resource group.
-   * 
-   * - `SelfManaged`: a self-managed resource group.
-   * 
-   * > You must be whitelisted to use self-managed resource groups.
+   * - Dedicated: dedicated resource group.
+   * - SelfManaged: self-managed resource group.
+   * > To use a self-managed resource group, you must apply to be added to the whitelist.
    * 
    * @example
    * Dedicated
@@ -203,16 +199,23 @@ export class CreateResourceRequest extends $dara.Model {
   selfManagedResourceOptions?: CreateResourceRequestSelfManagedResourceOptions;
   /**
    * @remarks
-   * The size of the system disk, in GiB. The value must be between 200 and 2,000. If unspecified, the default is 200 GiB.
+   * The size of the system cloud disk. Unit: GiB. Valid values: 200 to 2000. Default value: 200.
    * 
    * @example
    * 200
    */
   systemDiskSize?: number;
+  /**
+   * @remarks
+   * The usage mode of the resource group. Valid values: inference (inference service resource group) and sandbox (sandbox resource group).
+   * 
+   * @example
+   * inference
+   */
   usageMode?: string;
   /**
    * @remarks
-   * The zone in which to create the instance.
+   * The zone to which the instance belongs.
    * 
    * @example
    * cn-shanghai-f

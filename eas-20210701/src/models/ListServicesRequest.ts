@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListServicesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Filters services by visibility. PUBLIC indicates a public service, and PRIVATE indicates a private service.
+   * 
    * @example
    * PUBLIC
    */
   accessibility?: string;
   /**
    * @remarks
-   * Specifies whether to enable Auto Scaling for the service.
+   * Specifies whether elastic scaling is enabled for the service.
    * 
    * @example
    * true
@@ -26,7 +29,7 @@ export class ListServicesRequest extends $dara.Model {
   callerUid?: string;
   /**
    * @remarks
-   * Specifies whether to enable scheduled auto scaling for the service.
+   * Specifies whether scheduled scaling is enabled for the service.
    * 
    * @example
    * true
@@ -34,7 +37,7 @@ export class ListServicesRequest extends $dara.Model {
   cronscalerEnabled?: boolean;
   /**
    * @remarks
-   * The keyword for a fuzzy search. This parameter supports fuzzy searches by service name only.
+   * The fuzzy match field. Only fuzzy matching by service name is supported.
    * 
    * @example
    * foo
@@ -42,7 +45,7 @@ export class ListServicesRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The private gateway ID.
+   * The ID of the private gateway.
    * 
    * @example
    * gw-1uhcqmsc7x22******
@@ -50,7 +53,7 @@ export class ListServicesRequest extends $dara.Model {
   gateway?: string;
   /**
    * @remarks
-   * The name of the service group. To learn how to obtain this name, see [ListServices](https://help.aliyun.com/document_detail/412109.html).
+   * The name of the service group. For information about how to obtain the service group name, see [ListServices](https://help.aliyun.com/document_detail/412109.html).
    * 
    * @example
    * foo
@@ -58,7 +61,7 @@ export class ListServicesRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * Specifies whether to include services that do not belong to any workspace. The default value is true.
+   * Specifies whether to include services that do not belong to any workspace. Default value: true.
    * 
    * @example
    * true
@@ -66,16 +69,17 @@ export class ListServicesRequest extends $dara.Model {
   includeNoWorkspace?: boolean;
   /**
    * @remarks
-   * Filters services by label.
+   * The label used to filter services.
+   * 
+   * @example
+   * {"key1":"value1","key2":null}
    */
   label?: { [key: string]: string };
   /**
    * @remarks
    * The sort order. Valid values:
-   * 
-   * - `desc` (default): descending.
-   * 
-   * - `asc`: ascending.
+   * - desc: Descending order. This is the default value.
+   * - asc: Ascending order.
    * 
    * @example
    * asc
@@ -83,7 +87,7 @@ export class ListServicesRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number of the results to return. The default value is 1.
+   * The page number of the service list to return. Default value: 1.
    * 
    * @example
    * 1
@@ -91,7 +95,7 @@ export class ListServicesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of services to return per page. The default value is 100.
+   * The number of services to return on each page during a paged query. Default value: 100.
    * 
    * @example
    * 100
@@ -99,7 +103,7 @@ export class ListServicesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The UID of the primary service. This parameter applies to member services in a service group.
+   * The ID of the primary service that corresponds to the band member service.
    * 
    * @example
    * eas-m-ijafy3c8cxxxx
@@ -123,7 +127,7 @@ export class ListServicesRequest extends $dara.Model {
   resourceAliasName?: string;
   /**
    * @remarks
-   * Specifies whether to enable a burstable resource pool for the service.
+   * Specifies whether the burstable resource pool is enabled for the service.
    * 
    * @example
    * true
@@ -131,7 +135,7 @@ export class ListServicesRequest extends $dara.Model {
   resourceBurstable?: boolean;
   /**
    * @remarks
-   * The ID of the resource group. To learn how to query for this ID, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
+   * The ID of the resource group. For information about how to query the resource group ID, see [ListResources](https://help.aliyun.com/document_detail/412133.html).
    * 
    * @example
    * eas-r-asdas****
@@ -139,7 +143,7 @@ export class ListServicesRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The name or ID of the service\\"s resource group.
+   * The name or ID of the resource group to which the service belongs.
    * 
    * @example
    * eas-r-hd0qwy8cxxxx
@@ -149,14 +153,10 @@ export class ListServicesRequest extends $dara.Model {
   resourceName?: string;
   /**
    * @remarks
-   * The type of resource the service uses. Valid values:
-   * 
+   * The type of resource used by the service. Valid values:
    * - PublicResource
-   * 
    * - DedicatedResource
-   * 
    * - Lingjun
-   * 
    * - SelfManagedLingjun
    * 
    * @example
@@ -173,7 +173,7 @@ export class ListServicesRequest extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The service name.
+   * The name of the service.
    * 
    * @example
    * echo_test
@@ -181,7 +181,7 @@ export class ListServicesRequest extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The status of the service.
+   * The running status of the service.
    * 
    * @example
    * Running
@@ -190,29 +190,17 @@ export class ListServicesRequest extends $dara.Model {
   /**
    * @remarks
    * The service type. Valid values:
-   * 
    * - Async
-   * 
    * - Standard
-   * 
    * - Queue
-   * 
    * - LLM
-   * 
    * - RAG
-   * 
    * - Serverless
-   * 
    * - LLMGatewayService
-   * 
-   * - OfflineTask
-   * 
+   * - Offline Task
    * - SDCluster
-   * 
    * - ScalableJob
-   * 
    * - ScalableJobService
-   * 
    * - AssistantJob
    * 
    * @example
@@ -221,7 +209,7 @@ export class ListServicesRequest extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * The service UID.
+   * The UID of the service.
    * 
    * @example
    * eas-m-c9iw3yitxxxx
@@ -229,7 +217,7 @@ export class ListServicesRequest extends $dara.Model {
   serviceUid?: string;
   /**
    * @remarks
-   * The sort field. By default, results are sorted by timestamp in descending order.
+   * The sort field. By default, timestamp fields are sorted in descending order.
    * 
    * @example
    * CreateTime
@@ -237,7 +225,7 @@ export class ListServicesRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * Specifies whether the service accepts group traffic. This parameter applies only to services within a service group.
+   * Specifies whether to receive group traffic. This parameter is valid only for group services.
    * 
    * @example
    * grouping

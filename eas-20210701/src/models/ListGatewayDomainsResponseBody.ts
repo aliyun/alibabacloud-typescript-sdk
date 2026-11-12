@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayDomainsResponseBodyCustomDomains extends $dara.Model {
   /**
    * @remarks
-   * The expiration date of the certificate.
+   * The certificate expiration date in the YYYY-MM-DD format.
    * 
    * @example
    * 2023-10-25
@@ -13,7 +13,7 @@ export class ListGatewayDomainsResponseBodyCustomDomains extends $dara.Model {
   certificateEndDate?: string;
   /**
    * @remarks
-   * The ID of the SSL certificate attached to the domain name. To obtain the certificate ID, upload or purchase a certificate in the [Digital Certificate Management Service](https://yundunnext.console.aliyun.com/?spm=5176.2020520163.console-base_help.2.4b3baJixaJixOc\\&p=cas) console.
+   * The ID of the SSL certificate bound to the domain name. Obtain the certificate ID after uploading or purchasing a certificate in [Certificate Management Service](https://yundunnext.console.aliyun.com/?spm=5176.2020520163.console-base_help.2.4b3baJixaJixOc&p=cas).
    * 
    * @example
    * 1473**25
@@ -21,7 +21,7 @@ export class ListGatewayDomainsResponseBodyCustomDomains extends $dara.Model {
   certificateId?: string;
   /**
    * @remarks
-   * The name of the SSL certificate.
+   * The SSL certificate name.
    * 
    * @example
    * cert-9955038
@@ -29,7 +29,7 @@ export class ListGatewayDomainsResponseBodyCustomDomains extends $dara.Model {
   certificateName?: string;
   /**
    * @remarks
-   * The issuance date of the certificate.
+   * The certificate issuance date in the YYYY-MM-DD format.
    * 
    * @example
    * 2018-07-13
@@ -37,7 +37,7 @@ export class ListGatewayDomainsResponseBodyCustomDomains extends $dara.Model {
   certificateStartDate?: string;
   /**
    * @remarks
-   * The status of the domain name.
+   * The domain name status.
    * 
    * @example
    * Succeeded
@@ -45,7 +45,7 @@ export class ListGatewayDomainsResponseBodyCustomDomains extends $dara.Model {
   certificateStatus?: string;
   /**
    * @remarks
-   * The time when the domain name was created.
+   * The time when the domain name was created, in UTC and RFC 3339 format.
    * 
    * @example
    * 2020-05-19T14:19:42Z
@@ -61,7 +61,7 @@ export class ListGatewayDomainsResponseBodyCustomDomains extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The type of the domain name.
+   * The domain name type.
    * 
    * @example
    * intranet
@@ -69,7 +69,7 @@ export class ListGatewayDomainsResponseBodyCustomDomains extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The time when the domain name was last updated.
+   * The time when the domain name was last updated, in UTC and RFC 3339 format.
    * 
    * @example
    * 2021-05-19T14:19:42Z
@@ -120,7 +120,7 @@ export class ListGatewayDomainsResponseBody extends $dara.Model {
   customDomains?: ListGatewayDomainsResponseBodyCustomDomains[];
   /**
    * @remarks
-   * The message returned for the request.
+   * The response message.
    * 
    * @example
    * Successfully get custom domains

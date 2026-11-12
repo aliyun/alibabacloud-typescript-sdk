@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGroupRequestNetwork extends $dara.Model {
   /**
    * @remarks
-   * The dedicated gateway ID.
+   * The dedicated gateway ID. This parameter is required. If this parameter is not specified, the request fails.
    * 
    * @example
    * gw-248xxxxxxvlkhtbrda
@@ -29,7 +29,7 @@ export class CreateGroupRequestNetwork extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The VPC ID. This parameter is required when GatewayId is set to an ALB gateway, and you must specify the VPC ID associated with the gateway. You can call the ListGatewayIntranetLinkedVpc operation to query the association.
    * 
    * @example
    * vpc-bp1xxxxxx0qrykjr9b
@@ -66,11 +66,14 @@ export class CreateGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The user-defined labels.
+   * 
+   * @example
+   * {"key1":"value1","key2":null}
    */
   labels?: { [key: string]: string };
   /**
    * @remarks
-   * The name of the group.
+   * The name of the service group. Only lowercase letters, digits, and underscores are allowed. The format is [a-z0-9_]+.
    * 
    * @example
    * foo
@@ -78,7 +81,7 @@ export class CreateGroupRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The virtual private cloud (VPC) configuration.
+   * The VPC configuration.
    */
   network?: CreateGroupRequestNetwork;
   /**

@@ -13,7 +13,7 @@ export class ListGatewayIntranetSupportedZoneResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The zones that are supported by the region.
+   * The list of zones supported in the current region.
    */
   zones?: string[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of configurations deleted.
+   * The number of deleted configurations.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DeleteConfigResponseBody extends $dara.Model {
   deleted?: number;
   /**
    * @remarks
-   * A message indicating the operation result.
+   * The operation result message.
    * 
    * @example
    * Successfully deleted 1 configs

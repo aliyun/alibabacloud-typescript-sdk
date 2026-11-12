@@ -3,7 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GroupLabels extends $dara.Model {
+  /**
+   * @remarks
+   * The label key.
+   * 
+   * @example
+   * key1
+   */
   labelKey?: string;
+  /**
+   * @remarks
+   * The label value.
+   * 
+   * @example
+   * value1
+   */
   labelValue?: string;
   static names(): { [key: string]: string } {
     return {
@@ -29,9 +43,37 @@ export class GroupLabels extends $dara.Model {
 }
 
 export class GroupNetwork extends $dara.Model {
+  /**
+   * @remarks
+   * The dedicated gateway ID.
+   * 
+   * @example
+   * gw-248xxxxxxvlkhtbrda
+   */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The security group ID.
+   * 
+   * @example
+   * sg-584xxxxxx7h08llvoww5tv5gl
+   */
   securityGroupId?: string;
+  /**
+   * @remarks
+   * The vSwitch ID.
+   * 
+   * @example
+   * vsw-bp1xxxxxxwmssgq28gye8
+   */
   vSwitchId?: string;
+  /**
+   * @remarks
+   * The VPC ID.
+   * 
+   * @example
+   * vpc-bp1xxxxxx0qrykjr9b
+   */
   vpcId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -63,16 +105,23 @@ export class GroupNetwork extends $dara.Model {
 export class Group extends $dara.Model {
   /**
    * @remarks
-   * The access token for the traffic entry of the service group.
+   * The access token for the traffic ingress of the service group.
    * 
    * @example
    * MzJiMDI5MDliODc0MTlkYmI0ZDhlYmExYjczYTIyZTE3Zm********
    */
   accessToken?: string;
+  /**
+   * @remarks
+   * The UID of the account that created the service group.
+   * 
+   * @example
+   * 20123*******
+   */
   callerUid?: string;
   /**
    * @remarks
-   * The region in which the service group resides.
+   * The ID of the cluster where the service group is located.
    * 
    * @example
    * cn-shanghai
@@ -80,7 +129,7 @@ export class Group extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The time when the service group was created. The time is in UTC.
+   * The time when the service group was created. The time is displayed in UTC.
    * 
    * @example
    * 2020-05-19T14:19:42Z
@@ -102,6 +151,10 @@ export class Group extends $dara.Model {
    * http://1110*****.vpc.cn-hangzhou.pai-eas.aliyuncs.com/api/predict/test_group
    */
   intranetEndpoint?: string;
+  /**
+   * @remarks
+   * The list of labels for the service group.
+   */
   labels?: GroupLabels[];
   /**
    * @remarks
@@ -111,11 +164,22 @@ export class Group extends $dara.Model {
    * foo
    */
   name?: string;
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) configuration of the service group.
+   */
   network?: GroupNetwork;
+  /**
+   * @remarks
+   * The UID of the parent account that created the service group.
+   * 
+   * @example
+   * 11234*******
+   */
   parentUid?: string;
   /**
    * @remarks
-   * The queue services contained in the service group.
+   * The queue services included in the service group.
    * 
    * @example
    * qservice
@@ -131,7 +195,7 @@ export class Group extends $dara.Model {
   trafficMode?: string;
   /**
    * @remarks
-   * The time when the service group was last updated. The time is in UTC.
+   * The time when the service group was updated. The time is displayed in UTC.
    * 
    * @example
    * 2021-01-29T11:13:20Z

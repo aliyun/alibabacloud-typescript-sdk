@@ -168,7 +168,7 @@ export class ResourceInstance extends $dara.Model {
    * The IP address of the instance in a dedicated network.
    * 
    * @example
-   * 192.168.XX.XX
+   * 192.168.xx.xx
    */
   instanceTenantIp?: string;
   /**

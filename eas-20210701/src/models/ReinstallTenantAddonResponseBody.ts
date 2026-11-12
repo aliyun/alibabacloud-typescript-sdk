@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReinstallTenantAddonResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The operation result message.
    * 
    * @example
    * Addon prometheus_discovery is successfully reinstalled

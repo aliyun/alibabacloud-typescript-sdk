@@ -66,6 +66,9 @@ export class UpdateGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The user-defined labels.
+   * 
+   * @example
+   * {"key1":"value1","key2":null}
    */
   labels?: { [key: string]: string };
   /**
@@ -75,9 +78,7 @@ export class UpdateGroupRequest extends $dara.Model {
   network?: UpdateGroupRequestNetwork;
   /**
    * @remarks
-   * The traffic mode. Valid values:
-   * - auto: automatically assigns weights based on the proportion of instances.
-   * - customized: distributes traffic based on custom fixed weights.
+   * The traffic mode. Valid values: auto and customized. In auto mode, weights are automatically allocated based on the proportion of instances. In customized mode, traffic is distributed based on custom fixed weights.
    * 
    * @example
    * auto

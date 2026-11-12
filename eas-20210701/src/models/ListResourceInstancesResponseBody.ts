@@ -11,7 +11,7 @@ export class ListResourceInstancesResponseBody extends $dara.Model {
   instances?: ResourceInstance[];
   /**
    * @remarks
-   * The page number of the returned list of instances.
+   * The page number of the returned machine instance list in the resource group.
    * 
    * @example
    * 1
@@ -19,7 +19,7 @@ export class ListResourceInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of instances returned on each page.
+   * The number of machines returned on each page.
    * 
    * @example
    * 20

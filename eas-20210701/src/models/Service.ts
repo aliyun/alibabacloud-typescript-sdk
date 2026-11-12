@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ServiceInstanceCountInResource extends $dara.Model {
   /**
    * @remarks
-   * The number of instances that use dedicated or self-managed resource groups.
+   * The number of instances that use dedicated resource groups or self-managed resource groups.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ServiceInstanceCountInResource extends $dara.Model {
   public?: number;
   /**
    * @remarks
-   * The number of instances that use a Lingjun quota.
+   * The number of instances that use Lingjun quotas.
    * 
    * @example
    * 10
@@ -95,7 +95,7 @@ export class ServiceLabels extends $dara.Model {
 export class Service extends $dara.Model {
   /**
    * @remarks
-   * The access token for the service.
+   * The request token of the service.
    * 
    * @example
    * MzJiMDI5MDliODc0MTlkYmI0ZDhlYmExYjczYTIyZTE3Zm********
@@ -103,7 +103,7 @@ export class Service extends $dara.Model {
   accessToken?: string;
   /**
    * @remarks
-   * The application configuration for the service.
+   * The configuration information of the application service.
    * 
    * @example
    * {"ModelStorage":"oss"}
@@ -111,7 +111,7 @@ export class Service extends $dara.Model {
   appConfig?: string;
   /**
    * @remarks
-   * The application specification name for the service.
+   * The specification name of the application service.
    * 
    * @example
    * llama_7b_fp16
@@ -119,7 +119,7 @@ export class Service extends $dara.Model {
   appSpecName?: string;
   /**
    * @remarks
-   * The application type of the service.
+   * The type of the application service.
    * 
    * @example
    * LLM
@@ -127,7 +127,7 @@ export class Service extends $dara.Model {
   appType?: string;
   /**
    * @remarks
-   * The application version of the service.
+   * The version of the application service.
    * 
    * @example
    * v1
@@ -135,7 +135,7 @@ export class Service extends $dara.Model {
   appVersion?: string;
   /**
    * @remarks
-   * Indicates whether auto scaling is enabled for the service.
+   * Specifies whether elastic scaling is enabled for the service.
    * 
    * @example
    * true
@@ -151,7 +151,7 @@ export class Service extends $dara.Model {
   callerUid?: string;
   /**
    * @remarks
-   * The number of CPU cores requested for each instance.
+   * The number of CPUs requested for each instance.
    * 
    * @example
    * 1
@@ -159,7 +159,7 @@ export class Service extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The time when the service was created, in RFC 3339 format (UTC).
+   * The time when the service was created. The time is displayed in UTC and follows the RFC 3339 format.
    * 
    * @example
    * 2021-01-29T11:13:20Z
@@ -167,7 +167,7 @@ export class Service extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Indicates whether scheduled scaling is enabled for the service.
+   * Specifies whether scheduled scaling is enabled for the service.
    * 
    * @example
    * true
@@ -175,7 +175,7 @@ export class Service extends $dara.Model {
   cronscalerEnabled?: boolean;
   /**
    * @remarks
-   * The current version of the running model.
+   * The version of the model that is currently running.
    * 
    * @example
    * 1
@@ -183,7 +183,7 @@ export class Service extends $dara.Model {
   currentVersion?: number;
   /**
    * @remarks
-   * Additional information about the service.
+   * The extra information of the service.
    * 
    * @example
    * {"blue_green_services":["test","testxxxx"]}
@@ -191,7 +191,7 @@ export class Service extends $dara.Model {
   extraData?: string;
   /**
    * @remarks
-   * The percentage of GPU computing power requested for each instance when GPU sharing is enabled.
+   * The GPU compute capacity requested by each instance after GPU sharing is enabled.
    * 
    * @example
    * 50
@@ -199,7 +199,7 @@ export class Service extends $dara.Model {
   GPUCorePercentage?: number;
   /**
    * @remarks
-   * The amount of GPU memory requested for each instance when GPU sharing is enabled.
+   * The GPU memory size requested by each instance after GPU sharing is enabled.
    * 
    * @example
    * 20
@@ -207,7 +207,7 @@ export class Service extends $dara.Model {
   GPUMemory?: number;
   /**
    * @remarks
-   * The ID of the dedicated gateway for the service. This field is returned only for services that are bound to a dedicated gateway.
+   * The dedicated gateway ID of the service. This information is available only for services bound to a dedicated gateway.
    * 
    * @example
    * gw-xxxxxx
@@ -223,7 +223,7 @@ export class Service extends $dara.Model {
   gpu?: number;
   /**
    * @remarks
-   * The image used by the service.
+   * The data image of the service.
    * 
    * @example
    * registry.cn-shanghai.aliyuncs.com/eas/echo_cn-shanghai:v0.0.1-20210129111320
@@ -231,12 +231,12 @@ export class Service extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * A breakdown of the instance count by resource type.
+   * The distribution of instances across different resource types.
    */
   instanceCountInResource?: ServiceInstanceCountInResource;
   /**
    * @remarks
-   * The internet endpoint of the service. This field is returned only by the `DescribeService` operation.
+   * The public endpoint of the service. This field is returned only in the DescribeService operation.
    * 
    * @example
    * http://10123*****.cn-shanghai.aliyuncs.com/api/predict/echo
@@ -244,7 +244,7 @@ export class Service extends $dara.Model {
   internetEndpoint?: string;
   /**
    * @remarks
-   * The intranet endpoint of the service. This field is returned only by the `DescribeService` operation.
+   * The internal endpoint of the service. This field is returned only in the DescribeService operation.
    * 
    * @example
    * http://10123*****.vpc.cn-shanghai.aliyuncs.com/api/predict/echo
@@ -252,7 +252,7 @@ export class Service extends $dara.Model {
   intranetEndpoint?: string;
   /**
    * @remarks
-   * The labels of the service.
+   * The list of service labels.
    */
   labels?: ServiceLabels[];
   /**
@@ -265,7 +265,7 @@ export class Service extends $dara.Model {
   latestVersion?: number;
   /**
    * @remarks
-   * The amount of memory requested for each instance, in MB.
+   * The memory requested for each instance, in MB.
    * 
    * @example
    * 1024
@@ -273,7 +273,7 @@ export class Service extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * A message that provides information about the service status.
+   * The summary information of the service.
    * 
    * @example
    * Service start successfully
@@ -281,7 +281,7 @@ export class Service extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The namespace where the service is located.
+   * The namespace of the service.
    * 
    * @example
    * echo
@@ -289,7 +289,7 @@ export class Service extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The UID of the primary account used to create the service.
+   * The UID of the primary account to which the account that created the service belongs.
    * 
    * @example
    * 11234*******
@@ -297,7 +297,7 @@ export class Service extends $dara.Model {
   parentUid?: string;
   /**
    * @remarks
-   * The number of pending instances for the service.
+   * The number of pending instances of the service.
    * 
    * @example
    * 0
@@ -305,7 +305,7 @@ export class Service extends $dara.Model {
   pendingInstance?: number;
   /**
    * @remarks
-   * The quota ID of the service. This field is returned only for services that are deployed on a Lingjun resource quota.
+   * The quota ID of the service. This information is available only for services deployed on Lingjun resource quotas.
    * 
    * @example
    * quotaxxxxx
@@ -337,7 +337,7 @@ export class Service extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource group to which the service belongs.
+   * The resource group of the service.
    * 
    * @example
    * eas-r-xxxxxxx
@@ -353,7 +353,7 @@ export class Service extends $dara.Model {
   resourceAlias?: string;
   /**
    * @remarks
-   * Indicates whether a burstable resource pool is enabled for the service.
+   * Specifies whether the elastic resource pool is enabled for the service.
    * 
    * @example
    * true
@@ -361,7 +361,7 @@ export class Service extends $dara.Model {
   resourceBurstable?: boolean;
   /**
    * @remarks
-   * The role of the service.
+   * The service role.
    * 
    * @example
    * Queue
@@ -369,7 +369,7 @@ export class Service extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * Additional attributes of the service role. This field is returned only by the `DescribeService` operation.
+   * The additional attributes of the service role. This field is returned only in the DescribeService operation.
    * 
    * @example
    * {"ApproxMaxLength":null,"Length":null,"MaxPayloadBytes":null}
@@ -385,7 +385,7 @@ export class Service extends $dara.Model {
   runningInstance?: number;
   /**
    * @remarks
-   * The safety lock status of the service.
+   * The service safety lock.
    * 
    * @example
    * dangerous
@@ -393,7 +393,7 @@ export class Service extends $dara.Model {
   safetyLock?: string;
   /**
    * @remarks
-   * The internet endpoint for synchronous requests to an asynchronous service. This field is returned only by the `DescribeService` operation.
+   * The public endpoint for synchronous requests of asynchronous services. This field is returned only in the DescribeService operation.
    * 
    * @example
    * http://10123*****.cn-shanghai.aliyuncs.com/api/predict/async_path.echo
@@ -401,7 +401,7 @@ export class Service extends $dara.Model {
   secondaryInternetEndpoint?: string;
   /**
    * @remarks
-   * The intranet endpoint for synchronous requests to an asynchronous service. This field is returned only by the `DescribeService` operation.
+   * The internal endpoint for synchronous requests of asynchronous services. This field is returned only in the DescribeService operation.
    * 
    * @example
    * http://10123*****.vpc.cn-shanghai.aliyuncs.com/api/predict/async_path.echo
@@ -441,7 +441,7 @@ export class Service extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The service ID. This value is the same as `ServiceId`.
+   * The ID of the service. This value is the same as ServiceId.
    * 
    * @example
    * eas-m-xxasdat
@@ -465,7 +465,7 @@ export class Service extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The total number of instances for the service.
+   * The total number of instances of the service.
    * 
    * @example
    * 1
@@ -473,7 +473,7 @@ export class Service extends $dara.Model {
   totalInstance?: number;
   /**
    * @remarks
-   * The traffic state of the service.
+   * The traffic status.
    * 
    * @example
    * standalone
@@ -481,7 +481,7 @@ export class Service extends $dara.Model {
   trafficState?: string;
   /**
    * @remarks
-   * The time when the service was last updated, in RFC 3339 format (UTC).
+   * The time when the service was updated. The time is displayed in UTC and follows the RFC 3339 format.
    * 
    * @example
    * 2021-01-29T11:13:20Z
@@ -489,16 +489,23 @@ export class Service extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The traffic weight for the canary release of the service.
+   * The weight for the canary release of the service.
    * 
    * @example
    * 100
    */
   weight?: number;
+  /**
+   * @remarks
+   * The workload type of the service.
+   * 
+   * @example
+   * stateless
+   */
   workloadType?: string;
   /**
    * @remarks
-   * The ID of the workspace to which the service belongs.
+   * The workspace ID of the service.
    * 
    * @example
    * 123445

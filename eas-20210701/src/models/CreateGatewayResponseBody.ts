@@ -21,7 +21,7 @@ export class CreateGatewayResponseBody extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The message returned for the request.
+   * The message returned in the response.
    * 
    * @example
    * Successfully create gateway for user-managed resource

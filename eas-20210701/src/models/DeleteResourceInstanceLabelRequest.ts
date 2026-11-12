@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteResourceInstanceLabelRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the operation takes effect on all instances in the resource group. If this parameter is set to true, the InstanceIds parameter does not take effect.
+   * Specifies whether the operation applies to all instances in the resource group. If this parameter is set to true, the InstanceIds parameter does not take effect.
    */
   allInstances?: boolean;
   /**
    * @remarks
-   * The machine instance IDs.
+   * The instance IDs.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * The tags to delete. (Deprecated. Use LabelKeys instead.).
+   * **[Deprecated]** The tags to delete. Use LabelKeys instead.
    * 
    * @deprecated
    */

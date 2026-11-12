@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeServiceEventResponseBodyEvents extends $dara.Model {
   /**
    * @remarks
-   * The event message, which is a JSON-formatted string.
+   * The event information (a formatted JSON string).
    * 
    * @example
    * {\\"versionId\\":1,\\"message\\":\\"Stage scale complete\\",\\"availableInstance\\":1,\\"unavailableInstance\\":0}
@@ -13,7 +13,7 @@ export class DescribeServiceEventResponseBodyEvents extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The reason for the event, which indicates a change in the service status.
+   * The reason for the event (information about service status changes).
    * 
    * @example
    * Updating
@@ -23,9 +23,9 @@ export class DescribeServiceEventResponseBodyEvents extends $dara.Model {
    * @remarks
    * The resource type. Valid values:
    * 
-   * - Service: a service.
+   * - Service: service.
    * 
-   * - Pod: a service instance.
+   * - Pod: service instance.
    * 
    * @example
    * Service
@@ -33,7 +33,7 @@ export class DescribeServiceEventResponseBodyEvents extends $dara.Model {
   resource?: string;
   /**
    * @remarks
-   * The time when the event occurred, in UTC.
+   * The UTC time when the event occurred.
    * 
    * @example
    * 2022-04-09 06:30:00
@@ -42,10 +42,8 @@ export class DescribeServiceEventResponseBodyEvents extends $dara.Model {
   /**
    * @remarks
    * The event type. Valid values:
-   * 
-   * - Normal: a normal event.
-   * 
-   * - Warning: a warning event.
+   * - Normal: normal events.
+   * - Warning: abnormal events.
    * 
    * @example
    * Normal
@@ -104,7 +102,7 @@ export class DescribeServiceEventResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count of events.
+   * The total number of entries.
    * 
    * @example
    * 29

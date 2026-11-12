@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVirtualResourceResponseBodyVirtualResources extends $dara.Model {
   /**
    * @remarks
-   * The time when the virtual resource group was created.
+   * The time when the virtual resource group was created, in UTC in RFC 3339 format.
    * 
    * @example
    * 2024-10-16T17:52:49Z
@@ -21,7 +21,7 @@ export class ListVirtualResourceResponseBodyVirtualResources extends $dara.Model
   serviceCount?: number;
   /**
    * @remarks
-   * The time when the virtual resource group was last updated.
+   * The time when the virtual resource group was last updated, in UTC in RFC 3339 format.
    * 
    * @example
    * 2024-10-16T19:52:49Z
@@ -29,7 +29,7 @@ export class ListVirtualResourceResponseBodyVirtualResources extends $dara.Model
   updateTime?: string;
   /**
    * @remarks
-   * The ID of the virtual resource group.
+   * The virtual resource group ID.
    * 
    * @example
    * eas-vr-npovr28onap1xxxxxx
@@ -37,7 +37,7 @@ export class ListVirtualResourceResponseBodyVirtualResources extends $dara.Model
   virtualResourceId?: string;
   /**
    * @remarks
-   * The name of the virtual resource group.
+   * The virtual resource group name.
    * 
    * @example
    * MyVirtualResource
@@ -75,7 +75,7 @@ export class ListVirtualResourceResponseBodyVirtualResources extends $dara.Model
 export class ListVirtualResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned list of virtual resource groups.
+   * The page number of the returned virtual resource group list.
    * 
    * @example
    * 1
@@ -83,7 +83,7 @@ export class ListVirtualResourceResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of virtual resource groups returned on each page.
+   * The number of virtual resource groups displayed per page.
    * 
    * @example
    * 20

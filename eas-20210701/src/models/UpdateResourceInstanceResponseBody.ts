@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateResourceInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The instance name.
    * 
    * @example
    * eas-i-asdasdasd
@@ -21,7 +21,7 @@ export class UpdateResourceInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * eas-r-asdasdasd

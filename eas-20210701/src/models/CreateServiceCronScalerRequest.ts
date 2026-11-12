@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateServiceCronScalerRequestScaleJobs extends $dara.Model {
   /**
    * @remarks
-   * The name of the scheduled auto-scaling task.
+   * The name of the scheduled scaling job.
    * 
    * @example
    * scale-job-1
@@ -13,7 +13,7 @@ export class CreateServiceCronScalerRequestScaleJobs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The cron expression that specifies when to run the scaling task. For more information about how to configure a cron expression, see the **Cron expressions** section.
+   * The cron expression for the scaling job. For information about how to configure a cron expression, see the **Supplementary request parameter descriptions** section.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class CreateServiceCronScalerRequestScaleJobs extends $dara.Model {
   schedule?: string;
   /**
    * @remarks
-   * The target number of instances for the scaling task.
+   * The target number of instances for the scaling job.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateServiceCronScalerRequestScaleJobs extends $dara.Model {
   targetSize?: number;
   /**
    * @remarks
-   * The time zone for the scheduled scaling task.
+   * The time zone configuration used to parse the execution time of the scheduled scaling job.
    * 
    * @example
    * Asia/Shanghai
@@ -69,12 +69,12 @@ export class CreateServiceCronScalerRequestScaleJobs extends $dara.Model {
 export class CreateServiceCronScalerRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of cron expressions for dates to exclude.
+   * The list of cron expressions for the dates to be excluded.
    */
   excludeDates?: string[];
   /**
    * @remarks
-   * The scheduled scaling tasks.
+   * The scheduled scaling jobs.
    * 
    * This parameter is required.
    */

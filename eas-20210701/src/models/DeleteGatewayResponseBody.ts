@@ -16,7 +16,7 @@ export class DeleteGatewayResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * Gateway gw-1uhcqmsc7x22****** is deleted
+   * Gateway is deleted.
    */
   message?: string;
   /**

@@ -8,6 +8,9 @@ export class UpdateServiceLabelRequest extends $dara.Model {
    * The custom service tags.
    * 
    * This parameter is required.
+   * 
+   * @example
+   * {"key":"value"}
    */
   labels?: { [key: string]: string };
   static names(): { [key: string]: string } {

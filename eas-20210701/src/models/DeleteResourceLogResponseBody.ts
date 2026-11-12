@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteResourceLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The operation result message.
    * 
    * @example
    * Log service for resource [eas-r-asdas****] is deleting
@@ -13,7 +13,7 @@ export class DeleteResourceLogResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 40325405-579C-4D82****

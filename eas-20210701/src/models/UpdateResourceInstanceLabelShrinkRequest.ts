@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateResourceInstanceLabelShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the modification takes effect on all instances in the resource group. If you set this parameter to true, the InstanceIds parameter does not take effect.
+   * Specifies whether the operation applies to all instances in the resource group. If this parameter is set to true, the InstanceIds parameter does not take effect.
    * 
    * @example
    * false
@@ -18,7 +18,10 @@ export class UpdateResourceInstanceLabelShrinkRequest extends $dara.Model {
   instanceIdsShrink?: string;
   /**
    * @remarks
-   * The custom tag.
+   * The user-defined tags.
+   * 
+   * @example
+   * {"key":"value"}
    */
   labels?: { [key: string]: string };
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAclPolicyRequestAclPolicyList extends $dara.Model {
   /**
    * @remarks
-   * The comment on the IP CIDR block in the VPC that can access the private gateway.
+   * The description of the IP address segment that is allowed to access the VPC.
    * 
    * @example
    * default
@@ -13,7 +13,7 @@ export class CreateAclPolicyRequestAclPolicyList extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The IP CIDR block in the VPC that can access the private gateway.
+   * The IP address segment that is allowed to access the VPC.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class CreateAclPolicyRequestAclPolicyList extends $dara.Model {
 export class CreateAclPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The whitelisted IP CIDR blocks in the VPC that can access the private gateway.
+   * The whitelist of IP address segments that are allowed to access the VPC.
    * 
    * This parameter is required.
    */

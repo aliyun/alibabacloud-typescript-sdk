@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "eas";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-beijing': "pai-eas.cn-beijing.aliyuncs.com",
@@ -28,19 +32,19 @@ export default class Client extends OpenApi {
       'cn-shanghai-finance-1': "pai-eas.cn-shanghai-finance-1.aliyuncs.com",
       'cn-north-2-gov-1': "pai-eas.cn-north-2-gov-1.aliyuncs.com",
       'cn-chengdu': "pai-eas.cn-chengdu.aliyuncs.com",
+      'cn-zhongwei': "pai-eas.cn-zhongwei.aliyuncs.com",
+      'cn-wulanchabu': "pai-eas.cn-wulanchabu.aliyuncs.com",
+      'cn-heyuan': "pai-eas.cn-heyuan.aliyuncs.com",
+      'ap-northeast-2': "pai-eas.ap-northeast-2.aliyuncs.com",
+      'ap-northeast-1': "pai-eas.ap-northeast-1.aliyuncs.com",
+      'cn-guangzhou': "pai-eas.cn-guangzhou.aliyuncs.com",
+      'ap-southeast-3': "pai-eas.ap-southeast-3.aliyuncs.com",
+      'ap-southeast-7': "pai-eas.ap-southeast-7.aliyuncs.com",
+      'ap-southeast-8': "pai-eas.ap-southeast-8.aliyuncs.com",
       'us-southeast-1': "pai-eas.us-southeast-1.aliyuncs.com",
       'na-south-1': "pai-eas.na-south-1.aliyuncs.com",
       'me-east-1': "pai-eas.me-east-1.aliyuncs.com",
       'me-central-1': "pai-eas.me-central-1.aliyuncs.com",
-      'cn-zhongwei': "pai-eas.cn-zhongwei.aliyuncs.com",
-      'cn-wulanchabu': "pai-eas.cn-wulanchabu.aliyuncs.com",
-      'cn-heyuan': "pai-eas.cn-heyuan.aliyuncs.com",
-      'cn-guangzhou': "pai-eas.cn-guangzhou.aliyuncs.com",
-      'ap-southeast-8': "pai-eas.ap-southeast-8.aliyuncs.com",
-      'ap-southeast-7': "pai-eas.ap-southeast-7.aliyuncs.com",
-      'ap-southeast-3': "pai-eas.ap-southeast-3.aliyuncs.com",
-      'ap-northeast-2': "pai-eas.ap-northeast-2.aliyuncs.com",
-      'ap-northeast-1': "pai-eas.ap-northeast-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("eas", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -60,7 +64,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds a custom domain name to a private gateway.
+   * Binds a custom domain name to a dedicated gateway.
+   * 
+   * @remarks
+   * Before binding a custom domain name to a dedicated gateway, enable internal network access (EnableIntranet) or public network access (EnableInternet) by calling UpdateGateway. To enable internal network access, determine the VpcId and VSwitchIds first. Query existing resources by calling ListGateway, DescribeGateway, DescribeVpcs, and DescribeVSwitches in sequence. If necessary, call CreateVSwitch to create a vSwitch, and then call UpdateGateway to complete the network configuration.
    * 
    * @param tmpReq - AttachGatewayDomainRequest
    * @param headers - map
@@ -99,7 +106,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Binds a custom domain name to a private gateway.
+   * Binds a custom domain name to a dedicated gateway.
+   * 
+   * @remarks
+   * Before binding a custom domain name to a dedicated gateway, enable internal network access (EnableIntranet) or public network access (EnableInternet) by calling UpdateGateway. To enable internal network access, determine the VpcId and VSwitchIds first. Query existing resources by calling ListGateway, DescribeGateway, DescribeVpcs, and DescribeVSwitches in sequence. If necessary, call CreateVSwitch to create a vSwitch, and then call UpdateGateway to complete the network configuration.
    * 
    * @param request - AttachGatewayDomainRequest
    * @returns AttachGatewayDomainResponse
@@ -111,7 +121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clones a service.
+   * Copies a service.
    * 
    * @param tmpReq - CloneServiceRequest
    * @param headers - map
@@ -151,7 +161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Clones a service.
+   * Copies a service.
    * 
    * @param request - CloneServiceRequest
    * @returns CloneServiceResponse
@@ -163,7 +173,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Commits the Worker0 container in the custom container service and deploys the container as a new image.
+   * Commits the Worker0 container in a custom container service as a new image and redeploys the service.
    * 
    * @param request - CommitServiceRequest
    * @param headers - map
@@ -190,7 +200,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Commits the Worker0 container in the custom container service and deploys the container as a new image.
+   * Commits the Worker0 container in a custom container service as a new image and redeploys the service.
    * 
    * @param request - CommitServiceRequest
    * @returns CommitServiceResponse
@@ -202,7 +212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an access control list (ACL) for a private gateway. The IP CIDR blocks added to the ACL can access the private gateway.
+   * Creates access permissions for a private gateway to allow specified IP address segments to access the gateway.
    * 
    * @param tmpReq - CreateAclPolicyRequest
    * @param headers - map
@@ -245,7 +255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an access control list (ACL) for a private gateway. The IP CIDR blocks added to the ACL can access the private gateway.
+   * Creates access permissions for a private gateway to allow specified IP address segments to access the gateway.
    * 
    * @param request - CreateAclPolicyRequest
    * @returns CreateAclPolicyResponse
@@ -257,7 +267,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an application service to obtain the inference capabilities of large models.
+   * Creates an application service to obtain large language model inference capabilities.
    * 
    * @param request - CreateAppServiceRequest
    * @param headers - map
@@ -267,6 +277,14 @@ export default class Client extends OpenApi {
   async createAppServiceWithOptions(request: $_model.CreateAppServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAppServiceResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.quotaId)) {
       query["QuotaId"] = request.quotaId;
     }
@@ -320,7 +338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an application service to obtain the inference capabilities of large models.
+   * Creates an application service to obtain large language model inference capabilities.
    * 
    * @param request - CreateAppServiceRequest
    * @returns CreateAppServiceResponse
@@ -375,11 +393,11 @@ export default class Client extends OpenApi {
    * Creates a single dynamic parameter in a specified service.
    * 
    * @remarks
-   * ## Description
-   * - This API creates a new dynamic parameter by sending a POST request to a specified path.
-   * - The dynamic parameter name (`ConfigKey`) can contain letters, digits, periods (.), underscores (_), hyphens (-), and forward slashes (/). The maximum length is 100 characters.
-   * - The request body must include the dynamic parameter value (`Value`).
-   * - If successful, the API returns the new dynamic parameter\\"s name (`Key`), value (`Value`), creation time, and update time.
+   * ## Request description
+   * - This API operation sends a POST request to a specified path to create a dynamic parameter.
+   * - The dynamic parameter name (ConfigKey) supports letters, digits, periods, underscores, hyphens, and forward slashes, with a maximum length of 100 characters.
+   * - The request body must contain the specific value (Value) of the dynamic parameter.
+   * - After the dynamic parameter is created, the API returns key information about the new dynamic parameter, including the parameter name (Key), value (Value), and the creation and update timestamps.
    * 
    * @param request - CreateConfigRequest
    * @param headers - map
@@ -415,11 +433,11 @@ export default class Client extends OpenApi {
    * Creates a single dynamic parameter in a specified service.
    * 
    * @remarks
-   * ## Description
-   * - This API creates a new dynamic parameter by sending a POST request to a specified path.
-   * - The dynamic parameter name (`ConfigKey`) can contain letters, digits, periods (.), underscores (_), hyphens (-), and forward slashes (/). The maximum length is 100 characters.
-   * - The request body must include the dynamic parameter value (`Value`).
-   * - If successful, the API returns the new dynamic parameter\\"s name (`Key`), value (`Value`), creation time, and update time.
+   * ## Request description
+   * - This API operation sends a POST request to a specified path to create a dynamic parameter.
+   * - The dynamic parameter name (ConfigKey) supports letters, digits, periods, underscores, hyphens, and forward slashes, with a maximum length of 100 characters.
+   * - The request body must contain the specific value (Value) of the dynamic parameter.
+   * - After the dynamic parameter is created, the API returns key information about the new dynamic parameter, including the parameter name (Key), value (Value), and the creation and update timestamps.
    * 
    * @param request - CreateConfigRequest
    * @returns CreateConfigResponse
@@ -434,7 +452,7 @@ export default class Client extends OpenApi {
    * Creates a fault injection task.
    * 
    * @remarks
-   * *Before you use this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
+   * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
    * 
    * @param request - CreateFaultInjectionRequest
    * @param headers - map
@@ -474,7 +492,7 @@ export default class Client extends OpenApi {
    * Creates a fault injection task.
    * 
    * @remarks
-   * *Before you use this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
+   * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
    * 
    * @param request - CreateFaultInjectionRequest
    * @returns CreateFaultInjectionResponse
@@ -565,10 +583,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an internal endpoint for a private gateway.
+   * Creates an internal access endpoint for a private gateway.
    * 
    * @remarks
-   * *Make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS) before you use this operation.**
+   * *Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of EAS.**
    * 
    * @param request - CreateGatewayIntranetLinkedVpcRequest
    * @param headers - map
@@ -613,10 +631,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an internal endpoint for a private gateway.
+   * Creates an internal access endpoint for a private gateway.
    * 
    * @remarks
-   * *Make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS) before you use this operation.**
+   * *Before calling this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of EAS.**
    * 
    * @param request - CreateGatewayIntranetLinkedVpcRequest
    * @returns CreateGatewayIntranetLinkedVpcResponse
@@ -628,7 +646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a VPC peering connection on an internal endpoint of a gateway.
+   * Creates a cross-VPC connection for the internal access endpoint of a gateway.
    * 
    * @param tmpReq - CreateGatewayIntranetLinkedVpcPeerRequest
    * @param headers - map
@@ -671,7 +689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a VPC peering connection on an internal endpoint of a gateway.
+   * Creates a cross-VPC connection for the internal access endpoint of a gateway.
    * 
    * @param request - CreateGatewayIntranetLinkedVpcPeerRequest
    * @returns CreateGatewayIntranetLinkedVpcPeerResponse
@@ -686,7 +704,7 @@ export default class Client extends OpenApi {
    * Creates a service group.
    * 
    * @remarks
-   * *Before you use this operation, make sure that you fully understand the billing of Elastic Algorithm Service (EAS) and its [pricing](https://help.aliyun.com/document_detail/144261.html).**.
+   * *Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS) before you call this operation.**
    * 
    * @param request - CreateGroupRequest
    * @param headers - map
@@ -734,7 +752,7 @@ export default class Client extends OpenApi {
    * Creates a service group.
    * 
    * @remarks
-   * *Before you use this operation, make sure that you fully understand the billing of Elastic Algorithm Service (EAS) and its [pricing](https://help.aliyun.com/document_detail/144261.html).**.
+   * *Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS) before you call this operation.**
    * 
    * @param request - CreateGroupRequest
    * @returns CreateGroupResponse
@@ -746,10 +764,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a new resource group.
+   * Creates a resource group.
    * 
    * @remarks
-   * *Before calling this API, make sure you understand the billing method and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
+   * *Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of EAS before you call this operation.**
    * 
    * @param request - CreateResourceRequest
    * @param headers - map
@@ -822,10 +840,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Create a new resource group.
+   * Creates a resource group.
    * 
    * @remarks
-   * *Before calling this API, make sure you understand the billing method and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
+   * *Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of EAS before you call this operation.**
    * 
    * @param request - CreateResourceRequest
    * @returns CreateResourceResponse
@@ -837,10 +855,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates machine instances in a dedicated resource group.
+   * Creates a new machine instance in a dedicated resource group.
    * 
    * @remarks
-   * *Before you call this operation, make sure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/document_detail/144261.html)**&#x20;of Elastic Algorithm Service (EAS).**
+   * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
    * 
    * @param request - CreateResourceInstancesRequest
    * @param headers - map
@@ -901,10 +919,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates machine instances in a dedicated resource group.
+   * Creates a new machine instance in a dedicated resource group.
    * 
    * @remarks
-   * *Before you call this operation, make sure that you understand the billing methods and&#x20;**[**pricing**](https://help.aliyun.com/document_detail/144261.html)**&#x20;of Elastic Algorithm Service (EAS).**
+   * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
    * 
    * @param request - CreateResourceInstancesRequest
    * @returns CreateResourceInstancesResponse
@@ -916,7 +934,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the LogShipper feature of Log Service for a resource group.
+   * Enables the Simple Log Service (SLS) log delivery feature for a resource group.
    * 
    * @param request - CreateResourceLogRequest
    * @param headers - map
@@ -953,7 +971,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the LogShipper feature of Log Service for a resource group.
+   * Enables the Simple Log Service (SLS) log delivery feature for a resource group.
    * 
    * @param request - CreateResourceLogRequest
    * @returns CreateResourceLogResponse
@@ -965,10 +983,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a model service in Elastic Algorithm Service (EAS).
+   * Creates a PAI-EAS service.
    * 
    * @remarks
-   * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
+   * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of EAS.**
    * 
    * @param tmpReq - CreateServiceRequest
    * @param headers - map
@@ -984,8 +1002,16 @@ export default class Client extends OpenApi {
     }
 
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
     if (!$dara.isNull(request.develop)) {
       query["Develop"] = request.develop;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
     }
 
     if (!$dara.isNull(request.labelsShrink)) {
@@ -1016,10 +1042,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a model service in Elastic Algorithm Service (EAS).
+   * Creates a PAI-EAS service.
    * 
    * @remarks
-   * *Before you call this operation, make sure that you are familiar with the [billing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).
+   * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of EAS.**
    * 
    * @param request - CreateServiceRequest
    * @returns CreateServiceResponse
@@ -1031,7 +1057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the Autoscaler feature and creates an Autoscaler controller for a service.
+   * Enables the auto-scaling feature for a service and creates an auto-scaling controller for the service.
    * 
    * @param request - CreateServiceAutoScalerRequest
    * @param headers - map
@@ -1076,7 +1102,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the Autoscaler feature and creates an Autoscaler controller for a service.
+   * Enables the auto-scaling feature for a service and creates an auto-scaling controller for the service.
    * 
    * @param request - CreateServiceAutoScalerRequest
    * @returns CreateServiceAutoScalerResponse
@@ -1088,7 +1114,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a scheduled auto scaling rule for a service.
+   * Enables the scheduled scaling feature for a service.
    * 
    * @param request - CreateServiceCronScalerRequest
    * @param headers - map
@@ -1125,7 +1151,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a scheduled auto scaling rule for a service.
+   * Enables the scheduled scaling feature for a service.
    * 
    * @param request - CreateServiceCronScalerRequest
    * @returns CreateServiceCronScalerResponse
@@ -1137,7 +1163,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call this operation to obtain a token and a WebSocket URL for logging on to a container.
+   * Retrieves the token and WebSocket URL required to log on to a container.
    * 
    * @param request - CreateServiceInstanceTokenRequest
    * @param headers - map
@@ -1174,7 +1200,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call this operation to obtain a token and a WebSocket URL for logging on to a container.
+   * Retrieves the token and WebSocket URL required to log on to a container.
    * 
    * @param request - CreateServiceInstanceTokenRequest
    * @returns CreateServiceInstanceTokenResponse
@@ -1186,7 +1212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the traffic mirroring feature for a service. After the feature is enabled, requests received by the service can be mirrored to another service.
+   * Enables the service traffic mirroring feature to mirror requests received by one service to another service.
    * 
    * @param request - CreateServiceMirrorRequest
    * @param headers - map
@@ -1223,7 +1249,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables the traffic mirroring feature for a service. After the feature is enabled, requests received by the service can be mirrored to another service.
+   * Enables the service traffic mirroring feature to mirror requests received by one service to another service.
    * 
    * @param request - CreateServiceMirrorRequest
    * @returns CreateServiceMirrorResponse
@@ -1235,16 +1261,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service rollout.
+   * Creates a service rollout plan.
    * 
    * @remarks
-   * ## Usage notes
-   * - **Mutually exclusive strategies**: You can use either the `Partition` or the `Batch` strategy, but not both.
-   * - **Request rate limit**: Up to 100 requests per second.
-   * - **Authorization**: This operation requires the `eas:CreateServiceRollout` permission.
-   * - **ARN**: `acs:eas:{#regionId}:{#accountId}:service/{#ServiceName}`.
-   * - **Pause a rollout**: To pause the service rollout, set the `Paused` parameter to `true`. You can then resume or cancel the rollout by calling the `UpdateServiceRollout` operation.
-   * - **Monitoring and rollback**: Monitor service metrics during the service rollout to promptly identify and resolve issues. To perform a rollback, you can adjust the `Partition` value or delete the rollout strategy.
+   * ## Request description
+   * - **Mutually exclusive policies**: You can choose only one of the Partition (partition-based rollout) and Batch (batch-based rollout) policies. They cannot be used at the same time.
+   * - **Request rate limit**: A maximum of 100 requests per second.
+   * - **Authorization information**: You must have the eas:CreateServiceRollout permission to call this operation.
+   * - **Resource ARN**: acs:eas:{#regionId}:{#accountId}:service/{#ServiceName}.
+   * - **Pause a rollout**: You can pause the rollout process by setting the Paused parameter to true. You can then resume or cancel the rollout by calling the UpdateServiceRollout operation.
+   * - **Monitoring and rollback**: Continuously monitor service metrics during the rollout to identify and resolve issues promptly. To roll back, adjust the Partition value or delete the rollout policy.
    * 
    * @param request - CreateServiceRolloutRequest
    * @param headers - map
@@ -1285,16 +1311,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a service rollout.
+   * Creates a service rollout plan.
    * 
    * @remarks
-   * ## Usage notes
-   * - **Mutually exclusive strategies**: You can use either the `Partition` or the `Batch` strategy, but not both.
-   * - **Request rate limit**: Up to 100 requests per second.
-   * - **Authorization**: This operation requires the `eas:CreateServiceRollout` permission.
-   * - **ARN**: `acs:eas:{#regionId}:{#accountId}:service/{#ServiceName}`.
-   * - **Pause a rollout**: To pause the service rollout, set the `Paused` parameter to `true`. You can then resume or cancel the rollout by calling the `UpdateServiceRollout` operation.
-   * - **Monitoring and rollback**: Monitor service metrics during the service rollout to promptly identify and resolve issues. To perform a rollback, you can adjust the `Partition` value or delete the rollout strategy.
+   * ## Request description
+   * - **Mutually exclusive policies**: You can choose only one of the Partition (partition-based rollout) and Batch (batch-based rollout) policies. They cannot be used at the same time.
+   * - **Request rate limit**: A maximum of 100 requests per second.
+   * - **Authorization information**: You must have the eas:CreateServiceRollout permission to call this operation.
+   * - **Resource ARN**: acs:eas:{#regionId}:{#accountId}:service/{#ServiceName}.
+   * - **Pause a rollout**: You can pause the rollout process by setting the Paused parameter to true. You can then resume or cancel the rollout by calling the UpdateServiceRollout operation.
+   * - **Monitoring and rollback**: Continuously monitor service metrics during the rollout to identify and resolve issues promptly. To roll back, adjust the Partition value or delete the rollout policy.
    * 
    * @param request - CreateServiceRolloutRequest
    * @returns CreateServiceRolloutResponse
@@ -1359,7 +1385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an access control list (ACL) for a private gateway. The IP CIDR block that is deleted from the ACL cannot access the private gateway.
+   * Removes access permissions for a gateway. The removed IP address ranges no longer have access to the gateway.
    * 
    * @param tmpReq - DeleteAclPolicyRequest
    * @param headers - map
@@ -1402,7 +1428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an access control list (ACL) for a private gateway. The IP CIDR block that is deleted from the ACL cannot access the private gateway.
+   * Removes access permissions for a gateway. The removed IP address ranges no longer have access to the gateway.
    * 
    * @param request - DeleteAclPolicyRequest
    * @returns DeleteAclPolicyResponse
@@ -1414,7 +1440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a stress testing task.
+   * Deletes a specified stress testing task.
    * 
    * @param request - DeleteBenchmarkTaskRequest
    * @param headers - map
@@ -1441,7 +1467,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a stress testing task.
+   * Deletes a specified stress testing task.
    * 
    * @param request - DeleteBenchmarkTaskRequest
    * @returns DeleteBenchmarkTaskResponse
@@ -1456,8 +1482,8 @@ export default class Client extends OpenApi {
    * Deletes a single dynamic parameter for a specified service.
    * 
    * @remarks
-   * ## Request
-   * This API deletes a specific configuration by its region ID, configuration type, service name, and configuration key. Ensure all parameter values are accurate to avoid accidentally deleting critical configurations.
+   * ## Request description
+   * This API allows you to delete a specific configuration item by specifying the cluster ID, configuration type, service name, and configuration item name. Ensure that the provided parameter values are accurate to prevent accidental deletion of important configurations.
    * 
    * @param request - DeleteConfigRequest
    * @param headers - map
@@ -1487,8 +1513,8 @@ export default class Client extends OpenApi {
    * Deletes a single dynamic parameter for a specified service.
    * 
    * @remarks
-   * ## Request
-   * This API deletes a specific configuration by its region ID, configuration type, service name, and configuration key. Ensure all parameter values are accurate to avoid accidentally deleting critical configurations.
+   * ## Request description
+   * This API allows you to delete a specific configuration item by specifying the cluster ID, configuration type, service name, and configuration item name. Ensure that the provided parameter values are accurate to prevent accidental deletion of important configurations.
    * 
    * @param request - DeleteConfigRequest
    * @returns DeleteConfigResponse
@@ -1790,7 +1816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a resource group that contains no resources or instances.
+   * Deletes an existing resource group. A resource group can be deleted only when it contains no task services or resource instances.
    * 
    * @param request - DeleteResourceRequest
    * @param headers - map
@@ -1817,7 +1843,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a resource group that contains no resources or instances.
+   * Deletes an existing resource group. A resource group can be deleted only when it contains no task services or resource instances.
    * 
    * @param request - DeleteResourceRequest
    * @returns DeleteResourceResponse
@@ -1988,7 +2014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the LogShipper feature of Log Service for a dedicated resource group.
+   * Disables the Simple Log Service (SLS) log delivery feature for a dedicated resource group.
    * 
    * @param request - DeleteResourceLogRequest
    * @param headers - map
@@ -2015,7 +2041,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Disables the LogShipper feature of Log Service for a dedicated resource group.
+   * Disables the Simple Log Service (SLS) log delivery feature for a dedicated resource group.
    * 
    * @param request - DeleteResourceLogRequest
    * @returns DeleteResourceLogResponse
@@ -2027,7 +2053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a service.
+   * Deletes a specified service.
    * 
    * @param request - DeleteServiceRequest
    * @param headers - map
@@ -2036,8 +2062,18 @@ export default class Client extends OpenApi {
    */
   async deleteServiceWithOptions(ClusterId: string, ServiceName: string, request: $_model.DeleteServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteServiceResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "DeleteService",
@@ -2054,7 +2090,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a service.
+   * Deletes a specified service.
    * 
    * @param request - DeleteServiceRequest
    * @returns DeleteServiceResponse
@@ -2305,17 +2341,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a service rollout.
+   * Deletes the update plan of a service.
    * 
    * @remarks
-   * ## 请求说明
-   * - **不可恢复**：删除操作不可撤销，请谨慎操作。
-   * - **不自动回退**：删除策略不会回退已更新的副本。
-   * - **停止发布**：正在进行的发布会立即停止。
-   * - **状态保留**：已更新的副本保持新版本，未更新的保持旧版本。
-   * - 删除后，后续服务更新将采用默认的滚动更新方式。
-   * - 在删除前，请确认要删除的服务名称和地域，并了解当前发布状态（可以通过调用`DescribeServiceRollout`接口获取）。
-   * - 如果需要回退版本，请在删除策略后通过重新创建策略或直接更新服务镜像来实现。
+   * Deletes the update plan of a specified service.
    * 
    * @param request - DeleteServiceRolloutRequest
    * @param headers - map
@@ -2342,17 +2371,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a service rollout.
+   * Deletes the update plan of a service.
    * 
    * @remarks
-   * ## 请求说明
-   * - **不可恢复**：删除操作不可撤销，请谨慎操作。
-   * - **不自动回退**：删除策略不会回退已更新的副本。
-   * - **停止发布**：正在进行的发布会立即停止。
-   * - **状态保留**：已更新的副本保持新版本，未更新的保持旧版本。
-   * - 删除后，后续服务更新将采用默认的滚动更新方式。
-   * - 在删除前，请确认要删除的服务名称和地域，并了解当前发布状态（可以通过调用`DescribeServiceRollout`接口获取）。
-   * - 如果需要回退版本，请在删除策略后通过重新创建策略或直接更新服务镜像来实现。
+   * Deletes the update plan of a specified service.
    * 
    * @param request - DeleteServiceRolloutRequest
    * @returns DeleteServiceRolloutResponse
@@ -3049,7 +3071,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries recent deployment events for a specified service.
+   * Queries recent deployment events for a service.
    * 
    * @param request - DescribeServiceEventRequest
    * @param headers - map
@@ -3102,7 +3124,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries recent deployment events for a specified service.
+   * Queries recent deployment events for a service.
    * 
    * @param request - DescribeServiceEventRequest
    * @returns DescribeServiceEventResponse
@@ -3269,16 +3291,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a service rollout.
+   * Queries the service update plan.
    * 
    * @remarks
-   * ## 请求说明
-   * - 该接口用于查询特定服务的发布策略（Rollout）配置和当前执行状态。
-   * - 返回的信息包括但不限于发布策略的具体参数、当前发布进度等。
-   * - 请求时需提供`ClusterId`和服务名称`ServiceName`作为路径参数。
-   * - 注意，请求速率限制为每秒最多100次。
-   * - 如果服务不存在或未创建发布策略，调用此接口将返回错误。
-   * - 返回的状态是实时查询的结果，可能会随时间而变化，请根据实际需要调整轮询间隔。
+   * ## Operation description
+   * - This operation queries the rollout configuration and current execution status of a specific service.
+   * - The returned information includes but is not limited to the specific parameters of the rollout strategy and the current rollout progress.
+   * - Specify `ClusterId` and the service name `ServiceName` as path parameters in the request.
+   * - The request rate limit is 100 requests per second.
+   * - If the service does not exist or no rollout strategy has been created, this operation returns an error.
+   * - The returned status is a real-time query result that may change over time. Adjust the polling interval as needed.
    * 
    * @param request - DescribeServiceRolloutRequest
    * @param headers - map
@@ -3305,16 +3327,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a service rollout.
+   * Queries the service update plan.
    * 
    * @remarks
-   * ## 请求说明
-   * - 该接口用于查询特定服务的发布策略（Rollout）配置和当前执行状态。
-   * - 返回的信息包括但不限于发布策略的具体参数、当前发布进度等。
-   * - 请求时需提供`ClusterId`和服务名称`ServiceName`作为路径参数。
-   * - 注意，请求速率限制为每秒最多100次。
-   * - 如果服务不存在或未创建发布策略，调用此接口将返回错误。
-   * - 返回的状态是实时查询的结果，可能会随时间而变化，请根据实际需要调整轮询间隔。
+   * ## Operation description
+   * - This operation queries the rollout configuration and current execution status of a specific service.
+   * - The returned information includes but is not limited to the specific parameters of the rollout strategy and the current rollout progress.
+   * - Specify `ClusterId` and the service name `ServiceName` as path parameters in the request.
+   * - The request rate limit is 100 requests per second.
+   * - If the service does not exist or no rollout strategy has been created, this operation returns an error.
+   * - The returned status is a real-time query result that may change over time. Adjust the polling interval as needed.
    * 
    * @param request - DescribeServiceRolloutRequest
    * @returns DescribeServiceRolloutResponse
@@ -3608,7 +3630,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all deployed stress testing tasks.
+   * Queries all stress testing tasks deployed by the current user.
+   * 
+   * @remarks
+   * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of EAS.**
    * 
    * @param request - ListBenchmarkTaskRequest
    * @param headers - map
@@ -3673,7 +3698,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists all deployed stress testing tasks.
+   * Queries all stress testing tasks deployed by the current user.
+   * 
+   * @remarks
+   * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of EAS.**
    * 
    * @param request - ListBenchmarkTaskRequest
    * @returns ListBenchmarkTaskResponse
@@ -3685,15 +3713,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of dynamic parameters for a specified service.
+   * Queries the list of dynamic parameters under a specified service.
    * 
    * @remarks
-   * ## Description
-   * - `ClusterId` specifies the service\\"s region.
-   * - `ConfigType` specifies the configuration type. Only `service` is supported.
-   * - `Name` specifies the service name.
-   * - Use the `Page` and `PageSize` parameters to paginate the results.
-   * - The response contains the details of the dynamic parameters and pagination information.
+   * ## Operation description
+   * - This API operation queries the list of dynamic parameters under a specific service.
+   * - ClusterId specifies the region to which the service belongs.
+   * - ConfigType currently supports only the `service` type.
+   * - Name specifies the service name.
+   * - Use the Page and PageSize parameters for paged query. By default, 100 records are displayed per page, with a maximum of 200.
+   * - The response includes dynamic parameter details and paging information.
    * 
    * @param request - ListConfigsRequest
    * @param headers - map
@@ -3730,15 +3759,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of dynamic parameters for a specified service.
+   * Queries the list of dynamic parameters under a specified service.
    * 
    * @remarks
-   * ## Description
-   * - `ClusterId` specifies the service\\"s region.
-   * - `ConfigType` specifies the configuration type. Only `service` is supported.
-   * - `Name` specifies the service name.
-   * - Use the `Page` and `PageSize` parameters to paginate the results.
-   * - The response contains the details of the dynamic parameters and pagination information.
+   * ## Operation description
+   * - This API operation queries the list of dynamic parameters under a specific service.
+   * - ClusterId specifies the region to which the service belongs.
+   * - ConfigType currently supports only the `service` type.
+   * - Name specifies the service name.
+   * - Use the Page and PageSize parameters for paged query. By default, 100 records are displayed per page, with a maximum of 200.
+   * - The response includes dynamic parameter details and paging information.
    * 
    * @param request - ListConfigsRequest
    * @returns ListConfigsResponse
@@ -3750,7 +3780,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists private gateways.
+   * Queries a list of private gateways.
    * 
    * @param tmpReq - ListGatewayRequest
    * @param headers - map
@@ -3833,7 +3863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists private gateways.
+   * Queries a list of private gateways.
    * 
    * @param request - ListGatewayRequest
    * @returns ListGatewayResponse
@@ -3845,7 +3875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the custom domain names for a private gateway.
+   * Queries the list of custom domain names for a dedicated gateway.
    * 
    * @param request - ListGatewayDomainsRequest
    * @param headers - map
@@ -3872,7 +3902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the custom domain names for a private gateway.
+   * Queries the list of custom domain names for a dedicated gateway.
    * 
    * @param request - ListGatewayDomainsRequest
    * @returns ListGatewayDomainsResponse
@@ -3929,7 +3959,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the VPC peering connections for a gateway\\"s private network endpoint.
+   * Retrieves the list of cross-VPC connections for the internal access endpoint of a gateway.
    * 
    * @param request - ListGatewayIntranetLinkedVpcPeerRequest
    * @param headers - map
@@ -3962,7 +3992,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the VPC peering connections for a gateway\\"s private network endpoint.
+   * Retrieves the list of cross-VPC connections for the internal access endpoint of a gateway.
    * 
    * @param request - ListGatewayIntranetLinkedVpcPeerRequest
    * @returns ListGatewayIntranetLinkedVpcPeerResponse
@@ -3974,7 +4004,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the zones supported by a gateway within an intranet.
+   * Queries the zones supported by the internal network of a private gateway.
    * 
    * @param request - ListGatewayIntranetSupportedZoneRequest
    * @param headers - map
@@ -4001,7 +4031,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Obtains the zones supported by a gateway within an intranet.
+   * Queries the zones supported by the internal network of a private gateway.
    * 
    * @param request - ListGatewayIntranetSupportedZoneRequest
    * @returns ListGatewayIntranetSupportedZoneResponse
@@ -4013,7 +4043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists created service groups.
+   * Lists existing service groups.
    * 
    * @param tmpReq - ListGroupsRequest
    * @param headers - map
@@ -4080,7 +4110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists created service groups.
+   * Lists existing service groups.
    * 
    * @param request - ListGroupsRequest
    * @returns ListGroupsResponse
@@ -4165,7 +4195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the instances in a specified dedicated resource group.
+   * Queries the machine instances in a specified dedicated resource group.
    * 
    * @param tmpReq - ListResourceInstancesRequest
    * @param headers - map
@@ -4248,7 +4278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the instances in a specified dedicated resource group.
+   * Queries the machine instances in a specified dedicated resource group.
    * 
    * @param request - ListResourceInstancesRequest
    * @returns ListResourceInstancesResponse
@@ -4260,7 +4290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of services that are deployed in the dedicated resource group.
+   * Lists the services deployed in a dedicated resource group.
    * 
    * @deprecated OpenAPI ListResourceServices is deprecated
    * 
@@ -4299,7 +4329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of services that are deployed in the dedicated resource group.
+   * Lists the services deployed in a dedicated resource group.
    * 
    * @deprecated OpenAPI ListResourceServices is deprecated
    * 
@@ -4594,7 +4624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the historical versions of a service.
+   * Queries the historical versions of a service.
    * 
    * @param request - ListServiceVersionsRequest
    * @param headers - map
@@ -4631,7 +4661,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information about the historical versions of a service.
+   * Queries the historical versions of a service.
    * 
    * @param request - ListServiceVersionsRequest
    * @returns ListServiceVersionsResponse
@@ -4798,7 +4828,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of tenant plug-ins.
+   * Queries the list of tenant plugins.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4823,7 +4853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of tenant plug-ins.
+   * Queries the list of tenant plugins.
    * @returns ListTenantAddonsResponse
    */
   async listTenantAddons(): Promise<$_model.ListTenantAddonsResponse> {
@@ -4833,7 +4863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the virtual resource groups for the current user.
+   * Retrieves the list of virtual resource groups for the current user.
    * 
    * @param request - ListVirtualResourceRequest
    * @param headers - map
@@ -4886,7 +4916,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the virtual resource groups for the current user.
+   * Retrieves the list of virtual resource groups for the current user.
    * 
    * @param request - ListVirtualResourceRequest
    * @returns ListVirtualResourceResponse
@@ -4951,7 +4981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets tenant configurations.
+   * Resets the tenant configuration.
    * 
    * @param request - ReinstallTenantAddonRequest
    * @param headers - map
@@ -4978,7 +5008,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets tenant configurations.
+   * Resets the tenant configuration.
    * 
    * @param request - ReinstallTenantAddonRequest
    * @returns ReinstallTenantAddonResponse
@@ -5048,8 +5078,18 @@ export default class Client extends OpenApi {
    */
   async restartServiceWithOptions(ClusterId: string, ServiceName: string, request: $_model.RestartServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RestartServiceResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "RestartService",
@@ -5127,7 +5167,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a stress testing task.
+   * Starts the specified stress testing task.
    * 
    * @param request - StartBenchmarkTaskRequest
    * @param headers - map
@@ -5154,7 +5194,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a stress testing task.
+   * Starts the specified stress testing task.
    * 
    * @param request - StartBenchmarkTaskRequest
    * @returns StartBenchmarkTaskResponse
@@ -5166,7 +5206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a service.
+   * Starts a stopped service.
    * 
    * @param request - StartServiceRequest
    * @param headers - map
@@ -5175,8 +5215,18 @@ export default class Client extends OpenApi {
    */
   async startServiceWithOptions(ClusterId: string, ServiceName: string, request: $_model.StartServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StartServiceResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "StartService",
@@ -5193,7 +5243,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a service.
+   * Starts a stopped service.
    * 
    * @param request - StartServiceRequest
    * @returns StartServiceResponse
@@ -5205,7 +5255,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a stress testing task.
+   * Stops a specified stress testing task.
    * 
    * @param request - StopBenchmarkTaskRequest
    * @param headers - map
@@ -5232,7 +5282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a stress testing task.
+   * Stops a specified stress testing task.
    * 
    * @param request - StopBenchmarkTaskRequest
    * @returns StopBenchmarkTaskResponse
@@ -5253,8 +5303,18 @@ export default class Client extends OpenApi {
    */
   async stopServiceWithOptions(ClusterId: string, ServiceName: string, request: $_model.StopServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.StopServiceResponse> {
     request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
+      query: OpenApiUtil.query(query),
     });
     let params = new $OpenApiUtil.Params({
       action: "StopService",
@@ -5354,7 +5414,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a stress testing task.
+   * Updates a specified stress testing task.
+   * 
+   * @remarks
+   * Updates a specified stress testing task. Only stress testing tasks whose mode is manual or async and that are in the Running state can be updated. You can call the DescribeBenchmarkTask operation to query the task status. If the task is in the Stopped state, you must first call the StartBenchmarkTask operation and wait until the task enters the Running state.
    * 
    * @param request - UpdateBenchmarkTaskRequest
    * @param headers - map
@@ -5382,7 +5445,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a stress testing task.
+   * Updates a specified stress testing task.
+   * 
+   * @remarks
+   * Updates a specified stress testing task. Only stress testing tasks whose mode is manual or async and that are in the Running state can be updated. You can call the DescribeBenchmarkTask operation to query the task status. If the task is in the Stopped state, you must first call the StartBenchmarkTask operation and wait until the task enters the Running state.
    * 
    * @param request - UpdateBenchmarkTaskRequest
    * @returns UpdateBenchmarkTaskResponse
@@ -5394,11 +5460,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a dynamic parameter for a specific cluster and service.
+   * Updates the value of a single dynamic parameter under a specified cluster and service.
    * 
    * @remarks
-   * ## Request
-   * Use this API to update a dynamic parameter by providing its `ClusterId`, `ConfigType`, `Name`, and `ConfigKey`. The request body must contain the new parameter value in the `Value` field. Ensure you provide the correct path parameters to avoid errors.
+   * ## Request description
+   * This API allows you to update the value of a specific dynamic parameter by specifying ClusterId, ConfigType, Name, and ConfigKey. The request body must contain the new parameter value Value. Ensure that the provided path parameters are accurate to avoid updating the wrong dynamic parameter.
    * 
    * @param request - UpdateConfigRequest
    * @param headers - map
@@ -5431,11 +5497,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a dynamic parameter for a specific cluster and service.
+   * Updates the value of a single dynamic parameter under a specified cluster and service.
    * 
    * @remarks
-   * ## Request
-   * Use this API to update a dynamic parameter by providing its `ClusterId`, `ConfigType`, `Name`, and `ConfigKey`. The request body must contain the new parameter value in the `Value` field. Ensure you provide the correct path parameters to avoid errors.
+   * ## Request description
+   * This API allows you to update the value of a specific dynamic parameter by specifying ClusterId, ConfigType, Name, and ConfigKey. The request body must contain the new parameter value Value. Ensure that the provided path parameters are accurate to avoid updating the wrong dynamic parameter.
    * 
    * @param request - UpdateConfigRequest
    * @returns UpdateConfigResponse
@@ -5524,10 +5590,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a gateway label or updates an existing one.
+   * Adds a gateway tag or updates an existing gateway tag.
    * 
    * @remarks
-   * *Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
+   * *Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of EAS before you call this operation.**
    * 
    * @param request - UpdateGatewayLabelRequest
    * @param headers - map
@@ -5560,10 +5626,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a gateway label or updates an existing one.
+   * Adds a gateway tag or updates an existing gateway tag.
    * 
    * @remarks
-   * *Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
+   * *Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of EAS before you call this operation.**
    * 
    * @param request - UpdateGatewayLabelRequest
    * @returns UpdateGatewayLabelResponse
@@ -5628,7 +5694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a dedicated resource group. Only the name of a dedicated resource group can be updated.
+   * Updates the information of a dedicated resource group.
    * 
    * @param request - UpdateResourceRequest
    * @param headers - map
@@ -5665,7 +5731,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a dedicated resource group. Only the name of a dedicated resource group can be updated.
+   * Updates the information of a dedicated resource group.
    * 
    * @param request - UpdateResourceRequest
    * @returns UpdateResourceResponse
@@ -5734,7 +5800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the scheduling status of an instance in a dedicated resource group.
+   * Updates the scheduling status of a machine instance in a dedicated resource group.
    * 
    * @param request - UpdateResourceInstanceRequest
    * @param headers - map
@@ -5775,7 +5841,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the scheduling status of an instance in a dedicated resource group.
+   * Updates the scheduling status of a machine instance in a dedicated resource group.
    * 
    * @param request - UpdateResourceInstanceRequest
    * @returns UpdateResourceInstanceResponse
@@ -5787,7 +5853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the tag of an instance in a resource group.
+   * Updates the instance labels in a resource group.
    * 
    * @param tmpReq - UpdateResourceInstanceLabelRequest
    * @param headers - map
@@ -5836,7 +5902,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the tag of an instance in a resource group.
+   * Updates the instance labels in a resource group.
    * 
    * @param request - UpdateResourceInstanceLabelRequest
    * @returns UpdateResourceInstanceLabelResponse
@@ -5848,7 +5914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a model or processor of a service. If only the metadata.instance field is updated, manual scaling can be performed.
+   * Updates the model or processor of a service. If only the metadata.instance field is updated, this operation scales the service.
    * 
    * @param request - UpdateServiceRequest
    * @param headers - map
@@ -5858,6 +5924,14 @@ export default class Client extends OpenApi {
   async updateServiceWithOptions(ClusterId: string, ServiceName: string, request: $_model.UpdateServiceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateServiceResponse> {
     request.validate();
     let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["DryRun"] = request.dryRun;
+    }
+
     if (!$dara.isNull(request.memberToUpdate)) {
       query["MemberToUpdate"] = request.memberToUpdate;
     }
@@ -5886,7 +5960,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a model or processor of a service. If only the metadata.instance field is updated, manual scaling can be performed.
+   * Updates the model or processor of a service. If only the metadata.instance field is updated, this operation scales the service.
    * 
    * @param request - UpdateServiceRequest
    * @returns UpdateServiceResponse
@@ -5955,7 +6029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the scheduled auto scaling configuration for a service.
+   * Updates the scheduled scaling configuration of a service.
    * 
    * @param request - UpdateServiceCronScalerRequest
    * @param headers - map
@@ -5992,7 +6066,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the scheduled auto scaling configuration for a service.
+   * Updates the scheduled scaling configuration of a service.
    * 
    * @param request - UpdateServiceCronScalerRequest
    * @returns UpdateServiceCronScalerResponse
@@ -6004,10 +6078,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the properties of a service instance. This operation applies only to fencing service instances.
+   * Updates the attributes of a service instance. Currently, only service instance isolation is supported.
    * 
    * @remarks
-   * *Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
+   * *Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS) before you call this operation.**
    * 
    * @param request - UpdateServiceInstanceRequest
    * @param headers - map
@@ -6054,10 +6128,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the properties of a service instance. This operation applies only to fencing service instances.
+   * Updates the attributes of a service instance. Currently, only service instance isolation is supported.
    * 
    * @remarks
-   * *Before you call this operation, make sure that you understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS).**
+   * *Make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/144261.html) of Elastic Algorithm Service (EAS) before you call this operation.**
    * 
    * @param request - UpdateServiceInstanceRequest
    * @returns UpdateServiceInstanceResponse
@@ -6069,7 +6143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds service tags or updates existing service tags.
+   * Creates a service tag or updates an existing service tag.
    * 
    * @param request - UpdateServiceLabelRequest
    * @param headers - map
@@ -6102,7 +6176,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds service tags or updates existing service tags.
+   * Creates a service tag or updates an existing service tag.
    * 
    * @param request - UpdateServiceLabelRequest
    * @returns UpdateServiceLabelResponse
@@ -6114,7 +6188,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the traffic mirroring configurations of a service.
+   * Updates the traffic mirror configuration of a service.
+   * 
+   * @remarks
+   * Updates the traffic mirror configuration of a service. Before calling this operation, you must enable traffic mirroring for the target service by calling CreateServiceMirror. If traffic mirroring is not enabled, an InvalidServiceMirror.NotFound error is returned.
    * 
    * @param request - UpdateServiceMirrorRequest
    * @param headers - map
@@ -6151,7 +6228,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the traffic mirroring configurations of a service.
+   * Updates the traffic mirror configuration of a service.
+   * 
+   * @remarks
+   * Updates the traffic mirror configuration of a service. Before calling this operation, you must enable traffic mirroring for the target service by calling CreateServiceMirror. If traffic mirroring is not enabled, an InvalidServiceMirror.NotFound error is returned.
    * 
    * @param request - UpdateServiceMirrorRequest
    * @returns UpdateServiceMirrorResponse
@@ -6163,15 +6243,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a service rollout.
+   * Updates a service rollout plan.
    * 
    * @remarks
-   * ## Usage notes
-   * - **Provide at least one parameter**: Specify at least one of the `Partition`, `Batch`, or `Paused` parameters.
-   * - **Mutually exclusive strategies**: You cannot specify both the `Partition` and `Batch` parameters in the same request.
-   * - **Immediate effect**: Updates take effect immediately and affect ongoing service rollouts.
-   * - **Rollback**: You can perform a rollback by increasing the `Partition` value. However, this is not an automatic process, and you must manually update the service image.
-   * - **Pause does not affect parameters**: Pausing a rollout does not change the configured `Partition` or `Batch` parameters. It only suspends the current rollout strategy.
+   * ## Request notes
+   * - **Provide at least one parameter**: Specify at least one of the `Partition`, `Batch`, or `Paused` parameters in the request.
+   * - **Mutually exclusive parameters**: The `Partition` and `Batch` parameters are mutually exclusive.
+   * - **Immediate effect**: Updates take effect immediately and affect the ongoing service rollout process.
+   * - **Rollback operations**: Increase the `Partition` value to roll back to a previous version. This action does not trigger automatically and requires a manual update of the service image.
+   * - **Pausing does not affect parameters**: Pausing the rollout does not change the configured `Partition` or `Batch` parameters. It only pauses the execution of the current policy.
    * 
    * @param request - UpdateServiceRolloutRequest
    * @param headers - map
@@ -6212,15 +6292,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a service rollout.
+   * Updates a service rollout plan.
    * 
    * @remarks
-   * ## Usage notes
-   * - **Provide at least one parameter**: Specify at least one of the `Partition`, `Batch`, or `Paused` parameters.
-   * - **Mutually exclusive strategies**: You cannot specify both the `Partition` and `Batch` parameters in the same request.
-   * - **Immediate effect**: Updates take effect immediately and affect ongoing service rollouts.
-   * - **Rollback**: You can perform a rollback by increasing the `Partition` value. However, this is not an automatic process, and you must manually update the service image.
-   * - **Pause does not affect parameters**: Pausing a rollout does not change the configured `Partition` or `Batch` parameters. It only suspends the current rollout strategy.
+   * ## Request notes
+   * - **Provide at least one parameter**: Specify at least one of the `Partition`, `Batch`, or `Paused` parameters in the request.
+   * - **Mutually exclusive parameters**: The `Partition` and `Batch` parameters are mutually exclusive.
+   * - **Immediate effect**: Updates take effect immediately and affect the ongoing service rollout process.
+   * - **Rollback operations**: Increase the `Partition` value to roll back to a previous version. This action does not trigger automatically and requires a manual update of the service image.
+   * - **Pausing does not affect parameters**: Pausing the rollout does not change the configured `Partition` or `Batch` parameters. It only pauses the execution of the current policy.
    * 
    * @param request - UpdateServiceRolloutRequest
    * @returns UpdateServiceRolloutResponse
@@ -6277,7 +6357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the version of a service or rolls back the service to a specific version.
+   * Updates the current version of a service to a historical version to enable rollback.
    * 
    * @param request - UpdateServiceVersionRequest
    * @param headers - map
@@ -6310,7 +6390,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the version of a service or rolls back the service to a specific version.
+   * Updates the current version of a service to a historical version to enable rollback.
    * 
    * @param request - UpdateServiceVersionRequest
    * @returns UpdateServiceVersionResponse
@@ -6322,7 +6402,58 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a virtual resource group.
+   * Updates the remarks for a service version.
+   * 
+   * @remarks
+   * Updates the traffic mirroring configuration for a service. Before you call this operation, you must enable traffic mirroring for the target service by calling CreateServiceMirror. If traffic mirroring is not enabled, the InvalidServiceMirror.NotFound error is returned.
+   * 
+   * @param request - UpdateServiceVersionRemarkRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceVersionRemarkResponse
+   */
+  async updateServiceVersionRemarkWithOptions(ClusterId: string, ServiceName: string, Version: string, request: $_model.UpdateServiceVersionRemarkRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateServiceVersionRemarkResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.remark)) {
+      body["Remark"] = request.remark;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateServiceVersionRemark",
+      version: "2021-07-01",
+      protocol: "HTTPS",
+      pathname: `/api/v2/services/${$dara.URL.percentEncode(ClusterId)}/${$dara.URL.percentEncode(ServiceName)}/version/${$dara.URL.percentEncode(Version)}/remark`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateServiceVersionRemarkResponse>(await this.callApi(params, req, runtime), new $_model.UpdateServiceVersionRemarkResponse({}));
+  }
+
+  /**
+   * Updates the remarks for a service version.
+   * 
+   * @remarks
+   * Updates the traffic mirroring configuration for a service. Before you call this operation, you must enable traffic mirroring for the target service by calling CreateServiceMirror. If traffic mirroring is not enabled, the InvalidServiceMirror.NotFound error is returned.
+   * 
+   * @param request - UpdateServiceVersionRemarkRequest
+   * @returns UpdateServiceVersionRemarkResponse
+   */
+  async updateServiceVersionRemark(ClusterId: string, ServiceName: string, Version: string, request: $_model.UpdateServiceVersionRemarkRequest): Promise<$_model.UpdateServiceVersionRemarkResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateServiceVersionRemarkWithOptions(ClusterId, ServiceName, Version, request, headers, runtime);
+  }
+
+  /**
+   * Updates the information of a virtual resource group.
    * 
    * @param request - UpdateVirtualResourceRequest
    * @param headers - map
@@ -6363,7 +6494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the information about a virtual resource group.
+   * Updates the information of a virtual resource group.
    * 
    * @param request - UpdateVirtualResourceRequest
    * @returns UpdateVirtualResourceResponse

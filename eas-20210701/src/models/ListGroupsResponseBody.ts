@@ -11,7 +11,7 @@ export class ListGroupsResponseBody extends $dara.Model {
   groups?: Group[];
   /**
    * @remarks
-   * The current page number of the returned group list.
+   * The current page number of the group list.
    * 
    * @example
    * 1
@@ -19,7 +19,7 @@ export class ListGroupsResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of groups displayed per page.
+   * The number of groups returned on each page.
    * 
    * @example
    * 20
@@ -35,7 +35,7 @@ export class ListGroupsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of service groups.
+   * The total count.
    * 
    * @example
    * 5

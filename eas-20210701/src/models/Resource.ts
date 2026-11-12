@@ -177,7 +177,7 @@ export class Resource extends $dara.Model {
    * The status of the resource group.
    * 
    * @example
-   * ResourceReady
+   * ResouceReady
    */
   status?: string;
   /**

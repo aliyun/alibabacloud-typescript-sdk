@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAclPolicyRequestAclPolicyList extends $dara.Model {
   /**
    * @remarks
-   * The comment on the IP CIDR block in the VPC that can access the private gateway.
+   * The comment for the IP address range that is allowed to access the VPC.
    * 
    * @example
    * default
@@ -13,7 +13,7 @@ export class DeleteAclPolicyRequestAclPolicyList extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The IP CIDR block in the VPC that can access the private gateway.
+   * The IP address range that is allowed to access the VPC.
    * 
    * @example
    * 10.23.XX.XX/32
@@ -45,12 +45,12 @@ export class DeleteAclPolicyRequestAclPolicyList extends $dara.Model {
 export class DeleteAclPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The whitelisted IP CIDR blocks in the VPC that can access the private gateway.
+   * The whitelist of IP address ranges that are allowed to access the VPC. This parameter is required. If this parameter is not specified, an InvalidParameter error is returned, indicating that AclPolicyList must be set.
    */
   aclPolicyList?: DeleteAclPolicyRequestAclPolicyList[];
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC). For more information about how to obtain the VPC ID, see DescribeVpcs.
+   * The ID of the VPC. For information about how to obtain the VPC ID, see DescribeVpcs.
    * 
    * @example
    * vpc-uf66uio7md****

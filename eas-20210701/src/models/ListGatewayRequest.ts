@@ -13,7 +13,7 @@ export class ListGatewayRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The ID of the private gateway. You can obtain the ID from the private_gateway_id field in the response of the ListResources operation.
+   * The ID of the private gateway. For information about how to obtain the ID of a private gateway, see the private_gateway_id field in the response of the ListResources operation.
    * 
    * @example
    * gw-1uhcqmsc7x22******
@@ -37,7 +37,7 @@ export class ListGatewayRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * Specifies whether to enable access over the public network.
+   * Specifies whether Internet access is enabled.
    * 
    * @example
    * true
@@ -45,7 +45,10 @@ export class ListGatewayRequest extends $dara.Model {
   internetEnabled?: boolean;
   /**
    * @remarks
-   * Filter by tag.
+   * The label used to filter gateways.
+   * 
+   * @example
+   * {"key1":"value1","key2":null}
    */
   label?: { [key: string]: string };
   /**
@@ -58,7 +61,7 @@ export class ListGatewayRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number of the gateway list to return. The default value is 1.
+   * The page number of the gateway list. Default value: 1.
    * 
    * @example
    * 1
@@ -66,7 +69,7 @@ export class ListGatewayRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of gateways to return on each page. The default value is 100.
+   * The paging Settings for the number of entries to return per page in a paged query. Default value: 100.
    * 
    * @example
    * 100
@@ -74,7 +77,7 @@ export class ListGatewayRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the resource group. You can obtain the ID from the ResourceId field in the response of the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation.
+   * The ID of the resource group. For information about how to obtain the ID of a resource group, see the ResourceId field in the response of the [ListResources](https://help.aliyun.com/document_detail/412133.html) operation.
    * 
    * @example
    * eas-r-4gt8twzwllfo******
@@ -82,7 +85,7 @@ export class ListGatewayRequest extends $dara.Model {
   resourceName?: string;
   /**
    * @remarks
-   * The field to sort by.
+   * The field used for sorting.
    * 
    * @example
    * CreateTime

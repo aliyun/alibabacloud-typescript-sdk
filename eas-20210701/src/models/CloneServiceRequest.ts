@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CloneServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * The label of the service to be cloned.
+   * The labels for the copied service.
+   * 
+   * @example
+   * {"key":"value"}
    */
   labels?: { [key: string]: string };
   /**
    * @remarks
-   * The request body. For more information, see [CreateService](https://help.aliyun.com/document_detail/412086.html).
+   * The request body. For more information about parameter settings, see [CreateService](https://help.aliyun.com/document_detail/412086.html).
    * 
    * @example
    * {   "name": "foo",   "model_path": "http://path/to/model.tar.gz",   "processor": "tensorflow_cpu",   "metadata": {     "instance": 2,     "memory": 7000,     "cpu": 4   } }

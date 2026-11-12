@@ -13,7 +13,7 @@ export class CreateGatewayIntranetLinkedVpcResponseBody extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The message returned for the request.
+   * The message returned in the response.
    * 
    * @example
    * Successfully add intranet linked vpc for gateway
@@ -21,7 +21,7 @@ export class CreateGatewayIntranetLinkedVpcResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 40325405-579C-4D82****

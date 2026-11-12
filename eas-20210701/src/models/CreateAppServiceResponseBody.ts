@@ -21,7 +21,7 @@ export class CreateAppServiceResponseBody extends $dara.Model {
   intranetEndpoint?: string;
   /**
    * @remarks
-   * The region ID of the service.
+   * The region where the service is located.
    * 
    * @example
    * cn-shanghai
@@ -45,7 +45,7 @@ export class CreateAppServiceResponseBody extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The service name.
+   * The name of the service.
    * 
    * @example
    * foo
@@ -53,7 +53,7 @@ export class CreateAppServiceResponseBody extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The service state.
+   * The status of the service.
    * 
    * @example
    * Creating

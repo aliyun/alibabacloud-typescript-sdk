@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateVirtualResourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned message.
+   * The operation result message.
    * 
    * @example
    * Successfully updated virtual resource eas-vr-npovr28onap1xxxxxx
@@ -13,7 +13,7 @@ export class UpdateVirtualResourceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 40325405-579C-4D82****

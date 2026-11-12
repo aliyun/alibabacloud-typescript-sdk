@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListVirtualResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The sorting order. Valid values:
-   * 
-   * - Desc: Descending order.
-   * 
-   * - Asc: Ascending order.
+   * The sort order. Valid values:
+   * - Desc: descending order.
+   * - Asc: ascending order.
    * 
    * @example
    * Desc
@@ -17,7 +15,7 @@ export class ListVirtualResourceRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number for the list of virtual resource groups. The value starts from 1. The default value is 1.
+   * The page number of the virtual resource group list. Minimum value: 1. Default value: 1.
    * 
    * @example
    * 1
@@ -25,7 +23,7 @@ export class ListVirtualResourceRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of virtual resource groups to display on each page. The default value is 100.
+   * The number of virtual resource groups to display per page in a paged query. Default value: 100.
    * 
    * @example
    * 20
@@ -33,7 +31,7 @@ export class ListVirtualResourceRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The field that is used to sort the results. By default, the results are sorted by timestamp in descending order.
+   * The sort field. Results are sorted by timestamp in descending order by default.
    * 
    * @example
    * CreateTime
@@ -41,7 +39,7 @@ export class ListVirtualResourceRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The ID of the virtual resource group.
+   * The virtual resource group ID.
    * 
    * @example
    * eas-vr-npovr28onap1xxxxxx
@@ -49,7 +47,7 @@ export class ListVirtualResourceRequest extends $dara.Model {
   virtualResourceId?: string;
   /**
    * @remarks
-   * The name of the virtual resource group.
+   * The virtual resource group name.
    * 
    * @example
    * MyVirtualResource

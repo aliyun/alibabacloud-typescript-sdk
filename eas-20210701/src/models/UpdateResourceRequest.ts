@@ -6,10 +6,6 @@ export class UpdateResourceRequestSelfManagedResourceOptionsNodeTolerations exte
   /**
    * @remarks
    * The effect.
-   * Valid values:
-   * - PreferNoSchedule
-   * - NoSchedule
-   * - NoExecute
    * 
    * @example
    * NoSchedule
@@ -25,10 +21,7 @@ export class UpdateResourceRequestSelfManagedResourceOptionsNodeTolerations exte
   key?: string;
   /**
    * @remarks
-   * Relationship between key names and key values.
-   * Valid values:
-   * - Equal
-   * - Exists
+   * The relationship between the key name and the key value.
    * 
    * @example
    * Equal
@@ -72,12 +65,15 @@ export class UpdateResourceRequestSelfManagedResourceOptionsNodeTolerations exte
 export class UpdateResourceRequestSelfManagedResourceOptions extends $dara.Model {
   /**
    * @remarks
-   * Tag tag key-value pairs for nodes.
+   * The set of label key-value pairs for nodes.
+   * 
+   * @example
+   * "key1": "value1"
    */
   nodeMatchLabels?: { [key: string]: string };
   /**
    * @remarks
-   * Tolerations for nodes.
+   * The list of tolerations for node taints.
    */
   nodeTolerations?: UpdateResourceRequestSelfManagedResourceOptionsNodeTolerations[];
   static names(): { [key: string]: string } {
@@ -112,7 +108,7 @@ export class UpdateResourceRequestSelfManagedResourceOptions extends $dara.Model
 export class UpdateResourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The new name of the resource group after the update. The name can be up to 27 characters in length.
+   * The new name of the resource group. The name cannot exceed 27 characters in length.
    * 
    * @example
    * iot
@@ -120,7 +116,7 @@ export class UpdateResourceRequest extends $dara.Model {
   resourceName?: string;
   /**
    * @remarks
-   * The configuration items of the self-managed resource group.
+   * The configuration options for the self-managed resource group.
    */
   selfManagedResourceOptions?: UpdateResourceRequestSelfManagedResourceOptions;
   static names(): { [key: string]: string } {

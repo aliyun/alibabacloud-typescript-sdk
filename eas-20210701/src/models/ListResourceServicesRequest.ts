@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceServicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number of the service list. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListResourceServicesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 100.
+   * The number of services to return on each page during paging. Default value: 100.
    * 
    * @example
    * 20

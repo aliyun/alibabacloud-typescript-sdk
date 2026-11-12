@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachGatewayDomainResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the private gateway. To obtain the private gateway ID, see the GatewayId parameter in the response parameters of the [ListGateway](https://apiworkbench.aliyun-inc.com/document/eas/2021-07-01/ListGateway?spm=openapi-amp.newDocPublishment.0.0.765e281fL2IcjJ\\&ampEnv=online) operation.
+   * The dedicated gateway ID. To obtain the dedicated gateway ID, refer to the GatewayId field in the response of the [ListGateway](https://apiworkbench.aliyun-inc.com/document/eas/2021-07-01/ListGateway?spm=openapi-amp.newDocPublishment.0.0.765e281fL2IcjJ&ampEnv=online) operation.
    * 
    * @example
    * gw-1uhcqmsc7x22******
@@ -13,7 +13,7 @@ export class AttachGatewayDomainResponseBody extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The error message.
+   * The response message.
    * 
    * @example
    * Successfully update custom endpoint for gateway gw-1uhcqmsc7x22******
@@ -21,7 +21,7 @@ export class AttachGatewayDomainResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 40325405-579C-4D82****

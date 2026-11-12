@@ -13,7 +13,7 @@ export class ListBenchmarkTaskResponseBodyTasks extends $dara.Model {
   availableAgent?: number;
   /**
    * @remarks
-   * The time when the stress testing task was created.
+   * The time when the stress testing task was created. The time is in UTC and follows the RFC3339 format.
    * 
    * @example
    * 2020-02-04T02:43:15Z
@@ -21,7 +21,7 @@ export class ListBenchmarkTaskResponseBodyTasks extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * A summary of the task.
+   * The summary information of the service.
    * 
    * @example
    * Benchmark task [benchmark-larec-test-1076] is Running
@@ -69,7 +69,7 @@ export class ListBenchmarkTaskResponseBodyTasks extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The time when the stress testing task was last updated.
+   * The time when the stress testing task was updated. The time is in UTC and follows the RFC3339 format.
    * 
    * @example
    * 2020-06-24T03:11:30Z
@@ -115,7 +115,7 @@ export class ListBenchmarkTaskResponseBodyTasks extends $dara.Model {
 export class ListBenchmarkTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned list of tasks.
+   * The page number of the returned stress testing task list.
    * 
    * @example
    * 1
@@ -123,7 +123,7 @@ export class ListBenchmarkTaskResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of tasks to return on each page.
+   * The number of stress testing tasks returned on each page.
    * 
    * @example
    * 20
@@ -144,7 +144,7 @@ export class ListBenchmarkTaskResponseBody extends $dara.Model {
   tasks?: ListBenchmarkTaskResponseBodyTasks[];
   /**
    * @remarks
-   * The total number of tasks.
+   * The total number of tasks queried.
    * 
    * @example
    * 1

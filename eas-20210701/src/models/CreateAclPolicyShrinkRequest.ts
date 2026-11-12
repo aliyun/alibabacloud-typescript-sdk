@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAclPolicyShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The whitelisted IP CIDR blocks in the VPC that can access the private gateway.
+   * The whitelist of IP address segments that are allowed to access the VPC.
    * 
    * This parameter is required.
    */

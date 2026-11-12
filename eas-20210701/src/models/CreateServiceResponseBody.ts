@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The public endpoint of the created service.
+   * The public endpoint of the newly created service.
    * 
    * @example
    * http://pai-eas.vpc.cn-shanghai.****
@@ -13,7 +13,7 @@ export class CreateServiceResponseBody extends $dara.Model {
   internetEndpoint?: string;
   /**
    * @remarks
-   * The internal endpoint of the created service.
+   * The internal endpoint of the newly created service.
    * 
    * @example
    * http://pai-eas.cn-shanghai.****
@@ -21,7 +21,7 @@ export class CreateServiceResponseBody extends $dara.Model {
   intranetEndpoint?: string;
   /**
    * @remarks
-   * The region ID of the created service.
+   * The region ID of the newly created service.
    * 
    * @example
    * cn-shanghai
@@ -37,7 +37,7 @@ export class CreateServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the created service.
+   * The ID of the newly created service.
    * 
    * @example
    * eas-m-aaxxxddf
@@ -45,7 +45,7 @@ export class CreateServiceResponseBody extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The name of the created service.
+   * The name of the newly created service.
    * 
    * @example
    * yourname
@@ -53,7 +53,7 @@ export class CreateServiceResponseBody extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The service state.
+   * The current status of the new service.
    * 
    * @example
    * Creating

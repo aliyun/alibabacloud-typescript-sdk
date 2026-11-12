@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateResourceInstanceLabelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The message.
+   * The returned message.
    * 
    * @example
    * Success

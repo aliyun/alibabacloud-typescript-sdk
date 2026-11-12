@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListResourceInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters instances by billing method. Valid values:
-   * 
-   * - PrePaid: subscription.
-   * 
-   * - PostPaid: pay-as-you-go.
+   * The billing method of the machines to filter. Valid values:
+   * - PrePaid: Subscription.
+   * - PostPaid: Pay-as-you-go.
    * 
    * @example
    * PrePaid
@@ -17,7 +15,7 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * A keyword for the search. You can search by instance ID or IP address.
+   * The search keyword. You can search by machine ID or IP address.
    * 
    * @example
    * 10.224.xx.xx
@@ -25,7 +23,7 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The IP address of the instance.
+   * The IP address of the machine.
    * 
    * @example
    * 10.224.xx.xx
@@ -33,7 +31,7 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
   instanceIP?: string;
   /**
    * @remarks
-   * Filter by instance ID. For more information, see [ListResourceInstances](https://help.aliyun.com/document_detail/412129.html).
+   * Filters the results by instance ID. For information about how to obtain the instance ID, see [ListResourceInstances](https://help.aliyun.com/document_detail/412129.html).
    * 
    * @example
    * i-bp1jd6x3uots****a
@@ -41,7 +39,7 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Filter by instance name.
+   * Filters the results by instance name.
    * 
    * @example
    * e-xxxx***
@@ -49,7 +47,7 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The status of the instance.
+   * The status of the machine.
    * 
    * @example
    * Ready
@@ -57,7 +55,10 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * Filter by label.
+   * Filters the results by label.
+   * 
+   * @example
+   * {"key1":"value1","key2":null}
    */
   labelShrink?: string;
   /**
@@ -70,7 +71,7 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The page number. The value starts from 1. The default value is 1.
+   * The page number of the machine instance list in the dedicated resource group. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -78,7 +79,7 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of instances to return on each page. Default value: 100.
+   * The paging Settings for the number of machines to return on each page in a paged query. Default value: 100.
    * 
    * @example
    * 20
@@ -86,7 +87,7 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sort field.
+   * The field used for sorting.
    * 
    * @example
    * CreateTime
@@ -94,7 +95,7 @@ export class ListResourceInstancesShrinkRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The zone of the instance.
+   * The zone of the machine.
    * 
    * @example
    * J

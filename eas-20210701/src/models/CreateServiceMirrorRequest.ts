@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateServiceMirrorRequest extends $dara.Model {
   /**
    * @remarks
-   * The percentage of the traffic that is mirrored to the destination service. Valid values: 0 to 100.
+   * The ratio. Valid values: 0 to 100.
    * 
    * @example
    * 30
@@ -13,7 +13,7 @@ export class CreateServiceMirrorRequest extends $dara.Model {
   ratio?: number;
   /**
    * @remarks
-   * The instances.
+   * The list of service instances.
    */
   target?: string[];
   static names(): { [key: string]: string } {

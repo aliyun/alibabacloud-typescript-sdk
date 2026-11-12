@@ -6,7 +6,7 @@ import { Service } from "./Service";
 export class ListServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The current page number.
+   * The current page number of the returned service list.
    * 
    * @example
    * 1
@@ -14,7 +14,7 @@ export class ListServicesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of services per page.
+   * The number of services returned on each page.
    * 
    * @example
    * 100
