@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,7 +12,10 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
-    this._endpointRule = "";
+    this._productId = "AliGenie";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
+    this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("aligenie", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
   }
@@ -30,7 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用使用时长上报
+   * Used to report application usage duration on Tmall Genie devices.
    * 
    * @param tmpReq - AppUseTimeReportRequest
    * @param headers - AppUseTimeReportHeaders
@@ -98,7 +102,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 应用使用时长上报
+   * Used to report application usage duration on Tmall Genie devices.
    * 
    * @param request - AppUseTimeReportRequest
    * @returns AppUseTimeReportResponse
@@ -110,7 +114,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 三方领取回调接口
+   * Third-party membership redemption callback API.
    * 
    * @param tmpReq - CallBackThirdRightSendPlanRequest
    * @param headers - CallBackThirdRightSendPlanHeaders
@@ -194,7 +198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 三方领取回调接口
+   * Third-party membership redemption callback API.
    * 
    * @param request - CallBackThirdRightSendPlanRequest
    * @returns CallBackThirdRightSendPlanResponse
@@ -206,7 +210,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 商业化移动屏三方app领卡校验
+   * Commercial mobile screen third-party app card issuance validation.
    * 
    * @param tmpReq - CheckThirdRightSendPlanRequest
    * @param headers - CheckThirdRightSendPlanHeaders
@@ -274,7 +278,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 商业化移动屏三方app领卡校验
+   * Commercial mobile screen third-party app card issuance validation.
    * 
    * @param request - CheckThirdRightSendPlanRequest
    * @returns CheckThirdRightSendPlanResponse
@@ -286,7 +290,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建提醒
+   * Used to create a reminder on a Tmall Genie device.
    * 
    * @param tmpReq - CreateReminderRequest
    * @param headers - CreateReminderHeaders
@@ -354,7 +358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建提醒
+   * Used to create a reminder on a Tmall Genie device.
    * 
    * @param request - CreateReminderRequest
    * @returns CreateReminderResponse
@@ -366,7 +370,73 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除提醒
+   * 携程订单状态变更推送
+   * 
+   * @param request - CtripOrderPushRequest
+   * @param headers - CtripOrderPushHeaders
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CtripOrderPushResponse
+   */
+  async ctripOrderPushWithOptions(request: $_model.CtripOrderPushRequest, headers: $_model.CtripOrderPushHeaders, runtime: $dara.RuntimeOptions): Promise<$_model.CtripOrderPushResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.journeyId)) {
+      query["JourneyId"] = request.journeyId;
+    }
+
+    if (!$dara.isNull(request.scheduleItem)) {
+      query["ScheduleItem"] = request.scheduleItem;
+    }
+
+    if (!$dara.isNull(request.uid)) {
+      query["Uid"] = request.uid;
+    }
+
+    let realHeaders : {[key: string ]: string} = { };
+    if (!$dara.isNull(headers.commonHeaders)) {
+      realHeaders = headers.commonHeaders;
+    }
+
+    if (!$dara.isNull(headers.xAcsAligenieAccessToken)) {
+      realHeaders["x-acs-aligenie-access-token"] = String(headers.xAcsAligenieAccessToken);
+    }
+
+    if (!$dara.isNull(headers.authorization)) {
+      realHeaders["Authorization"] = String(headers.authorization);
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: realHeaders,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CtripOrderPush",
+      version: "iap_1.0",
+      protocol: "HTTPS",
+      pathname: `/v1.0/iap/ctripOrderPush`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CtripOrderPushResponse>(await this.callApi(params, req, runtime), new $_model.CtripOrderPushResponse({}));
+  }
+
+  /**
+   * 携程订单状态变更推送
+   * 
+   * @param request - CtripOrderPushRequest
+   * @returns CtripOrderPushResponse
+   */
+  async ctripOrderPush(request: $_model.CtripOrderPushRequest): Promise<$_model.CtripOrderPushResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers = new $_model.CtripOrderPushHeaders({ });
+    return await this.ctripOrderPushWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * User deletes a reminder created on a Tmall Genie device.
    * 
    * @param tmpReq - DeleteReminderRequest
    * @param headers - DeleteReminderHeaders
@@ -434,7 +504,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 删除提醒
+   * User deletes a reminder created on a Tmall Genie device.
    * 
    * @param request - DeleteReminderRequest
    * @returns DeleteReminderResponse
@@ -446,7 +516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取会员信息
+   * Used by developers to obtain membership information in business scenarios that depend on CatGenie Membership.
    * 
    * @param tmpReq - GetAccountForAppRequest
    * @param headers - GetAccountForAppHeaders
@@ -514,7 +584,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取会员信息
+   * Used by developers to obtain membership information in business scenarios that depend on CatGenie Membership.
    * 
    * @param request - GetAccountForAppRequest
    * @returns GetAccountForAppResponse
@@ -526,7 +596,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用配置
+   * Obtain application configuration.
    * 
    * @param tmpReq - GetBusAppConfigRequest
    * @param headers - GetBusAppConfigHeaders
@@ -594,7 +664,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 获取应用配置
+   * Obtain application configuration.
    * 
    * @param request - GetBusAppConfigRequest
    * @returns GetBusAppConfigResponse
@@ -606,7 +676,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户手机号获取
+   * Obtain the phone number bound to the user\\"s Maojing device. You must first request this capability on the Maojing Skill Application Platform and obtain user authorization on the device side.
    * 
    * @param tmpReq - GetPhoneNumberRequest
    * @param headers - GetPhoneNumberHeaders
@@ -666,7 +736,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 用户手机号获取
+   * Obtain the phone number bound to the user\\"s Maojing device. You must first request this capability on the Maojing Skill Application Platform and obtain user authorization on the device side.
    * 
    * @param request - GetPhoneNumberRequest
    * @returns GetPhoneNumberResponse
@@ -678,7 +748,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询提醒
+   * User retrieves reminders created on Tmall Genie devices.
    * 
    * @param tmpReq - GetReminderRequest
    * @param headers - GetReminderHeaders
@@ -746,7 +816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询提醒
+   * User retrieves reminders created on Tmall Genie devices.
    * 
    * @param request - GetReminderRequest
    * @returns GetReminderResponse
@@ -758,7 +828,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询提醒列表
+   * The User batch retrieves reminders created on Tmall Genie devices.
    * 
    * @param tmpReq - ListRemindersRequest
    * @param headers - ListRemindersHeaders
@@ -826,7 +896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 查询提醒列表
+   * The User batch retrieves reminders created on Tmall Genie devices.
    * 
    * @param request - ListRemindersRequest
    * @returns ListRemindersResponse
@@ -838,7 +908,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 拉取收银台
+   * The user launches the checkout page on a Tmall Genie device.
    * 
    * @param tmpReq - PullCashierRequest
    * @param headers - PullCashierHeaders
@@ -906,7 +976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 拉取收银台
+   * The user launches the checkout page on a Tmall Genie device.
    * 
    * @param request - PullCashierRequest
    * @returns PullCashierResponse
@@ -918,7 +988,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 猫精系统消息推送
+   * Execute the message push feature of Tmall Genie. You must first request the capability and configure the message template on the Tmall Genie Skill Application Platform.
    * 
    * @param tmpReq - PushNotificationsRequest
    * @param headers - PushNotificationsHeaders
@@ -978,7 +1048,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 猫精系统消息推送
+   * Execute the message push feature of Tmall Genie. You must first request the capability and configure the message template on the Tmall Genie Skill Application Platform.
    * 
    * @param request - PushNotificationsRequest
    * @returns PushNotificationsResponse
@@ -990,7 +1060,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 消息推送服务（普通版）
+   * Execute the message push feature of Tmall Genie. You must first request the capability and configure the message template in the Tmall Genie Skill Application Platform.
    * 
    * @param tmpReq - SendNotificationsRequest
    * @param headers - SendNotificationsHeaders
@@ -1066,7 +1136,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 消息推送服务（普通版）
+   * Execute the message push feature of Tmall Genie. You must first request the capability and configure the message template in the Tmall Genie Skill Application Platform.
    * 
    * @param request - SendNotificationsRequest
    * @returns SendNotificationsResponse
@@ -1168,7 +1238,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新提醒
+   * The user updates a reminder created on a Tmall Genie device.
    * 
    * @param tmpReq - UpdateReminderRequest
    * @param headers - UpdateReminderHeaders
@@ -1236,7 +1306,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 更新提醒
+   * The user updates a reminder created on a Tmall Genie device.
    * 
    * @param request - UpdateReminderRequest
    * @returns UpdateReminderResponse
@@ -1248,7 +1318,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 视频类应用会员信息上报
+   * Used by developers to report membership information in scenarios involving membership collaboration with CatGenie.
    * 
    * @param tmpReq - VideoAppReportRequest
    * @param headers - VideoAppReportHeaders
@@ -1316,7 +1386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 视频类应用会员信息上报
+   * Used by developers to report membership information in scenarios involving membership collaboration with CatGenie.
    * 
    * @param request - VideoAppReportRequest
    * @returns VideoAppReportResponse
@@ -1328,7 +1398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 猫精应用唤起
+   * On a smart speaker with a screen, proactively launch the MeowGenie screen-display application. You must first request this capability on the MeowGenie skill application platform.
    * 
    * @param request - WakeUpAppRequest
    * @param headers - WakeUpAppHeaders
@@ -1382,7 +1452,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 猫精应用唤起
+   * On a smart speaker with a screen, proactively launch the MeowGenie screen-display application. You must first request this capability on the MeowGenie skill application platform.
    * 
    * @param request - WakeUpAppRequest
    * @returns WakeUpAppResponse

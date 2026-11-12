@@ -4,17 +4,30 @@ import * as $dara from '@darabonba/typescript';
 
 export class CallBackThirdRightSendPlanResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * fault status code
+   * 
    * @example
    * 400
    */
   retCode?: string;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * 系统异常
    */
   retMsg?: string;
+  /**
+   * @remarks
+   * Return Result true/false
+   */
   retValue?: boolean;
   /**
+   * @remarks
+   * Request ID
+   * 
    * @example
    * 908FA068-529C-0C20-8DB5-63B0EF7CFF1F
    */

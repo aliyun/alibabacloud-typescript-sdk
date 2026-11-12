@@ -5,16 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class GetReminderShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * List of device identity information.
+   * 
    * This parameter is required.
    */
   deviceInfoShrink?: string;
   /**
    * @remarks
+   * Input parameters for the service request.
+   * 
    * This parameter is required.
    */
   payloadShrink?: string;
   /**
    * @remarks
+   * List of user identity information.
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

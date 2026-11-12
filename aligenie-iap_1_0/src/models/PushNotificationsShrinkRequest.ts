@@ -5,9 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class PushNotificationsShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Input parameter object for message push.
+   * 
    * This parameter is required.
    */
   notificationUnicastRequestShrink?: string;
+  /**
+   * @remarks
+   * Identity information.
+   */
   tenantInfoShrink?: string;
   static names(): { [key: string]: string } {
     return {

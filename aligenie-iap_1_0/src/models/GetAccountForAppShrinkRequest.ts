@@ -3,10 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetAccountForAppShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Device ID information
+   */
   deviceInfoShrink?: string;
+  /**
+   * @remarks
+   * Business parameters
+   */
   payloadShrink?: string;
   /**
    * @remarks
+   * User identifier information
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

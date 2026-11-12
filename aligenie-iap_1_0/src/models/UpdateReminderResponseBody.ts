@@ -4,21 +4,33 @@ import * as $dara from '@darabonba/typescript';
 
 export class UpdateReminderResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * Error code
+   * 
    * @example
    * 400
    */
   errorCode?: number;
   /**
+   * @remarks
+   * Error message
+   * 
    * @example
    * 不能设置过去的时间。
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * ID of the updated reminder
+   * 
    * @example
    * 20****1
    */
   model?: number;
   /**
+   * @remarks
+   * Service success indicator
+   * 
    * @example
    * true
    */

@@ -4,12 +4,28 @@ import * as $dara from '@darabonba/typescript';
 
 export class VideoAppReportResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned error code. `0` indicates success.
+   * 
    * @example
    * 0
    */
   retCode?: number;
+  /**
+   * @remarks
+   * The returned error message. This field is not returned if the operation succeeded.
+   * 
+   * @example
+   * 请求异常
+   */
   retMsg?: string;
   /**
+   * @remarks
+   * The returned invocation result.
+   * 
+   * - true indicates success.
+   * - false indicates failure.
+   * 
    * @example
    * true
    */

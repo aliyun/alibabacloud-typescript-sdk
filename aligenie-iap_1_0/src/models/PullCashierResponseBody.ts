@@ -4,12 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class PullCashierResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The returned error code. `0` indicates success.
+   * 
    * @example
    * 0
    */
   retCode?: number;
+  /**
+   * @remarks
+   * The returned error message. No message is returned upon success.
+   * 
+   * @example
+   * 请求成功
+   */
   retMsg?: string;
   /**
+   * @remarks
+   * The result of pulling up the checkout page. true indicates success, and false indicates failure.
+   * 
    * @example
    * true
    */

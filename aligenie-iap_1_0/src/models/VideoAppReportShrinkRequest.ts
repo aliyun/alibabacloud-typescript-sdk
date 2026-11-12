@@ -3,10 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class VideoAppReportShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Device identity information
+   */
   deviceInfoShrink?: string;
+  /**
+   * @remarks
+   * 业务参数
+   */
   payloadShrink?: string;
   /**
    * @remarks
+   * 用户标识信息
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

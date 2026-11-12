@@ -5,17 +5,27 @@ import * as $dara from '@darabonba/typescript';
 export class SendNotificationsShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Device identity information
+   * 
    * This parameter is required.
    */
   deviceInfoShrink?: string;
   /**
    * @remarks
+   * Input parameter object for message push.
+   * 
    * This parameter is required.
    */
   notificationUnicastRequestShrink?: string;
+  /**
+   * @remarks
+   * Identity information.
+   */
   tenantInfoShrink?: string;
   /**
    * @remarks
+   * User Identifier information
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

@@ -5,11 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetPhoneNumberShrinkRequest extends $dara.Model {
   /**
    * @remarks
+   * Device identification information
+   * 
    * This parameter is required.
    */
   deviceInfoShrink?: string;
   /**
    * @remarks
+   * User identifier information
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

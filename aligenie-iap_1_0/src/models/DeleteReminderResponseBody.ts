@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class DeleteReminderResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * error code
+   * 
    * @example
    * 400
    */
   errorCode?: number;
   /**
+   * @remarks
+   * error message
+   * 
    * @example
    * 参数错误。
    */
   errorMsg?: string;
   /**
+   * @remarks
+   * service success indicator
+   * 
    * @example
    * true
    */

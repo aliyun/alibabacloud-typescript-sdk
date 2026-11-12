@@ -4,26 +4,41 @@ import * as $dara from '@darabonba/typescript';
 
 export class CheckThirdRightSendPlanRequest extends $dara.Model {
   /**
+   * @remarks
+   * Device group
+   * 
    * @example
    * cc
    */
   bizGroup?: string;
   /**
+   * @remarks
+   * Device type
+   * 
    * @example
    * ailabs
    */
   bizType?: string;
   /**
+   * @remarks
+   * Extension field
+   * 
    * @example
    * {}
    */
   extendInfo?: { [key: string]: any };
   /**
+   * @remarks
+   * Device SN
+   * 
    * @example
    * 01000019100307010000600
    */
   sn?: string;
   /**
+   * @remarks
+   * Supplier ID
+   * 
    * @example
    * 1
    */

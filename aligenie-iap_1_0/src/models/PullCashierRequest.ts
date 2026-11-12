@@ -4,26 +4,48 @@ import * as $dara from '@darabonba/typescript';
 
 export class PullCashierRequestDeviceInfo extends $dara.Model {
   /**
+   * @remarks
+   * The value corresponding to the encoding type.
+   * 
+   * - When the encoding type is SKILL_ID, the value is the Skill ID of the application.
+   * - When the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client app.
+   * 
    * @example
    * 12**45
    */
   encodeKey?: string;
   /**
+   * @remarks
+   * Encoding type. There are multiple ways to obtain the device ID of Tmall Genie, and each method corresponds to a different encoding type.  
+   * - PACKAGE_NAME: APK package name, used in the Android application customer flow.  
+   * - SKILL_ID: Skill ID, used in the cloud-based flow.
+   * 
    * @example
    * PACKAGE_NAME
    */
   encodeType?: string;
   /**
+   * @remarks
+   * Device ID, set to deviceOpenId or deviceUnionId.
+   * 
    * @example
    * DAFE****ce3ej=
    */
   id?: string;
   /**
+   * @remarks
+   * Type of device ID  
+   * - OPEN_ID: The default device ID.  
+   * - UNION_ID: Organization-level device ID. This value is available only after an organization has been requested on the Tmall Genie skill application Open Platform.
+   * 
    * @example
    * OPEN_ID
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required if IdType is UNION_ID.
+   * 
    * @example
    * 1**2
    */
@@ -59,6 +81,9 @@ export class PullCashierRequestDeviceInfo extends $dara.Model {
 
 export class PullCashierRequestPayload extends $dara.Model {
   /**
+   * @remarks
+   * Plaintext UUID
+   * 
    * @example
    * 731D5F********DC3B
    */
@@ -87,6 +112,11 @@ export class PullCashierRequestPayload extends $dara.Model {
 export class PullCashierRequestUserInfo extends $dara.Model {
   /**
    * @remarks
+   * The value corresponding to the encoding type.
+   * 
+   * - When the encoding type is SKILL_ID, the value is the application\\"s Skill ID.
+   * - When the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client app.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -95,6 +125,10 @@ export class PullCashierRequestUserInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the user identifier from Tmall Genie, and each method corresponds to a different encoding type.
+   * - PACKAGE_NAME: APK package name, used for the Android application customer ingest endpoint.
+   * - SKILL_ID: Skill ID, used for the cloud-based ingest endpoint.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -103,6 +137,8 @@ export class PullCashierRequestUserInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * User identifier, set to either userOpenId or userUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -111,6 +147,11 @@ export class PullCashierRequestUserInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * Type of the User ID.
+   * 
+   * - OPEN_ID: The default User ID identity.
+   * - UNION_ID: Organization-dimension User ID identity. This value is available only after an organization has been requested on the Tmall Genie Skill Application Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -118,6 +159,9 @@ export class PullCashierRequestUserInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required if IdType is UNION_ID.
+   * 
    * @example
    * 1**2
    */
@@ -152,10 +196,20 @@ export class PullCashierRequestUserInfo extends $dara.Model {
 }
 
 export class PullCashierRequest extends $dara.Model {
+  /**
+   * @remarks
+   * device ID information
+   */
   deviceInfo?: PullCashierRequestDeviceInfo;
+  /**
+   * @remarks
+   * Business parameters
+   */
   payload?: PullCashierRequestPayload;
   /**
    * @remarks
+   * User identifier information
+   * 
    * This parameter is required.
    */
   userInfo?: PullCashierRequestUserInfo;

@@ -3,10 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class GetBusAppConfigShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Device ID information
+   */
   deviceInfoShrink?: string;
+  /**
+   * @remarks
+   * Business parameters
+   */
   payloadShrink?: string;
   /**
    * @remarks
+   * User identity information
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

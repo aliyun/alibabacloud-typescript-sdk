@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/aligenieiap_1_0",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "",
   "main": "dist/client.js",
   "scripts": {
@@ -20,7 +20,8 @@
   },
   "dependencies": {
     "@darabonba/typescript": "^1.0.0",
-    "@alicloud/openapi-core": "^1.0.0"
+    "@alicloud/gateway-pop": "^0.0.8",
+    "@alicloud/openapi-core": "^1.0.8"
   },
   "files": [
     "dist",

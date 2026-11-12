@@ -3,10 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PullCashierShrinkRequest extends $dara.Model {
+  /**
+   * @remarks
+   * device ID information
+   */
   deviceInfoShrink?: string;
+  /**
+   * @remarks
+   * Business parameters
+   */
   payloadShrink?: string;
   /**
    * @remarks
+   * User identifier information
+   * 
    * This parameter is required.
    */
   userInfoShrink?: string;

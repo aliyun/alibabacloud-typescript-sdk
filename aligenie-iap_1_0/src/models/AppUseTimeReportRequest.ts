@@ -6,26 +6,48 @@ import * as $dara from '@darabonba/typescript';
  */
 export class AppUseTimeReportRequestDeviceInfo extends $dara.Model {
   /**
+   * @remarks
+   * The value corresponding to the encoding type.
+   * 
+   * - When the encoding type is SKILL_ID, the value is the application\\"s Skill ID.
+   * - When the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client application.
+   * 
    * @example
    * 12**45
    */
   encodeKey?: string;
   /**
+   * @remarks
+   * Encoding type. There are multiple ways to obtain the device identity for Tmall Genie, and each method corresponds to a different encoding type.  
+   * - PACKAGE_NAME: APK package name, used for Android application customer-side integration.  
+   * - SKILL_ID: Skill ID, used for cloud-side integration.
+   * 
    * @example
    * PACKAGE_NAME
    */
   encodeType?: string;
   /**
+   * @remarks
+   * Device ID, set to deviceOpenId or deviceUnionId.
+   * 
    * @example
    * DAFE****ce3ej=
    */
   id?: string;
   /**
+   * @remarks
+   * Type of device ID  
+   * - OPEN_ID: Default device ID.  
+   * - UNION_ID: Organization-dimension device ID, available only after an organization has been requested in the Tmall Genie Skill Application Open Platform.
+   * 
    * @example
    * OPEN_ID
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID, required if IdType is UNION_ID.
+   * 
    * @example
    * 1**2
    */
@@ -62,6 +84,11 @@ export class AppUseTimeReportRequestDeviceInfo extends $dara.Model {
 export class AppUseTimeReportRequestPayload extends $dara.Model {
   /**
    * @remarks
+   * Action item
+   * 
+   * - start indicates Start
+   * - end indicates End
+   * 
    * This parameter is required.
    * 
    * @example
@@ -70,6 +97,11 @@ export class AppUseTimeReportRequestPayload extends $dara.Model {
   action?: string;
   /**
    * @remarks
+   * Indicates whether the benefit is exclusive to members:
+   * 
+   * - 1 indicates Yes  
+   * - 0 indicates No
+   * 
    * This parameter is required.
    * 
    * @example
@@ -78,6 +110,8 @@ export class AppUseTimeReportRequestPayload extends $dara.Model {
   isPrivilege?: number;
   /**
    * @remarks
+   * Resource ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -86,6 +120,12 @@ export class AppUseTimeReportRequestPayload extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
+   * Resource type:
+   * 
+   * - 0 indicates game
+   * - 1 indicates audio
+   * - 2 indicates video
+   * 
    * This parameter is required.
    * 
    * @example
@@ -94,6 +134,8 @@ export class AppUseTimeReportRequestPayload extends $dara.Model {
   resourceType?: number;
   /**
    * @remarks
+   * Step code. The start and end actions must be uniquely matched.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -102,6 +144,11 @@ export class AppUseTimeReportRequestPayload extends $dara.Model {
   stepCode?: string;
   /**
    * @remarks
+   * Membership type:
+   * 
+   * - 0 indicates Cat Spirit Membership
+   * - 1 indicates third-party proprietary membership
+   * 
    * This parameter is required.
    * 
    * @example
@@ -109,6 +156,9 @@ export class AppUseTimeReportRequestPayload extends $dara.Model {
    */
   vipType?: number;
   /**
+   * @remarks
+   * Plaintext UUID
+   * 
    * @example
    * 731D5F********DC3B
    */
@@ -149,6 +199,11 @@ export class AppUseTimeReportRequestPayload extends $dara.Model {
 export class AppUseTimeReportRequestUserInfo extends $dara.Model {
   /**
    * @remarks
+   * Value corresponding to the encoding type  
+   * 
+   * - When the encoding type is SKILL_ID, the value is the application\\"s Skill ID.  
+   * - When the encoding type is PACKAGE_NAME, the value is the packageName of the corresponding client application.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -157,6 +212,10 @@ export class AppUseTimeReportRequestUserInfo extends $dara.Model {
   encodeKey?: string;
   /**
    * @remarks
+   * Encoding type. There are multiple ways to obtain the user identifier from Tmall Genie, and each method corresponds to a different encoding type.  
+   * - PACKAGE_NAME: APK package name, used for the Android application customer flow.  
+   * - SKILL_ID: Skill ID, used for the cloud-based flow.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -165,6 +224,8 @@ export class AppUseTimeReportRequestUserInfo extends $dara.Model {
   encodeType?: string;
   /**
    * @remarks
+   * User identifier, set to either userOpenId or userUnionId.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -173,6 +234,10 @@ export class AppUseTimeReportRequestUserInfo extends $dara.Model {
   id?: string;
   /**
    * @remarks
+   * Type of User ID  
+   * - OPEN_ID: Default User ID identifier.  
+   * - UNION_ID: Organization-dimension User ID identifier. This value is available only after an organization has been requested on the Tmall Genie Skill Application Open Platform.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -180,6 +245,9 @@ export class AppUseTimeReportRequestUserInfo extends $dara.Model {
    */
   idType?: string;
   /**
+   * @remarks
+   * Organization ID. Required if IdType is UNION_ID.
+   * 
    * @example
    * 1**2
    */
@@ -214,10 +282,20 @@ export class AppUseTimeReportRequestUserInfo extends $dara.Model {
 }
 
 export class AppUseTimeReportRequest extends $dara.Model {
+  /**
+   * @remarks
+   * Device identity information
+   */
   deviceInfo?: AppUseTimeReportRequestDeviceInfo;
+  /**
+   * @remarks
+   * Business parameters
+   */
   payload?: AppUseTimeReportRequestPayload;
   /**
    * @remarks
+   * User identifier information
+   * 
    * This parameter is required.
    */
   userInfo?: AppUseTimeReportRequestUserInfo;

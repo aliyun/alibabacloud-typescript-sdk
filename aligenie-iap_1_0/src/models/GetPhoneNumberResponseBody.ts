@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetPhoneNumberResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * User\\"s phone number
+   * 
    * @example
    * 137****
    */
