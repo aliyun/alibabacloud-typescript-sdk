@@ -10,7 +10,7 @@ export declare class ListTeamsRequest extends $dara.Model {
     maxResults?: number;
     /**
      * @remarks
-     * The filter condition for fuzzy matching the team name.
+     * The filter condition for fuzzy matching by team name.
      *
      * @example
      * team
@@ -18,7 +18,7 @@ export declare class ListTeamsRequest extends $dara.Model {
     nameLike?: string;
     /**
      * @remarks
-     * The cursor for querying the next page. Do not specify this parameter for the first call. For subsequent calls, specify the nextToken value returned in the previous response.
+     * The cursor for querying the next page. Do not specify this parameter for the first call. For subsequent calls, specify the nextToken value returned in the previous call.
      *
      * @example
      * dGVhbS1vZmZzZXQ6MTA

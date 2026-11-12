@@ -29,7 +29,7 @@ export class GetMcpCodePackageUploadUrlResponseBodyData extends $dara.Model {
   expiresAt?: string;
   /**
    * @remarks
-   * The HTTP request headers, where the key is the header name and the value is the header content.
+   * The HTTP request headers. The key is the header name, and the value is the header content.
    * 
    * @example
    * {"Content-Type":"application/zip"}
@@ -37,7 +37,7 @@ export class GetMcpCodePackageUploadUrlResponseBodyData extends $dara.Model {
   headers?: { [key: string]: string };
   /**
    * @remarks
-   * The maximum allowed size of the code package to upload, in bytes.
+   * The maximum allowed size of the code package to be uploaded, in bytes.
    * 
    * @example
    * 52428800
@@ -53,7 +53,7 @@ export class GetMcpCodePackageUploadUrlResponseBodyData extends $dara.Model {
   uploadMethod?: string;
   /**
    * @remarks
-   * The presigned upload URL for the code package.
+   * The presigned upload URL of the code package.
    * 
    * @example
    * https://example-bucket.oss-cn-hangzhou.aliyuncs.com/server.zip?Signature=example-signature

@@ -7,7 +7,7 @@ export declare class RetryImageCacheShrinkRequest extends $dara.Model {
     bodyShrink?: string;
     /**
      * @remarks
-     * The non-empty request token passed as a query parameter. The current implementation does not guarantee deduplication or recovery of the original acceptance result based on this token.
+     * The non-empty client token passed as a query parameter. The current implementation does not guarantee deduplication by this token or restoration of the original acceptance result.
      *
      * This parameter is required.
      *
@@ -17,7 +17,7 @@ export declare class RetryImageCacheShrinkRequest extends $dara.Model {
     clientToken?: string;
     /**
      * @remarks
-     * The product entry region. This parameter is passed as a query parameter and must be consistent with the selected region endpoint and the workspace region.
+     * The region ID. This parameter is passed as a query parameter and must match the selected region endpoint and the workspace region.
      *
      * This parameter is required.
      *

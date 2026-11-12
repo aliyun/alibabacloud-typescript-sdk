@@ -12,7 +12,7 @@ export declare class ListPredefinedModelsResponseBodyDataCapabilities extends $d
     document?: boolean;
     /**
      * @remarks
-     * Specifies whether the model is able to invoke multiple tool calling operations in a single response.
+     * Specifies whether the model is able to invoke multiple tools in a single response through tool calling.
      */
     multiToolCall?: boolean;
     /**
@@ -22,7 +22,7 @@ export declare class ListPredefinedModelsResponseBodyDataCapabilities extends $d
     reasoning?: boolean;
     /**
      * @remarks
-     * Specifies whether the model is able to invoke streaming tool calling.
+     * Specifies whether the model is able to invoke tools through streaming tool calling.
      */
     streamToolCall?: boolean;
     /**
@@ -54,7 +54,7 @@ export declare class ListPredefinedModelsResponseBodyDataCapabilities extends $d
 export declare class ListPredefinedModelsResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The model capability configurations.
+     * The model capability configuration.
      */
     capabilities?: ListPredefinedModelsResponseBodyDataCapabilities;
     /**
@@ -124,7 +124,7 @@ export declare class ListPredefinedModelsResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The message about the request processing result.
+     * The request processing result message.
      *
      * @example
      * success

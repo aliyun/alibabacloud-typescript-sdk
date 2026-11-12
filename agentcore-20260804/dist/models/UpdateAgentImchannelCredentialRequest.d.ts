@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class UpdateAgentIMChannelCredentialRequestBody extends $dara.Model {
     /**
      * @remarks
-     * The channel credentials. You must pass all fields and ensure that the field values are non-empty strings. DingTalk uses clientID and clientSecret. Lark uses appId and appSecret. WeCom uses botId and secret.
+     * The channel credentials. All credentials must be provided, and field values must be non-empty strings. DingTalk uses clientID and clientSecret, Lark uses appId and appSecret, and WeCom uses botId and secret.
      *
      * This parameter is required.
      */
@@ -28,7 +28,7 @@ export declare class UpdateAgentIMChannelCredentialRequest extends $dara.Model {
     body?: UpdateAgentIMChannelCredentialRequestBody;
     /**
      * @remarks
-     * The reserved idempotence token. The backend does not provide persistent idempotence guarantees in the current phase.
+     * The reserved idempotency token. The backend does not provide persistent idempotency guarantees in the current phase.
      *
      * @example
      * client-token-1

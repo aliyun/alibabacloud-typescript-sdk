@@ -13,12 +13,12 @@ export class DebugModelResponseBodyData extends $dara.Model {
   connectionId?: string;
   /**
    * @remarks
-   * Indicates whether the model debugging is successful.
+   * Indicates whether the model test is successful.
    */
   debugSuccess?: boolean;
   /**
    * @remarks
-   * The error code returned when debugging fails.
+   * The error code for a test failure.
    * 
    * @example
    * UPSTREAM_MODEL_ERROR
@@ -26,7 +26,7 @@ export class DebugModelResponseBodyData extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error description returned when debugging fails.
+   * The error description for a test failure.
    * 
    * @example
    * The model endpoint rejected the debug request.
@@ -34,7 +34,7 @@ export class DebugModelResponseBodyData extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The number of input tokens consumed by this model debugging request.
+   * The number of input tokens consumed by the model test request.
    * 
    * @example
    * 3
@@ -42,7 +42,7 @@ export class DebugModelResponseBodyData extends $dara.Model {
   inputTokens?: number;
   /**
    * @remarks
-   * The duration of this model debugging invocation, in milliseconds.
+   * The duration of the model test call, in milliseconds.
    * 
    * @example
    * 12
@@ -58,7 +58,7 @@ export class DebugModelResponseBodyData extends $dara.Model {
   modelId?: string;
   /**
    * @remarks
-   * The number of output tokens consumed by this model debugging response.
+   * The number of output tokens consumed by the model test response.
    * 
    * @example
    * 2
@@ -66,7 +66,7 @@ export class DebugModelResponseBodyData extends $dara.Model {
   outputTokens?: number;
   /**
    * @remarks
-   * The text response returned by the model when model debugging succeeds. This field is empty if debugging fails.
+   * The text response returned by the model when the model test succeeds. This field is empty if the test fails.
    * 
    * @example
    * ok
@@ -74,7 +74,7 @@ export class DebugModelResponseBodyData extends $dara.Model {
   response?: string;
   /**
    * @remarks
-   * The debugging result status.
+   * The test result status.
    * 
    * @example
    * NORMAL
@@ -130,7 +130,7 @@ export class DebugModelResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The model debugging result.
+   * The model test result.
    */
   data?: DebugModelResponseBodyData;
   /**
@@ -143,7 +143,7 @@ export class DebugModelResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message about the request processing result.
+   * The request processing result message.
    * 
    * @example
    * success

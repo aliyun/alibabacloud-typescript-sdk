@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetImageCacheResponseBodyDataError extends $dara.Model {
   /**
    * @remarks
-   * The error code for the creation failure.
+   * The error code for creation failure.
    * 
    * This parameter is required.
    * 
@@ -92,7 +92,7 @@ export class GetImageCacheResponseBodyData extends $dara.Model {
   canDelete?: boolean;
   /**
    * @remarks
-   * The resource creation time. It uses the RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
+   * The resource creation time. The format is RFC 3339. The Z at the end of the example indicates the UTC time zone.
    * 
    * This parameter is required.
    * 
@@ -102,7 +102,7 @@ export class GetImageCacheResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The reason why deletion is blocked.
+   * The reason for blocking deletion.
    * 
    * This parameter is required.
    * 
@@ -125,7 +125,7 @@ export class GetImageCacheResponseBodyData extends $dara.Model {
   digest?: string;
   /**
    * @remarks
-   * The reason for the cache failure.
+   * The cache failure reason.
    * 
    * This parameter is required.
    * 
@@ -256,7 +256,7 @@ export class GetImageCacheResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The query result for the image cache details.
+   * The image cache details.
    * 
    * This parameter is required.
    */
@@ -283,7 +283,7 @@ export class GetImageCacheResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used for troubleshooting.
+   * The request ID, used for troubleshooting.
    * 
    * This parameter is required.
    * 
@@ -293,7 +293,7 @@ export class GetImageCacheResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. This does not mean that the cache creation is completed.
+   * Indicates whether the request is successful. This does not mean that the cache creation is complete.
    * 
    * This parameter is required.
    * 

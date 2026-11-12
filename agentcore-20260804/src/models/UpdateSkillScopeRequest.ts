@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateSkillScopeRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The visibility scope.
+   * The visibility.
    * 
    * This parameter is required.
    * 

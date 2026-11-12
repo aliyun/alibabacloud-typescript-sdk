@@ -13,7 +13,7 @@ export class GetIdentityProviderSyncScopeResponseBodyDataSelectedDepartments ext
   exists?: boolean;
   /**
    * @remarks
-   * The unique identifier of the department returned by the identity provider. When querying the child departments of this node, use this value as parentDepartmentId.
+   * The unique identifier of the department returned by the identity provider. When querying the sub-departments of this node, use this value as parentDepartmentId.
    * 
    * @example
    * 10001
@@ -63,7 +63,7 @@ export class GetIdentityProviderSyncScopeResponseBodyDataSyncScope extends $dara
   departmentIds?: string[];
   /**
    * @remarks
-   * AllAuthorized: the full authorized scope, which is restricted by the application\\"s address book authorization. SelectedDepartments: the selected departments and all their child departments. When explicitly submitting syncScope, you must provide a valid mode, which is verified by the backend.
+   * AllAuthorized: the full authorized scope, which is restricted by the application\\"s address book authorization. SelectedDepartments: the selected departments and all their sub-departments. When explicitly submitting syncScope, you must provide a valid mode, which is verified by the backend.
    * 
    * @example
    * SelectedDepartments
@@ -106,7 +106,7 @@ export class GetIdentityProviderSyncScopeResponseBodyData extends $dara.Model {
   estimateStatus?: string;
   /**
    * @remarks
-   * The estimated number of users in the saved synchronization scope. This value is returned only when estimateStatus is Ready and the downstream system provides the value. It does not represent the number of users that have already been synchronized.
+   * The estimated number of users in the saved synchronization scope. This is returned only when estimateStatus is Ready and the downstream system provides the value. This does not represent the number of users that have already been synchronized.
    * 
    * @example
    * 12
@@ -114,7 +114,7 @@ export class GetIdentityProviderSyncScopeResponseBodyData extends $dara.Model {
   estimatedUserCount?: number;
   /**
    * @remarks
-   * The estimated number of departments, including child departments. This value is returned only when estimateStatus is Ready and the downstream system provides the value.
+   * The estimated number of departments, including sub-departments. This is returned only when estimateStatus is Ready and the downstream system provides the value.
    * 
    * @example
    * 2
@@ -125,7 +125,7 @@ export class GetIdentityProviderSyncScopeResponseBodyData extends $dara.Model {
    * The names and validity of the saved selected departments. This can be an empty array when the mode is AllAuthorized. An empty array does not indicate that the organization has no departments.
    * 
    * @example
-   * [{"id":"10001","name":"研发部","exists":true}]
+   * [{"id":"10001","name":"R&D Department","exists":true}]
    */
   selectedDepartments?: GetIdentityProviderSyncScopeResponseBodyDataSelectedDepartments[];
   /**
@@ -185,7 +185,7 @@ export class GetIdentityProviderSyncScopeResponseBody extends $dara.Model {
    * The business data returned in the response.
    * 
    * @example
-   * {"syncScope":{"mode":"SelectedDepartments","departmentIds":["10001"]},"selectedDepartments":[{"id":"10001","name":"研发部","exists":true}],"estimateStatus":"Ready","expandedDepartmentCount":2,"estimatedUserCount":12}
+   * {"syncScope":{"mode":"SelectedDepartments","departmentIds":["10001"]},"selectedDepartments":[{"id":"10001","name":"R&D Department","exists":true}],"estimateStatus":"Ready","expandedDepartmentCount":2,"estimatedUserCount":12}
    */
   data?: GetIdentityProviderSyncScopeResponseBodyData;
   /**
@@ -206,7 +206,7 @@ export class GetIdentityProviderSyncScopeResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier of the request. Provide this value when troubleshooting issues.
+   * The unique identifier of the request. Provide this value when you troubleshoot issues.
    * 
    * @example
    * 01234567-89AB-CDEF-0123-456789ABCDEF

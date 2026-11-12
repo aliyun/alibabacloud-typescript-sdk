@@ -17,7 +17,7 @@ export declare class CreateImageCacheResponseBodyDataError extends $dara.Model {
      * This parameter is required.
      *
      * @example
-     * Image cache creation failed. Try again
+     * The image cache creation failed. Please try again
      */
     message?: string;
     static names(): {
@@ -77,7 +77,7 @@ export declare class CreateImageCacheResponseBodyData extends $dara.Model {
     canDelete?: boolean;
     /**
      * @remarks
-     * The time when the resource was created. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
+     * The time when the resource was created. The time follows the RFC 3339 format. The trailing Z in the example indicates the UTC time zone.
      *
      * This parameter is required.
      *

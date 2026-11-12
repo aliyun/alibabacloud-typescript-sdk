@@ -13,7 +13,7 @@ export class GetModelConnectionResponseBodyData extends $dara.Model {
   apiKeyCount?: number;
   /**
    * @remarks
-   * The list of API keys used to access the upstream model service. The list contains at least one non-empty value.
+   * The list of API keys used to access the upstream model service. The list must contain at least one non-empty value.
    */
   apiKeys?: string[];
   /**
@@ -55,7 +55,7 @@ export class GetModelConnectionResponseBodyData extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The name of the model connection. The name is 1 to 128 non-whitespace characters in length.
+   * The name of the model connection. The name must be 1 to 128 non-whitespace characters in length.
    * 
    * @example
    * name
@@ -63,7 +63,7 @@ export class GetModelConnectionResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The protocol to invoke the model. Currently, only OpenAI/v1 is supported. If the Settings are not specified during model creation, this default value is used.
+   * The model invocation protocol. Currently, only OpenAI/v1 is supported. If this parameter is not specified when the model connection is created, this default value is used.
    * 
    * @example
    * OpenAI/v1
@@ -79,7 +79,7 @@ export class GetModelConnectionResponseBodyData extends $dara.Model {
   providerType?: string;
   /**
    * @remarks
-   * The ID of the region to which the resource belongs.
+   * The region ID of the resource.
    * 
    * @example
    * cn-hangzhou
@@ -95,7 +95,7 @@ export class GetModelConnectionResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The failure summary returned when the model connection fails to be published, or when deletion fails but the connection remains in the deleting state. This field is empty in other states.
+   * The failure summary returned when the model connection fails to be published, or when deletion fails but the status remains Deleting. Empty for other statuses.
    * 
    * @example
    * GatewayOperationException
@@ -172,7 +172,7 @@ export class GetModelConnectionResponseBodyData extends $dara.Model {
 export class GetModelConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value is SUCCESS when the operation is successful.
+   * The business status code. The value is SUCCESS if the request is successful.
    * 
    * @example
    * SUCCESS
@@ -185,7 +185,7 @@ export class GetModelConnectionResponseBody extends $dara.Model {
   data?: GetModelConnectionResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value is 200 if the request is successful.
+   * The HTTP status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -193,7 +193,7 @@ export class GetModelConnectionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message about the request processing result.
+   * The request processing result message.
    * 
    * @example
    * success

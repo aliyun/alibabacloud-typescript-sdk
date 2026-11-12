@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class UpdateAgentSpecRequestBody extends $dara.Model {
     /**
      * @remarks
-     * The business tags as a JSON-formatted string.
+     * The business tags in JSON format.
      *
      * @example
      * ["ai","agent"]
@@ -10,7 +10,7 @@ export declare class UpdateAgentSpecRequestBody extends $dara.Model {
     bizTags?: string;
     /**
      * @remarks
-     * The label mapping as a JSON-formatted string.
+     * The label mapping in JSON format.
      *
      * @example
      * {"latest":"0.0.1"}

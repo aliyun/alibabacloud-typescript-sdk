@@ -85,12 +85,12 @@ export class UpdateTeamRequestBodyUsers extends $dara.Model {
 export class UpdateTeamRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The new list of agent members. This list replaces the existing agent members based on full overwrite semantics. If not specified, the existing list remains unchanged.
+   * The new list of agent members, which replaces the existing agent members based on full overwrite semantics. If not specified, the list remains unchanged. The list must contain exactly one LEADER, and the LEADER must be a managed agent. External agents and high-code agents only support the WORKER role. High-code agents must also declare the AG-UI (agui) or OpenAI Chat Completions (openai-chat-completion) protocol in the latest version configuration.
    */
   agents?: UpdateTeamRequestBodyAgents[];
   /**
    * @remarks
-   * The new team description. If not specified, the existing description remains unchanged.
+   * The new description of the team. If not specified, the description remains unchanged.
    * 
    * @example
    * Team responsible for intelligent customer service
@@ -98,7 +98,7 @@ export class UpdateTeamRequestBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The new list of user members. This list replaces the existing user members based on full overwrite semantics. If this parameter is specified, it must contain exactly one member with the ADMIN role. If not specified, the existing list remains unchanged.
+   * The new list of user members, which replaces the existing user members based on full overwrite semantics. If this parameter is specified, it must contain exactly one member with the ADMIN role. If not specified, the list remains unchanged.
    */
   users?: UpdateTeamRequestBodyUsers[];
   static names(): { [key: string]: string } {
@@ -135,7 +135,7 @@ export class UpdateTeamRequestBody extends $dara.Model {
 export class UpdateTeamRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body for updating the team.
+   * The request body for updating a team.
    */
   body?: UpdateTeamRequestBody;
   /**

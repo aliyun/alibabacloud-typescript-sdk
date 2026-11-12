@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GetServiceEndpointResponseBody = exports.GetServiceEndpointResponseBodyData = exports.GetServiceEndpointResponseBodyDataTarget = exports.GetServiceEndpointResponseBodyDataElasticityPolicy = exports.GetServiceEndpointResponseBodyDataAuthentication = exports.GetServiceEndpointResponseBodyDataAccessUrls = void 0;
+exports.GetServiceEndpointResponseBody = exports.GetServiceEndpointResponseBodyData = exports.GetServiceEndpointResponseBodyDataTarget = exports.GetServiceEndpointResponseBodyDataElasticityPolicy = exports.GetServiceEndpointResponseBodyDataElasticityPolicyDynamicPolicy = exports.GetServiceEndpointResponseBodyDataElasticityPolicyDynamicPolicyPolicies = exports.GetServiceEndpointResponseBodyDataElasticityPolicyDynamicPolicyPoliciesTimePoints = exports.GetServiceEndpointResponseBodyDataEffectiveCapacity = exports.GetServiceEndpointResponseBodyDataAuthentication = exports.GetServiceEndpointResponseBodyDataAccessUrls = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
 class GetServiceEndpointResponseBodyDataAccessUrls extends $dara.Model {
@@ -70,9 +70,124 @@ class GetServiceEndpointResponseBodyDataAuthentication extends $dara.Model {
     }
 }
 exports.GetServiceEndpointResponseBodyDataAuthentication = GetServiceEndpointResponseBodyDataAuthentication;
+class GetServiceEndpointResponseBodyDataEffectiveCapacity extends $dara.Model {
+    static names() {
+        return {
+            maxSandboxCount: 'maxSandboxCount',
+            minSandboxCount: 'minSandboxCount',
+        };
+    }
+    static types() {
+        return {
+            maxSandboxCount: 'number',
+            minSandboxCount: 'number',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.GetServiceEndpointResponseBodyDataEffectiveCapacity = GetServiceEndpointResponseBodyDataEffectiveCapacity;
+class GetServiceEndpointResponseBodyDataElasticityPolicyDynamicPolicyPoliciesTimePoints extends $dara.Model {
+    static names() {
+        return {
+            maxInstances: 'maxInstances',
+            minInstances: 'minInstances',
+            monthDays: 'monthDays',
+            time: 'time',
+            weekdays: 'weekdays',
+        };
+    }
+    static types() {
+        return {
+            maxInstances: 'number',
+            minInstances: 'number',
+            monthDays: { 'type': 'array', 'itemType': 'number' },
+            time: 'string',
+            weekdays: { 'type': 'array', 'itemType': 'number' },
+        };
+    }
+    validate() {
+        if (Array.isArray(this.monthDays)) {
+            $dara.Model.validateArray(this.monthDays);
+        }
+        if (Array.isArray(this.weekdays)) {
+            $dara.Model.validateArray(this.weekdays);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.GetServiceEndpointResponseBodyDataElasticityPolicyDynamicPolicyPoliciesTimePoints = GetServiceEndpointResponseBodyDataElasticityPolicyDynamicPolicyPoliciesTimePoints;
+class GetServiceEndpointResponseBodyDataElasticityPolicyDynamicPolicyPolicies extends $dara.Model {
+    static names() {
+        return {
+            endTime: 'endTime',
+            id: 'id',
+            priority: 'priority',
+            repeat: 'repeat',
+            startTime: 'startTime',
+            timePoints: 'timePoints',
+            timeZone: 'timeZone',
+            validity: 'validity',
+        };
+    }
+    static types() {
+        return {
+            endTime: 'string',
+            id: 'string',
+            priority: 'number',
+            repeat: 'string',
+            startTime: 'string',
+            timePoints: { 'type': 'array', 'itemType': GetServiceEndpointResponseBodyDataElasticityPolicyDynamicPolicyPoliciesTimePoints },
+            timeZone: 'string',
+            validity: 'string',
+        };
+    }
+    validate() {
+        if (Array.isArray(this.timePoints)) {
+            $dara.Model.validateArray(this.timePoints);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.GetServiceEndpointResponseBodyDataElasticityPolicyDynamicPolicyPolicies = GetServiceEndpointResponseBodyDataElasticityPolicyDynamicPolicyPolicies;
+class GetServiceEndpointResponseBodyDataElasticityPolicyDynamicPolicy extends $dara.Model {
+    static names() {
+        return {
+            enabled: 'enabled',
+            policies: 'policies',
+        };
+    }
+    static types() {
+        return {
+            enabled: 'boolean',
+            policies: { 'type': 'array', 'itemType': GetServiceEndpointResponseBodyDataElasticityPolicyDynamicPolicyPolicies },
+        };
+    }
+    validate() {
+        if (Array.isArray(this.policies)) {
+            $dara.Model.validateArray(this.policies);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.GetServiceEndpointResponseBodyDataElasticityPolicyDynamicPolicy = GetServiceEndpointResponseBodyDataElasticityPolicyDynamicPolicy;
 class GetServiceEndpointResponseBodyDataElasticityPolicy extends $dara.Model {
     static names() {
         return {
+            dynamicPolicy: 'dynamicPolicy',
             enabled: 'enabled',
             maxSandboxCount: 'maxSandboxCount',
             minSandboxCount: 'minSandboxCount',
@@ -80,12 +195,16 @@ class GetServiceEndpointResponseBodyDataElasticityPolicy extends $dara.Model {
     }
     static types() {
         return {
+            dynamicPolicy: GetServiceEndpointResponseBodyDataElasticityPolicyDynamicPolicy,
             enabled: 'boolean',
             maxSandboxCount: 'number',
             minSandboxCount: 'number',
         };
     }
     validate() {
+        if (this.dynamicPolicy && typeof this.dynamicPolicy.validate === 'function') {
+            this.dynamicPolicy.validate();
+        }
         super.validate();
     }
     constructor(map) {
@@ -126,6 +245,8 @@ class GetServiceEndpointResponseBodyData extends $dara.Model {
             accessUrls: 'accessUrls',
             authentication: 'authentication',
             createdAt: 'createdAt',
+            currentInstances: 'currentInstances',
+            effectiveCapacity: 'effectiveCapacity',
             effectivePublicAccessEnabled: 'effectivePublicAccessEnabled',
             elasticityPolicy: 'elasticityPolicy',
             endpointType: 'endpointType',
@@ -145,6 +266,8 @@ class GetServiceEndpointResponseBodyData extends $dara.Model {
             accessUrls: { 'type': 'array', 'itemType': GetServiceEndpointResponseBodyDataAccessUrls },
             authentication: GetServiceEndpointResponseBodyDataAuthentication,
             createdAt: 'string',
+            currentInstances: 'number',
+            effectiveCapacity: GetServiceEndpointResponseBodyDataEffectiveCapacity,
             effectivePublicAccessEnabled: 'boolean',
             elasticityPolicy: GetServiceEndpointResponseBodyDataElasticityPolicy,
             endpointType: 'string',
@@ -165,6 +288,9 @@ class GetServiceEndpointResponseBodyData extends $dara.Model {
         }
         if (this.authentication && typeof this.authentication.validate === 'function') {
             this.authentication.validate();
+        }
+        if (this.effectiveCapacity && typeof this.effectiveCapacity.validate === 'function') {
+            this.effectiveCapacity.validate();
         }
         if (this.elasticityPolicy && typeof this.elasticityPolicy.validate === 'function') {
             this.elasticityPolicy.validate();

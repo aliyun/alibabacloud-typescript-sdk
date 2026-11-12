@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListSkillsResponseBodyDataPageItems extends $dara.Model {
     /**
      * @remarks
-     * The business tags in a JSON array string.
+     * The JSON array string of business tags.
      *
      * @example
      * Sample property value
@@ -26,7 +26,7 @@ export declare class ListSkillsResponseBodyDataPageItems extends $dara.Model {
     downloadCount?: number;
     /**
      * @remarks
-     * The draft mode. Valid values: HEAD (the skill has a persistent draft) and VERSIONED (each edit creates a versioned draft). This is determined by the server and used by the caller to render the status column.
+     * The draft mode. Valid values: HEAD (the skill has a persistent draft) and VERSIONED (a versioned draft is created for each edit). This value is determined by the server and used by the caller to render the status column.
      *
      * @example
      * HEAD
@@ -34,7 +34,7 @@ export declare class ListSkillsResponseBodyDataPageItems extends $dara.Model {
     draftMode?: string;
     /**
      * @remarks
-     * Indicates whether the page item is editable.
+     * Specifies whether the page item is editable.
      */
     editable?: boolean;
     /**
@@ -47,7 +47,7 @@ export declare class ListSkillsResponseBodyDataPageItems extends $dara.Model {
     editingVersion?: string;
     /**
      * @remarks
-     * Indicates whether the skill is enabled.
+     * Specifies whether the skill is enabled.
      */
     enable?: boolean;
     /**
@@ -107,7 +107,7 @@ export declare class ListSkillsResponseBodyDataPageItems extends $dara.Model {
     scope?: string;
     /**
      * @remarks
-     * The update time. It is a UNIX timestamp in milliseconds.
+     * The update time. The value is a UNIX timestamp in milliseconds.
      *
      * @example
      * 1787671022000
@@ -123,7 +123,7 @@ export declare class ListSkillsResponseBodyDataPageItems extends $dara.Model {
     workspaceId?: string;
     /**
      * @remarks
-     * Indicates whether the current user has write permissions.
+     * Specifies whether the current user has write permissions.
      */
     writeable?: boolean;
     static names(): {

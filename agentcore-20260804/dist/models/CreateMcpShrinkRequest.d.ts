@@ -7,7 +7,7 @@ export declare class CreateMcpShrinkRequest extends $dara.Model {
     bodyShrink?: string;
     /**
      * @remarks
-     * The reserved query request identifier. The console backend currently does not read this parameter and does not provide idempotency guarantees for deduplication or restoring the original processing result based on this identifier.
+     * The reserved query request identifier. The console backend does not read this parameter and does not provide idempotency guarantees for deduplication or restoring the original processing result based on this identifier.
      *
      * @example
      * 123e4567-e89b-12d3-a456-426614174000

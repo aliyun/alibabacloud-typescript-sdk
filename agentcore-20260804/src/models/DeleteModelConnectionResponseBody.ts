@@ -45,7 +45,7 @@ export class DeleteModelConnectionResponseBodyData extends $dara.Model {
 export class DeleteModelConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. A value of SUCCESS indicates success.
+   * The business status code. The value is SUCCESS if the request succeeds.
    * 
    * @example
    * SUCCESS
@@ -53,12 +53,12 @@ export class DeleteModelConnectionResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The identifier of the model connection for which the deletion task has been accepted.
+   * The ID of the model connection for which the deletion request is accepted.
    */
   data?: DeleteModelConnectionResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. A value of 200 indicates success.
+   * The HTTP status code. The value is 200 if the request succeeds.
    * 
    * @example
    * 200
@@ -66,7 +66,7 @@ export class DeleteModelConnectionResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message indicating the request processing result.
+   * The message about the request processing result.
    * 
    * @example
    * success

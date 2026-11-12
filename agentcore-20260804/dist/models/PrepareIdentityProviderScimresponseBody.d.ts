@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class PrepareIdentityProviderSCIMResponseBodyDataConfiguration extends $dara.Model {
     /**
      * @remarks
-     * The URL configured for the external provisioning system. The presence of a URL does not indicate that the external configuration is completed or AgentCore synchronization is enabled.
+     * The URL configured for the external provisioning system. The presence of a URL does not indicate that the external configuration is completed or that AgentCore synchronization is enabled.
      *
      * @example
      * https://example.com/scim/v2
@@ -10,7 +10,7 @@ export declare class PrepareIdentityProviderSCIMResponseBodyDataConfiguration ex
     baseUrl?: string;
     /**
      * @remarks
-     * The receiving status of AgentIdentity. A value of Enabled indicates that SCIM receiving is enabled. A value of Disabled indicates that SCIM receiving is disabled. This status is not equivalent to the expected value of syncEnabled in AgentCore.
+     * The receiving status of AgentIdentity. A value of Enabled indicates that SCIM receiving is enabled. A value of Disabled indicates that SCIM receiving is disabled. This value is not equivalent to the expected value of syncEnabled in AgentCore.
      *
      * @example
      * Enabled
@@ -38,7 +38,7 @@ export declare class PrepareIdentityProviderSCIMResponseBodyDataCredential exten
     createTime?: string;
     /**
      * @remarks
-     * The credential ID. This parameter is required when you delete a credential. Use the ID returned in the credential list, not the plaintext of the token.
+     * The credential ID. This parameter is required and cannot be empty when you delete a credential. Use the ID returned in the credential list, not the plaintext of the token.
      *
      * @example
      * credential-example
@@ -74,17 +74,17 @@ export declare class PrepareIdentityProviderSCIMResponseBodyDataCredential exten
 export declare class PrepareIdentityProviderSCIMResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The actual SAML configuration is read on demand only by calling GetIdentityProvider. SCIM query and preparation operations return the actual receiving status and URL.
+     * The AgentIdentity receiving configuration. The actual SAML configuration is read on demand only by calling GetIdentityProvider. SCIM query and preparation operations return the actual receiving status and URL.
      */
     configuration?: PrepareIdentityProviderSCIMResponseBodyDataConfiguration;
     /**
      * @remarks
-     * The current credential summary, including credentialId, status, createTime, and expireTime. The token is not included because it cannot be repeatedly obtained.
+     * The summary of the current credential, including credentialId, status, createTime, and expireTime. It does not include the token.
      */
     credential?: PrepareIdentityProviderSCIMResponseBodyDataCredential;
     /**
      * @remarks
-     * The plaintext of the newly issued SCIM token. The plaintext is returned only in the current response. If an existing valid credential is reused, an empty string ("") is returned. In this case, use the saved token.
+     * The plaintext of the newly issued SCIM token, which is returned only in the current response. If an existing valid credential is reused, an empty string ("") is returned. In this case, use the saved token.
      *
      * @example
      * example-scim-token
@@ -104,7 +104,7 @@ export declare class PrepareIdentityProviderSCIMResponseBodyData extends $dara.M
 export declare class PrepareIdentityProviderSCIMResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The business result code. If the call fails, handle the error based on the HTTP status code and the message.
+     * The business code. If the request fails, troubleshoot the issue based on the HTTP status code and the message.
      *
      * @example
      * SUCCESS
@@ -112,12 +112,12 @@ export declare class PrepareIdentityProviderSCIMResponseBody extends $dara.Model
     code?: string;
     /**
      * @remarks
-     * The operation result. For the result structure, see the response fields of this operation. The response of an asynchronous write operation indicates that the request is accepted, but does not guarantee that the background task is completed.
+     * The operation result. For the result structure, see the response parameters of this operation. For asynchronous write operations, the response indicates that the request is accepted and does not guarantee that the background task is completed.
      */
     data?: PrepareIdentityProviderSCIMResponseBodyData;
     /**
      * @remarks
-     * The processing status of the current request. This status does not indicate the final result of the background task.
+     * The HTTP status code of the request. This code indicates the processing status of the current request and does not represent the final result of the background task.
      *
      * @example
      * 200
@@ -125,7 +125,7 @@ export declare class PrepareIdentityProviderSCIMResponseBody extends $dara.Model
     httpStatusCode?: number;
     /**
      * @remarks
-     * The request acceptance or error message. For asynchronous tasks, you must check the task result by calling the corresponding query operation.
+     * The message returned when the request is accepted or a fault occurs. Verify the asynchronous node result by calling the corresponding query operation.
      *
      * @example
      * success
@@ -133,7 +133,7 @@ export declare class PrepareIdentityProviderSCIMResponseBody extends $dara.Model
     message?: string;
     /**
      * @remarks
-     * The request ID. You can use this ID to associate the current call with troubleshooting. Keep the ID if the call fails.
+     * The request ID. Retain this ID for troubleshooting if the request fails.
      *
      * @example
      * request-example
@@ -141,7 +141,7 @@ export declare class PrepareIdentityProviderSCIMResponseBody extends $dara.Model
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the current request is successful. A value of true indicates that the request is processed successfully. For asynchronous write operations, you must continue to query the task result.
+     * Indicates whether the request was successful. A value of true indicates that the request was successful. For asynchronous write operations, you must continue to query the task results.
      */
     success?: boolean;
     static names(): {

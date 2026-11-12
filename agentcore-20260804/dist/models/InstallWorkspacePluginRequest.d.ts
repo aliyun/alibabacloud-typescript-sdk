@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class InstallWorkspacePluginRequestBodyConfigNetworkInternet extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether to enable Internet access. If this parameter is set to true and no VPC is specified, PUB_NET is used. If this parameter is set to true and a VPC is specified, PRIVATE_PUBNET is used. If only a VPC is specified, PRIVATE_NET is used. You must configure at least one of Internet access and VPC access.
+     * If set to true and no VPC is specified, PUB_NET is used. If set to true and a VPC is specified, PRIVATE_PUBNET is used. If only a VPC is specified, PRIVATE_NET is used. You must configure at least one of Internet access and VPC.
      *
      * @example
      * true
@@ -22,7 +22,7 @@ export declare class InstallWorkspacePluginRequestBodyConfigNetworkInternet exte
 export declare class InstallWorkspacePluginRequestBodyConfigNetworkVpc extends $dara.Model {
     /**
      * @remarks
-     * Explicitly controls whether the collaboration component uses a VPC network. If this parameter is set to false, vpcId and vSwitchIds are ignored. If this parameter is set to true, you must provide a vpcId and at least two vSwitchIds.
+     * Explicitly specifies whether the collaboration component uses the VPC network. If set to false, vpcId and vSwitchIds are ignored. If set to true, you must provide both vpcId and at least two vSwitchIds.
      *
      * @example
      * true
@@ -37,7 +37,7 @@ export declare class InstallWorkspacePluginRequestBodyConfigNetworkVpc extends $
     vSwitchIds?: string[];
     /**
      * @remarks
-     * The ID of the user VPC.
+     * The user VPC ID.
      *
      * This parameter is required.
      *
@@ -64,7 +64,7 @@ export declare class InstallWorkspacePluginRequestBodyConfigNetwork extends $dar
     internet?: InstallWorkspacePluginRequestBodyConfigNetworkInternet;
     /**
      * @remarks
-     * The user VPC and the list of vSwitches used to deploy the collaboration component. The zones corresponding to the vSwitches are queried by the server. You do not need to pass the Zones parameter.
+     * The user VPC and the list of vSwitches used to deploy the collaboration component. The zones corresponding to the vSwitches are queried by the server, so you do not need to specify the zones.
      */
     vpc?: InstallWorkspacePluginRequestBodyConfigNetworkVpc;
     static names(): {

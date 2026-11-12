@@ -18,7 +18,7 @@ export declare class ListIdentityProviderSCIMCredentialsResponseBodyData extends
     credentialId?: string;
     /**
      * @remarks
-     * The expiration time returned by AgentIdentity. Only credentials with the Enabled status that have not expired are considered available.
+     * The expiration time returned by AgentIdentity. Only credentials with the `Enabled` status that have not expired are considered available.
      *
      * @example
      * 2027-10-26T00:00:00Z
@@ -26,7 +26,7 @@ export declare class ListIdentityProviderSCIMCredentialsResponseBodyData extends
     expireTime?: string;
     /**
      * @remarks
-     * The credential status. Only credentials with the Enabled status that have not expired are considered available. This field is not the operationStatus of a SCIM task.
+     * The credential status. Only credentials with the `Enabled` status that have not expired are considered available. This field is not the operationStatus of a SCIM task.
      *
      * @example
      * READY
@@ -46,7 +46,7 @@ export declare class ListIdentityProviderSCIMCredentialsResponseBodyData extends
 export declare class ListIdentityProviderSCIMCredentialsResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The business result code. In case of failure, evaluate this code together with the HTTP status code and message.
+     * The business result code. If the call fails, use this code in combination with the HTTP status code and message for troubleshooting.
      *
      * @example
      * SUCCESS
@@ -59,7 +59,7 @@ export declare class ListIdentityProviderSCIMCredentialsResponseBody extends $da
     data?: ListIdentityProviderSCIMCredentialsResponseBodyData[];
     /**
      * @remarks
-     * The processing status of the current request. This does not indicate the final result of the background task.
+     * The processing status of the current request, which does not equate to the final result of the background task.
      *
      * @example
      * 200
@@ -67,7 +67,7 @@ export declare class ListIdentityProviderSCIMCredentialsResponseBody extends $da
     httpStatusCode?: number;
     /**
      * @remarks
-     * The message indicating request acceptance or an error. For asynchronous task results, verify them by using the corresponding query operation.
+     * The request acceptance or error message. For asynchronous task results, check the corresponding query operation.
      *
      * @example
      * success
@@ -75,7 +75,7 @@ export declare class ListIdentityProviderSCIMCredentialsResponseBody extends $da
     message?: string;
     /**
      * @remarks
-     * The request ID. Used to correlate this call for troubleshooting. Retain this ID in case of failure.
+     * The request ID used to correlate the current call for troubleshooting. Retain this ID if the call fails.
      *
      * @example
      * request-example
@@ -83,7 +83,7 @@ export declare class ListIdentityProviderSCIMCredentialsResponseBody extends $da
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the request was successful. A value of true indicates that the request was processed successfully. For asynchronous writes, you must continue to query the task result.
+     * Indicates whether the current request is processed successfully. For asynchronous writes, you must continue to query the task result even if this value is true.
      */
     success?: boolean;
     static names(): {

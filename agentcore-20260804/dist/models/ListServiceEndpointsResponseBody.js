@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ListServiceEndpointsResponseBody = exports.ListServiceEndpointsResponseBodyItems = exports.ListServiceEndpointsResponseBodyItemsTarget = exports.ListServiceEndpointsResponseBodyItemsElasticityPolicy = exports.ListServiceEndpointsResponseBodyItemsAuthentication = exports.ListServiceEndpointsResponseBodyItemsAccessUrls = void 0;
+exports.ListServiceEndpointsResponseBody = exports.ListServiceEndpointsResponseBodyItems = exports.ListServiceEndpointsResponseBodyItemsTarget = exports.ListServiceEndpointsResponseBodyItemsElasticityPolicy = exports.ListServiceEndpointsResponseBodyItemsElasticityPolicyDynamicPolicy = exports.ListServiceEndpointsResponseBodyItemsElasticityPolicyDynamicPolicyPolicies = exports.ListServiceEndpointsResponseBodyItemsElasticityPolicyDynamicPolicyPoliciesTimePoints = exports.ListServiceEndpointsResponseBodyItemsAuthentication = exports.ListServiceEndpointsResponseBodyItemsAccessUrls = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
 class ListServiceEndpointsResponseBodyItemsAccessUrls extends $dara.Model {
@@ -70,9 +70,103 @@ class ListServiceEndpointsResponseBodyItemsAuthentication extends $dara.Model {
     }
 }
 exports.ListServiceEndpointsResponseBodyItemsAuthentication = ListServiceEndpointsResponseBodyItemsAuthentication;
+class ListServiceEndpointsResponseBodyItemsElasticityPolicyDynamicPolicyPoliciesTimePoints extends $dara.Model {
+    static names() {
+        return {
+            maxInstances: 'maxInstances',
+            minInstances: 'minInstances',
+            monthDays: 'monthDays',
+            time: 'time',
+            weekdays: 'weekdays',
+        };
+    }
+    static types() {
+        return {
+            maxInstances: 'number',
+            minInstances: 'number',
+            monthDays: { 'type': 'array', 'itemType': 'number' },
+            time: 'string',
+            weekdays: { 'type': 'array', 'itemType': 'number' },
+        };
+    }
+    validate() {
+        if (Array.isArray(this.monthDays)) {
+            $dara.Model.validateArray(this.monthDays);
+        }
+        if (Array.isArray(this.weekdays)) {
+            $dara.Model.validateArray(this.weekdays);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ListServiceEndpointsResponseBodyItemsElasticityPolicyDynamicPolicyPoliciesTimePoints = ListServiceEndpointsResponseBodyItemsElasticityPolicyDynamicPolicyPoliciesTimePoints;
+class ListServiceEndpointsResponseBodyItemsElasticityPolicyDynamicPolicyPolicies extends $dara.Model {
+    static names() {
+        return {
+            endTime: 'endTime',
+            id: 'id',
+            priority: 'priority',
+            repeat: 'repeat',
+            startTime: 'startTime',
+            timePoints: 'timePoints',
+            timeZone: 'timeZone',
+            validity: 'validity',
+        };
+    }
+    static types() {
+        return {
+            endTime: 'string',
+            id: 'string',
+            priority: 'number',
+            repeat: 'string',
+            startTime: 'string',
+            timePoints: { 'type': 'array', 'itemType': ListServiceEndpointsResponseBodyItemsElasticityPolicyDynamicPolicyPoliciesTimePoints },
+            timeZone: 'string',
+            validity: 'string',
+        };
+    }
+    validate() {
+        if (Array.isArray(this.timePoints)) {
+            $dara.Model.validateArray(this.timePoints);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ListServiceEndpointsResponseBodyItemsElasticityPolicyDynamicPolicyPolicies = ListServiceEndpointsResponseBodyItemsElasticityPolicyDynamicPolicyPolicies;
+class ListServiceEndpointsResponseBodyItemsElasticityPolicyDynamicPolicy extends $dara.Model {
+    static names() {
+        return {
+            enabled: 'enabled',
+            policies: 'policies',
+        };
+    }
+    static types() {
+        return {
+            enabled: 'boolean',
+            policies: { 'type': 'array', 'itemType': ListServiceEndpointsResponseBodyItemsElasticityPolicyDynamicPolicyPolicies },
+        };
+    }
+    validate() {
+        if (Array.isArray(this.policies)) {
+            $dara.Model.validateArray(this.policies);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.ListServiceEndpointsResponseBodyItemsElasticityPolicyDynamicPolicy = ListServiceEndpointsResponseBodyItemsElasticityPolicyDynamicPolicy;
 class ListServiceEndpointsResponseBodyItemsElasticityPolicy extends $dara.Model {
     static names() {
         return {
+            dynamicPolicy: 'dynamicPolicy',
             enabled: 'enabled',
             maxSandboxCount: 'maxSandboxCount',
             minSandboxCount: 'minSandboxCount',
@@ -80,12 +174,16 @@ class ListServiceEndpointsResponseBodyItemsElasticityPolicy extends $dara.Model 
     }
     static types() {
         return {
+            dynamicPolicy: ListServiceEndpointsResponseBodyItemsElasticityPolicyDynamicPolicy,
             enabled: 'boolean',
             maxSandboxCount: 'number',
             minSandboxCount: 'number',
         };
     }
     validate() {
+        if (this.dynamicPolicy && typeof this.dynamicPolicy.validate === 'function') {
+            this.dynamicPolicy.validate();
+        }
         super.validate();
     }
     constructor(map) {
@@ -126,6 +224,7 @@ class ListServiceEndpointsResponseBodyItems extends $dara.Model {
             accessUrls: 'accessUrls',
             authentication: 'authentication',
             createdAt: 'createdAt',
+            currentInstances: 'currentInstances',
             effectivePublicAccessEnabled: 'effectivePublicAccessEnabled',
             elasticityPolicy: 'elasticityPolicy',
             endpointType: 'endpointType',
@@ -145,6 +244,7 @@ class ListServiceEndpointsResponseBodyItems extends $dara.Model {
             accessUrls: { 'type': 'array', 'itemType': ListServiceEndpointsResponseBodyItemsAccessUrls },
             authentication: ListServiceEndpointsResponseBodyItemsAuthentication,
             createdAt: 'string',
+            currentInstances: 'number',
             effectivePublicAccessEnabled: 'boolean',
             elasticityPolicy: ListServiceEndpointsResponseBodyItemsElasticityPolicy,
             endpointType: 'string',

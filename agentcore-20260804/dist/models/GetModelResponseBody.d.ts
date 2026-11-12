@@ -12,7 +12,7 @@ export declare class GetModelResponseBodyDataCapabilities extends $dara.Model {
     document?: boolean;
     /**
      * @remarks
-     * Indicates whether the model is able to invoke multiple tool calling operations in a single response.
+     * Specifies whether the model is able to invoke multiple tool calling operations in a single response.
      */
     multiToolCall?: boolean;
     /**
@@ -75,7 +75,7 @@ export declare class GetModelResponseBodyData extends $dara.Model {
     contextSize?: number;
     /**
      * @remarks
-     * The creation time of the resource, in RFC 3339 UTC format.
+     * The time when the resource was created, in RFC 3339 UTC format.
      *
      * @example
      * 2026-08-09T00:00:00Z
@@ -83,7 +83,7 @@ export declare class GetModelResponseBodyData extends $dara.Model {
     createdAt?: string;
     /**
      * @remarks
-     * The model description. The maximum length is 255 characters.
+     * The model description, which can be up to 255 characters in length.
      *
      * @example
      * description
@@ -123,7 +123,7 @@ export declare class GetModelResponseBodyData extends $dara.Model {
     regionId?: string;
     /**
      * @remarks
-     * The last update time of the resource, in RFC 3339 UTC format.
+     * The time when the resource was last updated, in RFC 3339 UTC format.
      *
      * @example
      * 2026-08-09T00:00:00Z
@@ -172,7 +172,7 @@ export declare class GetModelResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The message indicating the request processing result.
+     * The message about the request processing result.
      *
      * @example
      * success

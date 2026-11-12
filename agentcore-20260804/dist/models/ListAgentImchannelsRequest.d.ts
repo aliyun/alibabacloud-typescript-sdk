@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListAgentIMChannelsRequest extends $dara.Model {
     /**
      * @remarks
-     * The IM channel type. Valid values: DINGTALK (DingTalk), FEISHU (Lark), and WECOM (WeCom).
+     * The IM channel type. Valid values: DINGTALK (DingTalk), FEISHU (Lark), WECOM (WeCom).
      *
      * @example
      * DINGTALK
@@ -18,7 +18,7 @@ export declare class ListAgentIMChannelsRequest extends $dara.Model {
     maxResults?: number;
     /**
      * @remarks
-     * The pagination token. This parameter is not required for the first call. For subsequent calls, use the nextToken value returned in the previous response.
+     * The pagination token. Leave this parameter empty for the first call. For subsequent calls, use the nextToken value returned in the previous response.
      *
      * @example
      * next-token-1
@@ -26,7 +26,7 @@ export declare class ListAgentIMChannelsRequest extends $dara.Model {
     nextToken?: string;
     /**
      * @remarks
-     * The IM channel status. Valid values: CREATING (Creating), READY (Ready), UPDATING (Updating), FAILED (Failed), DELETING (Deleting), and DELETE_FAILED (Delete failed).
+     * The IM channel status. Valid values: CREATING (Creating), READY (Ready), UPDATING (Updating), FAILED (Failed), DELETING (Deleting), DELETE_FAILED (Deletion failed).
      *
      * @example
      * READY

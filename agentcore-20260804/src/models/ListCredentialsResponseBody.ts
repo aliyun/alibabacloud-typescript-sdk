@@ -21,7 +21,7 @@ export class ListCredentialsResponseBodyItemsResourceRefs extends $dara.Model {
   resourceName?: string;
   /**
    * @remarks
-   * The resource type. Currently, the value is mcpServer, which indicates an MCP service.
+   * The resource type. The current value is mcpServer, which indicates an MCP service.
    * 
    * @example
    * mcpServer
@@ -63,7 +63,7 @@ export class ListCredentialsResponseBodyItems extends $dara.Model {
   boundAgentsCounts?: number;
   /**
    * @remarks
-   * The creation time in UTC format compliant with RFC 3339.
+   * The creation time in UTC, formatted according to RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -79,7 +79,7 @@ export class ListCredentialsResponseBodyItems extends $dara.Model {
   credentialId?: string;
   /**
    * @remarks
-   * The desensitized credential content. For the apiKey type, a key mask is returned. For the mcpHeader type, only the header name is returned, and the value is not returned.
+   * The masked credential content. For the apiKey type, a key mask is returned. For the mcpHeader type, only the header name is returned, and the header value is not returned.
    * 
    * @example
    * {"apiKey":"****************"}
@@ -103,7 +103,7 @@ export class ListCredentialsResponseBodyItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The credential name. The name must be unique within the workspace, can contain only letters, digits, periods, underscores, and hyphens, and must be 3 to 99 characters in length. Runtime reserved names cannot be used.
+   * The credential name. The name must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 99 characters in length. You cannot use runtime reserved names.
    * 
    * @example
    * model-api-key
@@ -124,7 +124,7 @@ export class ListCredentialsResponseBodyItems extends $dara.Model {
   resourceRefs?: ListCredentialsResponseBodyItemsResourceRefs[];
   /**
    * @remarks
-   * The application scope of the credential. ALL indicates all scopes. SPECIFIED indicates specified MCP services.
+   * The applicable scope of the credential. A value of ALL indicates all scopes. A value of SPECIFIED indicates specified MCP services.
    * 
    * @example
    * ALL
@@ -132,7 +132,7 @@ export class ListCredentialsResponseBodyItems extends $dara.Model {
   resourceScope?: string;
   /**
    * @remarks
-   * The time of the last modification in UTC format compliant with RFC 3339.
+   * The time of the last modification in UTC, formatted according to RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -211,12 +211,12 @@ export class ListCredentialsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The credential list.
+   * The list of credentials.
    */
   items?: ListCredentialsResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of records per page that takes effect in the current query.
+   * The actual maximum number of records returned per page in the current query.
    * 
    * @example
    * 10

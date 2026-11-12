@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyConnectorRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The JSON string of the connector configuration to be verified. The site value can be global or cn, and serviceAccountKeys must contain at least one item with a serviceAccountKey.
+   * The JSON string of the connector configuration to be validated. Set site to global or cn. The serviceAccountKeys field must contain at least one item with a serviceAccountKey.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class VerifyConnectorRequestBody extends $dara.Model {
 export class VerifyConnectorRequest extends $dara.Model {
   /**
    * @remarks
-   * The verification request body.
+   * The validation request body.
    * 
    * This parameter is required.
    */

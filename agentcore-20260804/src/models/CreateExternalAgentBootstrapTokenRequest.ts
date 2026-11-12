@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateExternalAgentBootstrapTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * The access network type. Valid values: INTRANET (internal network) and INTERNET (Internet).
+   * The network type for access. Valid values: INTRANET (internal network) and INTERNET (Internet).
    * 
    * This parameter is required.
    * 

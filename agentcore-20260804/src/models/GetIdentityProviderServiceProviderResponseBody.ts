@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIdentityProviderServiceProviderResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The SAML assertion consumer service (ACS) URL of the local SP. Configure it in the external IdP.
+   * The SAML assertion consumer URL of the local SP. Configure it in the external IdP.
    * 
    * @example
    * https://sp.example.com/saml/acs
@@ -21,7 +21,7 @@ export class GetIdentityProviderServiceProviderResponseBodyData extends $dara.Mo
   entityId?: string;
   /**
    * @remarks
-   * The SP metadata XML of the local SP. Import it to the external IdP. You cannot use it as the IdP XML to submit the SAML configuration.
+   * The SP metadata XML of the local SP. Use it for import in the external IdP. Do not submit it as the IdP XML for SAML configuration.
    * 
    * @example
    * <EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://sp.example.com/entity"><SPSSODescriptor protocolSupportEnumeration="urn:oasis:names:tc:SAML:2.0:protocol"><AssertionConsumerService Binding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Location="https://sp.example.com/saml/acs" index="0"/></SPSSODescriptor></EntityDescriptor>
@@ -65,7 +65,7 @@ export class GetIdentityProviderServiceProviderResponseBodyData extends $dara.Mo
 export class GetIdentityProviderServiceProviderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business result code. If a failure occurs, handle it based on the HTTP status code and the message.
+   * The business result code. If the request fails, handle the error based on the HTTP status code and the message.
    * 
    * @example
    * SUCCESS
@@ -73,7 +73,7 @@ export class GetIdentityProviderServiceProviderResponseBody extends $dara.Model 
   code?: string;
   /**
    * @remarks
-   * The data structure of the result. For details, see the response fields of this operation. The response of an asynchronous write operation indicates that the request is accepted, but does not ensure that the background task is completed.
+   * The SP information. For the result structure, see the response fields of this operation. The response of an asynchronous write operation indicates that the request is accepted, which does not guarantee that the background task is complete.
    */
   data?: GetIdentityProviderServiceProviderResponseBodyData;
   /**
@@ -86,7 +86,7 @@ export class GetIdentityProviderServiceProviderResponseBody extends $dara.Model 
   httpStatusCode?: number;
   /**
    * @remarks
-   * The request acceptance or error message. For asynchronous tasks, check the task results by calling the corresponding query operation.
+   * The message about request acceptance or errors. Check the asynchronous task result by calling the corresponding query operation.
    * 
    * @example
    * success
@@ -94,7 +94,7 @@ export class GetIdentityProviderServiceProviderResponseBody extends $dara.Model 
   message?: string;
   /**
    * @remarks
-   * The ID of the request. You can use the ID to associate the call with troubleshooting. Keep the ID when a failure occurs.
+   * The ID of the request. You can use the ID to associate the call with troubleshooting. Keep the ID if the request fails.
    * 
    * @example
    * request-example

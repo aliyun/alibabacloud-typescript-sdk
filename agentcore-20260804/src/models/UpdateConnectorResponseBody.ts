@@ -21,7 +21,7 @@ export class UpdateConnectorResponseBodyData extends $dara.Model {
   enabledAt?: string;
   /**
    * @remarks
-   * The updated JSON string for the connector configuration. This is sensitive information.
+   * The updated JSON string of the connector configuration. This is sensitive information.
    * 
    * @example
    * {"site":"global","organizationId":"org-xxxx"}
@@ -29,7 +29,7 @@ export class UpdateConnectorResponseBodyData extends $dara.Model {
   metadata?: string;
   /**
    * @remarks
-   * The name of the connector. Currently, the value is qodercli.
+   * The connector name. Currently, the value is qodercli.
    * 
    * @example
    * qodercli
@@ -37,7 +37,7 @@ export class UpdateConnectorResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The status of the connector.
+   * The connector status.
    * 
    * @example
    * ENABLED

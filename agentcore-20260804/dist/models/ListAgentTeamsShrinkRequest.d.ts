@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListAgentTeamsShrinkRequest extends $dara.Model {
     /**
      * @remarks
-     * The request parameters for querying the list of agent teams.
+     * The request parameters for querying agent teams.
      */
     bodyShrink?: string;
     static names(): {

@@ -10,7 +10,7 @@ export declare class ListExternalAgentsRequest extends $dara.Model {
     maxResults?: number;
     /**
      * @remarks
-     * The pagination token. You can leave this parameter empty for the first call. For subsequent calls, use the nextToken value returned in the previous response.
+     * The pagination token. You can omit this parameter in the first call. For subsequent calls, use the nextToken returned in the previous response.
      *
      * @example
      * next-token-1

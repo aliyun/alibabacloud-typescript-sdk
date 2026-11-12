@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetImageCacheRequest extends $dara.Model {
   /**
    * @remarks
-   * The product entry region. It is passed as a query parameter and must match the selected region endpoint and the workspace region.
+   * The product entry region, passed as a query parameter. It must match the selected region endpoint and the workspace region.
    * 
    * This parameter is required.
    * 

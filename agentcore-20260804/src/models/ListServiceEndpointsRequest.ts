@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceEndpointsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters the results by target agent ID.
+   * The ID of the target agent used to filter the results.
    * 
    * @example
    * agent-123456
@@ -13,7 +13,7 @@ export class ListServiceEndpointsRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * Filters the results by target agent version.
+   * The version number of the target agent used to filter the results.
    * 
    * @example
    * v1
@@ -21,7 +21,7 @@ export class ListServiceEndpointsRequest extends $dara.Model {
   agentVersion?: string;
   /**
    * @remarks
-   * Filters the results by collaboration component type. Valid values: MATRIX_CLIENT, MATRIX_FEDERATION, and ELEMENT_WEB.
+   * The collaboration component type used to filter the results. Valid values: MATRIX_CLIENT, MATRIX_FEDERATION, and ELEMENT_WEB.
    * 
    * @example
    * ELEMENT_WEB
@@ -29,7 +29,7 @@ export class ListServiceEndpointsRequest extends $dara.Model {
   collaborationComponent?: string;
   /**
    * @remarks
-   * The maximum number of records to return per page. Valid values: 1 to 100. Default value: 20.
+   * The maximum number of entries to return on a single page. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
    * 20
@@ -45,7 +45,7 @@ export class ListServiceEndpointsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Filters the results by the workspace resource binding ID of the target collaboration component.
+   * The workspace resource binding ID of the target collaboration component used to filter the results.
    * 
    * @example
    * wrb-123456
@@ -53,7 +53,7 @@ export class ListServiceEndpointsRequest extends $dara.Model {
   resourceBindingId?: string;
   /**
    * @remarks
-   * Filters the results by service endpoint status. Valid values: CREATING, READY, UPDATING, DEGRADED, DISABLED, and DELETING.
+   * The service endpoint status used to filter the results. Valid values: CREATING, READY, UPDATING, DEGRADED, DISABLED, and DELETING.
    * 
    * @example
    * READY
@@ -61,7 +61,7 @@ export class ListServiceEndpointsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Filters the results by target type. Valid values: AGENT_VERSION and TEAM_COLLABORATION.
+   * The target type used to filter the results. Valid values: AGENT_VERSION and TEAM_COLLABORATION.
    * 
    * @example
    * AGENT_VERSION

@@ -6,7 +6,7 @@ export declare class GetSkillVersionDetailResponseBodyData extends $dara.Model {
      * The description.
      *
      * @example
-     * Sample description to illustrate the purpose of the resource
+     * A sample description used to illustrate the purpose of the resource
      */
     description?: string;
     /**

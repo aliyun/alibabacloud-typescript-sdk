@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteModelRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token used for idempotence. This parameter is not currently supported.
+   * The client token used for idempotence. This parameter is currently not supported.
    * 
    * @example
    * client-token-1

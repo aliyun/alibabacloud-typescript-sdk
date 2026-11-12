@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSandboxRebuildOperationResponseBodyDataError extends $dara.Model {
   /**
    * @remarks
-   * The task error code, which is used to distinguish between rebuild failures, subsequent instance creation failures, cancellations, or supersessions.
+   * The task error code. This code is used to distinguish between rebuild failures, subsequent instance creation failures, cancellations, or supersessions.
    * 
    * @example
    * SandboxRebuild.Failed
@@ -13,7 +13,7 @@ export class GetSandboxRebuildOperationResponseBodyDataError extends $dara.Model
   code?: string;
   /**
    * @remarks
-   * The task error description that can be publicly displayed. Keep the task ID for troubleshooting.
+   * The publicly accessible task error message. Keep the task ID for troubleshooting.
    * 
    * @example
    * The Sandbox rebuild did not complete. Contact support with the operation ID.
@@ -45,7 +45,7 @@ export class GetSandboxRebuildOperationResponseBodyDataError extends $dara.Model
 export class GetSandboxRebuildOperationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The task error that can be publicly displayed. This is returned upon task failure, cancellation, or override by subsequent operations. This field can be empty in other states.
+   * The publicly accessible node error. This error is returned when the node fails, is canceled, or subsequent operations override it. It can be empty in other states.
    */
   error?: GetSandboxRebuildOperationResponseBodyDataError;
   /**
@@ -58,7 +58,7 @@ export class GetSandboxRebuildOperationResponseBodyData extends $dara.Model {
   operationId?: string;
   /**
    * @remarks
-   * The logical sandbox ID corresponding to the rebuild. The logical ID remains unchanged after the rebuild.
+   * The logical sandbox ID corresponding to this rebuild. The logical ID remains unchanged after the rebuild.
    * 
    * @example
    * 01a1b56a-b00f-7aa3-bacf-cc9d04b0****
@@ -66,7 +66,15 @@ export class GetSandboxRebuildOperationResponseBodyData extends $dara.Model {
   sandboxId?: string;
   /**
    * @remarks
-   * The overall rebuild status. Valid values: PENDING: waiting to be processed. RUNNING: execute. SUCCEEDED: overall success. FAILED: failed. CANCELED: canceled. SUPERSEDED: override by subsequent operations. UNKNOWN: unconfirmed. Only SUCCEEDED indicates completion. Do not treat UNKNOWN, missing status, or query exceptions as success, and do not automatically resubmit the rebuild.
+   * The overall rebuild status. Valid values:
+   * - PENDING: Waiting to be processed.
+   * - RUNNING: execute in progress.
+   * - SUCCEEDED: Overall success.
+   * - FAILED: Failed.
+   * - CANCELED: Canceled.
+   * - SUPERSEDED: override by subsequent operations.
+   * - UNKNOWN: Unconfirmed.
+   * Only SUCCEEDED indicates completion. Do not treat UNKNOWN, missing status, or query exceptions as success, and do not automatically resubmit the rebuild.
    * 
    * @example
    * RUNNING
@@ -105,7 +113,7 @@ export class GetSandboxRebuildOperationResponseBodyData extends $dara.Model {
 export class GetSandboxRebuildOperationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Task result code of the API request. A successful request returns SUCCESS. Query task result of the asynchronous task separately.
+   * The result code of the API request. A successful request returns SUCCESS. Query the asynchronous task result separately.
    * 
    * @example
    * SUCCESS
@@ -118,7 +126,7 @@ export class GetSandboxRebuildOperationResponseBody extends $dara.Model {
   data?: GetSandboxRebuildOperationResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code corresponding to the API request.
+   * The HTTP status code of the API request.
    * 
    * @example
    * 200
@@ -126,7 +134,7 @@ export class GetSandboxRebuildOperationResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The result description of the API request. This does not indicate that the asynchronous rebuild task is completed.
+   * The result message of the API request. This message does not indicate that the asynchronous rebuild task is completed.
    * 
    * @example
    * success
@@ -134,7 +142,7 @@ export class GetSandboxRebuildOperationResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to locate the API call.
+   * The request ID used to trace the API call.
    * 
    * @example
    * 01A1BE93-46A7-1A2A-BD62-159FCDAA****

@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class PrecheckSkillUploadViaOssResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The draft mode. Valid values: HEAD and VERSIONED. The value is determined by the server.
+     * The draft mode: HEAD or VERSIONED, determined by the server.
      *
      * @example
      * HEAD
@@ -31,7 +31,7 @@ export declare class PrecheckSkillUploadViaOssResponseBodyData extends $dara.Mod
     exists?: boolean;
     /**
      * @remarks
-     * The content revision identifier of the persistent draft, which is used to determine whether the local cache has expired. This parameter is returned only in HEAD draft mode.
+     * The content revision identifier of the persistent draft, used to determine whether the local cache is expired, returned only in HEAD draft mode.
      *
      * @example
      * rev-1a2b3c4d
@@ -39,7 +39,7 @@ export declare class PrecheckSkillUploadViaOssResponseBodyData extends $dara.Mod
     headRevision?: string;
     /**
      * @remarks
-     * The status of the persistent draft. Valid values: draft, reviewing, and reviewed. This parameter is returned only in HEAD draft mode.
+     * The status of the persistent draft: draft, reviewing, or reviewed, returned only in HEAD draft mode.
      *
      * @example
      * draft
@@ -71,7 +71,7 @@ export declare class PrecheckSkillUploadViaOssResponseBodyData extends $dara.Mod
     parsedVersion?: string;
     /**
      * @remarks
-     * The precheck result code. HEAD_EXISTS indicates that the upload will overwrite the existing persistent draft and requires secondary confirmation. HEAD_LOCKED indicates that the draft is under review and cannot be overwritten. You must withdraw the review first.
+     * The precheck result code.
      *
      * @example
      * VALIDATION_FAILED
@@ -79,7 +79,7 @@ export declare class PrecheckSkillUploadViaOssResponseBodyData extends $dara.Mod
     precheckCode?: string;
     /**
      * @remarks
-     * The reason description.
+     * The reason.
      *
      * @example
      * Resource processing completed

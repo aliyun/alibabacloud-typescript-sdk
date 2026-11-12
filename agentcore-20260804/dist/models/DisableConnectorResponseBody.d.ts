@@ -26,7 +26,7 @@ export declare class DisableConnectorResponseBodyData extends $dara.Model {
     metadata?: string;
     /**
      * @remarks
-     * The connector name. The current value is qodercli.
+     * The name of the connector. Currently, the value is qodercli.
      *
      * @example
      * qodercli
@@ -34,7 +34,7 @@ export declare class DisableConnectorResponseBodyData extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The connector status.
+     * The status of the connector.
      *
      * @example
      * ENABLED
@@ -91,7 +91,7 @@ export declare class DisableConnectorResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the request is successful.
+     * Indicates whether the request was successful.
      *
      * @example
      * true

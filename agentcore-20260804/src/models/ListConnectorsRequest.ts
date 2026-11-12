@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConnectorsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page size. This parameter is not supported in the current version.
+   * The maximum number of results to return. This parameter is not supported in the current version.
    * 
    * @example
    * 10

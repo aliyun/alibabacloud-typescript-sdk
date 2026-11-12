@@ -51,7 +51,7 @@ export class AddMemoriesRequestBodyMessages extends $dara.Model {
 export class AddMemoriesRequestBodyScope extends $dara.Model {
   /**
    * @remarks
-   * The agent ID. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*).
+   * The agent ID. The length is limited to 1 to 128 UTF-8 bytes. The ID cannot contain a forward slash (/) or an asterisk (*).
    * 
    * @example
    * agent-001
@@ -59,7 +59,7 @@ export class AddMemoriesRequestBodyScope extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The session ID. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*).
+   * The session ID. The length is limited to 1 to 128 UTF-8 bytes. The ID cannot contain a forward slash (/) or an asterisk (*).
    * 
    * @example
    * session-001
@@ -67,7 +67,7 @@ export class AddMemoriesRequestBodyScope extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The user ID. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*).
+   * The user ID. The length is limited to 1 to 128 UTF-8 bytes. The ID cannot contain a forward slash (/) or an asterisk (*).
    * 
    * @example
    * user-001
@@ -101,7 +101,7 @@ export class AddMemoriesRequestBodyScope extends $dara.Model {
 export class AddMemoriesRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The message list. You must provide either this parameter or Text, but not both. You can specify 1 to 20 messages, and the total size of the content cannot exceed 32,000 UTF-8 bytes.
+   * The message list. You must provide either this parameter or Text, but not both. The list can contain 1 to 20 messages, and the total size of Content cannot exceed 32,000 UTF-8 bytes.
    */
   messages?: AddMemoriesRequestBodyMessages[];
   /**
@@ -111,7 +111,7 @@ export class AddMemoriesRequestBody extends $dara.Model {
   metadata?: { [key: string]: string };
   /**
    * @remarks
-   * The time reference point for the batch of messages or text. The value must be in RFC 3339 format with a time zone and support fractional seconds.
+   * The time reference point for this batch of messages or text. The time must be in RFC 3339 format with a time zone and support fractional seconds.
    * 
    * @example
    * 2023-05-08T13:56:00+08:00
@@ -124,12 +124,12 @@ export class AddMemoriesRequestBody extends $dara.Model {
   scope?: AddMemoriesRequestBodyScope;
   /**
    * @remarks
-   * Specifies whether to synchronously wait for the memory extraction to complete. Default value: true.
+   * Specifies whether to synchronously wait for memory extraction to complete. Default value: true.
    */
   sync?: boolean;
   /**
    * @remarks
-   * The text to be written directly. You must provide either this parameter or Messages, but not both. The size cannot exceed 32,000 UTF-8 bytes.
+   * The text to write directly. You must provide either this parameter or Messages, but not both. The size cannot exceed 32,000 UTF-8 bytes.
    * 
    * @example
    * The user likes hiking
@@ -178,7 +178,7 @@ export class AddMemoriesRequestBody extends $dara.Model {
 export class AddMemoriesRequest extends $dara.Model {
   /**
    * @remarks
-   * The write memory request.
+   * The memory write request.
    * 
    * This parameter is required.
    */

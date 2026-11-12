@@ -13,7 +13,7 @@ export class UpdateCredentialResponseBodyDataResourceRefs extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The resource name. This field is empty if the resource has been deleted.
+   * The resource name. This field is empty if the resource is deleted.
    * 
    * @example
    * my-mcp-service
@@ -21,7 +21,7 @@ export class UpdateCredentialResponseBodyDataResourceRefs extends $dara.Model {
   resourceName?: string;
   /**
    * @remarks
-   * The resource type. Currently, the value is mcpServer, which indicates an MCP service.
+   * The resource type. The current value is mcpServer, which indicates an MCP service.
    * 
    * @example
    * mcpServer
@@ -95,7 +95,7 @@ export class UpdateCredentialResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The credential name. The name must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 99 characters in length. Runtime reserved names cannot be used.
+   * The credential name. It must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 99 characters in length. Runtime reserved names cannot be used.
    * 
    * @example
    * model-api-key

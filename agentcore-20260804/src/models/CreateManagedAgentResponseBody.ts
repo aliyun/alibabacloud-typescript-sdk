@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateManagedAgentResponseBodyDataAgenticFsMounts extends $dara.Model {
   /**
    * @remarks
-   * The absolute mount path in the container, such as /data/train. Mount targets cannot be duplicated or form parent-child directory overwrites, and must avoid platform-reserved directories.
+   * The absolute mount path in the container, such as /data/train. Mount targets cannot be duplicated or form parent-child overwrites, and must avoid platform-reserved directories.
    * 
    * @example
    * /mnt/agenticfs/data
@@ -13,7 +13,7 @@ export class CreateManagedAgentResponseBodyDataAgenticFsMounts extends $dara.Mod
   mountPath?: string;
   /**
    * @remarks
-   * The existing non-empty relative directory in the access point. This parameter is required and verified by the backend for each mount item. Root directories, absolute paths, and parent directory segments are not allowed.
+   * The existing non-empty relative directory under the access point. This parameter is required and verified by the backend for each mount item. Root directories, absolute paths, and parent directory segments are not allowed.
    * 
    * @example
    * workspace/data
@@ -29,7 +29,7 @@ export class CreateManagedAgentResponseBodyDataAgenticFsMounts extends $dara.Mod
   readOnly?: boolean;
   /**
    * @remarks
-   * The access point domain name. This parameter is required and verified by the backend for each mount item. The value cannot contain a protocol, port, or path. Set this parameter to the DomainName value in the NAS ListAccessPoints response.
+   * The access point domain name. This parameter is required and verified by the backend for each mount item. It does not include a protocol, port, or path. Use the DomainName value from the NAS ListAccessPoints response.
    * 
    * @example
    * ap-0123456789abcdef0.0123456789-vlm36.cn-hangzhou.nas.aliyuncs.com
@@ -65,7 +65,7 @@ export class CreateManagedAgentResponseBodyDataAgenticFsMounts extends $dara.Mod
 export class CreateManagedAgentResponseBodyDataConfiguredSkillsVersionSelector extends $dara.Model {
   /**
    * @remarks
-   * The version selector type.
+   * The version selector type. LABEL selects by tag, and VERSION selects by specific version.
    * 
    * @example
    * LABEL
@@ -73,7 +73,7 @@ export class CreateManagedAgentResponseBodyDataConfiguredSkillsVersionSelector e
   type?: string;
   /**
    * @remarks
-   * The selector value. For LABEL, this is the tag name, such as latest. For VERSION, this is the specific version number.
+   * The selector value. For LABEL, it is the tag name (such as latest). For VERSION, it is the specific version number.
    * 
    * @example
    * latest
@@ -115,7 +115,7 @@ export class CreateManagedAgentResponseBodyDataConfiguredSkills extends $dara.Mo
   name?: string;
   /**
    * @remarks
-   * The skill source type.
+   * The skill source type. REFERENCE references an AI Registry asset, and STATIC is statically provided with the deployment artifact.
    * 
    * @example
    * REFERENCE
@@ -131,7 +131,7 @@ export class CreateManagedAgentResponseBodyDataConfiguredSkills extends $dara.Mo
   version?: string;
   /**
    * @remarks
-   * The version selector for skill references. Supports LABEL for tags and VERSION for specific versions. If omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
+   * The skill reference version selector. Supports LABEL for tags and VERSION for specific versions. Defaults to LABEL/latest when omitted. Selectors are not provided for STATIC sources.
    */
   versionSelector?: CreateManagedAgentResponseBodyDataConfiguredSkillsVersionSelector;
   static names(): { [key: string]: string } {
@@ -243,12 +243,12 @@ export class CreateManagedAgentResponseBodyDataEnvironmentVariables extends $dar
 export class CreateManagedAgentResponseBodyDataEnvironment extends $dara.Model {
   /**
    * @remarks
-   * The list of credential references.
+   * The credential reference list.
    */
   credentialReferences?: CreateManagedAgentResponseBodyDataEnvironmentCredentialReferences[];
   /**
    * @remarks
-   * The list of environment variables.
+   * The environment variable list.
    */
   variables?: CreateManagedAgentResponseBodyDataEnvironmentVariables[];
   static names(): { [key: string]: string } {
@@ -283,7 +283,7 @@ export class CreateManagedAgentResponseBodyDataEnvironment extends $dara.Model {
 export class CreateManagedAgentResponseBodyDataHarnessConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The ID of the connector account key record bound to qodercli, not the original service account key.
+   * The ID of the connector account key record bound to qodercli. This is not the original service account key.
    * 
    * @example
    * key-xxxx
@@ -328,7 +328,7 @@ export class CreateManagedAgentResponseBodyDataHarness extends $dara.Model {
   configuration?: CreateManagedAgentResponseBodyDataHarnessConfiguration;
   /**
    * @remarks
-   * Returned only in query responses. The server calculates this based on the complete instance distribution, which is not affected by pagination and filtering of the instance list. The value is empty if the image tag is missing, pagination is incomplete, or it cannot be confirmed, and is not equivalent to 0.
+   * Returned only in query responses. The server calculates this value based on the complete instance distribution, which is not affected by pagination and filtering of the instance list. The value is empty if the image tag is missing, pagination is incomplete, or the value cannot be confirmed. An empty value is not equivalent to 0.
    * 
    * @example
    * 2
@@ -344,7 +344,7 @@ export class CreateManagedAgentResponseBodyDataHarness extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Returned only in query responses. Currently returns the tag of the pool target image. The value is empty if it cannot be parsed, and cannot be replaced by the agent configuration version.
+   * Returned only in query responses. Currently returns the tag of the pool target image. The value is empty if it cannot be parsed. Do not use the agent configuration version as a substitute.
    * 
    * @example
    * 202611031754
@@ -407,7 +407,7 @@ export class CreateManagedAgentResponseBodyDataModelQuota extends $dara.Model {
   overLimit?: boolean;
   /**
    * @remarks
-   * The quota statistical period. Valid values: day (daily) and month (monthly).
+   * The quota statistical epoch. Valid values: day (daily) and month (monthly).
    * 
    * @example
    * day
@@ -423,7 +423,7 @@ export class CreateManagedAgentResponseBodyDataModelQuota extends $dara.Model {
   ruleStatus?: string;
   /**
    * @remarks
-   * The maximum number of tokens allowed to be consumed in a single cycle.
+   * The maximum number of tokens that can be consumed in a single period.
    * 
    * @example
    * 1000000
@@ -489,12 +489,12 @@ export class CreateManagedAgentResponseBodyDataModel extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The model token quota configuration and quota usage status for the current cycle. The value is empty if no quota is configured.
+   * The model token quota configuration and quota usage status for the current period. The value is empty if no quota is configured.
    */
   quota?: CreateManagedAgentResponseBodyDataModelQuota;
   /**
    * @remarks
-   * If not configured, the value is default. An empty string, null, or omission is handled based on the default behavior of the model and Harness. Valid values: off, low, medium, high, xhigh, and max. If this parameter is not specified or is set to null during creation, default is used. When you update the model configuration, if the thinking level is not specified or is set to null, it reverts to default. Except for off, which is converted to none, the value is passed to the runtime framework as is without verifying model support or automatically downgrading the level. If the model does not support the specified level, adjust the level accordingly.
+   * The thinking level. If not configured, the value defaults to default. An empty string, a null value, or an omitted value is processed based on the default behavior of the model and Harness. Valid values: off, low, medium, high, xhigh, and max. If this parameter is not specified or is null during creation, default is used. When you update and submit the model configuration, if the thinking level is not specified or is null, it reverts to default. Except for off which is converted to none, the value is passed to the runtime framework as-is without validating model support or automatically downgrading the level. If the model does not support the specified level, adjust the level.
    * 
    * @example
    * high
@@ -636,7 +636,7 @@ export class CreateManagedAgentResponseBodyDataNetwork extends $dara.Model {
 export class CreateManagedAgentResponseBodyDataOssMounts extends $dara.Model {
   /**
    * @remarks
-   * The name of the OSS bucket. Required for each mount item.
+   * The OSS bucket name. Required and validated by the backend for each mount item.
    * 
    * @example
    * bucket-001
@@ -644,7 +644,7 @@ export class CreateManagedAgentResponseBodyDataOssMounts extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The absolute mount path in the container, such as /data/train. Mount targets cannot be duplicated or form parent-child directory overwrites, and must avoid platform-reserved directories.
+   * The absolute mount path in the container, such as /data/train. Mount targets cannot be duplicated or form parent-child overwrites, and must avoid platform-reserved directories.
    * 
    * @example
    * /mnt/oss/datasets
@@ -660,7 +660,7 @@ export class CreateManagedAgentResponseBodyDataOssMounts extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * Specifies whether to mount the directory as read-only. Default value: false.
+   * Specifies whether to mount as read-only. Defaults to false if not specified.
    */
   readOnly?: boolean;
   static names(): { [key: string]: string } {
@@ -743,7 +743,7 @@ export class CreateManagedAgentResponseBodyDataPromptVariables extends $dara.Mod
 export class CreateManagedAgentResponseBodyDataRuntimeCompute extends $dara.Model {
   /**
    * @remarks
-   * The compute specification.
+   * The compute specifications.
    * 
    * This parameter is required.
    * 
@@ -938,7 +938,7 @@ export class CreateManagedAgentResponseBodyDataRuntime extends $dara.Model {
 export class CreateManagedAgentResponseBodyDataSkillsVersionSelector extends $dara.Model {
   /**
    * @remarks
-   * The version selector type.
+   * The version selector type. LABEL selects by tag, and VERSION selects by specific version.
    * 
    * @example
    * LABEL
@@ -946,7 +946,7 @@ export class CreateManagedAgentResponseBodyDataSkillsVersionSelector extends $da
   type?: string;
   /**
    * @remarks
-   * The selector value. For LABEL, this is the tag name, such as latest. For VERSION, this is the specific version number.
+   * The selector value. For LABEL, it is the tag name (such as latest). For VERSION, it is the specific version number.
    * 
    * @example
    * latest
@@ -978,7 +978,7 @@ export class CreateManagedAgentResponseBodyDataSkillsVersionSelector extends $da
 export class CreateManagedAgentResponseBodyDataSkills extends $dara.Model {
   /**
    * @remarks
-   * The effective version at runtime. This field is read-only.
+   * The effective runtime version. This field is read-only.
    * 
    * @example
    * 1.0.0
@@ -986,7 +986,7 @@ export class CreateManagedAgentResponseBodyDataSkills extends $dara.Model {
   appliedVersion?: string;
   /**
    * @remarks
-   * Indicates whether the skill is from a fixed template. This field is read-only. Template items cannot be removed.
+   * Indicates whether the item is from a fixed template. This field is read-only, and template items cannot be removed.
    * 
    * @example
    * false
@@ -1010,7 +1010,7 @@ export class CreateManagedAgentResponseBodyDataSkills extends $dara.Model {
   resolvedVersion?: string;
   /**
    * @remarks
-   * The skill source type.
+   * The skill source type. REFERENCE references an AI Registry asset, and STATIC is statically provided with the deployment artifact.
    * 
    * @example
    * REFERENCE
@@ -1018,7 +1018,7 @@ export class CreateManagedAgentResponseBodyDataSkills extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The current target version for backward compatibility with legacy clients. New clients use resolvedVersion and determine the runtime effective version based on appliedVersion.
+   * The current target version for backward compatibility with legacy clients. New clients use resolvedVersion and determine the effective runtime version based on appliedVersion.
    * 
    * @example
    * 1.0.0
@@ -1026,7 +1026,7 @@ export class CreateManagedAgentResponseBodyDataSkills extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The version selector for skill references. Supports LABEL for tags and VERSION for specific versions. If omitted, LABEL/latest is used. Selectors are not provided for STATIC sources.
+   * The skill reference version selector. Supports LABEL for tags and VERSION for specific versions. Defaults to LABEL/latest when omitted. Selectors are not provided for STATIC sources.
    */
   versionSelector?: CreateManagedAgentResponseBodyDataSkillsVersionSelector;
   static names(): { [key: string]: string } {
@@ -1113,7 +1113,7 @@ export class CreateManagedAgentResponseBodyDataSubAgents extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Review the code
+   * Please review the code
    */
   instruction?: string;
   /**
@@ -1128,7 +1128,7 @@ export class CreateManagedAgentResponseBodyDataSubAgents extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of sub-agent skills.
+   * The sub-agent skill list.
    */
   skills?: CreateManagedAgentResponseBodyDataSubAgentsSkills[];
   static names(): { [key: string]: string } {
@@ -1162,7 +1162,7 @@ export class CreateManagedAgentResponseBodyDataSubAgents extends $dara.Model {
 export class CreateManagedAgentResponseBodyDataTemplateAiRegistry extends $dara.Model {
   /**
    * @remarks
-   * The name of the template in the AI Registry.
+   * The name of the template in the AI registry.
    * 
    * This parameter is required.
    * 
@@ -1172,7 +1172,7 @@ export class CreateManagedAgentResponseBodyDataTemplateAiRegistry extends $dara.
   name?: string;
   /**
    * @remarks
-   * The version of the template in the AI Registry.
+   * The version of the template in the AI registry.
    * 
    * @example
    * 1.0.0
@@ -1204,7 +1204,7 @@ export class CreateManagedAgentResponseBodyDataTemplateAiRegistry extends $dara.
 export class CreateManagedAgentResponseBodyDataTemplate extends $dara.Model {
   /**
    * @remarks
-   * The AI Registry template configuration.
+   * The AI registry template configuration.
    */
   aiRegistry?: CreateManagedAgentResponseBodyDataTemplateAiRegistry;
   static names(): { [key: string]: string } {
@@ -1302,7 +1302,7 @@ export class CreateManagedAgentResponseBodyData extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The NAS storage mount configuration. Currently, only the AgenticFS type is supported, which is used to mount file directories in access points to agent runtime instances. The total number of NAS mounts and ossMounts cannot exceed 10.
+   * The NAS storage mount configuration. Currently, only the AgenticFS type is supported, which is used to mount file directories in access points to agent runtime instances. A maximum of 10 NAS mounts and OSS mounts are supported in total.
    */
   agenticFsMounts?: CreateManagedAgentResponseBodyDataAgenticFsMounts[];
   /**
@@ -1354,7 +1354,7 @@ export class CreateManagedAgentResponseBodyData extends $dara.Model {
   harness?: CreateManagedAgentResponseBodyDataHarness;
   /**
    * @remarks
-   * The agent instruction, which is used to guide the behavior of the agent.
+   * The agent instructions used to guide the behavior of the agent.
    * 
    * @example
    * You are a code review assistant
@@ -1419,12 +1419,12 @@ export class CreateManagedAgentResponseBodyData extends $dara.Model {
   runtime?: CreateManagedAgentResponseBodyDataRuntime;
   /**
    * @remarks
-   * The number of managed Harness agent instances by sandbox phase. Current keys: PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (failed during runtime). Only phases that actually occur are returned, and missing keys are treated as 0. This field is a dynamic map and new keys may be added in the future. The frontend can use FAILED > 0 to determine whether abnormal instances exist.
+   * The number of managed Harness agent instances by sandbox phase. Current keys: PENDING (creating or initializing), RUNNING (running), HIBERNATING (hibernating), HIBERNATED (hibernated), RESUMING (resuming), TERMINATING (terminating), and FAILED (failed at runtime). Only phases that actually occur are returned. Missing keys are treated as 0. This field is a dynamic map and new keys may be added in the future. The frontend can use FAILED > 0 to determine whether abnormal instances exist.
    */
   sandboxPhaseCounts?: { [key: string]: number };
   /**
    * @remarks
-   * The list of skill configurations.
+   * The skill configuration list.
    */
   skills?: CreateManagedAgentResponseBodyDataSkills[];
   /**
@@ -1437,7 +1437,7 @@ export class CreateManagedAgentResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The list of sub-agent configurations.
+   * The sub-agent configuration list.
    */
   subAgents?: CreateManagedAgentResponseBodyDataSubAgents[];
   /**

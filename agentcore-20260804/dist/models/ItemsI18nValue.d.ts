@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ItemsI18nValue extends $dara.Model {
     /**
      * @remarks
-     * The description of the MCP service in the language.
+     * The MCP service description in the specified language.
      *
      * @example
      * MCP service for querying knowledge bases
@@ -10,18 +10,18 @@ export declare class ItemsI18nValue extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The name of the MCP marketplace template in the language.
+     * The MCP marketplace template name in the specified language.
      *
      * @example
-     * Knowledge base
+     * Knowledge Base
      */
     name?: string;
     /**
      * @remarks
-     * The usage instructions of the MCP marketplace template in the language.
+     * The usage instructions for the MCP marketplace template in the specified language.
      *
      * @example
-     * # Knowledge base\\nKnowledge base query service
+     * # Knowledge Base\\nKnowledge base query service
      */
     readme?: string;
     static names(): {

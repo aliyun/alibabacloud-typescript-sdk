@@ -35,7 +35,7 @@ export declare class CreateWorkspaceRequestBodyNetworkConfigurationVpc extends $
 export declare class CreateWorkspaceRequestBodyNetworkConfiguration extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether to allow public egress access from the platform. If not specified, this feature is enabled by default. This parameter only controls whether the latest versions of managed and custom agents use the public egress of the platform. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
+     * Specifies whether to allow public egress access through the platform. If not specified, this feature is enabled by default. This parameter only controls whether the latest versions of managed and custom agents use the platform public egress. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
      *
      * @example
      * true
@@ -51,7 +51,7 @@ export declare class CreateWorkspaceRequestBodyNetworkConfiguration extends $dar
     publicIngressEnabled?: boolean;
     /**
      * @remarks
-     * The VPC network configuration of the user.
+     * The network configuration of the user VPC.
      */
     vpc?: CreateWorkspaceRequestBodyNetworkConfigurationVpc;
     static names(): {
@@ -68,7 +68,7 @@ export declare class CreateWorkspaceRequestBodyNetworkConfiguration extends $dar
 export declare class CreateWorkspaceRequestBody extends $dara.Model {
     /**
      * @remarks
-     * If specified, the workspace is directly bound to this AgentSpace without creating a new one. The CloudMonitor (CMS) workspace to which it belongs is determined by the server-side reverse lookup result, and CmsWorkspace validation is not required in this case. When the workspace is deleted, it is only unbound, and the AgentSpace is not deleted. The value must match the current account and region, and the reverse lookup must return the associated CMS workspace. Otherwise, InvalidParameter is returned.
+     * If specified, the workspace is directly bound to this AgentSpace, and a new one is not created. The CMS workspace to which it belongs is determined by the server reverse lookup result, and CmsWorkspace validation is not required. When the workspace is deleted, it is only unbound, and the AgentSpace is not deleted. The value must match the current account and region, and the reverse lookup must return the associated CMS workspace. Otherwise, InvalidParameter is returned.
      *
      * @example
      * my-agent-space
@@ -76,7 +76,7 @@ export declare class CreateWorkspaceRequestBody extends $dara.Model {
     agentSpace?: string;
     /**
      * @remarks
-     * If specified, the workspace is bound to this CloudMonitor (CMS) workspace without creating a new one. When the workspace is deleted, it is only unbound, and the CMS workspace is not deleted. The value must match the current account and region. Otherwise, InvalidParameter is returned.
+     * If specified, the workspace is bound to this CMS workspace, and the platform does not create a new one. When the workspace is deleted, it is only unbound, and the CMS workspace is not deleted. The value must match the current account and region. Otherwise, InvalidParameter is returned.
      *
      * @example
      * my-cms-workspace
@@ -99,7 +99,7 @@ export declare class CreateWorkspaceRequestBody extends $dara.Model {
     networkConfiguration?: CreateWorkspaceRequestBodyNetworkConfiguration;
     /**
      * @remarks
-     * The storage type of the workspace.
+     * The storage type of the workspace. PLATFORM indicates platform-managed storage, and PRIVATE indicates user private OSS storage.
      *
      * @example
      * PRIVATE

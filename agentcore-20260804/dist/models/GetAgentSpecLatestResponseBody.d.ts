@@ -31,7 +31,7 @@ export declare class GetAgentSpecLatestResponseBodyDataSkillsVersionSelector ext
     type?: string;
     /**
      * @remarks
-     * The value of the selector. If the type is LABEL, the value is the label name, such as latest. If the type is VERSION, the value is the specific version number.
+     * The value of the selector. When the type is LABEL, this is the label name, such as latest. When the type is VERSION, this is the specific version number.
      *
      * @example
      * latest
@@ -67,7 +67,7 @@ export declare class GetAgentSpecLatestResponseBodyDataSkills extends $dara.Mode
     sourceType?: string;
     /**
      * @remarks
-     * The referenced version selector. If omitted, the default is LABEL/latest.
+     * The referenced version selector. If omitted, the default value is LABEL/latest.
      */
     versionSelector?: GetAgentSpecLatestResponseBodyDataSkillsVersionSelector;
     static names(): {
@@ -103,7 +103,7 @@ export declare class GetAgentSpecLatestResponseBodyData extends $dara.Model {
      * The description.
      *
      * @example
-     * A sample description used to explain the purpose of the resource
+     * A sample description to illustrate the purpose of the resource
      */
     description?: string;
     /**

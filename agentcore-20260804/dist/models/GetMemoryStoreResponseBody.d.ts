@@ -26,7 +26,7 @@ export declare class GetMemoryStoreResponseBodyData extends $dara.Model {
     extractInstructions?: string;
     /**
      * @remarks
-     * The MemoryStore identifier.
+     * The MemoryStore ID.
      *
      * @example
      * ms-2f5f9c5a8d0e4c3b
@@ -42,7 +42,7 @@ export declare class GetMemoryStoreResponseBodyData extends $dara.Model {
     memoryStoreName?: string;
     /**
      * @remarks
-     * The lifecycle state of the MemoryStore.
+     * The lifecycle status of the MemoryStore.
      *
      * @example
      * Ready

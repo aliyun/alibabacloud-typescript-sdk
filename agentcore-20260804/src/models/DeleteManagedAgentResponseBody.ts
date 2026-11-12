@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteManagedAgentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The inbound access mode.
+   * The inbound access method.
    * 
    * @example
    * API_KEY
@@ -21,7 +21,7 @@ export class DeleteManagedAgentResponseBodyData extends $dara.Model {
   accessScope?: string;
   /**
    * @remarks
-   * The ID of the managed Harness agent.
+   * The managed Harness agent ID.
    * 
    * @example
    * agent-1
@@ -155,7 +155,7 @@ export class DeleteManagedAgentResponseBodyData extends $dara.Model {
 export class DeleteManagedAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value is SUCCESS if the request is successful.
+   * The business status code. The value is SUCCESS for a successful request.
    * 
    * @example
    * SUCCESS
@@ -168,7 +168,7 @@ export class DeleteManagedAgentResponseBody extends $dara.Model {
   data?: DeleteManagedAgentResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value is 200 if the request is successful.
+   * The HTTP status code. The value is 200 for a successful request.
    * 
    * @example
    * 200

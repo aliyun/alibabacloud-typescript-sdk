@@ -13,7 +13,7 @@ export class GetWorkspacePluginResponseBodyDataConfigAgentLoop extends $dara.Mod
   agentSpaceName?: string;
   /**
    * @remarks
-   * The creation time of the AgentSpace, in UTC format compliant with RFC 3339.
+   * The creation time of the AgentSpace, in UTC time formatted according to RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -21,7 +21,7 @@ export class GetWorkspacePluginResponseBodyDataConfigAgentLoop extends $dara.Mod
   createdAt?: string;
   /**
    * @remarks
-   * The region ID where the AgentSpace resides.
+   * The ID of the region where the AgentSpace is located.
    * 
    * @example
    * cn-hangzhou
@@ -55,7 +55,7 @@ export class GetWorkspacePluginResponseBodyDataConfigAgentLoop extends $dara.Mod
 export class GetWorkspacePluginResponseBodyDataConfigNetworkInternet extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether public network access is enabled.
+   * Indicates whether public network access is enabled.
    * 
    * @example
    * true
@@ -85,7 +85,7 @@ export class GetWorkspacePluginResponseBodyDataConfigNetworkInternet extends $da
 export class GetWorkspacePluginResponseBodyDataConfigNetworkVpc extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether VPC network access is currently enabled for the collaboration component.
+   * Indicates whether the VPC network is currently enabled for the collaboration component.
    * 
    * @example
    * true
@@ -98,7 +98,7 @@ export class GetWorkspacePluginResponseBodyDataConfigNetworkVpc extends $dara.Mo
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The VPC ID used for component deployment.
+   * The ID of the VPC used for component deployment.
    * 
    * @example
    * vpc-bp1example
@@ -303,7 +303,7 @@ export class GetWorkspacePluginResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message. An error description is returned when the request fails.
+   * The response message. An error description is returned if the request fails.
    * 
    * @example
    * success

@@ -7,7 +7,7 @@ export declare class CreateModelShrinkRequest extends $dara.Model {
     bodyShrink?: string;
     /**
      * @remarks
-     * The client token used for idempotence. This parameter is currently not supported.
+     * The client token used for idempotence. Not supported.
      *
      * @example
      * client-token-1

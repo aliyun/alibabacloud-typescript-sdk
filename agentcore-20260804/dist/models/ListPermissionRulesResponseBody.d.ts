@@ -98,7 +98,7 @@ export declare class ListPermissionRulesResponseBodyItems extends $dara.Model {
     targetScope?: string;
     /**
      * @remarks
-     * The list of targets to which the rule applies.
+     * The list of rule targets.
      */
     targets?: string[];
     /**
@@ -144,7 +144,7 @@ export declare class ListPermissionRulesResponseBody extends $dara.Model {
     items?: ListPermissionRulesResponseBodyItems[];
     /**
      * @remarks
-     * The maximum number of entries returned in the current request.
+     * The maximum number of results returned in this response.
      *
      * @example
      * 20
@@ -152,7 +152,7 @@ export declare class ListPermissionRulesResponseBody extends $dara.Model {
     maxResults?: number;
     /**
      * @remarks
-     * The message about the request processing result.
+     * The request processing result message.
      *
      * @example
      * success
@@ -181,7 +181,7 @@ export declare class ListPermissionRulesResponseBody extends $dara.Model {
     success?: boolean;
     /**
      * @remarks
-     * The total number of rules that meet the conditions.
+     * The total number of rules that match the criteria.
      *
      * @example
      * 1

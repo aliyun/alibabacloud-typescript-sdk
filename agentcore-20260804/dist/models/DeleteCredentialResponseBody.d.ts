@@ -10,7 +10,7 @@ export declare class DeleteCredentialResponseBodyData extends $dara.Model {
     credentialId?: string;
     /**
      * @remarks
-     * The credential name. The name must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 99 characters in length. You cannot use runtime reserved names.
+     * The credential name. It must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 99 characters in length. You cannot use runtime reserved names.
      *
      * @example
      * model-api-key
@@ -46,7 +46,7 @@ export declare class DeleteCredentialResponseBody extends $dara.Model {
     code?: string;
     /**
      * @remarks
-     * The information about the deleted credential.
+     * The deleted credential information.
      */
     data?: DeleteCredentialResponseBodyData;
     /**
@@ -59,7 +59,7 @@ export declare class DeleteCredentialResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The response message. An error description is returned if the request fails.
+     * The response message. Returns an error description when the request fails.
      *
      * @example
      * success

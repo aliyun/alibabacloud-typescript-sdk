@@ -35,7 +35,7 @@ export class ListMemoriesResponseBodyItemsContent extends $dara.Model {
 export class ListMemoriesResponseBodyItemsScope extends $dara.Model {
   /**
    * @remarks
-   * The agent ID. The value must be 1 to 128 UTF-8 bytes in length and cannot contain slashes (/) or asterisks (*). This field is not returned if the memory is not associated with an agent ID.
+   * The agent ID. The length is limited to 1 to 128 UTF-8 bytes, and the value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with an agent ID.
    * 
    * @example
    * agent-001
@@ -43,7 +43,7 @@ export class ListMemoriesResponseBodyItemsScope extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The session ID. The value must be 1 to 128 UTF-8 bytes in length and cannot contain slashes (/) or asterisks (*). This field is not returned if the memory is not associated with a session ID.
+   * The session ID. The length is limited to 1 to 128 UTF-8 bytes, and the value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with a session ID.
    * 
    * @example
    * session-001
@@ -51,7 +51,7 @@ export class ListMemoriesResponseBodyItemsScope extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The user ID. The value must be 1 to 128 UTF-8 bytes in length and cannot contain slashes (/) or asterisks (*). This field is not returned if the memory is not associated with a user ID.
+   * The user ID. The length is limited to 1 to 128 UTF-8 bytes, and the value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with a user ID.
    * 
    * @example
    * user-001
@@ -181,7 +181,7 @@ export class ListMemoriesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The list of memory records.
+   * The memory list.
    */
   items?: ListMemoriesResponseBodyItems[];
   /**

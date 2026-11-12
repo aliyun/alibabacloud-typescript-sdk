@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentIMChannelResponseBodyDataChannelConfig extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to display the thinking process in IM messages. Default value: false.
+   * Indicates whether to display the thinking process in IM messages. Default value: false.
    */
   showThinking?: boolean;
   /**
    * @remarks
-   * Specifies whether to display the tool calling process in IM messages. Default value: false.
+   * Indicates whether to display the tool calling process in IM messages. Default value: false.
    */
   showToolCalls?: boolean;
   static names(): { [key: string]: string } {
@@ -92,7 +92,7 @@ export class GetAgentIMChannelResponseBodyData extends $dara.Model {
   channelConfig?: GetAgentIMChannelResponseBodyDataChannelConfig;
   /**
    * @remarks
-   * The IM channel type. Valid values: DINGTALK (DingTalk), FEISHU (Lark), and WECOM (WeCom).
+   * The IM channel type. Valid values: DINGTALK (DingTalk), FEISHU (Lark), WECOM (WeCom).
    * 
    * @example
    * DINGTALK
@@ -134,7 +134,7 @@ export class GetAgentIMChannelResponseBodyData extends $dara.Model {
   imChannelId?: string;
   /**
    * @remarks
-   * The ID of the bound service endpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public address.
+   * The ID of the bound service endpoint. The endpoint must belong to the specified agent and its current version, be ready, and have a public network address.
    * 
    * @example
    * se-1
@@ -142,7 +142,7 @@ export class GetAgentIMChannelResponseBodyData extends $dara.Model {
   serviceEndpointId?: string;
   /**
    * @remarks
-   * The IM channel status. Valid values: CREATING (creating), READY (ready), UPDATING (updating), FAILED (failed), DELETING (deleting), and DELETE_FAILED (deletion failed).
+   * The IM channel status. Valid values: CREATING (creating), READY (ready), UPDATING (updating), FAILED (failed), DELETING (deleting), DELETE_FAILED (delete failed).
    * 
    * @example
    * READY

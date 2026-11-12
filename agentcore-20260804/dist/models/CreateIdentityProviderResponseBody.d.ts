@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateIdentityProviderResponseBodyDataConfiguration extends $dara.Model {
     /**
      * @remarks
-     * HTTP-Redirect or HTTP-POST. This parameter is required when you manually enter the configuration. The query returns the short name.
+     * Valid values: HTTP-Redirect or HTTP-POST. Required for manual entry. Queries return the short name.
      *
      * @example
      * HTTP-Redirect
@@ -10,7 +10,7 @@ export declare class CreateIdentityProviderResponseBodyDataConfiguration extends
     bindingType?: string;
     /**
      * @remarks
-     * This parameter is required when you manually enter the configuration. It cannot be empty and cannot exceed 2,048 characters. Existing configurations cannot be replaced. This is different from the Entity ID of the service provider (SP) returned in the query.
+     * Required for manual entry. It must be non-empty and contain a maximum of 2,048 characters. It cannot be changed after configuration. It is different from the Entity ID of the service provider (SP).
      *
      * @example
      * https://idp.example.com/entity
@@ -18,7 +18,7 @@ export declare class CreateIdentityProviderResponseBodyDataConfiguration extends
     entityId?: string;
     /**
      * @remarks
-     * This parameter is required when you manually enter the configuration. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
+     * Required for manual entry. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
      *
      * @example
      * https://idp.example.com/sso
@@ -26,7 +26,7 @@ export declare class CreateIdentityProviderResponseBodyDataConfiguration extends
     loginUrl?: string;
     /**
      * @remarks
-     * The actual switch value is Enabled or Disabled, which differs from the expected loginEnabled value saved in AC.
+     * The actual switch value. Valid values: Enabled or Disabled. It is not equivalent to the expected loginEnabled value saved in the access control (AC).
      *
      * @example
      * Enabled
@@ -46,7 +46,7 @@ export declare class CreateIdentityProviderResponseBodyDataConfiguration extends
 export declare class CreateIdentityProviderResponseBodyDataSaml extends $dara.Model {
     /**
      * @remarks
-     * HTTP-Redirect or HTTP-POST. This parameter is required when you manually enter the configuration. The query returns the short name.
+     * Valid values: HTTP-Redirect or HTTP-POST. Required for manual entry. Queries return the short name.
      *
      * @example
      * HTTP-Redirect
@@ -54,7 +54,7 @@ export declare class CreateIdentityProviderResponseBodyDataSaml extends $dara.Mo
     bindingType?: string;
     /**
      * @remarks
-     * This parameter is required when you manually enter the configuration. It cannot be empty and cannot exceed 2,048 characters. Existing configurations cannot be replaced. This is different from the Entity ID of the service provider (SP) returned in the query.
+     * Required for manual entry. It must be non-empty and contain a maximum of 2,048 characters. It cannot be changed after configuration. It is different from the Entity ID of the service provider (SP).
      *
      * @example
      * https://idp.example.com/entity
@@ -62,7 +62,7 @@ export declare class CreateIdentityProviderResponseBodyDataSaml extends $dara.Mo
     entityId?: string;
     /**
      * @remarks
-     * This parameter is required when you manually enter the configuration. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
+     * Required for manual entry. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
      *
      * @example
      * https://idp.example.com/sso
@@ -70,7 +70,7 @@ export declare class CreateIdentityProviderResponseBodyDataSaml extends $dara.Mo
     loginUrl?: string;
     /**
      * @remarks
-     * This parameter is required when you manually enter the configuration. It must be a non-empty array that uses PEM X.509 certificate text. The current validity period is verified, and a maximum of two certificates are allowed after deduplication.
+     * Required for manual entry. It must be a non-empty array that uses PEM X.509 certificate text. The current validity period is verified. A maximum of two certificates are allowed after deduplication.
      *
      * @example
      * ["-----BEGIN CERTIFICATE-----\\\\nMIICwDCCAaigAwIBAgIULlsHLfcADyBax5ZtFlj+YGzZVo0wDQYJKoZIhvcNAQEL\\\\nBQAwGjEYMBYGA1UEAwwPaWRwLmV4YW1wbGUuY29tMB4XDTI2MDEwMTAwMDAwMFoX\\\\nDTM2MDEwMTAwMDAwMFowGjEYMBYGA1UEAwwPaWRwLmV4YW1wbGUuY29tMIIBIjAN\\\\nBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAto0DN0W1CrPRzK9QZ9A1aApb4Lg8\\\\noGlp2c0PbN3LokXe/HzwxCMXx65IDnrenttxzTwp9BgUnUN/3LRzWaOL2UQ/vNYN\\\\nW9LFLkI1T64UPyI7eyi28YlALhb41xkYhEp7rz+MjqifBzVZeTDUxBYtbK2hAhbY\\\\nEL1+udwsXEx0KB7xuQ/rbI2OKeqAEAD1tfYg7T/SM2wrXNYhx+o1HtchM4/0I8Ok\\\\nkk27JQ4y3ofzC5sTySmFF1Y7XcpSd+5WSyazedhkAieo8AB01DkJV6nnKfH8sH0E\\\\nBsnH3FP8FhqCLrIeEkjX9B9OcIRLGjiZqx4u/ryW1QhMldnv+pFfNjWy/wIDAQAB\\\\nMA0GCSqGSIb3DQEBCwUAA4IBAQC1hSQG8AwtGOoX2gKBK4Hi5XBrBreij8WlLTUW\\\\nld0FINQ0Rg84f/27CjDthywj6wgxCesCuOVFhpxQa1UacsP/Gcai1aKABtLWImca\\\\nWECRYK5gDkwhTMFKM9mXA26hH1l4v/UR2iTpEK9H78egC4W7bs2LDTpPryuaNKTq\\\\nP2O0tMbNkAHB8yecz5LxHXnxadL9Egow25g2RClvpifWqDnuS9TSbKkIWLcPLjoc\\\\nJj2K9ILpBwhXiXi/BiSgyYTLiYvVvih9vX4s+hKGZNJc0j92YLiOHDF0XH1oxgdV\\\\njfTmRiedeb2VZJZElptD92z0AqFR7z2d5B+OqpPA2gjuMLV5\\\\n-----END CERTIFICATE-----"]
@@ -98,7 +98,7 @@ export declare class CreateIdentityProviderResponseBodyDataSyncScope extends $da
     departmentIds?: string[];
     /**
      * @remarks
-     * AllAuthorized: the entire authorized scope, which is limited by the application address book authorization. SelectedDepartments: the selected departments and all their sub-departments. When you explicitly submit syncScope, you must provide a valid mode, which is verified by the backend.
+     * AllAuthorized: the full authorization scope, which is limited by the application address book authorization. SelectedDepartments: the selected departments and all their sub-departments. When explicitly submitting syncScope, you must provide a valid mode, which is verified by the backend.
      *
      * @example
      * SelectedDepartments
@@ -136,7 +136,7 @@ export declare class CreateIdentityProviderResponseBodyData extends $dara.Model 
     loginEnabled?: boolean;
     /**
      * @remarks
-     * Only SAML is currently supported. This parameter may not be returned if no valid configuration is saved. Placeholder initialization with OIDC is not supported.
+     * Currently, only SAML is supported. This field may not be returned if no valid configuration is saved. Initialization with an OIDC placeholder is not supported.
      *
      * @example
      * SAML
@@ -144,7 +144,7 @@ export declare class CreateIdentityProviderResponseBodyData extends $dara.Model 
     protocol?: string;
     /**
      * @remarks
-     * The input supports either XML or complete manual entry. The query returns the standardized configuration and does not echo the original XML. This parameter can be omitted if it is not configured.
+     * The input supports either XML or complete manual entry. Queries return the standardized configuration and do not echo the original XML. This field can be omitted if it is not configured.
      */
     saml?: CreateIdentityProviderResponseBodyDataSaml;
     /**
@@ -171,7 +171,7 @@ export declare class CreateIdentityProviderResponseBodyData extends $dara.Model 
     syncEnabled?: boolean;
     /**
      * @remarks
-     * Uses the department-based synchronization scope definition. If this parameter is omitted during creation, the default value is AllAuthorized. The initial provider synchronization is determined by syncOnBind. If this parameter is omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically trigger full synchronization.
+     * Follows the department-based synchronization scope definition. If omitted during creation, the default value is AllAuthorized, and the initial vendor synchronization is determined by syncOnBind. If omitted or null during an update, the original value is retained. Updating and saving the scope does not automatically trigger full synchronization.
      */
     syncScope?: CreateIdentityProviderResponseBodyDataSyncScope;
     /**
@@ -217,7 +217,7 @@ export declare class CreateIdentityProviderResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The response message. An error description is returned when the request fails.
+     * The response message. Returns an error description when the request fails.
      *
      * @example
      * success

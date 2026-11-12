@@ -10,10 +10,10 @@ export declare class CreateMemoryStoreResponseBodyData extends $dara.Model {
     createdAt?: string;
     /**
      * @remarks
-     * The MemoryStore description.
+     * The description of the memory store.
      *
      * @example
-     * Used to save long-term user preferences
+     * Used to store long-term user preferences
      */
     description?: string;
     /**
@@ -21,12 +21,12 @@ export declare class CreateMemoryStoreResponseBodyData extends $dara.Model {
      * The custom extraction instructions.
      *
      * @example
-     * Extract only explicitly expressed long-term user preferences
+     * Extract only long-term preferences explicitly expressed by the user
      */
     extractInstructions?: string;
     /**
      * @remarks
-     * The MemoryStore ID.
+     * The memory store ID.
      *
      * @example
      * ms-2f5f9c5a8d0e4c3b
@@ -34,7 +34,7 @@ export declare class CreateMemoryStoreResponseBodyData extends $dara.Model {
     memoryStoreId?: string;
     /**
      * @remarks
-     * The name of the MemoryStore. The name cannot be modified after creation.
+     * The name of the memory store. The name cannot be modified after creation.
      *
      * @example
      * customer-memory
@@ -42,7 +42,7 @@ export declare class CreateMemoryStoreResponseBodyData extends $dara.Model {
     memoryStoreName?: string;
     /**
      * @remarks
-     * The lifecycle state of the MemoryStore.
+     * The lifecycle state of the memory store.
      *
      * @example
      * Ready
@@ -50,7 +50,7 @@ export declare class CreateMemoryStoreResponseBodyData extends $dara.Model {
     status?: string;
     /**
      * @remarks
-     * The last update time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
+     * The last updated time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
      *
      * @example
      * 2026-09-23T10:05:00Z
@@ -86,7 +86,7 @@ export declare class CreateMemoryStoreResponseBody extends $dara.Model {
     code?: string;
     /**
      * @remarks
-     * The MemoryStore details.
+     * The memory store details.
      */
     data?: CreateMemoryStoreResponseBodyData;
     /**

@@ -104,7 +104,7 @@ export declare class UpdateAccessApplicationResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The request processing result message.
+     * The message indicating the request processing result.
      *
      * @example
      * success

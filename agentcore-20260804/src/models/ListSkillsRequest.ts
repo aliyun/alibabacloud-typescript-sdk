@@ -21,7 +21,7 @@ export class ListSkillsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The sort field. Valid value: download_count. Default value: gmt_modified.
+   * The field used for sorting. Supported value: download_count. Default value: gmt_modified.
    * 
    * @example
    * download_count
@@ -29,7 +29,7 @@ export class ListSkillsRequest extends $dara.Model {
   orderBy?: string;
   /**
    * @remarks
-   * Filters the skills by owner.
+   * The owner used to filter results.
    * 
    * @example
    * user123
@@ -53,7 +53,7 @@ export class ListSkillsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters the skills by visibility. Valid values: PUBLIC and PRIVATE.
+   * The visibility used to filter results. Valid values: PUBLIC and PRIVATE.
    * 
    * @example
    * PUBLIC

@@ -12,7 +12,7 @@ export declare class VerifyWorkspaceAcrRamAuthorizationResponseBodyData extends 
     acrInstanceId?: string;
     /**
      * @remarks
-     * The mount status of the policy for the current target repository.
+     * The current mount status of the target repository policy.
      *
      * This parameter is required.
      *
@@ -22,7 +22,7 @@ export declare class VerifyWorkspaceAcrRamAuthorizationResponseBodyData extends 
     authorizationStatus?: string;
     /**
      * @remarks
-     * The onboarding prerequisite, which is not Secret Ready.
+     * The prerequisite status for access. This is not the Secret Ready status.
      *
      * This parameter is required.
      *
@@ -32,7 +32,7 @@ export declare class VerifyWorkspaceAcrRamAuthorizationResponseBodyData extends 
     eligibilityStatus?: string;
     /**
      * @remarks
-     * The stable reason code for unauthorized or unmet conditions. This field is omitted when no reason is available.
+     * The stable reason code for unauthorized or ineligible status. This field is omitted when there is no reason.
      *
      * @example
      * AcrRamUnauthorized
@@ -43,7 +43,7 @@ export declare class VerifyWorkspaceAcrRamAuthorizationResponseBodyData extends 
     reasonCode?: string;
     /**
      * @remarks
-     * The user-readable reason. This field is omitted when no reason is available.
+     * The user-readable reason. This field is omitted when there is no reason.
      *
      * @example
      * Authorize the Workspace role for this ACR instance.
@@ -54,7 +54,7 @@ export declare class VerifyWorkspaceAcrRamAuthorizationResponseBodyData extends 
     reasonMessage?: string;
     /**
      * @remarks
-     * The name of the shared role selected by the backend. This field is not editable on the frontend.
+     * The shared role name selected by the backend. This field is not editable on the frontend.
      *
      * This parameter is required.
      *

@@ -136,7 +136,7 @@ export class GetAccessApplicationResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned for the request.
+   * The request processing result message.
    * 
    * @example
    * success

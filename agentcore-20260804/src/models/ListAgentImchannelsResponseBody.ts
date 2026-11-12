@@ -87,12 +87,12 @@ export class ListAgentIMChannelsResponseBodyItems extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The channel behavior configuration.
+   * The behavior configuration of the channel.
    */
   channelConfig?: ListAgentIMChannelsResponseBodyItemsChannelConfig;
   /**
    * @remarks
-   * The IM channel type. Valid values: DINGTALK (DingTalk), FEISHU (Lark), and WECOM (WeCom).
+   * The IM channel type. Valid values: DINGTALK (DingTalk), FEISHU (Lark), WECOM (WeCom).
    * 
    * @example
    * DINGTALK
@@ -113,12 +113,12 @@ export class ListAgentIMChannelsResponseBodyItems extends $dara.Model {
   credentialSummary?: ListAgentIMChannelsResponseBodyItemsCredentialSummary;
   /**
    * @remarks
-   * Specifies whether the IM channel is enabled. Default value: true.
+   * Specifies whether the IM channel is enabled. The default value is true upon creation.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The public network access address of the attached ServiceEndpoint.
+   * The public network access URL of the attached ServiceEndpoint.
    * 
    * @example
    * https://agent.example.com
@@ -134,7 +134,7 @@ export class ListAgentIMChannelsResponseBodyItems extends $dara.Model {
   imChannelId?: string;
   /**
    * @remarks
-   * The ID of the bound service endpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a public endpoint URL.
+   * The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, be in the Ready state, and have a public network address.
    * 
    * @example
    * se-1
@@ -142,7 +142,7 @@ export class ListAgentIMChannelsResponseBodyItems extends $dara.Model {
   serviceEndpointId?: string;
   /**
    * @remarks
-   * The IM channel status. Valid values: CREATING (Creating), READY (Ready), UPDATING (Updating), FAILED (Failed), DELETING (Deleting), and DELETE_FAILED (Delete failed).
+   * The IM channel status. Valid values: CREATING (Creating), READY (Ready), UPDATING (Updating), FAILED (Failed), DELETING (Deleting), DELETE_FAILED (Deletion failed).
    * 
    * @example
    * READY
@@ -242,12 +242,12 @@ export class ListAgentIMChannelsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The IM channels.
+   * The list of IM channels.
    */
   items?: ListAgentIMChannelsResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of entries returned per page for this request.
+   * The maximum number of entries returned per page for the current request.
    * 
    * @example
    * 20
@@ -255,7 +255,7 @@ export class ListAgentIMChannelsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The result message of the request.
+   * The message about the request processing result.
    * 
    * @example
    * success

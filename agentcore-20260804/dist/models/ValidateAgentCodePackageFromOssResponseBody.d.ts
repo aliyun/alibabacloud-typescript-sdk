@@ -54,7 +54,7 @@ export declare class ValidateAgentCodePackageFromOssResponseBody extends $dara.M
     code?: string;
     /**
      * @remarks
-     * The returned result.
+     * The returned data.
      */
     data?: ValidateAgentCodePackageFromOssResponseBodyData;
     /**

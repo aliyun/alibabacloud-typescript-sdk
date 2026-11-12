@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class GetWorkspaceResponseBodyDataNetworkConfigurationVpc extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether the VPC network is enabled.
+     * Indicates whether the VPC network is enabled.
      *
      * @example
      * true
@@ -15,7 +15,7 @@ export declare class GetWorkspaceResponseBodyDataNetworkConfigurationVpc extends
     vSwitchIds?: string[];
     /**
      * @remarks
-     * The VPC ID of the user.
+     * The ID of the user VPC.
      *
      * @example
      * vpc-bp1234567890
@@ -35,7 +35,7 @@ export declare class GetWorkspaceResponseBodyDataNetworkConfigurationVpc extends
 export declare class GetWorkspaceResponseBodyDataNetworkConfiguration extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether private network ingress access is enabled for the workspace. A value of true indicates that it is enabled, and a value of false indicates that it is disabled. This setting is independent of the enabled field in the user VPC network configuration.
+     * The private ingress access switch for the workspace. A value of true indicates that it is enabled, and a value of false indicates that it is disabled. This switch is independent of the enabled field in the user VPC network configuration.
      *
      * @example
      * true
@@ -43,7 +43,7 @@ export declare class GetWorkspaceResponseBodyDataNetworkConfiguration extends $d
     privateIngressEnabled?: boolean;
     /**
      * @remarks
-     * Returns the target configuration value. Updating indicates that the change is still in progress, and UpdateFailed indicates that the current change failed. This setting only controls whether the latest versions of managed and custom agents use the platform\\"s public network egress. It does not control fixed historical versions, model or MCP proxy egress, or the user VPC\\"s own public network egress.
+     * Returns the target configuration value. Updating indicates that the change is still being executed, and UpdateFailed indicates that the change failed in the current round. This parameter only controls the use of the platform public egress by the latest versions of managed and custom agents. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
      *
      * @example
      * true
@@ -51,7 +51,7 @@ export declare class GetWorkspaceResponseBodyDataNetworkConfiguration extends $d
     publicEgressEnabled?: boolean;
     /**
      * @remarks
-     * The public network egress IP address of the workspace.
+     * The public egress IP address of the workspace.
      *
      * @example
      * 203.0.113.10
@@ -59,7 +59,7 @@ export declare class GetWorkspaceResponseBodyDataNetworkConfiguration extends $d
     publicEgressIp?: string;
     /**
      * @remarks
-     * Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. When disabled, the public network ingress for all agent endpoints in the workspace is closed, and the original public network ingress is restored when re-enabled. INNER_DIRECT and user VPC ingress are not affected, and collaboration and Element Web ingress are not controlled by this setting.
+     * Returns the target configuration value. Updating indicates that the change is in progress, and UpdateFailed indicates that the change failed. After this feature is disabled, the public ingress of all agent endpoints in the workspace is disabled. After this feature is re-enabled, the original public ingress is restored. The INNER_DIRECT and user VPC ingress are not affected. The collaboration and Element Web ingress are not controlled by this parameter.
      *
      * @example
      * true
@@ -67,7 +67,7 @@ export declare class GetWorkspaceResponseBodyDataNetworkConfiguration extends $d
     publicIngressEnabled?: boolean;
     /**
      * @remarks
-     * The VPC network configuration of the user.
+     * The network configuration of the user VPC.
      */
     vpc?: GetWorkspaceResponseBodyDataNetworkConfigurationVpc;
     static names(): {
@@ -84,7 +84,7 @@ export declare class GetWorkspaceResponseBodyDataNetworkConfiguration extends $d
 export declare class GetWorkspaceResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The OSS storage authorization status.
+     * The authorization status of OSS storage.
      *
      * @example
      * AUTHORIZED
@@ -218,7 +218,7 @@ export declare class GetWorkspaceResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the request is successful.
+     * Indicates whether the request was successful.
      *
      * @example
      * true

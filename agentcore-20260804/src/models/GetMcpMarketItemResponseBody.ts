@@ -6,7 +6,7 @@ import { DataI18nValue } from "./DataI18nValue";
 export class GetMcpMarketItemResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The MCP marketplace template category.
+   * The category of the MCP marketplace template.
    * 
    * @example
    * knowledge
@@ -14,7 +14,7 @@ export class GetMcpMarketItemResponseBodyData extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The MCP service description.
+   * The description of the MCP service.
    * 
    * @example
    * MCP service for querying knowledge bases
@@ -22,12 +22,12 @@ export class GetMcpMarketItemResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The template display metadata.
+   * The display metadata of the template.
    */
   displayMetadata?: { [key: string]: any };
   /**
    * @remarks
-   * The multilingual display content organized by BCP-47 language tags. If a language is not matched, the default fields are used.
+   * The multilingual display content, organized by BCP-47 language tags. If a language is not matched, the system falls back to the default fields.
    */
   i18n?: { [key: string]: DataI18nValue };
   /**
@@ -40,7 +40,7 @@ export class GetMcpMarketItemResponseBodyData extends $dara.Model {
   iconUrl?: string;
   /**
    * @remarks
-   * The template installation count.
+   * The number of times the template has been installed.
    * 
    * @example
    * 12
@@ -64,7 +64,7 @@ export class GetMcpMarketItemResponseBodyData extends $dara.Model {
   mcpType?: string;
   /**
    * @remarks
-   * The MCP marketplace template name.
+   * The name of the MCP marketplace template.
    * 
    * @example
    * Knowledge
@@ -88,7 +88,7 @@ export class GetMcpMarketItemResponseBodyData extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The MCP marketplace template instructions.
+   * The instructions for the MCP marketplace template.
    * 
    * @example
    * # Knowledge\\nKnowledge base query service
@@ -96,7 +96,7 @@ export class GetMcpMarketItemResponseBodyData extends $dara.Model {
   readme?: string;
   /**
    * @remarks
-   * The template schema version.
+   * The schema version of the template.
    * 
    * @example
    * 1.0
@@ -104,7 +104,7 @@ export class GetMcpMarketItemResponseBodyData extends $dara.Model {
   schemaVersion?: string;
   /**
    * @remarks
-   * The template input schema, represented as a JSON Schema string.
+   * The input schema of the template, represented as a JSON Schema string.
    * 
    * @example
    * {"type":"object","properties":{"addresses":{"type":"array","items":{"type":"string"}}}}
@@ -112,7 +112,7 @@ export class GetMcpMarketItemResponseBodyData extends $dara.Model {
   templateInputSchema?: string;
   /**
    * @remarks
-   * The MCP marketplace template version.
+   * The version of the MCP marketplace template.
    * 
    * @example
    * 1.0.0
@@ -184,7 +184,7 @@ export class GetMcpMarketItemResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned result.
    */
   data?: GetMcpMarketItemResponseBodyData;
   /**
@@ -205,7 +205,7 @@ export class GetMcpMarketItemResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID used to locate and troubleshoot the request.
+   * The request ID, which is used to locate and troubleshoot the request.
    * 
    * @example
    * request-123456

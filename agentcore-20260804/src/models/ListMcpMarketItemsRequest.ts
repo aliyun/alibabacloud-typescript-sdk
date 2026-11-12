@@ -29,7 +29,7 @@ export class ListMcpMarketItemsRequest extends $dara.Model {
   mcpType?: string;
   /**
    * @remarks
-   * The pagination token used to query the next page.
+   * The pagination token for querying the next page.
    * 
    * @example
    * 20

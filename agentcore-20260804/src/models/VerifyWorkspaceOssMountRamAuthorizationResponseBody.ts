@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyWorkspaceOssMountRamAuthorizationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The authorization status of the OSS storage.
+   * The OSS storage authorization status.
    * 
    * @example
    * AUTHORIZED

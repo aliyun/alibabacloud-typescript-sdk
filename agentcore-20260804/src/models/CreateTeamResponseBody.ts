@@ -13,7 +13,7 @@ export class CreateTeamResponseBodyDataAgents extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The role of the agent in the team. Valid values: LEADER and WORKER. Each team must have exactly one LEADER.
+   * The role of the agent in the team. Valid values: LEADER and WORKER. Each team must include exactly one LEADER.
    * 
    * @example
    * WORKER
@@ -45,7 +45,7 @@ export class CreateTeamResponseBodyDataAgents extends $dara.Model {
 export class CreateTeamResponseBodyDataUsers extends $dara.Model {
   /**
    * @remarks
-   * The role of the user in the team. Valid values: ADMIN and MEMBER. Each team must have exactly one ADMIN.
+   * The role of the user in the team. Valid values: ADMIN and MEMBER. Each team must include exactly one ADMIN.
    * 
    * @example
    * ADMIN
@@ -90,7 +90,7 @@ export class CreateTeamResponseBodyData extends $dara.Model {
   agents?: CreateTeamResponseBodyDataAgents[];
   /**
    * @remarks
-   * The creation time in RFC 3339 UTC format.
+   * The creation time in UTC format based on RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -101,12 +101,12 @@ export class CreateTeamResponseBodyData extends $dara.Model {
    * The team description.
    * 
    * @example
-   * Team responsible for intelligent customer service
+   * Team responsible for the intelligent customer service business
    */
   description?: string;
   /**
    * @remarks
-   * The team name. It can only contain lowercase letters, digits, and hyphens, must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
+   * The team name. The name can contain only lowercase letters, digits, and hyphens, must start and end with a lowercase letter or a digit, and must be 1 to 128 characters in length.
    * 
    * @example
    * team-01
@@ -130,7 +130,7 @@ export class CreateTeamResponseBodyData extends $dara.Model {
   teamId?: string;
   /**
    * @remarks
-   * The last update time in RFC 3339 UTC format.
+   * The last update time in UTC format based on RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z

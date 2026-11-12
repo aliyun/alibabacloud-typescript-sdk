@@ -86,7 +86,7 @@ export class ListMcpToolsResponseBody extends $dara.Model {
   items?: ListMcpToolsResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of entries returned per page.
+   * The maximum number of entries to return per page.
    * 
    * @example
    * 20
@@ -97,7 +97,7 @@ export class ListMcpToolsResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * Request processed successfully
+   * The request is processed successfully
    */
   message?: string;
   /**

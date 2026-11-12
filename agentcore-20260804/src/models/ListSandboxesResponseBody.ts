@@ -13,7 +13,7 @@ export class ListSandboxesResponseBodyItems extends $dara.Model {
   activeSessionCount?: number;
   /**
    * @remarks
-   * The time when the sandbox was created, in RFC 3339 UTC format.
+   * The time when the sandbox was created. The time is in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-29T00:00:00Z
@@ -29,7 +29,7 @@ export class ListSandboxesResponseBodyItems extends $dara.Model {
   harnessVersion?: string;
   /**
    * @remarks
-   * The time of the last activity of the sandbox, in RFC 3339 UTC format.
+   * The time of the last activity of the sandbox. The time is in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-29T00:02:00Z
@@ -37,7 +37,7 @@ export class ListSandboxesResponseBodyItems extends $dara.Model {
   lastActiveAt?: string;
   /**
    * @remarks
-   * The time of the last heartbeat of the sandbox, in RFC 3339 UTC format.
+   * The time of the last heartbeat of the sandbox. The time is in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-29T00:01:00Z
@@ -45,7 +45,7 @@ export class ListSandboxesResponseBodyItems extends $dara.Model {
   lastHeartbeatAt?: string;
   /**
    * @remarks
-   * Used to continue calling GetSandboxRebuildOperation to query the overall result after a page refresh. This parameter is empty if there is no historical rebuild. Do not use the ID of a subsequently created task instead.
+   * Used to continue calling GetSandboxRebuildOperation to query the overall result after the page is refreshed. This parameter is empty if there is no historical rebuild. Do not use the ID of a subsequently created task instead.
    * 
    * @example
    * 01a19f98-906d-7e82-96aa-8b7ea1d1a29d
@@ -69,7 +69,7 @@ export class ListSandboxesResponseBodyItems extends $dara.Model {
   phase?: string;
   /**
    * @remarks
-   * The sandbox ID, which can be queried by calling ListSandboxes.
+   * The sandbox ID. You can query it by calling ListSandboxes.
    * 
    * @example
    * sbx-2
@@ -77,7 +77,7 @@ export class ListSandboxesResponseBodyItems extends $dara.Model {
   sandboxId?: string;
   /**
    * @remarks
-   * The server compares the actual image tag of the instance with the pool target image tag. The value is true if the tags are different during the RUNNING, HIBERNATED, or FAILED phase. The value is false if the tags are the same or during other known phases. This parameter is empty if the tag or phase cannot be confirmed, and it cannot be treated as false. The version sequence is not determined by the tag size.
+   * The server compares the actual image tag of the instance with the target image tag of the pool. The value is true if the tags are different during the RUNNING, HIBERNATED, or FAILED phase. The value is false if the tags are the same or during other known phases. This parameter is empty if the tag or phase cannot be confirmed, and it cannot be treated as false. The version sequence is not determined by the tag size.
    * 
    * @example
    * true

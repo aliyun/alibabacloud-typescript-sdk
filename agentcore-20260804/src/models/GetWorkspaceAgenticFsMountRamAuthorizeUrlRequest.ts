@@ -25,7 +25,7 @@ export class GetWorkspaceAgenticFsMountRamAuthorizeUrlRequest extends $dara.Mode
   fileSystemId?: string;
   /**
    * @remarks
-   * The domain name of the target access point. Obtain the value from the DomainName parameter returned by the NAS ListAccessPoints operation. Do not include the protocol, port, or path.
+   * The domain name of the target access point. Use the DomainName returned by the NAS ListAccessPoints operation. Do not include the protocol, port, or path.
    * 
    * This parameter is required.
    * 

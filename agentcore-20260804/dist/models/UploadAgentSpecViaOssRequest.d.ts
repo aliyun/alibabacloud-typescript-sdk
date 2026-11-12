@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class UploadAgentSpecViaOssRequestBody extends $dara.Model {
     /**
      * @remarks
-     * The name of the OSS object, including the full path.
+     * The OSS object name (full path).
      *
      * This parameter is required.
      *
@@ -12,7 +12,7 @@ export declare class UploadAgentSpecViaOssRequestBody extends $dara.Model {
     ossObjectName?: string;
     /**
      * @remarks
-     * Specifies whether to overwrite the existing draft. Default value: false.
+     * Specifies whether to overwrite existing drafts. Default value: false.
      *
      * @example
      * false
@@ -20,7 +20,7 @@ export declare class UploadAgentSpecViaOssRequestBody extends $dara.Model {
     overwrite?: boolean;
     /**
      * @remarks
-     * Specifies whether to publish and bring the agent online immediately after the upload. Default value: false.
+     * Specifies whether to publish and bring online directly after the upload. Default value: false.
      *
      * @example
      * false

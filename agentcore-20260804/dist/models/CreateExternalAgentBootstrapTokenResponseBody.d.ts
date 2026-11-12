@@ -18,7 +18,7 @@ export declare class CreateExternalAgentBootstrapTokenResponseBodyDataCms extend
     licenseKey?: string;
     /**
      * @remarks
-     * The name of the CMS workspace.
+     * The CMS workspace name.
      *
      * @example
      * cms-workspace
@@ -38,7 +38,7 @@ export declare class CreateExternalAgentBootstrapTokenResponseBodyDataCms extend
 export declare class CreateExternalAgentBootstrapTokenResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The ID of the managed agent.
+     * The managed agent ID.
      *
      * @example
      * agent-1
@@ -59,7 +59,7 @@ export declare class CreateExternalAgentBootstrapTokenResponseBodyData extends $
     cms?: CreateExternalAgentBootstrapTokenResponseBodyDataCms;
     /**
      * @remarks
-     * The access network type. Valid values: INTRANET (internal network) and INTERNET (Internet).
+     * The network type for access. Valid values: INTRANET (internal network) and INTERNET (Internet).
      *
      * @example
      * INTERNET
@@ -95,7 +95,7 @@ export declare class CreateExternalAgentBootstrapTokenResponseBodyData extends $
 export declare class CreateExternalAgentBootstrapTokenResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The business status code. The value is SUCCESS if the request is successful.
+     * The business status code. A value of SUCCESS indicates success.
      *
      * @example
      * SUCCESS
@@ -108,7 +108,7 @@ export declare class CreateExternalAgentBootstrapTokenResponseBody extends $dara
     data?: CreateExternalAgentBootstrapTokenResponseBodyData;
     /**
      * @remarks
-     * The HTTP status code. The value is 200 if the request is successful.
+     * The HTTP status code. A value of 200 indicates success.
      *
      * @example
      * 200
@@ -116,7 +116,7 @@ export declare class CreateExternalAgentBootstrapTokenResponseBody extends $dara
     httpStatusCode?: number;
     /**
      * @remarks
-     * The request processing result message.
+     * The message about the request processing result.
      *
      * @example
      * success

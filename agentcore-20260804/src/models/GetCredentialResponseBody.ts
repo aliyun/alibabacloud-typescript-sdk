@@ -53,7 +53,7 @@ export class GetCredentialResponseBodyDataResourceRefs extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The resource name. This field is empty if the resource is deleted.
+   * The resource name. This field is empty if the resource has been deleted.
    * 
    * @example
    * my-mcp-service
@@ -100,7 +100,7 @@ export class GetCredentialResponseBodyData extends $dara.Model {
   boundAgents?: GetCredentialResponseBodyDataBoundAgents[];
   /**
    * @remarks
-   * The creation time in RFC 3339 UTC format.
+   * The creation time in UTC format based on RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -116,7 +116,7 @@ export class GetCredentialResponseBodyData extends $dara.Model {
   credentialId?: string;
   /**
    * @remarks
-   * The masked result of the credential content. For the apiKey type, the key mask is returned. For the mcpHeader type, only the header name is returned without the value.
+   * The masked credential content. For the apiKey type, the masked key is returned. For the mcpHeader type, only the header name is returned, and the value is not returned.
    * 
    * @example
    * {"apiKey":"****************"}
@@ -132,7 +132,7 @@ export class GetCredentialResponseBodyData extends $dara.Model {
   credentialType?: string;
   /**
    * @remarks
-   * The credential description. The length cannot exceed 256 characters.
+   * The credential description. It can be up to 256 characters in length.
    * 
    * @example
    * API key used to call the model service in the production environment
@@ -140,7 +140,7 @@ export class GetCredentialResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The credential name. It must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 99 characters in length. Runtime reserved names cannot be used.
+   * The credential name. It must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 99 characters in length. Runtime reserved names are not allowed.
    * 
    * @example
    * model-api-key
@@ -156,12 +156,12 @@ export class GetCredentialResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of MCP services to which the credential applies.
+   * The list of MCP services applicable to the credential.
    */
   resourceRefs?: GetCredentialResponseBodyDataResourceRefs[];
   /**
    * @remarks
-   * The application scope of the credential. ALL indicates all scopes, and SPECIFIED indicates specified MCP services.
+   * The application scope of the credential. ALL indicates all scopes, and SPECIFIED indicates specific MCP services.
    * 
    * @example
    * ALL
@@ -169,7 +169,7 @@ export class GetCredentialResponseBodyData extends $dara.Model {
   resourceScope?: string;
   /**
    * @remarks
-   * The time of the last modification in RFC 3339 UTC format.
+   * The last modification time in UTC format based on RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z

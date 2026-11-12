@@ -108,7 +108,7 @@ export class CreateAgentIMChannelResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The summary of the channel credentials. Only non-sensitive fields and the names of configured secret fields are returned. Secret values are not returned.
+   * The channel credential summary. Only non-sensitive fields and the names of configured secret fields are returned. Secret values are not returned.
    */
   credentialSummary?: CreateAgentIMChannelResponseBodyDataCredentialSummary;
   /**
@@ -118,7 +118,7 @@ export class CreateAgentIMChannelResponseBodyData extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The public network access address of the attached ServiceEndpoint.
+   * The public network access URL of the attached ServiceEndpoint.
    * 
    * @example
    * https://agent.example.com
@@ -134,7 +134,7 @@ export class CreateAgentIMChannelResponseBodyData extends $dara.Model {
   imChannelId?: string;
   /**
    * @remarks
-   * The ID of the bound service endpoint. The endpoint must belong to the specified agent and its current version, be in the ready state, and have a publicly accessible address.
+   * The ID of the bound ServiceEndpoint. The endpoint must belong to the specified agent and its current version, and must be ready and have a public address.
    * 
    * @example
    * se-1
@@ -142,7 +142,7 @@ export class CreateAgentIMChannelResponseBodyData extends $dara.Model {
   serviceEndpointId?: string;
   /**
    * @remarks
-   * The status of the IM channel. Valid values: CREATING (creating), READY (ready), UPDATING (updating), FAILED (failed), DELETING (deleting), and DELETE_FAILED (deletion failed).
+   * The IM channel status. Valid values: CREATING (Creating), READY (Ready), UPDATING (Updating), FAILED (Failed), DELETING (Deleting), and DELETE_FAILED (Deletion failed).
    * 
    * @example
    * READY
@@ -234,7 +234,7 @@ export class CreateAgentIMChannelResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information about the created IM channel.
+   * The IM channel information after creation.
    */
   data?: CreateAgentIMChannelResponseBodyData;
   /**
@@ -247,7 +247,7 @@ export class CreateAgentIMChannelResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message about the request processing result.
+   * The request processing result message.
    * 
    * @example
    * success

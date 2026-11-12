@@ -24,7 +24,7 @@ export declare class EnableConnectorRequestBody extends $dara.Model {
 export declare class EnableConnectorRequest extends $dara.Model {
     /**
      * @remarks
-     * The request body for enabling the connector.
+     * The request body for the enable operation.
      *
      * This parameter is required.
      */

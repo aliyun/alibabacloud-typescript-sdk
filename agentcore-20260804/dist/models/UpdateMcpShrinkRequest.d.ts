@@ -7,7 +7,7 @@ export declare class UpdateMcpShrinkRequest extends $dara.Model {
     bodyShrink?: string;
     /**
      * @remarks
-     * The client token that is used to ensure request idempotency. This is a reserved query parameter. The current console backend does not read this parameter and does not provide idempotency guarantees such as deduplication or recovery of the original acceptance result based on this token.
+     * The reserved query request identifier. The current console backend does not read this parameter and does not provide idempotency guarantees for deduplication or restoring the original acceptance result based on this identifier.
      *
      * @example
      * 123e4567-e89b-12d3-a456-426614174000

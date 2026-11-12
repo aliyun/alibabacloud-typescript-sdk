@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMemoryStoreResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The creation time. It is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
+   * The creation time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
    * 
    * @example
    * 2026-09-23T10:00:00Z
@@ -13,10 +13,10 @@ export class UpdateMemoryStoreResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The MemoryStore description.
+   * The description of the memory store.
    * 
    * @example
-   * Used to save the user\\"s long-term preferences
+   * Used to save long-term user preferences
    */
   description?: string;
   /**
@@ -29,7 +29,7 @@ export class UpdateMemoryStoreResponseBodyData extends $dara.Model {
   extractInstructions?: string;
   /**
    * @remarks
-   * The MemoryStore ID.
+   * The memory store ID.
    * 
    * @example
    * ms-2f5f9c5a8d0e4c3b
@@ -37,7 +37,7 @@ export class UpdateMemoryStoreResponseBodyData extends $dara.Model {
   memoryStoreId?: string;
   /**
    * @remarks
-   * The MemoryStore name. It cannot be modified after creation.
+   * The name of the memory store. It cannot be modified after creation.
    * 
    * @example
    * customer-memory
@@ -45,7 +45,7 @@ export class UpdateMemoryStoreResponseBodyData extends $dara.Model {
   memoryStoreName?: string;
   /**
    * @remarks
-   * The lifecycle state of the MemoryStore.
+   * The lifecycle state of the memory store.
    * 
    * @example
    * Ready
@@ -53,7 +53,7 @@ export class UpdateMemoryStoreResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The last update time. It is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
+   * The last update time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
    * 
    * @example
    * 2026-09-23T10:05:00Z
@@ -113,7 +113,7 @@ export class UpdateMemoryStoreResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The MemoryStore details.
+   * The memory store details.
    */
   data?: UpdateMemoryStoreResponseBodyData;
   /**

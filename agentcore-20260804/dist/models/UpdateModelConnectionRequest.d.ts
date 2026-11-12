@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class UpdateModelConnectionRequestBody extends $dara.Model {
     /**
      * @remarks
-     * The list of API keys used to access the upstream model service. The list must contain at least one non-empty value.
+     * The list of API keys used to access the upstream model service. The list must contain at least one non-empty value. When submitted, the new list completely replaces all existing keys. If this parameter is omitted or set to null, the original key list is retained.
      */
     apiKeys?: string[];
     /**
@@ -31,7 +31,7 @@ export declare class UpdateModelConnectionRequestBody extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The model invoke protocol. Currently, only OpenAI/v1 is supported. If the Settings are not specified during model creation, this default value is used.
+     * The model invoke protocol. Currently, only OpenAI/v1 is supported. If Settings are not specified during model creation, this default value is used.
      *
      * @example
      * OpenAI/v1
@@ -39,7 +39,7 @@ export declare class UpdateModelConnectionRequestBody extends $dara.Model {
     protocol?: string;
     /**
      * @remarks
-     * The model provider type.
+     * The model provider type. Predefined providers can be queried by calling [ListPredefinedModelProviders](https://api.aliyun.com/document/AgentCore/2026-08-04/ListPredefinedModelProviders). Additionally, custom, anthropic, and gemini are supported.
      *
      * @example
      * qwen
@@ -64,7 +64,7 @@ export declare class UpdateModelConnectionRequest extends $dara.Model {
     body?: UpdateModelConnectionRequestBody;
     /**
      * @remarks
-     * The client token used for idempotence. This parameter is not supported.
+     * The client token used for idempotence. This parameter is not currently supported.
      *
      * @example
      * client-token-1

@@ -10,7 +10,7 @@ export declare class ResetUserPasswordRequestBody extends $dara.Model {
     agentCoreUserId?: string;
     /**
      * @remarks
-     * The new password. The password must be 8 to 32 characters in length and must contain uppercase letters, lowercase letters, digits, and special characters. It cannot contain the username. If you do not specify this parameter, the server generates a random password.
+     * The new password. The password must be 8 to 32 characters in length and must contain uppercase letters, lowercase letters, digits, and special characters. The password cannot contain the username. If this parameter is not specified, the server generates a random password.
      *
      * @example
      * Example@2026

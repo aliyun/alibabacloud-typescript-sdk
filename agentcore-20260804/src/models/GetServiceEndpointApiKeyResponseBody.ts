@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetServiceEndpointApiKeyResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The active API key of the service endpoint. The service reads this value in real time from the gateway consumer, and AgentCore does not persist the plaintext. When calling the service endpoint, place this value in the request header specified by apiKeyName. Do not log this value or expose it in public configurations.
+   * The currently effective API key for the service endpoint. The service reads this value in real time from the gateway consumer, and AgentCore does not persist the plaintext. When calling the service endpoint, place this value in the request header specified by apiKeyName. Do not log this value or expose it in public configurations.
    * 
    * @example
    * example-api-key-value
@@ -13,7 +13,7 @@ export class GetServiceEndpointApiKeyResponseBodyData extends $dara.Model {
   apiKey?: string;
   /**
    * @remarks
-   * The API key fingerprint, which consists of the first 12 lowercase hexadecimal characters of the SHA-256 digest of the API key. It can be used to identify the key version but cannot replace the API key for authentication.
+   * The fingerprint of the API key, which consists of the first 12 lowercase hexadecimal characters of the SHA-256 digest of the API key. It can be used to identify the key version but cannot replace the API key for authentication.
    * 
    * @example
    * b2520bf19231
@@ -21,7 +21,7 @@ export class GetServiceEndpointApiKeyResponseBodyData extends $dara.Model {
   apiKeyFingerprint?: string;
   /**
    * @remarks
-   * The name of the HTTP request header used to pass the API key. Currently, this is fixed to x-api-key.
+   * The name of the HTTP request header used to deliver the API key. The value is fixed to x-api-key.
    * 
    * @example
    * x-api-key
@@ -29,7 +29,7 @@ export class GetServiceEndpointApiKeyResponseBodyData extends $dara.Model {
   apiKeyName?: string;
   /**
    * @remarks
-   * The delivery location of the API key. Currently, this is fixed to Header, which indicates that the API key is passed through an HTTP request header.
+   * The delivery location of the API key. The value is fixed to Header, which indicates that the API key is delivered through an HTTP request header.
    * 
    * @example
    * Header
@@ -37,7 +37,7 @@ export class GetServiceEndpointApiKeyResponseBodyData extends $dara.Model {
   apiKeySource?: string;
   /**
    * @remarks
-   * The authentication type of the service endpoint. Valid values: NONE (authentication is disabled) and API_KEY (API key authentication is used). This operation succeeds only when the authentication type is API_KEY. Therefore, a successful response always returns API_KEY.
+   * The authentication type of the service endpoint. Valid values: NONE (authentication is not enabled) and API_KEY (API key authentication is used). This operation is successful only when the authentication type is API_KEY. Therefore, a successful response always returns API_KEY.
    * 
    * @example
    * API_KEY
@@ -103,7 +103,7 @@ export class GetServiceEndpointApiKeyResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The active API key information of the service endpoint.
+   * The information about the currently effective API key for the service endpoint.
    */
   data?: GetServiceEndpointApiKeyResponseBodyData;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListIdentityProviderDepartmentsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the department has child departments. A value of true indicates that the department has child departments, and an expansion entry can be displayed based on this value. A value of false indicates a leaf node. If this parameter is not returned, the value is unknown. To obtain details about the child departments, use the ID of the current node to query them separately.
+   * A value of true indicates that the department has child departments, and you can display an expansion entry based on this. A value of false indicates a leaf node. If this parameter is not returned, the value is unknown. For details about the child departments, you must make another query by using the id of the current node.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ListIdentityProviderDepartmentsResponseBodyItems extends $dara.Mode
   id?: string;
   /**
    * @remarks
-   * The number of department members returned by the identity provider. This parameter is not returned when the value is unknown. Do not treat a missing value as 0.
+   * The number of department members returned by the identity provider. This parameter is not returned when the value is unknown. A missing value should not be treated as 0.
    * 
    * @example
    * 12
@@ -75,7 +75,7 @@ export class ListIdentityProviderDepartmentsResponseBodyItems extends $dara.Mode
 export class ListIdentityProviderDepartmentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code of the API request. SUCCESS indicates that the current request is successful, but does not indicate that the asynchronous synchronization task is completed.
+   * The business status code for the current API request. SUCCESS indicates that the current request is successful, but does not indicate that the asynchronous synchronization task is completed.
    * 
    * @example
    * SUCCESS
@@ -83,7 +83,7 @@ export class ListIdentityProviderDepartmentsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code of the API request. This does not indicate the execution result of an asynchronous task.
+   * The HTTP status code for the current API request. This does not indicate the execution result of an asynchronous task.
    * 
    * @example
    * 200
@@ -91,10 +91,10 @@ export class ListIdentityProviderDepartmentsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The direct child departments on the current page under the current parent department. For details about the child departments, query them separately.
+   * The direct child departments on the current page under the current parent department. For details about the child departments, you must make another query.
    * 
    * @example
-   * [{"id":"10001","name":"研发部","parentId":"1","memberCount":12,"hasChildren":true}]
+   * [{"id":"10001","name":"R&D Department","parentId":"1","memberCount":12,"hasChildren":true}]
    */
   items?: ListIdentityProviderDepartmentsResponseBodyItems[];
   /**
@@ -107,7 +107,7 @@ export class ListIdentityProviderDepartmentsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response message of the API request.
+   * The response message for the current API request.
    * 
    * @example
    * success
@@ -131,7 +131,7 @@ export class ListIdentityProviderDepartmentsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API request is successful. To check whether an asynchronous task is completed, query the task status.
+   * Indicates whether the current API request is successful. To check whether an asynchronous task is completed, query the task status.
    * 
    * @example
    * true
@@ -139,7 +139,7 @@ export class ListIdentityProviderDepartmentsResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of departments. This operation does not calculate the total number of departments. Currently, JSON null is actually returned. To determine whether pagination has ended, check whether nextToken is an empty string.
+   * This operation does not calculate the total number of departments. Currently, it actually returns JSON null. To determine whether pagination has ended, check whether nextToken is an empty string.
    * 
    * @example
    * null

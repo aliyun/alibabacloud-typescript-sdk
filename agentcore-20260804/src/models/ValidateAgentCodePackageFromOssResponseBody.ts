@@ -73,7 +73,7 @@ export class ValidateAgentCodePackageFromOssResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The returned data.
    */
   data?: ValidateAgentCodePackageFromOssResponseBodyData;
   /**

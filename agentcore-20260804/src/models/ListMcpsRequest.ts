@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMcpsRequest extends $dara.Model {
   /**
    * @remarks
-   * Filters the results by custom tags. An exact match with the tags is required.
+   * The custom tag used for filtering. An exact match is required.
    * 
    * @example
    * Knowledge base
@@ -13,7 +13,7 @@ export class ListMcpsRequest extends $dara.Model {
   customTag?: string;
   /**
    * @remarks
-   * The maximum number of entries to return per page.
+   * The maximum number of entries to return per page. Valid values: 1 to 100. Default value: 10.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListMcpsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The service name or ID of the MCP service. This parameter is used in conjunction with SearchType.
+   * The MCP service name or service ID. This parameter is used in conjunction with SearchType.
    * 
    * @example
    * my-mcp-server
@@ -37,7 +37,7 @@ export class ListMcpsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Filters the results by official usage tags.
+   * The official usage tag used for filtering.
    * 
    * @example
    * KNOWLEDGE_BASE
@@ -45,10 +45,7 @@ export class ListMcpsRequest extends $dara.Model {
   officialTag?: string;
   /**
    * @remarks
-   * The name matching mode. This parameter takes effect only when Name is specified. Valid values:
-   * - accurate: Exact match.
-   * - blur: Fuzzy match.
-   * Default value: blur.
+   * The name match type. This parameter takes effect only when Name is specified. Valid values: accurate (exact match) and blur (fuzzy match). Default value: blur.
    * 
    * @example
    * blur

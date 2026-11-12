@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListPermissionRulesRequest extends $dara.Model {
     /**
      * @remarks
-     * The maximum number of entries to return per page.
+     * The maximum number of results to return per page.
      *
      * @example
      * 20
@@ -70,7 +70,7 @@ export declare class ListPermissionRulesRequest extends $dara.Model {
     source?: string;
     /**
      * @remarks
-     * The target of the rule.
+     * The rule target.
      *
      * @example
      * agent-1234567890

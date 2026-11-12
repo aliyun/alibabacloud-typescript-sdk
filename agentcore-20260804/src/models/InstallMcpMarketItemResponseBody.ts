@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InstallMcpMarketItemResponseBodyDataDeploymentConfigAccessControl extends $dara.Model {
   /**
    * @remarks
-   * The AgentCore credential referenced when the mode is set to CREDENTIAL.
+   * The ID of the AgentCore credential referenced when the mode is set to CREDENTIAL.
    * 
    * @example
    * credential-id
@@ -13,12 +13,12 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigAccessControl e
   credentialId?: string;
   /**
    * @remarks
-   * Specifies whether entry point access control is enabled.
+   * Specifies whether to enable ingress access control.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The access control mode. ANONYMOUS indicates anonymous access, and CREDENTIAL indicates the use of AgentCore access credentials.
+   * The access control mode. ANONYMOUS indicates anonymous access. CREDENTIAL indicates authentication by using AgentCore credentials.
    * 
    * @example
    * CREDENTIAL
@@ -52,7 +52,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigAccessControl e
 export class InstallMcpMarketItemResponseBodyDataDeploymentConfigAgentIdentityConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether authorization is enabled.
+   * Specifies whether to enable authorization.
    */
   authorizationEnabled?: boolean;
   /**
@@ -73,7 +73,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigAgentIdentityCo
   credentialProviderType?: string;
   /**
    * @remarks
-   * Specifies whether Agent Identity is enabled.
+   * Specifies whether to enable agent identity.
    */
   enabled?: boolean;
   static names(): { [key: string]: string } {
@@ -106,7 +106,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigAgentIdentityCo
 export class InstallMcpMarketItemResponseBodyDataDeploymentConfigCodeConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The temporary code package token returned by GetMcpCodePackageUploadUrl. This token is used to create or update a code deployment after the presigned upload is completed.
+   * The temporary code package token returned by GetMcpCodePackageUploadUrl, which is used to create or update a code deployment after the presigned upload is completed.
    * 
    * @example
    * upload-token
@@ -119,7 +119,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigCodeConfigurati
   command?: string[];
   /**
    * @remarks
-   * The runtime environment for the code package: python3.13, nodejs22, or java17.
+   * The runtime environment for the code package, such as python3.13, nodejs22, or java17.
    * 
    * @example
    * python3.13
@@ -169,7 +169,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfig
   command?: string[];
   /**
    * @remarks
-   * The container entrypoint parameters.
+   * The entrypoint arguments for the container.
    */
   entrypoint?: string[];
   /**
@@ -182,7 +182,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfig
   image?: string;
   /**
    * @remarks
-   * The type of the image registry.
+   * The type of the image repository.
    * 
    * @example
    * ACR
@@ -190,7 +190,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfig
   imageRegistryType?: string;
   /**
    * @remarks
-   * The MCP runtime mode. Custom containers must currently expose the standard MCP themselves. Valid value: SELF_HOSTED.
+   * The MCP runtime mode. Custom containers must currently expose the standard MCP themselves. Set this parameter to SELF_HOSTED.
    * 
    * @example
    * SELF_HOSTED
@@ -198,7 +198,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigContainerConfig
   mcpRuntimeMode?: string;
   /**
    * @remarks
-   * The source type of the container. The value is fixed to CONTAINER_IMAGE.
+   * The container source type. Currently, this parameter is fixed to CONTAINER_IMAGE.
    * 
    * @example
    * CONTAINER_IMAGE
@@ -262,7 +262,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigHookConfigurati
   description?: string;
   /**
    * @remarks
-   * Specifies whether the hook is enabled.
+   * Specifies whether to enable the hook.
    */
   enabled?: boolean;
   /**
@@ -280,7 +280,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigHookConfigurati
   headers?: { [key: string]: string };
   /**
    * @remarks
-   * The timeout period in milliseconds.
+   * The timeout period of the hook, in milliseconds.
    * 
    * @example
    * 3000
@@ -288,7 +288,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigHookConfigurati
   timeout?: number;
   /**
    * @remarks
-   * The hook callback URL.
+   * The callback URL of the hook.
    * 
    * @example
    * https://example.com/mcp-hook
@@ -333,7 +333,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigHookConfigurati
 export class InstallMcpMarketItemResponseBodyDataDeploymentConfigHookConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Executes PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in the order of the array.
+   * The ordered list of hooks. The system executes the PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in the order of the array.
    */
   hooks?: InstallMcpMarketItemResponseBodyDataDeploymentConfigHookConfigurationHooks[];
   static names(): { [key: string]: string } {
@@ -427,7 +427,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigLogConfiguratio
 export class InstallMcpMarketItemResponseBodyDataDeploymentConfigMcpConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The path of the MCP endpoint, such as /mcp or /sse.
+   * The MCP endpoint path, such as /mcp or /sse.
    * 
    * @example
    * /mcp
@@ -435,7 +435,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigMcpConfiguratio
   endpointPath?: string;
   /**
    * @remarks
-   * The number of concurrent sessions per instance. The value is fixed to 1.
+   * The number of concurrent sessions per instance. Currently, this parameter is fixed to 1.
    * 
    * @example
    * 1
@@ -443,7 +443,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigMcpConfiguratio
   sessionConcurrencyPerInstance?: number;
   /**
    * @remarks
-   * The session idle timeout in seconds. Default value: 1800.
+   * The session idle timeout period. Unit: seconds. Default value: 1800.
    * 
    * @example
    * 1800
@@ -451,7 +451,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigMcpConfiguratio
   sessionIdleTimeoutSeconds?: number;
   /**
    * @remarks
-   * The maximum session lifetime in seconds. Default value: 21600.
+   * The maximum session lifetime. Unit: seconds. Default value: 21600.
    * 
    * @example
    * 21600
@@ -534,7 +534,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigNasConfiguratio
 export class InstallMcpMarketItemResponseBodyDataDeploymentConfigNasConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The ID of the execution user group.
+   * The group ID.
    * 
    * @example
    * 1000
@@ -547,7 +547,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigNasConfiguratio
   mountPoints?: InstallMcpMarketItemResponseBodyDataDeploymentConfigNasConfigurationMountPoints[];
   /**
    * @remarks
-   * The ID of the execution user.
+   * The user ID.
    * 
    * @example
    * 1000
@@ -660,7 +660,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigOssMountConfigu
   bucketPath?: string;
   /**
    * @remarks
-   * The OSS service endpoint.
+   * The OSS endpoint.
    * 
    * @example
    * https://oss-cn-hangzhou.aliyuncs.com
@@ -746,7 +746,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigParameterTransf
   enabled?: boolean;
   /**
    * @remarks
-   * The reserved reference to the parameter transformation and result enhancement rule set.
+   * The reserved reference for the parameter transformation and result enhancement rule set.
    * 
    * @example
    * rules-1
@@ -754,7 +754,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigParameterTransf
   ruleSetId?: string;
   /**
    * @remarks
-   * The transformation rule version.
+   * The version of the transformation rule.
    * 
    * @example
    * 1.0
@@ -815,7 +815,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigProxyConfigurat
 export class InstallMcpMarketItemResponseBodyDataDeploymentConfigRuntimeConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The CPU specification in cores. Default value: 0.25.
+   * The CPU specifications. Unit: cores. Default value: 0.25.
    * 
    * @example
    * 0.25
@@ -823,7 +823,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigRuntimeConfigur
   cpu?: number;
   /**
    * @remarks
-   * The ephemeral disk size in MB. Valid values: 512 and 10240.
+   * The size of the temporary disk. Unit: MB. Valid values: 512 and 10240.
    * 
    * @example
    * 512
@@ -836,7 +836,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigRuntimeConfigur
   environmentVariables?: { [key: string]: string };
   /**
    * @remarks
-   * The ARN of the RAM role used by user code to access downstream Alibaba Cloud resources.
+   * The ARN of the RAM role used when user code accesses downstream Alibaba Cloud resources.
    * 
    * @example
    * acs:ram::1234567890123456:role/agentcore-mcp-execution
@@ -852,7 +852,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigRuntimeConfigur
   instanceConcurrency?: number;
   /**
    * @remarks
-   * The memory specification in MB. Default value: 512.
+   * The memory specifications. Unit: MB. Default value: 512.
    * 
    * @example
    * 512
@@ -868,7 +868,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigRuntimeConfigur
   port?: number;
   /**
    * @remarks
-   * The function timeout period in seconds. Default value: 300.
+   * The function timeout period. Unit: seconds. Default value: 300.
    * 
    * @example
    * 300
@@ -915,12 +915,12 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfigRuntimeConfigur
 export class InstallMcpMarketItemResponseBodyDataDeploymentConfig extends $dara.Model {
   /**
    * @remarks
-   * The access control for the MCP entry point.
+   * The MCP ingress access control configuration.
    */
   accessControl?: InstallMcpMarketItemResponseBodyDataDeploymentConfigAccessControl;
   /**
    * @remarks
-   * The Agent Identity configuration.
+   * The agent identity configuration.
    */
   agentIdentityConfiguration?: InstallMcpMarketItemResponseBodyDataDeploymentConfigAgentIdentityConfiguration;
   /**
@@ -1075,7 +1075,7 @@ export class InstallMcpMarketItemResponseBodyDataDeploymentConfig extends $dara.
 export class InstallMcpMarketItemResponseBodyDataMarketSource extends $dara.Model {
   /**
    * @remarks
-   * The ID of the MCP marketplace template.
+   * The MCP marketplace template ID.
    * 
    * @example
    * market-1
@@ -1129,7 +1129,7 @@ export class InstallMcpMarketItemResponseBodyDataTemplate extends $dara.Model {
   schemaVersion?: string;
   /**
    * @remarks
-   * The template input schema, represented as a JSON schema string.
+   * The template input schema, represented as a JSON Schema string.
    * 
    * @example
    * {"type":"object","properties":{"addresses":{"type":"array","items":{"type":"string"}}}}
@@ -1137,7 +1137,7 @@ export class InstallMcpMarketItemResponseBodyDataTemplate extends $dara.Model {
   templateInputSchema?: string;
   /**
    * @remarks
-   * Specifies whether an updated template version is available.
+   * Indicates whether an updated template version is available.
    */
   updateAvailable?: boolean;
   static names(): { [key: string]: string } {
@@ -1182,7 +1182,7 @@ export class InstallMcpMarketItemResponseBodyData extends $dara.Model {
   customTags?: string[];
   /**
    * @remarks
-   * The deployment configuration for a code-deployed MCP.
+   * The deployment configuration for code-deployed MCP.
    */
   deploymentConfig?: InstallMcpMarketItemResponseBodyDataDeploymentConfig;
   /**
@@ -1195,7 +1195,7 @@ export class InstallMcpMarketItemResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The MCP service access endpoint.
+   * The MCP service endpoint.
    * 
    * @example
    * https://example.com/mcp
@@ -1203,7 +1203,7 @@ export class InstallMcpMarketItemResponseBodyData extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The name of the Function Compute function corresponding to the code-deployed MCP.
+   * The Function Compute function name for the code-deployed MCP.
    * 
    * @example
    * agentcore-mcp-example
@@ -1256,7 +1256,7 @@ export class InstallMcpMarketItemResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The reason why the MCP service is in the current status.
+   * The reason for the current status of the MCP service.
    * 
    * @example
    * Code package deployment failed
@@ -1264,12 +1264,12 @@ export class InstallMcpMarketItemResponseBodyData extends $dara.Model {
   statusReason?: string;
   /**
    * @remarks
-   * The template version and input schema bound to the MCP.
+   * The bound template version and input schema of the MCP.
    */
   template?: InstallMcpMarketItemResponseBodyDataTemplate;
   /**
    * @remarks
-   * The MCP type. Valid values: DIRECT_PROXY (direct proxy), HTTP_TO_MCP (HTTP-to-MCP), and CODE_PACKAGE (code deployment).
+   * The MCP type. Valid values: DIRECT_PROXY (direct proxy), HTTP_TO_MCP (HTTP to MCP), and CODE_PACKAGE (code deployment).
    * 
    * @example
    * CODE_PACKAGE
@@ -1277,7 +1277,7 @@ export class InstallMcpMarketItemResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Indicates whether MCP is still subject to the usage constraints of the official template.
+   * Specifies whether the MCP is still subject to the usage constraints of the official template.
    */
   usageActive?: boolean;
   static names(): { [key: string]: string } {
@@ -1378,7 +1378,7 @@ export class InstallMcpMarketItemResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot requests.
+   * The request ID used to locate and troubleshoot requests.
    * 
    * @example
    * request-123456

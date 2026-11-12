@@ -35,7 +35,7 @@ export class ListAgentSpecsResponseBodyDataPageItemsMcpServers extends $dara.Mod
 export class ListAgentSpecsResponseBodyDataPageItemsSkillsVersionSelector extends $dara.Model {
   /**
    * @remarks
-   * The type of the version selector. Valid values: LABEL (by label) and VERSION (by specific version).
+   * The version selector type. Valid values: LABEL (by tag) and VERSION (by specific version).
    * 
    * @example
    * LABEL
@@ -43,7 +43,7 @@ export class ListAgentSpecsResponseBodyDataPageItemsSkillsVersionSelector extend
   type?: string;
   /**
    * @remarks
-   * The value of the selector. If the type is LABEL, the value is the label name, such as latest. If the type is VERSION, the value is the specific version number.
+   * The selector value. For LABEL, it is the tag name (such as latest). For VERSION, it is the specific version number.
    * 
    * @example
    * latest
@@ -83,7 +83,7 @@ export class ListAgentSpecsResponseBodyDataPageItemsSkills extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The source type of the skill. Valid values: REFERENCE (references the AI Registry) and STATIC (statically provided with the package).
+   * The skill source type. Valid values: REFERENCE (references AI Registry) and STATIC (statically provided with the package).
    * 
    * @example
    * REFERENCE
@@ -91,7 +91,7 @@ export class ListAgentSpecsResponseBodyDataPageItemsSkills extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The referenced version selector. If omitted, the default value is LABEL/latest.
+   * The referenced version selector. If omitted, the default is LABEL/latest.
    */
   versionSelector?: ListAgentSpecsResponseBodyDataPageItemsSkillsVersionSelector;
   static names(): { [key: string]: string } {
@@ -136,7 +136,7 @@ export class ListAgentSpecsResponseBodyDataPageItems extends $dara.Model {
    * The description.
    * 
    * @example
-   * Sample description used to explain the purpose of the resource
+   * A sample description used to illustrate the purpose of the resource
    */
   description?: string;
   /**
@@ -157,7 +157,7 @@ export class ListAgentSpecsResponseBodyDataPageItems extends $dara.Model {
   editingVersion?: string;
   /**
    * @remarks
-   * Indicates whether it is enabled.
+   * Specifies whether it is enabled.
    */
   enable?: boolean;
   /**
@@ -170,12 +170,12 @@ export class ListAgentSpecsResponseBodyDataPageItems extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The version labels.
+   * The version tags.
    */
   labels?: { [key: string]: string };
   /**
    * @remarks
-   * The list of referenced MCP servers.
+   * The list of MCP service references.
    */
   mcpServers?: ListAgentSpecsResponseBodyDataPageItemsMcpServers[];
   /**
@@ -212,12 +212,12 @@ export class ListAgentSpecsResponseBodyDataPageItems extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The list of referenced skills.
+   * The list of skill references.
    */
   skills?: ListAgentSpecsResponseBodyDataPageItemsSkills[];
   /**
    * @remarks
-   * The update time. The value is a UNIX timestamp in milliseconds.
+   * The update time. It is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787671022000

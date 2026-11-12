@@ -13,7 +13,7 @@ export class ListModelConnectionsRequest extends $dara.Model {
   includeModels?: boolean;
   /**
    * @remarks
-   * The maximum number of entries to return on each page. Valid values: 0 to 100. Default value: 10. If this parameter is not specified or is set to 0, the default value is used.
+   * The maximum number of entries to return per page. Valid values: 0 to 100. Default value: 10. If this parameter is not specified or is set to 0, the default value is used.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListModelConnectionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The name of the model connection. The name must be 1 to 128 characters in length and cannot contain whitespace characters.
+   * The name of the model connection. The name must be 1 to 128 non-whitespace characters in length.
    * 
    * @example
    * name
@@ -29,7 +29,7 @@ export class ListModelConnectionsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token. Pass the token returned in the previous query for the current request. An empty response indicates that no more pages are available.
+   * The pagination token. Pass the token returned in the previous response to query the next page. If the response is empty, no more pages are available.
    * 
    * @example
    * bW9kZWwtbWFuYWdlbWVudC1vZmZzZXQ6bW9kZWwtY29ubmVjdGlvbjoxMA

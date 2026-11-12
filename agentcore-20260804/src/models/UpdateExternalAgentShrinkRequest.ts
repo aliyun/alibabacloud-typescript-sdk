@@ -10,7 +10,7 @@ export class UpdateExternalAgentShrinkRequest extends $dara.Model {
   bodyShrink?: string;
   /**
    * @remarks
-   * The reserved query parameter. The backend does not currently provide idempotence guarantees for deduplication or restoring the original acceptance result based on this identifier.
+   * The reserved query parameter. The backend does not provide idempotence guarantees for deduplication or recovery of original acceptance results based on this identifier at this time.
    * 
    * @example
    * client-token-1

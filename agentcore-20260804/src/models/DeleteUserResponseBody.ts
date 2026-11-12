@@ -63,7 +63,7 @@ export class DeleteUserResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The information about the deleted user.
+   * The deleted user information.
    */
   data?: DeleteUserResponseBodyData;
   /**

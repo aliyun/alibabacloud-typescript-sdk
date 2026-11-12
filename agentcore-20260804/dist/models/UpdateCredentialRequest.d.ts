@@ -10,7 +10,7 @@ export declare class UpdateCredentialRequestBodyResourceRefs extends $dara.Model
     resourceId?: string;
     /**
      * @remarks
-     * The resource name. This field is empty if the resource has been deleted.
+     * The resource name. This field is empty if the resource is deleted.
      *
      * @example
      * my-mcp-service
@@ -18,7 +18,7 @@ export declare class UpdateCredentialRequestBodyResourceRefs extends $dara.Model
     resourceName?: string;
     /**
      * @remarks
-     * The resource type. Currently, the value is mcpServer, which indicates an MCP service.
+     * The resource type. The current value is mcpServer, which indicates an MCP service.
      *
      * @example
      * mcpServer
@@ -38,7 +38,7 @@ export declare class UpdateCredentialRequestBodyResourceRefs extends $dara.Model
 export declare class UpdateCredentialRequestBody extends $dara.Model {
     /**
      * @remarks
-     * The credential content, submitted as a JSON string. For the apiKey type, it contains only a non-empty apiKey. For the mcpHeader type, it contains a non-empty headers array, where each item includes a name and a value.
+     * The credential content, submitted as a JSON string. For the apiKey type, it only contains a non-empty apiKey. For the mcpHeader type, it contains a non-empty headers array, where each item includes a name and a value.
      *
      * @example
      * {"apiKey":"sk-example-value"}
@@ -46,7 +46,7 @@ export declare class UpdateCredentialRequestBody extends $dara.Model {
     credentialMetadata?: string;
     /**
      * @remarks
-     * The new credential description. The description can be up to 256 characters in length. If omitted, the original description is retained. It can be updated independently of the credential content or application scope.
+     * The new credential description. The description can be up to 256 characters in length. If omitted, the original description is retained. It can be updated separately from the credential content or application scope.
      *
      * @example
      * API key used to call the model service in the production environment
@@ -54,12 +54,12 @@ export declare class UpdateCredentialRequestBody extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The list of applicable resources for the MCP header credential. If submitted, resourceScope must also be submitted. An empty array [] is allowed when the scope is SPECIFIED. Omit this field when the scope is ALL.
+     * The list of applicable resources for the MCP header credential. If submitted, resourceScope must also be submitted. An empty array [] is allowed when the value is SPECIFIED. Omit this field when the value is ALL.
      */
     resourceRefs?: UpdateCredentialRequestBodyResourceRefs[];
     /**
      * @remarks
-     * The application scope of the MCP header credential. This field is supported only for the mcpHeader type. ALL indicates all MCP services, and SPECIFIED indicates the MCP services specified in resourceRefs. Do not submit this field for the apiKey type.
+     * The application scope of the MCP header credential. Only the mcpHeader type is supported. ALL indicates all MCP services, and SPECIFIED indicates the MCP services specified in resourceRefs. Do not submit this field for the apiKey type.
      *
      * @example
      * ALL

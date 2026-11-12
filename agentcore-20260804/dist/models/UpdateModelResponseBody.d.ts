@@ -12,7 +12,7 @@ export declare class UpdateModelResponseBodyDataCapabilities extends $dara.Model
     document?: boolean;
     /**
      * @remarks
-     * Indicates whether the model is able to invoke multiple tool calling in a single response.
+     * Indicates whether the model is able to invoke tool calling multiple times in a single response.
      */
     multiToolCall?: boolean;
     /**
@@ -27,7 +27,7 @@ export declare class UpdateModelResponseBodyDataCapabilities extends $dara.Model
     streamToolCall?: boolean;
     /**
      * @remarks
-     * Indicates whether the model is able to invoke tool calling.
+     * Indicates whether the model supports tool calling.
      */
     toolCall?: boolean;
     /**
@@ -54,7 +54,7 @@ export declare class UpdateModelResponseBodyDataCapabilities extends $dara.Model
 export declare class UpdateModelResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The model capability configuration.
+     * The model capability configurations.
      */
     capabilities?: UpdateModelResponseBodyDataCapabilities;
     /**
@@ -75,7 +75,7 @@ export declare class UpdateModelResponseBodyData extends $dara.Model {
     contextSize?: number;
     /**
      * @remarks
-     * The time when the resource was created. The time is displayed in the RFC 3339 UTC format.
+     * The time when the resource was created, in RFC 3339 UTC format.
      *
      * @example
      * 2026-08-09T00:00:00Z
@@ -91,7 +91,7 @@ export declare class UpdateModelResponseBodyData extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The maximum number of output tokens supported by the model in a single generation.
+     * The maximum number of output tokens supported for a single generation by the model.
      *
      * @example
      * 131072
@@ -115,7 +115,7 @@ export declare class UpdateModelResponseBodyData extends $dara.Model {
     modelName?: string;
     /**
      * @remarks
-     * The time when the resource was last updated. The time is displayed in the RFC 3339 UTC format.
+     * The time when the resource was last updated, in RFC 3339 UTC format.
      *
      * @example
      * 2026-08-09T00:00:00Z

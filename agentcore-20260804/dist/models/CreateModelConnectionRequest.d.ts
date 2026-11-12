@@ -37,7 +37,7 @@ export declare class CreateModelConnectionRequestBody extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The model invoke protocol. Currently, only OpenAI/v1 is supported. If this parameter is not specified in Settings during model creation, this default value is used.
+     * The model invoke protocol. Currently, only OpenAI/v1 is supported. If the Settings are not specified when you create a model connection, this default value is used for model creation.
      *
      * @example
      * OpenAI/v1
@@ -45,7 +45,7 @@ export declare class CreateModelConnectionRequestBody extends $dara.Model {
     protocol?: string;
     /**
      * @remarks
-     * The model provider type.
+     * The model provider type. Predefined providers can be queried by calling [ListPredefinedModelProviders](https://api.aliyun.com/document/AgentCore/2026-08-04/ListPredefinedModelProviders). In addition, custom, anthropic, and gemini are supported.
      *
      * This parameter is required.
      *

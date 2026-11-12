@@ -13,7 +13,7 @@ export class GetAgentCodePackageUploadUrlResponseBodyData extends $dara.Model {
   expiresAt?: string;
   /**
    * @remarks
-   * The required HTTP request headers for direct upload.
+   * The HTTP request headers that must be included for direct upload.
    */
   headers?: { [key: string]: string };
   /**
@@ -26,7 +26,7 @@ export class GetAgentCodePackageUploadUrlResponseBodyData extends $dara.Model {
   maxSize?: number;
   /**
    * @remarks
-   * The OSS URI of the temporary code package.
+   * The temporary Object Storage Service (OSS) URI of the code package.
    * 
    * @example
    * oss://agentcore-platform-example/code-package-uploads/workspaces/ws-a1b2c3d4e5f6/550e8400-e29b-41d4-a716-446655440000/package.zip

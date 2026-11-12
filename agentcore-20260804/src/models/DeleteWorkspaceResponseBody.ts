@@ -43,7 +43,7 @@ export class DeleteWorkspaceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The deletion request result.
+   * The result of the deletion request.
    */
   data?: DeleteWorkspaceResponseBodyData;
   /**

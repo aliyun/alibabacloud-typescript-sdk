@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIdentityProviderSyncJobResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The current execution step of the AgentCore asynchronous task. This field may not be returned if the task has not started.
+   * The current execution step of the AgentCore asynchronous task. This may not be returned if the task has not started.
    * 
    * @example
    * SYNC
@@ -13,7 +13,7 @@ export class GetIdentityProviderSyncJobResponseBodyData extends $dara.Model {
   currentStep?: string;
   /**
    * @remarks
-   * The failure summary of the asynchronous task. This field is not returned when no failure information is available. You can use it in combination with taskId and requestId for troubleshooting.
+   * The failure summary of the asynchronous task. This is not returned if no failure information is available. You can use this along with taskId and requestId for troubleshooting.
    * 
    * @example
    * The identity provider synchronization job failed.
@@ -21,7 +21,7 @@ export class GetIdentityProviderSyncJobResponseBodyData extends $dara.Model {
   failureReason?: string;
   /**
    * @remarks
-   * The status of the synchronization task. Valid values: PENDING (to be executed), RUNNING (executing), PAUSED (paused), SUCCESS (successful), FAILED (failed), and CANCELED (canceled). The first three are non-terminal states, and the last three are terminal states. Query until a terminal state is reached to determine the result.
+   * The status of the synchronization task. Valid values: PENDING: to be executed. RUNNING: executing. PAUSED: paused. SUCCESS: successful. FAILED: failed. CANCELED: canceled. The first three are non-terminal states, and the last three are terminal states. Query the status until a terminal state is reached to determine the result.
    * 
    * @example
    * SUCCESS
@@ -29,7 +29,7 @@ export class GetIdentityProviderSyncJobResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The number of user entries that have been locally read and written or updated, including existing users. It does not represent the number of newly added users or the synchronization percentage. This field is not returned when no statistics are available.
+   * The number of user entries that have been locally read and written or updated, including existing users. This does not represent the number of newly added users or the synchronization percentage. This is not returned if no statistics are available.
    * 
    * @example
    * 12
@@ -37,7 +37,7 @@ export class GetIdentityProviderSyncJobResponseBodyData extends $dara.Model {
   syncedUserCount?: number;
   /**
    * @remarks
-   * The downstream AgentIdentity synchronization task ID. This field is not returned if the task is not yet created. It cannot be used in place of taskId to call GetIdentityProviderSyncJob.
+   * The downstream AgentIdentity synchronization task ID. This is not returned if the task is not yet created. You cannot use this ID instead of taskId to call GetIdentityProviderSyncJob.
    * 
    * @example
    * syncjob_0123456789abcdef0123456789abcdef
@@ -45,7 +45,7 @@ export class GetIdentityProviderSyncJobResponseBodyData extends $dara.Model {
   synchronizationJobId?: string;
   /**
    * @remarks
-   * The local AgentCore task ID returned by CreateIdentityProviderSyncJob, not the synchronizationJobId of AgentIdentity. You must use the same workspace and identity provider when querying.
+   * The local AgentCore task ID returned by CreateIdentityProviderSyncJob. This is not the synchronizationJobId of AgentIdentity. You must use the same workspace and identity provider when querying.
    * 
    * @example
    * 12345678-1234-4234-8234-123456789abc
@@ -101,7 +101,7 @@ export class GetIdentityProviderSyncJobResponseBody extends $dara.Model {
   data?: GetIdentityProviderSyncJobResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code of the API request. It does not indicate the execution result of the asynchronous task.
+   * The HTTP status code of the API request. This does not indicate the execution result of the asynchronous task.
    * 
    * @example
    * 200

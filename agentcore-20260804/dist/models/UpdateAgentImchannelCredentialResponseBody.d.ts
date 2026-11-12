@@ -47,7 +47,7 @@ export declare class UpdateAgentIMChannelCredentialResponseBody extends $dara.Mo
     httpStatusCode?: number;
     /**
      * @remarks
-     * The message about the request processing result.
+     * The request processing result message.
      *
      * @example
      * success

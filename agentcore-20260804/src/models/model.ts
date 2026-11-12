@@ -421,6 +421,10 @@ export { GetSandboxRebuildOperationResponseBodyDataError } from './GetSandboxReb
 export { GetSandboxRebuildOperationResponseBodyData } from './GetSandboxRebuildOperationResponseBody';
 export { GetServiceEndpointResponseBodyDataAccessUrls } from './GetServiceEndpointResponseBody';
 export { GetServiceEndpointResponseBodyDataAuthentication } from './GetServiceEndpointResponseBody';
+export { GetServiceEndpointResponseBodyDataEffectiveCapacity } from './GetServiceEndpointResponseBody';
+export { GetServiceEndpointResponseBodyDataElasticityPolicyDynamicPolicyPoliciesTimePoints } from './GetServiceEndpointResponseBody';
+export { GetServiceEndpointResponseBodyDataElasticityPolicyDynamicPolicyPolicies } from './GetServiceEndpointResponseBody';
+export { GetServiceEndpointResponseBodyDataElasticityPolicyDynamicPolicy } from './GetServiceEndpointResponseBody';
 export { GetServiceEndpointResponseBodyDataElasticityPolicy } from './GetServiceEndpointResponseBody';
 export { GetServiceEndpointResponseBodyDataTarget } from './GetServiceEndpointResponseBody';
 export { GetServiceEndpointResponseBodyData } from './GetServiceEndpointResponseBody';
@@ -570,6 +574,9 @@ export { ListSandboxSessionsResponseBodyItems } from './ListSandboxSessionsRespo
 export { ListSandboxesResponseBodyItems } from './ListSandboxesResponseBody';
 export { ListServiceEndpointsResponseBodyItemsAccessUrls } from './ListServiceEndpointsResponseBody';
 export { ListServiceEndpointsResponseBodyItemsAuthentication } from './ListServiceEndpointsResponseBody';
+export { ListServiceEndpointsResponseBodyItemsElasticityPolicyDynamicPolicyPoliciesTimePoints } from './ListServiceEndpointsResponseBody';
+export { ListServiceEndpointsResponseBodyItemsElasticityPolicyDynamicPolicyPolicies } from './ListServiceEndpointsResponseBody';
+export { ListServiceEndpointsResponseBodyItemsElasticityPolicyDynamicPolicy } from './ListServiceEndpointsResponseBody';
 export { ListServiceEndpointsResponseBodyItemsElasticityPolicy } from './ListServiceEndpointsResponseBody';
 export { ListServiceEndpointsResponseBodyItemsTarget } from './ListServiceEndpointsResponseBody';
 export { ListServiceEndpointsResponseBodyItems } from './ListServiceEndpointsResponseBody';

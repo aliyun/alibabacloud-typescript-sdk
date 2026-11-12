@@ -117,7 +117,7 @@ export class CreateMcpResponseBodyDataAuthHttpToMcp extends $dara.Model {
   position?: string;
   /**
    * @remarks
-   * The MCP type.
+   * The type.
    * 
    * @example
    * basic
@@ -155,12 +155,12 @@ export class CreateMcpResponseBodyDataAuthHttpToMcp extends $dara.Model {
 export class CreateMcpResponseBodyDataAuth extends $dara.Model {
   /**
    * @remarks
-   * The API Key authentication configuration for callers of the code deployment MCP.
+   * The caller API Key authentication configuration for code-deployed MCP.
    */
   codePackage?: CreateMcpResponseBodyDataAuthCodePackage;
   /**
    * @remarks
-   * The authentication configuration for the direct proxy.
+   * The direct proxy authentication configuration.
    */
   directProxy?: CreateMcpResponseBodyDataAuthDirectProxy;
   /**
@@ -170,7 +170,7 @@ export class CreateMcpResponseBodyDataAuth extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The list of authentication configurations for HTTP_TO_MCP.
+   * The list of HTTP_TO_MCP authentication configurations.
    */
   httpToMcp?: CreateMcpResponseBodyDataAuthHttpToMcp[];
   static names(): { [key: string]: string } {
@@ -212,7 +212,7 @@ export class CreateMcpResponseBodyDataAuth extends $dara.Model {
 export class CreateMcpResponseBodyDataDeploymentConfigAccessControl extends $dara.Model {
   /**
    * @remarks
-   * The access credential ID. This parameter references an AgentCore credential when the mode is set to CREDENTIAL.
+   * The ID of the AgentCore credential referenced when the mode is set to CREDENTIAL.
    * 
    * @example
    * credential-id
@@ -225,7 +225,7 @@ export class CreateMcpResponseBodyDataDeploymentConfigAccessControl extends $dar
   enabled?: boolean;
   /**
    * @remarks
-   * The access control mode. ANONYMOUS indicates anonymous access, and CREDENTIAL indicates that AgentCore access credentials are used.
+   * The access control mode. ANONYMOUS indicates anonymous access. CREDENTIAL indicates authentication by using AgentCore access credentials.
    * 
    * @example
    * CREDENTIAL
@@ -313,7 +313,7 @@ export class CreateMcpResponseBodyDataDeploymentConfigAgentIdentityConfiguration
 export class CreateMcpResponseBodyDataDeploymentConfigCodeConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The temporary code package token returned by GetMcpCodePackageUploadUrl. This token is used to create or update a code deployment after a presigned upload is completed.
+   * The temporary code package token returned by GetMcpCodePackageUploadUrl, which is used to create or update a code deployment after a presigned upload is complete.
    * 
    * @example
    * upload-token
@@ -326,7 +326,7 @@ export class CreateMcpResponseBodyDataDeploymentConfigCodeConfiguration extends 
   command?: string[];
   /**
    * @remarks
-   * The runtime environment for the code package.
+   * The runtime of the code package. Valid values: python3.13, nodejs22, and java17.
    * 
    * @example
    * python3.13
@@ -389,7 +389,7 @@ export class CreateMcpResponseBodyDataDeploymentConfigContainerConfiguration ext
   image?: string;
   /**
    * @remarks
-   * The image registry type.
+   * The image repository type.
    * 
    * @example
    * ACR
@@ -397,7 +397,7 @@ export class CreateMcpResponseBodyDataDeploymentConfigContainerConfiguration ext
   imageRegistryType?: string;
   /**
    * @remarks
-   * The MCP runtime mode. Custom containers currently need to expose the standard MCP themselves. Set the value to SELF_HOSTED.
+   * Custom containers currently must expose the standard MCP themselves. Set the value to SELF_HOSTED.
    * 
    * @example
    * SELF_HOSTED
@@ -405,7 +405,7 @@ export class CreateMcpResponseBodyDataDeploymentConfigContainerConfiguration ext
   mcpRuntimeMode?: string;
   /**
    * @remarks
-   * The container source type. Currently fixed to CONTAINER_IMAGE.
+   * Currently fixed to CONTAINER_IMAGE.
    * 
    * @example
    * CONTAINER_IMAGE
@@ -464,7 +464,7 @@ export class CreateMcpResponseBodyDataDeploymentConfigHookConfigurationHooks ext
    * The description of the hook.
    * 
    * @example
-   * Log MCP tool invocation
+   * Record MCP tool invocation
    */
   description?: string;
   /**
@@ -540,7 +540,7 @@ export class CreateMcpResponseBodyDataDeploymentConfigHookConfigurationHooks ext
 export class CreateMcpResponseBodyDataDeploymentConfigHookConfiguration extends $dara.Model {
   /**
    * @remarks
-   * The ordered list of hooks. Executes PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in the order of the array.
+   * Executes the PRE_LIST_TOOLS, PRE_CALL_TOOL, POST_LIST_TOOLS, and POST_CALL_TOOL hooks in array order.
    */
   hooks?: CreateMcpResponseBodyDataDeploymentConfigHookConfigurationHooks[];
   static names(): { [key: string]: string } {
@@ -580,7 +580,7 @@ export class CreateMcpResponseBodyDataDeploymentConfigLogConfiguration extends $
   enableRequestMetrics?: boolean;
   /**
    * @remarks
-   * The start rule for splitting Function Compute logs.
+   * The start rule for FC log splitting.
    * 
    * @example
    * DefaultRegex
@@ -642,7 +642,7 @@ export class CreateMcpResponseBodyDataDeploymentConfigMcpConfiguration extends $
   endpointPath?: string;
   /**
    * @remarks
-   * The number of concurrent sessions per instance. Currently fixed to 1.
+   * Currently fixed to 1.
    * 
    * @example
    * 1
@@ -859,7 +859,7 @@ export class CreateMcpResponseBodyDataDeploymentConfigOssMountConfigurationMount
   bucketName?: string;
   /**
    * @remarks
-   * The path of the OSS bucket.
+   * The path in the OSS bucket.
    * 
    * @example
    * /data
@@ -953,7 +953,7 @@ export class CreateMcpResponseBodyDataDeploymentConfigParameterTransformConfigur
   enabled?: boolean;
   /**
    * @remarks
-   * The reserved reference to the parameter transformation and result enhancement rule set.
+   * The reserved parameter transformation and result enhancement rule set reference.
    * 
    * @example
    * rules-1
@@ -1030,7 +1030,7 @@ export class CreateMcpResponseBodyDataDeploymentConfigRuntimeConfiguration exten
   cpu?: number;
   /**
    * @remarks
-   * The temporary disk size in MB. Valid values: 512 or 10240.
+   * The ephemeral disk size in MB. Valid values: 512 and 10240.
    * 
    * @example
    * 512
@@ -1043,7 +1043,7 @@ export class CreateMcpResponseBodyDataDeploymentConfigRuntimeConfiguration exten
   environmentVariables?: { [key: string]: string };
   /**
    * @remarks
-   * The ARN of the RAM role used by user code to access downstream Alibaba Cloud resources.
+   * The ARN of the RAM role used when user code accesses downstream Alibaba Cloud resources.
    * 
    * @example
    * acs:ram::1234567890123456:role/agentcore-mcp-execution
@@ -1051,7 +1051,7 @@ export class CreateMcpResponseBodyDataDeploymentConfigRuntimeConfiguration exten
   executionRoleArn?: string;
   /**
    * @remarks
-   * The maximum number of concurrent requests per instance. Default value: 200.
+   * Default value: 200.
    * 
    * @example
    * 200
@@ -1067,7 +1067,7 @@ export class CreateMcpResponseBodyDataDeploymentConfigRuntimeConfiguration exten
   memory?: number;
   /**
    * @remarks
-   * The service port. Default value: 9000.
+   * Default value: 9000.
    * 
    * @example
    * 9000
@@ -1132,7 +1132,7 @@ export class CreateMcpResponseBodyDataDeploymentConfig extends $dara.Model {
   agentIdentityConfiguration?: CreateMcpResponseBodyDataDeploymentConfigAgentIdentityConfiguration;
   /**
    * @remarks
-   * The artifact type. A value of Code indicates a ZIP code package, and a value of Container indicates a custom container.
+   * The artifact type. Code indicates a ZIP code package, and Container indicates a custom container.
    * 
    * @example
    * Code
@@ -1312,7 +1312,7 @@ export class CreateMcpResponseBodyDataMarketSource extends $dara.Model {
 export class CreateMcpResponseBodyDataTemplate extends $dara.Model {
   /**
    * @remarks
-   * The template version currently applied to the MCP.
+   * The applied template version of the current MCP.
    * 
    * @example
    * 1.0.0
@@ -1344,7 +1344,7 @@ export class CreateMcpResponseBodyDataTemplate extends $dara.Model {
   templateInputSchema?: string;
   /**
    * @remarks
-   * Specifies whether an updated template version is available.
+   * Indicates whether an updated template version is available.
    */
   updateAvailable?: boolean;
   static names(): { [key: string]: string } {
@@ -1379,12 +1379,12 @@ export class CreateMcpResponseBodyDataTemplate extends $dara.Model {
 export class CreateMcpResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of MCP service addresses. This parameter is required when Type is set to DIRECT_PROXY or HTTP_TO_MCP. Do not specify this parameter when Type is set to CODE_PACKAGE.
+   * The list of MCP service addresses.
    */
   addresses?: string[];
   /**
    * @remarks
-   * The backend authentication configuration. enabled indicates whether it is enabled; directProxy specifies the custom authentication headers for the direct proxy; httpToMcp specifies the list of OpenAPI credentials for HTTP_TO_MCP.
+   * The backend authentication configuration. The enabled field indicates whether authentication is enabled. The directProxy field specifies the custom authentication header for the direct proxy. The httpToMcp field specifies the list of OpenAPI credentials for HTTP_TO_MCP.
    */
   auth?: CreateMcpResponseBodyDataAuth;
   /**
@@ -1394,7 +1394,7 @@ export class CreateMcpResponseBodyData extends $dara.Model {
   customTags?: string[];
   /**
    * @remarks
-   * The deployment configuration for the code-deployed MCP.
+   * The deployment configuration for the code deployment MCP.
    */
   deploymentConfig?: CreateMcpResponseBodyDataDeploymentConfig;
   /**
@@ -1402,12 +1402,12 @@ export class CreateMcpResponseBodyData extends $dara.Model {
    * The description.
    * 
    * @example
-   * A sample description that illustrates the purpose of the resource
+   * A sample description to illustrate the purpose of the resource
    */
   description?: string;
   /**
    * @remarks
-   * The MCP endpoint available for invocation by users or agents. This field is empty before deployment is complete.
+   * The MCP endpoint available for users or agents to invoke. This field is empty before deployment is complete.
    * 
    * @example
    * https://example.com/mcp
@@ -1415,7 +1415,7 @@ export class CreateMcpResponseBodyData extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The name of the Function Compute function associated with the CODE_PACKAGE MCP. This field is empty before deployment is complete and for all other types.
+   * The Function Compute function name corresponding to the CODE_PACKAGE MCP. This field is empty before deployment is complete and for other types.
    * 
    * @example
    * agentcore-mcp-example
@@ -1423,7 +1423,7 @@ export class CreateMcpResponseBodyData extends $dara.Model {
   functionName?: string;
   /**
    * @remarks
-   * The source marketplace template for the MCP.
+   * The MCP source marketplace template.
    */
   marketSource?: CreateMcpResponseBodyDataMarketSource;
   /**
@@ -1460,7 +1460,7 @@ export class CreateMcpResponseBodyData extends $dara.Model {
   officialTag?: string;
   /**
    * @remarks
-   * The access permission mode. PUBLIC indicates public access. CONTROLLED indicates that access is controlled based on permission rules.
+   * PUBLIC indicates public access. CONTROLLED indicates that access is controlled based on permission rules.
    * 
    * @example
    * CONTROLLED
@@ -1484,7 +1484,7 @@ export class CreateMcpResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The reason for the status.
+   * The status reason.
    * 
    * @example
    * Resource processing completed
@@ -1500,12 +1500,12 @@ export class CreateMcpResponseBodyData extends $dara.Model {
   swaggerConfig?: string;
   /**
    * @remarks
-   * The template version and input schema bound to the MCP.
+   * The bound template version and input schema of the MCP.
    */
   template?: CreateMcpResponseBodyDataTemplate;
   /**
    * @remarks
-   * The MCP type.
+   * The type.
    * 
    * @example
    * file
@@ -1513,7 +1513,7 @@ export class CreateMcpResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Specifies whether the MCP is still subject to the usage constraints of the official template.
+   * Indicates whether the MCP is still subject to the usage constraints of the official template.
    */
   usageActive?: boolean;
   static names(): { [key: string]: string } {

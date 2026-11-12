@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadSkillViaOssRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The commit message. This parameter is optional.
+   * The commit message.
    * 
    * @example
    * Update documentation
@@ -13,7 +13,7 @@ export class UploadSkillViaOssRequestBody extends $dara.Model {
   commitMsg?: string;
   /**
    * @remarks
-   * The name or path of the OSS object.
+   * The name of the OSS object.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class UploadSkillViaOssRequestBody extends $dara.Model {
   overwrite?: boolean;
   /**
    * @remarks
-   * The target version to upload. This parameter is optional and serves as a fallback when no version information is included in the ZIP package.
+   * Specifies the target version number for the upload. This parameter is optional and serves as a fallback when no version information is included in the ZIP package.
    * 
    * @example
    * 1.0.0

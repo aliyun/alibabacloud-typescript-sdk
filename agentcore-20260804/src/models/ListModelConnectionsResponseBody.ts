@@ -61,7 +61,7 @@ export class ListModelConnectionsResponseBodyItems extends $dara.Model {
   connectionId?: string;
   /**
    * @remarks
-   * The time when the resource was created. The time is displayed in the RFC 3339 UTC format.
+   * The time when the resource was created. The time is in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-09T00:00:00Z
@@ -90,12 +90,12 @@ export class ListModelConnectionsResponseBodyItems extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The list of summaries of models associated with the model connection.
+   * The list of model summaries associated with the model connection.
    */
   models?: ListModelConnectionsResponseBodyItemsModels[];
   /**
    * @remarks
-   * The name of the model connection. The name must be 1 to 128 characters in length and cannot contain whitespace characters.
+   * The name of the model connection. The name must be 1 to 128 non-whitespace characters in length.
    * 
    * @example
    * name
@@ -103,7 +103,7 @@ export class ListModelConnectionsResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The model invocation protocol. Currently, only OpenAI/v1 is supported. If this parameter is not specified during model connection creation, this default value is used.
+   * The model invocation protocol. Currently, only OpenAI/v1 is supported. If this parameter is not specified when you create a model connection, this default value is used.
    * 
    * @example
    * OpenAI/v1
@@ -127,7 +127,7 @@ export class ListModelConnectionsResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The failure summary returned when the model connection fails to be published, or when deletion fails but the connection remains in the deleting state. This field is empty in other states.
+   * The failure summary returned when the model connection fails to be published, or when deletion fails but the status remains Deleting. This field is empty for other statuses.
    * 
    * @example
    * GatewayOperationException
@@ -135,7 +135,7 @@ export class ListModelConnectionsResponseBodyItems extends $dara.Model {
   statusReason?: string;
   /**
    * @remarks
-   * The time when the resource was last updated. The time is displayed in the RFC 3339 UTC format.
+   * The time when the resource was last updated. The time is in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-09T00:00:00Z
@@ -223,7 +223,7 @@ export class ListModelConnectionsResponseBody extends $dara.Model {
   items?: ListModelConnectionsResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of entries to return on each page. Valid values: 0 to 100. Default value: 10. If this parameter is not specified or is set to 0, the default value is used.
+   * The maximum number of entries to return per page. Valid values: 0 to 100. Default value: 10. If this parameter is not specified or is set to 0, the default value is used.
    * 
    * @example
    * 10
@@ -239,7 +239,7 @@ export class ListModelConnectionsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token. Pass the token returned in the previous query for the current request. An empty response indicates that no more pages are available.
+   * The pagination token. Pass the token returned in the previous response to query the next page. If the response is empty, no more pages are available.
    * 
    * @example
    * bW9kZWwtbWFuYWdlbWVudC1vZmZzZXQ6bW9kZWwtY29ubmVjdGlvbjoxMA

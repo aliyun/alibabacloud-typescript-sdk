@@ -17,7 +17,7 @@ export declare class ListImageCachesResponseBodyItemsError extends $dara.Model {
      * This parameter is required.
      *
      * @example
-     * Image cache creation failed. Please try again
+     * Image cache creation failed. Try again
      */
     message?: string;
     static names(): {
@@ -34,7 +34,7 @@ export declare class ListImageCachesResponseBodyItemsError extends $dara.Model {
 export declare class ListImageCachesResponseBodyItems extends $dara.Model {
     /**
      * @remarks
-     * The ID of the source ACR instance.
+     * The source ACR instance ID.
      *
      * This parameter is required.
      *
@@ -44,7 +44,7 @@ export declare class ListImageCachesResponseBodyItems extends $dara.Model {
     acrInstanceId?: string;
     /**
      * @remarks
-     * The number of agents that use the cache.
+     * The number of agents using the cache.
      *
      * This parameter is required.
      *
@@ -54,7 +54,7 @@ export declare class ListImageCachesResponseBodyItems extends $dara.Model {
     agentCount?: number;
     /**
      * @remarks
-     * The size of the cache in bytes.
+     * The cache size in bytes.
      *
      * This parameter is required.
      *
@@ -77,7 +77,7 @@ export declare class ListImageCachesResponseBodyItems extends $dara.Model {
     canDelete?: boolean;
     /**
      * @remarks
-     * The time when the resource was created. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
+     * The resource creation time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
      *
      * This parameter is required.
      *
@@ -120,7 +120,7 @@ export declare class ListImageCachesResponseBodyItems extends $dara.Model {
     error?: ListImageCachesResponseBodyItemsError;
     /**
      * @remarks
-     * The ID of the image cache.
+     * The image cache ID.
      *
      * This parameter is required.
      *
@@ -130,7 +130,7 @@ export declare class ListImageCachesResponseBodyItems extends $dara.Model {
     imageId?: string;
     /**
      * @remarks
-     * The domain name of the source image.
+     * The source image domain name.
      *
      * This parameter is required.
      *
@@ -140,7 +140,7 @@ export declare class ListImageCachesResponseBodyItems extends $dara.Model {
     registry?: string;
     /**
      * @remarks
-     * The repository path of the source image.
+     * The source image repository path.
      *
      * This parameter is required.
      *
@@ -150,7 +150,7 @@ export declare class ListImageCachesResponseBodyItems extends $dara.Model {
     repository?: string;
     /**
      * @remarks
-     * The cache status.
+     * The image cache status.
      *
      * This parameter is required.
      *
@@ -160,7 +160,7 @@ export declare class ListImageCachesResponseBodyItems extends $dara.Model {
     status?: string;
     /**
      * @remarks
-     * The tag of the source image.
+     * The source image tag.
      *
      * This parameter is required.
      *
@@ -212,14 +212,14 @@ export declare class ListImageCachesResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The records on the current page. If no matching items are found, an empty array is returned.
+     * The records on the current page. An empty array is returned if no matching items are found.
      *
      * This parameter is required.
      */
     items?: ListImageCachesResponseBodyItems[];
     /**
      * @remarks
-     * The actual page size used for this request. This is not the number of items on the current page.
+     * The actual page size used for this request, which is not the number of items on the current page.
      *
      * This parameter is required.
      *
@@ -239,7 +239,7 @@ export declare class ListImageCachesResponseBody extends $dara.Model {
     message?: string;
     /**
      * @remarks
-     * The opaque cursor for the next page. An empty string indicates that there are no more pages.
+     * The opaque cursor for the next page. An empty string indicates the end of the list.
      *
      * This parameter is required.
      *
@@ -249,7 +249,7 @@ export declare class ListImageCachesResponseBody extends $dara.Model {
     nextToken?: string;
     /**
      * @remarks
-     * The request ID used for troubleshooting.
+     * The request ID, which is used for troubleshooting.
      *
      * This parameter is required.
      *
@@ -259,7 +259,7 @@ export declare class ListImageCachesResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the request is successful. A successful request does not indicate that the cache creation is complete.
+     * Indicates whether the request is successful. This does not indicate that the cache creation is complete.
      *
      * This parameter is required.
      *
@@ -269,7 +269,7 @@ export declare class ListImageCachesResponseBody extends $dara.Model {
     success?: boolean;
     /**
      * @remarks
-     * The total number of records that match the current filter conditions. Do not use this value to determine whether the traversal is complete.
+     * The total number of records under the current filter conditions. Do not use this value to determine whether the traversal is complete.
      *
      * This parameter is required.
      *

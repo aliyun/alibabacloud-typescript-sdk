@@ -29,7 +29,7 @@ export class ListCredentialsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The filter condition for fuzzy matching by credential name.
+   * The keyword used to perform fuzzy matching on credential names.
    * 
    * @example
    * model
@@ -37,7 +37,7 @@ export class ListCredentialsRequest extends $dara.Model {
   nameLike?: string;
   /**
    * @remarks
-   * The cursor for querying the next page. Do not specify this parameter for the first call. For subsequent calls, specify the nextToken value returned in the previous response.
+   * The cursor used to query the next page. Leave this parameter empty in the first call. In subsequent calls, specify the nextToken value returned in the previous response.
    * 
    * @example
    * 10

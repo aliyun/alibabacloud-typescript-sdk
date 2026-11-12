@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class UpdateModelConnectionResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The number of API keys configured in the model connection.
+     * The number of API keys configured for the model connection.
      *
      * @example
      * 1
@@ -55,7 +55,7 @@ export declare class UpdateModelConnectionResponseBodyData extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The model invoke protocol. Currently, only OpenAI/v1 is supported. If the Settings are not specified during model creation, this default value is used.
+     * The model invoke protocol. Currently, only OpenAI/v1 is supported. If Settings are not specified during model creation, this default value is used.
      *
      * @example
      * OpenAI/v1
@@ -79,7 +79,7 @@ export declare class UpdateModelConnectionResponseBodyData extends $dara.Model {
     status?: string;
     /**
      * @remarks
-     * The failure summary returned when the model connection fails to be published, or when deletion fails but the connection remains in the deleting state. This field is empty in other states.
+     * The failure summary returned when the model connection fails to be published, or when deletion fails but the connection remains in the deleting state. This field is empty for other states.
      *
      * @example
      * GatewayOperationException
@@ -115,7 +115,7 @@ export declare class UpdateModelConnectionResponseBodyData extends $dara.Model {
 export declare class UpdateModelConnectionResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The business status code. The value is SUCCESS if the request is successful.
+     * The business status code. The value is SUCCESS if the request succeeds.
      *
      * @example
      * SUCCESS
@@ -128,7 +128,7 @@ export declare class UpdateModelConnectionResponseBody extends $dara.Model {
     data?: UpdateModelConnectionResponseBodyData;
     /**
      * @remarks
-     * The HTTP status code. The value is 200 if the request is successful.
+     * The HTTP status code. The value is 200 if the request succeeds.
      *
      * @example
      * 200

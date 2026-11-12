@@ -13,7 +13,7 @@ export class CreateCredentialResponseBodyDataResourceRefs extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The name of the resource. This parameter is empty if the resource is deleted.
+   * The resource name. This field is empty if the resource is deleted.
    * 
    * @example
    * my-mcp-service
@@ -21,7 +21,7 @@ export class CreateCredentialResponseBodyDataResourceRefs extends $dara.Model {
   resourceName?: string;
   /**
    * @remarks
-   * The type of the resource. Set the value to mcpServer, which indicates an MCP service.
+   * The resource type. Currently, only mcpServer is supported, which indicates an MCP service.
    * 
    * @example
    * mcpServer
@@ -55,7 +55,7 @@ export class CreateCredentialResponseBodyDataResourceRefs extends $dara.Model {
 export class CreateCredentialResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the credential was created. The time is in UTC and follows the RFC 3339 format.
+   * The creation time in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -87,7 +87,7 @@ export class CreateCredentialResponseBodyData extends $dara.Model {
   credentialType?: string;
   /**
    * @remarks
-   * The description of the credential. The description can be up to 256 characters in length.
+   * The credential description. It can be up to 256 characters in length.
    * 
    * @example
    * API key used to call the model service in the production environment
@@ -95,7 +95,7 @@ export class CreateCredentialResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the credential. The name must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 99 characters in length. Runtime reserved names cannot be used.
+   * The credential name. It must be unique within the workspace, contain only letters, digits, periods, underscores, and hyphens, and be 3 to 99 characters in length. Runtime reserved names cannot be used.
    * 
    * @example
    * model-api-key
@@ -103,7 +103,7 @@ export class CreateCredentialResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the region where the resource resides.
+   * The region ID of the resource.
    * 
    * @example
    * cn-hangzhou
@@ -116,7 +116,7 @@ export class CreateCredentialResponseBodyData extends $dara.Model {
   resourceRefs?: CreateCredentialResponseBodyDataResourceRefs[];
   /**
    * @remarks
-   * The application scope of the credential. ALL indicates all scopes, and SPECIFIED indicates the specified MCP services.
+   * The applicable scope of the credential. ALL indicates all scopes, and SPECIFIED indicates the specified MCP services.
    * 
    * @example
    * ALL
@@ -124,7 +124,7 @@ export class CreateCredentialResponseBodyData extends $dara.Model {
   resourceScope?: string;
   /**
    * @remarks
-   * The time when the credential was last modified. The time is in UTC and follows the RFC 3339 format.
+   * The last modification time in RFC 3339 UTC format.
    * 
    * @example
    * 2026-08-12T03:04:05Z

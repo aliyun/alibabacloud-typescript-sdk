@@ -42,7 +42,7 @@ export class BatchDeleteModelsRequest extends $dara.Model {
   body?: BatchDeleteModelsRequestBody;
   /**
    * @remarks
-   * The client token used to ensure idempotence. This parameter is not supported.
+   * The client token used for idempotence. This parameter is not supported.
    * 
    * @example
    * client-token-1

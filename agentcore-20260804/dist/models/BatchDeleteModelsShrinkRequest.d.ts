@@ -7,7 +7,7 @@ export declare class BatchDeleteModelsShrinkRequest extends $dara.Model {
     bodyShrink?: string;
     /**
      * @remarks
-     * The client token used to ensure idempotence. This parameter is not supported.
+     * The client token used for idempotence. This parameter is not supported.
      *
      * @example
      * client-token-1

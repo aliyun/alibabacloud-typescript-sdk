@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListMemorySessionsRequest extends $dara.Model {
     /**
      * @remarks
-     * The agent ID. If not specified, all agents are matched. The length is limited to 1 to 128 UTF-8 bytes, and it cannot contain / or *.
+     * The agent ID. If you do not specify this parameter, all agents are matched. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*).
      *
      * @example
      * agent-001
@@ -26,7 +26,7 @@ export declare class ListMemorySessionsRequest extends $dara.Model {
     nextToken?: string;
     /**
      * @remarks
-     * The user ID. If not specified, all users are matched. The length is limited to 1 to 128 UTF-8 bytes, and it cannot contain / or *.
+     * The user ID. If you do not specify this parameter, all users are matched. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*).
      *
      * @example
      * user-001

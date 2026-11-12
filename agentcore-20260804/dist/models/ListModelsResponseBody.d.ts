@@ -2,12 +2,12 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListModelsResponseBodyItemsCapabilities extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether the model supports audio input or output.
+     * Indicates whether the model supports audio input or output.
      */
     audio?: boolean;
     /**
      * @remarks
-     * Specifies whether the model supports document input.
+     * Indicates whether the model supports document input.
      */
     document?: boolean;
     /**
@@ -17,27 +17,27 @@ export declare class ListModelsResponseBodyItemsCapabilities extends $dara.Model
     multiToolCall?: boolean;
     /**
      * @remarks
-     * Specifies whether the model supports reasoning capabilities.
+     * Indicates whether the model supports reasoning capabilities.
      */
     reasoning?: boolean;
     /**
      * @remarks
-     * Specifies whether the model supports streaming tool calling.
+     * Specifies whether the model supports streaming tool calls.
      */
     streamToolCall?: boolean;
     /**
      * @remarks
-     * Specifies whether the model supports tool calling.
+     * Indicates whether the model supports tool calling.
      */
     toolCall?: boolean;
     /**
      * @remarks
-     * Specifies whether the model supports video input.
+     * Indicates whether the model supports video input.
      */
     video?: boolean;
     /**
      * @remarks
-     * Specifies whether the model supports image input.
+     * Indicates whether the model supports image input.
      */
     vision?: boolean;
     static names(): {
@@ -75,7 +75,7 @@ export declare class ListModelsResponseBodyItems extends $dara.Model {
     contextSize?: number;
     /**
      * @remarks
-     * The time when the resource was created. The time is in the RFC 3339 UTC format.
+     * The time when the resource was created, in RFC 3339 UTC format.
      *
      * @example
      * 2026-08-09T00:00:00Z
@@ -83,7 +83,7 @@ export declare class ListModelsResponseBodyItems extends $dara.Model {
     createdAt?: string;
     /**
      * @remarks
-     * The model description. The description can be up to 255 characters in length.
+     * The model description, which can be up to 255 characters in length.
      *
      * @example
      * description
@@ -115,7 +115,7 @@ export declare class ListModelsResponseBodyItems extends $dara.Model {
     modelName?: string;
     /**
      * @remarks
-     * The time when the resource was last updated. The time is in the RFC 3339 UTC format.
+     * The time when the resource was last updated, in RFC 3339 UTC format.
      *
      * @example
      * 2026-08-09T00:00:00Z
@@ -143,7 +143,7 @@ export declare class ListModelsResponseBodyItems extends $dara.Model {
 export declare class ListModelsResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The business status code. The value is SUCCESS if the request is successful.
+     * The business status code. A value of SUCCESS indicates success.
      *
      * @example
      * SUCCESS
@@ -151,7 +151,7 @@ export declare class ListModelsResponseBody extends $dara.Model {
     code?: string;
     /**
      * @remarks
-     * The HTTP status code. The value is 200 if the request is successful.
+     * The HTTP status code. A value of 200 indicates success.
      *
      * @example
      * 200
@@ -164,7 +164,7 @@ export declare class ListModelsResponseBody extends $dara.Model {
     items?: ListModelsResponseBodyItems[];
     /**
      * @remarks
-     * The number of entries to return on each page. Valid values: 0 to 100. If this parameter is not specified or is set to 0, the default value is 10.
+     * The maximum number of entries to return per page. Valid values: 0 to 100. If this parameter is not specified or is set to 0, the default value is 10.
      *
      * @example
      * 10
@@ -180,7 +180,7 @@ export declare class ListModelsResponseBody extends $dara.Model {
     message?: string;
     /**
      * @remarks
-     * The pagination token. Specify the token returned from the previous request to retrieve the next page. An empty response indicates that no more pages are available.
+     * The pagination token. Specify the token returned from the previous query. An empty response indicates that no more pages are available.
      *
      * @example
      * bW9kZWwtbWFuYWdlbWVudC1vZmZzZXQ6bW9kZWw6MTA

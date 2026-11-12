@@ -11,7 +11,7 @@ export declare class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
     category?: string;
     /**
      * @remarks
-     * The description of the MCP service.
+     * The MCP service description.
      *
      * @example
      * MCP service for querying knowledge bases
@@ -26,7 +26,7 @@ export declare class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
     };
     /**
      * @remarks
-     * The multilingual display content organized by BCP-47 language tags. If a language is not matched, the system falls back to the default fields.
+     * The multilingual display content, organized by BCP-47 language tags. Falls back to default fields if the language is not matched.
      */
     i18n?: {
         [key: string]: ItemsI18nValue;
@@ -49,7 +49,7 @@ export declare class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
     installCount?: number;
     /**
      * @remarks
-     * The ID of the MCP marketplace template.
+     * The MCP marketplace template ID.
      *
      * @example
      * market-1
@@ -65,7 +65,7 @@ export declare class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
     mcpType?: string;
     /**
      * @remarks
-     * The name of the MCP marketplace template.
+     * The MCP marketplace template name.
      *
      * @example
      * Knowledge
@@ -89,7 +89,7 @@ export declare class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
     protocol?: string;
     /**
      * @remarks
-     * The usage instructions of the MCP marketplace template.
+     * The usage instructions for the MCP marketplace template.
      *
      * @example
      * # Knowledge\\nKnowledge base query service
@@ -97,7 +97,7 @@ export declare class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
     readme?: string;
     /**
      * @remarks
-     * The schema version of the template.
+     * The template schema version.
      *
      * @example
      * 1.0
@@ -105,7 +105,7 @@ export declare class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
     schemaVersion?: string;
     /**
      * @remarks
-     * The input schema of the template, represented as a JSON Schema string.
+     * The template input schema, represented as a JSON Schema string.
      *
      * @example
      * {"type":"object","properties":{"addresses":{"type":"array","items":{"type":"string"}}}}
@@ -113,7 +113,7 @@ export declare class ListMcpMarketItemsResponseBodyItems extends $dara.Model {
     templateInputSchema?: string;
     /**
      * @remarks
-     * The version of the MCP marketplace template.
+     * The MCP marketplace template version.
      *
      * @example
      * 1.0.0
@@ -170,7 +170,7 @@ export declare class ListMcpMarketItemsResponseBody extends $dara.Model {
     message?: string;
     /**
      * @remarks
-     * The pagination token used to query the next page.
+     * The pagination token for querying the next page.
      *
      * @example
      * 20
@@ -178,7 +178,7 @@ export declare class ListMcpMarketItemsResponseBody extends $dara.Model {
     nextToken?: string;
     /**
      * @remarks
-     * The request ID used to locate and troubleshoot the request.
+     * The request ID, used to locate and troubleshoot the request.
      *
      * @example
      * request-123456

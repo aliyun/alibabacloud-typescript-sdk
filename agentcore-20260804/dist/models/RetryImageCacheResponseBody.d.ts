@@ -17,7 +17,7 @@ export declare class RetryImageCacheResponseBodyDataError extends $dara.Model {
      * This parameter is required.
      *
      * @example
-     * The image cache creation failed. Please retry
+     * The image cache creation failed. Please try again
      */
     message?: string;
     static names(): {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentSpecResponseBodyDataVersions extends $dara.Model {
   /**
    * @remarks
-   * The author of the version.
+   * The version author.
    * 
    * @example
    * alice
@@ -13,7 +13,7 @@ export class GetAgentSpecResponseBodyDataVersions extends $dara.Model {
   author?: string;
   /**
    * @remarks
-   * The creation time. It is a UNIX timestamp in milliseconds.
+   * The creation time, which is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787671022000
@@ -24,7 +24,7 @@ export class GetAgentSpecResponseBodyDataVersions extends $dara.Model {
    * The description.
    * 
    * @example
-   * A sample description used to illustrate the purpose of the resource
+   * Sample description to illustrate the purpose of the resource
    */
   description?: string;
   /**
@@ -53,7 +53,7 @@ export class GetAgentSpecResponseBodyDataVersions extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The update time. It is a UNIX timestamp in milliseconds.
+   * The update time, which is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787671022000
@@ -116,7 +116,7 @@ export class GetAgentSpecResponseBodyData extends $dara.Model {
    * The description.
    * 
    * @example
-   * A sample description used to illustrate the purpose of the resource
+   * Sample description to illustrate the purpose of the resource
    */
   description?: string;
   /**
@@ -187,7 +187,7 @@ export class GetAgentSpecResponseBodyData extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The update time. It is a UNIX timestamp in milliseconds.
+   * The update time, which is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787671022000

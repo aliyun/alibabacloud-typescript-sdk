@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EnableConnectorShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The request body for enabling the connector.
+   * The request body for the enable operation.
    * 
    * This parameter is required.
    */

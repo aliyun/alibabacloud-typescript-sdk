@@ -55,7 +55,7 @@ export declare class CreateModelConnectionResponseBodyData extends $dara.Model {
     name?: string;
     /**
      * @remarks
-     * The model invoke protocol. Currently, only OpenAI/v1 is supported. If this parameter is not specified in Settings during model creation, this default value is used.
+     * The model invoke protocol. Currently, only OpenAI/v1 is supported. If the Settings are not specified when you create a model connection, this default value is used for model creation.
      *
      * @example
      * OpenAI/v1
@@ -79,7 +79,7 @@ export declare class CreateModelConnectionResponseBodyData extends $dara.Model {
     status?: string;
     /**
      * @remarks
-     * The failure summary returned when the model connection fails to be published, or when the deletion fails but the connection remains in the Deleting state. This field is empty in other states.
+     * The failure summary returned when the model connection fails to be published, or when the deletion fails but the connection remains in the deleting state. This field is empty in other states.
      *
      * @example
      * GatewayOperationException

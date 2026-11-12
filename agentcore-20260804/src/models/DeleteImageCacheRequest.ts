@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteImageCacheRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID. It is passed as a query parameter and must match the selected region endpoint and the workspace region.
+   * The product entry region. This parameter is passed as a query parameter and must match the selected region endpoint and the workspace region.
    * 
    * This parameter is required.
    * 

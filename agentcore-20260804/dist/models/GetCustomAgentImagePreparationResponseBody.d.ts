@@ -38,7 +38,7 @@ export declare class GetCustomAgentImagePreparationResponseBodyData extends $dar
     agentId?: string;
     /**
      * @remarks
-     * The error. This parameter is returned only when the task fails. Otherwise, the value is null.
+     * The error details. This parameter is returned only when the task fails. Otherwise, the value is null.
      */
     error?: GetCustomAgentImagePreparationResponseBodyDataError;
     /**
@@ -59,7 +59,7 @@ export declare class GetCustomAgentImagePreparationResponseBodyData extends $dar
     phase?: string;
     /**
      * @remarks
-     * The Console task ID for the current submission.
+     * The console task ID for the current submission.
      *
      * @example
      * agent-example:1
@@ -116,7 +116,7 @@ export declare class GetCustomAgentImagePreparationResponseBody extends $dara.Mo
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the API call is successful.
+     * Indicates whether the current API call is successful.
      *
      * @example
      * true

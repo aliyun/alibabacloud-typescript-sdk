@@ -24,7 +24,7 @@ export class UpdateMcpResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * The request is processed successfully
+   * Request processed successfully
    */
   message?: string;
   /**

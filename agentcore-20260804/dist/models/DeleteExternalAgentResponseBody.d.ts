@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class DeleteExternalAgentResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The inbound access mode.
+     * The inbound access method.
      *
      * @example
      * API_KEY
@@ -18,7 +18,7 @@ export declare class DeleteExternalAgentResponseBodyData extends $dara.Model {
     accessScope?: string;
     /**
      * @remarks
-     * The managed agent ID.
+     * The ID of the managed agent.
      *
      * @example
      * agent-1
@@ -58,7 +58,7 @@ export declare class DeleteExternalAgentResponseBodyData extends $dara.Model {
     description?: string;
     /**
      * @remarks
-     * The latest specification version number.
+     * The latest specification version.
      *
      * @example
      * 1
@@ -118,7 +118,7 @@ export declare class DeleteExternalAgentResponseBodyData extends $dara.Model {
 export declare class DeleteExternalAgentResponseBody extends $dara.Model {
     /**
      * @remarks
-     * The business status code. The value is SUCCESS when the request is successful.
+     * The business status code. A value of SUCCESS indicates success.
      *
      * @example
      * SUCCESS
@@ -131,7 +131,7 @@ export declare class DeleteExternalAgentResponseBody extends $dara.Model {
     data?: DeleteExternalAgentResponseBodyData;
     /**
      * @remarks
-     * The HTTP status code. The value is 200 when the request is successful.
+     * The HTTP status code. A value of 200 indicates success.
      *
      * @example
      * 200
@@ -139,7 +139,7 @@ export declare class DeleteExternalAgentResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The message about the request processing result.
+     * The request result message.
      *
      * @example
      * success

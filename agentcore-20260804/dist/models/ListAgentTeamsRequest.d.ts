@@ -21,7 +21,7 @@ export declare class ListAgentTeamsRequestBody extends $dara.Model {
 export declare class ListAgentTeamsRequest extends $dara.Model {
     /**
      * @remarks
-     * The request parameters for querying the list of agent teams.
+     * The request parameters for querying agent teams.
      */
     body?: ListAgentTeamsRequestBody;
     static names(): {

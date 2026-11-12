@@ -24,7 +24,7 @@ export class DeleteMcpResponseBody extends $dara.Model {
    * The response message.
    * 
    * @example
-   * The request is processed successfully
+   * The request was processed successfully
    */
   message?: string;
   /**

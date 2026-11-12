@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
   /**
    * @remarks
-   * The version author.
+   * The author of the version.
    * 
    * @example
    * alice
@@ -21,7 +21,7 @@ export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
   commitMsg?: string;
   /**
    * @remarks
-   * The MD5 checksum of the skill content package for this version, which is used to verify content consistency.
+   * The MD5 checksum of the skill content package for this version, used to verify content consistency.
    * 
    * @example
    * 9e107d9d372bb6826bd81d3542a419d6
@@ -29,7 +29,7 @@ export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
   contentMd5?: string;
   /**
    * @remarks
-   * The creation time. It is a UNIX timestamp in milliseconds.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787671022000
@@ -40,7 +40,7 @@ export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
    * The description.
    * 
    * @example
-   * Sample description to illustrate the purpose of the resource
+   * Sample description used to illustrate the purpose of the resource
    */
   description?: string;
   /**
@@ -53,7 +53,7 @@ export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
   downloadCount?: number;
   /**
    * @remarks
-   * The publish pipeline information.
+   * The release pipeline information.
    * 
    * @example
    * {"status":"SUCCESS"}
@@ -69,7 +69,7 @@ export class GetSkillDetailResponseBodyDataVersions extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The update time. It is a UNIX timestamp in milliseconds.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787671022000
@@ -136,7 +136,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
    * The description.
    * 
    * @example
-   * Sample description to illustrate the purpose of the resource
+   * Sample description used to illustrate the purpose of the resource
    */
   description?: string;
   /**
@@ -149,7 +149,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
   downloadCount?: number;
   /**
    * @remarks
-   * The draft pattern. A value of HEAD indicates that the skill has a persistent draft, and a value of VERSIONED indicates that a draft with a version number is created for each edit. This is determined by the server, and the client uses this value to invoke routing for What to do next.
+   * The draft pattern. A value of HEAD indicates that the skill has a persistent draft. A value of VERSIONED indicates that each edit creates a draft with a version number. This pattern is determined by the server, and the client uses it for routing What to do next when they invoke the API.
    * 
    * @example
    * HEAD
@@ -157,7 +157,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
   draftMode?: string;
   /**
    * @remarks
-   * Specifies whether the root data is editable.
+   * Indicates whether the root data is editable.
    */
   editable?: boolean;
   /**
@@ -170,7 +170,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
   editingVersion?: string;
   /**
    * @remarks
-   * Specifies whether the skill is enabled.
+   * Indicates whether the skill is enabled.
    */
   enable?: boolean;
   /**
@@ -183,7 +183,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
   from?: string;
   /**
    * @remarks
-   * The label mapping.
+   * The tag mapping.
    */
   labels?: { [key: string]: string };
   /**
@@ -228,7 +228,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The update time. It is a UNIX timestamp in milliseconds.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1787671022000
@@ -249,7 +249,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * Specifies whether the current user has write permissions.
+   * Indicates whether the current user has write permissions.
    */
   writeable?: boolean;
   static names(): { [key: string]: string } {
@@ -316,7 +316,7 @@ export class GetSkillDetailResponseBodyData extends $dara.Model {
 export class GetSkillDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: GetSkillDetailResponseBodyData;
   /**

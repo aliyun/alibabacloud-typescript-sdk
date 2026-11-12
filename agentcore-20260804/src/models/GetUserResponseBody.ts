@@ -21,7 +21,7 @@ export class GetUserResponseBodyData extends $dara.Model {
   authMethod?: string;
   /**
    * @remarks
-   * The creation time in UTC format compliant with RFC 3339.
+   * The creation time in UTC format based on RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -29,7 +29,7 @@ export class GetUserResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The display name of the user. The name must be 1 to 32 characters in length.
+   * The display name of the user. It must be 1 to 32 characters in length.
    * 
    * @example
    * Zhang San
@@ -37,7 +37,7 @@ export class GetUserResponseBodyData extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The email address of the user. The address can be up to 256 characters in length.
+   * The email address of the user. It can be up to 256 characters in length.
    * 
    * @example
    * user-01@example.com
@@ -45,7 +45,7 @@ export class GetUserResponseBodyData extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The username. The name must be unique within the workspace, contain only lowercase letters, digits, and hyphens, start and end with a lowercase letter or a digit, and be 1 to 32 characters in length.
+   * The username. It must be unique within the workspace, contain only lowercase letters, digits, and hyphens, start and end with a lowercase letter or digit, and be 1 to 32 characters in length.
    * 
    * @example
    * user-01
@@ -53,7 +53,7 @@ export class GetUserResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The note for the user. The note can be up to 1,024 characters in length.
+   * The note for the user. It can be up to 1,024 characters in length.
    * 
    * @example
    * Agent operations team member
@@ -69,7 +69,7 @@ export class GetUserResponseBodyData extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The status of the user. Valid values: Creating, Active, Updating, Deleting, Failed, and DeleteFailed.
+   * The user status. Valid values: Creating, Active, Updating, Deleting, Failed, and DeleteFailed.
    * 
    * @example
    * Active
@@ -77,7 +77,7 @@ export class GetUserResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time of the last modification in UTC format compliant with RFC 3339.
+   * The last update time in UTC format based on RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -156,7 +156,7 @@ export class GetUserResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message. An error description is returned if the request fails.
+   * The response message. Returns an error description if the request fails.
    * 
    * @example
    * success

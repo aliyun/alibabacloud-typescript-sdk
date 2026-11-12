@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSkillDraftRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The version to fork from. If you do not specify this parameter, a new skill is created.
+   * The version from which the draft is derived. If you leave this parameter empty, a new skill is created.
    * 
    * @example
    * 0.0.1
@@ -39,7 +39,7 @@ export class CreateSkillDraftRequestBody extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * Specifies the draft version number. If not specified, the version number automatically increments.
+   * The target version number of the draft. If you do not specify this parameter, the version number automatically increments.
    * 
    * @example
    * 0.0.2

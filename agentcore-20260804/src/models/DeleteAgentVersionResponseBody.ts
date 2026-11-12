@@ -29,7 +29,7 @@ export class DeleteAgentVersionResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot requests.
+   * The request ID, which is used to locate and troubleshoot the request.
    * 
    * @example
    * 5E8F3C2A-1B4D-4F6E-9A7C-0D2B8E6F4A1C

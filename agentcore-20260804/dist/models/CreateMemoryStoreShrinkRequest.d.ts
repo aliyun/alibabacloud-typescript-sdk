@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class CreateMemoryStoreShrinkRequest extends $dara.Model {
     /**
      * @remarks
-     * The MemoryStore creation request.
+     * The request to create a memory store.
      *
      * This parameter is required.
      */

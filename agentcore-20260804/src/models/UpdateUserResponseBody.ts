@@ -13,7 +13,7 @@ export class UpdateUserResponseBodyData extends $dara.Model {
   agentCoreUserId?: string;
   /**
    * @remarks
-   * The authentication method of the user. A value of password indicates that the user is authenticated by using the local password of the workspace. A value of dingtalk or feishu indicates that the user is synchronized and authenticated by the corresponding external identity provider.
+   * The authentication method of the user. A value of password indicates that local password authentication in the workspace is used. A value of dingtalk or feishu indicates that the user is synchronized and authenticated by the corresponding external identity provider.
    * 
    * @example
    * password
@@ -21,7 +21,7 @@ export class UpdateUserResponseBodyData extends $dara.Model {
   authMethod?: string;
   /**
    * @remarks
-   * The creation time. The time is displayed in UTC and follows the RFC 3339 format.
+   * The creation time in UTC format based on RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z
@@ -77,7 +77,7 @@ export class UpdateUserResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The time when the user was last modified. The time is displayed in UTC and follows the RFC 3339 format.
+   * The last modification time in UTC format based on RFC 3339.
    * 
    * @example
    * 2026-08-12T03:04:05Z

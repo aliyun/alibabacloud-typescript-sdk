@@ -59,7 +59,7 @@ export declare class ListSandboxSessionsResponseBody extends $dara.Model {
     items?: ListSandboxSessionsResponseBodyItems[];
     /**
      * @remarks
-     * The maximum number of records per page for the current query.
+     * The maximum number of records per page for this query.
      *
      * @example
      * 20
@@ -91,7 +91,7 @@ export declare class ListSandboxSessionsResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the request is successful. A value of true indicates that the request is successful. A value of false indicates that the request fails.
+     * Indicates whether the request is successful. A value of true indicates success, and a value of false indicates failure.
      */
     success?: boolean;
     /**
