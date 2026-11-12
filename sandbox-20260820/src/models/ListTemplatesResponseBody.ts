@@ -6,7 +6,7 @@ import { PublicTemplate } from "./PublicTemplate";
 export class ListTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. The value 200 indicates success.
+   * The error code. The value is 200 if the request is successful.
    * 
    * @example
    * 200
@@ -14,7 +14,7 @@ export class ListTemplatesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The maximum number of entries returned per page in the current response.
+   * The maximum number of entries per page used in this response.
    * 
    * @example
    * 20

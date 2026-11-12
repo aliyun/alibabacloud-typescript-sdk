@@ -15,7 +15,7 @@ export class DescribeQuotaResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message. The value is success for a successful request.
+   * The response message. A value of success indicates success.
    * 
    * @example
    * success
@@ -36,7 +36,7 @@ export class DescribeQuotaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Team 当前配额用量。用量不可用时省略；成功查询且无占用时返回三项零值。
+   * The current quota usage of the team.
    * 
    * @example
    * {"cpuCores":1,"memoryGB":1.5,"instanceCount":1}

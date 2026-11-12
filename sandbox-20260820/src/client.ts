@@ -990,15 +990,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve the template list with paging.
+   * Performs a paging query on the template list.
    * 
-   * @param request - ListTemplatesRequest
+   * @param tmpReq - ListTemplatesRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListTemplatesResponse
    */
-  async listTemplatesWithOptions(request: $_model.ListTemplatesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListTemplatesResponse> {
-    request.validate();
+  async listTemplatesWithOptions(tmpReq: $_model.ListTemplatesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListTemplatesResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListTemplatesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.resourceTags)) {
+      request.resourceTagsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.resourceTags, "resourceTags", "json");
+    }
+
     let query : {[key: string ]: any} = { };
     if (!$dara.isNull(request.maxResults)) {
       query["maxResults"] = request.maxResults;
@@ -1006,6 +1012,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.resourceTagsShrink)) {
+      query["resourceTags"] = request.resourceTagsShrink;
     }
 
     if (!$dara.isNull(request.teamID)) {
@@ -1031,7 +1041,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve the template list with paging.
+   * Performs a paging query on the template list.
    * 
    * @param request - ListTemplatesRequest
    * @returns ListTemplatesResponse

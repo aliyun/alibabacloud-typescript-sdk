@@ -5,6 +5,46 @@ import { InnerSandboxRuntimeConfig } from "./InnerSandboxRuntimeConfig";
 import { InnerCreateSandboxVolumeMounts } from "./InnerCreateSandboxVolumeMounts";
 
 
+export class InnerCreateSandboxInputResourceTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * project
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * demo
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class InnerCreateSandboxInput extends $dara.Model {
   /**
    * @remarks
@@ -33,6 +73,9 @@ export class InnerCreateSandboxInput extends $dara.Model {
   /**
    * @remarks
    * The environment variable configuration.
+   * 
+   * @example
+   * {"APP_MODE":"demo"}
    */
   envVars?: { [key: string]: string };
   /**
@@ -45,6 +88,11 @@ export class InnerCreateSandboxInput extends $dara.Model {
    * The network configuration.
    */
   network?: E2BNetwork;
+  /**
+   * @remarks
+   * The resource tags.
+   */
+  resourceTags?: InnerCreateSandboxInputResourceTags[];
   /**
    * @remarks
    * The runtime configuration.
@@ -92,7 +140,7 @@ export class InnerCreateSandboxInput extends $dara.Model {
   templateID?: string;
   /**
    * @remarks
-   * The timeout period, in seconds.
+   * The timeout period in seconds.
    * 
    * @example
    * 180
@@ -111,6 +159,7 @@ export class InnerCreateSandboxInput extends $dara.Model {
       envVars: 'envVars',
       metadata: 'metadata',
       network: 'network',
+      resourceTags: 'resourceTags',
       runtime: 'runtime',
       secure: 'secure',
       snapshotID: 'snapshotID',
@@ -130,6 +179,7 @@ export class InnerCreateSandboxInput extends $dara.Model {
       envVars: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       network: E2BNetwork,
+      resourceTags: { 'type': 'array', 'itemType': InnerCreateSandboxInputResourceTags },
       runtime: InnerSandboxRuntimeConfig,
       secure: 'boolean',
       snapshotID: 'string',
@@ -150,6 +200,9 @@ export class InnerCreateSandboxInput extends $dara.Model {
     }
     if(this.network && typeof (this.network as any).validate === 'function') {
       (this.network as any).validate();
+    }
+    if(Array.isArray(this.resourceTags)) {
+      $dara.Model.validateArray(this.resourceTags);
     }
     if(this.runtime && typeof (this.runtime as any).validate === 'function') {
       (this.runtime as any).validate();

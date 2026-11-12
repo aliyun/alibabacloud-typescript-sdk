@@ -2,6 +2,46 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class E2BSnapshotResourceTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * project
+   */
+  tagKey?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * demo
+   */
+  tagValue?: string;
+  static names(): { [key: string]: string } {
+    return {
+      tagKey: 'tagKey',
+      tagValue: 'tagValue',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      tagKey: 'string',
+      tagValue: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class E2BSnapshot extends $dara.Model {
   /**
    * @remarks
@@ -51,6 +91,11 @@ export class E2BSnapshot extends $dara.Model {
    * rg-****
    */
   resourceGroupID?: string;
+  /**
+   * @remarks
+   * The resource tags.
+   */
+  resourceTags?: E2BSnapshotResourceTags[];
   /**
    * @remarks
    * The snapshot ID.
@@ -115,6 +160,7 @@ export class E2BSnapshot extends $dara.Model {
       memoryMB: 'memoryMB',
       name: 'name',
       resourceGroupID: 'resourceGroupID',
+      resourceTags: 'resourceTags',
       snapshotID: 'snapshotID',
       sourceSandboxID: 'sourceSandboxID',
       status: 'status',
@@ -133,6 +179,7 @@ export class E2BSnapshot extends $dara.Model {
       memoryMB: 'number',
       name: 'string',
       resourceGroupID: 'string',
+      resourceTags: { 'type': 'array', 'itemType': E2BSnapshotResourceTags },
       snapshotID: 'string',
       sourceSandboxID: 'string',
       status: 'string',
@@ -144,6 +191,9 @@ export class E2BSnapshot extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.resourceTags)) {
+      $dara.Model.validateArray(this.resourceTags);
+    }
     super.validate();
   }
 

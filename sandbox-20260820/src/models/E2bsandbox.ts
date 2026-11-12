@@ -56,7 +56,7 @@ export class E2BSandbox extends $dara.Model {
   accessEndpoint?: string;
   /**
    * @remarks
-   * Specifies whether the sandbox is allowed to access the external network.
+   * Specifies whether the sandbox is allowed to access the Internet.
    */
   allowInternetAccess?: boolean;
   /**
@@ -94,11 +94,14 @@ export class E2BSandbox extends $dara.Model {
   /**
    * @remarks
    * The environment variables.
+   * 
+   * @example
+   * {"APP_MODE":"demo"}
    */
   envVars?: { [key: string]: string };
   /**
    * @remarks
-   * The authentication token for accessing the envd daemon process in the sandbox, in UUID format. This token is automatically generated only when secure is set to true.
+   * The authentication credential for accessing the envd daemon process in the sandbox in UUID format. This credential is automatically generated only when secure is set to true.
    * 
    * @example
    * 4b1e9d07-****
@@ -122,7 +125,7 @@ export class E2BSandbox extends $dara.Model {
   fcInstanceID?: string;
   /**
    * @remarks
-   * The Function Compute session ID of the sandbox, in UUID format. This ID is used to locate the underlying session when pausing, resuming, or deleting the sandbox.
+   * The Function Compute session ID of the sandbox in UUID format. This ID is used to locate the underlying session when pausing, resuming, or deleting the sandbox.
    * 
    * @example
    * 3a7ecd09-****
@@ -199,15 +202,15 @@ export class E2BSandbox extends $dara.Model {
   /**
    * @remarks
    * The sandbox state. Valid values:
-   * - running: Running.
-   * - pausing: Pausing.
-   * - paused: Paused.
-   * - resuming: Resuming.
-   * - pause_fail: Pause failed.
-   * - resume_fail: Resume failed.
-   * - snapshotting: Snapshotting.
-   * - snapshot_failed: Snapshot failed.
-   * - terminated: Terminated.
+   * - running: The sandbox is running.
+   * - pausing: The sandbox is being paused.
+   * - paused: The sandbox is paused.
+   * - resuming: The sandbox is being resumed.
+   * - pause_fail: The pause operation failed.
+   * - resume_fail: The resume operation failed.
+   * - snapshotting: A snapshot is being created.
+   * - snapshot_failed: Snapshot creation failed.
+   * - terminated: The sandbox is terminated.
    * 
    * @example
    * running

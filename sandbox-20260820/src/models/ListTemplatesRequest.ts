@@ -2,6 +2,46 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListTemplatesRequestResourceTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * project
+   */
+  key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * demo
+   */
+  value?: string;
+  static names(): { [key: string]: string } {
+    return {
+      key: 'key',
+      value: 'value',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      key: 'string',
+      value: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListTemplatesRequest extends $dara.Model {
   /**
    * @remarks
@@ -13,12 +53,17 @@ export class ListTemplatesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the nextToken value returned in the response of the previous request.
+   * The pagination token. Set this parameter to the value of nextToken returned in the response of the previous page.
    * 
    * @example
    * cae5f900-8b1d-4c0e-9c2a-1a2b3c4d5e6f
    */
   nextToken?: string;
+  /**
+   * @remarks
+   * The resource tags.
+   */
+  resourceTags?: ListTemplatesRequestResourceTags[];
   /**
    * @remarks
    * The team ID.
@@ -31,6 +76,7 @@ export class ListTemplatesRequest extends $dara.Model {
     return {
       maxResults: 'maxResults',
       nextToken: 'nextToken',
+      resourceTags: 'resourceTags',
       teamID: 'teamID',
     };
   }
@@ -39,11 +85,15 @@ export class ListTemplatesRequest extends $dara.Model {
     return {
       maxResults: 'number',
       nextToken: 'string',
+      resourceTags: { 'type': 'array', 'itemType': ListTemplatesRequestResourceTags },
       teamID: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.resourceTags)) {
+      $dara.Model.validateArray(this.resourceTags);
+    }
     super.validate();
   }
 

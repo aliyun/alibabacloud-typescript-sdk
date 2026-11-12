@@ -7,7 +7,7 @@ import { PublicTemplateStatus } from "./PublicTemplateStatus";
 export class GetTemplateResponseBodyResourceTags extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * project
@@ -15,7 +15,7 @@ export class GetTemplateResponseBodyResourceTags extends $dara.Model {
   tagKey?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * demo

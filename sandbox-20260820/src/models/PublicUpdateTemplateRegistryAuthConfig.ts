@@ -8,7 +8,7 @@ export class PublicUpdateTemplateRegistryAuthConfig extends $dara.Model {
    * The repository password.
    * 
    * @example
-   * ******
+   * Demo****Pass
    */
   password?: string;
   /**
