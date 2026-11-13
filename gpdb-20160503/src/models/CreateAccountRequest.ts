@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the initial account.
+   * The description of the initial account. The description must meet the following requirements:
+   * - It must start with a Chinese or English letter.
+   * - It cannot start with `http://` or `https://`.
+   * - It can contain Chinese characters, English letters, underscores (_), hyphens (-), and digits.
+   * - It must be 2 to 256 characters in length.
    * 
    * @example
    * testacc02
@@ -13,12 +17,12 @@ export class CreateAccountRequest extends $dara.Model {
   accountDescription?: string;
   /**
    * @remarks
-   * The name of the initial account.
+   * The name of the initial account. The name must meet the following requirements:
    * 
-   * *   The name can contain lowercase letters, digits, and underscores (_).
-   * *   The name must start with a lowercase letter and end with a lowercase letter or a digit.
-   * *   The name cannot start with gp.
-   * *   The name must be 2 to 16 characters in length.
+   * - It can contain only lowercase letters, digits, and underscores (_).
+   * - It must start with a lowercase letter and end with a lowercase letter or a digit.
+   * - It cannot start with gp.
+   * - It must be 2 to 16 characters in length.
    * 
    * This parameter is required.
    * 
@@ -29,9 +33,10 @@ export class CreateAccountRequest extends $dara.Model {
   /**
    * @remarks
    * The password of the initial account.
-   * *   The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
-   * *   Special characters include `! @ # $ % ^ & * ( ) _ + - =`
-   * *   The password must be 8 to 32 characters in length.
+   * 
+   * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * - Supported special characters: `!@#$%^&*()_+-=`
+   * - The password must be 8 to 32 characters in length.
    * 
    * This parameter is required.
    * 
@@ -41,7 +46,7 @@ export class CreateAccountRequest extends $dara.Model {
   accountPassword?: string;
   /**
    * @remarks
-   * The type of the initial account. Default value: Super, which specifies a privileged account. To create a standard account, set the value to Normal.
+   * The account type. Default value: Super, which creates a privileged account. If you set this parameter to Normal, a standard account is created.
    * 
    * @example
    * Super
@@ -49,9 +54,9 @@ export class CreateAccountRequest extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
-   * >  You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -61,7 +66,10 @@ export class CreateAccountRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name. The name must meet the following requirements:
+   * - It can contain only letters, digits, and underscores (_).
+   * - It must start with a letter.
+   * - It cannot exceed 63 characters in length.
    * 
    * @example
    * test01

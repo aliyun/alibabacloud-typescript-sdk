@@ -34,7 +34,7 @@ export class CreateIndexRequest extends $dara.Model {
    * >- gin: The fastUpdate parameter. Valid values: true and false. Default value: true.
    * 
    * @example
-   * {"b-tree":{"fillFactor":90}} or {"gin":{"fastUpdate":false}}
+   * {"b-tree":{"fillFactor":90}} 或者 {"gin":{"fastUpdate":false}}
    */
   indexConfig?: string;
   /**

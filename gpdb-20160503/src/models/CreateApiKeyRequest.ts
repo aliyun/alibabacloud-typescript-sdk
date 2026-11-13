@@ -31,7 +31,7 @@ export class CreateApiKeyRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the services to be authorized.
+   * The list of service IDs to authorize.
    */
   serviceIds?: string[];
   /**

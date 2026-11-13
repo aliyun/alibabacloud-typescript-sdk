@@ -1010,10 +1010,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks for updatable versions of a SaaS service.
+   * Checks for available updates for a SaaS service.
    * 
    * @remarks
-   * Checks for updatable versions of a SaaS service.
+   * Checks for available updates for a SaaS service.
    * 
    * @param request - CheckSaasServiceVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1048,10 +1048,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks for updatable versions of a SaaS service.
+   * Checks for available updates for a SaaS service.
    * 
    * @remarks
-   * Checks for updatable versions of a SaaS service.
+   * Checks for available updates for a SaaS service.
    * 
    * @param request - CheckSaasServiceVersionRequest
    * @returns CheckSaasServiceVersionResponse
@@ -1062,7 +1062,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a service-linked role is created.
+   * Checks whether the service-linked role is created.
    * 
    * @param request - CheckServiceLinkedRoleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1093,7 +1093,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Checks whether a service-linked role is created.
+   * Checks whether the service-linked role is created.
    * 
    * @param request - CheckServiceLinkedRoleRequest
    * @returns CheckServiceLinkedRoleResponse
@@ -1104,7 +1104,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restores data to a new AnalyticDB for PostgreSQL instance.
+   * Restores data to a specified instance.
    * 
    * @param request - CloneDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1143,7 +1143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Restores data to a new AnalyticDB for PostgreSQL instance.
+   * Restores data to a specified instance.
    * 
    * @param request - CloneDBInstanceRequest
    * @returns CloneDBInstanceResponse
@@ -1216,13 +1216,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an initial account for an AnalyticDB for PostgreSQL instance.
+   * Creates the initial account for an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
-   *   Before you can use an AnalyticDB for PostgreSQL instance, you must create an initial account for the instance.
-   * *   You can call this operation to create only initial accounts. For information about how to create other types of accounts, see [Create a database account](https://help.aliyun.com/document_detail/50206.html).
-   * ## Limits
-   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * - Before using an AnalyticDB for PostgreSQL instance, you must create an initial account.
+   * - This operation only supports creating an initial account. To create other accounts, refer to [Create a database account](https://help.aliyun.com/document_detail/50206.html).
    * 
    * @param request - CreateAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1277,13 +1275,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an initial account for an AnalyticDB for PostgreSQL instance.
+   * Creates the initial account for an AnalyticDB for PostgreSQL instance.
    * 
    * @remarks
-   *   Before you can use an AnalyticDB for PostgreSQL instance, you must create an initial account for the instance.
-   * *   You can call this operation to create only initial accounts. For information about how to create other types of accounts, see [Create a database account](https://help.aliyun.com/document_detail/50206.html).
-   * ## Limits
-   * You can call this operation up to 1,000 times per second per account. If the number of the calls per second exceeds the limit, throttling is triggered. As a result, your business may be affected. We recommend that you take note of the limit when you call this operation.
+   * - Before using an AnalyticDB for PostgreSQL instance, you must create an initial account.
+   * - This operation only supports creating an initial account. To create other accounts, refer to [Create a database account](https://help.aliyun.com/document_detail/50206.html).
    * 
    * @param request - CreateAccountRequest
    * @returns CreateAccountResponse
@@ -1364,7 +1360,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a backup set.
+   * Creates a backup.
    * 
    * @param request - CreateBackupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1395,7 +1391,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a backup set.
+   * Creates a backup.
    * 
    * @param request - CreateBackupRequest
    * @returns CreateBackupResponse
@@ -1409,7 +1405,7 @@ export default class Client extends OpenApi {
    * Creates a Supabase project branch.
    * 
    * @remarks
-   * Creates a new Supabase branch based on a specified parent branch. By default, a child branch inherits the region, network, storage, and other resource configurations from the primary branch.
+   * Creates a new Supabase branch based on a specified parent branch. By default, a child branch inherits resource configurations such as region, network, and storage from the main branch.
    * 
    * @param request - CreateBranchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1487,7 +1483,7 @@ export default class Client extends OpenApi {
    * Creates a Supabase project branch.
    * 
    * @remarks
-   * Creates a new Supabase branch based on a specified parent branch. By default, a child branch inherits the region, network, storage, and other resource configurations from the primary branch.
+   * Creates a new Supabase branch based on a specified parent branch. By default, a child branch inherits resource configurations such as region, network, and storage from the main branch.
    * 
    * @param request - CreateBranchRequest
    * @returns CreateBranchResponse
@@ -1862,7 +1858,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an IP address whitelist group for an instance.
+   * Creates an IP whitelist group for an instance.
    * 
    * @param tmpReq - CreateDBInstanceIPArrayRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1911,7 +1907,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an IP address whitelist group for an instance.
+   * Creates an IP whitelist group for an instance.
    * 
    * @param request - CreateDBInstanceIPArrayRequest
    * @returns CreateDBInstanceIPArrayResponse
@@ -2691,6 +2687,74 @@ export default class Client extends OpenApi {
   async createModelOperatorApiKey(request: $_model.CreateModelOperatorApiKeyRequest): Promise<$_model.CreateModelOperatorApiKeyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createModelOperatorApiKeyWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a model creation operator sub-service.
+   * 
+   * @remarks
+   * *Before you call this operation, make sure that you fully understand the billing methods and pricing of the model creation operator sub-service, and confirm the prices for the target region and specifications in the console.**
+   * This operation creates a model creation operator sub-service and generates a sales order. If the request is successful, ServiceId and OrderId are returned. The service is activated asynchronously by a sales callback, which does not mean that the service is already active. You can call ListModelOperatorServices to query the service status. After the service is activated, you can call CreateModelOperatorApiKey to create credentials to invoke the service.
+   * Each time you successfully invoke the service, a new order may be generated. Do not query the progress by repeatedly creating orders. If a timeout occurs when you invoke the service or an unclear result is returned, check the original order and service first before deciding whether to retry.
+   * 
+   * @param request - CreateModelOperatorServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateModelOperatorServiceResponse
+   */
+  async createModelOperatorServiceWithOptions(request: $_model.CreateModelOperatorServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateModelOperatorServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.cu)) {
+      query["Cu"] = request.cu;
+    }
+
+    if (!$dara.isNull(request.payType)) {
+      query["PayType"] = request.payType;
+    }
+
+    if (!$dara.isNull(request.period)) {
+      query["Period"] = request.period;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    if (!$dara.isNull(request.usedTime)) {
+      query["UsedTime"] = request.usedTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateModelOperatorService",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateModelOperatorServiceResponse>(await this.callApi(params, req, runtime), new $_model.CreateModelOperatorServiceResponse({}));
+  }
+
+  /**
+   * Creates a model creation operator sub-service.
+   * 
+   * @remarks
+   * *Before you call this operation, make sure that you fully understand the billing methods and pricing of the model creation operator sub-service, and confirm the prices for the target region and specifications in the console.**
+   * This operation creates a model creation operator sub-service and generates a sales order. If the request is successful, ServiceId and OrderId are returned. The service is activated asynchronously by a sales callback, which does not mean that the service is already active. You can call ListModelOperatorServices to query the service status. After the service is activated, you can call CreateModelOperatorApiKey to create credentials to invoke the service.
+   * Each time you successfully invoke the service, a new order may be generated. Do not query the progress by repeatedly creating orders. If a timeout occurs when you invoke the service or an unclear result is returned, check the original order and service first before deciding whether to retry.
+   * 
+   * @param request - CreateModelOperatorServiceRequest
+   * @returns CreateModelOperatorServiceResponse
+   */
+  async createModelOperatorService(request: $_model.CreateModelOperatorServiceRequest): Promise<$_model.CreateModelOperatorServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createModelOperatorServiceWithOptions(request, runtime);
   }
 
   /**
@@ -5047,6 +5111,112 @@ export default class Client extends OpenApi {
   async deleteJDBCDataSource(request: $_model.DeleteJDBCDataSourceRequest): Promise<$_model.DeleteJDBCDataSourceResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteJDBCDataSourceWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a model operator API key.
+   * 
+   * @remarks
+   * Deletes a specified API key. A successful request indicates that the deletion intent is accepted and external credentials are asynchronously cleaned up by the system. This does not mean that all underlying resources have been deleted.
+   * After the deletion is accepted, the key no longer appears in the ListModelOperatorApiKeys response. During the cleanup period, DescribeModelOperatorApiKey returns Deleting and does not return the plaintext key or the endpoint. After the cleanup is complete, it returns a resource not found error.
+   * Call the API by using the endpoint of the region to which the target key belongs, and specify an ApiKeyId greater than 0.
+   * 
+   * @param request - DeleteModelOperatorApiKeyRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteModelOperatorApiKeyResponse
+   */
+  async deleteModelOperatorApiKeyWithOptions(request: $_model.DeleteModelOperatorApiKeyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteModelOperatorApiKeyResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.apiKeyId)) {
+      query["ApiKeyId"] = request.apiKeyId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteModelOperatorApiKey",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteModelOperatorApiKeyResponse>(await this.callApi(params, req, runtime), new $_model.DeleteModelOperatorApiKeyResponse({}));
+  }
+
+  /**
+   * Deletes a model operator API key.
+   * 
+   * @remarks
+   * Deletes a specified API key. A successful request indicates that the deletion intent is accepted and external credentials are asynchronously cleaned up by the system. This does not mean that all underlying resources have been deleted.
+   * After the deletion is accepted, the key no longer appears in the ListModelOperatorApiKeys response. During the cleanup period, DescribeModelOperatorApiKey returns Deleting and does not return the plaintext key or the endpoint. After the cleanup is complete, it returns a resource not found error.
+   * Call the API by using the endpoint of the region to which the target key belongs, and specify an ApiKeyId greater than 0.
+   * 
+   * @param request - DeleteModelOperatorApiKeyRequest
+   * @returns DeleteModelOperatorApiKeyResponse
+   */
+  async deleteModelOperatorApiKey(request: $_model.DeleteModelOperatorApiKeyRequest): Promise<$_model.DeleteModelOperatorApiKeyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteModelOperatorApiKeyWithOptions(request, runtime);
+  }
+
+  /**
+   * Releases a model operator service.
+   * 
+   * @remarks
+   * Releases a specified model operator service. Standard deletion supports services in the active and locked states. You cannot initiate a new release for services in processing states such as locking or unlocking.
+   * Delete all API keys under the service that have not been marked for deletion. Subscription services must be handled through the unsubscription or refund process and cannot be directly released by calling this operation. Deletion requests for pay-as-you-go services are accepted after the services pass the ownership, billing method, and associated key checks.
+   * A successful request indicates that the deletion intent is accepted and the system asynchronously cleans up associated resources. It does not indicate that all underlying resources are deleted. You can call ListModelOperatorServices to query the deleting status. After all keys and the gateway are physically cleaned up, the service no longer appears in the list.
+   * Use the endpoint of the region where the service resides to make the call. The Force parameter is not provided as a user parameter for this operation and cannot be used to bypass the associated key check.
+   * 
+   * @param request - DeleteModelOperatorServiceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteModelOperatorServiceResponse
+   */
+  async deleteModelOperatorServiceWithOptions(request: $_model.DeleteModelOperatorServiceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteModelOperatorServiceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.serviceId)) {
+      query["ServiceId"] = request.serviceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteModelOperatorService",
+      version: "2016-05-03",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteModelOperatorServiceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteModelOperatorServiceResponse({}));
+  }
+
+  /**
+   * Releases a model operator service.
+   * 
+   * @remarks
+   * Releases a specified model operator service. Standard deletion supports services in the active and locked states. You cannot initiate a new release for services in processing states such as locking or unlocking.
+   * Delete all API keys under the service that have not been marked for deletion. Subscription services must be handled through the unsubscription or refund process and cannot be directly released by calling this operation. Deletion requests for pay-as-you-go services are accepted after the services pass the ownership, billing method, and associated key checks.
+   * A successful request indicates that the deletion intent is accepted and the system asynchronously cleans up associated resources. It does not indicate that all underlying resources are deleted. You can call ListModelOperatorServices to query the deleting status. After all keys and the gateway are physically cleaned up, the service no longer appears in the list.
+   * Use the endpoint of the region where the service resides to make the call. The Force parameter is not provided as a user parameter for this operation and cannot be used to bypass the associated key check.
+   * 
+   * @param request - DeleteModelOperatorServiceRequest
+   * @returns DeleteModelOperatorServiceResponse
+   */
+  async deleteModelOperatorService(request: $_model.DeleteModelOperatorServiceRequest): Promise<$_model.DeleteModelOperatorServiceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteModelOperatorServiceWithOptions(request, runtime);
   }
 
   /**
@@ -11327,7 +11497,7 @@ export default class Client extends OpenApi {
    * Queries the SaaS DataUnit usage.
    * 
    * @remarks
-   * Aggregates SaaS DataUnit usage by scenario, project, and UTC hour or day. A single query can span up to 7 days, and the start time must be within the last 30 days. The statistics are based on the rules at the time of the query, not the historical actual billing records.
+   * Summarizes SaaS DataUnit usage by scenario, project, and UTC hour or day. A single query can span up to 7 days, and the start time must be within the last 30 days. The statistics are based on the rules at the time of the query, not the historical actual billing records.
    * 
    * @param request - GetSaasDataUnitUsageRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11377,7 +11547,7 @@ export default class Client extends OpenApi {
    * Queries the SaaS DataUnit usage.
    * 
    * @remarks
-   * Aggregates SaaS DataUnit usage by scenario, project, and UTC hour or day. A single query can span up to 7 days, and the start time must be within the last 30 days. The statistics are based on the rules at the time of the query, not the historical actual billing records.
+   * Summarizes SaaS DataUnit usage by scenario, project, and UTC hour or day. A single query can span up to 7 days, and the start time must be within the last 30 days. The statistics are based on the rules at the time of the query, not the historical actual billing records.
    * 
    * @param request - GetSaasDataUnitUsageRequest
    * @returns GetSaasDataUnitUsageResponse
@@ -13350,7 +13520,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of model services.
+   * Queries the list of model services.
    * 
    * @param request - ListModelOperatorServicesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13385,7 +13555,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of model services.
+   * Queries the list of model services.
    * 
    * @param request - ListModelOperatorServicesRequest
    * @returns ListModelOperatorServicesResponse

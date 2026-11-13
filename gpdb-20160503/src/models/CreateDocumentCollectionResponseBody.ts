@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDocumentCollectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * Successful
@@ -21,9 +21,9 @@ export class CreateDocumentCollectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The API execution status. Valid values:
-   * - **success**: The operation was successful.
-   * - **fail**: The operation failed.
+   * The execution status of the operation. Valid values:
+   * - **success**: The operation is successful.
+   * - **fail**: The operation fails.
    * 
    * @example
    * successs

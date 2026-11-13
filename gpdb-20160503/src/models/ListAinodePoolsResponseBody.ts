@@ -18,7 +18,7 @@ export class ListAINodePoolsResponseBodyAINodePoolInfosAINodeInfos extends $dara
    * - bound: The AI node is bound.
    * 
    * @example
-   * bound
+   * bound：表示已绑定。
    */
   bindStatus?: string;
   /**

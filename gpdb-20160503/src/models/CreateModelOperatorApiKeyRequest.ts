@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateModelOperatorApiKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The description. Spaces are not allowed, and the length cannot exceed 256 characters.
+   * The description. It cannot contain spaces and must not exceed 256 characters in length.
    * 
    * This parameter is required.
    * 

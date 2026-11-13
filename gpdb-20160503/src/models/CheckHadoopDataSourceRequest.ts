@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckHadoopDataSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The Hadoop path to be checked.
+   * The Hadoop path to check.
    * 
    * This parameter is required.
    * 

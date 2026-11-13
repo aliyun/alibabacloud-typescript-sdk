@@ -9,7 +9,7 @@ export class CreateDocumentCollectionRequestSparseVectorIndexConfig extends $dar
    * 
    * Valid values:
    * - hnswflat: HNSW index without quantization compression (default).
-   * - novam: graph index without quantization compression, suitable for high-performance scenarios such as real-time recommendations.
+   * - novam: Graph index without quantization compression, suitable for high-performance scenarios such as real-time recommendation.
    * 
    * @example
    * hnswflat
@@ -17,9 +17,9 @@ export class CreateDocumentCollectionRequestSparseVectorIndexConfig extends $dar
   algorithm?: string;
   /**
    * @remarks
-   * The candidate set size when building an index with the HNSW algorithm. Valid values: 4 to 1000. Default value: 64.
+   * The size of the candidate set when building the index with the HNSW algorithm. Valid values: 4 to 1000. Default value: 64.
    * 
-   * > This parameter is required only for AnalyticDB for PostgreSQL 7.0 instances, and the value must be >= 2*HNSW_M.
+   * > This parameter is required only for AnalyticDB for PostgreSQL V7.0 instances, and the value must be greater than or equal to 2 × HNSW_M.
    * 
    * @example
    * 128
@@ -27,16 +27,16 @@ export class CreateDocumentCollectionRequestSparseVectorIndexConfig extends $dar
   hnswEfConstruction?: number;
   /**
    * @remarks
-   * The maximum number of neighbors in the HNSW algorithm. This value is automatically set based on the vector dimensions. Manual configuration is generally not required.
+   * The maximum number of neighbors in the HNSW algorithm. The operation automatically sets this value based on the vector dimensions. Manual configuration is generally not required.
    * 
    * > Valid values:
-   * >- AnalyticDB for PostgreSQL 6.0 instances: 1 to 1000.
-   * >- AnalyticDB for PostgreSQL 7.0 instances: 2 to 100. Default value: 16.
+   * >- AnalyticDB for PostgreSQL V6.0 instances: 1 to 1000.
+   * >- AnalyticDB for PostgreSQL V7.0 instances: 2 to 100. Default value: 16.
    * 
    * > Recommended values based on vector dimensions:
-   * >- 384 or fewer: 16
-   * >- Greater than 384 and up to 768: 32
-   * >- Greater than 768 and up to 1024: 64
+   * >- Less than or equal to 384: 16
+   * >- Greater than 384 and less than or equal to 768: 32
+   * >- Greater than 768 and less than or equal to 1024: 64
    * >- Greater than 1024: 128
    * 
    * @example
@@ -71,7 +71,7 @@ export class CreateDocumentCollectionRequestSparseVectorIndexConfig extends $dar
 export class CreateDocumentCollectionRequestVectorIndexConfig extends $dara.Model {
   /**
    * @remarks
-   * The Novad list count (number of partitions). Valid values: 2 to 1073741824. Default value: 256.
+   * The number of lists (partitions) for Novad. Valid values: [2, 1073741824]. Default value: 256.
    * 
    * @example
    * 256
@@ -79,7 +79,7 @@ export class CreateDocumentCollectionRequestVectorIndexConfig extends $dara.Mode
   nlist?: number;
   /**
    * @remarks
-   * The number of RaBitQ compression bits. Valid values: 1 to 8. Default value: 3.
+   * The number of compression bits for rabitq. Valid values: [1, 8]. Default value: 3.
    * 
    * @example
    * 3
@@ -115,8 +115,8 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
    * 
    * Valid values:
    * - hnswflat: HNSW index without quantization compression (default).
-   * - novam: graph index without quantization compression, suitable for high-performance scenarios such as real-time recommendations.
-   * - novad: partitioned index with RaBitQ quantization, suitable for large-scale low-cost retrieval scenarios.
+   * - novam: Graph index without quantization compression, suitable for high-performance scenarios such as real-time recommendation.
+   * - novad: Partitioned index with rabitq quantization, suitable for large-scale, low-cost retrieval scenarios.
    * 
    * @example
    * hnswflat
@@ -124,9 +124,9 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The name of the knowledge base to create.
+   * The name of the document library to create.
    * 
-   * > The name must comply with PostgreSQL object naming conventions.
+   * > The name must comply with the object naming conventions of PostgreSQL.
    * 
    * This parameter is required.
    * 
@@ -138,7 +138,7 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance IDs.
    * 
    * This parameter is required.
    * 
@@ -148,7 +148,7 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The vector dimensions. The default value is the dimension supported by the embedding model.
+   * The vector dimensions. The default value is the dimension supported by the embedding algorithm.
    * 
    * @example
    * 1024
@@ -156,25 +156,25 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
   dimension?: number;
   /**
    * @remarks
-   * The embedding model. Default value: text-embedding-v3.
+   * The embedding algorithm. Default value: text-embedding-v3.
    * 
-   * > Supported models:
+   * > Supported algorithms:
    * > - text-embedding-v3 (recommended, default): 1024, 768, or 512 dimensions
-   * > - multimodal-embedding-v1 (recommended): 1024 dimensions, multimodal embedding model
+   * > - multimodal-embedding-v1 (recommended): 1024 dimensions, multimodal embedding algorithm
    * > - text-embedding-v1: 1536 dimensions
    * > - text-embedding-v2: 1536 dimensions
    * > - text2vec (not recommended): 1024 dimensions
    * > - m3e-base (not recommended): 768 dimensions
    * > - m3e-small (not recommended): 512 dimensions
-   * > - clip-vit-b-32 (not recommended): CLIP ViT-B/32 model, 512 dimensions, image embedding model
-   * > - clip-vit-b-16 (not recommended): CLIP ViT-B/16 model, 512 dimensions, image embedding model
-   * > - clip-vit-l-14 (not recommended): CLIP ViT-L/14 model, 768 dimensions, image embedding model
-   * > - clip-vit-l-14-336px (not recommended): CLIP ViT-L/14@336px model, 768 dimensions, image embedding model
-   * > - clip-rn50 (not recommended): CLIP RN50 model, 1024 dimensions, image embedding model
-   * > - clip-rn101 (not recommended): CLIP RN101 model, 512 dimensions, image embedding model
-   * > - clip-rn50x4 (not recommended): CLIP RN50x4 model, 640 dimensions, image embedding model
-   * > - clip-rn50x16 (not recommended): CLIP RN50x16 model, 768 dimensions, image embedding model
-   * > - clip-rn50x64 (not recommended): CLIP RN50x64 model, 1024 dimensions, image embedding model
+   * > - clip-vit-b-32 (not recommended): CLIP ViT-B/32 model, 512 dimensions, image embedding algorithm
+   * > - clip-vit-b-16 (not recommended): CLIP ViT-B/16 model, 512 dimensions, image embedding algorithm
+   * > - clip-vit-l-14 (not recommended): CLIP ViT-L/14 model, 768 dimensions, image embedding algorithm
+   * > - clip-vit-l-14-336px (not recommended): CLIP ViT-L/14@336px model, 768 dimensions, image embedding algorithm
+   * > - clip-rn50 (not recommended): CLIP RN50 model, 1024 dimensions, image embedding algorithm
+   * > - clip-rn101 (not recommended): CLIP RN101 model, 512 dimensions, image embedding algorithm
+   * > - clip-rn50x4 (not recommended): CLIP RN50x4 model, 640 dimensions, image embedding algorithm
+   * > - clip-rn50x16 (not recommended): CLIP RN50x16 model, 768 dimensions, image embedding algorithm
+   * > - clip-rn50x64 (not recommended): CLIP RN50x64 model, 1024 dimensions, image embedding algorithm
    * 
    * @example
    * text-embedding-v1
@@ -184,7 +184,7 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable knowledge graph construction. Default value: false.
    * 
-   * > Before using this parameter, upgrade the instance to a version that supports the graph engine. (During the public preview, submit a ticket to upgrade the version.)
+   * > Before you use this parameter, the instance must be upgraded to a version that supports the graph engine. (During the public preview, submit a ticket to upgrade the version.)
    * 
    * @example
    * true
@@ -202,13 +202,13 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
   entityTypes?: string[];
   /**
    * @remarks
-   * Specifies whether to use mmap to build the HNSW index. Default value: 0. If data does not need to be deleted and you require high upload performance, set this parameter to 1.
+   * Specifies whether to use mmap to build the HNSW index. Default value: 0. If data deletion is not required and high data upload speed is needed, we recommend that you set this parameter to 1.
    * 
    * Valid values:
-   * - 0: uses segment-page storage to build the index. This mode uses shared_buffer in PostgreSQL as cache and supports delete and update operations.
-   * - 1: uses mmap to build the index. This mode does not support delete or update operations.
+   * - 0: Uses the default segment-page storage to build the index. In this mode, shared_buffer in PostgreSQL can be used for caching, and operations such as deletion and update are supported.
+   * - 1: Uses mmap to build the index. In this mode, operations such as deletion and update are not supported.
    * 
-   * >Notice: Only version 6.0 supports the ExternalStorage parameter. Version 7.0 does not support this parameter.
+   * >Notice: The ExternalStorage parameter is supported only in V6.0. It is not supported in V7.0.
    * 
    * @example
    * 0
@@ -216,7 +216,7 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
   externalStorage?: number;
   /**
    * @remarks
-   * The fields used for full-text retrieval. Separate multiple fields with commas (,). The fields must be keys defined in Metadata.
+   * The fields used to retrieve data from the full-text index. Separate multiple fields with commas (,). The fields must be keys defined in Metadata.
    * 
    * @example
    * title,page
@@ -224,11 +224,11 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
   fullTextRetrievalFields?: string;
   /**
    * @remarks
-   * The candidate set size when building an index with the HNSW algorithm. The value must be >= 2*HNSW_M.
+   * The size of the candidate set when building the index with the HNSW algorithm. The value must be greater than or equal to 2 × HNSW_M.
    * 
    * > Valid values:
-   * >- AnalyticDB for PostgreSQL 6.0 instances: 40 to 4000.
-   * >- AnalyticDB for PostgreSQL 7.0 instances: 4 to 1000. Default value: 64.
+   * >- AnalyticDB for PostgreSQL V6.0 instances: 40 to 4000.
+   * >- AnalyticDB for PostgreSQL V7.0 instances: 4 to 1000. Default value: 64.
    * 
    * @example
    * 128
@@ -236,16 +236,16 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
   hnswEfConstruction?: string;
   /**
    * @remarks
-   * The maximum number of neighbors in the HNSW algorithm. This value is automatically set based on the vector dimensions. Manual configuration is generally not required.
+   * The maximum number of neighbors in the HNSW algorithm. The operation automatically sets this value based on the vector dimensions. Manual configuration is generally not required.
    * 
    * > Valid values:
-   * >- AnalyticDB for PostgreSQL 6.0 instances: 1 to 1000.
-   * >- AnalyticDB for PostgreSQL 7.0 instances: 2 to 100. Default value: 16.
+   * >- AnalyticDB for PostgreSQL V6.0 instances: 1 to 1000.
+   * >- AnalyticDB for PostgreSQL V7.0 instances: 2 to 100. Default value: 16.
    * 
    * > Recommended values based on vector dimensions:
-   * >- 384 or fewer: 16
-   * >- Greater than 384 and up to 768: 32
-   * >- Greater than 768 and up to 1024: 64
+   * >- Less than or equal to 384: 16
+   * >- Greater than 384 and less than or equal to 768: 32
+   * >- Greater than 768 and less than or equal to 1024: 64
    * >- Greater than 1024: 128
    * 
    * @example
@@ -254,8 +254,8 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
   hnswM?: number;
   /**
    * @remarks
-   * The LLM model name. Valid values:
-   * - knowledge-extract-standard: default value.
+   * The name of the LLM. Valid values:
+   * - knowledge-extract-standard: Default value.
    * - knowledge-extract-mini
    * > This parameter takes effect only when knowledge graph construction is enabled.
    * 
@@ -265,7 +265,7 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
   LLMModel?: string;
   /**
    * @remarks
-   * The language used for knowledge graph construction. Valid values:
+   * The language used to construct the knowledge graph. Valid values:
    * - Simplified Chinese: Simplified Chinese. Default value.
    * - English: English.
    * > This parameter takes effect only when knowledge graph construction is enabled.
@@ -298,13 +298,13 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
   managerAccountPassword?: string;
   /**
    * @remarks
-   * The metadata of vector data, in the format of a JSON string representing a MAP. The key represents the field name, and the value represents the data type.
+   * The metadata of the vector data, which is a JSON string in MAP format. The key represents the field name, and the value represents the data type.
    * 
    * > Supported data types:
-   * > - For the list of data types, see [Data types](https://help.aliyun.com/document_detail/424383.html).
+   * > - For a list of data types, see [Data types](https://help.aliyun.com/document_detail/424383.html).
    * > - The money type is not supported.
    * 
-   * >Warning: The following fields are reserved and cannot be used: id, vector, doc_name, content, loader_metadata, source, and to_tsvector.
+   * >Warning: The id, vector, doc_name, content, loader_metadata, source, and to_tsvector fields are reserved and cannot be used.
    * 
    * @example
    * {"title":"text","page":"int"}
@@ -320,12 +320,12 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
   metadataIndices?: string;
   /**
    * @remarks
-   * The distance metric used for building vector indexes.
+   * The distance metric used when building the vector index.
    * 
    * Valid values:
    * - **l2**: Euclidean distance.
-   * - **ip**: inner product distance.
-   * - **cosine** (default): cosine similarity.
+   * - **ip**: Dot product (inner product) distance.
+   * - **cosine** (default): Cosine similarity.
    * 
    * @example
    * cosine
@@ -335,7 +335,7 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
    * @remarks
    * The namespace. Default value: public.
    * 
-   * > You can create a namespace by calling the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation and query the list of namespaces by calling the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation.
+   * > You can call the [CreateNamespace](https://help.aliyun.com/document_detail/2401495.html) operation to create a namespace, or call the [ListNamespaces](https://help.aliyun.com/document_detail/2401502.html) operation to view the namespace list.
    * 
    * @example
    * mynamespace
@@ -344,7 +344,7 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The tokenizer used for full-text retrieval. Default value: zh_cn.
+   * The tokenizer used to retrieve data from the full-text index. Default value: zh_cn.
    * 
    * @example
    * zh_cn
@@ -352,9 +352,9 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
   parser?: string;
   /**
    * @remarks
-   * Specifies whether to enable Product Quantization (PQ) algorithm acceleration for the index. We recommend enabling this feature when the data volume exceeds 500,000. Valid values:
-   * - 0: disabled.
-   * - 1: enabled (default).
+   * Specifies whether to enable the Product Quantization (PQ) algorithm to accelerate index building. It is recommended to enable this feature when the data volume exceeds 500,000. Valid values:
+   * - 0: Disable.
+   * - 1: Enable (default).
    * 
    * @example
    * 1
@@ -382,7 +382,7 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
   relationshipTypes?: string[];
   /**
    * @remarks
-   * The metadata fields used for building sparse vectors. Separate multiple fields with commas (,). The fields must be keys defined in Metadata.
+   * The metadata fields used to build sparse vectors. Separate multiple fields with commas (,). The fields must be keys defined in Metadata.
    * 
    * @example
    * title,abstract
@@ -390,7 +390,7 @@ export class CreateDocumentCollectionRequest extends $dara.Model {
   sparseRetrievalFields?: string;
   /**
    * @remarks
-   * The sparse vector index configuration. If specified, a sparse vector index is created.
+   * The sparse vector index configuration. If this parameter is specified, a sparse vector index is created.
    */
   sparseVectorIndexConfig?: CreateDocumentCollectionRequestSparseVectorIndexConfig;
   /**

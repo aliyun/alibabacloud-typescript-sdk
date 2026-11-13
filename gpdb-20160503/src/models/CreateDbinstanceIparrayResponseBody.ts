@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDBInstanceIPArrayResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * API-d971c90f-c801-41bd-b8e5-5b8bd79326c8

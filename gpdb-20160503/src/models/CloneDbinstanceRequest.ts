@@ -7,7 +7,7 @@ export class CloneDBInstanceRequest extends $dara.Model {
    * @remarks
    * The ID of the backup set.
    * 
-   * > You can call the [DescribeDataBackups](https://help.aliyun.com/document_detail/210093.html) operation to query the IDs of all backup sets of the instance. Only snapshot backup sets are supported.
+   * > You can invoke the [DescribeDataBackups](https://help.aliyun.com/document_detail/210093.html) operation to query the IDs of all backup sets for the target instance. Only snapshot backup sets are supported.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,8 @@ export class CloneDBInstanceRequest extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The ID of the new instance.
-   * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * The ID of the target instance.
+   * > You can invoke the [DescribeDBInstances](https://help.aliyun.com/document_detail/196830.html) operation to query the details of all instances in the target region, including instance IDs.
    * 
    * This parameter is required.
    * 
@@ -31,7 +30,7 @@ export class CloneDBInstanceRequest extends $dara.Model {
    * @remarks
    * The ID of the source instance.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the information about all AnalyticDB for PostgreSQL instances within a region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in the target region, including instance IDs.
    * 
    * This parameter is required.
    * 

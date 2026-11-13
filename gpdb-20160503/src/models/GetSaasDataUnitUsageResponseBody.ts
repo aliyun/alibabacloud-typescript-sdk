@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSaasDataUnitUsageResponseBodyDistribution extends $dara.Model {
   /**
    * @remarks
-   * The exact non-negative decimal string. Floating-point or exponential formats are not used. The value is null when the amount is incomplete.
+   * The exact non-negative decimal string. Floating-point or exponential formats are not used. If the amount is incomplete, the value is null.
    * 
    * @example
    * 2.82
@@ -16,7 +16,7 @@ export class GetSaasDataUnitUsageResponseBodyDistribution extends $dara.Model {
   dataUnit?: string;
   /**
    * @remarks
-   * The project attribution at the time of the call. The value is null when missing, which does not affect the total amount.
+   * The project attribution at the time of the call. If missing, the value is null, which does not affect the total amount.
    * 
    * @example
    * project-1
@@ -27,7 +27,7 @@ export class GetSaasDataUnitUsageResponseBodyDistribution extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The project name. For the same scenario and project ID, the latest non-empty name snapshot within the query range is used. If multiple snapshots exist in the same second, the maximum value in lexicographical order is used. The value is null when missing.
+   * The project name. For the same scenario and project ID, the latest non-empty name snapshot within the query range is used. If multiple snapshots exist in the same second, the one with the maximum lexicographical value is used. If missing, the value is null.
    * 
    * @example
    * Scenario remake
@@ -38,7 +38,7 @@ export class GetSaasDataUnitUsageResponseBodyDistribution extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The business scenario code.
+   * The usage scenario code.
    * 
    * @example
    * drama_game_oneshot
@@ -46,7 +46,7 @@ export class GetSaasDataUnitUsageResponseBodyDistribution extends $dara.Model {
   usageScene?: string;
   /**
    * @remarks
-   * The display name of the business scenario. This name is supplemented by a dictionary that maps the original Meta values to Chinese names, and is not an SLS field. UsageScene always retains the original log value. If no Chinese name is available, the original value is used as the name. Blank values are classified as other. Different codes with the same Chinese name are not merged.
+   * The display name of the usage scenario. This field is supplemented by a dictionary that maps original Meta values to Chinese names, and is not an SLS field. UsageScene always retains the original log value. If no Chinese name is available, the original value is used as the name. Blank values are classified as other. Different codes with the same Chinese name are not merged.
    * 
    * @example
    * 游戏生成
@@ -84,7 +84,7 @@ export class GetSaasDataUnitUsageResponseBodyDistribution extends $dara.Model {
 export class GetSaasDataUnitUsageResponseBodySummary extends $dara.Model {
   /**
    * @remarks
-   * The exact non-negative decimal string. Floating-point or exponential formats are not used. The value is null when the amount is incomplete.
+   * The exact non-negative decimal string. Floating-point or exponential formats are not used. If the amount is incomplete, the value is null.
    * 
    * @example
    * 2.82
@@ -117,7 +117,7 @@ export class GetSaasDataUnitUsageResponseBodySummary extends $dara.Model {
 export class GetSaasDataUnitUsageResponseBodyTimeSeriesScenes extends $dara.Model {
   /**
    * @remarks
-   * The exact non-negative decimal string. Floating-point or exponential formats are not used. The value is null when the amount is incomplete.
+   * The exact non-negative decimal string. Floating-point or exponential formats are not used. If the amount is incomplete, the value is null.
    * 
    * @example
    * 2.82
@@ -128,7 +128,7 @@ export class GetSaasDataUnitUsageResponseBodyTimeSeriesScenes extends $dara.Mode
   dataUnit?: string;
   /**
    * @remarks
-   * The project attribution at the time of the call. The value is null when missing, which does not affect the total amount.
+   * The project attribution at the time of the call. If missing, the value is null, which does not affect the total amount.
    * 
    * @example
    * project-1
@@ -139,7 +139,7 @@ export class GetSaasDataUnitUsageResponseBodyTimeSeriesScenes extends $dara.Mode
   projectId?: string;
   /**
    * @remarks
-   * The project name. For the same scenario and project ID, the latest non-empty name snapshot within the query range is used. If multiple snapshots exist in the same second, the maximum value in lexicographical order is used. The value is null when missing.
+   * The project name. For the same scenario and project ID, the latest non-empty name snapshot within the query range is used. If multiple snapshots exist in the same second, the one with the maximum lexicographical value is used. If missing, the value is null.
    * 
    * @example
    * Scenario remake
@@ -150,7 +150,7 @@ export class GetSaasDataUnitUsageResponseBodyTimeSeriesScenes extends $dara.Mode
   projectName?: string;
   /**
    * @remarks
-   * The business scenario code.
+   * The usage scenario code.
    * 
    * @example
    * game_translation
@@ -186,7 +186,7 @@ export class GetSaasDataUnitUsageResponseBodyTimeSeriesScenes extends $dara.Mode
 export class GetSaasDataUnitUsageResponseBodyTimeSeries extends $dara.Model {
   /**
    * @remarks
-   * The exact non-negative decimal string. Floating-point or exponential formats are not used. The value is null when the amount is incomplete.
+   * The exact non-negative decimal string. Floating-point or exponential formats are not used. If the amount is incomplete, the value is null.
    * 
    * @example
    * 2.82
@@ -239,7 +239,7 @@ export class GetSaasDataUnitUsageResponseBodyTimeSeries extends $dara.Model {
 export class GetSaasDataUnitUsageResponseBodyWarnings extends $dara.Model {
   /**
    * @remarks
-   * The notification code. Valid values include DATA_INCOMPLETE and DATA_UNIT_PENDING.
+   * The notice code. Valid values include DATA_INCOMPLETE and DATA_UNIT_PENDING.
    * 
    * @example
    * DATA_INCOMPLETE
@@ -247,10 +247,10 @@ export class GetSaasDataUnitUsageResponseBodyWarnings extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The notification message.
+   * The content of the product notice.
    * 
    * @example
-   * Partial usage is not ready yet
+   * Some usage data is not ready yet
    */
   message?: string;
   static names(): { [key: string]: string } {
@@ -279,7 +279,7 @@ export class GetSaasDataUnitUsageResponseBodyWarnings extends $dara.Model {
 export class GetSaasDataUnitUsageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business distribution. The items are sorted in descending order of DataUnit. Items with unknown amounts are placed at the end. Items with the same value are sorted in ascending order of scenario code, project ID, and name. The items are grouped by scenario and project ID. Items without an ID but with a name are grouped by name. Records missing both are grouped as unassociated projects. The sum of all items in the complete result equals the summary. Missing or blank log scenarios are classified as other. Scenarios with values but no configured mapping retain the original values as codes and display names, and are normally included in the total. No empty rows are created for other if there are no records.
+   * The usage distribution. The items are sorted in descending order of DataUnit. Items with unknown amounts are placed at the end. Items with the same value are sorted in ascending order of scenario code, project ID, and name. The items are grouped by scenario and project ID. If the project ID is missing but the name is present, the items are grouped by name. Records with both missing are considered unassociated projects. The sum of all items in the complete result equals the summary. Missing or blank log scenarios are classified as other. Scenarios with values but no configured mapping retain the original values as codes and display names, and are normally included in the total. If there are no records for other, no empty row is created.
    */
   distribution?: GetSaasDataUnitUsageResponseBodyDistribution[];
   /**
@@ -321,12 +321,12 @@ export class GetSaasDataUnitUsageResponseBody extends $dara.Model {
   summary?: GetSaasDataUnitUsageResponseBodySummary;
   /**
    * @remarks
-   * The time trend. The items are sorted in ascending order of the UTC bucket start time. Zero buckets are padded for complete queries. The value is null for unknown amounts and is not replaced with zero.
+   * The time trend. The items are sorted in ascending order of the UTC bucket start time. For a complete query, zero buckets are filled. If the amount is unknown, the value is null and is not replaced with zero.
    */
   timeSeries?: GetSaasDataUnitUsageResponseBodyTimeSeries[];
   /**
    * @remarks
-   * The product notifications.
+   * The product notices.
    */
   warnings?: GetSaasDataUnitUsageResponseBodyWarnings[];
   static names(): { [key: string]: string } {

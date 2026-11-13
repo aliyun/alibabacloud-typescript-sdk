@@ -13,7 +13,7 @@ export class GetAccountResponseBody extends $dara.Model {
    * - The description must be 2 to 256 characters in length.
    * 
    * @example
-   * The instance used by this account to log in is DBInstanceId. The name used to log in is AccountName.
+   * 该账号用来登录的实例为DBInstanceId。用来登录的名称为AccountName。
    */
   accountDescription?: string;
   /**

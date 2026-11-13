@@ -7,7 +7,7 @@ export class CreateAIServiceRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specific region, including the instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in the specified region, including instance IDs.
    * 
    * This parameter is required.
    * 
@@ -25,11 +25,11 @@ export class CreateAIServiceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The IP addresses in IP address whitelist. You can add up to 1,000 IP addresses, separated by commas (,). A value of 127.0.0.1 specifies that access from all external IP addresses is denied. Valid formats:
+   * The IP addresses in the IP address whitelist. You can add up to 1,000 IP addresses, separated by commas (,). 127.0.0.1 indicates that no external IP addresses are allowed to access the service. The IP addresses must be in one of the following formats:
    * - 10.23.12.24 (IP address)
-   * - 10.23.12.24/24 (CIDR block. /24 specifies the length of the prefix in the IP address. The prefix length ranges from 1 to 32.)
+   * - 10.23.12.24/24 (CIDR block. /24 indicates the prefix length of the IP address, which ranges from 1 to 32.)
    * 
-   * > After the service is created, you can call the ModifyAIServiceSecurityIps operation to modify IP address whitelist.
+   * > You can call the ModifyAIServiceSecurityIps operation to modify the IP address whitelist after the service is created.
    * 
    * @example
    * 127.0.0.1
@@ -38,10 +38,10 @@ export class CreateAIServiceRequest extends $dara.Model {
   /**
    * @remarks
    * The service account. The account must meet the following requirements:
-   * - It can contain lowercase letters, digits, and underscores (_).
-   * - It must start with a lowercase letter and end with a lowercase letter or a digit.
-   * - It cannot start with gp.
-   * - It must be 2 to 16 characters in length.
+   * - Contains only lowercase letters, digits, and underscores (_).
+   * - Starts with a lowercase letter and ends with a lowercase letter or a digit.
+   * - Does not start with gp.
+   * - Is 2 to 16 characters in length.
    * 
    * This parameter is required.
    * 
@@ -52,9 +52,9 @@ export class CreateAIServiceRequest extends $dara.Model {
   /**
    * @remarks
    * The password of the service account. The password must meet the following requirements:
-   * - It must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * - Contains at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
    * - Supported special characters: !@#$%^&*()_+-=
-   * - It must be 8 to 32 characters in length.
+   * - Is 8 to 32 characters in length.
    * 
    * This parameter is required.
    * 

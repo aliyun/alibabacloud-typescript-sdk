@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDBInstanceIPArrayShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
-   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in the target region, including instance IDs.
+   * > You can call the [DescribeDBInstances](https://help.aliyun.com/document_detail/86911.html) operation to query the details of all AnalyticDB for PostgreSQL instances in a specified region, including instance IDs.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class CreateDBInstanceIPArrayShrinkRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The attribute value of the IP address whitelist group.
+   * The property value of the IP address whitelist group.
    * 
    * @example
    * taffyFish
@@ -35,7 +35,7 @@ export class CreateDBInstanceIPArrayShrinkRequest extends $dara.Model {
   IPArrayName?: string;
   /**
    * @remarks
-   * The IP addresses in the IP address whitelist group. A maximum of 1,000 IP addresses are supported.
+   * The list of IP addresses in the IP address whitelist group. You can specify up to 1,000 IP addresses.
    * 
    * This parameter is required.
    */

@@ -69,7 +69,7 @@ export class CreateModelServiceShrinkRequest extends $dara.Model {
    * The model parameters. This parameter is not supported.
    * 
    * @example
-   * Not yet available.
+   * 暂未开放
    */
   modelParamsShrink?: string;
   /**

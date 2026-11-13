@@ -21,7 +21,7 @@ export class CreateModelOperatorApiKeyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Returns Creating after the creation request is accepted. The plaintext and endpoint are not returned.
+   * The acceptance status of the creation request. If the request is successfully accepted, the value is always Creating, which does not indicate that the API key is available. Call DescribeModelOperatorApiKey or ListModelOperatorApiKeys to query the subsequent status. You can obtain the endpoint only when the status is Running, and obtain the plaintext key by calling DescribeModelOperatorApiKey. Each call to this operation creates a new API key. Do not repeatedly call this operation to check the progress.
    * 
    * @example
    * Creating

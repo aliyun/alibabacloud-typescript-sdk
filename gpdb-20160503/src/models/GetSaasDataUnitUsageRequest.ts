@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSaasDataUnitUsageRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query in UTC. The format is yyyy-MM-ddTHH:mm:ssZ, and the seconds must be 00. The end time must be later than the start time and no later than the request time. The query range is not automatically truncated.
+   * The end time of the query in UTC. The format is yyyy-MM-ddTHH:mm:ssZ, and the seconds must be 00. The end time must be later than the start time and cannot be later than the request time. The query range is not automatically truncated.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class GetSaasDataUnitUsageRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The instance ID of the undeleted SaaS service. A standard DBInstanceId cannot override it.
+   * The instance ID of the undeleted SaaS service. A standard DBInstanceId is not accepted as an override.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class GetSaasDataUnitUsageRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * Specifies the time granularity. Valid values: hour (UTC hour) and day (UTC day). Default value: hour. This parameter only determines the trend aggregation method and is not returned in the response.
+   * The time granularity. Valid values: hour (UTC hour) and day (UTC day). Default value: hour. This parameter only determines the trend aggregation method and is not returned in the response.
    * 
    * @example
    * hour

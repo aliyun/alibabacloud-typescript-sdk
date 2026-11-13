@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckHadoopNetConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response message. If the connection fails, an error message is returned. Otherwise, an empty string is returned.
+   * The returned message. If the connection fails, an error message is returned. Otherwise, an empty string is returned.
    * 
    * @example
    * connection timeout

@@ -13,7 +13,7 @@ export class CreateBranchResponseBody extends $dara.Model {
   branchId?: string;
   /**
    * @remarks
-   * The ID of the Supabase project that corresponds to the primary branch.
+   * The ID of the Supabase project to which the main branch belongs.
    * 
    * @example
    * spb-xxxx

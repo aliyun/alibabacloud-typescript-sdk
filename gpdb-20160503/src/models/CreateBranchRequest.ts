@@ -45,7 +45,7 @@ export class CreateBranchRequestTag extends $dara.Model {
 export class CreateBranchRequest extends $dara.Model {
   /**
    * @remarks
-   * The branch name.
+   * The name of the branch.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class CreateBranchRequest extends $dara.Model {
   branchName?: string;
   /**
    * @remarks
-   * The client idempotency token. This token ensures the idempotence of retry requests.
+   * The client token used to ensure the idempotence of retry requests.
    * 
    * @example
    * 123e4567-e89b-12d3-a456-426614174000
@@ -71,7 +71,7 @@ export class CreateBranchRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time when the branch automatically expires and is deleted. The value is in the ISO 8601 UTC format.
+   * The time when the branch is automatically deleted after expiration. The time is in the ISO 8601 UTC format.
    * 
    * @example
    * 2026-10-08T09:11:12Z
@@ -79,9 +79,7 @@ export class CreateBranchRequest extends $dara.Model {
   expiresAt?: string;
   /**
    * @remarks
-   * The initialization source of the branch.
-   * 
-   * Valid values:
+   * The initialization source for the branch. Valid values:
    * - ParentData: copies the schema and data from the parent branch. This is the default value.
    * - SchemaOnly: copies only the schema structure.
    * 
@@ -91,7 +89,7 @@ export class CreateBranchRequest extends $dara.Model {
   initSource?: string;
   /**
    * @remarks
-   * The ID of the parent branch. This parameter specifies the parent branch for the new branch or query condition.
+   * The ID of the parent branch. This parameter specifies the parent branch for the new branch or query conditions.
    * 
    * This parameter is required.
    * 
@@ -101,7 +99,7 @@ export class CreateBranchRequest extends $dara.Model {
   parentBranchId?: string;
   /**
    * @remarks
-   * The log sequence number (LSN) selected when creating a branch from the parent branch.
+   * The log sequence number (LSN) selected when you create a branch from the parent branch.
    * 
    * @example
    * 0/3522648
@@ -109,8 +107,7 @@ export class CreateBranchRequest extends $dara.Model {
   parentLsn?: string;
   /**
    * @remarks
-   * The point in time for data synchronization when creating a branch from the parent branch. The value is in the ISO 8601 UTC format.
-   * 
+   * The point in time for data synchronization when you create a branch from the parent branch. The time is in the ISO 8601 UTC format.
    * Default value: the current time.
    * 
    * @example
@@ -119,7 +116,7 @@ export class CreateBranchRequest extends $dara.Model {
   parentTimestamp?: string;
   /**
    * @remarks
-   * The ID of the Supabase project that corresponds to the primary branch.
+   * The ID of the Supabase project to which the main branch belongs.
    * 
    * This parameter is required.
    * 
@@ -129,11 +126,9 @@ export class CreateBranchRequest extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * Specifies whether to enable branch protection.
-   * 
-   * Valid values:
-   * - true: Enables branch protection.
-   * - false: Disables branch protection. This is the default value.
+   * Specifies whether to enable branch protection. Valid values:
+   * - true: enables branch protection.
+   * - false: disables branch protection. This is the default value.
    * 
    * @example
    * false
@@ -141,7 +136,7 @@ export class CreateBranchRequest extends $dara.Model {
   protected?: boolean;
   /**
    * @remarks
-   * The region ID. This parameter is required when you create a primary branch. When you create a child branch, the region is inherited from the primary branch by default.
+   * The region ID. This parameter is required when you create a main branch. When you create a child branch, it inherits the region of the main branch by default.
    * 
    * @example
    * cn-beijing
@@ -149,7 +144,7 @@ export class CreateBranchRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of branch tags.
+   * The list of tags for the branch.
    */
   tag?: CreateBranchRequestTag[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelOperatorServicesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1

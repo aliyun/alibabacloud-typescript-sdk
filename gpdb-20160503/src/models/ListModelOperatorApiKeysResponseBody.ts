@@ -29,7 +29,7 @@ export class ListModelOperatorApiKeysResponseBodyApiKeys extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The endpoint.
+   * The complete HTTP(S) endpoint for calling the model operator service. This field is returned only when Status is Running. This field is not returned for other statuses. The list operation does not return the plaintext API key. To obtain the plaintext API key, call DescribeModelOperatorApiKey.
    * 
    * @example
    * https://xxxx
@@ -37,7 +37,13 @@ export class ListModelOperatorApiKeysResponseBodyApiKeys extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The status of the key. Valid values: Creating, Running, Locked, and Deleting.
+   * The status of the API key. The statuses returned in the list include:
+   * 
+   * - Creating: The API key is being created.
+   * - Running: The API key is running.
+   * - Locked: The API key is locked and cannot be used to call the model operator service. This status may also be displayed when the API key is being locked or unlocked.
+   * 
+   * API keys for which a deletion request has been accepted no longer appear in the list. You can call DescribeModelOperatorApiKey to query the Deleting status. After the cleanup is complete, a detail query returns a resource not found error. The status indicates the processing result on the control plane. A short propagation delay may occur before the status takes effect on the data plane.
    * 
    * @example
    * Running
@@ -75,7 +81,7 @@ export class ListModelOperatorApiKeysResponseBodyApiKeys extends $dara.Model {
 export class ListModelOperatorApiKeysResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of API keys.
+   * The list of API keys for which no deletion request has been initiated. After a deletion request is accepted, the key no longer appears in this list.
    */
   apiKeys?: ListModelOperatorApiKeysResponseBodyApiKeys[];
   /**
