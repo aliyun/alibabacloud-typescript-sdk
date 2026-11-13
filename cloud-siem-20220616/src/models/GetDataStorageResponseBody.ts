@@ -45,7 +45,7 @@ export class GetDataStorageResponseBodyDataNormalizationLogStores extends $dara.
 export class GetDataStorageResponseBodyDataNormalizationLogViews extends $dara.Model {
   /**
    * @remarks
-   * The log type of the normalized log.
+   * The log type of normalized logs.
    * 
    * @example
    * API security risk log
@@ -53,7 +53,7 @@ export class GetDataStorageResponseBodyDataNormalizationLogViews extends $dara.M
   activityName?: string;
   /**
    * @remarks
-   * The category of the normalized log.
+   * The category of normalized logs.
    * 
    * @example
    * Security Category
@@ -61,7 +61,7 @@ export class GetDataStorageResponseBodyDataNormalizationLogViews extends $dara.M
   categoryName?: string;
   /**
    * @remarks
-   * The number of times the normalized dataset is referenced in the threat analysis access center.
+   * The number of times the normalized dataset is referenced in the Threat Analysis integration center.
    * 
    * @example
    * 3
@@ -69,7 +69,7 @@ export class GetDataStorageResponseBodyDataNormalizationLogViews extends $dara.M
   detectionRuleReferenceCount?: number;
   /**
    * @remarks
-   * The product IDs in the threat analysis access center.
+   * The product IDs in the Threat Analysis integration center.
    */
   detectionRuleReferenceProductIds?: string[];
   /**
@@ -82,7 +82,7 @@ export class GetDataStorageResponseBodyDataNormalizationLogViews extends $dara.M
   logSearchConditions?: string;
   /**
    * @remarks
-   * The Logstore where threat analysis stores normalized logs.
+   * The Logstore where Threat Analysis stores normalized logs.
    * 
    * @example
    * risk-activity
@@ -165,7 +165,7 @@ export class GetDataStorageResponseBodyDataSasLogStores extends $dara.Model {
   logDeliveryGroup?: string;
   /**
    * @remarks
-   * Indicates whether log delivery can be toggled. Log delivery cannot be enabled if the service is not purchased. Valid values:
+   * Indicates whether log delivery can be enabled or disabled. Log delivery is unavailable if the service has not been purchased. Valid values:
    * - allow: Allowed.
    * - deny: Not allowed.
    * 
@@ -185,7 +185,7 @@ export class GetDataStorageResponseBodyDataSasLogStores extends $dara.Model {
   logDeliveryStatus?: string;
   /**
    * @remarks
-   * The time when the log delivery was last modified. The time is in the YYYY-MM-DDTHH:mm:ss format.
+   * The time of the last log delivery operation. The time is in the YYYY-MM-DDTHH:mm:ss format.
    * 
    * @example
    * 2025-07-16T15:10:29
@@ -209,7 +209,7 @@ export class GetDataStorageResponseBodyDataSasLogStores extends $dara.Model {
   logSearchConditions?: string;
   /**
    * @remarks
-   * Indicates whether the Logstore where the log resides exists. Valid values:
+   * Indicates whether the Logstore where the log is stored exists. Valid values:
    * - true: The Logstore exists.
    * - false: The Logstore does not exist.
    * 
@@ -219,7 +219,7 @@ export class GetDataStorageResponseBodyDataSasLogStores extends $dara.Model {
   logStoreExisted?: boolean;
   /**
    * @remarks
-   * The name of the Logstore where the log resides.
+   * The name of the Logstore where the log is stored.
    * 
    * @example
    * sas-security-log
@@ -227,7 +227,7 @@ export class GetDataStorageResponseBodyDataSasLogStores extends $dara.Model {
   logStoreName?: string;
   /**
    * @remarks
-   * The storage duration of the Logstore where the log resides. Logs are stored for at least 30 days.
+   * The storage duration of the Logstore where the log is stored. The minimum storage duration is 30 days.
    * 
    * @example
    * 180
@@ -291,7 +291,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   dataStorageRegionId?: string;
   /**
    * @remarks
-   * Indicates whether the storage region can be modified. By default, the storage region cannot be modified. Contact the product manager to reset the region. The region can be reset only once. Valid values:
+   * Specifies whether the storage region can be modified. By default, the storage region cannot be modified. To reset the region, contact the product manager. The region can be reset only once. Valid values:
    * - allow: The storage region can be modified.
    * - deny: The storage region cannot be modified.
    * 
@@ -301,7 +301,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   dataStorageRegionPermission?: string;
   /**
    * @remarks
-   * The storage capacity purchased in the prepaid scenario.
+   * The purchased storage capacity for subscription instances.
    * 
    * @example
    * 100
@@ -317,7 +317,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   dataStorageUsedCapacity?: number;
   /**
    * @remarks
-   * The storage usage details for log management users.
+   * The details of storage used by the user for log management.
    * 
    * @example
    * {\\"purchasedHotStorageCapacity\\":1000,\\"usedHotStorageCapacity\\":4.2,\\"usedHotStorageCapacityDetail\\":{\\"ap-southeast-1\\":4.2,\\"cn-shenzhen\\":0.0,\\"cn-shanghai\\":0.0}}
@@ -325,7 +325,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   dataStorageUsedCapacityDetail?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service (SLS) project that stores user logs.
+   * The name of the Simple Log Service project that stores user logs.
    * 
    * @example
    * aliyun-cloudsiem-data-171835723111****-cn-shanghai
@@ -333,7 +333,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   logProject?: string;
   /**
    * @remarks
-   * The details of Logstores for normalized data.
+   * The Logstore details of normalized data.
    */
   normalizationLogStores?: GetDataStorageResponseBodyDataNormalizationLogStores[];
   /**
@@ -343,7 +343,7 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
   normalizationLogViews?: GetDataStorageResponseBodyDataNormalizationLogViews[];
   /**
    * @remarks
-   * The details of raw log storage for Security Center.
+   * The storage details of raw logs in Security Center.
    */
   sasLogStores?: GetDataStorageResponseBodyDataSasLogStores[];
   static names(): { [key: string]: string } {
@@ -397,12 +397,12 @@ export class GetDataStorageResponseBodyData extends $dara.Model {
 export class GetDataStorageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned details.
+   * The detailed response data.
    */
   data?: GetDataStorageResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 81FB0DEA-52C1-55A0-8631-8E1B9A9D****

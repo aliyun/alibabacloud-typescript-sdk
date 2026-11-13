@@ -53,7 +53,7 @@ export class GetEntitiyStatRequest extends $dara.Model {
   entityUuids?: string;
   /**
    * @remarks
-   * The incident ID.
+   * The ID of the incident.
    * 
    * This parameter is required.
    * 
@@ -72,8 +72,8 @@ export class GetEntitiyStatRequest extends $dara.Model {
   /**
    * @remarks
    * The sort order of the incident list. Valid values:
-   * - desc: descending order
-   * - asc: ascending order
+   * - desc: Descending order.
+   * - asc: Ascending order.
    * 
    * @example
    * desc
@@ -81,9 +81,9 @@ export class GetEntitiyStatRequest extends $dara.Model {
   isMalwareEntity?: string;
   /**
    * @remarks
-   * The region where the data management center of Threat Analysis is located. Select the region of the management center based on the region where your assets reside. Valid values:
-   * - cn-hangzhou: Assets reside in the Chinese mainland and Hong Kong (China).
-   * - ap-southeast-1: Assets reside in regions outside China.
+   * The region of the data management center for Threat Analysis. Select the region based on where your assets are located. Valid values:
+   * - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
+   * - ap-southeast-1: Assets are located outside China.
    * 
    * @example
    * cn-hangzhou
@@ -91,7 +91,7 @@ export class GetEntitiyStatRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the user whose view the administrator switches to.
+   * The ID of the user whose perspective the administrator switches to.
    * 
    * @example
    * 1637941677243702
@@ -99,11 +99,7 @@ export class GetEntitiyStatRequest extends $dara.Model {
   roleFor?: number;
   /**
    * @remarks
-   * The role type. Valid values:
-   * - 0: single-account logon
-   * - 1: global view
-   * - 2: switched view
-   * - 3: local view
+   * The role type. Valid values: 0 (single-account logon), 1 (global view), 2 (switched view), and 3 (local view).
    * 
    * @example
    * 1
@@ -111,7 +107,7 @@ export class GetEntitiyStatRequest extends $dara.Model {
   roleType?: number;
   /**
    * @remarks
-   * The entity tags. The value is a JSON array string in the following format: "[{"tagKey1":"tagValue1"},{"tagKey2":"tagValue2"}]".
+   * The tags of the entity. The format is a JSON array string: \\"[{\\"tagKey1\\":\\"tagValue1\\"},{\\"tagKey2\\":\\"tagValue2\\"}]\\".
    * 
    * @example
    * sys:agent:dispose

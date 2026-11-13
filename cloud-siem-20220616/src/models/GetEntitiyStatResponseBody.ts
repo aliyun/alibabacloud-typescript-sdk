@@ -21,7 +21,7 @@ export class GetEntitiyStatResponseBodyData extends $dara.Model {
   entityNum?: number;
   /**
    * @remarks
-   * The entity type.
+   * The type of the entity.
    * 
    * @example
    * ip
@@ -29,7 +29,7 @@ export class GetEntitiyStatResponseBodyData extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * The entity UUID.
+   * The UUID of the entity.
    * 
    * @example
    * 5cde2118666ffda40783ebd7cec9a60a
@@ -75,7 +75,7 @@ export class GetEntitiyStatResponseBodyData extends $dara.Model {
 export class GetEntitiyStatResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code.
+   * The status code of the request.
    * 
    * @example
    * 200
@@ -91,7 +91,7 @@ export class GetEntitiyStatResponseBody extends $dara.Model {
   data?: GetEntitiyStatResponseBodyData[];
   /**
    * @remarks
-   * The response message.
+   * The message returned in the response.
    * 
    * @example
    * success
@@ -99,7 +99,7 @@ export class GetEntitiyStatResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9AAA9ED9-78F4-5021-86DC-D51C7511****

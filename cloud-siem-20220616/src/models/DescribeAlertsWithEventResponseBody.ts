@@ -55,7 +55,7 @@ export class DescribeAlertsWithEventResponseBodyDataPageInfo extends $dara.Model
 export class DescribeAlertsWithEventResponseBodyDataResponseDataAlertInfoList extends $dara.Model {
   /**
    * @remarks
-   * The key of the alert detail property.
+   * The key of the alert detail attribute.
    * 
    * @example
    * suspicious.wbd.wb.trojanpath
@@ -146,9 +146,9 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   /**
    * @remarks
    * The threat level. Valid values:
-   * - serious: High.
-   * - suspicious: Medium.
-   * - remind: Low.
+   * - serious: High risk.
+   * - suspicious: Medium risk.
+   * - remind: Low risk.
    * 
    * @example
    * remind
@@ -196,7 +196,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   alertSrcProdModule?: string;
   /**
    * @remarks
-   * The alert status. Valid values: 0: Pending; 1: Processed; 2: Processing; 3: Whitelisted, false positive, or rejected; 999: Unknown.
+   * The alert status. Valid values: 0: pending; 1: handled; 2: processing; 3: whitelisted, false positive, or rejected; 999: unknown.
    * 
    * @example
    * 0
@@ -314,7 +314,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   entityList?: string;
   /**
    * @remarks
-   * The extended alert information.
+   * The extended information of the alert.
    * 
    * @example
    * {"main_user_id": "165295629792****";"log_uuid_count": "99****"}
@@ -322,7 +322,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   extendContent?: string;
   /**
    * @remarks
-   * The time when the alert was created.
+   * The time when the alert was recorded.
    * 
    * @example
    * 2021-01-06 16:37:29
@@ -330,7 +330,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   gmtCreate?: string;
   /**
    * @remarks
-   * The time when the alert was last updated.
+   * The last update time of the alert.
    * 
    * @example
    * 2021-01-06 16:37:29
@@ -373,7 +373,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   isDefend?: string;
   /**
    * @remarks
-   * The time when the alert was recorded. The format is YYYY-MM-DD HH:mm:ss.
+   * The time when the alert was logged. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2021-01-06 16:37:29
@@ -389,7 +389,7 @@ export class DescribeAlertsWithEventResponseBodyDataResponseData extends $dara.M
   logUuid?: string;
   /**
    * @remarks
-   * The ID of the SIEM primary account associated with the alert.
+   * The ID of the main account associated with the alert in SIEM.
    * 
    * @example
    * 127608589417****

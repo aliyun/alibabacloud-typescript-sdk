@@ -79,6 +79,22 @@ export class DescribeAlertsWithEventRequest extends $dara.Model {
   entityName?: string;
   /**
    * @remarks
+   * The aggregation drill-down dimension. Valid values: ALERT_NAME and ALERT_TYPE. This parameter is used together with GroupByValue.
+   * 
+   * @example
+   * ALERT_NAME
+   */
+  groupBy?: string;
+  /**
+   * @remarks
+   * The original grouping key returned by DescribeAlertsGroup. The name can contain up to 300 characters, and the type can contain up to 100 characters. Exact match is performed based on the original field.
+   * 
+   * @example
+   * network_web_security_rule_10005239
+   */
+  groupByValue?: string;
+  /**
+   * @remarks
    * The incident ID.
    * 
    * @example
@@ -98,10 +114,10 @@ export class DescribeAlertsWithEventRequest extends $dara.Model {
   isDefend?: string;
   /**
    * @remarks
-   * The threat level. The value is a JSON array. Valid values:
-   * - serious: High.
-   * - suspicious: Medium.
-   * - remind: Low.
+   * The threat level. The value is formatted as a JSON array. Valid values:
+   * - serious: High risk.
+   * - suspicious: Medium risk.
+   * - remind: Low risk.
    * 
    * @example
    * ["serious","suspicious","remind"]
@@ -119,9 +135,9 @@ export class DescribeAlertsWithEventRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the data management center of Threat Analysis is located. You must select the region of the management center based on the region where your assets are located. Valid values:
+   * The region where the data management center of Threat Analysis is deployed. You must select the region of the management center based on the region where your assets are deployed. Valid values:
    * - cn-hangzhou: Assets are located in the Chinese mainland and Hong Kong (China).
-   * - ap-southeast-1: Assets are located outside China.
+   * - ap-southeast-1: Assets are located outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou
@@ -129,7 +145,7 @@ export class DescribeAlertsWithEventRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the member account in the resource directory.
+   * The ID of the member accounts in the resource folder.
    * 
    * @example
    * 113091674488****
@@ -164,7 +180,7 @@ export class DescribeAlertsWithEventRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The ID of the account associated with the alert.
+   * The ID of the linked account associated with the alert.
    * 
    * @example
    * 176555323***
@@ -181,6 +197,8 @@ export class DescribeAlertsWithEventRequest extends $dara.Model {
       endTime: 'EndTime',
       entityId: 'EntityId',
       entityName: 'EntityName',
+      groupBy: 'GroupBy',
+      groupByValue: 'GroupByValue',
       incidentUuid: 'IncidentUuid',
       isDefend: 'IsDefend',
       level: 'Level',
@@ -205,6 +223,8 @@ export class DescribeAlertsWithEventRequest extends $dara.Model {
       endTime: 'number',
       entityId: 'string',
       entityName: 'string',
+      groupBy: 'string',
+      groupByValue: 'string',
       incidentUuid: 'string',
       isDefend: 'string',
       level: { 'type': 'array', 'itemType': 'string' },

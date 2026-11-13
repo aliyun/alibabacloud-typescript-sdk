@@ -69,6 +69,10 @@ export class ListEntitiesResponseBodyDataResponseDataAgentDisposes extends $dara
    * 12XAD-SFQ-WAF-2ca2
    */
   agentDisposalPlaybookUuid?: string;
+  /**
+   * @example
+   * The file is a malicious backdoor located in the root directory with no business legitimacy; immediate quarantine via the Security Center playbook is safe and necessary
+   */
   agentDisposalReason?: string;
   static names(): { [key: string]: string } {
     return {
@@ -96,6 +100,10 @@ export class ListEntitiesResponseBodyDataResponseDataAgentDisposes extends $dara
 }
 
 export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
+  /**
+   * @example
+   * The file contains a classic PHP Webshell payload (eval($_POST[cmd])) confirmed by threat intelligence and AI investigation as part of a persistent attack chain
+   */
   agentAnalysisReason?: string;
   /**
    * @remarks
@@ -121,6 +129,10 @@ export class ListEntitiesResponseBodyDataResponseData extends $dara.Model {
    * 12XAD-SFQ-WAF-2ca2
    */
   agentDisposalPlaybookUuid?: string;
+  /**
+   * @example
+   * The file is a malicious backdoor located in the root directory with no business legitimacy; immediate quarantine via the Security Center playbook is safe and necessary
+   */
   agentDisposalReason?: string;
   /**
    * @remarks
