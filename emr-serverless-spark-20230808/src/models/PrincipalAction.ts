@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PrincipalAction extends $dara.Model {
   /**
    * @remarks
-   * The ARN of the behavior.
+   * The action ARN.
    * 
    * @example
    * acs:emr::workspaceId:action/create_queue
@@ -13,7 +13,7 @@ export class PrincipalAction extends $dara.Model {
   actionArn?: string;
   /**
    * @remarks
-   * The ARN of the principal.
+   * The principal ARN.
    * 
    * @example
    * acs:emr::workspaceId:user/23759369154162****

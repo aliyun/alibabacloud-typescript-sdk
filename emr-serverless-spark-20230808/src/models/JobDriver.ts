@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class JobDriverSparkSubmit extends $dara.Model {
   /**
    * @remarks
-   * The main program of Spark.
+   * The Spark main program.
    * 
    * @example
    * oss://bucket/path/to/entrypoint.jar
@@ -13,12 +13,12 @@ export class JobDriverSparkSubmit extends $dara.Model {
   entryPoint?: string;
   /**
    * @remarks
-   * The parameters related to the main program of Spark.
+   * The list of arguments for the Spark main program.
    */
   entryPointArguments?: string[];
   /**
    * @remarks
-   * The command-line parameter of SparkSubmit.
+   * The SparkSubmit command-line parameters.
    * 
    * @example
    * --conf spark.app.name=test
@@ -55,7 +55,7 @@ export class JobDriverSparkSubmit extends $dara.Model {
 export class JobDriver extends $dara.Model {
   /**
    * @remarks
-   * The configurations of SparkSubmit.
+   * The SparkSubmit configuration information.
    */
   sparkSubmit?: JobDriverSparkSubmit;
   static names(): { [key: string]: string } {

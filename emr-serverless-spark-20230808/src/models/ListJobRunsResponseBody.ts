@@ -81,11 +81,11 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
    * @remarks
    * The code type of the job. Valid values:
    * 
-   * SQL
+   * - SQL
    * 
-   * JAR
+   * - JAR
    * 
-   * PYTHON.
+   * - PYTHON
    * 
    * @example
    * SQL
@@ -93,12 +93,12 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   codeType?: string;
   /**
    * @remarks
-   * The advanced Spark configurations. This parameter is not returned by the List operation.
+   * The advanced Spark configurations. This parameter is not returned by the list operation.
    */
   configurationOverrides?: ListJobRunsResponseBodyJobRunsConfigurationOverrides;
   /**
    * @remarks
-   * The UID of the user who created the job.
+   * The UID of the creator.
    * 
    * @example
    * 150978934701****
@@ -114,7 +114,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   cuHours?: number;
   /**
    * @remarks
-   * The Spark DPI engine version of the running job.
+   * The Spark engine version used to run the node.
    * 
    * @example
    * esr-3.0.0 (Spark 3.4.3, Scala 2.12)
@@ -146,7 +146,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   fusion?: boolean;
   /**
    * @remarks
-   * The information about the Spark driver. This parameter is not returned by the List operation.
+   * The information about the Spark driver. This parameter is not returned by the list operation.
    */
   jobDriver?: JobDriver;
   /**
@@ -188,7 +188,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The Spark DPI engine version of the running job.
+   * The Spark engine version used to run the node.
    * 
    * @example
    * esr-3.0.0 (Spark 3.4.3, Scala 2.12, Native Runtime)
@@ -335,7 +335,10 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
 export class ListJobRunsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The statistical results aggregated by job state.
+   * The statistical results aggregated by job status.
+   * 
+   * @example
+   * {"Success":"2"}
    */
   aggregations?: { [key: string]: string };
   /**
@@ -345,7 +348,7 @@ export class ListJobRunsResponseBody extends $dara.Model {
   jobRuns?: ListJobRunsResponseBodyJobRuns[];
   /**
    * @remarks
-   * The maximum number of records returned for the request.
+   * The maximum number of records returned for the current request.
    * 
    * @example
    * 20
@@ -353,7 +356,7 @@ export class ListJobRunsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The position of the data read.
+   * The token that indicates the position of the next data record to be read.
    * 
    * @example
    * 1

@@ -13,7 +13,7 @@ export class ListJobRunsShrinkRequest extends $dara.Model {
   applicationConfigs?: string;
   /**
    * @remarks
-   * The UID of the user who created the job.
+   * The UID of the creator.
    * 
    * @example
    * 150976534701****
@@ -26,12 +26,12 @@ export class ListJobRunsShrinkRequest extends $dara.Model {
   endTimeShrink?: string;
   /**
    * @remarks
-   * Specifies whether to aggregate and return statistical results by job run state.
+   * Specifies whether to aggregate and return statistical results by job state.
    */
   groupByState?: boolean;
   /**
    * @remarks
-   * Specifies whether the job run is a workflow job.
+   * Specifies whether the job is a workflow job.
    * 
    * @example
    * false
@@ -39,7 +39,7 @@ export class ListJobRunsShrinkRequest extends $dara.Model {
   isWorkflow?: string;
   /**
    * @remarks
-   * The ID of the streaming job deployment.
+   * The job ID of the streaming job deployment.
    * 
    * @example
    * jd-b6d003f1930f****
@@ -55,7 +55,7 @@ export class ListJobRunsShrinkRequest extends $dara.Model {
   jobRunId?: string;
   /**
    * @remarks
-   * The maximum number of entries to return in a single call. The maximum value is 100.
+   * The maximum number of records to return in a single request. The maximum value is 100.
    * 
    * @example
    * 20
@@ -79,7 +79,7 @@ export class ListJobRunsShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token that specifies the starting position for the query.
+   * The pagination token that marks the starting position for the query.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C89568980
@@ -95,7 +95,7 @@ export class ListJobRunsShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the resource queue in which the Spark job runs.
+   * The name of the resource queue where the Spark job runs.
    * 
    * @example
    * dev_queue

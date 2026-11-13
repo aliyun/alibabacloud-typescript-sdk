@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNetworkServiceRequest extends $dara.Model {
   /**
    * @remarks
-   * A token to ensure the idempotency of the request.
+   * The idempotency token.
    * 
    * @example
    * acaf8f54-d40e-4c33-a900-f6c1b345cb47
@@ -13,7 +13,7 @@ export class CreateNetworkServiceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The name of the network service.
+   * The name.
    * 
    * @example
    * test
@@ -21,7 +21,7 @@ export class CreateNetworkServiceRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the security group.
+   * The security group ID.
    * 
    * @example
    * securityGroupId
@@ -29,7 +29,7 @@ export class CreateNetworkServiceRequest extends $dara.Model {
   securityGroupId?: string;
   /**
    * @remarks
-   * The type of the network service.
+   * The type.
    * 
    * @example
    * type
@@ -37,7 +37,7 @@ export class CreateNetworkServiceRequest extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC ID.
    * 
    * @example
    * vpc-bp1g14f566kbk8jex****
@@ -45,7 +45,7 @@ export class CreateNetworkServiceRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * A list of vSwitch IDs.
+   * The list of vSwitch IDs.
    */
   vswitchIds?: string[];
   /**

@@ -4,10 +4,17 @@ import { SparkConf } from "./SparkConf";
 
 
 export class Template extends $dara.Model {
+  /**
+   * @remarks
+   * The business ID of the Spark task template.
+   * 
+   * @example
+   * template-example-****
+   */
   bizId?: string;
   /**
    * @remarks
-   * Creator UID.
+   * The creator UID.
    * 
    * This parameter is required.
    * 
@@ -17,7 +24,7 @@ export class Template extends $dara.Model {
   creator?: number;
   /**
    * @remarks
-   * Spark engine display version.
+   * The display version of the Spark engine.
    * 
    * @example
    * esr-4.1.1
@@ -25,7 +32,7 @@ export class Template extends $dara.Model {
   displaySparkVersion?: string;
   /**
    * @remarks
-   * Whether to enable the fusion switch.
+   * Specifies whether Fusion is enabled.
    * 
    * @example
    * false
@@ -33,7 +40,7 @@ export class Template extends $dara.Model {
   fusion?: boolean;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * This parameter is required.
    * 
@@ -43,7 +50,7 @@ export class Template extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * Last modified time.
+   * The last updated time.
    * 
    * This parameter is required.
    * 
@@ -51,10 +58,14 @@ export class Template extends $dara.Model {
    * 2025-03-10T02:02:41.000+00:00
    */
   gmtModified?: string;
+  /**
+   * @remarks
+   * Specifies whether the template is the default template.
+   */
   isDefault?: boolean;
   /**
    * @remarks
-   * Last modifier UID.
+   * The last updater UID.
    * 
    * This parameter is required.
    * 
@@ -62,6 +73,13 @@ export class Template extends $dara.Model {
    * 150978934701****
    */
   modifier?: number;
+  /**
+   * @remarks
+   * The template name.
+   * 
+   * @example
+   * spark-task-template
+   */
   name?: string;
   /**
    * @remarks
@@ -70,7 +88,7 @@ export class Template extends $dara.Model {
   sparkConf?: SparkConf[];
   /**
    * @remarks
-   * Spark Driver cores.
+   * The number of Spark driver cores.
    * 
    * This parameter is required.
    * 
@@ -80,7 +98,7 @@ export class Template extends $dara.Model {
   sparkDriverCores?: number;
   /**
    * @remarks
-   * Spark Driver memory.
+   * The Spark driver memory.
    * 
    * This parameter is required.
    * 
@@ -90,7 +108,7 @@ export class Template extends $dara.Model {
   sparkDriverMemory?: number;
   /**
    * @remarks
-   * Spark Executor cores.
+   * The number of Spark executor cores.
    * 
    * This parameter is required.
    * 
@@ -100,7 +118,7 @@ export class Template extends $dara.Model {
   sparkExecutorCores?: number;
   /**
    * @remarks
-   * Spark Executor memory.
+   * The Spark executor memory.
    * 
    * This parameter is required.
    * 
@@ -110,7 +128,7 @@ export class Template extends $dara.Model {
   sparkExecutorMemory?: number;
   /**
    * @remarks
-   * Spark log level.
+   * The Spark log level.
    * 
    * This parameter is required.
    * 
@@ -120,7 +138,7 @@ export class Template extends $dara.Model {
   sparkLogLevel?: string;
   /**
    * @remarks
-   * Spark log path.
+   * The Spark log path.
    * 
    * This parameter is required.
    * 
@@ -130,7 +148,7 @@ export class Template extends $dara.Model {
   sparkLogPath?: string;
   /**
    * @remarks
-   * Spark internal release version.
+   * The Spark internal release version.
    * 
    * This parameter is required.
    * 
@@ -140,7 +158,7 @@ export class Template extends $dara.Model {
   sparkVersion?: string;
   /**
    * @remarks
-   * Template type.
+   * The templatetype.
    * 
    * @example
    * TASK

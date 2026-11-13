@@ -185,6 +185,9 @@ export class GetSessionClusterResponseBodySessionCluster extends $dara.Model {
   /**
    * @remarks
    * The token used to connect to the session cluster.
+   * 
+   * @example
+   * session-connection-****
    */
   connectionToken?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkspaceQueueRequestResourceSpec extends $dara.Model {
   /**
    * @remarks
-   * The maximum workspace resource capacity.
+   * The resource limit of the workspace.
    * 
    * @example
    * 1000
@@ -21,7 +21,7 @@ export class CreateWorkspaceQueueRequestResourceSpec extends $dara.Model {
   gpu?: number;
   /**
    * @remarks
-   * The number of GPU machines. This parameter is valid only for subscription instances.
+   * The number of GPU machines. This parameter is valid only when the billing method is set to subscription.
    * 
    * @example
    * 8
@@ -73,12 +73,12 @@ export class CreateWorkspaceQueueRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The list of GPU models.
+   * The list of GPU instance types.
    */
   gpuSpec?: string[];
   /**
    * @remarks
-   * The Ray cluster instance ID.
+   * The instance ID of the Ray cluster.
    * 
    * @example
    * ray-k7nm8ahl5te4tg91-ey7blpbg
@@ -88,8 +88,8 @@ export class CreateWorkspaceQueueRequest extends $dara.Model {
    * @remarks
    * The billing method of the instance. Valid values:
    * 
-   * - PayAsYouGo: pay-as-you-go
-   * - Pre: subscription
+   * - PayAsYouGo: pay-as-you-go.
+   * - Pre: subscription.
    * 
    * @example
    * PayAsYouGo
@@ -97,12 +97,12 @@ export class CreateWorkspaceQueueRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * Indicates whether resource prefetch is enabled.
+   * Specifies whether resource prefetch is enabled.
    */
   preheat?: boolean;
   /**
    * @remarks
-   * The queue type. Valid values: CPU and GPU.
+   * The queue type, such as CPU or GPU.
    * 
    * @example
    * CPU
@@ -115,7 +115,7 @@ export class CreateWorkspaceQueueRequest extends $dara.Model {
   resourceSpec?: CreateWorkspaceQueueRequestResourceSpec;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * w-975bcfda9625****
@@ -123,7 +123,7 @@ export class CreateWorkspaceQueueRequest extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The workspace queue name.
+   * The name of the workspace queue.
    * 
    * @example
    * dev_queue

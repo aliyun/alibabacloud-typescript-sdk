@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateTaskCodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code.
+   * The error code of the request.
    * 
    * @example
    * 1000000
@@ -34,7 +34,7 @@ export class GenerateTaskCodesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message.
+   * The detailed description corresponding to the request code.
    * 
    * @example
    * No permission for resource action

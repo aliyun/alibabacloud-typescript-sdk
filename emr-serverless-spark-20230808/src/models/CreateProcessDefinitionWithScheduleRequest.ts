@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class CreateProcessDefinitionWithScheduleRequestGlobalParams extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter direction. Valid values: IN (input) and OUT (output).
+   * 
+   * @example
+   * IN
+   */
   direct?: string;
+  /**
+   * @remarks
+   * The parameter name.
+   * 
+   * @example
+   * testGlobalParam
+   */
   prop?: string;
+  /**
+   * @remarks
+   * The data type of the parameter.
+   * 
+   * @example
+   * VARCHAR
+   */
   type?: string;
+  /**
+   * @remarks
+   * The parameter value.
+   * 
+   * @example
+   * testGlobalParam
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -95,9 +123,37 @@ export class CreateProcessDefinitionWithScheduleRequestSchedule extends $dara.Mo
 }
 
 export class CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsLocalParams extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter direction. Valid values: IN (input) and OUT (output).
+   * 
+   * @example
+   * IN
+   */
   direct?: string;
+  /**
+   * @remarks
+   * The parameter name.
+   * 
+   * @example
+   * testGlobalParam
+   */
   prop?: string;
+  /**
+   * @remarks
+   * The data type of the parameter.
+   * 
+   * @example
+   * VARCHAR
+   */
   type?: string;
+  /**
+   * @remarks
+   * The parameter value.
+   * 
+   * @example
+   * testGlobalParam
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -191,6 +247,10 @@ export class CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
    * false
    */
   fusion?: boolean;
+  /**
+   * @remarks
+   * The list of local parameters for the task.
+   */
   localParams?: CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsLocalParams[];
   /**
    * @remarks
@@ -249,12 +309,12 @@ export class CreateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
   sparkLogLevel?: string;
   /**
    * @remarks
-   * The path to the task logs of the Spark node.
+   * The task logs path for the Spark node.
    */
   sparkLogPath?: string;
   /**
    * @remarks
-   * The database engine version of the Spark DPI engine.
+   * The Spark DPI engine database engine version.
    * 
    * @example
    * esr-4.0.0 (Spark 3.5.2, Scala 2.12)
@@ -409,6 +469,9 @@ export class CreateProcessDefinitionWithScheduleRequestTaskDefinitionJson extend
   /**
    * @remarks
    * The tags.
+   * 
+   * @example
+   * {"tagkey":"tagvalue"}
    */
   tags?: { [key: string]: string };
   /**
@@ -592,6 +655,10 @@ export class CreateProcessDefinitionWithScheduleRequest extends $dara.Model {
    * PARALLEL
    */
   executionType?: string;
+  /**
+   * @remarks
+   * The list of global parameters for the workflow.
+   */
   globalParams?: CreateProcessDefinitionWithScheduleRequestGlobalParams[];
   /**
    * @remarks
@@ -655,12 +722,15 @@ export class CreateProcessDefinitionWithScheduleRequest extends $dara.Model {
   runAs?: string;
   /**
    * @remarks
-   * The scheduling structure.
+   * The schedule structure.
    */
   schedule?: CreateProcessDefinitionWithScheduleRequestSchedule;
   /**
    * @remarks
    * The tags.
+   * 
+   * @example
+   * {"tagkey":"tagvalue"}
    */
   tags?: { [key: string]: string };
   /**

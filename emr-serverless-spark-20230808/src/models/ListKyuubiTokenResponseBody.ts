@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListKyuubiTokenResponseBodyDataTokens extends $dara.Model {
   /**
    * @remarks
-   * The list of RAM user names of authorized users.
+   * The list of names of Resource Access Management (RAM) users of authorized users.
    */
   accountNames?: string[];
   /**
@@ -34,7 +34,7 @@ export class ListKyuubiTokenResponseBodyDataTokens extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The last usage time. The value is a UNIX timestamp in milliseconds.
+   * The last used time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1760366232121
@@ -53,6 +53,10 @@ export class ListKyuubiTokenResponseBodyDataTokens extends $dara.Model {
    * dev_serverless_spark
    */
   name?: string;
+  /**
+   * @remarks
+   * The list of Spark roles associated with the token.
+   */
   sparkRole?: string[];
   /**
    * @remarks

@@ -13,7 +13,7 @@ export class ListReleaseVersionsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The version type.
+   * The release type.
    * 
    * @example
    * stable
@@ -35,6 +35,13 @@ export class ListReleaseVersionsRequest extends $dara.Model {
    * ONLINE
    */
   releaseVersionStatus?: string;
+  /**
+   * @remarks
+   * Filters available versions by service type. Valid values: kyuubi and ray.
+   * 
+   * @example
+   * kyuubi
+   */
   serviceFilter?: string;
   /**
    * @remarks

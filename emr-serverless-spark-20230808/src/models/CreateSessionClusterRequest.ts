@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSessionClusterRequestApplicationConfigs extends $dara.Model {
   /**
    * @remarks
-   * The configuration file name.
+   * The name of the configuration file.
    * 
    * @example
    * spark-defaults.conf
@@ -55,9 +55,9 @@ export class CreateSessionClusterRequestApplicationConfigs extends $dara.Model {
 export class CreateSessionClusterRequestAutoStartConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable automatic startup. Valid values:
-   * - true: Enabled.
-   * - false: Disabled.
+   * Specifies whether to enable auto-start. Valid values:
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * false
@@ -88,8 +88,8 @@ export class CreateSessionClusterRequestAutoStopConfiguration extends $dara.Mode
   /**
    * @remarks
    * Specifies whether to allow automatic stop. Valid values:
-   * - true: Allowed.
-   * - false: Not allowed.
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * false
@@ -97,7 +97,7 @@ export class CreateSessionClusterRequestAutoStopConfiguration extends $dara.Mode
   enable?: boolean;
   /**
    * @remarks
-   * The number of idle minutes after which the session is automatically stopped.
+   * The number of idle minutes before the session is automatically stopped.
    * 
    * @example
    * 60
@@ -134,19 +134,19 @@ export class CreateSessionClusterRequest extends $dara.Model {
   applicationConfigs?: CreateSessionClusterRequestApplicationConfigs[];
   /**
    * @remarks
-   * Specifies whether to enable automatic startup. Valid values:
-   * - true: Enabled.
-   * - false: Disabled.
+   * Specifies whether to enable auto-start. Valid values:
+   * - true: Yes.
+   * - false: No.
    */
   autoStartConfiguration?: CreateSessionClusterRequestAutoStartConfiguration;
   /**
    * @remarks
-   * The automatic stop configuration.
+   * The auto-stop configuration.
    */
   autoStopConfiguration?: CreateSessionClusterRequestAutoStopConfiguration;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
+   * The client token used to ensure request idempotence.
    * 
    * @example
    * my-token-asxkxxxxxxx
@@ -162,7 +162,7 @@ export class CreateSessionClusterRequest extends $dara.Model {
   displayReleaseVersion?: string;
   /**
    * @remarks
-   * The Python environment ID. This parameter takes effect only for Notebook sessions.
+   * The ID of the Python environment. This parameter takes effect only for Notebook sessions.
    * 
    * @example
    * env-cpv569tlhtgndjl86t40
@@ -180,7 +180,7 @@ export class CreateSessionClusterRequest extends $dara.Model {
    * @remarks
    * The session type. Valid values:
    * - SQL: SQL session.
-   * - NOTEBOOK: NOTEBOOK session.
+   * - NOTEBOOK: Notebook session.
    * 
    * @example
    * SQL
@@ -188,7 +188,7 @@ export class CreateSessionClusterRequest extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * The node name.
+   * The name of the task.
    * 
    * @example
    * spark_job_name
@@ -196,7 +196,7 @@ export class CreateSessionClusterRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether to enable the public network access endpoint.
+   * Specifies whether public network access is enabled for the endpoint.
    * 
    * @example
    * false
@@ -204,7 +204,7 @@ export class CreateSessionClusterRequest extends $dara.Model {
   publicEndpointEnabled?: boolean;
   /**
    * @remarks
-   * The queue name.
+   * The name of the queue.
    * 
    * @example
    * root_queue
@@ -212,7 +212,7 @@ export class CreateSessionClusterRequest extends $dara.Model {
   queueName?: string;
   /**
    * @remarks
-   * The Spark DPI engine version number.
+   * The version number of the Spark DPI engine.
    * 
    * @example
    * esr-3.3.1

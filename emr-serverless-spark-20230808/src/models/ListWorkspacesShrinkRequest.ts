@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListWorkspacesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records to return in a single request.
+   * The maximum number of results to return in a single request.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The name of the workspace. Fuzzy search by workspace name is supported.
+   * The name of the workspace. Fuzzy search is supported.
    * 
    * @example
    * test_workspace
@@ -21,7 +21,7 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The token that indicates the position from which to start reading.
+   * The pagination token that specifies the starting position for the current read operation.
    * 
    * @example
    * 1
@@ -50,7 +50,7 @@ export class ListWorkspacesShrinkRequest extends $dara.Model {
    * - Running: The workspace is running.
    * - Stopping: The workspace is stopping.
    * - Stopped: The workspace is stopped.
-   * - Error: The workspace failed.
+   * - Error: The workspace has failed.
    * 
    * @example
    * running

@@ -26,6 +26,14 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
   displayReleaseVersion?: string;
   /**
    * @remarks
+   * Indicates whether the release version supports flame graphs. This is determined by checking if the fenix version metadata contains flame-graph.
+   * 
+   * @example
+   * true
+   */
+  flameGraphEnabled?: boolean;
+  /**
+   * @remarks
    * Indicates whether Fusion engine acceleration is enabled.
    * 
    * @example
@@ -50,7 +58,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
   iaasType?: string;
   /**
    * @remarks
-   * Indicates whether the version is a custom image.
+   * Indicates whether the image is a custom image.
    */
   isCustom?: boolean;
   /**
@@ -79,7 +87,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
   state?: string;
   /**
    * @remarks
-   * The version type.
+   * The release type.
    * 
    * @example
    * stable
@@ -90,6 +98,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
       communityVersion: 'communityVersion',
       cpuArchitectures: 'cpuArchitectures',
       displayReleaseVersion: 'displayReleaseVersion',
+      flameGraphEnabled: 'flameGraphEnabled',
       fusion: 'fusion',
       gmtCreate: 'gmtCreate',
       iaasType: 'iaasType',
@@ -106,6 +115,7 @@ export class ListReleaseVersionsResponseBodyReleaseVersions extends $dara.Model 
       communityVersion: 'string',
       cpuArchitectures: { 'type': 'array', 'itemType': 'string' },
       displayReleaseVersion: 'string',
+      flameGraphEnabled: 'boolean',
       fusion: 'boolean',
       gmtCreate: 'number',
       iaasType: 'string',
@@ -140,7 +150,7 @@ export class ListReleaseVersionsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page.
+   * The next token.
    * 
    * @example
    * 1
@@ -148,7 +158,7 @@ export class ListReleaseVersionsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The list of versions.
+   * The list of release versions.
    */
   releaseVersions?: ListReleaseVersionsResponseBodyReleaseVersions[];
   /**

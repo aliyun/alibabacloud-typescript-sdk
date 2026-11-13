@@ -15,7 +15,7 @@ export class ListWorkspacesResponseBodyWorkspacesPrePaidQuota extends $dara.Mode
    * @remarks
    * Specifies whether auto-renewal is enabled for the resource. Valid values:
    * - true: Auto-renewal is enabled. The resource is automatically renewed upon expiration.
-   * - false: Auto-renewal is disabled. The resource is stopped upon expiration.
+   * - false: Auto-renewal is disabled. The resource stops working upon expiration.
    * 
    * @example
    * true
@@ -31,7 +31,7 @@ export class ListWorkspacesResponseBodyWorkspacesPrePaidQuota extends $dara.Mode
   createTime?: number;
   /**
    * @remarks
-   * The expiration time of the resource quota. The value is a UNIX timestamp in milliseconds.
+   * The time when the resource quota expires. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1740537153000
@@ -129,6 +129,9 @@ export class ListWorkspacesResponseBodyWorkspacesPrePaidQuotaGpu extends $dara.M
   /**
    * @remarks
    * The number of CPU cores.
+   * 
+   * @example
+   * 1
    */
   cpuCoreCount?: string;
   /**
@@ -141,7 +144,7 @@ export class ListWorkspacesResponseBodyWorkspacesPrePaidQuotaGpu extends $dara.M
   createTime?: number;
   /**
    * @remarks
-   * The expiration time of the GPU subscription quota. The value is a UNIX timestamp in milliseconds.
+   * The time when the GPU subscription quota expires. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1782292772000
@@ -181,7 +184,7 @@ export class ListWorkspacesResponseBodyWorkspacesPrePaidQuotaGpu extends $dara.M
   gpuNum?: number;
   /**
    * @remarks
-   * The GPU model.
+   * The GPU instance type.
    * 
    * @example
    * ecs.gn7i-c8g1.2xlarge
@@ -198,16 +201,25 @@ export class ListWorkspacesResponseBodyWorkspacesPrePaidQuotaGpu extends $dara.M
   /**
    * @remarks
    * The instance family.
+   * 
+   * @example
+   * ecs.g5
    */
   instanceTypeFamily?: string;
   /**
    * @remarks
    * The instance type ID.
+   * 
+   * @example
+   * ecs.g5.small
    */
   instanceTypeId?: string;
   /**
    * @remarks
    * The memory size.
+   * 
+   * @example
+   * 4096
    */
   memorySize?: string;
   /**
@@ -319,11 +331,17 @@ export class ListWorkspacesResponseBodyWorkspacesTags extends $dara.Model {
   /**
    * @remarks
    * The tag key.
+   * 
+   * @example
+   * [\\"COST\\"]
    */
   tagKey?: string;
   /**
    * @remarks
    * The tag value.
+   * 
+   * @example
+   * 3d775731-9ec1-4fe2-a00d-061d51fce677
    */
   tagValue?: string;
   static names(): { [key: string]: string } {
@@ -352,7 +370,7 @@ export class ListWorkspacesResponseBodyWorkspacesTags extends $dara.Model {
 export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal. This parameter is required for subscription resources.
+   * Specifies whether to enable auto-renewal. This parameter is required for the subscription billing method.
    * 
    * @example
    * true
@@ -360,7 +378,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The auto-renewal duration. This parameter is required for subscription resources.
+   * The auto-renewal duration. This parameter is required for the subscription billing method.
    * 
    * @example
    * 1
@@ -368,7 +386,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   autoRenewPeriod?: number;
   /**
    * @remarks
-   * The auto-renewal epoch. This parameter is required for subscription resources.
+   * The auto-renewal cycle. This parameter is required for the subscription billing method.
    * 
    * @example
    * YEAR, MONTH, WEEK, DAY, HOUR, MINUTE
@@ -400,7 +418,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   dlfType?: string;
   /**
    * @remarks
-   * The duration of the subscription. This parameter is required for subscription resources.
+   * The length of the subscription period. This parameter is required for the subscription billing method.
    * 
    * @example
    * 1
@@ -416,7 +434,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The reason for the failure.
+   * The cause of the failure.
    * 
    * @example
    * out of stock
@@ -424,7 +442,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   failReason?: string;
   /**
    * @remarks
-   * The list of GPU models.
+   * The list of GPU instance types.
    */
   gpuSpec?: string[];
   /**
@@ -434,7 +452,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   ipWhiteList?: string[];
   /**
    * @remarks
-   * The unit of the subscription period. This parameter is required for subscription resources.
+   * The unit of the subscription period. This parameter is required for the subscription billing method.
    * 
    * @example
    * YEAR, MONTH, WEEK, DAY, HOUR, MINUTE
@@ -632,7 +650,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
 export class ListWorkspacesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records to return in a single request.
+   * The maximum number of results to return in a single request.
    * 
    * @example
    * 20

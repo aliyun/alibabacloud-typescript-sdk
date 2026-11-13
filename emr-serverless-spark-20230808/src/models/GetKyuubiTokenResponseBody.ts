@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKyuubiTokenResponseBodyDataAutoExpireConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether auto-expiration is enabled.
+   * Indicates whether automatic expiration is enabled.
    * 
    * @example
    * true
@@ -82,7 +82,7 @@ export class GetKyuubiTokenResponseBodyData extends $dara.Model {
   lastUsedTime?: number;
   /**
    * @remarks
-   * The list of authorized user ARNs.
+   * The list of ARNs of authorized users.
    */
   memberArns?: string[];
   /**
@@ -93,6 +93,10 @@ export class GetKyuubiTokenResponseBodyData extends $dara.Model {
    * dev_serverless_spark
    */
   name?: string;
+  /**
+   * @remarks
+   * The list of Spark roles associated with the token.
+   */
   sparkRole?: string[];
   /**
    * @remarks
@@ -104,7 +108,7 @@ export class GetKyuubiTokenResponseBodyData extends $dara.Model {
   token?: string;
   /**
    * @remarks
-   * Token ID。
+   * The token ID.
    * 
    * @example
    * tk-zpi0*****hdv4y

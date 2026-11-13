@@ -13,7 +13,7 @@ export class CreateKyuubiServiceRequest extends $dara.Model {
   computeInstance?: string;
   /**
    * @remarks
-   * The Kyuubi service configuration.
+   * The Kyuubi service configurations.
    * 
    * @example
    * [{\\"key\\":\\"kyuubi.engine.share.level\\",\\"value\\":\\"USER\\"}]
@@ -21,7 +21,7 @@ export class CreateKyuubiServiceRequest extends $dara.Model {
   kyuubiConfigs?: string;
   /**
    * @remarks
-   * The Kyuubi service database engine version.
+   * The Kyuubi service DPI engine version.
    * 
    * @example
    * 1.9.2-0.0.2
@@ -29,7 +29,7 @@ export class CreateKyuubiServiceRequest extends $dara.Model {
   kyuubiReleaseVersion?: string;
   /**
    * @remarks
-   * The Kyuubi service name.
+   * The name of the Kyuubi service.
    * 
    * @example
    * dev_serverless_spark
@@ -45,7 +45,7 @@ export class CreateKyuubiServiceRequest extends $dara.Model {
   publicEndpointEnabled?: boolean;
   /**
    * @remarks
-   * The queue where the Kyuubi service runs.
+   * The execution queue of the Kyuubi service.
    * 
    * @example
    * dev_queue
@@ -53,7 +53,7 @@ export class CreateKyuubiServiceRequest extends $dara.Model {
   queue?: string;
   /**
    * @remarks
-   * The Spark database engine version.
+   * The Spark DPI engine version.
    * 
    * @example
    * esr-4.6.0 (Spark 3.5.2, Scala 2.12)
@@ -61,7 +61,7 @@ export class CreateKyuubiServiceRequest extends $dara.Model {
   releaseVersion?: string;
   /**
    * @remarks
-   * The number of replicas for high availability (HA).
+   * The number of replicas for high availability.
    * 
    * @example
    * 3
@@ -69,7 +69,7 @@ export class CreateKyuubiServiceRequest extends $dara.Model {
   replica?: number;
   /**
    * @remarks
-   * The Spark configuration.
+   * The Spark configurations.
    * 
    * @example
    * [{\\"key\\":\\"spark.app.name\\",\\"value\\":\\"test\\"}]

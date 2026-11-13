@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelJobRunResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The job ID.
+   * The job run ID.
    * 
    * @example
    * jr-f09a8fda2396****

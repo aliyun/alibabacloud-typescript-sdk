@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLivyComputeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 1000000 indicates that the request was successful. Other values indicate that the request failed. For more information about the cause of the error, see the message parameter.
+   * The response code. A value of 1000000 indicates that the request is successful. Other values indicate that the request failed. For details about the error, see the message.
    * 
    * @example
    * 1000000

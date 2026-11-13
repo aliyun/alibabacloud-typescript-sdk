@@ -31,6 +31,10 @@ export class CreateProcessDefinitionWithScheduleShrinkRequest extends $dara.Mode
    * PARALLEL
    */
   executionType?: string;
+  /**
+   * @remarks
+   * The list of global parameters for the workflow.
+   */
   globalParamsShrink?: string;
   /**
    * @remarks
@@ -94,12 +98,15 @@ export class CreateProcessDefinitionWithScheduleShrinkRequest extends $dara.Mode
   runAs?: string;
   /**
    * @remarks
-   * The scheduling structure.
+   * The schedule structure.
    */
   scheduleShrink?: string;
   /**
    * @remarks
    * The tags.
+   * 
+   * @example
+   * {"tagkey":"tagvalue"}
    */
   tagsShrink?: string;
   /**

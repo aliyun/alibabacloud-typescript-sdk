@@ -63,7 +63,7 @@ export class CreateRayClusterRequestHeadSpec extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * The Ray DPI engine version.
+   * The database engine version of the Ray DPI engine.
    * 
    * @example
    * ray-1.2.0 (Ray 2.55.1, Python 3.12)
@@ -71,7 +71,7 @@ export class CreateRayClusterRequestHeadSpec extends $dara.Model {
   displayReleaseVersion?: string;
   /**
    * @remarks
-   * Specifies whether to enable automatic scaling for workers.
+   * Specifies whether to enable auto-scaling for worker nodes.
    * 
    * @example
    * false
@@ -87,12 +87,12 @@ export class CreateRayClusterRequestHeadSpec extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The GCS Fault Tolerance configuration.
+   * The GCS fault tolerance configuration.
    */
   gftConfig?: CreateRayClusterRequestHeadSpecGftConfig;
   /**
    * @remarks
-   * Specifies whether to enable GCS Fault Tolerance.
+   * Specifies whether to enable GCS fault tolerance.
    * 
    * **if can be null:**
    * true
@@ -100,7 +100,7 @@ export class CreateRayClusterRequestHeadSpec extends $dara.Model {
   gftEnabled?: boolean;
   /**
    * @remarks
-   * The GPU model.
+   * The GPU instance type.
    * 
    * @example
    * ecs.gn6i-c4g1.xlarge
@@ -108,7 +108,7 @@ export class CreateRayClusterRequestHeadSpec extends $dara.Model {
   gpuSpec?: string;
   /**
    * @remarks
-   * The idle timeout period of workers after automatic scaling is enabled.
+   * The idle timeout period for worker nodes after auto-scaling is enabled.
    * 
    * @example
    * 60
@@ -124,7 +124,7 @@ export class CreateRayClusterRequestHeadSpec extends $dara.Model {
   memory?: string;
   /**
    * @remarks
-   * The queue name.
+   * The name of the queue.
    * 
    * @example
    * root_queue
@@ -132,7 +132,7 @@ export class CreateRayClusterRequestHeadSpec extends $dara.Model {
   queueName?: string;
   /**
    * @remarks
-   * The Ray node startup parameters.
+   * The startup parameters for the Ray node.
    * 
    * @example
    * --num-cpus=0 --num-gpus=0
@@ -193,7 +193,7 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * The engine version. If this parameter is not specified, the value is the same as that of the head node.
+   * The engine name. If you do not specify this parameter, the value is the same as that of the head node.
    * 
    * @example
    * ray-1.2.0 (Ray 2.55.1, Python 3.12)
@@ -209,7 +209,7 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The GPU model.
+   * The GPU instance type.
    * 
    * @example
    * ecs.gn6i-c4g1.xlarge
@@ -217,7 +217,7 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
   gpuSpec?: string;
   /**
    * @remarks
-   * The worker group name.
+   * The name of the worker group.
    * 
    * @example
    * WorkerGroup1
@@ -225,7 +225,7 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The maximum number of workers after automatic scaling is enabled. Minimum value: 1.
+   * The maximum number of worker nodes after auto-scaling is enabled. Minimum value: 1.
    * 
    * @example
    * 10
@@ -241,7 +241,7 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
   memory?: string;
   /**
    * @remarks
-   * The minimum number of workers after automatic scaling is enabled. Minimum value: 1. The value must be less than or equal to maxReplica.
+   * The minimum number of worker nodes after auto-scaling is enabled. Minimum value: 1. The value must be less than or equal to the value of maxReplica.
    * 
    * @example
    * 1
@@ -249,7 +249,7 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
   minReplica?: number;
   /**
    * @remarks
-   * The queue name.
+   * The name of the queue.
    * 
    * @example
    * root_queue
@@ -257,7 +257,7 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
   queueName?: string;
   /**
    * @remarks
-   * The Ray node startup parameters.
+   * The startup parameters for the Ray node.
    * 
    * @example
    * --num-cpus=0 --num-gpus=0
@@ -265,7 +265,7 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
   rayStartParams?: string;
   /**
    * @remarks
-   * The number of workers. Minimum value: 1.
+   * The number of worker nodes. Minimum value: 1.
    * 
    * @example
    * 2
@@ -273,7 +273,7 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
   replica?: number;
   /**
    * @remarks
-   * The worker type.
+   * The type of the worker node.
    * 
    * @example
    * CPU
@@ -333,7 +333,7 @@ export class CreateRayClusterRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The Ray DPI engine version.
+   * The database engine version of the Ray DPI engine.
    * 
    * @example
    * ray-1.0.0 (Ray 2.47.1, Python 3.12)
@@ -349,7 +349,7 @@ export class CreateRayClusterRequest extends $dara.Model {
   extraParam?: string;
   /**
    * @remarks
-   * The parameters of the Ray cluster head node.
+   * The head node parameters of the Ray cluster.
    */
   headSpec?: CreateRayClusterRequestHeadSpec;
   /**
@@ -362,7 +362,7 @@ export class CreateRayClusterRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The network connectivity name.
+   * The name of the network connectivity.
    * 
    * @example
    * vpc
@@ -370,12 +370,12 @@ export class CreateRayClusterRequest extends $dara.Model {
   networkServiceName?: string;
   /**
    * @remarks
-   * The list of managed directory IDs to mount.
+   * The IDs of the managed directories to be mounted.
    */
   volumeIds?: string[];
   /**
    * @remarks
-   * The parameters of the Ray cluster worker nodes. A maximum of 50 groups are supported.
+   * The worker node parameters of the Ray cluster. You can configure up to 50 worker node groups.
    */
   workerSpec?: CreateRayClusterRequestWorkerSpec[];
   static names(): { [key: string]: string } {

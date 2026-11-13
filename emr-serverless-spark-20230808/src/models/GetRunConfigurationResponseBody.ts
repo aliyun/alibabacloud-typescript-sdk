@@ -6,7 +6,7 @@ import { Tag } from "./Tag";
 export class GetRunConfigurationResponseBodyRunConfigurationApplicationConfigs extends $dara.Model {
   /**
    * @remarks
-   * The name of the application configuration file.
+   * The application configuration file name.
    * 
    * @example
    * spark-defaults.conf
@@ -14,7 +14,7 @@ export class GetRunConfigurationResponseBodyRunConfigurationApplicationConfigs e
   configFileName?: string;
   /**
    * @remarks
-   * The key of the configuration item.
+   * The configuration item key.
    * 
    * @example
    * spark.driver.cores
@@ -22,7 +22,7 @@ export class GetRunConfigurationResponseBodyRunConfigurationApplicationConfigs e
   configItemKey?: string;
   /**
    * @remarks
-   * The value of the configuration item.
+   * The configuration item value.
    * 
    * @example
    * 2

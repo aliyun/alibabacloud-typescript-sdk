@@ -5,36 +5,50 @@ import * as $dara from '@darabonba/typescript';
 export class Credential extends $dara.Model {
   /**
    * @remarks
+   * sts ak
+   * 
    * This parameter is required.
    */
   accessId?: string;
   /**
    * @remarks
+   * The OSS path.
+   * 
    * This parameter is required.
    */
   dir?: string;
   /**
    * @remarks
+   * The timeout period.
+   * 
    * This parameter is required.
    */
   expire?: string;
   /**
    * @remarks
+   * The OSS domain name.
+   * 
    * This parameter is required.
    */
   host?: string;
   /**
    * @remarks
+   * The OSS access policy.
+   * 
    * This parameter is required.
    */
   policy?: string;
   /**
    * @remarks
+   * sts token
+   * 
    * This parameter is required.
    */
   securityToken?: string;
   /**
    * @remarks
+   * The OSS access signature.
+   * 
    * This parameter is required.
    */
   signature?: string;

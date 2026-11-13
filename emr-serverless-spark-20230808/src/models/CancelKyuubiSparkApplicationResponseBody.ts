@@ -13,11 +13,11 @@ export class CancelKyuubiSparkApplicationResponseBodyBody extends $dara.Model {
   applicationId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful. Valid values:
    * 
-   * - true: The request was successful.
+   * - true: Successful.
    * 
-   * - false: The request failed.
+   * - false: Failed.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

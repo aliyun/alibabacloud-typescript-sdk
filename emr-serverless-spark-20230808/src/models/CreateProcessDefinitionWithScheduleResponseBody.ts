@@ -74,7 +74,7 @@ export class CreateProcessDefinitionWithScheduleResponseBody extends $dara.Model
   httpStatusCode?: number;
   /**
    * @remarks
-   * The detailed description corresponding to the request code.
+   * The detailed description corresponding to the return code.
    * 
    * @example
    * No permission for resource action

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLivyComputeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Livy Gateway.
+   * The ID of the Livy gateway.
    * 
    * @example
    * lc-i8xogcdfa4fk3yn1
@@ -35,7 +35,7 @@ export class CreateLivyComputeResponseBodyData extends $dara.Model {
 export class CreateLivyComputeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code of the request. A value of 1000000 indicates that the request was successful. Other values indicate that the request failed. For more information, see the message parameter.
+   * The response code. A value of 1000000 indicates that the request is successful. Other values indicate that the request failed. For detailed error causes, refer to the message.
    * 
    * @example
    * 1000000
@@ -43,7 +43,7 @@ export class CreateLivyComputeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: CreateLivyComputeResponseBodyData;
   /**

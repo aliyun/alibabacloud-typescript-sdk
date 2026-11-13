@@ -13,8 +13,7 @@ export class GetWorkspaceResponseBodyWorkspacePrePaidQuota extends $dara.Model {
   allocatedResource?: string;
   /**
    * @remarks
-   * Specifies whether auto-renewal is enabled for the resource.
-   * 
+   * Specifies whether auto-renewal is enabled for the resource. Valid values:
    * - true: Auto-renewal is enabled. The resource is automatically renewed upon expiration.
    * - false: Auto-renewal is disabled. The resource is stopped upon expiration.
    * 
@@ -24,7 +23,7 @@ export class GetWorkspaceResponseBodyWorkspacePrePaidQuota extends $dara.Model {
   autoRenewal?: boolean;
   /**
    * @remarks
-   * The time when the workspace was created. The value is a UNIX timestamp in milliseconds.
+   * The time when the workspace was created. The time is displayed as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1791802817000
@@ -32,7 +31,7 @@ export class GetWorkspaceResponseBodyWorkspacePrePaidQuota extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The expiration time of the GPU subscription quota. The value is a UNIX timestamp in milliseconds.
+   * The expiration time of the GPU subscription quota. The time is displayed as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1779768979586
@@ -134,7 +133,7 @@ export class GetWorkspaceResponseBodyWorkspacePrePaidQuotaGpu extends $dara.Mode
   cpuCoreCount?: string;
   /**
    * @remarks
-   * The creation time.
+   * The time when the resource was created.
    * 
    * @example
    * 1782292672000
@@ -142,7 +141,7 @@ export class GetWorkspaceResponseBodyWorkspacePrePaidQuotaGpu extends $dara.Mode
   createTime?: number;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time of the resource.
    * 
    * @example
    * 1782292772000
@@ -182,7 +181,7 @@ export class GetWorkspaceResponseBodyWorkspacePrePaidQuotaGpu extends $dara.Mode
   gpuNum?: number;
   /**
    * @remarks
-   * The GPU instance type.
+   * The GPU model.
    * 
    * @example
    * ecs.gn7i-c8g1.2xlarge
@@ -328,7 +327,7 @@ export class GetWorkspaceResponseBodyWorkspaceStateChangeReason extends $dara.Mo
 export class GetWorkspaceResponseBodyWorkspaceTags extends $dara.Model {
   /**
    * @remarks
-   * The tag keys.
+   * The tag key.
    * 
    * @example
    * [\\"COST\\"]
@@ -368,7 +367,7 @@ export class GetWorkspaceResponseBodyWorkspaceTags extends $dara.Model {
 export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether auto-renewal is enabled. This parameter is required for subscription workspaces.
+   * Specifies whether to enable auto-renewal. This parameter is required for subscription instances.
    * 
    * @example
    * true
@@ -376,7 +375,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The auto-renewal period. This parameter is required for subscription workspaces.
+   * The auto-renewal duration. This parameter is required for subscription instances.
    * 
    * @example
    * 1
@@ -384,7 +383,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   autoRenewPeriod?: number;
   /**
    * @remarks
-   * The auto-renewal cycle. This parameter is required for subscription workspaces.
+   * The auto-renewal cycle. This parameter is required for subscription instances.
    * 
    * @example
    * YEAR, MONTH, WEEK, DAY, HOUR, MINUTE
@@ -392,7 +391,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   autoRenewPeriodUnit?: string;
   /**
    * @remarks
-   * The time when the workspace was created. The value is a UNIX timestamp in milliseconds.
+   * The time when the workspace was created. The time is displayed as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1776824869000
@@ -408,7 +407,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   dlfCatalogId?: string;
   /**
    * @remarks
-   * The bound DLF type.
+   * The type of the bound DLF.
    * 
    * @example
    * DLF-NEXT
@@ -416,7 +415,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   dlfType?: string;
   /**
    * @remarks
-   * The subscription duration. This parameter is required for subscription workspaces.
+   * The subscription duration. This parameter is required for subscription instances.
    * 
    * @example
    * 1
@@ -424,7 +423,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The time when the workspace is released.
+   * The time when the workspace was released.
    * 
    * @example
    * 1786586477000
@@ -450,7 +449,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   ipWhiteList?: string[];
   /**
    * @remarks
-   * The unit of the subscription period. This parameter is required for subscription workspaces.
+   * The unit of the subscription duration. This parameter is required for subscription instances.
    * 
    * @example
    * YEAR, MONTH, WEEK, DAY, HOUR, MINUTE
@@ -479,7 +478,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   prePaidQuota?: GetWorkspaceResponseBodyWorkspacePrePaidQuota;
   /**
    * @remarks
-   * The list of GPU subscription quotas.
+   * The list of GPU subscription resources.
    */
   prePaidQuotaGpu?: GetWorkspaceResponseBodyWorkspacePrePaidQuotaGpu[];
   /**
@@ -500,7 +499,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The reason why the workspace is released.
+   * The reason why the workspace was released.
    * 
    * @example
    * stable
@@ -516,7 +515,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The UID of the user who created the workspace.
+   * The UID of the creator.
    * 
    * @example
    * 13*************
@@ -545,7 +544,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   storage?: string;
   /**
    * @remarks
-   * The tag keys.
+   * The tag key.
    */
   tags?: GetWorkspaceResponseBodyWorkspaceTags[];
   /**
@@ -558,7 +557,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   workspaceId?: string;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * Spark batch job workspace-1
@@ -566,7 +565,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   workspaceName?: string;
   /**
    * @remarks
-   * The workspace status.
+   * The status of the workspace.
    * 
    * @example
    * STARTING,RUNNING,TERMINATED

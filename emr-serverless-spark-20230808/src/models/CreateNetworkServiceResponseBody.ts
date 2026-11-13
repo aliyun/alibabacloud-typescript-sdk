@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNetworkServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The operation ID.
+   * The workspace ID.
    * 
    * @example
    * w-******

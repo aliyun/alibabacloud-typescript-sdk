@@ -126,6 +126,9 @@ export class ListWorkspaceQueuesResponseBodyQueues extends $dara.Model {
   /**
    * @remarks
    * The ID of the resource instance associated with the queue.
+   * 
+   * @example
+   * i-resource-****
    */
   instanceId?: string;
   /**

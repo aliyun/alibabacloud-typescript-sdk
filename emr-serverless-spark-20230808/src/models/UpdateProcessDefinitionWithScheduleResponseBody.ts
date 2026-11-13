@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The email address for alert notifications.
+   * The alert email address.
    * 
    * @example
    * foo_bar@spark.alert.invalid.com
@@ -21,7 +21,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
   bizId?: string;
   /**
    * @remarks
-   * The workflow definition ID.
+   * The ID of the workflow definition.
    * 
    * @example
    * 12***********
@@ -29,7 +29,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
   code?: string;
   /**
    * @remarks
-   * The creation time of the workflow definition. The time is in UTC and follows the ISO 8601 standard.
+   * The creation time of the workflow definition. The time is in UTC and follows the ISO 8601 format.
    * 
    * @example
    * 2024-09-05T02:03:19Z
@@ -37,7 +37,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
   createTime?: string;
   /**
    * @remarks
-   * The cron expression for scheduling.
+   * The cron expression for the schedule.
    * 
    * @example
    * 0 0 0 * * ?
@@ -45,7 +45,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
   crontab?: string;
   /**
    * @remarks
-   * The node definition description.
+   * The task definition description.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
   description?: string;
   /**
    * @remarks
-   * The end time of the task time range. The value is a UNIX timestamp in milliseconds.
+   * The end time of the task time range. The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1710432000000
@@ -61,7 +61,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
   endTime?: string;
   /**
    * @remarks
-   * The execution policy.
+   * The execution strategy.
    * 
    * @example
    * SERIAL
@@ -101,7 +101,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
   releaseState?: string;
   /**
    * @remarks
-   * The start time of the scheduling.
+   * The start time of the schedule.
    * 
    * @example
    * 0
@@ -117,7 +117,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
   timezoneId?: string;
   /**
    * @remarks
-   * The update time of the workflow definition. The time is in UTC and follows the ISO 8601 standard.
+   * The update time of the workflow definition. The time is in UTC and follows the ISO 8601 format.
    * 
    * @example
    * 2024-03-05T06:24:27Z
@@ -215,7 +215,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBodyData extends $dara.M
 export class UpdateProcessDefinitionWithScheduleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code from the API backend.
+   * The return code of the API backend.
    * 
    * @example
    * 1400009
@@ -223,7 +223,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBody extends $dara.Model
   code?: number;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: UpdateProcessDefinitionWithScheduleResponseBodyData;
   /**
@@ -244,7 +244,7 @@ export class UpdateProcessDefinitionWithScheduleResponseBody extends $dara.Model
   httpStatusCode?: number;
   /**
    * @remarks
-   * The detailed description corresponding to the request code.
+   * The detailed description for the request code.
    * 
    * @example
    * No permission for resource action

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSqlStatementRequest extends $dara.Model {
   /**
    * @remarks
-   * The SQL code. You can specify one or more SQL statements to execute.
+   * The SQL code. You can pass one or more SQL statements for execution.
    * 
    * @example
    * SHOW TABLES
@@ -29,7 +29,7 @@ export class CreateSqlStatementRequest extends $dara.Model {
   defaultDatabase?: string;
   /**
    * @remarks
-   * The limit value. Valid values: 1 to 10000.
+   * The LIMIT value. Valid values: 1 to 10000.
    * 
    * @example
    * 1000
@@ -37,7 +37,7 @@ export class CreateSqlStatementRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The SQL session ID. Create the session in the session management module of the EMR Serverless Spark workspace.
+   * The SQL session ID. You must create the session in the session management module of the EMR Serverless Spark workspace.
    * 
    * @example
    * sc-dfahdfjafhajd****
@@ -45,7 +45,7 @@ export class CreateSqlStatementRequest extends $dara.Model {
   sqlComputeId?: string;
   /**
    * @remarks
-   * The data development node ID.
+   * The data development task ID.
    * 
    * @example
    * TSK-d87******************

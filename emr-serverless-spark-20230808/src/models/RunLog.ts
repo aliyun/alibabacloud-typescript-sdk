@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RunLog extends $dara.Model {
   /**
    * @remarks
-   * The path of the startup file.
+   * The path to the startup file.
    * 
    * @example
    * oss://bucket/path/to/startup
@@ -13,7 +13,7 @@ export class RunLog extends $dara.Model {
   driverStartup?: string;
   /**
    * @remarks
-   * The path of the stderr file.
+   * The path to the stderr file.
    * 
    * @example
    * oss://bucket/path/to/stderr
@@ -21,7 +21,7 @@ export class RunLog extends $dara.Model {
   driverStdError?: string;
   /**
    * @remarks
-   * The path of the stdout file.
+   * The path to the stdout file.
    * 
    * @example
    * oss://bucket/path/to/stdout
@@ -29,7 +29,7 @@ export class RunLog extends $dara.Model {
   driverStdOut?: string;
   /**
    * @remarks
-   * The path of the syslog file.
+   * The path to the syslog file.
    * 
    * @example
    * oss://bucket/path/to/syslog

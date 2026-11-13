@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteKyuubiServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The return result.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class Category extends $dara.Model {
   /**
    * @remarks
-   * The folder ID.
+   * The ID of the folder.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class Category extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The ID of the user who creates the folder.
+   * The UID of the creator.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class Category extends $dara.Model {
   creator?: number;
   /**
    * @remarks
-   * The time when the folder was created.
+   * The creation time.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class Category extends $dara.Model {
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the folder was last updated.
+   * The last updated time.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class Category extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The ID of the user who last modifies the folder.
+   * The UID of the last updater.
    * 
    * This parameter is required.
    * 
@@ -65,7 +65,7 @@ export class Category extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The parent folder ID.
+   * The ID of the parent folder.
    * 
    * @example
    * w-d6********

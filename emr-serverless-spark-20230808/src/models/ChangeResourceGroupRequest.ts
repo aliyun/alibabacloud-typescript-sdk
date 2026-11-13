@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ChangeResourceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the region where the resource is located.
+   * The region ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the destination resource group.
+   * The target resource group.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The ID of the resource to move.
+   * The resource ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ChangeResourceGroupRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The resource type. Set this to `Workspace`.
+   * The resource type.
    * 
    * @example
    * Workspace

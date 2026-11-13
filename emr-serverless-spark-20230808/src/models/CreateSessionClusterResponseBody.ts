@@ -13,7 +13,7 @@ export class CreateSessionClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The session ID.
+   * The ID of the session.
    * 
    * @example
    * w-******

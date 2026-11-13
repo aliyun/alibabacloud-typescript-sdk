@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "emr-serverless-spark";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("emr-serverless-spark", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -69,7 +73,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a Resource Access Management (RAM) user or a RAM role to a workspace as a member.
+   * Invokes AddMembers to add Resource Access Management (RAM) users or RAM roles to a workspace as new members.
    * 
    * @param request - AddMembersRequest
    * @param headers - map
@@ -112,7 +116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a Resource Access Management (RAM) user or a RAM role to a workspace as a member.
+   * Invokes AddMembers to add Resource Access Management (RAM) users or RAM roles to a workspace as new members.
    * 
    * @param request - AddMembersRequest
    * @returns AddMembersResponse
@@ -124,7 +128,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Terminates a Spark job.
+   * Terminates a running Spark job.
    * 
    * @param request - CancelJobRunRequest
    * @param headers - map
@@ -157,7 +161,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Terminates a Spark job.
+   * Terminates a running Spark job.
    * 
    * @param request - CancelJobRunRequest
    * @returns CancelJobRunResponse
@@ -169,7 +173,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels a Kyuubi Spark application.
+   * Cancels a Spark application submitted by Kyuubi.
    * 
    * @param request - CancelKyuubiSparkApplicationRequest
    * @param headers - map
@@ -202,7 +206,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels a Kyuubi Spark application.
+   * Cancels a Spark application submitted by Kyuubi.
    * 
    * @param request - CancelKyuubiSparkApplicationRequest
    * @returns CancelKyuubiSparkApplicationResponse
@@ -214,7 +218,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a RayJob.
+   * Stops a Ray job.
    * 
    * @param request - CancelRayJobRequest
    * @param headers - map
@@ -241,7 +245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a RayJob.
+   * Stops a Ray job.
    * 
    * @param request - CancelRayJobRequest
    * @returns CancelRayJobResponse
@@ -253,7 +257,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves an instance to a different resource group.
+   * Updates the resource group of an instance.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param headers - map
@@ -298,7 +302,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves an instance to a different resource group.
+   * Updates the resource group of an instance.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -310,7 +314,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Kyuubi gateway.
+   * Creates a Kyuubi Gateway.
    * 
    * @param request - CreateKyuubiServiceRequest
    * @param headers - map
@@ -375,7 +379,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Kyuubi gateway.
+   * Creates a Kyuubi Gateway.
    * 
    * @param request - CreateKyuubiServiceRequest
    * @returns CreateKyuubiServiceResponse
@@ -561,7 +565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a token for a Livy Gateway.
+   * Creates a token for Livy Gateway.
    * 
    * @param request - CreateLivyComputeTokenRequest
    * @param headers - map
@@ -608,7 +612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a token for a Livy Gateway.
+   * Creates a token for Livy Gateway.
    * 
    * @param request - CreateLivyComputeTokenRequest
    * @returns CreateLivyComputeTokenResponse
@@ -620,7 +624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a network service.
+   * Creates network connectivity.
    * 
    * @param request - CreateNetworkServiceRequest
    * @param headers - map
@@ -679,7 +683,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a network service.
+   * Creates network connectivity.
    * 
    * @param request - CreateNetworkServiceRequest
    * @returns CreateNetworkServiceResponse
@@ -990,7 +994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an SQL query.
+   * Creates a SQL query.
    * 
    * @param request - CreateSqlStatementRequest
    * @param headers - map
@@ -1049,7 +1053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an SQL query.
+   * Creates a SQL query.
    * 
    * @param request - CreateSqlStatementRequest
    * @returns CreateSqlStatementResponse
@@ -1388,7 +1392,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a token for a Livy Gateway.
+   * Deletes the token of a Livy gateway.
    * 
    * @param request - DeleteLivyComputeTokenRequest
    * @param headers - map
@@ -1421,7 +1425,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a token for a Livy Gateway.
+   * Deletes the token of a Livy gateway.
    * 
    * @param request - DeleteLivyComputeTokenRequest
    * @returns DeleteLivyComputeTokenResponse
@@ -1588,7 +1592,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes a workflow and its scheduling configuration.
+   * Publishes a workflow and its scheduling.
    * 
    * @param request - GenerateTaskCodesRequest
    * @param headers - map
@@ -1629,7 +1633,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes a workflow and its scheduling configuration.
+   * Publishes a workflow and its scheduling.
    * 
    * @param request - GenerateTaskCodesRequest
    * @returns GenerateTaskCodesResponse
@@ -2165,7 +2169,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the configuration of a Spark job.
+   * Retrieves the configuration of a Spark task.
    * 
    * @param request - GetRunConfigurationRequest
    * @param headers - map
@@ -2198,7 +2202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the configuration of a Spark job.
+   * Retrieves the configuration of a Spark task.
    * 
    * @param request - GetRunConfigurationRequest
    * @returns GetRunConfigurationResponse
@@ -2453,7 +2457,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View the list of data catalogs
+   * Queries the list of data catalogs.
    * 
    * @param request - ListCatalogsRequest
    * @param headers - map
@@ -2490,7 +2494,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View the list of data catalogs
+   * Queries the list of data catalogs.
    * 
    * @param request - ListCatalogsRequest
    * @returns ListCatalogsResponse
@@ -2620,7 +2624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists Spark job runs.
+   * Retrieves a list of Spark job runs.
    * 
    * @param tmpReq - ListJobRunsRequest
    * @param headers - map
@@ -2735,7 +2739,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists Spark job runs.
+   * Retrieves a list of Spark job runs.
    * 
    * @param request - ListJobRunsRequest
    * @returns ListJobRunsResponse
@@ -2895,7 +2899,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the Kyuubi Server authentication tokens.
+   * Lists the authentication tokens for Kyuubi Server.
    * 
    * @param request - ListKyuubiTokenRequest
    * @param headers - map
@@ -2928,7 +2932,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the Kyuubi Server authentication tokens.
+   * Lists the authentication tokens for Kyuubi Server.
    * 
    * @param request - ListKyuubiTokenRequest
    * @returns ListKyuubiTokenResponse
@@ -3749,7 +3753,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of workspaces.
+   * Queries a list of workspaces.
    * 
    * @param tmpReq - ListWorkspacesRequest
    * @param headers - map
@@ -3812,7 +3816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of workspaces.
+   * Queries a list of workspaces.
    * 
    * @param request - ListWorkspacesRequest
    * @returns ListWorkspacesResponse
@@ -4871,7 +4875,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a Kyuubi Gateway authentication token.
+   * Updates the authentication token for Kyuubi Gateway.
    * 
    * @param request - UpdateKyuubiTokenRequest
    * @param headers - map
@@ -4926,7 +4930,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a Kyuubi Gateway authentication token.
+   * Updates the authentication token for Kyuubi Gateway.
    * 
    * @param request - UpdateKyuubiTokenRequest
    * @returns UpdateKyuubiTokenResponse
@@ -4938,7 +4942,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a Livy Gateway.
+   * Updates a Livy gateway.
    * 
    * @param request - UpdateLivyComputeRequest
    * @param headers - map
@@ -5033,7 +5037,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a Livy Gateway.
+   * Updates a Livy gateway.
    * 
    * @param request - UpdateLivyComputeRequest
    * @returns UpdateLivyComputeResponse
@@ -5045,7 +5049,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the workflow definition and timed scheduling.
+   * Updates a workflow definition and scheduling.
    * 
    * @param tmpReq - UpdateProcessDefinitionWithScheduleRequest
    * @param headers - map
@@ -5168,7 +5172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the workflow definition and timed scheduling.
+   * Updates a workflow definition and scheduling.
    * 
    * @param request - UpdateProcessDefinitionWithScheduleRequest
    * @returns UpdateProcessDefinitionWithScheduleResponse

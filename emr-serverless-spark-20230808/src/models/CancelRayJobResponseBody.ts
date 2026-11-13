@@ -13,7 +13,7 @@ export class CancelRayJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the cancellation is successfully triggered.
+   * Indicates whether the cancellation was successfully triggered.
    * 
    * @example
    * true

@@ -5,7 +5,21 @@ import * as $dara from '@darabonba/typescript';
 /**
  */
 export class CacheClusterCachesets extends $dara.Model {
+  /**
+   * @remarks
+   * The name of the cache set.
+   * 
+   * @example
+   * cache1
+   */
   name?: string;
+  /**
+   * @remarks
+   * The path of the cache set.
+   * 
+   * @example
+   * /path1
+   */
   path?: string;
   static names(): { [key: string]: string } {
     return {
@@ -31,8 +45,18 @@ export class CacheClusterCachesets extends $dara.Model {
 }
 
 export class CacheClusterConfigurations extends $dara.Model {
+  /**
+   * @remarks
+   * The content of the configuration file.
+   * 
+   * @example
+   * <cachesets><cacheset><name>cache1</name><path>/path1</path><cacheStrategy>DISTRIBUTED</cacheStrategy><metaPolicy><type>ALWAYS</type></metaPolicy><readPolicy>CACHE_ASIDE</readPolicy><preadPolicy>ALL_DYNAMIC</preadPolicy><writePolicy>WRITE_THROUGH</writePolicy></cacheset></cachesets>
+   */
   content?: string;
   /**
+   * @remarks
+   * The name of the configuration file.
+   * 
    * @example
    * cacheset.xml
    */
@@ -61,8 +85,26 @@ export class CacheClusterConfigurations extends $dara.Model {
 }
 
 export class CacheClusterResourceSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The bandwidth.
+   * 
+   * @example
+   * 100
+   */
   bandWidth?: number;
+  /**
+   * @remarks
+   * Specifies whether high availability is enabled.
+   */
   ha?: boolean;
+  /**
+   * @remarks
+   * The physical storage.
+   * 
+   * @example
+   * 100
+   */
   storage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -90,10 +132,45 @@ export class CacheClusterResourceSpec extends $dara.Model {
 }
 
 export class CacheClusterTables extends $dara.Model {
+  /**
+   * @remarks
+   * The data catalog ID.
+   * 
+   * @example
+   * 15097**********
+   */
   catalogId?: string;
+  /**
+   * @remarks
+   * The data catalog provider.
+   * 
+   * @example
+   * HMS
+   */
   catalogProvider?: string;
+  /**
+   * @remarks
+   * The database name.
+   * 
+   * @example
+   * test_db
+   */
   database?: string;
+  /**
+   * @remarks
+   * The data table name.
+   * 
+   * @example
+   * test_table
+   */
   table?: string;
+  /**
+   * @remarks
+   * The workspace ID.
+   * 
+   * @example
+   * w-d2d82aa09155****
+   */
   workspaceId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -125,7 +202,21 @@ export class CacheClusterTables extends $dara.Model {
 }
 
 export class CacheClusterTags extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key.
+   * 
+   * @example
+   * tag_key
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value.
+   * 
+   * @example
+   * value
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -151,7 +242,15 @@ export class CacheClusterTags extends $dara.Model {
 }
 
 export class CacheClusterUsedResourceSpec extends $dara.Model {
+  /**
+   * @remarks
+   * The used bandwidth.
+   */
   bandWidth?: number;
+  /**
+   * @remarks
+   * The used storage capacity.
+   */
   storage?: number;
   static names(): { [key: string]: string } {
     return {
@@ -177,28 +276,158 @@ export class CacheClusterUsedResourceSpec extends $dara.Model {
 }
 
 export class CacheCluster extends $dara.Model {
+  /**
+   * @remarks
+   * The associated workspaces.
+   */
   bindedWorkspaces?: string[];
+  /**
+   * @remarks
+   * The cache cluster ID.
+   * 
+   * @example
+   * spc-xxxxxxx
+   */
   cacheClusterId?: string;
+  /**
+   * @remarks
+   * The cache cluster name.
+   * 
+   * @example
+   * test-cache-cluster
+   */
   cacheClusterName?: string;
+  /**
+   * @remarks
+   * The list of cache sets associated with the cache cluster.
+   */
   cachesets?: CacheClusterCachesets[];
+  /**
+   * @remarks
+   * The cache cluster ID.
+   * 
+   * @example
+   * spc-xxxxxxx
+   */
   clusterId?: string;
+  /**
+   * @example
+   * [{"name":"cache1","path":"/path1"}]
+   */
   configuration?: string;
+  /**
+   * @remarks
+   * The list of configuration files for the cache cluster.
+   */
   configurations?: CacheClusterConfigurations[];
+  /**
+   * @remarks
+   * The creation time.
+   * 
+   * @example
+   * Fri May 31 12:18:51 CST 2024
+   */
   createTime?: string;
+  /**
+   * @remarks
+   * The creator UID.
+   * 
+   * @example
+   * 123456
+   */
   creator?: string;
   extra?: string;
+  /**
+   * @remarks
+   * The creation time. The value is a UNIX timestamp in milliseconds.
+   * 
+   * @example
+   * 1717138731701
+   */
   gmtCreated?: number;
+  /**
+   * @remarks
+   * The modification time. The value is a UNIX timestamp in milliseconds.
+   * 
+   * @example
+   * 1717138731701
+   */
   gmtModified?: number;
+  /**
+   * @remarks
+   * The modifier UID.
+   * 
+   * @example
+   * 123456
+   */
   modifier?: string;
+  /**
+   * @remarks
+   * The cache cluster name.
+   * 
+   * @example
+   * test-cache-cluster
+   */
   name?: string;
+  /**
+   * @remarks
+   * The billing method.
+   * 
+   * @example
+   * PayAsYouGo
+   */
   paymentType?: string;
+  /**
+   * @remarks
+   * The region ID.
+   * 
+   * @example
+   * cn-hangzhou
+   */
   regionId?: string;
+  /**
+   * @remarks
+   * The resource group ID.
+   * 
+   * @example
+   * rg-aek4f7uj74wdthi
+   */
   resourceGroupId?: string;
+  /**
+   * @remarks
+   * The cache cluster specifications.
+   */
   resourceSpec?: CacheClusterResourceSpec;
+  /**
+   * @remarks
+   * The cache cluster status.
+   * 
+   * @example
+   * RUNNING
+   */
   state?: string;
+  /**
+   * @remarks
+   * The list of data tables associated with the cache cluster.
+   */
   tables?: CacheClusterTables[];
+  /**
+   * @remarks
+   * The list of tags for the cache cluster.
+   */
   tags?: CacheClusterTags[];
+  /**
+   * @remarks
+   * The resource specifications used by the cache cluster.
+   */
   usedResourceSpec?: CacheClusterUsedResourceSpec;
+  /**
+   * @remarks
+   * The cache cluster version.
+   * 
+   * @example
+   * v2.0
+   */
   version?: string;
   static names(): { [key: string]: string } {
     return {

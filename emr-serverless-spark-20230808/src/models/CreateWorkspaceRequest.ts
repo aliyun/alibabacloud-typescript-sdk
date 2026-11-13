@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkspaceRequestResourceSpec extends $dara.Model {
   /**
    * @remarks
-   * The resource quota for the workspace.
+   * The resource limit of the workspace.
    * 
    * @example
    * 1000
@@ -13,7 +13,7 @@ export class CreateWorkspaceRequestResourceSpec extends $dara.Model {
   cu?: string;
   /**
    * @remarks
-   * The GPU resource quota for the workspace.
+   * The number of GPUs.
    * 
    * @example
    * 100
@@ -85,7 +85,7 @@ export class CreateWorkspaceRequestTag extends $dara.Model {
 export class CreateWorkspaceRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal. This parameter is required if you set `paymentType` to `Pre`.
+   * Specifies whether to enable auto-renewal. This parameter is required when the paymentType parameter is set to Pre.
    * 
    * @example
    * false
@@ -93,7 +93,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
   autoRenew?: string;
   /**
    * @remarks
-   * The auto-renewal duration. This parameter is required if `autoRenew` is set to `true`.
+   * The auto-renewal period. This parameter is required when the paymentType parameter is set to Pre.
    * 
    * @example
    * 100
@@ -101,7 +101,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
   autoRenewPeriod?: string;
   /**
    * @remarks
-   * The unit of the auto-renewal duration. This parameter is required if `autoRenew` is set to `true`.
+   * The auto-renewal epoch. This parameter is required when the paymentType parameter is set to Pre.
    * 
    * @example
    * month
@@ -109,7 +109,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
   autoRenewPeriodUnit?: string;
   /**
    * @remarks
-   * Specifies whether to automatically start a session cluster when the workspace is created.
+   * Specifies whether to automatically start a session.
    * 
    * @example
    * false
@@ -117,7 +117,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
   autoStartSessionCluster?: boolean;
   /**
    * @remarks
-   * A token that ensures the idempotency of the request.
+   * The client token for idempotence verification.
    * 
    * @example
    * 8e6aae2810c8f67229ca70bb31cd****
@@ -125,7 +125,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The DLF Catalog ID.
+   * The DLF catalog information.
    * 
    * @example
    * 123xxxxx
@@ -133,7 +133,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
   dlfCatalogId?: string;
   /**
    * @remarks
-   * The DLF type.
+   * The DLF binding type.
    * 
    * @example
    * dlf1.0
@@ -141,7 +141,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
   dlfType?: string;
   /**
    * @remarks
-   * The subscription duration. This parameter is required if you set `paymentType` to `Pre`.
+   * The number of subscription periods. This parameter is required when the paymentType parameter is set to Pre.
    * 
    * @example
    * 12452
@@ -149,12 +149,12 @@ export class CreateWorkspaceRequest extends $dara.Model {
   duration?: string;
   /**
    * @remarks
-   * The specifications for the GPU resources.
+   * The list of GPU instance types.
    */
   gpuSpec?: string[];
   /**
    * @remarks
-   * The OSS bucket for the workspace. The path must be in the `oss://<bucket-name>/` format.
+   * The OSS bucket.
    * 
    * @example
    * oss://test-bucket/
@@ -162,7 +162,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
   ossBucket?: string;
   /**
    * @remarks
-   * The unit of the subscription duration. This parameter is required if you set `paymentType` to `Pre`.
+   * The subscription period unit.
    * 
    * @example
    * 1000
@@ -170,11 +170,10 @@ export class CreateWorkspaceRequest extends $dara.Model {
   paymentDurationUnit?: string;
   /**
    * @remarks
-   * The billing method. Valid values:
+   * The billing method of the instance. Valid values:
    * 
-   * - `PayAsYouGo`: pay-as-you-go
-   * 
-   * - `Pre`: subscription
+   * - PayAsYouGo: pay-as-you-go
+   * - Pre: subscription
    * 
    * @example
    * PayAsYouGo
@@ -182,7 +181,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
   paymentType?: string;
   /**
    * @remarks
-   * The name of the RAM role used to run Spark jobs.
+   * The name of the RAM role used to execute Spark jobs.
    * 
    * @example
    * AliyunEMRSparkJobRunDefaultRole
@@ -198,7 +197,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
   releaseType?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmwpi66knkxny
@@ -211,7 +210,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
   resourceSpec?: CreateWorkspaceRequestResourceSpec;
   /**
    * @remarks
-   * The tags to add to the workspace.
+   * The list of tags.
    * 
    * **if can be null:**
    * false
@@ -219,7 +218,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
   tag?: CreateWorkspaceRequestTag[];
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * default

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateKyuubiTokenRequestAutoExpireConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the token automatically expires.
+   * Specifies whether automatic expiration is enabled.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class CreateKyuubiTokenRequestAutoExpireConfiguration extends $dara.Model
   enable?: boolean;
   /**
    * @remarks
-   * The expiration period in days.
+   * The expiration time in days.
    * 
    * @example
    * 365
@@ -45,12 +45,12 @@ export class CreateKyuubiTokenRequestAutoExpireConfiguration extends $dara.Model
 export class CreateKyuubiTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * The automatic expiration settings.
+   * The auto-expiration configuration struct.
    */
   autoExpireConfiguration?: CreateKyuubiTokenRequestAutoExpireConfiguration;
   /**
    * @remarks
-   * The list of ARNs of authorized users.
+   * The list of ARNs for authorized users.
    */
   memberArns?: string[];
   /**
@@ -61,10 +61,14 @@ export class CreateKyuubiTokenRequest extends $dara.Model {
    * dev_serverless_spark
    */
   name?: string;
+  /**
+   * @remarks
+   * The list of Spark roles associated with the token.
+   */
   sparkRole?: string[];
   /**
    * @remarks
-   * The token content. The token must be 32 characters long and contain only lowercase letters and digits.
+   * The token content, which must be 32 characters in length and contain only lowercase letters and digits.
    * 
    * @example
    * rjy7ejhej9gkzjjuun49jnx2xk8if2cu

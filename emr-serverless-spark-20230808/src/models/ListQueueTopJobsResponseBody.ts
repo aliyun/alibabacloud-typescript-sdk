@@ -13,7 +13,7 @@ export class ListQueueTopJobsResponseBodyQueueTopJobsJobs extends $dara.Model {
   cpuCores?: string;
   /**
    * @remarks
-   * The number of CUs consumed by the job.
+   * The CUs consumed by the job.
    * 
    * @example
    * 8
@@ -37,7 +37,7 @@ export class ListQueueTopJobsResponseBodyQueueTopJobsJobs extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The amount of memory requested by the job.
+   * The memory requested by the job.
    * 
    * @example
    * 32
@@ -75,7 +75,7 @@ export class ListQueueTopJobsResponseBodyQueueTopJobsJobs extends $dara.Model {
 export class ListQueueTopJobsResponseBodyQueueTopJobs extends $dara.Model {
   /**
    * @remarks
-   * The list of jobs.
+   * The job list.
    */
   jobs?: ListQueueTopJobsResponseBodyQueueTopJobsJobs[];
   /**
@@ -88,7 +88,7 @@ export class ListQueueTopJobsResponseBodyQueueTopJobs extends $dara.Model {
   maxResults?: string;
   /**
    * @remarks
-   * The name of the queue.
+   * The queue name.
    * 
    * @example
    * dev_queue
@@ -96,7 +96,7 @@ export class ListQueueTopJobsResponseBodyQueueTopJobs extends $dara.Model {
   queueName?: string;
   /**
    * @remarks
-   * The total number of CUs consumed by the queue.
+   * The total CUs consumed by the queue.
    * 
    * @example
    * 128

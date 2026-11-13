@@ -13,7 +13,7 @@ export class ListQueueTopJobsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The maximum number of jobs to return. The maximum value is 10.
+   * The maximum number of jobs to return. Maximum value: 10.
    * 
    * @example
    * 10

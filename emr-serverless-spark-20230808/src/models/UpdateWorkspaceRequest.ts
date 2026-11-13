@@ -11,6 +11,9 @@ export class UpdateWorkspaceRequestGpuSubscription extends $dara.Model {
   /**
    * @remarks
    * The number of subscription periods.
+   * 
+   * @example
+   * 1
    */
   duration?: number;
   /**
@@ -24,6 +27,9 @@ export class UpdateWorkspaceRequestGpuSubscription extends $dara.Model {
   /**
    * @remarks
    * The ID of the GPU quota instance to be upgraded. This parameter is required when the operation parameter is set to UPGRADE.
+   * 
+   * @example
+   * w-xxxxxx-quota-gpu-xxxx
    */
   instanceId?: string;
   /**
@@ -102,7 +108,7 @@ export class UpdateWorkspaceRequestSubscription extends $dara.Model {
   autoRenewPeriod?: string;
   /**
    * @remarks
-   * The auto-renewal cycle. This parameter is required for the subscription billing method.
+   * The auto-renewal epoch. This parameter is required for the subscription billing method.
    * 
    * @example
    * MONTH
@@ -110,7 +116,7 @@ export class UpdateWorkspaceRequestSubscription extends $dara.Model {
   autoRenewPeriodUnit?: string;
   /**
    * @remarks
-   * The client token for idempotency verification.
+   * The client token used to ensure the idempotence of the request.
    * 
    * @example
    * my-token-asxkxxxxxxx
@@ -176,7 +182,7 @@ export class UpdateWorkspaceRequestSubscription extends $dara.Model {
 export class UpdateWorkspaceRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource limit of the workspace.
+   * The resource limit for the workspace.
    * 
    * @example
    * 5000
@@ -197,12 +203,12 @@ export class UpdateWorkspaceRequest extends $dara.Model {
   gpuSpec?: string[];
   /**
    * @remarks
-   * The GPU subscription information.
+   * The GPU subscription.
    */
   gpuSubscription?: UpdateWorkspaceRequestGpuSubscription;
   /**
    * @remarks
-   * The workspace IP address whitelist.
+   * The IP address whitelist of the workspace.
    */
   ipWhiteList?: string[];
   /**

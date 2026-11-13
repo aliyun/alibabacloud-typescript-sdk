@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The operation ID.
+   * The ID of the operation flow.
    * 
    * @example
    * op-******
@@ -21,7 +21,7 @@ export class CreateWorkspaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * w-******

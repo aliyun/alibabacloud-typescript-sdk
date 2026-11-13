@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateProcessDefinitionWithScheduleShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The alert email address.
+   * The email address for alert notifications.
    * 
    * @example
    * foo_bar@spark.alert.invalid.com
@@ -21,7 +21,7 @@ export class UpdateProcessDefinitionWithScheduleShrinkRequest extends $dara.Mode
   description?: string;
   /**
    * @remarks
-   * The execution policy.
+   * The execution strategy.
    * 
    * This parameter is required.
    * 
@@ -29,6 +29,10 @@ export class UpdateProcessDefinitionWithScheduleShrinkRequest extends $dara.Mode
    * PARALLEL
    */
   executionType?: string;
+  /**
+   * @remarks
+   * The list of global parameters for the workflow.
+   */
   globalParamsShrink?: string;
   /**
    * @remarks
@@ -100,24 +104,27 @@ export class UpdateProcessDefinitionWithScheduleShrinkRequest extends $dara.Mode
   runAs?: string;
   /**
    * @remarks
-   * The scheduling structure.
+   * The schedule structure.
    */
   scheduleShrink?: string;
   /**
    * @remarks
    * The tags.
+   * 
+   * @example
+   * {"tagkey":"tagvalue"}
    */
   tagsShrink?: string;
   /**
    * @remarks
-   * The JSON array of node definitions, which contains the description information of all nodes in the workflow.
+   * The JSON array of task definitions, which contains the description of all tasks in the workflow.
    * 
    * This parameter is required.
    */
   taskDefinitionJsonShrink?: string;
   /**
    * @remarks
-   * The concurrency of workflow node execution.
+   * The concurrency level for workflow node execution.
    * 
    * @example
    * 1
@@ -125,14 +132,14 @@ export class UpdateProcessDefinitionWithScheduleShrinkRequest extends $dara.Mode
   taskParallelism?: number;
   /**
    * @remarks
-   * The JSON array of node dependencies, which contains the dependencies among all nodes in the workflow. preTaskCode is the upstream node ID, and postTaskCode is the downstream node ID. Each node must have a unique ID. If a node does not have an upstream node, you must add a dependency with preTaskCode set to 0.
+   * The JSON array of task dependencies, which contains the dependencies among all tasks in the workflow. preTaskCode specifies the upstream task ID, and postTaskCode specifies the downstream task ID. Each task must have a unique ID. If a task node does not have an upstream task, you must add a dependency with preTaskCode set to 0.
    * 
    * This parameter is required.
    */
   taskRelationJsonShrink?: string;
   /**
    * @remarks
-   * The default timeout for workflow execution.
+   * The default timeout period for workflow execution.
    * 
    * @example
    * 300

@@ -3,9 +3,37 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class UpdateProcessDefinitionWithScheduleRequestGlobalParams extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter direction. Valid values: IN (input) and OUT (output).
+   * 
+   * @example
+   * IN
+   */
   direct?: string;
+  /**
+   * @remarks
+   * The parameter name.
+   * 
+   * @example
+   * testGlobalParam
+   */
   prop?: string;
+  /**
+   * @remarks
+   * The data type of the parameter.
+   * 
+   * @example
+   * VARCHAR
+   */
   type?: string;
+  /**
+   * @remarks
+   * The parameter value.
+   * 
+   * @example
+   * testGlobalParam
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -37,7 +65,7 @@ export class UpdateProcessDefinitionWithScheduleRequestGlobalParams extends $dar
 export class UpdateProcessDefinitionWithScheduleRequestSchedule extends $dara.Model {
   /**
    * @remarks
-   * The cron expression for scheduling.
+   * The cron expression for the schedule.
    * 
    * @example
    * 0 0 0 * * ?
@@ -95,9 +123,37 @@ export class UpdateProcessDefinitionWithScheduleRequestSchedule extends $dara.Mo
 }
 
 export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsLocalParams extends $dara.Model {
+  /**
+   * @remarks
+   * The parameter direction. Valid values: IN (input) and OUT (output).
+   * 
+   * @example
+   * IN
+   */
   direct?: string;
+  /**
+   * @remarks
+   * The parameter name.
+   * 
+   * @example
+   * testGlobalParam
+   */
   prop?: string;
+  /**
+   * @remarks
+   * The data type of the parameter.
+   * 
+   * @example
+   * VARCHAR
+   */
   type?: string;
+  /**
+   * @remarks
+   * The parameter value.
+   * 
+   * @example
+   * testGlobalParam
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -191,10 +247,14 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
    * false
    */
   fusion?: boolean;
+  /**
+   * @remarks
+   * The list of local parameters for the task.
+   */
   localParams?: UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsLocalParams[];
   /**
    * @remarks
-   * The name of the queue for running the node.
+   * The name of the queue used to run the task.
    * 
    * This parameter is required.
    * 
@@ -204,7 +264,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
   resourceQueueId?: string;
   /**
    * @remarks
-   * The Spark node configuration.
+   * The Spark task configurations.
    */
   sparkConf?: UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskParamsSparkConf[];
   /**
@@ -217,7 +277,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
   sparkDriverCores?: number;
   /**
    * @remarks
-   * The memory for the Spark driver.
+   * The memory size for the Spark driver.
    * 
    * @example
    * 4g
@@ -233,7 +293,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
   sparkExecutorCores?: number;
   /**
    * @remarks
-   * The memory for the Spark executor.
+   * The memory size for the Spark executor.
    * 
    * @example
    * 4g
@@ -249,7 +309,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
   sparkLogLevel?: string;
   /**
    * @remarks
-   * The log path of the Spark node.
+   * The log path for the Spark node.
    */
   sparkLogPath?: string;
   /**
@@ -262,7 +322,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
   sparkVersion?: string;
   /**
    * @remarks
-   * The data development node ID.
+   * The data development task ID.
    * 
    * This parameter is required.
    * 
@@ -348,7 +408,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJsonTaskPar
 export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extends $dara.Model {
   /**
    * @remarks
-   * The alert email address.
+   * The email address for alert notifications.
    * 
    * @example
    * foo_bar@spark.alert.invalid.com
@@ -356,7 +416,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extend
   alertEmailAddress?: string;
   /**
    * @remarks
-   * The node definition ID.
+   * The task definition ID.
    * 
    * This parameter is required.
    * 
@@ -366,7 +426,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extend
   code?: number;
   /**
    * @remarks
-   * The node definition description.
+   * The task definition description.
    * 
    * @example
    * ods transform task
@@ -374,7 +434,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extend
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable alerts for node failures.
+   * Specifies whether to enable alerts for task failures.
    * 
    * @example
    * true
@@ -382,7 +442,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extend
   failAlertEnable?: boolean;
   /**
    * @remarks
-   * The number of retries after a node fails.
+   * The number of retries allowed after a task failure.
    * 
    * @example
    * 1
@@ -390,7 +450,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extend
   failRetryTimes?: number;
   /**
    * @remarks
-   * The node name.
+   * The task name.
    * 
    * This parameter is required.
    * 
@@ -400,7 +460,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extend
   name?: string;
   /**
    * @remarks
-   * Specifies whether to enable alerts for node startup.
+   * Specifies whether to enable alerts for task startup.
    * 
    * @example
    * true
@@ -409,11 +469,14 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extend
   /**
    * @remarks
    * The tags.
+   * 
+   * @example
+   * {"tagkey":"tagvalue"}
    */
   tags?: { [key: string]: string };
   /**
    * @remarks
-   * The node definition parameters.
+   * The task definition parameters.
    * 
    * This parameter is required.
    */
@@ -430,7 +493,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extend
   taskType?: string;
   /**
    * @remarks
-   * The default timeout for node execution.
+   * The default timeout period for task execution.
    * 
    * @example
    * 30
@@ -486,7 +549,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson extend
 export class UpdateProcessDefinitionWithScheduleRequestTaskRelationJson extends $dara.Model {
   /**
    * @remarks
-   * The name of the node topology relationship. Set this parameter to the workflow name.
+   * The name of the task topology relationship. Set this parameter to the workflow name.
    * 
    * This parameter is required.
    * 
@@ -496,7 +559,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskRelationJson extends 
   name?: string;
   /**
    * @remarks
-   * The downstream node ID.
+   * The downstream task ID.
    * 
    * This parameter is required.
    * 
@@ -506,7 +569,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskRelationJson extends 
   postTaskCode?: number;
   /**
    * @remarks
-   * The downstream node version.
+   * The downstream task version.
    * 
    * This parameter is required.
    * 
@@ -516,7 +579,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskRelationJson extends 
   postTaskVersion?: number;
   /**
    * @remarks
-   * The upstream node ID.
+   * The upstream task ID.
    * 
    * This parameter is required.
    * 
@@ -526,7 +589,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskRelationJson extends 
   preTaskCode?: number;
   /**
    * @remarks
-   * The upstream node version.
+   * The upstream task version.
    * 
    * This parameter is required.
    * 
@@ -566,7 +629,7 @@ export class UpdateProcessDefinitionWithScheduleRequestTaskRelationJson extends 
 export class UpdateProcessDefinitionWithScheduleRequest extends $dara.Model {
   /**
    * @remarks
-   * The alert email address.
+   * The email address for alert notifications.
    * 
    * @example
    * foo_bar@spark.alert.invalid.com
@@ -582,7 +645,7 @@ export class UpdateProcessDefinitionWithScheduleRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The execution policy.
+   * The execution strategy.
    * 
    * This parameter is required.
    * 
@@ -590,6 +653,10 @@ export class UpdateProcessDefinitionWithScheduleRequest extends $dara.Model {
    * PARALLEL
    */
   executionType?: string;
+  /**
+   * @remarks
+   * The list of global parameters for the workflow.
+   */
   globalParams?: UpdateProcessDefinitionWithScheduleRequestGlobalParams[];
   /**
    * @remarks
@@ -661,24 +728,27 @@ export class UpdateProcessDefinitionWithScheduleRequest extends $dara.Model {
   runAs?: string;
   /**
    * @remarks
-   * The scheduling structure.
+   * The schedule structure.
    */
   schedule?: UpdateProcessDefinitionWithScheduleRequestSchedule;
   /**
    * @remarks
    * The tags.
+   * 
+   * @example
+   * {"tagkey":"tagvalue"}
    */
   tags?: { [key: string]: string };
   /**
    * @remarks
-   * The JSON array of node definitions, which contains the description information of all nodes in the workflow.
+   * The JSON array of task definitions, which contains the description of all tasks in the workflow.
    * 
    * This parameter is required.
    */
   taskDefinitionJson?: UpdateProcessDefinitionWithScheduleRequestTaskDefinitionJson[];
   /**
    * @remarks
-   * The concurrency of workflow node execution.
+   * The concurrency level for workflow node execution.
    * 
    * @example
    * 1
@@ -686,14 +756,14 @@ export class UpdateProcessDefinitionWithScheduleRequest extends $dara.Model {
   taskParallelism?: number;
   /**
    * @remarks
-   * The JSON array of node dependencies, which contains the dependencies among all nodes in the workflow. preTaskCode is the upstream node ID, and postTaskCode is the downstream node ID. Each node must have a unique ID. If a node does not have an upstream node, you must add a dependency with preTaskCode set to 0.
+   * The JSON array of task dependencies, which contains the dependencies among all tasks in the workflow. preTaskCode specifies the upstream task ID, and postTaskCode specifies the downstream task ID. Each task must have a unique ID. If a task node does not have an upstream task, you must add a dependency with preTaskCode set to 0.
    * 
    * This parameter is required.
    */
   taskRelationJson?: UpdateProcessDefinitionWithScheduleRequestTaskRelationJson[];
   /**
    * @remarks
-   * The default timeout for workflow execution.
+   * The default timeout period for workflow execution.
    * 
    * @example
    * 300
