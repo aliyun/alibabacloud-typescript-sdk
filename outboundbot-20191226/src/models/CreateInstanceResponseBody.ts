@@ -24,7 +24,7 @@ export class CreateInstanceResponseBodyInstance extends $dara.Model {
    * The name of the user who created the instance.
    * 
    * @example
-   * xxx
+   * 张三
    */
   creatorName?: string;
   /**
@@ -64,7 +64,7 @@ export class CreateInstanceResponseBodyInstance extends $dara.Model {
    * The name of the instance owner.
    * 
    * @example
-   * xxxx
+   * 张三
    */
   ownerName?: string;
   /**

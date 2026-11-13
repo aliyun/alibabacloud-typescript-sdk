@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "OutboundBot";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("outboundbot", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -1402,7 +1406,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a phone number and associates it with the current tenant.
+   * Creates phone numbers and associates them with the current tenant.
    * 
    * @param request - CreateNumberRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1437,7 +1441,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a phone number and associates it with the current tenant.
+   * Creates phone numbers and associates them with the current tenant.
    * 
    * @param request - CreateNumberRequest
    * @returns CreateNumberResponse
@@ -2436,6 +2440,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes the message subscription configuration.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - DeleteNotificationRegistrationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteNotificationRegistrationResponse
+   */
+  async deleteNotificationRegistrationWithOptions(request: $_model.DeleteNotificationRegistrationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteNotificationRegistrationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteNotificationRegistration",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteNotificationRegistrationResponse>(await this.callApi(params, req, runtime), new $_model.DeleteNotificationRegistrationResponse({}));
+  }
+
+  /**
+   * Deletes the message subscription configuration.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - DeleteNotificationRegistrationRequest
+   * @returns DeleteNotificationRegistrationResponse
+   */
+  async deleteNotificationRegistration(request: $_model.DeleteNotificationRegistrationRequest): Promise<$_model.DeleteNotificationRegistrationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteNotificationRegistrationWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an outbound call number. This operation is deprecated.
    * 
    * @param request - DeleteOutboundCallNumberRequest
@@ -2780,7 +2832,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the label hit statistics of a job group.
+   * Retrieves the tag statistics for hit labels in a job group.
    * 
    * @param request - DescribeDsReportsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2815,7 +2867,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the label hit statistics of a job group.
+   * Retrieves the tag statistics for hit labels in a job group.
    * 
    * @param request - DescribeDsReportsRequest
    * @returns DescribeDsReportsResponse
@@ -3404,7 +3456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Previews text-to-speech (TTS) audio.
+   * Generates a text-to-speech (TTS) preview.
    * 
    * @param request - DescribeTTSDemoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3491,7 +3543,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Previews text-to-speech (TTS) audio.
+   * Generates a text-to-speech (TTS) preview.
    * 
    * @param request - DescribeTTSDemoRequest
    * @returns DescribeTTSDemoResponse
@@ -3872,6 +3924,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Upload a hotword list file.
+   * 
    * @param request - GenerateUploadUrlRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns GenerateUploadUrlResponse
@@ -3905,6 +3959,8 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Upload a hotword list file.
+   * 
    * @param request - GenerateUploadUrlRequest
    * @returns GenerateUploadUrlResponse
    */
@@ -4056,7 +4112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * null.
+   * Retrieves the statistics information of an annotate node.
    * 
    * @param request - GetAnnotationMissionSummaryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4087,7 +4143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * null.
+   * Retrieves the statistics information of an annotate node.
    * 
    * @param request - GetAnnotationMissionSummaryRequest
    * @returns GetAnnotationMissionSummaryResponse
@@ -4618,6 +4674,54 @@ export default class Client extends OpenApi {
   async getMaxAttemptsPerDay(request: $_model.GetMaxAttemptsPerDayRequest): Promise<$_model.GetMaxAttemptsPerDayResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getMaxAttemptsPerDayWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the message subscription configuration.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - GetNotificationRegistrationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetNotificationRegistrationResponse
+   */
+  async getNotificationRegistrationWithOptions(request: $_model.GetNotificationRegistrationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetNotificationRegistrationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetNotificationRegistration",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetNotificationRegistrationResponse>(await this.callApi(params, req, runtime), new $_model.GetNotificationRegistrationResponse({}));
+  }
+
+  /**
+   * Retrieves the message subscription configuration.
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - GetNotificationRegistrationRequest
+   * @returns GetNotificationRegistrationResponse
+   */
+  async getNotificationRegistration(request: $_model.GetNotificationRegistrationRequest): Promise<$_model.GetNotificationRegistrationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getNotificationRegistrationWithOptions(request, runtime);
   }
 
   /**
@@ -5723,7 +5827,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries intents in the annotation center list.
+   * Queries intents in the annotation center.
    * 
    * @param request - ListIntentionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5786,7 +5890,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries intents in the annotation center list.
+   * Queries intents in the annotation center.
    * 
    * @param request - ListIntentionsRequest
    * @returns ListIntentionsResponse
@@ -6467,7 +6571,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of SIP trunks.
+   * Queries a list of SIP trunks.
    * 
    * @param request - ListSipTrunksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6491,7 +6595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of SIP trunks.
+   * Queries a list of SIP trunks.
    * 
    * @param request - ListSipTrunksRequest
    * @returns ListSipTrunksResponse
@@ -8881,6 +8985,94 @@ export default class Client extends OpenApi {
   async saveMaxAttemptsPerDay(request: $_model.SaveMaxAttemptsPerDayRequest): Promise<$_model.SaveMaxAttemptsPerDayResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.saveMaxAttemptsPerDayWithOptions(request, runtime);
+  }
+
+  /**
+   * 配置客户专属ROCKETMQ信息
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - SaveNotificationRegistrationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SaveNotificationRegistrationResponse
+   */
+  async saveNotificationRegistrationWithOptions(request: $_model.SaveNotificationRegistrationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SaveNotificationRegistrationResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.accessKey)) {
+      body["AccessKey"] = request.accessKey;
+    }
+
+    if (!$dara.isNull(request.accessPoint)) {
+      body["AccessPoint"] = request.accessPoint;
+    }
+
+    if (!$dara.isNull(request.accessPointType)) {
+      body["AccessPointType"] = request.accessPointType;
+    }
+
+    if (!$dara.isNull(request.authType)) {
+      body["AuthType"] = request.authType;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      body["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.mqInstanceId)) {
+      body["MqInstanceId"] = request.mqInstanceId;
+    }
+
+    if (!$dara.isNull(request.mqType)) {
+      body["MqType"] = request.mqType;
+    }
+
+    if (!$dara.isNull(request.password)) {
+      body["Password"] = request.password;
+    }
+
+    if (!$dara.isNull(request.secretKey)) {
+      body["SecretKey"] = request.secretKey;
+    }
+
+    if (!$dara.isNull(request.topic)) {
+      body["Topic"] = request.topic;
+    }
+
+    if (!$dara.isNull(request.username)) {
+      body["Username"] = request.username;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SaveNotificationRegistration",
+      version: "2019-12-26",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SaveNotificationRegistrationResponse>(await this.callApi(params, req, runtime), new $_model.SaveNotificationRegistrationResponse({}));
+  }
+
+  /**
+   * 配置客户专属ROCKETMQ信息
+   * 
+   * @remarks
+   * ***
+   * 
+   * @param request - SaveNotificationRegistrationRequest
+   * @returns SaveNotificationRegistrationResponse
+   */
+  async saveNotificationRegistration(request: $_model.SaveNotificationRegistrationRequest): Promise<$_model.SaveNotificationRegistrationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.saveNotificationRegistrationWithOptions(request, runtime);
   }
 
   /**

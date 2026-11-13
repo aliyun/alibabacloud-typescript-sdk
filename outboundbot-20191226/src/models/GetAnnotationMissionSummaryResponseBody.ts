@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAnnotationMissionSummaryResponseBodyDataAsrSummaryInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of times language model data was added.
+   * The number of times language model data is added.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class GetAnnotationMissionSummaryResponseBodyDataAsrSummaryInfo extends $
   addCustomizationDataCount?: number;
   /**
    * @remarks
-   * The number of times hot words were added.
+   * The number of times hotwords are added.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class GetAnnotationMissionSummaryResponseBodyDataAsrSummaryInfo extends $
   addVocabularyDataCount?: number;
   /**
    * @remarks
-   * The number of invalid data entries.
+   * The number of invalid data records.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class GetAnnotationMissionSummaryResponseBodyDataAsrSummaryInfo extends $
   annotationInvalid?: number;
   /**
    * @remarks
-   * The character accuracy rate, in units of 0.01%.
+   * The character accuracy rate. Unit: 0.01%.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class GetAnnotationMissionSummaryResponseBodyDataAsrSummaryInfo extends $
   characterCorrectRate?: number;
   /**
    * @remarks
-   * The character error rate, in units of 0.01%.
+   * The character error rate. Unit: 0.01%.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class GetAnnotationMissionSummaryResponseBodyDataAsrSummaryInfo extends $
   chatTotalCount?: number;
   /**
    * @remarks
-   * The number of unannotated entries.
+   * The number of unannotated records.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class GetAnnotationMissionSummaryResponseBodyDataAsrSummaryInfo extends $
   noAnnotation?: number;
   /**
    * @remarks
-   * The sentence error rate, in units of 0.01%.
+   * The sentence error rate. Unit: 0.01%.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class GetAnnotationMissionSummaryResponseBodyDataAsrSummaryInfo extends $
   sentenceErrorRate?: number;
   /**
    * @remarks
-   * The word error rate, in units of 0.01%. Generally used for English.
+   * The word error rate. Unit: 0.01%. This metric is generally used for English.
    * 
    * @example
    * 1
@@ -123,7 +123,7 @@ export class GetAnnotationMissionSummaryResponseBodyDataIntentSummaryInfo extend
   annotationCorrectCount?: number;
   /**
    * @remarks
-   * The number of invalid data entries.
+   * The number of invalid data records.
    * 
    * @example
    * 1
@@ -163,7 +163,7 @@ export class GetAnnotationMissionSummaryResponseBodyDataIntentSummaryInfo extend
   matchErrorCount?: number;
   /**
    * @remarks
-   * The number of unannotated entries.
+   * The number of unannotated records.
    * 
    * @example
    * 1
@@ -171,7 +171,7 @@ export class GetAnnotationMissionSummaryResponseBodyDataIntentSummaryInfo extend
   noAnnotation?: number;
   /**
    * @remarks
-   * The number of unrecognized translation attempts.
+   * The number of unrecognized translations.
    * 
    * @example
    * 1
@@ -215,7 +215,7 @@ export class GetAnnotationMissionSummaryResponseBodyDataIntentSummaryInfo extend
 export class GetAnnotationMissionSummaryResponseBodyDataTagSummaryInfoTagSummaryInfoDetailList extends $dara.Model {
   /**
    * @remarks
-   * The number of tags.
+   * The tag count.
    * 
    * @example
    * 3
@@ -226,7 +226,7 @@ export class GetAnnotationMissionSummaryResponseBodyDataTagSummaryInfoTagSummary
    * The tag name.
    * 
    * @example
-   * 知晓率1_复制
+   * AwarenessRate1_Copy
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -255,7 +255,7 @@ export class GetAnnotationMissionSummaryResponseBodyDataTagSummaryInfoTagSummary
 export class GetAnnotationMissionSummaryResponseBodyDataTagSummaryInfo extends $dara.Model {
   /**
    * @remarks
-   * The list of tags.
+   * The tag list.
    */
   tagSummaryInfoDetailList?: GetAnnotationMissionSummaryResponseBodyDataTagSummaryInfoTagSummaryInfoDetailList[];
   static names(): { [key: string]: string } {
@@ -303,7 +303,7 @@ export class GetAnnotationMissionSummaryResponseBodyData extends $dara.Model {
   intentSummaryInfo?: GetAnnotationMissionSummaryResponseBodyDataIntentSummaryInfo;
   /**
    * @remarks
-   * The additional information. If the request is successful, "success" is returned. If the request fails, a specific error code is returned.
+   * The additional information. If the request is successful, success is returned. If the request fails, a specific error code is returned.
    * 
    * @example
    * You are not authorized to perform this action. CDR:View privileges are required.
@@ -311,7 +311,7 @@ export class GetAnnotationMissionSummaryResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. true: The call was successful. false: The call failed.
+   * Specifies whether the call is successful. Valid values: true: The call is successful. false: The call fails.
    * 
    * @example
    * true
@@ -319,7 +319,7 @@ export class GetAnnotationMissionSummaryResponseBodyData extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The custom tags and their counts.
+   * The custom tags and counts.
    */
   tagSummaryInfo?: GetAnnotationMissionSummaryResponseBodyDataTagSummaryInfo;
   static names(): { [key: string]: string } {
@@ -386,7 +386,7 @@ export class GetAnnotationMissionSummaryResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The additional information. If the request is successful, "success" is returned. If the request fails, a specific error code is returned.
+   * The additional information. If the request is successful, success is returned. If the request fails, a specific error code is returned.
    * 
    * @example
    * You are not authorized to perform this action. CDR:View privileges are required.
@@ -402,7 +402,7 @@ export class GetAnnotationMissionSummaryResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. true: The call was successful. false: The call failed.
+   * Specifies whether the call is successful. Valid values: true: The call is successful. false: The call fails.
    * 
    * @example
    * true

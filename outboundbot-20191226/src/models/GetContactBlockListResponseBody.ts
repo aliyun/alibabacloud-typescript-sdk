@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetContactBlockListResponseBodyContactBlocklistListList extends $dara.Model {
   /**
    * @remarks
-   * The unique business key of the outbound call blocklist.
+   * The unique business identifier of the outbound call blocklist.
    * 
    * @example
    * 254EB995-DEDF-48A4-9101-9CA5B72FFBCC
@@ -24,7 +24,7 @@ export class GetContactBlockListResponseBodyContactBlocklistListList extends $da
    * The creator.
    * 
    * @example
-   * xxx
+   * demo-user
    */
   creator?: string;
   /**
@@ -40,7 +40,7 @@ export class GetContactBlockListResponseBodyContactBlocklistListList extends $da
    * The name.
    * 
    * @example
-   * xxx
+   * Zhang San
    */
   name?: string;
   /**
@@ -48,7 +48,7 @@ export class GetContactBlockListResponseBodyContactBlocklistListList extends $da
    * The operator.
    * 
    * @example
-   * xxx
+   * demo-user
    */
   operator?: string;
   /**
@@ -64,7 +64,7 @@ export class GetContactBlockListResponseBodyContactBlocklistListList extends $da
    * The remark.
    * 
    * @example
-   * xxxx
+   * Sample remark
    */
   remark?: string;
   static names(): { [key: string]: string } {
@@ -176,7 +176,7 @@ export class GetContactBlockListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The contact blocklist.
+   * The list of contacts.
    * 
    * @example
    * {}

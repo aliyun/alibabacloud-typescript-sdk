@@ -29,9 +29,9 @@ export class SaveAnnotationMissionTagInfoListRequestAnnotationMissionTagInfoList
   annotationMissionTagInfoName?: string;
   /**
    * @remarks
-   * Specifies whether to delete the tag.
-   * 
-   * > Set this parameter to true to delete the tag, or false to add the tag.
+   * Specifies whether to delete the tag. Valid values:
+   * - true: The tag is deleted.
+   * - false: The tag is added.
    * 
    * @example
    * true
@@ -87,19 +87,15 @@ export class SaveAnnotationMissionTagInfoListRequestAnnotationMissionTagInfoList
 export class SaveAnnotationMissionTagInfoListRequest extends $dara.Model {
   /**
    * @remarks
-   * The tag list.
-   * 
-   * > This parameter is the same as the AnnotationMissionTagInfoListJsonString parameter. Specify either one.
+   * The tag list. The parameters are the same as those in the AnnotationMissionTagInfoListJsonString parameter. Specify only one of them.
    */
   annotationMissionTagInfoList?: SaveAnnotationMissionTagInfoListRequestAnnotationMissionTagInfoList[];
   /**
    * @remarks
-   * The tag JSON data.
-   * 
-   * > The parameters in the JSON are the same as those in the AnnotationMissionTagInfoList parameter. Specify either this parameter or AnnotationMissionTagInfoList.
+   * The JSON data of tags. The specific parameters in the JSON data are the same as those in the AnnotationMissionTagInfoList parameter. Specify only one of them.
    * 
    * @example
-   * [{"delete":false,				"InstanceId":"00b37342-e759-4fe5-b296-aef775933af0",					"AnnotationMissionTagInfoName":"TestData1",					"AnnotationMissionTagInfoDescription":"Test"}]
+   * [{"delete":false,				"InstanceId":"00b37342-e759-4fe5-b296-aef775933af0",					"AnnotationMissionTagInfoName":"Test data 1",					"AnnotationMissionTagInfoDescription":"Test"}]
    */
   annotationMissionTagInfoListJsonString?: string;
   /**

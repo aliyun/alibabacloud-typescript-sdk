@@ -13,10 +13,10 @@ export class DescribeDsReportsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The dialog flow information in the format: key:{value:aaa}}, where aaa indicates the number of occurrences.
+   * The dialog flow information in the format of key:{value:aaa}, where aaa indicates the count.
    * 
    * @example
-   * "{\\"Label1\\":{\\"LabelValue1\\":2},\\"Label2\\":{\\"LabelValue1\\":2},\\"Label3\\":{\\"LabelValue1\\":1,\\"LabelValue2\\":1}}"
+   * "{\\"Tag1\\":{\\"TagValue1\\":2},\\"Tag2\\":{\\"TagValue1\\":2},\\"Tag3\\":{\\"TagValue1\\":1,\\"TagValue2\\":1}}"
    */
   dsReports?: string;
   /**
@@ -29,7 +29,7 @@ export class DescribeDsReportsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The API response message.
+   * The message returned by the API operation.
    * 
    * @example
    * Success
@@ -45,7 +45,7 @@ export class DescribeDsReportsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

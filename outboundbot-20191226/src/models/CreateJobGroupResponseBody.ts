@@ -55,7 +55,7 @@ export class CreateJobGroupResponseBodyJobGroupExportProgress extends $dara.Mode
 export class CreateJobGroupResponseBodyJobGroupRecallStrategy extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether nonexistent numbers are skipped.
+   * Specifies whether to skip nonexistent numbers.
    * 
    * @example
    * true
@@ -63,7 +63,7 @@ export class CreateJobGroupResponseBodyJobGroupRecallStrategy extends $dara.Mode
   emptyNumberIgnore?: boolean;
   /**
    * @remarks
-   * Indicates whether numbers with overdue payments are skipped.
+   * Specifies whether to skip numbers with overdue payments.
    * 
    * @example
    * true
@@ -71,7 +71,7 @@ export class CreateJobGroupResponseBodyJobGroupRecallStrategy extends $dara.Mode
   inArrearsIgnore?: boolean;
   /**
    * @remarks
-   * Indicates whether suspended numbers are skipped.
+   * Specifies whether to skip suspended numbers.
    * 
    * @example
    * true
@@ -145,7 +145,7 @@ export class CreateJobGroupResponseBodyJobGroupStrategyWorkingTime extends $dara
 export class CreateJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   /**
    * @remarks
-   * The custom data of the strategy.
+   * The custom strategy data.
    * 
    * @example
    * {}
@@ -161,7 +161,7 @@ export class CreateJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The follow-up processing method after the execution cycle ends. This field is no longer used.
+   * **[Deprecated]** The follow-up processing method after the execution cycle ends.
    * 
    * @example
    * CONTINUE
@@ -169,7 +169,7 @@ export class CreateJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   followUpStrategy?: string;
   /**
    * @remarks
-   * Indicates whether the strategy is a template.
+   * Indicates whether it is a template.
    * 
    * @example
    * false
@@ -177,7 +177,7 @@ export class CreateJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   isTemplate?: boolean;
   /**
    * @remarks
-   * The maximum number of call attempts per day when the call is not answered in the job.
+   * The maximum number of call attempts per day when calls are not connected in the job.
    * 
    * @example
    * 3
@@ -193,7 +193,7 @@ export class CreateJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   minAttemptInterval?: number;
   /**
    * @remarks
-   * The repetition method. Valid values: once (no repetition), day (daily repetition), week (weekly repetition), and month (monthly repetition).
+   * The recurrence type. Valid values: once (no recurrence), day (daily recurrence), week (weekly recurrence), and month (monthly recurrence).
    * 
    * @example
    * Once
@@ -201,16 +201,16 @@ export class CreateJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   repeatBy?: string;
   /**
    * @remarks
-   * The execution days for repetition.
-   * - If the repetition cycle **RepeatBy** is **Week**, 0 represents Sunday, and 1 to 6 represent Monday to Saturday.
-   * - If the repetition cycle **RepeatBy** is **Month**, 1 to 31 represent the 1st to the 31st day. Months without the specified date are not executed. For example, if the 30th is selected, the job is not executed in February.
+   * The execution days for recurrence.
+   * - If the **RepeatBy** recurrence type is **week**, 0 indicates Sunday, and 1 to 6 indicate Monday to Saturday.
+   * - If the **RepeatBy** recurrence type is **month**, 1 to 31 indicate the 1st to the 31st day. Months without the specified date are not executed. For example, if the 30th is selected, the job is not executed in February.
    */
   repeatDays?: string[];
   /**
    * @remarks
-   * The number strategy. Valid values:
+   * The number routing strategy. Valid values:
    * - None: no special rules.
-   * - LocalFirst: local numbers first.
+   * - LocalFirst: local city numbers first.
    * - LocalProvinceFirst: local province numbers first.
    * 
    * @example
@@ -259,7 +259,7 @@ export class CreateJobGroupResponseBodyJobGroupStrategy extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The execution time window of the strategy.
+   * The strategy execution time window.
    */
   workingTime?: CreateJobGroupResponseBodyJobGroupStrategyWorkingTime[];
   static names(): { [key: string]: string } {
@@ -333,13 +333,13 @@ export class CreateJobGroupResponseBodyJobGroup extends $dara.Model {
   creationTime?: number;
   /**
    * @remarks
-   * The export progress.
-   * >**[Deprecated]** This field is deprecated in the current parameter.
+   * **[Deprecated]** The export progress.
    */
   exportProgress?: CreateJobGroupResponseBodyJobGroupExportProgress;
   /**
    * @remarks
-   * The ID of the background asynchronous parsing operation corresponding to the uploaded job file. If no value exists, this parameter is not returned.
+   * The ID of the background asynchronous parsing operation corresponding to the uploaded job file.
+   * > If no value exists, this parameter is not returned.
    * 
    * @example
    * 744ff448-2b4c-40d4-94ca-51f246905b0f
@@ -347,7 +347,8 @@ export class CreateJobGroupResponseBodyJobGroup extends $dara.Model {
   jobDataParsingTaskId?: string;
   /**
    * @remarks
-   * The OSS path of the job file. If no value exists, this parameter is not returned.
+   * The OSS path of the job file.
+   * > If no value exists, this parameter is not returned.
    * 
    * @example
    * UPLOADED/JOB/b3865dc3-40fa-4afd-9fe4-dc7cda305a24/229eac13-379d-4abe-96e0-8cf026b56c0b_template (1).xlsx
@@ -355,7 +356,7 @@ export class CreateJobGroupResponseBodyJobGroup extends $dara.Model {
   jobFilePath?: string;
   /**
    * @remarks
-   * The description of the job.
+   * The job description.
    * 
    * @example
    * First job group
@@ -379,10 +380,10 @@ export class CreateJobGroupResponseBodyJobGroup extends $dara.Model {
   jobGroupName?: string;
   /**
    * @remarks
-   * The guaranteed concurrency.
-   * - When the job starts, a minimum of N concurrent calls are guaranteed.
-   * - The sum of guaranteed concurrency for jobs of the same priority cannot exceed the instance concurrency.
-   * - If the guaranteed concurrency is set to 0, the system intelligently allocates idle concurrency.
+   * The guaranteed concurrency value.
+   * When the job starts, a minimum of N concurrent calls are guaranteed.
+   * The sum of guaranteed concurrency values for jobs of the same priority cannot exceed the instance concurrency.
+   * If the guaranteed concurrency value is set to 0, the system intelligently allocates idle concurrency.
    * 
    * @example
    * 1
@@ -398,7 +399,7 @@ export class CreateJobGroupResponseBodyJobGroup extends $dara.Model {
   modifyTime?: string;
   /**
    * @remarks
-   * The priority of the job group. Valid values:
+   * The job group priority. Valid values:
    * - **Urgent**: urgent job.
    * - **Daily**: daily job.
    * 
@@ -408,12 +409,12 @@ export class CreateJobGroupResponseBodyJobGroup extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The list of caller numbers for redialing.
+   * The list of caller numbers for recall.
    */
   recallCallingNumbers?: string[];
   /**
    * @remarks
-   * The redial strategy.
+   * The recall strategy.
    */
   recallStrategy?: CreateJobGroupResponseBodyJobGroupRecallStrategy;
   /**
@@ -426,7 +427,7 @@ export class CreateJobGroupResponseBodyJobGroup extends $dara.Model {
   ringingDuration?: number;
   /**
    * @remarks
-   * The scenario ID.
+   * The script ID.
    * 
    * @example
    * 6cea9bed-63e6-439e-ae4c-b3333efff53d
@@ -434,7 +435,7 @@ export class CreateJobGroupResponseBodyJobGroup extends $dara.Model {
   scenarioId?: string;
   /**
    * @remarks
-   * The script scenario name.
+   * The script name.
    * 
    * @example
    * Script
@@ -442,7 +443,7 @@ export class CreateJobGroupResponseBodyJobGroup extends $dara.Model {
   scriptName?: string;
   /**
    * @remarks
-   * The script scenario version.
+   * The script version.
    * 
    * @example
    * 1628425608429

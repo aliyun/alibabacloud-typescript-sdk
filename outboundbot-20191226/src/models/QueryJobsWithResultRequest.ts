@@ -21,7 +21,7 @@ export class QueryJobsWithResultRequest extends $dara.Model {
   hasAnsweredFilter?: boolean;
   /**
    * @remarks
-   * Specifies whether the call is hung up due to rejection.
+   * Specifies whether the call is hung up due to unrecognized intent.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class QueryJobsWithResultRequest extends $dara.Model {
   hasHangUpByRejectionFilter?: boolean;
   /**
    * @remarks
-   * Specifies whether the flow is completed.
+   * Specifies whether the call flow is completed.
    * 
    * @example
    * true
@@ -66,12 +66,12 @@ export class QueryJobsWithResultRequest extends $dara.Model {
   /**
    * @remarks
    * The job status filter. Valid values:
-   * - Scheduling: scheduling
-   * - Executing: executing
-   * - Succeeded: finished and reached
-   * - Paused: paused
-   * - Failed: finished but not reached
-   * - Cancelled: cancelled due to manual intervention
+   * - Scheduling: Scheduling.
+   * - Executing: Executing.
+   * - Succeeded: Completed - Reached.
+   * - Paused: Paused.
+   * - Failed: Completed - Not reached.
+   * - Cancelled: Canceled - Manual intervention.
    * 
    * @example
    * Succeeded
@@ -95,7 +95,7 @@ export class QueryJobsWithResultRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * >Notice: This parameter is required.
    * 
    * @example
@@ -120,42 +120,43 @@ export class QueryJobsWithResultRequest extends $dara.Model {
   startActualTimeFilter?: number;
   /**
    * @remarks
-   * The call status. Multiple values are separated by commas. Example: ["Executing","Succeeded"]. Valid values:
-   * (Note: The **Succeeded** status is subdivided into specific causes. The **Succeeded**: 1 (answered) status is not displayed. All subsequent returned values are specific subdivided cause types.)
+   * The call status. Separate multiple values with commas, such as ["Executing","Succeeded"].
+   * Valid values:
+   * (Note: The **Succeeded** status is subdivided into specific causes. The general **Succeeded**: 1 (Connected) status is not returned. All returned values are specific subdivided causes.)
    * 
-   * - **Executing**: 0 (dialing)
-   * - **Succeeded**: 1 (answered)
-   * - **NoAnswer**: 2 (not answered - no answer)
-   * - **NotExist**: 3 (not answered - nonexistent number)
-   * - **Busy**: 4 (not answered - busy)
-   * - **Cancelled**: 5 (not called - task stopped)
-   * - **Failed**: 6 (failed)
-   * - **NotConnected**: 7 (not answered - unreachable)
-   * - **PoweredOff**: 8 (not answered - powered off)
-   * - **OutOfService**: 9 (not answered - callee suspended)
-   * - **InArrears**: 10 (not answered - callee overdue payment)
-   * - **EmptyNumber**: 11 (not called - nonexistent number not called)
-   * - **PerDayCallCountLimit**: 12 (not called - daily limit exceeded)
-   * - **ContactBlockList**: 13 (not called - blacklist)
-   * - **CallerNotRegistered**: 14 (not called - caller number not registered)
-   * - **Terminated**: 15 (not called - terminated)
-   * - **VerificationCancelled**: 16 (not called - cancelled due to pre-call verification failure)
-   * - **OutOfServiceNoCall**: 17 (not called - callee suspended and not called)
-   * - **InArrearsNoCall**: 18 (not called - callee overdue payment and not called)
-   * - **CallingNumberNotExist**: 19 (not called - caller number does not exist)
-   * - **SucceededFinish**: 20 (answered - normally completed)
-   * - **SucceededChatbotHangUpAfterNoAnswer**: 21 (answered - robot hangs up after rejection)
-   * - **SucceededChatbotHangUpAfterSilence**: 22 (answered - hangs up due to silence timeout)
-   * - **SucceededClientHangUpAfterNoAnswer**: 23 (answered - user hangs up after rejection)
-   * - **SucceededClientHangUp**: 24 (answered - user hangs up without reason)
-   * - **SucceededTransferByIntent**: 25 (answered - transferred to agent due to intent match)
-   * - **SucceededTransferAfterNoAnswer**: 26 (answered - transferred to agent after rejection)
-   * - **SucceededInoInterAction**: 27 (answered - no interaction from user)
-   * - **SucceededError**: 28 (answered - interrupted by system exception)
-   * - **SucceededSpecialInterceptVoiceAssistant**: 29 (answered - special case interception - voice assistant)
-   * - **SucceededSpecialInterceptExtensionNumberTransfer**: 30 (answered - special case interception - extension number transfer)
-   * - **SucceededSpecialInterceptCustomSpecialIntercept**: 31 (answered - special case interception - custom interception)
-   * - **HighRiskSipCode**: 32 (not called - high risk and not called)
+   * - **Executing**: 0 (Dialing).
+   * - **Succeeded**: 1 (Connected).
+   * - **NoAnswer**: 2 (Not connected - no answer).
+   * - **NotExist**: 3 (Not connected - nonexistent number).
+   * - **Busy**: 4 (Not connected - busy).
+   * - **Cancelled**: 5 (Not dialed - task stopped).
+   * - **Failed**: 6 (Failed).
+   * - **NotConnected**: 7 (Not connected - unreachable).
+   * - **PoweredOff**: 8 (Not connected - powered off).
+   * - **OutOfService**: 9 (Not connected - callee out of service).
+   * - **InArrears**: 10 (Not connected - callee has overdue payments).
+   * - **EmptyNumber**: 11 (Not dialed - nonexistent number, not dialed).
+   * - **PerDayCallCountLimit**: 12 (Not dialed - daily limit exceeded).
+   * - **ContactBlockList**: 13 (Not dialed - blacklisted).
+   * - **CallerNotRegistered**: 14 (Not dialed - caller number not registered).
+   * - **Terminated**: 15 (Not dialed - terminated).
+   * - **VerificationCancelled**: 16 (Not dialed - canceled due to pre-call verification failure).
+   * - **OutOfServiceNoCall**: 17 (Not dialed - callee out of service, not dialed).
+   * - **InArrearsNoCall**: 18 (Not dialed - callee has overdue payments, not dialed).
+   * - **CallingNumberNotExist**: 19 (Not dialed - caller number does not exist).
+   * - **SucceededFinish**: 20 (Connected - normal completion).
+   * - **SucceededChatbotHangUpAfterNoAnswer**: 21 (Connected - robot hung up after intent not recognized).
+   * - **SucceededChatbotHangUpAfterSilence**: 22 (Connected - hung up due to silence timeout).
+   * - **SucceededClientHangUpAfterNoAnswer**: 23 (Connected - user hung up after intent not recognized).
+   * - **SucceededClientHangUp**: 24 (Connected - user hung up without reason).
+   * - **SucceededTransferByIntent**: 25 (Connected - transferred to a human agent due to matched intent).
+   * - **SucceededTransferAfterNoAnswer**: 26 (Connected - transferred to a human agent after intent not recognized).
+   * - **SucceededInoInterAction**: 27 (Connected - no interaction from the user).
+   * - **SucceededError**: 28 (Connected - interrupted by a system exception).
+   * - **SucceededSpecialInterceptVoiceAssistant**: 29 (Connected - special interception - voice assistant).
+   * - **SucceededSpecialInterceptExtensionNumberTransfer**: 30 (Connected - special interception - extension number transfer).
+   * - **SucceededSpecialInterceptCustomSpecialIntercept**: 31 (Connected - special interception - custom interception).
+   * - **HighRiskSipCode**: 32 (Not dialed - high risk, not dialed).
    * 
    * @example
    * ["Executing"]

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SaveAnnotationMissionTagInfoListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of successfully executed operations.
+   * The number of successful executions.
    * 
    * @example
    * 1
@@ -13,15 +13,15 @@ export class SaveAnnotationMissionTagInfoListResponseBodyData extends $dara.Mode
   execCount?: number;
   /**
    * @remarks
-   * The API response message.
+   * The message returned by the API.
    * 
    * @example
-   * 执行失败：查找元素或操作超时，outTaskId：trademark_regnew_public_cn-uax33hol2uu，flowId：null，nodeUUID：541b6c71-8cce-4ab0-af84-713ca9741821
+   * Execution failed: element not found or operation timed out. outTaskId: trademark_regnew_public_cn-uax33hol2uu, flowId: null, nodeUUID: 541b6c71-8cce-4ab0-af84-713ca9741821
    */
   message?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true
@@ -55,7 +55,7 @@ export class SaveAnnotationMissionTagInfoListResponseBodyData extends $dara.Mode
 export class SaveAnnotationMissionTagInfoListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API status code.
+   * The status code.
    * 
    * @example
    * OK
@@ -76,10 +76,10 @@ export class SaveAnnotationMissionTagInfoListResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The API response message.
+   * The message returned by the API.
    * 
    * @example
-   * 执行失败：查找元素或操作超时，outTaskId：trademark_regnew_public_cn-uax33hol2uu,flowId：null，nodeUUID：541b6c71-8cce-4ab0-af84-713ca9741821
+   * Execution failed: element not found or operation timed out. outTaskId: trademark_regnew_public_cn-uax33hol2uu, flowId: null, nodeUUID: 541b6c71-8cce-4ab0-af84-713ca9741821
    */
   message?: string;
   /**
@@ -92,8 +92,8 @@ export class SaveAnnotationMissionTagInfoListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
-   * - true: The call is successful.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
    * - false: The call failed.
    * 
    * @example

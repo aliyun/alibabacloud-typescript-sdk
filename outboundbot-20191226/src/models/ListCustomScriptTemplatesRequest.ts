@@ -13,7 +13,7 @@ export class ListCustomScriptTemplatesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number for paging. Default value: 1.
+   * The page number for a paged query. Default value: 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListCustomScriptTemplatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page for paging. Default value: 10.
+   * The number of entries to return on each page for a paged query. Default value: 10.
    * 
    * @example
    * 10

@@ -16,7 +16,7 @@ export class ListResourceTagsResponseBodyResourceTagsList extends $dara.Model {
    * Tag value
    * 
    * @example
-   * xxx
+   * demo
    */
   value?: string;
   static names(): { [key: string]: string } {

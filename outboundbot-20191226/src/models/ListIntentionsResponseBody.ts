@@ -10,7 +10,7 @@ export class ListIntentionsResponseBodyDataIntentListRuleCheck extends $dara.Mod
   error?: string[];
   /**
    * @remarks
-   * Indicates whether strict matching is used.
+   * Specifies whether strict matching is enabled.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class ListIntentionsResponseBodyDataIntentListRuleCheck extends $dara.Mod
    * The expression value.
    * 
    * @example
-   * know
+   * Know
    */
   text?: string;
   /**
@@ -73,7 +73,7 @@ export class ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctionsSwitch
   id?: string;
   /**
    * @remarks
-   * The clarification prompt label.
+   * The clarification prompt tag.
    * 
    * @example
    * SQL_SUB_QUERY
@@ -84,7 +84,7 @@ export class ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctionsSwitch
    * The condition name.
    * 
    * @example
-   * 测试0609_20241021_101018_复制_复制_复制
+   * Test0609_20241021_101018_Copy_Copy_Copy
    */
   name?: string;
   /**
@@ -151,7 +151,7 @@ export class ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctions exten
   aliyunService?: string;
   /**
    * @remarks
-   * The status code of the operation.
+   * The API status code.
    * 
    * @example
    * OK
@@ -186,7 +186,7 @@ export class ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctions exten
    * The function name.
    * 
    * @example
-   * 方欣云呼系统每日拨测_2024年11月
+   * Fangxin Cloud Call System Daily Test_November 2024
    */
   name?: string;
   /**
@@ -257,7 +257,7 @@ export class ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctions exten
 export class ListIntentionsResponseBodyDataIntentListSlotTags extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the intent utterance corresponding to the label.
+   * The unique identifier of the user utterance corresponding to the tag.
    * 
    * @example
    * 17448458
@@ -265,7 +265,7 @@ export class ListIntentionsResponseBodyDataIntentListSlotTags extends $dara.Mode
   userSayId?: string;
   /**
    * @remarks
-   * The tagging result of the intent utterance corresponding to the label.
+   * The text extraction result of the user utterance corresponding to the tag.
    * 
    * @example
    * Do you know xxxx?
@@ -298,13 +298,13 @@ export class ListIntentionsResponseBodyDataIntentListSlot extends $dara.Model {
   /**
    * @remarks
    * The clarification functions.
-   * >Notice: 无效内容
+   * >Notice: Invalid content</notice>
    */
   feedbackFunctions?: ListIntentionsResponseBodyDataIntentListSlotFeedbackFunctions[];
   /**
    * @remarks
    * The feedback type.
-   * >Notice: 无效内容
+   * >Notice: Invalid content</notice>
    * 
    * @example
    * test
@@ -320,8 +320,7 @@ export class ListIntentionsResponseBodyDataIntentListSlot extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Indicates whether the slot is an array. Valid values:
-   * 
+   * Specifies whether the slot is an array. Valid values:
    * - true: Yes.
    * - false: No.
    * 
@@ -331,8 +330,8 @@ export class ListIntentionsResponseBodyDataIntentListSlot extends $dara.Model {
   isArray?: boolean;
   /**
    * @remarks
-   * Indicates whether the slot is encrypted.
-   * >Notice: 无效内容
+   * Specifies whether the slot is encrypted.
+   * >Notice: Invalid content</notice>
    * 
    * @example
    * false
@@ -340,8 +339,8 @@ export class ListIntentionsResponseBodyDataIntentListSlot extends $dara.Model {
   isEncrypt?: boolean;
   /**
    * @remarks
-   * Indicates whether the slot is interactive.
-   * >Notice: 无效内容
+   * Specifies whether the slot is interactive.
+   * >Notice: Invalid content</notice>
    * 
    * @example
    * false
@@ -349,8 +348,7 @@ export class ListIntentionsResponseBodyDataIntentListSlot extends $dara.Model {
   isInteractive?: boolean;
   /**
    * @remarks
-   * Indicates whether the slot is required. Valid values:
-   * 
+   * Specifies whether the slot is required. Valid values:
    * - true: Yes.
    * - false: No.
    * 
@@ -360,7 +358,7 @@ export class ListIntentionsResponseBodyDataIntentListSlot extends $dara.Model {
   isNecessary?: boolean;
   /**
    * @remarks
-   * The slot life span.
+   * The slot lifespan.
    * 
    * @example
    * 0
@@ -371,25 +369,25 @@ export class ListIntentionsResponseBodyDataIntentListSlot extends $dara.Model {
    * The slot name.
    * 
    * @example
-   * know
+   * Know
    */
   name?: string;
   /**
    * @remarks
-   * The slot clarification prompts.
+   * The slot clarification prompt.
    */
   question?: string[];
   /**
    * @remarks
-   * The slot tagging labels.
+   * The slot extraction tags.
    */
   tags?: ListIntentionsResponseBodyDataIntentListSlotTags[];
   /**
    * @remarks
-   * The slot tagging result.
+   * The slot text extraction result.
    * 
    * @example
-   * @知道
+   * @know
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -458,7 +456,7 @@ export class ListIntentionsResponseBodyDataIntentListUserSayUserSayData extends 
    * The utterance text.
    * 
    * @example
-   * know
+   * Know
    */
   text?: string;
   static names(): { [key: string]: string } {
@@ -488,7 +486,7 @@ export class ListIntentionsResponseBodyDataIntentListUserSay extends $dara.Model
   /**
    * @remarks
    * The source ID.
-   * >Notice: 无效内容
+   * >Notice: Invalid content</notice>
    * 
    * @example
    * 1234567
@@ -496,7 +494,7 @@ export class ListIntentionsResponseBodyDataIntentListUserSay extends $dara.Model
   fromId?: string;
   /**
    * @remarks
-   * The utterance ID.
+   * The user utterance ID.
    * 
    * @example
    * 17448458
@@ -504,7 +502,7 @@ export class ListIntentionsResponseBodyDataIntentListUserSay extends $dara.Model
   id?: string;
   /**
    * @remarks
-   * Indicates whether strict matching is used.
+   * Specifies whether strict matching is enabled.
    * 
    * @example
    * true
@@ -553,7 +551,7 @@ export class ListIntentionsResponseBodyDataIntentList extends $dara.Model {
   alias?: string[];
   /**
    * @remarks
-   * The robot ID. [Deprecated]
+   * **[Deprecated]** The chatbot ID.
    * 
    * @example
    * chatbot-cn-n7QmzrUnNe
@@ -561,7 +559,7 @@ export class ListIntentionsResponseBodyDataIntentList extends $dara.Model {
   botId?: number;
   /**
    * @remarks
-   * The robot name.
+   * The chatbot name.
    * 
    * @example
    * 111
@@ -577,7 +575,7 @@ export class ListIntentionsResponseBodyDataIntentList extends $dara.Model {
   dialogId?: string;
   /**
    * @remarks
-   * The intent ID.
+   * The ID of the intent.
    * 
    * @example
    * 10717802
@@ -585,10 +583,9 @@ export class ListIntentionsResponseBodyDataIntentList extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The language.
-   * 
-   * - English: en-us
-   * - Chinese: zh-cn
+   * The language. Valid values:
+   * - en-us: English.
+   * - zh-cn: Chinese.
    * 
    * @example
    * zh-cn
@@ -604,7 +601,7 @@ export class ListIntentionsResponseBodyDataIntentList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The LGF intent utterance expressions.
+   * The LGF intent utterance expression.
    */
   ruleCheck?: ListIntentionsResponseBodyDataIntentListRuleCheck[];
   /**
@@ -623,10 +620,10 @@ export class ListIntentionsResponseBodyDataIntentList extends $dara.Model {
   /**
    * @remarks
    * The intent type. Valid values:
-   * - 0: normal intent. 
+   * - 0: Normal intent. 
    * - 1: UNKNOWN. 
    * - 2: TableQA intent. 
-   * - 3: generated from a standard intent.
+   * - 3: Generated from a standard intent.
    * 
    * @example
    * 0
@@ -695,7 +692,7 @@ export class ListIntentionsResponseBodyDataIntentList extends $dara.Model {
 export class ListIntentionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The robot ID.
+   * The bot ID.
    * 
    * @example
    * chatbot-cn-n7QmzrUnNe
@@ -708,7 +705,7 @@ export class ListIntentionsResponseBodyData extends $dara.Model {
   intentList?: ListIntentionsResponseBodyDataIntentList[];
   /**
    * @remarks
-   * The message returned by the operation.
+   * The API message.
    * 
    * @example
    * Success
@@ -755,7 +752,7 @@ export class ListIntentionsResponseBodyData extends $dara.Model {
 export class ListIntentionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code of the operation.
+   * The API status code.
    * 
    * @example
    * OK
@@ -763,7 +760,7 @@ export class ListIntentionsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: ListIntentionsResponseBodyData;
   /**
@@ -776,7 +773,7 @@ export class ListIntentionsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned by the operation.
+   * The API message.
    * 
    * @example
    * Success

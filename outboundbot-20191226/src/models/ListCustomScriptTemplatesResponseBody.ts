@@ -40,7 +40,7 @@ export class ListCustomScriptTemplatesResponseBodyDataList extends $dara.Model {
    * The label description. The value is a string in JSON array format.
    * 
    * @example
-   * [{\\"name\\":\\"Delivered\\",\\"description\\":\\"Whether the purchased home appliance has been delivered\\",\\"valueList\\":\\"[\\\\\\"Yes\\\\\\",\\\\\\"No\\\\\\"]\\"},{\\"name\\":\\"Appointment time for on-site service\\",\\"description\\":\\"Collect the customer\\"s expected on-site installation time\\",\\"valueList\\":\\"[]\\"}]
+   * [{\\"name\\":\\"Delivered\\",\\"description\\":\\"Whether the purchased home appliance has been delivered\\",\\"valueList\\":\\"[\\\\\\"Yes\\\\\\",\\\\\\"No\\\\\\"]\\"},{\\"name\\":\\"On-site service appointment time\\",\\"description\\":\\"Collect the customer\\"s expected on-site installation time\\",\\"valueList\\":\\"[]\\"}]
    */
   labelsJson?: string;
   /**
@@ -64,7 +64,7 @@ export class ListCustomScriptTemplatesResponseBodyDataList extends $dara.Model {
    * The prompt in professional mode.
    * 
    * @example
-   * \\nName: Annie \\nRole: Game Promoter\\nBackground: Promote the latest benefit events to players over the phone to ensure that every player stays informed and enjoys the game.\\nSkills: As a game customer service representative, recommend time-limited game benefit events to users, highlight the benefits, and explain how to participate.\\nConstraints: You must remember that you are Annie,
+   * \\nName: Annie \\nRole: Game Promoter\\nBackground: Promote the latest benefit activities to players over the phone to ensure that every player can get the information in time and enjoy the game.\\nSkills: As a game customer service representative, recommend limited-time game benefit activities to users, highlight the benefits, and inform them of the participation process.\\nConstraints: You need to remember that you are Annie,
    */
   prompt?: string;
   /**
@@ -72,7 +72,7 @@ export class ListCustomScriptTemplatesResponseBodyDataList extends $dara.Model {
    * The agent configuration. The value is a string in JSON format.
    * 
    * @example
-   * {"name":"Xiao X","gender":"Male","age":18,"role":"Game Promoter","communicationStyle":["Friendly"],"goals":"Hello","background":"Not very good","openingPrompt":"Hello, I am XXX"}
+   * {"name":"Xiao X","gender":"Male","age":18,"role":"Game Promoter","communicationStyle":["Friendly"],"goals":"Hello","background":"Not very good","openingPrompt":"Hello, I am xxx"}
    */
   promptJson?: string;
   /**

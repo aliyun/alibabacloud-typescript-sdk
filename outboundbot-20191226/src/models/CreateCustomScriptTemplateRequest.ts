@@ -24,7 +24,7 @@ export class CreateCustomScriptTemplateRequest extends $dara.Model {
    * The label descriptions in JSON array format.
    * 
    * @example
-   * [{\\"name\\":\\"Delivered\\",\\"description\\":\\"Whether the purchased home appliance has been delivered\\",\\"valueList\\":\\"[\\\\\\"Yes\\\\\\",\\\\\\"No\\\\\\"]\\"},{\\"name\\":\\"On-site Appointment Time\\",\\"description\\":\\"Collect the customer\\"s expected on-site installation time\\",\\"valueList\\":\\"[]\\"}]
+   * [{\\"name\\":\\"Delivered\\",\\"description\\":\\"Whether the purchased home appliance has been delivered\\",\\"valueList\\":\\"[\\\\\\"Yes\\\\\\",\\\\\\"No\\\\\\"]\\"},{\\"name\\":\\"Scheduled on-site service time\\",\\"description\\":\\"Collect the customer\\"s preferred time for on-site installation\\",\\"valueList\\":\\"[]\\"}]
    */
   labelsJson?: string;
   /**
@@ -45,10 +45,10 @@ export class CreateCustomScriptTemplateRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The prompt in professional mode.
+   * The prompt for professional mode.
    * 
    * @example
-   * \\nName: Annie \\nRole: Game Promoter\\nBackground: Promote the latest benefit activities to players over the phone, ensuring that every player stays informed and enjoys the game.\\nSkills: As a game customer service representative, recommend time-limited game benefit activities to users, highlight the benefits, and explain the participation process.\\nConstraints: You must remember that you are Annie,
+   * \\nName: Annie \\nRole: Game Promoter\\nBackground: Promote the latest promotional events to players over the phone, ensuring that every player stays informed and enjoys the game.\\nSkills: As a game customer service representative, recommend time-limited promotional events to users, highlight the benefits, and explain the participation process.\\nConstraints: You must remember that you are Annie,
    */
   prompt?: string;
   /**

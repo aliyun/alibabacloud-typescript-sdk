@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListIntentionsRequest extends $dara.Model {
   /**
    * @remarks
-   * >Notice: This parameter is required. Select a value based on the scenario.
+   * <notice>This parameter is required. Select a value based on the scenario.</notice>
    * 
-   * The annotation data source. Valid values:
+   * The data source of the annotation. Valid values:
    * - 1: outbound call
    * - 2: navigation
    * 
@@ -17,9 +17,7 @@ export class ListIntentionsRequest extends $dara.Model {
   annotationMissionDataSourceType?: number;
   /**
    * @remarks
-   * The robot ID.
-   * 
-   * > You can obtain this value from the DescribeScript operation, which corresponds to the ChatbotId parameter.
+   * The ID of the bot. You can obtain the ID from the ChatbotId parameter in the response of the DescribeScript operation.
    * 
    * @example
    * chatbot-cn-n7QmzrUnNe
@@ -28,7 +26,6 @@ export class ListIntentionsRequest extends $dara.Model {
   /**
    * @remarks
    * The environment. Valid values:
-   * 
    * - 1: private cloud
    * - 2: public cloud
    * 
@@ -46,7 +43,7 @@ export class ListIntentionsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The intent ID.
+   * The ID of the intent.
    * 
    * @example
    * 10717802
@@ -70,7 +67,7 @@ export class ListIntentionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The scenario ID.
+   * The ID of the scenario.
    * 
    * @example
    * c5c5d8c0-c0f1-48a7-be2b-dc46006d888a
@@ -78,12 +75,10 @@ export class ListIntentionsRequest extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * The intent name.
-   * 
-   * > Supports fuzzy match by keyword as a filter condition.
+   * The name of the intent. You can use keywords to perform a fuzzy match.
    * 
    * @example
-   * know
+   * Know
    */
   userNick?: string;
   static names(): { [key: string]: string } {

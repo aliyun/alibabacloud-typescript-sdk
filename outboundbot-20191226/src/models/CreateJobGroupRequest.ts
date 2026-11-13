@@ -15,7 +15,7 @@ export class CreateJobGroupRequest extends $dara.Model {
    * - configId: the flash SMS configuration ID.
    * - templateContent: the flash SMS content.
    * 
-   * > The value of templateContent must be obtained from the corresponding flash SMS capability partner.
+   * > To obtain the value of templateContent, contact the partner that provides the corresponding flash SMS capability.
    * 
    * @example
    * {"templateId":"104xx","configId":"8037f524-6fxxxxx", "templateContent": "[Outbound Robot] is calling you. Please answer!"}
@@ -33,7 +33,7 @@ export class CreateJobGroupRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The description of the job.
+   * The job description.
    * 
    * @example
    * Job description
@@ -41,7 +41,7 @@ export class CreateJobGroupRequest extends $dara.Model {
   jobGroupDescription?: string;
   /**
    * @remarks
-   * The name of the job.
+   * The job name.
    * 
    * This parameter is required.
    * 
@@ -51,10 +51,10 @@ export class CreateJobGroupRequest extends $dara.Model {
   jobGroupName?: string;
   /**
    * @remarks
-   * The guaranteed concurrency.  
+   * The guaranteed concurrency value.  
    * - When the job starts, a minimum of N concurrent calls are guaranteed.
-   * - The sum of guaranteed concurrency for jobs of the same priority cannot exceed the instance concurrency.  
-   * - If the guaranteed concurrency is set to 0, the system intelligently allocates idle concurrency.
+   * - The sum of guaranteed concurrency values for jobs of the same priority cannot exceed the instance concurrency.  
+   * - If the guaranteed concurrency value is set to 0, the system intelligently allocates idle concurrency.
    * 
    * @example
    * 1
@@ -62,7 +62,7 @@ export class CreateJobGroupRequest extends $dara.Model {
   minConcurrency?: number;
   /**
    * @remarks
-   * The priority of the job group. Valid values:
+   * The job group priority. Valid values:
    * - **Urgent**: urgent job.
    * - **Daily**: daily job.
    * 
@@ -72,16 +72,16 @@ export class CreateJobGroupRequest extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * The list of caller numbers for redialing.
+   * The list of caller numbers for recall.
    */
   recallCallingNumber?: string[];
   /**
    * @remarks
-   * The redial strategy in JSON format. The default value of the parameters in the JSON object is false.
+   * The recall strategy in JSON format. The default value of parameters in the JSON string is false.
    * 
-   * - **emptyNumberIgnore**: specifies whether to skip nonexistent numbers.
-   * - **inArrearsIgnore**: specifies whether to skip numbers with overdue payments.
-   * - **outOfServiceIgnore**: specifies whether to skip suspended numbers.
+   * - **emptyNumberIgnore**: does not call nonexistent numbers.
+   * - **inArrearsIgnore**: does not call numbers with overdue payments.
+   * - **outOfServiceIgnore**: does not call suspended numbers.
    * 
    * @example
    * {"emptyNumberIgnore":true,"inArrearsIgnore":true,"outOfServiceIgnore":true}
@@ -105,7 +105,7 @@ export class CreateJobGroupRequest extends $dara.Model {
   scenarioId?: string;
   /**
    * @remarks
-   * The scenario ID.
+   * The script ID.
    * 
    * @example
    * b9ff4e88-65f9-4eb3-987c-11ba51f3f24d
@@ -113,19 +113,19 @@ export class CreateJobGroupRequest extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * The execution strategy of the job.  
-   * - repeatBy: the repetition type. Valid values: Once (no repetition), Week (weekly repetition), and Month (monthly repetition).  
-   * - startTime: the start time of the time-based strategy.
-   * - endTime: the end time of the time-based strategy.  
-   * > Execution methods:
-   * > - If the start and end times of the strategy are not specified, the execution method is immediate execution.
-   * > - If the strategy time is specified, the job is executed based on the time, and the repetition type repeatBy must be selected.
+   * The job execution strategy.  
+   * - repeatBy: the recurrence type. Valid values: Once (no recurrence), Week (weekly recurrence), and Month (monthly recurrence).  
+   * - startTime: the start time of the strategy when executed by time.
+   * - endTime: the end time of the strategy when executed by time.  
+   * > Execution methods are divided into:
+   * > - If the start and end times are not specified, the job is executed immediately.
+   * > - If the start and end times are specified, the job is executed by time, and the repeatBy recurrence type must be selected.
    * - workingTime: the time period during which outbound calls can be made.
-   * - maxAttemptsPerDay: the maximum number of call attempts per day for numbers under this job.
-   * - minAttemptInterval: the retry interval for numbers, in minutes.
-   * - routingStrategy: the number strategy. Valid values: None (not specified), LocalFirst (local numbers first), and LocalProvinceFirst (local province numbers first).
-   * - repeatDays: the execution days corresponding to the repetition type. If the repetition type RepeatBy is Week, 0 represents Sunday, and 1 to 6 represent Monday to Saturday. If the repetition cycle RepeatBy is Month, 1 to 31 represent the 1st to the 31st day. Months without the specified date are not executed. For example, if the 30th is selected, the job is not executed in February.
-   * - repeatable: specifies whether to enable cyclic jobs. Valid values: true and false.
+   * - maxAttemptsPerDay: the maximum number of call attempts per day for numbers in this job.
+   * - minAttemptInterval: the retry interval for calling a number, in minutes.
+   * - routingStrategy: the number routing strategy. Valid values: None (not specified), LocalFirst (local city numbers first), and LocalProvinceFirst (local province numbers first).
+   * - repeatDays: the execution days corresponding to the recurrence type. If the repeatBy recurrence type is Week, 0 indicates Sunday, and 1 to 6 indicate Monday to Saturday. If the repeatBy recurrence type is Month, 1 to 31 indicate the 1st to the 31st day. Months without the specified date are not executed. For example, if the 30th is selected, the job is not executed in February.
+   * - repeatable: specifies whether to enable recurring jobs. Valid values: true and false.
    * 
    * @example
    * {"maxAttemptsPerDay":"3","minAttemptInterval":"10","routingStrategy":"LocalProvinceFirst","repeatDays":["1","2","3"],"workingTime":[{"beginTime":"10:00:00","endTime":"11:00:00"},{"beginTime":"14:00:00","endTime":"15:00:00"}],"repeatable":true,"endTime":1707494400000,"startTime":1706976000000,"repeatBy":"Week"}

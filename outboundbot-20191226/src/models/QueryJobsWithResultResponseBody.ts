@@ -5,7 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class QueryJobsWithResultResponseBodyJobsListLatestTaskContact extends $dara.Model {
   /**
    * @remarks
-   * The honorific of the contact. If this field is not specified, the default value is the same as the name. This is a custom field passed in JSON format when you call the API operation to execute the outbound call task.
+   * The honorific of the contact. If this field is not specified, the default value is the same as the name.
+   * > This is a custom field. You can pass it in JSON format when you call the API operation to execute the outbound call task.
    * 
    * @example
    * Mr. Zhang
@@ -45,7 +46,8 @@ export class QueryJobsWithResultResponseBodyJobsListLatestTaskContact extends $d
   phoneNumber?: string;
   /**
    * @remarks
-   * The phone number specified by the callee during the conversation. If this field is specified, the system calls this number. This is a custom field passed in JSON format when you call the API operation to execute the outbound call task.
+   * The phone number specified by the callee during the conversation. If this field is specified, the system calls this number.
+   * > This is a custom field. You can pass it in JSON format when you call the API operation to execute the outbound call task.
    * 
    * @example
    * 134123****
@@ -61,7 +63,9 @@ export class QueryJobsWithResultResponseBodyJobsListLatestTaskContact extends $d
   referenceId?: string;
   /**
    * @remarks
-   * The role of the contact in the outbound call business. If this field is not specified, roles are not distinguished. For example, in debt collection, contact roles can be borrower, co-borrower, or guarantor. This is a custom field passed in JSON format when you call the API operation.
+   * The role of the contact in the outbound call business. If this field is not specified, roles are not distinguished. For example, in debt collection scenarios, contact roles can be borrower, co-borrower, or guarantor.
+   * 
+   * > This is a custom field. You can pass it in JSON format when you call the API operation.
    * 
    * @example
    * Borrower
@@ -77,7 +81,8 @@ export class QueryJobsWithResultResponseBodyJobsListLatestTaskContact extends $d
   round?: number;
   /**
    * @remarks
-   * The status of the contact, such as Available, WrongNumber, or DoesNotExist. This is a custom field passed in JSON format when you call the API operation to execute the outbound call task.
+   * The status of the contact. Valid values: Available, WrongNumber, and DoesNotExist.
+   * > This is a custom field. You can pass it in JSON format when you call the API operation to execute the outbound call task.
    * 
    * @example
    * Available
@@ -168,7 +173,7 @@ export class QueryJobsWithResultResponseBodyJobsListLatestTaskExtras extends $da
    * The tag key.
    * 
    * @example
-   * Is connected
+   * Whether the call is connected
    */
   key?: string;
   /**
@@ -300,7 +305,7 @@ export class QueryJobsWithResultResponseBodyJobsListLatestTask extends $dara.Mod
   hasAnswered?: boolean;
   /**
    * @remarks
-   * Specifies whether the call is hung up due to rejection.
+   * Specifies whether the call is hung up due to unrecognized intent.
    * 
    * @example
    * false
@@ -316,7 +321,7 @@ export class QueryJobsWithResultResponseBodyJobsListLatestTask extends $dara.Mod
   hasLastPlaybackCompleted?: boolean;
   /**
    * @remarks
-   * Specifies whether the flow is completed.
+   * Specifies whether the call flow is completed.
    * 
    * @example
    * true
@@ -335,7 +340,7 @@ export class QueryJobsWithResultResponseBodyJobsListLatestTask extends $dara.Mod
    * The name of the call status.
    * 
    * @example
-   * Not dialed - Exceeded daily limit
+   * Not dialed - Daily limit exceeded
    */
   statusName?: string;
   /**
@@ -353,7 +358,7 @@ export class QueryJobsWithResultResponseBodyJobsListLatestTask extends $dara.Mod
   taskEndReason?: string;
   /**
    * @remarks
-   * The name of the voice used in the call.
+   * The name of the voice used in this call.
    */
   voiceName?: string;
   static names(): { [key: string]: string } {
@@ -433,21 +438,21 @@ export class QueryJobsWithResultResponseBodyJobsList extends $dara.Model {
    * The reason for the job failure.
    * 
    * @example
-   * - Unknown (Unknown error)
-   * - NoAnswer (No answer)
-   * - InvalidStrategy (Invalid strategy, incorrect strategy configuration)
-   * - TimeUp (Timeout during scheduling)
-   * - NoStrategy (Strategy is empty or not found)
-   * - CallFailed (Call failed)
-   * - PerDayCallCountLimit (Daily call count limit for the phone number)
-   * - ContactBlockList (Outbound call blocklist)
-   * - EmptyNumber (Nonexistent number, no outbound calls)
-   * - JobPerDayCallCountLimit (Daily call count limit for the phone number)
-   * - VerificationCancelled (Canceled due to pre-call verification failure)
-   * - ContactSuspended (Call suspended)
-   * - InArrears (Overdue payment)
-   * - OutOfService (Service suspended)
-   * - NoneRepeatableJobMaxAttemptCountLimit (Maximum attempt count for the job, effective when RepeatBy is None)
+   * - Unknown: Unknown error.
+   * - NoAnswer: No answer.
+   * - InvalidStrategy: Invalid strategy or incorrect strategy configuration.
+   * - TimeUp: Timeout during scheduling.
+   * - NoStrategy: Strategy is empty or not found.
+   * - CallFailed: Call failed.
+   * - PerDayCallCountLimit: Daily call count limit for the phone number reached.
+   * - ContactBlockList: Contact is on the outbound call blacklist.
+   * - EmptyNumber: Nonexistent number, no further outbound calls.
+   * - JobPerDayCallCountLimit: Daily call count limit for the phone number reached.
+   * - VerificationCancelled: Canceled due to pre-call verification failure.
+   * - ContactSuspended: Call suspended.
+   * - InArrears: Overdue payment.
+   * - OutOfService: Service suspended.
+   * - NoneRepeatableJobMaxAttemptCountLimit: Maximum retry count for the job reached. This takes effect when RepeatBy is set to None
    */
   jobFailureReason?: string;
   /**
@@ -458,13 +463,13 @@ export class QueryJobsWithResultResponseBodyJobsList extends $dara.Model {
   /**
    * @remarks
    * The job status. Valid values:
-   * - Scheduling(0, "Scheduling")
-   * - Executing(1, "Executing")
-   * - Succeeded(2, "Completed - Reached")
-   * - Paused(3, "Paused")
-   * - Failed(4, "Completed - Not reached")
-   * - Cancelled(5, "Canceled - Manual intervention")
-   * - Drafted(6, "Draft")
+   * - Scheduling (0): Scheduling.
+   * - Executing (1): Executing.
+   * - Succeeded (2): Completed and reached.
+   * - Paused (3): Paused.
+   * - Failed (4): Completed but not reached.
+   * - Cancelled (5): Canceled due to manual intervention.
+   * - Drafted (6): Draft.
    * 
    * @example
    * Succeeded
@@ -475,7 +480,7 @@ export class QueryJobsWithResultResponseBodyJobsList extends $dara.Model {
    * The name of the job status.
    * 
    * @example
-   * Completed - Reached
+   * Completed and reached
    */
   statusName?: string;
   static names(): { [key: string]: string } {
@@ -534,7 +539,7 @@ export class QueryJobsWithResultResponseBodyJobs extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -586,7 +591,7 @@ export class QueryJobsWithResultResponseBodyLabels extends $dara.Model {
    * The tag name.
    * 
    * @example
-   * Is satisfied
+   * Whether satisfied
    */
   name?: string;
   /**
@@ -644,12 +649,14 @@ export class QueryJobsWithResultResponseBody extends $dara.Model {
   jobs?: QueryJobsWithResultResponseBodyJobs;
   /**
    * @remarks
-   * The tag information that can be used as filter conditions. This field displays all tags with enumeration values in the task group.
+   * The tag information that can be used as filter conditions.
+   * 
+   * > This field displays all tag information with enumeration values in the task group.
    */
   labels?: QueryJobsWithResultResponseBodyLabels[];
   /**
    * @remarks
-   * The message returned by the API operation.
+   * The message returned by the API.
    * 
    * @example
    * Success

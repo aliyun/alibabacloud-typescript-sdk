@@ -14,7 +14,7 @@ export class DescribeTTSDemoRequest extends $dara.Model {
   accessKey?: string;
   /**
    * @remarks
-   * The Alibaba Cloud custom voice, which is the voice invocation ID.
+   * The Alibaba Cloud custom voice, which is the voice call ID.
    * 
    * @example
    * voice-e1be3a6
@@ -24,9 +24,9 @@ export class DescribeTTSDemoRequest extends $dara.Model {
    * @remarks
    * The speech service type. 
    * 
-   * - When **ali** is used as the custom service, this field stores the appKey of the interactive voice response product project.
+   * - When **ali** is used as the custom service, this field stores the AppKey of the interactive voice response project.
    * 
-   * - When **xunfei** is used as the custom service provider, this field stores the corresponding appKey.
+   * - When **xunfei** is used as the custom service provider, this field stores the corresponding AppKey.
    * 
    * @example
    * xusi*******RnP7
@@ -36,11 +36,11 @@ export class DescribeTTSDemoRequest extends $dara.Model {
    * @remarks
    * The storage engine. Valid values: **ali**, **volc**, and **xunfei**.
    * 
-   * - To use traditional voices, CosyVoice, or Alibaba Cloud as the custom service, enter **ali**.
-   * - To use the doubao service, enter **volc**.
-   * - To use xunfei as the service provider, enter **xunfei**. This option is only available for small model scenarios.
-   * - To use a self-managed service, enter **dock** and set NlsServiceType to Authorized.
-   * - To use CV-v3-flash and Qwen voices, enter **bailian**.
+   * - Set the value to **ali** when you use traditional voices, CosyVoice, or Alibaba Cloud as the custom service.
+   * - Set the value to **volc** when you use the Doubao service.
+   * - Set the value to **xunfei** when you use iFLYTEK as the service provider. This value can only be used in small model scenarios.
+   * - Set the value to **dock** and set NlsServiceType to Authorized when you use a self-managed service.
+   * - Set the value to **bailian** when you use CV-v3-flash and Qwen voices.
    * 
    * @example
    * ali
@@ -48,7 +48,7 @@ export class DescribeTTSDemoRequest extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The extended parameters. When Engine is set to **dock**, you must enter the configuration ID.
+   * The extended parameters. When Engine is set to **dock**, you must specify the configuration ID.
    * 
    * @example
    * {"thirdVoiceConfigUuid":"3cd82813ece049c4aff3ea3d***********"}
@@ -66,11 +66,11 @@ export class DescribeTTSDemoRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The service type.
-   * Managed: the default service (public service) for the outbound robot product.
-   * Authorized: the interactive voice response service purchased by public cloud customers (custom service). You can configure it in system administration > Third-party Speech Configuration.
+   * The service type. Valid values:
+   * - Managed: the default service for the outbound robot product, which is a public service.
+   * - Authorized: the interactive voice response service purchased by public cloud customers, which is a custom service. You can configure it by choosing system administration > third-party speech configuration.
    * 
-   * > When you need to use Alibaba Cloud interactive voice response, that is, when you use Alibaba Cloud as the custom service provider, you must enter Authorized.
+   * > When you need to use Alibaba Cloud interactive voice response, which means using Alibaba Cloud as the custom service provider, set the value to Authorized.
    * 
    * @example
    * Authorized
@@ -78,7 +78,7 @@ export class DescribeTTSDemoRequest extends $dara.Model {
   nlsServiceType?: string;
   /**
    * @remarks
-   * The intonation.
+   * The pitch.
    * 
    * @example
    * 0
@@ -112,12 +112,7 @@ export class DescribeTTSDemoRequest extends $dara.Model {
   secretKey?: string;
   /**
    * @remarks
-   * The speech rate.
-   * Valid values: integers from -500 to 500. Default value: 0.
-   * 
-   * A value greater than 0 increases the pitch.
-   * 
-   * A value less than 0 decreases the pitch.
+   * The speech rate. Valid values: an integer from -500 to 500. Default value: 0. A value greater than 0 increases the pitch. A value less than 0 decreases the pitch.
    * 
    * @example
    * 0
@@ -136,8 +131,7 @@ export class DescribeTTSDemoRequest extends $dara.Model {
   /**
    * @remarks
    * The voice information, such as aixia, siyue, or xiaoyun. For the complete list of voices, refer to the voice list below.
-   * 
-   * > Because the Voice value for cloned voices is not fixed and is generated during voice cloning, a specific Voice value cannot be provided at this stage. You must obtain the specific Voice ID from the ListVoiceClone request on the voice cloning page.
+   * > Because the voice ID for a cloned voice is a dynamic value generated during voice cloning, a specific voice ID cannot be provided at this stage. To obtain the specific voice ID, you must call the ListVoiceClone operation on the cloned voice page.
    * 
    * @example
    * aixia
@@ -145,12 +139,7 @@ export class DescribeTTSDemoRequest extends $dara.Model {
   voice?: string;
   /**
    * @remarks
-   * The volume.
-   * Valid values: integers from 0 to 100. Default value: 50.
-   * 
-   * A value greater than 50 increases the volume.
-   * 
-   * A value less than 50 decreases the volume.
+   * The volume. Valid values: an integer from 0 to 100. Default value: 50. A value greater than 50 increases the volume. A value less than 50 decreases the volume.
    * 
    * @example
    * 50

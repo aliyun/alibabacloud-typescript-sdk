@@ -29,7 +29,7 @@ export class CreateCustomScriptTemplateResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned by the API.
+   * The message returned by the API operation.
    * 
    * @example
    * Success

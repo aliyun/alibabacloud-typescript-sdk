@@ -38,12 +38,12 @@ export class ListSipTrunksResponseBodyList extends $dara.Model {
    * The description of the SIP trunk.
    * 
    * @example
-   * Test environment SIP trunk
+   * SIP trunk for the test environment
    */
   description?: string;
   /**
    * @remarks
-   * The creation timestamp, in milliseconds.
+   * The creation timestamp. Unit: milliseconds.
    * 
    * @example
    * 1727654400000
@@ -126,7 +126,7 @@ export class ListSipTrunksResponseBody extends $dara.Model {
   list?: ListSipTrunksResponseBodyList[];
   /**
    * @remarks
-   * The message.
+   * The message returned by the API operation.
    * 
    * @example
    * Success

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetContactBlockListRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to display the total number of entries.
+   * Specifies whether to return the total number of entries.
    * 
    * @example
    * true

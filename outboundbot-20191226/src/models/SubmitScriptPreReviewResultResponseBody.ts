@@ -71,7 +71,7 @@ export class SubmitScriptPreReviewResultResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned by the API operation.
+   * The message returned by the API.
    * 
    * @example
    * Success

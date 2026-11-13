@@ -24,7 +24,7 @@ export class DescribeDialogueNodeStatisticsResponseBodyHangUpDialogueNodes exten
    * Node name
    * 
    * @example
-   * xxx
+   * 示例节点
    */
   nodeName?: string;
   /**
@@ -124,7 +124,7 @@ export class DescribeDialogueNodeStatisticsResponseBodyNoAnswerDialogueNodes ext
    * Node name
    * 
    * @example
-   * xxx
+   * 示例节点
    */
   nodeName?: string;
   static names(): { [key: string]: string } {

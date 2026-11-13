@@ -33,7 +33,7 @@ export class SubmitScriptPreReviewResultRequest extends $dara.Model {
   rejectReason?: string;
   /**
    * @remarks
-   * The pre-review result. Valid values: PASS (approved) and REJECT (rejected). The value is not case-sensitive.
+   * The pre-review result. Valid values: PASS (approved) and REJECT (rejected). The value is case-insensitive.
    * 
    * This parameter is required.
    * 

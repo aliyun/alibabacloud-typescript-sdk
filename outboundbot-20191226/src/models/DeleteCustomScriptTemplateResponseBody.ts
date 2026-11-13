@@ -13,7 +13,7 @@ export class DeleteCustomScriptTemplateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data. No business data is returned when the deletion is successful.
+   * The returned data. No business data is returned if the deletion is successful.
    * 
    * @example
    * -
@@ -45,7 +45,7 @@ export class DeleteCustomScriptTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call is successful.
    * 
    * @example
    * true
