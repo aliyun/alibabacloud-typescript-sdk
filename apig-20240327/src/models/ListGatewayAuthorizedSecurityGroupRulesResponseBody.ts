@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayAuthorizedSecurityGroupRulesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The list of authorized CIDR block addresses.
+   * The list of authorized CIDR blocks.
    */
   authCidrs?: string[];
   /**
@@ -13,12 +13,12 @@ export class ListGatewayAuthorizedSecurityGroupRulesResponseBodyDataItems extend
    * The rule description.
    * 
    * @example
-   * Security group authorized by the staging gateway of the product center
+   * Product Center staging gateway authorized security group
    */
   description?: string;
   /**
    * @remarks
-   * The protocol:
+   * The protocol. Valid values:
    * - TCP
    * 
    * @example
@@ -46,12 +46,12 @@ export class ListGatewayAuthorizedSecurityGroupRulesResponseBodyDataItems extend
    * The security group name.
    * 
    * @example
-   * Product center cluster security group
+   * Product Center cluster security group
    */
   securityGroupName?: string;
   /**
    * @remarks
-   * The security rule ID of the cloud-native API gateway.
+   * The ID of the security rule for the cloud-native API gateway.
    * 
    * @example
    * gsgr-cqadis5lhtgmv***

@@ -141,7 +141,7 @@ export class QueryConsumerAuthorizationRulesResponseBodyDataItems extends $dara.
   gatewayInfo?: GatewayInfo;
   /**
    * @remarks
-   * The principal type. Valid values: Consumer and ConsumerGroup.
+   * The type of the authorized principal. Valid values: Consumer and ConsumerGroup.
    * 
    * @example
    * ConsumerGroup

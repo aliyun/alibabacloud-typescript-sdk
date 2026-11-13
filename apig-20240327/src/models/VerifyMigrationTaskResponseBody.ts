@@ -63,7 +63,7 @@ export class VerifyMigrationTaskResponseBodyData extends $dara.Model {
   isSupported?: boolean;
   /**
    * @remarks
-   * The description of the check result, such as the failure cause or incompatibility summary, which is derived from the Istio validation reason.
+   * The description of the check result, such as the cause of failure or incompatibility summary, which is derived from the Istio validation reason.
    * 
    * @example
    * all routes supported
@@ -71,7 +71,7 @@ export class VerifyMigrationTaskResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the check is successfully executed, which reflects whether the Istiod query link is functioning properly.
+   * Indicates whether the check is executed successfully, which indicates whether the Istiod query path is normal.
    * 
    * @example
    * true

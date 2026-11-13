@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePluginClassRequest extends $dara.Model {
   /**
    * @remarks
-   * The alias of the plug-in. This parameter is required. If it is not provided, the service returns InvalidParameter.WithValue.
+   * The alias of the plug-in. This parameter is actually required. If it is not provided, the service returns InvalidParameter.WithValue.
    * 
    * @example
    * My Wasm Plugin
@@ -51,7 +51,7 @@ export class CreatePluginClassRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The minimum supported gateway version.
+   * The minimum compatible gateway version.
    * 
    * @example
    * 2.0.0
@@ -89,7 +89,7 @@ export class CreatePluginClassRequest extends $dara.Model {
   wasmLanguage?: string;
   /**
    * @remarks
-   * The download URL of the WASM plug-in binary file.
+   * The download URL of the binary file for the WASM plug-in.
    * 
    * This parameter is required.
    * 

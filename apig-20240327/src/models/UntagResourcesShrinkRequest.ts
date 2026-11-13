@@ -5,14 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to delete all tags. This parameter is valid only when tags are empty. Valid values:
-   * 
-   * - true
-   * - false
-   * - True
-   * - False
-   * 
-   * Default value: false.
+   * Specifies whether to delete all tags. This parameter is valid only when the tags parameter is empty. Valid values: true, false, True, and False. Default value: false.
    * 
    * @example
    * true
@@ -20,7 +13,7 @@ export class UntagResourcesShrinkRequest extends $dara.Model {
   all?: boolean;
   /**
    * @remarks
-   * The resource IDs. You can specify up to 50 subkeys.
+   * The resource IDs. You can specify up to 50 items.
    * 
    * @example
    * ["gw-xxx","gw-yyy"]
@@ -36,7 +29,7 @@ export class UntagResourcesShrinkRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tag keys. You can specify up to 20 subkeys.
+   * The tag keys. You can specify up to 20 items.
    * 
    * @example
    * ["env","team"]

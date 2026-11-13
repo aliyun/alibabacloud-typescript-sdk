@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHiMarketConsumerSubscriptionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries per page. The default value and valid values are not declared in the API definition.
+   * The maximum number of entries per page. The default value and valid values are not specified in the API definition.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListHiMarketConsumerSubscriptionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Pass the token returned in the previous response to retrieve the next page. Do not specify this parameter for the first request.
+   * The pagination token. Pass the nextToken value returned in the previous response to retrieve the next page. Do not pass this parameter for the first query.
    * 
    * @example
    * token-xxxxxxxx
@@ -37,7 +37,7 @@ export class ListHiMarketConsumerSubscriptionsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The subscription status. Filters subscriptions by status. Valid values: PENDING and APPROVED.
+   * The subscription status used to filter subscriptions. Valid values: PENDING and APPROVED.
    * 
    * @example
    * APPROVED

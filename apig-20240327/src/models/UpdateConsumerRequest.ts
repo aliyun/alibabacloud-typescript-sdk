@@ -8,12 +8,12 @@ import { JwtIdentityConfig } from "./JwtIdentityConfig";
 export class UpdateConsumerRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of AccessKey pair authentication configurations.
+   * The list of AK/SK identity authentication configurations.
    */
   akSkIdentityConfigs?: AkSkIdentityConfig[];
   /**
    * @remarks
-   * The API key authentication configuration.
+   * The API key identity authentication configuration.
    */
   apikeyIdentityConfig?: ApiKeyIdentityConfig;
   /**
@@ -26,7 +26,7 @@ export class UpdateConsumerRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable the consumer.
+   * Specifies whether the consumer is enabled.
    * 
    * @example
    * false
@@ -34,7 +34,7 @@ export class UpdateConsumerRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The JWT authentication configuration.
+   * The JWT identity authentication configuration.
    */
   jwtIdentityConfig?: JwtIdentityConfig;
   static names(): { [key: string]: string } {

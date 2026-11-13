@@ -21,7 +21,7 @@ export class ListHttpApisRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The search keyword. Supports fuzzy match by API name or exact search by API ID.
+   * The search keyword. Supports fuzzy search by API name or exact search by API ID.
    * 
    * @example
    * test-
@@ -61,7 +61,7 @@ export class ListHttpApisRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The types of the HTTP API. You can specify multiple types separated by commas (,). Valid values:
+   * The types of the HTTP APIs. You can specify multiple types separated by commas (,). Valid values:
    * - Http
    * - Rest
    * - Websocket
@@ -81,7 +81,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withAPIsPublishedToEnvironment?: boolean;
   /**
    * @remarks
-   * The ID of the environment. If specified, the response includes the consumer authentication policy information for each API in the specified environment.
+   * The environment ID. If specified, the response includes consumer authentication policy information for each API in the specified environment.
    * 
    * @example
    * env-xxx
@@ -89,7 +89,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withAuthPolicyInEnvironmentId?: string;
   /**
    * @remarks
-   * Specifies whether the permission authentication policy is enabled.
+   * Specifies whether the authentication policy is enabled.
    * 
    * @example
    * true
@@ -97,7 +97,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withAuthPolicyList?: boolean;
   /**
    * @remarks
-   * The ID of the consumer. If specified, the response includes the list of authorization rules for the specified consumer in each API information.
+   * The consumer ID. If specified, the response includes the authorization rule list for the specified consumer in the information of each API.
    * 
    * @example
    * cs-xxx
@@ -105,7 +105,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withConsumerInfoById?: string;
   /**
    * @remarks
-   * The environment context.
+   * Specifies whether to include the environment context.
    * 
    * @example
    * true
@@ -113,7 +113,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withEnvironmentInfo?: boolean;
   /**
    * @remarks
-   * The ID of the environment.
+   * The environment ID.
    * 
    * @example
    * env-ctovu5mm1hksb4q8ln40
@@ -129,7 +129,7 @@ export class ListHttpApisRequest extends $dara.Model {
   withIngressInfo?: boolean;
   /**
    * @remarks
-   * The ID of the plug-in. If specified, the plug-in release information is retrieved based on this plug-in ID.
+   * The plugin ID. If specified, the plugin release information is retrieved based on this ID.
    * 
    * @example
    * pl-ct9qn3um1hktue8dqol0

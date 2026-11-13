@@ -21,7 +21,7 @@ export class ListProductSubscriptionsResponseBodyDataContent extends $dara.Model
   consumerName?: string;
   /**
    * @remarks
-   * The ID of the subscribed API product, which is the primary ID of the API product resource. This ID is the same as the productId path parameter of this operation.
+   * The ID of the subscribed API product. This is the primary ID of the API product resource and is the same as the productId path parameter of this operation.
    * 
    * @example
    * product-xxxxxxxx
@@ -29,7 +29,7 @@ export class ListProductSubscriptionsResponseBodyDataContent extends $dara.Model
   productId?: string;
   /**
    * @remarks
-   * The name of the subscribed API product, which is the Name property of the API product resource.
+   * The name of the subscribed API product. This is the Name property of the API product resource.
    * 
    * @example
    * model-service
@@ -45,7 +45,7 @@ export class ListProductSubscriptionsResponseBodyDataContent extends $dara.Model
   productType?: string;
   /**
    * @remarks
-   * The subscription status. Valid values: PENDING and APPROVED. The valid values are defined in the enum of the status request parameter, and this response parameter is not annotated with @enums.
+   * The subscription status. Valid values: PENDING and APPROVED. The valid values are defined in the status request parameter.
    * 
    * @example
    * APPROVED

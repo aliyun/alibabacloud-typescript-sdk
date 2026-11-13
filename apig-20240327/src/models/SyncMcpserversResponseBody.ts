@@ -85,12 +85,12 @@ export class SyncMCPServersResponseBodyDataSucceedMcpServers extends $dara.Model
 export class SyncMCPServersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of MCP servers that failed to sync.
+   * The list of MCP servers that failed to synchronize.
    */
   failedMcpServers?: SyncMCPServersResponseBodyDataFailedMcpServers[];
   /**
    * @remarks
-   * The list of MCP servers that were synced successfully.
+   * The list of successfully synchronized MCP servers.
    */
   succeedMcpServers?: SyncMCPServersResponseBodyDataSucceedMcpServers[];
   static names(): { [key: string]: string } {

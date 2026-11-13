@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGatewayElasticPolicyRequestElasticPolicyEnableScaleTimePolicyList extends $dara.Model {
   /**
    * @remarks
-   * The O&M end time in the HH:mm format.
+   * The O&M end time (HH:mm).
    * 
    * @example
    * 18:00
@@ -13,7 +13,7 @@ export class UpdateGatewayElasticPolicyRequestElasticPolicyEnableScaleTimePolicy
   endTime?: string;
   /**
    * @remarks
-   * The O&M start time in the HH:mm format.
+   * The O&M start time (HH:mm).
    * 
    * @example
    * 09:00
@@ -45,7 +45,7 @@ export class UpdateGatewayElasticPolicyRequestElasticPolicyEnableScaleTimePolicy
 export class UpdateGatewayElasticPolicyRequestElasticPolicyTimePolicyList extends $dara.Model {
   /**
    * @remarks
-   * The O&M end time in the HH:mm format.
+   * The O&M end time (HH:mm).
    * 
    * @example
    * 06:00
@@ -53,7 +53,7 @@ export class UpdateGatewayElasticPolicyRequestElasticPolicyTimePolicyList extend
   endTime?: string;
   /**
    * @remarks
-   * The O&M start time in the HH:mm format.
+   * The O&M start time (HH:mm).
    * 
    * @example
    * 00:00
@@ -95,7 +95,7 @@ export class UpdateGatewayElasticPolicyRequestElasticPolicyTimePolicyList extend
 export class UpdateGatewayElasticPolicyRequestElasticPolicy extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the elastic policy. A value of false indicates that the elastic policy is disabled. When the elastic policy is disabled, other fields are not validated and the system directly proceeds with the disabling process.
+   * Specifies whether to enable elastic scaling. A value of false indicates that elastic scaling is disabled. When disabled, other fields are not validated and the disabling process is executed directly.
    * 
    * @example
    * true
@@ -111,12 +111,12 @@ export class UpdateGatewayElasticPolicyRequestElasticPolicy extends $dara.Model 
   elasticType?: string;
   /**
    * @remarks
-   * The time periods during which AutoHPA is allowed to scale out, specified by startTime and endTime.
+   * The time periods during which AutoHPA is allowed to scale out (startTime/endTime).
    */
   enableScaleTimePolicyList?: UpdateGatewayElasticPolicyRequestElasticPolicyEnableScaleTimePolicyList[];
   /**
    * @remarks
-   * Specifies whether to enable the AutoHPA load alert threshold.
+   * Specifies whether to enable the load alert threshold for AutoHPA.
    * 
    * @example
    * true

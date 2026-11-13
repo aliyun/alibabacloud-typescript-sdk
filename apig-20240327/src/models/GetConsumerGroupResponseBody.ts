@@ -13,7 +13,7 @@ export class GetConsumerGroupResponseBodyData extends $dara.Model {
   consumerCount?: number;
   /**
    * @remarks
-   * The consumer group ID.
+   * The ID of the consumer group.
    * 
    * @example
    * csg-8c13d2b4f8a1
@@ -21,7 +21,7 @@ export class GetConsumerGroupResponseBodyData extends $dara.Model {
   consumerGroupId?: string;
   /**
    * @remarks
-   * The creation time of the consumer group, in Unix millisecond timestamp.
+   * The time when the consumer group was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1715769600000
@@ -29,10 +29,10 @@ export class GetConsumerGroupResponseBodyData extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The consumer group description.
+   * The description of the consumer group.
    * 
    * @example
-   * Group for online API callers
+   * Used to group production API consumers
    */
   description?: string;
   /**
@@ -45,7 +45,7 @@ export class GetConsumerGroupResponseBodyData extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The consumer group name.
+   * The name of the consumer group.
    * 
    * @example
    * api-consumer-group
@@ -53,7 +53,7 @@ export class GetConsumerGroupResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The update time of the consumer group, in Unix millisecond timestamp.
+   * The time when the consumer group was updated. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1715769600000
@@ -95,7 +95,7 @@ export class GetConsumerGroupResponseBodyData extends $dara.Model {
 export class GetConsumerGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. Ok is returned if the request is successful.
+   * The response status code. Ok is returned if the request succeeds.
    * 
    * @example
    * Ok

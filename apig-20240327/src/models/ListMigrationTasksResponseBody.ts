@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMigrationTasksResponseBodyDataItemsIngressConfig extends $dara.Model {
   /**
    * @remarks
-   * The monitored Ingress Class.
+   * The Ingress class of the listener.
    * 
    * @example
    * nginx
@@ -13,7 +13,7 @@ export class ListMigrationTasksResponseBodyDataItemsIngressConfig extends $dara.
   ingressClass?: string;
   /**
    * @remarks
-   * The monitored namespace.
+   * The namespace watched by the listener.
    * 
    * @example
    * default
@@ -45,7 +45,7 @@ export class ListMigrationTasksResponseBodyDataItemsIngressConfig extends $dara.
 export class ListMigrationTasksResponseBodyDataItemsVirtualServices extends $dara.Model {
   /**
    * @remarks
-   * The listener port. Valid values: 1 to 65535. This parameter is required in Step 3 of the frontend form.
+   * The listening port. Valid values: 1 to 65535. This field is required in Step 3 on the frontend.
    * 
    * @example
    * 443
@@ -53,7 +53,7 @@ export class ListMigrationTasksResponseBodyDataItemsVirtualServices extends $dar
   port?: number;
   /**
    * @remarks
-   * The listener protocol. This parameter is required for CLB migration. During MSE migration validation, CLB requests without a protocol are directly rejected. See migrationtask.go#L95-L97. This parameter can be left empty for NLB scenarios.
+   * The listening protocol. This field is required for CLB migration. If the protocol is missing during MSE migration validation for CLB, the request is directly rejected. This field can be left empty for NLB scenarios.
    * 
    * @example
    * tcp
@@ -61,7 +61,7 @@ export class ListMigrationTasksResponseBodyDataItemsVirtualServices extends $dar
   protocol?: string;
   /**
    * @remarks
-   * The virtual server group ID. For CLB, this is the VServerGroupId. For NLB, this is the ServerGroupId. This parameter is required in Step 3 of the frontend form.
+   * The virtual server group ID. For CLB, this is VServerGroupId. For NLB, this is ServerGroupId. This field is required in the Step 3 form on the frontend and is validated to be non-empty.
    * 
    * @example
    * rsp-xxxx
@@ -69,7 +69,7 @@ export class ListMigrationTasksResponseBodyDataItemsVirtualServices extends $dar
   virtualServiceGroupId?: string;
   /**
    * @remarks
-   * The name of the virtual server group.
+   * The name of the group.
    * 
    * @example
    * 80-tcp
@@ -121,7 +121,7 @@ export class ListMigrationTasksResponseBodyDataItems extends $dara.Model {
   apiName?: string;
   /**
    * @remarks
-   * The source ACK cluster. A hyphen (-) is displayed if the cluster name fails to be queried.
+   * The source ACK cluster ID. A hyphen (-) is returned if the name query fails.
    * 
    * @example
    * c-xxxxxx
@@ -137,7 +137,7 @@ export class ListMigrationTasksResponseBodyDataItems extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The namespace for SLB traffic switching.
+   * The namespace for SLB traffic shifting.
    * 
    * @example
    * default
@@ -145,7 +145,7 @@ export class ListMigrationTasksResponseBodyDataItems extends $dara.Model {
   clusterNamespace?: string;
   /**
    * @remarks
-   * The creation time, in Unix seconds.
+   * The creation time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1756262400
@@ -185,7 +185,7 @@ export class ListMigrationTasksResponseBodyDataItems extends $dara.Model {
   gatewayName?: string;
   /**
    * @remarks
-   * The monitored Ingress Class configuration.
+   * The Ingress class of the listener.
    */
   ingressConfig?: ListMigrationTasksResponseBodyDataItemsIngressConfig;
   /**
@@ -206,7 +206,7 @@ export class ListMigrationTasksResponseBodyDataItems extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The ID of the SLB instance used for traffic switching.
+   * The ID of the SLB instance for traffic shifting.
    * 
    * @example
    * lb-bp1xxxx
@@ -222,7 +222,7 @@ export class ListMigrationTasksResponseBodyDataItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The traffic switching method. Valid values: DNS and SLB.
+   * The traffic shifting method. Valid values: DNS and SLB.
    * 
    * @example
    * SLB
@@ -238,7 +238,7 @@ export class ListMigrationTasksResponseBodyDataItems extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The ID of the user to whom the task belongs.
+   * The ID of the owner user.
    * 
    * @example
    * 1234567890
@@ -251,7 +251,7 @@ export class ListMigrationTasksResponseBodyDataItems extends $dara.Model {
   virtualServices?: ListMigrationTasksResponseBodyDataItemsVirtualServices[];
   /**
    * @remarks
-   * The weight of the service on the API gateway side in the legacy workflow. Valid values: 0 to 100.
+   * The service weight on the APIG side in the legacy process. Valid values: 0 to 100.
    * 
    * @example
    * 50
@@ -325,7 +325,7 @@ export class ListMigrationTasksResponseBodyDataItems extends $dara.Model {
 export class ListMigrationTasksResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of migration tasks.
+   * The items.
    */
   items?: ListMigrationTasksResponseBodyDataItems[];
   /**

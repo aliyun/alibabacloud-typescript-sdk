@@ -45,7 +45,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
 export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The token used to start the next query.
+   * The token for the next query.
    * 
    * @example
    * caeb235b-xxx
@@ -53,7 +53,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The resource IDs. You can specify up to 50 resource IDs. You must specify at least one of ResourceId and Tag. If both are empty, the API returns InvalidParameter.BothEmpty(400).
+   * The resource IDs. You can specify up to 50 resource IDs. You must specify at least one of ResourceId and Tag. If both are empty, the API returns the InvalidParameter.BothEmpty (400) error.
    * 
    * @example
    * ["gw-xxx","gw-yyy"]
@@ -61,7 +61,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceId?: string[];
   /**
    * @remarks
-   * The resource type. Note: Although the documentation indicates a default value of Gateway, you must explicitly specify this parameter when you call the API. Otherwise, the API returns InvalidParameter.UnsupportedTagResourceType(400). Valid values: Gateway.
+   * The resource type. Note: Although the documentation specifies a default value of Gateway, you must explicitly pass this parameter in actual API calls. Otherwise, the API returns the InvalidParameter.UnsupportedTagResourceType (400) error. Valid values: Gateway.
    * 
    * @example
    * Gateway
@@ -69,7 +69,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tags. You can specify up to 20 tags. You must specify at least one of ResourceId and Tag. If both are empty, the API returns InvalidParameter.BothEmpty(400).
+   * The tags. You can specify up to 20 tags. You must specify at least one of ResourceId and Tag. If both are empty, the API returns the InvalidParameter.BothEmpty (400) error.
    * 
    * @example
    * [{"key":"env","value":"prod"}]

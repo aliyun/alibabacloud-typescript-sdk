@@ -6,7 +6,7 @@ import { DataPathConfigsFieldPathsValue } from "./DataPathConfigsFieldPathsValue
 export class GetApiPathFieldConfigResponseBodyDataPathConfigs extends $dara.Model {
   /**
    * @remarks
-   * The collection of field configurations under the path, grouped by mapping key, where each group represents a set of field configuration items.
+   * The collection of field configurations under the path, grouped by mapping key. Each group represents a set of field configuration items.
    * 
    * @example
    * {"model":["$.model"],"messages":["$.messages[*].content"]}
@@ -14,7 +14,7 @@ export class GetApiPathFieldConfigResponseBodyDataPathConfigs extends $dara.Mode
   fieldPaths?: { [key: string]: DataPathConfigsFieldPathsValue[] };
   /**
    * @remarks
-   * The request path of the API.
+   * The URI of the request of the API.
    * 
    * @example
    * /v1/chat/completions
@@ -65,7 +65,7 @@ export class GetApiPathFieldConfigResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The list of field configurations grouped by API request path.
+   * The list of field configurations grouped by API URI of the request.
    */
   pathConfigs?: GetApiPathFieldConfigResponseBodyDataPathConfigs[];
   static names(): { [key: string]: string } {

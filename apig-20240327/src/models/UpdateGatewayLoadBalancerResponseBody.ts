@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGatewayLoadBalancerResponseBodyDataVirtualServiceList extends $dara.Model {
   /**
    * @remarks
-   * The port. When an NLB instance is associated, two placeholder entries with ports 80 and 443 are returned.
+   * The port. When an NLB is bound, ports 80 and 443 are fixed and returned as placeholders.
    * 
    * @example
    * 80
@@ -13,7 +13,7 @@ export class UpdateGatewayLoadBalancerResponseBodyDataVirtualServiceList extends
   port?: string;
   /**
    * @remarks
-   * The protocol. When an NLB instance is associated, HTTP and HTTPS are returned as placeholders. For CLB, the value is deserialized from the stored vServerGroupMetaInfo.
+   * The protocol. When an NLB is bound, HTTP and HTTPS are fixed and returned as placeholders. For CLB, the value is deserialized from the persisted vServerGroupMetaInfo.
    * 
    * @example
    * http
@@ -21,7 +21,7 @@ export class UpdateGatewayLoadBalancerResponseBodyDataVirtualServiceList extends
   protocol?: string;
   /**
    * @remarks
-   * The VServerGroup or ServerGroup ID. When an NLB instance is associated, this field is an empty string placeholder.
+   * The VServerGroup or ServerGroup ID. When an NLB is bound, an empty string is returned as a placeholder.
    * 
    * @example
    * rsp-xxxx
@@ -29,7 +29,7 @@ export class UpdateGatewayLoadBalancerResponseBodyDataVirtualServiceList extends
   virtualServiceGroupId?: string;
   /**
    * @remarks
-   * The group name. When an NLB instance is associated, this field is an empty string placeholder.
+   * The group name. When an NLB is bound, an empty string is returned as a placeholder.
    * 
    * @example
    * 80-tcp
@@ -65,7 +65,7 @@ export class UpdateGatewayLoadBalancerResponseBodyDataVirtualServiceList extends
 export class UpdateGatewayLoadBalancerResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the load balancer can be edited. This serves as the edit toggle for a load balancer that is being migrated.
+   * Specifies whether the load balancer being migrated can be edited.
    * 
    * @example
    * true
@@ -118,7 +118,7 @@ export class UpdateGatewayLoadBalancerResponseBodyData extends $dara.Model {
   ports?: number[];
   /**
    * @remarks
-   * The gateway service weight for traffic shifting during migration. Valid values: 0 to 100.
+   * The gateway service weight in traffic switching scenarios during migration. Valid values: 0 to 100.
    * 
    * @example
    * 0
@@ -134,7 +134,7 @@ export class UpdateGatewayLoadBalancerResponseBodyData extends $dara.Model {
   statusDescription?: string;
   /**
    * @remarks
-   * The backend server group bindings.
+   * The list of backend server group bindings.
    */
   virtualServiceList?: UpdateGatewayLoadBalancerResponseBodyDataVirtualServiceList[];
   static names(): { [key: string]: string } {

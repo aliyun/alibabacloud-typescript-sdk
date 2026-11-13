@@ -115,7 +115,7 @@ export class GetMigrationNamespacedServicesResponseBodyData extends $dara.Model 
 export class GetMigrationNamespacedServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code of the response.
+   * The response status code.
    * 
    * @example
    * 200
@@ -136,7 +136,7 @@ export class GetMigrationNamespacedServicesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 7D513911-206E-5E93-9C9E-71D63C0D68E7

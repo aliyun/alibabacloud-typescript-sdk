@@ -10,7 +10,7 @@ import { HiMarketModelConfig } from "./HiMarketModelConfig";
 export class GetProductResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The agent-related configurations of the API product. The agentAPIConfig member includes agentProtocols (the list of protocols supported by the agent) and routes (the list of routes).
+   * The agent configurations of the API product. The agentAPIConfig member includes agentProtocols (the list of protocols supported by the agent) and routes (the list of routes).
    */
   agentConfig?: HiMarketAgentConfig;
   /**
@@ -23,7 +23,7 @@ export class GetProductResponseBodyData extends $dara.Model {
    * The description of the API product.
    * 
    * @example
-   * API product that provides weather query capabilities
+   * An API product that provides weather query capabilities
    */
   description?: string;
   /**
@@ -31,7 +31,7 @@ export class GetProductResponseBodyData extends $dara.Model {
    * The documentation content of the API product.
    * 
    * @example
-   * Invocation methods, parameters, and billing instructions for this product
+   * The invocation methods, parameters, and billing instructions for this product
    */
   document?: string;
   /**
@@ -46,12 +46,12 @@ export class GetProductResponseBodyData extends $dara.Model {
   icon?: HiMarketIcon;
   /**
    * @remarks
-   * The MCP-related configurations of the API product. The members include mcpServerName (the name of the MCP server), tools, mcpServerConfig (path and domains), and meta (protocol).
+   * The Model Context Protocol (MCP) configurations of the API product. The members include mcpServerName (the name of the MCP server), tools, mcpServerConfig (path and domains), and meta (protocol).
    */
   mcpConfig?: HiMarketMcpConfig;
   /**
    * @remarks
-   * The model API-related configurations of the API product. The modelAPIConfig member includes modelCategory (the AI model category), aiProtocols (the list of AI API protocols), and routes (the list of routes).
+   * The model API configurations of the API product. The modelAPIConfig member includes modelCategory (the AI model category), aiProtocols (the list of AI API protocols), and routes (the list of routes).
    */
   modelConfig?: HiMarketModelConfig;
   /**

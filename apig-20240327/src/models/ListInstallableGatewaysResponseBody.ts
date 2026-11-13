@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstallableGatewaysResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The database engine version of the gateway DPI engine.
+   * The gateway DPI engine version.
    * 
    * @example
    * 2.1.10
@@ -21,7 +21,7 @@ export class ListInstallableGatewaysResponseBodyDataItems extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The gateway status. The value is passed through from the GatewayPhase enumeration, such as Running or Creating.
+   * The gateway status. This is a pass-through of the GatewayPhase enum, such as Running or Creating.
    * 
    * @example
    * Running
@@ -29,7 +29,7 @@ export class ListInstallableGatewaysResponseBodyDataItems extends $dara.Model {
   gatewayPhase?: string;
   /**
    * @remarks
-   * Indicates whether the plugin can be installed on the gateway.
+   * Indicates whether the gateway is installable.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class ListInstallableGatewaysResponseBodyDataItems extends $dara.Model {
   installable?: boolean;
   /**
    * @remarks
-   * The reason why the plugin cannot be installed.
+   * The reason why the gateway is not installable.
    * 
    * @example
    * VERSION_NOT_MATCH
@@ -45,7 +45,7 @@ export class ListInstallableGatewaysResponseBodyDataItems extends $dara.Model {
   installableFalseReasonType?: string;
   /**
    * @remarks
-   * The version number of another version of the same plugin class that is already installed on the gateway.
+   * The version number of another plug-in of the same class that is already installed on the gateway.
    * 
    * @example
    * 1.0.0
@@ -95,7 +95,7 @@ export class ListInstallableGatewaysResponseBodyDataItems extends $dara.Model {
 export class ListInstallableGatewaysResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of gateways.
+   * The list.
    */
   items?: ListInstallableGatewaysResponseBodyDataItems[];
   /**

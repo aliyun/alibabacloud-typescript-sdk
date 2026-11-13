@@ -53,7 +53,7 @@ export class HiMarketOidcConfigAuthCodeConfig extends $dara.Model {
   redirectUri?: string;
   /**
    * @remarks
-   * The OAuth2 authorization scopes.
+   * The OAuth2 scopes.
    * 
    * @example
    * openid profile email
@@ -115,12 +115,15 @@ export class HiMarketOidcConfigAuthCodeConfig extends $dara.Model {
 export class HiMarketOidcConfigIdentityMapping extends $dara.Model {
   /**
    * @remarks
-   * The custom field mapping.
+   * The custom field mappings.
+   * 
+   * @example
+   * {"department":"dept","role":"role"}
    */
   customFields?: { [key: string]: string };
   /**
    * @remarks
-   * The identity field name that corresponds to the email address.
+   * The name of the identity field that corresponds to the email address.
    * 
    * @example
    * email
@@ -128,7 +131,7 @@ export class HiMarketOidcConfigIdentityMapping extends $dara.Model {
   emailField?: string;
   /**
    * @remarks
-   * The identity field name that corresponds to the user ID.
+   * The name of the identity field that corresponds to the user ID.
    * 
    * @example
    * sub
@@ -136,7 +139,7 @@ export class HiMarketOidcConfigIdentityMapping extends $dara.Model {
   userIdField?: string;
   /**
    * @remarks
-   * The identity field name that corresponds to the username.
+   * The name of the identity field that corresponds to the username.
    * 
    * @example
    * name
@@ -175,12 +178,12 @@ export class HiMarketOidcConfigIdentityMapping extends $dara.Model {
 export class HiMarketOidcConfig extends $dara.Model {
   /**
    * @remarks
-   * The OAuth2 Authorization Code configuration.
+   * The OAuth2 authorization code configuration.
    */
   authCodeConfig?: HiMarketOidcConfigAuthCodeConfig;
   /**
    * @remarks
-   * Specifies whether to enable the OIDC configuration.
+   * Specifies whether the OIDC configuration is enabled.
    * 
    * @example
    * true
@@ -188,7 +191,7 @@ export class HiMarketOidcConfig extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The authorization type.
+   * The grant type.
    * 
    * @example
    * authorization_code
@@ -201,7 +204,7 @@ export class HiMarketOidcConfig extends $dara.Model {
   identityMapping?: HiMarketOidcConfigIdentityMapping;
   /**
    * @remarks
-   * The provider logo URL.
+   * The URL of the provider logo.
    * 
    * @example
    * https://example.com/logo.png
@@ -209,7 +212,7 @@ export class HiMarketOidcConfig extends $dara.Model {
   logoUrl?: string;
   /**
    * @remarks
-   * The OIDC configuration name.
+   * The name of the OIDC configuration.
    * 
    * @example
    * my-oidc-config
@@ -217,7 +220,7 @@ export class HiMarketOidcConfig extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The OIDC provider name.
+   * The name of the OIDC provider.
    * 
    * @example
    * Alibaba Cloud IDaaS

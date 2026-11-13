@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSecretsRequest extends $dara.Model {
   /**
    * @remarks
-   * The gateway type used for filtering. Valid values: **AI** and **API**.
+   * The gateway type for filtering. Supported gateway types: **AI** and **API**.
    * 
    * @example
    * AI
@@ -13,7 +13,7 @@ export class ListSecretsRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The key name. Fuzzy match is supported.
+   * The name of the secret for fuzzy match.
    * 
    * @example
    * my_secret

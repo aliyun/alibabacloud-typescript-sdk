@@ -13,7 +13,7 @@ export class GetRiskNotificationResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Indicates whether the notification for the risk item is muted.
+   * Indicates whether notifications for the risk item are muted.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class GetRiskNotificationResponseBodyData extends $dara.Model {
   isMute?: boolean;
   /**
    * @remarks
-   * The code of the risk item.
+   * The risk item code.
    * 
    * @example
    * GW_VERSION_EXPIRED

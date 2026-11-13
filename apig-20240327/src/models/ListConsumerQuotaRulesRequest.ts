@@ -13,7 +13,7 @@ export class ListConsumerQuotaRulesRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The keyword in the rule name for fuzzy match.
+   * The keyword used to perform a fuzzy match on the rule name.
    * 
    * @example
    * daily
@@ -29,18 +29,27 @@ export class ListConsumerQuotaRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of items per page.
+   * The page size.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The rule status. This parameter is optional. Valid values: enabled and disabled. If this parameter is not specified, all rules are queried.
+   * 
+   * @example
+   * enabled
+   */
+  ruleStatus?: string;
   static names(): { [key: string]: string } {
     return {
       gatewayId: 'gatewayId',
       keyword: 'keyword',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
+      ruleStatus: 'ruleStatus',
     };
   }
 
@@ -50,6 +59,7 @@ export class ListConsumerQuotaRulesRequest extends $dara.Model {
       keyword: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      ruleStatus: 'string',
     };
   }
 

@@ -1,0 +1,44 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class ModelApiListApiInfoDeployCntMapValue extends $dara.Model {
+  /**
+   * @remarks
+   * The number of deployed APIs.
+   * 
+   * @example
+   * 1
+   */
+  deployedCnt?: number;
+  /**
+   * @remarks
+   * The total number of APIs.
+   * 
+   * @example
+   * 1
+   */
+  cnt?: number;
+  static names(): { [key: string]: string } {
+    return {
+      deployedCnt: 'deployedCnt',
+      cnt: 'cnt',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      deployedCnt: 'number',
+      cnt: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

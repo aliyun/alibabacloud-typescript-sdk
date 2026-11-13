@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHiMarketConsumerSubscriptionsResponseBodyDataContent extends $dara.Model {
   /**
    * @remarks
-   * The ID of the consumer to which the subscription belongs. This is the same as the consumerId path parameter of this operation.
+   * The ID of the consumer to which the subscription belongs. This is the same identifier as the consumerId path parameter of this API operation.
    * 
    * @example
    * cs-xxxxxxxxxxxx
@@ -21,7 +21,7 @@ export class ListHiMarketConsumerSubscriptionsResponseBodyDataContent extends $d
   consumerName?: string;
   /**
    * @remarks
-   * The ID of the subscribed API product. This is the primary ID of the API product resource.
+   * The ID of the subscribed API product, which is the primary ID of the API product resource.
    * 
    * @example
    * product-xxxxxxxx
@@ -37,7 +37,7 @@ export class ListHiMarketConsumerSubscriptionsResponseBodyDataContent extends $d
   productName?: string;
   /**
    * @remarks
-   * The type of the subscribed API product. This response parameter does not have an enum annotation. For the response parameter with the same name in the related ListProductSubscriptions operation, the valid values are REST_API, HTTP_API, MCP_SERVER, AGENT_API, and MODEL_API.
+   * The type of the subscribed API product. No enum is declared for this response parameter. For the response parameter with the same name in the related ListProductSubscriptions API operation, the valid values are REST_API, HTTP_API, MCP_SERVER, AGENT_API, and MODEL_API.
    * 
    * @example
    * MCP_SERVER
@@ -45,7 +45,7 @@ export class ListHiMarketConsumerSubscriptionsResponseBodyDataContent extends $d
   productType?: string;
   /**
    * @remarks
-   * The subscription status. Valid values: PENDING and APPROVED. These valid values are declared in the enum of the status request parameter. This response parameter does not have an enum annotation.
+   * The subscription status. Valid values: PENDING and APPROVED. The valid values are declared in the enum of the status request parameter, and no enum is attached to this response parameter.
    * 
    * @example
    * APPROVED
@@ -53,7 +53,7 @@ export class ListHiMarketConsumerSubscriptionsResponseBodyDataContent extends $d
   status?: string;
   /**
    * @remarks
-   * The subscription ID. You can use this ID to cancel a subscription by calling UnsubscribeHiMarketProduct or approve a subscription by calling ApproveProductSubscription. Both operations use the /himarket/v1/consumers/{consumerId}/subscriptions/{subscriptionId} path to locate the subscription.
+   * The subscription ID. You can use this ID to call UnsubscribeHiMarketProduct to cancel the subscription or ApproveProductSubscription to approve the subscription. Both operations locate the subscription by using the /himarket/v1/consumers/{consumerId}/subscriptions/{subscriptionId} path.
    * 
    * @example
    * sub-xxxxxxxx
@@ -95,7 +95,7 @@ export class ListHiMarketConsumerSubscriptionsResponseBodyDataContent extends $d
 export class ListHiMarketConsumerSubscriptionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The API product subscriptions of the consumer. Each element in the list is named subscription and represents an API product subscription record.
+   * The API product subscription list of the consumer. The list element is named subscription, and each element represents an API product subscription record.
    */
   content?: ListHiMarketConsumerSubscriptionsResponseBodyDataContent[];
   /**
@@ -155,7 +155,7 @@ export class ListHiMarketConsumerSubscriptionsResponseBodyData extends $dara.Mod
 export class ListHiMarketConsumerSubscriptionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The response status code.
    * 
    * @example
    * Ok
@@ -168,7 +168,7 @@ export class ListHiMarketConsumerSubscriptionsResponseBody extends $dara.Model {
   data?: ListHiMarketConsumerSubscriptionsResponseBodyData;
   /**
    * @remarks
-   * The maximum number of entries returned on the current page.
+   * The maximum number of entries on the current page.
    * 
    * @example
    * 10
@@ -184,7 +184,7 @@ export class ListHiMarketConsumerSubscriptionsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page. An empty value indicates that the last page has been reached.
+   * The pagination token for the next page. An empty value indicates that the last page is reached.
    * 
    * @example
    * token-xxxxxxxx

@@ -92,7 +92,7 @@ export class BatchExportHttpApisRequest extends $dara.Model {
   apiType?: string;
   /**
    * @remarks
-   * The export extension configuration. When this configuration is specified for a REST API, gatewayId is required. This configuration is required for batch export of HTTP APIs.
+   * The export extension configuration. The gatewayId parameter is required when this configuration is specified for REST APIs. This configuration is required for batch export of HTTP APIs.
    */
   extensionConfig?: BatchExportHttpApisRequestExtensionConfig;
   /**
@@ -105,7 +105,7 @@ export class BatchExportHttpApisRequest extends $dara.Model {
   format?: string;
   /**
    * @remarks
-   * The gateway instance ID. This parameter is required when extensionConfig is specified for a REST API. This parameter is required for batch export of HTTP APIs.
+   * The gateway instance ID. This parameter is required when extensionConfig is specified for REST APIs. This parameter is also required for batch export of HTTP APIs.
    * 
    * @example
    * gw-xxx

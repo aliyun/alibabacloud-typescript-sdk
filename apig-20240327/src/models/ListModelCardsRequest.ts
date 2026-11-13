@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelCardsRequest extends $dara.Model {
   /**
    * @remarks
-   * The identifier of the model provider used to filter model cards by provider.
+   * The model provider identifier used to filter model cards by provider.
    * 
    * @example
    * provider-xxxxxxxx

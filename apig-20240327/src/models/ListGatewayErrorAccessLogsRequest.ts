@@ -13,7 +13,7 @@ export class ListGatewayErrorAccessLogsRequest extends $dara.Model {
   authority?: string;
   /**
    * @remarks
-   * The end time of the query window, in UNIX seconds. The value cannot be later than the current time, and the time span must be less than or equal to 24 hours.
+   * The end time of the query window, in UNIX seconds. The value cannot be later than the current time, and the time span cannot exceed 24 hours.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListGatewayErrorAccessLogsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The exact filter for the gateway request ID (x-acs-request-id).
+   * The gateway request ID filter. This parameter performs an exact match on the x-acs-request-id field.
    * 
    * @example
    * E5D4xxxx
@@ -39,7 +39,7 @@ export class ListGatewayErrorAccessLogsRequest extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The specific HTTP error code. Only three-digit numbers in the range of 400 to 599 are accepted. This parameter is required. If it is not provided, the API returns the InvalidParameter.WithDetail(400) error.
+   * The specific HTTP error code. Only three-digit numbers in the range of 400 to 599 are accepted. This parameter is required. If it is not provided, the API returns an InvalidParameter.WithDetail(400) error.
    * 
    * @example
    * 502

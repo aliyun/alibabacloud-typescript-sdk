@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DetachAndDeletePolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The policy attachment ID.
+   * The policy mount ID.
    * 
    * @example
    * pr-cq7l5s5lhtgi6qasrdc0

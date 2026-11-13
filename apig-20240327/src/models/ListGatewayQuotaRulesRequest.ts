@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayQuotaRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword in the rule name for fuzzy match.
+   * The keyword in the rule name used for fuzzy matching.
    * 
    * @example
    * daily
@@ -13,7 +13,7 @@ export class ListGatewayQuotaRulesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The maximum number of records to return in a single request. This parameter is not supported.
+   * The maximum number of entries to return in a single call. This parameter is not supported.
    * 
    * @example
    * 20
@@ -37,12 +37,28 @@ export class ListGatewayQuotaRulesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of items per page.
+   * The number of entries per page.
    * 
    * @example
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The status of the rule. Valid values: enabled and disabled. If you do not specify this parameter, all rules are queried.
+   * 
+   * @example
+   * enabled
+   */
+  ruleStatus?: string;
+  /**
+   * @remarks
+   * The keyword in the name of the associated subject for fuzzy matching based on the consumer or consumer group name.
+   * 
+   * @example
+   * alpha
+   */
+  subjectNameLike?: string;
   static names(): { [key: string]: string } {
     return {
       keyword: 'keyword',
@@ -50,6 +66,8 @@ export class ListGatewayQuotaRulesRequest extends $dara.Model {
       nextToken: 'nextToken',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
+      ruleStatus: 'ruleStatus',
+      subjectNameLike: 'subjectNameLike',
     };
   }
 
@@ -60,6 +78,8 @@ export class ListGatewayQuotaRulesRequest extends $dara.Model {
       nextToken: 'string',
       pageNumber: 'number',
       pageSize: 'number',
+      ruleStatus: 'string',
+      subjectNameLike: 'string',
     };
   }
 

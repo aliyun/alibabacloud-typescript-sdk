@@ -22,12 +22,12 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The KMS configuration information.
+   * The KMS configuration.
    */
   kmsConfig?: KMSConfig;
   /**
    * @remarks
-   * The key name.
+   * The secret name.
    * 
    * @example
    * my_secret
@@ -35,7 +35,7 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The resource count of resources that reference the current key.
+   * The resource count of the resources that reference the current secret.
    * 
    * @example
    * 3
@@ -43,7 +43,7 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
   referenceCount?: number;
   /**
    * @remarks
-   * The key ID.
+   * The secret ID.
    * 
    * @example
    * sec-d5e6shmm1hkoxxxxxxxx
@@ -51,7 +51,7 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
   secretId?: string;
   /**
    * @remarks
-   * The key source.
+   * The secret source.
    * 
    * @example
    * KMS
@@ -59,7 +59,7 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
   secretSource?: string;
   /**
    * @remarks
-   * The key status. Valid values:
+   * The secret status. Valid values:
    * - ENABLE: Enabled.
    * - DISABLE: Disabled.
    * - DELETED: Deleted.
@@ -119,7 +119,7 @@ export class ListSecretsResponseBodyDataItems extends $dara.Model {
 export class ListSecretsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of key details.
+   * The list of secret details.
    */
   items?: ListSecretsResponseBodyDataItems[];
   /**
@@ -187,7 +187,7 @@ export class ListSecretsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of key information.
+   * The list of secrets.
    */
   data?: ListSecretsResponseBodyData;
   /**

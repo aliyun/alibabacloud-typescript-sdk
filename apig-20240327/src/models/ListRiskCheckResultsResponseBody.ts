@@ -19,7 +19,7 @@ export class ListRiskCheckResultsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -27,7 +27,7 @@ export class ListRiskCheckResultsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries.
+   * The total count.
    * 
    * @example
    * 100
@@ -79,7 +79,7 @@ export class ListRiskCheckResultsResponseBody extends $dara.Model {
   data?: ListRiskCheckResultsResponseBodyData;
   /**
    * @remarks
-   * The maximum number of entries to return in this request.
+   * The maximum number of records to return in the current request.
    * 
    * @example
    * 20
@@ -95,7 +95,7 @@ export class ListRiskCheckResultsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token. This parameter is empty if no more pages are available.
+   * The pagination token. This parameter is empty if no next page exists.
    * 
    * @example
    * token-xxx

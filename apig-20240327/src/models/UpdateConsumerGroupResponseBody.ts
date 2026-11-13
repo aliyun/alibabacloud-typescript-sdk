@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConsumerGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. Ok is returned if the request is successful.
+   * The response status code. Returns Ok if the request is successful.
    * 
    * @example
    * Ok

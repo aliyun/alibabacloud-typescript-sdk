@@ -43,7 +43,7 @@ export class BatchImportHttpApisResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: BatchImportHttpApisResponseBodyData;
   /**

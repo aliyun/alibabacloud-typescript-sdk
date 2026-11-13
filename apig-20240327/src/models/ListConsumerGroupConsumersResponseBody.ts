@@ -13,7 +13,7 @@ export class ListConsumerGroupConsumersResponseBodyDataItems extends $dara.Model
   consumerId?: string;
   /**
    * @remarks
-   * The consumer deployment status. Valid values: Processing, Failed, and Success.
+   * The deployment status of the consumer. Valid values: Processing, Failed, and Success.
    * 
    * @example
    * Success
@@ -24,7 +24,7 @@ export class ListConsumerGroupConsumersResponseBodyDataItems extends $dara.Model
    * The consumer description.
    * 
    * @example
-   * Online API caller
+   * Production API caller
    */
   description?: string;
   /**
@@ -85,7 +85,7 @@ export class ListConsumerGroupConsumersResponseBodyDataItems extends $dara.Model
 export class ListConsumerGroupConsumersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The consumer group member list.
+   * The list of consumer group members.
    */
   items?: ListConsumerGroupConsumersResponseBodyDataItems[];
   /**
@@ -98,7 +98,7 @@ export class ListConsumerGroupConsumersResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 10
@@ -106,7 +106,7 @@ export class ListConsumerGroupConsumersResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of consumers that match the filter conditions.
+   * The total number of consumers that meet the conditions.
    * 
    * @example
    * 2
@@ -145,7 +145,7 @@ export class ListConsumerGroupConsumersResponseBodyData extends $dara.Model {
 export class ListConsumerGroupConsumersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. Ok is returned if the request is successful.
+   * The response status code. Ok is returned if the request succeeds.
    * 
    * @example
    * Ok

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayResourceQuotaUsageResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the quota value is provided.
+   * Indicates whether the quota value is provided.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class GetGatewayResourceQuotaUsageResponseBodyDataItems extends $dara.Mod
   used?: number;
   /**
    * @remarks
-   * The scope of usage statistics.
+   * The usage statistics scope.
    * 
    * @example
    * GATEWAY
@@ -101,7 +101,7 @@ export class GetGatewayResourceQuotaUsageResponseBodyData extends $dara.Model {
   items?: GetGatewayResourceQuotaUsageResponseBodyDataItems[];
   /**
    * @remarks
-   * The time when the statistics collection was completed.
+   * The statistics completion time.
    * 
    * @example
    * 2026-09-17T08:00:00Z

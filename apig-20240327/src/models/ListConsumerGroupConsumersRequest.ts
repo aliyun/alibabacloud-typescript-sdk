@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConsumerGroupConsumersRequest extends $dara.Model {
   /**
    * @remarks
-   * Fuzzy match by consumer name.
+   * The fuzzy filter for consumer names.
    * 
    * @example
    * consumer
@@ -21,7 +21,7 @@ export class ListConsumerGroupConsumersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 10

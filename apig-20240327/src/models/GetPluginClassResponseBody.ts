@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPluginClassResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The plug-in alias.
+   * The alias of the plugin.
    * 
    * @example
    * Key Auth
@@ -13,7 +13,7 @@ export class GetPluginClassResponseBodyData extends $dara.Model {
   alias?: string;
   /**
    * @remarks
-   * The plug-in description.
+   * The description of the plugin.
    * 
    * @example
    * Authentication based on API Key
@@ -29,7 +29,7 @@ export class GetPluginClassResponseBodyData extends $dara.Model {
   document?: string;
   /**
    * @remarks
-   * The plug-in name.
+   * The name of the plugin.
    * 
    * @example
    * key-auth
@@ -45,7 +45,7 @@ export class GetPluginClassResponseBodyData extends $dara.Model {
   publishStatus?: string;
   /**
    * @remarks
-   * The plug-in type.
+   * The type of the plugin.
    * 
    * @example
    * Auth
@@ -53,7 +53,7 @@ export class GetPluginClassResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The programming language of the Wasm plug-in.
+   * The programming language of the Wasm plugin.
    * 
    * @example
    * TinyGo

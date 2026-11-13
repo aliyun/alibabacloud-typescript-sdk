@@ -16,7 +16,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   groupName?: string;
   /**
    * @remarks
-   * The HTTP-to-Dubbo protocol conversion configuration. This configuration is only supported for SingleService MSE_NACOS DUBBO backends of HTTP APIs.
+   * The HTTP-to-Dubbo protocol conversion configuration. Only SingleService MSE_NACOS DUBBO backends of HTTP APIs are supported.
    * 
    * @example
    * {"dubboServiceName":"com.alibaba.nacos.example.dubbo.service.DemoService","dubboServiceVersion":"1.0.0","dubboServiceGroup":"DEV","methodMapList":[{"dubboMethodName":"sayName","httpMethod":"ALL_GET","methodPath":"/dubbo/sayName","passThroughAllHeaders":"PASS_ALL"}]}
@@ -24,7 +24,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   httpDubboTranscoder?: HttpDubboTranscoder;
   /**
    * @remarks
-   * The name of the target model. This field is shared by multiple existing model backend scenarios. The specific routing or model rewriting semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If it is not configured for the AiAutoRouter scenario, the default model of the AI service is used.
+   * The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewriting semantics are determined by backendConfig.scene. It must be configured for the SemanticRouter scenario. If it is not configured for the AiAutoRouter scenario, the default model of the AI service is used.
    * 
    * @example
    * qwen-plus
@@ -48,7 +48,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   port?: number;
   /**
    * @remarks
-   * The service protocol. Valid values:
+   * The service protocol:
    * - HTTP.
    * - HTTPS.
    * 
@@ -173,7 +173,7 @@ export class UpdateHttpApiRouteRequestBackendConfig extends $dara.Model {
 export class UpdateHttpApiRouteRequestDfpConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ExtProc service mounted to the current route. When updating a fixed DFP route, this ID must match the existing service. Service switching is not supported.
+   * The ID of the ExtProc service mounted to the current route. When updating a fixed DFP route, the value must be consistent with the existing service. Service switching is not supported.
    * 
    * @example
    * svc-cr8k0udlhtgt80sh7png
@@ -266,7 +266,7 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The current ExtProc service selection for fixed DFP routes. You can only edit mounted routes. This parameter cannot be submitted together with backendConfig, mcpRouteConfig, or policyConfigs.
+   * The current ExtProc service selection for fixed DFP routes. Only edit mounted routes. This parameter cannot be submitted together with backendConfig, mcpRouteConfig, or policyConfigs.
    */
   dfpConfig?: UpdateHttpApiRouteRequestDfpConfig;
   /**

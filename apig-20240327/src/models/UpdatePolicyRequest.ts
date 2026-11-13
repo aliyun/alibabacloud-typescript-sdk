@@ -15,7 +15,7 @@ export class UpdatePolicyRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The description of the policy.
+   * The description.
    * 
    * @example
    * This is a gateway timeout policy

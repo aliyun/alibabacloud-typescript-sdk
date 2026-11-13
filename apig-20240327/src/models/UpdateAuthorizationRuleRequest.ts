@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAuthorizationRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The new list of authorized resources. In MCP Tool scenarios, this is a set of tool names. An empty array returns ErrInvalidParameterWithEmpty.
+   * The new list of authorized resources. In the MCP tool scenario, this is a collection of tool names. If an empty array is provided, the ErrInvalidParameterWithEmpty error is returned.
    */
   resources?: string[];
   static names(): { [key: string]: string } {

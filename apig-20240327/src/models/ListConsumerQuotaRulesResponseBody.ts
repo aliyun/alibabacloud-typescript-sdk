@@ -21,7 +21,7 @@ export class ListConsumerQuotaRulesResponseBodyDataItems extends $dara.Model {
   gatewayName?: string;
   /**
    * @remarks
-   * The period multiplier, which indicates the number of periods after which the quota is reset. This parameter is returned when the rule uses a custom period. Minimum value: 1. Maximum value: 60.
+   * The period multiplier, which indicates the number of periods after which the quota is reset. This parameter is returned when the rule uses a custom period. Valid values: 1 to 60.
    * 
    * @example
    * 30
@@ -77,7 +77,7 @@ export class ListConsumerQuotaRulesResponseBodyDataItems extends $dara.Model {
   ruleStatus?: string;
   /**
    * @remarks
-   * The time zone corresponding to the natural period, in UTC+x format.
+   * The time zone for the natural period in UTC+x format.
    * 
    * @example
    * UTC+8
@@ -85,7 +85,7 @@ export class ListConsumerQuotaRulesResponseBodyDataItems extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The period type. calendar indicates a natural period, and epoch indicates a custom period.
+   * The period type. Valid values: calendar and epoch. calendar indicates a natural period. epoch indicates a custom period.
    * 
    * @example
    * calendar

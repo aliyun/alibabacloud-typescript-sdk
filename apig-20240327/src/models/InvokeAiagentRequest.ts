@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class InvokeAIAgentRequestHistory extends $dara.Model {
   /**
    * @remarks
-   * The content. The returned data is in rich text format.
+   * The content of the message. The returned data is in rich text format.
    * 
    * @example
    * Previous question
@@ -55,7 +55,7 @@ export class InvokeAIAgentRequest extends $dara.Model {
   agentName?: string;
   /**
    * @remarks
-   * The business parameters. Each agent performs custom validation. For example, pass the Simple Log Service context for log diagnostics.
+   * The business parameters. Each agent performs custom validation. For example, pass the SLS context for log diagnosis.
    * 
    * @example
    * {"app":"log-diagnosis","logStore":"apig-logstore"}
@@ -68,7 +68,7 @@ export class InvokeAIAgentRequest extends $dara.Model {
   history?: InvokeAIAgentRequestHistory[];
   /**
    * @remarks
-   * The output language. If this parameter is set to en, the default error message is displayed in English.
+   * The output language. If set to en, the default error message is in English.
    * 
    * @example
    * zh / en
@@ -76,7 +76,7 @@ export class InvokeAIAgentRequest extends $dara.Model {
   outputLanguage?: string;
   /**
    * @remarks
-   * The current user input. If this parameter is empty, a default value is used based on the scenario, such as Start.
+   * The user input for the current session. If empty, a default value is used based on the scenario, such as Start.
    * 
    * @example
    * Help me diagnose this error log

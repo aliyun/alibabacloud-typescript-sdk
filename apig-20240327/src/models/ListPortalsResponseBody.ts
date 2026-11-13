@@ -31,7 +31,7 @@ export class ListPortalsResponseBodyDataContent extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The portal domain configuration list. The list element is named domainConfig.
+   * The portal domain name configuration list. The list element is named domainConfig.
    */
   portalDomainConfig?: HiMarketPortalDomainConfig[];
   /**
@@ -118,7 +118,7 @@ export class ListPortalsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total count.
+   * The total number of entries.
    * 
    * @example
    * 10
@@ -186,7 +186,7 @@ export class ListPortalsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The cursor token for querying the next page.
+   * The pagination token for the next page.
    * 
    * @example
    * next-token-xxxxxxxx

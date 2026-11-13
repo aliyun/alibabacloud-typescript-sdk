@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPoliciesRequest extends $dara.Model {
   /**
    * @remarks
-   * The attachment point ID.
+   * The ID of the mount point.
    * 
    * @example
    * api-cq7l5s5lhtgi6qasrdc0
@@ -13,10 +13,9 @@ export class ListPoliciesRequest extends $dara.Model {
   attachResourceId?: string;
   /**
    * @remarks
-   * The type of attachment point supported by the policy.
-   * 
+   * The type of mount points supported by the policy. Valid values:
    * - HttpApi: HTTP API.
-   * - Operation: Operation of an HTTP API.
+   * - Operation: The operation of the HTTP API.
    * - GatewayRoute: Gateway route.
    * - GatewayService: Gateway service.
    * - GatewayServicePort: Gateway service port.
@@ -29,7 +28,7 @@ export class ListPoliciesRequest extends $dara.Model {
   attachResourceType?: string;
   /**
    * @remarks
-   * The environment ID.
+   * The ID of the environment.
    * 
    * @example
    * env-cq7l5s5lhtgi6qasrdc0
@@ -37,7 +36,7 @@ export class ListPoliciesRequest extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The gateway ID.
+   * The ID of the gateway.
    * 
    * @example
    * gw-cq2fm65lhtgm9nrrl7ag
@@ -45,7 +44,23 @@ export class ListPoliciesRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Specifies whether to return attachment information.
+   * The page number. Pages start from 1.
+   * 
+   * @example
+   * 1
+   */
+  pageNumber?: number;
+  /**
+   * @remarks
+   * The number of entries to return on each page.
+   * 
+   * @example
+   * 20
+   */
+  pageSize?: number;
+  /**
+   * @remarks
+   * Specifies whether to return mount information.
    * 
    * @example
    * false
@@ -65,6 +80,8 @@ export class ListPoliciesRequest extends $dara.Model {
       attachResourceType: 'attachResourceType',
       environmentId: 'environmentId',
       gatewayId: 'gatewayId',
+      pageNumber: 'pageNumber',
+      pageSize: 'pageSize',
       withAttachments: 'withAttachments',
       withSystemPolicy: 'withSystemPolicy',
     };
@@ -76,6 +93,8 @@ export class ListPoliciesRequest extends $dara.Model {
       attachResourceType: 'string',
       environmentId: 'string',
       gatewayId: 'string',
+      pageNumber: 'number',
+      pageSize: 'number',
       withAttachments: 'boolean',
       withSystemPolicy: 'boolean',
     };

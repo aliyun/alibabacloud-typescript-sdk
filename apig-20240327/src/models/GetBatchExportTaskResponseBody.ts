@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetBatchExportTaskResponseBodyDataResultFailureItems extends $dara.Model {
   /**
    * @remarks
-   * API ID。
+   * The API ID.
    * 
    * @example
    * api-xxx
@@ -55,7 +55,7 @@ export class GetBatchExportTaskResponseBodyDataResultFailureItems extends $dara.
 export class GetBatchExportTaskResponseBodyDataResultSuccessItems extends $dara.Model {
   /**
    * @remarks
-   * API ID。
+   * The API ID.
    * 
    * @example
    * api-xxx
@@ -113,7 +113,7 @@ export class GetBatchExportTaskResponseBodyDataResult extends $dara.Model {
   apiType?: string;
   /**
    * @remarks
-   * The list of APIs that failed to be processed.
+   * The list of failed APIs.
    */
   failureItems?: GetBatchExportTaskResponseBodyDataResultFailureItems[];
   /**
@@ -126,7 +126,7 @@ export class GetBatchExportTaskResponseBodyDataResult extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The Base64-encoded ZIP file content. After the frontend decodes the content, it can directly trigger a browser download.
+   * The Base64-encoded content of the ZIP file. The frontend can decode the content to directly trigger a download in the browser.
    * 
    * @example
    * UEsDBBQAAAA...
@@ -134,7 +134,7 @@ export class GetBatchExportTaskResponseBodyDataResult extends $dara.Model {
   specContentBase64?: string;
   /**
    * @remarks
-   * The list of APIs that were processed successfully.
+   * The list of successfully processed APIs.
    */
   successItems?: GetBatchExportTaskResponseBodyDataResultSuccessItems[];
   static names(): { [key: string]: string } {
@@ -175,7 +175,7 @@ export class GetBatchExportTaskResponseBodyDataResult extends $dara.Model {
 export class GetBatchExportTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
+   * The task creation time. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
    * 
    * @example
    * 2026-05-15T10:00:00Z
@@ -191,7 +191,7 @@ export class GetBatchExportTaskResponseBodyData extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The number of processed items.
+   * The processed count.
    * 
    * @example
    * 5
@@ -228,7 +228,7 @@ export class GetBatchExportTaskResponseBodyData extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The total number of items.
+   * The total count.
    * 
    * @example
    * 10
@@ -283,7 +283,7 @@ export class GetBatchExportTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: GetBatchExportTaskResponseBodyData;
   /**

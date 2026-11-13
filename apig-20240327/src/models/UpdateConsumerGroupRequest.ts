@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConsumerGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The consumer group description.
+   * The description of the consumer group.
    * 
    * @example
-   * Group for online API callers
+   * Used to group production API consumers
    */
   description?: string;
   /**
    * @remarks
-   * The consumer group name.
+   * The name of the consumer group.
    * 
    * @example
    * api-consumer-group

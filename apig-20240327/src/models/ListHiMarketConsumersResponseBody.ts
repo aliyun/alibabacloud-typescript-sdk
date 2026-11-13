@@ -62,7 +62,7 @@ export class ListHiMarketConsumersResponseBodyDataContent extends $dara.Model {
 export class ListHiMarketConsumersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of consumers. Each element represents a HiMarket consumer.
+   * The list of consumers. Each element in the list is named consumer and represents a HiMarket consumer.
    */
   content?: ListHiMarketConsumersResponseBodyDataContent[];
   /**
@@ -75,7 +75,7 @@ export class ListHiMarketConsumersResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -151,7 +151,7 @@ export class ListHiMarketConsumersResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The cursor for the next page. An empty value indicates that the last page has been reached.
+   * The pagination token for the next page. An empty value indicates that the last page is reached.
    * 
    * @example
    * token-xxxxxxxx

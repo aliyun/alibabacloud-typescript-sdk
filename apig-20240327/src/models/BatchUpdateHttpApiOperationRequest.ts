@@ -50,7 +50,7 @@ export class BatchUpdateHttpApiOperationRequest extends $dara.Model {
   authConfig?: BatchUpdateHttpApiOperationRequestAuthConfig;
   /**
    * @remarks
-   * Specifies whether to enable consumer authentication. If set to true, a valid authConfig must be provided. If set to false, authConfig is not validated and the existing configuration remains unchanged.
+   * Specifies whether to enable consumer authentication. If this parameter is set to true, a valid authConfig must be provided. If this parameter is set to false, authConfig is not verified and the original configuration remains unchanged.
    * 
    * @example
    * true
@@ -58,7 +58,7 @@ export class BatchUpdateHttpApiOperationRequest extends $dara.Model {
   enableAuth?: boolean;
   /**
    * @remarks
-   * The list of operation IDs to update in batches. This parameter cannot be empty.
+   * The list of operation IDs to be updated in batches. This parameter cannot be empty.
    */
   operationIds?: string[];
   static names(): { [key: string]: string } {

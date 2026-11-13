@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAiModelCardRequestAvailablePaths extends $dara.Model {
   /**
    * @remarks
-   * The path. The model call path, which can be up to 2,048 characters in length.
+   * The path. The model call path, which is up to 2,048 characters in length.
    * 
    * @example
    * /v1/chat/completions
@@ -13,7 +13,7 @@ export class CreateAiModelCardRequestAvailablePaths extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The protocol type corresponding to the path, which can be up to 64 characters in length.
+   * The protocol type corresponding to the path, which is up to 64 characters in length.
    * 
    * @example
    * OpenAICompatible
@@ -197,7 +197,7 @@ export class CreateAiModelCardRequest extends $dara.Model {
   credit?: CreateAiModelCardRequestCredit;
   /**
    * @remarks
-   * The model capability switches. The key must be the name of a model capability supported by the API gateway, and the value must be a Boolean value.
+   * The model capability switches. The key must be the name of a model capability supported by API Gateway, and the value must be a Boolean value.
    * 
    * @example
    * {"functionCalling":true,"toolChoice":true,"promptCaching":false}
@@ -223,7 +223,7 @@ export class CreateAiModelCardRequest extends $dara.Model {
   meta?: CreateAiModelCardRequestMeta;
   /**
    * @remarks
-   * The name of the model. The model name must be unique within the same AI gateway instance and model provider, and can be up to 256 characters in length.
+   * The name of the model. The model name must be unique within the same AI gateway instance and the same model provider, and be up to 256 characters in length.
    * 
    * This parameter is required.
    * 
@@ -233,7 +233,7 @@ export class CreateAiModelCardRequest extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The identifier of the model provider. It must reference an existing model provider in the target AI gateway instance and can be up to 128 characters in length.
+   * The identifier of the model provider. It must reference an existing model provider in the target AI gateway instance and be up to 128 characters in length.
    * 
    * This parameter is required.
    * 

@@ -33,7 +33,7 @@ export class GetPluginAttachmentResponseBodyData extends $dara.Model {
   parentResourceInfo?: ParentResourceInfo;
   /**
    * @remarks
-   * The plugin attachment ID.
+   * The ID of the plugin attachment.
    * 
    * @example
    * pa-d05f1tmm1hku195dd8j0
@@ -41,7 +41,7 @@ export class GetPluginAttachmentResponseBodyData extends $dara.Model {
   pluginAttachmentId?: string;
   /**
    * @remarks
-   * The plugin class information.
+   * The plugin type information.
    */
   pluginClassInfo?: PluginClassInfo;
   /**

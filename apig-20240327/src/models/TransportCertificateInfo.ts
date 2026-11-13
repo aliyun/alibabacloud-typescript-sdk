@@ -13,7 +13,7 @@ export class TransportCertificateInfo extends $dara.Model {
   algorithm?: string;
   /**
    * @remarks
-   * The certificate identifier (the certificate ID under the APIG Alibaba Cloud account).
+   * The certificate identifier, which is the certificate ID under the APIG cloud account.
    * 
    * @example
    * cert-1（1716***@cn-hangzhou 形态）
@@ -29,7 +29,7 @@ export class TransportCertificateInfo extends $dara.Model {
   certName?: string;
   /**
    * @remarks
-   * The match status between the certificate and the gateway instance domain names.
+   * The matching status between the certificate and the instance domain names.
    * 
    * @example
    * Matched
@@ -37,7 +37,7 @@ export class TransportCertificateInfo extends $dara.Model {
   certificateMatchStatus?: string;
   /**
    * @remarks
-   * The certificate Common Name (CN).
+   * The common name (CN) of the certificate.
    * 
    * @example
    * api.example.com
@@ -45,7 +45,7 @@ export class TransportCertificateInfo extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The set of covered domain names parsed from CN and SAN (lowercase, deduplicated, may contain *. wildcards).
+   * The set of covered domain names parsed from the CN and SAN. The domain names are in lowercase, deduplicated, and may include wildcards such as *.
    */
   coveredDomains?: string[];
   /**
@@ -58,12 +58,12 @@ export class TransportCertificateInfo extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * The gateway instance domain names matched by the covered domain names (ordered by instance domain name, deduplicated).
+   * The gateway instance domain names matched by the covered domain names. The order follows the instance domain names, and the results are deduplicated.
    */
   matchedDomains?: string[];
   /**
    * @remarks
-   * The expiration timestamp (Unix milliseconds, from the certificate afterDate).
+   * The expiration timestamp in UNIX milliseconds, which is obtained from the afterDate of the certificate.
    * 
    * @example
    * 1747958400000
@@ -71,7 +71,7 @@ export class TransportCertificateInfo extends $dara.Model {
   notAfterTimestamp?: number;
   /**
    * @remarks
-   * The effective period UNIX timestamp (milliseconds, from the certificate beforeDate).
+   * The UNIX timestamp for the effective period in milliseconds, which is obtained from the beforeDate of the certificate.
    * 
    * @example
    * 1716336000000
@@ -79,7 +79,7 @@ export class TransportCertificateInfo extends $dara.Model {
   notBeforeTimestamp?: number;
   /**
    * @remarks
-   * The raw Subject Alternative Name (SAN) string (separated by commas, semicolons, or whitespace. Elements may have a DNS: prefix).
+   * The raw Subject Alternative Name (SAN) string separated by commas, semicolons, or spaces. Elements may include the DNS: prefix.
    * 
    * @example
    * DNS:*.example.org, DNS:foo.example.net

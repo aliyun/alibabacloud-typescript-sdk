@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListK8sClusterSourcesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The container service cluster ID.
+   * The ID of the Container Service cluster.
    * 
    * @example
    * c4a21b3560fad4ec***
@@ -13,7 +13,7 @@ export class ListK8sClusterSourcesResponseBodyDataItems extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The container service cluster name.
+   * The name of the Container Service cluster.
    * 
    * @example
    * itemcenter-dev-cluster

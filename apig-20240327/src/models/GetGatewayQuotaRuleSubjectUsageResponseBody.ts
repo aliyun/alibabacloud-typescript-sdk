@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends $dara.Model {
   /**
    * @remarks
-   * The cached token consumption.
+   * The number of cached tokens consumed.
    * 
    * @example
    * 10
@@ -29,7 +29,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   consumer?: string;
   /**
    * @remarks
-   * The input token consumption.
+   * The number of input tokens consumed.
    * 
    * @example
    * 120
@@ -53,7 +53,31 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
   model?: string;
   /**
    * @remarks
-   * The output token consumption.
+   * The ID of the executed model card.
+   * 
+   * @example
+   * msc-d00000000000000000000
+   */
+  modelCardId?: string;
+  /**
+   * @remarks
+   * The ID of the model source at execution. This field is empty for legacy records.
+   * 
+   * @example
+   * ms-d00000000000000000000
+   */
+  modelSourceId?: string;
+  /**
+   * @remarks
+   * The snapshot of the model source name at execution.
+   * 
+   * @example
+   * Model Studio model source
+   */
+  modelSourceName?: string;
+  /**
+   * @remarks
+   * The number of output tokens consumed.
    * 
    * @example
    * 80
@@ -75,6 +99,14 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
    * req-123456
    */
   requestId?: string;
+  /**
+   * @remarks
+   * The ID of the executed service.
+   * 
+   * @example
+   * svc-d00000000000000000000
+   */
+  serviceId?: string;
   /**
    * @remarks
    * The consumption or request time in the YYYY-MM-DD format.
@@ -107,9 +139,13 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
       inputAmount: 'inputAmount',
       inputAmountDecimal: 'inputAmountDecimal',
       model: 'model',
+      modelCardId: 'modelCardId',
+      modelSourceId: 'modelSourceId',
+      modelSourceName: 'modelSourceName',
       outputAmount: 'outputAmount',
       outputAmountDecimal: 'outputAmountDecimal',
       requestId: 'requestId',
+      serviceId: 'serviceId',
       startTime: 'startTime',
       usedAmount: 'usedAmount',
       usedAmountDecimal: 'usedAmountDecimal',
@@ -124,9 +160,13 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetailsItems extends
       inputAmount: 'number',
       inputAmountDecimal: 'number',
       model: 'string',
+      modelCardId: 'string',
+      modelSourceId: 'string',
+      modelSourceName: 'string',
       outputAmount: 'number',
       outputAmountDecimal: 'number',
       requestId: 'string',
+      serviceId: 'string',
       startTime: 'string',
       usedAmount: 'number',
       usedAmountDecimal: 'number',
@@ -208,7 +248,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetails extends $dar
 export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The total cached token consumption.
+   * The total number of cached tokens consumed.
    * 
    * @example
    * 20
@@ -224,7 +264,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   cachedAmountDecimal?: number;
   /**
    * @remarks
-   * The pagination of consumption details.
+   * The paginated consumption details.
    * 
    * @example
    * {"totalSize":100}
@@ -232,7 +272,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   details?: GetGatewayQuotaRuleSubjectUsageResponseBodyDataDetails;
   /**
    * @remarks
-   * The total input token consumption.
+   * The total number of input tokens consumed.
    * 
    * @example
    * 300
@@ -248,7 +288,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   inputAmountDecimal?: number;
   /**
    * @remarks
-   * The total output token consumption.
+   * The total number of output tokens consumed.
    * 
    * @example
    * 180
@@ -272,7 +312,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   overLimit?: boolean;
   /**
    * @remarks
-   * The quota dimension. Valid values: token and credit.
+   * The quota dimension. Valid values: token or credit.
    * 
    * @example
    * token
@@ -280,7 +320,7 @@ export class GetGatewayQuotaRuleSubjectUsageResponseBodyData extends $dara.Model
   quotaDimension?: string;
   /**
    * @remarks
-   * The subject type. Valid values: consumer and consumer_group.
+   * The subject type. Valid values: consumer or consumer_group.
    * 
    * @example
    * consumer_group

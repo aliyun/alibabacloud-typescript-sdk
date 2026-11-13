@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayAuthorizableSecurityGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * Queries only the security groups associated with a Container Service cluster.
+   * The ID of the Container Service cluster. Only security groups associated with the cluster are queried.
    * 
    * @example
    * c4a21b3560fad4ec299f3e63f4***

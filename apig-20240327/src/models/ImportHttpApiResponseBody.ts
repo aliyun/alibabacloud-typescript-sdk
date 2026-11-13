@@ -136,7 +136,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoFailureRoutes extends $dara.
 export class ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents extends $dara.Model {
   /**
    * @remarks
-   * The action to be performed after the dry run.
+   * The action to perform after the dry run.
    * - Create: Create.
    * - Update: Update.
    * 
@@ -178,7 +178,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfoSuccessComponents extends $d
 export class ImportHttpApiResponseBodyDataDryRunInfoSuccessOperations extends $dara.Model {
   /**
    * @remarks
-   * The action to be performed after the dry run.
+   * The action to perform after the dry run.
    * - Create: Create.
    * - Update: Update.
    * 
@@ -328,7 +328,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
   successRoutes?: ImportHttpApiResponseBodyDataDryRunInfoSuccessRoutes[];
   /**
    * @remarks
-   * The warning messages. If the warning messages are not empty, some operations or data structures may fail to be imported.
+   * The warning messages. If the warning messages are not empty, some operations or data structures may fail to import.
    */
   warningMessages?: string[];
   static names(): { [key: string]: string } {
@@ -400,7 +400,7 @@ export class ImportHttpApiResponseBodyDataDryRunInfo extends $dara.Model {
 export class ImportHttpApiResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The dry run results.
+   * The dry run result.
    */
   dryRunInfo?: ImportHttpApiResponseBodyDataDryRunInfo;
   /**

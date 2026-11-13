@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProductResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the new API product. You can use this ID to locate the product in API operations such as GetProduct, UpdateProduct, PublishProduct, and GetProductRef.
+   * The ID of the newly created API product, which can be used to locate the product in API operations such as GetProduct, UpdateProduct, PublishProduct, and GetProductRef.
    * 
    * @example
    * p-xxxxxxxx

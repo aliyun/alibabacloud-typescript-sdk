@@ -8,7 +8,7 @@ export class ListPublishableProductsResponseBodyDataContent extends $dara.Model 
    * The description of the API product, which is the Description property of the Product resource.
    * 
    * @example
-   * An API product that provides weather query capabilities
+   * API product that provides weather query capabilities
    */
   description?: string;
   /**
@@ -68,7 +68,7 @@ export class ListPublishableProductsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -76,7 +76,7 @@ export class ListPublishableProductsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total count.
+   * The total number of entries.
    * 
    * @example
    * 10

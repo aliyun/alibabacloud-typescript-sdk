@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSecretResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The key ID.
+   * The secret ID.
    * 
    * @example
    * sec-d5e6shmm1hkoxxxxxxxx

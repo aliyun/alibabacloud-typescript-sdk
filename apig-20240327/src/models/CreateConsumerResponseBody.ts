@@ -56,7 +56,7 @@ export class CreateConsumerResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 479AE38F-A574-52F7-87EA-E91199999F9E

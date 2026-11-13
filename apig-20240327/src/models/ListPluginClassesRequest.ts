@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class ListPluginClassesRequest extends $dara.Model {
   /**
    * @remarks
-   * The plug-in alias. Fuzzy match is supported.
+   * The plugin alias for fuzzy search.
    * 
    * @example
-   * OAuth2 Authentication
+   * OAuth2 authentication
    */
   aliasLike?: string;
   /**
    * @remarks
-   * The inbound or outbound direction. Valid values:
-   * - OutBound: outbound.
-   * - InBound: inbound.
-   * - Both: both directions.
+   * The traffic direction. Valid values:
+   * - OutBound: Outbound.
+   * - InBound: Inbound.
+   * - Both: Both.
    * 
    * @example
    * InBound
@@ -24,7 +24,7 @@ export class ListPluginClassesRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * Specifies whether to exclude built-in plug-ins.
+   * Specifies whether to exclude built-in plugins.
    * 
    * @example
    * true
@@ -48,7 +48,7 @@ export class ListPluginClassesRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * Specifies whether the plug-in is installed.
+   * Specifies whether the plugin is installed.
    * 
    * @example
    * false
@@ -56,7 +56,7 @@ export class ListPluginClassesRequest extends $dara.Model {
   installed?: boolean;
   /**
    * @remarks
-   * The plug-in name. Fuzzy match is supported.
+   * The plugin name for fuzzy search.
    * 
    * @example
    * oauth
@@ -80,10 +80,10 @@ export class ListPluginClassesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The plug-in source. Valid values:
-   * - HigressOfficial: Higress official.
-   * - HigressCommunity: Higress community.
-   * - Custom: custom.
+   * The plugin source. Valid values:
+   * - Higress official: HigressOfficial.
+   * - Higress community: HigressCommunity.
+   * - Custom: Custom.
    * 
    * @example
    * HigressOfficial
@@ -91,7 +91,7 @@ export class ListPluginClassesRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The plug-in type.
+   * The plugin type.
    * 
    * @example
    * Auth

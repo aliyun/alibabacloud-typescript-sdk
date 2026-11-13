@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstallableGatewaysRequest extends $dara.Model {
   /**
    * @remarks
-   * The gateway type used for filtering.
+   * The gateway type filter.
    * 
    * @example
    * AI

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBatchExportTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the creation time range. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
+   * The end time of the creation time range. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
    * 
    * @example
    * 2026-05-26T11:00:00Z
@@ -13,7 +13,7 @@ export class ListBatchExportTasksRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The gateway instance ID. If specified, only tasks under this gateway are returned.
+   * The instance ID of the gateway. If specified, only tasks under this gateway are returned.
    * 
    * @example
    * gw-xxx
@@ -29,7 +29,7 @@ export class ListBatchExportTasksRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The paging token that indicates the start position of the next query.
+   * The starting token for paging queries.
    * 
    * @example
    * token-xxx
@@ -45,7 +45,7 @@ export class ListBatchExportTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -53,7 +53,7 @@ export class ListBatchExportTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start of the creation time range. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
+   * The start time of the creation time range. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
    * 
    * @example
    * 2026-05-26T10:00:00Z

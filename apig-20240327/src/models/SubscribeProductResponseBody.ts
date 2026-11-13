@@ -13,7 +13,7 @@ export class SubscribeProductResponseBodyData extends $dara.Model {
   consumerId?: string;
   /**
    * @remarks
-   * The name of the consumer to which the subscription belongs. This consumer is the same as the consumerId returned at the same level.
+   * The name of the consumer to which the subscription belongs. This refers to the same consumer as the consumerId returned at the same level.
    * 
    * @example
    * consumer-1
@@ -21,7 +21,7 @@ export class SubscribeProductResponseBodyData extends $dara.Model {
   consumerName?: string;
   /**
    * @remarks
-   * The ID of the subscribed API product. This is the primary ID of the Product resource and is the same as the productId specified in the request body.
+   * The ID of the subscribed API product. This is the primary ID of the API product resource and is the same as the productId specified in the request body.
    * 
    * @example
    * product-xxxxxxxx
@@ -29,7 +29,7 @@ export class SubscribeProductResponseBodyData extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * The name of the subscribed API product. This is the Name property of the Product resource.
+   * The name of the subscribed API product. This is the Name property of the API product resource.
    * 
    * @example
    * model-service
@@ -37,7 +37,7 @@ export class SubscribeProductResponseBodyData extends $dara.Model {
   productName?: string;
   /**
    * @remarks
-   * The type of the subscribed API product. The value set is not declared in this operation definition. The response parameter with the same name in the related ListProductSubscriptions operation is annotated with @enums. Valid values: REST_API, HTTP_API, MCP_SERVER, AGENT_API, and MODEL_API.
+   * The type of the subscribed API product. The set of valid values is not declared in this operation definition. The response parameter with the same name in the ListProductSubscriptions operation has the @enums annotation applied, with the following valid values: REST_API, HTTP_API, MCP_SERVER, AGENT_API, and MODEL_API.
    * 
    * @example
    * MCP_SERVER
@@ -45,7 +45,7 @@ export class SubscribeProductResponseBodyData extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The subscription status. Valid values: PENDING and APPROVED. The value set is declared in the enum of the status request parameter of the related ListProductSubscriptions operation. This response parameter is not annotated with @enums.
+   * The subscription status. Valid values: PENDING and APPROVED. This set of valid values is defined in the status request parameter of the ListProductSubscriptions operation, and the @enums annotation is not applied to this response parameter.
    * 
    * @example
    * PENDING
@@ -53,7 +53,7 @@ export class SubscribeProductResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The subscription ID, which identifies the API product subscription record corresponding to this subscription. You can use this ID to call UnsubscribeHiMarketProduct to cancel the subscription or call ApproveProductSubscription to approve the subscription. Both operations identify the record by using /himarket/v1/consumers/{consumerId}/subscriptions/{subscriptionId}.
+   * The subscription ID. Identifies the API product subscription record corresponding to this subscription. You can use this ID to cancel the subscription by calling UnsubscribeHiMarketProduct or approve the subscription by calling ApproveProductSubscription. Both operations locate the record by using the /himarket/v1/consumers/{consumerId}/subscriptions/{subscriptionId} path.
    * 
    * @example
    * sub-xxxxxxxx

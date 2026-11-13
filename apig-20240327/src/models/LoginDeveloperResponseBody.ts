@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class LoginDeveloperResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The access token returned for the developer logon. This field is marked as sensitive in the API definition.
+   * The access token returned for the current developer logon. This field is marked as sensitive in the API definition.
    * 
    * @example
    * access-token-xxxxxxxx
@@ -13,7 +13,7 @@ export class LoginDeveloperResponseBodyData extends $dara.Model {
   accessToken?: string;
   /**
    * @remarks
-   * The int64 numeric value associated with the access token. The unit and exact meaning are not specified in the API definition.
+   * The int64 numeric field associated with the access token. The unit and exact meaning are not specified in the API definition.
    * 
    * @example
    * 3600

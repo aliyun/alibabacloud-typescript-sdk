@@ -6,7 +6,7 @@ import { HiMarketIcon } from "./HiMarketIcon";
 export class ListProductCategoriesResponseBodyDataContent extends $dara.Model {
   /**
    * @remarks
-   * The product category ID. You can use this ID as the categoryId path parameter for GetProductCategory, UpdateProductCategory, and DeleteProductCategory. You can also use it as an element in the categories parameter (a set of category IDs) for SetProductCategories and CreateProduct.
+   * The product category ID. You can use this ID as the categoryId path parameter in the GetProductCategory, UpdateProductCategory, and DeleteProductCategory operations, or as an element in the categories parameter (a set of category IDs) in the SetProductCategories and CreateProduct operations.
    * 
    * @example
    * category-xxxxxxxx
@@ -17,12 +17,12 @@ export class ListProductCategoriesResponseBodyDataContent extends $dara.Model {
    * The product category description.
    * 
    * @example
-   * Product category containing AI-related capabilities
+   * Product category that includes AI-related capabilities
    */
   description?: string;
   /**
    * @remarks
-   * The product category icon. It consists of two fields: icon type (type) and icon information (value).
+   * The product category icon. It consists of two fields: type (the icon type) and value (the icon information).
    */
   icon?: HiMarketIcon;
   /**

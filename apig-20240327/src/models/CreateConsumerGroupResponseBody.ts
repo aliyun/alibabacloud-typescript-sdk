@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateConsumerGroupResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The consumer group ID.
+   * The ID of the consumer group.
    * 
    * @example
    * csg-8c13d2b4f8a1
@@ -13,7 +13,7 @@ export class CreateConsumerGroupResponseBodyData extends $dara.Model {
   consumerGroupId?: string;
   /**
    * @remarks
-   * The gateway type. Valid values: API or AI.
+   * The gateway type. Valid values: API and AI.
    * 
    * @example
    * API

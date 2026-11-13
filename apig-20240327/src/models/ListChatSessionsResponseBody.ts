@@ -13,12 +13,12 @@ export class ListChatSessionsResponseBodyDataContent extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of API products associated with the session. Each element in the list is named product.
+   * The list of API products associated with the session. The list element is named product.
    */
   products?: string[];
   /**
    * @remarks
-   * The ID of the chat session. You can use this ID to locate the session in API operations such as UpdateChatSession, DeleteChatSession, and ListConversations.
+   * The chat session ID. You can use this ID to locate the session in operations such as UpdateChatSession, DeleteChatSession, and ListConversations.
    * 
    * @example
    * ses-xxxxxxxx
@@ -26,7 +26,7 @@ export class ListChatSessionsResponseBodyDataContent extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The conversation type of the session. Valid values: MODEL and AGENT. These values are defined in the talkType request parameter of the CreateChatSession operation. This response parameter does not include the @enums annotation.
+   * The conversation type of the session. Valid values: MODEL and AGENT. This set of valid values is declared in the talkType enum of the CreateChatSession request parameter, and no @enums annotation is attached to this response parameter.
    * 
    * @example
    * MODEL
@@ -65,7 +65,7 @@ export class ListChatSessionsResponseBodyDataContent extends $dara.Model {
 export class ListChatSessionsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of chat sessions. Each element in the list is named session and represents a chat session.
+   * The list of chat sessions. The list element is named session, and each element represents a chat session.
    */
   content?: ListChatSessionsResponseBodyDataContent[];
   /**
@@ -78,7 +78,7 @@ export class ListChatSessionsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -154,7 +154,7 @@ export class ListChatSessionsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page. An empty value indicates that the last page has been reached.
+   * The cursor for the next page. An empty value indicates that the last page is reached.
    * 
    * @example
    * token-xxxxxxxx
@@ -162,7 +162,7 @@ export class ListChatSessionsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 393E2630-DBE7-5221-AB35-9E740675491A

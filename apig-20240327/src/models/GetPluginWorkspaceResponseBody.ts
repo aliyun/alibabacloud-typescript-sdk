@@ -13,7 +13,7 @@ export class GetPluginWorkspaceResponseBodyData extends $dara.Model {
   organizationId?: string;
   /**
    * @remarks
-   * The ID of the most recent pipeline run. This parameter is not returned if the plugin has never been built.
+   * The ID of the most recent pipeline run. This parameter is not returned if no build has been executed.
    * 
    * @example
    * 987654
@@ -29,7 +29,7 @@ export class GetPluginWorkspaceResponseBodyData extends $dara.Model {
   repoId?: string;
   /**
    * @remarks
-   * The repository name (the English ID of the plugin).
+   * The repository name, which is the English ID of the plug-in.
    * 
    * @example
    * my-custom-plugin
@@ -37,7 +37,7 @@ export class GetPluginWorkspaceResponseBodyData extends $dara.Model {
   repoName?: string;
   /**
    * @remarks
-   * The OSS download URL of the compiled WASM build output. This parameter is returned only when the pipeline status is SUCCESS.
+   * The OSS download URL for the Wasm build output. This parameter is returned only when the pipeline status is SUCCESS.
    * 
    * @example
    * https://apigw-console-cn-hangzhou.oss-cn-hangzhou.aliyuncs.com/{uid}/plugin/plugin_1756262400.wasm

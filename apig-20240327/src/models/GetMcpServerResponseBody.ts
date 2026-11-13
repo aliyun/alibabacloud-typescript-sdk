@@ -222,7 +222,7 @@ export class GetMcpServerResponseBodyDataGrayMcpServerConfigs extends $dara.Mode
   backendConfig?: GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfig;
   /**
    * @remarks
-   * The match rules of the canary route.
+   * The match rule of the canary route.
    */
   match?: HttpRouteMatch;
   /**
@@ -335,13 +335,12 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   backend?: Backend;
   /**
    * @remarks
-   * The creation source type.
-   * 
-   * ApiGatewayHttpToMCP: Gateway-hosted HTTP-to-MCP conversion
-   * ApiGatewayMcpHosting: Gateway-hosted direct MCP proxy
-   * ApiGatewayAssembly: Gateway MCP assembly
-   * NacosHttpToMCP: Gateway-hosted Nacos-synchronized HTTP-to-MCP conversion
-   * NacosMcpHosting: Gateway-hosted Nacos-synchronized direct MCP proxy
+   * The creation source type. Valid values:
+   * - ApiGatewayHttpToMCP: Gateway-hosted HTTP-to-MCP.
+   * - ApiGatewayMcpHosting: Gateway-hosted MCP direct proxy.
+   * - ApiGatewayAssembly: Gateway MCP assembly.
+   * - NacosHttpToMCP: Gateway-hosted Nacos-synchronized HTTP-to-MCP.
+   * - NacosMcpHosting: Gateway-hosted Nacos-synchronized MCP direct proxy.
    * 
    * @example
    * ApiGatewayHttpToMCP
@@ -360,7 +359,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
    * The description.
    * 
    * @example
-   * MCP server dedicated for testing
+   * Test MCP server
    */
   description?: string;
   /**
@@ -404,7 +403,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   grayMcpServerConfigs?: GetMcpServerResponseBodyDataGrayMcpServerConfigs[];
   /**
    * @remarks
-   * The route match rules.
+   * The route match rule.
    * 
    * @example
    * {\\"product_code\\":\\"apigw\\"}
@@ -420,7 +419,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   mcpServerConfig?: string;
   /**
    * @remarks
-   * The attachment ID of the MCP server plug-in configuration.
+   * The attachment ID of the MCP server plugin configuration.
    * 
    * @example
    * pa-adfaefwaef
@@ -444,7 +443,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   mcpServerPath?: string;
   /**
    * @remarks
-   * Specifies whether to enable MCP observability. Default value: false.
+   * Specifies whether MCP observability is enabled. Default value: false.
    * 
    * @example
    * false
@@ -452,7 +451,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   mcpStatisticsEnable?: boolean;
   /**
    * @remarks
-   * The information about the Nacos-synchronized managed MCP.
+   * The information about Nacos-synchronized managed MCP.
    */
   nacosMcpSyncInfo?: GetMcpServerResponseBodyDataNacosMcpSyncInfo;
   /**

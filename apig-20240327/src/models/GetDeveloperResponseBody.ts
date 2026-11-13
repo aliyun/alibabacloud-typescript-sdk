@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDeveloperResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The developer ID. You can use it to identify the developer in API operations such as SetHiMarketDeveloperStatus and DeleteHiMarketDeveloper.
+   * The developer ID. You can use this ID to identify the developer in API operations such as SetHiMarketDeveloperStatus and DeleteHiMarketDeveloper.
    * 
    * @example
    * dev-xxxxxxxx
@@ -13,7 +13,7 @@ export class GetDeveloperResponseBodyData extends $dara.Model {
   developerId?: string;
   /**
    * @remarks
-   * The ID of the portal to which the developer belongs. You can use it to identify the portal in API operations such as GetPortal, UpdatePortal, and DeletePortal.
+   * The ID of the portal to which the developer belongs. You can use this ID to identify the portal in API operations such as GetPortal, UpdatePortal, and DeletePortal.
    * 
    * @example
    * portal-xxxxxxxx
@@ -21,7 +21,7 @@ export class GetDeveloperResponseBodyData extends $dara.Model {
   portalId?: string;
   /**
    * @remarks
-   * The developer status. Valid values: PENDING, APPROVED, and REJECTED.
+   * The status of the developer. Valid values: PENDING, APPROVED, and REJECTED.
    * 
    * @example
    * APPROVED

@@ -37,7 +37,7 @@ export class HttpRouteDfpConfig extends $dara.Model {
 export class HttpRouteDomainInfos extends $dara.Model {
   /**
    * @remarks
-   * The domain ID.
+   * The domain name ID.
    * 
    * @example
    * d-cr3v7dllhtgi9s***
@@ -137,7 +137,7 @@ export class HttpRouteEnvironmentInfoGatewayInfo extends $dara.Model {
 export class HttpRouteEnvironmentInfoSubDomains extends $dara.Model {
   /**
    * @remarks
-   * The domain ID.
+   * The domain name ID.
    * 
    * @example
    * d-cqu19hdlhtgjuv4***
@@ -392,7 +392,7 @@ export class HttpRoute extends $dara.Model {
   backend?: Backend;
   /**
    * @remarks
-   * Indicates whether the route is a built-in system route.
+   * Specifies whether the route is a built-in system route.
    * 
    * @example
    * true
@@ -424,12 +424,12 @@ export class HttpRoute extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ExtProc service selected for the fixed dynamic forwarding route. This field is not returned when no matching binding exists.
+   * The ExtProc service selection for fixed dynamic forwarding routes. This field is not returned when no matching binding exists.
    */
   dfpConfig?: HttpRouteDfpConfig;
   /**
    * @remarks
-   * The list of domain information.
+   * The list of domain name information.
    */
   domainInfos?: HttpRouteDomainInfos[];
   /**

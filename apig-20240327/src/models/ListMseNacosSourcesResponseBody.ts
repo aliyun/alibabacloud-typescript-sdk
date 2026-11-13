@@ -13,10 +13,10 @@ export class ListMseNacosSourcesResponseBodyDataItems extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The Nacos instance name.
+   * The name of the Nacos instance.
    * 
    * @example
-   * Product Center Nacos Registry
+   * Product Center Nacos registry
    */
   name?: string;
   static names(): { [key: string]: string } {

@@ -10,7 +10,7 @@ import { HttpApiResponseContract } from "./HttpApiResponseContract";
 export class HttpApiOperationInfo extends $dara.Model {
   /**
    * @remarks
-   * The permission authentication configuration.
+   * The authentication configuration.
    */
   authConfig?: AuthConfig;
   /**
@@ -23,7 +23,7 @@ export class HttpApiOperationInfo extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The API operation backend service deployment information.
+   * The backend service deployment information for the operation.
    */
   deployConfigs?: HttpApiDeployConfig[];
   /**
@@ -44,7 +44,7 @@ export class HttpApiOperationInfo extends $dara.Model {
   enableAuth?: boolean;
   /**
    * @remarks
-   * The API operation method.
+   * The operation method.
    * 
    * @example
    * GET
@@ -52,12 +52,12 @@ export class HttpApiOperationInfo extends $dara.Model {
   method?: string;
   /**
    * @remarks
-   * The API operation mock parameter settings.
+   * The operation mock parameter settings.
    */
   mock?: HttpApiMockContract;
   /**
    * @remarks
-   * The API operation name.
+   * The operation name.
    * 
    * @example
    * GetUserInfo
@@ -65,7 +65,7 @@ export class HttpApiOperationInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The API operation ID.
+   * The operation ID.
    * 
    * @example
    * op-xxx
@@ -73,7 +73,7 @@ export class HttpApiOperationInfo extends $dara.Model {
   operationId?: string;
   /**
    * @remarks
-   * The API operation path.
+   * The operation path.
    * 
    * @example
    * /user/123
@@ -81,17 +81,17 @@ export class HttpApiOperationInfo extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The API operation request parameter definition.
+   * The operation request parameter definition.
    */
   request?: HttpApiRequestContract;
   /**
    * @remarks
-   * The API operation response parameter definition.
+   * The operation response parameter definition.
    */
   response?: HttpApiResponseContract;
   /**
    * @remarks
-   * The publication status of the API operation on the gateway.
+   * The publish status of the operation on the gateway.
    * 
    * @example
    * Deployed

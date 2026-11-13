@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListHiMarketConsumersRequest extends $dara.Model {
   /**
    * @remarks
-   * The developer ID used to filter consumers.
+   * The developer ID. This parameter is used to filter consumers by developer.
    * 
    * @example
    * dev-xxxxxxxx
@@ -29,7 +29,7 @@ export class ListHiMarketConsumersRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination cursor. Pass the nextToken value returned in the previous response to retrieve the next page. Do not specify this parameter for the first query.
+   * The pagination token. To retrieve the next page, pass the nextToken value returned in the previous response. Do not pass this parameter for the first query.
    * 
    * @example
    * token-xxxxxxxx
@@ -53,7 +53,7 @@ export class ListHiMarketConsumersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The portal ID used to filter consumers.
+   * The portal ID. This parameter is used to filter consumers by portal.
    * 
    * @example
    * portal-xxxxxxxx

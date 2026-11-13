@@ -93,6 +93,17 @@ export class ApiKeyIdentityConfigCredentials extends $dara.Model {
   apikey?: string;
   /**
    * @remarks
+   * The creation time of this logical key saved by the server, in Unix milliseconds, for read-only purposes. When updated, the original key retains the saved time, and client input is not used as the time basis. A missing or null history indicates an unknown time, and the consumer creation time must not be used as a substitute.
+   * 
+   * @example
+   * 1792627200000
+   * 
+   * **if can be null:**
+   * true
+   */
+  createTimestamp?: number;
+  /**
+   * @remarks
    * The generation mode.
    * 
    * @example
@@ -102,6 +113,7 @@ export class ApiKeyIdentityConfigCredentials extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       apikey: 'apikey',
+      createTimestamp: 'createTimestamp',
       generateMode: 'generateMode',
     };
   }
@@ -109,6 +121,7 @@ export class ApiKeyIdentityConfigCredentials extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       apikey: 'string',
+      createTimestamp: 'number',
       generateMode: 'string',
     };
   }

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDeveloperResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The developer ID. This ID can be used to identify the developer in API operations such as SetHiMarketDeveloperStatus and DeleteHiMarketDeveloper.
+   * The developer ID. You can use this ID to locate the developer in API operations such as SetHiMarketDeveloperStatus and DeleteHiMarketDeveloper.
    * 
    * @example
    * dev-xxxxxxxx

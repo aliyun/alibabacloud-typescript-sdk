@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConsumersRequest extends $dara.Model {
   /**
    * @remarks
-   * The gateway type used to filter results. Valid values: **AI** and **API**.
+   * The gateway type used for filtering. Valid values: **AI** and **API**.
    * 
    * @example
    * AI
@@ -13,7 +13,7 @@ export class ListConsumersRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * Fuzzy matches APIs by API name.
+   * The keyword used to perform a fuzzy search for APIs by name.
    * 
    * @example
    * UI-test

@@ -13,7 +13,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   apiNameLike?: string;
   /**
    * @remarks
-   * The consumer group ID. If specified, the authorization rules of the consumer group are queried. At least one of the resourceId, parentResourceId, consumerId, and consumerGroupId parameters must be specified as a query condition.
+   * The consumer group ID. If you specify this parameter, the authorization rules of the consumer group are queried. At least one of the resourceId, parentResourceId, consumerId, and consumerGroupId parameters must be specified.
    * 
    * @example
    * csg-8c13d2b4f8a1
@@ -21,7 +21,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   consumerGroupId?: string;
   /**
    * @remarks
-   * The consumer group name for fuzzy match.
+   * The keyword for fuzzy match of the consumer group name.
    * 
    * @example
    * team
@@ -29,7 +29,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   consumerGroupNameLike?: string;
   /**
    * @remarks
-   * The consumer ID. At least one of the resourceId, parentResourceId, consumerId, and consumerGroupId parameters must be specified as a query condition.
+   * The consumer ID. At least one of the resourceId, parentResourceId, consumerId, and consumerGroupId parameters must be specified.
    * 
    * @example
    * cs-ct21c16m1hkp64hk6qmg
@@ -77,7 +77,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The parent resource ID. At least one of the resourceId, parentResourceId, consumerId, and consumerGroupId parameters must be specified as a query condition.
+   * The parent resource ID. At least one of the resourceId, parentResourceId, consumerId, and consumerGroupId parameters must be specified.
    * 
    * @example
    * ha-cn-li942gy8p01
@@ -85,7 +85,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   parentResourceId?: string;
   /**
    * @remarks
-   * The principal type. Valid values: Consumer and ConsumerGroup.
+   * The type of the authorized principal. Valid values: Consumer and ConsumerGroup.
    * 
    * @example
    * ConsumerGroup
@@ -93,7 +93,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   principalType?: string;
   /**
    * @remarks
-   * The resource ID. At least one of the resourceId, parentResourceId, consumerId, and consumerGroupId parameters must be specified as a query condition.
+   * The resource ID. At least one of the resourceId, parentResourceId, consumerId, and consumerGroupId parameters must be specified.
    * 
    * @example
    * ha-cn-li942gy8p03
@@ -109,7 +109,7 @@ export class QueryConsumerAuthorizationRulesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The service source type.
+   * The service source types.
    * 
    * @example
    * K8S

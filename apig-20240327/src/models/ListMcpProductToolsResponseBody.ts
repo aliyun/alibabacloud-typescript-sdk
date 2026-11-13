@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMcpProductToolsResponseBodyDataTools extends $dara.Model {
   /**
    * @remarks
-   * The annotation information of the tool. This field is a map structure. The API definition declares it only as map<any> without specifying its members and purposes.
+   * The annotation information of the tool, formatted as a map. The API definition declares this field only as map<any> without specifying its members or purposes.
    * 
    * @example
    * {"readOnly":true}
@@ -21,7 +21,7 @@ export class ListMcpProductToolsResponseBodyDataTools extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The structure definition of the input parameters for the tool. This field is a map structure. The API definition declares it only as map<any> without specifying its members and constraints.
+   * The input parameter schema of the tool, formatted as a map. The API definition declares this field only as map<any> without specifying its members or constraints.
    * 
    * @example
    * {"type":"object","properties":{"query":{"type":"string"}}}
@@ -29,7 +29,7 @@ export class ListMcpProductToolsResponseBodyDataTools extends $dara.Model {
   inputSchema?: { [key: string]: any };
   /**
    * @remarks
-   * The metadata of the tool. This field is a map structure. The API definition declares it only as map<any> without specifying its members and purposes.
+   * The metadata of the tool, formatted as a map. The API definition declares this field only as map<any> without specifying its members or purposes.
    * 
    * @example
    * {"version":"1.0.0"}
@@ -45,7 +45,7 @@ export class ListMcpProductToolsResponseBodyDataTools extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The structure definition of the output results for the tool. This field is a map structure. The API definition declares it only as map<any> without specifying its members and constraints.
+   * The output result schema of the tool, formatted as a map. The API definition declares this field only as map<any> without specifying its members or constraints.
    * 
    * @example
    * {"type":"object","properties":{"result":{"type":"string"}}}
@@ -107,7 +107,7 @@ export class ListMcpProductToolsResponseBodyDataTools extends $dara.Model {
 export class ListMcpProductToolsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of MCP tools. Each element in the list is named tool and represents an MCP tool.
+   * The list of MCP tools. Each element in the list is named tool and represents a single MCP tool.
    */
   tools?: ListMcpProductToolsResponseBodyDataTools[];
   static names(): { [key: string]: string } {

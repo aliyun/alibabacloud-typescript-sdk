@@ -10,7 +10,7 @@ export class AiPluginStatus extends $dara.Model {
   errorLogs?: { [key: string]: any }[];
   /**
    * @remarks
-   * The plug-in instance ID.
+   * The ID of the plug-in instance.
    * 
    * @example
    * pi-xxx
@@ -18,7 +18,7 @@ export class AiPluginStatus extends $dara.Model {
   pluginId?: string;
   /**
    * @remarks
-   * Indicates whether the backend service that the plugin depends on is healthy.
+   * Indicates whether the backend service on which the plug-in depends is healthy.
    * 
    * @example
    * true

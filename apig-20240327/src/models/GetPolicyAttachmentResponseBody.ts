@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPolicyAttachmentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the attached resource.
+   * The attached resource ID.
    * 
    * @example
    * op-csbkd9llhtgqhqua***
@@ -13,7 +13,7 @@ export class GetPolicyAttachmentResponseBodyData extends $dara.Model {
   attachResourceId?: string;
   /**
    * @remarks
-   * The type of the attached resource. Valid values: HttpApi, GatewayRoute, Operation, GatewayService, GatewayServicePort, Gateway, and Domain.
+   * The attached resource type, such as HttpApi, GatewayRoute, Operation, GatewayService, GatewayServicePort, Gateway, or Domain.
    * 
    * @example
    * Operation
@@ -21,7 +21,7 @@ export class GetPolicyAttachmentResponseBodyData extends $dara.Model {
   attachResourceType?: string;
   /**
    * @remarks
-   * The configuration of the attached policy.
+   * The policy attachment configuration.
    * 
    * @example
    * {"unitNum":1,"timeUnit":"s","enable":true}

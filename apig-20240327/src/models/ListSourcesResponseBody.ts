@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSourcesResponseBodyDataItemsK8sSourceInfo extends $dara.Model {
   /**
    * @remarks
-   * The container service cluster ID.
+   * The ID of the container service cluster.
    * 
    * @example
    * c09212180612a42adbed6a940d01d***
@@ -43,7 +43,7 @@ export class ListSourcesResponseBodyDataItemsNacosSourceInfo extends $dara.Model
   address?: string;
   /**
    * @remarks
-   * The NACOS registry cluster ID.
+   * The ID of the Nacos registry cluster.
    * 
    * @example
    * mse-3353***
@@ -119,7 +119,7 @@ export class ListSourcesResponseBodyDataItems extends $dara.Model {
   nacosSourceInfo?: ListSourcesResponseBodyDataItemsNacosSourceInfo;
   /**
    * @remarks
-   * The source name. If the source type is container service, the name is the container service cluster name. If the source type is MSE Nacos, the name is the Nacos instance name.
+   * The source name. If the source type is container service, the name is the name of the container service cluster. If the source is MSE Nacos, the name is the name of the Nacos instance.
    * 
    * @example
    * itemcenter-dev-cluster
@@ -127,7 +127,7 @@ export class ListSourcesResponseBodyDataItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-xxxx

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPublishableProductsRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the API product. This corresponds to the name field in the response list items.
+   * The name of the API product. This is the same field as the name property in the response list items.
    * 
    * @example
    * weather-query-api
@@ -21,7 +21,7 @@ export class ListPublishableProductsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10

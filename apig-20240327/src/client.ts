@@ -40,12 +40,12 @@ export default class Client extends OpenApi {
    * This operation adds a quota rule based on consumers or consumer groups for an AI gateway. Note that this operation takes effect only for AI gateways of a version later than 2.1.21.
    * > 
    * >  Recommended call logic:
-   * > - 1. Perform a dry run to check for rule conflicts.
-   * > - - Set dryRun to true.
-   * > - - The response returns a conflict preview that contains conflictHash.
-   * > - 2. Submit the request after confirmation.
-   * > - - If no conflicts exist: Set dryRun to false and overwrite to false.
-   * > - - If conflicts exist and you confirm to overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+   * > - 1. First, perform a dry run to check for rule conflicts.
+   * > - - Set dryRun=true.
+   * > - - The response returns a conflict preview containing a conflictHash.
+   * > - 2. After confirmation, formally submit the request.
+   * > - - No conflicts: Set dryRun=false and overwrite=false.
+   * > - - Conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
    * 
    * @param request - AddGatewayQuotaRuleRequest
    * @param headers - map
@@ -132,12 +132,12 @@ export default class Client extends OpenApi {
    * This operation adds a quota rule based on consumers or consumer groups for an AI gateway. Note that this operation takes effect only for AI gateways of a version later than 2.1.21.
    * > 
    * >  Recommended call logic:
-   * > - 1. Perform a dry run to check for rule conflicts.
-   * > - - Set dryRun to true.
-   * > - - The response returns a conflict preview that contains conflictHash.
-   * > - 2. Submit the request after confirmation.
-   * > - - If no conflicts exist: Set dryRun to false and overwrite to false.
-   * > - - If conflicts exist and you confirm to overwrite: Set dryRun to false, overwrite to true, and conflictHash to the value returned in the previous step.
+   * > - 1. First, perform a dry run to check for rule conflicts.
+   * > - - Set dryRun=true.
+   * > - - The response returns a conflict preview containing a conflictHash.
+   * > - 2. After confirmation, formally submit the request.
+   * > - - No conflicts: Set dryRun=false and overwrite=false.
+   * > - - Conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
    * 
    * @param request - AddGatewayQuotaRuleRequest
    * @returns AddGatewayQuotaRuleResponse
@@ -202,7 +202,64 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds consumer group members in batches.
+   * Grants model card entitlements to a consumer.
+   * 
+   * @param request - AuthorizeConsumerModelCardGrantsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AuthorizeConsumerModelCardGrantsResponse
+   */
+  async authorizeConsumerModelCardGrantsWithOptions(httpApiId: string, request: $_model.AuthorizeConsumerModelCardGrantsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.AuthorizeConsumerModelCardGrantsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.modelCardIds)) {
+      body["modelCardIds"] = request.modelCardIds;
+    }
+
+    if (!$dara.isNull(request.modelGroupIds)) {
+      body["modelGroupIds"] = request.modelGroupIds;
+    }
+
+    if (!$dara.isNull(request.principalId)) {
+      body["principalId"] = request.principalId;
+    }
+
+    if (!$dara.isNull(request.principalType)) {
+      body["principalType"] = request.principalType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AuthorizeConsumerModelCardGrants",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/model-apis/${$dara.URL.percentEncode(httpApiId)}/model-card-grants`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AuthorizeConsumerModelCardGrantsResponse>(await this.callApi(params, req, runtime), new $_model.AuthorizeConsumerModelCardGrantsResponse({}));
+  }
+
+  /**
+   * Grants model card entitlements to a consumer.
+   * 
+   * @param request - AuthorizeConsumerModelCardGrantsRequest
+   * @returns AuthorizeConsumerModelCardGrantsResponse
+   */
+  async authorizeConsumerModelCardGrants(httpApiId: string, request: $_model.AuthorizeConsumerModelCardGrantsRequest): Promise<$_model.AuthorizeConsumerModelCardGrantsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.authorizeConsumerModelCardGrantsWithOptions(httpApiId, request, headers, runtime);
+  }
+
+  /**
+   * Adds members to a consumer group in batches.
    * 
    * @param request - BatchAddConsumerGroupConsumersRequest
    * @param headers - map
@@ -235,7 +292,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds consumer group members in batches.
+   * Adds members to a consumer group in batches.
    * 
    * @param request - BatchAddConsumerGroupConsumersRequest
    * @returns BatchAddConsumerGroupConsumersResponse
@@ -247,7 +304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes API consumer authorization rules in batches.
+   * Revokes consumer authorization rules in batches.
    * 
    * @param request - BatchDeleteConsumerAuthorizationRuleRequest
    * @param headers - map
@@ -280,7 +337,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Revokes API consumer authorization rules in batches.
+   * Revokes consumer authorization rules in batches.
    * 
    * @param request - BatchDeleteConsumerAuthorizationRuleRequest
    * @returns BatchDeleteConsumerAuthorizationRuleResponse
@@ -292,7 +349,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch exports HTTP APIs.
+   * Performs a batch export of HTTP APIs.
    * 
    * @param request - BatchExportHttpApisRequest
    * @param headers - map
@@ -341,7 +398,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Batch exports HTTP APIs.
+   * Performs a batch export of HTTP APIs.
    * 
    * @param request - BatchExportHttpApisRequest
    * @returns BatchExportHttpApisResponse
@@ -434,7 +491,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes multiple members from a consumer group.
+   * Removes members from a consumer group in batches.
    * 
    * @param request - BatchRemoveConsumerGroupConsumersRequest
    * @param headers - map
@@ -467,7 +524,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes multiple members from a consumer group.
+   * Removes members from a consumer group in batches.
    * 
    * @param request - BatchRemoveConsumerGroupConsumersRequest
    * @returns BatchRemoveConsumerGroupConsumersResponse
@@ -479,7 +536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates HTTP API operations in batches.
+   * Batch updates HTTP API operations.
    * 
    * @param request - BatchUpdateHttpApiOperationRequest
    * @param headers - map
@@ -520,7 +577,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates HTTP API operations in batches.
+   * Batch updates HTTP API operations.
    * 
    * @param request - BatchUpdateHttpApiOperationRequest
    * @returns BatchUpdateHttpApiOperationResponse
@@ -589,7 +646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the activation status of the API Management service.
+   * Retrieves the activation status of the API management service.
    * 
    * @param request - CheckCommodityStatusRequest
    * @param headers - map
@@ -616,7 +673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the activation status of the API Management service.
+   * Retrieves the activation status of the API management service.
    * 
    * @param request - CheckCommodityStatusRequest
    * @returns CheckCommodityStatusResponse
@@ -631,7 +688,7 @@ export default class Client extends OpenApi {
    * Creates an AI model card.
    * 
    * @remarks
-   * Creates a model card for model creation under an existing model provider of a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider parameter must reference an existing model provider in the gateway. The modelName must be unique within the same AI gateway instance and model provider. You can create up to 1,000 model cards per gateway instance. The credit parameter currently supports only the fixed type, and the billing unit is Credits per million tokens. If this parameter is not specified, the type defaults to fixed and all costs default to 0. Each item in availablePaths must include both path and type.
+   * Performs model creation for a model card under an existing model provider of a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider parameter must reference an existing model provider in the gateway. The modelName must be unique within the same AI gateway instance and the same model provider. You can create up to 1,000 model cards for a single gateway instance. The credit parameter currently supports only the fixed type, and the billing unit is Credits per million tokens. If this parameter is not specified, the type defaults to fixed and all costs default to 0. Each item in availablePaths must include both path and type.
    * 
    * @param request - CreateAiModelCardRequest
    * @param headers - map
@@ -691,7 +748,7 @@ export default class Client extends OpenApi {
    * Creates an AI model card.
    * 
    * @remarks
-   * Creates a model card for model creation under an existing model provider of a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider parameter must reference an existing model provider in the gateway. The modelName must be unique within the same AI gateway instance and model provider. You can create up to 1,000 model cards per gateway instance. The credit parameter currently supports only the fixed type, and the billing unit is Credits per million tokens. If this parameter is not specified, the type defaults to fixed and all costs default to 0. Each item in availablePaths must include both path and type.
+   * Performs model creation for a model card under an existing model provider of a specified AI gateway instance. The target gateway must exist, belong to the current account, and be of the AI gateway type. The modelProvider parameter must reference an existing model provider in the gateway. The modelName must be unique within the same AI gateway instance and the same model provider. You can create up to 1,000 model cards for a single gateway instance. The credit parameter currently supports only the fixed type, and the billing unit is Credits per million tokens. If this parameter is not specified, the type defaults to fixed and all costs default to 0. Each item in availablePaths must include both path and type.
    * 
    * @param request - CreateAiModelCardRequest
    * @returns CreateAiModelCardResponse
@@ -718,6 +775,10 @@ export default class Client extends OpenApi {
     }
 
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.defaultServiceId)) {
+      body["defaultServiceId"] = request.defaultServiceId;
+    }
+
     if (!$dara.isNull(request.displayName)) {
       body["displayName"] = request.displayName;
     }
@@ -763,6 +824,140 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createAiModelProviderWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Creates a standalone AI model source.
+   * 
+   * @param request - CreateAiModelSourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAiModelSourceResponse
+   */
+  async createAiModelSourceWithOptions(request: $_model.CreateAiModelSourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAiModelSourceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      body["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.provider)) {
+      body["provider"] = request.provider;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      body["serviceId"] = request.serviceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAiModelSource",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-sources`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAiModelSourceResponse>(await this.callApi(params, req, runtime), new $_model.CreateAiModelSourceResponse({}));
+  }
+
+  /**
+   * Creates a standalone AI model source.
+   * 
+   * @param request - CreateAiModelSourceRequest
+   * @returns CreateAiModelSourceResponse
+   */
+  async createAiModelSource(request: $_model.CreateAiModelSourceRequest): Promise<$_model.CreateAiModelSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAiModelSourceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Creates an AI model in a model source.
+   * 
+   * @param request - CreateAiModelSourceModelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateAiModelSourceModelResponse
+   */
+  async createAiModelSourceModelWithOptions(request: $_model.CreateAiModelSourceModelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateAiModelSourceModelResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.availablePaths)) {
+      body["availablePaths"] = request.availablePaths;
+    }
+
+    if (!$dara.isNull(request.credit)) {
+      body["credit"] = request.credit;
+    }
+
+    if (!$dara.isNull(request.features)) {
+      body["features"] = request.features;
+    }
+
+    if (!$dara.isNull(request.meta)) {
+      body["meta"] = request.meta;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      body["modelName"] = request.modelName;
+    }
+
+    if (!$dara.isNull(request.modelSourceId)) {
+      body["modelSourceId"] = request.modelSourceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateAiModelSourceModel",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-source-models`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateAiModelSourceModelResponse>(await this.callApi(params, req, runtime), new $_model.CreateAiModelSourceModelResponse({}));
+  }
+
+  /**
+   * Creates an AI model in a model source.
+   * 
+   * @param request - CreateAiModelSourceModelRequest
+   * @returns CreateAiModelSourceModelResponse
+   */
+  async createAiModelSourceModel(request: $_model.CreateAiModelSourceModelRequest): Promise<$_model.CreateAiModelSourceModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createAiModelSourceModelWithOptions(request, headers, runtime);
   }
 
   /**
@@ -1040,12 +1235,12 @@ export default class Client extends OpenApi {
    * Creates a consumer authorization rule.
    * 
    * @remarks
-   * Prerequisites: Before creating a consumer authorization rule, prepare resources according to the following dependency chain (the corresponding creation APIs and ID passing relationships are in parentheses):
-   * Gateway instance (CreateGateway → gatewayId, with the gw- prefix)
-   * Environment (A default environment is automatically created after the gateway is created. You can also call CreateEnvironment → environmentId, with the env- prefix. The gatewayId from Step 1 is required.)
-   * HTTP API (CreateHttpApi → httpApiId, with the api- prefix)
-   * Route and publish (CreateHttpApiRoute → routeId, with the hr- prefix, which belongs to the API in Step 3. Then, call DeployHttpApi to publish it to the environment in Step 2. Unpublished routes cannot be authorized.)
-   * Consumer (CreateConsumer → consumerId, with the cs- prefix, or consumerGroupId, with the csg- prefix. Choose either consumerId or consumerGroupId.)
+   * Prerequisites: Before you create a consumer authorization rule, prepare resources based on the following dependency chain (the parentheses indicate the corresponding creation API and ID passing relationship):
+   * Gateway instance (CreateGateway → gatewayId, gw- prefix)
+   * Environment (A default environment is created with the gateway. You can also call CreateEnvironment → environmentId, env- prefix, and associate it with the gatewayId from Step 1.)
+   * HTTP API (CreateHttpApi → httpApiId, api- prefix)
+   * Route and publish (CreateHttpApiRoute → routeId, hr- prefix, belonging to the API in Step 3; then call DeployHttpApi to publish it to the environment in Step 2. Unpublished routes cannot be authorized.)
+   * Consumer (CreateConsumer → consumerId, cs- prefix; or consumer group consumerGroupId, csg- prefix. Choose one of consumerId and consumerGroupId.)
    * 
    * @param request - CreateConsumerAuthorizationRulesRequest
    * @param headers - map
@@ -1081,12 +1276,12 @@ export default class Client extends OpenApi {
    * Creates a consumer authorization rule.
    * 
    * @remarks
-   * Prerequisites: Before creating a consumer authorization rule, prepare resources according to the following dependency chain (the corresponding creation APIs and ID passing relationships are in parentheses):
-   * Gateway instance (CreateGateway → gatewayId, with the gw- prefix)
-   * Environment (A default environment is automatically created after the gateway is created. You can also call CreateEnvironment → environmentId, with the env- prefix. The gatewayId from Step 1 is required.)
-   * HTTP API (CreateHttpApi → httpApiId, with the api- prefix)
-   * Route and publish (CreateHttpApiRoute → routeId, with the hr- prefix, which belongs to the API in Step 3. Then, call DeployHttpApi to publish it to the environment in Step 2. Unpublished routes cannot be authorized.)
-   * Consumer (CreateConsumer → consumerId, with the cs- prefix, or consumerGroupId, with the csg- prefix. Choose either consumerId or consumerGroupId.)
+   * Prerequisites: Before you create a consumer authorization rule, prepare resources based on the following dependency chain (the parentheses indicate the corresponding creation API and ID passing relationship):
+   * Gateway instance (CreateGateway → gatewayId, gw- prefix)
+   * Environment (A default environment is created with the gateway. You can also call CreateEnvironment → environmentId, env- prefix, and associate it with the gatewayId from Step 1.)
+   * HTTP API (CreateHttpApi → httpApiId, api- prefix)
+   * Route and publish (CreateHttpApiRoute → routeId, hr- prefix, belonging to the API in Step 3; then call DeployHttpApi to publish it to the environment in Step 2. Unpublished routes cannot be authorized.)
+   * Consumer (CreateConsumer → consumerId, cs- prefix; or consumer group consumerGroupId, csg- prefix. Choose one of consumerId and consumerGroupId.)
    * 
    * @param request - CreateConsumerAuthorizationRulesRequest
    * @returns CreateConsumerAuthorizationRulesResponse
@@ -1155,7 +1350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers a HiMarket developer account and returns the ID of the newly created developer upon successful creation.
+   * Registers a HiMarket developer account and returns the ID of the new developer.
    * 
    * @param request - CreateDeveloperRequest
    * @param headers - map
@@ -1192,7 +1387,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Registers a HiMarket developer account and returns the ID of the newly created developer upon successful creation.
+   * Registers a HiMarket developer account and returns the ID of the new developer.
    * 
    * @param request - CreateDeveloperRequest
    * @returns CreateDeveloperResponse
@@ -1466,21 +1661,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网关配额限流规则主体用量明细导出任务
+   * Creates an asynchronous export task for the consumption details of a single consumer or consumer group under a gateway quota rule.
    * 
    * @remarks
-   * ## 调用流程
-   * 本接口为指定网关配额规则下的一个消费者或消费者组创建消费明细导出任务，导出内容来自网关访问日志。
-   * 1. 调用本接口获取 taskId。新任务返回 Pending，表示已提交，文件尚未生成。
-   * 2. 使用相同的 gatewayId、ruleId、subjectId 和返回的 taskId 调用 GetGatewayQuotaRuleSubjectUsageExportTask，轮询任务状态。
-   * 3. 当轮询状态为 Success 且文件未过期时，通过GetGatewayQuotaRuleSubjectUsageExportTask下载 csv.gz 文件；状态为 Failed 时，根据 errorMessage 排查后重新创建任务。
-   * ## 使用条件与限制
-   * - 创建任务时，配额规则必须存在，且目标主体已绑定到该规则。消费者规则使用消费者 ID，消费者组规则使用消费者组 ID。
-   * - 有效导出时间范围内的明细依赖网关访问日志投递，请先启用日志投递并确认所需时段的日志可查询。
-   * - 单次导出时间跨度不得超过一个规则周期。单次最多导出 100000 条明细；后台统计结果超过上限时任务失败，请缩小时间范围后重试。
-   * - 同一用户在当前地域对同一网关、规则和主体在最近 10 分钟内已有 Pending 或 Running 任务时，重复创建会被拒绝；最近 10 分钟内创建且仍为 Pending 或 Running 的导出任务总数达到 3 个时也会被拒绝。请等待已有任务结束。相同 clientToken、相同参数的幂等重试可复用已有任务。
-   * - 任务自创建起的处理超时为 10 分钟。超时后任务按 Failed 处理；这不是任务必定成功完成的时限承诺。
-   * - 创建时确定导出时间范围、计量维度和主体名称，后续查询不会重新计算这些条件。文件成功生成后可在 24 小时内获取下载链接；每次查询生成的签名链接有效期为 10 分钟，具体时间以查询结果为准。
+   * ## Procedure
+   * This operation creates an export task for the consumption details of a consumer or consumer group under a specified gateway quota rule. The exported content is sourced from gateway access logs.
+   * 1. Call this operation to obtain the taskId. A new task returns Pending, which indicates that the task is submitted and the file is not yet generated.
+   * 2. Call GetGatewayQuotaRuleSubjectUsageExportTask with the same gatewayId, ruleId, subjectId, and the returned taskId to poll the task status.
+   * 3. When the polled status is Success and the file has not expired, download the csv.gz file by using GetGatewayQuotaRuleSubjectUsageExportTask. If the status is Failed, troubleshoot the issue based on the errorMessage and recreate the task.
+   * ## Prerequisites and limits
+   * - When you create a task, the quota rule must exist, and the target subject must be bound to the rule. Use the consumer ID for consumer rules and the consumer group ID for consumer group rules.
+   * - The details within the valid export time range depend on the delivery of gateway access logs. Enable log delivery first and ensure that the logs for the required time period are queryable.
+   * - The time span for a single export cannot exceed one rule period. A single export can contain up to 100,000 details. If the background statistics exceed this limit, the task fails. Narrow the time range and try again.
+   * - If the same user already has a Pending or Running task for the same gateway, rule, and subject in the current region within the last 10 minutes, repeated creation is rejected. Creation is also rejected if the total number of export tasks created within the last 10 minutes that are still Pending or Running reaches three. Wait for the existing tasks to complete. Idempotent retries with the same clientToken and parameters can reuse existing tasks.
+   * - The processing timeout for a task is 10 minutes from creation. After a timeout, the task is processed as Failed. This is not a guarantee that the task will successfully complete within the time limit.
+   * - The export time range, metering dimension, and subject name are determined at creation. Subsequent queries do not recalculate these conditions. After the file is successfully generated, the download link is available for 24 hours. The signed link generated for each query is valid for 10 minutes. The exact validity period is subject to the query result.
    * 
    * @param request - CreateGatewayQuotaRuleSubjectUsageExportTaskRequest
    * @param headers - map
@@ -1529,21 +1724,21 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 创建网关配额限流规则主体用量明细导出任务
+   * Creates an asynchronous export task for the consumption details of a single consumer or consumer group under a gateway quota rule.
    * 
    * @remarks
-   * ## 调用流程
-   * 本接口为指定网关配额规则下的一个消费者或消费者组创建消费明细导出任务，导出内容来自网关访问日志。
-   * 1. 调用本接口获取 taskId。新任务返回 Pending，表示已提交，文件尚未生成。
-   * 2. 使用相同的 gatewayId、ruleId、subjectId 和返回的 taskId 调用 GetGatewayQuotaRuleSubjectUsageExportTask，轮询任务状态。
-   * 3. 当轮询状态为 Success 且文件未过期时，通过GetGatewayQuotaRuleSubjectUsageExportTask下载 csv.gz 文件；状态为 Failed 时，根据 errorMessage 排查后重新创建任务。
-   * ## 使用条件与限制
-   * - 创建任务时，配额规则必须存在，且目标主体已绑定到该规则。消费者规则使用消费者 ID，消费者组规则使用消费者组 ID。
-   * - 有效导出时间范围内的明细依赖网关访问日志投递，请先启用日志投递并确认所需时段的日志可查询。
-   * - 单次导出时间跨度不得超过一个规则周期。单次最多导出 100000 条明细；后台统计结果超过上限时任务失败，请缩小时间范围后重试。
-   * - 同一用户在当前地域对同一网关、规则和主体在最近 10 分钟内已有 Pending 或 Running 任务时，重复创建会被拒绝；最近 10 分钟内创建且仍为 Pending 或 Running 的导出任务总数达到 3 个时也会被拒绝。请等待已有任务结束。相同 clientToken、相同参数的幂等重试可复用已有任务。
-   * - 任务自创建起的处理超时为 10 分钟。超时后任务按 Failed 处理；这不是任务必定成功完成的时限承诺。
-   * - 创建时确定导出时间范围、计量维度和主体名称，后续查询不会重新计算这些条件。文件成功生成后可在 24 小时内获取下载链接；每次查询生成的签名链接有效期为 10 分钟，具体时间以查询结果为准。
+   * ## Procedure
+   * This operation creates an export task for the consumption details of a consumer or consumer group under a specified gateway quota rule. The exported content is sourced from gateway access logs.
+   * 1. Call this operation to obtain the taskId. A new task returns Pending, which indicates that the task is submitted and the file is not yet generated.
+   * 2. Call GetGatewayQuotaRuleSubjectUsageExportTask with the same gatewayId, ruleId, subjectId, and the returned taskId to poll the task status.
+   * 3. When the polled status is Success and the file has not expired, download the csv.gz file by using GetGatewayQuotaRuleSubjectUsageExportTask. If the status is Failed, troubleshoot the issue based on the errorMessage and recreate the task.
+   * ## Prerequisites and limits
+   * - When you create a task, the quota rule must exist, and the target subject must be bound to the rule. Use the consumer ID for consumer rules and the consumer group ID for consumer group rules.
+   * - The details within the valid export time range depend on the delivery of gateway access logs. Enable log delivery first and ensure that the logs for the required time period are queryable.
+   * - The time span for a single export cannot exceed one rule period. A single export can contain up to 100,000 details. If the background statistics exceed this limit, the task fails. Narrow the time range and try again.
+   * - If the same user already has a Pending or Running task for the same gateway, rule, and subject in the current region within the last 10 minutes, repeated creation is rejected. Creation is also rejected if the total number of export tasks created within the last 10 minutes that are still Pending or Running reaches three. Wait for the existing tasks to complete. Idempotent retries with the same clientToken and parameters can reuse existing tasks.
+   * - The processing timeout for a task is 10 minutes from creation. After a timeout, the task is processed as Failed. This is not a guarantee that the task will successfully complete within the time limit.
+   * - The export time range, metering dimension, and subject name are determined at creation. Subsequent queries do not recalculate these conditions. After the file is successfully generated, the download link is available for 24 hours. The signed link generated for each query is valid for 10 minutes. The exact validity period is subject to the query result.
    * 
    * @param request - CreateGatewayQuotaRuleSubjectUsageExportTaskRequest
    * @returns CreateGatewayQuotaRuleSubjectUsageExportTaskResponse
@@ -1807,7 +2002,7 @@ export default class Client extends OpenApi {
    * Creates an API version.
    * 
    * @remarks
-   * The operation supports creating multiple services.
+   * This operation supports creating multiple services.
    * 
    * @param request - CreateHttpApiVersionRequest
    * @param headers - map
@@ -1843,7 +2038,7 @@ export default class Client extends OpenApi {
    * Creates an API version.
    * 
    * @remarks
-   * The operation supports creating multiple services.
+   * This operation supports creating multiple services.
    * 
    * @param request - CreateHttpApiVersionRequest
    * @returns CreateHttpApiVersionResponse
@@ -1852,6 +2047,85 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createHttpApiVersionWithOptions(httpApiId, request, headers, runtime);
+  }
+
+  /**
+   * Creates a logical model.
+   * 
+   * @param request - CreateLogicalModelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateLogicalModelResponse
+   */
+  async createLogicalModelWithOptions(request: $_model.CreateLogicalModelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLogicalModelResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.callStrategy)) {
+      body["callStrategy"] = request.callStrategy;
+    }
+
+    if (!$dara.isNull(request.fallbackTargets)) {
+      body["fallbackTargets"] = request.fallbackTargets;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      body["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.responseModel)) {
+      body["responseModel"] = request.responseModel;
+    }
+
+    if (!$dara.isNull(request.routingPolicy)) {
+      body["routingPolicy"] = request.routingPolicy;
+    }
+
+    if (!$dara.isNull(request.slots)) {
+      body["slots"] = request.slots;
+    }
+
+    if (!$dara.isNull(request.targets)) {
+      body["targets"] = request.targets;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateLogicalModel",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/logical-models`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateLogicalModelResponse>(await this.callApi(params, req, runtime), new $_model.CreateLogicalModelResponse({}));
+  }
+
+  /**
+   * Creates a logical model.
+   * 
+   * @param request - CreateLogicalModelRequest
+   * @returns CreateLogicalModelResponse
+   */
+  async createLogicalModel(request: $_model.CreateLogicalModelRequest): Promise<$_model.CreateLogicalModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createLogicalModelWithOptions(request, headers, runtime);
   }
 
   /**
@@ -2022,6 +2296,158 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createMigrationTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Creates a model creation API.
+   * 
+   * @param request - CreateModelApiRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateModelApiResponse
+   */
+  async createModelApiWithOptions(request: $_model.CreateModelApiRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateModelApiResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.basePath)) {
+      body["basePath"] = request.basePath;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.directSupplyFallbackEnabled)) {
+      body["directSupplyFallbackEnabled"] = request.directSupplyFallbackEnabled;
+    }
+
+    if (!$dara.isNull(request.domainIds)) {
+      body["domainIds"] = request.domainIds;
+    }
+
+    if (!$dara.isNull(request.enableAuth)) {
+      body["enableAuth"] = request.enableAuth;
+    }
+
+    if (!$dara.isNull(request.firstByteTimeout)) {
+      body["firstByteTimeout"] = request.firstByteTimeout;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      body["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.initialConfiguration)) {
+      body["initialConfiguration"] = request.initialConfiguration;
+    }
+
+    if (!$dara.isNull(request.modelSelection)) {
+      body["modelSelection"] = request.modelSelection;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.policyConfigs)) {
+      body["policyConfigs"] = request.policyConfigs;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      body["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateModelApi",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/model-apis`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateModelApiResponse>(await this.callApi(params, req, runtime), new $_model.CreateModelApiResponse({}));
+  }
+
+  /**
+   * Creates a model creation API.
+   * 
+   * @param request - CreateModelApiRequest
+   * @returns CreateModelApiResponse
+   */
+  async createModelApi(request: $_model.CreateModelApiRequest): Promise<$_model.CreateModelApiResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createModelApiWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Creates a model group.
+   * 
+   * @param request - CreateModelGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateModelGroupResponse
+   */
+  async createModelGroupWithOptions(request: $_model.CreateModelGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateModelGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      body["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.modelCardIds)) {
+      body["modelCardIds"] = request.modelCardIds;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateModelGroup",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/model-groups`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateModelGroupResponse>(await this.callApi(params, req, runtime), new $_model.CreateModelGroupResponse({}));
+  }
+
+  /**
+   * Creates a model group.
+   * 
+   * @param request - CreateModelGroupRequest
+   * @returns CreateModelGroupResponse
+   */
+  async createModelGroup(request: $_model.CreateModelGroupRequest): Promise<$_model.CreateModelGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createModelGroupWithOptions(request, headers, runtime);
   }
 
   /**
@@ -2350,7 +2776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a HiMarket developer portal and returns the ID of the newly created portal.
+   * Creates a HiMarket developer portal and returns the ID of the newly created portal upon success.
    * 
    * @param request - CreatePortalRequest
    * @param headers - map
@@ -2393,7 +2819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a HiMarket developer portal and returns the ID of the newly created portal.
+   * Creates a HiMarket developer portal and returns the ID of the newly created portal upon success.
    * 
    * @param request - CreatePortalRequest
    * @returns CreatePortalResponse
@@ -2406,6 +2832,9 @@ export default class Client extends OpenApi {
 
   /**
    * Creates an API product in the product catalog of the HiMarket portal and returns the ID of the new product upon successful creation.
+   * 
+   * @remarks
+   * Creates an API product with a specified name and type.
    * 
    * @param request - CreateProductRequest
    * @param headers - map
@@ -2474,6 +2903,9 @@ export default class Client extends OpenApi {
   /**
    * Creates an API product in the product catalog of the HiMarket portal and returns the ID of the new product upon successful creation.
    * 
+   * @remarks
+   * Creates an API product with a specified name and type.
+   * 
    * @param request - CreateProductRequest
    * @returns CreateProductResponse
    */
@@ -2484,7 +2916,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a product category for an API product and returns the ID and name of the new category upon success.
+   * Creates a product category for an API product and returns the ID and name of the new category.
    * 
    * @param request - CreateProductCategoryRequest
    * @param headers - map
@@ -2525,7 +2957,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a product category for an API product and returns the ID and name of the new category upon success.
+   * Creates a product category for an API product and returns the ID and name of the new category.
    * 
    * @param request - CreateProductCategoryRequest
    * @returns CreateProductCategoryResponse
@@ -2537,7 +2969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates an API configuration with a specified API product by submitting the gatewayId and apigRefConfig parameters to the /himarket/v1/products/{productId}/ref endpoint. You can query the association result by calling GetProductRef on the same path or remove the association by calling DeleteProductRef.
+   * Associates an API configuration with a specified API product by submitting the gateway ID and API gateway reference configuration to the /himarket/v1/products/{productId}/ref endpoint. The association can be queried by GetProductRef and removed by DeleteProductRef on the same path.
    * 
    * @param request - CreateProductRefRequest
    * @param headers - map
@@ -2574,7 +3006,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates an API configuration with a specified API product by submitting the gatewayId and apigRefConfig parameters to the /himarket/v1/products/{productId}/ref endpoint. You can query the association result by calling GetProductRef on the same path or remove the association by calling DeleteProductRef.
+   * Associates an API configuration with a specified API product by submitting the gateway ID and API gateway reference configuration to the /himarket/v1/products/{productId}/ref endpoint. The association can be queried by GetProductRef and removed by DeleteProductRef on the same path.
    * 
    * @param request - CreateProductRefRequest
    * @returns CreateProductRefResponse
@@ -2625,7 +3057,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a key.
+   * Generates a secret.
    * 
    * @param request - CreateSecretRequest
    * @param headers - map
@@ -2678,7 +3110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Generates a key.
+   * Generates a secret.
    * 
    * @param request - CreateSecretRequest
    * @returns CreateSecretResponse
@@ -2953,6 +3385,96 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a standalone AI model source.
+   * 
+   * @param request - DeleteAiModelSourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAiModelSourceResponse
+   */
+  async deleteAiModelSourceWithOptions(modelSourceId: string, request: $_model.DeleteAiModelSourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAiModelSourceResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.expectedVersion)) {
+      query["expectedVersion"] = request.expectedVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAiModelSource",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-sources/${$dara.URL.percentEncode(modelSourceId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAiModelSourceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAiModelSourceResponse({}));
+  }
+
+  /**
+   * Deletes a standalone AI model source.
+   * 
+   * @param request - DeleteAiModelSourceRequest
+   * @returns DeleteAiModelSourceResponse
+   */
+  async deleteAiModelSource(modelSourceId: string, request: $_model.DeleteAiModelSourceRequest): Promise<$_model.DeleteAiModelSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAiModelSourceWithOptions(modelSourceId, request, headers, runtime);
+  }
+
+  /**
+   * Deletes an AI model in the source.
+   * 
+   * @param request - DeleteAiModelSourceModelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteAiModelSourceModelResponse
+   */
+  async deleteAiModelSourceModelWithOptions(modelCardId: string, request: $_model.DeleteAiModelSourceModelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteAiModelSourceModelResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.expectedVersion)) {
+      query["expectedVersion"] = request.expectedVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteAiModelSourceModel",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-source-models/${$dara.URL.percentEncode(modelCardId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteAiModelSourceModelResponse>(await this.callApi(params, req, runtime), new $_model.DeleteAiModelSourceModelResponse({}));
+  }
+
+  /**
+   * Deletes an AI model in the source.
+   * 
+   * @param request - DeleteAiModelSourceModelRequest
+   * @returns DeleteAiModelSourceModelResponse
+   */
+  async deleteAiModelSourceModel(modelCardId: string, request: $_model.DeleteAiModelSourceModelRequest): Promise<$_model.DeleteAiModelSourceModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteAiModelSourceModelWithOptions(modelCardId, request, headers, runtime);
+  }
+
+  /**
    * Deletes a consumer.
    * 
    * @param headers - map
@@ -3180,7 +3702,7 @@ export default class Client extends OpenApi {
    * Deletes a quota throttling rule for a gateway.
    * 
    * @remarks
-   * Deletes a quota rule based on a consumer or consumer group for an AI gateway. Note that this operation takes effect only for AI gateways whose version is later than 2.1.19.
+   * Deletes a quota rule based on an API consumer or API consumer group for an AI gateway. Note that this operation applies only to AI gateways of a version later than 2.1.19.
    * 
    * @param request - DeleteGatewayQuotaRuleRequest
    * @param headers - map
@@ -3210,7 +3732,7 @@ export default class Client extends OpenApi {
    * Deletes a quota throttling rule for a gateway.
    * 
    * @remarks
-   * Deletes a quota rule based on a consumer or consumer group for an AI gateway. Note that this operation takes effect only for AI gateways whose version is later than 2.1.19.
+   * Deletes a quota rule based on an API consumer or API consumer group for an AI gateway. Note that this operation applies only to AI gateways of a version later than 2.1.19.
    * 
    * @param request - DeleteGatewayQuotaRuleRequest
    * @returns DeleteGatewayQuotaRuleResponse
@@ -3386,6 +3908,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a specified logical model.
+   * 
+   * @param request - DeleteLogicalModelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteLogicalModelResponse
+   */
+  async deleteLogicalModelWithOptions(logicalModelId: string, request: $_model.DeleteLogicalModelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteLogicalModelResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.expectedRevision)) {
+      query["expectedRevision"] = request.expectedRevision;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteLogicalModel",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/logical-models/${$dara.URL.percentEncode(logicalModelId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteLogicalModelResponse>(await this.callApi(params, req, runtime), new $_model.DeleteLogicalModelResponse({}));
+  }
+
+  /**
+   * Deletes a specified logical model.
+   * 
+   * @param request - DeleteLogicalModelRequest
+   * @returns DeleteLogicalModelResponse
+   */
+  async deleteLogicalModel(logicalModelId: string, request: $_model.DeleteLogicalModelRequest): Promise<$_model.DeleteLogicalModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteLogicalModelWithOptions(logicalModelId, request, headers, runtime);
+  }
+
+  /**
    * Deletes an MCP server.
    * 
    * @param headers - map
@@ -3421,7 +3988,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data migration task.
+   * Deletes a migration task.
    * 
    * @param request - DeleteMigrationTaskRequest
    * @param headers - map
@@ -3448,7 +4015,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a data migration task.
+   * Deletes a migration task.
    * 
    * @param request - DeleteMigrationTaskRequest
    * @returns DeleteMigrationTaskResponse
@@ -3457,6 +4024,106 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.deleteMigrationTaskWithOptions(taskId, request, headers, runtime);
+  }
+
+  /**
+   * Deletes a model API.
+   * 
+   * @remarks
+   * When you delete a published new-version model API, the system automatically stops the service and cleans up the resources owned by the API. A successful response indicates that the request has been accepted or is an idempotent replay of a completed deletion, but does not indicate that all background steps are completed. You can monitor the progress by checking the deleteStatus parameter in the GetModelApi operation. Only a NotFound.ModelApi error explicitly indicates that the deletion is fully completed. The object is retained during deletion or if the deletion fails. Shared model sources, model groups, models, services, consumers, or keys are not deleted.
+   * 
+   * @param request - DeleteModelApiRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteModelApiResponse
+   */
+  async deleteModelApiWithOptions(httpApiId: string, request: $_model.DeleteModelApiRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteModelApiResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dryRun)) {
+      query["dryRun"] = request.dryRun;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteModelApi",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/model-apis/${$dara.URL.percentEncode(httpApiId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteModelApiResponse>(await this.callApi(params, req, runtime), new $_model.DeleteModelApiResponse({}));
+  }
+
+  /**
+   * Deletes a model API.
+   * 
+   * @remarks
+   * When you delete a published new-version model API, the system automatically stops the service and cleans up the resources owned by the API. A successful response indicates that the request has been accepted or is an idempotent replay of a completed deletion, but does not indicate that all background steps are completed. You can monitor the progress by checking the deleteStatus parameter in the GetModelApi operation. Only a NotFound.ModelApi error explicitly indicates that the deletion is fully completed. The object is retained during deletion or if the deletion fails. Shared model sources, model groups, models, services, consumers, or keys are not deleted.
+   * 
+   * @param request - DeleteModelApiRequest
+   * @returns DeleteModelApiResponse
+   */
+  async deleteModelApi(httpApiId: string, request: $_model.DeleteModelApiRequest): Promise<$_model.DeleteModelApiResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteModelApiWithOptions(httpApiId, request, headers, runtime);
+  }
+
+  /**
+   * 删除模型组
+   * 
+   * @param request - DeleteModelGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteModelGroupResponse
+   */
+  async deleteModelGroupWithOptions(modelGroupId: string, request: $_model.DeleteModelGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteModelGroupResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.expectedVersion)) {
+      query["expectedVersion"] = request.expectedVersion;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteModelGroup",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/model-groups/${$dara.URL.percentEncode(modelGroupId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteModelGroupResponse>(await this.callApi(params, req, runtime), new $_model.DeleteModelGroupResponse({}));
+  }
+
+  /**
+   * 删除模型组
+   * 
+   * @param request - DeleteModelGroupRequest
+   * @returns DeleteModelGroupResponse
+   */
+  async deleteModelGroup(modelGroupId: string, request: $_model.DeleteModelGroupRequest): Promise<$_model.DeleteModelGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteModelGroupWithOptions(modelGroupId, request, headers, runtime);
   }
 
   /**
@@ -3645,6 +4312,9 @@ export default class Client extends OpenApi {
   /**
    * Deletes a specified API product by API product ID.
    * 
+   * @remarks
+   * Deletes an API product by product ID.
+   * 
    * @param request - DeleteProductRequest
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3672,6 +4342,9 @@ export default class Client extends OpenApi {
   /**
    * Deletes a specified API product by API product ID.
    * 
+   * @remarks
+   * Deletes an API product by product ID.
+   * 
    * @param request - DeleteProductRequest
    * @returns DeleteProductResponse
    */
@@ -3682,7 +4355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified product category by product category ID.
+   * Deletes a specified product category by its ID.
    * 
    * @param request - DeleteProductCategoryRequest
    * @param headers - map
@@ -3709,7 +4382,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a specified product category by product category ID.
+   * Deletes a specified product category by its ID.
    * 
    * @param request - DeleteProductCategoryRequest
    * @returns DeleteProductCategoryResponse
@@ -3721,7 +4394,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Dissociates an API from an API product by API product ID. The association is established by CreateProductRef on the same resource path and can be queried by using GetProductRef.
+   * Dissociates an API product from an API by API product ID. The association is created by CreateProductRef on the same resource path and can be queried by GetProductRef.
    * 
    * @param request - DeleteProductRefRequest
    * @param headers - map
@@ -3748,7 +4421,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Dissociates an API from an API product by API product ID. The association is established by CreateProductRef on the same resource path and can be queried by using GetProductRef.
+   * Dissociates an API product from an API by API product ID. The association is created by CreateProductRef on the same resource path and can be queried by GetProductRef.
    * 
    * @param request - DeleteProductRefRequest
    * @returns DeleteProductRefResponse
@@ -3760,10 +4433,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a key value.
+   * Deletes a secret value.
    * 
    * @remarks
-   * The operation supports creating multiple services.
+   * This operation supports creating multiple services.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3788,10 +4461,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a key value.
+   * Deletes a secret value.
    * 
    * @remarks
-   * The operation supports creating multiple services.
+   * This operation supports creating multiple services.
    * @returns DeleteSecretResponse
    */
   async deleteSecret(secretId: string): Promise<$_model.DeleteSecretResponse> {
@@ -3968,7 +4641,7 @@ export default class Client extends OpenApi {
    * Publishes an MCP server.
    * 
    * @remarks
-   * Before deployment, ensure that domainIds have been configured for the MCP server by calling CreateMcpServer or UpdateMcpServer. Call GetMcpServer to confirm the domain name bindng status.
+   * Before deployment, the MCP server must have domainIds configured through CreateMcpServer or UpdateMcpServer. Call GetMcpServer to verify the domain binding status.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3996,7 +4669,7 @@ export default class Client extends OpenApi {
    * Publishes an MCP server.
    * 
    * @remarks
-   * Before deployment, ensure that domainIds have been configured for the MCP server by calling CreateMcpServer or UpdateMcpServer. Call GetMcpServer to confirm the domain name bindng status.
+   * Before deployment, the MCP server must have domainIds configured through CreateMcpServer or UpdateMcpServer. Call GetMcpServer to verify the domain binding status.
    * @returns DeployMcpServerResponse
    */
   async deployMcpServer(mcpServerId: string): Promise<$_model.DeployMcpServerResponse> {
@@ -4006,7 +4679,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the regions where the cloud-native API gateway is available for the current account.
+   * Queries the regions where Cloud-native API Gateway is available for the current account.
    * 
    * @param request - DescribeRegionsRequest
    * @param headers - map
@@ -4039,7 +4712,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the regions where the cloud-native API gateway is available for the current account.
+   * Queries the regions where Cloud-native API Gateway is available for the current account.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
@@ -4051,7 +4724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches and deletes a policy.
+   * Unmounts and deletes a policy.
    * 
    * @param request - DetachAndDeletePolicyRequest
    * @param headers - map
@@ -4084,7 +4757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detaches and deletes a policy.
+   * Unmounts and deletes a policy.
    * 
    * @param request - DetachAndDeletePolicyRequest
    * @returns DetachAndDeletePolicyResponse
@@ -4227,7 +4900,124 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the effective field collection configurations for each request path of an HTTP API in a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
+   * Queries a standalone AI model source.
+   * 
+   * @param request - GetAiModelSourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAiModelSourceResponse
+   */
+  async getAiModelSourceWithOptions(modelSourceId: string, request: $_model.GetAiModelSourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAiModelSourceResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAiModelSource",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-sources/${$dara.URL.percentEncode(modelSourceId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAiModelSourceResponse>(await this.callApi(params, req, runtime), new $_model.GetAiModelSourceResponse({}));
+  }
+
+  /**
+   * Queries a standalone AI model source.
+   * 
+   * @param request - GetAiModelSourceRequest
+   * @returns GetAiModelSourceResponse
+   */
+  async getAiModelSource(modelSourceId: string, request: $_model.GetAiModelSourceRequest): Promise<$_model.GetAiModelSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAiModelSourceWithOptions(modelSourceId, request, headers, runtime);
+  }
+
+  /**
+   * 查询AI模型源编辑影响
+   * 
+   * @param request - GetAiModelSourceEditImpactRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAiModelSourceEditImpactResponse
+   */
+  async getAiModelSourceEditImpactWithOptions(modelSourceId: string, request: $_model.GetAiModelSourceEditImpactRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAiModelSourceEditImpactResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAiModelSourceEditImpact",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-sources/${$dara.URL.percentEncode(modelSourceId)}/edit-impact`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAiModelSourceEditImpactResponse>(await this.callApi(params, req, runtime), new $_model.GetAiModelSourceEditImpactResponse({}));
+  }
+
+  /**
+   * 查询AI模型源编辑影响
+   * 
+   * @param request - GetAiModelSourceEditImpactRequest
+   * @returns GetAiModelSourceEditImpactResponse
+   */
+  async getAiModelSourceEditImpact(modelSourceId: string, request: $_model.GetAiModelSourceEditImpactRequest): Promise<$_model.GetAiModelSourceEditImpactResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAiModelSourceEditImpactWithOptions(modelSourceId, request, headers, runtime);
+  }
+
+  /**
+   * Queries AI models in a source.
+   * 
+   * @param request - GetAiModelSourceModelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetAiModelSourceModelResponse
+   */
+  async getAiModelSourceModelWithOptions(modelCardId: string, request: $_model.GetAiModelSourceModelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetAiModelSourceModelResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetAiModelSourceModel",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-source-models/${$dara.URL.percentEncode(modelCardId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetAiModelSourceModelResponse>(await this.callApi(params, req, runtime), new $_model.GetAiModelSourceModelResponse({}));
+  }
+
+  /**
+   * Queries AI models in a source.
+   * 
+   * @param request - GetAiModelSourceModelRequest
+   * @returns GetAiModelSourceModelResponse
+   */
+  async getAiModelSourceModel(modelCardId: string, request: $_model.GetAiModelSourceModelRequest): Promise<$_model.GetAiModelSourceModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getAiModelSourceModelWithOptions(modelCardId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the effective field collection configurations for each URI of the request of an HTTP API under a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
    * 
    * @param request - GetApiPathFieldConfigRequest
    * @param headers - map
@@ -4264,7 +5054,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the effective field collection configurations for each request path of an HTTP API in a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
+   * Queries the effective field collection configurations for each URI of the request of an HTTP API under a specified cloud-native API gateway, including the field source, JSONPath, collection status, switch permission, and template origin.
    * 
    * @param request - GetApiPathFieldConfigRequest
    * @returns GetApiPathFieldConfigResponse
@@ -4321,7 +5111,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a batch export task.
+   * Queries batch export tasks.
    * 
    * @param request - GetBatchExportTaskRequest
    * @param headers - map
@@ -4348,7 +5138,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a batch export task.
+   * Queries batch export tasks.
    * 
    * @param request - GetBatchExportTaskRequest
    * @returns GetBatchExportTaskResponse
@@ -4360,7 +5150,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a batch import task. The task ID is returned after a batch import task is created by calling BatchImportHttpApis. Pass an empty string to list all existing batch import tasks.
+   * Queries batch import tasks. The task ID is returned after a batch import task is created by calling BatchImportHttpApis. Pass an empty string to list all existing batch import tasks.
    * 
    * @param request - GetBatchImportTaskRequest
    * @param headers - map
@@ -4387,7 +5177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a batch import task. The task ID is returned after a batch import task is created by calling BatchImportHttpApis. Pass an empty string to list all existing batch import tasks.
+   * Queries batch import tasks. The task ID is returned after a batch import task is created by calling BatchImportHttpApis. Pass an empty string to list all existing batch import tasks.
    * 
    * @param request - GetBatchImportTaskRequest
    * @returns GetBatchImportTaskResponse
@@ -4399,7 +5189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves an API consumer.
+   * Retrieves a consumer.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4424,13 +5214,58 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves an API consumer.
+   * Retrieves a consumer.
    * @returns GetConsumerResponse
    */
   async getConsumer(consumerId: string): Promise<$_model.GetConsumerResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getConsumerWithOptions(consumerId, headers, runtime);
+  }
+
+  /**
+   * Queries the access overview for a consumer.
+   * 
+   * @param request - GetConsumerAccessOverviewRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetConsumerAccessOverviewResponse
+   */
+  async getConsumerAccessOverviewWithOptions(consumerId: string, request: $_model.GetConsumerAccessOverviewRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetConsumerAccessOverviewResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetConsumerAccessOverview",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumer-access/consumers/${$dara.URL.percentEncode(consumerId)}/overview`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetConsumerAccessOverviewResponse>(await this.callApi(params, req, runtime), new $_model.GetConsumerAccessOverviewResponse({}));
+  }
+
+  /**
+   * Queries the access overview for a consumer.
+   * 
+   * @param request - GetConsumerAccessOverviewRequest
+   * @returns GetConsumerAccessOverviewResponse
+   */
+  async getConsumerAccessOverview(consumerId: string, request: $_model.GetConsumerAccessOverviewRequest): Promise<$_model.GetConsumerAccessOverviewResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getConsumerAccessOverviewWithOptions(consumerId, request, headers, runtime);
   }
 
   /**
@@ -4635,6 +5470,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the direct-supply models and candidate models for a specified gateway, including billing, capabilities, and available invocation paths.
+   * 
+   * @param request - GetDirectSupplyRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDirectSupplyResponse
+   */
+  async getDirectSupplyWithOptions(request: $_model.GetDirectSupplyRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetDirectSupplyResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDirectSupply",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/direct-supply`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDirectSupplyResponse>(await this.callApi(params, req, runtime), new $_model.GetDirectSupplyResponse({}));
+  }
+
+  /**
+   * Queries the direct-supply models and candidate models for a specified gateway, including billing, capabilities, and available invocation paths.
+   * 
+   * @param request - GetDirectSupplyRequest
+   * @returns GetDirectSupplyResponse
+   */
+  async getDirectSupply(request: $_model.GetDirectSupplyRequest): Promise<$_model.GetDirectSupplyResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getDirectSupplyWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Queries a domain name.
    * 
    * @param request - GetDomainRequest
@@ -4772,7 +5652,7 @@ export default class Client extends OpenApi {
    * Retrieves the dynamic forwarding ExtProc service bound to a gateway.
    * 
    * @remarks
-   * Queries the dynamic forwarding ExtProc gRPC service and port currently bound to the specified gateway. If no service is bound, bound=false is returned.
+   * Queries the dynamic forwarding ExtProc gRPC service and port currently bound to a specified gateway. If no service is bound, bound=false is returned.
    * 
    * @param request - GetGatewayDfpExtProcServiceRequest
    * @param headers - map
@@ -4802,7 +5682,7 @@ export default class Client extends OpenApi {
    * Retrieves the dynamic forwarding ExtProc service bound to a gateway.
    * 
    * @remarks
-   * Queries the dynamic forwarding ExtProc gRPC service and port currently bound to the specified gateway. If no service is bound, bound=false is returned.
+   * Queries the dynamic forwarding ExtProc gRPC service and port currently bound to a specified gateway. If no service is bound, bound=false is returned.
    * 
    * @param request - GetGatewayDfpExtProcServiceRequest
    * @returns GetGatewayDfpExtProcServiceResponse
@@ -4814,7 +5694,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the elastic scaling rule of a gateway.
+   * Retrieves the elastic rules of a gateway.
    * 
    * @param request - GetGatewayElasticPolicyRequest
    * @param headers - map
@@ -4841,7 +5721,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the elastic scaling rule of a gateway.
+   * Retrieves the elastic rules of a gateway.
    * 
    * @param request - GetGatewayElasticPolicyRequest
    * @returns GetGatewayElasticPolicyResponse
@@ -4856,7 +5736,7 @@ export default class Client extends OpenApi {
    * Queries the details of a gateway quota throttling rule.
    * 
    * @remarks
-   * This operation queries a specific consumer quota rule on an AI gateway.
+   * Queries a specific consumer quota rule on an AI gateway.
    * 
    * @param request - GetGatewayQuotaRuleRequest
    * @param headers - map
@@ -4904,7 +5784,7 @@ export default class Client extends OpenApi {
    * Queries the details of a gateway quota throttling rule.
    * 
    * @remarks
-   * This operation queries a specific consumer quota rule on an AI gateway.
+   * Queries a specific consumer quota rule on an AI gateway.
    * 
    * @param request - GetGatewayQuotaRuleRequest
    * @returns GetGatewayQuotaRuleResponse
@@ -4919,7 +5799,8 @@ export default class Client extends OpenApi {
    * Queries the usage details of a subject under a gateway quota throttling rule, including the used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
    * 
    * @remarks
-   * This operation retrieves the usage details of a specific consumption subject under a quota rule. Note that this operation takes effect only for AI gateways of a version later than 2.1.19. Prerequisites: Before calling this operation, make sure that Simple Log Service (SLS) log delivery is enabled for the target gateway by calling UpdateGatewayFeature(name=log-config, value={"enable":true}). Otherwise, the CloudProductInactive.LogDeliveryNotEnabled error is returned.
+   * This operation retrieves the usage details of a specific consumption subject under a quota rule. Note that this operation takes effect only for AI gateways of a version later than 2.1.19.
+   * Before you begin: Make sure that the target gateway has enabled the Simple Log Service (SLS) log delivery feature by calling UpdateGatewayFeature(name=log-config, value={"enable":true}). Otherwise, the CloudProductInactive.LogDeliveryNotEnabled error is returned.
    * 
    * @param request - GetGatewayQuotaRuleSubjectUsageRequest
    * @param headers - map
@@ -4971,7 +5852,8 @@ export default class Client extends OpenApi {
    * Queries the usage details of a subject under a gateway quota throttling rule, including the used quota, total quota, whether the limit is exceeded, usage details, and consumption records.
    * 
    * @remarks
-   * This operation retrieves the usage details of a specific consumption subject under a quota rule. Note that this operation takes effect only for AI gateways of a version later than 2.1.19. Prerequisites: Before calling this operation, make sure that Simple Log Service (SLS) log delivery is enabled for the target gateway by calling UpdateGatewayFeature(name=log-config, value={"enable":true}). Otherwise, the CloudProductInactive.LogDeliveryNotEnabled error is returned.
+   * This operation retrieves the usage details of a specific consumption subject under a quota rule. Note that this operation takes effect only for AI gateways of a version later than 2.1.19.
+   * Before you begin: Make sure that the target gateway has enabled the Simple Log Service (SLS) log delivery feature by calling UpdateGatewayFeature(name=log-config, value={"enable":true}). Otherwise, the CloudProductInactive.LogDeliveryNotEnabled error is returned.
    * 
    * @param request - GetGatewayQuotaRuleSubjectUsageRequest
    * @returns GetGatewayQuotaRuleSubjectUsageResponse
@@ -4983,20 +5865,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status, processing progress, failure cause, and file download information of an export task for quota rule subject consumption details.
+   * Queries the status, processing progress, failure cause, and file download information of an export task for the usage details of a quota rule subject.
    * 
    * @remarks
-   * ## Call flow
+   * ## Workflow
    * First, call CreateGatewayQuotaRuleSubjectUsageExportTask to create a task. Then, use the returned taskId along with the same gatewayId, ruleId, and subjectId to call this operation in the same region.
    * - Pending or Running: The task is not completed. You can query again after a period of time.
    * - Success: Check result.fileExpired and result.downloadUrl. If the file is not expired and a link is returned, you can download the file.
-   * - Failed: Troubleshoot the issue based on errorMessage. To re-export, call the create operation and use a new clientToken.
-   * ## Download link and file validity period
-   * For each successful query where the file is not expired, a signed link with a validity period of 10 minutes is generated. Download the file promptly based on downloadUrlExpiredAt. If the link expires but the file has not reached fileExpiredAt, you can query again to obtain a new link. Querying again does not regenerate the file or extend the 24-hour validity period of the file.
-   * After the file reaches fileExpiredAt, this operation no longer issues new links, returns fileExpired=true, and omits downloadUrl and downloadUrlExpiredAt. The task status remains Success. To export again, create a new task.
+   * - Failed: Troubleshoot the issue based on errorMessage. To export again, call the create operation with a new clientToken.
+   * ## Download links and file validity periods
+   * For each successful query where the file is not expired, a signed link with a validity period of 10 minutes is generated. Download the file promptly based on downloadUrlExpiredAt. If the link expires but fileExpiredAt is not reached, you can query again to obtain a new link. Querying again does not regenerate the file or extend the 24-hour validity period of the file.
+   * After fileExpiredAt is reached, this operation no longer issues new links, returns fileExpired=true, and omits downloadUrl and downloadUrlExpiredAt. The task status remains Success. To export again, create a new task.
    * ## Query scope and task progress
-   * This operation returns only the export tasks of the current user in the current region that match the gateway, rule, and subject paths. If the paths do not match or the task does not exist, a not found error is returned. Existing tasks are queried based on the information recorded at creation. The export conditions are not recalculated due to subsequent rule resets or subject name changes.
-   * If a task remains in the Pending or Running state for more than 10 minutes after creation, the query treats it as a timeout failure. Determine whether the task is completed based on the status, not just totalCount or processedCount.
+   * This operation returns only the export tasks of the current user in the current region that match the gateway, rule, and subject paths. If the paths do not match or the task does not exist, a not found error is returned. Existing tasks are queried based on the information recorded at creation. Export conditions are not recalculated due to subsequent rule resets or subject name changes.
+   * If a task remains in the Pending or Running state for more than 10 minutes after creation, the query treats it as a timeout failure. Determine whether the task is completed based on status, not just totalCount or processedCount.
    * 
    * @param request - GetGatewayQuotaRuleSubjectUsageExportTaskRequest
    * @param headers - map
@@ -5023,20 +5905,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status, processing progress, failure cause, and file download information of an export task for quota rule subject consumption details.
+   * Queries the status, processing progress, failure cause, and file download information of an export task for the usage details of a quota rule subject.
    * 
    * @remarks
-   * ## Call flow
+   * ## Workflow
    * First, call CreateGatewayQuotaRuleSubjectUsageExportTask to create a task. Then, use the returned taskId along with the same gatewayId, ruleId, and subjectId to call this operation in the same region.
    * - Pending or Running: The task is not completed. You can query again after a period of time.
    * - Success: Check result.fileExpired and result.downloadUrl. If the file is not expired and a link is returned, you can download the file.
-   * - Failed: Troubleshoot the issue based on errorMessage. To re-export, call the create operation and use a new clientToken.
-   * ## Download link and file validity period
-   * For each successful query where the file is not expired, a signed link with a validity period of 10 minutes is generated. Download the file promptly based on downloadUrlExpiredAt. If the link expires but the file has not reached fileExpiredAt, you can query again to obtain a new link. Querying again does not regenerate the file or extend the 24-hour validity period of the file.
-   * After the file reaches fileExpiredAt, this operation no longer issues new links, returns fileExpired=true, and omits downloadUrl and downloadUrlExpiredAt. The task status remains Success. To export again, create a new task.
+   * - Failed: Troubleshoot the issue based on errorMessage. To export again, call the create operation with a new clientToken.
+   * ## Download links and file validity periods
+   * For each successful query where the file is not expired, a signed link with a validity period of 10 minutes is generated. Download the file promptly based on downloadUrlExpiredAt. If the link expires but fileExpiredAt is not reached, you can query again to obtain a new link. Querying again does not regenerate the file or extend the 24-hour validity period of the file.
+   * After fileExpiredAt is reached, this operation no longer issues new links, returns fileExpired=true, and omits downloadUrl and downloadUrlExpiredAt. The task status remains Success. To export again, create a new task.
    * ## Query scope and task progress
-   * This operation returns only the export tasks of the current user in the current region that match the gateway, rule, and subject paths. If the paths do not match or the task does not exist, a not found error is returned. Existing tasks are queried based on the information recorded at creation. The export conditions are not recalculated due to subsequent rule resets or subject name changes.
-   * If a task remains in the Pending or Running state for more than 10 minutes after creation, the query treats it as a timeout failure. Determine whether the task is completed based on the status, not just totalCount or processedCount.
+   * This operation returns only the export tasks of the current user in the current region that match the gateway, rule, and subject paths. If the paths do not match or the task does not exist, a not found error is returned. Existing tasks are queried based on the information recorded at creation. Export conditions are not recalculated due to subsequent rule resets or subject name changes.
+   * If a task remains in the Pending or Running state for more than 10 minutes after creation, the query treats it as a timeout failure. Determine whether the task is completed based on status, not just totalCount or processedCount.
    * 
    * @param request - GetGatewayQuotaRuleSubjectUsageExportTaskRequest
    * @returns GetGatewayQuotaRuleSubjectUsageExportTaskResponse
@@ -5051,7 +5933,7 @@ export default class Client extends OpenApi {
    * Queries the resource quotas and usage of a gateway.
    * 
    * @remarks
-   * Queries the usage, effective limits, and statistical scopes of nine resource quotas for a specified API gateway or AI gateway. This operation is read-only. A successful response includes all nine items. Quota values for custom plug-ins are not displayed. The result is a current observation read independently from various sources and does not guarantee the success of subsequent resource creation.
+   * Queries the usage, effective limits, and statistical scopes of nine resource quotas for a specified API gateway or AI gateway. This operation is read-only, and a successful response includes all nine items. Quota values for custom plug-ins are not displayed. The result is a current observation read independently from various sources and does not guarantee the success of adding new resources.
    * 
    * @param request - GetGatewayResourceQuotaUsageRequest
    * @param headers - map
@@ -5081,7 +5963,7 @@ export default class Client extends OpenApi {
    * Queries the resource quotas and usage of a gateway.
    * 
    * @remarks
-   * Queries the usage, effective limits, and statistical scopes of nine resource quotas for a specified API gateway or AI gateway. This operation is read-only. A successful response includes all nine items. Quota values for custom plug-ins are not displayed. The result is a current observation read independently from various sources and does not guarantee the success of subsequent resource creation.
+   * Queries the usage, effective limits, and statistical scopes of nine resource quotas for a specified API gateway or AI gateway. This operation is read-only, and a successful response includes all nine items. Quota values for custom plug-ins are not displayed. The result is a current observation read independently from various sources and does not guarantee the success of adding new resources.
    * 
    * @param request - GetGatewayResourceQuotaUsageRequest
    * @returns GetGatewayResourceQuotaUsageResponse
@@ -5093,7 +5975,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a single HiMarket consumer by consumer ID, including the consumer ID, name, description, and whether the consumer is a primary consumer.
+   * Queries the details of a single HiMarket consumer by consumer ID and returns the consumer ID, name, description, and whether the consumer is a primary consumer.
    * 
    * @param request - GetHiMarketConsumerRequest
    * @param headers - map
@@ -5120,7 +6002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a single HiMarket consumer by consumer ID, including the consumer ID, name, description, and whether the consumer is a primary consumer.
+   * Queries the details of a single HiMarket consumer by consumer ID and returns the consumer ID, name, description, and whether the consumer is a primary consumer.
    * 
    * @param request - GetHiMarketConsumerRequest
    * @returns GetHiMarketConsumerResponse
@@ -5286,6 +6168,84 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询逻辑模型详情
+   * 
+   * @param request - GetLogicalModelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLogicalModelResponse
+   */
+  async getLogicalModelWithOptions(logicalModelId: string, request: $_model.GetLogicalModelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetLogicalModelResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLogicalModel",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/logical-models/${$dara.URL.percentEncode(logicalModelId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLogicalModelResponse>(await this.callApi(params, req, runtime), new $_model.GetLogicalModelResponse({}));
+  }
+
+  /**
+   * 查询逻辑模型详情
+   * 
+   * @param request - GetLogicalModelRequest
+   * @returns GetLogicalModelResponse
+   */
+  async getLogicalModel(logicalModelId: string, request: $_model.GetLogicalModelRequest): Promise<$_model.GetLogicalModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getLogicalModelWithOptions(logicalModelId, request, headers, runtime);
+  }
+
+  /**
+   * 查询逻辑模型配置下发
+   * 
+   * @param request - GetLogicalModelDeploymentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetLogicalModelDeploymentResponse
+   */
+  async getLogicalModelDeploymentWithOptions(operationId: string, request: $_model.GetLogicalModelDeploymentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetLogicalModelDeploymentResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetLogicalModelDeployment",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/logical-model-deployments/${$dara.URL.percentEncode(operationId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetLogicalModelDeploymentResponse>(await this.callApi(params, req, runtime), new $_model.GetLogicalModelDeploymentResponse({}));
+  }
+
+  /**
+   * 查询逻辑模型配置下发
+   * 
+   * @param request - GetLogicalModelDeploymentRequest
+   * @returns GetLogicalModelDeploymentResponse
+   */
+  async getLogicalModelDeployment(operationId: string, request: $_model.GetLogicalModelDeploymentRequest): Promise<$_model.GetLogicalModelDeploymentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getLogicalModelDeploymentWithOptions(operationId, request, headers, runtime);
+  }
+
+  /**
    * Retrieves an MCP server.
    * 
    * @remarks
@@ -5405,6 +6365,90 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * 查询模型API详情
+   * 
+   * @remarks
+   * 删除期间通过deleteStatus读取Deleting或DeleteFailed及deployErrorMessage。只有目标模型API完整删除后返回NotFound.ModelApi；依赖缺失、权限或存储错误不是删除完成信号。
+   * 
+   * @param request - GetModelApiRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetModelApiResponse
+   */
+  async getModelApiWithOptions(httpApiId: string, request: $_model.GetModelApiRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetModelApiResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetModelApi",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/model-apis/${$dara.URL.percentEncode(httpApiId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetModelApiResponse>(await this.callApi(params, req, runtime), new $_model.GetModelApiResponse({}));
+  }
+
+  /**
+   * 查询模型API详情
+   * 
+   * @remarks
+   * 删除期间通过deleteStatus读取Deleting或DeleteFailed及deployErrorMessage。只有目标模型API完整删除后返回NotFound.ModelApi；依赖缺失、权限或存储错误不是删除完成信号。
+   * 
+   * @param request - GetModelApiRequest
+   * @returns GetModelApiResponse
+   */
+  async getModelApi(httpApiId: string, request: $_model.GetModelApiRequest): Promise<$_model.GetModelApiResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getModelApiWithOptions(httpApiId, request, headers, runtime);
+  }
+
+  /**
+   * 查询模型组
+   * 
+   * @param request - GetModelGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetModelGroupResponse
+   */
+  async getModelGroupWithOptions(modelGroupId: string, request: $_model.GetModelGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetModelGroupResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetModelGroup",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/model-groups/${$dara.URL.percentEncode(modelGroupId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetModelGroupResponse>(await this.callApi(params, req, runtime), new $_model.GetModelGroupResponse({}));
+  }
+
+  /**
+   * 查询模型组
+   * 
+   * @param request - GetModelGroupRequest
+   * @returns GetModelGroupResponse
+   */
+  async getModelGroup(modelGroupId: string, request: $_model.GetModelGroupRequest): Promise<$_model.GetModelGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getModelGroupWithOptions(modelGroupId, request, headers, runtime);
+  }
+
+  /**
    * Queries a plugin attachment.
    * 
    * @param headers - map
@@ -5440,7 +6484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a custom plug-in class.
+   * Retrieves a custom plugin class.
    * 
    * @param request - GetPluginClassRequest
    * @param headers - map
@@ -5467,7 +6511,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a custom plug-in class.
+   * Retrieves a custom plugin class.
    * 
    * @param request - GetPluginClassRequest
    * @returns GetPluginClassResponse
@@ -5479,7 +6523,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the WebIDE workspace of a plugin.
+   * Queries the plug-in WebIDE workspace.
    * 
    * @param request - GetPluginWorkspaceRequest
    * @param headers - map
@@ -5506,7 +6550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the WebIDE workspace of a plugin.
+   * Queries the plug-in WebIDE workspace.
    * 
    * @param request - GetPluginWorkspaceRequest
    * @returns GetPluginWorkspaceResponse
@@ -5553,7 +6597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resource attachment of a policy.
+   * Queries policy resource attachments.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5578,7 +6622,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the resource attachment of a policy.
+   * Queries policy resource attachments.
    * @returns GetPolicyAttachmentResponse
    */
   async getPolicyAttachment(policyAttachmentId: string): Promise<$_model.GetPolicyAttachmentResponse> {
@@ -5588,7 +6632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a single HiMarket developer portal by portal ID, including the portal name, description, region ID, portal settings, and portal domain name configurations.
+   * Queries the details of a single HiMarket developer portal by portal ID and returns the portal name, description, region ID, portal configurations, and portal domain name configurations.
    * 
    * @param request - GetPortalRequest
    * @param headers - map
@@ -5615,7 +6659,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a single HiMarket developer portal by portal ID, including the portal name, description, region ID, portal settings, and portal domain name configurations.
+   * Queries the details of a single HiMarket developer portal by portal ID and returns the portal name, description, region ID, portal configurations, and portal domain name configurations.
    * 
    * @param request - GetPortalRequest
    * @returns GetPortalResponse
@@ -5627,7 +6671,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a single API product by API product ID, and returns information such as the name, description, status, type, documentation, icon, whether subscription requests are automatically approved, MCP, agent, and model configurations, product capability configurations, and the region to which the product belongs.
+   * Queries the details of a single API product by API product ID and returns information such as the name, description, status, type, documentation, icon, automatic subscription approval setting, MCP, agent, and model configurations, product capability configurations, and region.
    * 
    * @param request - GetProductRequest
    * @param headers - map
@@ -5654,7 +6698,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a single API product by API product ID, and returns information such as the name, description, status, type, documentation, icon, whether subscription requests are automatically approved, MCP, agent, and model configurations, product capability configurations, and the region to which the product belongs.
+   * Queries the details of a single API product by API product ID and returns information such as the name, description, status, type, documentation, icon, automatic subscription approval setting, MCP, agent, and model configurations, product capability configurations, and region.
    * 
    * @param request - GetProductRequest
    * @returns GetProductResponse
@@ -5666,7 +6710,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a product category by category ID and returns the ID, name, description, and icon of the category.
+   * Queries the details of a single product category by category ID and returns the ID, name, description, and icon of the category.
    * 
    * @param request - GetProductCategoryRequest
    * @param headers - map
@@ -5693,7 +6737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a product category by category ID and returns the ID, name, description, and icon of the category.
+   * Queries the details of a single product category by category ID and returns the ID, name, description, and icon of the category.
    * 
    * @param request - GetProductCategoryRequest
    * @returns GetProductCategoryResponse
@@ -5705,7 +6749,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the API configurations associated with an API product by API product ID, and returns the ID of the gateway where the association resides and the APIG association configuration.
+   * Queries the API configurations associated with an API product by product ID, and returns the gateway ID and APIG association configurations.
    * 
    * @param request - GetProductRefRequest
    * @param headers - map
@@ -5732,7 +6776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the API configurations associated with an API product by API product ID, and returns the ID of the gateway where the association resides and the APIG association configuration.
+   * Queries the API configurations associated with an API product by product ID, and returns the gateway ID and APIG association configurations.
    * 
    * @param request - GetProductRefRequest
    * @returns GetProductRefResponse
@@ -5789,7 +6833,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the notification configuration for a risk item.
+   * Retrieves the risk item notification configuration.
    * 
    * @param request - GetRiskNotificationRequest
    * @param headers - map
@@ -5822,7 +6866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the notification configuration for a risk item.
+   * Retrieves the risk item notification configuration.
    * 
    * @param request - GetRiskNotificationRequest
    * @returns GetRiskNotificationResponse
@@ -5834,10 +6878,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a key.
+   * Retrieves a secret.
    * 
    * @remarks
-   * The operation supports creating multiple services.
+   * This operation supports creating multiple services.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5862,10 +6906,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a key.
+   * Retrieves a secret.
    * 
    * @remarks
-   * The operation supports creating multiple services.
+   * This operation supports creating multiple services.
    * @returns GetSecretResponse
    */
   async getSecret(secretId: string): Promise<$_model.GetSecretResponse> {
@@ -5875,10 +6919,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the value of a secret.
+   * Retrieves the secret value.
    * 
    * @remarks
-   * The operation supports creating multiple services.
+   * The API supports creating multiple services.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5903,10 +6947,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the value of a secret.
+   * Retrieves the secret value.
    * 
    * @remarks
-   * The operation supports creating multiple services.
+   * The API supports creating multiple services.
    * @returns GetSecretValueResponse
    */
   async getSecretValue(name: string): Promise<$_model.GetSecretValueResponse> {
@@ -6031,7 +7075,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits the code and state query parameters via a GET request during the callback step of the OIDC logon process. The response data includes the accessToken, tokenType, and expiresIn fields.
+   * Executes the callback step in the OIDC logon flow by submitting the code and state query parameters via the GET method. The response data includes the accessToken, tokenType, and expiresIn fields.
    * 
    * @param request - HandleOidcCallbackRequest
    * @param headers - map
@@ -6068,7 +7112,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits the code and state query parameters via a GET request during the callback step of the OIDC logon process. The response data includes the accessToken, tokenType, and expiresIn fields.
+   * Executes the callback step in the OIDC logon flow by submitting the code and state query parameters via the GET method. The response data includes the accessToken, tokenType, and expiresIn fields.
    * 
    * @param request - HandleOidcCallbackRequest
    * @returns HandleOidcCallbackResponse
@@ -6177,7 +7221,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initiates the Authorize step in the OIDC logon process based on the OIDC provider identifier. The response body defined by the API operation contains only the requestId, code, and message fields, and does not declare the data business output parameter.
+   * Initiates the Authorize step in the OIDC logon process based on the OIDC provider identifier. The response body contains only the requestId, code, and message fields, and does not include the business output parameter data.
    * 
    * @param request - InitiateOidcAuthRequest
    * @param headers - map
@@ -6210,7 +7254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initiates the Authorize step in the OIDC logon process based on the OIDC provider identifier. The response body defined by the API operation contains only the requestId, code, and message fields, and does not declare the data business output parameter.
+   * Initiates the Authorize step in the OIDC logon process based on the OIDC provider identifier. The response body contains only the requestId, code, and message fields, and does not include the business output parameter data.
    * 
    * @param request - InitiateOidcAuthRequest
    * @returns InitiateOidcAuthResponse
@@ -6395,7 +7439,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of AI model cards.
+   * Queries the list of AI model cards.
    * 
    * @param request - ListAiModelCardsRequest
    * @param headers - map
@@ -6440,7 +7484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of AI model cards.
+   * Queries the list of AI model cards.
    * 
    * @param request - ListAiModelCardsRequest
    * @returns ListAiModelCardsResponse
@@ -6509,7 +7553,129 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query on the list of field templates and returns the template ID, API request path, and applicable protocol for each template record.
+   * 查询源内AI模型列表
+   * 
+   * @param request - ListAiModelSourceModelsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAiModelSourceModelsResponse
+   */
+  async listAiModelSourceModelsWithOptions(request: $_model.ListAiModelSourceModelsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAiModelSourceModelsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.modelSourceId)) {
+      query["modelSourceId"] = request.modelSourceId;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAiModelSourceModels",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-source-models`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAiModelSourceModelsResponse>(await this.callApi(params, req, runtime), new $_model.ListAiModelSourceModelsResponse({}));
+  }
+
+  /**
+   * 查询源内AI模型列表
+   * 
+   * @param request - ListAiModelSourceModelsRequest
+   * @returns ListAiModelSourceModelsResponse
+   */
+  async listAiModelSourceModels(request: $_model.ListAiModelSourceModelsRequest): Promise<$_model.ListAiModelSourceModelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAiModelSourceModelsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries a list of standalone AI model sources.
+   * 
+   * @param request - ListAiModelSourcesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListAiModelSourcesResponse
+   */
+  async listAiModelSourcesWithOptions(request: $_model.ListAiModelSourcesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListAiModelSourcesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.provider)) {
+      query["provider"] = request.provider;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListAiModelSources",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-sources`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListAiModelSourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListAiModelSourcesResponse({}));
+  }
+
+  /**
+   * Queries a list of standalone AI model sources.
+   * 
+   * @param request - ListAiModelSourcesRequest
+   * @returns ListAiModelSourcesResponse
+   */
+  async listAiModelSources(request: $_model.ListAiModelSourcesRequest): Promise<$_model.ListAiModelSourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listAiModelSourcesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Performs a paging query on the field template list and returns the template ID, API request path, and applicable protocol for each template record.
    * 
    * @param request - ListApiPathFieldTemplatesRequest
    * @param headers - map
@@ -6546,7 +7712,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query on the list of field templates and returns the template ID, API request path, and applicable protocol for each template record.
+   * Performs a paging query on the field template list and returns the template ID, API request path, and applicable protocol for each template record.
    * 
    * @param request - ListApiPathFieldTemplatesRequest
    * @returns ListApiPathFieldTemplatesResponse
@@ -6558,7 +7724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of batch export tasks.
+   * Queries the list of batch export tasks.
    * 
    * @param request - ListBatchExportTasksRequest
    * @param headers - map
@@ -6619,7 +7785,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of batch export tasks.
+   * Queries the list of batch export tasks.
    * 
    * @param request - ListBatchExportTasksRequest
    * @returns ListBatchExportTasksResponse
@@ -6631,7 +7797,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query on the list of HiMarket chat sessions. For each session, the response returns the session ID, name, conversation type, and associated API products. The response also returns the paging page number, paging size, and total count.
+   * Performs a paged query on the HiMarket chat session list, returning the session ID, name, conversation type, and associated API products for each session. The response also returns the paging page number, paging size, and total count.
    * 
    * @param request - ListChatSessionsRequest
    * @param headers - map
@@ -6676,7 +7842,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query on the list of HiMarket chat sessions. For each session, the response returns the session ID, name, conversation type, and associated API products. The response also returns the paging page number, paging size, and total count.
+   * Performs a paged query on the HiMarket chat session list, returning the session ID, name, conversation type, and associated API products for each session. The response also returns the paging page number, paging size, and total count.
    * 
    * @param request - ListChatSessionsRequest
    * @returns ListChatSessionsResponse
@@ -6746,7 +7912,68 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the member list of a consumer group.
+   * Queries the summary list of consumers in the console.
+   * 
+   * @param request - ListConsumerConsoleSummariesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConsumerConsoleSummariesResponse
+   */
+  async listConsumerConsoleSummariesWithOptions(request: $_model.ListConsumerConsoleSummariesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListConsumerConsoleSummariesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.filter)) {
+      query["filter"] = request.filter;
+    }
+
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nameLike)) {
+      query["nameLike"] = request.nameLike;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListConsumerConsoleSummaries",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/consumer-access/console-summaries`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListConsumerConsoleSummariesResponse>(await this.callApi(params, req, runtime), new $_model.ListConsumerConsoleSummariesResponse({}));
+  }
+
+  /**
+   * Queries the summary list of consumers in the console.
+   * 
+   * @param request - ListConsumerConsoleSummariesRequest
+   * @returns ListConsumerConsoleSummariesResponse
+   */
+  async listConsumerConsoleSummaries(request: $_model.ListConsumerConsoleSummariesRequest): Promise<$_model.ListConsumerConsoleSummariesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listConsumerConsoleSummariesWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries the members of a consumer group.
    * 
    * @param request - ListConsumerGroupConsumersRequest
    * @param headers - map
@@ -6787,7 +8014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the member list of a consumer group.
+   * Queries the members of a consumer group.
    * 
    * @param request - ListConsumerGroupConsumersRequest
    * @returns ListConsumerGroupConsumersResponse
@@ -6802,7 +8029,7 @@ export default class Client extends OpenApi {
    * Queries the quota throttling rules for a consumer group.
    * 
    * @remarks
-   * Queries the quota rules directly bound to the specified consumer group without expanding the rules bound to individual consumers within the group. Returns an empty list if no direct binding exists.
+   * Queries the quota rules directly bound to a specified consumer group without expanding the rules bound to individual consumers within the group. Returns an empty list if no direct binding exists.
    * 
    * @param request - ListConsumerGroupQuotaRulesRequest
    * @param headers - map
@@ -6828,6 +8055,10 @@ export default class Client extends OpenApi {
       query["pageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.ruleStatus)) {
+      query["ruleStatus"] = request.ruleStatus;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -6850,7 +8081,7 @@ export default class Client extends OpenApi {
    * Queries the quota throttling rules for a consumer group.
    * 
    * @remarks
-   * Queries the quota rules directly bound to the specified consumer group without expanding the rules bound to individual consumers within the group. Returns an empty list if no direct binding exists.
+   * Queries the quota rules directly bound to a specified consumer group without expanding the rules bound to individual consumers within the group. Returns an empty list if no direct binding exists.
    * 
    * @param request - ListConsumerGroupQuotaRulesRequest
    * @returns ListConsumerGroupQuotaRulesResponse
@@ -6919,7 +8150,68 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of configured quota rules for a consumer.
+   * Queries the model card entitlements for consumers.
+   * 
+   * @param request - ListConsumerModelCardGrantsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConsumerModelCardGrantsResponse
+   */
+  async listConsumerModelCardGrantsWithOptions(httpApiId: string, request: $_model.ListConsumerModelCardGrantsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListConsumerModelCardGrantsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.modelCardId)) {
+      query["modelCardId"] = request.modelCardId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.principalId)) {
+      query["principalId"] = request.principalId;
+    }
+
+    if (!$dara.isNull(request.principalType)) {
+      query["principalType"] = request.principalType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListConsumerModelCardGrants",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/model-apis/${$dara.URL.percentEncode(httpApiId)}/model-card-grants`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListConsumerModelCardGrantsResponse>(await this.callApi(params, req, runtime), new $_model.ListConsumerModelCardGrantsResponse({}));
+  }
+
+  /**
+   * Queries the model card entitlements for consumers.
+   * 
+   * @param request - ListConsumerModelCardGrantsRequest
+   * @returns ListConsumerModelCardGrantsResponse
+   */
+  async listConsumerModelCardGrants(httpApiId: string, request: $_model.ListConsumerModelCardGrantsRequest): Promise<$_model.ListConsumerModelCardGrantsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listConsumerModelCardGrantsWithOptions(httpApiId, request, headers, runtime);
+  }
+
+  /**
+   * Queries the configured quota rules for a consumer.
    * 
    * @param request - ListConsumerQuotaRulesRequest
    * @param headers - map
@@ -6945,6 +8237,10 @@ export default class Client extends OpenApi {
       query["pageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.ruleStatus)) {
+      query["ruleStatus"] = request.ruleStatus;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -6964,7 +8260,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of configured quota rules for a consumer.
+   * Queries the configured quota rules for a consumer.
    * 
    * @param request - ListConsumerQuotaRulesRequest
    * @returns ListConsumerQuotaRulesResponse
@@ -6976,7 +8272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of API consumers.
+   * Retrieves a list of consumers.
    * 
    * @param request - ListConsumersRequest
    * @param headers - map
@@ -7021,7 +8317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of API consumers.
+   * Retrieves a list of consumers.
    * 
    * @param request - ListConsumersRequest
    * @returns ListConsumersResponse
@@ -7033,7 +8329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the HiMarket developer list by using paging. You can filter developers by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
+   * Queries the HiMarket developer list with paging. You can filter developers by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
    * 
    * @param request - ListDevelopersRequest
    * @param headers - map
@@ -7090,7 +8386,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the HiMarket developer list by using paging. You can filter developers by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
+   * Queries the HiMarket developer list with paging. You can filter developers by portal ID, username, and developer status. The response includes the developer ID, portal ID, username, and status.
    * 
    * @param request - ListDevelopersRequest
    * @returns ListDevelopersResponse
@@ -7249,7 +8545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves external service information for a gateway.
+   * Retrieves the external service information of a gateway.
    * 
    * @remarks
    * This operation supports creating multiple services.
@@ -7301,7 +8597,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves external service information for a gateway.
+   * Retrieves the external service information of a gateway.
    * 
    * @remarks
    * This operation supports creating multiple services.
@@ -7361,7 +8657,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of security group rules authorized for a gateway.
+   * Queries the authorized security group rules for a gateway.
    * 
    * @param request - ListGatewayAuthorizedSecurityGroupRulesRequest
    * @param headers - map
@@ -7388,7 +8684,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of security group rules authorized for a gateway.
+   * Queries the authorized security group rules for a gateway.
    * 
    * @param request - ListGatewayAuthorizedSecurityGroupRulesRequest
    * @returns ListGatewayAuthorizedSecurityGroupRulesResponse
@@ -7504,7 +8800,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of gateway load balancers.
+   * Queries the list of gateway load balancers.
    * 
    * @param request - ListGatewayLoadBalancersRequest
    * @param headers - map
@@ -7557,7 +8853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of gateway load balancers.
+   * Queries the list of gateway load balancers.
    * 
    * @param request - ListGatewayLoadBalancersRequest
    * @returns ListGatewayLoadBalancersResponse
@@ -7572,7 +8868,7 @@ export default class Client extends OpenApi {
    * Queries the FinOps quota rules associated with a gateway.
    * 
    * @remarks
-   * This operation queries the FinOps quota rules associated with a gateway.
+   * Queries the FinOps quota rules associated with a gateway.
    * 
    * @param request - ListGatewayQuotaRulesRequest
    * @param headers - map
@@ -7602,6 +8898,14 @@ export default class Client extends OpenApi {
       query["pageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.ruleStatus)) {
+      query["ruleStatus"] = request.ruleStatus;
+    }
+
+    if (!$dara.isNull(request.subjectNameLike)) {
+      query["subjectNameLike"] = request.subjectNameLike;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -7624,7 +8928,7 @@ export default class Client extends OpenApi {
    * Queries the FinOps quota rules associated with a gateway.
    * 
    * @remarks
-   * This operation queries the FinOps quota rules associated with a gateway.
+   * Queries the FinOps quota rules associated with a gateway.
    * 
    * @param request - ListGatewayQuotaRulesRequest
    * @returns ListGatewayQuotaRulesResponse
@@ -7812,7 +9116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query for the API product subscriptions of a specified HiMarket consumer. You can filter the subscriptions by status. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
+   * Performs a paged query to retrieve the API product subscriptions of a specified HiMarket consumer. You can filter the subscriptions by status and use paging to navigate through the results. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
    * 
    * @param request - ListHiMarketConsumerSubscriptionsRequest
    * @param headers - map
@@ -7861,7 +9165,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query for the API product subscriptions of a specified HiMarket consumer. You can filter the subscriptions by status. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
+   * Performs a paged query to retrieve the API product subscriptions of a specified HiMarket consumer. You can filter the subscriptions by status and use paging to navigate through the results. Each subscription record includes the subscription ID, the ID, name, and type of the subscribed API product, the consumer ID and name, and the subscription status.
    * 
    * @param request - ListHiMarketConsumerSubscriptionsRequest
    * @returns ListHiMarketConsumerSubscriptionsResponse
@@ -7873,7 +9177,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query on the HiMarket consumer list. You can filter the results by consumer name keyword, portal ID, or developer ID. The response includes the consumer ID, name, description, and primary consumer status for each consumer.
+   * Performs a paging query on the HiMarket consumer list. You can filter the results by consumer name keyword, portal ID, or developer ID. For each consumer, the response returns the consumer ID, name, description, and whether the consumer is a primary consumer.
    * 
    * @param request - ListHiMarketConsumersRequest
    * @param headers - map
@@ -7930,7 +9234,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query on the HiMarket consumer list. You can filter the results by consumer name keyword, portal ID, or developer ID. The response includes the consumer ID, name, description, and primary consumer status for each consumer.
+   * Performs a paging query on the HiMarket consumer list. You can filter the results by consumer name keyword, portal ID, or developer ID. For each consumer, the response returns the consumer ID, name, description, and whether the consumer is a primary consumer.
    * 
    * @param request - ListHiMarketConsumersRequest
    * @returns ListHiMarketConsumersResponse
@@ -8136,7 +9440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of HTTP APIs.
+   * Retrieves the list of HTTP APIs.
    * 
    * @param request - ListHttpApisRequest
    * @param headers - map
@@ -8233,7 +9537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of HTTP APIs.
+   * Retrieves the list of HTTP APIs.
    * 
    * @param request - ListHttpApisRequest
    * @returns ListHttpApisResponse
@@ -8245,7 +9549,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves gateways on which a plugin can be installed.
+   * Retrieves installable gateways.
    * 
    * @param request - ListInstallableGatewaysRequest
    * @param headers - map
@@ -8286,7 +9590,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves gateways on which a plugin can be installed.
+   * Retrieves installable gateways.
    * 
    * @param request - ListInstallableGatewaysRequest
    * @returns ListInstallableGatewaysResponse
@@ -8343,7 +9647,64 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of Model Context Protocol (MCP) tools in an MCP Server-type API product and returns a list of tools. Each tool contains three text fields: name, title, and description, and four map fields: inputSchema, outputSchema, annotations, and meta.
+   * Queries the logical models under a specified gateway. Supports keyword filtering and token-based pagination with maxResults and nextToken.
+   * 
+   * @param request - ListLogicalModelsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListLogicalModelsResponse
+   */
+  async listLogicalModelsWithOptions(request: $_model.ListLogicalModelsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListLogicalModelsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListLogicalModels",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/logical-models`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListLogicalModelsResponse>(await this.callApi(params, req, runtime), new $_model.ListLogicalModelsResponse({}));
+  }
+
+  /**
+   * Queries the logical models under a specified gateway. Supports keyword filtering and token-based pagination with maxResults and nextToken.
+   * 
+   * @param request - ListLogicalModelsRequest
+   * @returns ListLogicalModelsResponse
+   */
+  async listLogicalModels(request: $_model.ListLogicalModelsRequest): Promise<$_model.ListLogicalModelsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listLogicalModelsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries the details of Model Context Protocol (MCP) tools in an MCP Server-type API product and returns a list of tools. Each tool contains three text fields (name, title, and description) and four map fields (inputSchema, outputSchema, annotations, and meta).
    * 
    * @param request - ListMcpProductToolsRequest
    * @param headers - map
@@ -8370,7 +9731,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of Model Context Protocol (MCP) tools in an MCP Server-type API product and returns a list of tools. Each tool contains three text fields: name, title, and description, and four map fields: inputSchema, outputSchema, annotations, and meta.
+   * Queries the details of Model Context Protocol (MCP) tools in an MCP Server-type API product and returns a list of tools. Each tool contains three text fields (name, title, and description) and four map fields (inputSchema, outputSchema, annotations, and meta).
    * 
    * @param request - ListMcpProductToolsRequest
    * @returns ListMcpProductToolsResponse
@@ -8385,7 +9746,7 @@ export default class Client extends OpenApi {
    * Retrieves a list of MCP servers.
    * 
    * @remarks
-   * The operation supports creating multiple services.
+   * This operation supports creating multiple services.
    * 
    * @param request - ListMcpServersRequest
    * @param headers - map
@@ -8445,7 +9806,7 @@ export default class Client extends OpenApi {
    * Retrieves a list of MCP servers.
    * 
    * @remarks
-   * The operation supports creating multiple services.
+   * This operation supports creating multiple services.
    * 
    * @param request - ListMcpServersRequest
    * @returns ListMcpServersResponse
@@ -8506,7 +9867,76 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of model cards and returns the model name, provider, and source identifier of each card, along with its features, pricing, meta, availablePaths, and snapshots structures. The only business request parameter is the provider identifier.
+   * Queries the list of model APIs.
+   * 
+   * @param request - ListModelApisRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelApisResponse
+   */
+  async listModelApisWithOptions(request: $_model.ListModelApisRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelApisResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.includeLegacy)) {
+      query["includeLegacy"] = request.includeLegacy;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["resourceGroupId"] = request.resourceGroupId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListModelApis",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/model-apis`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListModelApisResponse>(await this.callApi(params, req, runtime), new $_model.ListModelApisResponse({}));
+  }
+
+  /**
+   * Queries the list of model APIs.
+   * 
+   * @param request - ListModelApisRequest
+   * @returns ListModelApisResponse
+   */
+  async listModelApis(request: $_model.ListModelApisRequest): Promise<$_model.ListModelApisResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listModelApisWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with its features, pricing, metadata, available paths, and snapshots. The only request parameter is the provider identifier.
    * 
    * @param request - ListModelCardsRequest
    * @param headers - map
@@ -8539,7 +9969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of model cards and returns the model name, provider, and source identifier of each card, along with its features, pricing, meta, availablePaths, and snapshots structures. The only business request parameter is the provider identifier.
+   * Queries a list of model cards and returns the model name, provider, and source identifier for each card, along with its features, pricing, metadata, available paths, and snapshots. The only request parameter is the provider identifier.
    * 
    * @param request - ListModelCardsRequest
    * @returns ListModelCardsResponse
@@ -8548,6 +9978,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listModelCardsWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * 查询模型组列表
+   * 
+   * @param request - ListModelGroupsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListModelGroupsResponse
+   */
+  async listModelGroupsWithOptions(request: $_model.ListModelGroupsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListModelGroupsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.gatewayId)) {
+      query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.keyword)) {
+      query["keyword"] = request.keyword;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListModelGroups",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/model-groups`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListModelGroupsResponse>(await this.callApi(params, req, runtime), new $_model.ListModelGroupsResponse({}));
+  }
+
+  /**
+   * 查询模型组列表
+   * 
+   * @param request - ListModelGroupsRequest
+   * @returns ListModelGroupsResponse
+   */
+  async listModelGroups(request: $_model.ListModelGroupsRequest): Promise<$_model.ListModelGroupsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listModelGroupsWithOptions(request, headers, runtime);
   }
 
   /**
@@ -8667,10 +10154,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves plug-ins.
+   * Retrieves plugins.
    * 
    * @remarks
-   * The operation supports creating multiple services.
+   * This operation supports creating multiple services.
    * 
    * @param request - ListPluginClassesRequest
    * @param headers - map
@@ -8743,10 +10230,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves plug-ins.
+   * Retrieves plugins.
    * 
    * @remarks
-   * The operation supports creating multiple services.
+   * This operation supports creating multiple services.
    * 
    * @param request - ListPluginClassesRequest
    * @returns ListPluginClassesResponse
@@ -8758,7 +10245,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the repositories and organization information for custom plug-ins hosted on Codeup. Before calling this operation, enable code hosting on Codeup, create an organization and repositories, and authorize APIG to access your Codeup account.
+   * Queries the list of repositories and organization information for custom plug-ins hosted on Codeup. Before calling this operation, enable code hosting, create an organization and a repository in Codeup, and authorize APIG to access your Codeup account.
    * 
    * @param request - ListPluginRepositoriesRequest
    * @param headers - map
@@ -8785,7 +10272,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the repositories and organization information for custom plug-ins hosted on Codeup. Before calling this operation, enable code hosting on Codeup, create an organization and repositories, and authorize APIG to access your Codeup account.
+   * Queries the list of repositories and organization information for custom plug-ins hosted on Codeup. Before calling this operation, enable code hosting, create an organization and a repository in Codeup, and authorize APIG to access your Codeup account.
    * 
    * @param request - ListPluginRepositoriesRequest
    * @returns ListPluginRepositoriesResponse
@@ -8797,7 +10284,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of plugin WebIDE workspaces for the current user.
+   * Retrieves the list of WebIDE workspaces for user plugins.
    * 
    * @param request - ListPluginWorkspaceRequest
    * @param headers - map
@@ -8830,7 +10317,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of plugin WebIDE workspaces for the current user.
+   * Retrieves the list of WebIDE workspaces for user plugins.
    * 
    * @param request - ListPluginWorkspaceRequest
    * @returns ListPluginWorkspaceResponse
@@ -8923,7 +10410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of policies.
+   * Queries the list of policies.
    * 
    * @param request - ListPoliciesRequest
    * @param headers - map
@@ -8947,6 +10434,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.gatewayId)) {
       query["gatewayId"] = request.gatewayId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      query["pageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["pageSize"] = request.pageSize;
     }
 
     if (!$dara.isNull(request.withAttachments)) {
@@ -8976,7 +10471,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of policies.
+   * Queries the list of policies.
    * 
    * @param request - ListPoliciesRequest
    * @returns ListPoliciesResponse
@@ -9057,7 +10552,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of published API products on a specified HiMarket developer portal with paging. Each list item returns the publication record ID, API product ID, API product name, and API product type.
+   * Performs a paging query for the list of published API products on a specified HiMarket developer portal. Each list item returns the publication record ID, API product ID, API product name, and API product type.
    * 
    * @param request - ListPortalPublicationsRequest
    * @param headers - map
@@ -9098,7 +10593,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of published API products on a specified HiMarket developer portal with paging. Each list item returns the publication record ID, API product ID, API product name, and API product type.
+   * Performs a paging query for the list of published API products on a specified HiMarket developer portal. Each list item returns the publication record ID, API product ID, API product name, and API product type.
    * 
    * @param request - ListPortalPublicationsRequest
    * @returns ListPortalPublicationsResponse
@@ -9110,7 +10605,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve the list of HiMarket developer portals under the current tenant. Each list item in the paging result returns the portal ID, portal name, portal description, region ID, portal settings, and portal domain configurations.
+   * Performs a paging query on the list of HiMarket developer portals under the current tenant. Each list item returns the portal ID, portal name, portal description, region ID, portal settings, and portal domain name configurations.
    * 
    * @param request - ListPortalsRequest
    * @param headers - map
@@ -9159,7 +10654,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve the list of HiMarket developer portals under the current tenant. Each list item in the paging result returns the portal ID, portal name, portal description, region ID, portal settings, and portal domain configurations.
+   * Performs a paging query on the list of HiMarket developer portals under the current tenant. Each list item returns the portal ID, portal name, portal description, region ID, portal settings, and portal domain name configurations.
    * 
    * @param request - ListPortalsRequest
    * @returns ListPortalsResponse
@@ -9230,7 +10725,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of product categories under the current tenant by using paging. You can search by category name keywords. Each item in the list returns the category ID, category name, category description, and category icon.
+   * Performs a paged query on the list of product categories under the current tenant. The paging request supports searching by category name keywords. Each list item returns the category ID, name, description, and icon.
    * 
    * @param request - ListProductCategoriesRequest
    * @param headers - map
@@ -9271,7 +10766,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of product categories under the current tenant by using paging. You can search by category name keywords. Each item in the list returns the category ID, category name, category description, and category icon.
+   * Performs a paged query on the list of product categories under the current tenant. The paging request supports searching by category name keywords. Each list item returns the category ID, name, description, and icon.
    * 
    * @param request - ListProductCategoriesRequest
    * @returns ListProductCategoriesResponse
@@ -9283,7 +10778,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve the publication information of a specified API product, which is a list of portal records to which the product is published. Each list item includes the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can perform a parameter query by portal name and paging parameters.
+   * Performs a paged query on the publication information of a specified API product, which is the list of portal records to which the product has been published. The list items include the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can also perform a parameter query by portal name and paging parameters.
    * 
    * @param request - ListProductPublicationsRequest
    * @param headers - map
@@ -9324,7 +10819,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve the publication information of a specified API product, which is a list of portal records to which the product is published. Each list item includes the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can perform a parameter query by portal name and paging parameters.
+   * Performs a paged query on the publication information of a specified API product, which is the list of portal records to which the product has been published. The list items include the publication record ID, portal ID, portal name, API product ID, API product name, and API product type. You can also perform a parameter query by portal name and paging parameters.
    * 
    * @param request - ListProductPublicationsRequest
    * @returns ListProductPublicationsResponse
@@ -9336,7 +10831,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve the subscribe records for a specified API product. You can use paging to filter the records by subscribe status or search for them by using consumer name keywords. Each record returns the subscribe ID, API product ID and name, API product type, consumer ID and name, and subscribe status.
+   * Queries the list of subscription records for a specified API product with paging. You can filter the records by subscription status or search by consumer name keywords. Each record includes the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status.
    * 
    * @param request - ListProductSubscriptionsRequest
    * @param headers - map
@@ -9381,7 +10876,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve the subscribe records for a specified API product. You can use paging to filter the records by subscribe status or search for them by using consumer name keywords. Each record returns the subscribe ID, API product ID and name, API product type, consumer ID and name, and subscribe status.
+   * Queries the list of subscription records for a specified API product with paging. You can filter the records by subscription status or search by consumer name keywords. Each record includes the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status.
    * 
    * @param request - ListProductSubscriptionsRequest
    * @returns ListProductSubscriptionsResponse
@@ -9393,7 +10888,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the API product list under the current tenant by using paging. Request parameters can specify the product name, product type, product status, product category, and the portal where the product is published. List items return the product ID, name, product description, status, type, documentation, icon, product categorization, whether automatic approval is enabled for subscription requests, and MCP, agent, model, and product capability configurations.
+   * Queries the API products under the current tenant by using paging. You can specify the product name, type, status, category, and the portal where the product is published. The response includes the product ID, name, description, status, type, documentation, icon, product category, whether automatic approval of subscriptions is enabled, and the MCP, agent, model, and product capability configurations.
    * 
    * @param request - ListProductsRequest
    * @param headers - map
@@ -9458,7 +10953,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the API product list under the current tenant by using paging. Request parameters can specify the product name, product type, product status, product category, and the portal where the product is published. List items return the product ID, name, product description, status, type, documentation, icon, product categorization, whether automatic approval is enabled for subscription requests, and MCP, agent, model, and product capability configurations.
+   * Queries the API products under the current tenant by using paging. You can specify the product name, type, status, category, and the portal where the product is published. The response includes the product ID, name, description, status, type, documentation, icon, product category, whether automatic approval of subscriptions is enabled, and the MCP, agent, model, and product capability configurations.
    * 
    * @param request - ListProductsRequest
    * @returns ListProductsResponse
@@ -9470,7 +10965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of API products that can be published to a specified HiMarket developer portal. This paged query accepts the portal ID, API product name, and paging parameters. Each item in the response includes the API product ID, name, and description.
+   * Performs a paged query on the list of API products that can be published to a specified HiMarket developer portal. You can specify the portal ID, API product name, and paging parameters in the request. The list items return the API product ID, API product name, and API product description.
    * 
    * @param request - ListPublishableProductsRequest
    * @param headers - map
@@ -9511,7 +11006,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of API products that can be published to a specified HiMarket developer portal. This paged query accepts the portal ID, API product name, and paging parameters. Each item in the response includes the API product ID, name, and description.
+   * Performs a paged query on the list of API products that can be published to a specified HiMarket developer portal. You can specify the portal ID, API product name, and paging parameters in the request. The list items return the API product ID, API product name, and API product description.
    * 
    * @param request - ListPublishableProductsRequest
    * @returns ListPublishableProductsResponse
@@ -9523,7 +11018,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries risk detection results.
+   * Queries the risk detection results.
    * 
    * @param request - ListRiskCheckResultsRequest
    * @param headers - map
@@ -9568,7 +11063,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries risk detection results.
+   * Queries the risk detection results.
    * 
    * @param request - ListRiskCheckResultsRequest
    * @returns ListRiskCheckResultsResponse
@@ -9635,10 +11130,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists keys.
+   * Lists secrets.
    * 
    * @remarks
-   * The operation supports creating multiple services.
+   * The API operation supports creating multiple services.
    * 
    * @param request - ListSecretsRequest
    * @param headers - map
@@ -9683,10 +11178,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists keys.
+   * Lists secrets.
    * 
    * @remarks
-   * The operation supports creating multiple services.
+   * The API operation supports creating multiple services.
    * 
    * @param request - ListSecretsRequest
    * @returns ListSecretsResponse
@@ -10050,7 +11545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Logs in to a HiMarket developer account with a developer username and password, and returns the accessToken and expiresIn fields in the data object of a successful response.
+   * Logs in to a HiMarket developer account by using a developer username and password, and returns the accessToken and expiresIn fields in the data object of a successful response.
    * 
    * @param request - LoginDeveloperRequest
    * @param headers - map
@@ -10087,7 +11582,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Logs in to a HiMarket developer account with a developer username and password, and returns the accessToken and expiresIn fields in the data object of a successful response.
+   * Logs in to a HiMarket developer account by using a developer username and password, and returns the accessToken and expiresIn fields in the data object of a successful response.
    * 
    * @param request - LoginDeveloperRequest
    * @returns LoginDeveloperResponse
@@ -10099,7 +11594,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Logs a developer out of a HiMarket developer account. This operation has no business request parameters, and a successful response returns only the requestId, code, and message fields.
+   * Logs out a developer from a HiMarket developer account. This operation does not require business request parameters. A successful response returns only the requestId, code, and message fields.
    * 
    * @param request - LogoutDeveloperRequest
    * @param headers - map
@@ -10126,7 +11621,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Logs a developer out of a HiMarket developer account. This operation has no business request parameters, and a successful response returns only the requestId, code, and message fields.
+   * Logs out a developer from a HiMarket developer account. This operation does not require business request parameters. A successful response returns only the requestId, code, and message fields.
    * 
    * @param request - LogoutDeveloperRequest
    * @returns LogoutDeveloperResponse
@@ -10138,7 +11633,76 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the current publication. You can query the publication record by calling ListProductPublications and unpublish the API product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
+   * 预演逻辑模型修改影响
+   * 
+   * @param request - PreviewLogicalModelUpdateRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PreviewLogicalModelUpdateResponse
+   */
+  async previewLogicalModelUpdateWithOptions(logicalModelId: string, request: $_model.PreviewLogicalModelUpdateRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PreviewLogicalModelUpdateResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.callStrategy)) {
+      body["callStrategy"] = request.callStrategy;
+    }
+
+    if (!$dara.isNull(request.fallbackTargets)) {
+      body["fallbackTargets"] = request.fallbackTargets;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.responseModel)) {
+      body["responseModel"] = request.responseModel;
+    }
+
+    if (!$dara.isNull(request.routingPolicy)) {
+      body["routingPolicy"] = request.routingPolicy;
+    }
+
+    if (!$dara.isNull(request.slots)) {
+      body["slots"] = request.slots;
+    }
+
+    if (!$dara.isNull(request.targets)) {
+      body["targets"] = request.targets;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PreviewLogicalModelUpdate",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/logical-models/${$dara.URL.percentEncode(logicalModelId)}/preview`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PreviewLogicalModelUpdateResponse>(await this.callApi(params, req, runtime), new $_model.PreviewLogicalModelUpdateResponse({}));
+  }
+
+  /**
+   * 预演逻辑模型修改影响
+   * 
+   * @param request - PreviewLogicalModelUpdateRequest
+   * @returns PreviewLogicalModelUpdateResponse
+   */
+  async previewLogicalModelUpdate(logicalModelId: string, request: $_model.PreviewLogicalModelUpdateRequest): Promise<$_model.PreviewLogicalModelUpdateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.previewLogicalModelUpdateWithOptions(logicalModelId, request, headers, runtime);
+  }
+
+  /**
+   * Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the publication. You can query the publication record by calling ListProductPublications and unpublish the product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
    * 
    * @param request - PublishProductRequest
    * @param headers - map
@@ -10171,7 +11735,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the current publication. You can query the publication record by calling ListProductPublications and unpublish the API product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
+   * Publishes a specified API product to a specified HiMarket portal. The path parameter specifies the API product ID, and the request body specifies the target portal ID. This operation returns the publication record ID for the publication. You can query the publication record by calling ListProductPublications and unpublish the product by calling UnpublishProduct at /himarket/v1/products/{productId}/publications/{publicationId}.
    * 
    * @param request - PublishProductRequest
    * @returns PublishProductResponse
@@ -10183,7 +11747,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of consumer authorization rules.
+   * Queries consumer authorization rules.
    * 
    * @param request - QueryConsumerAuthorizationRulesRequest
    * @param headers - map
@@ -10268,7 +11832,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of consumer authorization rules.
+   * Queries consumer authorization rules.
    * 
    * @param request - QueryConsumerAuthorizationRulesRequest
    * @returns QueryConsumerAuthorizationRulesResponse
@@ -10280,7 +11844,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Refreshes the OAuth code for the plugin-managed repository.
+   * Refreshes the OAuth code for the plugin hosted repository.
    * 
    * @param request - RefreshPluginOAuthCodeRequest
    * @param headers - map
@@ -10313,7 +11877,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Refreshes the OAuth code for the plugin-managed repository.
+   * Refreshes the OAuth code for the plugin hosted repository.
    * 
    * @param request - RefreshPluginOAuthCodeRequest
    * @returns RefreshPluginOAuthCodeResponse
@@ -10325,7 +11889,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an API consumer authorization rule.
+   * Deletes a consumer authorization rule.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10350,7 +11914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes an API consumer authorization rule.
+   * Deletes a consumer authorization rule.
    * @returns RemoveConsumerAuthorizationRuleResponse
    */
   async removeConsumerAuthorizationRule(consumerAuthorizationRuleId: string): Promise<$_model.RemoveConsumerAuthorizationRuleResponse> {
@@ -10363,15 +11927,15 @@ export default class Client extends OpenApi {
    * Resets a quota throttling rule on a gateway.
    * 
    * @remarks
-   * This operation resets a quota throttling rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The reset clears the historical usage of the consumption subjects on the rule.
+   * This operation resets a quota throttling rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The reset clears the historical usage of the consumption subjects associated with the rule.
    * > 
    * > Recommended call logic:
    * > - 1. Perform a dry run to check for rule conflicts.
    * > - - Set dryRun=true.
-   * > - - The response returns a conflict preview containing a conflictHash.
+   * > - - The response returns a conflict preview that contains a conflictHash.
    * > - 2. Formally submit the request after confirmation.
-   * > - - No conflicts: Set dryRun=false and overwrite=false.
-   * > - - Conflicts exist and overwrite is confirmed: Set dryRun=false, overwrite=true, and conflictHash=<value returned in the previous step>.
+   * > - - If no conflicts exist: Set dryRun=false and overwrite=false.
+   * > - - If conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
    * 
    * @param request - ResetGatewayQuotaRuleRequest
    * @param headers - map
@@ -10435,15 +11999,15 @@ export default class Client extends OpenApi {
    * Resets a quota throttling rule on a gateway.
    * 
    * @remarks
-   * This operation resets a quota throttling rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The reset clears the historical usage of the consumption subjects on the rule.
+   * This operation resets a quota throttling rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The reset clears the historical usage of the consumption subjects associated with the rule.
    * > 
    * > Recommended call logic:
    * > - 1. Perform a dry run to check for rule conflicts.
    * > - - Set dryRun=true.
-   * > - - The response returns a conflict preview containing a conflictHash.
+   * > - - The response returns a conflict preview that contains a conflictHash.
    * > - 2. Formally submit the request after confirmation.
-   * > - - No conflicts: Set dryRun=false and overwrite=false.
-   * > - - Conflicts exist and overwrite is confirmed: Set dryRun=false, overwrite=true, and conflictHash=<value returned in the previous step>.
+   * > - - If no conflicts exist: Set dryRun=false and overwrite=false.
+   * > - - If conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
    * 
    * @param request - ResetGatewayQuotaRuleRequest
    * @returns ResetGatewayQuotaRuleResponse
@@ -10487,6 +12051,55 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.restartGatewayWithOptions(gatewayId, headers, runtime);
+  }
+
+  /**
+   * Retries the delivery of the logical model configuration.
+   * 
+   * @param request - RetryLogicalModelDeploymentRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RetryLogicalModelDeploymentResponse
+   */
+  async retryLogicalModelDeploymentWithOptions(operationId: string, request: $_model.RetryLogicalModelDeploymentRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RetryLogicalModelDeploymentResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.expectedRevision)) {
+      query["expectedRevision"] = request.expectedRevision;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RetryLogicalModelDeployment",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/logical-model-deployments/${$dara.URL.percentEncode(operationId)}/retry`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RetryLogicalModelDeploymentResponse>(await this.callApi(params, req, runtime), new $_model.RetryLogicalModelDeploymentResponse({}));
+  }
+
+  /**
+   * Retries the delivery of the logical model configuration.
+   * 
+   * @param request - RetryLogicalModelDeploymentRequest
+   * @returns RetryLogicalModelDeploymentResponse
+   */
+  async retryLogicalModelDeployment(operationId: string, request: $_model.RetryLogicalModelDeploymentRequest): Promise<$_model.RetryLogicalModelDeploymentResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.retryLogicalModelDeploymentWithOptions(operationId, request, headers, runtime);
   }
 
   /**
@@ -10535,6 +12148,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Revokes model card licenses for consumers.
+   * 
+   * @param request - RevokeConsumerModelCardGrantsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeConsumerModelCardGrantsResponse
+   */
+  async revokeConsumerModelCardGrantsWithOptions(httpApiId: string, request: $_model.RevokeConsumerModelCardGrantsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RevokeConsumerModelCardGrantsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.modelCardIds)) {
+      body["modelCardIds"] = request.modelCardIds;
+    }
+
+    if (!$dara.isNull(request.modelGroupIds)) {
+      body["modelGroupIds"] = request.modelGroupIds;
+    }
+
+    if (!$dara.isNull(request.principalId)) {
+      body["principalId"] = request.principalId;
+    }
+
+    if (!$dara.isNull(request.principalType)) {
+      body["principalType"] = request.principalType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RevokeConsumerModelCardGrants",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/model-apis/${$dara.URL.percentEncode(httpApiId)}/model-card-grants/revoke`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RevokeConsumerModelCardGrantsResponse>(await this.callApi(params, req, runtime), new $_model.RevokeConsumerModelCardGrantsResponse({}));
+  }
+
+  /**
+   * Revokes model card licenses for consumers.
+   * 
+   * @param request - RevokeConsumerModelCardGrantsRequest
+   * @returns RevokeConsumerModelCardGrantsResponse
+   */
+  async revokeConsumerModelCardGrants(httpApiId: string, request: $_model.RevokeConsumerModelCardGrantsRequest): Promise<$_model.RevokeConsumerModelCardGrantsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.revokeConsumerModelCardGrantsWithOptions(httpApiId, request, headers, runtime);
+  }
+
+  /**
    * Runs a pipeline in a plug-in workspace.
    * 
    * @param request - RunPluginPipelineRequest
@@ -10574,7 +12244,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Subscribes to an API product for a specified HiMarket Consumer. The path parameter specifies the consumer ID, the request body specifies the ID of the API product to subscribe to, and the response returns the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status.
+   * Subscribes to an API product for a specified HiMarket consumer. The path parameter specifies the consumer ID, and the request body specifies the ID of the API product to subscribe to. The response includes the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status of the subscription record.
    * 
    * @param request - SubscribeProductRequest
    * @param headers - map
@@ -10607,7 +12277,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Subscribes to an API product for a specified HiMarket Consumer. The path parameter specifies the consumer ID, the request body specifies the ID of the API product to subscribe to, and the response returns the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status.
+   * Subscribes to an API product for a specified HiMarket consumer. The path parameter specifies the consumer ID, and the request body specifies the ID of the API product to subscribe to. The response includes the subscription ID, API product ID and name, API product type, consumer ID and name, and subscription status of the subscription record.
    * 
    * @param request - SubscribeProductRequest
    * @returns SubscribeProductResponse
@@ -10619,7 +12289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Syncs an external MCP server.
+   * Synchronizes external MCP servers.
    * 
    * @param request - SyncMCPServersRequest
    * @param headers - map
@@ -10668,7 +12338,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Syncs an external MCP server.
+   * Synchronizes external MCP servers.
    * 
    * @param request - SyncMCPServersRequest
    * @returns SyncMCPServersResponse
@@ -10733,7 +12403,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels the publishing of an MCP server.
+   * Cancels the publication of an MCP server.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10758,7 +12428,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels the publishing of an MCP server.
+   * Cancels the publication of an MCP server.
    * @returns UnDeployMcpServerResponse
    */
   async unDeployMcpServer(mcpServerId: string): Promise<$_model.UnDeployMcpServerResponse> {
@@ -10860,7 +12530,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Takes a publication record of an API product offline based on the API product ID and publication record ID. Both identifiers are parameters in the /himarket/v1/products/{productId}/publications/{publicationId} path. The publication record is created by the PublishProduct operation and can be queried by using the ListProductPublications operation. This operation only affects the publication record and does not delete the API product itself. To delete a product, use the DeleteProduct operation. The response returns only the requestId, code, and message.
+   * Unpublishes a publication record of an API product based on the API product ID and publication record ID. Both identifiers are parameters in the /himarket/v1/products/{productId}/publications/{publicationId} path. The publication record is generated by PublishProduct and can be queried by ListProductPublications. This operation only affects the publication record and does not delete the API product itself. To delete a product, use DeleteProduct. The response returns only the requestId, code, and message.
    * 
    * @param request - UnpublishProductRequest
    * @param headers - map
@@ -10887,7 +12557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Takes a publication record of an API product offline based on the API product ID and publication record ID. Both identifiers are parameters in the /himarket/v1/products/{productId}/publications/{publicationId} path. The publication record is created by the PublishProduct operation and can be queried by using the ListProductPublications operation. This operation only affects the publication record and does not delete the API product itself. To delete a product, use the DeleteProduct operation. The response returns only the requestId, code, and message.
+   * Unpublishes a publication record of an API product based on the API product ID and publication record ID. Both identifiers are parameters in the /himarket/v1/products/{productId}/publications/{publicationId} path. The publication record is generated by PublishProduct and can be queried by ListProductPublications. This operation only affects the publication record and does not delete the API product itself. To delete a product, use DeleteProduct. The response returns only the requestId, code, and message.
    * 
    * @param request - UnpublishProductRequest
    * @returns UnpublishProductResponse
@@ -10899,7 +12569,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from resources.
+   * Removes resource tags.
    * 
    * @param tmpReq - UntagResourcesRequest
    * @param headers - map
@@ -10954,7 +12624,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes tags from resources.
+   * Removes resource tags.
    * 
    * @param request - UntagResourcesRequest
    * @returns UntagResourcesResponse
@@ -11041,6 +12711,10 @@ export default class Client extends OpenApi {
   async updateAiModelProviderWithOptions(modelProviderId: string, request: $_model.UpdateAiModelProviderRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAiModelProviderResponse> {
     request.validate();
     let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.defaultServiceId)) {
+      body["defaultServiceId"] = request.defaultServiceId;
+    }
+
     if (!$dara.isNull(request.displayName)) {
       body["displayName"] = request.displayName;
     }
@@ -11077,6 +12751,124 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateAiModelProviderWithOptions(modelProviderId, request, headers, runtime);
+  }
+
+  /**
+   * Updates a standalone AI model source.
+   * 
+   * @param request - UpdateAiModelSourceRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAiModelSourceResponse
+   */
+  async updateAiModelSourceWithOptions(modelSourceId: string, request: $_model.UpdateAiModelSourceRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAiModelSourceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.displayName)) {
+      body["displayName"] = request.displayName;
+    }
+
+    if (!$dara.isNull(request.expectedVersion)) {
+      body["expectedVersion"] = request.expectedVersion;
+    }
+
+    if (!$dara.isNull(request.serviceId)) {
+      body["serviceId"] = request.serviceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAiModelSource",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-sources/${$dara.URL.percentEncode(modelSourceId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAiModelSourceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAiModelSourceResponse({}));
+  }
+
+  /**
+   * Updates a standalone AI model source.
+   * 
+   * @param request - UpdateAiModelSourceRequest
+   * @returns UpdateAiModelSourceResponse
+   */
+  async updateAiModelSource(modelSourceId: string, request: $_model.UpdateAiModelSourceRequest): Promise<$_model.UpdateAiModelSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAiModelSourceWithOptions(modelSourceId, request, headers, runtime);
+  }
+
+  /**
+   * Updates an AI model in a model source.
+   * 
+   * @param request - UpdateAiModelSourceModelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateAiModelSourceModelResponse
+   */
+  async updateAiModelSourceModelWithOptions(modelCardId: string, request: $_model.UpdateAiModelSourceModelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateAiModelSourceModelResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.availablePaths)) {
+      body["availablePaths"] = request.availablePaths;
+    }
+
+    if (!$dara.isNull(request.credit)) {
+      body["credit"] = request.credit;
+    }
+
+    if (!$dara.isNull(request.expectedVersion)) {
+      body["expectedVersion"] = request.expectedVersion;
+    }
+
+    if (!$dara.isNull(request.features)) {
+      body["features"] = request.features;
+    }
+
+    if (!$dara.isNull(request.meta)) {
+      body["meta"] = request.meta;
+    }
+
+    if (!$dara.isNull(request.modelName)) {
+      body["modelName"] = request.modelName;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateAiModelSourceModel",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/ai-model-source-models/${$dara.URL.percentEncode(modelCardId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateAiModelSourceModelResponse>(await this.callApi(params, req, runtime), new $_model.UpdateAiModelSourceModelResponse({}));
+  }
+
+  /**
+   * Updates an AI model in a model source.
+   * 
+   * @param request - UpdateAiModelSourceModelRequest
+   * @returns UpdateAiModelSourceModelResponse
+   */
+  async updateAiModelSourceModel(modelCardId: string, request: $_model.UpdateAiModelSourceModelRequest): Promise<$_model.UpdateAiModelSourceModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateAiModelSourceModelWithOptions(modelCardId, request, headers, runtime);
   }
 
   /**
@@ -11194,7 +12986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds or removes API products from a specified product category in bulk. The path parameter specifies the category ID. The action field in the request body specifies the operation type, and the productIds field specifies the list of API product IDs to be processed. The response returns only the request ID, status code, and message, and does not return the processing result for each item.
+   * Adds or removes API products in batches under a specified product category. The path parameter specifies the category ID, the action in the request body specifies the operation direction, and productIds specifies the list of API product IDs to process. The response returns only the requestId, code, and message, without item-level processing results.
    * 
    * @param request - UpdateCategoryProductsRequest
    * @param headers - map
@@ -11231,7 +13023,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds or removes API products from a specified product category in bulk. The path parameter specifies the category ID. The action field in the request body specifies the operation type, and the productIds field specifies the list of API product IDs to be processed. The response returns only the request ID, status code, and message, and does not return the processing result for each item.
+   * Adds or removes API products in batches under a specified product category. The path parameter specifies the category ID, the action in the request body specifies the operation direction, and productIds specifies the list of API product IDs to process. The response returns only the requestId, code, and message, without item-level processing results.
    * 
    * @param request - UpdateCategoryProductsRequest
    * @returns UpdateCategoryProductsResponse
@@ -11304,7 +13096,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the consumer authorization rule.
+   * Updates a consumer authorization rule.
    * 
    * @remarks
    * This API operation has been replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
@@ -11350,7 +13142,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the consumer authorization rule.
+   * Updates a consumer authorization rule.
    * 
    * @remarks
    * This API operation has been replaced by UpdateAuthorizationRule. The new API path is /v1/authorization-rules/{consumerAuthorizationRuleId}. When you call the new API operation, you only need to provide consumerAuthorizationRuleId in the path and the resources array in the request body. The consumerId parameter is no longer required.
@@ -11701,7 +13493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a Gateway Load Balancer (GWLB).
+   * Updates a gateway load balancer.
    * 
    * @param request - UpdateGatewayLoadBalancerRequest
    * @param headers - map
@@ -11742,7 +13534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a Gateway Load Balancer (GWLB).
+   * Updates a gateway load balancer.
    * 
    * @param request - UpdateGatewayLoadBalancerRequest
    * @returns UpdateGatewayLoadBalancerResponse
@@ -11754,10 +13546,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the O&M window of a gateway.
+   * Updates the O&M window of a gateway.
    * 
    * @remarks
-   * Modifies the O&M time window of a gateway. This feature is supported only by specific gateway types. If the current gateway does not support modifying the O&M time window, the API returns 409 Conflict.GatewayNotSupportAutoMaintenance.
+   * Updates the O&M time window of a gateway. This feature is supported only by specific gateway types. If the current gateway does not support modifying the O&M time window, the API returns 409 Conflict.GatewayNotSupportAutoMaintenance.
    * 
    * @param request - UpdateGatewayMaintenancePeriodRequest
    * @param headers - map
@@ -11790,10 +13582,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the O&M window of a gateway.
+   * Updates the O&M window of a gateway.
    * 
    * @remarks
-   * Modifies the O&M time window of a gateway. This feature is supported only by specific gateway types. If the current gateway does not support modifying the O&M time window, the API returns 409 Conflict.GatewayNotSupportAutoMaintenance.
+   * Updates the O&M time window of a gateway. This feature is supported only by specific gateway types. If the current gateway does not support modifying the O&M time window, the API returns 409 Conflict.GatewayNotSupportAutoMaintenance.
    * 
    * @param request - UpdateGatewayMaintenancePeriodRequest
    * @returns UpdateGatewayMaintenancePeriodResponse
@@ -11855,17 +13647,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a quota throttling rule on a gateway.
+   * Updates a quota throttling rule on a gateway.
    * 
    * @remarks
-   * This operation modifies a quota rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The modification retains the historical usage of the consumers associated with the rule.
+   * This operation updates a quota rule on a gateway. Note that this operation takes effect only on AI gateways of versions later than 2.1.21. The update retains the historical usage of the consumers associated with the rule.
    * > Recommended call logic:
    * > - 1. Perform a dry run to check for rule conflicts.
    * > - - Set dryRun=true.
-   * > - - The response returns a conflict preview that contains a conflictHash.
-   * > - 2. Submit the request after confirmation.
-   * > - - If no conflicts exist: Set dryRun=false and overwrite=false.
-   * > - - If conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
+   * > - - The response returns a conflict preview containing a conflictHash.
+   * > - 2. Formally submit the request after confirmation.
+   * > - - No conflicts: Set dryRun=false and overwrite=false.
+   * > - - Conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
    * 
    * @param request - UpdateGatewayQuotaRuleRequest
    * @param headers - map
@@ -11926,17 +13718,17 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a quota throttling rule on a gateway.
+   * Updates a quota throttling rule on a gateway.
    * 
    * @remarks
-   * This operation modifies a quota rule on a gateway. Note that this operation takes effect only on AI gateways of a version later than 2.1.21. The modification retains the historical usage of the consumers associated with the rule.
+   * This operation updates a quota rule on a gateway. Note that this operation takes effect only on AI gateways of versions later than 2.1.21. The update retains the historical usage of the consumers associated with the rule.
    * > Recommended call logic:
    * > - 1. Perform a dry run to check for rule conflicts.
    * > - - Set dryRun=true.
-   * > - - The response returns a conflict preview that contains a conflictHash.
-   * > - 2. Submit the request after confirmation.
-   * > - - If no conflicts exist: Set dryRun=false and overwrite=false.
-   * > - - If conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
+   * > - - The response returns a conflict preview containing a conflictHash.
+   * > - 2. Formally submit the request after confirmation.
+   * > - - No conflicts: Set dryRun=false and overwrite=false.
+   * > - - Conflicts exist and you confirm to overwrite: Set dryRun=false, overwrite=true, and conflictHash=<the value returned in the previous step>.
    * 
    * @param request - UpdateGatewayQuotaRuleRequest
    * @returns UpdateGatewayQuotaRuleResponse
@@ -11951,7 +13743,7 @@ export default class Client extends OpenApi {
    * Enables or disables a quota throttling rule for a gateway.
    * 
    * @remarks
-   * This operation enables or disables a quota rule on a gateway. Note that this operation applies only to AI gateways of a version later than 2.1.21.
+   * This operation enables or disables a quota rule on a gateway. Note that this operation takes effect only for AI gateways of a version later than 2.1.21.
    * 
    * @param request - UpdateGatewayQuotaRuleStatusRequest
    * @param headers - map
@@ -11991,7 +13783,7 @@ export default class Client extends OpenApi {
    * Enables or disables a quota throttling rule for a gateway.
    * 
    * @remarks
-   * This operation enables or disables a quota rule on a gateway. Note that this operation applies only to AI gateways of a version later than 2.1.21.
+   * This operation enables or disables a quota rule on a gateway. Note that this operation takes effect only for AI gateways of a version later than 2.1.21.
    * 
    * @param request - UpdateGatewayQuotaRuleStatusRequest
    * @returns UpdateGatewayQuotaRuleStatusResponse
@@ -12151,7 +13943,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the route of an HTTP API.
+   * Updates a route of an HTTP API.
    * 
    * @param request - UpdateHttpApiRouteRequest
    * @param headers - map
@@ -12212,7 +14004,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the route of an HTTP API.
+   * Updates a route of an HTTP API.
    * 
    * @param request - UpdateHttpApiRouteRequest
    * @returns UpdateHttpApiRouteResponse
@@ -12221,6 +14013,85 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateHttpApiRouteWithOptions(httpApiId, routeId, request, headers, runtime);
+  }
+
+  /**
+   * 修改逻辑模型
+   * 
+   * @param request - UpdateLogicalModelRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateLogicalModelResponse
+   */
+  async updateLogicalModelWithOptions(logicalModelId: string, request: $_model.UpdateLogicalModelRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateLogicalModelResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.confirmationToken)) {
+      query["confirmationToken"] = request.confirmationToken;
+    }
+
+    if (!$dara.isNull(request.expectedRevision)) {
+      query["expectedRevision"] = request.expectedRevision;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.callStrategy)) {
+      body["callStrategy"] = request.callStrategy;
+    }
+
+    if (!$dara.isNull(request.fallbackTargets)) {
+      body["fallbackTargets"] = request.fallbackTargets;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.responseModel)) {
+      body["responseModel"] = request.responseModel;
+    }
+
+    if (!$dara.isNull(request.routingPolicy)) {
+      body["routingPolicy"] = request.routingPolicy;
+    }
+
+    if (!$dara.isNull(request.slots)) {
+      body["slots"] = request.slots;
+    }
+
+    if (!$dara.isNull(request.targets)) {
+      body["targets"] = request.targets;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateLogicalModel",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/logical-models/${$dara.URL.percentEncode(logicalModelId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateLogicalModelResponse>(await this.callApi(params, req, runtime), new $_model.UpdateLogicalModelResponse({}));
+  }
+
+  /**
+   * 修改逻辑模型
+   * 
+   * @param request - UpdateLogicalModelRequest
+   * @returns UpdateLogicalModelResponse
+   */
+  async updateLogicalModel(logicalModelId: string, request: $_model.UpdateLogicalModelRequest): Promise<$_model.UpdateLogicalModelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateLogicalModelWithOptions(logicalModelId, request, headers, runtime);
   }
 
   /**
@@ -12392,7 +14263,141 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the network access type of a gateway.
+   * Updates a model API.
+   * 
+   * @param request - UpdateModelApiRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateModelApiResponse
+   */
+  async updateModelApiWithOptions(httpApiId: string, request: $_model.UpdateModelApiRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateModelApiResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.basePath)) {
+      body["basePath"] = request.basePath;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.directSupplyFallbackEnabled)) {
+      body["directSupplyFallbackEnabled"] = request.directSupplyFallbackEnabled;
+    }
+
+    if (!$dara.isNull(request.domainIds)) {
+      body["domainIds"] = request.domainIds;
+    }
+
+    if (!$dara.isNull(request.enableAuth)) {
+      body["enableAuth"] = request.enableAuth;
+    }
+
+    if (!$dara.isNull(request.firstByteTimeout)) {
+      body["firstByteTimeout"] = request.firstByteTimeout;
+    }
+
+    if (!$dara.isNull(request.modelSelection)) {
+      body["modelSelection"] = request.modelSelection;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.policyConfigs)) {
+      body["policyConfigs"] = request.policyConfigs;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateModelApi",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/model-apis/${$dara.URL.percentEncode(httpApiId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateModelApiResponse>(await this.callApi(params, req, runtime), new $_model.UpdateModelApiResponse({}));
+  }
+
+  /**
+   * Updates a model API.
+   * 
+   * @param request - UpdateModelApiRequest
+   * @returns UpdateModelApiResponse
+   */
+  async updateModelApi(httpApiId: string, request: $_model.UpdateModelApiRequest): Promise<$_model.UpdateModelApiResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateModelApiWithOptions(httpApiId, request, headers, runtime);
+  }
+
+  /**
+   * Updates a model group.
+   * 
+   * @param request - UpdateModelGroupRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateModelGroupResponse
+   */
+  async updateModelGroupWithOptions(modelGroupId: string, request: $_model.UpdateModelGroupRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateModelGroupResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.expectedVersion)) {
+      body["expectedVersion"] = request.expectedVersion;
+    }
+
+    if (!$dara.isNull(request.modelCardIds)) {
+      body["modelCardIds"] = request.modelCardIds;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateModelGroup",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/model-groups/${$dara.URL.percentEncode(modelGroupId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateModelGroupResponse>(await this.callApi(params, req, runtime), new $_model.UpdateModelGroupResponse({}));
+  }
+
+  /**
+   * Updates a model group.
+   * 
+   * @param request - UpdateModelGroupRequest
+   * @returns UpdateModelGroupResponse
+   */
+  async updateModelGroup(modelGroupId: string, request: $_model.UpdateModelGroupRequest): Promise<$_model.UpdateModelGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateModelGroupWithOptions(modelGroupId, request, headers, runtime);
+  }
+
+  /**
+   * Modifies the network access type of a gateway.
    * 
    * @param request - UpdateNetworkAccessRequest
    * @param headers - map
@@ -12425,7 +14430,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the network access type of a gateway.
+   * Modifies the network access type of a gateway.
    * 
    * @param request - UpdateNetworkAccessRequest
    * @returns UpdateNetworkAccessResponse
@@ -12543,7 +14548,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name, description, and portal configuration of a HiMarket developer portal by portal ID. The request body is in JSON format, and a successful response returns the ID of the updated portal.
+   * Updates the name, description, and portal configurations of a HiMarket developer portal by portal ID. The request body is in JSON format. A successful response returns the ID of the updated portal.
    * 
    * @param request - UpdatePortalRequest
    * @param headers - map
@@ -12590,7 +14595,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name, description, and portal configuration of a HiMarket developer portal by portal ID. The request body is in JSON format, and a successful response returns the ID of the updated portal.
+   * Updates the name, description, and portal configurations of a HiMarket developer portal by portal ID. The request body is in JSON format. A successful response returns the ID of the updated portal.
    * 
    * @param request - UpdatePortalRequest
    * @returns UpdatePortalResponse
@@ -12681,7 +14686,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name, description, and icon of a product category by category ID. The request body is in JSON format, and the response returns only the request ID, response status code, and response message.
+   * Updates the name, description, and icon of a product category by its ID. The request body is in JSON format, and the response returns only the request ID, response status code, and response message.
    * 
    * @param request - UpdateProductCategoryRequest
    * @param headers - map
@@ -12722,7 +14727,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the name, description, and icon of a product category by category ID. The request body is in JSON format, and the response returns only the request ID, response status code, and response message.
+   * Updates the name, description, and icon of a product category by its ID. The request body is in JSON format, and the response returns only the request ID, response status code, and response message.
    * 
    * @param request - UpdateProductCategoryRequest
    * @returns UpdateProductCategoryResponse
@@ -12786,7 +14791,7 @@ export default class Client extends OpenApi {
    * Updates a secret.
    * 
    * @remarks
-   * Only sources of the **container service** type allow you to update the listener Ingress configuration.
+   * Only sources of the **container service** type are allowed to update Ingress listener configurations.
    * 
    * @param request - UpdateSecretRequest
    * @param headers - map
@@ -12822,7 +14827,7 @@ export default class Client extends OpenApi {
    * Updates a secret.
    * 
    * @remarks
-   * Only sources of the **container service** type allow you to update the listener Ingress configuration.
+   * Only sources of the **container service** type are allowed to update Ingress listener configurations.
    * 
    * @param request - UpdateSecretRequest
    * @returns UpdateSecretResponse
@@ -12866,6 +14871,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.dnsServers)) {
       body["dnsServers"] = request.dnsServers;
+    }
+
+    if (!$dara.isNull(request.expectedConfigRevision)) {
+      body["expectedConfigRevision"] = request.expectedConfigRevision;
     }
 
     if (!$dara.isNull(request.healthCheckConfig)) {

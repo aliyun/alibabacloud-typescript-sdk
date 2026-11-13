@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRegionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response. Valid values: zh, en.
+   * The language of the response. Valid values: zh and en.
    * 
    * @example
    * zh

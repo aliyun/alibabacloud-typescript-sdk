@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayElasticPolicyResponseBodyDataElasticPolicyDisableScaleTimePolicyList extends $dara.Model {
   /**
    * @remarks
-   * The O&M end time in the HH:mm format.
+   * The end time of the O&M window (HH:mm).
    * 
    * @example
    * 00:00
@@ -13,7 +13,7 @@ export class GetGatewayElasticPolicyResponseBodyDataElasticPolicyDisableScaleTim
   endTime?: string;
   /**
    * @remarks
-   * The O&M start time in the HH:mm format.
+   * The start time of the O&M window (HH:mm).
    * 
    * @example
    * 00:00
@@ -45,7 +45,7 @@ export class GetGatewayElasticPolicyResponseBodyDataElasticPolicyDisableScaleTim
 export class GetGatewayElasticPolicyResponseBodyDataElasticPolicyEnableScaleTimePolicyList extends $dara.Model {
   /**
    * @remarks
-   * The O&M end time in the HH:mm format.
+   * The end time of the O&M window (HH:mm).
    * 
    * @example
    * 18:00
@@ -53,7 +53,7 @@ export class GetGatewayElasticPolicyResponseBodyDataElasticPolicyEnableScaleTime
   endTime?: string;
   /**
    * @remarks
-   * The O&M start time in the HH:mm format.
+   * The start time of the O&M window (HH:mm).
    * 
    * @example
    * 09:00
@@ -85,7 +85,7 @@ export class GetGatewayElasticPolicyResponseBodyDataElasticPolicyEnableScaleTime
 export class GetGatewayElasticPolicyResponseBodyDataElasticPolicyTimePolicyList extends $dara.Model {
   /**
    * @remarks
-   * The O&M end time in the HH:mm format.
+   * The end time of the O&M window (HH:mm).
    * 
    * @example
    * 06:00
@@ -93,7 +93,7 @@ export class GetGatewayElasticPolicyResponseBodyDataElasticPolicyTimePolicyList 
   endTime?: string;
   /**
    * @remarks
-   * The O&M start time in the HH:mm format.
+   * The start time of the O&M window (HH:mm).
    * 
    * @example
    * 00:00
@@ -135,7 +135,7 @@ export class GetGatewayElasticPolicyResponseBodyDataElasticPolicyTimePolicyList 
 export class GetGatewayElasticPolicyResponseBodyDataElasticPolicy extends $dara.Model {
   /**
    * @remarks
-   * The time periods during which AutoHPA scale-out is prohibited.
+   * The time periods during which AutoHPA is prohibited from scaling out.
    */
   disableScaleTimePolicyList?: GetGatewayElasticPolicyResponseBodyDataElasticPolicyDisableScaleTimePolicyList[];
   /**
@@ -156,12 +156,12 @@ export class GetGatewayElasticPolicyResponseBodyDataElasticPolicy extends $dara.
   elasticType?: string;
   /**
    * @remarks
-   * The time periods during which AutoHPA scale-out is allowed.
+   * The time periods during which AutoHPA is allowed to scale out.
    */
   enableScaleTimePolicyList?: GetGatewayElasticPolicyResponseBodyDataElasticPolicyEnableScaleTimePolicyList[];
   /**
    * @remarks
-   * The load alert threshold switch for AutoHPA.
+   * The AutoHPA load alert threshold switch.
    * 
    * @example
    * true
@@ -177,7 +177,7 @@ export class GetGatewayElasticPolicyResponseBodyDataElasticPolicy extends $dara.
   maxUnits?: number;
   /**
    * @remarks
-   * The list of CronHPA scheduled policies. Each entry includes units (number of replicas), startTime, and endTime.
+   * The list of scheduled policies for CronHPA, including units (number of replicas), startTime, and endTime.
    */
   timePolicyList?: GetGatewayElasticPolicyResponseBodyDataElasticPolicyTimePolicyList[];
   static names(): { [key: string]: string } {
@@ -225,12 +225,12 @@ export class GetGatewayElasticPolicyResponseBodyDataElasticPolicy extends $dara.
 export class GetGatewayElasticPolicyResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The elastic policy configuration, deserialized from the elastic_config JSON field in the database.
+   * The elastic policy configuration, deserialized from the elastic_config JSON in the database.
    */
   elasticPolicy?: GetGatewayElasticPolicyResponseBodyDataElasticPolicy;
   /**
    * @remarks
-   * The KubeOne AutoScaleStrategy instance ID.
+   * The ID of the KubeOne AutoScaleStrategy instance.
    * 
    * @example
    * 123456
@@ -246,7 +246,7 @@ export class GetGatewayElasticPolicyResponseBodyData extends $dara.Model {
   elasticType?: string;
   /**
    * @remarks
-   * The gateway ID.
+   * The ID of the gateway.
    * 
    * @example
    * gw-xxxx

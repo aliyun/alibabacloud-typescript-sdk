@@ -13,7 +13,7 @@ export class ListServicesRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The exact name of the service to query.
+   * The name of the service for an exact match.
    * 
    * @example
    * user-service
@@ -46,11 +46,11 @@ export class ListServicesRequest extends $dara.Model {
   /**
    * @remarks
    * The source type of the service. Valid values:
-   * - MSE_NACOS: Services from MSE Nacos.
-   * - K8S: Services from Kubernetes clusters in Container Service.
-   * - FC3: Services from Function Compute.
-   * - VIP: Services from fixed addresses.
-   * - DNS: Services from domain names.
+   * - MSE_NACOS: services from Microservices Engine (MSE) Nacos.
+   * - K8S: services from Kubernetes clusters in Container Service for Kubernetes.
+   * - FC3: services from Function Compute.
+   * - VIP: services from fixed addresses.
+   * - DNS: services from domain names.
    * 
    * @example
    * MSE_NACOS

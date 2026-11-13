@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBatchExportTasksResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The task creation time. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
+   * The creation time of the task. Format: yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\".
    * 
    * @example
    * 2026-05-26T10:00:00Z
@@ -21,7 +21,7 @@ export class ListBatchExportTasksResponseBodyDataItems extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The gateway instance ID associated with the task.
+   * The instance ID of the gateway associated with the task.
    * 
    * @example
    * gw-xxx
@@ -37,12 +37,7 @@ export class ListBatchExportTasksResponseBodyDataItems extends $dara.Model {
   processedCount?: number;
   /**
    * @remarks
-   * The task status. Valid values:
-   * - Pending: The task is pending.
-   * - Running: The task is running.
-   * - Success: All items succeeded.
-   * - PartialSuccess: Some items succeeded.
-   * - Failed: All items failed.
+   * The status of the task. Valid values: Pending, Running, Success, PartialSuccess, and Failed.
    * 
    * @example
    * Running
@@ -50,7 +45,7 @@ export class ListBatchExportTasksResponseBodyDataItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * task-xxx
@@ -58,7 +53,7 @@ export class ListBatchExportTasksResponseBodyDataItems extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task type.
+   * The type of the task.
    * 
    * @example
    * BatchExport
@@ -110,7 +105,7 @@ export class ListBatchExportTasksResponseBodyDataItems extends $dara.Model {
 export class ListBatchExportTasksResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of tasks, returned in reverse chronological order with the most recent tasks first.
+   * The list of tasks. Tasks are returned in descending order of creation time, with the latest tasks first.
    */
   items?: ListBatchExportTasksResponseBodyDataItems[];
   /**
@@ -123,7 +118,7 @@ export class ListBatchExportTasksResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -199,7 +194,7 @@ export class ListBatchExportTasksResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next query. This value is empty when no more results are available.
+   * The starting token for the next query. This parameter is empty when no more results are available.
    * 
    * @example
    * token-xxx

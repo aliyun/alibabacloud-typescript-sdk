@@ -55,7 +55,7 @@ export class BatchRemoveConsumerGroupConsumersResponseBodyData extends $dara.Mod
 export class BatchRemoveConsumerGroupConsumersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. Returns Ok if the request succeeds.
+   * The response status code. Ok is returned if the request is successful.
    * 
    * @example
    * Ok

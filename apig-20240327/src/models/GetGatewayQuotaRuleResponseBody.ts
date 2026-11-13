@@ -95,7 +95,7 @@ export class GetGatewayQuotaRuleResponseBodyDataSubjects extends $dara.Model {
 export class GetGatewayQuotaRuleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The base timestamp of the period.
+   * The base timestamp of the period, in UNIX seconds.
    * 
    * @example
    * 1745846400000

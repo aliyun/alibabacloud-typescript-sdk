@@ -13,7 +13,7 @@ export class ListExternalServicesRequest extends $dara.Model {
   importableOnly?: boolean;
   /**
    * @remarks
-   * The maximum number of results to return. Valid range: (0, 100]. Default value: 10.
+   * The maximum number of entries to return. Valid values: (0, 100]. Default value: 10.
    * 
    * @example
    * 100
@@ -21,7 +21,7 @@ export class ListExternalServicesRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * Fuzzy match by API name.
+   * The keyword for fuzzy match by operation name.
    * 
    * @example
    * imah
@@ -29,7 +29,7 @@ export class ListExternalServicesRequest extends $dara.Model {
   nameLike?: string;
   /**
    * @remarks
-   * The workspace ID of the PAI-EAS service.
+   * The ID of the PAI-EAS workspace.
    * 
    * @example
    * 667435
@@ -37,7 +37,7 @@ export class ListExternalServicesRequest extends $dara.Model {
   paiWorkspaceId?: string;
   /**
    * @remarks
-   * The service source type used to query services. This parameter is essentially required. If not provided, the API returns 400 InvalidParameter.WithValue. Valid values: SAE_K8S_SERVICE, PAI_EAS_SERVICE, CloudFlow, K8S, FC3, PAI_WORKSPACE, and MSE_NACOS.
+   * The source type of the service. This parameter is actually required. If it is not provided, the API returns a 400 InvalidParameter.WithValue error. Valid values: SAE_K8S_SERVICE, PAI_EAS_SERVICE, CloudFlow, K8S, FC3, PAI_WORKSPACE, and MSE_NACOS.
    * 
    * @example
    * FC3

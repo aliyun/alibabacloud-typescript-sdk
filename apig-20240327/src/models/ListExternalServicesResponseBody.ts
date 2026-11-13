@@ -133,7 +133,7 @@ export class ListExternalServicesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of APIs.
+   * The list of operations.
    */
   data?: ListExternalServicesResponseBodyData;
   /**

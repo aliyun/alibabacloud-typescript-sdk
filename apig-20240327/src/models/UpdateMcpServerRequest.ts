@@ -14,7 +14,7 @@ export class UpdateMcpServerRequestAssembledSources extends $dara.Model {
   mcpServerId?: string;
   /**
    * @remarks
-   * The name of the MCP server.
+   * The MCP server name.
    * 
    * @example
    * test-mcp
@@ -329,7 +329,7 @@ export class UpdateMcpServerRequestGrayMcpServerConfigs extends $dara.Model {
 export class UpdateMcpServerRequestMcpServerConfig extends $dara.Model {
   /**
    * @remarks
-   * The MCP server configurations. This parameter is mutually exclusive with the swaggerConfig parameter.
+   * The MCP server configurations. This parameter is mutually exclusive with swaggerConfig.
    * 
    * @example
    * mcp-server-spec-yaml
@@ -337,7 +337,7 @@ export class UpdateMcpServerRequestMcpServerConfig extends $dara.Model {
   mcpServerSpec?: string;
   /**
    * @remarks
-   * The Swagger document for HTTP-to-MCP. The document must comply with the OpenAPI 3.0 specification.
+   * The Swagger document for HTTP-to-MCP, which must comply with the OpenAPI 3.0 specification.
    * 
    * @example
    * swagger-content
@@ -380,11 +380,12 @@ export class UpdateMcpServerRequest extends $dara.Model {
   /**
    * @remarks
    * The creation source type. Valid values:
-   * - ApiGatewayHttpToMCP: API gateway-hosted HTTP-to-MCP.
-   * - ApiGatewayProxyMcpHosting: API gateway-hosted MCP direct proxy.
-   * - ApiGatewayAssembly: API gateway MCP assembly.
-   * - NacosHttpToMCP: API gateway-hosted Nacos-synchronized HTTP-to-MCP.
-   * - NacosMcpHosting: API gateway-hosted Nacos-synchronized MCP direct proxy.
+   * 
+   * ApiGatewayHttpToMCP: API Gateway-managed HTTP-to-MCP.
+   * ApiGatewayProxyMcpHosting: API Gateway-managed MCP direct proxy.
+   * ApiGatewayAssembly: API Gateway MCP assembly.
+   * NacosHttpToMCP: API Gateway-managed Nacos-synchronized HTTP-to-MCP.
+   * NacosMcpHosting: API Gateway-managed Nacos-synchronized MCP direct proxy.
    * 
    * @example
    * ApiGatewayMcpHosting
@@ -437,10 +438,10 @@ export class UpdateMcpServerRequest extends $dara.Model {
   /**
    * @remarks
    * The protocol type. Valid values:
-   * - HTTP: HTTP.
-   * - HTTPS: HTTPS.
-   * - SSE: Server-Sent Events.
-   * - StreamableHTTP: Streaming HTTP.
+   * HTTP: HTTP protocol.
+   * HTTPS: HTTPS protocol.
+   * SSE: Server-Sent Events protocol.
+   * StreamableHTTP: Streaming HTTP protocol.
    * 
    * This parameter is required.
    * 

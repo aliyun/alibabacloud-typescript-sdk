@@ -21,7 +21,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceId
   parentResourceId?: string;
   /**
    * @remarks
-   * The ID of the target resource for authorization. The required ID type is determined by resourceType, and the prefix must match.
+   * The ID of the target resource to be authorized. The required ID type is determined by resourceType, and the prefix must match.
    * 
    * @example
    * ha-cn-li942gy8p03
@@ -97,7 +97,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
   expireTimestamp?: number;
   /**
    * @remarks
-   * The type of the principal.
+   * The type of the authorized principal.
    * 
    * @example
    * ConsumerGroup
@@ -105,12 +105,12 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
   principalType?: string;
   /**
    * @remarks
-   * The resource identifier, which is provided to non-standard code sources as a unique identifier for space reuse.
+   * The resource identifier, which is provided to non-standard code sources as a unique identifier for namespace reuse.
    */
   resourceIdentifier?: CreateConsumerAuthorizationRulesRequestAuthorizationRulesResourceIdentifier;
   /**
    * @remarks
-   * The resource type.
+   * The type of the resource.
    * 
    * @example
    * HttpApiRoute
@@ -155,7 +155,7 @@ export class CreateConsumerAuthorizationRulesRequestAuthorizationRules extends $
 export class CreateConsumerAuthorizationRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The consumer authentication rules.
+   * The consumer authorization rules.
    */
   authorizationRules?: CreateConsumerAuthorizationRulesRequestAuthorizationRules[];
   static names(): { [key: string]: string } {

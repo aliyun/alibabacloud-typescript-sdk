@@ -87,7 +87,7 @@ export class ListServicesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 585657D2-1C20-5B8A-AF17-D727C6490BE4

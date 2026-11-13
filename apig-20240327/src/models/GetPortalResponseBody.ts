@@ -44,7 +44,7 @@ export class GetPortalResponseBodyData extends $dara.Model {
   portalId?: string;
   /**
    * @remarks
-   * The portal settings, which specify whether username and password authentication is enabled, whether developer registrations are automatically approved, and whether subscription requests are automatically approved.
+   * The portal configuration information, which includes whether account and password authentication is enabled, whether developer registrations are automatically approved, and whether subscription requests are automatically approved.
    */
   portalSettingConfig?: HiMarketPortalSettingConfig;
   /**

@@ -21,7 +21,7 @@ export class ListPortalsRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The cursor token for querying the next page.
+   * The pagination token for the next page.
    * 
    * @example
    * next-token-xxxxxxxx

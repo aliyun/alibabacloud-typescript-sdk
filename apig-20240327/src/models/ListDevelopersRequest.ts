@@ -13,7 +13,7 @@ export class ListDevelopersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Pass the nextToken value returned in the previous response to retrieve the next page. Do not specify this parameter for the first query.
+   * The pagination token. Pass the nextToken returned in the previous response to obtain the next page. Do not specify this parameter for the first query.
    * 
    * @example
    * token-xxxxxxxx
@@ -37,7 +37,7 @@ export class ListDevelopersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The portal ID used to filter developers.
+   * The ID of the portal used to filter developers.
    * 
    * @example
    * portal-xxxxxxxx
@@ -45,7 +45,7 @@ export class ListDevelopersRequest extends $dara.Model {
   portalId?: string;
   /**
    * @remarks
-   * The developer status used to filter developers. Valid values: PENDING, APPROVED, and REJECTED.
+   * The status of the developer used to filter developers. Valid values: PENDING, APPROVED, and REJECTED.
    * 
    * @example
    * APPROVED

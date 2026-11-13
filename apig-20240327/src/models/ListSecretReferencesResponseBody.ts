@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSecretReferencesResponseBodyDataItemsPluginConfig extends $dara.Model {
   /**
    * @remarks
-   * The plug-in name.
+   * The name of the plugin.
    * 
    * @example
    * oauth
@@ -13,7 +13,7 @@ export class ListSecretReferencesResponseBodyDataItemsPluginConfig extends $dara
   name?: string;
   /**
    * @remarks
-   * The plug-in type ID.
+   * The ID of the plugin class.
    * 
    * @example
    * pls-xxxxxxxx
@@ -21,7 +21,7 @@ export class ListSecretReferencesResponseBodyDataItemsPluginConfig extends $dara
   pluginClassId?: string;
   /**
    * @remarks
-   * The plug-in ID.
+   * The ID of the plugin.
    * 
    * @example
    * pl-d4ijk56m1hkhxxxxxxxx
@@ -63,7 +63,7 @@ export class ListSecretReferencesResponseBodyDataItemsServiceConfig extends $dar
   name?: string;
   /**
    * @remarks
-   * The service ID.
+   * The ID of the service.
    * 
    * @example
    * svc-cvgbtcmm1hkmxxxxxxxx
@@ -95,7 +95,7 @@ export class ListSecretReferencesResponseBodyDataItemsServiceConfig extends $dar
 export class ListSecretReferencesResponseBodyDataItemsConsumerConfig extends $dara.Model {
   /**
    * @remarks
-   * The consumer ID.
+   * The ID of the consumer.
    * 
    * @example
    * cs-d0iltnem1hkhxxxxxxxx
@@ -103,7 +103,7 @@ export class ListSecretReferencesResponseBodyDataItemsConsumerConfig extends $da
   consumerId?: string;
   /**
    * @remarks
-   * The consumer name.
+   * The name of the consumer.
    * 
    * @example
    * myconsumer
@@ -135,7 +135,7 @@ export class ListSecretReferencesResponseBodyDataItemsConsumerConfig extends $da
 export class ListSecretReferencesResponseBodyDataItemsMcpServerConfig extends $dara.Model {
   /**
    * @remarks
-   * HTTP API ID。
+   * The HTTP API ID.
    * 
    * @example
    * api-d2vv43em201hxxxxxxxx
@@ -143,7 +143,7 @@ export class ListSecretReferencesResponseBodyDataItemsMcpServerConfig extends $d
   httpApiId?: string;
   /**
    * @remarks
-   * The route name.
+   * The name of the route.
    * 
    * @example
    * mcp
@@ -151,7 +151,7 @@ export class ListSecretReferencesResponseBodyDataItemsMcpServerConfig extends $d
   name?: string;
   /**
    * @remarks
-   * The route ID.
+   * The ID of the route.
    * 
    * @example
    * hr-cv0i5oum1hkhxxxxxxxx
@@ -185,17 +185,17 @@ export class ListSecretReferencesResponseBodyDataItemsMcpServerConfig extends $d
 export class ListSecretReferencesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The plug-in information that references the current secret.
+   * The information about the plugin that references the current secret.
    */
   pluginConfig?: ListSecretReferencesResponseBodyDataItemsPluginConfig;
   /**
    * @remarks
-   * The service information that references the current secret.
+   * The information about the service that references the current secret.
    */
   serviceConfig?: ListSecretReferencesResponseBodyDataItemsServiceConfig;
   /**
    * @remarks
-   * The consumer information that references the current secret.
+   * The information about the consumer that references the current secret.
    */
   consumerConfig?: ListSecretReferencesResponseBodyDataItemsConsumerConfig;
   /**
@@ -208,7 +208,7 @@ export class ListSecretReferencesResponseBodyDataItems extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The MCP server information that references the current secret.
+   * The information about the MCP service that references the current secret.
    */
   mcpServerConfig?: ListSecretReferencesResponseBodyDataItemsMcpServerConfig;
   /**

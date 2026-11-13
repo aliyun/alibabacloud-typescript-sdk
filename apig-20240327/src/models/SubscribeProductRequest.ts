@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubscribeProductRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the API product to subscribe to. This is the primary ID of the Product resource. You can obtain this ID from the productId field of a list item returned by ListProducts.
+   * The ID of the API product to subscribe to. This is the primary ID of the API product resource. You can obtain this ID from the productId field in the items returned by the ListProducts operation.
    * 
    * @example
    * product-xxxxxxxx

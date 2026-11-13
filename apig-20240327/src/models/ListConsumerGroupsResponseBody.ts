@@ -13,7 +13,7 @@ export class ListConsumerGroupsResponseBodyDataItems extends $dara.Model {
   consumerCount?: number;
   /**
    * @remarks
-   * The consumer group ID.
+   * The ID of the consumer group.
    * 
    * @example
    * csg-8c13d2b4f8a1
@@ -21,7 +21,7 @@ export class ListConsumerGroupsResponseBodyDataItems extends $dara.Model {
   consumerGroupId?: string;
   /**
    * @remarks
-   * The creation time of the consumer group, in Unix millisecond timestamp.
+   * The time when the consumer group was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1715769600000
@@ -29,15 +29,15 @@ export class ListConsumerGroupsResponseBodyDataItems extends $dara.Model {
   createTimestamp?: number;
   /**
    * @remarks
-   * The consumer group description.
+   * The description of the consumer group.
    * 
    * @example
-   * Used for grouping online API callers
+   * Used to group online API callers
    */
   description?: string;
   /**
    * @remarks
-   * The gateway type. Valid values: API or AI.
+   * The gateway type. Valid values: API and AI.
    * 
    * @example
    * API
@@ -45,7 +45,7 @@ export class ListConsumerGroupsResponseBodyDataItems extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The consumer group name.
+   * The name of the consumer group.
    * 
    * @example
    * api-consumer-group
@@ -98,7 +98,7 @@ export class ListConsumerGroupsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 10
@@ -106,7 +106,7 @@ export class ListConsumerGroupsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of consumer groups that match the specified conditions.
+   * The total number of matched consumer groups.
    * 
    * @example
    * 2
@@ -145,7 +145,7 @@ export class ListConsumerGroupsResponseBodyData extends $dara.Model {
 export class ListConsumerGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. Ok is returned if the request is successful.
+   * The response status code. Ok is returned if the request succeeds.
    * 
    * @example
    * Ok

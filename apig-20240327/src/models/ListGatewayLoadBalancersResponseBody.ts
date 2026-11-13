@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListGatewayLoadBalancersResponseBodyDataItemsLoadBalancerZoneMappingsLoadBalancerAddresses extends $dara.Model {
   /**
    * @remarks
-   * The allocation ID of the elastic IP address (EIP) corresponding to the public IP address.
+   * The EIP allocation ID corresponding to the public IP address.
    * 
    * @example
    * eip-bp1xxxx
@@ -223,7 +223,7 @@ export class ListGatewayLoadBalancersResponseBodyDataItemsVirtualServerGroupList
   port?: number;
   /**
    * @remarks
-   * The listener protocol. No backend enumeration validation is performed. The actual value is obtained from the SLB or NLB API. Common values include tcp, udp, http, https, and tls.
+   * The listener protocol. No backend enum verification is performed. The actual value is retrieved from the SLB or NLB POP API. Common values include tcp, udp, http, https, and tls.
    * 
    * @example
    * https
@@ -260,7 +260,7 @@ export class ListGatewayLoadBalancersResponseBodyDataItemsVirtualServerGroupList
   listeners?: ListGatewayLoadBalancersResponseBodyDataItemsVirtualServerGroupListListeners[];
   /**
    * @remarks
-   * The ID of the virtual server group. This is VServerGroupId for Classic Load Balancer (CLB) and ServerGroupId for Network Load Balancer (NLB).
+   * The ID of the virtual server group. For CLB, this is the VServerGroupId. For NLB, this is the ServerGroupId.
    * 
    * @example
    * rsp-xxxx
@@ -313,7 +313,7 @@ export class ListGatewayLoadBalancersResponseBodyDataItems extends $dara.Model {
   defaultGatewayIngress?: boolean;
   /**
    * @remarks
-   * Indicates whether the load balancer can be edited. This serves as an edit switch for load balancers during migration.
+   * Indicates whether the load balancer can be edited. This parameter serves as an edit switch for load balancers during migration.
    * 
    * @example
    * false
@@ -369,7 +369,7 @@ export class ListGatewayLoadBalancersResponseBodyDataItems extends $dara.Model {
   loadBalancerId?: string;
   /**
    * @remarks
-   * The association mode.
+   * The binding mode.
    * 
    * @example
    * Managed

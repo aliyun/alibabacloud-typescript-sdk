@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProductCategoryResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the newly created product category. It can be used as the categoryId path parameter for GetProductCategory, UpdateProductCategory, and DeleteProductCategory, or as an element in the category ID array for SetProductCategories.
+   * The ID of the newly created product category. You can use this ID as the categoryId path parameter for GetProductCategory, UpdateProductCategory, and DeleteProductCategory, or as an element in the category ID array for SetProductCategories.
    * 
    * @example
    * category-xxxxxxxx

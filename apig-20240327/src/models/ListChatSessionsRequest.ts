@@ -13,7 +13,7 @@ export class ListChatSessionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Pass the nextToken returned in the previous response to retrieve the next page. Do not specify this parameter for the first query.
+   * The pagination cursor. Pass the nextToken returned in the previous response to retrieve the next page. Do not pass this parameter for the first query.
    * 
    * @example
    * token-xxxxxxxx
@@ -29,7 +29,7 @@ export class ListChatSessionsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10

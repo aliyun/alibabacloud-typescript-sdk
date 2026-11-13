@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListSyncMCPServerResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of domain IDs bound to the Nacos MCP export for this gateway, excluding the default domain name. If not configured, the value is [].
+   * The list of domain name IDs bound to the Nacos MCP export of the gateway, excluding the default domain name. If no configuration is specified, the value is an empty array ([ ]).
    */
   domainIds?: string[];
   /**
    * @remarks
-   * The list of synchronized (whitelisted) MCP server names, which are derived from the AllowMcpServers in the MCP Bridge registration configuration. If not configured, the value is [].
+   * The list of synchronized (whitelisted) MCP server names from the AllowMcpServers in the MCP Bridge registration configuration. If no configuration is specified, the value is an empty array ([ ]).
    */
   mcpServers?: string[];
   static names(): { [key: string]: string } {

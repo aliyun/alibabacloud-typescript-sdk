@@ -6,7 +6,7 @@ import { ServiceInfo } from "./ServiceInfo";
 export class GetAiModelProviderResponseBodyDataModelCardsAvailablePaths extends $dara.Model {
   /**
    * @remarks
-   * The model invocation path. The value can be up to 2048 characters in length.
+   * The model invocation path. The length cannot exceed 2,048 characters.
    * 
    * @example
    * /v1/chat/completions
@@ -14,7 +14,7 @@ export class GetAiModelProviderResponseBodyDataModelCardsAvailablePaths extends 
   path?: string;
   /**
    * @remarks
-   * The protocol type of the path. The value can be up to 64 characters in length.
+   * The protocol type corresponding to the path. The length cannot exceed 64 characters.
    * 
    * @example
    * OpenAICompatible
@@ -46,7 +46,7 @@ export class GetAiModelProviderResponseBodyDataModelCardsAvailablePaths extends 
 export class GetAiModelProviderResponseBodyDataModelCardsCredit extends $dara.Model {
   /**
    * @remarks
-   * The cost of cache hit tokens, in Credits per million tokens.
+   * The cache hit token cost. The unit is Credits per million tokens.
    * 
    * @example
    * 0.5
@@ -54,7 +54,7 @@ export class GetAiModelProviderResponseBodyDataModelCardsCredit extends $dara.Mo
   cacheCost?: number;
   /**
    * @remarks
-   * The cost of input tokens, in Credits per million tokens.
+   * The input token cost. The unit is Credits per million tokens.
    * 
    * @example
    * 1.5
@@ -62,7 +62,7 @@ export class GetAiModelProviderResponseBodyDataModelCardsCredit extends $dara.Mo
   inputCost?: number;
   /**
    * @remarks
-   * The cost of output tokens, in Credits per million tokens.
+   * The output token cost. The unit is Credits per million tokens.
    * 
    * @example
    * 3
@@ -70,7 +70,7 @@ export class GetAiModelProviderResponseBodyDataModelCardsCredit extends $dara.Mo
   outputCost?: number;
   /**
    * @remarks
-   * The billing type. Only fixed is supported.
+   * The billing type. Currently, only fixed is supported.
    * 
    * @example
    * fixed
@@ -106,7 +106,7 @@ export class GetAiModelProviderResponseBodyDataModelCardsCredit extends $dara.Mo
 export class GetAiModelProviderResponseBodyDataModelCardsMeta extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of input tokens supported by the model. The value is greater than or equal to 0.
+   * The maximum number of input tokens supported by the model. The value must be greater than or equal to 0.
    * 
    * @example
    * 131072
@@ -114,7 +114,7 @@ export class GetAiModelProviderResponseBodyDataModelCardsMeta extends $dara.Mode
   maxInputTokens?: number;
   /**
    * @remarks
-   * The maximum number of output tokens supported by the model. The value is greater than or equal to 0.
+   * The maximum number of output tokens supported by the model. The value must be greater than or equal to 0.
    * 
    * @example
    * 8192
@@ -122,7 +122,7 @@ export class GetAiModelProviderResponseBodyDataModelCardsMeta extends $dara.Mode
   maxOutputTokens?: number;
   /**
    * @remarks
-   * The maximum total number of context tokens supported by the model. The value is greater than or equal to 0.
+   * The maximum total number of context tokens supported by the model. The value must be greater than or equal to 0.
    * 
    * @example
    * 131072
@@ -130,12 +130,12 @@ export class GetAiModelProviderResponseBodyDataModelCardsMeta extends $dara.Mode
   maxTokens?: number;
   /**
    * @remarks
-   * The list of input modalities supported by the model. The list contains up to 16 items, and each item cannot be empty.
+   * The list of input modalities supported by the model. The list can contain up to 16 items, and each item cannot be empty.
    */
   supportedInputModalities?: string[];
   /**
    * @remarks
-   * The list of output modalities supported by the model. The list contains up to 16 items, and each item cannot be empty.
+   * The list of output modalities supported by the model. The list can contain up to 16 items, and each item cannot be empty.
    */
   supportedOutputModalities?: string[];
   static names(): { [key: string]: string } {
@@ -176,7 +176,7 @@ export class GetAiModelProviderResponseBodyDataModelCardsMeta extends $dara.Mode
 export class GetAiModelProviderResponseBodyDataModelCards extends $dara.Model {
   /**
    * @remarks
-   * The list of invocation paths supported by the model. Each item contains both path and type.
+   * The list of invocation paths supported by the model. Each item contains a path and a type.
    */
   availablePaths?: GetAiModelProviderResponseBodyDataModelCardsAvailablePaths[];
   /**
@@ -186,7 +186,7 @@ export class GetAiModelProviderResponseBodyDataModelCards extends $dara.Model {
   credit?: GetAiModelProviderResponseBodyDataModelCardsCredit;
   /**
    * @remarks
-   * The model capability switches. Keys are model capability names supported by the API gateway, and values are Boolean values.
+   * The model capability toggles. The key is the name of a model capability supported by the API gateway, and the value is a Boolean value.
    * 
    * @example
    * {"functionCalling":true,"toolChoice":true}
@@ -202,12 +202,12 @@ export class GetAiModelProviderResponseBodyDataModelCards extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The token limits and input/output modality information of the model.
+   * The token limits and input and output modality information of the model.
    */
   meta?: GetAiModelProviderResponseBodyDataModelCardsMeta;
   /**
    * @remarks
-   * The model card ID. The ID is generated by the system and starts with mc-.
+   * The model card ID. This ID is generated by the system and starts with mc-.
    * 
    * @example
    * mc-8c13d2b4f8a1
@@ -223,7 +223,7 @@ export class GetAiModelProviderResponseBodyDataModelCards extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The model provider identifier.
+   * The identifier of the model provider.
    * 
    * @example
    * qwen
@@ -231,7 +231,7 @@ export class GetAiModelProviderResponseBodyDataModelCards extends $dara.Model {
   modelProvider?: string;
   /**
    * @remarks
-   * The source of the model card. For instance-level model cards, user is returned.
+   * The source of the model card. The value user is returned for instance-level model cards.
    * 
    * @example
    * user
@@ -247,7 +247,7 @@ export class GetAiModelProviderResponseBodyDataModelCards extends $dara.Model {
   sourceURL?: string;
   /**
    * @remarks
-   * The last update time of the model card, in the yyyy-MM-dd HH:mm:ss format.
+   * The last update time of the model card. The format is yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2026-07-14 18:30:00
@@ -309,15 +309,23 @@ export class GetAiModelProviderResponseBodyDataModelCards extends $dara.Model {
 export class GetAiModelProviderResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of AI service summaries that are currently bound to the model provider.
+   * The list of AI service summaries currently bound to the model provider.
    */
   boundServices?: ServiceInfo[];
   /**
    * @remarks
-   * The display name of the model provider. The value can be up to 128 characters in length.
+   * The default AI service ID. This field is empty if it is not set. The persisted value is returned as is in read operations.
    * 
    * @example
-   * Qwen Cloud / Alibaba Cloud Bailian
+   * svc-d00000000000000000000
+   */
+  defaultServiceId?: string;
+  /**
+   * @remarks
+   * The display name of the model provider. The length cannot exceed 128 characters.
+   * 
+   * @example
+   * Qwen Cloud / Alibaba Cloud Model Studio
    */
   displayName?: string;
   /**
@@ -330,7 +338,7 @@ export class GetAiModelProviderResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The list of model cards that are currently associated with the model provider.
+   * The list of model cards currently associated with the model provider.
    */
   modelCards?: GetAiModelProviderResponseBodyDataModelCards[];
   /**
@@ -343,7 +351,7 @@ export class GetAiModelProviderResponseBodyData extends $dara.Model {
   modelCount?: number;
   /**
    * @remarks
-   * The model provider ID. The ID is generated by the system and starts with mp-.
+   * The model provider ID. This ID is generated by the system and starts with mp-.
    * 
    * @example
    * mp-8c13d2b4f8a1
@@ -351,7 +359,7 @@ export class GetAiModelProviderResponseBodyData extends $dara.Model {
   modelProviderId?: string;
   /**
    * @remarks
-   * The stable identifier of the model provider. The value can be up to 128 characters in length.
+   * The stable identifier of the model provider. The length cannot exceed 128 characters.
    * 
    * @example
    * qwen
@@ -367,7 +375,7 @@ export class GetAiModelProviderResponseBodyData extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The last update time of the model provider, in the yyyy-MM-dd HH:mm:ss format.
+   * The last update time of the model provider. The format is yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2026-07-14 18:30:00
@@ -376,6 +384,7 @@ export class GetAiModelProviderResponseBodyData extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       boundServices: 'boundServices',
+      defaultServiceId: 'defaultServiceId',
       displayName: 'displayName',
       gatewayId: 'gatewayId',
       modelCards: 'modelCards',
@@ -390,6 +399,7 @@ export class GetAiModelProviderResponseBodyData extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       boundServices: { 'type': 'array', 'itemType': ServiceInfo },
+      defaultServiceId: 'string',
       displayName: 'string',
       gatewayId: 'string',
       modelCards: { 'type': 'array', 'itemType': GetAiModelProviderResponseBodyDataModelCards },
@@ -419,7 +429,7 @@ export class GetAiModelProviderResponseBodyData extends $dara.Model {
 export class GetAiModelProviderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. Ok is returned for a successful request.
+   * The response status code. Ok is returned if the request succeeds.
    * 
    * @example
    * Ok
@@ -432,7 +442,7 @@ export class GetAiModelProviderResponseBody extends $dara.Model {
   data?: GetAiModelProviderResponseBodyData;
   /**
    * @remarks
-   * The response message. success is returned for a successful request.
+   * The response message. success is returned if the request succeeds.
    * 
    * @example
    * success
@@ -440,7 +450,7 @@ export class GetAiModelProviderResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is generated by the system and used to locate the current call.
+   * The request ID generated by the system to trace the request.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

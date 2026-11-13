@@ -21,7 +21,7 @@ export class DetachAndDeletePolicyResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to trace the API call chain.
+   * The request ID, used to trace the API call link.
    * 
    * @example
    * 393E2630-DBE7-5221-AB35-9E740675491A

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SyncMCPServersRequestNacosMcpServers extends $dara.Model {
   /**
    * @remarks
-   * The exposed URI path. This parameter is required when protocol is set to SSE or StreamableHTTP and type is set to RealMCP.
+   * The exposed URI path. Required when the protocol is SSE or StreamableHTTP and the type is RealMCP.
    * 
    * @example
    * /sse
@@ -88,7 +88,7 @@ export class SyncMCPServersRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The list of Nacos MCP servers to sync. If the list contains MCP servers that have already been synced, include the mcpServerId.
+   * The list of Nacos MCP servers to synchronize. If the list includes already synchronized MCP servers, specify the mcpServerId.
    */
   nacosMcpServers?: SyncMCPServersRequestNacosMcpServers[];
   /**

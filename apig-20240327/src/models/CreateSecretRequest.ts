@@ -6,7 +6,7 @@ import { KMSConfig } from "./Kmsconfig";
 export class CreateSecretRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the key.
+   * The description of the secret.
    * 
    * @example
    * test
@@ -27,7 +27,7 @@ export class CreateSecretRequest extends $dara.Model {
   kmsConfig?: KMSConfig;
   /**
    * @remarks
-   * The key name. The name can contain letters, digits, and underscores (_) and can be up to 64 characters in length.
+   * The name of the secret. The name can contain letters, digits, and underscores (_) and must not exceed 64 characters in length.
    * 
    * @example
    * my_secret
@@ -35,7 +35,7 @@ export class CreateSecretRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The KMS credential value.
+   * The KMS secret value.
    * 
    * @example
    * apikey-123456xxxxxxxx
@@ -43,7 +43,7 @@ export class CreateSecretRequest extends $dara.Model {
   secretData?: string;
   /**
    * @remarks
-   * The key source.
+   * The source of the secret.
    * 
    * @example
    * KMS

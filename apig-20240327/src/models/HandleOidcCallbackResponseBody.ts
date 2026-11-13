@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class HandleOidcCallbackResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The access token returned for the OIDC logon. This field is marked as sensitive in the API definition.
+   * The access token returned for this OIDC logon. The API definition marks this field as a sensitive field.
    * 
    * @example
    * access-token-xxxxxxxx
@@ -13,7 +13,7 @@ export class HandleOidcCallbackResponseBodyData extends $dara.Model {
   accessToken?: string;
   /**
    * @remarks
-   * The numeric value for the validity period of the access token. The unit is not declared in the API definition.
+   * The validity period value of the access token. The unit is not declared in the API definition.
    * 
    * @example
    * 3600
@@ -21,7 +21,7 @@ export class HandleOidcCallbackResponseBodyData extends $dara.Model {
   expiresIn?: number;
   /**
    * @remarks
-   * The type identifier of the access token. The valid values are not declared in the API definition.
+   * The type identifier of the access token. The set of valid values is not declared in the API definition.
    * 
    * @example
    * token-type-xxxxxxxx

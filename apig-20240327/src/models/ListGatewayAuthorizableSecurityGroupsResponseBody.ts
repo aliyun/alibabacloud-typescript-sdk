@@ -8,7 +8,7 @@ export class ListGatewayAuthorizableSecurityGroupsResponseBodyDataItems extends 
    * The security group name.
    * 
    * @example
-   * Product Center Cluster Security Group
+   * Product center cluster security group
    */
   name?: string;
   /**
@@ -22,8 +22,8 @@ export class ListGatewayAuthorizableSecurityGroupsResponseBodyDataItems extends 
   /**
    * @remarks
    * The security group type. Valid values:
-   * - Normal: Custom security group.
-   * - Enterprise: Advanced security group.
+   * - Normal: basic security group.
+   * - Enterprise: advanced security group.
    * 
    * @example
    * Normal

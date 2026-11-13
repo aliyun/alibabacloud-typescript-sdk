@@ -9,12 +9,12 @@ export class UpdateProductCategoryRequest extends $dara.Model {
    * The description of the product category. The description can be up to 500 characters in length.
    * 
    * @example
-   * Product category for AI-related capabilities
+   * Product category that includes AI-related capabilities
    */
   description?: string;
   /**
    * @remarks
-   * The icon of the product category. It consists of two fields: icon type (type) and icon information (value).
+   * The icon of the product category, which consists of two fields: type and value.
    */
   icon?: HiMarketIcon;
   /**

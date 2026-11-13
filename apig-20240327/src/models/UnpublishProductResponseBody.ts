@@ -21,7 +21,7 @@ export class UnpublishProductResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 393E2630-DBE7-5221-AB35-9E740675491A

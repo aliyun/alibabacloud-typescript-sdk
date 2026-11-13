@@ -30,7 +30,7 @@ export class HttpApiInfoByName extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * Indicates whether version management is enabled.
+   * Specifies whether version management is enabled.
    * 
    * @example
    * true
@@ -38,7 +38,7 @@ export class HttpApiInfoByName extends $dara.Model {
   versionEnabled?: boolean;
   /**
    * @remarks
-   * The version information of the versioned APIs.
+   * The versioned API version information.
    */
   versionedHttpApis?: HttpApiApiInfo[];
   static names(): { [key: string]: string } {

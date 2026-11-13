@@ -68,7 +68,7 @@ export class ListApiPathFieldTemplatesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -76,7 +76,7 @@ export class ListApiPathFieldTemplatesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of items.
+   * The total number of entries.
    * 
    * @example
    * 10

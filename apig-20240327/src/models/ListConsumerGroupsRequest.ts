@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConsumerGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The gateway type. Valid values: API or AI.
+   * The gateway type. Valid values: API and AI.
    * 
    * @example
    * API
@@ -29,7 +29,7 @@ export class ListConsumerGroupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 10

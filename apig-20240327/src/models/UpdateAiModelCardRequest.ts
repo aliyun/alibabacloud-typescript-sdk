@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAiModelCardRequestAvailablePaths extends $dara.Model {
   /**
    * @remarks
-   * The model invocation path. Maximum length: 2048 characters.
+   * The model invocation path, which is up to 2,048 characters in length.
    * 
    * @example
    * /v1/chat/completions
@@ -13,7 +13,7 @@ export class UpdateAiModelCardRequestAvailablePaths extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The protocol type of the path. Maximum length: 64 characters.
+   * The protocol type corresponding to the path, which is up to 64 characters in length.
    * 
    * @example
    * OpenAICompatible
@@ -45,7 +45,7 @@ export class UpdateAiModelCardRequestAvailablePaths extends $dara.Model {
 export class UpdateAiModelCardRequestCredit extends $dara.Model {
   /**
    * @remarks
-   * The cost of cache-hit tokens, in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
+   * The cache hit token fee, in Credits per million tokens. The value must be greater than or equal to 0. If not specified, the default value is 0.
    * 
    * @example
    * 0.5
@@ -53,7 +53,7 @@ export class UpdateAiModelCardRequestCredit extends $dara.Model {
   cacheCost?: number;
   /**
    * @remarks
-   * The cost of input tokens, in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
+   * The input token fee, in Credits per million tokens. The value must be greater than or equal to 0. If not specified, the default value is 0.
    * 
    * @example
    * 1.5
@@ -61,7 +61,7 @@ export class UpdateAiModelCardRequestCredit extends $dara.Model {
   inputCost?: number;
   /**
    * @remarks
-   * The cost of output tokens, in Credits per million tokens. The value must be greater than or equal to 0. Default value: 0.
+   * The output token fee, in Credits per million tokens. The value must be greater than or equal to 0. If not specified, the default value is 0.
    * 
    * @example
    * 3
@@ -69,7 +69,7 @@ export class UpdateAiModelCardRequestCredit extends $dara.Model {
   outputCost?: number;
   /**
    * @remarks
-   * The billing type. Only fixed is supported. Default value: fixed.
+   * The billing type. Currently, only fixed is supported. If not specified, the default value is fixed.
    * 
    * @example
    * fixed
@@ -129,12 +129,12 @@ export class UpdateAiModelCardRequestMeta extends $dara.Model {
   maxTokens?: number;
   /**
    * @remarks
-   * The list of input modalities supported by the model. The list contains up to 16 items, and each item must not be empty.
+   * The list of input modalities supported by the model. It can contain up to 16 items, and each item cannot be empty.
    */
   supportedInputModalities?: string[];
   /**
    * @remarks
-   * The list of output modalities supported by the model. The list contains up to 16 items, and each item must not be empty.
+   * The list of output modalities supported by the model. It can contain up to 16 items, and each item cannot be empty.
    */
   supportedOutputModalities?: string[];
   static names(): { [key: string]: string } {
@@ -175,17 +175,17 @@ export class UpdateAiModelCardRequestMeta extends $dara.Model {
 export class UpdateAiModelCardRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of invocation paths supported by the model. Each item must include both path and type. The entire list is overwritten during an update.
+   * The list of invocation paths supported by the model. Each item must contain both path and type. During an update, the entire list is overwritten.
    */
   availablePaths?: UpdateAiModelCardRequestAvailablePaths[];
   /**
    * @remarks
-   * The credit billing information of the model. Only the fixed type is supported. The unit is Credits per million tokens. If not specified, all cost values default to 0.
+   * The credit billing information of the model. Currently, only the fixed type is supported, and the fee unit is Credits per million tokens. If not specified, all fees default to 0.
    */
   credit?: UpdateAiModelCardRequestCredit;
   /**
    * @remarks
-   * The model capability switches. Keys must be model capability names supported by the API gateway. Values are Boolean.
+   * The model capability switches. The keys must be model capability names supported by the API gateway, and the values are Boolean values.
    * 
    * @example
    * {"functionCalling":true,"toolChoice":true,"promptCaching":false}
@@ -193,12 +193,12 @@ export class UpdateAiModelCardRequest extends $dara.Model {
   features?: { [key: string]: any };
   /**
    * @remarks
-   * The token limits and input/output modality information of the model.
+   * The token limits and input and output modality information of the model.
    */
   meta?: UpdateAiModelCardRequestMeta;
   /**
    * @remarks
-   * The model name. The name must be unique within the same AI gateway instance and the same model provider. Maximum length: 256 characters.
+   * The model name. It must be unique within the same AI gateway instance and model provider, and be up to 256 characters in length.
    * 
    * This parameter is required.
    * 
@@ -208,7 +208,7 @@ export class UpdateAiModelCardRequest extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The model provider identifier. The value must reference an existing model provider in the target AI gateway instance. Maximum length: 128 characters.
+   * The model provider identifier. It must reference an existing model provider in the target AI gateway instance and be up to 128 characters in length.
    * 
    * This parameter is required.
    * 

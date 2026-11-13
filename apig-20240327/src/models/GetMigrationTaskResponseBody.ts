@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMigrationTaskResponseBodyDataIngressConfig extends $dara.Model {
   /**
    * @remarks
-   * The Ingress class to listen on.
+   * The Ingress class to monitor.
    * 
    * @example
    * nginx
@@ -13,7 +13,7 @@ export class GetMigrationTaskResponseBodyDataIngressConfig extends $dara.Model {
   ingressClass?: string;
   /**
    * @remarks
-   * The namespace in which to listen for Ingress resources.
+   * The namespace of the Ingress to monitor.
    * 
    * @example
    * default
@@ -61,7 +61,7 @@ export class GetMigrationTaskResponseBodyDataVirtualServices extends $dara.Model
   protocol?: string;
   /**
    * @remarks
-   * The backend server group ID.
+   * The ID of the backend server group.
    * 
    * @example
    * rsp-xxxx
@@ -113,7 +113,7 @@ export class GetMigrationTaskResponseBodyData extends $dara.Model {
   apiId?: string;
   /**
    * @remarks
-   * The API name. This value may be empty.
+   * The name of the API. This value may be empty.
    * 
    * @example
    * ingress-api
@@ -129,7 +129,7 @@ export class GetMigrationTaskResponseBodyData extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The name of the source cluster. The name is retrieved by looking up the service source based on gatewayId and clusterId. If the lookup fails, a hyphen (-) is returned as a fallback.
+   * The name of the source cluster. The service source is reverse-queried based on the gateway ID and cluster ID. If the query fails, a hyphen (-) is returned as a fallback.
    * 
    * @example
    * my-cluster
@@ -137,7 +137,7 @@ export class GetMigrationTaskResponseBodyData extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The namespace of the source cluster. This value is selected during SLB traffic switching.
+   * The namespace of the source cluster. This is selected during SLB traffic switching.
    * 
    * @example
    * default
@@ -145,7 +145,7 @@ export class GetMigrationTaskResponseBodyData extends $dara.Model {
   clusterNamespace?: string;
   /**
    * @remarks
-   * The creation time. The value is a UNIX timestamp in seconds. Multiply the value by 1000 on the frontend before formatting.
+   * The creation time. This value is a UNIX timestamp in seconds. The frontend multiplies the value by 1,000 before formatting.
    * 
    * @example
    * 1756262400
@@ -153,7 +153,7 @@ export class GetMigrationTaskResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The task description.
+   * The description of the task.
    * 
    * @example
    * workspace api monitor test
@@ -191,7 +191,6 @@ export class GetMigrationTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The migration type.
-   * [_single.resp.200.props.data.migrationType.enum.Nginx Ingress]Nginx Ingress migration.
    * 
    * @example
    * Nginx Ingress
@@ -215,7 +214,7 @@ export class GetMigrationTaskResponseBodyData extends $dara.Model {
   slbId?: string;
   /**
    * @remarks
-   * The task status.
+   * The status of the task.
    * 
    * @example
    * FlowSwitch
@@ -231,7 +230,7 @@ export class GetMigrationTaskResponseBodyData extends $dara.Model {
   switchType?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * mt-xxxxxxxx
@@ -239,7 +238,7 @@ export class GetMigrationTaskResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The ID of the user to whom the task belongs.
+   * The ID of the user who owns the task.
    * 
    * @example
    * 1234567890
@@ -252,7 +251,7 @@ export class GetMigrationTaskResponseBodyData extends $dara.Model {
   virtualServices?: GetMigrationTaskResponseBodyDataVirtualServices[];
   /**
    * @remarks
-   * The weight of the APIG-side service in the legacy flow (0-100).
+   * The weight of the service on the APIG side in the legacy process. Valid values: 0 to 100.
    * 
    * @example
    * 50

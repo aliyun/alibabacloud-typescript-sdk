@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGatewayQuotaRuleSubjectUsageRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time for querying detailed consumption records. The time is a UNIX timestamp in seconds. If only this parameter is specified, the system automatically calculates the start time based on the rule period.
+   * The end time for querying detailed consumption records. The value is a UNIX timestamp in seconds. If only this parameter is specified, the system automatically calculates the start time based on the rule period.
    * 
    * @example
    * 1788425220
@@ -37,7 +37,7 @@ export class GetGatewayQuotaRuleSubjectUsageRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The start time for querying detailed consumption records. The time is a UNIX timestamp in seconds. If only this parameter is specified, the system automatically calculates the end time based on the rule period.
+   * The start time for querying detailed consumption records. The value is a UNIX timestamp in seconds. If only this parameter is specified, the system automatically calculates the end time based on the rule period.
    * 
    * @example
    * 1788338820

@@ -29,7 +29,7 @@ export class ListSourcesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resource group ID used to filter results. This parameter is also used for RAM authentication.
+   * The ID of the resource group used to filter resources. This parameter is also used for Resource Access Management (RAM) authentication.
    * 
    * @example
    * rg-xxxx
@@ -37,7 +37,7 @@ export class ListSourcesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The source type used to filter the query results.
+   * The source type.
    * 
    * @example
    * MSE_NACOS

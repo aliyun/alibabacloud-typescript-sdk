@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGatewayLoadBalancerRequestLoadBalancerDTOVirtualServiceList extends $dara.Model {
   /**
    * @remarks
-   * The port number. Valid values: 1 to 65535. An error is returned if an invalid value is specified.
+   * The port number. Valid values: 1 to 65535. If the value is invalid, an error is reported.
    * 
    * @example
    * 80
@@ -13,7 +13,7 @@ export class UpdateGatewayLoadBalancerRequestLoadBalancerDTOVirtualServiceList e
   port?: number;
   /**
    * @remarks
-   * The protocol. This parameter is required for CLB. If this parameter is not specified for CLB, the error message "protocol is missing for CLB" is returned. No backend enumeration validation is performed. Valid values: tcp, udp, http, https, and tls.
+   * The protocol. This parameter is required for CLB. If this parameter is missing for CLB, a "protocol is missing for CLB" error is reported. No backend enum validation is performed. Valid values: tcp, udp, http, https, and tls.
    * 
    * @example
    * http
@@ -21,7 +21,7 @@ export class UpdateGatewayLoadBalancerRequestLoadBalancerDTOVirtualServiceList e
   protocol?: string;
   /**
    * @remarks
-   * The CLB VServerGroupId or NLB ServerGroupId. This parameter is required. If a duplicate group ID is specified, an error is returned.
+   * The CLB VServerGroupId or NLB ServerGroupId. This parameter is required. If the same group ID is duplicated, a group conflict error is reported.
    * 
    * @example
    * rsp-xxxx
@@ -29,7 +29,7 @@ export class UpdateGatewayLoadBalancerRequestLoadBalancerDTOVirtualServiceList e
   virtualServiceGroupId?: string;
   /**
    * @remarks
-   * The group name. This parameter is required. If this parameter is not specified, the error message "virtual service parameter is missing" is returned.
+   * The group name. This parameter is required. If this parameter is missing, a "virtual service parameter is missing" error is reported.
    * 
    * @example
    * 80-tcp
@@ -97,7 +97,7 @@ export class UpdateGatewayLoadBalancerRequestLoadBalancerDTO extends $dara.Model
   serviceWeight?: number;
   /**
    * @remarks
-   * The backend server group bindings.
+   * The list of backend server group bindings.
    */
   virtualServiceList?: UpdateGatewayLoadBalancerRequestLoadBalancerDTOVirtualServiceList[];
   static names(): { [key: string]: string } {
@@ -135,7 +135,7 @@ export class UpdateGatewayLoadBalancerRequestLoadBalancerDTO extends $dara.Model
 export class UpdateGatewayLoadBalancerRequestPortsGatewayLoadBalancerPorts extends $dara.Model {
   /**
    * @remarks
-   * The listening port. Valid values: 0 to 65535. A maximum of 50 custom ports can be configured in the console.
+   * The listener port. Valid values: 0 to 65535. A maximum of 50 custom ports can be configured on the frontend.
    * 
    * @example
    * 8080
@@ -175,7 +175,7 @@ export class UpdateGatewayLoadBalancerRequestPortsGatewayLoadBalancerPorts exten
 export class UpdateGatewayLoadBalancerRequestPorts extends $dara.Model {
   /**
    * @remarks
-   * The listening ports.
+   * The listener ports.
    */
   gatewayLoadBalancerPorts?: UpdateGatewayLoadBalancerRequestPortsGatewayLoadBalancerPorts[];
   /**
@@ -220,7 +220,7 @@ export class UpdateGatewayLoadBalancerRequest extends $dara.Model {
   loadBalancerDTO?: UpdateGatewayLoadBalancerRequestLoadBalancerDTO;
   /**
    * @remarks
-   * The operation type. If this parameter is left empty or not specified, only the listening ports are updated (only the ports field is used).
+   * The operation type. If this parameter is empty or not specified, only the ports are updated based on the ports parameter.
    * 
    * @example
    * Add
@@ -228,7 +228,7 @@ export class UpdateGatewayLoadBalancerRequest extends $dara.Model {
   option?: string;
   /**
    * @remarks
-   * The port list.
+   * The list of ports.
    */
   ports?: UpdateGatewayLoadBalancerRequestPorts[];
   static names(): { [key: string]: string } {

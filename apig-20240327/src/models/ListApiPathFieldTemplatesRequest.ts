@@ -13,7 +13,7 @@ export class ListApiPathFieldTemplatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
