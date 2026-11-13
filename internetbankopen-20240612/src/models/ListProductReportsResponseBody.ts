@@ -65,7 +65,7 @@ export class ListProductReportsResponseBodyDataReports extends $dara.Model {
 export class ListProductReportsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The available report records sorted by period from newest to oldest. By default, up to ten records are returned. If LatestOnly is set to true, at most one record is returned. The array is empty if no reports exist. A single natural week may have multiple report records. Use ReportId to distinguish them. The list does not contain download URLs. The actual download status is subject to the result of GetAiReport.
+   * The available report records sorted by period in descending order. By default, up to ten records are returned. If LatestOnly is set to true, at most one record is returned. The array is empty if no reports exist. A single natural week may have multiple report records; use ReportId to distinguish them. The list does not contain download URLs. The actual download status is subject to GetAiReport.
    */
   reports?: ListProductReportsResponseBodyDataReports[];
   static names(): { [key: string]: string } {
@@ -95,12 +95,12 @@ export class ListProductReportsResponseBodyData extends $dara.Model {
 export class ListProductReportsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The query result of the periodic report list, which contains the Reports array. The array is empty if no available reports exist.
+   * The query results of the periodic report list, which includes the Reports array. The array is empty if no available reports exist.
    */
   data?: ListProductReportsResponseBodyData;
   /**
    * @remarks
-   * The unique identity of the request, which is used for Tracing Analysis and troubleshooting. Provide this ID when troubleshooting exceptions.
+   * The unique identity of the request, which is used for Tracing Analysis and troubleshooting. Provide this identity when troubleshooting exceptions.
    * 
    * @example
    * 9634F2B3-B59C-5475-BA9F-96D95271882C

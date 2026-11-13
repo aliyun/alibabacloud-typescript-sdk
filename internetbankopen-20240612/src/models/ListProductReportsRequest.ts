@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProductReportsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return only the most recent active epoch report. If this parameter is omitted or set to false, the operation returns active reports within the last ten completed natural weeks in UTC+8, up to ten records. If set to true, the operation queries the most recent active report from all completed historical epochs, returning at most one record without the ten-week limit. Only true or false is accepted. If a string is passed, it must strictly use the lowercase characters true or false. Other values return InvalidParameter.LatestOnly. This operation does not support paging.
+   * Specifies whether to return only the most recent active epoch report. If this parameter is omitted or set to false, the operation returns active reports within the last ten completed natural weeks in UTC+8, up to ten records. If set to true, the operation queries the most recent active report from all completed historical epochs, returning at most one record without the ten-week limit. Only true or false is accepted. If a character string is passed, it must be strictly lowercase true or false. Other values return InvalidParameter.LatestOnly. This operation does not support paging.
    */
   latestOnly?: boolean;
   /**

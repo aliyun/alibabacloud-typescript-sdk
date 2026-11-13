@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAiReportResponseBodyDataReport extends $dara.Model {
   /**
    * @remarks
-   * The expiration time of the report content retention period. The time is in UTC RFC 3339 format, ends with Z, and may contain fractional seconds. No download URL is issued after this time. If the delivery is not suspended, EXPIRED is returned. If the delivery is also suspended, UNAVAILABLE is returned preferentially. This is the content expiration time, not the single-link expiration time.
+   * The expiration time of the report content retention period. The time is in UTC RFC 3339 format, ends with Z, and may contain fractional seconds. No download URL is issued after this time. If the delivery is not suspended, EXPIRED is returned. If the delivery is also suspended, UNAVAILABLE is returned preferentially. This is the content expiration time, not the expiration time of a single URL.
    * 
    * @example
    * 2026-12-12T06:20:00Z
@@ -31,7 +31,7 @@ export class GetAiReportResponseBodyDataReport extends $dara.Model {
   reportId?: string;
   /**
    * @remarks
-   * The expiration time of the current DownloadUrl. The time is in UTC RFC 3339 format, ends with Z, and may contain fractional seconds. You cannot continue to use the URL after it expires, and this time is no later than ContentExpiresAt.
+   * The expiration time of the current DownloadUrl. The time is in UTC RFC 3339 format, ends with Z, and may contain fractional seconds. You cannot use the URL after it expires, and this time is no later than ContentExpiresAt.
    * 
    * @example
    * 2026-11-12T06:25:00Z
@@ -74,9 +74,9 @@ export class GetAiReportResponseBodyData extends $dara.Model {
    * @remarks
    * The report status. Valid values:
    * - NOT_APPLICABLE: The product does not include a report.
-   * - WAITING_DATA: The data call result is not yet determined.
+   * - WAITING_DATA: The data call result is not determined.
    * - NO_DATA: No data is found, and no per-use report is generated.
-   * - WAITING_PERIOD: The query result for the callId of a periodic product. You must obtain the ReportId by calling ListProductReports and then query the status.
+   * - WAITING_PERIOD: The query result for the callId of a periodic product. You must obtain the ReportId by calling ListProductReports and then query the report.
    * - QUEUED: The report task is queued.
    * - RUNNING: The report task is being processed.
    * - AVAILABLE: The report is available, and the Report object is returned in this response.
@@ -119,12 +119,12 @@ export class GetAiReportResponseBodyData extends $dara.Model {
 export class GetAiReportResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The report query result, which includes ReportStatus. The Report object is included only when the report is available.
+   * The report query result, which contains ReportStatus. The Report object is included only when the report is available.
    */
   data?: GetAiReportResponseBodyData;
   /**
    * @remarks
-   * The unique identity of the request, which is used for Tracing Analysis and troubleshooting. Provide this identity when you troubleshoot exceptions.
+   * The unique identity of the request, which is used for Tracing Analysis and troubleshooting. Provide this ID when you troubleshoot exceptions.
    * 
    * @example
    * 9634F2B3-B59C-5475-BA9F-96D95271882C
