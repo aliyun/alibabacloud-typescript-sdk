@@ -3,7 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FlussVswitch extends $dara.Model {
+  /**
+   * @remarks
+   * The list of vSwitch IDs in the zone.
+   */
   vSwitchIds?: string[];
+  /**
+   * @remarks
+   * The ID of the zone to which the vSwitch belongs.
+   * 
+   * @example
+   * cn-beijing-g
+   */
   zoneId?: string;
   static names(): { [key: string]: string } {
     return {

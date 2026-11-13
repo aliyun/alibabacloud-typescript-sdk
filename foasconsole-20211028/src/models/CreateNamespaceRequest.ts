@@ -15,7 +15,7 @@ export class CreateNamespaceRequestResourceSpec extends $dara.Model {
    * @remarks
    * The memory size. Unit: GB.
    * 
-   * > The memory size must be 4 times the number of CPUs.
+   * > The memory size must be four times the number of CPUs.
    * 
    * @example
    * 120
@@ -46,13 +46,16 @@ export class CreateNamespaceRequestResourceSpec extends $dara.Model {
 
 export class CreateNamespaceRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable zone-level high availability.
+   * 
    * **if can be null:**
    * true
    */
   ha?: boolean;
   /**
    * @remarks
-   * The order instance ID.
+   * The instance ID of the order.
    * 
    * This parameter is required.
    * 
@@ -62,7 +65,7 @@ export class CreateNamespaceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The namespace name.
+   * The name of the namespace.
    * 
    * This parameter is required.
    * 

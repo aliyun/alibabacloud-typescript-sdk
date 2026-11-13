@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceSpecShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the workspace has zone-disaster recovery resources.
+   * Specifies whether the workspace has cross-zone high-availability resources.
    * 
    * @example
    * true
@@ -13,17 +13,17 @@ export class ModifyInstanceSpecShrinkRequest extends $dara.Model {
   ha?: boolean;
   /**
    * @remarks
-   * The zone-disaster recovery resource specifications.
+   * The description of the cross-zone high-availability resources.
    */
   haResourceSpecShrink?: string;
   /**
    * @remarks
-   * The vSwitch group in the secondary zone for zone-disaster recovery.
+   * The vSwitch group in the secondary zone for cross-zone high availability.
    */
   haVSwitchIdsShrink?: string;
   /**
    * @remarks
-   * The order instance ID.
+   * The instance ID of the order.
    * 
    * This parameter is required.
    * 

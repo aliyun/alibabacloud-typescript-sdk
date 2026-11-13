@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ConvertInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
    * 211473228320700
@@ -13,7 +13,7 @@ export class ConvertInstanceResponseBody extends $dara.Model {
   orderId?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 67F33190-946B-1105-B6A1-E2DF0426DD51
@@ -21,7 +21,7 @@ export class ConvertInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

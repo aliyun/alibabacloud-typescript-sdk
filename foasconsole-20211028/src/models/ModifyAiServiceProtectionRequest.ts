@@ -15,12 +15,12 @@ export class ModifyAiServiceProtectionRequest extends $dara.Model {
   deletionProtection?: boolean;
   /**
    * @remarks
-   * The region ID.
+   * The region ID. It must match the region where the API endpoint is deployed. Currently, only cn-beijing is supported.
    * 
    * This parameter is required.
    * 
    * @example
-   * cn-hangzhou
+   * cn-beijing
    */
   region?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFlinkAiServiceResponseBodyFlinkAiServiceDTO extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether deletion protection is enabled.
+   * Indicates whether release protection is enabled.
    * 
    * @example
    * true
@@ -14,12 +14,12 @@ export class GetFlinkAiServiceResponseBodyFlinkAiServiceDTO extends $dara.Model 
   /**
    * @remarks
    * The status of the Flink AI instance. Valid values:
-   * - CLOSED: closed or not activated.
-   * - WAITING: waiting to be activated after payment.
-   * - OPENING: being activated.
-   * - RUNNING: activated.
-   * - CLOSING: being closed.
-   * - DISABLE: overdue payment.
+   * - CLOSED: The service is closed or not activated.
+   * - WAITING: The service is waiting for activation after successful payment.
+   * - OPENING: The service is being activated.
+   * - RUNNING: The service is activated.
+   * - CLOSING: The service is being closed.
+   * - DISABLE: The service has an overdue payment.
    * 
    * @example
    * CLOSED
@@ -27,7 +27,7 @@ export class GetFlinkAiServiceResponseBodyFlinkAiServiceDTO extends $dara.Model 
   flinkAiInstanceStatus?: string;
   /**
    * @remarks
-   * The AI service order instance ID.
+   * The ID of the AI service order instance.
    * 
    * @example
    * sc_flinkaifuncpost_public_cn-o3s4xabcdef
@@ -43,7 +43,7 @@ export class GetFlinkAiServiceResponseBodyFlinkAiServiceDTO extends $dara.Model 
   region?: string;
   /**
    * @remarks
-   * The time when the AI service was activated, in timestamp format (milliseconds).
+   * The activation time of the AI service. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1786934292
@@ -81,7 +81,7 @@ export class GetFlinkAiServiceResponseBodyFlinkAiServiceDTO extends $dara.Model 
 export class GetFlinkAiServiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Flink AI service data transfer object.
+   * The data transfer object for the Flink AI service.
    */
   flinkAiServiceDTO?: GetFlinkAiServiceResponseBodyFlinkAiServiceDTO;
   /**
@@ -94,7 +94,7 @@ export class GetFlinkAiServiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -44,6 +44,9 @@ export class DescribeNamespacesRequestTags extends $dara.Model {
 
 export class DescribeNamespacesRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether zone-disaster recovery is enabled.
+   * 
    * **if can be null:**
    * true
    */

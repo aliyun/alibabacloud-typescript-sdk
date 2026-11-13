@@ -5,27 +5,39 @@ import * as $dara from '@darabonba/typescript';
 export class FlussResourceSpec extends $dara.Model {
   /**
    * @remarks
-   * Disk size per node, in GB.
+   * The disk capacity of a single TabletServer node, in GiB.
+   * 
+   * @example
+   * 900
    */
   diskSizeInGB?: number;
   /**
    * @remarks
-   * Instance type of the slave nodes.
+   * The node specifications of the TabletServer.
+   * 
+   * @example
+   * 4 RCU
    */
   slaveModel?: string;
   /**
    * @remarks
-   * Number of slave nodes.
+   * The number of TabletServer nodes.
+   * 
+   * @example
+   * 3
    */
   slaveNum?: number;
   /**
    * @remarks
-   * Number of CUs for the post-tiering stage.
+   * The maximum number of elastic compute resources for the lake-stream synchronization service, in CUs.
+   * 
+   * @example
+   * 100
    */
   tieringPostCu?: number;
   /**
    * @remarks
-   * Number of compute units (CUs) for the pre-tiering stage.
+   * The baseline resource count of the lake-stream synchronization service, in CUs.
    */
   tieringPreCu?: number;
   static names(): { [key: string]: string } {

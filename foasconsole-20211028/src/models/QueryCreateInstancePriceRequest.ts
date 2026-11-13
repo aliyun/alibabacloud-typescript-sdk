@@ -16,7 +16,7 @@ export class QueryCreateInstancePriceRequestHaResourceSpec extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The active memory size for zone-disaster recovery.
+   * The active available memory size for cross-zone high availability.
    * 
    * @example
    * 80
@@ -60,7 +60,7 @@ export class QueryCreateInstancePriceRequestResourceSpec extends $dara.Model {
   /**
    * @remarks
    * The memory size.
-   * > The memory size must be 4 times the number of CPUs.
+   * > The memory size must be four times the number of CPUs.
    * 
    * @example
    * 16
@@ -162,8 +162,8 @@ export class QueryCreateInstancePriceRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
    * 
-   * - **true**: Enabled.
-   * - **false**: Disabled (default).
+   * - **true**: enables auto-renewal.
+   * - **false**: disables auto-renewal (default).
    * 
    * > This parameter does not take effect for pay-as-you-go instances.
    * 
@@ -187,7 +187,7 @@ export class QueryCreateInstancePriceRequest extends $dara.Model {
   /**
    * @remarks
    * The number of billing cycles.
-   * > When ChargeType is set to PRE, the Duration parameter is required.
+   * > This parameter is required when ChargeType is set to PRE.
    * 
    * @example
    * 1
@@ -211,7 +211,7 @@ export class QueryCreateInstancePriceRequest extends $dara.Model {
   ha?: boolean;
   /**
    * @remarks
-   * The zone-disaster recovery resource specifications.
+   * The description of zone-disaster recovery resources.
    * 
    * **if can be null:**
    * true
@@ -219,7 +219,7 @@ export class QueryCreateInstancePriceRequest extends $dara.Model {
   haResourceSpec?: QueryCreateInstancePriceRequestHaResourceSpec;
   /**
    * @remarks
-   * The workspace name.
+   * The name of the workspace.
    * 
    * @example
    * rtc-e2e-test-post
@@ -227,7 +227,7 @@ export class QueryCreateInstancePriceRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The billing cycle. Subscription instances support only Year and Month. Pay-as-you-go instances support Hour.
+   * The billing cycle. Subscription instances support only yearly (Year) and monthly (Month) billing cycles. For pay-as-you-go instances, select hourly (Hour).
    * 
    * @example
    * Month
@@ -265,8 +265,8 @@ export class QueryCreateInstancePriceRequest extends $dara.Model {
    * @remarks
    * Specifies whether to use a coupon. Valid values:
    * 
-   * - true: Use a coupon.
-   * - false: Do not use a coupon.
+   * - true: uses a coupon.
+   * - false: does not use a coupon.
    * 
    * @example
    * true
@@ -279,7 +279,7 @@ export class QueryCreateInstancePriceRequest extends $dara.Model {
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The VPC ID of the user.
+   * The VPC ID.
    * 
    * @example
    * vpc-2ze9xoh8qyt1rnxfmfcdi

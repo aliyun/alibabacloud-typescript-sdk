@@ -13,7 +13,7 @@ export class DeleteNamespaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -17,7 +17,7 @@ export class QueryConvertInstancePriceRequestNamespaceResourceSpecsResourceSpec 
    * @remarks
    * The memory size. Unit: GB.
    * 
-   * > The memory size must be 4 times the number of CPUs.
+   * > The memory size must be four times the number of CPUs.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class QueryConvertInstancePriceRequestNamespaceResourceSpecsResourceSpec 
 export class QueryConvertInstancePriceRequestNamespaceResourceSpecs extends $dara.Model {
   /**
    * @remarks
-   * The namespace name.
+   * The name of the workspace.
    * 
    * This parameter is required.
    * 
@@ -61,7 +61,7 @@ export class QueryConvertInstancePriceRequestNamespaceResourceSpecs extends $dar
   namespace?: string;
   /**
    * @remarks
-   * The resource specifications of the namespace.
+   * The resource specifications of the workspace.
    * 
    * This parameter is required.
    */
@@ -95,7 +95,7 @@ export class QueryConvertInstancePriceRequestNamespaceResourceSpecs extends $dar
 export class QueryConvertInstancePriceRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of pricing cycles.
+   * The duration of the billing cycle.
    * 
    * This parameter is required.
    * 
@@ -105,7 +105,7 @@ export class QueryConvertInstancePriceRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The order instance ID.
+   * The instance ID of the order.
    * 
    * This parameter is required.
    * 
@@ -125,14 +125,14 @@ export class QueryConvertInstancePriceRequest extends $dara.Model {
   isAutoRenew?: boolean;
   /**
    * @remarks
-   * The resource specifications of the namespace.
+   * The resource specifications of the workspace.
    * 
    * This parameter is required.
    */
   namespaceResourceSpecs?: QueryConvertInstancePriceRequestNamespaceResourceSpecs[];
   /**
    * @remarks
-   * The pricing cycle. Only Year and Month are supported.
+   * The billing cycle. Only Year and Month are supported.
    * 
    * This parameter is required.
    * 
@@ -140,6 +140,13 @@ export class QueryConvertInstancePriceRequest extends $dara.Model {
    * Month
    */
   pricingCycle?: string;
+  /**
+   * @remarks
+   * The coupon code.
+   * 
+   * @example
+   * 500043499350689
+   */
   promotionCode?: string;
   /**
    * @remarks
@@ -151,6 +158,12 @@ export class QueryConvertInstancePriceRequest extends $dara.Model {
    * cn-beijing
    */
   region?: string;
+  /**
+   * @remarks
+   * Specifies whether to use a coupon. Valid values:
+   * - true: Uses a coupon.
+   * - false: Does not use a coupon.
+   */
   usePromotionCode?: boolean;
   static names(): { [key: string]: string } {
     return {

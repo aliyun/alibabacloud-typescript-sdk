@@ -1,3 +1,5 @@
+export { TokenUsageDetailDTOBizObjects } from './TokenUsageDetailDto';
+export { TokenUsageDetailDTOScopeConfig } from './TokenUsageDetailDto';
 export { ConvertHybridInstanceRequestResourceSpec } from './ConvertHybridInstanceRequest';
 export { ConvertHybridInstanceResponseBodyOrderInfo } from './ConvertHybridInstanceResponseBody';
 export { ConvertInstanceRequestNamespaceResourceSpecsResourceSpec } from './ConvertInstanceRequest';
@@ -88,6 +90,10 @@ export { FlussInstance } from './FlussInstance';
 export { FlussResourceSpec } from './FlussResourceSpec';
 export { FlussVswitch } from './FlussVswitch';
 export { StageWithWeight } from './StageWithWeight';
+export { TokenUsageDetailDTO } from './TokenUsageDetailDto';
+export { ChangeResourceGroupRequest } from './ChangeResourceGroupRequest';
+export { ChangeResourceGroupResponseBody } from './ChangeResourceGroupResponseBody';
+export { ChangeResourceGroupResponse } from './ChangeResourceGroupResponse';
 export { CloseFlinkAiServiceRequest } from './CloseFlinkAiServiceRequest';
 export { CloseFlinkAiServiceResponseBody } from './CloseFlinkAiServiceResponseBody';
 export { CloseFlinkAiServiceResponse } from './CloseFlinkAiServiceResponse';

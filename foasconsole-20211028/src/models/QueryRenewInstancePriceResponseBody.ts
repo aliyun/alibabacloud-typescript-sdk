@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo extends $dara.Model {
   /**
    * @remarks
-   * The price reduction ratio.
+   * The price reduction rate.
    * 
    * @example
    * 34%
@@ -13,7 +13,7 @@ export class QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo extends 
   cheapRate?: string;
   /**
    * @remarks
-   * The total list price after the price reduction.
+   * The reduced total list price.
    * 
    * @example
    * 8000
@@ -21,7 +21,7 @@ export class QueryRenewInstancePriceResponseBodyPriceInfoDepreciateInfo extends 
   cheapStandAmount?: string;
   /**
    * @remarks
-   * Indicates whether the price reduction percentage is displayed.
+   * Indicates whether to display the price reduction margin.
    * 
    * @example
    * true
@@ -88,7 +88,7 @@ export class QueryRenewInstancePriceResponseBodyPriceInfoOptionalPromotions exte
    * The coupon description.
    * 
    * @example
-   * ￥1,391.5 coupon (valid until 03/23/2022)
+   * CNY 1,391.5 coupon (valid until 03/23/2022)
    */
   promotionDesc?: string;
   /**
@@ -96,12 +96,12 @@ export class QueryRenewInstancePriceResponseBodyPriceInfoOptionalPromotions exte
    * The coupon name.
    * 
    * @example
-   * ￥1,391.5 coupon
+   * CNY 1,391.5 coupon
    */
   promotionName?: string;
   /**
    * @remarks
-   * The coupon number.
+   * The coupon ID.
    * 
    * @example
    * 500011220010099
@@ -109,7 +109,7 @@ export class QueryRenewInstancePriceResponseBodyPriceInfoOptionalPromotions exte
   promotionOptionNo?: string;
   /**
    * @remarks
-   * Indicates whether the coupon is selected. Valid values:
+   * Specifies whether the coupon is selected. Valid values:
    * 
    * - true: Selected.
    * 
@@ -149,10 +149,10 @@ export class QueryRenewInstancePriceResponseBodyPriceInfoOptionalPromotions exte
 export class QueryRenewInstancePriceResponseBodyPriceInfoRules extends $dara.Model {
   /**
    * @remarks
-   * The description of the promotion rule.
+   * The promotion rule description.
    * 
    * @example
-   * Purchase for 1 year or more and enjoy a 15% discount off the list price
+   * Get a 15% discount on the list price for a 1-year subscription
    */
   description?: string;
   /**
@@ -218,7 +218,7 @@ export class QueryRenewInstancePriceResponseBodyPriceInfo extends $dara.Model {
   discountAmount?: number;
   /**
    * @remarks
-   * Indicates whether an enterprise discount is applied.
+   * Indicates whether an enterprise agreement discount is applied.
    * 
    * @example
    * true
@@ -226,7 +226,7 @@ export class QueryRenewInstancePriceResponseBodyPriceInfo extends $dara.Model {
   isContractActivity?: boolean;
   /**
    * @remarks
-   * The Lingxiao request ID of the call.
+   * The request ID of the Lingxiao call.
    * 
    * @example
    * 67F33190-946B-1105-B6A1-E2DF0426DD51
@@ -237,7 +237,7 @@ export class QueryRenewInstancePriceResponseBodyPriceInfo extends $dara.Model {
    * The error message.
    * 
    * @example
-   * An unpaid order exists. Pay for or cancel the existing order first
+   * Unpaid orders exist. Pay for or cancel the existing orders first
    */
   message?: string;
   /**
@@ -260,7 +260,7 @@ export class QueryRenewInstancePriceResponseBodyPriceInfo extends $dara.Model {
   rules?: QueryRenewInstancePriceResponseBodyPriceInfoRules[];
   /**
    * @remarks
-   * The promotional price based on the standard website discount.
+   * The discounted price based on the list price discount.
    * 
    * @example
    * 21321
@@ -268,7 +268,7 @@ export class QueryRenewInstancePriceResponseBodyPriceInfo extends $dara.Model {
   standDiscountPrice?: string;
   /**
    * @remarks
-   * The list price with the website discount or direct sales contract discount applied.
+   * The list price discount or direct sales contract discount.
    * 
    * @example
    * 32432
@@ -276,7 +276,7 @@ export class QueryRenewInstancePriceResponseBodyPriceInfo extends $dara.Model {
   standPrice?: string;
   /**
    * @remarks
-   * The final price, which is the original price minus the discount amount.
+   * The final price, which is the original price minus the discount.
    * 
    * @example
    * 3712.8
@@ -339,7 +339,7 @@ export class QueryRenewInstancePriceResponseBodyPriceInfo extends $dara.Model {
 export class QueryRenewInstancePriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The price information, including the price and promotion rules.
+   * The price information, including the price and discount rules.
    */
   priceInfo?: QueryRenewInstancePriceResponseBodyPriceInfo;
   /**
@@ -352,7 +352,7 @@ export class QueryRenewInstancePriceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

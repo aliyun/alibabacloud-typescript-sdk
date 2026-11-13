@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryConvertInstancePriceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of pricing cycles.
+   * The duration of the billing cycle.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class QueryConvertInstancePriceShrinkRequest extends $dara.Model {
   duration?: number;
   /**
    * @remarks
-   * The order instance ID.
+   * The instance ID of the order.
    * 
    * This parameter is required.
    * 
@@ -35,14 +35,14 @@ export class QueryConvertInstancePriceShrinkRequest extends $dara.Model {
   isAutoRenew?: boolean;
   /**
    * @remarks
-   * The resource specifications of the namespace.
+   * The resource specifications of the workspace.
    * 
    * This parameter is required.
    */
   namespaceResourceSpecsShrink?: string;
   /**
    * @remarks
-   * The pricing cycle. Only Year and Month are supported.
+   * The billing cycle. Only Year and Month are supported.
    * 
    * This parameter is required.
    * 
@@ -50,6 +50,13 @@ export class QueryConvertInstancePriceShrinkRequest extends $dara.Model {
    * Month
    */
   pricingCycle?: string;
+  /**
+   * @remarks
+   * The coupon code.
+   * 
+   * @example
+   * 500043499350689
+   */
   promotionCode?: string;
   /**
    * @remarks
@@ -61,6 +68,12 @@ export class QueryConvertInstancePriceShrinkRequest extends $dara.Model {
    * cn-beijing
    */
   region?: string;
+  /**
+   * @remarks
+   * Specifies whether to use a coupon. Valid values:
+   * - true: Uses a coupon.
+   * - false: Does not use a coupon.
+   */
   usePromotionCode?: boolean;
   static names(): { [key: string]: string } {
     return {

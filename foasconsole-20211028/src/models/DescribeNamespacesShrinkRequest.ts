@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class DescribeNamespacesShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether zone-disaster recovery is enabled.
+   * 
    * **if can be null:**
    * true
    */

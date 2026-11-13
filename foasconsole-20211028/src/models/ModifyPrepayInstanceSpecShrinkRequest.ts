@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPrepayInstanceSpecShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable zone-disaster recovery resources for the workspace.
+   * Specifies whether cross-zone high-availability resources are enabled for the workspace.
    * 
    * @example
    * true
@@ -16,7 +16,7 @@ export class ModifyPrepayInstanceSpecShrinkRequest extends $dara.Model {
   ha?: boolean;
   /**
    * @remarks
-   * The resource specifications for zone-disaster recovery.
+   * The resource specifications for cross-zone high availability.
    * 
    * **if can be null:**
    * true
@@ -24,7 +24,7 @@ export class ModifyPrepayInstanceSpecShrinkRequest extends $dara.Model {
   haResourceSpecShrink?: string;
   /**
    * @remarks
-   * The list of vSwitch IDs in the secondary zone for zone-disaster recovery.
+   * The list of vSwitch IDs in the secondary zone for cross-zone high availability.
    * 
    * **if can be null:**
    * true
@@ -32,7 +32,10 @@ export class ModifyPrepayInstanceSpecShrinkRequest extends $dara.Model {
   haVSwitchIdsShrink?: string;
   /**
    * @remarks
-   * The ID of the secondary zone for zone-disaster recovery.
+   * The ID of the secondary zone for cross-zone high availability.
+   * 
+   * @example
+   * cn-hongkong-b
    * 
    * **if can be null:**
    * true
@@ -40,7 +43,7 @@ export class ModifyPrepayInstanceSpecShrinkRequest extends $dara.Model {
   haZoneId?: string;
   /**
    * @remarks
-   * The order instance ID.
+   * The instance ID of the order.
    * 
    * This parameter is required.
    * 
@@ -60,7 +63,7 @@ export class ModifyPrepayInstanceSpecShrinkRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The resource specification information.
+   * The resource specifications.
    * 
    * This parameter is required.
    */

@@ -13,10 +13,10 @@ export class CreateNamespaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
-   * Is successful
+   * true
    */
   success?: boolean;
   static names(): { [key: string]: string } {

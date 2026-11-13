@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFlinkAiServiceFreeQuotaResponseBodyFlinkAiFreeQuotaDTOUsedQuotaDetails extends $dara.Model {
   /**
    * @remarks
-   * The used quota for this usage type.
+   * The used quota for the usage type.
    * 
    * @example
    * 35.5
@@ -85,7 +85,7 @@ export class GetFlinkAiServiceFreeQuotaResponseBodyFlinkAiFreeQuotaDTO extends $
 export class GetFlinkAiServiceFreeQuotaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Flink AI free quota data transfer object.
+   * The Flink AI free quota DTO.
    */
   flinkAiFreeQuotaDTO?: GetFlinkAiServiceFreeQuotaResponseBodyFlinkAiFreeQuotaDTO;
   /**
@@ -98,7 +98,7 @@ export class GetFlinkAiServiceFreeQuotaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

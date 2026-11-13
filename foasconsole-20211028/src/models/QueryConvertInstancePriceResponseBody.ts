@@ -13,7 +13,7 @@ export class QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo extend
   cheapRate?: string;
   /**
    * @remarks
-   * The total list price after the price reduction.
+   * The reduced total list price.
    * 
    * @example
    * 8000
@@ -21,7 +21,7 @@ export class QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo extend
   cheapStandAmount?: string;
   /**
    * @remarks
-   * Indicates whether to display the price reduction percentage.
+   * Indicates whether to display the price reduction margin.
    * 
    * @example
    * false
@@ -45,7 +45,7 @@ export class QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo extend
   originalStandAmount?: string;
   /**
    * @remarks
-   * The start time of the price reduction, in ISO 8601 format.
+   * The start time of the price reduction. The time is in the ISO 8601 format.
    * 
    * @example
    * 2024-08-21T02:06:00Z
@@ -85,23 +85,23 @@ export class QueryConvertInstancePriceResponseBodyPriceInfoDepreciateInfo extend
 export class QueryConvertInstancePriceResponseBodyPriceInfoOptionalPromotions extends $dara.Model {
   /**
    * @remarks
-   * The coupon description.
+   * The description of the coupon.
    * 
    * @example
-   * ¥1,391.5 coupon (valid until 03/23/2022)
+   * CNY 1,391.5 coupon (valid until 03/23/2022)
    */
   promotionDesc?: string;
   /**
    * @remarks
-   * The coupon name.
+   * The name of the coupon.
    * 
    * @example
-   * ¥1,391.5 coupon
+   * CNY 1,391.5 coupon
    */
   promotionName?: string;
   /**
    * @remarks
-   * The coupon number.
+   * The ID of the coupon.
    * 
    * @example
    * 500011220010099
@@ -109,7 +109,7 @@ export class QueryConvertInstancePriceResponseBodyPriceInfoOptionalPromotions ex
   promotionOptionNo?: string;
   /**
    * @remarks
-   * Indicates whether the coupon is selected. Valid values:
+   * Specifies whether the coupon is selected. Valid values:
    * 
    * - true: Selected.
    * 
@@ -152,12 +152,12 @@ export class QueryConvertInstancePriceResponseBodyPriceInfoRules extends $dara.M
    * The description of the promotion rule.
    * 
    * @example
-   * Purchase for 1 year or more and enjoy a 15% discount off the list price
+   * Get a 15% discount on the list price for a 1-year subscription
    */
   description?: string;
   /**
    * @remarks
-   * The promotion ID.
+   * The ID of the promotion.
    * 
    * @example
    * 587
@@ -218,7 +218,7 @@ export class QueryConvertInstancePriceResponseBodyPriceInfo extends $dara.Model 
   discountAmount?: number;
   /**
    * @remarks
-   * Indicates whether an enterprise discount is applied.
+   * Indicates whether the enterprise discount is applied.
    * 
    * @example
    * true
@@ -226,7 +226,7 @@ export class QueryConvertInstancePriceResponseBodyPriceInfo extends $dara.Model 
   isContractActivity?: boolean;
   /**
    * @remarks
-   * The Lingxiao request ID of the call.
+   * The request ID of the Lingxiao system.
    * 
    * @example
    * 67F33190-946B-1105-B6A1-E2DF0426DD51
@@ -260,7 +260,7 @@ export class QueryConvertInstancePriceResponseBodyPriceInfo extends $dara.Model 
   rules?: QueryConvertInstancePriceResponseBodyPriceInfoRules[];
   /**
    * @remarks
-   * The promotional price based on the standard discount from the official website.
+   * The discounted price based on the list price discount.
    * 
    * @example
    * 21321
@@ -268,7 +268,7 @@ export class QueryConvertInstancePriceResponseBodyPriceInfo extends $dara.Model 
   standDiscountPrice?: string;
   /**
    * @remarks
-   * The standard discounted price on the official website or the direct sales contract discounted price.
+   * The discounted list price or the discounted direct sales contract price.
    * 
    * @example
    * 32432
@@ -276,7 +276,7 @@ export class QueryConvertInstancePriceResponseBodyPriceInfo extends $dara.Model 
   standPrice?: string;
   /**
    * @remarks
-   * The final price, which is the original price minus the discount amount.
+   * The final price, which is the original price minus the discount.
    * 
    * @example
    * 3712.8
@@ -352,7 +352,7 @@ export class QueryConvertInstancePriceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

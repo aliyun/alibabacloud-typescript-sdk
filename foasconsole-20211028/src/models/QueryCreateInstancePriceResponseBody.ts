@@ -6,31 +6,46 @@ export class QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo extends
   /**
    * @remarks
    * The price reduction ratio.
+   * 
+   * @example
+   * 34%
    */
   cheapRate?: string;
   /**
    * @remarks
-   * The total list price after the price reduction.
+   * The reduced total price on the official website.
+   * 
+   * @example
+   * 8000
    */
   cheapStandAmount?: string;
   /**
    * @remarks
-   * Indicates whether to display the price reduction percentage.
+   * Indicates whether the price reduction margin is displayed.
    */
   isShow?: boolean;
   /**
    * @remarks
-   * The monthly equivalent price.
+   * The equivalent monthly price.
+   * 
+   * @example
+   * 1000
    */
   monthPrice?: string;
   /**
    * @remarks
-   * The original total list price.
+   * The original total price on the official website.
+   * 
+   * @example
+   * 12000
    */
   originalStandAmount?: string;
   /**
    * @remarks
-   * The start time of the price reduction.
+   * The start time of the price reduction, in ISO 8601 format.
+   * 
+   * @example
+   * 2024-08-21T02:06:00Z
    */
   startTime?: string;
   static names(): { [key: string]: string } {
@@ -67,23 +82,23 @@ export class QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo extends
 export class QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions extends $dara.Model {
   /**
    * @remarks
-   * The coupon description.
+   * The description of the coupon.
    * 
    * @example
-   * ¥1,391.5 coupon (valid until 03/23/2022)
+   * CNY 1,391.5 coupon (valid until 03/23/2022)
    */
   promotionDesc?: string;
   /**
    * @remarks
-   * The coupon name.
+   * The name of the coupon.
    * 
    * @example
-   * ¥1,391.5 coupon
+   * CNY 1,391.5 coupon
    */
   promotionName?: string;
   /**
    * @remarks
-   * The coupon ID.
+   * The ID of the coupon.
    * 
    * @example
    * 500011220010099
@@ -132,12 +147,12 @@ export class QueryCreateInstancePriceResponseBodyPriceInfoRules extends $dara.Mo
    * The description of the promotion rule.
    * 
    * @example
-   * Purchase for one year or longer and enjoy a 15% discount off the list price
+   * Enjoy a 15% discount on the official website price for a 1-year subscription
    */
   description?: string;
   /**
    * @remarks
-   * The promotion ID.
+   * The ID of the promotion.
    * 
    * @example
    * 587
@@ -198,12 +213,12 @@ export class QueryCreateInstancePriceResponseBodyPriceInfo extends $dara.Model {
   discountAmount?: number;
   /**
    * @remarks
-   * Indicates whether an enterprise discount is applied.
+   * Indicates whether the key account discount is applied.
    */
   isContractActivity?: boolean;
   /**
    * @remarks
-   * The Lingxiao request ID of the call.
+   * The Lingxiao request ID for the invocation.
    * 
    * @example
    * 67F33190-946B-1105-B6A1-E2DF0426DD51
@@ -214,7 +229,7 @@ export class QueryCreateInstancePriceResponseBodyPriceInfo extends $dara.Model {
    * The error message.
    * 
    * @example
-   * An unpaid order exists. Pay for or cancel the existing order first
+   * Unpaid orders exist. Pay for or cancel the existing orders first
    */
   message?: string;
   /**
@@ -237,12 +252,18 @@ export class QueryCreateInstancePriceResponseBodyPriceInfo extends $dara.Model {
   rules?: QueryCreateInstancePriceResponseBodyPriceInfoRules[];
   /**
    * @remarks
-   * The promotional price based on the standard discount from the official website.
+   * The discounted price based on the official website discount.
+   * 
+   * @example
+   * 21321
    */
   standDiscountPrice?: string;
   /**
    * @remarks
-   * The standard discounted price on the official website or the direct sales contract discounted price.
+   * The official website discount price or direct sales contract discount price.
+   * 
+   * @example
+   * 32432
    */
   standPrice?: string;
   /**
@@ -310,7 +331,7 @@ export class QueryCreateInstancePriceResponseBodyPriceInfo extends $dara.Model {
 export class QueryCreateInstancePriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The price information, including the price and promotion rules.
+   * The price information, including the price and discount rules.
    */
   priceInfo?: QueryCreateInstancePriceResponseBodyPriceInfo;
   /**
@@ -323,7 +344,7 @@ export class QueryCreateInstancePriceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

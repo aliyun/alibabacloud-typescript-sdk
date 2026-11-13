@@ -2,8 +2,6 @@
 import * as $dara from '@darabonba/typescript';
 
 
-/**
- */
 export class ConvertHybridInstanceRequestResourceSpec extends $dara.Model {
   /**
    * @remarks
@@ -19,12 +17,12 @@ export class ConvertHybridInstanceRequestResourceSpec extends $dara.Model {
    * @remarks
    * The memory size. Unit: GB.
    * 
-   * > The memory size must be 4 times the number of CPUs.
+   * > The memory size must be four times the number of CPUs.
    * 
    * This parameter is required.
    * 
    * @example
-   * 40GB
+   * 40
    */
   memoryGB?: number;
   static names(): { [key: string]: string } {

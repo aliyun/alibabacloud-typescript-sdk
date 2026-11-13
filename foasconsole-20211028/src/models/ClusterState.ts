@@ -4,8 +4,26 @@ import { ClusterStage } from "./ClusterStage";
 
 
 export class ClusterState extends $dara.Model {
+  /**
+   * @remarks
+   * The stage progress information for cluster operations.
+   */
   clusterStage?: ClusterStage;
+  /**
+   * @remarks
+   * The cluster running status.
+   * 
+   * @example
+   * RUNNING
+   */
   status?: string;
+  /**
+   * @remarks
+   * The cluster running sub-status.
+   * 
+   * @example
+   * RUNNING
+   */
   subStatus?: string;
   static names(): { [key: string]: string } {
     return {

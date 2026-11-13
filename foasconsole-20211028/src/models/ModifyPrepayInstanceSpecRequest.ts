@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPrepayInstanceSpecRequestHaResourceSpec extends $dara.Model {
   /**
    * @remarks
-   * The number of CPUs for zone-disaster recovery resources.
+   * The number of CPUs for cross-zone high-availability resources.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ModifyPrepayInstanceSpecRequestHaResourceSpec extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The memory size of zone-disaster recovery resources, in GB. The value must be 4 times the number of CPUs.
+   * The memory size of cross-zone high-availability resources, in GB. The value must be four times the number of CPUs.
    * 
    * @example
    * 40
@@ -56,7 +56,7 @@ export class ModifyPrepayInstanceSpecRequestResourceSpec extends $dara.Model {
   /**
    * @remarks
    * The memory size.
-   * > The memory size must be 4 times the number of CPUs.
+   * > The memory size must be four times the number of CPUs.
    * 
    * This parameter is required.
    * 
@@ -90,7 +90,7 @@ export class ModifyPrepayInstanceSpecRequestResourceSpec extends $dara.Model {
 export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable zone-disaster recovery resources for the workspace.
+   * Specifies whether cross-zone high-availability resources are enabled for the workspace.
    * 
    * @example
    * true
@@ -101,7 +101,7 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   ha?: boolean;
   /**
    * @remarks
-   * The resource specifications for zone-disaster recovery.
+   * The resource specifications for cross-zone high availability.
    * 
    * **if can be null:**
    * true
@@ -109,7 +109,7 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   haResourceSpec?: ModifyPrepayInstanceSpecRequestHaResourceSpec;
   /**
    * @remarks
-   * The list of vSwitch IDs in the secondary zone for zone-disaster recovery.
+   * The list of vSwitch IDs in the secondary zone for cross-zone high availability.
    * 
    * **if can be null:**
    * true
@@ -117,7 +117,10 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   haVSwitchIds?: string[];
   /**
    * @remarks
-   * The ID of the secondary zone for zone-disaster recovery.
+   * The ID of the secondary zone for cross-zone high availability.
+   * 
+   * @example
+   * cn-hongkong-b
    * 
    * **if can be null:**
    * true
@@ -125,7 +128,7 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   haZoneId?: string;
   /**
    * @remarks
-   * The order instance ID.
+   * The instance ID of the order.
    * 
    * This parameter is required.
    * 
@@ -145,7 +148,7 @@ export class ModifyPrepayInstanceSpecRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The resource specification information.
+   * The resource specifications.
    * 
    * This parameter is required.
    */

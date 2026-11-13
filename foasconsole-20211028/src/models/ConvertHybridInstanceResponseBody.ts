@@ -76,7 +76,7 @@ export class ConvertHybridInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true

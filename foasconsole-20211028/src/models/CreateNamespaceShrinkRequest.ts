@@ -4,13 +4,16 @@ import * as $dara from '@darabonba/typescript';
 
 export class CreateNamespaceShrinkRequest extends $dara.Model {
   /**
+   * @remarks
+   * Specifies whether to enable zone-level high availability.
+   * 
    * **if can be null:**
    * true
    */
   ha?: boolean;
   /**
    * @remarks
-   * The order instance ID.
+   * The instance ID of the order.
    * 
    * This parameter is required.
    * 
@@ -20,7 +23,7 @@ export class CreateNamespaceShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The namespace name.
+   * The name of the namespace.
    * 
    * This parameter is required.
    * 

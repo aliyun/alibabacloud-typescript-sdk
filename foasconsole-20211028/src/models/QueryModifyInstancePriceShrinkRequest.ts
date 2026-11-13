@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryModifyInstancePriceShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to select zone-disaster recovery resources.
+   * Specifies whether to select high-availability resources for zone-disaster recovery.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class QueryModifyInstancePriceShrinkRequest extends $dara.Model {
   ha?: boolean;
   /**
    * @remarks
-   * The zone-disaster recovery resource description.
+   * The description of high-availability resources for zone-disaster recovery.
    * 
    * **if can be null:**
    * true
@@ -21,7 +21,7 @@ export class QueryModifyInstancePriceShrinkRequest extends $dara.Model {
   haResourceSpecShrink?: string;
   /**
    * @remarks
-   * The vSwitch group for the zone-disaster recovery secondary zone.
+   * The vSwitch group in the secondary zone for zone-disaster recovery.
    * 
    * **if can be null:**
    * true
@@ -29,7 +29,7 @@ export class QueryModifyInstancePriceShrinkRequest extends $dara.Model {
   haVSwitchIdsShrink?: string;
   /**
    * @remarks
-   * The order instance ID.
+   * The instance ID of the order.
    * 
    * This parameter is required.
    * 
@@ -37,6 +37,13 @@ export class QueryModifyInstancePriceShrinkRequest extends $dara.Model {
    * f-cn-wwo36qj4g06
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The coupon code.
+   * 
+   * @example
+   * 500043499350689
+   */
   promotionCode?: string;
   /**
    * @remarks
@@ -55,6 +62,12 @@ export class QueryModifyInstancePriceShrinkRequest extends $dara.Model {
    * This parameter is required.
    */
   resourceSpecShrink?: string;
+  /**
+   * @remarks
+   * Specifies whether to use a coupon. Valid values:
+   * - true: Yes.
+   * - false: No.
+   */
   usePromotionCode?: boolean;
   static names(): { [key: string]: string } {
     return {

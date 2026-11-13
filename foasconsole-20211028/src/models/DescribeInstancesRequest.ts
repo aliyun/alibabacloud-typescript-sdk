@@ -13,7 +13,8 @@ export class DescribeInstancesRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. The value can be up to 64 Unicode characters in length.
+   * The tag value.
+   * The value can be up to 64 Unicode characters in length.
    * 
    * @example
    * ys
@@ -45,7 +46,7 @@ export class DescribeInstancesRequestTags extends $dara.Model {
 export class DescribeInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The processor architecture. Valid values: X86 and ARM.
+   * The processor architecture. Valid values: x86 and ARM.
    * 
    * @example
    * X86
@@ -61,7 +62,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * Specifies whether hybrid billing is used.
+   * Specifies whether hybrid billing is enabled.
    * 
    * @example
    * true
@@ -69,7 +70,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   elastic?: boolean;
   /**
    * @remarks
-   * The order instance ID.
+   * The instance ID of the order.
    * 
    * @example
    * f-cn-wwo36qj4g06
@@ -101,7 +102,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
+   * The paging Settings for the number of entries per page in a paged query. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10

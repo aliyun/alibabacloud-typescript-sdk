@@ -15,7 +15,7 @@ export class ModifyInstanceSpecRequestHaResourceSpec extends $dara.Model {
    * @remarks
    * The memory size.
    * 
-   * >The memory size must be 4 times the number of CPUs.
+   * > The memory size must be four times the number of CPUs.
    * 
    * @example
    * 40
@@ -58,7 +58,7 @@ export class ModifyInstanceSpecRequestResourceSpec extends $dara.Model {
   /**
    * @remarks
    * The memory size.
-   * > The memory size must be 4 times the number of CPUs.
+   * > The memory size must be four times the number of CPUs.
    * 
    * This parameter is required.
    * 
@@ -92,7 +92,7 @@ export class ModifyInstanceSpecRequestResourceSpec extends $dara.Model {
 export class ModifyInstanceSpecRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the workspace has zone-disaster recovery resources.
+   * Specifies whether the workspace has cross-zone high-availability resources.
    * 
    * @example
    * true
@@ -100,17 +100,17 @@ export class ModifyInstanceSpecRequest extends $dara.Model {
   ha?: boolean;
   /**
    * @remarks
-   * The zone-disaster recovery resource specifications.
+   * The description of the cross-zone high-availability resources.
    */
   haResourceSpec?: ModifyInstanceSpecRequestHaResourceSpec;
   /**
    * @remarks
-   * The vSwitch group in the secondary zone for zone-disaster recovery.
+   * The vSwitch group in the secondary zone for cross-zone high availability.
    */
   haVSwitchIds?: string[];
   /**
    * @remarks
-   * The order instance ID.
+   * The instance ID of the order.
    * 
    * This parameter is required.
    * 

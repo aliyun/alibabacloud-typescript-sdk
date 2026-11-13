@@ -13,7 +13,7 @@ export class DescribeNamespacesResponseBodyNamespacesElasticResourceSpec extends
   cpu?: number;
   /**
    * @remarks
-   * The maximum memory limit for pay-as-you-go resources. Unit: GB.
+   * The maximum memory limit for pay-as-you-go resources, in GB.
    * 
    * @example
    * 0
@@ -53,7 +53,7 @@ export class DescribeNamespacesResponseBodyNamespacesGuaranteedResourceSpec exte
   cpu?: number;
   /**
    * @remarks
-   * The memory size for subscription resources. Unit: GB.
+   * The memory size for subscription resources, in GB.
    * 
    * @example
    * 0
@@ -213,6 +213,10 @@ export class DescribeNamespacesResponseBodyNamespacesTags extends $dara.Model {
 }
 
 export class DescribeNamespacesResponseBodyNamespaces extends $dara.Model {
+  /**
+   * @remarks
+   * The elastic resource specifications of the namespace.
+   */
   elasticResourceSpec?: DescribeNamespacesResponseBodyNamespacesElasticResourceSpec;
   /**
    * @remarks
@@ -245,7 +249,7 @@ export class DescribeNamespacesResponseBodyNamespaces extends $dara.Model {
   ha?: boolean;
   /**
    * @remarks
-   * The name of the namespace.
+   * The namespace name.
    * 
    * @example
    * ns-1
@@ -258,16 +262,16 @@ export class DescribeNamespacesResponseBodyNamespaces extends $dara.Model {
   resourceSpec?: DescribeNamespacesResponseBodyNamespacesResourceSpec;
   /**
    * @remarks
-   * The used resources.
+   * The resources that have been used.
    */
   resourceUsed?: DescribeNamespacesResponseBodyNamespacesResourceUsed;
   /**
    * @remarks
-   * The status of the namespace. Valid values:
-   * - CREATING: Being created.
-   * - DELETING: Being deleted.
-   * - MODIFYING: Resource specifications are being modified.
-   * - SUCCESS: The last operation was successful.
+   * The namespace status. Valid values:
+   * - CREATING: The namespace is being created.
+   * - DELETING: The namespace is being deleted.
+   * - MODIFYING: The resource specifications are being modified.
+   * - SUCCESS: The last operation succeeded.
    * - FAILED: The last operation failed.
    * 
    * @example
@@ -367,8 +371,8 @@ export class DescribeNamespacesResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the request was successful. Valid values:
    * 
-   * - true: Successful.
-   * - false: Failed.
+   * - true: The request succeeded.
+   * - false: The request failed.
    * 
    * @example
    * true

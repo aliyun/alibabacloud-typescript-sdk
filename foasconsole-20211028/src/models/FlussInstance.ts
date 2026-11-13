@@ -5,95 +5,141 @@ import { FlussVswitch } from "./FlussVswitch";
 
 
 export class FlussInstance extends $dara.Model {
+  /**
+   * @remarks
+   * The running state information of the cluster.
+   */
   clusterState?: ClusterState;
   /**
    * @remarks
-   * The cluster status.
+   * The status of the Fluss cluster.
+   * 
+   * @example
+   * RUNNING
    */
   clusterStatus?: string;
   /**
    * @remarks
-   * The URL of the instance management console.
+   * The console access URL of the Fluss instance.
    */
   consoleUrl?: string;
   /**
    * @remarks
-   * The disk size, in GB.
+   * The disk size of a single TabletServer node, in GiB.
+   * 
+   * @example
+   * 900
    */
   diskSize?: number;
   /**
    * @remarks
-   * Specifies whether high availability (HA) is enabled.
+   * Specifies whether multi-zone high availability is enabled.
    */
   ha?: boolean;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the Fluss instance.
+   * 
+   * @example
+   * f-cn-zvp2q0z****
    */
   instanceId?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the Fluss instance.
+   * 
+   * @example
+   * fluss-test
    */
   instanceName?: string;
   /**
    * @remarks
-   * The order state.
+   * The order status of the instance.
+   * 
+   * @example
+   * NORMAL
    */
   orderState?: string;
   /**
    * @remarks
-   * The ID of the region.
+   * The ID of the region where the instance resides.
+   * 
+   * @example
+   * cn-beijing
    */
   regionId?: string;
   /**
    * @remarks
-   * The creation time of the resource, as a UNIX timestamp in milliseconds.
+   * The creation time of the instance, represented as a UNIX timestamp in milliseconds.
+   * 
+   * @example
+   * 1629879567394
    */
   resourceCreateTime?: number;
   /**
    * @remarks
-   * The expiration time of the resource, as a UNIX timestamp in milliseconds.
+   * The time when the instance expires, represented as a UNIX timestamp in milliseconds.
+   * 
+   * @example
+   * 1637337600000
    */
   resourceExpiredTime?: number;
   /**
    * @remarks
-   * The tablet server model.
+   * The TabletServer node specifications.
+   * 
+   * @example
+   * 4 RCU
    */
   tabletServerModel?: string;
   /**
    * @remarks
-   * The number of tablet servers.
+   * The number of TabletServer nodes.
+   * 
+   * @example
+   * 3
    */
   tabletServerNum?: number;
   /**
    * @remarks
-   * The tablet server type.
+   * The type of TabletServer node specifications.
+   * 
+   * @example
+   * 4 RCU
    */
   tabletServerType?: string;
   /**
    * @remarks
-   * The number of compute units (CUs) for post-tiering.
+   * The upper limit of elastic compute resources for the lake-stream synchronization service, in CUs.
+   * 
+   * @example
+   * 100
    */
   tieringPostCu?: number;
   /**
    * @remarks
-   * The number of compute units (CUs) for pre-tiering.
+   * The base compute resource count for the lake-stream synchronization service, in CUs.
    */
   tieringPreCu?: number;
   /**
    * @remarks
-   * The Alibaba Cloud account ID (UID).
+   * The UID of the Alibaba Cloud account to which the instance belongs.
+   * 
+   * @example
+   * 183899668736****
    */
   uid?: string;
   /**
    * @remarks
-   * The VSwitch details.
+   * The list of zone and vSwitch configurations used by the instance.
    */
   vSwitches?: FlussVswitch[];
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the VPC to which the instance belongs.
+   * 
+   * @example
+   * vpc-2ze9*******nxfmfcdi
    */
   vpcId?: string;
   static names(): { [key: string]: string } {

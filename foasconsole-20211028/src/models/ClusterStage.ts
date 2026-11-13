@@ -4,9 +4,34 @@ import { StageWithWeight } from "./StageWithWeight";
 
 
 export class ClusterStage extends $dara.Model {
+  /**
+   * @remarks
+   * The ordinal number of the current execution stage.
+   * 
+   * @example
+   * 0
+   */
   currentStage?: number;
+  /**
+   * @remarks
+   * The execution information of the current stage.
+   * 
+   * @example
+   * Creating resources
+   */
   message?: string;
+  /**
+   * @remarks
+   * The execution status of the current stage.
+   * 
+   * @example
+   * CREATING
+   */
   status?: string;
+  /**
+   * @remarks
+   * The list of execution stages and their weights.
+   */
   totalStageWithWeight?: StageWithWeight[];
   static names(): { [key: string]: string } {
     return {

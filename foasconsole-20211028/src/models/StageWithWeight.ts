@@ -3,8 +3,26 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class StageWithWeight extends $dara.Model {
+  /**
+   * @remarks
+   * The ordinal number of the execution stage.
+   * 
+   * @example
+   * 0
+   */
   stepIndex?: number;
+  /**
+   * @remarks
+   * The name of the execution stage.
+   */
   stepName?: string;
+  /**
+   * @remarks
+   * The weight of the stage in the overall progress.
+   * 
+   * @example
+   * 0
+   */
   weight?: number;
   static names(): { [key: string]: string } {
     return {

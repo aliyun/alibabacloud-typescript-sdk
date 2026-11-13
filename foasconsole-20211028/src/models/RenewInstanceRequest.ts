@@ -25,11 +25,7 @@ export class RenewInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The subscription period. Valid values:
-   * - Month: month.
-   * - Year: year.
-   * - Hour: hour.
-   * - Day: day.
+   * The subscription period.
    * 
    * This parameter is required.
    * 
@@ -37,6 +33,13 @@ export class RenewInstanceRequest extends $dara.Model {
    * Month
    */
   pricingCycle?: string;
+  /**
+   * @remarks
+   * The coupon code.
+   * 
+   * @example
+   * 500043499350689
+   */
   promotionCode?: string;
   /**
    * @remarks
@@ -48,6 +51,12 @@ export class RenewInstanceRequest extends $dara.Model {
    * cn-beijing
    */
   region?: string;
+  /**
+   * @remarks
+   * Specifies whether to use a coupon. Valid values:
+   * - true: Use a coupon.
+   * - false: Do not use a coupon.
+   */
   usePromotionCode?: boolean;
   static names(): { [key: string]: string } {
     return {

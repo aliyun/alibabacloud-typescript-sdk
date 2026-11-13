@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryModifyInstancePriceRequestHaResourceSpec extends $dara.Model {
   /**
    * @remarks
-   * The number of CPUs for zone-disaster recovery.
+   * The number of CPUs for zone-disaster recovery high availability.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class QueryModifyInstancePriceRequestHaResourceSpec extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The active memory size for zone-disaster recovery.
+   * The memory size for high availability in zone-disaster recovery.
    * 
    * @example
    * 80
@@ -57,7 +57,7 @@ export class QueryModifyInstancePriceRequestResourceSpec extends $dara.Model {
    * @remarks
    * The memory size after the specification change.
    * 
-   * >The memory size must be 4 times the number of CPUs.
+   * >The memory size must be four times the number of CPUs.
    * 
    * This parameter is required.
    * 
@@ -91,7 +91,7 @@ export class QueryModifyInstancePriceRequestResourceSpec extends $dara.Model {
 export class QueryModifyInstancePriceRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to select zone-disaster recovery resources.
+   * Specifies whether to select high-availability resources for zone-disaster recovery.
    * 
    * @example
    * true
@@ -99,7 +99,7 @@ export class QueryModifyInstancePriceRequest extends $dara.Model {
   ha?: boolean;
   /**
    * @remarks
-   * The zone-disaster recovery resource description.
+   * The description of high-availability resources for zone-disaster recovery.
    * 
    * **if can be null:**
    * true
@@ -107,7 +107,7 @@ export class QueryModifyInstancePriceRequest extends $dara.Model {
   haResourceSpec?: QueryModifyInstancePriceRequestHaResourceSpec;
   /**
    * @remarks
-   * The vSwitch group for the zone-disaster recovery secondary zone.
+   * The vSwitch group in the secondary zone for zone-disaster recovery.
    * 
    * **if can be null:**
    * true
@@ -115,7 +115,7 @@ export class QueryModifyInstancePriceRequest extends $dara.Model {
   haVSwitchIds?: string[];
   /**
    * @remarks
-   * The order instance ID.
+   * The instance ID of the order.
    * 
    * This parameter is required.
    * 
@@ -123,6 +123,13 @@ export class QueryModifyInstancePriceRequest extends $dara.Model {
    * f-cn-wwo36qj4g06
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The coupon code.
+   * 
+   * @example
+   * 500043499350689
+   */
   promotionCode?: string;
   /**
    * @remarks
@@ -141,6 +148,12 @@ export class QueryModifyInstancePriceRequest extends $dara.Model {
    * This parameter is required.
    */
   resourceSpec?: QueryModifyInstancePriceRequestResourceSpec;
+  /**
+   * @remarks
+   * Specifies whether to use a coupon. Valid values:
+   * - true: Yes.
+   * - false: No.
+   */
   usePromotionCode?: boolean;
   static names(): { [key: string]: string } {
     return {

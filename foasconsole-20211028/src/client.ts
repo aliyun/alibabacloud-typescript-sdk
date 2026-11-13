@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "foasconsole";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "central";
     this._endpointMap = {
       'cn-wulanchabu': "foasconsole.cn-wulanchabu.aliyuncs.com",
@@ -47,6 +51,56 @@ export default class Client extends OpenApi {
     }
 
     return OpenApiUtil.getEndpointRules(productId, regionId, endpointRule, network, suffix);
+  }
+
+  /**
+   * Updates the resource group.
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ChangeResourceGroupResponse
+   */
+  async changeResourceGroupWithOptions(request: $_model.ChangeResourceGroupRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ChangeResourceGroupResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.resourceGroupId)) {
+      query["ResourceGroupId"] = request.resourceGroupId;
+    }
+
+    if (!$dara.isNull(request.resourceId)) {
+      query["ResourceId"] = request.resourceId;
+    }
+
+    if (!$dara.isNull(request.resourceRegionId)) {
+      query["ResourceRegionId"] = request.resourceRegionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ChangeResourceGroup",
+      version: "2021-10-28",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ChangeResourceGroupResponse>(await this.callApi(params, req, runtime), new $_model.ChangeResourceGroupResponse({}));
+  }
+
+  /**
+   * Updates the resource group.
+   * 
+   * @param request - ChangeResourceGroupRequest
+   * @returns ChangeResourceGroupResponse
+   */
+  async changeResourceGroup(request: $_model.ChangeResourceGroupRequest): Promise<$_model.ChangeResourceGroupResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.changeResourceGroupWithOptions(request, runtime);
   }
 
   /**
@@ -95,7 +149,7 @@ export default class Client extends OpenApi {
    * Converts a subscription instance to a hybrid billing instance.
    * 
    * @remarks
-   * *Before using this API, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/hybrid-pricing) of hybrid billing for Realtime Compute for Apache Flink.**
+   * *Before using this operation, make sure you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/hybrid-pricing) of hybrid billing for Fully Managed Flink.**
    * 
    * @param tmpReq - ConvertHybridInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -143,7 +197,7 @@ export default class Client extends OpenApi {
    * Converts a subscription instance to a hybrid billing instance.
    * 
    * @remarks
-   * *Before using this API, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/hybrid-pricing) of hybrid billing for Realtime Compute for Apache Flink.**
+   * *Before using this operation, make sure you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/hybrid-pricing) of hybrid billing for Fully Managed Flink.**
    * 
    * @param request - ConvertHybridInstanceRequest
    * @returns ConvertHybridInstanceResponse
@@ -157,7 +211,7 @@ export default class Client extends OpenApi {
    * Converts a pay-as-you-go workspace to a subscription workspace.
    * 
    * @remarks
-   * *Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/switch-from-pay-as-you-go-to-subscription) of fully managed Flink.**
+   * *Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/switch-from-pay-as-you-go-to-subscription) of fully managed Flink before you call this operation.**
    * 
    * @param tmpReq - ConvertInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -225,7 +279,7 @@ export default class Client extends OpenApi {
    * Converts a pay-as-you-go workspace to a subscription workspace.
    * 
    * @remarks
-   * *Before using this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/switch-from-pay-as-you-go-to-subscription) of fully managed Flink.**
+   * *Make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/switch-from-pay-as-you-go-to-subscription) of fully managed Flink before you call this operation.**
    * 
    * @param request - ConvertInstanceRequest
    * @returns ConvertInstanceResponse
@@ -623,7 +677,7 @@ export default class Client extends OpenApi {
    * Queries the details of one or more fully managed Flink workspaces.
    * 
    * @remarks
-   * > In the following cases, you cannot release a workspace:- In pay-as-you-go mode, the workspace is in the Creating, Releasing, or Creation Timed Out state.- If the billing method is subscription, unsubscribe from the resource on the Unsubscription Management page in User Center.
+   * > You cannot release a workspace in the following scenarios: - In pay-as-you-go mode, the workspace is in the Creating, Releasing, or Creation Timed Out state. - For subscription workspaces, unsubscribe from the resources on the Unsubscription page in the User Center.
    * 
    * @param tmpReq - DescribeInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -659,7 +713,7 @@ export default class Client extends OpenApi {
    * Queries the details of one or more fully managed Flink workspaces.
    * 
    * @remarks
-   * > In the following cases, you cannot release a workspace:- In pay-as-you-go mode, the workspace is in the Creating, Releasing, or Creation Timed Out state.- If the billing method is subscription, unsubscribe from the resource on the Unsubscription Management page in User Center.
+   * > You cannot release a workspace in the following scenarios: - In pay-as-you-go mode, the workspace is in the Creating, Releasing, or Creation Timed Out state. - For subscription workspaces, unsubscribe from the resources on the Unsubscription page in the User Center.
    * 
    * @param request - DescribeInstancesRequest
    * @returns DescribeInstancesResponse
@@ -670,7 +724,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the namespace information of a specified instance.
+   * Queries the namespace information of an instance by calling DescribeNamespaces.
    * 
    * @param tmpReq - DescribeNamespacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -703,7 +757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the namespace information of a specified instance.
+   * Queries the namespace information of an instance by calling DescribeNamespaces.
    * 
    * @param request - DescribeNamespacesRequest
    * @returns DescribeNamespacesResponse
@@ -825,7 +879,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the free quota usage of Flink AI services.
+   * Retrieves the usage of the free quota for the Flink AI service.
    * 
    * @param request - GetFlinkAiServiceFreeQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -856,7 +910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the free quota usage of Flink AI services.
+   * Retrieves the usage of the free quota for the Flink AI service.
    * 
    * @param request - GetFlinkAiServiceFreeQuotaRequest
    * @returns GetFlinkAiServiceFreeQuotaResponse
@@ -925,7 +979,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the shutdown protection setting for a Flink AI service.
+   * Updates the shutdown protection for the Flink AI service.
    * 
    * @param request - ModifyAiServiceProtectionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -960,7 +1014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the shutdown protection setting for a Flink AI service.
+   * Updates the shutdown protection for the Flink AI service.
    * 
    * @param request - ModifyAiServiceProtectionRequest
    * @returns ModifyAiServiceProtectionResponse
@@ -1033,10 +1087,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Scales up or scales down the resources of a workspace.
+   * Scales the resources of a workspace.
    * 
    * @remarks
-   * Make sure that you are familiar with the [billing methods](https://www.alibabacloud.com/help/en/flink/user-guide/reconfigure-resources#task-2507532) and pricing of Realtime Compute for Apache Flink before you call this operation.
+   * Make sure that you fully understand the [billing methods](https://www.alibabacloud.com/help/en/flink/user-guide/reconfigure-resources#task-2507532) and pricing of Realtime Compute for Apache Flink before you call this operation.
    * 
    * @param tmpReq - ModifyInstanceSpecRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1109,10 +1163,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Scales up or scales down the resources of a workspace.
+   * Scales the resources of a workspace.
    * 
    * @remarks
-   * Make sure that you are familiar with the [billing methods](https://www.alibabacloud.com/help/en/flink/user-guide/reconfigure-resources#task-2507532) and pricing of Realtime Compute for Apache Flink before you call this operation.
+   * Make sure that you fully understand the [billing methods](https://www.alibabacloud.com/help/en/flink/user-guide/reconfigure-resources#task-2507532) and pricing of Realtime Compute for Apache Flink before you call this operation.
    * 
    * @param request - ModifyInstanceSpecRequest
    * @returns ModifyInstanceSpecResponse
@@ -1274,10 +1328,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the compute resource specifications of a subscription Realtime Compute for Apache Flink instance. If the new specifications are smaller than the current specifications, a scale-in operation is performed. If the new specifications are larger than the current specifications, a scale-out operation is performed.
+   * Modifies the compute resource specifications of a subscription fully managed Flink instance. If the adjusted specifications are smaller than the current specifications, a scale-down operation is performed. If the adjusted specifications are larger than the current specifications, a scale-up operation is performed.
    * 
    * @remarks
-   * *Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/subscription) of Realtime Compute for Apache Flink.**
+   * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/subscription) of fully managed Flink.**
    * 
    * @deprecated OpenAPI ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead.
    * 
@@ -1348,10 +1402,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the compute resource specifications of a subscription Realtime Compute for Apache Flink instance. If the new specifications are smaller than the current specifications, a scale-in operation is performed. If the new specifications are larger than the current specifications, a scale-out operation is performed.
+   * Modifies the compute resource specifications of a subscription fully managed Flink instance. If the adjusted specifications are smaller than the current specifications, a scale-down operation is performed. If the adjusted specifications are larger than the current specifications, a scale-up operation is performed.
    * 
    * @remarks
-   * *Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/subscription) of Realtime Compute for Apache Flink.**
+   * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/subscription) of fully managed Flink.**
    * 
    * @deprecated OpenAPI ModifyPrepayInstanceSpec is deprecated, please use foasconsole::2021-10-28::ModifyInstanceSpec instead.
    * 
@@ -1472,7 +1526,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the price for converting a pay-as-you-go instance to a subscription instance.
+   * Queries the price for changing the billing method of an instance from pay-as-you-go to subscription.
    * 
    * @param tmpReq - QueryConvertInstancePriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1537,7 +1591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the price for converting a pay-as-you-go instance to a subscription instance.
+   * Queries the price for changing the billing method of an instance from pay-as-you-go to subscription.
    * 
    * @param request - QueryConvertInstancePriceRequest
    * @returns QueryConvertInstancePriceResponse
@@ -1594,7 +1648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the price of a workspace for the current account.
+   * Retrieves the price for purchasing a workspace under the current account.
    * 
    * @param tmpReq - QueryCreateInstancePriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1703,7 +1757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the price of a workspace for the current account.
+   * Retrieves the price for purchasing a workspace under the current account.
    * 
    * @param request - QueryCreateInstancePriceRequest
    * @returns QueryCreateInstancePriceResponse
@@ -1798,7 +1852,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the renewal price of a subscription workspace.
+   * Queries the price for renewing a subscription workspace.
    * 
    * @param request - QueryRenewInstancePriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1849,7 +1903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the renewal price of a subscription workspace.
+   * Queries the price for renewing a subscription workspace.
    * 
    * @param request - QueryRenewInstancePriceRequest
    * @returns QueryRenewInstancePriceResponse
@@ -1863,7 +1917,7 @@ export default class Client extends OpenApi {
    * Renews a subscription fully managed Flink workspace.
    * 
    * @remarks
-   * *Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/renewal-policy) of the fully managed Flink service.**
+   * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/renewal-policy) of fully managed Flink.**
    * 
    * @param request - RenewInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1917,7 +1971,7 @@ export default class Client extends OpenApi {
    * Renews a subscription fully managed Flink workspace.
    * 
    * @remarks
-   * *Before using this operation, make sure that you fully understand the billing method and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/renewal-policy) of the fully managed Flink service.**
+   * *Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://www.alibabacloud.com/help/en/flink/product-overview/renewal-policy) of fully managed Flink.**
    * 
    * @param request - RenewInstanceRequest
    * @returns RenewInstanceResponse
