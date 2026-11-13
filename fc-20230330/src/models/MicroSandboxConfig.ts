@@ -18,11 +18,17 @@ export class MicroSandboxConfig extends $dara.Model {
   /**
    * @remarks
    * The operating system type.
+   * 
+   * @example
+   * linux-amd64
    */
   osType?: string;
   /**
    * @remarks
    * The ready command.
+   * 
+   * @example
+   * curl -fs http://127.0.0.1:8080/health
    */
   readyCommand?: string;
   /**
@@ -33,6 +39,9 @@ export class MicroSandboxConfig extends $dara.Model {
   /**
    * @remarks
    * The startup command.
+   * 
+   * @example
+   * /usr/local/bin/start-service
    */
   startCommand?: string;
   /**

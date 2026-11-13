@@ -4,7 +4,15 @@ import * as $dara from '@darabonba/typescript';
 
 export class FunctionRestriction extends $dara.Model {
   disable?: boolean;
+  /**
+   * @example
+   * 2026-10-01T10:00:00Z
+   */
   lastModifiedTime?: string;
+  /**
+   * @example
+   * Function invocation is disabled.
+   */
   reason?: string;
   static names(): { [key: string]: string } {
     return {

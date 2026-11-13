@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class Resource extends $dara.Model {
   /**
    * @remarks
-   * The name of the resource type. For a function in Function Compute 3.0, use ALIYUN::FC::FUNCTION. For a service in an earlier version of Function Compute, use ALIYUN::FC::SERVICE.
+   * The resource type name. Valid values: ALIYUN::FC::FUNCTION for functions in Function Compute 3.0, and ALIYUN::FC::SERVICE for services in legacy Function Compute.
    * 
    * @example
    * ALIYUN::FC::FUNCTION
@@ -21,7 +21,7 @@ export class Resource extends $dara.Model {
   resourceArn?: string;
   /**
    * @remarks
-   * The tag dictionary.
+   * The tag dictionary. key indicates the tag key, and value indicates the tag value.
    */
   tags?: { [key: string]: string };
   static names(): { [key: string]: string } {

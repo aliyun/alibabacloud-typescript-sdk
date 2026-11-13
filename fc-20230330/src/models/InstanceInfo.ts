@@ -3,22 +3,57 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class InstanceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The time when the instance was created, represented as a UNIX timestamp in milliseconds.
+   * 
+   * @example
+   * 0
+   */
   createdTimeMs?: number;
+  /**
+   * @remarks
+   * The time when the instance was destroyed, represented as a UNIX timestamp in milliseconds.
+   * 
+   * @example
+   * 0
+   */
   destroyedTimeMs?: number;
   /**
    * @remarks
-   * Instance ID.
+   * The instance ID.
    * 
    * @example
    * 1ef6b6ff-7f7b-485e-ab49-501ac681****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The version or alias of the function to which the instance belongs.
+   * 
+   * @example
+   * 3
+   */
   qualifier?: string;
+  /**
+   * @remarks
+   * The resource type of the instance.
+   * 
+   * @example
+   * Normal
+   */
   resourceType?: string;
+  /**
+   * @remarks
+   * The instance status.
+   * 
+   * @example
+   * Destroyed
+   */
   status?: string;
   /**
    * @remarks
-   * The version of the function to which the instance belongs. If the instance is under the LATEST alias of the function, the returned version number is 0.
+   * The version of the function to which the instance belongs. If the function instance belongs to the LATEST alias, 0 is returned as the version ID.
    * 
    * @example
    * 0

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PolarFsMountConfig extends $dara.Model {
   /**
    * @remarks
-   * The additional mount parameter settings.
+   * The other mount parameter settings.
    * 
    * @example
    * --skip-delete-rows-check=false  --skip-dir-nlink=0
@@ -13,7 +13,7 @@ export class PolarFsMountConfig extends $dara.Model {
   extraOptions?: string;
   /**
    * @remarks
-   * The PolarFS instance ID.
+   * The PolarFs instance ID.
    * 
    * @example
    * pfs-xxx
@@ -37,7 +37,7 @@ export class PolarFsMountConfig extends $dara.Model {
   readOnly?: boolean;
   /**
    * @remarks
-   * The PolarFS directory.
+   * The PolarFs directory.
    * 
    * @example
    * /share

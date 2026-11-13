@@ -9,10 +9,14 @@ import { PolarFsConfig } from "./PolarFsConfig";
 
 export class Session extends $dara.Model {
   allowInternetAccess?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to save only the file system during auto-pause.
+   */
   autoPauseFileSystemOnly?: boolean;
   /**
    * @remarks
-   * The instance ID of the function associated with the session.
+   * The function instance ID associated with the session.
    * 
    * @example
    * c-68999e02-16a1955c-d2a03d1ccs
@@ -20,7 +24,7 @@ export class Session extends $dara.Model {
   containerId?: string;
   /**
    * @remarks
-   * The time when the session was created.
+   * The creation time of the session.
    * 
    * @example
    * 2025-04-01T08:15:27Z
@@ -28,11 +32,7 @@ export class Session extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * Specifies whether to disable session ID reuse after the session expires. Valid values:
-   * - False: After the session expires, you can use the same session ID to initiate requests. The system treats it as a new session and binds it to a new instance.
-   * - True: After the session expires, the session ID cannot be reused.
-   * 
-   * Default value: False.
+   * Specifies whether to disable session ID reuse. Default value: False. A value of False indicates that after a session expires, you can continue to send requests with the same session ID, and the system treats it as a new session and binds it to a new instance. A value of True indicates that after a session expires, the session ID cannot be reused.
    * 
    * @example
    * false
@@ -48,6 +48,10 @@ export class Session extends $dara.Model {
    * functionName1
    */
   functionName?: string;
+  /**
+   * @remarks
+   * The JuiceFS mount configuration.
+   */
   juiceFsConfig?: JuiceFsConfig;
   /**
    * @remarks
@@ -59,15 +63,31 @@ export class Session extends $dara.Model {
   lastModifiedTime?: string;
   /**
    * @remarks
-   * The NAS configuration. After configuration, the instance associated with the session can access the specified NAS resource.
+   * The NAS configuration. After this configuration is applied, the instance associated with the session can access the specified NAS resources.
    */
   nasConfig?: NASConfig;
   network?: CreateSessionNetworkConfig;
+  /**
+   * @remarks
+   * The OSS mount configuration, which allows the associated function instance to access the specified OSS resources.
+   */
   ossMountConfig?: OSSMountConfig;
+  /**
+   * @remarks
+   * The deep hibernation retention duration for the saved session, in seconds. The minimum value is 600. The timing starts each time the session successfully enters deep hibernation. If this parameter is not configured, this field may not be returned.
+   * 
+   * @example
+   * 600
+   */
+  pausedExpirationSeconds?: number;
+  /**
+   * @remarks
+   * The PolarFS mount configuration, which allows the associated function instance to access the specified PolarFS resources.
+   */
   polarFsConfig?: PolarFsConfig;
   /**
    * @remarks
-   * The qualifier passed when the customer created the session. If not specified, the default value is LATEST.
+   * The qualifier passed by the user when creating the session. If no qualifier is passed, the default value LATEST is used.
    * 
    * @example
    * AliasName1
@@ -99,9 +119,7 @@ export class Session extends $dara.Model {
   sessionIdleTimeoutInSeconds?: number;
   /**
    * @remarks
-   * The session status. Valid values:
-   * - Active: The session is valid.
-   * - Expired: The session has expired.
+   * The session status. Active indicates that the session is valid, and Expired indicates that the session has expired.
    * 
    * @example
    * Active
@@ -115,6 +133,14 @@ export class Session extends $dara.Model {
    * 21600
    */
   sessionTTLInSeconds?: number;
+  /**
+   * @remarks
+   * The retention duration for subsequent user snapshots saved in the session, in seconds. The minimum value is 600. Updating this policy affects only newly created user snapshots and does not modify the expiration time of existing snapshots.
+   * 
+   * @example
+   * 600
+   */
+  snapshotExpirationSeconds?: number;
   trafficAccessToken?: string;
   static names(): { [key: string]: string } {
     return {
@@ -131,6 +157,7 @@ export class Session extends $dara.Model {
       nasConfig: 'nasConfig',
       network: 'network',
       ossMountConfig: 'ossMountConfig',
+      pausedExpirationSeconds: 'pausedExpirationSeconds',
       polarFsConfig: 'polarFsConfig',
       qualifier: 'qualifier',
       sessionAffinityType: 'sessionAffinityType',
@@ -138,6 +165,7 @@ export class Session extends $dara.Model {
       sessionIdleTimeoutInSeconds: 'sessionIdleTimeoutInSeconds',
       sessionStatus: 'sessionStatus',
       sessionTTLInSeconds: 'sessionTTLInSeconds',
+      snapshotExpirationSeconds: 'snapshotExpirationSeconds',
       trafficAccessToken: 'trafficAccessToken',
     };
   }
@@ -157,6 +185,7 @@ export class Session extends $dara.Model {
       nasConfig: NASConfig,
       network: CreateSessionNetworkConfig,
       ossMountConfig: OSSMountConfig,
+      pausedExpirationSeconds: 'number',
       polarFsConfig: PolarFsConfig,
       qualifier: 'string',
       sessionAffinityType: 'string',
@@ -164,6 +193,7 @@ export class Session extends $dara.Model {
       sessionIdleTimeoutInSeconds: 'number',
       sessionStatus: 'string',
       sessionTTLInSeconds: 'number',
+      snapshotExpirationSeconds: 'number',
       trafficAccessToken: 'string',
     };
   }

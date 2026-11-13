@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OSSMountPoint extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket that you want to mount.
+   * The mounted OSS bucket.
    * 
    * @example
    * my-bucket
@@ -13,7 +13,7 @@ export class OSSMountPoint extends $dara.Model {
   bucketName?: string;
   /**
    * @remarks
-   * The path of the mounted OSS bucket.
+   * The mounted OSS bucket path.
    * 
    * @example
    * /my-dir
@@ -37,7 +37,12 @@ export class OSSMountPoint extends $dara.Model {
   mountDir?: string;
   /**
    * @remarks
-   * Specifies whether it is read-only.
+   * Specifies whether to allow mounting OSS to a local directory that contains existing files or subdirectories.
+   */
+  nonempty?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the mount is read-only.
    * 
    * @example
    * true
@@ -49,6 +54,7 @@ export class OSSMountPoint extends $dara.Model {
       bucketPath: 'bucketPath',
       endpoint: 'endpoint',
       mountDir: 'mountDir',
+      nonempty: 'nonempty',
       readOnly: 'readOnly',
     };
   }
@@ -59,6 +65,7 @@ export class OSSMountPoint extends $dara.Model {
       bucketPath: 'string',
       endpoint: 'string',
       mountDir: 'string',
+      nonempty: 'boolean',
       readOnly: 'boolean',
     };
   }

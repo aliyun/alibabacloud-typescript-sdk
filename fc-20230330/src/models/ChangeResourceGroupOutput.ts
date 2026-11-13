@@ -3,8 +3,29 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ChangeResourceGroupOutput extends $dara.Model {
+  /**
+   * @remarks
+   * The ID of the new resource group.
+   * 
+   * @example
+   * rg-aek0example0abc0d
+   */
   newResourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the original resource group.
+   * 
+   * @example
+   * rg-aek0example0abc0d
+   */
   oldResourceGroupId?: string;
+  /**
+   * @remarks
+   * The ID of the resource whose resource group is changed.
+   * 
+   * @example
+   * example-function-one
+   */
   resourceId?: string;
   static names(): { [key: string]: string } {
     return {

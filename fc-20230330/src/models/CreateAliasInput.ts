@@ -10,7 +10,7 @@ export class CreateAliasInput extends $dara.Model {
   additionalVersionWeight?: { [key: string]: number };
   /**
    * @remarks
-   * The name of the alias.
+   * The alias.
    * 
    * This parameter is required.
    * 

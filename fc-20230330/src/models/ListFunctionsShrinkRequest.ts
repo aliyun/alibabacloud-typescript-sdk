@@ -26,6 +26,9 @@ export class ListFunctionsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the function.
+   * 
+   * @example
+   * example-function
    */
   functionName?: string;
   /**
@@ -63,6 +66,9 @@ export class ListFunctionsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the resource group.
+   * 
+   * @example
+   * rg-a1b2c3d4e5f6g7h
    */
   resourceGroupId?: string;
   /**

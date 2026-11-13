@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query range, specified as a UNIX timestamp in milliseconds.
+   * The end time (UNIX timestamp in milliseconds).
    * 
    * @example
    * 1790899200000
@@ -13,12 +13,12 @@ export class ListInstancesRequest extends $dara.Model {
   endTimeMs?: number;
   /**
    * @remarks
-   * A list of instance IDs to return.
+   * The list of instance IDs.
    */
   instanceIds?: string[];
   /**
    * @remarks
-   * An array of instance statuses. The operation returns only instances whose status is in this array.
+   * The list of instance statuses.
    */
   instanceStatus?: string[];
   /**
@@ -31,7 +31,7 @@ export class ListInstancesRequest extends $dara.Model {
   limit?: string;
   /**
    * @remarks
-   * The function version or alias.
+   * The version or alias of the function.
    * 
    * @example
    * LATEST
@@ -39,7 +39,7 @@ export class ListInstancesRequest extends $dara.Model {
   qualifier?: string;
   /**
    * @remarks
-   * The token that specifies where to start the query. It is returned in a truncated response and can be used to retrieve the next page of results.
+   * The start marker.
    * 
    * @example
    * c-01234567-89abcdef-0123456789ab～
@@ -47,7 +47,7 @@ export class ListInstancesRequest extends $dara.Model {
   startKey?: string;
   /**
    * @remarks
-   * The start time of the query range, specified as a UNIX timestamp in milliseconds.
+   * The start time (UNIX timestamp in milliseconds).
    * 
    * @example
    * 1790812800000
@@ -55,7 +55,7 @@ export class ListInstancesRequest extends $dara.Model {
   startTimeMs?: number;
   /**
    * @remarks
-   * Specifies whether to list all active instances.
+   * Specifies whether to list all instances. Valid values: true, false.
    * 
    * @example
    * true

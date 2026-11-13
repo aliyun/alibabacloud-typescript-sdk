@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TLSConfig extends $dara.Model {
   /**
    * @remarks
-   * The TLS cipher suites.
+   * The list of TLS cipher suites.
    * 
    * This parameter is required.
    */
@@ -25,7 +25,7 @@ export class TLSConfig extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * TLSv1.0
+   * TLSv1.2
    */
   minVersion?: string;
   static names(): { [key: string]: string } {

@@ -45,7 +45,7 @@ export class CORSConfig extends $dara.Model {
   exposeHeaders?: string[];
   /**
    * @remarks
-   * The cache time for preflight requests, in seconds.
+   * The preflight request cache time, in seconds.
    * 
    * @example
    * 3600

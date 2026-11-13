@@ -9,10 +9,14 @@ import { PolarFsConfig } from "./PolarFsConfig";
 
 export class UpdateSessionInput extends $dara.Model {
   allowInternetAccess?: boolean;
+  /**
+   * @remarks
+   * Specifies whether to save only the file system during auto-pause.
+   */
   autoPauseFileSystemOnly?: boolean;
   /**
    * @remarks
-   * Specifies whether to disable session ID reuse after the session expires. Default value: False, which indicates that after a session expires, you can use the same session ID to initiate requests. The system treats the request as a new session and binds it to a new instance. If you set this parameter to True, the session ID cannot be reused after the session expires.
+   * Specifies whether to disable session ID reuse. Default value: false. A value of false indicates that after a session ID expires, you can continue to send requests with the same session ID, and the system treats it as a new session and binds it to a new instance. A value of true indicates that the session ID cannot be reused after the session expires.
    * 
    * @example
    * false
@@ -20,10 +24,34 @@ export class UpdateSessionInput extends $dara.Model {
   disableSessionIdReuse?: boolean;
   enableAutoPause?: boolean;
   enableAutoResume?: boolean;
+  /**
+   * @remarks
+   * The JuiceFS mount configuration.
+   */
   juiceFsConfig?: JuiceFsConfig;
+  /**
+   * @remarks
+   * The NAS mount point configuration for the session.
+   */
   nasConfig?: NASConfig;
   network?: UpdateSessionNetworkConfig;
+  /**
+   * @remarks
+   * The OSS mount point configuration for the session.
+   */
   ossMountConfig?: OSSMountConfig;
+  /**
+   * @remarks
+   * The deep sleep retention period in seconds. The minimum value is 600, and the maximum value is determined by the plan configuration. If this parameter is not specified, the original value is retained. The update takes effect upon the next successful pause. This parameter cannot be modified when the session is in the Paused state.
+   * 
+   * @example
+   * 86400
+   */
+  pausedExpirationSeconds?: number;
+  /**
+   * @remarks
+   * The PolarFS mount point configuration for the session.
+   */
   polarFsConfig?: PolarFsConfig;
   /**
    * @remarks
@@ -35,12 +63,20 @@ export class UpdateSessionInput extends $dara.Model {
   sessionIdleTimeoutInSeconds?: number;
   /**
    * @remarks
-   * The session lifetime.
+   * The session time-to-live.
    * 
    * @example
    * 21600
    */
   sessionTTLInSeconds?: number;
+  /**
+   * @remarks
+   * The retention period for subsequently created user snapshots in seconds. The minimum value is 600, and the maximum value is determined by the plan configuration. If this parameter is not specified, the original value is retained. This update only affects snapshots created after the update, and the expiration time of existing snapshots remains unchanged.
+   * 
+   * @example
+   * 86400
+   */
+  snapshotExpirationSeconds?: number;
   static names(): { [key: string]: string } {
     return {
       allowInternetAccess: 'allowInternetAccess',
@@ -52,9 +88,11 @@ export class UpdateSessionInput extends $dara.Model {
       nasConfig: 'nasConfig',
       network: 'network',
       ossMountConfig: 'ossMountConfig',
+      pausedExpirationSeconds: 'pausedExpirationSeconds',
       polarFsConfig: 'polarFsConfig',
       sessionIdleTimeoutInSeconds: 'sessionIdleTimeoutInSeconds',
       sessionTTLInSeconds: 'sessionTTLInSeconds',
+      snapshotExpirationSeconds: 'snapshotExpirationSeconds',
     };
   }
 
@@ -69,9 +107,11 @@ export class UpdateSessionInput extends $dara.Model {
       nasConfig: NASConfig,
       network: UpdateSessionNetworkConfig,
       ossMountConfig: OSSMountConfig,
+      pausedExpirationSeconds: 'number',
       polarFsConfig: PolarFsConfig,
       sessionIdleTimeoutInSeconds: 'number',
       sessionTTLInSeconds: 'number',
+      snapshotExpirationSeconds: 'number',
     };
   }
 

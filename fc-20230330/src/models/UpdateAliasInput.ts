@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAliasInput extends $dara.Model {
   /**
    * @remarks
-   * Weight of the canary release version
+   * The weight of the canary release version.
    */
   additionalVersionWeight?: { [key: string]: number };
   /**
    * @remarks
-   * Description of the alias
+   * The description of the alias.
    * 
    * @example
    * my alias
@@ -18,7 +18,7 @@ export class UpdateAliasInput extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Version that the alias points to
+   * The version pointed to by the alias.
    * 
    * @example
    * 1

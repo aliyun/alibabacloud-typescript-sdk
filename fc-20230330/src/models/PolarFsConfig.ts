@@ -14,7 +14,7 @@ export class PolarFsConfig extends $dara.Model {
   groupId?: number;
   /**
    * @remarks
-   * The mount points.
+   * The list of mount points.
    */
   mountPoints?: PolarFsMountConfig[];
   /**
