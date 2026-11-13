@@ -6,7 +6,7 @@ import { PublicTemplateCache } from "./PublicTemplateCache";
 export class ListTemplateCacheResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. The value is 200 if the request is successful.
+   * The error code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -14,7 +14,7 @@ export class ListTemplateCacheResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The maximum number of entries per page returned in this response.
+   * The maximum number of entries returned per page in this response.
    * 
    * @example
    * 20
@@ -30,7 +30,7 @@ export class ListTemplateCacheResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page. This value is empty if no more results are available.
+   * The pagination token for the next page. The value is empty if no more results are available.
    * 
    * @example
    * cae5f900-8b1d-4c0e-9c2a-1a2b3c4d5e6f

@@ -22,7 +22,7 @@ export class ListVolumesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response message. A value of success indicates that the request was successful.
+   * The response message. The value is success if the request is successful.
    * 
    * @example
    * success

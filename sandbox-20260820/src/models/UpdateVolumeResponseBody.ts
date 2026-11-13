@@ -6,7 +6,7 @@ import { E2BVolume } from "./E2bvolume";
 export class UpdateVolumeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates success.
+   * The response code. The value is 200 if the request is successful.
    * 
    * @example
    * 200

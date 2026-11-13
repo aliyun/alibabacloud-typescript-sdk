@@ -8,7 +8,7 @@ import { CreateTemplateVPCConfig } from "./CreateTemplateVpcconfig";
 export class CreateTemplateRuntimeConfig extends $dara.Model {
   /**
    * @remarks
-   * The CPU specification of the sandboxed container instance, in cores.
+   * The CPU specifications of the sandbox instance, in cores.
    * 
    * @example
    * 2
@@ -16,7 +16,7 @@ export class CreateTemplateRuntimeConfig extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The disk specification of the sandboxed container instance, in MB.
+   * The disk specifications of the sandbox instance, in MB.
    * 
    * @example
    * 10240
@@ -24,17 +24,17 @@ export class CreateTemplateRuntimeConfig extends $dara.Model {
   diskSize?: number;
   /**
    * @remarks
-   * Specifies whether the sandboxed container instance is allowed to access the Internet.
+   * Specifies whether the sandbox instance is allowed to access the Internet.
    */
   internetAccess?: boolean;
   /**
    * @remarks
-   * The log delivery configuration of the sandboxed container instance.
+   * The log delivery configuration of the sandbox instance.
    */
   logConfig?: CreateTemplateLogConfig;
   /**
    * @remarks
-   * The memory specification of the sandboxed container instance, in MB.
+   * The memory specifications of the sandbox instance, in MB.
    * 
    * @example
    * 2048
@@ -42,12 +42,20 @@ export class CreateTemplateRuntimeConfig extends $dara.Model {
   memorySize?: number;
   /**
    * @remarks
-   * The image and startup configuration of the sandboxed container instance.
+   * The image and startup configuration of the sandbox instance.
    */
   sandboxConfig?: CreateTemplateSandboxConfig;
   /**
    * @remarks
-   * The VPC configuration of the sandboxed container instance.
+   * The list of allowed inbound source VPCs. This feature is supported only for generation 2 templates (sandboxConfig.generation=2). A non-empty array specifies the set of source VPCs that are allowed to access the sandbox data endpoint. Omitting the field, setting it to null, or providing an empty array indicates that no inbound bindings are configured. This setting is independent of the egress network vpcConfig and does not modify the API key source policy. A null value is treated as omitted to maintain compatibility with SDK requests where the field is not set. For generation 1 templates, explicitly providing an empty or non-empty array returns a 400 error. You can update or clear the list by calling UpdateTemplate. The changes take effect after a new version is successfully built, and existing sandboxes continue to use the original functions and policies.
+   * 
+   * @example
+   * ["vpc-examplea","vpc-exampleb"]
+   */
+  vpcBindings?: string[];
+  /**
+   * @remarks
+   * The VPC configuration of the sandbox instance.
    */
   vpcConfig?: CreateTemplateVPCConfig;
   static names(): { [key: string]: string } {
@@ -58,6 +66,7 @@ export class CreateTemplateRuntimeConfig extends $dara.Model {
       logConfig: 'logConfig',
       memorySize: 'memorySize',
       sandboxConfig: 'sandboxConfig',
+      vpcBindings: 'vpcBindings',
       vpcConfig: 'vpcConfig',
     };
   }
@@ -70,6 +79,7 @@ export class CreateTemplateRuntimeConfig extends $dara.Model {
       logConfig: CreateTemplateLogConfig,
       memorySize: 'number',
       sandboxConfig: CreateTemplateSandboxConfig,
+      vpcBindings: { 'type': 'array', 'itemType': 'string' },
       vpcConfig: CreateTemplateVPCConfig,
     };
   }
@@ -80,6 +90,9 @@ export class CreateTemplateRuntimeConfig extends $dara.Model {
     }
     if(this.sandboxConfig && typeof (this.sandboxConfig as any).validate === 'function') {
       (this.sandboxConfig as any).validate();
+    }
+    if(Array.isArray(this.vpcBindings)) {
+      $dara.Model.validateArray(this.vpcBindings);
     }
     if(this.vpcConfig && typeof (this.vpcConfig as any).validate === 'function') {
       (this.vpcConfig as any).validate();

@@ -14,7 +14,7 @@ export class GetTeamResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message. The value is success for a successful request.
+   * The response message. The value is success if the request succeeds.
    * 
    * @example
    * success

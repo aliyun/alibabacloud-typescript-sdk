@@ -14,7 +14,7 @@ export class ListQuotaResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The maximum number of entries returned per page. This field is returned only if a positive integer is specified for maxResults in the request.
+   * The maximum number of entries to return per page. This field is returned only if a positive integer is specified for maxResults in the request.
    * 
    * @example
    * 10
@@ -22,7 +22,7 @@ export class ListQuotaResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response message. The value is success if the request is successful.
+   * The response message. A value of success indicates success.
    * 
    * @example
    * success
@@ -30,7 +30,7 @@ export class ListQuotaResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page, which can be used in subsequent queries.
+   * The pagination token for the next page.
    * 
    * @example
    * qxGrXje86XMrYQ51aJMy

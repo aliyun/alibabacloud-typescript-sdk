@@ -47,7 +47,7 @@ export class CreateTemplateInputResourceTags extends $dara.Model {
 export class CreateTemplateInput extends $dara.Model {
   /**
    * @remarks
-   * The build configuration of the template. This configuration specifies the build process in action-based blocks. If this parameter is not specified, the service automatically derives the configuration based on the source image. Public runtime images are used directly without building. For other images, the copy and envdInject actions are automatically executed.
+   * The build configuration of the template. This configuration specifies the build process in action-based chunks. If this parameter is not specified, the service automatically derives the configuration based on the source image. Public runtime images are used directly without building. For other images, the copy and envdInject actions are automatically executed.
    */
   buildConfig?: CreateTemplateBuildConfig;
   /**
@@ -70,12 +70,20 @@ export class CreateTemplateInput extends $dara.Model {
   runtimeConfig?: CreateTemplateRuntimeConfig;
   /**
    * @remarks
-   * The ID of the team to which the template belongs. The ID is in UUID format. If this parameter is not specified, the default team of the current account is used.
+   * The ID of the team to which the template belongs. The ID must be in UUID format. If this parameter is not specified, the default team of the current account is used.
    * 
    * @example
    * 5f4a2c18-****
    */
   teamID?: string;
+  /**
+   * @remarks
+   * The templatetype. Set this parameter to layer to build a layer template.
+   * 
+   * @example
+   * layer
+   */
+  templateType?: string;
   static names(): { [key: string]: string } {
     return {
       buildConfig: 'buildConfig',
@@ -83,6 +91,7 @@ export class CreateTemplateInput extends $dara.Model {
       resourceTags: 'resourceTags',
       runtimeConfig: 'runtimeConfig',
       teamID: 'teamID',
+      templateType: 'templateType',
     };
   }
 
@@ -93,6 +102,7 @@ export class CreateTemplateInput extends $dara.Model {
       resourceTags: { 'type': 'array', 'itemType': CreateTemplateInputResourceTags },
       runtimeConfig: CreateTemplateRuntimeConfig,
       teamID: 'string',
+      templateType: 'string',
     };
   }
 

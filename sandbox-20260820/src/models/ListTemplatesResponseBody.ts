@@ -14,7 +14,7 @@ export class ListTemplatesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The maximum number of entries per page used in this response.
+   * The maximum number of entries returned per page in the current response.
    * 
    * @example
    * 20

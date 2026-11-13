@@ -21,7 +21,7 @@ export class ListApiKeysRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of API keys to return on each page. Default value: 10. Valid values: 1 to 100.
+   * The number of API keys to return per page. Default value: 10. Valid values: 1 to 100.
    * 
    * @example
    * 20
@@ -37,7 +37,9 @@ export class ListApiKeysRequest extends $dara.Model {
   resourceGroupID?: string;
   /**
    * @remarks
-   * Filters API keys by status. Valid values: active (enabled), inactive (disabled).
+   * Filters API keys by status. Valid values:
+   * - active: Enabled.
+   * - inactive: Disabled.
    * 
    * @example
    * Success

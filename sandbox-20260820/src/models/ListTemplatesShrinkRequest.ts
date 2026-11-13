@@ -13,7 +13,7 @@ export class ListTemplatesShrinkRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Set this parameter to the value of nextToken returned in the response of the previous page.
+   * The pagination token. Use the nextToken value returned in the previous response.
    * 
    * @example
    * cae5f900-8b1d-4c0e-9c2a-1a2b3c4d5e6f

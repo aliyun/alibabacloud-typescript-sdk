@@ -71,7 +71,7 @@ export class GetTemplateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The name of the template.
+   * The template name.
    * 
    * @example
    * my-template
@@ -105,7 +105,7 @@ export class GetTemplateResponseBody extends $dara.Model {
   runtimeConfig?: PublicTemplateRuntimeConfig;
   /**
    * @remarks
-   * The status of the template.
+   * The template status.
    */
   status?: PublicTemplateStatus;
   /**
@@ -118,7 +118,7 @@ export class GetTemplateResponseBody extends $dara.Model {
   teamID?: string;
   /**
    * @remarks
-   * The name of the team.
+   * The team name.
    * 
    * @example
    * my-team
@@ -132,6 +132,14 @@ export class GetTemplateResponseBody extends $dara.Model {
    * us7dxqaezw5uu7aa2cm5
    */
   templateID?: string;
+  /**
+   * @remarks
+   * The templatetype. The default value is runtime template if it is not returned.
+   * 
+   * @example
+   * layer
+   */
+  templateType?: string;
   static names(): { [key: string]: string } {
     return {
       code: 'code',
@@ -146,6 +154,7 @@ export class GetTemplateResponseBody extends $dara.Model {
       teamID: 'teamID',
       teamName: 'teamName',
       templateID: 'templateID',
+      templateType: 'templateType',
     };
   }
 
@@ -163,6 +172,7 @@ export class GetTemplateResponseBody extends $dara.Model {
       teamID: 'string',
       teamName: 'string',
       templateID: 'string',
+      templateType: 'string',
     };
   }
 

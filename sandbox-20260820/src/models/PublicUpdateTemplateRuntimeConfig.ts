@@ -8,7 +8,7 @@ import { PublicUpdateTemplateVPCConfig } from "./PublicUpdateTemplateVpcconfig";
 export class PublicUpdateTemplateRuntimeConfig extends $dara.Model {
   /**
    * @remarks
-   * The number of vCPUs.
+   * The number of vCPU cores.
    * 
    * @example
    * 2
@@ -16,7 +16,7 @@ export class PublicUpdateTemplateRuntimeConfig extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The system cloud disk size, in MB.
+   * The size of the system cloud disk in MB.
    * 
    * @example
    * 512
@@ -34,7 +34,7 @@ export class PublicUpdateTemplateRuntimeConfig extends $dara.Model {
   logConfig?: PublicUpdateTemplateLogConfig;
   /**
    * @remarks
-   * The memory size, in MB.
+   * The memory size in MB.
    * 
    * @example
    * 2048
@@ -45,6 +45,14 @@ export class PublicUpdateTemplateRuntimeConfig extends $dara.Model {
    * The sandbox configuration.
    */
   sandboxConfig?: PublicUpdateTemplateSandboxConfig;
+  /**
+   * @remarks
+   * Supported only for generation 2 templates. Omitting this field or setting it to null retains the original list. A non-empty array replaces the entire allowed set. An explicit empty array [] clears the inbound VPC restrictions for the new version. This field is independent of vpcConfig. An empty request body {}, an empty runtimeConfig, or a runtimeConfig containing only vpcBindings: null returns a 400 error and does not clear the bindings. The actual JSON received by the server prevails. An empty array omitted by the SDK cannot clear the list. If the target is a generation 1 template, explicitly passing an empty or non-empty array returns a 400 error. If non-empty bindings already exist, you must first clear them on the generation 2 template and wait for the update to succeed before switching to generation 1.
+   * 
+   * @example
+   * ["vpc-examplea","vpc-exampleb"]
+   */
+  vpcBindings?: string[];
   /**
    * @remarks
    * The VPC network configuration.
@@ -58,6 +66,7 @@ export class PublicUpdateTemplateRuntimeConfig extends $dara.Model {
       logConfig: 'logConfig',
       memorySize: 'memorySize',
       sandboxConfig: 'sandboxConfig',
+      vpcBindings: 'vpcBindings',
       vpcConfig: 'vpcConfig',
     };
   }
@@ -70,6 +79,7 @@ export class PublicUpdateTemplateRuntimeConfig extends $dara.Model {
       logConfig: PublicUpdateTemplateLogConfig,
       memorySize: 'number',
       sandboxConfig: PublicUpdateTemplateSandboxConfig,
+      vpcBindings: { 'type': 'array', 'itemType': 'string' },
       vpcConfig: PublicUpdateTemplateVPCConfig,
     };
   }
@@ -80,6 +90,9 @@ export class PublicUpdateTemplateRuntimeConfig extends $dara.Model {
     }
     if(this.sandboxConfig && typeof (this.sandboxConfig as any).validate === 'function') {
       (this.sandboxConfig as any).validate();
+    }
+    if(Array.isArray(this.vpcBindings)) {
+      $dara.Model.validateArray(this.vpcBindings);
     }
     if(this.vpcConfig && typeof (this.vpcConfig as any).validate === 'function') {
       (this.vpcConfig as any).validate();

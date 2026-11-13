@@ -47,7 +47,15 @@ export class PublicTemplateRuntimeConfig extends $dara.Model {
   sandboxConfig?: PublicTemplateSandboxConfig;
   /**
    * @remarks
-   * The VPC configuration of the sandbox instance.
+   * The set of allowed inbound source VPCs configured for Generation 2 templates. An omitted or empty array indicates that no inbound VPC bindings are configured, and this field can be omitted for historical records without configurations. This configuration is independent of the egress network vpcConfig. Subsequent template updates do not overwrite the bindings of functions used by existing sandboxes. When the feature switch is enabled, POST /init requests without query parameters to the standard E2B sandbox envd port 49983 are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+   * 
+   * @example
+   * ["vpc-examplea","vpc-exampleb"]
+   */
+  vpcBindings?: string[];
+  /**
+   * @remarks
+   * The virtual private cloud (VPC) configuration of the sandbox instance.
    */
   vpcConfig?: PublicTemplateVPCConfig;
   static names(): { [key: string]: string } {
@@ -58,6 +66,7 @@ export class PublicTemplateRuntimeConfig extends $dara.Model {
       logConfig: 'logConfig',
       memorySize: 'memorySize',
       sandboxConfig: 'sandboxConfig',
+      vpcBindings: 'vpcBindings',
       vpcConfig: 'vpcConfig',
     };
   }
@@ -70,6 +79,7 @@ export class PublicTemplateRuntimeConfig extends $dara.Model {
       logConfig: PublicTemplateLogConfig,
       memorySize: 'number',
       sandboxConfig: PublicTemplateSandboxConfig,
+      vpcBindings: { 'type': 'array', 'itemType': 'string' },
       vpcConfig: PublicTemplateVPCConfig,
     };
   }
@@ -80,6 +90,9 @@ export class PublicTemplateRuntimeConfig extends $dara.Model {
     }
     if(this.sandboxConfig && typeof (this.sandboxConfig as any).validate === 'function') {
       (this.sandboxConfig as any).validate();
+    }
+    if(Array.isArray(this.vpcBindings)) {
+      $dara.Model.validateArray(this.vpcBindings);
     }
     if(this.vpcConfig && typeof (this.vpcConfig as any).validate === 'function') {
       (this.vpcConfig as any).validate();

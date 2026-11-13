@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteApiKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates success.
+   * The response code. The value is 200 if the request is successful.
    * 
    * @example
    * 200

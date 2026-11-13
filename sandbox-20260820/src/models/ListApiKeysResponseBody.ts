@@ -11,7 +11,7 @@ export class ListApiKeysResponseBody extends $dara.Model {
   apiKeys?: ApiKey[];
   /**
    * @remarks
-   * The response code. A value of 200 indicates success.
+   * The response code. The value is 200 if the request is successful.
    * 
    * @example
    * 200
@@ -19,7 +19,7 @@ export class ListApiKeysResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message. The value is success if the request succeeds.
+   * The response message. The value is success if the request is successful.
    * 
    * @example
    * success
@@ -35,7 +35,7 @@ export class ListApiKeysResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page used in the current query.
+   * The number of entries per page for the current query.
    * 
    * @example
    * 20

@@ -55,7 +55,7 @@ export class PublicTemplate extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * The name of the template, which is unique within a team.
+   * The template name, which is unique within a team.
    * 
    * @example
    * python-data-analysis
@@ -76,7 +76,7 @@ export class PublicTemplate extends $dara.Model {
   resourceTags?: PublicTemplateResourceTags[];
   /**
    * @remarks
-   * The runtime configuration of the template, which determines the specifications and environment of the sandbox instances created from the template.
+   * The runtime configuration of the template, which determines the specifications and environment of sandbox instances created from this template.
    */
   runtimeConfig?: PublicTemplateRuntimeConfig;
   /**
@@ -94,7 +94,7 @@ export class PublicTemplate extends $dara.Model {
   teamID?: string;
   /**
    * @remarks
-   * The name of the team.
+   * The team name.
    * 
    * @example
    * sandbox-dev
@@ -102,12 +102,20 @@ export class PublicTemplate extends $dara.Model {
   teamName?: string;
   /**
    * @remarks
-   * The ID of the sandbox template.
+   * The sandbox template ID.
    * 
    * @example
    * tm-8f3a2c7b5e14d806
    */
   templateID?: string;
+  /**
+   * @remarks
+   * The templatetype. An empty value indicates a runtime template.
+   * 
+   * @example
+   * layer
+   */
+  templateType?: string;
   static names(): { [key: string]: string } {
     return {
       createdTime: 'createdTime',
@@ -119,6 +127,7 @@ export class PublicTemplate extends $dara.Model {
       teamID: 'teamID',
       teamName: 'teamName',
       templateID: 'templateID',
+      templateType: 'templateType',
     };
   }
 
@@ -133,6 +142,7 @@ export class PublicTemplate extends $dara.Model {
       teamID: 'string',
       teamName: 'string',
       templateID: 'string',
+      templateType: 'string',
     };
   }
 

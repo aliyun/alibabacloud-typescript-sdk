@@ -15,7 +15,7 @@ export class UpdateApiKeyResponseBody extends $dara.Model {
   apiKey?: ApiKey;
   /**
    * @remarks
-   * The response code. A value of 200 indicates success.
+   * The response code. The value is 200 when the operation succeeds.
    * 
    * @example
    * 200
@@ -33,7 +33,7 @@ export class UpdateApiKeyResponseBody extends $dara.Model {
   ipWhitelist?: IPConfig[];
   /**
    * @remarks
-   * The response message. The value is success if the request is successful.
+   * The response message. The value is success when the operation succeeds.
    * 
    * @example
    * success

@@ -21,7 +21,7 @@ export class ListTeamsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters teams by plan specification. Valid values: eco (Economy), std (Standard), pro (Professional), and ent (Enterprise).
+   * Filters teams by plan specifications. Valid values: eco (Economy), std (Standard), pro (Professional), and ent (Enterprise).
    * 
    * @example
    * pro

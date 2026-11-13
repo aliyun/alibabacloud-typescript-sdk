@@ -13,7 +13,7 @@ export class ListTemplateCacheRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned from the previous request.
+   * The pagination token returned in the response of the previous request.
    * 
    * @example
    * cae5f900-8b1d-4c0e-9c2a-1a2b3c4d5e6f
@@ -21,7 +21,7 @@ export class ListTemplateCacheRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Filters results by cache status. Valid values: InProgress, Success, Failed, Deleting, and Evicted.
+   * Filters by cache status. Valid values: InProgress, Success, Failed, Deleting, and Evicted.
    * 
    * @example
    * Success
