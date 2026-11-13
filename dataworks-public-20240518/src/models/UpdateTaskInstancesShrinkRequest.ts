@@ -13,7 +13,7 @@ export class UpdateTaskInstancesShrinkRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The instances.
+   * The list of node instances.
    */
   taskInstancesShrink?: string;
   static names(): { [key: string]: string } {

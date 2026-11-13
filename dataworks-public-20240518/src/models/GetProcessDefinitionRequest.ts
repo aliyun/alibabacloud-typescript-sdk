@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetProcessDefinitionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the process definition.
+   * The process definition ID.
    * 
    * This parameter is required.
    * 

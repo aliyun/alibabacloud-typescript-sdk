@@ -6,7 +6,7 @@ import { SuccessInfoValue } from "./SuccessInfoValue";
 export class BatchUpdateTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. Used for locating logs and troubleshooting issues.
+   * The ID of the request. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
@@ -14,7 +14,10 @@ export class BatchUpdateTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result information of the batch operation. The structure is a map in which the node ID is the key and the result information is the value.
+   * The result information of the batch operation. The structure is a map, where the key is the task ID and the value is the result information.
+   * 
+   * @example
+   * {"10001": {"Success": false, "Message": "The task does not exist."}}
    */
   successInfo?: { [key: string]: SuccessInfoValue };
   static names(): { [key: string]: string } {

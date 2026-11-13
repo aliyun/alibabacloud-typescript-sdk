@@ -13,7 +13,9 @@ export class GetCrawlerResponseBodyCrawlerScheduleConfig extends $dara.Model {
   cronExpress?: string;
   /**
    * @remarks
-   * The schedule type. Valid values: MANUAL, NORMAL.
+   * The scheduling type. Valid values:
+   * - MANUAL
+   * - NORMAL
    * 
    * @example
    * NORMAL
@@ -45,7 +47,7 @@ export class GetCrawlerResponseBodyCrawlerScheduleConfig extends $dara.Model {
 export class GetCrawlerResponseBodyCrawlerScope extends $dara.Model {
   /**
    * @remarks
-   * The exclusion regular expression for the collection scope.
+   * The regular expression used to exclude items from the crawl scope.
    * 
    * @example
    * ^tmp_.*
@@ -53,12 +55,16 @@ export class GetCrawlerResponseBodyCrawlerScope extends $dara.Model {
   excludeRegex?: string;
   /**
    * @remarks
-   * The collection scope entries.
+   * The crawl scope items.
    */
   items?: string[];
   /**
    * @remarks
-   * The collection scope granularity. Valid values: PROJECT, DATABASE, INSTANCE, CATALOG.
+   * The crawl scope granularity. Valid values:
+   * - PROJECT
+   * - DATABASE
+   * - INSTANCE
+   * - CATALOG
    * 
    * @example
    * DATABASE
@@ -95,7 +101,7 @@ export class GetCrawlerResponseBodyCrawlerScope extends $dara.Model {
 export class GetCrawlerResponseBodyCrawler extends $dara.Model {
   /**
    * @remarks
-   * The creation time, in millisecond-level UNIX timestamp.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1710239005403
@@ -111,12 +117,14 @@ export class GetCrawlerResponseBodyCrawler extends $dara.Model {
   dataSourceId?: number;
   /**
    * @remarks
-   * Indicates whether AI metadata description is enabled.
+   * Indicates whether AI metadata descriptions are enabled.
    */
   enableAiComment?: boolean;
   /**
    * @remarks
-   * The DataWorks environment type. Valid values: Dev, Prod.
+   * The DataWorks environment type. Valid values:
+   * - Dev
+   * - Prod
    * 
    * @example
    * Prod
@@ -132,7 +140,13 @@ export class GetCrawlerResponseBodyCrawler extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The latest run status. Valid values: WAITING, RUNNING, SUCCESS, ERROR, SHUTDOWN. This value may be empty if the crawler has not been run.
+   * The latest run status. Valid values:
+   * - WAITING
+   * - RUNNING
+   * - SUCCESS
+   * - ERROR
+   * - SHUTDOWN
+   * This parameter may be empty if the crawler has not been run.
    * 
    * @example
    * SUCCESS
@@ -140,7 +154,7 @@ export class GetCrawlerResponseBodyCrawler extends $dara.Model {
   lastRunStatus?: string;
   /**
    * @remarks
-   * The DataWorks task instance ID associated with the latest run. This value may be empty if the crawler has not been run.
+   * The DataWorks task instance ID associated with the latest run. This parameter may be empty if the crawler has not been run.
    * 
    * @example
    * 1234
@@ -148,7 +162,7 @@ export class GetCrawlerResponseBodyCrawler extends $dara.Model {
   lastRunTaskInstanceId?: number;
   /**
    * @remarks
-   * The meta entity ID associated with the crawler, which can be used to connect to metadata query APIs.
+   * The ID of the meta-entity associated with the crawler. You can use this ID in metadata query APIs.
    * 
    * @example
    * starrocks:example-instance
@@ -156,7 +170,7 @@ export class GetCrawlerResponseBodyCrawler extends $dara.Model {
   metaEntityId?: string;
   /**
    * @remarks
-   * The modification time, in millisecond-level UNIX timestamp.
+   * The modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1710239005403
@@ -172,7 +186,10 @@ export class GetCrawlerResponseBodyCrawler extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The extended configuration for the crawler type.
+   * The extension configuration for the crawler type.
+   * 
+   * @example
+   * {"CollectRecyclebin":"false"}
    */
   options?: { [key: string]: string };
   /**
@@ -193,7 +210,7 @@ export class GetCrawlerResponseBodyCrawler extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The Serverless 2.0 resource group ID used to run the collection task.
+   * The ID of the Serverless 2.0 resource group used to run the crawl task.
    * 
    * @example
    * Serverless_res_group_1234567890123456_1234567890
@@ -201,17 +218,19 @@ export class GetCrawlerResponseBodyCrawler extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The schedule configuration.
+   * The schedule settings.
    */
   scheduleConfig?: GetCrawlerResponseBodyCrawlerScheduleConfig;
   /**
    * @remarks
-   * The collection scope configuration.
+   * The crawl scope configuration.
    */
   scope?: GetCrawlerResponseBodyCrawlerScope;
   /**
    * @remarks
-   * The crawler status. The value is VALID if the crawler configuration is valid and the associated data source exists. Otherwise, the value is INVALID.
+   * The crawler status. Valid values:
+   * - VALID: The crawler configuration is valid and the associated data source exists.
+   * - INVALID: The crawler configuration is invalid or the associated data source does not exist.
    * 
    * @example
    * VALID
@@ -219,7 +238,7 @@ export class GetCrawlerResponseBodyCrawler extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The DataWorks scheduling task ID associated with the crawler, which can be used to call GetTask to query the task definition.
+   * The DataWorks scheduled task ID associated with the crawler. You can call GetTask to query the task definition.
    * 
    * @example
    * 1234
@@ -307,7 +326,7 @@ export class GetCrawlerResponseBody extends $dara.Model {
   crawler?: GetCrawlerResponseBodyCrawler;
   /**
    * @remarks
-   * The request ID. Used for locating logs and troubleshooting issues.
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 9252F32F-D855-549E-8898-61CF5A733050
@@ -315,7 +334,7 @@ export class GetCrawlerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

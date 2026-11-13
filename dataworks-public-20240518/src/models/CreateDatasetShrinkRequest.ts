@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDatasetShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the dataset. The value can be up to 1024 characters in length.
+   * The description of the dataset. It cannot exceed 1,024 characters in length.
    * 
    * @example
    * this is a comment
@@ -14,13 +14,13 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The data type. Valid values:
-   * - COMMON: general-purpose (default).
-   * - PIC: image.
-   * - TEXT: text.
-   * - TABLE: table.
-   * - VIDEO: video.
-   * - AUDIO: audio.
-   * - INDEX: index.
+   * - COMMON: General (default).
+   * - PIC: Image.
+   * - TEXT: Text.
+   * - TABLE: Table.
+   * - VIDEO: Video.
+   * - AUDIO: Audio.
+   * - INDEX: Index.
    * 
    * @example
    * COMMON
@@ -35,7 +35,7 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   initVersionShrink?: string;
   /**
    * @remarks
-   * The name of the dataset. The value must be a non-empty string that is up to 128 characters in length.
+   * The name of the dataset. It must be a non-empty string and cannot exceed 128 characters in length.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The origin of the dataset. Only DataWorks is supported.
+   * The source of the dataset. Currently, only DataWorks is supported.
    * 
    * @example
    * DataWorks
@@ -53,7 +53,7 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
   origin?: string;
   /**
    * @remarks
-   * The ID of the DataWorks workspace.
+   * The DataWorks workspace ID.
    * 
    * This parameter is required.
    * 
@@ -65,8 +65,8 @@ export class CreateDatasetShrinkRequest extends $dara.Model {
    * @remarks
    * The storage type. Valid values:
    * - OSS: Object Storage Service.
-   * - NAS: general-purpose NAS file storage.
-   * - EXTREMENAS: extreme NAS file storage.
+   * - NAS: General-purpose NAS file storage.
+   * - EXTREMENAS: Extreme NAS file storage.
    * - DLF_LANCE: Data Lake Formation.
    * 
    * This parameter is required.

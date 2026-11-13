@@ -5,23 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateProcessDefinitionRequestApprovalNodes extends $dara.Model {
   /**
    * @remarks
-   * The approver type for the node. Valid values:
-   * 
-   * 
-   * 
-   * 
-   * - `DataWorksProjectRole`: A workspace role.
-   * - `DataWorksProjectMember`: A workspace member.
-   * - `TableAdministrator`: A table owner.
-   * - `TableOrProjectAdministrator`: The administrator of the table or workspace.
-   * - `AliyunResourceOwner`: An Alibaba Cloud account.
-   * - `MaxComputeRole`: A MaxCompute administrator.
-   * - `DLFAdmin`: A DlfLegacy administrator.
-   * - `DLFNextAdmin`: A DLFNext administrator.
-   * - `TenantRole`: A tenant role.
-   * - `EmrAdministrator`: An EMR administrator.
-   * - `LindormAdministrator`: A Lindorm administrator.
-   * - `AliyunRamUser`: A RAM user.
+   * The type of approver for the node. Valid values:
+   * - DataWorksProjectRole: Workspace role
+   * - DataWorksProjectMember: Workspace member
+   * - TableAdministrator: Table owner
+   * - TableOrProjectAdministrator: Table or workspace administrator
+   * - AliyunResourceOwner: Alibaba Cloud account
+   * - MaxComputeRole: MaxCompute administrator
+   * - DLFAdmin: DLF legacy administrator
+   * - DLFNextAdmin: DLFNext administrator
+   * - TenantRole: Tenant role
+   * - EmrAdministrator: EMR administrator
+   * - LindormAdministrator: Lindorm administrator
+   * - AliyunRamUser: RAM user
    * 
    * @example
    * TableOrProjectAdministrator
@@ -29,17 +25,12 @@ export class UpdateProcessDefinitionRequestApprovalNodes extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
-   * Specifies the approvers. The required value depends on the `AccountType`:
-   * 
-   * - If `AccountType` is `DataWorksProjectMember`, this parameter specifies the user IDs of workspace members.
-   * 
-   * - If `AccountType` is `DataWorksProjectRole`, this parameter specifies the codes of workspace roles.
-   * 
-   * - If `AccountType` is `MaxComputeRole`, this parameter specifies the MaxCompute roles.
-   * 
-   * - If `AccountType` is `TenantRole`, this parameter specifies the codes of tenant roles.
-   * 
-   * - If `AccountType` is `AliyunRamUser`, this parameter specifies the user IDs of RAM users.
+   * The assignees. The semantics vary based on the AccountType:
+   * - DataWorksProjectMember: Specifies the user ID of the workspace member.
+   * - DataWorksProjectRole: Specifies the code of the workspace role.
+   * - MaxComputeRole: Specifies the MaxCompute role.
+   * - TenantRole: Specifies the code of the tenant role.
+   * - AliyunRamUser: Specifies the RAM user ID.
    * 
    * @example
    * DataWorksProjectMember
@@ -47,11 +38,13 @@ export class UpdateProcessDefinitionRequestApprovalNodes extends $dara.Model {
   assignees?: string;
   /**
    * @remarks
-   * Additional properties that are required for specific `AccountType` values:
+   * The extension properties. Different additional declarations are required based on the AccountType:
    * 
-   * - If `AccountType` is `DataWorksProjectMember`: The key is `projectId` and the value is the user ID of a workspace member. Use commas (,) to separate multiple user IDs.
+   * - `DataWorksProjectMember`: The key is projectId, and the value is the user ID of the workspace member. Separate multiple values with commas.
+   * - `MaxComputeRole`: The key is the MaxCompute project, and the value is the role name in MaxCompute. Separate multiple values with commas.
    * 
-   * - If `AccountType` is `MaxComputeRole`: The key is the MaxCompute project name and the value is the role name in MaxCompute. Use commas (,) to separate multiple role names.
+   * @example
+   * {"449656": "role_project_admin,role_project_pe"}
    */
   extensionProperties?: { [key: string]: any };
   /**
@@ -98,11 +91,8 @@ export class UpdateProcessDefinitionRequestNotificationServices extends $dara.Mo
    * The notification channel. Valid values:
    * 
    * - Mail
-   * 
    * - Sms
-   * 
    * - DingRobot
-   * 
    * - Weixin
    * 
    * @example
@@ -111,7 +101,7 @@ export class UpdateProcessDefinitionRequestNotificationServices extends $dara.Mo
   channel?: string;
   /**
    * @remarks
-   * Additional information in JSON format. For example, use {"atAll":"true"} to specify whether to notify all members.
+   * The extended information in JSON format. For example, `{"atAll":"true"}` specifies whether to mention all users.
    * 
    * @example
    * {"atAll":"true"}
@@ -119,7 +109,7 @@ export class UpdateProcessDefinitionRequestNotificationServices extends $dara.Mo
   extension?: string;
   /**
    * @remarks
-   * The webhook URL. This parameter is required when `Channel` is set to `DingRobot` or `Weixin`.
+   * The Webhook URL. This parameter is required when the channel is DingRobot or Weixin.
    * 
    * @example
    * https://dingtalk.com
@@ -153,7 +143,7 @@ export class UpdateProcessDefinitionRequestNotificationServices extends $dara.Mo
 export class UpdateProcessDefinitionRequestRuleConditions extends $dara.Model {
   /**
    * @remarks
-   * The conditional expression. Format: ((#type==\\"typeValue\\")). For example: ((#odpsProject==\\"PX_BEIJING_TEST\\")).
+   * The conditional expression, such as `((#type==\\"typeValue\\"))` or `((#odpsProject==\\"PX_BEIJING_TEST\\"))`.
    * 
    * @example
    * ((#odpsProject==\\"PX_BEIJING_TEST\\"))
@@ -161,11 +151,9 @@ export class UpdateProcessDefinitionRequestRuleConditions extends $dara.Model {
   expression?: string;
   /**
    * @remarks
-   * The phase in which the rule takes effect. Valid values:
-   * 
-   * - **Deployment**: Determines whether the approval policy applies when an application is submitted.
-   * 
-   * - **Running**: Determines whether to skip the approval during the approval process. This phase is supported only for MaxCompute.
+   * The stage where the rule takes effect. Valid values:
+   * - **Deployment**: Used to determine whether the approval policy is matched when the application is submitted.
+   * - **Running**: Used to determine whether to skip approval while the approval process runs. [Supported only for MaxCompute]
    * 
    * @example
    * Deployment
@@ -173,16 +161,12 @@ export class UpdateProcessDefinitionRequestRuleConditions extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The type of the condition. Valid values:
+   * The condition type. Valid values:
    * 
-   * - `odpsProject`
-   * 
+   * - `odpsProject` 
    * - `hologresInstanceId`
-   * 
-   * - `sensibleLevel`
-   * 
-   * - `tableGuid`
-   * 
+   * - `sensibleLevel` 
+   * - `tableGuid` 
    * - `projectId`
    * 
    * @example
@@ -217,12 +201,12 @@ export class UpdateProcessDefinitionRequestRuleConditions extends $dara.Model {
 export class UpdateProcessDefinitionRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of approval nodes. This parameter does not apply to system policies.
+   * The list of approval nodes. Note: System policies do not take effect.
    */
   approvalNodes?: UpdateProcessDefinitionRequestApprovalNodes[];
   /**
    * @remarks
-   * An idempotent parameter. It ensures that retried requests do not result in duplicate operations.
+   * The idempotency token. Used to prevent duplicate operations caused by multiple calls.
    * 
    * @example
    * 1AFAE64E-D1BE-432B-A9****
@@ -230,15 +214,15 @@ export class UpdateProcessDefinitionRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the process definition.
+   * The description of the approval process definition.
    * 
    * @example
-   * MaxCompute table approval policy for the lwt_ide_simple project
+   * Approval policy for MaxCompute tables in the lwt_ide_simple project
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the process definition.
+   * The ID of the approval process definition.
    * 
    * This parameter is required.
    * 
@@ -248,7 +232,7 @@ export class UpdateProcessDefinitionRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the process definition.
+   * The name of the approval process definition.
    * 
    * @example
    * MaxCompute table approval
@@ -256,12 +240,12 @@ export class UpdateProcessDefinitionRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The notification service configurations.
+   * The notification service declaration.
    */
   notificationServices?: UpdateProcessDefinitionRequestNotificationServices[];
   /**
    * @remarks
-   * A list of rule conditions. This parameter does not apply to system policies.
+   * The list of conditional rules. Note: System policies do not take effect.
    */
   ruleConditions?: UpdateProcessDefinitionRequestRuleConditions[];
   static names(): { [key: string]: string } {

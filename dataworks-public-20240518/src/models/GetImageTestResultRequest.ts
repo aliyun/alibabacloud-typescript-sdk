@@ -15,7 +15,7 @@ export class GetImageTestResultRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The ID of the test process.
+   * The test process ID.
    * 
    * This parameter is required.
    * 

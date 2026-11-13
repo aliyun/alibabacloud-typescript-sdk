@@ -121,7 +121,7 @@ export class CreateAgentSessionRequestParamsMetaInitialConfigOptions extends $da
    * * cli: sandbox mode, suitable for complex data analytics, data processing, and code writing scenarios. The advantage is that it can handle complex problems, and the model independently analyzes and handles problems. The disadvantage is that the processing speed is slower and token consumption is higher compared to the chat mode.
    * 
    * @example
-   * chat，cli
+   * chat
    */
   executionLane?: string;
   /**

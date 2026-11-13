@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BuildImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The compute units (CUs) for the build.
+   * The number of compute units (CUs) for the image build.
    * 
    * @example
    * 0.5
@@ -23,7 +23,7 @@ export class BuildImageRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Specifies the image build execution ID, which is used as an idempotence token.
+   * The image build execution ID, used as an idempotence token.
    * 
    * @example
    * 582d4896-d224-413b-b883-239eeebe0bc5
@@ -31,7 +31,7 @@ export class BuildImageRequest extends $dara.Model {
   processId?: string;
   /**
    * @remarks
-   * The unique identifier of the resource group.
+   * The unique identifier of the general-purpose resource group.
    * 
    * This parameter is required.
    * 

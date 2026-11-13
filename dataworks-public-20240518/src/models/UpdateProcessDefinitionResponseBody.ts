@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateProcessDefinitionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the API request.
    * 
    * @example
    * 0bc5df3a17****903790e8e8a

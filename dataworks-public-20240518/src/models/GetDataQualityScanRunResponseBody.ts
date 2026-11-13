@@ -45,7 +45,7 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunParameters exten
 export class GetDataQualityScanRunResponseBodyDataQualityScanRunResultsDetails extends $dara.Model {
   /**
    * @remarks
-   * The final value used for comparison with the threshold.
+   * The final value used to compare with the threshold.
    * 
    * @example
    * 100.0
@@ -53,7 +53,7 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunResultsDetails e
   checkValue?: string;
   /**
    * @remarks
-   * The reference sample used as the baseline for calculating the CheckedValue.
+   * The baseline value from the referenced sample used to calculate CheckedValue.
    * 
    * @example
    * 0.0
@@ -61,14 +61,10 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunResultsDetails e
   referenceValue?: string;
   /**
    * @remarks
-   * The final comparison result status.
-   * 
+   * The status of the final comparison result. Valid values:
    * - Pass
-   * 
    * - Error
-   * 
    * - Warn
-   * 
    * - Fail
    * 
    * @example
@@ -103,7 +99,9 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunResultsDetails e
 export class GetDataQualityScanRunResponseBodyDataQualityScanRunResults extends $dara.Model {
   /**
    * @remarks
-   * The time when the validation result is generated.
+   * The time when the check result was generated.
+   * 
+   * The value is a 13-digit number, such as `1725506795000`.
    * 
    * @example
    * 1725506795000
@@ -111,12 +109,12 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunResults extends 
   createTime?: number;
   /**
    * @remarks
-   * The information about the data quality check.
+   * The details of the current check.
    */
   details?: GetDataQualityScanRunResponseBodyDataQualityScanRunResultsDetails[];
   /**
    * @remarks
-   * The snapshot of the rule Spec at the start of the validation.
+   * The snapshot of the rule spec at the start of the check.
    * 
    * @example
    * {
@@ -130,7 +128,7 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunResults extends 
   rule?: string;
   /**
    * @remarks
-   * The sample value used in the validation.
+   * The sample value used for the current check.
    * 
    * @example
    * {
@@ -140,16 +138,11 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunResults extends 
   sample?: string;
   /**
    * @remarks
-   * The validation result status.
-   * 
+   * The status of the check result. Valid values:
    * - Pass
-   * 
    * - Running
-   * 
    * - Error
-   * 
    * - Warn
-   * 
    * - Fail
    * 
    * @example
@@ -191,12 +184,9 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunResults extends 
 export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanComputeResourceRuntime extends $dara.Model {
   /**
    * @remarks
-   * The type of the compute engine. Only EMR compute engines support these settings.
-   * 
+   * The type of the engine used. Only the E-MapReduce (EMR) compute engine supports this setting. Valid values:
    * - Hive
-   * 
    * - Spark
-   * 
    * - Kyuubi
    * 
    * @example
@@ -205,18 +195,18 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanComputeResou
   engine?: string;
   /**
    * @remarks
-   * Additional parameters for the Hive engine. Currently, only mapreduce.job.queuename is supported to specify the queue.
+   * The additional parameter settings when the Hive engine is used. Currently, only the queue can be configured by using mapreduce.job.queuename.
    * 
    * @example
-   * mapreduce.job.queuename=dq_queue
+   * {"mapreduce.job.queuename": "dq_queue"}
    */
   hiveConf?: { [key: string]: any };
   /**
    * @remarks
-   * Additional parameters for the Spark engine. Currently, only spark.yarn.queue is supported to specify the queue.
+   * The additional parameter settings when the Spark engine is used. Currently, only the queue can be configured by using spark.yarn.queue.
    * 
    * @example
-   * spark.yarn.queue=dq_queue
+   * {"spark.yarn.queue": "dq_queue"}
    */
   sparkConf?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -253,10 +243,8 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanComputeResou
 export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanComputeResource extends $dara.Model {
   /**
    * @remarks
-   * The workspace environment to which the compute engine belongs.
-   * 
+   * The workspace environment to which the compute engine belongs. Valid values:
    * - Prod
-   * 
    * - Dev
    * 
    * @example
@@ -265,7 +253,7 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanComputeResou
   envType?: string;
   /**
    * @remarks
-   * The name of the computing resource, which corresponds to the Name attribute in the ComputeResource data structure of the computing resource API.
+   * The name of the compute resource. This corresponds to the Name property in the ComputeResource data structure of the compute resource API.
    * 
    * @example
    * emr_cluster_001
@@ -273,7 +261,7 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanComputeResou
   name?: string;
   /**
    * @remarks
-   * The additional runtime settings of the data quality monitor.
+   * The additional runtime settings for the data quality monitoring task.
    */
   runtime?: GetDataQualityScanRunResponseBodyDataQualityScanRunScanComputeResourceRuntime;
   static names(): { [key: string]: string } {
@@ -307,9 +295,9 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanComputeResou
 export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanHooks extends $dara.Model {
   /**
    * @remarks
-   * The hook trigger condition. Currently, only one type of expression syntax is supported:
+   * The condition that triggers the hook. Currently, only one expression syntax is supported:
    * 
-   * - Specify combinations of severity levels and validation statuses for multiple rules, such as `results.any { r -> r.status == \\"Fail\\" && r.rule.severity == \\"Normal\\" || r.status == \\"Error\\" && r.rule.severity == \\"High\\" || r.status == \\"Warn\\" && r.rule.severity == \\"High\\" }`. This means the hook is triggered if any executed rule has Fail with Normal severity, Error with High severity, or Warn with High severity. In the conditional expression, the severity value matches that in the Spec code, and the status value matches that in DataQualityResult.
+   * * Specify multiple groups of rule severity types and rule check statuses. For example, `results.any { r -> r.status == \\"Fail\\" && r.rule.severity == \\"Normal\\" || r.status == \\"Error\\" && r.rule.severity == \\"High\\" || r.status == \\"Warn\\" && r.rule.severity == \\"High\\" }` indicates that the condition is met if the check result of a rule with the severity of Normal is Fail, the check result of a rule with the severity of High is Error, or the check result of a rule with the severity of High is Warn among the executed rules. The enum values of severity in the conditional expression are the same as those in the spec, and the enum values of status are the same as those in DataQualityResult.
    * 
    * @example
    * results.any { r -> r.status == \\"fail\\" && r.rule.severity == \\"High\\" }
@@ -317,8 +305,7 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanHooks extend
   condition?: string;
   /**
    * @remarks
-   * The type of the hook.
-   * 
+   * The hook type. Valid values:
    * - BlockTaskInstance
    * 
    * @example
@@ -391,7 +378,7 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanParameters e
 export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * Reserved CUs for the resource group.
+   * The reserved compute units (CUs) of the resource group.
    * 
    * @example
    * 1
@@ -399,7 +386,7 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanRuntimeResou
   cu?: number;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * 60597
@@ -407,7 +394,7 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanRuntimeResou
   id?: string;
   /**
    * @remarks
-   * The image ID of the run configuration.
+   * The ID of the image used for the run configuration.
    * 
    * @example
    * i-xxxx
@@ -441,15 +428,13 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanRuntimeResou
 export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanTrigger extends $dara.Model {
   /**
    * @remarks
-   * If the trigger mode is set to BySchedule, the scheduling task ID must be specified.
+   * The IDs of the scheduling tasks that trigger the data quality monitoring task when the trigger method is set to BySchedule.
    */
   taskIds?: number[];
   /**
    * @remarks
-   * The trigger method of the data quality monitor.
-   * 
+   * The trigger method of the data quality monitoring task. Valid values:
    * - ByManual
-   * 
    * - BySchedule
    * 
    * @example
@@ -485,12 +470,14 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScanTrigger exte
 export class GetDataQualityScanRunResponseBodyDataQualityScanRunScan extends $dara.Model {
   /**
    * @remarks
-   * The computing resource settings of the data quality monitor.
+   * The compute resource settings of the data quality monitoring task.
    */
   computeResource?: GetDataQualityScanRunResponseBodyDataQualityScanRunScanComputeResource;
   /**
    * @remarks
-   * The creation time of the data quality monitor.
+   * The time when the data quality monitoring task was created.
+   * 
+   * The value is a 13-digit number, such as `1706247622000`.
    * 
    * @example
    * 1706247622000
@@ -498,7 +485,7 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScan extends $da
   createTime?: number;
   /**
    * @remarks
-   * The creator of the data quality monitor.
+   * The user who created the data quality monitoring task.
    * 
    * @example
    * 7892346529452
@@ -506,7 +493,7 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScan extends $da
   createUser?: string;
   /**
    * @remarks
-   * The description of the data quality validation task. Maximum length: 65,535 characters.
+   * The description of the data quality check task. The description can be up to 65,535 characters in length.
    * 
    * @example
    * This is a hourly run data quality evaluation plan.
@@ -514,12 +501,12 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScan extends $da
   description?: string;
   /**
    * @remarks
-   * The hook configurations after the data quality monitor stops.
+   * The configuration for hooks that run after the data quality monitor finishes.
    */
   hooks?: GetDataQualityScanRunResponseBodyDataQualityScanRunScanHooks[];
   /**
    * @remarks
-   * The data quality monitor ID.
+   * The ID of the data quality monitor.
    * 
    * @example
    * 21077
@@ -527,7 +514,9 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScan extends $da
   id?: number;
   /**
    * @remarks
-   * The last update time of the data quality monitor.
+   * The time when the data quality monitoring task was updated.
+   * 
+   * The value is a 13-digit number, such as `1706247622000`.
    * 
    * @example
    * 1706247622000
@@ -535,7 +524,7 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScan extends $da
   modifyTime?: number;
   /**
    * @remarks
-   * The last updater of the data quality monitor.
+   * The user who last updated the data quality monitoring task.
    * 
    * @example
    * 7892346529452
@@ -543,7 +532,7 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScan extends $da
   modifyUser?: string;
   /**
    * @remarks
-   * The name of the data quality validation task. It can contain digits, letters, Chinese characters, and both half-width and full-width punctuation marks, with a maximum length of 255 characters.
+   * The name of the data quality check task. The name can contain digits, letters, Chinese characters, and half-width or full-width punctuation marks, and can be up to 255 characters in length.
    * 
    * @example
    * Hourly partition quality monitoring
@@ -551,7 +540,7 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScan extends $da
   name?: string;
   /**
    * @remarks
-   * The owner of the data quality monitor.
+   * The owner of the data quality monitoring task.
    * 
    * @example
    * 7892346529452
@@ -559,7 +548,7 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScan extends $da
   owner?: string;
   /**
    * @remarks
-   * The parameter settings of the data quality monitor.
+   * The parameter settings of the data quality monitoring task.
    */
   parameters?: GetDataQualityScanRunResponseBodyDataQualityScanRunScanParameters[];
   /**
@@ -572,12 +561,12 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScan extends $da
   projectId?: number;
   /**
    * @remarks
-   * The resource group used for running the data quality monitor.
+   * The resource group used when the data quality monitoring task runs.
    */
   runtimeResource?: GetDataQualityScanRunResponseBodyDataQualityScanRunScanRuntimeResource;
   /**
    * @remarks
-   * The data quality monitor Spec. For more information, see [Data quality Spec configuration description](https://help.aliyun.com/document_detail/2963394.html).
+   * The spec of the data quality monitoring task. For more information, see [Data quality spec configuration guide](https://help.aliyun.com/document_detail/2963394.html).
    * 
    * @example
    * {
@@ -610,7 +599,7 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScan extends $da
   spec?: string;
   /**
    * @remarks
-   * The trigger configurations of the data quality monitor.
+   * The trigger configuration of the data quality monitoring task.
    */
   trigger?: GetDataQualityScanRunResponseBodyDataQualityScanRunScanTrigger;
   static names(): { [key: string]: string } {
@@ -680,7 +669,9 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRunScan extends $da
 export class GetDataQualityScanRunResponseBodyDataQualityScanRun extends $dara.Model {
   /**
    * @remarks
-   * The time when the data quality monitor starts running.
+   * The time when the data quality monitoring run started.
+   * 
+   * The value is a 13-digit number, such as `1706247622000`.
    * 
    * @example
    * 1706247622000
@@ -688,7 +679,9 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRun extends $dara.M
   createTime?: number;
   /**
    * @remarks
-   * The time when the data quality monitor stops.
+   * The time when the data quality monitoring run ended.
+   * 
+   * The value is a 13-digit number, such as `1706247622000`.
    * 
    * @example
    * 1706247622000
@@ -696,7 +689,7 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRun extends $dara.M
   finishTime?: number;
   /**
    * @remarks
-   * The running record ID.
+   * The ID of the run record.
    * 
    * @example
    * 1016440997
@@ -704,31 +697,26 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRun extends $dara.M
   id?: number;
   /**
    * @remarks
-   * The parameter settings used during the actual running.
+   * The parameter settings used during the actual run.
    */
   parameters?: GetDataQualityScanRunResponseBodyDataQualityScanRunParameters[];
   /**
    * @remarks
-   * The validation results of each rule.
+   * The check results for individual rules.
    */
   results?: GetDataQualityScanRunResponseBodyDataQualityScanRunResults[];
   /**
    * @remarks
-   * The snapshot of the data quality monitor configuration at the start of the validation.
+   * The snapshot of the data quality monitoring configuration at the start of the check.
    */
   scan?: GetDataQualityScanRunResponseBodyDataQualityScanRunScan;
   /**
    * @remarks
-   * The current running status.
-   * 
+   * The current run status. Valid values:
    * - Pass
-   * 
    * - Running
-   * 
    * - Error
-   * 
    * - Warn
-   * 
    * - Fail
    * 
    * @example
@@ -780,7 +768,7 @@ export class GetDataQualityScanRunResponseBodyDataQualityScanRun extends $dara.M
 export class GetDataQualityScanRunResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Data quality monitoring running records.
+   * The run record of the data quality monitor.
    */
   dataQualityScanRun?: GetDataQualityScanRunResponseBodyDataQualityScanRun;
   /**

@@ -68,7 +68,7 @@ export class ListParameterVersionsResponseBodyPagingInfoParameterVersion extends
    * The parameter description.
    * 
    * @example
-   * 这是一个测试参数
+   * This is a test parameter.
    */
   description?: string;
   /**

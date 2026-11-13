@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSkillResponseBodySkillVisibilityScope extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the visible projects.
+   * The IDs of the projects in which the skill is visible.
    */
   projectIds?: string[];
   /**
    * @remarks
-   * The IDs of the visible users. This field is returned only when Visibility is set to USER.
+   * The IDs of the users who can see the skill. This field takes effect when Visibility is set to USER.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {
@@ -45,10 +45,17 @@ export class CreateSkillResponseBodySkillVisibilityScope extends $dara.Model {
 export class CreateSkillResponseBodySkill extends $dara.Model {
   /**
    * @remarks
-   * The content of the SKILL.md file.
+   * The body of the SKILL.md file.
    * 
    * @example
-   * -
+   * ---
+   * name: example-skill
+   * description: Sample skill.
+   * ---
+   * 
+   * # Sample skill
+   * 
+   * Summarize the text provided by the user
    */
   body?: string;
   /**
@@ -61,7 +68,7 @@ export class CreateSkillResponseBodySkill extends $dara.Model {
   creatorId?: string;
   /**
    * @remarks
-   * The skill description.
+   * The description of the skill.
    * 
    * @example
    * Data analytics skill
@@ -97,7 +104,7 @@ export class CreateSkillResponseBodySkill extends $dara.Model {
   modifierId?: string;
   /**
    * @remarks
-   * The skill name.
+   * The name of the skill.
    * 
    * @example
    * my-skill

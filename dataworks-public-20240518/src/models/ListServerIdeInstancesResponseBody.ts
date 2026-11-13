@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConfigConfigsRolesUserInfo extends $dara.Model {
   /**
    * @remarks
-   * The temporary AccessKey ID used for credential injection.
+   * The temporary access key ID used for credential injection.
    * 
    * @example
    * STS.N*********7
@@ -68,7 +68,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConf
 export class ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConfigConfigsRoles extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the entity to which the assumed role belongs.
+   * The Alibaba Cloud account ID of the principal to which the assumed role belongs.
    * 
    * @example
    * 123456789012****
@@ -148,12 +148,12 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConf
   key?: string;
   /**
    * @remarks
-   * The roles in the credential configuration.
+   * The list of roles in the credential configuration.
    */
   roles?: ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConfigConfigsRoles[];
   /**
    * @remarks
-   * The credential configuration type. Valid values:
+   * The type of the credential configuration. Valid values:
    * - Role: single role assumption
    * - RoleChain: role chain assumption
    * 
@@ -192,7 +192,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConf
 export class ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConfig extends $dara.Model {
   /**
    * @remarks
-   * The environment variable role key.
+   * The environment variable key for the role.
    * 
    * @example
    * 0
@@ -200,7 +200,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConf
   aliyunEnvRoleKey?: string;
   /**
    * @remarks
-   * The credential configurations.
+   * The list of credential configurations.
    */
   configs?: ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConfigConfigs[];
   /**
@@ -239,7 +239,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesCredentialConf
 export class ListServerIdeInstancesResponseBodyPagingInfoInstancesDatasets extends $dara.Model {
   /**
    * @remarks
-   * The custom mount attributes of the dataset. The content is passed as mount options.
+   * The custom mount properties of the dataset. The content is passed as mount options.
    * 
    * @example
    * {"fs.oss.download.thread.concurrency":"10"}
@@ -247,7 +247,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesDatasets exten
   extOptions?: string;
   /**
    * @remarks
-   * The dataset identifier.
+   * The identifier of the dataset.
    * 
    * @example
    * d-vsqjvs****rp5l206u
@@ -276,7 +276,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesDatasets exten
   uri?: string;
   /**
    * @remarks
-   * The dataset version number.
+   * The version number of the dataset.
    * 
    * @example
    * 1
@@ -366,7 +366,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesUserVpcForward
   name?: string;
   /**
    * @remarks
-   * The NAT gateway ID.
+   * The ID of the NAT gateway.
    * 
    * @example
    * ngw-bp1****
@@ -428,7 +428,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesUserVpc extend
   forwardInfos?: ListServerIdeInstancesResponseBodyPagingInfoInstancesUserVpcForwardInfos[];
   /**
    * @remarks
-   * The security group ID.
+   * The ID of the security group.
    * 
    * @example
    * sg-bp1****
@@ -436,7 +436,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesUserVpc extend
   securityGroupId?: string;
   /**
    * @remarks
-   * The vSwitch ID.
+   * The ID of the vSwitch.
    * 
    * @example
    * vsw-bp1****
@@ -444,7 +444,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstancesUserVpc extend
   vSwitchId?: string;
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the VPC.
    * 
    * @example
    * vpc-bp1****
@@ -504,7 +504,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstances extends $dara
   cu?: number;
   /**
    * @remarks
-   * The datasets mounted to the instance.
+   * The list of datasets mounted to the instance.
    */
   datasets?: ListServerIdeInstancesResponseBodyPagingInfoInstancesDatasets[];
   /**
@@ -557,7 +557,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstances extends $dara
   instanceName?: string;
   /**
    * @remarks
-   * The account ID of the user that owns the instance.
+   * The account ID of the user who owns the instance.
    * 
    * @example
    * 20933221576142****
@@ -565,7 +565,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfoInstances extends $dara
   ownerId?: string;
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the DataWorks workspace.
    * 
    * @example
    * 10000
@@ -696,7 +696,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfo extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries returned per page.
    * 
    * @example
    * 10
@@ -743,7 +743,7 @@ export class ListServerIdeInstancesResponseBodyPagingInfo extends $dara.Model {
 export class ListServerIdeInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned in the current response.
+   * The maximum number of entries used for this response.
    * 
    * @example
    * 20
@@ -764,7 +764,7 @@ export class ListServerIdeInstancesResponseBody extends $dara.Model {
   pagingInfo?: ListServerIdeInstancesResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * E7D55162-4489-1619-AAF5-3F97D5FCA948

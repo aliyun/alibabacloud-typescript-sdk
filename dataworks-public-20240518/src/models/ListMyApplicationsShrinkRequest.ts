@@ -7,9 +7,9 @@ export class ListMyApplicationsShrinkRequest extends $dara.Model {
    * @remarks
    * Filters by resource type.
    * 
-   * Note: The resource types supported by the system for applications are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+   * Note: The resource types supported by the system are constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).name.
    * 
-   * See also: [ResourceSchema documentation for International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * For more information, see [ResourceSchema documentation for Alibaba Cloud International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions).
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class ListMyApplicationsShrinkRequest extends $dara.Model {
   defSchema?: string;
   /**
    * @remarks
-   * The end time of the application period (millisecond timestamp).
+   * The end of the request submission time range, as a timestamp in milliseconds.
    * 
    * This parameter is required.
    * 
@@ -29,7 +29,7 @@ export class ListMyApplicationsShrinkRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The pagination cursor.
+   * The pagination token.
    * 
    * @example
    * eyJpZCI6MTIzfQ==
@@ -45,28 +45,25 @@ export class ListMyApplicationsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters by resource with exact or generalized matching. The resource description is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).
+   * Filters by exact or generalized resource. The resource description is constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).
    * 
-   * 
-   * 
-   * 
-   * See also: [ResourceSchema documentation for International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * For more information, see [ResourceSchema documentation for Alibaba Cloud International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions).
    */
   resourceShrink?: string;
   /**
    * @remarks
-   * Filters by minimum permission resource type.
+   * Filters by least privilege resource type.
    * 
-   * Note: The minimum permission resource type is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).resources[*].isValidLeaf being true.
+   * Note: The least privilege resource types are constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).resources[*].isValidLeaf being true.
    * 
-   * See also: [ResourceSchema documentation for International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * For more information, see [ResourceSchema documentation for Alibaba Cloud International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions).
    * 
    * This parameter is required.
    */
   resourceTypeShrink?: string;
   /**
    * @remarks
-   * The start time of the application period (millisecond timestamp).
+   * The start of the request submission time range, as a timestamp in milliseconds.
    * 
    * This parameter is required.
    * 
@@ -78,13 +75,13 @@ export class ListMyApplicationsShrinkRequest extends $dara.Model {
    * @remarks
    * Filters by approval status. Valid values:
    * 
-   * - WaitApproval: pending approval.
-   * - Confirmed: pending authorization.
-   * - RejectApproval: approval rejected.
-   * - AuthorizeSucceed: authorization succeeded.
-   * - AuthorizeFailed: authorization failed.
-   * - Deleted: deleted.
-   * - Canceled: withdrawn.
+   * - WaitApproval: pending approval
+   * - Confirmed: pending authorization
+   * - RejectApproval: approval rejected
+   * - AuthorizeSucceed: authorization succeeded
+   * - AuthorizeFailed: authorization failed
+   * - Deleted: deleted
+   * - Canceled: withdrawn
    * 
    * @example
    * Deleted

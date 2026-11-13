@@ -12,7 +12,7 @@ export class CreateProcessDefinitionShrinkRequest extends $dara.Model {
   approvalNodesShrink?: string;
   /**
    * @remarks
-   * The idempotency token. We recommend that you use a UUID.
+   * The client token that is used to ensure idempotence. We recommend using a UUID.
    * 
    * @example
    * 0000-ABCD-EFG****
@@ -20,7 +20,7 @@ export class CreateProcessDefinitionShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the process definition.
+   * The description of the flow definition.
    * 
    * This parameter is required.
    * 
@@ -30,17 +30,17 @@ export class CreateProcessDefinitionShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable the process definition.
+   * Specifies whether to enable the flow definition.
    */
   enabled?: boolean;
   /**
    * @remarks
-   * The name of the process definition.
+   * The name of the flow definition.
    * 
    * This parameter is required.
    * 
    * @example
-   * My Approval Policy
+   * My approval policy
    */
   name?: string;
   /**
@@ -71,7 +71,7 @@ export class CreateProcessDefinitionShrinkRequest extends $dara.Model {
   subType?: string;
   /**
    * @remarks
-   * The type of the process definition. Valid values:
+   * The type of the flow definition. Valid values:
    * 
    * 1. MaxCompute
    * 2. DataService

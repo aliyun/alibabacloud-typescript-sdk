@@ -45,7 +45,7 @@ export class ListServerIdeInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the DataWorks workspace.
    * 
    * @example
    * 10000
@@ -53,7 +53,7 @@ export class ListServerIdeInstancesRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The account ID of the user that owns the instance.
+   * The account ID of the user who owns the instance. This parameter is used to filter instances.
    * 
    * @example
    * 20933221576142****
@@ -61,7 +61,7 @@ export class ListServerIdeInstancesRequest extends $dara.Model {
   relatedUserId?: string;
   /**
    * @remarks
-   * The DataWorks resource group identifier. You can use the numeric ID of the resource group or the full identifier in the Serverless_res_group_{tenantId}_{resgId} format.
+   * The identifier of the DataWorks resource group. You can specify the numeric ID of the resource group or the full identifier in the Serverless_res_group_{tenantId}_{resgId} format.
    * 
    * @example
    * Serverless_res_group_123456789012345_9876543210****
@@ -69,7 +69,7 @@ export class ListServerIdeInstancesRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The instance subtype. Valid values:
+   * The subtype of the instance. Valid values:
    * - PERSONAL_DEV: personal development environment
    * - DATA_AGENT: Data Agent
    * 

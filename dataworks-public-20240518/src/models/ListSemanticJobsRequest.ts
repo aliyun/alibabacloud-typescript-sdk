@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSemanticJobsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number, starting from 1. If this parameter is not specified or is set to a value less than or equal to 0, page 1 is returned.
+   * The page number. Pages start from 1. If this parameter is not specified or is set to a value less than or equal to 0, the first page is returned.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListSemanticJobsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of job definitions per page. If this parameter is not specified or is set to a value less than or equal to 0, the default value 50 is used. Maximum value: 200.
+   * The number of job definitions to return on each page. If this parameter is not specified or is set to a value less than or equal to 0, the default value 50 is used. Maximum value: 200.
    * 
    * @example
    * 50

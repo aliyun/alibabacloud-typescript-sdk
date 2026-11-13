@@ -6,15 +6,18 @@ import { SuccessInfoValue } from "./SuccessInfoValue";
 export class ResumeTaskInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. You can locate logs and troubleshoot issues based on the ID.
+   * The ID of the request. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
-   * 22C97E95-F023-56B5-8852-B1A77A17XXXX
+   * 22C97E95-F023-56B5-8852-B1A77A17****
    */
   requestId?: string;
   /**
    * @remarks
-   * The result of the batch operation, which is in the MAP structure. The instance ID serves as a key, and the result serves as a value.
+   * The results of the batch operation. The results are returned as a map where the keys are task instance IDs and the values are the result details.
+   * 
+   * @example
+   * {"10001": {"Success": false, "Message": "The instance does not exist."}}
    */
   successInfo?: { [key: string]: SuccessInfoValue };
   static names(): { [key: string]: string } {

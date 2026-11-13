@@ -21,7 +21,7 @@ export class ListDataQualityResultsRequest extends $dara.Model {
   bizdateTo?: string;
   /**
    * @remarks
-   * The earliest time when the data quality evaluation result was generated.
+   * The earliest time when the data quality check results were generated.
    * 
    * @example
    * 1710239005403
@@ -29,7 +29,7 @@ export class ListDataQualityResultsRequest extends $dara.Model {
   createTimeFrom?: number;
   /**
    * @remarks
-   * The latest time when the data quality evaluation result was generated.
+   * The latest time when the data quality check results were generated.
    * 
    * @example
    * 1710239005403
@@ -61,7 +61,7 @@ export class ListDataQualityResultsRequest extends $dara.Model {
   dataQualityRuleId?: number;
   /**
    * @remarks
-   * The page number for the paging query. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class ListDataQualityResultsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size for the paging query. Default value: 10.
+   * The number of results per page. Default value: 10.
    * 
    * @example
    * 10

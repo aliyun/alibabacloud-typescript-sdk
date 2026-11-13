@@ -6,8 +6,8 @@ export class GetWorkflowRequest extends $dara.Model {
   /**
    * @remarks
    * The project environment. Valid values:
-   * - Prod: Production environment.
-   * - Dev: Development environment.
+   * - Prod: production.
+   * - Dev: development.
    * 
    * @example
    * Prod

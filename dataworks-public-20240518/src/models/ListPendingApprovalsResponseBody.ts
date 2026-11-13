@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListPendingApprovalsResponseBodyDataDataContentsGrantee extends $dara.Model {
   /**
    * @remarks
-   * Principal ID.
+   * The ID of the principal.
    * 
-   * Note: The semantics of the ID vary depending on the principalType:
-   * - RamUser: DataWorks UserId
-   * - RamRole: DataWorks UserId prefixed with "ROLE_"
-   * - DataworksTenantMember: DataWorks UserId
+   * Note: When principalType is of different types, it corresponds to different semantics:
+   * - RamUser: DataWorks user ID
+   * - RamRole: DataWorks user ID starting with "ROLE_"
+   * - DataworksTenantMember: DataWorks user ID
    * - DataworksTenantRole: DataWorks tenant roleCode
    * - DataworksProjectRole: DataWorks workspace roleCode
-   * - DataworksProjectMember: DataWorks UserId
+   * - DataworksProjectMember: DataWorks user ID
    * - DlfRole: DlfNext role name
    * 
    * @example
@@ -22,7 +22,7 @@ export class ListPendingApprovalsResponseBodyDataDataContentsGrantee extends $da
   principalId?: string;
   /**
    * @remarks
-   * Principal type. Enumeration:
+   * The type of the principal. Valid values:
    * 
    * - RamRole
    * - RamUser
@@ -62,7 +62,7 @@ export class ListPendingApprovalsResponseBodyDataDataContentsGrantee extends $da
 export class ListPendingApprovalsResponseBodyDataDataContentsResource extends $dara.Model {
   /**
    * @remarks
-   * ResourceSchema.name that the resource parsing depends on.
+   * The ResourceSchema.name on which the resource parsing depends.
    * 
    * @example
    * MaxCompute
@@ -70,7 +70,7 @@ export class ListPendingApprovalsResponseBodyDataDataContentsResource extends $d
   defSchema?: string;
   /**
    * @remarks
-   * ResourceSchema.version that the resource parsing depends on.
+   * The ResourceSchema.version on which the resource parsing depends.
    * 
    * @example
    * v1.0.0
@@ -78,7 +78,10 @@ export class ListPendingApprovalsResponseBodyDataDataContentsResource extends $d
   defVersion?: string;
   /**
    * @remarks
-   * Resource metadata. The data content is constrained by ResourceSchema.
+   * The resource metadata. The data content is constrained by ResourceSchema.
+   * 
+   * @example
+   * {"schema": "default", "threeTierModel": false, "project": "sync_dtestn", "workspace": "4477656", "table": "order", "tenant": "524257424864736"}
    */
   metaData?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -112,12 +115,12 @@ export class ListPendingApprovalsResponseBodyDataDataContentsResource extends $d
 export class ListPendingApprovalsResponseBodyDataDataContents extends $dara.Model {
   /**
    * @remarks
-   * Resource operation permissions requested in the application.
+   * The requested resource operation permissions.
    */
   accessTypes?: string[];
   /**
    * @remarks
-   * Authorization method.
+   * The authorization method.
    * 
    * @example
    * default
@@ -125,7 +128,9 @@ export class ListPendingApprovalsResponseBodyDataDataContents extends $dara.Mode
   authMethod?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
+   * 
+   * The format is `yyyy-MM-dd HH:mm:ss`, such as `2025-09-11 10:13:21`. This example does not include a time zone identifier.
    * 
    * @example
    * 2025-09-11 10:13:21
@@ -133,7 +138,7 @@ export class ListPendingApprovalsResponseBodyDataDataContents extends $dara.Mode
   createTime?: number;
   /**
    * @remarks
-   * Resource type.
+   * The resource type.
    * 
    * @example
    * MaxCompute
@@ -141,7 +146,7 @@ export class ListPendingApprovalsResponseBodyDataDataContents extends $dara.Mode
   defSchema?: string;
   /**
    * @remarks
-   * Permission expiration date, millisecond timestamp.
+   * The expiration date of the permissions. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1782354014507
@@ -149,17 +154,17 @@ export class ListPendingApprovalsResponseBodyDataDataContents extends $dara.Mode
   expirationTime?: number;
   /**
    * @remarks
-   * Resource operation permissions finally approved.
+   * The resource operation permissions that received final approval.
    */
   finalAccessTypes?: string[];
   /**
    * @remarks
-   * Authorization principal description.
+   * The description of the authorization principal.
    */
   grantee?: ListPendingApprovalsResponseBodyDataDataContentsGrantee;
   /**
    * @remarks
-   * Unique identifier of the request content.
+   * The unique identifier of the application content.
    * 
    * @example
    * 210001918826
@@ -167,7 +172,7 @@ export class ListPendingApprovalsResponseBodyDataDataContents extends $dara.Mode
   id?: string;
   /**
    * @remarks
-   * **Process instance ID.**
+   * **The approval process instance ID.**
    * 
    * @example
    * 176906667488145
@@ -175,12 +180,12 @@ export class ListPendingApprovalsResponseBodyDataDataContents extends $dara.Mode
   processInstanceId?: string;
   /**
    * @remarks
-   * Resource declaration.
+   * The resource declaration.
    */
   resource?: ListPendingApprovalsResponseBodyDataDataContentsResource;
   /**
    * @remarks
-   * Minimum permission resource type.
+   * The least privilege resource type.
    * 
    * @example
    * table
@@ -188,15 +193,15 @@ export class ListPendingApprovalsResponseBodyDataDataContents extends $dara.Mode
   resourceName?: string;
   /**
    * @remarks
-   * Approval status. Enumeration:
+   * The approval status. Valid values:
    * 
-   * - WaitApproval: Pending approval
-   * - Confirmed: Pending authorization
-   * - RejectApproval: Approval rejected
-   * - AuthorizeSucceed: Authorization succeeded
-   * - AuthorizeFailed: Authorization failed
-   * - Deleted: Deleted
-   * - Canceled: Canceled
+   * - WaitApproval: pending approval
+   * - Confirmed: pending authorization
+   * - RejectApproval: approval rejected
+   * - AuthorizeSucceed: authorization succeeded
+   * - AuthorizeFailed: authorization failed
+   * - Deleted: deleted
+   * - Canceled: withdrawn
    * 
    * @example
    * Deleted
@@ -204,7 +209,7 @@ export class ListPendingApprovalsResponseBodyDataDataContents extends $dara.Mode
   status?: string;
   /**
    * @remarks
-   * Tenant ID.
+   * The ID of the tenant.
    * 
    * @example
    * 69973837489
@@ -212,7 +217,9 @@ export class ListPendingApprovalsResponseBodyDataDataContents extends $dara.Mode
   tenantId?: string;
   /**
    * @remarks
-   * Update time.
+   * The update time.
+   * 
+   * The format is `yyyy-MM-dd HH:mm:ss`, such as `2022-07-06 19:13:05`. This example does not include a time zone identifier.
    * 
    * @example
    * 2022-07-06 19:13:05
@@ -280,20 +287,20 @@ export class ListPendingApprovalsResponseBodyDataDataContents extends $dara.Mode
 export class ListPendingApprovalsResponseBodyDataData extends $dara.Model {
   /**
    * @remarks
-   * Time when the request was submitted.
+   * The time when the application was initiated.
    * 
    * @example
-   * Application time
+   * 1778641560000
    */
   applicationTime?: number;
   /**
    * @remarks
-   * Request content.
+   * The application content.
    */
   contents?: ListPendingApprovalsResponseBodyDataDataContents[];
   /**
    * @remarks
-   * Resource type.
+   * The resource type.
    * 
    * @example
    * MaxCompute
@@ -301,7 +308,7 @@ export class ListPendingApprovalsResponseBodyDataData extends $dara.Model {
   defSchema?: string;
   /**
    * @remarks
-   * Process instance ID.
+   * The approval process instance ID.
    * 
    * @example
    * 176906667488145
@@ -309,7 +316,7 @@ export class ListPendingApprovalsResponseBodyDataData extends $dara.Model {
   processInstanceId?: string;
   /**
    * @remarks
-   * Reason for the request.
+   * The reason for the application.
    * 
    * @example
    * Business requirement
@@ -317,15 +324,15 @@ export class ListPendingApprovalsResponseBodyDataData extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * Approval status. Enumeration:
+   * The approval status. Valid values:
    * 
-   * - WaitApproval: Pending approval
-   * - Confirmed: Pending authorization
-   * - RejectApproval: Approval rejected
-   * - AuthorizeSucceed: Authorization succeeded
-   * - AuthorizeFailed: Authorization failed
-   * - Deleted: Deleted
-   * - Canceled: Canceled
+   * - WaitApproval: pending approval
+   * - Confirmed: pending authorization
+   * - RejectApproval: approval rejected
+   * - AuthorizeSucceed: authorization succeeded
+   * - AuthorizeFailed: authorization failed
+   * - Deleted: deleted
+   * - Canceled: withdrawn
    * 
    * @example
    * Deleted
@@ -368,12 +375,12 @@ export class ListPendingApprovalsResponseBodyDataData extends $dara.Model {
 export class ListPendingApprovalsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Data list in the paginated results.
+   * The list of data in the paginated results.
    */
   data?: ListPendingApprovalsResponseBodyDataData[];
   /**
    * @remarks
-   * Whether more data is available.
+   * Indicates whether more data is available.
    * 
    * @example
    * false
@@ -381,7 +388,7 @@ export class ListPendingApprovalsResponseBodyData extends $dara.Model {
   hasMore?: boolean;
   /**
    * @remarks
-   * Cursor.
+   * The cursor.
    * 
    * @example
    * eyJpZCI6MTIzfQ==
@@ -389,7 +396,7 @@ export class ListPendingApprovalsResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Page size (default: 10, maximum: 200).
+   * The number of entries per page. Default value: 10. Maximum value: 200.
    * 
    * @example
    * 10
@@ -428,12 +435,12 @@ export class ListPendingApprovalsResponseBodyData extends $dara.Model {
 export class ListPendingApprovalsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Paginated results.
+   * The paginated results.
    */
   data?: ListPendingApprovalsResponseBodyData;
   /**
    * @remarks
-   * API request ID, generated as UUID.
+   * The ID of the API request, generated by using a UUID.
    * 
    * @example
    * 0bc5df3a17****903790e8e8a

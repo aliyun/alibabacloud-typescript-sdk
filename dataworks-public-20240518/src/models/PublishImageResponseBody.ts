@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PublishImageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The image publish execution ID.
+   * The image publishing execution ID.
    * 
    * @example
    * 582d4896-d224-413b-b883-239eeebe0bc5
@@ -13,7 +13,7 @@ export class PublishImageResponseBodyData extends $dara.Model {
   processId?: string;
   /**
    * @remarks
-   * Indicates whether the trigger was successful.
+   * Indicates whether the operation was triggered successfully.
    * 
    * @example
    * true
@@ -45,15 +45,15 @@ export class PublishImageResponseBodyData extends $dara.Model {
 export class PublishImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result of the API request.
+   * The API request result.
    * 
    * @example
-   * true
+   * {"ProcessId": "582d4896-d224-413b-b883-239eeebe0bc5", "Success": true}
    */
   data?: PublishImageResponseBodyData;
   /**
    * @remarks
-   * The request ID, which is used to locate logs and troubleshoot issues.
+   * The ID of the request, which is used to locate logs and troubleshoot issues.
    * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX
@@ -61,7 +61,7 @@ export class PublishImageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

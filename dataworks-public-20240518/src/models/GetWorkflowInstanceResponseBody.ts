@@ -215,9 +215,9 @@ export class GetWorkflowInstanceResponseBodyWorkflowInstance extends $dara.Model
    * The workflow parameters.
    * 
    * @example
-   * Scheduled workflow：
+   * Scheduled workflow:
    * key1=value1 key2=value2
-   * Manual workflow：
+   * Manual workflow:
    * {"key1":"value1", "key2": "value2"}
    */
   workflowParameters?: string;

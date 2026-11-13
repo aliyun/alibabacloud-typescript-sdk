@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMcpServerResponseBodyMcpServer extends $dara.Model {
   /**
    * @remarks
-   * The creation time. The value is a 13-digit number, such as `1780555634000`.
+   * The creation time.
+   * 
+   * The value is a 13-digit number, such as `1780555634000`.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -52,7 +54,7 @@ export class CreateMcpServerResponseBody extends $dara.Model {
   mcpServer?: CreateMcpServerResponseBodyMcpServer;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * valueA

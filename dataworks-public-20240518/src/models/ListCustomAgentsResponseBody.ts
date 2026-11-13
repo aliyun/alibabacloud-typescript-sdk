@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCustomAgentsResponseBodyPagingInfoAgents extends $dara.Model {
   /**
    * @remarks
-   * **The creator ID.**
+   * **The ID of the creator.**
    * 
    * @example
    * 123456
@@ -24,12 +24,12 @@ export class ListCustomAgentsResponseBodyPagingInfoAgents extends $dara.Model {
    * **The display name.**
    * 
    * @example
-   * My Assistant
+   * My assistant
    */
   displayName?: string;
   /**
    * @remarks
-   * **The creation time (UNIX timestamp in milliseconds).**
+   * **The creation time (millisecond timestamp).**
    * 
    * @example
    * 1780555634000
@@ -37,7 +37,7 @@ export class ListCustomAgentsResponseBodyPagingInfoAgents extends $dara.Model {
   gmtCreateTime?: number;
   /**
    * @remarks
-   * **The last modification time (UNIX timestamp in milliseconds).**
+   * **The last modified time (millisecond timestamp).**
    * 
    * @example
    * 1780555634000
@@ -45,7 +45,7 @@ export class ListCustomAgentsResponseBodyPagingInfoAgents extends $dara.Model {
   gmtModifiedTime?: number;
   /**
    * @remarks
-   * **The last modifier ID.**
+   * **The ID of the last modifier.**
    * 
    * @example
    * 123456
@@ -53,7 +53,7 @@ export class ListCustomAgentsResponseBodyPagingInfoAgents extends $dara.Model {
   modifierId?: string;
   /**
    * @remarks
-   * **The agent name.**
+   * **The name of the agent.**
    * 
    * @example
    * my-agent
@@ -110,7 +110,7 @@ export class ListCustomAgentsResponseBodyPagingInfo extends $dara.Model {
   agents?: ListCustomAgentsResponseBodyPagingInfoAgents[];
   /**
    * @remarks
-   * The maximum number of entries returned in this response.
+   * The maximum number of entries returned for this request.
    * 
    * @example
    * 20
@@ -126,7 +126,7 @@ export class ListCustomAgentsResponseBodyPagingInfo extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The total number of entries that meet the query conditions.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 100

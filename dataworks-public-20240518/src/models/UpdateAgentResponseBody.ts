@@ -8,7 +8,7 @@ export class UpdateAgentResponseBodyAgentExpertSuites extends $dara.Model {
    * The suite description of the bound version.
    * 
    * @example
-   * Collection of data analytics expert capabilities
+   * Data analytics expert capability collection
    */
   description?: string;
   /**
@@ -113,7 +113,7 @@ export class UpdateAgentResponseBodyAgentSkills extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the official skill.
+   * The official skill ID.
    * 
    * @example
    * dataworks-semantic
@@ -175,7 +175,7 @@ export class UpdateAgentResponseBodyAgentSkills extends $dara.Model {
 export class UpdateAgentResponseBodyAgent extends $dara.Model {
   /**
    * @remarks
-   * The version of the updated agent definition.
+   * The updated agent definition version.
    * 
    * @example
    * 3
@@ -188,7 +188,7 @@ export class UpdateAgentResponseBodyAgent extends $dara.Model {
   expertSuites?: UpdateAgentResponseBodyAgentExpertSuites[];
   /**
    * @remarks
-   * The creation time of the agent. It is a UNIX timestamp in milliseconds.
+   * The time when the agent was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1780555634000
@@ -196,7 +196,7 @@ export class UpdateAgentResponseBodyAgent extends $dara.Model {
   gmtCreateTime?: number;
   /**
    * @remarks
-   * The last modified time of the agent. It is a UNIX timestamp in milliseconds.
+   * The time when the agent was last modified. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1780555634000

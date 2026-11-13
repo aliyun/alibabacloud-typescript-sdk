@@ -13,7 +13,7 @@ export class CreateCrawlerResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The request ID. Used to locate logs and troubleshoot issues.
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 9252F32F-D855-549E-8898-61CF5A733050
@@ -21,7 +21,7 @@ export class CreateCrawlerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

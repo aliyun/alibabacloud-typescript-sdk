@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the task.
+   * The task ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateWorkflowShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The client unique code of the workflow, used for asynchronous operations and idempotence. If not specified during creation, the system automatically generates one, and the code is uniquely bound to the resource ID. If this parameter is specified during update or deletion, it must be consistent with the client unique code used during creation.
+   * The client unique code of the workflow, which is used to implement asynchronous and idempotent operations. If you do not specify this parameter when creating a workflow, the system automatically generates one and uniquely binds it to the resource ID. If you specify this parameter when updating or deleting a resource, it must be the same as the client unique code used during creation.
    * 
    * @example
    * Workflow_0bc5213917368545132902xxxxxxxx
@@ -26,9 +26,9 @@ export class UpdateWorkflowShrinkRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The project environment. Valid values:
-   * - Prod: production
-   * - Dev: development
+   * The project environment.
+   * - Prod: Production.
+   * - Dev: Development.
    * 
    * @example
    * Prod
@@ -47,12 +47,8 @@ export class UpdateWorkflowShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The instance generation mode. Valid values:
-   * 
-   * 
-   * 
-   * 
-   * - T+1: Instances are generated the next day.
-   * - Immediately: Instances are generated immediately. Periodic instances are generated only if the scheduled time of the workflow is at least 10 minutes after the workflow is deployed. During the full instance generation period (22:00 to 24:00), real-time instance generation is not available. You can submit and deploy workflows during this period, but instances are not regenerated after submission.
+   * - T+1: Generates the instance on the next day.
+   * - Immediately: Generates the instance immediately. Note: Periodic instances are generated normally only if the scheduled time of the workflow is at least 10 minutes after the workflow publish time. Real-time instance generation is not supported during the full instance generation period (22:00 to 24:00). You can submit and publish workflows during this period, but instances are not regenerated after submission.
    * 
    * @example
    * T+1
@@ -98,12 +94,12 @@ export class UpdateWorkflowShrinkRequest extends $dara.Model {
   tagsShrink?: string;
   /**
    * @remarks
-   * The node list.
+   * The list of tasks.
    */
   tasksShrink?: string;
   /**
    * @remarks
-   * The trigger configuration.
+   * The trigger method.
    * 
    * This parameter is required.
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StartWorkflowInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The remarks.
+   * The comment.
    * 
    * @example
    * this is a comment

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDataQualityScanRunRequest extends $dara.Model {
   /**
    * @remarks
-   * The data quality monitoring run record ID.
+   * The ID of the data quality monitor run record.
    * 
    * @example
    * 1006059507

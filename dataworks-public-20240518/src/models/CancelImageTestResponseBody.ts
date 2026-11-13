@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CancelImageTestResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The execution ID of the canceled image test.
+   * The ID of the canceled image test execution.
    * 
    * @example
    * 582d4896-d224-413b-b883-239eeebe0bc5
@@ -45,10 +45,10 @@ export class CancelImageTestResponseBodyData extends $dara.Model {
 export class CancelImageTestResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API request result.
+   * The result of the API request.
    * 
    * @example
-   * true
+   * {"ProcessId": "582d4896-d224-413b-b883-239eeebe0bc5", "Success": true}
    */
   data?: CancelImageTestResponseBodyData;
   /**
@@ -61,7 +61,7 @@ export class CancelImageTestResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

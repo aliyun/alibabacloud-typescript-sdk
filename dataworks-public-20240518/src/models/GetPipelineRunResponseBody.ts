@@ -22,6 +22,9 @@ export class GetPipelineRunResponseBodyPipelineStages extends $dara.Model {
   /**
    * @remarks
    * The detailed information about the stage.
+   * 
+   * @example
+   * {"checkerList": [{"code": "BuildPackageChecker", "name": "Build_Package_Checker"}, {"code": "NodeParentDependency", "name": "Downstream_Dependency_Checker"}, {"code": "NodeInProcess", "name": "Decommissioning_Process_Checker"}]}
    */
   detail?: { [key: string]: any };
   /**

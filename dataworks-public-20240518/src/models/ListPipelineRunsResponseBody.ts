@@ -13,7 +13,7 @@ export class ListPipelineRunsResponseBodyPagingInfoPipelineRunsStages extends $d
   code?: string;
   /**
    * @remarks
-   * The stage description.
+   * The description of the deployment stage.
    * 
    * @example
    * Check before going online to development
@@ -21,12 +21,15 @@ export class ListPipelineRunsResponseBodyPagingInfoPipelineRunsStages extends $d
   description?: string;
   /**
    * @remarks
-   * Additional information about the deployment stage.
+   * The additional supplementary information about the deployment stage.
+   * 
+   * @example
+   * {"checkerList": [{"code": "BuildPackageChecker", "name": "package check"}, {"code": "NodeParentDependency", "name": "downstream dependency check"}, {"code": "NodeInProcess", "name": "offline process check"}]}
    */
   detail?: { [key: string]: any };
   /**
    * @remarks
-   * The error message returned if the deployment stage fails.
+   * The error message returned when an error occurs during a deployment stage.
    * 
    * @example
    * Error message
@@ -34,7 +37,7 @@ export class ListPipelineRunsResponseBodyPagingInfoPipelineRunsStages extends $d
   message?: string;
   /**
    * @remarks
-   * The stage name.
+   * The name of the deployment stage.
    * 
    * @example
    * Check before going online to development
@@ -46,17 +49,12 @@ export class ListPipelineRunsResponseBodyPagingInfoPipelineRunsStages extends $d
    * 
    * Valid values:
    * 
-   * - `Init`: Initializing
-   * 
-   * - `Running`: Running
-   * 
-   * - `Success`: Succeeded
-   * 
-   * - `Fail`: Failed
-   * 
-   * - `Termination`: Terminated
-   * 
-   * - `Cancel`: Canceled
+   * - Init: Initialized.
+   * - Running: Running.
+   * - Success: Succeeded.
+   * - Fail: Failed.
+   * - Termination: Terminated.
+   * - Cancel: Canceled.
    * 
    * @example
    * Running
@@ -72,19 +70,15 @@ export class ListPipelineRunsResponseBodyPagingInfoPipelineRunsStages extends $d
   step?: number;
   /**
    * @remarks
-   * The type of the deployment stage.
+   * The type of the deployment stage. This parameter categorizes the operation type of the deployment stage.
    * 
    * Valid values:
    * 
-   * - `Deploy`: A deploy operation
-   * 
-   * - `Check`: A check operation
-   * 
-   * - `Offline`: An offline operation
-   * 
-   * - `Build`: A build operation
-   * 
-   * - `Delete`: A delete operation
+   * - Deploy: Deployment operation.
+   * - Check: Check operation.
+   * - Offline: Undeployment operation.
+   * - Build: Build operation.
+   * - Delete: Delete operation.
    * 
    * @example
    * Check
@@ -131,7 +125,7 @@ export class ListPipelineRunsResponseBodyPagingInfoPipelineRunsStages extends $d
 export class ListPipelineRunsResponseBodyPagingInfoPipelineRuns extends $dara.Model {
   /**
    * @remarks
-   * The creation timestamp of the deployment pipeline run.
+   * The timestamp when the deployment package was created.
    * 
    * @example
    * 1702736654000
@@ -139,7 +133,7 @@ export class ListPipelineRunsResponseBodyPagingInfoPipelineRuns extends $dara.Mo
   createTime?: number;
   /**
    * @remarks
-   * The creator of the deployment pipeline run.
+   * The creator of the deployment pipeline.
    * 
    * @example
    * 110755000425XXXX
@@ -147,15 +141,15 @@ export class ListPipelineRunsResponseBodyPagingInfoPipelineRuns extends $dara.Mo
   creator?: string;
   /**
    * @remarks
-   * The description of the deployment pipeline run.
+   * The description of the deployment pipeline.
    * 
    * @example
-   * 发布流程描述信息
+   * Deployment pipeline description
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the deployment pipeline run.
+   * The ID of the deployment pipeline.
    * 
    * @example
    * 097c73fe-ed6e-4fb1-b109-a5d59e46cd58
@@ -163,7 +157,7 @@ export class ListPipelineRunsResponseBodyPagingInfoPipelineRuns extends $dara.Mo
   id?: string;
   /**
    * @remarks
-   * The error message returned if the deployment pipeline run fails.
+   * The error message returned when an error occurs during a deployment stage.
    * 
    * @example
    * Error message
@@ -171,7 +165,9 @@ export class ListPipelineRunsResponseBodyPagingInfoPipelineRuns extends $dara.Mo
   message?: string;
   /**
    * @remarks
-   * The last modification timestamp of the deployment pipeline run.
+   * The time when the deployment pipeline was updated.
+   * 
+   * The value is a 13-digit timestamp, such as `1702736654000`.
    * 
    * @example
    * 1702736654000
@@ -179,7 +175,7 @@ export class ListPipelineRunsResponseBodyPagingInfoPipelineRuns extends $dara.Mo
   modifyTime?: number;
   /**
    * @remarks
-   * The project ID.
+   * The ID of the project.
    * 
    * @example
    * 70199
@@ -187,26 +183,21 @@ export class ListPipelineRunsResponseBodyPagingInfoPipelineRuns extends $dara.Mo
   projectId?: number;
   /**
    * @remarks
-   * A list of deployment stages.
+   * The list of deployment stages.
    */
   stages?: ListPipelineRunsResponseBodyPagingInfoPipelineRunsStages[];
   /**
    * @remarks
-   * The status of the deployment pipeline run.
+   * The status of the deployment pipeline.
    * 
    * Valid values:
    * 
-   * - `Init`: Initializing
-   * 
-   * - `Running`: Running
-   * 
-   * - `Success`: Succeeded
-   * 
-   * - `Fail`: Failed
-   * 
-   * - `Termination`: Terminated
-   * 
-   * - `Cancel`: Canceled
+   * - Init: Initialized.
+   * - Running: Running.
+   * - Success: Succeeded.
+   * - Fail: Failed.
+   * - Termination: Terminated.
+   * - Cancel: Canceled.
    * 
    * @example
    * Running
@@ -255,7 +246,7 @@ export class ListPipelineRunsResponseBodyPagingInfoPipelineRuns extends $dara.Mo
 export class ListPipelineRunsResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The returned page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -271,12 +262,12 @@ export class ListPipelineRunsResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * A list of deployment pipeline runs.
+   * The list of deployment pipelines.
    */
   pipelineRuns?: ListPipelineRunsResponseBodyPagingInfoPipelineRuns[];
   /**
    * @remarks
-   * The total number of entries that meet the filter criteria.
+   * The total number of entries that meet the filter conditions.
    * 
    * @example
    * 2524
@@ -320,7 +311,7 @@ export class ListPipelineRunsResponseBody extends $dara.Model {
   pagingInfo?: ListPipelineRunsResponseBodyPagingInfo;
   /**
    * @remarks
-   * The request ID. Use this ID to locate logs and troubleshoot issues.
+   * The ID of the request. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 7C352CB7-CD88-50CF-9D0D-E81BDF02XXXX

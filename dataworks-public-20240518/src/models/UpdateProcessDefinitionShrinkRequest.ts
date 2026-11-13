@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateProcessDefinitionShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of approval nodes. This parameter does not apply to system policies.
+   * The list of approval nodes. Note: System policies do not take effect.
    */
   approvalNodesShrink?: string;
   /**
    * @remarks
-   * An idempotent parameter. It ensures that retried requests do not result in duplicate operations.
+   * The idempotency token. Used to prevent duplicate operations caused by multiple calls.
    * 
    * @example
    * 1AFAE64E-D1BE-432B-A9****
@@ -18,15 +18,15 @@ export class UpdateProcessDefinitionShrinkRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The description of the process definition.
+   * The description of the approval process definition.
    * 
    * @example
-   * MaxCompute table approval policy for the lwt_ide_simple project
+   * Approval policy for MaxCompute tables in the lwt_ide_simple project
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the process definition.
+   * The ID of the approval process definition.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class UpdateProcessDefinitionShrinkRequest extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The name of the process definition.
+   * The name of the approval process definition.
    * 
    * @example
    * MaxCompute table approval
@@ -44,12 +44,12 @@ export class UpdateProcessDefinitionShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The notification service configurations.
+   * The notification service declaration.
    */
   notificationServicesShrink?: string;
   /**
    * @remarks
-   * A list of rule conditions. This parameter does not apply to system policies.
+   * The list of conditional rules. Note: System policies do not take effect.
    */
   ruleConditionsShrink?: string;
   static names(): { [key: string]: string } {

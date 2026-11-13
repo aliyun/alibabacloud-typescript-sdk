@@ -35,7 +35,7 @@ export class UpdateAgentRequestCallableAgents extends $dara.Model {
 export class UpdateAgentRequestExpertSuites extends $dara.Model {
   /**
    * @remarks
-   * The source of the expert suite. OFFICIAL: official suite. DB or omitted: custom suite. Both types of references use SuiteId. Version fields apply only to custom resources.
+   * The source of the expert suite. OFFICIAL: official suite. DB or omitted: custom suite. Both types of references use SuiteId, and the version fields apply only to custom resources.
    * 
    * @example
    * OFFICIAL
@@ -59,7 +59,7 @@ export class UpdateAgentRequestExpertSuites extends $dara.Model {
   version?: number;
   /**
    * @remarks
-   * The semantic version selection expression of the custom expert suite, such as ^1.2.3. Use this parameter only when the custom resource version selection capability is deployed on the target server. This parameter is mutually exclusive with Version. This field is not accepted when Source is set to OFFICIAL. To ensure compatibility with servers whose version capabilities are unconfirmed, use an existing integer Version.
+   * The semantic version selection expression of the custom expert suite, such as ^1.2.3. Use this parameter only when the target server has deployed the custom resource version selection capability. This parameter is mutually exclusive with Version. This field is not accepted when Source is set to OFFICIAL. To ensure compatibility with servers of unconfirmed versions, use an existing integer Version.
    * 
    * @example
    * ^1.2.3
@@ -127,7 +127,7 @@ export class UpdateAgentRequestSkills extends $dara.Model {
   version?: number;
   /**
    * @remarks
-   * The semantic version selection expression of the custom skill, such as ^1.2.3. Use this parameter only when the custom resource version selection capability is deployed on the target server. This parameter is mutually exclusive with Version. This field is not accepted when Source is set to OFFICIAL. To ensure compatibility with servers whose version capabilities are unconfirmed, use an existing integer Version.
+   * The semantic version selection expression of the custom skill, such as ^1.2.3. Use this parameter only when the target server has deployed the custom resource version selection capability. This parameter is mutually exclusive with Version. This field is not accepted when Source is set to OFFICIAL. To ensure compatibility with servers of unconfirmed versions, use an existing integer Version.
    * 
    * @example
    * ^1.2.3
@@ -181,7 +181,7 @@ export class UpdateAgentRequestTools extends $dara.Model {
   kind?: string;
   /**
    * @remarks
-   * The list of selected MCP tool names. If this parameter is omitted or an empty array is passed, tools are not filtered by name. Each item must be the name of a tool that actually exists in the target service.
+   * The list of selected MCP tool names. If this parameter is omitted or an empty array is provided, no filtering by tool name is performed. Each item must be an actual tool name in the target service.
    * 
    * @example
    * ["only-this-tool"]
@@ -238,7 +238,7 @@ export class UpdateAgentRequestTools extends $dara.Model {
 export class UpdateAgentRequestVisibilityScope extends $dara.Model {
   /**
    * @remarks
-   * The list of visible project IDs. This parameter takes effect when Visibility is set to `PROJECT`.
+   * The list of visible project IDs. This parameter takes effect when Visibility is set to PROJECT.
    */
   projectIds?: string[];
   /**
@@ -302,7 +302,7 @@ export class UpdateAgentRequest extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The agent definition version used for concurrency control. We recommend that you explicitly specify the AgentVersion just obtained from GetAgent for each call. The update is rejected if the version does not match the current version on the server. To ensure compatibility with different deployment versions, do not rely on the server-side processing when this parameter is omitted.
+   * The agent definition version used for concurrency control. We recommend explicitly specifying the AgentVersion you just obtained from GetAgent for each call. The update is rejected if the version does not match the current version on the server. To ensure compatibility with different deployment versions, do not rely on the server-side processing when this parameter is omitted.
    * 
    * @example
    * 2
@@ -310,7 +310,7 @@ export class UpdateAgentRequest extends $dara.Model {
   expectedVersion?: number;
   /**
    * @remarks
-   * The list of expert suite references. If omitted, existing references are retained. An explicit empty array clears the references. For official suites, specify only Source=OFFICIAL and SuiteId. Version, VersionSelector, or client artifact fields are not accepted. For custom suites, use SuiteId, and you can explicitly specify an existing integer Version.
+   * The list of expert suite references. If omitted, the existing references are retained. An explicit empty array clears the references. For official suites, specify only Source=OFFICIAL and SuiteId. Version, VersionSelector, or client artifact fields are not accepted. For custom suites, use SuiteId, and you can explicitly specify an existing integer Version.
    * 
    * @example
    * [{"SuiteId":"suite_example","Version":3}]
@@ -318,7 +318,7 @@ export class UpdateAgentRequest extends $dara.Model {
   expertSuites?: UpdateAgentRequestExpertSuites[];
   /**
    * @remarks
-   * The extended metadata. If omitted, existing metadata is retained. If passed, business metadata is updated, and the server retains protected system metadata.
+   * The extended metadata. If omitted, the existing metadata is retained. If provided, the business metadata is updated, and the server retains the protected system metadata.
    * 
    * @example
    * {}
@@ -336,7 +336,7 @@ export class UpdateAgentRequest extends $dara.Model {
   model?: { [key: string]: any };
   /**
    * @remarks
-   * The name of the agent to be updated. Use the Name returned by GetAgent. This field is used to locate the target agent and cannot be used to rename the agent.
+   * The name of the agent to be updated. Use the Name returned by GetAgent. This field is used to locate the target agent and is not used for renaming.
    * 
    * This parameter is required.
    * 
@@ -346,7 +346,7 @@ export class UpdateAgentRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether to publish the agent immediately after the update. Valid values: true: saves a new draft version first and then requests publishing. false or omitted: saves only the definition. Saving and publishing are not atomic operations. If the operation fails, call GetAgent to read the current version back before retrying, to avoid blindly repeating the update.
+   * Specifies whether to publish the agent immediately after the update. If this parameter is set to true, the operation saves a new draft version before requesting publication. If this parameter is set to false or omitted, it saves only the definition. Saving and publishing are not atomic operations. If the operation fails, call GetAgent to read the current version before retrying to avoid blindly repeating the update.
    * 
    * @example
    * false
@@ -370,7 +370,7 @@ export class UpdateAgentRequest extends $dara.Model {
   systemPrompt?: string;
   /**
    * @remarks
-   * The list of tool references. Omit this parameter if no modification is required. The current new backend retains existing tools even if an empty array is passed. A non-empty array replaces the references. Each item must include Kind and the corresponding configuration, and cannot include only Name. Replace the MCP service and tool names in the example with actual values available to the current identity.
+   * The list of tool references. Omit this parameter if no modification is required. The current new backend retains existing tools even for an empty array. A non-empty array replaces the references. Each item must include Kind and the corresponding configuration, and cannot include only Name. Replace the MCP service and tool names in the example with actual values available to the current identity.
    * 
    * @example
    * [{"Kind":"MCP_TOOLSET","McpServerName":"mcp-a","McpItems":["only-this-tool"]}]
@@ -378,7 +378,7 @@ export class UpdateAgentRequest extends $dara.Model {
   tools?: UpdateAgentRequestTools[];
   /**
    * @remarks
-   * The visibility level. Valid values: <br>`TENANT`: visible within the account. <br>`PROJECT`: visible to specified projects. <br>`USER`: visible to specified users.
+   * The visibility level.<br>TENANT: visible within the account.<br>PROJECT: visible to specified projects.<br>USER: visible to specified users.
    * 
    * @example
    * TENANT
@@ -386,7 +386,7 @@ export class UpdateAgentRequest extends $dara.Model {
   visibility?: string;
   /**
    * @remarks
-   * The visibility scope. The corresponding field is used based on the Visibility parameter.
+   * The visibility scope. The corresponding field is used based on the Visibility value.
    */
   visibilityScope?: UpdateAgentRequestVisibilityScope;
   static names(): { [key: string]: string } {

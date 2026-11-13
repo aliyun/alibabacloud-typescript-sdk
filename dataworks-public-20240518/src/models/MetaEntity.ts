@@ -6,12 +6,15 @@ import { MetaEntityDef } from "./MetaEntityDef";
 export class MetaEntity extends $dara.Model {
   /**
    * @remarks
-   * Entity attributes. Complex values are represented as JSON strings.
+   * The entity properties. Complex values are represented as JSON strings.
+   * 
+   * @example
+   * {"key1": "v1"}
    */
   attributes?: { [key: string]: string };
   /**
    * @remarks
-   * Comment
+   * The comment.
    * 
    * @example
    * this is a comment
@@ -19,7 +22,7 @@ export class MetaEntity extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * Creation time as a millisecond-level timestamp
+   * The creation time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1780553640613
@@ -27,12 +30,15 @@ export class MetaEntity extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Custom attribute values. The key is the custom attribute identifier. The value is a list of attribute values.
+   * The custom attribute values. The key is the custom attribute identifier, and the value is a list of attribute values.
+   * 
+   * @example
+   * {"owner_name":["Zhang San"]}
    */
   customAttributes?: { [key: string]: string[] };
   /**
    * @remarks
-   * Entity type
+   * The entity type.
    * 
    * @example
    * custom_entity-customer_api
@@ -40,7 +46,7 @@ export class MetaEntity extends $dara.Model {
   entityType?: string;
   /**
    * @remarks
-   * Entity ID
+   * The entity ID.
    * 
    * @example
    * custom_entity-customer_api:api_001
@@ -48,13 +54,12 @@ export class MetaEntity extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Attribute definition of the custom entity.
-   * >Notice: For historical reasons, this property is not returned and its value is empty. We recommend that you use the GetMetaEntityDef API to obtain the entity type definition.
+   * The property definition of the custom entity. <notice>This legacy property is not populated. To retrieve the entity type definition, call GetMetaEntityDef.</notice>
    */
   metaEntityDef?: MetaEntityDef;
   /**
    * @remarks
-   * Modification time as a millisecond-level timestamp
+   * The modification time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1763380628000
@@ -62,7 +67,7 @@ export class MetaEntity extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * Entity name
+   * The entity name.
    * 
    * @example
    * api_001
@@ -70,7 +75,7 @@ export class MetaEntity extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Owner ID. The default value is the Alibaba Cloud UID of the creator.
+   * The owner ID. Default value: the Alibaba Cloud UID of the creator.
    * 
    * @example
    * 207924799988354

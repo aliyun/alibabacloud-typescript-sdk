@@ -63,7 +63,7 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflowsTrigger extends $dara.M
   endTime?: string;
   /**
    * @remarks
-   * The running mode upon triggering. This parameter takes effect only when Type is set to Scheduler. Valid values:
+   * The running mode when the workflow is triggered. This parameter takes effect only when Type is set to Scheduler. Valid values:
    * - Pause: Paused.
    * - Skip: Dry run.
    * - Normal: Normal execution.
@@ -74,9 +74,9 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflowsTrigger extends $dara.M
   recurrence?: string;
   /**
    * @remarks
-   * The effective period of the epoch trigger. This parameter takes effect only when Type is set to Scheduler.
+   * The effective time of the periodic trigger. This parameter takes effect only when Type is set to Scheduler.
    * 
-   * The format is `yyyy-MM-dd HH:mm:ss`, such as `1970-01-01 00:00:00`. The example does not include a time zone identity.
+   * The format is `yyyy-MM-dd HH:mm:ss`, such as `1970-01-01 00:00:00`. The example does not include a time zone identifier.
    * 
    * @example
    * 1970-01-01 00:00:00
@@ -134,7 +134,7 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflows extends $dara.Model {
    * @remarks
    * The creation time.
    * 
-   * The value is a 13-digit timestamp, such as `1710239005403`.
+   * The value is a 13-digit number, such as `1710239005403`.
    * 
    * @example
    * 1710239005403
@@ -158,7 +158,9 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflows extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The project environment.
+   * The project environment. Valid values:
+   * - Prod: Production.
+   * - Dev: Development.
    * 
    * @example
    * Prod
@@ -176,7 +178,7 @@ export class ListWorkflowsResponseBodyPagingInfoWorkflows extends $dara.Model {
    * @remarks
    * The modification time.
    * 
-   * The value is a 13-digit timestamp, such as `1710239005403`.
+   * The value is a 13-digit number, such as `1710239005403`.
    * 
    * @example
    * 1710239005403

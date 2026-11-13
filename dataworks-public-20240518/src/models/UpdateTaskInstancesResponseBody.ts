@@ -6,7 +6,7 @@ import { SuccessInfoValue } from "./SuccessInfoValue";
 export class UpdateTaskInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17XXXX
@@ -14,7 +14,10 @@ export class UpdateTaskInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result of the batch operation, which is in the MAP structure. The instance ID serves as a key, and the result serves as a value.
+   * The result information of the batch operation. The data structure is a map, where the key is the node instance ID and the value is the result information.
+   * 
+   * @example
+   * {"10001": {"Success": false, "Message": "The instance does not exist."}}
    */
   successInfo?: { [key: string]: SuccessInfoValue };
   static names(): { [key: string]: string } {

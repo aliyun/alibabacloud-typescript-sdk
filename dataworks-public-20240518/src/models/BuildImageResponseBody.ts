@@ -13,7 +13,7 @@ export class BuildImageResponseBodyData extends $dara.Model {
   processId?: string;
   /**
    * @remarks
-   * Indicates whether the build was successfully triggered.
+   * Indicates whether the image build was triggered successfully.
    * 
    * @example
    * true
@@ -48,12 +48,12 @@ export class BuildImageResponseBody extends $dara.Model {
    * The API request result.
    * 
    * @example
-   * true
+   * {"ProcessId": "582d4896-d224-413b-b883-239eeebe0bc5", "Success": true}
    */
   data?: BuildImageResponseBodyData;
   /**
    * @remarks
-   * The request ID, which is used to locate logs and troubleshoot issues.
+   * The request ID, used to locate logs and troubleshoot issues.
    * 
    * @example
    * 6A6CBE87-9F91-1323-B680-E7A7065XXXXX

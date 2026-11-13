@@ -6,7 +6,7 @@ import { SuccessInfoValue } from "./SuccessInfoValue";
 export class StopTaskInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. You can use this ID to locate logs and troubleshoot issues.
+   * The ID of the request. You can use this ID to query logs and troubleshoot issues.
    * 
    * @example
    * 22C97E95-F023-56B5-8852-B1A77A17****
@@ -14,7 +14,10 @@ export class StopTaskInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result information of the batch operation. The structure is a map where the key is the task instance ID and the value is the result information.
+   * The result information of the batch operation. The structure is a map with the task instance ID as the key and the result information as the value.
+   * 
+   * @example
+   * {"10001": {"Success": false, "Message": "The instance does not exist."}}
    */
   successInfo?: { [key: string]: SuccessInfoValue };
   static names(): { [key: string]: string } {

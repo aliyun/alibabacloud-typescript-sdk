@@ -58,12 +58,12 @@ export class CreateMcpServerRequestConfig extends $dara.Model {
 export class CreateMcpServerRequestVisibilityScope extends $dara.Model {
   /**
    * @remarks
-   * The list of visible project IDs. This parameter takes effect when Visibility is set to `PROJECT`.
+   * The IDs of the projects in which the MCP server is visible. This parameter takes effect only when Visibility is set to `PROJECT`.
    */
   projectIds?: string[];
   /**
    * @remarks
-   * The list of visible user IDs. This parameter takes effect when Visibility is set to `USER`.
+   * The IDs of the users who can see the MCP server. This parameter takes effect only when Visibility is set to `USER`.
    */
   userIds?: string[];
   static names(): { [key: string]: string } {
@@ -101,12 +101,12 @@ export class CreateMcpServerRequest extends $dara.Model {
    * The connection configuration of the MCP server.
    * 
    * @example
-   * -
+   * {"Transport":"SSE","Url":"https://example.com/mcp/sse","CustomHeaders":{}}
    */
   config?: CreateMcpServerRequestConfig;
   /**
    * @remarks
-   * The name of the MCP server. It must be unique at the tenant level. It must start with a lowercase letter and can contain only lowercase letters (`a-z`), digits (`0-9`), underscores (`_`), and hyphens (`-`).
+   * The name of the MCP server. The name must be unique at the tenant level. It must start with a lowercase letter and can contain only lowercase letters, digits, underscores (_), and hyphens (-).
    * 
    * This parameter is required.
    * 
@@ -124,7 +124,7 @@ export class CreateMcpServerRequest extends $dara.Model {
   visibility?: string;
   /**
    * @remarks
-   * The visibility scope. Specify the corresponding fields based on the value of Visibility.
+   * The visibility scope. Specify the corresponding field based on the value of Visibility.
    */
   visibilityScope?: CreateMcpServerRequestVisibilityScope;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetApplicationContentsRequest extends $dara.Model {
   /**
    * @remarks
-   * The approval process instance ID of the submitted application.
+   * The ID of the approval process instance for the request.
    * 
    * This parameter is required.
    * 

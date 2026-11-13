@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RerunTaskInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The remarks.
+   * The comment.
    * 
    * @example
    * this is a comment
@@ -13,12 +13,12 @@ export class RerunTaskInstancesShrinkRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The list of node instance IDs.
+   * The list of task instance IDs.
    */
   idsShrink?: string;
   /**
    * @remarks
-   * Specifies whether to rerun instances with the latest configuration.
+   * Specifies whether to rerun the task instance with the latest configuration.
    * 
    * @example
    * false

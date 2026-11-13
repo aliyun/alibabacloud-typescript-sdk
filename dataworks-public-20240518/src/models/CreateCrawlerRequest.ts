@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCrawlerRequestScheduleConfig extends $dara.Model {
   /**
    * @remarks
-   * The six-field cron expression for periodic scheduling. This parameter is required when Type is set to NORMAL. The seconds field must be 0, and the scheduling frequency cannot exceed once per hour.
+   * The six-part cron expression for periodic scheduling. This parameter is required when Type is set to NORMAL. The seconds field must be 0, and the scheduling frequency cannot be higher than once per hour.
    * 
    * @example
    * 0 0 2 ? * *
@@ -13,7 +13,7 @@ export class CreateCrawlerRequestScheduleConfig extends $dara.Model {
   cronExpress?: string;
   /**
    * @remarks
-   * The scheduling type. MANUAL indicates manual execution, and NORMAL indicates periodic scheduling. Data sources in the development environment support only MANUAL. Whether NORMAL is available depends on the SupportSchedule value returned by GetCrawlerTypeCapabilities.
+   * The scheduling type. Valid values: MANUAL (manual execution) and NORMAL (periodic scheduling). Data sources in the development environment support only MANUAL. Whether NORMAL is available depends on the SupportSchedule value returned by GetCrawlerTypeCapabilities.
    * 
    * This parameter is required.
    * 
@@ -55,12 +55,12 @@ export class CreateCrawlerRequestScope extends $dara.Model {
   excludeRegex?: string;
   /**
    * @remarks
-   * The list of database names. This parameter is supported only when Unit is set to DATABASE. A maximum of 1000 entries are allowed. Names cannot be empty or duplicated.
+   * The list of database names. This parameter is supported only when Unit is set to DATABASE. You can specify up to 1,000 database names. The names cannot be empty or duplicate.
    */
   items?: string[];
   /**
    * @remarks
-   * The collection scope granularity. Valid values are determined by the SupportedScopeUnits value returned by GetCrawlerTypeCapabilities.
+   * The granularity of the collection scope. For valid values, see SupportedScopeUnits in the GetCrawlerTypeCapabilities response.
    * 
    * This parameter is required.
    * 
@@ -99,7 +99,7 @@ export class CreateCrawlerRequestScope extends $dara.Model {
 export class CreateCrawlerRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data source associated with the crawler. The data source must be bound to a DataWorks workspace, and the data source type must match the Type value.
+   * The ID of the data source associated with the crawler. The data source must be bound to a DataWorks workspace, and the data source type must match the Type.
    * 
    * This parameter is required.
    * 
@@ -124,7 +124,10 @@ export class CreateCrawlerRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The extended configuration for the crawler type. The key names, value types, required fields, default values, and valid values are determined by the SupportedOptionKeys value returned by GetCrawlerTypeCapabilities.
+   * The extended configuration for the crawler type. The key names, value types, required status, default values, and valid values are subject to the SupportedOptionKeys value returned by GetCrawlerTypeCapabilities.
+   * 
+   * @example
+   * {}
    */
   options?: { [key: string]: string };
   /**
@@ -147,7 +150,7 @@ export class CreateCrawlerRequest extends $dara.Model {
   scope?: CreateCrawlerRequestScope;
   /**
    * @remarks
-   * The crawler type. Call GetCrawlerTypeCapabilities to query the valid values supported in the current region.
+   * The type of the crawler. You can call GetCrawlerTypeCapabilities to query the valid values supported in the current region.
    * 
    * This parameter is required.
    * 

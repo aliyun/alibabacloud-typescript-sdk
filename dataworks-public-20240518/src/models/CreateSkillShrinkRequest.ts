@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateSkillShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The **download URL of the bundle.zip file** (HTTP or HTTPS). This parameter and SkillMdOverride are mutually exclusive.
+   * The downloadable URL (HTTP or HTTPS) of the bundle.zip file. This parameter and SkillMdOverride are mutually exclusive.
    * 
    * @example
    * https://example.com/skill.zip
@@ -13,7 +13,7 @@ export class CreateSkillShrinkRequest extends $dara.Model {
   bundleUrl?: string;
   /**
    * @remarks
-   * The **skill description**.
+   * The description of the skill.
    * 
    * @example
    * Data analytics skill
@@ -29,7 +29,7 @@ export class CreateSkillShrinkRequest extends $dara.Model {
   extraShrink?: string;
   /**
    * @remarks
-   * The **skill name**. The name must be unique within the current account.
+   * The name of the skill. The name must be unique within the current account.
    * 
    * This parameter is required.
    * 
@@ -39,15 +39,22 @@ export class CreateSkillShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The content of the SKILL.md file. This parameter and BundleUrl are mutually exclusive. If you do not provide a bundle, use this parameter to create a lightweight skill that contains only the SKILL.md file.
+   * The body of the SKILL.md file. This parameter and BundleUrl are mutually exclusive. If you do not provide a bundle, use this field to create a lightweight skill that contains only the SKILL.md file.
    * 
    * @example
-   * -
+   * ---
+   * name: example-skill
+   * description: Sample skill.
+   * ---
+   * 
+   * # Sample skill
+   * 
+   * Summarize the text provided by the user
    */
   skillMdOverride?: string;
   /**
    * @remarks
-   * The **version note**.
+   * The release notes of the version.
    * 
    * @example
    * Initial version
@@ -55,7 +62,7 @@ export class CreateSkillShrinkRequest extends $dara.Model {
   versionNote?: string;
   /**
    * @remarks
-   * The **visibility level**. Valid values: TENANT (visible to the entire tenant), PROJECT (visible to specific projects), and USER (visible to specific users).
+   * The visibility level. Valid values: TENANT: visible within the account. PROJECT: visible to specified projects. USER: visible to specified users.
    * 
    * @example
    * TENANT

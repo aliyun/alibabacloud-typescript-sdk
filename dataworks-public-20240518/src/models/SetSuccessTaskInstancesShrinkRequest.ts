@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetSuccessTaskInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Remarks.
+   * The comment.
    * 
    * @example
    * this is a comment
@@ -13,7 +13,7 @@ export class SetSuccessTaskInstancesShrinkRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The ID list of the task instance.
+   * The list of task instance IDs.
    */
   idsShrink?: string;
   static names(): { [key: string]: string } {

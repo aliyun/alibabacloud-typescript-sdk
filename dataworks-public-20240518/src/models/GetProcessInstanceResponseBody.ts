@@ -241,7 +241,7 @@ export class GetProcessInstanceResponseBodyProcessInstanceApprovalProcessDefinit
    * The description of the approval policy.
    * 
    * @example
-   * 流程定义描述
+   * Process definition description
    */
   description?: string;
   /**
@@ -474,7 +474,7 @@ export class GetProcessInstanceResponseBodyProcessInstanceApprovalTasksTaskCandi
    * The name of the approver.
    * 
    * @example
-   * 李四
+   * Li Si
    */
   memberName?: string;
   /**
@@ -514,7 +514,7 @@ export class GetProcessInstanceResponseBodyProcessInstanceApprovalTasks extends 
    * The approval comment.
    * 
    * @example
-   * 同意
+   * Approved
    */
   approvalComment?: string;
   /**
@@ -547,7 +547,7 @@ export class GetProcessInstanceResponseBodyProcessInstanceApprovalTasks extends 
    * The name of the actual approver.
    * 
    * @example
-   * 李四
+   * Li Si
    */
   assigneeName?: string;
   /**
@@ -688,7 +688,7 @@ export class GetProcessInstanceResponseBodyProcessInstance extends $dara.Model {
    * The reason for the request.
    * 
    * @example
-   * 业务需要
+   * Business need
    */
   reason?: string;
   /**
@@ -718,7 +718,7 @@ export class GetProcessInstanceResponseBodyProcessInstance extends $dara.Model {
    * The name of the process instance.
    * 
    * @example
-   * MaxCompute表权限申请
+   * MaxCompute table access request
    */
   title?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DataQualityEvaluationTaskHooks extends $dara.Model {
   /**
    * @remarks
-   * The trigger configuration of the callback event.
+   * The trigger condition of the hook.
    * 
    * @example
    * ${severity} == "High" AND ${status} == "Critical"
@@ -13,7 +13,8 @@ export class DataQualityEvaluationTaskHooks extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * The subsequent action type. BlockTaskInstance: blocks execution of a DataWorks task instance.
+   * The type of the subsequent action. Valid values:
+   * - BlockTaskInstance: Blocks the execution of the DataWorks task instance.
    * 
    * @example
    * BlockTaskInstance
@@ -45,10 +46,10 @@ export class DataQualityEvaluationTaskHooks extends $dara.Model {
 export class DataQualityEvaluationTaskNotificationsNotificationsNotificationChannels extends $dara.Model {
   /**
    * @remarks
-   * The alert notification method.
+   * The notification method.
    * 
    * @example
-   * Mail
+   * ["Mail"]
    */
   channels?: string[];
   static names(): { [key: string]: string } {
@@ -78,7 +79,7 @@ export class DataQualityEvaluationTaskNotificationsNotificationsNotificationChan
 export class DataQualityEvaluationTaskNotificationsNotificationsNotificationReceivers extends $dara.Model {
   /**
    * @remarks
-   * The extended information in the JSON format. For example, the DingTalk chatbot can remind all members in a DingTalk group by using the at sign (@).
+   * The extension information in JSON format. For example, DingTalk chatbots support mentioning all members.
    * 
    * @example
    * {"atAll":"true"}
@@ -94,7 +95,7 @@ export class DataQualityEvaluationTaskNotificationsNotificationsNotificationRece
   receiverType?: string;
   /**
    * @remarks
-   * The alert recipients.
+   * The alert recipient values.
    */
   receiverValues?: string[];
   static names(): { [key: string]: string } {
@@ -128,12 +129,12 @@ export class DataQualityEvaluationTaskNotificationsNotificationsNotificationRece
 export class DataQualityEvaluationTaskNotificationsNotifications extends $dara.Model {
   /**
    * @remarks
-   * The alert notification methods.
+   * The notification method.
    */
   notificationChannels?: DataQualityEvaluationTaskNotificationsNotificationsNotificationChannels[];
   /**
    * @remarks
-   * The alert recipients.
+   * The settings of the alert recipients.
    */
   notificationReceivers?: DataQualityEvaluationTaskNotificationsNotificationsNotificationReceivers[];
   static names(): { [key: string]: string } {
@@ -168,7 +169,7 @@ export class DataQualityEvaluationTaskNotificationsNotifications extends $dara.M
 export class DataQualityEvaluationTaskNotifications extends $dara.Model {
   /**
    * @remarks
-   * The trigger condition of the alert notification.
+   * The trigger condition of the alert.
    * 
    * @example
    * ${blockType} == "Strong"
@@ -176,7 +177,7 @@ export class DataQualityEvaluationTaskNotifications extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * The configurations for alert notifications.
+   * The specific notification settings.
    */
   notifications?: DataQualityEvaluationTaskNotificationsNotifications[];
   static names(): { [key: string]: string } {
@@ -208,15 +209,14 @@ export class DataQualityEvaluationTaskNotifications extends $dara.Model {
 export class DataQualityEvaluationTaskTarget extends $dara.Model {
   /**
    * @remarks
-   * The type of the database to which the table belongs. Valid values:
-   * 
-   * *   maxcompute
-   * *   emr
-   * *   cdh
-   * *   hologres
-   * *   analyticdb_for_postgresql
-   * *   analyticdb_for_mysql
-   * *   starrocks
+   * The database type of the table dataset. Valid values:
+   * - maxcompute
+   * - emr
+   * - cdh
+   * - hologres
+   * - analyticdb_for_postgresql
+   * - analyticdb_for_mysql
+   * - starrocks
    * 
    * @example
    * maxcompute
@@ -224,7 +224,7 @@ export class DataQualityEvaluationTaskTarget extends $dara.Model {
   databaseType?: string;
   /**
    * @remarks
-   * The configuration of the partitioned table.
+   * The partition settings of the partitioned table.
    * 
    * @example
    * ds=$[yyyymmdd-1]
@@ -232,7 +232,7 @@ export class DataQualityEvaluationTaskTarget extends $dara.Model {
   partitionSpec?: string;
   /**
    * @remarks
-   * The ID of the table in Data Map.
+   * The unique ID of the table in Data Map.
    * 
    * @example
    * odps.unit_test.tb_unit_test
@@ -240,9 +240,8 @@ export class DataQualityEvaluationTaskTarget extends $dara.Model {
   tableGuid?: string;
   /**
    * @remarks
-   * The type of the monitored object. Valid values:
-   * 
-   * *   Table
+   * The monitored object type. Valid values:
+   * - Table
    * 
    * @example
    * Table
@@ -278,14 +277,13 @@ export class DataQualityEvaluationTaskTarget extends $dara.Model {
 export class DataQualityEvaluationTaskTrigger extends $dara.Model {
   /**
    * @remarks
-   * Specifies the scheduled nodes whose instances can trigger the quality evaluation task after running successfully. This setting takes effect when type is ByScheduledTaskInstance.
+   * The IDs of the scheduled nodes whose successful instance execution triggers the data quality check task. This parameter takes effect only when Type is set to ByScheduledTaskInstance.
    */
   taskIds?: number[];
   /**
    * @remarks
-   * The trigger condition of the task. Valid values:
-   * 
-   * *   ByScheduledTaskInstance. The value indicates that the task is triggered when the instance of an auto triggered node is successfully run.
+   * The event that triggers the execution of the data quality check task. Valid values:
+   * - ByScheduledTaskInstance: A scheduled instance completes successfully.
    * 
    * @example
    * ByScheduledTaskInstance
@@ -320,7 +318,7 @@ export class DataQualityEvaluationTaskTrigger extends $dara.Model {
 export class DataQualityEvaluationTask extends $dara.Model {
   /**
    * @remarks
-   * The ID of the data source that is used for task running.
+   * The ID of the data source used to execute the data quality check task.
    * 
    * @example
    * 201
@@ -328,7 +326,7 @@ export class DataQualityEvaluationTask extends $dara.Model {
   dataSourceId?: number;
   /**
    * @remarks
-   * The description of the task. The description can be up to 65,535 characters in length.
+   * The description of the data quality check task. The description can be up to 65,535 characters in length.
    * 
    * @example
    * This is a daily run data quality evaluation plan.
@@ -336,12 +334,12 @@ export class DataQualityEvaluationTask extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The callback settings during the lifecycle of the data quality evaluation task instance. Currently, only one hook that blocks a scheduled task is supported.
+   * The callback settings for the lifecycle of the data quality check task instance. Currently, only one hook that blocks the scheduled task is supported.
    */
   hooks?: DataQualityEvaluationTaskHooks[];
   /**
    * @remarks
-   * The ID of the data quality monitoring task.
+   * The ID of the data quality check task.
    * 
    * @example
    * 10001
@@ -349,20 +347,20 @@ export class DataQualityEvaluationTask extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The name of the data quality monitoring task. The name can be up to 255 characters in length and can contain digits, English letters, Chinese characters, and half-width or full-width punctuation marks.
+   * The name of the data quality check task. The name can contain digits, letters, Chinese characters, and half-width or full-width punctuation marks, and can be up to 255 characters in length.
    * 
    * @example
-   * Data quality evaluation task
+   * Quality check task
    */
   name?: string;
   /**
    * @remarks
-   * The configurations for alert notifications.
+   * The notification subscription configuration of the data quality check task.
    */
   notifications?: DataQualityEvaluationTaskNotifications[];
   /**
    * @remarks
-   * The DataWorks workspace ID.
+   * The ID of the DataWorks workspace.
    * 
    * @example
    * 100
@@ -370,7 +368,7 @@ export class DataQualityEvaluationTask extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The settings used when accessing the data source. Currently, only the EMR YARN queue and the SQL engine used to collect EMR tables can be specified. Supported SQL engines: SPARK_SQL, KYUUBI, PRESTO_SQL, and HIVE_SQL.
+   * The runtime configuration for using the data source. Currently, you can only specify the YARN queue for EMR and set the SQL engine to SPARK_SQL, KYUUBI, PRESTO_SQL, or HIVE_SQL when collecting EMR tables.
    * 
    * @example
    * { "queue": "default", "sqlEngine": "SPARK_SQL" }
@@ -378,12 +376,12 @@ export class DataQualityEvaluationTask extends $dara.Model {
   runtimeConf?: string;
   /**
    * @remarks
-   * The monitored object of the task.
+   * The monitored object of the data quality check task.
    */
   target?: DataQualityEvaluationTaskTarget;
   /**
    * @remarks
-   * The DataWorks tenant ID.
+   * The ID of the DataWorks tenant.
    * 
    * @example
    * 10
@@ -391,7 +389,7 @@ export class DataQualityEvaluationTask extends $dara.Model {
   tenantId?: number;
   /**
    * @remarks
-   * The trigger configuration of the task.
+   * The trigger configuration of the data quality check task.
    */
   trigger?: DataQualityEvaluationTaskTrigger;
   static names(): { [key: string]: string } {

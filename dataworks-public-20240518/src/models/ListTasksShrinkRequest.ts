@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListTasksShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the task.
+   * The list of task IDs. You can query multiple tasks at a time by specifying task IDs.
    */
   idsShrink?: string;
   /**
    * @remarks
-   * The name of the task. Fuzzy match is supported.
+   * The name. Fuzzy match is supported.
    * 
    * @example
    * SQL node
@@ -26,7 +26,7 @@ export class ListTasksShrinkRequest extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1. Default value: 1.
+   * The page number. Pages start from 1. Default value: 1.
    * 
    * @example
    * 1
@@ -34,7 +34,7 @@ export class ListTasksShrinkRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10.
+   * The number of entries per page. Default value: 10. Maximum value: 1000.
    * 
    * @example
    * 10
@@ -42,13 +42,7 @@ export class ListTasksShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The workspace environment.
-   * 
-   * Valid values:
-   * 
-   * - Prod
-   * 
-   * - Dev
+   * The project environment.
    * 
    * @example
    * Prod
@@ -56,7 +50,7 @@ export class ListTasksShrinkRequest extends $dara.Model {
   projectEnv?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The project ID.
    * 
    * This parameter is required.
    * 
@@ -66,7 +60,7 @@ export class ListTasksShrinkRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The information about the resource group. Set this parameter to the ID of a resource group for scheduling.
+   * The resource group information. Specify the identifier of the scheduling resource group.
    * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
@@ -74,15 +68,13 @@ export class ListTasksShrinkRequest extends $dara.Model {
   runtimeResource?: string;
   /**
    * @remarks
-   * The field that is used to sort tasks. This parameter is configured in the format of "Sorting field Sorting order". You can set the sorting order to Desc or Asc. If you do not specify the sorting order, Asc is used by default. Valid values:
+   * The sort field. You can sort by fields such as modification time and creation time. The format is "Sort field + Sort order (Desc/Asc)". Asc can be omitted. Valid values for the sort field:
    * 
    * - `ModifyTime (Desc/Asc)`
-   * 
    * - `CreateTime (Desc/Asc)`
-   * 
    * - `Id (Desc/Asc)`
    * 
-   *   Default value: `Id Desc`.
+   * Default value: `Id Desc`.
    * 
    * @example
    * Id Desc
@@ -90,46 +82,27 @@ export class ListTasksShrinkRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The type of the task. Valid values:
+   * The task type. Examples:
    * 
    * - ODPS_SQL
-   * 
    * - SPARK
-   * 
    * - PY_ODPS
-   * 
    * - PY_ODPS3
-   * 
    * - ODPS_SCRIPT
-   * 
    * - ODPS_MR
-   * 
    * - COMPONENT_SQL
-   * 
    * - EMR_HIVE
-   * 
    * - EMR_MR
-   * 
    * - EMR_SPARK_SQL
-   * 
    * - EMR_SPARK
-   * 
    * - EMR_SHELL
-   * 
    * - EMR_PRESTO
-   * 
    * - EMR_IMPALA
-   * 
    * - SPARK_STREAMING
-   * 
    * - EMR_KYUUBI
-   * 
    * - EMR_TRINO
-   * 
    * - HOLOGRES_SQL
-   * 
    * - HOLOGRES_SYNC_DDL
-   * 
    * - HOLOGRES_SYNC_DATA
    * 
    * @example
@@ -138,15 +111,7 @@ export class ListTasksShrinkRequest extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The run mode when triggered. Valid only if TriggerType is Scheduler.
-   * 
-   * Valid values:
-   * 
-   * - Pause
-   * 
-   * - Skip
-   * 
-   * - Normal
+   * The running mode upon triggering. This parameter takes effect only when TriggerType is set to Scheduler.
    * 
    * @example
    * Normal
@@ -155,12 +120,6 @@ export class ListTasksShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The trigger type.
-   * 
-   * Valid values:
-   * 
-   * - Scheduler: Triggered by schedule.
-   * 
-   * - Manual: Triggered manually.
    * 
    * @example
    * Scheduler

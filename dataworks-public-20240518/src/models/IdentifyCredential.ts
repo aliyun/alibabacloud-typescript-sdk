@@ -24,16 +24,14 @@ export class IdentifyCredentialDataSource extends $dara.Model {
    * The data source password.
    * 
    * @example
-   * ***
+   * ExamplePass***2026
    */
   password?: string;
   /**
    * @remarks
-   * The user role for the data source. Valid values are:
-   * 
-   * - `Admin`
-   * 
-   * - `RegularUser`
+   * The data source user type. Valid values:
+   * - Admin: administrator.
+   * - RegularUser: regular user.
    * 
    * @example
    * admin
@@ -41,13 +39,10 @@ export class IdentifyCredentialDataSource extends $dara.Model {
   role?: string;
   /**
    * @remarks
-   * The data source type. Supported values are:
-   * 
-   * - `hive`
-   * 
-   * - `lindorm_for_engine`
-   * 
-   * - `starrocks`
+   * The data source type. Valid values:
+   * - hive
+   * - lindorm_for_engine
+   * - starrocks
    * 
    * @example
    * hologres
@@ -55,7 +50,7 @@ export class IdentifyCredentialDataSource extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The data source user name.
+   * The data source username.
    * 
    * @example
    * tom
@@ -100,7 +95,7 @@ export class IdentifyCredential extends $dara.Model {
   dataSource?: IdentifyCredentialDataSource;
   /**
    * @remarks
-   * The project ID. This parameter is optional.
+   * The workspace ID. This parameter is optional.
    * 
    * @example
    * 10000
@@ -108,7 +103,7 @@ export class IdentifyCredential extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The user UID. If the `UserType` is `Role`, you must prefix this value with `ROLE_`.
+   * The user ID. For a role, add the ROLE_ prefix.
    * 
    * @example
    * ROLE_300888674340307309
@@ -116,13 +111,10 @@ export class IdentifyCredential extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The user type. Supported values are:
-   * 
-   * - primary account: `PrimaryAccount`
-   * 
-   * - subaccount: `SubAccount`
-   * 
-   * - role: `Role`
+   * The user type. Valid values:
+   * - PrimaryAccount: Alibaba Cloud account.
+   * - SubAccount: RAM user.
+   * - Role: role.
    * 
    * @example
    * primaryAccount

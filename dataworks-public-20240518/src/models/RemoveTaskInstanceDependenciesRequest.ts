@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveTaskInstanceDependenciesRequest extends $dara.Model {
   /**
    * @remarks
-   * The remarks.
+   * The comment.
    * 
    * @example
    * this is a comment
@@ -13,7 +13,7 @@ export class RemoveTaskInstanceDependenciesRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The node instance ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class RemoveTaskInstanceDependenciesRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The IDs of ancestor instances of the instance
+   * The list of upstream node instance IDs.
    */
   upstreamTaskInstanceIds?: number[];
   static names(): { [key: string]: string } {

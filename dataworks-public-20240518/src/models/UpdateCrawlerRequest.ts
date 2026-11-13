@@ -115,6 +115,9 @@ export class UpdateCrawlerRequest extends $dara.Model {
   /**
    * @remarks
    * The extension configurations for the crawler type. Only the specified configuration items are updated. Unspecified configuration items remain unchanged. The supported keys and values are determined by the SupportedOptionKeys returned by GetCrawlerTypeCapabilities.
+   * 
+   * @example
+   * {"CollectRecyclebin":"false"}
    */
   options?: { [key: string]: string };
   /**

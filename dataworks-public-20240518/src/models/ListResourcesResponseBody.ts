@@ -77,7 +77,7 @@ export class ListResourcesResponseBodyPagingInfoResourcesScript extends $dara.Mo
    * @remarks
    * The ID of the script.
    * 
-   * >Notice: Before SDK 8.0.0, this field is of the Long type. In SDK 8.0.0 and later, this field is of the String type. **This change does not affect the normal use of the SDK, and the parameter is still returned based on the type defined in the SDK**. Only when you upgrade the SDK across version 8.0.0, the type change may cause project compilation failures. In this case, you must manually correct the data type.
+   * >Notice: The data type of this field is Long in SDK versions earlier than 8.0.0, and String in SDK 8.0.0 and later. **This change does not affect the normal use of the SDK. The SDK returns this field in the type defined by that version**. However, if you upgrade the SDK across version 8.0.0, the data type change may cause project compilation failures. In this case, you must manually correct the data type.
    * 
    * @example
    * 123348864897630XXXX
@@ -142,7 +142,7 @@ export class ListResourcesResponseBodyPagingInfoResources extends $dara.Model {
    * @remarks
    * The unique identifier of the file resource.
    * 
-   * >Notice: Before SDK 8.0.0, this field is of the Long type. In SDK 8.0.0 and later, this field is of the String type. **This change does not affect the normal use of the SDK, and the parameter is still returned based on the type defined in the SDK**. Only when you upgrade the SDK across version 8.0.0, the type change may cause project compilation failures. In this case, you must manually correct the data type.
+   * >Notice: The data type of this field is Long in SDK versions earlier than 8.0.0, and String in SDK 8.0.0 and later. **This change does not affect the normal use of the SDK. The SDK returns this field in the type defined by that version**. However, if you upgrade the SDK across version 8.0.0, the data type change may cause project compilation failures. In this case, you must manually correct the data type.
    * 
    * @example
    * 631478864897630XXXX
@@ -174,7 +174,7 @@ export class ListResourcesResponseBodyPagingInfoResources extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the workspace configuration page to obtain the workspace ID.
+   * The ID of the DataWorks workspace. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and go to the Workspace Management page to obtain the workspace ID.
    * 
    * @example
    * 344247
@@ -197,16 +197,16 @@ export class ListResourcesResponseBodyPagingInfoResources extends $dara.Model {
    * @remarks
    * The source storage type of the file resource. Valid values:
    * 
-   * - Local: local storage
-   * - Oss: Object Storage Service (OSS)
+   * - Local: local storage.
+   * - Oss: Object Storage Service (OSS).
    * 
    * @example
-   * Local
+   * local
    */
   sourceType?: string;
   /**
    * @remarks
-   * The destination storage path of the file resource.
+   * The target storage path of the file resource.
    * 
    * @example
    * XXX/unknown/ide/1/XXX/20240820200851_963a9da676de44ef8d06a6576a8c4d6a.py
@@ -214,14 +214,13 @@ export class ListResourcesResponseBodyPagingInfoResources extends $dara.Model {
   targetPath?: string;
   /**
    * @remarks
-   * The destination storage type of the file resource. Valid values:
-   * 
-   * - Gateway: gateway
-   * - Oss: Object Storage Service (OSS)
-   * - Hdfs: Hadoop Distributed File System (HDFS)
+   * The target file storage type. Valid values:
+   * - Gateway: gateway.
+   * - Oss: Object Storage Service.
+   * - Hdfs: Hadoop Distributed File System (HDFS).
    * 
    * @example
-   * Oss
+   * oss
    */
   targetType?: string;
   /**
@@ -234,7 +233,7 @@ export class ListResourcesResponseBodyPagingInfoResources extends $dara.Model {
    * - File
    * 
    * @example
-   * Jar
+   * jar
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -291,7 +290,7 @@ export class ListResourcesResponseBodyPagingInfoResources extends $dara.Model {
 export class ListResourcesResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number of the requested data.
    * 
    * @example
    * 1
@@ -307,7 +306,7 @@ export class ListResourcesResponseBodyPagingInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The resources returned by the query.
+   * The list of resources returned by the query.
    */
   resources?: ListResourcesResponseBodyPagingInfoResources[];
   /**
@@ -356,7 +355,7 @@ export class ListResourcesResponseBody extends $dara.Model {
   pagingInfo?: ListResourcesResponseBodyPagingInfo;
   /**
    * @remarks
-   * The ID of the request. You can use the ID to troubleshoot issues.
+   * The unique ID of the request. You can use the ID to troubleshoot issues if an error occurs.
    * 
    * @example
    * 99EBE7CF-69C0-5089-BE3E-79563C31XXXX

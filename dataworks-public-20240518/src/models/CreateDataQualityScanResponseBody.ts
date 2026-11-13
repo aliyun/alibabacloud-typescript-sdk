@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDataQualityScanResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Returns the ID of the created data source sharing rule, which uniquely identifies the rule.
+   * The ID of the created data source sharing rule, which is the unique identifier of the data source sharing rule.
    * 
    * @example
    * 676303114031776
@@ -13,7 +13,7 @@ export class CreateDataQualityScanResponseBody extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 0000-ABCD-EFG****

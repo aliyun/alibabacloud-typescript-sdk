@@ -13,7 +13,7 @@ export class ListCustomAgentsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Do not specify this parameter for the first query. For subsequent queries, specify the `NextToken` value returned from the previous query to retrieve the next page.
+   * The pagination token. Omit this parameter for the first query. For subsequent queries, specify the `NextToken` value returned from the previous query to retrieve the next page.
    * 
    * @example
    * 12345
@@ -21,7 +21,7 @@ export class ListCustomAgentsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The search keyword used to perform a fuzzy match on agent names.
+   * The search keyword for fuzzy matching by agent name.
    * 
    * @example
    * analysis

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSemanticJobsResponseBodyDataSemanticJobs extends $dara.Model {
   /**
    * @remarks
-   * The user identifier of the semantic job creator.
+   * The user identifier of the creator of the semantic job.
    * 
    * @example
    * user-demo
@@ -13,7 +13,7 @@ export class ListSemanticJobsResponseBodyDataSemanticJobs extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The creation time, expressed as a UNIX timestamp in milliseconds.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1700000000000
@@ -21,7 +21,7 @@ export class ListSemanticJobsResponseBodyDataSemanticJobs extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The last modification time, expressed as a UNIX timestamp in milliseconds.
+   * The last modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1700000000000
@@ -37,7 +37,7 @@ export class ListSemanticJobsResponseBodyDataSemanticJobs extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The job name. Used for RunSemanticJob, DeleteSemanticJob, ListSemanticJobRuns, and DownloadSemanticResults.
+   * The job name. This name is used in RunSemanticJob, DeleteSemanticJob, ListSemanticJobRuns, and DownloadSemanticResults.
    * 
    * @example
    * semantic-job-demo
@@ -45,7 +45,7 @@ export class ListSemanticJobsResponseBodyDataSemanticJobs extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The workspace ID to which the job belongs. Used for GetSemanticJobDetail, GetSemanticJobLog, and KillSemanticJob.
+   * The ID of the workspace to which the job belongs. This ID is used in GetSemanticJobDetail, GetSemanticJobLog, and KillSemanticJob.
    * 
    * @example
    * 100
@@ -53,17 +53,17 @@ export class ListSemanticJobsResponseBodyDataSemanticJobs extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The list of uploaded file IDs associated with the job.
+   * The list of IDs of the uploaded files associated with the job.
    */
   referenceFileIds?: string[];
   /**
    * @remarks
-   * The list of external reference file URIs associated with the job.
+   * The list of URIs of the external reference files associated with the job.
    */
   referenceFileUris?: string[];
   /**
    * @remarks
-   * The resource group identifier used when running this job.
+   * The identifier of the resource group used to run the job.
    * 
    * @example
    * rg-demo
@@ -71,12 +71,15 @@ export class ListSemanticJobsResponseBodyDataSemanticJobs extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The input datasource config saved with the node. This configuration determines the analysis scope at runtime.
+   * The input data source configuration saved for the job. The job uses this configuration to determine the analysis scope at runtime.
+   * 
+   * @example
+   * {"type":"maxcompute","domain":"sales","pinnedScopeInfo":[{"type":"project","name":"mc_project"}]}
    */
   source?: { [key: string]: any };
   /**
    * @remarks
-   * The Source.type data source type saved with the job.
+   * The data source type saved in the Source.type field of the job.
    * 
    * @example
    * maxcompute
@@ -84,7 +87,7 @@ export class ListSemanticJobsResponseBodyDataSemanticJobs extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The user identifier of the semantic job creator.
+   * The user identifier of the creator of the semantic job.
    * 
    * @example
    * user-demo
@@ -145,7 +148,7 @@ export class ListSemanticJobsResponseBodyDataSemanticJobs extends $dara.Model {
 export class ListSemanticJobsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The page number returned, starting from 1.
+   * The page number of the returned page. Pages start from 1.
    * 
    * @example
    * 1
@@ -153,7 +156,7 @@ export class ListSemanticJobsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of job definitions per page returned.
+   * The number of job definitions returned on each page.
    * 
    * @example
    * 50
@@ -166,7 +169,7 @@ export class ListSemanticJobsResponseBodyData extends $dara.Model {
   semanticJobs?: ListSemanticJobsResponseBodyDataSemanticJobs[];
   /**
    * @remarks
-   * The total number of job definitions that meet the conditions in the current tenant.
+   * The total number of job definitions that meet the query conditions in the current tenant.
    * 
    * @example
    * 1
@@ -205,12 +208,12 @@ export class ListSemanticJobsResponseBodyData extends $dara.Model {
 export class ListSemanticJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The paginated result of job definitions. Use the Name field of a list item to run, delete, query run records, or download results. Use the ProjectId field to query run details, logs, or stop a run.
+   * The paged results of job definitions. Use the Name of a list item to run or delete a job, query its run records, or download its results. Use the ProjectId to query run details and logs, or stop a run.
    */
   data?: ListSemanticJobsResponseBodyData;
   /**
    * @remarks
-   * The request ID. Used for locating logs and troubleshooting issues.
+   * The request ID. You can use the ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 676271D6-53B4-57BE-89FA-72F7AE1418DF
@@ -218,7 +221,7 @@ export class ListSemanticJobsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

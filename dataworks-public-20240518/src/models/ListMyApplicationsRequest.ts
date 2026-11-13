@@ -7,9 +7,9 @@ export class ListMyApplicationsRequestResource extends $dara.Model {
    * @remarks
    * The resource type.
    * 
-   * Note: The resource types supported by the system for applications are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+   * Note: The resource types supported by the system are constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).name.
    * 
-   * See also: [ResourceSchema documentation for International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * For more information, see [ResourceSchema documentation for Alibaba Cloud International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions).
    * 
    * @example
    * MaxCompute
@@ -17,9 +17,9 @@ export class ListMyApplicationsRequestResource extends $dara.Model {
   defSchema?: string;
   /**
    * @remarks
-   * The resource parsing version, which is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).version.
+   * The resource parsing version is constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).version.
    * 
-   * [ResourceSchema documentation for International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * [ResourceSchema documentation for Alibaba Cloud International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    * 
    * @example
    * v1.0.0
@@ -29,9 +29,12 @@ export class ListMyApplicationsRequestResource extends $dara.Model {
    * @remarks
    * The resource metadata.
    * 
-   * Note: The metadata is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).resources. A valid resource declaration must include the full-path metadata declarations from level 0 to the validLeaf level.
+   * Note: The metadata is constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).resources. A valid resource declaration must include the full-path metadata declaration from level 0 to the validLeaf level.
    * 
-   * See also: [ResourceSchema documentation for International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * For more information, see [ResourceSchema documentation for Alibaba Cloud International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions).
+   * 
+   * @example
+   * {"workspace": "449056", "project": "sync_destination"}
    */
   metaData?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -67,9 +70,9 @@ export class ListMyApplicationsRequest extends $dara.Model {
    * @remarks
    * Filters by resource type.
    * 
-   * Note: The resource types supported by the system for applications are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+   * Note: The resource types supported by the system are constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).name.
    * 
-   * See also: [ResourceSchema documentation for International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * For more information, see [ResourceSchema documentation for Alibaba Cloud International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions).
    * 
    * This parameter is required.
    * 
@@ -79,7 +82,7 @@ export class ListMyApplicationsRequest extends $dara.Model {
   defSchema?: string;
   /**
    * @remarks
-   * The end time of the application period (millisecond timestamp).
+   * The end of the request submission time range, as a timestamp in milliseconds.
    * 
    * This parameter is required.
    * 
@@ -89,7 +92,7 @@ export class ListMyApplicationsRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The pagination cursor.
+   * The pagination token.
    * 
    * @example
    * eyJpZCI6MTIzfQ==
@@ -105,28 +108,25 @@ export class ListMyApplicationsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters by resource with exact or generalized matching. The resource description is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).
+   * Filters by exact or generalized resource. The resource description is constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).
    * 
-   * 
-   * 
-   * 
-   * See also: [ResourceSchema documentation for International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * For more information, see [ResourceSchema documentation for Alibaba Cloud International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions).
    */
   resource?: ListMyApplicationsRequestResource;
   /**
    * @remarks
-   * Filters by minimum permission resource type.
+   * Filters by least privilege resource type.
    * 
-   * Note: The minimum permission resource type is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).resources[*].isValidLeaf being true.
+   * Note: The least privilege resource types are constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).resources[*].isValidLeaf being true.
    * 
-   * See also: [ResourceSchema documentation for International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * For more information, see [ResourceSchema documentation for Alibaba Cloud International site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions).
    * 
    * This parameter is required.
    */
   resourceType?: string[];
   /**
    * @remarks
-   * The start time of the application period (millisecond timestamp).
+   * The start of the request submission time range, as a timestamp in milliseconds.
    * 
    * This parameter is required.
    * 
@@ -138,13 +138,13 @@ export class ListMyApplicationsRequest extends $dara.Model {
    * @remarks
    * Filters by approval status. Valid values:
    * 
-   * - WaitApproval: pending approval.
-   * - Confirmed: pending authorization.
-   * - RejectApproval: approval rejected.
-   * - AuthorizeSucceed: authorization succeeded.
-   * - AuthorizeFailed: authorization failed.
-   * - Deleted: deleted.
-   * - Canceled: withdrawn.
+   * - WaitApproval: pending approval
+   * - Confirmed: pending authorization
+   * - RejectApproval: approval rejected
+   * - AuthorizeSucceed: authorization succeeded
+   * - AuthorizeFailed: authorization failed
+   * - Deleted: deleted
+   * - Canceled: withdrawn
    * 
    * @example
    * Deleted

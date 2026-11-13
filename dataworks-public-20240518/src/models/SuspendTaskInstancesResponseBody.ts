@@ -14,7 +14,10 @@ export class SuspendTaskInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result information of the batch operation. The structure is a map, where the key is the task instance ID and the value is the result information.
+   * The result information of the batch operation. The structure is a map where the key is the task instance ID and the value is the result information.
+   * 
+   * @example
+   * {"10001": {"Success": false, "Message": "The instance does not exist."}}
    */
   successInfo?: { [key: string]: SuccessInfoValue };
   static names(): { [key: string]: string } {

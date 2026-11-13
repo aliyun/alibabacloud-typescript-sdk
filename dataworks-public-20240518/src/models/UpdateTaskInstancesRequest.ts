@@ -40,7 +40,7 @@ export class UpdateTaskInstancesRequestTaskInstances extends $dara.Model {
   dataSource?: UpdateTaskInstancesRequestTaskInstancesDataSource;
   /**
    * @remarks
-   * The instance ID.
+   * The node instance ID.
    * 
    * This parameter is required.
    * 
@@ -50,7 +50,7 @@ export class UpdateTaskInstancesRequestTaskInstances extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The priority of the instance. Valid values: 1, 3, 5, 7, and 8.
+   * The runtime priority of the instance. Valid values: 1, 3, 5, 7, and 8.
    * 
    * A larger value indicates a higher priority. Default value: 1.
    * 
@@ -60,7 +60,7 @@ export class UpdateTaskInstancesRequestTaskInstances extends $dara.Model {
   priority?: number;
   /**
    * @remarks
-   * The resource group information. Set this parameter to the ID of a resource group for scheduling.
+   * The resource group information. Specify the identifier of the scheduling resource group.
    * 
    * @example
    * S_res_group_524258031846018_1684XXXXXXXXX
@@ -107,7 +107,7 @@ export class UpdateTaskInstancesRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The instances.
+   * The list of node instances.
    */
   taskInstances?: UpdateTaskInstancesRequestTaskInstances[];
   static names(): { [key: string]: string } {

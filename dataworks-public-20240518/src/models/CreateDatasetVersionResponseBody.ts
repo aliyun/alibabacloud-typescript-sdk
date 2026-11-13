@@ -22,7 +22,7 @@ export class CreateDatasetVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the dataset version was created successfully.
+   * Indicates whether the dataset version is created.
    * 
    * @example
    * true

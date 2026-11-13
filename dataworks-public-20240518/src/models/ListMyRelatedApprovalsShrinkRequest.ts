@@ -5,20 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class ListMyRelatedApprovalsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Filter by requested permissions.
+   * Filters by the requested permissions.
    * 
-   * Note: Different resource levels support different application permission types, all constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).isValidLeaf, accessTypeRestrictions, and authMethodAccessTypes.
+   * Note: The types of permissions that can be requested vary based on the resource level and are constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).isValidLeaf, accessTypeRestrictions, and authMethodAccessTypes.
    * 
-   * Reference: [ResourceSchema International Site Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * Reference: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    */
   accessTypesShrink?: string;
   /**
    * @remarks
-   * Filter by resource type.
+   * Filters by resource type.
    * 
-   * Note: The resource types supported by the system for applications are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+   * Note: The resource types supported for application are constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).name.
    * 
-   * Reference: [ResourceSchema International Site Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * Reference: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    * 
    * This parameter is required.
    * 
@@ -28,7 +28,7 @@ export class ListMyRelatedApprovalsShrinkRequest extends $dara.Model {
   defSchema?: string;
   /**
    * @remarks
-   * Application time end (millisecond timestamp)
+   * The end time of the application. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1779724799999
@@ -36,16 +36,16 @@ export class ListMyRelatedApprovalsShrinkRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Filter by authorization principal.
+   * Filters by authorization principal. 
    * 
-   * Note: The authorization principal types supported by the system are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).authPrincipal.
+   * Note: The authorization principal types supported by the system are constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).authPrincipal.
    * 
-   * Reference: [ResourceSchema International Site Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * Reference: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    */
   granteeShrink?: string;
   /**
    * @remarks
-   * Pagination cursor
+   * The pagination cursor.
    * 
    * @example
    * eyJpZCI6MTIzfQ==
@@ -53,7 +53,7 @@ export class ListMyRelatedApprovalsShrinkRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * Page size (default 10, maximum 200)
+   * The number of entries per page. Default value: 10. Maximum value: 200.
    * 
    * @example
    * 20
@@ -61,18 +61,18 @@ export class ListMyRelatedApprovalsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filter by resource with exact/generalized matching. The resource description is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).
+   * Performs exact or generalized filtering based on resources. The resource description is constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).
    * 
-   * Reference: [ResourceSchema International Site Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * Reference: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    */
   resourceShrink?: string;
   /**
    * @remarks
-   * Filter by minimum permission resource type.
+   * Filters by least privilege resource type.
    * 
-   * Note: The minimum permission resource type is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).resources[*].isValidLeaf being true.
+   * Note: The least privilege resource types are constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).resources[*].isValidLeaf being true.
    * 
-   * Reference: [ResourceSchema International Site Documentation](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * Reference: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    * 
    * This parameter is required.
    * 
@@ -82,7 +82,7 @@ export class ListMyRelatedApprovalsShrinkRequest extends $dara.Model {
   resourceTypeShrink?: string;
   /**
    * @remarks
-   * Application time start (millisecond timestamp)
+   * The start time of the application. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1771948800000
@@ -90,15 +90,15 @@ export class ListMyRelatedApprovalsShrinkRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * Filter by approval status. Enum values:
+   * Filters by approval status. Valid values:
    * 
-   * - WaitApproval: Pending approval
-   * - Confirmed: Pending authorization
-   * - RejectApproval: Approval rejected
-   * - AuthorizeSucceed: Authorization succeeded
-   * - AuthorizeFailed: Authorization failed
-   * - Deleted: Deleted
-   * - Canceled: Withdrawn
+   * - WaitApproval: Pending approval.
+   * - Confirmed: Pending authorization.
+   * - RejectApproval: Rejected.
+   * - AuthorizeSucceed: Authorized.
+   * - AuthorizeFailed: Authorization failed.
+   * - Deleted: Deleted.
+   * - Canceled: Withdrawn.
    * 
    * @example
    * WAIT_APPROVAL

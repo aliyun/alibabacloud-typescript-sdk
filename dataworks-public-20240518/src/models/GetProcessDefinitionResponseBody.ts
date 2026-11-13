@@ -5,31 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class GetProcessDefinitionResponseBodyProcessDefinitionApprovalNodes extends $dara.Model {
   /**
    * @remarks
-   * **Node approver type**:
-   * 
-   * - DataWorksProjectRole project role
-   * 
-   * - DataWorksProjectMember project member
-   * 
-   * - TableAdministrator table administrator
-   * 
-   * - TableOrProjectAdministrator Table or project administrator
-   * 
-   * - AliyunResourceOwner Alibaba Cloud account
-   * 
-   * - MaxComputeRole MC Administrator
-   * 
-   * - DLFAdmin and DlfLegacy administrator
-   * 
-   * - DLFNext Administrator
-   * 
-   * - TenantRole tenant role
-   * 
-   * - EmrAdministrator Emr administrator
-   * 
-   * - LindormAdministrator Lindorm Administrator
-   * 
-   * - AliyunRamUser RAM user
+   * **The type of approver for the node**. Valid values:
+   * - DataWorksProjectRole: Workspace role.
+   * - DataWorksProjectMember: Workspace member.
+   * - TableAdministrator: Table owner.
+   * - TableOrProjectAdministrator: Table or workspace administrator.
+   * - AliyunResourceOwner: Alibaba Cloud account.
+   * - MaxComputeRole: MaxCompute administrator.
+   * - DLFAdmin: DLF legacy administrator.
+   * - DLFNextAdmin: DLFNext administrator.
+   * - TenantRole: Tenant role.
+   * - EmrAdministrator: EMR administrator.
+   * - LindormAdministrator: Lindorm administrator.
+   * - AliyunRamUser: RAM user.
    * 
    * @example
    * TableOrProjectAdministrator
@@ -37,31 +25,28 @@ export class GetProcessDefinitionResponseBodyProcessDefinitionApprovalNodes exte
   accountType?: string;
   /**
    * @remarks
-   * **`AccountType` has different semantics for different types**:
-   * 
-   * - DataWorksProjectMember specifies the project member\\"s UserId.
-   * 
-   * - DataWorksProjectRole specifies the code of the project role.
-   * 
-   * - MaxComputeRole specifies the MaxCompute role.
-   * 
-   * - TenantRole specifies the tenant role code.
-   * 
-   * - AliyunRamUser specifies the RAM user ID.
+   * **The semantics vary based on the `AccountType` value**:
+   * - DataWorksProjectMember: Specifies the user ID of the workspace member.
+   * - DataWorksProjectRole: Specifies the code of the workspace role.
+   * - MaxComputeRole: Specifies the MaxCompute role.
+   * - TenantRole: Specifies the code of the tenant role.
+   * - AliyunRamUser: Specifies the RAM user ID.
    */
   assignees?: string[];
   /**
    * @remarks
-   * When `AccountType `is set to different types, you must provide different additional declarations:
+   * The additional declarations required for different `AccountType` values:
    * 
-   * - DataWorksProjectMember: The key is projectId, and the value is the UserIds of project members, separated by commas.
+   * - DataWorksProjectMember: The key is `projectId`, and the value is the user ID of the workspace member. Separate multiple values with commas.
+   * - MaxComputeRole: The key is the MaxCompute project, and the value is the role name in MaxCompute. Separate multiple values with commas.
    * 
-   * - MaxComputeRole: The key is a MaxCompute project and the value is a role name in MaxCompute. Multiple role names are separated by a comma.
+   * @example
+   * {"449656": "role_project_admin,role_project_pe"}
    */
   extensionProperties?: { [key: string]: any };
   /**
    * @remarks
-   * Node ID
+   * The node ID.
    * 
    * @example
    * 7a809b6a-2a62-4c6c-9c23-c2a145e3877d
@@ -69,7 +54,7 @@ export class GetProcessDefinitionResponseBodyProcessDefinitionApprovalNodes exte
   id?: string;
   /**
    * @remarks
-   * **Node Name**
+   * **The node name.**
    * 
    * @example
    * default-name
@@ -113,14 +98,10 @@ export class GetProcessDefinitionResponseBodyProcessDefinitionApprovalNodes exte
 export class GetProcessDefinitionResponseBodyProcessDefinitionNotificationServices extends $dara.Model {
   /**
    * @remarks
-   * Notification channel, an enumeration:
-   * 
+   * The notification channel. Valid values:
    * - Mail
-   * 
    * - Sms
-   * 
    * - DingRobot
-   * 
    * - Weixin
    * 
    * @example
@@ -129,7 +110,7 @@ export class GetProcessDefinitionResponseBodyProcessDefinitionNotificationServic
   channel?: string;
   /**
    * @remarks
-   * Additional information in JSON format, such as `{"atAll":"true"}` to specify whether to @all members.
+   * The extended information in JSON format, such as `{"atAll":"true"}`, which specifies whether to mention all members.
    * 
    * @example
    * {"atAll":"true"}
@@ -137,7 +118,7 @@ export class GetProcessDefinitionResponseBodyProcessDefinitionNotificationServic
   extension?: string;
   /**
    * @remarks
-   * You must specify WebhookUrl when Channel is DingRobot or Weixin.
+   * The receiver. If `Channel` is set to `DingRobot` or `Weixin`, you must specify `WebhookUrl`.
    * 
    * @example
    * https://dingtalk.com
@@ -171,7 +152,7 @@ export class GetProcessDefinitionResponseBodyProcessDefinitionNotificationServic
 export class GetProcessDefinitionResponseBodyProcessDefinitionRuleConditions extends $dara.Model {
   /**
    * @remarks
-   * A conditional expression is in the format `((#type==\\"typeValue\\"))`, such as `((#odpsProject==\\"PX_BEIJING_TEST\\"))`.
+   * The conditional expression in the `((#type==\\"typeValue\\"))` format, such as `((#odpsProject==\\"PX_BEIJING_TEST\\"))`.
    * 
    * @example
    * ((#odpsProject==\\"PX_BEIJING_TEST\\"))
@@ -179,11 +160,9 @@ export class GetProcessDefinitionResponseBodyProcessDefinitionRuleConditions ext
   expression?: string;
   /**
    * @remarks
-   * rule effective stage:
-   * 
-   * - `Deployment` determines whether an application matches this approval policy upon submission.
-   * 
-   * - `Running` is used to determine whether an approval process is approval-free. This feature is supported only for the MaxCompute type.
+   * The effective stage of the rule. Valid values:
+   * - `Deployment`: Used to determine whether the approval policy is matched when an application is submitted.
+   * - `Running`: Used to determine whether to skip approval while the approval process runs. This value is supported only for the MaxCompute type.
    * 
    * @example
    * Deployment
@@ -191,16 +170,12 @@ export class GetProcessDefinitionResponseBodyProcessDefinitionRuleConditions ext
   scope?: string;
   /**
    * @remarks
-   * The condition type. This is an enumeration:
+   * The condition type. Valid values:
    * 
-   * - `odpsProject`,
-   * 
+   * - `odpsProject` 
    * - `hologresInstanceId`
-   * 
-   * - `sensibleLevel`,
-   * 
-   * - `tableGuid`,
-   * 
+   * - `sensibleLevel` 
+   * - `tableGuid` 
    * - `projectId`
    * 
    * @example
@@ -235,7 +210,7 @@ export class GetProcessDefinitionResponseBodyProcessDefinitionRuleConditions ext
 export class GetProcessDefinitionResponseBodyProcessDefinition extends $dara.Model {
   /**
    * @remarks
-   * Approval node list
+   * The list of approval nodes.
    */
   approvalNodes?: GetProcessDefinitionResponseBodyProcessDefinitionApprovalNodes[];
   /**
@@ -243,12 +218,12 @@ export class GetProcessDefinitionResponseBodyProcessDefinition extends $dara.Mod
    * The description of the business process.
    * 
    * @example
-   * 订单业务数据审批流程
+   * Order business data approval process
    */
   description?: string;
   /**
    * @remarks
-   * Enable
+   * Indicates whether the policy is enabled.
    * 
    * @example
    * true
@@ -256,7 +231,7 @@ export class GetProcessDefinitionResponseBodyProcessDefinition extends $dara.Mod
   enabled?: boolean;
   /**
    * @remarks
-   * Process definition ID
+   * The process definition ID.
    * 
    * @example
    * 210001039767
@@ -264,7 +239,7 @@ export class GetProcessDefinitionResponseBodyProcessDefinition extends $dara.Mod
   id?: string;
   /**
    * @remarks
-   * System Default Policy
+   * Indicates whether the policy is the default system policy.
    * 
    * @example
    * false
@@ -272,34 +247,29 @@ export class GetProcessDefinitionResponseBodyProcessDefinition extends $dara.Mod
   isSystem?: boolean;
   /**
    * @remarks
-   * Process definition name
+   * The name of the process definition.
    * 
    * @example
-   * MaxCompute 表审批
+   * MaxCompute table approval
    */
   name?: string;
   /**
    * @remarks
-   * Notification Service Statement
+   * The notification service configurations.
    */
   notificationServices?: GetProcessDefinitionResponseBodyProcessDefinitionNotificationServices[];
   /**
    * @remarks
-   * List of rule conditions
+   * The list of effective rules for the approval policy.
    */
   ruleConditions?: GetProcessDefinitionResponseBodyProcessDefinitionRuleConditions[];
   /**
    * @remarks
-   * Subtype:
-   * 
+   * The subtype. Valid values:
    * - Table
-   * 
    * - Column
-   * 
    * - Database
-   * 
    * - Schema
-   * 
    * - Default
    * 
    * @example
@@ -308,29 +278,19 @@ export class GetProcessDefinitionResponseBodyProcessDefinition extends $dara.Mod
   subType?: string;
   /**
    * @remarks
-   * Process definition type. Valid values:
+   * The process definition type. Valid values:
    * 
    * - MaxCompute
-   * 
    * - DataService
-   * 
    * - Extension
-   * 
    * - Hologres
-   * 
-   * - DlfV1 (Custom creation not supported).
-   * 
-   * - EMR (Custom creation not supported).
-   * 
-   * - DataAssetGovernance (Custom creation not supported).
-   * 
-   * - Lindorm (Custom creation not supported).
-   * 
-   * - StarRocks (Custom creation not supported).
-   * 
-   * - DlfNext (Custom creation not supported).
-   * 
-   * - DataWorks (Custom creation not supported).
+   * - DlfV1: Custom creation is not supported.
+   * - Emr: Custom creation is not supported.
+   * - DataAssetGovernance: Custom creation is not supported.
+   * - Lindorm: Custom creation is not supported.
+   * - StarRocks: Custom creation is not supported.
+   * - DlfNext: Custom creation is not supported.
+   * - DataWorks: Custom creation is not supported.
    * 
    * @example
    * MaxCompute
@@ -387,12 +347,12 @@ export class GetProcessDefinitionResponseBodyProcessDefinition extends $dara.Mod
 export class GetProcessDefinitionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Process definition
+   * The process definition.
    */
   processDefinition?: GetProcessDefinitionResponseBodyProcessDefinition;
   /**
    * @remarks
-   * API request ID
+   * The API request ID.
    * 
    * @example
    * 0bc5df3a17***903790e8e8a

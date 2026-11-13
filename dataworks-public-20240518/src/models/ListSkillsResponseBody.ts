@@ -23,7 +23,7 @@ export class ListSkillsResponseBodyPagingInfoSkills extends $dara.Model {
    * @remarks
    * The creation time.
    * 
-   * The format is a 13-digit number, such as `1780555634000`.
+   * The value is a 13-digit number, such as `1780555634000`.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mmZ
    * 
@@ -89,7 +89,7 @@ export class ListSkillsResponseBodyPagingInfoSkills extends $dara.Model {
 export class ListSkillsResponseBodyPagingInfo extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned in this request.
+   * The maximum number of entries returned in the current response.
    * 
    * @example
    * 100
@@ -97,7 +97,7 @@ export class ListSkillsResponseBodyPagingInfo extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page. An empty value indicates that the last page has been reached.
+   * The token for the next page. An empty value indicates that the last page is reached.
    * 
    * @example
    * 5
@@ -110,7 +110,7 @@ export class ListSkillsResponseBodyPagingInfo extends $dara.Model {
   skills?: ListSkillsResponseBodyPagingInfoSkills[];
   /**
    * @remarks
-   * The total number of matching entries.
+   * The total number of entries that meet the specified conditions.
    * 
    * @example
    * 100

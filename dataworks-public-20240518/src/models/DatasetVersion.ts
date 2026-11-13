@@ -14,7 +14,7 @@ export class DatasetVersion extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * Creation time, represented by a timestamp in milliseconds
+   * The creation timestamp in milliseconds.
    * 
    * @example
    * 1736756055000
@@ -30,7 +30,7 @@ export class DatasetVersion extends $dara.Model {
   creatorId?: string;
   /**
    * @remarks
-   * The corresponding dataset ID.
+   * The associated dataset ID.
    * 
    * @example
    * dataworks-datasetVersion:0gfxxxjx155usz3hrv
@@ -46,34 +46,33 @@ export class DatasetVersion extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The storage import configuration for the dataset. The required configuration varies by storage type.
-   * 
-   * 
+   * The storage import configuration of the dataset. The required configuration information varies based on the storage type.
    * <details>
    * <summary>NAS</summary>
-   * For values, see the response of the File Storage NAS DescribeFileSystems API.
-   * 
+   * For valid values, refer to the response of the DescribeFileSystems API operation.
    * 
    * ```JSON
    * {
-   *   "fileSystemId": "3b6XXX89c9", // The file system ID.
-   *   "fileSystemStorageType": "Performance", // The file system storage type.
-   *   "vpcId": "vpc-uf66oxxxrqge1t2gson7s" // The VPC ID of the mount point.
+   *   "fileSystemId": "3b6XXX89c9", // File system ID
+   *   "fileSystemStorageType": "Performance", // Storage specification of the file system
+   *   "vpcId": "vpc-uf66oxxxrqge1t2gson7s" // VPC ID of the mount target
    * }
    * ```
    * 
-   * 
    * </details>
+   * 
+   * @example
+   * {"fileSystemId":"3b6XXX89c9","fileSystemStorageType":"Performance","vpcId":"vpc-uf66oxxxrqge1t2gson7s"}
    */
   importInfo?: { [key: string]: string };
   /**
    * @remarks
-   * The PAI dataset label.
+   * The PAI dataset labels.
    */
   labels?: DatasetLabel[];
   /**
    * @remarks
-   * Modification time, represented by a timestamp in milliseconds
+   * The modification timestamp in milliseconds.
    * 
    * @example
    * 1736756055000
@@ -81,7 +80,7 @@ export class DatasetVersion extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The mount path. Defaults to /mnt/data.
+   * The mount path. Default value: /mnt/data.
    * 
    * @example
    * /mnt/data
@@ -89,7 +88,7 @@ export class DatasetVersion extends $dara.Model {
   mountPath?: string;
   /**
    * @remarks
-   * Storage type (read-only); consistent with the corresponding property of the parent dataset.
+   * The storage type. This property is read-only and remains consistent with the corresponding property of the associated dataset.
    * 
    * @example
    * OSS
@@ -97,7 +96,7 @@ export class DatasetVersion extends $dara.Model {
   storageType?: string;
   /**
    * @remarks
-   * URL
+   * The URL.
    * 
    * @example
    * oss://test-oss-bucket/test_dir/

@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class LineageTask extends $dara.Model {
   /**
    * @remarks
-   * The task attributes.
+   * The task properties.
+   * 
+   * @example
+   * {"key1": "value"}
    */
   attributes?: { [key: string]: string };
   /**

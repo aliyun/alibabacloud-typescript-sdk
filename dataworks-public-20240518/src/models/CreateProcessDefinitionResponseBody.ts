@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProcessDefinitionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the process definition.
+   * The ID of the flow definition.
    * 
    * @example
    * 1010543619
@@ -13,7 +13,7 @@ export class CreateProcessDefinitionResponseBody extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The request ID.
+   * **The API request ID.**
    * 
    * @example
    * 0bc5df3a17***903790e8e8a

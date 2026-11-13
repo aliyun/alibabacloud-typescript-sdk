@@ -5,13 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class GetApplicationContentsResponseBodyDataContentsGrantee extends $dara.Model {
   /**
    * @remarks
-   * The grantee principal ID. The ID has different meanings depending on the principal type:
+   * The authorization principal ID. The mapped ID has different semantics for different principal types:
    * 
-   * - RamUser: DataWorks UserId.
+   * - RamUser: the DataWorks user ID.
    * 
-   * - RamRole: DataWorks UserId prefixed with "ROLE_".
+   * - RamRole: the DataWorks user ID starting with "ROLE_".
    * 
-   * - DlfRole: DlfNext role name.
+   * - DlfRole: the DlfNext role name.
    * 
    * @example
    * ROLE_3133343434
@@ -19,7 +19,7 @@ export class GetApplicationContentsResponseBodyDataContentsGrantee extends $dara
   principalId?: string;
   /**
    * @remarks
-   * The grantee principal type. Valid values:
+   * The authorization principal type. Valid values:
    * 
    * - RamUser
    * - RamRole
@@ -57,9 +57,9 @@ export class GetApplicationContentsResponseBodyDataContentsResource extends $dar
    * @remarks
    * The resource type.
    * 
-   * Note: The resource types supported for applications are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+   * Note: The resource types supported by the system are constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).name.
    * 
-   * See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * Appendix: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    * 
    * @example
    * MaxCompute
@@ -67,9 +67,9 @@ export class GetApplicationContentsResponseBodyDataContentsResource extends $dar
   defSchema?: string;
   /**
    * @remarks
-   * The resource parsing version, which is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).version.
+   * The resource parsing version is constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).version.
    * 
-   * See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    * 
    * @example
    * v1.0.0
@@ -79,9 +79,9 @@ export class GetApplicationContentsResponseBodyDataContentsResource extends $dar
    * @remarks
    * The resource metadata declaration.
    * 
-   * Note: The metadata is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).resources. A valid resource declaration must include the full-path metadata declaration from level 0 to the validLeaf level.
+   * Note: The metadata is constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).resources. A valid resource declaration must include the full-path metadata declaration from level 0 to the validLeaf level.
    * 
-   * See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * Appendix: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    * 
    * @example
    * "{\\"schema\\":\\"default\\",\\"threeTierModel\\":false,\\"workspace\\":\\"449656\\",\\"project\\":\\"sync_destination\\",\\"table\\":\\"order_table\\",\\"tenant\\":\\"524997424564736\\"}"
@@ -117,18 +117,18 @@ export class GetApplicationContentsResponseBodyDataContents extends $dara.Model 
    * @remarks
    * The list of requested permissions.
    * 
-   * Note: Different levels of resources support different permission application types, all constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).isValidLeaf, accessTypeRestrictions, and authMethodAccessTypes.
+   * Note: Different levels of resources support different types of permission requests, which are uniformly constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).isValidLeaf, accessTypeRestrictions, and authMethodAccessTypes.
    * 
-   * See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * Appendix: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    */
   accessTypes?: string[];
   /**
    * @remarks
-   * The authorization method. Currently, only SEVERLESS_STARROCKS supports specifying the authorization method: ranger or starrocksManager.
+   * The authorization method. Currently, only SEVERLESS_STARROCKS supports specifying the authorization method: ranger and starrocksManager.
    * 
-   * Note: Different resources support different authorization methods, all constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).authMethods.
+   * Note: Different resources support different authorization methods, which are uniformly constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).authMethods.
    * 
-   * See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * Appendix: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    * 
    * @example
    * ranger
@@ -146,9 +146,9 @@ export class GetApplicationContentsResponseBodyDataContents extends $dara.Model 
    * @remarks
    * The resource type.
    * 
-   * Note: The resource types supported for applications are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+   * Note: The resource types supported by the system are constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).name.
    * 
-   * See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * Appendix: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    * 
    * @example
    * MaxCompute
@@ -156,7 +156,7 @@ export class GetApplicationContentsResponseBodyDataContents extends $dara.Model 
   defSchema?: string;
   /**
    * @remarks
-   * The permission expiration date, as a millisecond timestamp.
+   * The expiration date of the permission. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1785835708000
@@ -169,16 +169,16 @@ export class GetApplicationContentsResponseBodyDataContents extends $dara.Model 
   finalAccessTypes?: string[];
   /**
    * @remarks
-   * The grantee description.
+   * The description of the authorization principal. 
    * 
-   * Note: The grantee principal types supported by the system are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).authPrincipal.
+   * Note: The authorization principal types supported by the system are constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).authPrincipal.
    * 
-   * See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * Appendix: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    */
   grantee?: GetApplicationContentsResponseBodyDataContentsGrantee;
   /**
    * @remarks
-   * The unique identifier of the application content.
+   * The unique identifier of the request item.
    * 
    * @example
    * Y9H7AKFmjhWzLYdZNDZA5
@@ -186,7 +186,7 @@ export class GetApplicationContentsResponseBodyDataContents extends $dara.Model 
   id?: string;
   /**
    * @remarks
-   * The approval process instance ID of the submitted application.
+   * The ID of the approval process instance for the request.
    * 
    * @example
    * 777799223
@@ -194,18 +194,18 @@ export class GetApplicationContentsResponseBodyDataContents extends $dara.Model 
   processInstanceId?: string;
   /**
    * @remarks
-   * The resource declaration. The resource description is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).
+   * The resource declaration. The resource description is constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).
    * 
-   * See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * Appendix: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    */
   resource?: GetApplicationContentsResponseBodyDataContentsResource;
   /**
    * @remarks
-   * The minimum-permission resource type.
+   * The least privilege resource type.
    * 
-   * Note: The minimum-permission resource type is constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).resources[*].isValidLeaf being true.
+   * Note: The least privilege resource types are constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).resources[*].isValidLeaf being true.
    * 
-   * See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * Appendix: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    * 
    * @example
    * table
@@ -215,13 +215,13 @@ export class GetApplicationContentsResponseBodyDataContents extends $dara.Model 
    * @remarks
    * The approval status. Valid values:
    * 
-   * - WaitApproval: Pending approval.
-   * - Confirmed: Pending authorization.
-   * - RejectApproval: Approval rejected.
-   * - AuthorizeSucceed: Authorization succeeded.
-   * - AuthorizeFailed: Authorization failed.
-   * - Deleted: Deleted.
-   * - Canceled: Canceled.
+   * - WaitApproval: pending approval
+   * - Confirmed: pending authorization
+   * - RejectApproval: approval rejected
+   * - AuthorizeSucceed: authorization succeeded
+   * - AuthorizeFailed: authorization failed
+   * - Deleted: deleted
+   * - Canceled: canceled
    * 
    * @example
    * Deleted
@@ -305,7 +305,7 @@ export class GetApplicationContentsResponseBodyDataContents extends $dara.Model 
 export class GetApplicationContentsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the application was submitted, as a millisecond timestamp.
+   * The time when the request was submitted. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1779675618000
@@ -313,16 +313,16 @@ export class GetApplicationContentsResponseBodyData extends $dara.Model {
   applicationTime?: number;
   /**
    * @remarks
-   * The list of application contents.
+   * The list of request items.
    */
   contents?: GetApplicationContentsResponseBodyDataContents[];
   /**
    * @remarks
    * The resource type.
    * 
-   * Note: The resource types supported for applications are constrained by [ResourceSchema](https://help.aliyun.com/zh/dataworks/developer-reference/resourceschema-template-instructions).name.
+   * Note: The resource types supported by the system are constrained by [ResourceSchema](https://www.alibabacloud.com/help/en/dataworks/developer-reference/resourceschema-template-instructions).name.
    * 
-   * See also: [ResourceSchema documentation on the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
+   * Appendix: [ResourceSchema documentation for the international site](https://www.alibabacloud.com/help/zh/dataworks/developer-reference/resourceschema-template-instructions)
    * 
    * @example
    * MaxCompute
@@ -338,7 +338,7 @@ export class GetApplicationContentsResponseBodyData extends $dara.Model {
   processInstanceId?: string;
   /**
    * @remarks
-   * The application reason.
+   * The reason for the request.
    * 
    * @example
    * Business requirement
@@ -348,13 +348,13 @@ export class GetApplicationContentsResponseBodyData extends $dara.Model {
    * @remarks
    * The approval status. Valid values:
    * 
-   * - WaitApproval: Pending approval.
-   * - Confirmed: Pending authorization.
-   * - RejectApproval: Approval rejected.
-   * - AuthorizeSucceed: Authorization succeeded.
-   * - AuthorizeFailed: Authorization failed.
-   * - Deleted: Deleted.
-   * - Canceled: Canceled.
+   * - WaitApproval: pending approval
+   * - Confirmed: pending authorization
+   * - RejectApproval: approval rejected
+   * - AuthorizeSucceed: authorization succeeded
+   * - AuthorizeFailed: authorization failed
+   * - Deleted: deleted
+   * - Canceled: canceled
    * 
    * @example
    * WaitApproval
@@ -397,12 +397,12 @@ export class GetApplicationContentsResponseBodyData extends $dara.Model {
 export class GetApplicationContentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The process instance and associated application content.
+   * The process instance and the associated request details.
    */
   data?: GetApplicationContentsResponseBodyData;
   /**
    * @remarks
-   * The request ID, which is used for locating logs and troubleshooting.
+   * The request ID. You can use this ID to locate logs and troubleshoot issues.
    * 
    * @example
    * 34267E2E-0335-1A60-A1F0-ADA530890CBA
