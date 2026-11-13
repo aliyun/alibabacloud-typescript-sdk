@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateExternalAgentResponseBodyDataConfiguredSkillsVersionSelector extends $dara.Model {
   /**
    * @remarks
-   * The version selector type. LABEL selects by tag, and VERSION selects by specific version.
+   * The version selector type. LABEL selects by tag. VERSION selects by specific version.
    * 
    * @example
    * LABEL
@@ -55,7 +55,7 @@ export class CreateExternalAgentResponseBodyDataConfiguredSkills extends $dara.M
   name?: string;
   /**
    * @remarks
-   * The skill source type. REFERENCE references AI Registry, and STATIC is statically provided with the package.
+   * The skill source type. REFERENCE references the AI Registry. STATIC is statically provided with the deployment package.
    * 
    * @example
    * REFERENCE
@@ -63,7 +63,7 @@ export class CreateExternalAgentResponseBodyDataConfiguredSkills extends $dara.M
   sourceType?: string;
   /**
    * @remarks
-   * The legacy compatibility field. Use sourceType and versionSelector for new requests.
+   * The legacy compatibility field. For new requests, use sourceType and versionSelector.
    * 
    * @example
    * 1.0.0
@@ -71,7 +71,7 @@ export class CreateExternalAgentResponseBodyDataConfiguredSkills extends $dara.M
   version?: string;
   /**
    * @remarks
-   * The skill reference version selector, which supports LABEL tags and VERSION specific versions. If omitted, LABEL/latest is used. STATIC sources do not provide a selector.
+   * The skill reference version selector. Supports LABEL tags and VERSION specific versions. Defaults to LABEL/latest if omitted. Selectors are not provided for STATIC sources.
    */
   versionSelector?: CreateExternalAgentResponseBodyDataConfiguredSkillsVersionSelector;
   static names(): { [key: string]: string } {
@@ -104,10 +104,73 @@ export class CreateExternalAgentResponseBodyDataConfiguredSkills extends $dara.M
   }
 }
 
+export class CreateExternalAgentResponseBodyDataEnvironmentCredentialReferences extends $dara.Model {
+  /**
+   * @remarks
+   * Required when a credential reference item is passed. Validated by the backend.
+   * 
+   * @example
+   * cred-example
+   */
+  credentialId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialId: 'credentialId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateExternalAgentResponseBodyDataEnvironment extends $dara.Model {
+  /**
+   * @remarks
+   * This list must be explicitly provided and cannot be null when the environment object is passed. The list is replaced as a whole. If environment is not passed during an update, the original binding is retained. If an empty list is passed or environment is null, the binding is cleared. Only the credential ID is passed, not the actual secret key.
+   */
+  credentialReferences?: CreateExternalAgentResponseBodyDataEnvironmentCredentialReferences[];
+  static names(): { [key: string]: string } {
+    return {
+      credentialReferences: 'credentialReferences',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialReferences: { 'type': 'array', 'itemType': CreateExternalAgentResponseBodyDataEnvironmentCredentialReferences },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.credentialReferences)) {
+      $dara.Model.validateArray(this.credentialReferences);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateExternalAgentResponseBodyDataExternalAgentStatus extends $dara.Model {
   /**
    * @remarks
-   * The heartbeat status. ONLINE indicates that the most recent heartbeat has not exceeded the configured timeout threshold. STALE indicates that the heartbeat has timed out. UNKNOWN indicates that the heartbeat is missing or the format is invalid. Valid values: ONLINE (online), STALE (heartbeat expired), UNKNOWN (unknown).
+   * The heartbeat status. ONLINE indicates that the latest heartbeat is within the configured timeout threshold. STALE indicates that the heartbeat has timed out. UNKNOWN indicates that the heartbeat is missing or the format is invalid. Valid values:
+   * - ONLINE: Online.
+   * - STALE: Heartbeat expired.
+   * - UNKNOWN: Unknown.
    * 
    * @example
    * ONLINE
@@ -115,7 +178,7 @@ export class CreateExternalAgentResponseBodyDataExternalAgentStatus extends $dar
   heartbeatStatus?: string;
   /**
    * @remarks
-   * The time when the managed agent was last active, in RFC 3339 format.
+   * The last active time of the managed agent, in RFC 3339 format.
    * 
    * @example
    * 2026-01-01T00:00:00Z
@@ -123,7 +186,7 @@ export class CreateExternalAgentResponseBodyDataExternalAgentStatus extends $dar
   lastActiveAt?: string;
   /**
    * @remarks
-   * The time of the last heartbeat from the managed agent, in RFC 3339 format.
+   * The time of the last heartbeat reported by the managed agent, in RFC 3339 format.
    * 
    * @example
    * 2026-01-01T00:00:00Z
@@ -177,7 +240,7 @@ export class CreateExternalAgentResponseBodyDataExternalAgentStatus extends $dar
 export class CreateExternalAgentResponseBodyDataModelQuota extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the quota is enabled. This field is not returned if no quota is configured.
+   * Indicates whether the quota is enabled. This parameter is not returned if no quota is configured.
    * 
    * @example
    * true
@@ -185,7 +248,7 @@ export class CreateExternalAgentResponseBodyDataModelQuota extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The quota limit type. Only token is supported.
+   * The quota limit type. Currently, only token is supported.
    * 
    * @example
    * token
@@ -193,7 +256,7 @@ export class CreateExternalAgentResponseBodyDataModelQuota extends $dara.Model {
   limitType?: string;
   /**
    * @remarks
-   * Indicates whether the quota is exceeded in the current period. This field is read-only and returned by the backend.
+   * Indicates whether the quota is exceeded in the current cycle. This parameter is read-only and returned by the backend.
    * 
    * @example
    * false
@@ -209,7 +272,7 @@ export class CreateExternalAgentResponseBodyDataModelQuota extends $dara.Model {
   periodType?: string;
   /**
    * @remarks
-   * The gateway quota rule status. This field is read-only and returned by the backend.
+   * The gateway quota rule status. This parameter is read-only and returned by the backend.
    * 
    * @example
    * ACTIVE
@@ -217,7 +280,7 @@ export class CreateExternalAgentResponseBodyDataModelQuota extends $dara.Model {
   ruleStatus?: string;
   /**
    * @remarks
-   * The maximum number of tokens allowed to be consumed in a single period.
+   * The maximum number of tokens allowed to be consumed in a single cycle.
    * 
    * @example
    * 1000000
@@ -225,7 +288,7 @@ export class CreateExternalAgentResponseBodyDataModelQuota extends $dara.Model {
   usageLimit?: number;
   /**
    * @remarks
-   * The number of tokens consumed in the current period. This field is read-only and returned by the backend.
+   * The number of tokens consumed in the current cycle. This parameter is read-only and returned by the backend.
    * 
    * @example
    * 12345
@@ -283,7 +346,7 @@ export class CreateExternalAgentResponseBodyDataModel extends $dara.Model {
   modelName?: string;
   /**
    * @remarks
-   * The model token quota configuration and usage status for the current period. This field is empty if no quota is configured.
+   * The model token quota configuration and the quota usage status for the current cycle. This parameter is empty if no quota is configured.
    */
   quota?: CreateExternalAgentResponseBodyDataModelQuota;
   static names(): { [key: string]: string } {
@@ -317,7 +380,7 @@ export class CreateExternalAgentResponseBodyDataModel extends $dara.Model {
 export class CreateExternalAgentResponseBodyDataSkillsVersionSelector extends $dara.Model {
   /**
    * @remarks
-   * The version selector type. LABEL selects by tag, and VERSION selects by specific version.
+   * The version selector type. LABEL selects by tag. VERSION selects by specific version.
    * 
    * @example
    * LABEL
@@ -357,7 +420,7 @@ export class CreateExternalAgentResponseBodyDataSkillsVersionSelector extends $d
 export class CreateExternalAgentResponseBodyDataSkills extends $dara.Model {
   /**
    * @remarks
-   * The version applied at runtime. This field is read-only.
+   * The effective runtime version. This field is read-only.
    * 
    * @example
    * 1.0.0
@@ -365,7 +428,7 @@ export class CreateExternalAgentResponseBodyDataSkills extends $dara.Model {
   appliedVersion?: string;
   /**
    * @remarks
-   * Indicates whether the skill is from a fixed template. This field is read-only, and template items cannot be removed.
+   * Specifies whether the skill is from a fixed template. This field is read-only. Template items cannot be removed.
    * 
    * @example
    * false
@@ -389,7 +452,7 @@ export class CreateExternalAgentResponseBodyDataSkills extends $dara.Model {
   resolvedVersion?: string;
   /**
    * @remarks
-   * The skill source type. REFERENCE references AI Registry, and STATIC is statically provided with the package.
+   * The skill source type. REFERENCE references the AI Registry. STATIC is statically provided with the deployment package.
    * 
    * @example
    * REFERENCE
@@ -405,7 +468,7 @@ export class CreateExternalAgentResponseBodyDataSkills extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The skill reference version selector, which supports LABEL tags and VERSION specific versions. If omitted, LABEL/latest is used. STATIC sources do not provide a selector.
+   * The skill reference version selector. Supports LABEL tags and VERSION specific versions. Defaults to LABEL/latest if omitted. Selectors are not provided for STATIC sources.
    */
   versionSelector?: CreateExternalAgentResponseBodyDataSkillsVersionSelector;
   static names(): { [key: string]: string } {
@@ -447,7 +510,7 @@ export class CreateExternalAgentResponseBodyDataSkills extends $dara.Model {
 export class CreateExternalAgentResponseBodyDataTemplateAiRegistry extends $dara.Model {
   /**
    * @remarks
-   * The name of the template in AI Registry.
+   * The name of the template in the AI Registry.
    * 
    * This parameter is required.
    * 
@@ -457,7 +520,7 @@ export class CreateExternalAgentResponseBodyDataTemplateAiRegistry extends $dara
   name?: string;
   /**
    * @remarks
-   * The version of the template in AI Registry.
+   * The version of the template in the AI Registry.
    * 
    * This parameter is required.
    * 
@@ -610,12 +673,17 @@ export class CreateExternalAgentResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
+   * The credential binding configuration.
+   */
+  environment?: CreateExternalAgentResponseBodyDataEnvironment;
+  /**
+   * @remarks
    * The runtime status information reported by the managed agent.
    */
   externalAgentStatus?: CreateExternalAgentResponseBodyDataExternalAgentStatus;
   /**
    * @remarks
-   * The agent instructions, which are used to guide the behavior of the agent.
+   * The agent instruction, used to guide the behavior of the agent.
    * 
    * @example
    * You are a code review assistant
@@ -631,13 +699,7 @@ export class CreateExternalAgentResponseBodyData extends $dara.Model {
   latestSpecVersion?: number;
   /**
    * @remarks
-   * The processing status of the latest specification version. Valid values:
-   * - pending: Pending.
-   * - processing: Processing.
-   * - waiting_retry: Waiting for retry.
-   * - succeeded: Succeeded.
-   * - failed: Failed.
-   * - superseded: Superseded by a new version.
+   * The processing status of the latest specification version. Valid values: pending (Pending), processing (Processing), waiting_retry (Waiting for retry), succeeded (Succeeded), failed (Failed), and superseded (Superseded by a new version).
    * 
    * @example
    * pending
@@ -650,7 +712,7 @@ export class CreateExternalAgentResponseBodyData extends $dara.Model {
   model?: CreateExternalAgentResponseBodyDataModel;
   /**
    * @remarks
-   * The source of the model configuration. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model, and the model parameter cannot be passed at the same time. Valid values: PLATFORM (platform model) and RUNTIME (runtime model).
+   * The source of the model configuration. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model itself, and the model parameter cannot be passed at the same time. Valid values: PLATFORM (platform model) and RUNTIME (runtime model).
    * 
    * @example
    * PLATFORM
@@ -690,7 +752,7 @@ export class CreateExternalAgentResponseBodyData extends $dara.Model {
    * The status of the managed agent. Valid values:
    * - Creating: The agent is being created.
    * - Running: The agent is running.
-   * - Failed: The operation failed.
+   * - Failed: The agent failed.
    * - Updating: The agent is being updated.
    * - Deleting: The agent is being deleted.
    * - Deleted: The agent is deleted.
@@ -733,6 +795,7 @@ export class CreateExternalAgentResponseBodyData extends $dara.Model {
       createdAt: 'createdAt',
       deployType: 'deployType',
       description: 'description',
+      environment: 'environment',
       externalAgentStatus: 'externalAgentStatus',
       instruction: 'instruction',
       latestSpecVersion: 'latestSpecVersion',
@@ -759,6 +822,7 @@ export class CreateExternalAgentResponseBodyData extends $dara.Model {
       createdAt: 'string',
       deployType: 'string',
       description: 'string',
+      environment: CreateExternalAgentResponseBodyDataEnvironment,
       externalAgentStatus: CreateExternalAgentResponseBodyDataExternalAgentStatus,
       instruction: 'string',
       latestSpecVersion: 'number',
@@ -780,6 +844,9 @@ export class CreateExternalAgentResponseBodyData extends $dara.Model {
   validate() {
     if(Array.isArray(this.configuredSkills)) {
       $dara.Model.validateArray(this.configuredSkills);
+    }
+    if(this.environment && typeof (this.environment as any).validate === 'function') {
+      (this.environment as any).validate();
     }
     if(this.externalAgentStatus && typeof (this.externalAgentStatus as any).validate === 'function') {
       (this.externalAgentStatus as any).validate();
@@ -807,7 +874,7 @@ export class CreateExternalAgentResponseBodyData extends $dara.Model {
 export class CreateExternalAgentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. The value is SUCCESS if the request is successful.
+   * The business status code. A value of SUCCESS indicates success.
    * 
    * @example
    * SUCCESS
@@ -820,7 +887,7 @@ export class CreateExternalAgentResponseBody extends $dara.Model {
   data?: CreateExternalAgentResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code. The value is 200 if the request is successful.
+   * The HTTP status code. A value of 200 indicates success.
    * 
    * @example
    * 200

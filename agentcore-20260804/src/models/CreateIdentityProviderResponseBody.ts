@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIdentityProviderResponseBodyDataConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Valid values: HTTP-Redirect or HTTP-POST. Required for manual entry. Queries return the short name.
+   * HTTP-Redirect or HTTP-POST. Required for manual entry. Queries return the short name.
    * 
    * @example
    * HTTP-Redirect
@@ -13,7 +13,7 @@ export class CreateIdentityProviderResponseBodyDataConfiguration extends $dara.M
   bindingType?: string;
   /**
    * @remarks
-   * Required for manual entry. It must be non-empty and contain a maximum of 2,048 characters. It cannot be changed after configuration. It is different from the Entity ID of the service provider (SP).
+   * Required for manual entry. It must be non-empty and contain a maximum of 2,048 characters. It cannot be changed after configuration. It is different from the local entity ID queried by the service provider (SP).
    * 
    * @example
    * https://idp.example.com/entity
@@ -29,7 +29,7 @@ export class CreateIdentityProviderResponseBodyDataConfiguration extends $dara.M
   loginUrl?: string;
   /**
    * @remarks
-   * The actual switch value. Valid values: Enabled or Disabled. It is not equivalent to the expected loginEnabled value saved in the access control (AC).
+   * The actual switch value, which is Enabled or Disabled. It is not equivalent to the expected loginEnabled value saved in the access configuration.
    * 
    * @example
    * Enabled
@@ -62,10 +62,143 @@ export class CreateIdentityProviderResponseBodyDataConfiguration extends $dara.M
   }
 }
 
+export class CreateIdentityProviderResponseBodyDataOidc extends $dara.Model {
+  /**
+   * @remarks
+   * The absolute HTTPS URL required in manual entry mode. Do not specify this field in discovery mode.
+   * 
+   * @example
+   * https://idp.example.com/authorize
+   */
+  authorizationEndpoint?: string;
+  /**
+   * @remarks
+   * The default value is client_secret_post. If the value is none, PKCE must be enabled.
+   * 
+   * @example
+   * client_secret_post
+   */
+  clientAuthMethod?: string;
+  /**
+   * @remarks
+   * The client ID registered in the external IdP, which is different from the Matrix client. It cannot be replaced in place after configuration.
+   * 
+   * @example
+   * example-client
+   */
+  clientId?: string;
+  /**
+   * @remarks
+   * The absolute HTTPS discovery endpoint. It is mutually exclusive with manually entered endpoints.
+   * 
+   * @example
+   * https://idp.example.com/.well-known/openid-configuration
+   */
+  discoveryEndpoint?: string;
+  /**
+   * @remarks
+   * The absolute HTTPS issuer of the external IdP. It cannot be replaced in place after configuration.
+   * 
+   * @example
+   * https://idp.example.com
+   */
+  issuer?: string;
+  /**
+   * @remarks
+   * The absolute HTTPS URL required in manual entry mode. Do not specify this field in discovery mode.
+   * 
+   * @example
+   * https://idp.example.com/jwks
+   */
+  jwksUri?: string;
+  /**
+   * @remarks
+   * Specifies whether PKCE is enabled. Default value: true. This parameter must be set to true when client authentication is not used.
+   * 
+   * @example
+   * true
+   */
+  pkceRequired?: boolean;
+  /**
+   * @remarks
+   * An array of strings that must include openid. Default values: openid, profile, and email.
+   * 
+   * @example
+   * ["openid","profile","email"]
+   */
+  scopes?: string[];
+  /**
+   * @remarks
+   * The name of the claim in the ID token that is used to match the SCIM externalId. If omitted during creation, the default value sub is used. If omitted during an update, the saved value is retained. For Azure, you can specify oid. The value must be non-empty and contain no whitespace characters. When you query oidc, the saved value is returned. When you query oidcConfiguration, the actual upstream value is returned, which may be empty.
+   * 
+   * @example
+   * oid
+   */
+  ssoMappingClaim?: string;
+  /**
+   * @remarks
+   * The absolute HTTPS URL required in manual entry mode. Do not specify this field in discovery mode.
+   * 
+   * @example
+   * https://idp.example.com/token
+   */
+  tokenEndpoint?: string;
+  /**
+   * @remarks
+   * The optional absolute HTTPS URL for manual mode. Leave this field empty in Discovery mode.
+   * 
+   * @example
+   * https://idp.example.com/userinfo
+   */
+  userinfoEndpoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationEndpoint: 'authorizationEndpoint',
+      clientAuthMethod: 'clientAuthMethod',
+      clientId: 'clientId',
+      discoveryEndpoint: 'discoveryEndpoint',
+      issuer: 'issuer',
+      jwksUri: 'jwksUri',
+      pkceRequired: 'pkceRequired',
+      scopes: 'scopes',
+      ssoMappingClaim: 'ssoMappingClaim',
+      tokenEndpoint: 'tokenEndpoint',
+      userinfoEndpoint: 'userinfoEndpoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationEndpoint: 'string',
+      clientAuthMethod: 'string',
+      clientId: 'string',
+      discoveryEndpoint: 'string',
+      issuer: 'string',
+      jwksUri: 'string',
+      pkceRequired: 'boolean',
+      scopes: { 'type': 'array', 'itemType': 'string' },
+      ssoMappingClaim: 'string',
+      tokenEndpoint: 'string',
+      userinfoEndpoint: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.scopes)) {
+      $dara.Model.validateArray(this.scopes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateIdentityProviderResponseBodyDataSaml extends $dara.Model {
   /**
    * @remarks
-   * Valid values: HTTP-Redirect or HTTP-POST. Required for manual entry. Queries return the short name.
+   * HTTP-Redirect or HTTP-POST. Required for manual entry. Queries return the short name.
    * 
    * @example
    * HTTP-Redirect
@@ -73,7 +206,7 @@ export class CreateIdentityProviderResponseBodyDataSaml extends $dara.Model {
   bindingType?: string;
   /**
    * @remarks
-   * Required for manual entry. It must be non-empty and contain a maximum of 2,048 characters. It cannot be changed after configuration. It is different from the Entity ID of the service provider (SP).
+   * Required for manual entry. It must be non-empty and contain a maximum of 2,048 characters. It cannot be changed after configuration. It is different from the local entity ID queried by the service provider (SP).
    * 
    * @example
    * https://idp.example.com/entity
@@ -136,7 +269,10 @@ export class CreateIdentityProviderResponseBodyDataSyncScope extends $dara.Model
   departmentIds?: string[];
   /**
    * @remarks
-   * AllAuthorized: the full authorization scope, which is limited by the application address book authorization. SelectedDepartments: the selected departments and all their sub-departments. When explicitly submitting syncScope, you must provide a valid mode, which is verified by the backend.
+   * Valid values:
+   * - AllAuthorized: the entire authorized scope, which is limited by the application address book authorization.
+   * - SelectedDepartments: the selected departments and all their sub-departments.
+   * When explicitly submitting syncScope, you must provide a valid mode, which is verified by the backend.
    * 
    * @example
    * SelectedDepartments
@@ -189,6 +325,11 @@ export class CreateIdentityProviderResponseBodyData extends $dara.Model {
   loginEnabled?: boolean;
   /**
    * @remarks
+   * The security summary of the expected configuration. It does not contain credentials. The original SAML fields and meanings are retained.
+   */
+  oidc?: CreateIdentityProviderResponseBodyDataOidc;
+  /**
+   * @remarks
    * Currently, only SAML is supported. This field may not be returned if no valid configuration is saved. Initialization with an OIDC placeholder is not supported.
    * 
    * @example
@@ -197,21 +338,21 @@ export class CreateIdentityProviderResponseBodyData extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The input supports either XML or complete manual entry. Queries return the standardized configuration and do not echo the original XML. This field can be omitted if it is not configured.
+   * The input supports either XML or full manual entry. Queries return the standardized configuration and do not echo the original XML. This field can be omitted if it is not configured.
    */
   saml?: CreateIdentityProviderResponseBodyDataSaml;
   /**
    * @remarks
    * The binding status. Valid values:
-   * - CONFIGURED: The configuration is accepted and waiting for the user pool to be activated.
-   * - SYNCING: Organization members are being synchronized.
-   * - SYNCED: The synchronization of organization members is complete.
-   * - READY: The binding is in effect.
-   * - SYNC_FAILED: The synchronization of organization members failed.
-   * - UPDATING: The configuration is being updated.
-   * - UPDATE_FAILED: The configuration update failed.
-   * - DISCONNECTING: The binding is being disconnected.
-   * - DISCONNECT_FAILED: The disconnection failed.
+   * - CONFIGURED: configuration accepted and waiting for user pool activation
+   * - SYNCING: synchronizing organization members
+   * - SYNCED: organization member synchronization completed
+   * - READY: binding in effect
+   * - SYNC_FAILED: organization member synchronization failed
+   * - UPDATING: updating configuration
+   * - UPDATE_FAILED: configuration update failed
+   * - DISCONNECTING: disconnecting the binding
+   * - DISCONNECT_FAILED: disconnection failed
    * 
    * @example
    * READY
@@ -224,7 +365,7 @@ export class CreateIdentityProviderResponseBodyData extends $dara.Model {
   syncEnabled?: boolean;
   /**
    * @remarks
-   * Follows the department-based synchronization scope definition. If omitted during creation, the default value is AllAuthorized, and the initial vendor synchronization is determined by syncOnBind. If omitted or null during an update, the original value is retained. Updating and saving the scope does not automatically trigger full synchronization.
+   * Uses the department-based synchronization scope definition. If omitted during creation, the default value is AllAuthorized, and the initial vendor synchronization is determined by syncOnBind. If omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically trigger full synchronization.
    */
   syncScope?: CreateIdentityProviderResponseBodyDataSyncScope;
   /**
@@ -240,6 +381,7 @@ export class CreateIdentityProviderResponseBodyData extends $dara.Model {
       configuration: 'configuration',
       identityProviderType: 'identityProviderType',
       loginEnabled: 'loginEnabled',
+      oidc: 'oidc',
       protocol: 'protocol',
       saml: 'saml',
       status: 'status',
@@ -254,6 +396,7 @@ export class CreateIdentityProviderResponseBodyData extends $dara.Model {
       configuration: CreateIdentityProviderResponseBodyDataConfiguration,
       identityProviderType: 'string',
       loginEnabled: 'boolean',
+      oidc: CreateIdentityProviderResponseBodyDataOidc,
       protocol: 'string',
       saml: CreateIdentityProviderResponseBodyDataSaml,
       status: 'string',
@@ -266,6 +409,9 @@ export class CreateIdentityProviderResponseBodyData extends $dara.Model {
   validate() {
     if(this.configuration && typeof (this.configuration as any).validate === 'function') {
       (this.configuration as any).validate();
+    }
+    if(this.oidc && typeof (this.oidc as any).validate === 'function') {
+      (this.oidc as any).validate();
     }
     if(this.saml && typeof (this.saml as any).validate === 'function') {
       (this.saml as any).validate();

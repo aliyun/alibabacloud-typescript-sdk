@@ -23,9 +23,50 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.CreateExternalAgentRequest = exports.CreateExternalAgentRequestBody = exports.CreateExternalAgentRequestBodyTools = exports.CreateExternalAgentRequestBodyTemplate = exports.CreateExternalAgentRequestBodyTemplateAiRegistry = exports.CreateExternalAgentRequestBodySkills = exports.CreateExternalAgentRequestBodySkillsVersionSelector = exports.CreateExternalAgentRequestBodyModel = exports.CreateExternalAgentRequestBodyModelQuota = void 0;
+exports.CreateExternalAgentRequest = exports.CreateExternalAgentRequestBody = exports.CreateExternalAgentRequestBodyTools = exports.CreateExternalAgentRequestBodyTemplate = exports.CreateExternalAgentRequestBodyTemplateAiRegistry = exports.CreateExternalAgentRequestBodySkills = exports.CreateExternalAgentRequestBodySkillsVersionSelector = exports.CreateExternalAgentRequestBodyModel = exports.CreateExternalAgentRequestBodyModelQuota = exports.CreateExternalAgentRequestBodyEnvironment = exports.CreateExternalAgentRequestBodyEnvironmentCredentialReferences = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
+class CreateExternalAgentRequestBodyEnvironmentCredentialReferences extends $dara.Model {
+    static names() {
+        return {
+            credentialId: 'credentialId',
+        };
+    }
+    static types() {
+        return {
+            credentialId: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateExternalAgentRequestBodyEnvironmentCredentialReferences = CreateExternalAgentRequestBodyEnvironmentCredentialReferences;
+class CreateExternalAgentRequestBodyEnvironment extends $dara.Model {
+    static names() {
+        return {
+            credentialReferences: 'credentialReferences',
+        };
+    }
+    static types() {
+        return {
+            credentialReferences: { 'type': 'array', 'itemType': CreateExternalAgentRequestBodyEnvironmentCredentialReferences },
+        };
+    }
+    validate() {
+        if (Array.isArray(this.credentialReferences)) {
+            $dara.Model.validateArray(this.credentialReferences);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.CreateExternalAgentRequestBodyEnvironment = CreateExternalAgentRequestBodyEnvironment;
 class CreateExternalAgentRequestBodyModelQuota extends $dara.Model {
     static names() {
         return {
@@ -194,6 +235,7 @@ class CreateExternalAgentRequestBody extends $dara.Model {
     static names() {
         return {
             description: 'description',
+            environment: 'environment',
             instruction: 'instruction',
             model: 'model',
             modelSource: 'modelSource',
@@ -206,6 +248,7 @@ class CreateExternalAgentRequestBody extends $dara.Model {
     static types() {
         return {
             description: 'string',
+            environment: CreateExternalAgentRequestBodyEnvironment,
             instruction: 'string',
             model: CreateExternalAgentRequestBodyModel,
             modelSource: 'string',
@@ -216,6 +259,9 @@ class CreateExternalAgentRequestBody extends $dara.Model {
         };
     }
     validate() {
+        if (this.environment && typeof this.environment.validate === 'function') {
+            this.environment.validate();
+        }
         if (this.model && typeof this.model.validate === 'function') {
             this.model.validate();
         }

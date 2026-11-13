@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpdateExternalAgentResponseBody = exports.UpdateExternalAgentResponseBodyData = exports.UpdateExternalAgentResponseBodyDataTools = exports.UpdateExternalAgentResponseBodyDataTemplate = exports.UpdateExternalAgentResponseBodyDataTemplateAiRegistry = exports.UpdateExternalAgentResponseBodyDataSkills = exports.UpdateExternalAgentResponseBodyDataSkillsVersionSelector = exports.UpdateExternalAgentResponseBodyDataModel = exports.UpdateExternalAgentResponseBodyDataModelQuota = exports.UpdateExternalAgentResponseBodyDataExternalAgentStatus = exports.UpdateExternalAgentResponseBodyDataConfiguredSkills = exports.UpdateExternalAgentResponseBodyDataConfiguredSkillsVersionSelector = void 0;
+exports.UpdateExternalAgentResponseBody = exports.UpdateExternalAgentResponseBodyData = exports.UpdateExternalAgentResponseBodyDataTools = exports.UpdateExternalAgentResponseBodyDataTemplate = exports.UpdateExternalAgentResponseBodyDataTemplateAiRegistry = exports.UpdateExternalAgentResponseBodyDataSkills = exports.UpdateExternalAgentResponseBodyDataSkillsVersionSelector = exports.UpdateExternalAgentResponseBodyDataModel = exports.UpdateExternalAgentResponseBodyDataModelQuota = exports.UpdateExternalAgentResponseBodyDataExternalAgentStatus = exports.UpdateExternalAgentResponseBodyDataEnvironment = exports.UpdateExternalAgentResponseBodyDataEnvironmentCredentialReferences = exports.UpdateExternalAgentResponseBodyDataConfiguredSkills = exports.UpdateExternalAgentResponseBodyDataConfiguredSkillsVersionSelector = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
 class UpdateExternalAgentResponseBodyDataConfiguredSkillsVersionSelector extends $dara.Model {
@@ -75,6 +75,47 @@ class UpdateExternalAgentResponseBodyDataConfiguredSkills extends $dara.Model {
     }
 }
 exports.UpdateExternalAgentResponseBodyDataConfiguredSkills = UpdateExternalAgentResponseBodyDataConfiguredSkills;
+class UpdateExternalAgentResponseBodyDataEnvironmentCredentialReferences extends $dara.Model {
+    static names() {
+        return {
+            credentialId: 'credentialId',
+        };
+    }
+    static types() {
+        return {
+            credentialId: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.UpdateExternalAgentResponseBodyDataEnvironmentCredentialReferences = UpdateExternalAgentResponseBodyDataEnvironmentCredentialReferences;
+class UpdateExternalAgentResponseBodyDataEnvironment extends $dara.Model {
+    static names() {
+        return {
+            credentialReferences: 'credentialReferences',
+        };
+    }
+    static types() {
+        return {
+            credentialReferences: { 'type': 'array', 'itemType': UpdateExternalAgentResponseBodyDataEnvironmentCredentialReferences },
+        };
+    }
+    validate() {
+        if (Array.isArray(this.credentialReferences)) {
+            $dara.Model.validateArray(this.credentialReferences);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.UpdateExternalAgentResponseBodyDataEnvironment = UpdateExternalAgentResponseBodyDataEnvironment;
 class UpdateExternalAgentResponseBodyDataExternalAgentStatus extends $dara.Model {
     static names() {
         return {
@@ -287,6 +328,7 @@ class UpdateExternalAgentResponseBodyData extends $dara.Model {
             createdAt: 'createdAt',
             deployType: 'deployType',
             description: 'description',
+            environment: 'environment',
             externalAgentStatus: 'externalAgentStatus',
             instruction: 'instruction',
             latestSpecVersion: 'latestSpecVersion',
@@ -312,6 +354,7 @@ class UpdateExternalAgentResponseBodyData extends $dara.Model {
             createdAt: 'string',
             deployType: 'string',
             description: 'string',
+            environment: UpdateExternalAgentResponseBodyDataEnvironment,
             externalAgentStatus: UpdateExternalAgentResponseBodyDataExternalAgentStatus,
             instruction: 'string',
             latestSpecVersion: 'number',
@@ -332,6 +375,9 @@ class UpdateExternalAgentResponseBodyData extends $dara.Model {
     validate() {
         if (Array.isArray(this.configuredSkills)) {
             $dara.Model.validateArray(this.configuredSkills);
+        }
+        if (this.environment && typeof this.environment.validate === 'function') {
+            this.environment.validate();
         }
         if (this.externalAgentStatus && typeof this.externalAgentStatus.validate === 'function') {
             this.externalAgentStatus.validate();

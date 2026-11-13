@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpdateIdentityProviderResponseBody = exports.UpdateIdentityProviderResponseBodyData = exports.UpdateIdentityProviderResponseBodyDataSyncScope = exports.UpdateIdentityProviderResponseBodyDataSaml = exports.UpdateIdentityProviderResponseBodyDataConfiguration = void 0;
+exports.UpdateIdentityProviderResponseBody = exports.UpdateIdentityProviderResponseBodyData = exports.UpdateIdentityProviderResponseBodyDataSyncScope = exports.UpdateIdentityProviderResponseBodyDataSaml = exports.UpdateIdentityProviderResponseBodyDataOidc = exports.UpdateIdentityProviderResponseBodyDataConfiguration = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
 class UpdateIdentityProviderResponseBodyDataConfiguration extends $dara.Model {
@@ -51,6 +51,48 @@ class UpdateIdentityProviderResponseBodyDataConfiguration extends $dara.Model {
     }
 }
 exports.UpdateIdentityProviderResponseBodyDataConfiguration = UpdateIdentityProviderResponseBodyDataConfiguration;
+class UpdateIdentityProviderResponseBodyDataOidc extends $dara.Model {
+    static names() {
+        return {
+            authorizationEndpoint: 'authorizationEndpoint',
+            clientAuthMethod: 'clientAuthMethod',
+            clientId: 'clientId',
+            discoveryEndpoint: 'discoveryEndpoint',
+            issuer: 'issuer',
+            jwksUri: 'jwksUri',
+            pkceRequired: 'pkceRequired',
+            scopes: 'scopes',
+            ssoMappingClaim: 'ssoMappingClaim',
+            tokenEndpoint: 'tokenEndpoint',
+            userinfoEndpoint: 'userinfoEndpoint',
+        };
+    }
+    static types() {
+        return {
+            authorizationEndpoint: 'string',
+            clientAuthMethod: 'string',
+            clientId: 'string',
+            discoveryEndpoint: 'string',
+            issuer: 'string',
+            jwksUri: 'string',
+            pkceRequired: 'boolean',
+            scopes: { 'type': 'array', 'itemType': 'string' },
+            ssoMappingClaim: 'string',
+            tokenEndpoint: 'string',
+            userinfoEndpoint: 'string',
+        };
+    }
+    validate() {
+        if (Array.isArray(this.scopes)) {
+            $dara.Model.validateArray(this.scopes);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.UpdateIdentityProviderResponseBodyDataOidc = UpdateIdentityProviderResponseBodyDataOidc;
 class UpdateIdentityProviderResponseBodyDataSaml extends $dara.Model {
     static names() {
         return {
@@ -109,6 +151,7 @@ class UpdateIdentityProviderResponseBodyData extends $dara.Model {
             configuration: 'configuration',
             identityProviderType: 'identityProviderType',
             loginEnabled: 'loginEnabled',
+            oidc: 'oidc',
             protocol: 'protocol',
             saml: 'saml',
             status: 'status',
@@ -122,6 +165,7 @@ class UpdateIdentityProviderResponseBodyData extends $dara.Model {
             configuration: UpdateIdentityProviderResponseBodyDataConfiguration,
             identityProviderType: 'string',
             loginEnabled: 'boolean',
+            oidc: UpdateIdentityProviderResponseBodyDataOidc,
             protocol: 'string',
             saml: UpdateIdentityProviderResponseBodyDataSaml,
             status: 'string',
@@ -133,6 +177,9 @@ class UpdateIdentityProviderResponseBodyData extends $dara.Model {
     validate() {
         if (this.configuration && typeof this.configuration.validate === 'function') {
             this.configuration.validate();
+        }
+        if (this.oidc && typeof this.oidc.validate === 'function') {
+            this.oidc.validate();
         }
         if (this.saml && typeof this.saml.validate === 'function') {
             this.saml.validate();

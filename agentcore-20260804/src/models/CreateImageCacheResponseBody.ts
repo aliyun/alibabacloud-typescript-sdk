@@ -92,7 +92,7 @@ export class CreateImageCacheResponseBodyData extends $dara.Model {
   canDelete?: boolean;
   /**
    * @remarks
-   * The time when the resource was created. The time follows the RFC 3339 format. The trailing Z in the example indicates the UTC time zone.
+   * The time when the resource was created. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
    * 
    * This parameter is required.
    * 
@@ -155,7 +155,7 @@ export class CreateImageCacheResponseBodyData extends $dara.Model {
   registry?: string;
   /**
    * @remarks
-   * The repository path of the source image.
+   * The path of the source image repository.
    * 
    * This parameter is required.
    * 
@@ -293,7 +293,7 @@ export class CreateImageCacheResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. A successful request does not mean that the cache creation is complete.
+   * Indicates whether the request is successful. This does not mean that the cache creation is complete.
    * 
    * This parameter is required.
    * 

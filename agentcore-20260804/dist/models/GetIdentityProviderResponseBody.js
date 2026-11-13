@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GetIdentityProviderResponseBody = exports.GetIdentityProviderResponseBodyData = exports.GetIdentityProviderResponseBodyDataSyncScope = exports.GetIdentityProviderResponseBodyDataSaml = exports.GetIdentityProviderResponseBodyDataMetadata = exports.GetIdentityProviderResponseBodyDataConfiguration = void 0;
+exports.GetIdentityProviderResponseBody = exports.GetIdentityProviderResponseBodyData = exports.GetIdentityProviderResponseBodyDataSyncScope = exports.GetIdentityProviderResponseBodyDataSaml = exports.GetIdentityProviderResponseBodyDataOidcConfiguration = exports.GetIdentityProviderResponseBodyDataOidc = exports.GetIdentityProviderResponseBodyDataMetadata = exports.GetIdentityProviderResponseBodyDataConfiguration = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
 class GetIdentityProviderResponseBodyDataConfiguration extends $dara.Model {
@@ -82,6 +82,96 @@ class GetIdentityProviderResponseBodyDataMetadata extends $dara.Model {
     }
 }
 exports.GetIdentityProviderResponseBodyDataMetadata = GetIdentityProviderResponseBodyDataMetadata;
+class GetIdentityProviderResponseBodyDataOidc extends $dara.Model {
+    static names() {
+        return {
+            authorizationEndpoint: 'authorizationEndpoint',
+            clientAuthMethod: 'clientAuthMethod',
+            clientId: 'clientId',
+            discoveryEndpoint: 'discoveryEndpoint',
+            issuer: 'issuer',
+            jwksUri: 'jwksUri',
+            pkceRequired: 'pkceRequired',
+            scopes: 'scopes',
+            ssoMappingClaim: 'ssoMappingClaim',
+            tokenEndpoint: 'tokenEndpoint',
+            userinfoEndpoint: 'userinfoEndpoint',
+        };
+    }
+    static types() {
+        return {
+            authorizationEndpoint: 'string',
+            clientAuthMethod: 'string',
+            clientId: 'string',
+            discoveryEndpoint: 'string',
+            issuer: 'string',
+            jwksUri: 'string',
+            pkceRequired: 'boolean',
+            scopes: { 'type': 'array', 'itemType': 'string' },
+            ssoMappingClaim: 'string',
+            tokenEndpoint: 'string',
+            userinfoEndpoint: 'string',
+        };
+    }
+    validate() {
+        if (Array.isArray(this.scopes)) {
+            $dara.Model.validateArray(this.scopes);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.GetIdentityProviderResponseBodyDataOidc = GetIdentityProviderResponseBodyDataOidc;
+class GetIdentityProviderResponseBodyDataOidcConfiguration extends $dara.Model {
+    static names() {
+        return {
+            authorizationEndpoint: 'authorizationEndpoint',
+            clientAuthMethod: 'clientAuthMethod',
+            clientId: 'clientId',
+            discoveryEndpoint: 'discoveryEndpoint',
+            hasClientPrivateKey: 'hasClientPrivateKey',
+            hasClientSecret: 'hasClientSecret',
+            issuer: 'issuer',
+            jwksUri: 'jwksUri',
+            pkceRequired: 'pkceRequired',
+            scopes: 'scopes',
+            ssoMappingClaim: 'ssoMappingClaim',
+            ssoStatus: 'ssoStatus',
+            tokenEndpoint: 'tokenEndpoint',
+            userinfoEndpoint: 'userinfoEndpoint',
+        };
+    }
+    static types() {
+        return {
+            authorizationEndpoint: 'string',
+            clientAuthMethod: 'string',
+            clientId: 'string',
+            discoveryEndpoint: 'string',
+            hasClientPrivateKey: 'boolean',
+            hasClientSecret: 'boolean',
+            issuer: 'string',
+            jwksUri: 'string',
+            pkceRequired: 'boolean',
+            scopes: { 'type': 'array', 'itemType': 'string' },
+            ssoMappingClaim: 'string',
+            ssoStatus: 'string',
+            tokenEndpoint: 'string',
+            userinfoEndpoint: 'string',
+        };
+    }
+    validate() {
+        if (Array.isArray(this.scopes)) {
+            $dara.Model.validateArray(this.scopes);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.GetIdentityProviderResponseBodyDataOidcConfiguration = GetIdentityProviderResponseBodyDataOidcConfiguration;
 class GetIdentityProviderResponseBodyDataSaml extends $dara.Model {
     static names() {
         return {
@@ -144,6 +234,8 @@ class GetIdentityProviderResponseBodyData extends $dara.Model {
             loginCallbackUrl: 'loginCallbackUrl',
             loginEnabled: 'loginEnabled',
             metadata: 'metadata',
+            oidc: 'oidc',
+            oidcConfiguration: 'oidcConfiguration',
             protocol: 'protocol',
             saml: 'saml',
             status: 'status',
@@ -162,6 +254,8 @@ class GetIdentityProviderResponseBodyData extends $dara.Model {
             loginCallbackUrl: 'string',
             loginEnabled: 'boolean',
             metadata: GetIdentityProviderResponseBodyDataMetadata,
+            oidc: GetIdentityProviderResponseBodyDataOidc,
+            oidcConfiguration: GetIdentityProviderResponseBodyDataOidcConfiguration,
             protocol: 'string',
             saml: GetIdentityProviderResponseBodyDataSaml,
             status: 'string',
@@ -177,6 +271,12 @@ class GetIdentityProviderResponseBodyData extends $dara.Model {
         }
         if (this.metadata && typeof this.metadata.validate === 'function') {
             this.metadata.validate();
+        }
+        if (this.oidc && typeof this.oidc.validate === 'function') {
+            this.oidc.validate();
+        }
+        if (this.oidcConfiguration && typeof this.oidcConfiguration.validate === 'function') {
+            this.oidcConfiguration.validate();
         }
         if (this.saml && typeof this.saml.validate === 'function') {
             this.saml.validate();

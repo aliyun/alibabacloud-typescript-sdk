@@ -17,7 +17,7 @@ export declare class ListImageCachesResponseBodyItemsError extends $dara.Model {
      * This parameter is required.
      *
      * @example
-     * Image cache creation failed. Try again
+     * Image cache creation failed. Please try again
      */
     message?: string;
     static names(): {
@@ -44,7 +44,7 @@ export declare class ListImageCachesResponseBodyItems extends $dara.Model {
     acrInstanceId?: string;
     /**
      * @remarks
-     * The number of agents using the cache.
+     * The number of agents that use the cache.
      *
      * This parameter is required.
      *
@@ -77,7 +77,7 @@ export declare class ListImageCachesResponseBodyItems extends $dara.Model {
     canDelete?: boolean;
     /**
      * @remarks
-     * The resource creation time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
+     * The resource creation time. The time follows the RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
      *
      * This parameter is required.
      *
@@ -212,14 +212,14 @@ export declare class ListImageCachesResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The records on the current page. An empty array is returned if no matching items are found.
+     * The records on the current page. This is an empty array if no matching items are found.
      *
      * This parameter is required.
      */
     items?: ListImageCachesResponseBodyItems[];
     /**
      * @remarks
-     * The actual page size used for this request, which is not the number of items on the current page.
+     * The actual page size used for this request, not the number of items on this page.
      *
      * This parameter is required.
      *
@@ -249,7 +249,7 @@ export declare class ListImageCachesResponseBody extends $dara.Model {
     nextToken?: string;
     /**
      * @remarks
-     * The request ID, which is used for troubleshooting.
+     * The request ID used for troubleshooting.
      *
      * This parameter is required.
      *
@@ -269,7 +269,7 @@ export declare class ListImageCachesResponseBody extends $dara.Model {
     success?: boolean;
     /**
      * @remarks
-     * The total number of records under the current filter conditions. Do not use this value to determine whether the traversal is complete.
+     * The total number of records that match the current filter conditions. This value is not used to determine whether the traversal is complete.
      *
      * This parameter is required.
      *

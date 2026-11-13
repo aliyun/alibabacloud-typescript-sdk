@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class GetImageCacheResponseBodyDataError extends $dara.Model {
     /**
      * @remarks
-     * The error code for creation failure.
+     * The error code for the creation failure.
      *
      * This parameter is required.
      *
@@ -17,7 +17,7 @@ export declare class GetImageCacheResponseBodyDataError extends $dara.Model {
      * This parameter is required.
      *
      * @example
-     * Image cache creation failed. Try again
+     * Image cache creation failed. Please try again
      */
     message?: string;
     static names(): {
@@ -77,7 +77,7 @@ export declare class GetImageCacheResponseBodyData extends $dara.Model {
     canDelete?: boolean;
     /**
      * @remarks
-     * The resource creation time. The format is RFC 3339. The Z at the end of the example indicates the UTC time zone.
+     * The resource creation time. It uses the RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
      *
      * This parameter is required.
      *
@@ -87,7 +87,7 @@ export declare class GetImageCacheResponseBodyData extends $dara.Model {
     createdAt?: string;
     /**
      * @remarks
-     * The reason for blocking deletion.
+     * The reason why deletion is blocked.
      *
      * This parameter is required.
      *
@@ -110,7 +110,7 @@ export declare class GetImageCacheResponseBodyData extends $dara.Model {
     digest?: string;
     /**
      * @remarks
-     * The cache failure reason.
+     * The reason for the cache failure.
      *
      * This parameter is required.
      *
@@ -202,7 +202,7 @@ export declare class GetImageCacheResponseBody extends $dara.Model {
     code?: string;
     /**
      * @remarks
-     * The image cache details.
+     * The query result of the image cache details.
      *
      * This parameter is required.
      */
@@ -229,7 +229,7 @@ export declare class GetImageCacheResponseBody extends $dara.Model {
     message?: string;
     /**
      * @remarks
-     * The request ID, used for troubleshooting.
+     * The request ID, which is used for troubleshooting.
      *
      * This parameter is required.
      *
@@ -239,7 +239,7 @@ export declare class GetImageCacheResponseBody extends $dara.Model {
     requestId?: string;
     /**
      * @remarks
-     * Indicates whether the request is successful. This does not mean that the cache creation is complete.
+     * Indicates whether the request is successful. This does not mean that the cache creation is completed.
      *
      * This parameter is required.
      *

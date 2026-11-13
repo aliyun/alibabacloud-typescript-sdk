@@ -93,6 +93,8 @@ export { CreateCustomAgentResponseBodyDataRuntimeHpa } from './CreateCustomAgent
 export { CreateCustomAgentResponseBodyDataRuntimeSessionPolicy } from './CreateCustomAgentResponseBody';
 export { CreateCustomAgentResponseBodyDataRuntime } from './CreateCustomAgentResponseBody';
 export { CreateCustomAgentResponseBodyData } from './CreateCustomAgentResponseBody';
+export { CreateExternalAgentRequestBodyEnvironmentCredentialReferences } from './CreateExternalAgentRequest';
+export { CreateExternalAgentRequestBodyEnvironment } from './CreateExternalAgentRequest';
 export { CreateExternalAgentRequestBodyModelQuota } from './CreateExternalAgentRequest';
 export { CreateExternalAgentRequestBodyModel } from './CreateExternalAgentRequest';
 export { CreateExternalAgentRequestBodySkillsVersionSelector } from './CreateExternalAgentRequest';
@@ -103,6 +105,8 @@ export { CreateExternalAgentRequestBodyTools } from './CreateExternalAgentReques
 export { CreateExternalAgentRequestBody } from './CreateExternalAgentRequest';
 export { CreateExternalAgentResponseBodyDataConfiguredSkillsVersionSelector } from './CreateExternalAgentResponseBody';
 export { CreateExternalAgentResponseBodyDataConfiguredSkills } from './CreateExternalAgentResponseBody';
+export { CreateExternalAgentResponseBodyDataEnvironmentCredentialReferences } from './CreateExternalAgentResponseBody';
+export { CreateExternalAgentResponseBodyDataEnvironment } from './CreateExternalAgentResponseBody';
 export { CreateExternalAgentResponseBodyDataExternalAgentStatus } from './CreateExternalAgentResponseBody';
 export { CreateExternalAgentResponseBodyDataModelQuota } from './CreateExternalAgentResponseBody';
 export { CreateExternalAgentResponseBodyDataModel } from './CreateExternalAgentResponseBody';
@@ -118,6 +122,7 @@ export { CreateIdentityProviderRequestBodyMetadata } from './CreateIdentityProvi
 export { CreateIdentityProviderRequestBodySyncScope } from './CreateIdentityProviderRequest';
 export { CreateIdentityProviderRequestBody } from './CreateIdentityProviderRequest';
 export { CreateIdentityProviderResponseBodyDataConfiguration } from './CreateIdentityProviderResponseBody';
+export { CreateIdentityProviderResponseBodyDataOidc } from './CreateIdentityProviderResponseBody';
 export { CreateIdentityProviderResponseBodyDataSaml } from './CreateIdentityProviderResponseBody';
 export { CreateIdentityProviderResponseBodyDataSyncScope } from './CreateIdentityProviderResponseBody';
 export { CreateIdentityProviderResponseBodyData } from './CreateIdentityProviderResponseBody';
@@ -260,6 +265,7 @@ export { DeleteCredentialResponseBodyData } from './DeleteCredentialResponseBody
 export { DeleteCustomAgentResponseBodyData } from './DeleteCustomAgentResponseBody';
 export { DeleteExternalAgentResponseBodyData } from './DeleteExternalAgentResponseBody';
 export { DeleteIdentityProviderResponseBodyDataConfiguration } from './DeleteIdentityProviderResponseBody';
+export { DeleteIdentityProviderResponseBodyDataOidc } from './DeleteIdentityProviderResponseBody';
 export { DeleteIdentityProviderResponseBodyDataSaml } from './DeleteIdentityProviderResponseBody';
 export { DeleteIdentityProviderResponseBodyData } from './DeleteIdentityProviderResponseBody';
 export { DeleteImageCacheResponseBodyData } from './DeleteImageCacheResponseBody';
@@ -328,6 +334,8 @@ export { GetCustomAgentImagePreparationResponseBodyDataError } from './GetCustom
 export { GetCustomAgentImagePreparationResponseBodyData } from './GetCustomAgentImagePreparationResponseBody';
 export { GetExternalAgentResponseBodyDataConfiguredSkillsVersionSelector } from './GetExternalAgentResponseBody';
 export { GetExternalAgentResponseBodyDataConfiguredSkills } from './GetExternalAgentResponseBody';
+export { GetExternalAgentResponseBodyDataEnvironmentCredentialReferences } from './GetExternalAgentResponseBody';
+export { GetExternalAgentResponseBodyDataEnvironment } from './GetExternalAgentResponseBody';
 export { GetExternalAgentResponseBodyDataExternalAgentStatus } from './GetExternalAgentResponseBody';
 export { GetExternalAgentResponseBodyDataModelQuota } from './GetExternalAgentResponseBody';
 export { GetExternalAgentResponseBodyDataModel } from './GetExternalAgentResponseBody';
@@ -341,6 +349,8 @@ export { GetExternalAgentBootstrapOptionsResponseBodyDataNetworkOptions } from '
 export { GetExternalAgentBootstrapOptionsResponseBodyData } from './GetExternalAgentBootstrapOptionsResponseBody';
 export { GetIdentityProviderResponseBodyDataConfiguration } from './GetIdentityProviderResponseBody';
 export { GetIdentityProviderResponseBodyDataMetadata } from './GetIdentityProviderResponseBody';
+export { GetIdentityProviderResponseBodyDataOidc } from './GetIdentityProviderResponseBody';
+export { GetIdentityProviderResponseBodyDataOidcConfiguration } from './GetIdentityProviderResponseBody';
 export { GetIdentityProviderResponseBodyDataSaml } from './GetIdentityProviderResponseBody';
 export { GetIdentityProviderResponseBodyDataSyncScope } from './GetIdentityProviderResponseBody';
 export { GetIdentityProviderResponseBodyData } from './GetIdentityProviderResponseBody';
@@ -523,6 +533,7 @@ export { ListIdentityProviderDepartmentsResponseBodyItems } from './ListIdentity
 export { ListIdentityProviderSCIMCredentialsResponseBodyData } from './ListIdentityProviderScimcredentialsResponseBody';
 export { ListIdentityProvidersResponseBodyItemsConfiguration } from './ListIdentityProvidersResponseBody';
 export { ListIdentityProvidersResponseBodyItemsMetadata } from './ListIdentityProvidersResponseBody';
+export { ListIdentityProvidersResponseBodyItemsOidc } from './ListIdentityProvidersResponseBody';
 export { ListIdentityProvidersResponseBodyItemsSaml } from './ListIdentityProvidersResponseBody';
 export { ListIdentityProvidersResponseBodyItemsSyncScope } from './ListIdentityProvidersResponseBody';
 export { ListIdentityProvidersResponseBodyItems } from './ListIdentityProvidersResponseBody';
@@ -683,6 +694,8 @@ export { UpdateCustomAgentResponseBodyDataRuntimeHpa } from './UpdateCustomAgent
 export { UpdateCustomAgentResponseBodyDataRuntimeSessionPolicy } from './UpdateCustomAgentResponseBody';
 export { UpdateCustomAgentResponseBodyDataRuntime } from './UpdateCustomAgentResponseBody';
 export { UpdateCustomAgentResponseBodyData } from './UpdateCustomAgentResponseBody';
+export { UpdateExternalAgentRequestBodyEnvironmentCredentialReferences } from './UpdateExternalAgentRequest';
+export { UpdateExternalAgentRequestBodyEnvironment } from './UpdateExternalAgentRequest';
 export { UpdateExternalAgentRequestBodyModelQuota } from './UpdateExternalAgentRequest';
 export { UpdateExternalAgentRequestBodyModel } from './UpdateExternalAgentRequest';
 export { UpdateExternalAgentRequestBodySkillsVersionSelector } from './UpdateExternalAgentRequest';
@@ -693,6 +706,8 @@ export { UpdateExternalAgentRequestBodyTools } from './UpdateExternalAgentReques
 export { UpdateExternalAgentRequestBody } from './UpdateExternalAgentRequest';
 export { UpdateExternalAgentResponseBodyDataConfiguredSkillsVersionSelector } from './UpdateExternalAgentResponseBody';
 export { UpdateExternalAgentResponseBodyDataConfiguredSkills } from './UpdateExternalAgentResponseBody';
+export { UpdateExternalAgentResponseBodyDataEnvironmentCredentialReferences } from './UpdateExternalAgentResponseBody';
+export { UpdateExternalAgentResponseBodyDataEnvironment } from './UpdateExternalAgentResponseBody';
 export { UpdateExternalAgentResponseBodyDataExternalAgentStatus } from './UpdateExternalAgentResponseBody';
 export { UpdateExternalAgentResponseBodyDataModelQuota } from './UpdateExternalAgentResponseBody';
 export { UpdateExternalAgentResponseBodyDataModel } from './UpdateExternalAgentResponseBody';
@@ -703,16 +718,19 @@ export { UpdateExternalAgentResponseBodyDataTemplate } from './UpdateExternalAge
 export { UpdateExternalAgentResponseBodyDataTools } from './UpdateExternalAgentResponseBody';
 export { UpdateExternalAgentResponseBodyData } from './UpdateExternalAgentResponseBody';
 export { UpdateIdentityProviderRequestBodyMetadata } from './UpdateIdentityProviderRequest';
+export { UpdateIdentityProviderRequestBodyOidc } from './UpdateIdentityProviderRequest';
 export { UpdateIdentityProviderRequestBodySaml } from './UpdateIdentityProviderRequest';
 export { UpdateIdentityProviderRequestBodySyncScope } from './UpdateIdentityProviderRequest';
 export { UpdateIdentityProviderRequestBody } from './UpdateIdentityProviderRequest';
 export { UpdateIdentityProviderResponseBodyDataConfiguration } from './UpdateIdentityProviderResponseBody';
+export { UpdateIdentityProviderResponseBodyDataOidc } from './UpdateIdentityProviderResponseBody';
 export { UpdateIdentityProviderResponseBodyDataSaml } from './UpdateIdentityProviderResponseBody';
 export { UpdateIdentityProviderResponseBodyDataSyncScope } from './UpdateIdentityProviderResponseBody';
 export { UpdateIdentityProviderResponseBodyData } from './UpdateIdentityProviderResponseBody';
 export { UpdateIdentityProviderSCIMRequestBody } from './UpdateIdentityProviderScimrequest';
 export { UpdateIdentityProviderSCIMResponseBodyDataConfiguration } from './UpdateIdentityProviderScimresponseBody';
 export { UpdateIdentityProviderSCIMResponseBodyDataMetadata } from './UpdateIdentityProviderScimresponseBody';
+export { UpdateIdentityProviderSCIMResponseBodyDataOidc } from './UpdateIdentityProviderScimresponseBody';
 export { UpdateIdentityProviderSCIMResponseBodyDataSaml } from './UpdateIdentityProviderScimresponseBody';
 export { UpdateIdentityProviderSCIMResponseBodyData } from './UpdateIdentityProviderScimresponseBody';
 export { UpdateManagedAgentRequestBodyAgenticFsMounts } from './UpdateManagedAgentRequest';

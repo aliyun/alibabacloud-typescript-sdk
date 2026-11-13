@@ -45,7 +45,7 @@ export class CreateImageCacheRequestBody extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The name of the repository under the namespace. Do not repeat the namespace in this field.
+   * The name of the repository under the namespace. Do not include the namespace in the repository name.
    * 
    * This parameter is required.
    * 
@@ -104,7 +104,7 @@ export class CreateImageCacheRequest extends $dara.Model {
   body?: CreateImageCacheRequestBody;
   /**
    * @remarks
-   * The non-empty request identifier passed as a query parameter. The current implementation does not guarantee deduplication based on this identifier or recovery of the original acceptance result.
+   * The non-empty request identifier passed as a query parameter. The current implementation does not guarantee deduplication by this identifier or recovery of the original acceptance result.
    * 
    * This parameter is required.
    * 
@@ -114,7 +114,7 @@ export class CreateImageCacheRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The product entry region. This parameter is passed as a query parameter and must match the selected region endpoint and the workspace region.
+   * The product entry region, passed as a query parameter. It must match the selected region endpoint and the workspace region.
    * 
    * This parameter is required.
    * 

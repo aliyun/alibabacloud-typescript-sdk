@@ -31,16 +31,20 @@ class ListSkillReferencesRequest extends $dara.Model {
         return {
             pageNo: 'pageNo',
             pageSize: 'pageSize',
+            refType: 'refType',
             selectorType: 'selectorType',
             selectorValue: 'selectorValue',
+            sourceId: 'sourceId',
         };
     }
     static types() {
         return {
             pageNo: 'number',
             pageSize: 'number',
+            refType: 'string',
             selectorType: 'string',
             selectorValue: 'string',
+            sourceId: 'string',
         };
     }
     validate() {

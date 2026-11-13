@@ -21,7 +21,7 @@ export class ListSandboxSessionsResponseBodyItems extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The source type of the session. A value of API indicates an API call, CONSOLE_DEBUG indicates console debugging, EXTERNAL_CHANNEL indicates an external channel, and UNKNOWN indicates an unknown source.
+   * The source type of the session. A value of API indicates an API call. A value of CONSOLE_DEBUG indicates console debugging. A value of EXTERNAL_CHANNEL indicates an external channel. A value of UNKNOWN indicates an unknown source.
    * 
    * @example
    * EXTERNAL_CHANNEL
@@ -108,7 +108,7 @@ export class ListSandboxSessionsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. A value of true indicates success, and a value of false indicates failure.
+   * Indicates whether the request is successful. A value of true indicates success. A value of false indicates failure.
    */
   success?: boolean;
   /**

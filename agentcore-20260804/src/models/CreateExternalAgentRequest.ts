@@ -2,10 +2,70 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class CreateExternalAgentRequestBodyEnvironmentCredentialReferences extends $dara.Model {
+  /**
+   * @remarks
+   * Required when a credential reference item is passed. Validated by the backend.
+   * 
+   * @example
+   * cred-example
+   */
+  credentialId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      credentialId: 'credentialId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
+export class CreateExternalAgentRequestBodyEnvironment extends $dara.Model {
+  /**
+   * @remarks
+   * This list must be explicitly provided and cannot be null when the environment object is passed. The list is replaced as a whole. If environment is not passed during an update, the original binding is retained. If an empty list is passed or environment is null, the binding is cleared. Only the credential ID is passed, not the actual secret key.
+   */
+  credentialReferences?: CreateExternalAgentRequestBodyEnvironmentCredentialReferences[];
+  static names(): { [key: string]: string } {
+    return {
+      credentialReferences: 'credentialReferences',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      credentialReferences: { 'type': 'array', 'itemType': CreateExternalAgentRequestBodyEnvironmentCredentialReferences },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.credentialReferences)) {
+      $dara.Model.validateArray(this.credentialReferences);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateExternalAgentRequestBodyModelQuota extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the token quota. Default value: true. If set to false, the quota is disabled and existing quota rules are deleted.
+   * Specifies whether to enable the token quota. Defaults to true if not specified. Passing false disables and deletes existing quota rules.
    * 
    * @example
    * true
@@ -119,7 +179,7 @@ export class CreateExternalAgentRequestBodyModel extends $dara.Model {
 export class CreateExternalAgentRequestBodySkillsVersionSelector extends $dara.Model {
   /**
    * @remarks
-   * The version selector type. LABEL selects by tag, and VERSION selects by specific version.
+   * The version selector type. LABEL selects by tag. VERSION selects by specific version.
    * 
    * @example
    * LABEL
@@ -169,7 +229,7 @@ export class CreateExternalAgentRequestBodySkills extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The skill source type. REFERENCE references AI Registry, and STATIC is statically provided with the package.
+   * The skill source type. REFERENCE references the AI Registry. STATIC is statically provided with the deployment package.
    * 
    * @example
    * REFERENCE
@@ -177,7 +237,7 @@ export class CreateExternalAgentRequestBodySkills extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The skill version field for compatibility with legacy requests. For new requests, use sourceType and versionSelector. Do not submit this field in combination with sourceType.
+   * The skill version field for compatibility with legacy requests. Use sourceType and versionSelector for new requests. Do not submit it in combination with sourceType.
    * 
    * @example
    * 1.0.0
@@ -185,7 +245,7 @@ export class CreateExternalAgentRequestBodySkills extends $dara.Model {
   version?: string;
   /**
    * @remarks
-   * The skill reference version selector, which supports LABEL tags and VERSION specific versions. If omitted, LABEL/latest is used. STATIC sources do not provide a selector.
+   * The skill reference version selector. Supports LABEL tags and VERSION specific versions. Defaults to LABEL/latest if omitted. Selectors are not provided for STATIC sources.
    */
   versionSelector?: CreateExternalAgentRequestBodySkillsVersionSelector;
   static names(): { [key: string]: string } {
@@ -221,7 +281,7 @@ export class CreateExternalAgentRequestBodySkills extends $dara.Model {
 export class CreateExternalAgentRequestBodyTemplateAiRegistry extends $dara.Model {
   /**
    * @remarks
-   * The name of the template in AI Registry.
+   * The name of the template in the AI Registry.
    * 
    * This parameter is required.
    * 
@@ -231,7 +291,7 @@ export class CreateExternalAgentRequestBodyTemplateAiRegistry extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * The version of the template in AI Registry.
+   * The version of the template in the AI Registry.
    * 
    * This parameter is required.
    * 
@@ -347,7 +407,12 @@ export class CreateExternalAgentRequestBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The agent instructions, which are used to guide the behavior of the agent.
+   * Optional. Credentials can be bound to both PLATFORM and RUNTIME model sources. When passing the object, you must explicitly provide a non-null credentialReferences list. Common environment variables are not supported.
+   */
+  environment?: CreateExternalAgentRequestBodyEnvironment;
+  /**
+   * @remarks
+   * The agent instruction, used to guide the behavior of the agent.
    * 
    * @example
    * You are a code review assistant
@@ -360,7 +425,7 @@ export class CreateExternalAgentRequestBody extends $dara.Model {
   model?: CreateExternalAgentRequestBodyModel;
   /**
    * @remarks
-   * The source of the model configuration. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model, and the model parameter cannot be passed at the same time. Valid values: PLATFORM (platform model) and RUNTIME (runtime model).
+   * The source of the model configuration. PLATFORM indicates that the platform parses and delivers the model configuration. RUNTIME indicates that the external runtime manages the model itself, and the model parameter cannot be passed at the same time. Valid values: PLATFORM (platform model) and RUNTIME (runtime model).
    * 
    * @example
    * PLATFORM
@@ -394,6 +459,7 @@ export class CreateExternalAgentRequestBody extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       description: 'description',
+      environment: 'environment',
       instruction: 'instruction',
       model: 'model',
       modelSource: 'modelSource',
@@ -407,6 +473,7 @@ export class CreateExternalAgentRequestBody extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       description: 'string',
+      environment: CreateExternalAgentRequestBodyEnvironment,
       instruction: 'string',
       model: CreateExternalAgentRequestBodyModel,
       modelSource: 'string',
@@ -418,6 +485,9 @@ export class CreateExternalAgentRequestBody extends $dara.Model {
   }
 
   validate() {
+    if(this.environment && typeof (this.environment as any).validate === 'function') {
+      (this.environment as any).validate();
+    }
     if(this.model && typeof (this.model as any).validate === 'function') {
       (this.model as any).validate();
     }
@@ -446,7 +516,7 @@ export class CreateExternalAgentRequest extends $dara.Model {
   body?: CreateExternalAgentRequestBody;
   /**
    * @remarks
-   * The reserved query parameter. Currently, the backend does not provide idempotency guarantees for deduplication or restoring the original acceptance result based on this identifier.
+   * The reserved query parameter. The backend does not provide idempotency guarantees for deduplication or restoring the original acceptance result based on this identifier at this time.
    * 
    * @example
    * client-token-1

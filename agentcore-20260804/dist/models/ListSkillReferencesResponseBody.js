@@ -32,9 +32,12 @@ class ListSkillReferencesResponseBodyDataPageItems extends $dara.Model {
             ownerId: 'ownerId',
             ownerType: 'ownerType',
             ownerVersion: 'ownerVersion',
+            refType: 'refType',
             selectorType: 'selectorType',
             selectorValue: 'selectorValue',
             skillName: 'skillName',
+            sourceId: 'sourceId',
+            sourceName: 'sourceName',
             workspaceId: 'workspaceId',
         };
     }
@@ -43,9 +46,12 @@ class ListSkillReferencesResponseBodyDataPageItems extends $dara.Model {
             ownerId: 'string',
             ownerType: 'string',
             ownerVersion: 'string',
+            refType: 'string',
             selectorType: 'string',
             selectorValue: 'string',
             skillName: 'string',
+            sourceId: 'string',
+            sourceName: 'string',
             workspaceId: 'string',
         };
     }

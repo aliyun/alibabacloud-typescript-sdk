@@ -20,7 +20,7 @@ export class RetryImageCacheResponseBodyDataError extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * The image cache creation failed. Please try again
+   * Image cache creation failed. Please try again
    */
   message?: string;
   static names(): { [key: string]: string } {
@@ -49,7 +49,7 @@ export class RetryImageCacheResponseBodyDataError extends $dara.Model {
 export class RetryImageCacheResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the source ACR instance.
+   * The source ACR instance ID.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class RetryImageCacheResponseBodyData extends $dara.Model {
   acrInstanceId?: string;
   /**
    * @remarks
-   * The number of agents that use the cache.
+   * The number of agents using the cache.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class RetryImageCacheResponseBodyData extends $dara.Model {
   agentCount?: number;
   /**
    * @remarks
-   * The size of the cache in bytes.
+   * The cache size in bytes.
    * 
    * This parameter is required.
    * 
@@ -82,7 +82,7 @@ export class RetryImageCacheResponseBodyData extends $dara.Model {
   cacheSizeBytes?: number;
   /**
    * @remarks
-   * Indicates whether the cache can be deleted.
+   * Indicates whether deletion is allowed.
    * 
    * This parameter is required.
    * 
@@ -92,7 +92,7 @@ export class RetryImageCacheResponseBodyData extends $dara.Model {
   canDelete?: boolean;
   /**
    * @remarks
-   * The time when the resource was created. The time follows the RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
+   * The resource creation time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
    * 
    * This parameter is required.
    * 
@@ -102,7 +102,7 @@ export class RetryImageCacheResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The reason why the cache cannot be deleted.
+   * The reason why deletion is blocked.
    * 
    * This parameter is required.
    * 
@@ -145,7 +145,7 @@ export class RetryImageCacheResponseBodyData extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The domain name of the source image.
+   * The source image domain name.
    * 
    * This parameter is required.
    * 
@@ -155,7 +155,7 @@ export class RetryImageCacheResponseBodyData extends $dara.Model {
   registry?: string;
   /**
    * @remarks
-   * The path of the source image repository.
+   * The source image repository path.
    * 
    * This parameter is required.
    * 
@@ -165,7 +165,7 @@ export class RetryImageCacheResponseBodyData extends $dara.Model {
   repository?: string;
   /**
    * @remarks
-   * The cache status.
+   * The image cache status.
    * 
    * This parameter is required.
    * 
@@ -175,7 +175,7 @@ export class RetryImageCacheResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The tag of the source image.
+   * The source image tag.
    * 
    * This parameter is required.
    * 
@@ -256,7 +256,7 @@ export class RetryImageCacheResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The result of retrying image cache creation.
+   * The retry image cache result.
    * 
    * This parameter is required.
    */
@@ -293,7 +293,7 @@ export class RetryImageCacheResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. A successful request does not mean that the cache creation is complete.
+   * Indicates whether the request is successful. This does not mean that the cache creation is complete.
    * 
    * This parameter is required.
    * 

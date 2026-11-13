@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteImageCacheResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The flag indicating whether deletion is in progress. The current implementation always returns false. To confirm cache visibility, call GetImageCache or ListImageCaches.
+   * Indicates whether the deletion is in progress. The current implementation always returns false. To check the cache visibility, call GetImageCache or ListImageCaches.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class DeleteImageCacheResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The image cache deletion result.
+   * The delete image cache result.
    * 
    * This parameter is required.
    */
@@ -96,7 +96,7 @@ export class DeleteImageCacheResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. This does not mean that the cache creation is complete.
+   * Indicates whether the request is successful. A successful request does not indicate that the cache creation is complete.
    * 
    * This parameter is required.
    * 

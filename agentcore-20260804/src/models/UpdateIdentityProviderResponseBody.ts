@@ -62,6 +62,139 @@ export class UpdateIdentityProviderResponseBodyDataConfiguration extends $dara.M
   }
 }
 
+export class UpdateIdentityProviderResponseBodyDataOidc extends $dara.Model {
+  /**
+   * @remarks
+   * 手填模式必填的绝对 HTTPS URL；Discovery 模式不填写。
+   * 
+   * @example
+   * https://idp.example.com/authorize
+   */
+  authorizationEndpoint?: string;
+  /**
+   * @remarks
+   * 默认 client_secret_post；none 必须开启 PKCE。
+   * 
+   * @example
+   * client_secret_post
+   */
+  clientAuthMethod?: string;
+  /**
+   * @remarks
+   * 外部 IdP 中注册的客户端标识，区别于 Matrix 客户端；配置后不支持原地更换。
+   * 
+   * @example
+   * example-client
+   */
+  clientId?: string;
+  /**
+   * @remarks
+   * 绝对 HTTPS Discovery 地址；与手填端点互斥。
+   * 
+   * @example
+   * https://idp.example.com/.well-known/openid-configuration
+   */
+  discoveryEndpoint?: string;
+  /**
+   * @remarks
+   * 外部 IdP 的绝对 HTTPS Issuer；配置后不支持原地更换。
+   * 
+   * @example
+   * https://idp.example.com
+   */
+  issuer?: string;
+  /**
+   * @remarks
+   * 手填模式必填的绝对 HTTPS URL；Discovery 模式不填写。
+   * 
+   * @example
+   * https://idp.example.com/jwks
+   */
+  jwksUri?: string;
+  /**
+   * @remarks
+   * 默认 true；无客户端认证时必须为 true。
+   * 
+   * @example
+   * true
+   */
+  pkceRequired?: boolean;
+  /**
+   * @remarks
+   * 字符串数组，必须包含 openid；默认 openid、profile、email。
+   * 
+   * @example
+   * ["openid","profile","email"]
+   */
+  scopes?: string[];
+  /**
+   * @remarks
+   * ID Token 中用于与 SCIM externalId 匹配的 Claim 名。首次省略默认 sub；更新省略保留已保存值。Azure 可填 oid。非空且不含空白字符。查询 oidc 为保存值，oidcConfiguration 为上游实际值，可能为空。
+   * 
+   * @example
+   * oid
+   */
+  ssoMappingClaim?: string;
+  /**
+   * @remarks
+   * 手填模式必填的绝对 HTTPS URL；Discovery 模式不填写。
+   * 
+   * @example
+   * https://idp.example.com/token
+   */
+  tokenEndpoint?: string;
+  /**
+   * @remarks
+   * 手填模式可选的绝对 HTTPS URL；Discovery 模式不填写。
+   * 
+   * @example
+   * https://idp.example.com/userinfo
+   */
+  userinfoEndpoint?: string;
+  static names(): { [key: string]: string } {
+    return {
+      authorizationEndpoint: 'authorizationEndpoint',
+      clientAuthMethod: 'clientAuthMethod',
+      clientId: 'clientId',
+      discoveryEndpoint: 'discoveryEndpoint',
+      issuer: 'issuer',
+      jwksUri: 'jwksUri',
+      pkceRequired: 'pkceRequired',
+      scopes: 'scopes',
+      ssoMappingClaim: 'ssoMappingClaim',
+      tokenEndpoint: 'tokenEndpoint',
+      userinfoEndpoint: 'userinfoEndpoint',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      authorizationEndpoint: 'string',
+      clientAuthMethod: 'string',
+      clientId: 'string',
+      discoveryEndpoint: 'string',
+      issuer: 'string',
+      jwksUri: 'string',
+      pkceRequired: 'boolean',
+      scopes: { 'type': 'array', 'itemType': 'string' },
+      ssoMappingClaim: 'string',
+      tokenEndpoint: 'string',
+      userinfoEndpoint: 'string',
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.scopes)) {
+      $dara.Model.validateArray(this.scopes);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class UpdateIdentityProviderResponseBodyDataSaml extends $dara.Model {
   /**
    * @remarks
@@ -189,6 +322,11 @@ export class UpdateIdentityProviderResponseBodyData extends $dara.Model {
   loginEnabled?: boolean;
   /**
    * @remarks
+   * 期望配置的安全摘要；不包含凭据。原 SAML 字段与含义保留。
+   */
+  oidc?: UpdateIdentityProviderResponseBodyDataOidc;
+  /**
+   * @remarks
    * The logon protocol for CustomSSO. Only SAML is supported. You can pass SAML when saving the SAML configuration. You can omit this field if you only modify loginEnabled. DingTalk and Lark do not accept this field.
    * 
    * @example
@@ -231,6 +369,7 @@ export class UpdateIdentityProviderResponseBodyData extends $dara.Model {
       configuration: 'configuration',
       identityProviderType: 'identityProviderType',
       loginEnabled: 'loginEnabled',
+      oidc: 'oidc',
       protocol: 'protocol',
       saml: 'saml',
       status: 'status',
@@ -245,6 +384,7 @@ export class UpdateIdentityProviderResponseBodyData extends $dara.Model {
       configuration: UpdateIdentityProviderResponseBodyDataConfiguration,
       identityProviderType: 'string',
       loginEnabled: 'boolean',
+      oidc: UpdateIdentityProviderResponseBodyDataOidc,
       protocol: 'string',
       saml: UpdateIdentityProviderResponseBodyDataSaml,
       status: 'string',
@@ -257,6 +397,9 @@ export class UpdateIdentityProviderResponseBodyData extends $dara.Model {
   validate() {
     if(this.configuration && typeof (this.configuration as any).validate === 'function') {
       (this.configuration as any).validate();
+    }
+    if(this.oidc && typeof (this.oidc as any).validate === 'function') {
+      (this.oidc as any).validate();
     }
     if(this.saml && typeof (this.saml as any).validate === 'function') {
       (this.saml as any).validate();

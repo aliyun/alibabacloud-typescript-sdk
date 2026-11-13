@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class ListSkillReferencesRequest extends $dara.Model {
     /**
      * @remarks
-     * The page number. Pages start from 1. Default value: 1.
+     * The page number, starting from 1. Default value: 1.
      *
      * @example
      * 1
@@ -10,7 +10,7 @@ export declare class ListSkillReferencesRequest extends $dara.Model {
     pageNo?: number;
     /**
      * @remarks
-     * The number of entries per page. If omitted, the server default value is used.
+     * The number of entries per page. If not specified, the server default value is used.
      *
      * @example
      * 20
@@ -18,7 +18,15 @@ export declare class ListSkillReferencesRequest extends $dara.Model {
     pageSize?: number;
     /**
      * @remarks
-     * The reference selector type used for filtering. Valid values: LABEL and VERSION.
+     * Filters by reference strength. Valid values: STRONG, WEAK.
+     *
+     * @example
+     * STRONG
+     */
+    refType?: string;
+    /**
+     * @remarks
+     * Filters by reference selector type. Valid values: LABEL, VERSION.
      *
      * @example
      * LABEL
@@ -26,12 +34,20 @@ export declare class ListSkillReferencesRequest extends $dara.Model {
     selectorType?: string;
     /**
      * @remarks
-     * The reference selector value used for filtering. Valid values: latest, a named label, HEAD, or a specific version.
+     * Filters by reference selector value. Valid values: latest, a named label, HEAD, or a specific version.
      *
      * @example
      * HEAD
      */
     selectorValue?: string;
+    /**
+     * @remarks
+     * Filters by reference source identifier. The value must be agentcore or a configured source.
+     *
+     * @example
+     * agentcore
+     */
+    sourceId?: string;
     static names(): {
         [key: string]: string;
     };

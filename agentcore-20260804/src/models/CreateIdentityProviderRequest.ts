@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateIdentityProviderRequestBodyMetadata extends $dara.Model {
   /**
    * @remarks
-   * The App ID of the Lark application. This parameter is required when the binding type is Lark.
+   * The App ID of the Lark application. This parameter is required when the binding type is Feishu.
    * 
    * @example
    * cli_exampleappid01
@@ -93,7 +93,10 @@ export class CreateIdentityProviderRequestBodySyncScope extends $dara.Model {
   departmentIds?: string[];
   /**
    * @remarks
-   * AllAuthorized: the full authorization scope, which is limited by the application address book authorization. SelectedDepartments: the selected departments and all their sub-departments. When explicitly submitting syncScope, you must provide a valid mode, which is verified by the backend.
+   * Valid values:
+   * - AllAuthorized: the entire authorized scope, which is limited by the application address book authorization.
+   * - SelectedDepartments: the selected departments and all their sub-departments.
+   * When explicitly submitting syncScope, you must provide a valid mode, which is verified by the backend.
    * 
    * @example
    * SelectedDepartments
@@ -143,7 +146,7 @@ export class CreateIdentityProviderRequestBody extends $dara.Model {
   loginEnabled?: boolean;
   /**
    * @remarks
-   * The application configuration of the external identity provider. When binding DingTalk, you must provide appKey, appSecret, and corpId. When binding Lark, you must provide appId and appSecret.
+   * The application configuration of the external identity provider. When binding DingTalk, you must provide appKey, appSecret, and corpId. When binding Feishu, you must provide appId and appSecret.
    */
   metadata?: CreateIdentityProviderRequestBodyMetadata;
   /**
@@ -153,12 +156,12 @@ export class CreateIdentityProviderRequestBody extends $dara.Model {
   syncEnabled?: boolean;
   /**
    * @remarks
-   * Controls the initial synchronization when DingTalk or Lark is bound. If this parameter is omitted or is null, the default value is true. If this parameter is set to false, only the configuration is saved, and synchronization is explicitly triggered later. CustomSSO does not use the vendor pull pipeline.
+   * Controls the initial synchronization when DingTalk or Feishu is bound. If omitted or set to null, the default value is true. If set to false, only the configuration is saved, and synchronization must be explicitly triggered later. CustomSSO does not use the vendor pull pipeline.
    */
   syncOnBind?: boolean;
   /**
    * @remarks
-   * Follows the department-based synchronization scope definition. If omitted during creation, the default value is AllAuthorized, and the initial vendor synchronization is determined by syncOnBind. If omitted or null during an update, the original value is retained. Updating and saving the scope does not automatically trigger full synchronization.
+   * Uses the department-based synchronization scope definition. If omitted during creation, the default value is AllAuthorized, and the initial vendor synchronization is determined by syncOnBind. If omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically trigger full synchronization.
    */
   syncScope?: CreateIdentityProviderRequestBodySyncScope;
   static names(): { [key: string]: string } {

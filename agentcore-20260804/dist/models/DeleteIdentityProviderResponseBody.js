@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.DeleteIdentityProviderResponseBody = exports.DeleteIdentityProviderResponseBodyData = exports.DeleteIdentityProviderResponseBodyDataSaml = exports.DeleteIdentityProviderResponseBodyDataConfiguration = void 0;
+exports.DeleteIdentityProviderResponseBody = exports.DeleteIdentityProviderResponseBodyData = exports.DeleteIdentityProviderResponseBodyDataSaml = exports.DeleteIdentityProviderResponseBodyDataOidc = exports.DeleteIdentityProviderResponseBodyDataConfiguration = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
 class DeleteIdentityProviderResponseBodyDataConfiguration extends $dara.Model {
@@ -51,6 +51,48 @@ class DeleteIdentityProviderResponseBodyDataConfiguration extends $dara.Model {
     }
 }
 exports.DeleteIdentityProviderResponseBodyDataConfiguration = DeleteIdentityProviderResponseBodyDataConfiguration;
+class DeleteIdentityProviderResponseBodyDataOidc extends $dara.Model {
+    static names() {
+        return {
+            authorizationEndpoint: 'authorizationEndpoint',
+            clientAuthMethod: 'clientAuthMethod',
+            clientId: 'clientId',
+            discoveryEndpoint: 'discoveryEndpoint',
+            issuer: 'issuer',
+            jwksUri: 'jwksUri',
+            pkceRequired: 'pkceRequired',
+            scopes: 'scopes',
+            ssoMappingClaim: 'ssoMappingClaim',
+            tokenEndpoint: 'tokenEndpoint',
+            userinfoEndpoint: 'userinfoEndpoint',
+        };
+    }
+    static types() {
+        return {
+            authorizationEndpoint: 'string',
+            clientAuthMethod: 'string',
+            clientId: 'string',
+            discoveryEndpoint: 'string',
+            issuer: 'string',
+            jwksUri: 'string',
+            pkceRequired: 'boolean',
+            scopes: { 'type': 'array', 'itemType': 'string' },
+            ssoMappingClaim: 'string',
+            tokenEndpoint: 'string',
+            userinfoEndpoint: 'string',
+        };
+    }
+    validate() {
+        if (Array.isArray(this.scopes)) {
+            $dara.Model.validateArray(this.scopes);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.DeleteIdentityProviderResponseBodyDataOidc = DeleteIdentityProviderResponseBodyDataOidc;
 class DeleteIdentityProviderResponseBodyDataSaml extends $dara.Model {
     static names() {
         return {
@@ -84,6 +126,7 @@ class DeleteIdentityProviderResponseBodyData extends $dara.Model {
         return {
             configuration: 'configuration',
             identityProviderType: 'identityProviderType',
+            oidc: 'oidc',
             protocol: 'protocol',
             saml: 'saml',
             status: 'status',
@@ -94,6 +137,7 @@ class DeleteIdentityProviderResponseBodyData extends $dara.Model {
         return {
             configuration: DeleteIdentityProviderResponseBodyDataConfiguration,
             identityProviderType: 'string',
+            oidc: DeleteIdentityProviderResponseBodyDataOidc,
             protocol: 'string',
             saml: DeleteIdentityProviderResponseBodyDataSaml,
             status: 'string',
@@ -103,6 +147,9 @@ class DeleteIdentityProviderResponseBodyData extends $dara.Model {
     validate() {
         if (this.configuration && typeof this.configuration.validate === 'function') {
             this.configuration.validate();
+        }
+        if (this.oidc && typeof this.oidc.validate === 'function') {
+            this.oidc.validate();
         }
         if (this.saml && typeof this.saml.validate === 'function') {
             this.saml.validate();

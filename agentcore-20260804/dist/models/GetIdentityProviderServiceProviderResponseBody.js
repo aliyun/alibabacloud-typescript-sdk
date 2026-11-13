@@ -33,6 +33,7 @@ class GetIdentityProviderServiceProviderResponseBodyData extends $dara.Model {
             entityId: 'entityId',
             metadataXml: 'metadataXml',
             protocol: 'protocol',
+            redirectUri: 'redirectUri',
         };
     }
     static types() {
@@ -41,6 +42,7 @@ class GetIdentityProviderServiceProviderResponseBodyData extends $dara.Model {
             entityId: 'string',
             metadataXml: 'string',
             protocol: 'string',
+            redirectUri: 'string',
         };
     }
     validate() {

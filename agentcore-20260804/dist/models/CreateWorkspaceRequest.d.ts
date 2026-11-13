@@ -35,7 +35,7 @@ export declare class CreateWorkspaceRequestBodyNetworkConfigurationVpc extends $
 export declare class CreateWorkspaceRequestBodyNetworkConfiguration extends $dara.Model {
     /**
      * @remarks
-     * Specifies whether to allow public egress access through the platform. If not specified, this feature is enabled by default. This parameter only controls whether the latest versions of managed and custom agents use the platform public egress. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
+     * Specifies whether to allow public egress access from the platform. If this parameter is not specified, the default value is true. This parameter only controls whether the latest versions of managed and custom agents use the public egress of the platform. It does not control fixed historical versions, model or MCP proxy egress, or the public egress of the user VPC.
      *
      * @example
      * true
@@ -43,7 +43,7 @@ export declare class CreateWorkspaceRequestBodyNetworkConfiguration extends $dar
     publicEgressEnabled?: boolean;
     /**
      * @remarks
-     * Specifies whether to allow public ingress access. If not specified, this feature is enabled by default. If disabled, the public ingress endpoints of all agent endpoints in the workspace are closed. If re-enabled, the original public ingress endpoints are restored. INNER_DIRECT and user VPC ingress endpoints are not affected. Collaboration and Element Web ingress endpoints are not controlled by this parameter.
+     * Specifies whether to allow public ingress access. If this parameter is not specified, the default value is true. If this parameter is set to false, the public ingress of all agent endpoints in the workspace is disabled. If this parameter is set to true again, the original public ingress is restored. INNER_DIRECT and user VPC ingress are not affected. Collaboration and Element Web ingress are not controlled by this parameter. If this parameter is set to false, the workspace VPC must be enabled.
      *
      * @example
      * true
@@ -51,7 +51,7 @@ export declare class CreateWorkspaceRequestBodyNetworkConfiguration extends $dar
     publicIngressEnabled?: boolean;
     /**
      * @remarks
-     * The network configuration of the user VPC.
+     * The VPC network configuration of the user.
      */
     vpc?: CreateWorkspaceRequestBodyNetworkConfigurationVpc;
     static names(): {
@@ -68,7 +68,7 @@ export declare class CreateWorkspaceRequestBodyNetworkConfiguration extends $dar
 export declare class CreateWorkspaceRequestBody extends $dara.Model {
     /**
      * @remarks
-     * If specified, the workspace is directly bound to this AgentSpace, and a new one is not created. The CMS workspace to which it belongs is determined by the server reverse lookup result, and CmsWorkspace validation is not required. When the workspace is deleted, it is only unbound, and the AgentSpace is not deleted. The value must match the current account and region, and the reverse lookup must return the associated CMS workspace. Otherwise, InvalidParameter is returned.
+     * If this parameter is specified, the workspace is directly bound to the specified AgentSpace, and a new one is not created. The CMS workspace to which it belongs is determined by the server reverse lookup result, and CmsWorkspace does not need to be verified. When the workspace is deleted, it is only unbound, and the AgentSpace is not deleted. The value must match the current account and region, and the associated CMS workspace must be found through reverse lookup. Otherwise, InvalidParameter is returned.
      *
      * @example
      * my-agent-space
@@ -76,7 +76,7 @@ export declare class CreateWorkspaceRequestBody extends $dara.Model {
     agentSpace?: string;
     /**
      * @remarks
-     * If specified, the workspace is bound to this CMS workspace, and the platform does not create a new one. When the workspace is deleted, it is only unbound, and the CMS workspace is not deleted. The value must match the current account and region. Otherwise, InvalidParameter is returned.
+     * If this parameter is specified, the workspace is bound to the specified CMS workspace, and the platform does not create a new one. When the workspace is deleted, it is only unbound, and the CMS workspace is not deleted. The value must match the current account and region. Otherwise, InvalidParameter is returned.
      *
      * @example
      * my-cms-workspace
@@ -84,7 +84,7 @@ export declare class CreateWorkspaceRequestBody extends $dara.Model {
     cmsWorkspace?: string;
     /**
      * @remarks
-     * The name of the workspace.
+     * The workspace name.
      *
      * This parameter is required.
      *

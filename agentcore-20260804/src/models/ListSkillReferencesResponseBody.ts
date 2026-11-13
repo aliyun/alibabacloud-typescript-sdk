@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSkillReferencesResponseBodyDataPageItems extends $dara.Model {
   /**
    * @remarks
-   * The ID of the referencing entity, which identifies the agent or AgentSpec.
+   * The ID of the referencing entity, which is the identifier of the agent or agent spec.
    * 
    * @example
    * agent-1234567890abcdef
@@ -13,7 +13,7 @@ export class ListSkillReferencesResponseBodyDataPageItems extends $dara.Model {
   ownerId?: string;
   /**
    * @remarks
-   * The type of the referencing entity. Valid values: AGENT and AGENTSPEC.
+   * The type of the referencing entity. Valid values: AGENT, AGENTSPEC.
    * 
    * @example
    * AGENT
@@ -29,7 +29,15 @@ export class ListSkillReferencesResponseBodyDataPageItems extends $dara.Model {
   ownerVersion?: string;
   /**
    * @remarks
-   * The reference selector type. Valid values: LABEL and VERSION.
+   * The reference strength. Valid values: STRONG, WEAK. For legacy data, STRONG is returned.
+   * 
+   * @example
+   * STRONG
+   */
+  refType?: string;
+  /**
+   * @remarks
+   * The reference selector type. Valid values: LABEL, VERSION.
    * 
    * @example
    * LABEL
@@ -53,7 +61,23 @@ export class ListSkillReferencesResponseBodyDataPageItems extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * The ID of the workspace to which the reference belongs.
+   * The reference source identifier. For legacy data, agentcore is returned.
+   * 
+   * @example
+   * agentcore
+   */
+  sourceId?: string;
+  /**
+   * @remarks
+   * The display name of the reference source. If no name is registered, the source identifier is returned.
+   * 
+   * @example
+   * AgentCore
+   */
+  sourceName?: string;
+  /**
+   * @remarks
+   * The workspace ID to which the reference belongs.
    * 
    * @example
    * ws-1234567890abcdef
@@ -64,9 +88,12 @@ export class ListSkillReferencesResponseBodyDataPageItems extends $dara.Model {
       ownerId: 'ownerId',
       ownerType: 'ownerType',
       ownerVersion: 'ownerVersion',
+      refType: 'refType',
       selectorType: 'selectorType',
       selectorValue: 'selectorValue',
       skillName: 'skillName',
+      sourceId: 'sourceId',
+      sourceName: 'sourceName',
       workspaceId: 'workspaceId',
     };
   }
@@ -76,9 +103,12 @@ export class ListSkillReferencesResponseBodyDataPageItems extends $dara.Model {
       ownerId: 'string',
       ownerType: 'string',
       ownerVersion: 'string',
+      refType: 'string',
       selectorType: 'string',
       selectorValue: 'string',
       skillName: 'string',
+      sourceId: 'string',
+      sourceName: 'string',
       workspaceId: 'string',
     };
   }
@@ -108,7 +138,7 @@ export class ListSkillReferencesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The total number of pages.
+   * The total number of available pages.
    * 
    * @example
    * 5
@@ -116,7 +146,7 @@ export class ListSkillReferencesResponseBodyData extends $dara.Model {
   pagesAvailable?: number;
   /**
    * @remarks
-   * The total number of reference relationships that meet the filter conditions.
+   * The total number of reference relationships that meet the conditions.
    * 
    * @example
    * 100
@@ -155,12 +185,12 @@ export class ListSkillReferencesResponseBodyData extends $dara.Model {
 export class ListSkillReferencesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The skill reference relationships returned in the paging query.
+   * The skill reference relationship data returned by the paged query.
    */
   data?: ListSkillReferencesResponseBodyData;
   /**
    * @remarks
-   * The request ID, which is used for troubleshooting.
+   * The request ID, used for troubleshooting.
    * 
    * @example
    * 5C6D9E10-1234-5678-9ABC-DEF012345678

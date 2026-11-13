@@ -407,10 +407,10 @@ export default class Client extends OpenApi {
      */
     createCustomAgent(workspaceId: string, request: $_model.CreateCustomAgentRequest): Promise<$_model.CreateCustomAgentResponse>;
     /**
-     * Creates an agent that runs in an external environment, saves the configurations for the platform model, instructions, tools, and skills, and asynchronously processes the access configuration.
+     * Creates an agent that runs in an external environment, saves the configurations for the platform model, instructions, tools, and skills, and asynchronously processes the onboarding configuration.
      *
      * @remarks
-     * Registers an agent hosted in a user runtime environment, which corresponds to the "Managed Agent" in the console. After registration, you can continue to obtain access information and complete the connection.
+     * Registers an agent hosted in a user runtime environment, which corresponds to the "Managed Agent" in the console. After registration, you can continue to obtain onboarding information and complete the connection.
      * ### Configure a managed agent
      * Provide `name` and select the configuration based on the model source:
      * | `modelSource` | Model configuration |
@@ -418,12 +418,12 @@ export default class Client extends OpenApi {
      * | `PLATFORM` | Uses a platform model. Provide `model.modelConnectionId` and `model.modelName`. |
      * | `RUNTIME` | The model is managed by an external runtime environment. Do not submit `model`. |
      * If `modelSource` is omitted but `model` is provided, it is processed as `PLATFORM`. If both are omitted, the agent cannot be created.
-     * Configure instructions, MCP tools, and skills through `instruction`, `tools`, and `skills`. You can also reference an agent template through `template.aiRegistry`. The external process is deployed by the caller. This operation does not create a platform runtime instance.
-     * ### Access sequence
+     * Configure instructions, MCP tools, and skills by using `instruction`, `tools`, and `skills`. You can also reference an agent template by using `template.aiRegistry`. The external process is deployed by the caller. This operation does not create a platform runtime instance.
+     * ### Onboarding sequence
      * **Step 1:** After creation, save the `agentId` and call [GetExternalAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgent) to query the configuration processing result.
-     * **Step 2:** After the latest configuration takes effect, call [GetExternalAgentBootstrapOptions](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgentBootstrapOptions) to obtain the available access networks.
-     * **Step 3:** Select an available network and call [CreateExternalAgentBootstrapToken](https://api.aliyun.com/document/AgentCore/2026-08-04/CreateExternalAgentBootstrapToken) to obtain the access token and CMS configuration. The external process then completes the access.
-     * `clientToken` is a reserved query parameter and currently does not provide idempotency guarantees.
+     * **Step 2:** After the latest configuration takes effect, call [GetExternalAgentBootstrapOptions](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgentBootstrapOptions) to obtain the available onboarding networks.
+     * **Step 3:** Select an available network and call [CreateExternalAgentBootstrapToken](https://api.aliyun.com/document/AgentCore/2026-08-04/CreateExternalAgentBootstrapToken) to obtain the onboarding token and CMS configuration. The external process completes the onboarding.
+     * `clientToken` is a reserved query parameter and does not provide idempotency guarantees at this time.
      *
      * @param tmpReq - CreateExternalAgentRequest
      * @param headers - map
@@ -434,10 +434,10 @@ export default class Client extends OpenApi {
         [key: string]: string;
     }, runtime: $dara.RuntimeOptions): Promise<$_model.CreateExternalAgentResponse>;
     /**
-     * Creates an agent that runs in an external environment, saves the configurations for the platform model, instructions, tools, and skills, and asynchronously processes the access configuration.
+     * Creates an agent that runs in an external environment, saves the configurations for the platform model, instructions, tools, and skills, and asynchronously processes the onboarding configuration.
      *
      * @remarks
-     * Registers an agent hosted in a user runtime environment, which corresponds to the "Managed Agent" in the console. After registration, you can continue to obtain access information and complete the connection.
+     * Registers an agent hosted in a user runtime environment, which corresponds to the "Managed Agent" in the console. After registration, you can continue to obtain onboarding information and complete the connection.
      * ### Configure a managed agent
      * Provide `name` and select the configuration based on the model source:
      * | `modelSource` | Model configuration |
@@ -445,12 +445,12 @@ export default class Client extends OpenApi {
      * | `PLATFORM` | Uses a platform model. Provide `model.modelConnectionId` and `model.modelName`. |
      * | `RUNTIME` | The model is managed by an external runtime environment. Do not submit `model`. |
      * If `modelSource` is omitted but `model` is provided, it is processed as `PLATFORM`. If both are omitted, the agent cannot be created.
-     * Configure instructions, MCP tools, and skills through `instruction`, `tools`, and `skills`. You can also reference an agent template through `template.aiRegistry`. The external process is deployed by the caller. This operation does not create a platform runtime instance.
-     * ### Access sequence
+     * Configure instructions, MCP tools, and skills by using `instruction`, `tools`, and `skills`. You can also reference an agent template by using `template.aiRegistry`. The external process is deployed by the caller. This operation does not create a platform runtime instance.
+     * ### Onboarding sequence
      * **Step 1:** After creation, save the `agentId` and call [GetExternalAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgent) to query the configuration processing result.
-     * **Step 2:** After the latest configuration takes effect, call [GetExternalAgentBootstrapOptions](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgentBootstrapOptions) to obtain the available access networks.
-     * **Step 3:** Select an available network and call [CreateExternalAgentBootstrapToken](https://api.aliyun.com/document/AgentCore/2026-08-04/CreateExternalAgentBootstrapToken) to obtain the access token and CMS configuration. The external process then completes the access.
-     * `clientToken` is a reserved query parameter and currently does not provide idempotency guarantees.
+     * **Step 2:** After the latest configuration takes effect, call [GetExternalAgentBootstrapOptions](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgentBootstrapOptions) to obtain the available onboarding networks.
+     * **Step 3:** Select an available network and call [CreateExternalAgentBootstrapToken](https://api.aliyun.com/document/AgentCore/2026-08-04/CreateExternalAgentBootstrapToken) to obtain the onboarding token and CMS configuration. The external process completes the onboarding.
+     * `clientToken` is a reserved query parameter and does not provide idempotency guarantees at this time.
      *
      * @param request - CreateExternalAgentRequest
      * @returns CreateExternalAgentResponse
@@ -491,30 +491,30 @@ export default class Client extends OpenApi {
      */
     createExternalAgentBootstrapToken(workspaceId: string, agentId: string, request: $_model.CreateExternalAgentBootstrapTokenRequest): Promise<$_model.CreateExternalAgentBootstrapTokenResponse>;
     /**
-     * Binds an external identity provider such as DingTalk, Lark, or a custom identity source to a workspace for enterprise account logon and user synchronization.
+     * Integrates an external identity provider such as DingTalk, Lark, or a custom identity source into a workspace for enterprise account logon and user synchronization.
      *
      * @remarks
-     * Binds an enterprise identity source to a workspace to allow application users to log on with enterprise accounts or synchronize users from the enterprise address book to the workspace.
-     * DingTalk, Lark, and custom identity sources (`CustomSSO`) are supported. A workspace can be bound to only one identity source. To change the access method, you must unbind the current identity source first.
-     * ### Select an access method
-     * | Access method | Scenario | Task completed by this operation |
+     * Integrates an enterprise identity source into a workspace to allow application users to log on with enterprise accounts or synchronize users from the enterprise address book to the workspace.
+     * DingTalk, Lark, and custom identity sources (`CustomSSO`) are supported. A workspace can be bound to only one identity source. To change the integration method, you must unbind the current identity source first.
+     * ### Select an integration method
+     * | Integration method | Scenario | Operation performed by this API |
      * | --- | --- | --- |
      * | DingTalk or Lark | The enterprise already uses DingTalk or Lark and wants to integrate enterprise accounts and the address book. | Saves the enterprise application credentials and establishes a binding for subsequent logon and address book synchronization configuration. |
      * | Custom identity source (`CustomSSO`) | The enterprise wants to integrate its own identity authentication and user management system. | Creates a shared user pool to prepare for subsequent SAML single sign-on (SSO) and SCIM user synchronization configuration. |
-     * A user pool is used to store application users and identity access configurations. SAML handles enterprise account logon, and SCIM handles provisioning users from the enterprise identity system to the user pool. You can configure these two capabilities separately.
+     * The user pool is used to store application users and identity integration configurations. SAML handles enterprise account logon, and SCIM handles provisioning users from the enterprise identity system to the user pool. You can configure these two capabilities separately.
      * ### Bind DingTalk or Lark
      * Enter the enterprise application credentials in `metadata`: DingTalk requires `appKey`, `appSecret`, and `corpId`, while Lark requires `appId` and `appSecret`.
-     * Logon is enabled by default. A user synchronization task is executed by default upon the first binding. If you want to select departments before synchronization, set `syncOnBind=false`.
+     * Logon is enabled by default. A user synchronization task is executed by default upon the first binding. If you want to select departments before synchronization, set `syncOnBind` to `false`.
      * Subsequent address book change synchronization is controlled by `syncEnabled` and is disabled by default. When enabled, you must also provide `encryptKey` and `verificationToken`.
      * ### Bind a custom identity source
-     * When you create a `CustomSSO` binding, you only need to specify the identity source type:
+     * When creating a `CustomSSO` binding, you only need to specify the identity source type:
      * ```http
      * POST /workspaces/{workspaceId}/identity-providers
      * {"identityProviderType":"CustomSSO"}
      * ```
-     * This call only creates a user pool. Logon and user synchronization are disabled by default. Do not fill in `metadata` or enable `loginEnabled` and `syncEnabled` during creation.
-     * After creation, query the progress by calling [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider). A return value of `WAITING_CONFIGURATION` indicates that the user pool is created and you can continue to configure access:
-     * - **Integrate enterprise account logon**: Call [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) to obtain the SAML access information of AgentCore and configure it in the enterprise identity system. Then, call [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider) to save the SAML configuration of the enterprise identity system and enable logon as needed.
+     * This call only creates the user pool. Logon and user synchronization are disabled by default. Do not enter `metadata` or enable `loginEnabled` and `syncEnabled` during creation.
+     * After creation, call [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) to query the progress. If `WAITING_CONFIGURATION` is returned, the user pool is created and you can proceed with the integration configuration:
+     * - **Integrate enterprise account logon**: Call [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) to obtain the SAML integration information of AgentCore and configure it in the enterprise identity system. Then, call [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider) to save the SAML configuration of the enterprise identity system and enable logon as needed.
      * - **Integrate user synchronization**: Call [PrepareIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/PrepareIdentityProviderSCIM) to obtain the SCIM receiving endpoint and credentials, and configure them in the enterprise identity system. After the external configuration is complete, call [UpdateIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProviderSCIM) to enable AgentCore user synchronization.
      * The two processes are independent of each other. You can select one or both based on your business requirements.
      *
@@ -527,30 +527,30 @@ export default class Client extends OpenApi {
         [key: string]: string;
     }, runtime: $dara.RuntimeOptions): Promise<$_model.CreateIdentityProviderResponse>;
     /**
-     * Binds an external identity provider such as DingTalk, Lark, or a custom identity source to a workspace for enterprise account logon and user synchronization.
+     * Integrates an external identity provider such as DingTalk, Lark, or a custom identity source into a workspace for enterprise account logon and user synchronization.
      *
      * @remarks
-     * Binds an enterprise identity source to a workspace to allow application users to log on with enterprise accounts or synchronize users from the enterprise address book to the workspace.
-     * DingTalk, Lark, and custom identity sources (`CustomSSO`) are supported. A workspace can be bound to only one identity source. To change the access method, you must unbind the current identity source first.
-     * ### Select an access method
-     * | Access method | Scenario | Task completed by this operation |
+     * Integrates an enterprise identity source into a workspace to allow application users to log on with enterprise accounts or synchronize users from the enterprise address book to the workspace.
+     * DingTalk, Lark, and custom identity sources (`CustomSSO`) are supported. A workspace can be bound to only one identity source. To change the integration method, you must unbind the current identity source first.
+     * ### Select an integration method
+     * | Integration method | Scenario | Operation performed by this API |
      * | --- | --- | --- |
      * | DingTalk or Lark | The enterprise already uses DingTalk or Lark and wants to integrate enterprise accounts and the address book. | Saves the enterprise application credentials and establishes a binding for subsequent logon and address book synchronization configuration. |
      * | Custom identity source (`CustomSSO`) | The enterprise wants to integrate its own identity authentication and user management system. | Creates a shared user pool to prepare for subsequent SAML single sign-on (SSO) and SCIM user synchronization configuration. |
-     * A user pool is used to store application users and identity access configurations. SAML handles enterprise account logon, and SCIM handles provisioning users from the enterprise identity system to the user pool. You can configure these two capabilities separately.
+     * The user pool is used to store application users and identity integration configurations. SAML handles enterprise account logon, and SCIM handles provisioning users from the enterprise identity system to the user pool. You can configure these two capabilities separately.
      * ### Bind DingTalk or Lark
      * Enter the enterprise application credentials in `metadata`: DingTalk requires `appKey`, `appSecret`, and `corpId`, while Lark requires `appId` and `appSecret`.
-     * Logon is enabled by default. A user synchronization task is executed by default upon the first binding. If you want to select departments before synchronization, set `syncOnBind=false`.
+     * Logon is enabled by default. A user synchronization task is executed by default upon the first binding. If you want to select departments before synchronization, set `syncOnBind` to `false`.
      * Subsequent address book change synchronization is controlled by `syncEnabled` and is disabled by default. When enabled, you must also provide `encryptKey` and `verificationToken`.
      * ### Bind a custom identity source
-     * When you create a `CustomSSO` binding, you only need to specify the identity source type:
+     * When creating a `CustomSSO` binding, you only need to specify the identity source type:
      * ```http
      * POST /workspaces/{workspaceId}/identity-providers
      * {"identityProviderType":"CustomSSO"}
      * ```
-     * This call only creates a user pool. Logon and user synchronization are disabled by default. Do not fill in `metadata` or enable `loginEnabled` and `syncEnabled` during creation.
-     * After creation, query the progress by calling [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider). A return value of `WAITING_CONFIGURATION` indicates that the user pool is created and you can continue to configure access:
-     * - **Integrate enterprise account logon**: Call [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) to obtain the SAML access information of AgentCore and configure it in the enterprise identity system. Then, call [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider) to save the SAML configuration of the enterprise identity system and enable logon as needed.
+     * This call only creates the user pool. Logon and user synchronization are disabled by default. Do not enter `metadata` or enable `loginEnabled` and `syncEnabled` during creation.
+     * After creation, call [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) to query the progress. If `WAITING_CONFIGURATION` is returned, the user pool is created and you can proceed with the integration configuration:
+     * - **Integrate enterprise account logon**: Call [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) to obtain the SAML integration information of AgentCore and configure it in the enterprise identity system. Then, call [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider) to save the SAML configuration of the enterprise identity system and enable logon as needed.
      * - **Integrate user synchronization**: Call [PrepareIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/PrepareIdentityProviderSCIM) to obtain the SCIM receiving endpoint and credentials, and configure them in the enterprise identity system. After the external configuration is complete, call [UpdateIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProviderSCIM) to enable AgentCore user synchronization.
      * The two processes are independent of each other. You can select one or both based on your business requirements.
      *
@@ -651,18 +651,18 @@ export default class Client extends OpenApi {
      */
     createIdentityProviderSyncJob(workspaceId: string, identityProviderType: string, request: $_model.CreateIdentityProviderSyncJobRequest): Promise<$_model.CreateIdentityProviderSyncJobResponse>;
     /**
-     * Creates or reuses an image cache for an ACR Enterprise Edition image in a workspace, and returns the cache status upon acceptance.
+     * Creates or reuses an image cache for ACR Enterprise Edition images in a workspace, and returns the cache status upon acceptance.
      *
      * @remarks
-     * Pre-builds or reuses an ACR Enterprise Edition image cache for custom code or image agents for subsequent deployment and startup.
+     * Prepares or reuses an ACR Enterprise Edition image cache for custom code or image agents for subsequent deployment and startup.
      * ### Request parameters
-     * regionId, workspaceId, and clientToken are passed as query parameters. The region must match the entry endpoint and the workspace.
-     * The JSON request body provides acrInstanceId, namespace, repository, and tag. For repository, specify only the repository name without repeating the namespace. The source repository must have pull authorization for the workspace resource role. You can obtain the authorization URL by calling [GetWorkspaceAcrRamAuthorizeUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspaceAcrRamAuthorizeUrl).
+     * `regionId`, `workspaceId`, and `clientToken` are passed as query parameters. The region must match the entry endpoint and the workspace.
+     * The JSON request body provides `acrInstanceId`, `namespace`, `repository`, and `tag`. For `repository`, specify only the repository name without repeating the namespace. The source repository must have pull authorization for the workspace resource role. You can obtain the authorization URL by calling [GetWorkspaceAcrRamAuthorizeUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspaceAcrRamAuthorizeUrl).
      * ### Transfer network
-     * Both accessInternet and accessVpc must be provided, and at least one of them must be set to true. The server validates these parameters based on the network conditions of the workspace. These parameters control the source reading and transfer for the current operation and do not modify the runtime network of the agent.
+     * Both `accessInternet` and `accessVpc` must be provided, and at least one of them must be set to `true`. The server validates these parameters based on the network conditions of the workspace. These parameters control the source reading and transfer for the current operation and do not modify the runtime network of the agent.
      * ### Acceptance and readiness
-     * A successful response returns the current cache snapshot. PENDING indicates that the cache is being prepared, READY indicates that the cache is ready, and FAILED indicates a failure. For failures, check the error field. Save the imageId and call [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache) to query subsequent results. If the image digest has not been parsed, digest may be empty.
-     * Currently, clientToken is only validated to ensure it is not empty. It does not guarantee deduplication based on this identifier or recovery of the original acceptance result. If the result is not confirmed, query existing caches first.
+     * A successful response returns the current cache snapshot. `PENDING` indicates that the cache is being prepared, `READY` indicates that the cache is ready, and `FAILED` indicates a failure. For failures, check the `error` field. Save the `imageId` and call [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache) to query subsequent results. If the image digest has not been parsed, `digest` may be empty.
+     * Currently, `clientToken` is only validated to ensure it is not empty. It does not guarantee deduplication by this identifier or recovery of the original acceptance result. If the result is not confirmed, query the existing cache first.
      *
      * @param tmpReq - CreateImageCacheRequest
      * @param headers - map
@@ -673,18 +673,18 @@ export default class Client extends OpenApi {
         [key: string]: string;
     }, runtime: $dara.RuntimeOptions): Promise<$_model.CreateImageCacheResponse>;
     /**
-     * Creates or reuses an image cache for an ACR Enterprise Edition image in a workspace, and returns the cache status upon acceptance.
+     * Creates or reuses an image cache for ACR Enterprise Edition images in a workspace, and returns the cache status upon acceptance.
      *
      * @remarks
-     * Pre-builds or reuses an ACR Enterprise Edition image cache for custom code or image agents for subsequent deployment and startup.
+     * Prepares or reuses an ACR Enterprise Edition image cache for custom code or image agents for subsequent deployment and startup.
      * ### Request parameters
-     * regionId, workspaceId, and clientToken are passed as query parameters. The region must match the entry endpoint and the workspace.
-     * The JSON request body provides acrInstanceId, namespace, repository, and tag. For repository, specify only the repository name without repeating the namespace. The source repository must have pull authorization for the workspace resource role. You can obtain the authorization URL by calling [GetWorkspaceAcrRamAuthorizeUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspaceAcrRamAuthorizeUrl).
+     * `regionId`, `workspaceId`, and `clientToken` are passed as query parameters. The region must match the entry endpoint and the workspace.
+     * The JSON request body provides `acrInstanceId`, `namespace`, `repository`, and `tag`. For `repository`, specify only the repository name without repeating the namespace. The source repository must have pull authorization for the workspace resource role. You can obtain the authorization URL by calling [GetWorkspaceAcrRamAuthorizeUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspaceAcrRamAuthorizeUrl).
      * ### Transfer network
-     * Both accessInternet and accessVpc must be provided, and at least one of them must be set to true. The server validates these parameters based on the network conditions of the workspace. These parameters control the source reading and transfer for the current operation and do not modify the runtime network of the agent.
+     * Both `accessInternet` and `accessVpc` must be provided, and at least one of them must be set to `true`. The server validates these parameters based on the network conditions of the workspace. These parameters control the source reading and transfer for the current operation and do not modify the runtime network of the agent.
      * ### Acceptance and readiness
-     * A successful response returns the current cache snapshot. PENDING indicates that the cache is being prepared, READY indicates that the cache is ready, and FAILED indicates a failure. For failures, check the error field. Save the imageId and call [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache) to query subsequent results. If the image digest has not been parsed, digest may be empty.
-     * Currently, clientToken is only validated to ensure it is not empty. It does not guarantee deduplication based on this identifier or recovery of the original acceptance result. If the result is not confirmed, query existing caches first.
+     * A successful response returns the current cache snapshot. `PENDING` indicates that the cache is being prepared, `READY` indicates that the cache is ready, and `FAILED` indicates a failure. For failures, check the `error` field. Save the `imageId` and call [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache) to query subsequent results. If the image digest has not been parsed, `digest` may be empty.
+     * Currently, `clientToken` is only validated to ensure it is not empty. It does not guarantee deduplication by this identifier or recovery of the original acceptance result. If the result is not confirmed, query the existing cache first.
      *
      * @param request - CreateImageCacheRequest
      * @returns CreateImageCacheResponse
@@ -975,11 +975,11 @@ export default class Client extends OpenApi {
      */
     createUser(workspaceId: string, request: $_model.CreateUserRequest): Promise<$_model.CreateUserResponse>;
     /**
-     * Creates an AgentCore workspace as a resource scope for organizing agents, models, Model Context Protocol (MCP) services, and collaboration configurations.
+     * Creates an AgentCore workspace as a resource scope for organizing agents, models, MCP services, and collaboration configurations.
      *
      * @remarks
-     * Creates an AgentCore workspace as a resource scope for organizing agents, models, Model Context Protocol (MCP) services, and collaboration configurations.
-     * After the workspace is created, you can use the returned workspace ID to call [GetWorkspace](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspace) to query details and manage agents and associated resources in the workspace. For network configuration fields and their dependencies, see the request parameters table.
+     * Creates an AgentCore workspace as a resource scope for organizing agents, models, MCP services, and collaboration configurations.
+     * After the workspace is created, you can use the returned workspace ID to call [GetWorkspace](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspace) to query the details, and then manage agents and associated resources in the workspace. For network configuration fields and their dependencies, see the request parameters table.
      *
      * @param tmpReq - CreateWorkspaceRequest
      * @param headers - map
@@ -990,11 +990,11 @@ export default class Client extends OpenApi {
         [key: string]: string;
     }, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWorkspaceResponse>;
     /**
-     * Creates an AgentCore workspace as a resource scope for organizing agents, models, Model Context Protocol (MCP) services, and collaboration configurations.
+     * Creates an AgentCore workspace as a resource scope for organizing agents, models, MCP services, and collaboration configurations.
      *
      * @remarks
-     * Creates an AgentCore workspace as a resource scope for organizing agents, models, Model Context Protocol (MCP) services, and collaboration configurations.
-     * After the workspace is created, you can use the returned workspace ID to call [GetWorkspace](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspace) to query details and manage agents and associated resources in the workspace. For network configuration fields and their dependencies, see the request parameters table.
+     * Creates an AgentCore workspace as a resource scope for organizing agents, models, MCP services, and collaboration configurations.
+     * After the workspace is created, you can use the returned workspace ID to call [GetWorkspace](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspace) to query the details, and then manage agents and associated resources in the workspace. For network configuration fields and their dependencies, see the request parameters table.
      *
      * @param request - CreateWorkspaceRequest
      * @returns CreateWorkspaceResponse
@@ -1241,18 +1241,18 @@ export default class Client extends OpenApi {
      */
     deleteExternalAgent(workspaceId: string, agentId: string, request: $_model.DeleteExternalAgentRequest): Promise<$_model.DeleteExternalAgentResponse>;
     /**
-     * Disconnects the identity source integration of a workspace. For CustomSSO, this operation clears the shared user pool and related SAML and SCIM resources. To disable only logon or synchronization, use the corresponding API operations.
+     * Disconnects the identity source integration for a workspace. For CustomSSO, this operation clears the shared user pool and related SAML and SCIM resources. To disable only logon or synchronization, use the corresponding API operations.
      *
      * @remarks
-     * Disconnects the association between a workspace and an enterprise identity source. This operation is used to terminate identity federation or clear the current configuration before you attach another identity source.
-     * Disconnecting removes the AgentCore users and associated configurations imported from the identity source. For CustomSSO, it also clears the shared user pool and SAML and SCIM access resources. Applications created by users in the enterprise identity system must still be managed on the enterprise side.
-     * ### Preparations
-     * Remove the references between the relevant users and collaboration teams. If any team still references these users, the API operation rejects the disconnection request.
-     * If you only need to temporarily disable a specific capability, you can retain the identity source binding. You can disable logon by calling [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider) or disable SCIM synchronization by calling [UpdateIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProviderSCIM).
+     * Disconnects the workspace from the enterprise identity source to end identity federation, or clears the current attachment before attaching another identity source.
+     * Disconnecting clears the AgentCore users and associated configurations imported from the identity source. For `CustomSSO`, it also clears the shared user pool and SAML and SCIM access resources. Applications created by users in the enterprise identity system must still be managed on the enterprise side.
+     * ### Preparations before disconnection
+     * First, remove the references between the relevant users and collaboration teams. If any team still references these users, the API operation rejects the disconnection request.
+     * If you only want to temporarily disable a specific capability, you can retain the identity source binding: disable logon by calling [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider), or disable SCIM synchronization by calling [UpdateIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProviderSCIM).
      * ### Verify the disconnection result
-     * The disconnection is executed in the background. After the request is accepted, DISCONNECTING is returned. You can call [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) to query the progress:
-     * - If the query returns IdentityProviderNotFound, the binding has been removed and the disconnection is complete.
-     * - If DISCONNECT_FAILED is returned, the cleanup failed. Some resources may have already been cleared. You can initiate the disconnection again.
+     * The disconnection is executed in the background. After the request is accepted, `DISCONNECTING` is returned. You can query the progress by calling [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider):
+     * - If the query returns `IdentityProviderNotFound`, the binding has been removed and the disconnection is complete.
+     * - If `DISCONNECT_FAILED` is returned, the cleanup failed. Some resources may have already been cleaned up. You can initiate the disconnection again.
      * You can bind a new identity source to the workspace only after the disconnection is complete.
      *
      * @param request - DeleteIdentityProviderRequest
@@ -1264,18 +1264,18 @@ export default class Client extends OpenApi {
         [key: string]: string;
     }, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteIdentityProviderResponse>;
     /**
-     * Disconnects the identity source integration of a workspace. For CustomSSO, this operation clears the shared user pool and related SAML and SCIM resources. To disable only logon or synchronization, use the corresponding API operations.
+     * Disconnects the identity source integration for a workspace. For CustomSSO, this operation clears the shared user pool and related SAML and SCIM resources. To disable only logon or synchronization, use the corresponding API operations.
      *
      * @remarks
-     * Disconnects the association between a workspace and an enterprise identity source. This operation is used to terminate identity federation or clear the current configuration before you attach another identity source.
-     * Disconnecting removes the AgentCore users and associated configurations imported from the identity source. For CustomSSO, it also clears the shared user pool and SAML and SCIM access resources. Applications created by users in the enterprise identity system must still be managed on the enterprise side.
-     * ### Preparations
-     * Remove the references between the relevant users and collaboration teams. If any team still references these users, the API operation rejects the disconnection request.
-     * If you only need to temporarily disable a specific capability, you can retain the identity source binding. You can disable logon by calling [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider) or disable SCIM synchronization by calling [UpdateIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProviderSCIM).
+     * Disconnects the workspace from the enterprise identity source to end identity federation, or clears the current attachment before attaching another identity source.
+     * Disconnecting clears the AgentCore users and associated configurations imported from the identity source. For `CustomSSO`, it also clears the shared user pool and SAML and SCIM access resources. Applications created by users in the enterprise identity system must still be managed on the enterprise side.
+     * ### Preparations before disconnection
+     * First, remove the references between the relevant users and collaboration teams. If any team still references these users, the API operation rejects the disconnection request.
+     * If you only want to temporarily disable a specific capability, you can retain the identity source binding: disable logon by calling [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider), or disable SCIM synchronization by calling [UpdateIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProviderSCIM).
      * ### Verify the disconnection result
-     * The disconnection is executed in the background. After the request is accepted, DISCONNECTING is returned. You can call [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) to query the progress:
-     * - If the query returns IdentityProviderNotFound, the binding has been removed and the disconnection is complete.
-     * - If DISCONNECT_FAILED is returned, the cleanup failed. Some resources may have already been cleared. You can initiate the disconnection again.
+     * The disconnection is executed in the background. After the request is accepted, `DISCONNECTING` is returned. You can query the progress by calling [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider):
+     * - If the query returns `IdentityProviderNotFound`, the binding has been removed and the disconnection is complete.
+     * - If `DISCONNECT_FAILED` is returned, the cleanup failed. Some resources may have already been cleaned up. You can initiate the disconnection again.
      * You can bind a new identity source to the workspace only after the disconnection is complete.
      *
      * @param request - DeleteIdentityProviderRequest
@@ -1324,9 +1324,9 @@ export default class Client extends OpenApi {
      * @remarks
      * Deletes the image cache association in a workspace and checks agent references and instance usage before submission.
      * ### Deletion conditions
-     * The deletion request is rejected if the cache is still referenced by an agent with the cache switch enabled, or if instances are still using it or resources are being released. You can first query `agentCount`, `canDelete`, and `deleteBlockReason` by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache).
+     * The deletion request is rejected if the cache is still referenced by an agent with the cache switch enabled, or if the cache is still in use by instances or being released. You can first query `agentCount`, `canDelete`, and `deleteBlockReason` by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache).
      * ### Query results
-     * The `imageId` in the response corresponds to this request. The current implementation of `deletionPending` returns `false`. To confirm whether the cache is still visible, call [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache) or [ListImageCaches](https://api.aliyun.com/document/AgentCore/2026-08-04/ListImageCaches).
+     * The `imageId` in the response corresponds to this request. The current implementation of `deletionPending` returns `false`. To check whether the cache is still visible, call [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache) or [ListImageCaches](https://api.aliyun.com/document/AgentCore/2026-08-04/ListImageCaches).
      * This operation deletes the cache association in the specified workspace. It does not delete the source ACR repository or the source image.
      *
      * @param request - DeleteImageCacheRequest
@@ -1343,9 +1343,9 @@ export default class Client extends OpenApi {
      * @remarks
      * Deletes the image cache association in a workspace and checks agent references and instance usage before submission.
      * ### Deletion conditions
-     * The deletion request is rejected if the cache is still referenced by an agent with the cache switch enabled, or if instances are still using it or resources are being released. You can first query `agentCount`, `canDelete`, and `deleteBlockReason` by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache).
+     * The deletion request is rejected if the cache is still referenced by an agent with the cache switch enabled, or if the cache is still in use by instances or being released. You can first query `agentCount`, `canDelete`, and `deleteBlockReason` by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache).
      * ### Query results
-     * The `imageId` in the response corresponds to this request. The current implementation of `deletionPending` returns `false`. To confirm whether the cache is still visible, call [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache) or [ListImageCaches](https://api.aliyun.com/document/AgentCore/2026-08-04/ListImageCaches).
+     * The `imageId` in the response corresponds to this request. The current implementation of `deletionPending` returns `false`. To check whether the cache is still visible, call [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache) or [ListImageCaches](https://api.aliyun.com/document/AgentCore/2026-08-04/ListImageCaches).
      * This operation deletes the cache association in the specified workspace. It does not delete the source ACR repository or the source image.
      *
      * @param request - DeleteImageCacheRequest
@@ -2266,9 +2266,9 @@ export default class Client extends OpenApi {
      * Queries the configuration, model source, version processing status, and external runtime status of a managed agent.
      *
      * @remarks
-     * Queries the platform configuration, version processing status, and external runtime status of a managed agent to verify access and configuration application.
+     * Queries the platform configuration, version processing status, and external runtime status of a managed agent to verify access and configuration effectiveness.
      * ### Configuration processing and runtime status
-     * `latestSpecVersion` and `latestVersionStatus` indicate the latest submitted configuration and its processing status. `status` indicates the platform resource status, and `externalAgentStatus` indicates the external runtime status. A successfully accepted configuration does not mean that the external process is connected.
+     * `latestSpecVersion` and `latestVersionStatus` indicate the latest submitted configuration and its processing status. `status` represents the platform resource status, and `externalAgentStatus` represents the external runtime status. A successful configuration acceptance does not indicate that the external process is connected.
      * If `modelSource` is `PLATFORM`, the returned model configuration is used. `RUNTIME` indicates that the model is managed by the external environment. `configuredSkills` indicates explicit skill configurations, and `skills` represents the aggregated skill information.
      * ### External access
      * After the configuration takes effect, call [GetExternalAgentBootstrapOptions](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgentBootstrapOptions) to query available networks, and then call [CreateExternalAgentBootstrapToken](https://api.aliyun.com/document/AgentCore/2026-08-04/CreateExternalAgentBootstrapToken) to obtain access information. If the agent does not exist, has been deleted, or does not belong to the workspace, a resource not found error is returned.
@@ -2285,9 +2285,9 @@ export default class Client extends OpenApi {
      * Queries the configuration, model source, version processing status, and external runtime status of a managed agent.
      *
      * @remarks
-     * Queries the platform configuration, version processing status, and external runtime status of a managed agent to verify access and configuration application.
+     * Queries the platform configuration, version processing status, and external runtime status of a managed agent to verify access and configuration effectiveness.
      * ### Configuration processing and runtime status
-     * `latestSpecVersion` and `latestVersionStatus` indicate the latest submitted configuration and its processing status. `status` indicates the platform resource status, and `externalAgentStatus` indicates the external runtime status. A successfully accepted configuration does not mean that the external process is connected.
+     * `latestSpecVersion` and `latestVersionStatus` indicate the latest submitted configuration and its processing status. `status` represents the platform resource status, and `externalAgentStatus` represents the external runtime status. A successful configuration acceptance does not indicate that the external process is connected.
      * If `modelSource` is `PLATFORM`, the returned model configuration is used. `RUNTIME` indicates that the model is managed by the external environment. `configuredSkills` indicates explicit skill configurations, and `skills` represents the aggregated skill information.
      * ### External access
      * After the configuration takes effect, call [GetExternalAgentBootstrapOptions](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgentBootstrapOptions) to query available networks, and then call [CreateExternalAgentBootstrapToken](https://api.aliyun.com/document/AgentCore/2026-08-04/CreateExternalAgentBootstrapToken) to obtain access information. If the agent does not exist, has been deleted, or does not belong to the workspace, a resource not found error is returned.
@@ -2332,20 +2332,20 @@ export default class Client extends OpenApi {
      * Queries the binding and expected configuration of a specified identity provider. When SAML is configured for CustomSSO, this operation reads back the actual upstream SSO configuration. The SCIM status is queried through a separate API operation.
      *
      * @remarks
-     * Queries the enterprise identity providers bound to a workspace to view the access configuration, logon and user synchronization toggles, and configuration processing progress.
-     * For a custom identity provider (`CustomSSO`), this API operation also reads the saved SAML logon configuration for viewing or modifying enterprise single sign-on (SSO) settings.
+     * Queries the enterprise identity providers bound to a workspace. You can use this operation to view the access configuration, logon and user synchronization switches, and configuration processing progress.
+     * For custom identity providers (`CustomSSO`), this API operation also retrieves the saved SAML logon configuration for viewing or modifying enterprise single sign-on (SSO) settings.
      * ### How to interpret the query results
      * | Field | Purpose |
      * | --- | --- |
      * | `identityProviderType` | Indicates whether DingTalk, Lark, or a custom identity provider is currently integrated. |
      * | `loginEnabled` | Indicates whether enterprise account logon is enabled. |
-     * | `saml` | The saved SAML configuration of the enterprise identity system, used to backfill fields when editing the configuration. |
+     * | `saml` | The saved SAML configuration of the enterprise identity system, used for backfilling when editing the configuration. |
      * | `configuration` | The actual SAML configuration read from the identity service, used to verify whether the logon configuration has taken effect. |
-     * | `status` | The processing progress of attaching the identity provider or the logon configuration. |
-     * If `CustomSSO` returns `WAITING_CONFIGURATION`, it indicates that the user pool is ready and the SAML logon configuration is pending. In this case, you can call [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) to obtain the access information of AgentCore and continue configuring enterprise single sign-on.
-     * After saving the logon configuration, you can query `status` to track the processing progress. `READY` indicates that the configuration processing is complete. To check whether logon is enabled, you also need to verify `loginEnabled` and `configuration`.
-     * ### Query user synchronization status
-     * SAML logon and SCIM user synchronization are configured separately. SCIM is used to pre-provision users from the enterprise identity system into the user pool. You can call [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM) to query the receiver configuration and synchronization task results.
+     * | `status` | The processing progress of the identity provider attachment or logon configuration. |
+     * When `CustomSSO` returns `WAITING_CONFIGURATION`, it indicates that the user pool is ready and the SAML logon configuration is pending. In this case, you can call [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) to obtain the access information for AgentCore and continue configuring enterprise single sign-on.
+     * After you save the logon configuration, you can query `status` to track the processing progress. `READY` indicates that the configuration processing is complete. To check whether logon is enabled, you must also verify `loginEnabled` and `configuration`.
+     * ### Query the user synchronization status
+     * SAML logon and SCIM user synchronization are configured separately. SCIM is used to pre-provision users from the enterprise identity system to the user pool. You can call [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM) to query the receiver configuration and synchronization task results.
      *
      * @param request - GetIdentityProviderRequest
      * @param headers - map
@@ -2359,20 +2359,20 @@ export default class Client extends OpenApi {
      * Queries the binding and expected configuration of a specified identity provider. When SAML is configured for CustomSSO, this operation reads back the actual upstream SSO configuration. The SCIM status is queried through a separate API operation.
      *
      * @remarks
-     * Queries the enterprise identity providers bound to a workspace to view the access configuration, logon and user synchronization toggles, and configuration processing progress.
-     * For a custom identity provider (`CustomSSO`), this API operation also reads the saved SAML logon configuration for viewing or modifying enterprise single sign-on (SSO) settings.
+     * Queries the enterprise identity providers bound to a workspace. You can use this operation to view the access configuration, logon and user synchronization switches, and configuration processing progress.
+     * For custom identity providers (`CustomSSO`), this API operation also retrieves the saved SAML logon configuration for viewing or modifying enterprise single sign-on (SSO) settings.
      * ### How to interpret the query results
      * | Field | Purpose |
      * | --- | --- |
      * | `identityProviderType` | Indicates whether DingTalk, Lark, or a custom identity provider is currently integrated. |
      * | `loginEnabled` | Indicates whether enterprise account logon is enabled. |
-     * | `saml` | The saved SAML configuration of the enterprise identity system, used to backfill fields when editing the configuration. |
+     * | `saml` | The saved SAML configuration of the enterprise identity system, used for backfilling when editing the configuration. |
      * | `configuration` | The actual SAML configuration read from the identity service, used to verify whether the logon configuration has taken effect. |
-     * | `status` | The processing progress of attaching the identity provider or the logon configuration. |
-     * If `CustomSSO` returns `WAITING_CONFIGURATION`, it indicates that the user pool is ready and the SAML logon configuration is pending. In this case, you can call [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) to obtain the access information of AgentCore and continue configuring enterprise single sign-on.
-     * After saving the logon configuration, you can query `status` to track the processing progress. `READY` indicates that the configuration processing is complete. To check whether logon is enabled, you also need to verify `loginEnabled` and `configuration`.
-     * ### Query user synchronization status
-     * SAML logon and SCIM user synchronization are configured separately. SCIM is used to pre-provision users from the enterprise identity system into the user pool. You can call [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM) to query the receiver configuration and synchronization task results.
+     * | `status` | The processing progress of the identity provider attachment or logon configuration. |
+     * When `CustomSSO` returns `WAITING_CONFIGURATION`, it indicates that the user pool is ready and the SAML logon configuration is pending. In this case, you can call [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) to obtain the access information for AgentCore and continue configuring enterprise single sign-on.
+     * After you save the logon configuration, you can query `status` to track the processing progress. `READY` indicates that the configuration processing is complete. To check whether logon is enabled, you must also verify `loginEnabled` and `configuration`.
+     * ### Query the user synchronization status
+     * SAML logon and SCIM user synchronization are configured separately. SCIM is used to pre-provision users from the enterprise identity system to the user pool. You can call [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM) to query the receiver configuration and synchronization task results.
      *
      * @param request - GetIdentityProviderRequest
      * @returns GetIdentityProviderResponse
@@ -2439,29 +2439,29 @@ export default class Client extends OpenApi {
      */
     getIdentityProviderSCIM(workspaceId: string, request: $_model.GetIdentityProviderSCIMRequest): Promise<$_model.GetIdentityProviderSCIMResponse>;
     /**
-     * Queries the SAML service provider (SP) information of CustomSSO, including the Entity ID, ACS URL, and SP metadata XML, for users to configure an external IdP.
+     * Queries the SAML service provider (SP) information for CustomSSO, including the Entity ID, ACS URL, and SP metadata XML, to help users configure an external IdP.
      *
      * @remarks
      * Retrieves the SAML service provider (SP) access information of AgentCore for configuring single sign-on (SSO) in an enterprise identity provider (IdP).
      * An SP is a service provider that receives logon assertions. An IdP is an enterprise identity provider that verifies user identities and issues logon assertions. This operation returns the SP information on the AgentCore side.
      * ### Before you begin
-     * The workspace is bound to CustomSSO, and the shared user pool is initialized. The protocol parameter is required and must be set to SAML.
-     * You can call the [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) operation to query the binding information. After the user pool becomes available, you can obtain the SP information and then complete the SAML configuration.
+     * The workspace is bound to `CustomSSO`, and the shared user pool is initialized. The `protocol` parameter is required and must be set to `SAML`.
+     * You can call the [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) operation to query the binding information. After the user pool becomes available, you can retrieve the SP information and then complete the SAML configuration.
      * ### Request example
      * ```http
      * GET /workspaces/{workspaceId}/identity-providers/CustomSSO/service-provider?protocol=SAML
      * ```
-     * ### Response elements
+     * ### Response information
      * | Field | Purpose |
      * | --- | --- |
-     * | protocol | The access protocol. This operation returns SAML. |
-     * | entityId | The SP identifier of AgentCore. Configure it as the service provider Entity ID in the enterprise IdP. |
-     * | acsUrl | The URL where AgentCore receives SAML logon assertions. Configure it as the ACS URL in the enterprise IdP. |
-     * | metadataXml | The SP metadata XML. Use it to import the SP configuration in an enterprise IdP that supports metadata import. |
+     * | `protocol` | The access protocol. This operation returns `SAML`. |
+     * | `entityId` | The SP identifier of AgentCore. Configure this value as the service provider Entity ID in the enterprise IdP. |
+     * | `acsUrl` | The URL where AgentCore receives SAML logon assertions. Configure this value as the ACS URL in the enterprise IdP. |
+     * | `metadataXml` | The SP metadata XML. Use this file to import the SP configuration in an enterprise IdP that supports metadata import. |
      * ### Configuration procedure
-     * **Step 1:** Call this operation to obtain the SP information, and configure the SP identifier and assertion receiving URL of AgentCore in the enterprise IdP.
-     * **Step 2:** Export the metadata XML from the enterprise IdP and save it to AgentCore by calling [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider).
-     * **Step 3:** After the configuration is complete, enable single sign-on by using loginEnabled as needed.
+     * **Step 1:** Call this operation to retrieve the SP information, and configure the SP identifier and assertion receiving URL of AgentCore in the enterprise IdP.
+     * **Step 2:** Export the metadata XML from the enterprise IdP and save it to AgentCore by calling the [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider) operation.
+     * **Step 3:** After the configuration is complete, enable single sign-on by setting `loginEnabled` as needed.
      *
      * @param request - GetIdentityProviderServiceProviderRequest
      * @param headers - map
@@ -2472,29 +2472,29 @@ export default class Client extends OpenApi {
         [key: string]: string;
     }, runtime: $dara.RuntimeOptions): Promise<$_model.GetIdentityProviderServiceProviderResponse>;
     /**
-     * Queries the SAML service provider (SP) information of CustomSSO, including the Entity ID, ACS URL, and SP metadata XML, for users to configure an external IdP.
+     * Queries the SAML service provider (SP) information for CustomSSO, including the Entity ID, ACS URL, and SP metadata XML, to help users configure an external IdP.
      *
      * @remarks
      * Retrieves the SAML service provider (SP) access information of AgentCore for configuring single sign-on (SSO) in an enterprise identity provider (IdP).
      * An SP is a service provider that receives logon assertions. An IdP is an enterprise identity provider that verifies user identities and issues logon assertions. This operation returns the SP information on the AgentCore side.
      * ### Before you begin
-     * The workspace is bound to CustomSSO, and the shared user pool is initialized. The protocol parameter is required and must be set to SAML.
-     * You can call the [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) operation to query the binding information. After the user pool becomes available, you can obtain the SP information and then complete the SAML configuration.
+     * The workspace is bound to `CustomSSO`, and the shared user pool is initialized. The `protocol` parameter is required and must be set to `SAML`.
+     * You can call the [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) operation to query the binding information. After the user pool becomes available, you can retrieve the SP information and then complete the SAML configuration.
      * ### Request example
      * ```http
      * GET /workspaces/{workspaceId}/identity-providers/CustomSSO/service-provider?protocol=SAML
      * ```
-     * ### Response elements
+     * ### Response information
      * | Field | Purpose |
      * | --- | --- |
-     * | protocol | The access protocol. This operation returns SAML. |
-     * | entityId | The SP identifier of AgentCore. Configure it as the service provider Entity ID in the enterprise IdP. |
-     * | acsUrl | The URL where AgentCore receives SAML logon assertions. Configure it as the ACS URL in the enterprise IdP. |
-     * | metadataXml | The SP metadata XML. Use it to import the SP configuration in an enterprise IdP that supports metadata import. |
+     * | `protocol` | The access protocol. This operation returns `SAML`. |
+     * | `entityId` | The SP identifier of AgentCore. Configure this value as the service provider Entity ID in the enterprise IdP. |
+     * | `acsUrl` | The URL where AgentCore receives SAML logon assertions. Configure this value as the ACS URL in the enterprise IdP. |
+     * | `metadataXml` | The SP metadata XML. Use this file to import the SP configuration in an enterprise IdP that supports metadata import. |
      * ### Configuration procedure
-     * **Step 1:** Call this operation to obtain the SP information, and configure the SP identifier and assertion receiving URL of AgentCore in the enterprise IdP.
-     * **Step 2:** Export the metadata XML from the enterprise IdP and save it to AgentCore by calling [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider).
-     * **Step 3:** After the configuration is complete, enable single sign-on by using loginEnabled as needed.
+     * **Step 1:** Call this operation to retrieve the SP information, and configure the SP identifier and assertion receiving URL of AgentCore in the enterprise IdP.
+     * **Step 2:** Export the metadata XML from the enterprise IdP and save it to AgentCore by calling the [UpdateIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProvider) operation.
+     * **Step 3:** After the configuration is complete, enable single sign-on by setting `loginEnabled` as needed.
      *
      * @param request - GetIdentityProviderServiceProviderRequest
      * @returns GetIdentityProviderServiceProviderResponse
@@ -2592,17 +2592,17 @@ export default class Client extends OpenApi {
      * @remarks
      * Queries the creation status and usage of an image cache to determine whether the cache is available and meets the deletion conditions.
      * ### Cache status
-     * | status | Description |
+     * | `status` | Description |
      * | --- | --- |
-     * | PENDING | Preparing. Continue querying. |
-     * | READY | Ready. |
-     * | FAILED | Preparation failed. Troubleshoot based on the error field. |
-     * | DELETING | Deleting. |
-     * | DISABLED | Disabled. |
-     * The digest is provided after the source resolution is complete. The unit of cacheSizeBytes is bytes, and it may be empty when the cache is not yet available.
+     * | `PENDING` | Preparing. Continue querying. |
+     * | `READY` | Ready. |
+     * | `FAILED` | Preparation failed. Troubleshoot based on the `error` field. |
+     * | `DELETING` | Deleting. |
+     * | `DISABLED` | Disabled. |
+     * The `digest` is provided after the source resolution is completed. The unit of `cacheSizeBytes` is bytes, and it may be empty when the cache is not yet available.
      * ### Usage and deletion
-     * agentCount indicates the number of agents that have enabled the cache feature and reference this cache. canDelete and deleteBlockReason indicate whether the cache can be deleted and the reason for blocking deletion. Deletion requests still recheck the usage.
-     * The query scope of this operation is determined by regionId, workspaceId, and imageId.
+     * `agentCount` indicates the number of agents that have the cache switch enabled and reference this cache. `canDelete` and `deleteBlockReason` indicate whether the cache can be deleted and the reason for blocking deletion. Deletion requests will recheck the usage.
+     * The query scope of this operation is determined by `regionId`, `workspaceId`, and `imageId`.
      *
      * @param request - GetImageCacheRequest
      * @param headers - map
@@ -2618,17 +2618,17 @@ export default class Client extends OpenApi {
      * @remarks
      * Queries the creation status and usage of an image cache to determine whether the cache is available and meets the deletion conditions.
      * ### Cache status
-     * | status | Description |
+     * | `status` | Description |
      * | --- | --- |
-     * | PENDING | Preparing. Continue querying. |
-     * | READY | Ready. |
-     * | FAILED | Preparation failed. Troubleshoot based on the error field. |
-     * | DELETING | Deleting. |
-     * | DISABLED | Disabled. |
-     * The digest is provided after the source resolution is complete. The unit of cacheSizeBytes is bytes, and it may be empty when the cache is not yet available.
+     * | `PENDING` | Preparing. Continue querying. |
+     * | `READY` | Ready. |
+     * | `FAILED` | Preparation failed. Troubleshoot based on the `error` field. |
+     * | `DELETING` | Deleting. |
+     * | `DISABLED` | Disabled. |
+     * The `digest` is provided after the source resolution is completed. The unit of `cacheSizeBytes` is bytes, and it may be empty when the cache is not yet available.
      * ### Usage and deletion
-     * agentCount indicates the number of agents that have enabled the cache feature and reference this cache. canDelete and deleteBlockReason indicate whether the cache can be deleted and the reason for blocking deletion. Deletion requests still recheck the usage.
-     * The query scope of this operation is determined by regionId, workspaceId, and imageId.
+     * `agentCount` indicates the number of agents that have the cache switch enabled and reference this cache. `canDelete` and `deleteBlockReason` indicate whether the cache can be deleted and the reason for blocking deletion. Deletion requests will recheck the usage.
+     * The query scope of this operation is determined by `regionId`, `workspaceId`, and `imageId`.
      *
      * @param request - GetImageCacheRequest
      * @returns GetImageCacheResponse
@@ -3674,16 +3674,16 @@ export default class Client extends OpenApi {
      * Queries the summary of existing identity provider bindings for a workspace, including CustomSSO. Returns local binding information without querying the actual upstream SAML or SCIM configurations.
      *
      * @remarks
-     * Queries the enterprise identity providers currently connected to a workspace. This operation is used to display the identity provider list or to check whether a binding already exists before configuring a connection.
-     * A workspace can be bound to at most one external identity provider at a time: DingTalk, Lark, or a custom identity provider (`CustomSSO`). If no identity provider is bound, the returned `items` is an empty array.
+     * Queries the enterprise identity providers currently connected to a workspace. You can use this operation to display the identity provider list or check whether a binding exists before configuring a connection.
+     * A workspace can be bound to at most one external identity provider: DingTalk, Lark, or a custom identity provider (`CustomSSO`). If no identity provider is bound, the returned `items` array is empty.
      * ### What you can view in the list
-     * The list returns the identity provider type, binding status, and the switches for logon and user synchronization. When the status of `CustomSSO` is `WAITING_CONFIGURATION`, it indicates that the user pool is ready and you can proceed to configure the connection.
+     * The list returns the identity provider type, binding status, and the switches for logon and user synchronization. If the status of `CustomSSO` is `WAITING_CONFIGURATION`, it indicates that the user pool is ready and you can proceed to fill in the connection configuration.
      * This operation returns a binding summary. To view specific connection configurations, use the corresponding operations:
      * - [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider): Retrieves the identity provider details and SAML logon configuration.
      * - [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider): Retrieves the SAML connection information required to configure AgentCore in the enterprise identity system.
-     * - [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM): Retrieves the SCIM receiver configuration and user synchronization status.
+     * - [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM): Queries the SCIM receiver configuration and user synchronization status.
      * ### Pagination
-     * Currently, at most one binding is returned. `nextToken` should be omitted or set to an empty string. The default value of `maxResults` is 10. Valid values: 1 to 100.
+     * Currently, at most one binding is returned. The `nextToken` parameter should be omitted or set to an empty string. The default value of `maxResults` is 10, and valid values are 1 to 100.
      *
      * @param request - ListIdentityProvidersRequest
      * @param headers - map
@@ -3697,32 +3697,32 @@ export default class Client extends OpenApi {
      * Queries the summary of existing identity provider bindings for a workspace, including CustomSSO. Returns local binding information without querying the actual upstream SAML or SCIM configurations.
      *
      * @remarks
-     * Queries the enterprise identity providers currently connected to a workspace. This operation is used to display the identity provider list or to check whether a binding already exists before configuring a connection.
-     * A workspace can be bound to at most one external identity provider at a time: DingTalk, Lark, or a custom identity provider (`CustomSSO`). If no identity provider is bound, the returned `items` is an empty array.
+     * Queries the enterprise identity providers currently connected to a workspace. You can use this operation to display the identity provider list or check whether a binding exists before configuring a connection.
+     * A workspace can be bound to at most one external identity provider: DingTalk, Lark, or a custom identity provider (`CustomSSO`). If no identity provider is bound, the returned `items` array is empty.
      * ### What you can view in the list
-     * The list returns the identity provider type, binding status, and the switches for logon and user synchronization. When the status of `CustomSSO` is `WAITING_CONFIGURATION`, it indicates that the user pool is ready and you can proceed to configure the connection.
+     * The list returns the identity provider type, binding status, and the switches for logon and user synchronization. If the status of `CustomSSO` is `WAITING_CONFIGURATION`, it indicates that the user pool is ready and you can proceed to fill in the connection configuration.
      * This operation returns a binding summary. To view specific connection configurations, use the corresponding operations:
      * - [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider): Retrieves the identity provider details and SAML logon configuration.
      * - [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider): Retrieves the SAML connection information required to configure AgentCore in the enterprise identity system.
-     * - [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM): Retrieves the SCIM receiver configuration and user synchronization status.
+     * - [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM): Queries the SCIM receiver configuration and user synchronization status.
      * ### Pagination
-     * Currently, at most one binding is returned. `nextToken` should be omitted or set to an empty string. The default value of `maxResults` is 10. Valid values: 1 to 100.
+     * Currently, at most one binding is returned. The `nextToken` parameter should be omitted or set to an empty string. The default value of `maxResults` is 10, and valid values are 1 to 100.
      *
      * @param request - ListIdentityProvidersRequest
      * @returns ListIdentityProvidersResponse
      */
     listIdentityProviders(workspaceId: string, request: $_model.ListIdentityProvidersRequest): Promise<$_model.ListIdentityProvidersResponse>;
     /**
-     * Performs a paging query on the image caches of a workspace and supports filtering by image source and cache status.
+     * Performs a paged query on image caches in a workspace, and supports paging and filtering by image source and cache status.
      *
      * @remarks
-     * Performs a paging query on the image caches of a workspace and supports filtering by image source and cache status.
+     * Performs a paged query on image caches in a workspace, and supports paging and filtering by image source and cache status.
      * ### Filter conditions
-     * Provide `regionId` and `workspaceId` in the query parameters. You can filter by ACR instance, `registry`, namespace, repository, tag, digest, and status. Use `imageRefContains` to search for image address fragments.
+     * Provide regionId and workspaceId in the query parameters. You can filter by ACR instance, registry, namespace, repository, tag, digest, and status. Use imageRefContains to search for image address fragments.
      * ### Pagination rules
-     * The default value of `maxResults` is 20, and the valid values are 1 to 100. Omit `nextToken` for the first request. For subsequent requests, use the response token as is, and keep the workspace, region, page size, and all filter conditions unchanged. An empty token indicates that there are no more pages.
+     * The default value of maxResults is 20. Valid values are 1 to 100. Omit nextToken for the first request. For subsequent requests, use the response token as is, and keep the workspace, region, page size, and all filter conditions unchanged. An empty token indicates that no more pages are available.
      * ### Response content
-     * Each item includes `imageId`, source, digest, status, size, reference count, and deletion conditions. `PENDING` only indicates that the cache is being prepared. For the cause of failure, see `error`. You can query a single cache by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache).
+     * Each item includes the imageId, source, digest, status, size, reference count, and deletion conditions. PENDING only indicates that the cache is being prepared. For the cause of failure, see error. You can query a single cache by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache).
      *
      * @param request - ListImageCachesRequest
      * @param headers - map
@@ -3733,16 +3733,16 @@ export default class Client extends OpenApi {
         [key: string]: string;
     }, runtime: $dara.RuntimeOptions): Promise<$_model.ListImageCachesResponse>;
     /**
-     * Performs a paging query on the image caches of a workspace and supports filtering by image source and cache status.
+     * Performs a paged query on image caches in a workspace, and supports paging and filtering by image source and cache status.
      *
      * @remarks
-     * Performs a paging query on the image caches of a workspace and supports filtering by image source and cache status.
+     * Performs a paged query on image caches in a workspace, and supports paging and filtering by image source and cache status.
      * ### Filter conditions
-     * Provide `regionId` and `workspaceId` in the query parameters. You can filter by ACR instance, `registry`, namespace, repository, tag, digest, and status. Use `imageRefContains` to search for image address fragments.
+     * Provide regionId and workspaceId in the query parameters. You can filter by ACR instance, registry, namespace, repository, tag, digest, and status. Use imageRefContains to search for image address fragments.
      * ### Pagination rules
-     * The default value of `maxResults` is 20, and the valid values are 1 to 100. Omit `nextToken` for the first request. For subsequent requests, use the response token as is, and keep the workspace, region, page size, and all filter conditions unchanged. An empty token indicates that there are no more pages.
+     * The default value of maxResults is 20. Valid values are 1 to 100. Omit nextToken for the first request. For subsequent requests, use the response token as is, and keep the workspace, region, page size, and all filter conditions unchanged. An empty token indicates that no more pages are available.
      * ### Response content
-     * Each item includes `imageId`, source, digest, status, size, reference count, and deletion conditions. `PENDING` only indicates that the cache is being prepared. For the cause of failure, see `error`. You can query a single cache by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache).
+     * Each item includes the imageId, source, digest, status, size, reference count, and deletion conditions. PENDING only indicates that the cache is being prepared. For the cause of failure, see error. You can query a single cache by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache).
      *
      * @param request - ListImageCachesRequest
      * @returns ListImageCachesResponse
@@ -4073,16 +4073,16 @@ export default class Client extends OpenApi {
      */
     listPredefinedModels(providerType: string, request: $_model.ListPredefinedModelsRequest): Promise<$_model.ListPredefinedModelsResponse>;
     /**
-     * Queries the current active sessions and their sources in a specified agent instance by using paging.
+     * Performs a paging query to retrieve the current active sessions and their sources in a specified agent instance.
      *
      * @remarks
      * Queries the active sessions in a specified running instance to view the current mapping between sessions and instances.
      * ### Query scope
-     * Locates the instance by using workspaceId, agentId, and sandboxId. You can obtain the sandboxId from [ListSandboxes](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxes). This operation queries the current active sessions.
+     * Locates the instance by using `workspaceId`, `agentId`, and `sandboxId`. You can obtain the `sandboxId` from [ListSandboxes](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxes). This operation queries the current active sessions.
      * ### Pagination
-     * The default value of maxResults is 20. Valid values: 1 to 100. Omit nextToken in the first request. For subsequent requests, use the returned token as is and keep the workspace, agent, instance, and page size unchanged. An empty token indicates that no more pages are available.
+     * The default value of `maxResults` is 20. Valid values: 1 to 100. Omit `nextToken` in the first request. For subsequent requests, use the returned token as is, and keep the workspace, agent, instance, and page size unchanged. An empty token indicates that no more pages are available.
      * ### Session sources
-     * The source can be API, CONSOLE_DEBUG, EXTERNAL_CHANNEL, or UNKNOWN. For external channels, the channel type is additionally returned. If no source information is provided, UNKNOWN is returned.
+     * The source can be `API`, `CONSOLE_DEBUG`, `EXTERNAL_CHANNEL`, or `UNKNOWN`. For external channels, the channel type is additionally returned. If no source information is provided, `UNKNOWN` is returned.
      *
      * @param request - ListSandboxSessionsRequest
      * @param headers - map
@@ -4093,16 +4093,16 @@ export default class Client extends OpenApi {
         [key: string]: string;
     }, runtime: $dara.RuntimeOptions): Promise<$_model.ListSandboxSessionsResponse>;
     /**
-     * Queries the current active sessions and their sources in a specified agent instance by using paging.
+     * Performs a paging query to retrieve the current active sessions and their sources in a specified agent instance.
      *
      * @remarks
      * Queries the active sessions in a specified running instance to view the current mapping between sessions and instances.
      * ### Query scope
-     * Locates the instance by using workspaceId, agentId, and sandboxId. You can obtain the sandboxId from [ListSandboxes](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxes). This operation queries the current active sessions.
+     * Locates the instance by using `workspaceId`, `agentId`, and `sandboxId`. You can obtain the `sandboxId` from [ListSandboxes](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxes). This operation queries the current active sessions.
      * ### Pagination
-     * The default value of maxResults is 20. Valid values: 1 to 100. Omit nextToken in the first request. For subsequent requests, use the returned token as is and keep the workspace, agent, instance, and page size unchanged. An empty token indicates that no more pages are available.
+     * The default value of `maxResults` is 20. Valid values: 1 to 100. Omit `nextToken` in the first request. For subsequent requests, use the returned token as is, and keep the workspace, agent, instance, and page size unchanged. An empty token indicates that no more pages are available.
      * ### Session sources
-     * The source can be API, CONSOLE_DEBUG, EXTERNAL_CHANNEL, or UNKNOWN. For external channels, the channel type is additionally returned. If no source information is provided, UNKNOWN is returned.
+     * The source can be `API`, `CONSOLE_DEBUG`, `EXTERNAL_CHANNEL`, or `UNKNOWN`. For external channels, the channel type is additionally returned. If no source information is provided, `UNKNOWN` is returned.
      *
      * @param request - ListSandboxSessionsRequest
      * @returns ListSandboxSessionsResponse
@@ -4528,10 +4528,10 @@ export default class Client extends OpenApi {
      * @remarks
      * Resubmits the creation request for an existing image cache to recreate a cache that has not been successfully created.
      * ### Scope
-     * Pass `regionId`, `workspaceId`, and `clientToken` as query parameters, and use `imageId` to locate the cache. This operation applies to ACR-sourced caches and re-verifies the source repository authorization before submission.
+     * Pass `regionId`, `workspaceId`, and `clientToken` as query parameters, and use `imageId` to locate the cache. This operation is intended for ACR-sourced caches and re-verifies the source repository authorization before submission.
      * ### Query retry results
-     * A successful response indicates that a retry acceptance snapshot is returned, which does not mean that the creation is complete. Query the status by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache). `READY` indicates that the cache is ready. If the status is `FAILED`, check `error`.
-     * Currently, `clientToken` is only verified to be non-empty and does not guarantee deduplication by this token or restoration of the original acceptance result.
+     * A successful response indicates that a retry acceptance snapshot is returned, but it does not mean that the creation is complete. Query the status by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache). `READY` indicates that the cache is ready. If the status is `FAILED`, check the `error` field.
+     * Currently, `clientToken` is only verified to be non-empty and does not guarantee deduplication or recovery of the original acceptance result based on this token.
      *
      * @param tmpReq - RetryImageCacheRequest
      * @param headers - map
@@ -4547,10 +4547,10 @@ export default class Client extends OpenApi {
      * @remarks
      * Resubmits the creation request for an existing image cache to recreate a cache that has not been successfully created.
      * ### Scope
-     * Pass `regionId`, `workspaceId`, and `clientToken` as query parameters, and use `imageId` to locate the cache. This operation applies to ACR-sourced caches and re-verifies the source repository authorization before submission.
+     * Pass `regionId`, `workspaceId`, and `clientToken` as query parameters, and use `imageId` to locate the cache. This operation is intended for ACR-sourced caches and re-verifies the source repository authorization before submission.
      * ### Query retry results
-     * A successful response indicates that a retry acceptance snapshot is returned, which does not mean that the creation is complete. Query the status by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache). `READY` indicates that the cache is ready. If the status is `FAILED`, check `error`.
-     * Currently, `clientToken` is only verified to be non-empty and does not guarantee deduplication by this token or restoration of the original acceptance result.
+     * A successful response indicates that a retry acceptance snapshot is returned, but it does not mean that the creation is complete. Query the status by calling [GetImageCache](https://api.aliyun.com/document/AgentCore/2026-08-04/GetImageCache). `READY` indicates that the cache is ready. If the status is `FAILED`, check the `error` field.
+     * Currently, `clientToken` is only verified to be non-empty and does not guarantee deduplication or recovery of the original acceptance result based on this token.
      *
      * @param request - RetryImageCacheRequest
      * @returns RetryImageCacheResponse
@@ -4992,13 +4992,13 @@ export default class Client extends OpenApi {
      * Updates the model source, instructions, tools, and skills of a managed agent, and processes the configuration asynchronously.
      *
      * @remarks
-     * Updates the model, instruction, tool, or skill configurations saved on the platform side for a managed agent to adjust its capability configurations after integration.
+     * Updates the model, instruction, tool, or skill configurations saved on the platform for a managed agent to adjust its capability configurations after integration.
      * ### Update rules
-     * Provide at least one updatable field. Omitted top-level fields retain their original configurations. You can set description=null to clear the description. The tools and skills fields are replaced as a whole upon submission. You must include the items to be retained, and pass [] to clear the corresponding explicit list.
+     * Provide at least one updatable field. Omitted top-level fields retain their original configurations. You can set description=null to clear the description. The tools and skills fields are replaced in their entirety upon submission. You must include the items that you want to retain. Pass [] to clear the corresponding explicit list.
      * ### Switch model sources
      * - To switch to PLATFORM, provide modelSource=PLATFORM and a valid model configuration, including the model connection ID and model name.
      * - To switch to RUNTIME, update the Settings to modelSource=RUNTIME and do not commit the platform model. The original platform model configuration is removed when the source is switched.
-     * When a template is used, configurations belonging to the template, such as instructions, are read from the template. A successful update indicates that the request is accepted. Invoke [GetExternalAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgent) to query the configuration version and external accessed state. The clientToken parameter does not provide idempotence guarantees at this time.
+     * When a template is used, configurations that belong to the template, such as instructions, are read from the template. A successful update indicates that the request is accepted. Invoke [GetExternalAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgent) to query the configuration version and external accessed state. The clientToken parameter does not provide idempotence guarantees at this time.
      *
      * @param tmpReq - UpdateExternalAgentRequest
      * @param headers - map
@@ -5012,13 +5012,13 @@ export default class Client extends OpenApi {
      * Updates the model source, instructions, tools, and skills of a managed agent, and processes the configuration asynchronously.
      *
      * @remarks
-     * Updates the model, instruction, tool, or skill configurations saved on the platform side for a managed agent to adjust its capability configurations after integration.
+     * Updates the model, instruction, tool, or skill configurations saved on the platform for a managed agent to adjust its capability configurations after integration.
      * ### Update rules
-     * Provide at least one updatable field. Omitted top-level fields retain their original configurations. You can set description=null to clear the description. The tools and skills fields are replaced as a whole upon submission. You must include the items to be retained, and pass [] to clear the corresponding explicit list.
+     * Provide at least one updatable field. Omitted top-level fields retain their original configurations. You can set description=null to clear the description. The tools and skills fields are replaced in their entirety upon submission. You must include the items that you want to retain. Pass [] to clear the corresponding explicit list.
      * ### Switch model sources
      * - To switch to PLATFORM, provide modelSource=PLATFORM and a valid model configuration, including the model connection ID and model name.
      * - To switch to RUNTIME, update the Settings to modelSource=RUNTIME and do not commit the platform model. The original platform model configuration is removed when the source is switched.
-     * When a template is used, configurations belonging to the template, such as instructions, are read from the template. A successful update indicates that the request is accepted. Invoke [GetExternalAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgent) to query the configuration version and external accessed state. The clientToken parameter does not provide idempotence guarantees at this time.
+     * When a template is used, configurations that belong to the template, such as instructions, are read from the template. A successful update indicates that the request is accepted. Invoke [GetExternalAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetExternalAgent) to query the configuration version and external accessed state. The clientToken parameter does not provide idempotence guarantees at this time.
      *
      * @param request - UpdateExternalAgentRequest
      * @returns UpdateExternalAgentResponse
@@ -5533,7 +5533,7 @@ export default class Client extends OpenApi {
      */
     updateUser(workspaceId: string, agentCoreUserId: string, request: $_model.UpdateUserRequest): Promise<$_model.UpdateUserResponse>;
     /**
-     * Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. The Status, TenantId, and RegionId parameters are maintained by the server and cannot be modified through this operation.
+     * Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
      *
      * @remarks
      * Modifies the name or network configuration of a workspace to adjust workspace information and the private network access environment for agents. The workspace must be in the `Initialized` state. To enable VPC networking, set `Enabled` in the network configuration to `true` and provide both `VpcId` and at least one `VSwitchIds`.
@@ -5547,7 +5547,7 @@ export default class Client extends OpenApi {
         [key: string]: string;
     }, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWorkspaceResponse>;
     /**
-     * Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. The Status, TenantId, and RegionId parameters are maintained by the server and cannot be modified through this operation.
+     * Updates the name or network configuration of a workspace. Only workspaces in the Initialized state can be updated. The Status, TenantId, and RegionId fields are maintained by the server and cannot be modified through this operation.
      *
      * @remarks
      * Modifies the name or network configuration of a workspace to adjust workspace information and the private network access environment for agents. The workspace must be in the `Initialized` state. To enable VPC networking, set `Enabled` in the network configuration to `true` and provide both `VpcId` and at least one `VSwitchIds`.
