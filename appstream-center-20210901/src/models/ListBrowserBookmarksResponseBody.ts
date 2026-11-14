@@ -78,7 +78,7 @@ export class ListBrowserBookmarksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 20
@@ -86,7 +86,7 @@ export class ListBrowserBookmarksResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID, which is used to troubleshoot issues.
+   * The request ID.
    * 
    * @example
    * 01A0C2ED-95F2-1A37-9FC6-4A395179****

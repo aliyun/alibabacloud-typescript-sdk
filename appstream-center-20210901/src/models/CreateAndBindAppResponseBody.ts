@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAndBindAppResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The application ID, which is used to query the application or dissociate the image later.
+   * The application ID, which is used for subsequent application queries or to dissociate the application from the image.
    * 
    * @example
    * app-bp1example****
@@ -21,7 +21,7 @@ export class CreateAndBindAppResponseBodyData extends $dara.Model {
   appVersionId?: string;
   /**
    * @remarks
-   * The image ID, which is used to query or modify the image later.
+   * The image ID, which is used for subsequent image queries or modifications.
    * 
    * @example
    * imgc-bp1example****
@@ -29,7 +29,7 @@ export class CreateAndBindAppResponseBodyData extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The image version ID, which is used to query or manage a specified version of the image.
+   * The image version ID, which is used to query or operate on a specified version of the image.
    * 
    * @example
    * iv-bp1example****
@@ -65,7 +65,7 @@ export class CreateAndBindAppResponseBodyData extends $dara.Model {
 export class CreateAndBindAppResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This field is returned when the request fails. A successful response may not contain this field.
+   * The error code. This field is returned when the request fails and may not be included in a successful response.
    * 
    * @example
    * InternalError
@@ -73,12 +73,12 @@ export class CreateAndBindAppResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The business data returned by the operation.
+   * The business data returned by this operation.
    */
   data?: CreateAndBindAppResponseBodyData;
   /**
    * @remarks
-   * The error or result message. This field describes the cause when the request fails. A successful response may not contain this field.
+   * The error or result message. This field is used to describe the cause when the request fails and may not be included in a successful response.
    * 
    * @example
    * Internal error.
@@ -86,7 +86,7 @@ export class CreateAndBindAppResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier of the request. Provide this value when you troubleshoot issues.
+   * The unique identifier of the request, which can be provided for troubleshooting.
    * 
    * @example
    * 01A1A962-5503-107B-AC8F-EBA85DF905AC
@@ -94,7 +94,7 @@ export class CreateAndBindAppResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is processed successfully. A value of true indicates that the request is processed successfully. To determine whether an asynchronous task is completed, query the task status separately.
+   * Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. To check whether an asynchronous task is completed, you must query the task status separately.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

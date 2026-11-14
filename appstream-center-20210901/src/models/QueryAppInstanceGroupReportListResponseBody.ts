@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryAppInstanceGroupReportListResponseBodyIndexData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the app instance group.
+   * The delivery group ID.
    * 
    * @example
    * aig-9ciijz60n4xsv****
@@ -13,7 +13,7 @@ export class QueryAppInstanceGroupReportListResponseBodyIndexData extends $dara.
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The name of the app instance group.
+   * The delivery group name.
    * 
    * @example
    * R&D workstation group
@@ -21,20 +21,17 @@ export class QueryAppInstanceGroupReportListResponseBodyIndexData extends $dara.
   appInstanceGroupName?: string;
   /**
    * @remarks
-   * The current status of the app instance group.
-   * 
-   * Valid values:
-   * 
-   * - `DEPLOYING`: Deploying.
-   * - `DEPLOYED`: Deployed but not published.
-   * - `PUBLISHED`: Published and available to provide services based on the current configurations.
-   * - `STOPPING`: Stopping.
-   * - `STOPPED`: Stopped.
-   * - `MAINTAINING`: Maintaining.
-   * - `FAILED`: Deployment or running failed.
-   * - `MAINTAIN_FAILED`: Maintenance failed.
-   * - `DELETING`: Deleting.
-   * - `DELETED`: Deleted.
+   * The current status of the delivery group. Valid values:
+   * - `DEPLOYING`: deploying
+   * - `DEPLOYED`: deployed but not published
+   * - `PUBLISHED`: published and available to provide services based on the current configuration
+   * - `STOPPING`: stopping
+   * - `STOPPED`: stopped
+   * - `MAINTAINING`: maintaining
+   * - `FAILED`: deployment or execution failed
+   * - `MAINTAIN_FAILED`: maintenance failed
+   * - `DELETING`: deleting
+   * - `DELETED`: deleted
    * 
    * @example
    * PUBLISHED
@@ -76,7 +73,7 @@ export class QueryAppInstanceGroupReportListResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of app instance group report data.
+   * The list of delivery group report data.
    */
   indexData?: QueryAppInstanceGroupReportListResponseBodyIndexData[];
   /**

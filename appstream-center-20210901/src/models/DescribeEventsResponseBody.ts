@@ -21,7 +21,7 @@ export class DescribeEventsResponseBodyEventList extends $dara.Model {
   appInstanceGroupName?: string;
   /**
    * @remarks
-   * The event detail text. The content varies based on the `EventType` and may be empty. For example, a session release event may return a JSON text that describes the release cause.
+   * The event detail text. The content varies with `EventType` and may be empty. For example, a session release event may return JSON text that describes the release reason.
    * 
    * @example
    * {"Reason":"ByUser"}
@@ -170,7 +170,7 @@ export class DescribeEventsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of events that meet all filter conditions within the 30-day retrievable window. Unit: entries.
+   * The total number of events that meet all filter conditions within the 30-day retrievable window. Unit: records.
    * 
    * @example
    * 36

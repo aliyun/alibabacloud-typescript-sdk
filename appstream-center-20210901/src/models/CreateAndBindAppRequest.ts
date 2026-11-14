@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAndBindAppRequest extends $dara.Model {
   /**
    * @remarks
-   * The URL of the application icon. Specify an accessible icon URL to display a custom icon.
+   * The URL of the application icon. Specify an accessible icon URL when a custom icon needs to be displayed.
    * 
    * @example
    * https://example.com/apps/business/icon.png
@@ -23,7 +23,7 @@ export class CreateAndBindAppRequest extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The ID of the image to which the application is bound. The image must be a custom image or community image that can be managed by the current account.
+   * The ID of the image to which the application is bound. The image must be a custom image or community image manageable by the current account.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateAndBindAppRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The application type. If omitted, the default value is CLIENT_BASE. Valid values:
+   * The application form. If omitted, the default value is CLIENT_BASE. Valid values:
    * 
    * - **CLIENT_BASE**: Client application.
    * - **WEB_BASE**: Browser application.
@@ -47,7 +47,7 @@ export class CreateAndBindAppRequest extends $dara.Model {
   originAppType?: string;
   /**
    * @remarks
-   * The application service port. For applications that require port-based access, specify the actual port number that the application listens on.
+   * The service port of the application. For applications that require port-based access, specify the actual port number that the application listens on.
    * 
    * @example
    * 8080
@@ -55,7 +55,7 @@ export class CreateAndBindAppRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The path suffix of the application access URL, which is used together with the application service port to describe the access entry point.
+   * The path suffix of the application access URL, which together with the application service port describes the access endpoint.
    * 
    * @example
    * /console
@@ -63,7 +63,7 @@ export class CreateAndBindAppRequest extends $dara.Model {
   urlSuffix?: string;
   /**
    * @remarks
-   * The ID of the image version to which the application is bound. If omitted, the current active version of the image specified by ImageId is used. If specified, the version must belong to the image.
+   * The ID of the image version to which the application is bound. If omitted, the current active version of the image corresponding to ImageId is used. If specified, it must belong to the image.
    * 
    * @example
    * iv-bp1example****

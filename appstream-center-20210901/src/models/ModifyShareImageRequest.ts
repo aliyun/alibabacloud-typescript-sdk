@@ -26,7 +26,7 @@ export class ModifyShareImageRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The product type, such as cloud desktop, cloud application, or workstation.
+   * The product type, such as cloud desktop, cloud application, and workstation.
    * 
    * @example
    * CloudDesktop
@@ -34,7 +34,7 @@ export class ModifyShareImageRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account IDs to remove from the share list.
+   * The Alibaba Cloud account IDs to remove from sharing.
    */
   removeAccount?: number[];
   static names(): { [key: string]: string } {

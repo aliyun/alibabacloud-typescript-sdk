@@ -21,7 +21,7 @@ export class FinishValidateResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The error or result message. This field describes the cause of a failed request and may not be included in a successful response.
+   * The error or result message. It describes the cause of a failed request. This field may not be included in a successful response.
    * 
    * @example
    * Success
@@ -37,7 +37,9 @@ export class FinishValidateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values: true: The call was successful. false: The call failed.
+   * Indicates whether the call was successful. Valid values:
+   * - true: The call was successful.
+   * - false: The call failed.
    * 
    * @example
    * true

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWuyingServerRequestDataDisk extends $dara.Model {
   /**
    * @remarks
-   * The data cloud disk type.
+   * The category of the data cloud disk.
    * 
    * @example
    * cloud_auto
@@ -13,7 +13,7 @@ export class CreateWuyingServerRequestDataDisk extends $dara.Model {
   dataDiskCategory?: string;
   /**
    * @remarks
-   * The data cloud disk performance level.
+   * The performance level of the data cloud disk.
    * 
    * @example
    * PL0
@@ -21,7 +21,7 @@ export class CreateWuyingServerRequestDataDisk extends $dara.Model {
   dataDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The data cloud disk size.
+   * The size of the data cloud disk.
    * 
    * @example
    * 100
@@ -55,7 +55,7 @@ export class CreateWuyingServerRequestDataDisk extends $dara.Model {
 export class CreateWuyingServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The quantity.
+   * The number of workstations.
    * 
    * @example
    * 1
@@ -95,7 +95,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * The billing type.
+   * The billing method.
    * 
    * @example
    * PrePaid
@@ -116,7 +116,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   erdmaEnabled?: boolean;
   /**
    * @remarks
-   * The GPU driver configuration version, such as grid19.
+   * The version of the GPU driver, such as grid19.
    * 
    * @example
    * grid19
@@ -124,29 +124,29 @@ export class CreateWuyingServerRequest extends $dara.Model {
   gpuDriverVersion?: string;
   /**
    * @remarks
-   * The hostname. The following limits apply:
+   * The hostname. The hostname must meet the following requirements:
    * 
-   * - A period (.) or hyphen (-) cannot be used as the first or last character, and consecutive use is not allowed.
+   * - The hostname cannot start or end with a period (.) or a hyphen (-). The hostname cannot contain consecutive periods (.) or hyphens (-).
    * 
-   * - Windows workstations: The hostname must be 2 to 15 characters in length. It cannot contain periods (.), consecutive hyphens, or consist entirely of digits. It can contain uppercase and lowercase letters, digits, and hyphens (-).
+   * - For a Windows workstation: The hostname must be 2 to 15 characters in length. It cannot contain periods (.) or consecutive hyphens (-), and cannot contain only digits. It can contain uppercase and lowercase letters, digits, and hyphens (-).
    * 
-   * - Linux workstations:
+   * - For a Linux workstation:
    * 
-   *   - The hostname must be 2 to 64 characters in length and can contain multiple periods (.). Each segment between periods can contain uppercase and lowercase letters, digits, and hyphens (-).
+   *   - The hostname must be 2 to 64 characters in length. It can contain multiple periods (.). The string between two consecutive periods is a segment. Each segment can contain uppercase and lowercase letters, digits, and hyphens (-).
    * 
-   *   - You can use the placeholder `${instance_id}` to include the instance ID in the HostName parameter. For example, if you set `HostName=k8s-${instance_id}` and the created ECS instance ID is `i-123abc****`, the hostname of the instance is `k8s-i-123abc****`.
+   *   - You can use the `${instance_id}` placeholder to pass the instance ID to the HostName parameter. For example, if you set HostName to `k8s-${instance_id}` and the created ECS instance ID is `i-123abc****`, the hostname of the instance is `k8s-i-123abc****`.
    * 
-   * - When creating multiple workstation instances at a time, you can use the `name_prefix[begin_number,bits]name_suffix` naming format to uniformly name multiple workstations. For example, if you set Hostname to `ecd-[1,4]-test`, the hostname of the first workstation is `ecd-0001-test`, the hostname of the second workstation is `ecd-0002-test`, and so on.
+   * - When you create multiple workstations at a time, you can use the `name_prefix[begin_number,bits]name_suffix` naming format to name the workstations in a unified manner. For example, if you set HostName to `ecd-[1,4]-test`, the hostname of the first workstation is `ecd-0001-test`, the hostname of the second workstation is `ecd-0002-test`, and so on.
    * 
-   *   - `name_prefix`: The prefix of the hostname.
+   *   - `name_prefix`: the prefix of the hostname.
    * 
-   *   - `[begin_number,bits]`: The sequential number in the hostname.
+   *   - `[begin_number,bits]`: the sequential number in the hostname.
    * 
-   *     - `begin_number`: The starting number. Valid values: 0 to 999999. Default value: 0. If an invalid value is specified, the value is set to 0.
+   *     - `begin_number`: the start number. Valid values: 0 to 999999. Default value: 0. If the specified value is invalid, the default value 0 is used.
    * 
-   *     - `bits`: The number of digits. Valid values: 1 to 6. Default value: 6. If an invalid value is specified, the value is set to 6.
+   *     - `bits`: the number of digits. Valid values: 1 to 6. Default value: 6. If the specified value is invalid, the default value 6 is used.
    * 
-   *   - `name_suffix`: The suffix of the hostname.
+   *   - `name_suffix`: the suffix of the hostname.
    * 
    * @example
    * testhost
@@ -154,7 +154,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   hostName?: string;
   /**
    * @remarks
-   * The idempotency token that ensures operation uniqueness.
+   * The idempotence token that is used to ensure the uniqueness of the operation.
    * 
    * @example
    * 6a1b8c3d
@@ -178,7 +178,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   maxPrice?: number;
   /**
    * @remarks
-   * The network policy type (invite-only preview).
+   * The network policy type. This feature is in invitational preview.
    * 
    * @example
    * DirectIp
@@ -194,7 +194,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The workstation logon password.
+   * The logon password of the workstation.
    * 
    * @example
    * YourPassword123
@@ -210,7 +210,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The time unit.
+   * The unit of the subscription duration.
    * 
    * @example
    * Month
@@ -218,10 +218,10 @@ export class CreateWuyingServerRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The discount ID.
+   * The promotion ID.
    * 
    * 
-   * > If PromotionId is specified, the corresponding discount is applied.
+   * > If PromotionId is specified, the system attempts to apply the corresponding discount.
    * 
    * @example
    * 17440009****
@@ -237,7 +237,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   savingPlanId?: string;
   /**
    * @remarks
-   * The workstation instance type.
+   * The instance type of the workstation.
    * 
    * @example
    * eds.proworkstation_flagship_elite_ne.96c384g.192g4x
@@ -253,7 +253,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   serverPortRange?: string;
   /**
    * @remarks
-   * The sub-billing type.
+   * The sub-billing method.
    * 
    * @example
    * postPaid
@@ -261,7 +261,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   subPayType?: string;
   /**
    * @remarks
-   * The system cloud disk type.
+   * The category of the system cloud disk.
    * 
    * @example
    * cloud_auto
@@ -269,7 +269,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   systemDiskCategory?: string;
   /**
    * @remarks
-   * The system cloud disk performance level.
+   * The performance level of the system cloud disk.
    * 
    * @example
    * PL0
@@ -277,7 +277,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   systemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The system cloud disk size. Unit: GB.
+   * The size of the system cloud disk. Unit: GB.
    * 
    * @example
    * 100
@@ -285,7 +285,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   systemDiskSize?: number;
   /**
    * @remarks
-   * The list of office network vSwitches.
+   * The list of vSwitches in the office network.
    */
   vSwitchIds?: string[];
   /**
@@ -298,7 +298,7 @@ export class CreateWuyingServerRequest extends $dara.Model {
   virtualNodePoolId?: string;
   /**
    * @remarks
-   * The workstation name. When creating multiple workstations, a numeric suffix is automatically appended.
+   * The name of the workstation. When you create multiple workstations, a numeric suffix is automatically added.
    * 
    * @example
    * exampleServerName

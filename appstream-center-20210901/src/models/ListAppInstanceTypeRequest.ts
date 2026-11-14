@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppInstanceTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * The application image ID. The current session instance type query does not filter based on this parameter. Omit this parameter. Do not infer image compatibility based on whether this parameter is specified.
+   * The application image ID. The current session specification query does not filter based on this parameter. Omit this parameter. Do not infer image compatibility based on whether this parameter is specified.
    * 
    * @example
    * img-8z4nztpaqvay4****
@@ -13,7 +13,7 @@ export class ListAppInstanceTypeRequest extends $dara.Model {
   appCenterImageId?: string;
   /**
    * @remarks
-   * The session instance type code. Exact match is performed based on the complete code. If this parameter and `AppInstanceTypeList` are specified at the same time, the results are filtered by intersection. You can perform a conditional query without this condition first, and then select the returned codes.
+   * The session specification code. Exact match is performed based on the complete code. If this parameter and `AppInstanceTypeList` are specified at the same time, the results are filtered by intersection. You can perform a conditional query without this parameter by using this operation first, and then select the returned codes.
    * 
    * @example
    * appstreaming.vgpu.4c8g
@@ -21,7 +21,7 @@ export class ListAppInstanceTypeRequest extends $dara.Model {
   appInstanceType?: string;
   /**
    * @remarks
-   * The instance type family code. Exact match is performed based on the complete code. Use the instance type family value from the query results. Do not extract it from the instance type name.
+   * The specification family code. Exact match is performed based on the complete code. Use the specification family value from the query results. Do not extract it from the specification name.
    * 
    * @example
    * ecs.g6
@@ -29,7 +29,7 @@ export class ListAppInstanceTypeRequest extends $dara.Model {
   appInstanceTypeFamily?: string;
   /**
    * @remarks
-   * The list of session instance type codes. A maximum of 100 items are supported. This parameter takes effect by intersection with other filtering conditions. If this parameter and `AppInstanceType` are specified at the same time, the results must also match the single code.
+   * The list of session specification codes. Up to 100 items are supported. This parameter takes effect by intersection with other filtering conditions. If this parameter and `AppInstanceType` are specified at the same time, the results must also match the single code.
    * 
    * **if can be null:**
    * true
@@ -37,7 +37,7 @@ export class ListAppInstanceTypeRequest extends $dara.Model {
   appInstanceTypeList?: string[];
   /**
    * @remarks
-   * The business region ID. If this parameter is omitted, the region of the current request is used. The available instance types may vary by region and account. You can call the [ListRegions](https://api.aliyun.com/document/appstream-center/2021-09-01/ListRegions) operation to obtain the business region ID.
+   * The business region ID. If this parameter is omitted, the region of the current request is used. The specifications that can be queried may vary by region and account. You can call [ListRegions](https://api.aliyun.com/document/appstream-center/2021-09-01/ListRegions) to obtain the business region.
    * 
    * @example
    * cn-hangzhou
@@ -45,10 +45,10 @@ export class ListAppInstanceTypeRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * The instance type category filtering condition. If this parameter is omitted, no category filtering condition is added. Valid values:
+   * The specification category filtering condition. If this parameter is omitted, no category filtering condition is added. Valid values:
    * 
-   * - `Cpu`: CPU instance type.
-   * - `Gpu`: GPU instance type.
+   * - `Cpu`: CPU specification.
+   * - `Gpu`: GPU specification.
    * 
    * @example
    * Gpu
@@ -56,10 +56,10 @@ export class ListAppInstanceTypeRequest extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The billing method used to filter available instance types. If this parameter is omitted, no billing method condition is added. Valid values:
+   * The billing method for filtering available specifications. If this parameter is omitted, no billing method condition is added. Valid values:
    * 
-   * - `PrePaid`: subscription.
-   * - `PostPaid`: pay-as-you-go.
+   * - `PrePaid`: Subscription.
+   * - `PostPaid`: Pay-as-you-go.
    * 
    * @example
    * PrePaid
@@ -83,12 +83,12 @@ export class ListAppInstanceTypeRequest extends $dara.Model {
   gpuMemory?: number;
   /**
    * @remarks
-   * The language of the instance type name.
+   * The language for the specification name.
    * 
-   * - `zh-CN`: Use the Chinese name of the instance type.
-   * - Other values or omitted: Use the instance type code as the name.
+   * - `zh-CN`: Use the Chinese name of the specification.
+   * - Other values or omitted: Use the specification code as the name.
    * 
-   * This parameter only affects the display of `InstanceTypeName` and does not change the instance type code.
+   * This parameter only affects the display of `InstanceTypeName` and does not change the specification code.
    * 
    * @example
    * zh-CN
@@ -104,7 +104,7 @@ export class ListAppInstanceTypeRequest extends $dara.Model {
   memory?: number;
   /**
    * @remarks
-   * The operating system type. In the Wuying Cloud Application (CloudApp) scenario, set the value to:
+   * The operating system type. Use the following value for the Wuying Cloud Application (CloudApp) scenario:
    * 
    * - `Windows`: Windows operating system.
    * 
@@ -124,7 +124,7 @@ export class ListAppInstanceTypeRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of instance types returned per page. Unit: entries. Default value: 200. Explicitly set a positive integer that meets your business requirements. The default value here does not represent the maximum value allowed by the service.
+   * The number of specifications returned per page. Unit: entries. Default value: 200. Explicitly set a positive integer that meets your business needs. The default value here does not represent the maximum value allowed by the service.
    * 
    * @example
    * 20
@@ -144,10 +144,10 @@ export class ListAppInstanceTypeRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * Specifies whether to query the instance type inventory at the same time. Default value: `false`.
+   * Specifies whether to query the specification inventory at the same time. Default value: `false`.
    * 
-   * - `true`: Queries the inventory and returns InventoryInfo when the inventory information is available.
-   * - `false`: Queries only the instance types and does not query the inventory.
+   * - `true`: Queries the inventory and returns InventoryInfo when inventory information is available.
+   * - `false`: Queries only the specifications and does not query the inventory.
    * 
    * @example
    * false

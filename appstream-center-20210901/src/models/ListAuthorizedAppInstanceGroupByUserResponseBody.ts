@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizedAppInstanceGroupByUserResponseBodyAppInstanceGroupModelsApps extends $dara.Model {
   /**
    * @remarks
-   * The URL of the app icon.
+   * The URL of the application icon.
    * 
    * @example
    * https://app-center-icon-****.png
@@ -13,7 +13,7 @@ export class ListAuthorizedAppInstanceGroupByUserResponseBodyAppInstanceGroupMod
   appIcon?: string;
   /**
    * @remarks
-   * The app ID. When you call the [GetConnectionTicket](~~GetConnectionTicket~~) operation to obtain the connection ticket for the app, specify this value.
+   * The application ID. When you call the [GetConnectionTicket](~~GetConnectionTicket~~) operation to obtain the connection ticket for the application, specify this value.
    * 
    * @example
    * ca-i87mycyn419nu****
@@ -21,15 +21,15 @@ export class ListAuthorizedAppInstanceGroupByUserResponseBodyAppInstanceGroupMod
   appId?: string;
   /**
    * @remarks
-   * The app name.
+   * The application name.
    * 
    * @example
-   * Office apps
+   * Office applications
    */
   appName?: string;
   /**
    * @remarks
-   * The app version number.
+   * The application version number.
    * 
    * @example
    * 1.0.0
@@ -37,7 +37,7 @@ export class ListAuthorizedAppInstanceGroupByUserResponseBodyAppInstanceGroupMod
   appVersion?: string;
   /**
    * @remarks
-   * The app version name.
+   * The application version name.
    * 
    * @example
    * Initial version
@@ -75,7 +75,7 @@ export class ListAuthorizedAppInstanceGroupByUserResponseBodyAppInstanceGroupMod
 export class ListAuthorizedAppInstanceGroupByUserResponseBodyAppInstanceGroupModels extends $dara.Model {
   /**
    * @remarks
-   * The ID of the app image used by the delivery group.
+   * The ID of the application image used by the app instance group.
    * 
    * @example
    * img-8z4nztpaqvay4****
@@ -83,7 +83,7 @@ export class ListAuthorizedAppInstanceGroupByUserResponseBodyAppInstanceGroupMod
   appCenterImageId?: string;
   /**
    * @remarks
-   * The delivery group ID. When you call the [GetConnectionTicket](~~GetConnectionTicket~~) operation, you can specify this value to indicate the delivery group to connect to.
+   * The app instance group ID. When you call the [GetConnectionTicket](~~GetConnectionTicket~~) operation, you can specify this value to indicate the app instance group to connect to.
    * 
    * @example
    * aig-9ciijz60n4xsv****
@@ -91,15 +91,15 @@ export class ListAuthorizedAppInstanceGroupByUserResponseBodyAppInstanceGroupMod
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The delivery group name.
+   * The app instance group name.
    * 
    * @example
-   * Office apps
+   * Office applications
    */
   appInstanceGroupName?: string;
   /**
    * @remarks
-   * The specification type of the delivery group.
+   * The specification type of the app instance group.
    * 
    * @example
    * __dynamic__
@@ -107,12 +107,12 @@ export class ListAuthorizedAppInstanceGroupByUserResponseBodyAppInstanceGroupMod
   appInstanceType?: string;
   /**
    * @remarks
-   * The list of apps deployed in the delivery group. This list includes all apps deployed in the delivery group image and is not affected by the AppId and AppName request parameters.
+   * The list of applications deployed in the app instance group. This list includes all applications deployed in the app instance group image and is not affected by the AppId and AppName request parameters.
    */
   apps?: ListAuthorizedAppInstanceGroupByUserResponseBodyAppInstanceGroupModelsApps[];
   /**
    * @remarks
-   * The expiration time of the delivery group. The time is displayed in ISO 8601 format, including milliseconds and time zone offset. The returned time zone offset is +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
+   * The expiration time of the app instance group. The time is displayed in the ISO 8601 standard format, including milliseconds and time zone offset. The returned time zone offset is +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
    * 
    * @example
    * 2022-04-27T16:00:00.000+00:00
@@ -120,7 +120,7 @@ export class ListAuthorizedAppInstanceGroupByUserResponseBodyAppInstanceGroupMod
   expiredTime?: string;
   /**
    * @remarks
-   * The creation time of the delivery group. The time is displayed in ISO 8601 format, including milliseconds and time zone offset. The returned time zone offset is +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
+   * The creation time of the app instance group. The time is displayed in the ISO 8601 standard format, including milliseconds and time zone offset. The returned time zone offset is +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
    * 
    * @example
    * 2022-04-26T15:06:16.000+00:00
@@ -128,7 +128,7 @@ export class ListAuthorizedAppInstanceGroupByUserResponseBodyAppInstanceGroupMod
   gmtCreate?: string;
   /**
    * @remarks
-   * The region ID of the delivery group. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
+   * The region ID of the app instance group. For more information about supported regions, see [Limits](https://help.aliyun.com/document_detail/426036.html).
    * 
    * @example
    * cn-hangzhou
@@ -136,19 +136,19 @@ export class ListAuthorizedAppInstanceGroupByUserResponseBodyAppInstanceGroupMod
   regionId?: string;
   /**
    * @remarks
-   * The status of the delivery group. Valid values:
+   * The status of the app instance group. Valid values:
    * 
-   * - DEPLOYING: Deploying. The delivery group is creating or starting resources and cannot be connected.
-   * - DEPLOYED: Deployed. Resources are ready but the delivery group is not published for external services.
-   * - PUBLISHED: Published. The delivery group is published and users can connect to and use it.
-   * - STOPPING: Delisting. The delivery group is stopping services.
-   * - STOPPED: Delisted. The delivery group has stopped services and users cannot connect to it.
-   * - MAINTAINING: Updating. The delivery group is undergoing maintenance or changes.
+   * - DEPLOYING: Deploying. The app instance group is creating or starting resources and cannot be connected.
+   * - DEPLOYED: Deployed. Resources are ready but the app instance group is not listed to provide external services.
+   * - PUBLISHED: Published. The app instance group is listed and users can connect to it.
+   * - STOPPING: Delisting. The app instance group is stopping services.
+   * - STOPPED: Delisted. The app instance group has stopped services and users cannot connect to it.
+   * - MAINTAINING: Updating. The app instance group is undergoing maintenance or changes.
    * - FAILED: Publishing failed. Resource initialization failed.
    * - MAINTAIN_FAILED: Update failed. Maintenance or changes were not successful.
-   * - DELETING: Deleting. The delivery group is being deleted.
+   * - DELETING: Deleting. The app instance group is being deleted.
    * 
-   * > Deleted delivery groups are not returned.
+   * > Deleted app instance groups are not returned.
    * 
    * @example
    * PUBLISHED
@@ -214,12 +214,12 @@ export class ListAuthorizedAppInstanceGroupByUserResponseBodyAppInstanceGroupMod
 export class ListAuthorizedAppInstanceGroupByUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of authorized delivery groups on the current page. If the user does not have any authorized delivery groups that meet the conditions, an empty list is returned.
+   * The list of authorized app instance groups on the current page. If the user does not have any authorized app instance groups that meet the conditions, an empty list is returned.
    */
   appInstanceGroupModels?: ListAuthorizedAppInstanceGroupByUserResponseBodyAppInstanceGroupModels[];
   /**
    * @remarks
-   * The current page number. The value is the same as the PageNumber request parameter.
+   * The current page number, which is the same as the PageNumber request parameter.
    * 
    * @example
    * 1
@@ -227,7 +227,7 @@ export class ListAuthorizedAppInstanceGroupByUserResponseBody extends $dara.Mode
   pageNumber?: number;
   /**
    * @remarks
-   * The number of delivery groups returned on each page. The value is the same as the PageSize request parameter.
+   * The number of app instance groups returned on each page, which is the same as the PageSize request parameter.
    * 
    * @example
    * 10
@@ -243,7 +243,7 @@ export class ListAuthorizedAppInstanceGroupByUserResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The total number of authorized delivery groups that meet the filter conditions.
+   * The total number of authorized app instance groups that meet the filter conditions.
    * 
    * @example
    * 3

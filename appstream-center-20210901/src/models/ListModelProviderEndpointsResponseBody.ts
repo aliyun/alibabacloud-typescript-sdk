@@ -13,7 +13,7 @@ export class ListModelProviderEndpointsResponseBodyDataEndpoints extends $dara.M
   apiType?: string;
   /**
    * @remarks
-   * The API base URL, such as https://coding.dashscope.aliyuncs.com/v1.
+   * The base URL of the API, such as https://coding.dashscope.aliyuncs.com/v1.
    * 
    * @example
    * https://coding.dashscope.aliyuncs.com/v1
@@ -21,7 +21,7 @@ export class ListModelProviderEndpointsResponseBodyDataEndpoints extends $dara.M
   baseUrl?: string;
   /**
    * @remarks
-   * The endpoint description, such as Coding Plan - OpenAI compatible protocol.
+   * The description of the endpoint, such as Coding Plan - OpenAI-compatible protocol.
    * 
    * @example
    * Coding Plan - OpenAI
@@ -29,7 +29,7 @@ export class ListModelProviderEndpointsResponseBodyDataEndpoints extends $dara.M
   description?: string;
   /**
    * @remarks
-   * The endpoint identifier name, such as coding-openai or cn-beijing.
+   * The identifier name of the endpoint, such as coding-openai or cn-beijing.
    * 
    * @example
    * coding-openai
@@ -45,7 +45,7 @@ export class ListModelProviderEndpointsResponseBodyDataEndpoints extends $dara.M
   providerUrl?: string;
   /**
    * @remarks
-   * The list of tags used for categorization and filtering, such as coding-plan, on-demand, or cn-beijing.
+   * The list of tags used for classification and filtering, such as coding-plan, on-demand, or cn-beijing.
    */
   tags?: string[];
   static names(): { [key: string]: string } {
@@ -85,20 +85,20 @@ export class ListModelProviderEndpointsResponseBodyDataEndpoints extends $dara.M
 export class ListModelProviderEndpointsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The provider description, such as Alibaba Cloud Bailian.
+   * The description of the provider, such as Alibaba Cloud Model Studio.
    * 
    * @example
-   * Qwen Plus series models
+   * Qwen-Plus series models
    */
   description?: string;
   /**
    * @remarks
-   * The list of all endpoints under the provider.
+   * The list of all endpoints under this provider.
    */
   endpoints?: ListModelProviderEndpointsResponseBodyDataEndpoints[];
   /**
    * @remarks
-   * The provider name, such as bailian or moonshot.
+   * The name of the provider, such as bailian or moonshot.
    * 
    * @example
    * bailian
@@ -106,7 +106,7 @@ export class ListModelProviderEndpointsResponseBodyData extends $dara.Model {
   providerName?: string;
   /**
    * @remarks
-   * The provider website URL, which is used to direct users to obtain an API key.
+   * The URL of the provider\\"s official website, which directs users to obtain an API key.
    * 
    * @example
    * https://test
@@ -145,12 +145,12 @@ export class ListModelProviderEndpointsResponseBodyData extends $dara.Model {
 export class ListModelProviderEndpointsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data object.
+   * The data object.
    */
   data?: ListModelProviderEndpointsResponseBodyData[];
   /**
    * @remarks
-   * The request ID, which uniquely identifies the request.
+   * The unique ID of the request.
    * 
    * @example
    * XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelProviderTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent platform.
+   * The Agent platform.
    * 
    * @example
    * ENTERPRISE
@@ -13,7 +13,7 @@ export class ListModelProviderTemplatesRequest extends $dara.Model {
   agentPlatform?: string;
   /**
    * @remarks
-   * The name of the agent provider.
+   * The name of the Agent provider.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListModelProviderTemplatesRequest extends $dara.Model {
   agentProvider?: string;
   /**
    * @remarks
-   * The business type. Not all business types are supported. Only business types within the supported range are valid. Refer to the listed enumeration values.
+   * The business type. Not all business types are supported. Only specific BizType values are supported. Refer to the valid values for the supported scope.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ListModelProviderTemplatesRequest extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * The model group ID to filter by.
+   * The model group ID.
    * 
    * @example
    * mt-xxxx
@@ -41,7 +41,7 @@ export class ListModelProviderTemplatesRequest extends $dara.Model {
   modelTemplateId?: string;
   /**
    * @remarks
-   * The page number, starting from 1. Values 0 and 1 return the same result.
+   * The page number. The value starts from 1. Entering 0 or 1 returns the same result.
    * 
    * @example
    * 1
@@ -57,7 +57,7 @@ export class ListModelProviderTemplatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The model provider name to filter by.
+   * The model provider name.
    * 
    * @example
    * bailian
@@ -65,7 +65,7 @@ export class ListModelProviderTemplatesRequest extends $dara.Model {
   providerName?: string;
   /**
    * @remarks
-   * The model provider template IDs to filter by.
+   * The model provider template IDs.
    */
   providerTemplateIds?: string[];
   static names(): { [key: string]: string } {

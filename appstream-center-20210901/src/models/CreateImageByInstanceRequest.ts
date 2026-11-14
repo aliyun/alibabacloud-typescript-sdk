@@ -45,7 +45,7 @@ export class CreateImageByInstanceRequestTagList extends $dara.Model {
 export class CreateImageByInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * This parameter is currently applicable only to cloud desktop scenarios. Specifies whether to clear user personal data. If you set this parameter to true, the created image clears data in all directories under C:\\Users except the Administrator and Public directories.
+   * This parameter is applicable only to cloud desktop instances. Specifies whether to clear personal user data. If you set this parameter to true, the created image clears the data in all directories under C:\\Users except the Administrator and Public directories.
    * 
    * @example
    * false
@@ -61,7 +61,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * Specifies whether to copy user profile data.
+   * Specifies whether to copy personal user data.
    * 
    * @example
    * false
@@ -69,7 +69,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
   copyProfile?: boolean;
   /**
    * @remarks
-   * The image description.
+   * The description of the image.
    * 
    * @example
    * my test image v1.0
@@ -77,7 +77,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The type of disk data included in the image. By default, the image includes both the system cloud disk and data cloud disk of the instance.
+   * The types of disk data included in the image. By default, the image includes the system cloud disk and data cloud disks of the instance.
    * 
    * @example
    * ALL
@@ -85,7 +85,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
   diskType?: string;
   /**
    * @remarks
-   * The image name.
+   * The name of the image.
    * 
    * @example
    * test
@@ -101,7 +101,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance type.
+   * The type of the instance.
    * 
    * @example
    * WuyingServer
@@ -117,7 +117,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The sub-instance ID. This parameter does not apply to cloud desktop scenarios. In workstation scenarios, specify the persistent session ID to identify a specific instance.
+   * The sub-instance ID. This parameter is not applicable to cloud desktop scenarios. In workstation scenarios, you must specify the persistent session ID to locate a specific instance.
    * 
    * @example
    * p-0cc7s3n1l*****
@@ -125,7 +125,7 @@ export class CreateImageByInstanceRequest extends $dara.Model {
   subInstanceId?: string;
   /**
    * @remarks
-   * The tag list.
+   * The list of tags.
    */
   tagList?: CreateImageByInstanceRequestTagList[];
   static names(): { [key: string]: string } {

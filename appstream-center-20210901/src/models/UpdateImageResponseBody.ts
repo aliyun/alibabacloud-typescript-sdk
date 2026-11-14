@@ -13,12 +13,12 @@ export class UpdateImageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the operation was processed successfully. A value of true indicates that the operation was successful.
+   * Indicates whether the operation was successful. A value of true indicates that the operation was successful.
    */
   data?: boolean;
   /**
    * @remarks
-   * The error or result message. This field describes the cause when a request fails. A successful response may not contain this field.
+   * The error message or result prompt. This field describes the cause of a failed request. A successful response may not contain this field.
    * 
    * @example
    * The image does not exist.
@@ -26,7 +26,7 @@ export class UpdateImageResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier of the request. You can provide this value when you troubleshoot issues.
+   * The unique identifier of the request. You can provide this value for troubleshooting.
    * 
    * @example
    * 01A1A962-5503-107B-AC8F-EBA85DF905AC
@@ -34,7 +34,7 @@ export class UpdateImageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. For asynchronous tasks, you must query the task status separately to check whether the task is completed.
+   * Indicates whether the request was successful. A value of true indicates that the request was successful. To check whether an asynchronous task is completed, you must query the task status separately.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

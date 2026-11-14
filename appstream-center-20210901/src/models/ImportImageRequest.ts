@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImportImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The business region ID. Example: cn-hangzhou.
+   * The business region ID, such as cn-hangzhou.
    * 
    * @example
    * cn-hangzhou
@@ -21,8 +21,8 @@ export class ImportImageRequest extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * The boot mode of the image. Valid values:
-   * - BIOS: legacy BIOS boot.
+   * The image boot mode. Valid values:
+   * - BIOS: Legacy BIOS boot.
    * - UEFI: UEFI boot.
    * 
    * @example
@@ -34,21 +34,21 @@ export class ImportImageRequest extends $dara.Model {
    * The description of the image.
    * 
    * @example
-   * Custom cloud desktop image
+   * Custom Cloud Desktop image
    */
   description?: string;
   /**
    * @remarks
    * Specifies whether to enable the image security check. Valid values:
-   * - true: enables the security check.
-   * - false: disables the security check.
+   * - true: Enabled.
+   * - false: Disabled.
    */
   enableSecurityCheck?: boolean;
   /**
    * @remarks
    * Specifies whether the image is a GPU image. Valid values:
-   * - true: yes.
-   * - false: no.
+   * - true: Yes.
+   * - false: No.
    */
   gpuCategory?: boolean;
   /**
@@ -56,7 +56,7 @@ export class ImportImageRequest extends $dara.Model {
    * The GPU driver type. Valid values:
    * - gpu_grid9: GRID 9 driver.
    * - gpu_grid12: GRID 12 driver.
-   * - gpu_custom: custom driver.
+   * - gpu_custom: Custom driver.
    * 
    * @example
    * gpu_grid12
@@ -73,9 +73,9 @@ export class ImportImageRequest extends $dara.Model {
   /**
    * @remarks
    * The operating system license type. Valid values:
-   * - Auto: automatically selected.
-   * - Aliyun: provided by Alibaba Cloud.
-   * - BYOL: Bring Your Own License.
+   * - Auto: Automatically selected.
+   * - Aliyun: Provided by Alibaba Cloud.
+   * - BYOL: Bring your own license.
    * Default value: Auto.
    * 
    * @example
@@ -97,7 +97,7 @@ export class ImportImageRequest extends $dara.Model {
   ossObjectPath?: string;
   /**
    * @remarks
-   * The product type. Currently, only CloudDesktop (cloud desktop) is supported.
+   * The product type. Currently, only CloudDesktop (Cloud Desktop) is supported.
    * 
    * @example
    * CloudDesktop
@@ -105,7 +105,7 @@ export class ImportImageRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The connection protocol of the image. Valid values: ASP and HDX. Default value: ASP.
+   * The image connection protocol. Valid values: ASP and HDX. Default value: ASP.
    * 
    * @example
    * ASP

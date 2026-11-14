@@ -40,7 +40,7 @@ export class ModifyAppInstanceGroupChargeTypeResponseBody extends $dara.Model {
   appInstanceGroupModel?: ModifyAppInstanceGroupChargeTypeResponseBodyAppInstanceGroupModel;
   /**
    * @remarks
-   * The unique ID of the request, which can be used to troubleshoot request issues.
+   * The unique ID of the request. You can use this ID to troubleshoot request issues.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

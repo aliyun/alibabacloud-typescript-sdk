@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListImageTagsRequest extends $dara.Model {
   /**
    * @remarks
-   * The label categorization to query.
+   * The tag categorization to query.
    * 
    * @example
    * Gpu
@@ -21,7 +21,7 @@ export class ListImageTagsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token used to determine whether a next query is available. This parameter is not currently supported.
+   * The token used to determine whether the next query is available. This parameter is not supported.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6kEmoGlTNe3ekUrwnesWV1Vn+tWdc+4WoaoMP/kUNF7Gg==

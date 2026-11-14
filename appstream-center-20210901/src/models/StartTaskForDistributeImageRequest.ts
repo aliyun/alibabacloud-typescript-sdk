@@ -36,7 +36,7 @@ export class StartTaskForDistributeImageRequest extends $dara.Model {
   retryType?: string;
   /**
    * @remarks
-   * The source region from which the image is copied. If this parameter is not specified, a random region is selected.
+   * The source region from which the image is copied. If you do not specify this parameter, a region is randomly selected.
    * 
    * @example
    * cn-shanghai
@@ -44,7 +44,7 @@ export class StartTaskForDistributeImageRequest extends $dara.Model {
   sourceRegion?: string;
   /**
    * @remarks
-   * The image version ID. If this parameter is not specified, the latest image version is used.
+   * The image version ID. If you do not specify this parameter, the latest image version is used by default.
    * 
    * @example
    * iv-07jyldnd9i****

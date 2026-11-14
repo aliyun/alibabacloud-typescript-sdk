@@ -13,7 +13,7 @@ export class CreateBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel ext
   browserInstanceGroupId?: string;
   /**
    * @remarks
-   * The order ID generated for this creation.
+   * The ID of the order generated for this creation.
    * 
    * @example
    * 12345****

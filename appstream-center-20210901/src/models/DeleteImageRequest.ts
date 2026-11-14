@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The WUYING image ID.
+   * The ID of the WUYING image.
    * 
    * @example
    * img-bp13mu****

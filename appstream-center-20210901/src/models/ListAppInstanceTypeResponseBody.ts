@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppInstanceTypeResponseBodyAppInstanceTypeModelsInventoryInfoZoneInventoryInfo extends $dara.Model {
   /**
    * @remarks
-   * The available quantity in the zone obtained in this query. Unit: instances. This value is an inventory snapshot and does not indicate that resources have been reserved for the current account.
+   * The available quantity in the zone obtained in this query. Unit: count. This value is an inventory snapshot and does not indicate that resources have been reserved for the current account.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModelsInventoryInfoZo
   amount?: string;
   /**
    * @remarks
-   * The zone ID, which can be queried by calling the [ListZones](https://api.aliyun.com/document/appstream-center/2021-09-01/ListZones) operation.
+   * The zone ID, which can be queried by calling [ListZones](https://api.aliyun.com/document/appstream-center/2021-09-01/ListZones).
    * 
    * @example
    * cn-hangzhou-h
@@ -53,7 +53,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModelsInventoryInfo e
   regionId?: string;
   /**
    * @remarks
-   * The instance type inventory status obtained in the current query.
+   * The specification inventory status obtained in the current query.
    * 
    * - `Available`: The total inventory of the queried zones is greater than 0.
    * - `SoldOut`: The total inventory of the queried zones is not greater than 0.
@@ -98,7 +98,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModelsInventoryInfo e
 export class ListAppInstanceTypeResponseBodyAppInstanceTypeModels extends $dara.Model {
   /**
    * @remarks
-   * The session instance type code, which can be used as the session instance type parameter for subsequent operations.
+   * The session specification code, which can be used as the session specification parameter for subsequent operations.
    * 
    * @example
    * appstreaming.vgpu.4c8g
@@ -106,7 +106,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModels extends $dara.
   appInstanceType?: string;
   /**
    * @remarks
-   * The instance type family code to which the session instance type belongs.
+   * The specification family code to which the session specification belongs.
    * 
    * @example
    * ecs.g6
@@ -114,7 +114,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModels extends $dara.
   appInstanceTypeFamily?: string;
   /**
    * @remarks
-   * The number of CPU cores included in the instance type, represented by a numeric string. Unit: cores.
+   * The number of CPU cores included in the specification, represented by a numeric string. Unit: cores.
    * 
    * @example
    * 4
@@ -122,7 +122,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModels extends $dara.
   cpu?: string;
   /**
    * @remarks
-   * The data cloud disk capacity of the instance type. Unit: GB.
+   * The data cloud disk capacity of the specification. Unit: GB.
    * 
    * @example
    * 100
@@ -130,7 +130,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModels extends $dara.
   dataDiskSize?: number;
   /**
    * @remarks
-   * Not enabled yet. The example value is only used to demonstrate the format and does not represent the actual number of GPUs returned by this operation.
+   * Not enabled yet. The example value is only used to display the format and does not represent the actual number of GPUs returned by this operation.
    * 
    * @example
    * 1
@@ -138,7 +138,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModels extends $dara.
   gpu?: string;
   /**
    * @remarks
-   * The GPU memory capacity of the instance type. Unit: MB.
+   * The GPU memory capacity of the specification. Unit: MB.
    * 
    * @example
    * 4096
@@ -146,7 +146,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModels extends $dara.
   gpuMemory?: number;
   /**
    * @remarks
-   * The display value or display range of the GPU memory. Display it as the returned text. Do not directly use it as a numeric value for capacity conversion.
+   * The display value or display range of the GPU memory. It should be displayed as the returned text and should not be directly used as a numerical value for capacity conversion.
    * 
    * @example
    * 1~2
@@ -154,7 +154,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModels extends $dara.
   gpuSpec?: string;
   /**
    * @remarks
-   * The identifier of the instance type record. When integrating with pricing or creation operations, use `AppInstanceType`. Do not use this field to replace the instance type code.
+   * The identifier of the specification record. When you connect to the price inquiry or creation operation, use `AppInstanceType`. Do not use this field to replace the specification code.
    * 
    * @example
    * 1
@@ -162,7 +162,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModels extends $dara.
   id?: number;
   /**
    * @remarks
-   * The display name of the instance type. The Chinese name is used only when `Language` is set to `zh-CN`. For other values or when omitted, the instance type code is used.
+   * The display name of the specification. The Chinese name is used only when `Language=zh-CN`. For other values or when omitted, the specification code is used.
    * 
    * @example
    * appstreaming.vgpu.4c8g
@@ -170,12 +170,12 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModels extends $dara.
   instanceTypeName?: string;
   /**
    * @remarks
-   * The inventory information of the instance type. This parameter is returned only when the inventory is queried and the relevant information is obtained. If this parameter is not returned, it does not mean that the inventory is 0.
+   * The inventory information of the specification. It is returned only when the inventory is queried and relevant information is obtained. If it is not returned, it does not mean that the inventory is 0.
    */
   inventoryInfo?: ListAppInstanceTypeResponseBodyAppInstanceTypeModelsInventoryInfo;
   /**
    * @remarks
-   * The memory capacity of the instance type. Unit: MB.
+   * The memory capacity of the specification. Unit: MB.
    * 
    * @example
    * 8192
@@ -183,7 +183,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModels extends $dara.
   memory?: number;
   /**
    * @remarks
-   * The type of the product to which the instance type belongs. The current document displays the following values:
+   * The type of the product to which the specification belongs. The current document displays the following value:
    * 
    * - `CloudApp`: Wuying Cloud Application.
    * 
@@ -193,7 +193,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModels extends $dara.
   productType?: string;
   /**
    * @remarks
-   * The system cloud disk capacity of the instance type. Unit: GB.
+   * The system cloud disk capacity of the specification. Unit: GB.
    * 
    * @example
    * 40
@@ -250,7 +250,7 @@ export class ListAppInstanceTypeResponseBodyAppInstanceTypeModels extends $dara.
 export class ListAppInstanceTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of session instance types on the current page.
+   * The list of session specifications on the current page.
    */
   appInstanceTypeModels?: ListAppInstanceTypeResponseBodyAppInstanceTypeModels[];
   /**
@@ -279,7 +279,7 @@ export class ListAppInstanceTypeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of instance types that meet all filtering conditions, not the number of entries on the current page.
+   * The total number of specifications that meet all filtering conditions, not the number of entries on the current page.
    * 
    * @example
    * 1

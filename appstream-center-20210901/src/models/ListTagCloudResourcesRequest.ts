@@ -17,7 +17,7 @@ export class ListTagCloudResourcesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query.
+   * The token for the next query.
    * 
    * @example
    * ptnJAAAAAAAxNzE5OTEwNQ==
@@ -25,7 +25,7 @@ export class ListTagCloudResourcesRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The list of resource IDs. A maximum of 50 resource IDs are supported. You do not need to specify this parameter when the resource type is tenant ID.
+   * The resource IDs. A maximum of 50 resource IDs are supported. This parameter is not required when the resource type is tenant ID.
    */
   resourceIds?: string[];
   /**

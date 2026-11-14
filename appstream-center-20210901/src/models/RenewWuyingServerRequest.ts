@@ -21,7 +21,7 @@ export class RenewWuyingServerRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the renewal duration.
+   * The unit for the renewal period.
    * 
    * @example
    * Month
@@ -29,7 +29,7 @@ export class RenewWuyingServerRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The discount ID.
+   * The promotion ID.
    * 
    * @example
    * 17440009****
@@ -40,7 +40,7 @@ export class RenewWuyingServerRequest extends $dara.Model {
    * The workstation ID.
    * 
    * > 
-   * > - The workstation must have a completed order payment (AutoPay=true during creation or manually paid through the console payment page) before it can be renewed. Calling this API for an unpaid workstation returns WuyingServerError.NotFound.
+   * > - A workstation can be renewed only after the order payment is completed (AutoPay=true during creation or manual payment is made through the console payment page). Calling this API for an unpaid workstation returns WuyingServerError.NotFound.
    * 
    * @example
    * ws-0bw2f11****dial

@@ -61,7 +61,7 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsBrows
   cookiesSync?: string;
   /**
    * @remarks
-   * The homepage URL that opens when the browser starts.
+   * The URL of the homepage that opens when the browser starts.
    * 
    * @example
    * https://www.aliyun.com
@@ -170,7 +170,7 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsNetwo
    * - `ALLOW_ALL`: Allows all domain names.
    * - `ALLOW_LIST`: Allows only websites in the whitelist.
    * 
-   * The returned value reflects the existing configuration of the browser instance group.
+   * The returned value reflects the existing configurations of the browser instance group.
    * 
    * @example
    * ALLOW_ALL
@@ -186,7 +186,7 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsNetwo
   officeSiteId?: string;
   /**
    * @remarks
-   * The list of vSwitch IDs used by the browser instance group. This parameter is available for scenarios where a custom network is configured.
+   * The list of vSwitch IDs used by the browser instance group. This parameter is available for scenarios where custom networks are configured.
    */
   vSwitchIds?: string[];
   static names(): { [key: string]: string } {
@@ -325,12 +325,12 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsPolic
 export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsPolicyClipboardPolicy extends $dara.Model {
   /**
    * @remarks
-   * The clipboard transfer direction. The value is not case-sensitive. Valid values:
+   * The clipboard transfer direction. The value is case-insensitive. Valid values:
    * 
-   * - `off`: Prohibits transfer in both directions.
+   * - `off`: Disables transfer in both directions.
    * - `read`: Allows copy and paste from the local PC to the cloud browser.
    * - `write`: Allows copy and paste from the cloud browser to the local PC.
-   * - `readwrite`: Allows transfer in both directions.
+   * - `readwrite`: Enables transfer in both directions.
    * 
    * @example
    * readwrite
@@ -390,12 +390,11 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsPolic
 export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsPolicyWatermarkPolicy extends $dara.Model {
   /**
    * @remarks
-   * The watermark switch. The value is case-insensitive. Valid values:
-   * 
+   * Specifies whether to enable the watermark. Values are case-insensitive. Valid values:
    * - `ON`: Enables the watermark.
    * - `OFF`: Disables the watermark.
    * 
-   * If the watermark is disabled, the watermark content type list is not used.
+   * When the watermark is disabled, the watermark content type list is not used.
    * 
    * @example
    * ON
@@ -404,10 +403,9 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsPolic
   /**
    * @remarks
    * The list of watermark content types. Valid values:
-   * 
-   * - `EndUserId`: The user identifier.
-   * - `InstanceGroupId`: The delivery group identifier.
-   * - `ClientTime`: The current time of the client.
+   * - `EndUserId`: the user identifier.
+   * - `InstanceGroupId`: the delivery group identifier.
+   * - `ClientTime`: the current time of the client.
    * 
    * Use the watermark types supported by the browser and the client.
    */
@@ -467,7 +465,7 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsPolic
   clipboardPolicy?: ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsPolicyClipboardPolicy;
   /**
    * @remarks
-   * The dual-screen switch for the cloud browser.
+   * The dual-screen switch for cloud browsers.
    * 
    * @example
    * off
@@ -614,7 +612,7 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsTimer
 export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsUserLimit extends $dara.Model {
   /**
    * @remarks
-   * The number of user quotas.
+   * The user quota.
    * 
    * @example
    * 100
@@ -665,7 +663,7 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModels exte
   bizRegionId?: string;
   /**
    * @remarks
-   * The current configuration of the browser.
+   * The current configurations of the browser.
    */
   browserConfig?: ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsBrowserConfig;
   /**
@@ -768,13 +766,12 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModels exte
   osType?: string;
   /**
    * @remarks
-   * The policy configuration returned for the browser instance group. The policy fields are used to view existing settings and do not indicate that all corresponding creation parameters are configurable.
+   * The policy configurations returned for the browser instance group. The policy fields are used to view existing settings and do not indicate that all corresponding creation parameters are configurable.
    */
   policy?: ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsPolicy;
   /**
    * @remarks
-   * The status of the browser group. Valid values:
-   * 
+   * The browser group status. Valid values:
    * - `DEPLOYING`: Deploying.
    * - `PUBLISHED`: Published.
    * - `FAILED`: Failed.
@@ -791,7 +788,7 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModels exte
   status?: string;
   /**
    * @remarks
-   * The sub-billing method. In the MAU scenario, `mau` is returned, which indicates billing by monthly active users.
+   * The sub-billing type. In the MAU scenario, `mau` is returned, which indicates billing by monthly active users.
    * 
    * @example
    * mau
@@ -799,7 +796,7 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModels exte
   subPayType?: string;
   /**
    * @remarks
-   * Indicates whether mixed authorization of users and user groups is supported. A value of `true` indicates that it is supported, and a value of `false` indicates that it is not supported. Evaluate this parameter based on the current authorization mode.
+   * Specifies whether mixed authorization of users and user groups is supported. A value of `true` indicates that mixed authorization is supported, and a value of `false` indicates that mixed authorization is not supported. Evaluate this parameter based on the current authorization mode.
    * 
    * @example
    * false
@@ -813,7 +810,6 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModels exte
   /**
    * @remarks
    * The version of the browser. Valid values:
-   * 
    * - `Basic`: Basic Edition.
    * - `Pro`: Premium Edition.
    * 
@@ -825,16 +821,15 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModels exte
   tier?: string;
   /**
    * @remarks
-   * The session timer configuration returned. This is used to view the effective settings and does not indicate that the create operation supports configuring this parameter.
+   * The session timer configuration returned. This parameter is used to view the effective settings and does not indicate that the create operation supports configuring this parameter.
    */
   timers?: ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsTimers[];
   /**
    * @remarks
    * The current authorization mode. Valid values:
-   * 
-   * - `Mixed`: Mixed authorization of users and user groups.
-   * - `User`: User authorization.
-   * - `UserGroup`: User group authorization.
+   * - `Mixed`: mixed authorization of users and user groups.
+   * - `User`: user authorization.
+   * - `UserGroup`: user group authorization.
    * 
    * @example
    * Mixed
@@ -964,7 +959,7 @@ export class ListBrowserInstanceGroupResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 01A0C2ED-95F2-1A37-9FC6-4A395179****

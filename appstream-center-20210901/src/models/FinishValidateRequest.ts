@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FinishValidateRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID used for exact match queries. If omitted, the results are not filtered by application ID.
+   * The application ID for exact match queries. If this parameter is omitted, the results are not filtered by application ID.
    * 
    * @example
    * app-0aae4rxw7ql*****

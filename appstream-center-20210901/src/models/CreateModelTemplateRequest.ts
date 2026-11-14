@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateModelTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The Agent platform.
+   * The agent platform.
    * 
    * @example
    * ENTERPRISE
@@ -13,7 +13,7 @@ export class CreateModelTemplateRequest extends $dara.Model {
   agentPlatform?: string;
   /**
    * @remarks
-   * The Agent provider name.
+   * The name of the agent provider.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class CreateModelTemplateRequest extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * The template group description.
+   * The description of the template group.
    * 
    * @example
    * Test model group
@@ -41,7 +41,7 @@ export class CreateModelTemplateRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The template group name.
+   * The name of the template group.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class CreateModelTemplateRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The authorization scope. This parameter is optional and effective only for Common model groups. Valid values: ALL_USER and USER_MIXED (strictly uppercase). If not specified, Common model groups default to USER_MIXED. Non-Common groups ignore this parameter and use RESOURCE_MIXED.
+   * The authorization scope. This parameter is optional and takes effect only for Common model groups. Valid values: ALL_USER and USER_MIXED. The value must be strictly uppercase. If this parameter is not specified, the default value for Common groups is USER_MIXED. For non-Common groups, this parameter is ignored and fixed to RESOURCE_MIXED.
    * 
    * @example
    * ALL_USER

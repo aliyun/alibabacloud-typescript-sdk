@@ -31,7 +31,7 @@ export class GetRuntimeChannelResponseBodyData extends $dara.Model {
    * @remarks
    * The channel configuration JSON string.
    * 
-   * Currently, only the simple configuration mode is supported. You must pass AppKey and AppSecret.
+   * Currently, only the simple configuration mode is supported. You must specify the AppKey and AppSecret.
    * 
    * @example
    * {
@@ -50,7 +50,7 @@ export class GetRuntimeChannelResponseBodyData extends $dara.Model {
   configMode?: string;
   /**
    * @remarks
-   * The QR code configuration notification page URL (returned only for ENTERPRISE/ENTERPRISE_JVS platforms).
+   * The QR code configuration notification page URL (returned only for the ENTERPRISE or ENTERPRISE_JVS platform).
    * 
    * @example
    * https://eds.console.aliyun.com/public/scan-pair?taskId=e7eb5d86-1b94-4d58-****-3b78b01df99e&code=dingtalk-connector&region=cn-shanghai
@@ -58,7 +58,7 @@ export class GetRuntimeChannelResponseBodyData extends $dara.Model {
   qrCodeNotifyUrl?: string;
   /**
    * @remarks
-   * The QR code configuration status (returned only when not in a desired state).
+   * The QR code configuration status (returned only in non-terminal states).
    * 
    * @example
    * https://q.qq.com/qqbot/openclaw/entity-picker.html?session_id=c0882266-77c0-4094-af93-442*****2a58
@@ -133,7 +133,7 @@ export class GetRuntimeChannelResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total count.
    * 
    * @example
    * 6

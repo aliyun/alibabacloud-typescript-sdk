@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class GetAuthCodeResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The network access type supported by the connection resource.
+   * The network access type supported by the connection resource. Valid values:
    * 
-   * - **INTERNET**: Supports Internet access.
-   * - **VPC**: Supports virtual private cloud (VPC) access.
-   * - **ANY**: Supports both Internet and VPC access.
+   * - **INTERNET**: supports Internet access
+   * - **VPC**: supports VPC access
+   * - **ANY**: supports both Internet and VPC access
    * 
    * @example
    * INTERNET
@@ -17,7 +17,7 @@ export class GetAuthCodeResponseBodyData extends $dara.Model {
   accessType?: string;
   /**
    * @remarks
-   * The application ID, which is used for subsequent application queries or unbinding the image.
+   * The application ID, used to query the application or unbind the image later.
    * 
    * @example
    * app-bp1example****
@@ -25,7 +25,7 @@ export class GetAuthCodeResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The delivery group ID of the creation or validation resource. It is used together with the user and application information in this response during connection.
+   * The delivery group ID of the creation or validation resource. It is used together with the user and application information in this response when connecting.
    * 
    * @example
    * aig-bp1example****
@@ -33,7 +33,7 @@ export class GetAuthCodeResponseBodyData extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The application version ID, which is used to locate a specific version of the application. This field is not the image version ID.
+   * The application version ID, used to locate the specified version of the application. This field is not the image version ID.
    * 
    * @example
    * apv-bp1example****
@@ -41,9 +41,9 @@ export class GetAuthCodeResponseBodyData extends $dara.Model {
   appVersionId?: string;
   /**
    * @remarks
-   * The authorization code used to connect to the creation or validation resource. **The validity period is 180 seconds (3 minutes) from the time of issuance. Use it promptly after obtaining it.** Use it together with the user, delivery group, and application information in the same response, and keep it confidential as a connection credential.
+   * The authorization code used to connect to the creation or validation resource. **It is valid for 180 seconds (3 minutes) from the time of issuance. Use it promptly after obtaining it.** Use it together with the user, delivery group, and application information in the same response, and keep it confidential as a connection credential.
    * 
-   * Do not reuse the authorization code after it is redeemed. If it has been used or expired, call this operation again to obtain a new one.
+   * Do not reuse the authorization code after it is successfully redeemed. If it has been used or has expired, call this operation again to obtain a new one.
    * 
    * @example
    * e4e169bea1cc48e8afac53**********
@@ -51,10 +51,10 @@ export class GetAuthCodeResponseBodyData extends $dara.Model {
   authCode?: string;
   /**
    * @remarks
-   * The purpose type of the connection resource.
+   * The purpose type of the connection resource. Valid values:
    * 
-   * - **ImageBuilder**: Image or application creation resource.
-   * - **ImageValidate**: Image or application validation resource.
+   * - **ImageBuilder**: image or application creation resource
+   * - **ImageValidate**: image or application validation resource
    * 
    * @example
    * ImageBuilder
@@ -114,7 +114,7 @@ export class GetAuthCodeResponseBodyData extends $dara.Model {
 export class GetAuthCodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. It is returned when the request fails. A success response may not contain this field.
+   * The error code. It is returned when the request fails. A successful response may not contain this field.
    * 
    * @example
    * InternalError
@@ -122,12 +122,12 @@ export class GetAuthCodeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The business data returned by the operation.
+   * The business data returned by this operation.
    */
   data?: GetAuthCodeResponseBodyData;
   /**
    * @remarks
-   * The error or result message. It describes the cause when the request fails. A success response may not contain this field.
+   * The error or result message. It is used to describe the cause when the request fails. A successful response may not contain this field.
    * 
    * @example
    * Internal error.
@@ -143,7 +143,7 @@ export class GetAuthCodeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. To check whether an asynchronous task is completed, you must query the task status separately.
+   * Indicates whether the request was processed successfully. true indicates that the request was processed successfully. To check whether an asynchronous task is completed, query the task status separately.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -13,7 +13,7 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfigBookmarks extends $da
   bookmarkFolder?: string;
   /**
    * @remarks
-   * The bookmark ID. This parameter is required only for modification scenarios.
+   * The bookmark ID. This parameter is required only for update scenarios.
    * 
    * @example
    * bm-12345
@@ -204,10 +204,10 @@ export class ModifyBrowserInstanceGroupRequestNetwork extends $dara.Model {
   restrictedURLs?: ModifyBrowserInstanceGroupRequestNetworkRestrictedURLs[];
   /**
    * @remarks
-   * The file path for network-restricted URLs.
+   * The file path for network restricted URLs.
    * 
    * @example
-   * cn-hangzhou/aig_upm/xxx/temp/BrowserRestrictionUrls/URL_whitelist_template.csv
+   * cn-hangzhou/aig_upm/xxx/temp/BrowserRestrictionUrls/URLWhitelistTemplate.csv
    */
   restrictedURLsFilePath?: string;
   static names(): { [key: string]: string } {
@@ -334,7 +334,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   clipboard?: string;
   /**
    * @remarks
-   * The clipboard read length limit.
+   * The read length limit for the clipboard.
    * 
    * @example
    * 1000
@@ -358,7 +358,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   clipboardSizeUnit?: string;
   /**
    * @remarks
-   * The clipboard write length limit.
+   * The write length limit for the clipboard.
    * 
    * @example
    * 1000
@@ -390,7 +390,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardLimit?: number;
   /**
    * @remarks
-   * The rich text clipboard read size.
+   * The outbound size limit for rich text in the clipboard.
    * 
    * @example
    * 1
@@ -398,7 +398,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardReadLimit?: number;
   /**
    * @remarks
-   * The rich text clipboard read size unit.
+   * The outbound size unit for rich text in the clipboard.
    * 
    * @example
    * KB
@@ -414,7 +414,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardSizeUnit?: string;
   /**
    * @remarks
-   * The rich text clipboard write size.
+   * The inbound size limit for rich text in the clipboard.
    * 
    * @example
    * 1
@@ -422,7 +422,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardWriteLimit?: number;
   /**
    * @remarks
-   * The rich text clipboard write size unit.
+   * The inbound size unit for rich text in the clipboard.
    * 
    * @example
    * KB
@@ -438,7 +438,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   textClipboard?: string;
   /**
    * @remarks
-   * The text clipboard read size.
+   * The outbound size limit for text in the clipboard.
    * 
    * @example
    * 1
@@ -446,7 +446,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   textClipboardReadLimit?: number;
   /**
    * @remarks
-   * The text clipboard read size unit.
+   * The outbound size unit for text in the clipboard.
    * 
    * @example
    * KB
@@ -454,7 +454,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   textClipboardReadSizeUnit?: string;
   /**
    * @remarks
-   * The text clipboard write size.
+   * The inbound size limit for text in the clipboard.
    * 
    * @example
    * 1
@@ -462,7 +462,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   textClipboardWriteLimit?: number;
   /**
    * @remarks
-   * The text clipboard write size unit.
+   * The inbound size unit for text in the clipboard.
    * 
    * @example
    * KB
@@ -649,7 +649,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   authorizeAccessPolicyRules?: ModifyBrowserInstanceGroupRequestPolicyAuthorizeAccessPolicyRules[];
   /**
    * @remarks
-   * The logon client type control.
+   * The client type control for logon.
    */
   clientTypes?: ModifyBrowserInstanceGroupRequestPolicyClientTypes[];
   /**
@@ -675,7 +675,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   disconnectKeepSessionTime?: number;
   /**
    * @remarks
-   * The floating ball file manager switch.
+   * The switch for the file manager in the floating button.
    * 
    * @example
    * off
@@ -691,7 +691,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   html5FileTransfer?: string;
   /**
    * @remarks
-   * The cloud browser dual-screen switch.
+   * The dual-screen switch for the cloud browser.
    * 
    * @example
    * off
@@ -699,7 +699,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   multiScreen?: string;
   /**
    * @remarks
-   * The no-operation disconnect policy.
+   * The policy for disconnecting upon inactivity.
    * 
    * @example
    * on
@@ -707,7 +707,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   noOperationDisconnect?: string;
   /**
    * @remarks
-   * The no-operation disconnect time in seconds.
+   * The inactivity disconnect time, in seconds.
    * 
    * @example
    * 1
@@ -913,7 +913,7 @@ export class ModifyBrowserInstanceGroupRequestTimers extends $dara.Model {
 export class ModifyBrowserInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to send notification emails for authorization and deauthorization.
+   * Specifies whether to send notification emails for authorization and revocation.
    * 
    * @example
    * true
@@ -944,7 +944,7 @@ export class ModifyBrowserInstanceGroupRequest extends $dara.Model {
   cloudBrowserName?: string;
   /**
    * @remarks
-   * The maximum resource count. This parameter takes effect only for the pay-as-you-go billing method based on monthly active users.
+   * The maximum resource count. This parameter takes effect for the pay-as-you-go billing method based on monthly active users.
    * 
    * @example
    * 5

@@ -13,7 +13,7 @@ export class QueryDauReportDataResponseBodyDauReportDataModel extends $dara.Mode
   dau?: number;
   /**
    * @remarks
-   * The statistics date. Format: yyyy-MM-dd. The string does not contain a time zone and is interpreted as a natural date in the Asia/Shanghai (UTC+8) time zone.
+   * The statistics date. Format: `yyyy-MM-dd`. The string does not contain a time zone and is interpreted as a calendar date in the Asia/Shanghai (UTC+8) time zone.
    * 
    * @example
    * 2026-09-01
@@ -55,7 +55,7 @@ export class QueryDauReportDataResponseBodyDauReportDataModel extends $dara.Mode
 export class QueryDauReportDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. A value of 200 indicates that the request is processed successfully. Other values indicate that the processing failed.
+   * The business status code. A value of `200` indicates that the request is successful. Other values indicate that the request failed.
    * 
    * @example
    * 200
@@ -76,7 +76,7 @@ export class QueryDauReportDataResponseBody extends $dara.Model {
   dauReportDataModel?: QueryDauReportDataResponseBodyDauReportDataModel[];
   /**
    * @remarks
-   * The description of the request processing result. Typically, success is returned if the request is successful.
+   * The description of the request processing result. Typically, `success` is returned when the request is successful.
    * 
    * @example
    * success

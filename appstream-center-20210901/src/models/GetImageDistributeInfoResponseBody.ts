@@ -198,7 +198,7 @@ export class GetImageDistributeInfoResponseBody extends $dara.Model {
   data?: GetImageDistributeInfoResponseBodyData;
   /**
    * @remarks
-   * The processing information returned by the API.
+   * The processing message returned by the API.
    * 
    * @example
    * success

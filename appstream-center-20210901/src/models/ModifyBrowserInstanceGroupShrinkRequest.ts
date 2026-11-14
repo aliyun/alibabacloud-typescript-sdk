@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBrowserInstanceGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to send notification emails for authorization and deauthorization.
+   * Specifies whether to send notification emails for authorization and revocation.
    * 
    * @example
    * true
@@ -36,7 +36,7 @@ export class ModifyBrowserInstanceGroupShrinkRequest extends $dara.Model {
   cloudBrowserName?: string;
   /**
    * @remarks
-   * The maximum resource count. This parameter takes effect only for the pay-as-you-go billing method based on monthly active users.
+   * The maximum resource count. This parameter takes effect for the pay-as-you-go billing method based on monthly active users.
    * 
    * @example
    * 5

@@ -45,7 +45,7 @@ export class ImportImageResponseBodyData extends $dara.Model {
 export class ImportImageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code of the API. A value of 200 indicates success. If the call fails, the corresponding error code is returned.
+   * The response code. A value of 200 indicates success. If the call fails, the corresponding error code is returned.
    * 
    * @example
    * 200
@@ -74,9 +74,9 @@ export class ImportImageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the API call was successful. Valid values:
-   * - true: successful.
-   * - false: failed.
+   * Indicates whether the API call is successful. Valid values:
+   * - true: Successful.
+   * - false: Failed.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

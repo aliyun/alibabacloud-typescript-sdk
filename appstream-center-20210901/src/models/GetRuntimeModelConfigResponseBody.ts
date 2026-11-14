@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoListCreditMultiplier extends $dara.Model {
   /**
    * @remarks
-   * The upper limit of the multiplier. If this parameter is empty, it indicates that there is no upper limit. For example, if Min is 1 and Max is empty, it is displayed as 1x and above.
+   * The upper limit of the multiplier. If this parameter is empty, it indicates no upper limit. For example, if Min=1 and Max is empty, it is displayed as starting from 1x.
    * 
    * @example
    * 3
@@ -13,7 +13,7 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoListCr
   max?: number;
   /**
    * @remarks
-   * The lower limit of the multiplier. When it is equal to Max, it is a fixed multiplier. For example, if Min and Max are both 2, it is displayed as 2x.
+   * The lower limit of the multiplier. When it is equal to Max, it is a fixed multiplier. For example, if Min=Max=2, it is displayed as 2x.
    * 
    * @example
    * 2
@@ -93,7 +93,7 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoList e
    * The model description.
    * 
    * @example
-   * The Qwen3.6 native vision-language Plus model series demonstrates exceptional performance comparable to current top-tier frontier models, with significantly improved model effects compared to the 3.5 series. The model shows significant enhancements in coding capabilities such as agentic coding, front-end programming, and vibe coding, as well as in multimodal universal recognition, OCR, and object localization
+   * The Qwen3.6 native vision-language Plus series models demonstrate exceptional performance comparable to current top-tier frontier models, with significantly improved model effects compared to the 3.5 series. The models show significant enhancements in coding capabilities such as agentic coding, front-end programming, and vibe coding, as well as multimodal universal recognition, OCR, and object localization
    */
   description?: string;
   /**
@@ -132,7 +132,7 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoList e
   publishedTime?: string;
   /**
    * @remarks
-   * The model risk type. This parameter is returned only when the IncludeRiskInfo request parameter is set to true.
+   * The model risk type. This parameter is returned only when the request parameter IncludeRiskInfo is set to true.
    * 
    * @example
    * Normal
@@ -190,7 +190,7 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderList extends $dar
   llmInfoList?: GetRuntimeModelConfigResponseBodyDataModelProviderListLlmInfoList[];
   /**
    * @remarks
-   * The ID of the model provider template.
+   * The ID of the model service provider template.
    * 
    * @example
    * mpt-xxxx
@@ -198,15 +198,15 @@ export class GetRuntimeModelConfigResponseBodyDataModelProviderList extends $dar
   modelProviderTemplateId?: string;
   /**
    * @remarks
-   * The name of the model provider template.
+   * The name of the model service provider template.
    * 
    * @example
-   * Model Studio
+   * Bailian
    */
   name?: string;
   /**
    * @remarks
-   * The name of the model provider.
+   * The name of the model service provider.
    * 
    * @example
    * bailian
@@ -253,7 +253,7 @@ export class GetRuntimeModelConfigResponseBodyData extends $dara.Model {
   defaultModel?: string;
   /**
    * @remarks
-   * The list of model providers.
+   * The list of model service providers.
    */
   modelProviderList?: GetRuntimeModelConfigResponseBodyDataModelProviderList[];
   /**
@@ -282,7 +282,7 @@ export class GetRuntimeModelConfigResponseBodyData extends $dara.Model {
   modelTemplateRefType?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the runtime belongs. If the runtime does not belong to any resource group, the value is null.
+   * The ID of the resource group to which the runtime belongs. This value is null if the runtime does not belong to a resource group.
    * 
    * @example
    * rg-xxxxx

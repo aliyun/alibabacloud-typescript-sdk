@@ -21,7 +21,7 @@ export class ListRelatedResourceRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of delivery groups returned per page, which is the same as the PageSize request parameter.
+   * The number of delivery groups returned per page. This value is the same as the PageSize request parameter.
    * 
    * @example
    * 10

@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWuyingServerResponseBodyDataPrivateIpSets extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the IP address is the primary private IP address. Valid values:
-   * - true: The IP address is the primary private IP address.
-   * - false: The IP address is a secondary private IP address.
+   * Indicates whether the IP address is the primary private IP address. Valid values: true: The IP address is the primary private IP address. false: The IP address is a secondary private IP address.
    * 
    * @example
    * true
@@ -47,7 +45,7 @@ export class DescribeWuyingServerResponseBodyDataPrivateIpSets extends $dara.Mod
 export class DescribeWuyingServerResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The bandwidth size, in Mbit/s.
+   * The bandwidth. Unit: Mbit/s.
    * 
    * @example
    * 10
@@ -63,7 +61,7 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * The billing type.
+   * The billing method.
    * 
    * @example
    * PrePaid
@@ -71,7 +69,7 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The creation time, in US English date and time format with a 12-hour clock.
+   * The creation time. The time is displayed in the 12-hour US English date and time format.
    * 
    * @example
    * Sep 2, 2026 1:46:41 PM
@@ -79,7 +77,7 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The maximum number of private IP addresses per NIC, including the primary IP address.
+   * The maximum number of private IP addresses per elastic network interface (ENI), including the primary IP address.
    * 
    * @example
    * 10
@@ -87,7 +85,7 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
   eniPrivateIpAddressQuantity?: number;
   /**
    * @remarks
-   * The expiration time, in US English date and time format with a 12-hour clock.
+   * The expiration time. The time is displayed in the 12-hour US English date and time format.
    * 
    * @example
    * Oct 3, 2026 12:00:00 AM
@@ -130,7 +128,7 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
    * The workspace name.
    * 
    * @example
-   * Default Workspace
+   * Default workspace
    */
   officeSiteName?: string;
   /**
@@ -172,7 +170,7 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
   supportASP?: boolean;
   /**
    * @remarks
-   * The type of the system cloud disk.
+   * The category of the system cloud disk.
    * 
    * @example
    * cloud_essd
@@ -180,7 +178,7 @@ export class DescribeWuyingServerResponseBodyData extends $dara.Model {
   systemDiskCategory?: string;
   /**
    * @remarks
-   * The size of the system cloud disk, in GB.
+   * The size of the system cloud disk. Unit: GB.
    * 
    * @example
    * 80

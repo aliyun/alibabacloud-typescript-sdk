@@ -7,8 +7,8 @@ export class ListAuthorizedUsersResponseBodyUsers extends $dara.Model {
    * @remarks
    * The account type of the user. Valid values:
    * 
-   * - simple: Convenience account.
-   * - ad: Active Directory (AD) domain account, which originates from an enterprise AD domain.
+   * - simple: convenience account
+   * - ad: AD domain account from an enterprise AD domain
    * 
    * @example
    * simple
@@ -16,7 +16,7 @@ export class ListAuthorizedUsersResponseBodyUsers extends $dara.Model {
   accountType?: string;
   /**
    * @remarks
-   * The application ID. Returned only when AppId is specified in the request. The value is the same as the request parameter. Not returned if AppId is not specified or when querying by delivery group set.
+   * The application ID. This parameter is returned only when AppId is specified in the request, and the value is the same as the request parameter. This parameter is not returned if AppId is not specified or when querying by app instance group set.
    * 
    * @example
    * ca-i87mycyn419nu****
@@ -24,7 +24,7 @@ export class ListAuthorizedUsersResponseBodyUsers extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The delivery group ID associated with the user\\"s authorization relationship. When querying by delivery group, this value is the same as the request parameter. When querying by delivery group set, this value is the primary delivery group ID of the set.
+   * The app instance group ID of the authorization relationship to which the user belongs. When querying by app instance group, this value is the same as the request parameter. When querying by app instance group set, this value is the primary app instance group ID of the set.
    * 
    * @example
    * aig-9ciijz60n4xsv****
@@ -32,7 +32,7 @@ export class ListAuthorizedUsersResponseBodyUsers extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The delivery group set ID. Returned only when querying by delivery group set. The value is the same as the AppInstanceGroupSetId request parameter.
+   * The app instance group set ID. This parameter is returned only when querying by app instance group set, and the value is the same as the AppInstanceGroupSetId request parameter.
    * 
    * @example
    * set-3jm9d0abc00example
@@ -40,18 +40,18 @@ export class ListAuthorizedUsersResponseBodyUsers extends $dara.Model {
   appInstanceGroupSetId?: string;
   /**
    * @remarks
-   * The list of persistent session IDs granted to the user. Returned only when the delivery group authorization mode (AuthMode) is `Session`. This list is not affected by the AppInstancePersistentId request parameter and always includes all persistent sessions granted to the user.
+   * The list of persistent session IDs granted to the user. This parameter is returned only when the authorization mode (AuthMode) of the app instance group is `Session`. This parameter is not affected by the filtering of the AppInstancePersistentId request parameter and always lists all persistent sessions granted to the user.
    */
   appInstancePersistentIds?: string[];
   /**
    * @remarks
-   * The authorization mode of the delivery group, which determines the scope of results returned by this operation. Valid values:
+   * The authorization mode of the app instance group, which determines the return scope of this operation. Valid values:
    * 
-   * - App: Application-level authorization. Applications within the delivery group are authorized to users without restricting which sessions the users can use.
-   * - Session: Session-level authorization. Persistent sessions within the delivery group are authorized to users without restricting which applications the users can use. In this case, AppInstancePersistentIds returns the persistent sessions granted to the user.
-   * - AppInstanceGroup: Delivery group-level authorization. The entire delivery group is authorized to users, allowing them to open any application using any session within the delivery group.
+   * - App: Application authorization. This mode authorizes the applications under the app instance group to the user and does not restrict which sessions the user can use.
+   * - Session: Session authorization. This mode authorizes the persistent sessions under the app instance group to the user and does not restrict which applications the user can use. In this case, AppInstancePersistentIds returns the persistent sessions granted to the user.
+   * - AppInstanceGroup: App instance group authorization. This mode authorizes the entire app instance group to the user, allowing the user to use any session under the app instance group to open any application.
    * 
-   * When querying by delivery group set, the authorization mode of the primary delivery group in the set is returned.
+   * When querying by app instance group set, the authorization mode of the primary app instance group of the set is returned.
    * 
    * @example
    * AppInstanceGroup
@@ -59,7 +59,7 @@ export class ListAuthorizedUsersResponseBodyUsers extends $dara.Model {
   authMode?: string;
   /**
    * @remarks
-   * The email address of the user. Returned only when the account information of the user can be retrieved.
+   * The email address of the user. This parameter is returned only when the account information of the user can be obtained.
    * 
    * @example
    * alice@example.com
@@ -67,7 +67,7 @@ export class ListAuthorizedUsersResponseBodyUsers extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The username. To remove authorization, pass this value to the UnAuthorizeUserIds parameter of the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) or [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation.
+   * The username. To remove authorization, you can pass this value to the UnAuthorizeUserIds parameter of the [AuthorizeInstanceGroup](~~AuthorizeInstanceGroup~~) or [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation.
    * 
    * @example
    * alice
@@ -75,12 +75,12 @@ export class ListAuthorizedUsersResponseBodyUsers extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * Indicates whether the query is not restricted to a specific application. Valid values:
+   * Specifies whether the current query is not restricted to a specific application. Valid values:
    * 
-   * - true: AppId is not specified in the request. All authorized users under the delivery group are returned.
-   * - false: AppId is specified in the request. Only users authorized for that specific application are returned.
+   * - true: AppId is not specified in the request, and all authorized users under the app instance group are returned.
+   * - false: AppId is specified in the request, and only the users specifically authorized for this application are returned.
    * 
-   * > This field is determined by whether the AppId request parameter is specified. It does not reflect the actual scope of applications authorized to the user and cannot be used to determine whether the user is authorized for all applications.
+   * > This field is determined by whether the AppId request parameter is specified, and is independent of the actual scope of applications the user is authorized for. You cannot use this field to determine whether the user is authorized for all applications.
    * 
    * @example
    * true
@@ -88,7 +88,7 @@ export class ListAuthorizedUsersResponseBodyUsers extends $dara.Model {
   isAuthAllApps?: string;
   /**
    * @remarks
-   * The phone number of the user. Returned only when the account information of the user can be retrieved.
+   * The phone number of the user. This parameter is returned only when the account information of the user can be obtained.
    * 
    * @example
    * 138****0000
@@ -163,10 +163,10 @@ export class ListAuthorizedUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that match the query conditions. Use this value to determine whether to continue paging.
+   * The total number of records that meet the query conditions. This parameter is used to determine whether to continue pagination.
    * 
-   * - When the authorization mode is `App` or `AppInstanceGroup`, this is the number of authorization records. If the same user has multiple authorization records, the user is counted multiple times. Therefore, this value may be greater than the actual number of users.
-   * - When the authorization mode is `Session`, this is the deduplicated user count.
+   * - When the authorization mode is `App` or `AppInstanceGroup`, this value is the number of authorization records. If the same user has multiple authorization records, the user is counted multiple times. Therefore, this value may be greater than the actual number of users.
+   * - When the authorization mode is `Session`, this value is the number of deduplicated users.
    * 
    * @example
    * 1
@@ -174,7 +174,7 @@ export class ListAuthorizedUsersResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of authorized users on the current page. Multiple authorization records for the same user are merged into a single entry. An empty list is returned if no authorized users match the conditions.
+   * The list of authorized users on the current page. Multiple authorization records for the same user are merged into one item in the response. If no authorized users meet the conditions, an empty list is returned.
    */
   users?: ListAuthorizedUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {

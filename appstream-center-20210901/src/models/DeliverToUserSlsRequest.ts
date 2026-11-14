@@ -47,7 +47,7 @@ export class DeliverToUserSlsRequest extends $dara.Model {
   deliveryScopes?: DeliverToUserSlsRequestDeliveryScopes[];
   /**
    * @remarks
-   * The name of an existing SLS project. Either this parameter or ProjectName must be specified.
+   * The name of the existing SLS project. You must specify either this parameter or ProjectName.
    * 
    * @example
    * elastic-desktop-xxx
@@ -55,7 +55,7 @@ export class DeliverToUserSlsRequest extends $dara.Model {
   existedProjectName?: string;
   /**
    * @remarks
-   * The LogStore name.
+   * The name of the Logstore.
    * 
    * @example
    * elastic_desktop_xxx
@@ -63,7 +63,7 @@ export class DeliverToUserSlsRequest extends $dara.Model {
   logStoreName?: string;
   /**
    * @remarks
-   * The SLS project name. Either this parameter or ExistedProjectName must be specified.
+   * The name of the SLS project. You must specify either this parameter or ExistedProjectName.
    * 
    * @example
    * elastic-desktop-xxx
@@ -71,7 +71,7 @@ export class DeliverToUserSlsRequest extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The region ID of the SLS instance.
+   * The region ID of SLS.
    * 
    * This parameter is required.
    * 

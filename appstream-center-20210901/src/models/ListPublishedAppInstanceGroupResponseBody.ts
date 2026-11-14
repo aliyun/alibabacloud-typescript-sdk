@@ -112,7 +112,7 @@ export class ListPublishedAppInstanceGroupResponseBodyAppInstanceGroupModels ext
   apps?: ListPublishedAppInstanceGroupResponseBodyAppInstanceGroupModelsApps[];
   /**
    * @remarks
-   * The expiration time of the delivery group. For delivery groups sold as resources, the expiration time of their resources is returned. For other delivery groups, the expiration time of the delivery group itself is returned. The time is in the ISO 8601 date and time format, including milliseconds and time zone offset. The returned time zone offset is +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
+   * The expiration time of the delivery group. For delivery groups sold as resources, the expiration time of their resources is returned. For other delivery groups, the expiration time of the delivery groups themselves is returned. The time is in the ISO 8601 date and time format, including milliseconds and time zone offset. The returned time zone offset is +00:00. Format: yyyy-MM-ddTHH:mm:ss.SSS+HH:mm.
    * 
    * @example
    * 2022-04-27T16:00:00.000+00:00
@@ -146,7 +146,7 @@ export class ListPublishedAppInstanceGroupResponseBodyAppInstanceGroupModels ext
   status?: string;
   /**
    * @remarks
-   * Specifies whether mixed authorization for users and user groups is supported.
+   * Indicates whether mixed authorization of users and user groups is supported.
    */
   supportUserGroupMixedAuth?: boolean;
   /**
@@ -217,7 +217,7 @@ export class ListPublishedAppInstanceGroupResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of delivery groups per page specified in the request. Unit: delivery groups. This value does not represent the actual number of entries returned on the current page. The actual number on the current page may be less than this value.
+   * The number of delivery groups per page specified in the request. Unit: delivery groups. This value does not indicate the actual number of entries returned on the current page. The actual number on the current page may be less than this value.
    * 
    * @example
    * 10

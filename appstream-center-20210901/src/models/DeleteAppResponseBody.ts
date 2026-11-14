@@ -18,7 +18,7 @@ export class DeleteAppResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The error or result message. This field describes the cause when a request fails. A successful response may not contain this field.
+   * The error message or result prompt. This field describes the cause when a request fails. A successful response may not contain this field.
    * 
    * @example
    * Internal error.

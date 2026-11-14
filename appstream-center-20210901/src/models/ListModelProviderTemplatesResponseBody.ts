@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelProviderTemplatesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The model provider configuration JSON object.
+   * The JSON object for the model provider configuration.
    * 
    * @example
    * {
@@ -20,12 +20,12 @@ export class ListModelProviderTemplatesResponseBodyData extends $dara.Model {
    * The model provider template description.
    * 
    * @example
-   * Alibaba Cloud Bailian provider
+   * Alibaba Cloud Model Studio provider
    */
   description?: string;
   /**
    * @remarks
-   * Indicates whether the WUYING secure gateway proxy is enabled.
+   * Specifies whether the Wuying security gateway proxy is enabled.
    * 
    * @example
    * true
@@ -36,7 +36,7 @@ export class ListModelProviderTemplatesResponseBodyData extends $dara.Model {
    * The model provider template name.
    * 
    * @example
-   * Alibaba Cloud Bailian
+   * Alibaba Cloud Model Studio
    */
   name?: string;
   /**
@@ -65,7 +65,7 @@ export class ListModelProviderTemplatesResponseBodyData extends $dara.Model {
   providerType?: string;
   /**
    * @remarks
-   * The ProviderKey of the WUYING secure gateway proxy.
+   * The ProviderKey of the Wuying security gateway proxy.
    * 
    * @example
    * wuying-key-12345
@@ -114,7 +114,7 @@ export class ListModelProviderTemplatesResponseBody extends $dara.Model {
   data?: ListModelProviderTemplatesResponseBodyData[];
   /**
    * @remarks
-   * The page number of the current query result.
+   * The page number of the current returned page.
    * 
    * @example
    * 1
@@ -122,7 +122,7 @@ export class ListModelProviderTemplatesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in the query result.
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -138,7 +138,7 @@ export class ListModelProviderTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of query results.
+   * The total number of returned entries.
    * 
    * @example
    * 30

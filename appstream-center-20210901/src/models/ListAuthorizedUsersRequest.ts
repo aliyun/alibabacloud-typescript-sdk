@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizedUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID. Specifies the application to filter users who are **authorized for that specific application** (authorized through the [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation). This parameter applies to delivery groups with the `App` authorization mode. Obtain the application ID from the Apps list returned by the [GetAppInstanceGroup](~~GetAppInstanceGroup~~) operation.
+   * The application ID. This parameter is used to filter users who are **specifically authorized for this application** (authorized through the [AuthorizeUsersForApp](~~AuthorizeUsersForApp~~) operation). This parameter applies to app instance groups whose authorization mode is `App`. You can obtain the application ID from the Apps list returned by the [GetAppInstanceGroup](~~GetAppInstanceGroup~~) operation.
    * 
-   * If not specified, all authorized users under the delivery group are returned. This parameter is not supported when querying by delivery group set.
+   * If this parameter is not specified, all authorized users under the app instance group are returned. This parameter is not supported when querying by app instance group set.
    * 
    * @example
    * ca-i87mycyn419nu****
@@ -15,9 +15,9 @@ export class ListAuthorizedUsersRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The delivery group ID. Call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain this value. For cloud browser groups, specify the browser group ID returned by the [ListBrowserInstanceGroup](~~ListBrowserInstanceGroup~~) operation.
+   * The app instance group ID. You can call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the ID. For cloud browser groups, specify the browser group ID returned by the [ListBrowserInstanceGroup](~~ListBrowserInstanceGroup~~) operation.
    * 
-   * **Exactly one of this parameter and AppInstanceGroupSetId must be specified.**
+   * **You must specify either this parameter or AppInstanceGroupSetId, but not both.**
    * 
    * @example
    * aig-9ciijz60n4xsv****
@@ -25,9 +25,9 @@ export class ListAuthorizedUsersRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The delivery group set ID.
+   * The app instance group set ID.
    * 
-   * **Exactly one of this parameter and AppInstanceGroupId must be specified.** When querying by set, do not specify AppId or AppInstancePersistentId. Otherwise, a parameter error is returned.
+   * **You must specify either this parameter or AppInstanceGroupId, but not both.** When querying by set, do not specify AppId or AppInstancePersistentId. Otherwise, a parameter error is returned.
    * 
    * @example
    * set-3jm9d0abc00example
@@ -35,9 +35,9 @@ export class ListAuthorizedUsersRequest extends $dara.Model {
   appInstanceGroupSetId?: string;
   /**
    * @remarks
-   * The persistent session ID. Specifies the persistent session to filter users who are granted that session. This parameter applies to delivery groups with the `Session` authorization mode. Call the [ListPersistentAppInstances](~~ListPersistentAppInstances~~) operation to obtain this value.
+   * The persistent session ID. This parameter is used to filter users who are granted this persistent session. This parameter applies to app instance groups whose authorization mode is `Session`. You can call the [ListPersistentAppInstances](~~ListPersistentAppInstances~~) operation to obtain the ID.
    * 
-   * If specified, only users granted that session are returned. However, the response parameter AppInstancePersistentIds still lists all persistent sessions granted to each user. This parameter is not supported when querying by delivery group set.
+   * If this parameter is specified, only the users granted this session are returned. However, the AppInstancePersistentIds response parameter still lists all persistent sessions granted to the user. This parameter is not supported when querying by app instance group set.
    * 
    * @example
    * p-0cc7s3mw2fg4j****
@@ -45,7 +45,7 @@ export class ListAuthorizedUsersRequest extends $dara.Model {
   appInstancePersistentId?: string;
   /**
    * @remarks
-   * The username for **exact matching**. If not specified, no filtering by exact username is applied. Can be specified together with UserIdFuzzy, in which case both conditions must be met.
+   * The username. Performs **exact match** by username. If this parameter is not specified, filtering by full username is not applied. This parameter can be specified together with UserIdFuzzy, and both conditions must be met.
    * 
    * @example
    * alice
@@ -53,7 +53,7 @@ export class ListAuthorizedUsersRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The page number, starting from 1.
+   * The page number. Pages start from 1.
    * 
    * This parameter is required.
    * 
@@ -63,9 +63,9 @@ export class ListAuthorizedUsersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page. Valid values: 1 to 100.
+   * The number of records returned per page. Valid values: 1 to 100.
    * 
-   * When the authorization mode is `App` or `AppInstanceGroup`, pagination is based on authorization records. Multiple authorization records for the same user are merged into a single user entry. Therefore, the actual number of users returned on the current page may be less than this value.
+   * When the authorization mode is `App` or `AppInstanceGroup`, pagination is based on authorization records. Multiple authorization records for the same user are merged into one user in the response. Therefore, the actual number of users returned on the current page may be less than this value.
    * 
    * This parameter is required.
    * 
@@ -75,18 +75,18 @@ export class ListAuthorizedUsersRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The product type. The value must match the product type of the queried delivery group or delivery group set. If the value does not match, a resource-not-found error code is returned.
+   * The product type. The value must be consistent with the product type of the queried app instance group or app instance group set. If they are inconsistent, a resource not found error code is returned.
    * 
    * Valid values:
    * 
-   * - CloudApp: Wuying Cloud Application.
-   * - CloudBrowser: Cloud Browser.
-   * - WuyingServer: Enterprise Edition Workstation.
-   * - WuyingWorkstation: Personal Edition Linggou Container Workstation.
-   * - WuyingWorkstationTeam: Linggou Team Edition Container Workstation.
-   * - WuyingWorkstationBusiness: Linggou Dedicated Edition Container Workstation.
-   * - AndroidCloud: Cloud Phone.
-   * - AIAgent: AgentBay (AI agent).
+   * - CloudApp: Wuying Cloud App
+   * - CloudBrowser: Cloud Browser
+   * - WuyingServer: Enterprise Edition workstation
+   * - WuyingWorkstation: Personal Edition Linggou container workstation
+   * - WuyingWorkstationTeam: Team Edition Linggou container workstation
+   * - WuyingWorkstationBusiness: Dedicated Edition Linggou container workstation
+   * - AndroidCloud: Cloud Phone
+   * - AIAgent: AgentBay (AI agent)
    * 
    * This parameter is required.
    * 
@@ -96,7 +96,7 @@ export class ListAuthorizedUsersRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The username keyword for **fuzzy matching**. A match occurs if the username contains this keyword. For example, if you specify `ali`, both `alice` and `ali.wang` are returned. If not specified, no keyword-based filtering is applied.
+   * The username keyword. Performs **fuzzy match** by username. A hit occurs if the username contains this keyword. For example, if you specify `ali`, both `alice` and `ali.wang` are matched. If this parameter is not specified, filtering by keyword is not applied.
    * 
    * @example
    * ali

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelProviderEndpointsRequest extends $dara.Model {
   /**
    * @remarks
-   * The agent platform name. This parameter is not processed and is only passed through as a redundant field, such as ENTERPRISE.
+   * The name of the agent platform. This parameter is not processed and is only passed through for redundancy, such as ENTERPRISE.
    * 
    * @example
    * ENTERPRISE_AGENTIC_COMPUTER
@@ -13,7 +13,7 @@ export class ListModelProviderEndpointsRequest extends $dara.Model {
   agentPlatform?: string;
   /**
    * @remarks
-   * The agent provider name, such as HermesAgent or OpenClaw. If this parameter is specified, the providerName in the returned endpoints is the alias from the perspective of the specified agent provider.
+   * The name of the agent provider, such as HermesAgent or OpenClaw. If this parameter is specified, the providerName of the returned endpoint is the alias from the perspective of the specified agent provider.
    * 
    * @example
    * AgenticComputer
@@ -29,7 +29,7 @@ export class ListModelProviderEndpointsRequest extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * The name of the model provider, such as bailian, moonshot, or siliconflow. If this parameter is not specified, the endpoint configurations of all managed providers are returned.
+   * The name of the model provider, such as bailian, moonshot, or siliconflow. If you do not specify this parameter, the endpoint configurations of all managed providers are returned.
    * 
    * @example
    * bailian

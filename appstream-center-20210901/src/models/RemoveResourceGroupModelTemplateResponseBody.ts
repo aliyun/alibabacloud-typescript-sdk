@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RemoveResourceGroupModelTemplateResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The error code returned when the operation fails.
+   * The error code returned when the execution fails.
    * 
    * @example
    * InvalidParameter.resourceGroupIds
@@ -13,7 +13,7 @@ export class RemoveResourceGroupModelTemplateResponseBodyData extends $dara.Mode
   code?: string;
   /**
    * @remarks
-   * The error message returned when the operation fails.
+   * The error message returned when the execution fails.
    * 
    * @example
    * The parameter resourceGroupIds is invalid.
@@ -78,7 +78,7 @@ export class RemoveResourceGroupModelTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total count.
    * 
    * @example
    * 6

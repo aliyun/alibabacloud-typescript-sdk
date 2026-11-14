@@ -53,7 +53,7 @@ export class ListBrowserInstanceGroupRequest extends $dara.Model {
   appInstanceGroupSetId?: string;
   /**
    * @remarks
-   * Filters cloud browser groups by business region.
+   * Filters browser groups by business region.
    * 
    * @example
    * cn-hangzhou
@@ -77,7 +77,7 @@ export class ListBrowserInstanceGroupRequest extends $dara.Model {
   browserInstanceGroupName?: string;
   /**
    * @remarks
-   * Filters cloud browser groups by name or ID based on partial match.
+   * Filters by browser group name or ID by using partial match.
    * 
    * @example
    * Office
@@ -85,7 +85,7 @@ export class ListBrowserInstanceGroupRequest extends $dara.Model {
   cloudBrowserName?: string;
   /**
    * @remarks
-   * Excludes cloud browser groups that are authorized to the specified user groups.
+   * Excludes browser groups that are authorized to the specified user groups.
    * 
    * **if can be null:**
    * true
@@ -93,7 +93,7 @@ export class ListBrowserInstanceGroupRequest extends $dara.Model {
   excludedUserGroupIds?: string[];
   /**
    * @remarks
-   * Filters cloud browser groups by the ID of the office network to which they belong.
+   * Filters browser groups by the ID of the office network to which they belong.
    * 
    * @example
    * cn-hangzhou+dir-843734****
@@ -117,19 +117,19 @@ export class ListBrowserInstanceGroupRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters cloud browser groups by status.
+   * Filters by browser group status.
    * 
    * **Limit:** You can specify only one status at a time.
    */
   status?: string[];
   /**
    * @remarks
-   * The tag filtering parameter. This parameter is not supported in customer-facing scenarios. Do not specify this parameter.
+   * The tag filter parameter. This parameter is not supported in customer-facing scenarios. Do not specify this parameter.
    */
   tag?: ListBrowserInstanceGroupRequestTag[];
   /**
    * @remarks
-   * Filters cloud browser groups by browser version. Valid values:
+   * Filters by the version of the browser. Valid values:
    * 
    * - `Basic`: Basic Edition.
    * - `Pro`: Premium Edition.
@@ -142,7 +142,7 @@ export class ListBrowserInstanceGroupRequest extends $dara.Model {
   tier?: string;
   /**
    * @remarks
-   * Filters cloud browser groups by the IDs of authorized user groups.
+   * Filters by the IDs of authorized user groups.
    * 
    * **if can be null:**
    * true

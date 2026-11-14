@@ -15,9 +15,9 @@ export class ConfigRuntimeChannelRequest extends $dara.Model {
    * @remarks
    * The agent provider.
    * 
-   * - JVS Computer: Set to OpenClaw.
-   * - OpenClaw: Set to OpenClaw.
-   * - Hermes Agent: Set to HermesAgent.
+   * - JVS Computer: Enter OpenClaw.
+   * - OpenClaw: Enter OpenClaw.
+   * - Hermes Agent: Enter HermesAgent.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class ConfigRuntimeChannelRequest extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The JSON string for channel configuration.
+   * The channel configuration JSON string.
    * 
    * - Example of the simple configuration mode:
    * ```json

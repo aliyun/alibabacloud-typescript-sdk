@@ -26,7 +26,7 @@ export class ListRegionIdResponseBody extends $dara.Model {
   data?: string[];
   /**
    * @remarks
-   * The error or result message. This parameter describes the cause when a request fails. A successful response may not contain this field.
+   * The error or result message. This parameter is used to describe the cause when the request fails. A successful response may not contain this field.
    * 
    * @example
    * Internal error.
@@ -34,7 +34,7 @@ export class ListRegionIdResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier of the request. You can provide this value for troubleshooting.
+   * The unique identifier of the request. You can provide this value when you troubleshoot issues.
    * 
    * @example
    * 01A1A962-5503-107B-AC8F-EBA85DF905AC
@@ -42,7 +42,7 @@ export class ListRegionIdResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. To check whether an asynchronous task is completed, you must query the task status separately.
+   * Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. To determine whether an asynchronous task is completed, you must query the task status separately.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -33,7 +33,7 @@ export class CreateModelProviderTemplateRequest extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * The JSON configuration of the model provider, which includes connection information such as baseUrl, apiKey, and api. The apiKey is encrypted and stored after creation. When ProviderType is WuyingCredit, this parameter is not required and will be copied from the system template.
+   * The JSON configuration of the model provider, which includes connection information such as baseUrl, apiKey, and api. The apiKey is encrypted and stored after creation. When ProviderType is WuyingCredit, this parameter is not required and is copied from the system template.
    * 
    * This parameter is required.
    * 
@@ -50,12 +50,12 @@ export class CreateModelProviderTemplateRequest extends $dara.Model {
    * The description of the model provider template.
    * 
    * @example
-   * Alibaba Cloud Bailian provider
+   * Alibaba Cloud Model Studio provider
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable the Wuying secure proxy. This parameter must be set to true when ProviderType is WuyingCredit.
+   * Specifies whether to enable the Wuying security proxy. This parameter must be set to true when ProviderType is WuyingCredit.
    * 
    * @example
    * true
@@ -76,12 +76,12 @@ export class CreateModelProviderTemplateRequest extends $dara.Model {
    * The name of the model provider template.
    * 
    * @example
-   * Alibaba Cloud Bailian
+   * Alibaba Cloud Model Studio
    */
   name?: string;
   /**
    * @remarks
-   * The name of the model provider. The name must be unique within the same model template. The naming conventions vary based on the ProviderType. For more information, see the description of ProviderType.
+   * The name of the model provider. The name must be unique within the same model template. The naming rules vary based on the ProviderType. For more information, see the description of ProviderType.
    * 
    * This parameter is required.
    * 

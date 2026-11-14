@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAuthorizedAppsByUserResponseBodyApps extends $dara.Model {
   /**
    * @remarks
-   * The URL of the application icon. This value is empty if the deployment details of the application cannot be obtained.
+   * The access URL of the application icon. This parameter is empty when the deployment details of the application cannot be obtained.
    * 
    * @example
    * https://app-center-icon-****.png
@@ -21,7 +21,7 @@ export class ListAuthorizedAppsByUserResponseBodyApps extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The ID of the delivery group to which the application belongs.
+   * The ID of the app instance group to which the application belongs.
    * 
    * @example
    * aig-9ciijz60n4xsv****
@@ -29,23 +29,23 @@ export class ListAuthorizedAppsByUserResponseBodyApps extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The name of the delivery group to which the application belongs. If the delivery group information cannot be obtained, the value is the same as AppInstanceGroupId.
+   * The name of the app instance group to which the application belongs. If the app instance group information cannot be obtained, the returned value is the same as the AppInstanceGroupId.
    * 
    * @example
-   * OfficeApp
+   * Office applications
    */
   appInstanceGroupName?: string;
   /**
    * @remarks
-   * The application name. If the deployment details of the application cannot be obtained, the value is the same as AppId.
+   * The application name. If the deployment details of the application cannot be obtained, the returned value is the same as the AppId.
    * 
    * @example
-   * OfficeApp
+   * Office applications
    */
   appName?: string;
   /**
    * @remarks
-   * The application version. This value is empty if the deployment details of the application cannot be obtained.
+   * The application version. This parameter is empty when the deployment details of the application cannot be obtained.
    * 
    * @example
    * 1.0.0
@@ -53,15 +53,15 @@ export class ListAuthorizedAppsByUserResponseBodyApps extends $dara.Model {
   appVersion?: string;
   /**
    * @remarks
-   * The application version name. This value is empty if the deployment details of the application cannot be obtained.
+   * The application version name. This parameter is empty when the deployment details of the application cannot be obtained.
    * 
    * @example
-   * InitialVersion
+   * Initial version
    */
   appVersionName?: string;
   /**
    * @remarks
-   * The number of authorized users for the application within its delivery group. This value is empty if the deployment details of the application cannot be obtained.
+   * The number of users authorized to access the application in the app instance group to which the application belongs. This parameter is empty when the deployment details of the application cannot be obtained.
    * 
    * @example
    * 3
@@ -105,7 +105,7 @@ export class ListAuthorizedAppsByUserResponseBodyApps extends $dara.Model {
 export class ListAuthorizedAppsByUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of applications authorized to the user. Each record corresponds to one application within one delivery group.
+   * The list of applications authorized for the user. Each record corresponds to an application within an app instance group.
    */
   apps?: ListAuthorizedAppsByUserResponseBodyApps[];
   /**
@@ -118,7 +118,7 @@ export class ListAuthorizedAppsByUserResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 10
@@ -134,7 +134,7 @@ export class ListAuthorizedAppsByUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of authorization records that match the query conditions.
+   * The total number of authorization records that meet the query conditions.
    * 
    * @example
    * 15

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateImageTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. Returned when the request fails. A successful response may not contain this field.
+   * The error code. This field is returned when the request fails. A successful response may not contain this field.
    * 
    * @example
    * InternalError
@@ -18,7 +18,7 @@ export class UpdateImageTaskResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The error or result message. Used to describe the cause when the request fails. A successful response may not contain this field.
+   * The error or result message. This field describes the cause when the request fails. A successful response may not contain this field.
    * 
    * @example
    * Internal error.
@@ -34,7 +34,7 @@ export class UpdateImageTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. A value of true indicates that the request is successful. To check whether an asynchronous task is completed, you must query the task status separately.
+   * Indicates whether the request is successful. A value of true indicates that the request is successful. To check whether an asynchronous task is completed, query the task status separately.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListNodesResponseBodyNodeModels extends $dara.Model {
   /**
    * @remarks
-   * The billing type of the resource node.
+   * The billing method of the resource node.
    * 
-   * > This parameter is returned only when the billing mode of the delivery group is resource-based billing (ChargeResourceMode=Node).
+   * > This parameter is returned only when the billing mode of the associated app instance group is set to resource-based billing (ChargeResourceMode=Node).
    * 
    * @example
    * PostPaid
@@ -15,8 +15,8 @@ export class ListNodesResponseBodyNodeModels extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The resource node ID.
-   * > This parameter is returned only when the billing mode of the delivery group is resource-based billing (ChargeResourceMode=Node).
+   * The ID of the resource node.
+   * > This parameter is returned only when the billing mode of the associated app instance group is set to resource-based billing (ChargeResourceMode=Node).
    * 
    * @example
    * i-bp13********
@@ -48,7 +48,7 @@ export class ListNodesResponseBodyNodeModels extends $dara.Model {
 export class ListNodesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of data entries that can be returned.
+   * The total number of entries.
    * 
    * @example
    * 100
@@ -61,7 +61,7 @@ export class ListNodesResponseBody extends $dara.Model {
   nodeModels?: ListNodesResponseBodyNodeModels[];
   /**
    * @remarks
-   * The page size of the current page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -77,7 +77,7 @@ export class ListNodesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The page number of the currently returned data.
+   * The current page number.
    * 
    * @example
    * 1

@@ -13,7 +13,7 @@ export class GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelListAdapto
   adaptorId?: string;
   /**
    * @remarks
-   * The adapter message.
+   * The adaptor message.
    * 
    * @example
    * success
@@ -109,7 +109,7 @@ export class GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelListAdapto
   bizType?: number;
   /**
    * @remarks
-   * The name of the OSS bucket where the application files are stored.
+   * The name of the OSS bucket where the application files are located.
    * 
    * @example
    * xiaowutest-j
@@ -117,7 +117,7 @@ export class GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelListAdapto
   bucketName?: string;
   /**
    * @remarks
-   * The level-2 application category, such as design software, office, or browser. This parameter is not available to the public.
+   * The level-2 application category, such as design software, office, and browsers. This parameter is not available to the public.
    * 
    * @example
    * 123
@@ -125,7 +125,7 @@ export class GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelListAdapto
   categoryId?: number;
   /**
    * @remarks
-   * The level-1 application category, such as cloud application or cloud game. This parameter is not available to the public.
+   * The level-1 application category, such as cloud applications and cloud games. This parameter is not available to the public.
    * 
    * @example
    * 1
@@ -133,7 +133,7 @@ export class GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelListAdapto
   categoryType?: number;
   /**
    * @remarks
-   * The control parameter. This parameter can be configured by tenants and internal administrators and is not available to the public.
+   * The control parameters that can be configured by tenants and administrators. This parameter is not available to the public.
    * 
    * @example
    * {}
@@ -173,7 +173,7 @@ export class GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelListAdapto
   fileSize?: number;
   /**
    * @remarks
-   * The optimization parameter configured in the backend by internal administrators.
+   * The optimization parameters configured in the backend by administrators.
    * 
    * @example
    * {}
@@ -221,7 +221,7 @@ export class GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelListAdapto
   runtimeEnv?: string;
   /**
    * @remarks
-   * Specifies whether silent installation is enabled. This parameter can be configured by tenants and internal administrators and is not available to the public.
+   * Specifies whether silent installation is enabled. This parameter can be configured by tenants and administrators, but is not available to the public.
    * 
    * @example
    * {}
@@ -229,7 +229,7 @@ export class GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelListAdapto
   silenceFlag?: string;
   /**
    * @remarks
-   * The silent installation parameter. This parameter is not available to the public.
+   * The silent installation parameters. This parameter is not available to the public.
    * 
    * @example
    * {}
@@ -237,7 +237,7 @@ export class GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelListAdapto
   silenceParam?: string;
   /**
    * @remarks
-   * The application adaptation status. For example, ADAPT_DONE indicates that the adaptation is complete.
+   * The application adaptation status. For example, ADAPT_DONE indicates that the adaptation is completed.
    * 
    * @example
    * ADAPT_DONE
@@ -552,12 +552,7 @@ export class GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelList exten
   baseImageVersion?: string;
   /**
    * @remarks
-   * The business line to which the image belongs. Valid values:
-   * - 1: Basic business.
-   * - 2: Personal Edition.
-   * - 3: Cloud Office.
-   * - 4: Cloud Streaming.
-   * - 10: Standard Edition.
+   * The business line to which the image belongs. 1: basic business. 2: Personal Edition. 3: Cloud Office. 4: Cloud Streaming. 10: Standard Edition.
    * 
    * @example
    * 1
@@ -602,7 +597,7 @@ export class GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelList exten
   gmtCreate?: string;
   /**
    * @remarks
-   * The last update time. The time follows the RFC 3339 format. The Z in the example indicates the UTC time zone.
+   * The last update time. The time is in RFC 3339 format. The Z in the example indicates the UTC time zone.
    * 
    * @example
    * 2026-07-16T07:39:43Z
@@ -618,7 +613,7 @@ export class GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelList exten
   imageCreateMode?: string;
   /**
    * @remarks
-   * The image extension information, including disk specifications and GPU driver information. VHD or Container images use the extension information of their base image and base version.
+   * The image extended information, including disk specifications and GPU driver information. VHD or Container images use the extended information of their base image and base version.
    * 
    * @example
    * {}
@@ -656,10 +651,10 @@ export class GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelList exten
   /**
    * @remarks
    * The image type. Valid values:
-   * - System: System image.
-   * - User: Custom image.
-   * - Shared: Shared image.
-   * - Community: Community image.
+   * - System: system images.
+   * - User: custom images.
+   * - Shared: shared images.
+   * - Community: community images.
    * 
    * @example
    * System
@@ -683,7 +678,7 @@ export class GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelList exten
   latestVersionId?: string;
   /**
    * @remarks
-   * Indicates whether the returned version is the active version. Valid values: true: Yes. false: No.
+   * Indicates whether the returned version is the online version. Valid values: true: Yes. false: No.
    * 
    * @example
    * true
@@ -699,11 +694,7 @@ export class GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelList exten
   onlineVersionId?: string;
   /**
    * @remarks
-   * The operating system type of the image. Valid values:
-   * - Windows: Windows operating system.
-   * - Linux: Linux operating system.
-   * - Android: Android operating system.
-   * - Unknown: Unknown operating system.
+   * The operating system type of the image. Windows: Windows system. Linux: Linux system. Android: Android system. Unknown: unknown system.
    * 
    * @example
    * Windows
@@ -711,12 +702,7 @@ export class GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelList exten
   osType?: string;
   /**
    * @remarks
-   * The image packaging type. Valid values:
-   * - Ecs: ECS image.
-   * - Vhd: Virtual disk image.
-   * - Container: Container image.
-   * - Ecs_Container: Combined ECS and container image.
-   * - K8s_Node: Kubernetes node image.
+   * The image packaging type. Ecs: ECS image. Vhd: virtual disk image. Container: container image. Ecs_Container: combined ECS and container image. K8s_Node: Kubernetes node image.
    * 
    * @example
    * ECS
@@ -748,7 +734,7 @@ export class GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelList exten
   platform?: number;
   /**
    * @remarks
-   * The name of the operating system platform, which corresponds to Platform.
+   * The operating system platform name, which corresponds to Platform.
    * 
    * @example
    * Windows Server 2022
@@ -756,7 +742,7 @@ export class GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelList exten
   platformName?: string;
   /**
    * @remarks
-   * The product type to which the image belongs, such as CloudDesktop (Cloud Desktop), CloudApp (Cloud App), or WuyingServer (WUYING Workspace Enterprise Edition workstation).
+   * The product type to which the image belongs, such as CloudDesktop (Cloud Desktop), CloudApp (Cloud App), and WuyingServer (WUYING Workspace Enterprise Edition workstation).
    * 
    * @example
    * CloudApp
@@ -772,9 +758,7 @@ export class GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelList exten
   propertyMap?: { [key: string]: string };
   /**
    * @remarks
-   * The connection protocol used by the image. Valid values:
-   * - ASP: Alibaba Cloud Streaming Protocol.
-   * - HDX: HDX protocol.
+   * The connection protocol used by the image. ASP: Alibaba Cloud Streaming Protocol. HDX: HDX protocol.
    * 
    * @example
    * ASP
@@ -790,12 +774,7 @@ export class GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelList exten
   regionId?: string;
   /**
    * @remarks
-   * The image status. Valid values:
-   * - INIT: Initializing.
-   * - CREATING: Creating.
-   * - AVAILABLE: Available.
-   * - CREATE_FAILED: Creation failed.
-   * - DELETE: Deleted.
+   * The image status. INIT: initializing. CREATING: creating. AVAILABLE: available. CREATE_FAILED: creation failed. DELETE: deleted.
    * 
    * @example
    * INIT
@@ -967,12 +946,7 @@ export class GetEffectiveImageByIdResponseBodyData extends $dara.Model {
   aliUid?: number;
   /**
    * @remarks
-   * The business line to which the image belongs. Valid values:
-   * - 1: Basic business.
-   * - 2: Personal Edition.
-   * - 3: Cloud Office.
-   * - 4: Cloud Streaming.
-   * - 10: Standard Edition.
+   * The business line to which the image belongs. 1: basic business. 2: Personal Edition. 3: Cloud Office. 4: Cloud Streaming. 10: Standard Edition.
    * 
    * @example
    * 1
@@ -1012,7 +986,7 @@ export class GetEffectiveImageByIdResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The last update time. The time follows the RFC 3339 format. The Z in the example indicates the UTC time zone.
+   * The last update time. The time is in RFC 3339 format. The Z in the example indicates the UTC time zone.
    * 
    * @example
    * 2025-12-11T02:19:27Z
@@ -1036,7 +1010,7 @@ export class GetEffectiveImageByIdResponseBodyData extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The details of the image version that actually takes effect in each region. For the same region, the configured newer version takes precedence.
+   * The details of the image versions that actually take effect in each region. For the same region, the configured newer version takes precedence.
    */
   imageInfoRegionModelList?: GetEffectiveImageByIdResponseBodyDataImageInfoRegionModelList[];
   /**
@@ -1055,10 +1029,10 @@ export class GetEffectiveImageByIdResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The image type. Valid values:
-   * - System: System image.
-   * - User: Custom image.
-   * - Shared: Shared image.
-   * - Community: Community image.
+   * - System: system images.
+   * - User: custom images.
+   * - Shared: shared images.
+   * - Community: community images.
    * 
    * @example
    * User
@@ -1111,11 +1085,7 @@ export class GetEffectiveImageByIdResponseBodyData extends $dara.Model {
   onlineVersionVolumeEncryptionKey?: string;
   /**
    * @remarks
-   * The operating system type of the image. Valid values:
-   * - Windows: Windows operating system.
-   * - Linux: Linux operating system.
-   * - Android: Android operating system.
-   * - Unknown: Unknown operating system.
+   * The operating system type of the image. Windows: Windows system. Linux: Linux system. Android: Android system. Unknown: unknown system.
    * 
    * @example
    * Windows
@@ -1123,12 +1093,7 @@ export class GetEffectiveImageByIdResponseBodyData extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The image packaging type. Valid values:
-   * - Ecs: ECS image.
-   * - Vhd: Virtual disk image.
-   * - Container: Container image.
-   * - Ecs_Container: Combined ECS and container image.
-   * - K8s_Node: Kubernetes node image.
+   * The image packaging type. Ecs: ECS image. Vhd: virtual disk image. Container: container image. Ecs_Container: combined ECS and container image. K8s_Node: Kubernetes node image.
    * 
    * @example
    * ECS
@@ -1144,7 +1109,7 @@ export class GetEffectiveImageByIdResponseBodyData extends $dara.Model {
   parentImageId?: string;
   /**
    * @remarks
-   * The product type to which the image belongs, such as CloudDesktop (Cloud Desktop), CloudApp (Cloud App), or WuyingServer (WUYING Workspace Enterprise Edition workstation).
+   * The product type to which the image belongs, such as CloudDesktop (Cloud Desktop), CloudApp (Cloud App), and WuyingServer (WUYING Workspace Enterprise Edition workstation).
    * 
    * @example
    * WuyingServer
@@ -1152,9 +1117,7 @@ export class GetEffectiveImageByIdResponseBodyData extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The connection protocol used by the image. Valid values:
-   * - ASP: Alibaba Cloud Streaming Protocol.
-   * - HDX: HDX protocol.
+   * The connection protocol used by the image. ASP: Alibaba Cloud Streaming Protocol. HDX: HDX protocol.
    * 
    * @example
    * ASP
@@ -1162,7 +1125,7 @@ export class GetEffectiveImageByIdResponseBodyData extends $dara.Model {
   protocolType?: string;
   /**
    * @remarks
-   * The rating score of the image, out of 100.
+   * The rating score of the image, with a maximum score of 100.
    * 
    * @example
    * 95
@@ -1170,12 +1133,7 @@ export class GetEffectiveImageByIdResponseBodyData extends $dara.Model {
   rating?: number;
   /**
    * @remarks
-   * The image status. Valid values:
-   * - INIT: Initializing.
-   * - CREATING: Creating.
-   * - AVAILABLE: Available.
-   * - CREATE_FAILED: Creation failed.
-   * - DELETE: Deleted.
+   * The image status. INIT: initializing. CREATING: creating. AVAILABLE: available. CREATE_FAILED: creation failed. DELETE: deleted.
    * 
    * @example
    * INIT
@@ -1281,7 +1239,7 @@ export class GetEffectiveImageByIdResponseBodyData extends $dara.Model {
 export class GetEffectiveImageByIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code returned by the API. A value of 200 indicates success. If the call fails, the corresponding error code is returned.
+   * The status code returned by the API. A value of 200 indicates success. If the call fails, the corresponding error code is returned.
    * 
    * @example
    * 200
@@ -1305,7 +1263,7 @@ export class GetEffectiveImageByIdResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID used to locate and troubleshoot the request.
+   * The request ID, which is used to locate and troubleshoot the request.
    * 
    * @example
    * 50158E8B-992E-1286-B174-**********

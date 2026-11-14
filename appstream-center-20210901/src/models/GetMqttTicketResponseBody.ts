@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMqttTicketResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code returned when the request fails. For example, Client.Forbidden indicates that the client is forbidden from establishing a connection.
+   * The error code returned when the request fails. For example, `Client.Forbidden` indicates that the client is forbidden from establishing a connection.
    * 
    * @example
    * Client.Forbidden
@@ -21,7 +21,7 @@ export class GetMqttTicketResponseBody extends $dara.Model {
   expireTimeStamp?: string;
   /**
    * @remarks
-   * The error message returned when the request fails, which corresponds to the error code.
+   * The error message returned when the request fails. It corresponds to the error code.
    * 
    * @example
    * Client forbidden connect
@@ -45,7 +45,7 @@ export class GetMqttTicketResponseBody extends $dara.Model {
   mqttGroupId?: string;
   /**
    * @remarks
-   * The MQTT instance ID, used for token authentication.
+   * The ID of the MQTT instance, used for token authentication.
    * 
    * @example
    * post-cn-7mz2****
@@ -53,7 +53,7 @@ export class GetMqttTicketResponseBody extends $dara.Model {
   mqttInstanceId?: string;
   /**
    * @remarks
-   * The password used to establish an MQTT connection. It consists of publish and subscribe tokens in the format of W|PublishToken|R|SubscribeToken. Use the complete password returned in the response. The desensitized examples in the documentation cannot be used for connections.
+   * The password used to establish an MQTT connection. It consists of publish and subscribe tokens in the format of `W|PublishToken|R|SubscribeToken`. Use the complete password returned in the response. The desensitized examples in the documentation cannot be used for connections.
    * 
    * @example
    * W|pubTokenExample****|R|subTokenExample****
@@ -61,7 +61,7 @@ export class GetMqttTicketResponseBody extends $dara.Model {
   mqttPassword?: string;
   /**
    * @remarks
-   * The username used to establish an MQTT connection. The format is Token|AccessKeyId|InstanceId. AccessKeyId and InstanceId are identifiers used by the server to generate credentials. Use the complete username returned in the response.
+   * The username used to establish an MQTT connection. The format is `Token|AccessKeyId|InstanceId`. AccessKeyId and InstanceId are identifiers used by the server to generate credentials. Use the complete username returned in the response.
    * 
    * @example
    * Token|LTAI5tExample****|post-cn-7mz2****
@@ -69,7 +69,7 @@ export class GetMqttTicketResponseBody extends $dara.Model {
   mqttUsername?: string;
   /**
    * @remarks
-   * The VPC access endpoint for MQTT. It is used by clients that meet the VPC network access requirements.
+   * The VPC access endpoint for MQTT. It is used by clients that meet the required VPC network access conditions.
    * 
    * @example
    * mqtt-vpc.example.com
@@ -85,9 +85,7 @@ export class GetMqttTicketResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
-   * - true: The request is successful.
-   * - false: The request fails.
+   * Indicates whether the request is successful. A value of `true` indicates success, and a value of `false` indicates failure.
    * 
    * @example
    * true
@@ -95,7 +93,7 @@ export class GetMqttTicketResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The topic list. Each element in the list contains topic (the topic name), type (the topic type), and permission (the permission). The list returned by this operation includes topics for publishing, tenant subscription, device subscription, and system subscription. The publish permission is W, and the subscribe permission is R.
+   * The topic list. Each element in the list contains `topic` (the topic name), `type` (the topic type), and `permission` (the permission). The list returned by this operation includes topics for publishing, tenant subscription, device subscription, and system subscription. The publish permission is `W`, and the subscribe permission is `R`.
    * 
    * @example
    * [{"topic":"pub/550e8400-e29b-41d4-a716-446655440000","type":"pub","permission":"W"},{"topic":"sub/ten/123456789012****","type":"sub-ten","permission":"R"},{"topic":"sub/uuid/550e8400-e29b-41d4-a716-446655440000","type":"sub-uuid","permission":"R"},{"topic":"sub/sys","type":"sub-sys","permission":"R"}]

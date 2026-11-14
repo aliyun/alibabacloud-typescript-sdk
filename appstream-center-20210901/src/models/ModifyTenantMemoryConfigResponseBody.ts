@@ -1,0 +1,34 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class ModifyTenantMemoryConfigResponseBody extends $dara.Model {
+  /**
+   * @remarks
+   * The unique identifier of the request. You can use this ID to troubleshoot issues.
+   * 
+   * @example
+   * 01A1CEEB-CDFF-18F9-B2BF-9997600D****
+   */
+  requestId?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestId: 'RequestId',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestId: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetImageByIdResponseBodyDataAdaptorInfoBOList extends $dara.Model {
   /**
    * @remarks
-   * The adapter ID.
+   * The adaptor ID.
    * 
    * @example
    * adt-13ff3****
@@ -125,7 +125,7 @@ export class GetImageByIdResponseBodyDataAdaptorInfoBOList extends $dara.Model {
   appVersionNumber?: string;
   /**
    * @remarks
-   * The ID of the business line to which the application belongs.
+   * The number of the business line to which the application belongs.
    * 
    * @example
    * 1
@@ -133,7 +133,7 @@ export class GetImageByIdResponseBodyDataAdaptorInfoBOList extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * The name of the OSS bucket where the application files are stored.
+   * The name of the OSS bucket where the application file is stored.
    * 
    * @example
    * appstream-example
@@ -165,7 +165,7 @@ export class GetImageByIdResponseBodyDataAdaptorInfoBOList extends $dara.Model {
   controlParam?: string;
   /**
    * @remarks
-   * The ID of the disk where the application files are stored.
+   * The ID of the disk where the application file is stored.
    * 
    * @example
    * d-bp1example****
@@ -181,7 +181,7 @@ export class GetImageByIdResponseBodyDataAdaptorInfoBOList extends $dara.Model {
   executeFileAddress?: string;
   /**
    * @remarks
-   * The extended information of the adapted application.
+   * The extension information of the adapted application.
    * 
    * @example
    * {}
@@ -229,7 +229,7 @@ export class GetImageByIdResponseBodyDataAdaptorInfoBOList extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The optimization parameters configured in the administrator backend.
+   * The optimization parameters that can be configured by administrators in the backend.
    * 
    * @example
    * {}
@@ -245,7 +245,7 @@ export class GetImageByIdResponseBodyDataAdaptorInfoBOList extends $dara.Model {
   originAppType?: string;
   /**
    * @remarks
-   * The operating system type supported by the application.
+   * The operating system type applicable to the application.
    * 
    * @example
    * Windows
@@ -395,7 +395,7 @@ export class GetImageByIdResponseBodyDataAdaptorInfoBOList extends $dara.Model {
 export class GetImageByIdResponseBodyDataImageExtendInfoModel extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the image belongs. The account ID for a system image is 0.
+   * The ID of the Alibaba Cloud account to which the image belongs. The account ID for system images is 0.
    * 
    * @example
    * 123456789
@@ -452,11 +452,11 @@ export class GetImageByIdResponseBodyDataImageExtendInfoModel extends $dara.Mode
   /**
    * @remarks
    * The image package type. Valid values:
-   * - Ecs: ECS image.
-   * - Vhd: Virtual disk image.
-   * - Container: Container image.
-   * - Ecs_Container: ECS and container combined image.
-   * - K8s_Node: Kubernetes node image.
+   * - Ecs: ECS image
+   * - Vhd: Virtual disk image
+   * - Container: Container image
+   * - Ecs_Container: ECS and container composite image
+   * - K8s_Node: Kubernetes node image
    * 
    * @example
    * ECS
@@ -520,7 +520,7 @@ export class GetImageByIdResponseBodyDataImageExtendInfoModel extends $dara.Mode
 export class GetImageByIdResponseBodyDataImageRegionDistributeList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the image belongs. The account ID for a system image is 0.
+   * The ID of the Alibaba Cloud account to which the image belongs. The account ID for system images is 0.
    * 
    * @example
    * 123456789
@@ -560,7 +560,7 @@ export class GetImageByIdResponseBodyDataImageRegionDistributeList extends $dara
   imageId?: string;
   /**
    * @remarks
-   * The processing information reported by the region distribution task.
+   * The processing message reported by the region distribution task.
    * 
    * @example
    * success
@@ -585,10 +585,10 @@ export class GetImageByIdResponseBodyDataImageRegionDistributeList extends $dara
   /**
    * @remarks
    * The region distribution status. Valid values:
-   * - CREATING: Distributing.
-   * - AVAILABLE: Available.
-   * - CREATE_FAILED: Distribution failed.
-   * - DELETE: Deleted.
+   * - CREATING: Distributing
+   * - AVAILABLE: Available
+   * - CREATE_FAILED: Distribution failed
+   * - DELETE: Deleted
    * 
    * @example
    * AVAILABLE
@@ -659,7 +659,7 @@ export class GetImageByIdResponseBodyData extends $dara.Model {
   adaptorInfoBOList?: GetImageByIdResponseBodyDataAdaptorInfoBOList[];
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account to which the image belongs. The account ID for a system image is 0.
+   * The ID of the Alibaba Cloud account to which the image belongs. The account ID for system images is 0.
    * 
    * @example
    * 123456789
@@ -675,7 +675,7 @@ export class GetImageByIdResponseBodyData extends $dara.Model {
   baseImageId?: string;
   /**
    * @remarks
-   * The ID of the base image version.
+   * The base image version ID.
    * 
    * @example
    * iv-xxx
@@ -696,7 +696,7 @@ export class GetImageByIdResponseBodyData extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * The name of the OSS bucket where the image files are stored.
+   * The name of the OSS bucket where the image file is stored.
    * 
    * @example
    * appstream-example
@@ -749,7 +749,7 @@ export class GetImageByIdResponseBodyData extends $dara.Model {
   imageCreateMode?: string;
   /**
    * @remarks
-   * The image extended information, including disk specifications and GPU driver information. For VHD or container images, the extended information of the base image and base version is used.
+   * The image extended information, which includes cloud disk specifications and GPU driver information. For VHD or container images, the extended information of the base image and base version is used.
    */
   imageExtendInfoModel?: GetImageByIdResponseBodyDataImageExtendInfoModel;
   /**
@@ -800,7 +800,7 @@ export class GetImageByIdResponseBodyData extends $dara.Model {
   imageType?: string;
   /**
    * @remarks
-   * The image language. If the encapsulation type is VHD or Container, this property is inherited from the image with the ECS encapsulation type in the image combination.
+   * The image language. If the packaging type is VHD or Container, this property is inherited from the image with the ECS packaging type in the same image combination.
    * 
    * @example
    * zh-CN
@@ -816,7 +816,7 @@ export class GetImageByIdResponseBodyData extends $dara.Model {
   latestVersionId?: string;
   /**
    * @remarks
-   * Indicates whether the returned version is the active version. Valid values:
+   * Indicates whether the returned version is the online version. Valid values:
    * - true: Yes.
    * - false: No.
    */
@@ -844,11 +844,11 @@ export class GetImageByIdResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The image package type. Valid values:
-   * - Ecs: ECS image.
-   * - Vhd: Virtual disk image.
-   * - Container: Container image.
-   * - Ecs_Container: ECS and container combined image.
-   * - K8s_Node: Kubernetes node image.
+   * - Ecs: ECS image
+   * - Vhd: Virtual disk image
+   * - Container: Container image
+   * - Ecs_Container: ECS and container composite image
+   * - K8s_Node: Kubernetes node image
    * 
    * @example
    * ECS
@@ -864,7 +864,7 @@ export class GetImageByIdResponseBodyData extends $dara.Model {
   parentImageId?: string;
   /**
    * @remarks
-   * The ID of the parent image version.
+   * The parent image version ID.
    * 
    * @example
    * iv-xxx
@@ -888,7 +888,7 @@ export class GetImageByIdResponseBodyData extends $dara.Model {
   platformName?: string;
   /**
    * @remarks
-   * The product type to which the image belongs, such as CloudDesktop (Cloud Desktop), CloudApp (Cloud Application), or WuyingServer (WUYING Workspace Enterprise Edition workstation).
+   * The product type to which the image belongs, such as CloudDesktop (Cloud Desktop), CloudApp (cloud application), and WuyingServer (WUYING Workspace Enterprise Edition workstation).
    * 
    * @example
    * CloudApp
@@ -896,7 +896,7 @@ export class GetImageByIdResponseBodyData extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The extended properties of the image version, in key-value pair format.
+   * The extended properties of the image version in key-value pairs.
    * 
    * @example
    * {}
@@ -915,7 +915,7 @@ export class GetImageByIdResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The image status. Valid values:
-   * - INIT: Initialized.
+   * - INIT: Initial.
    * - CREATING: Creating.
    * - AVAILABLE: Available.
    * - CREATE_FAILED: Creation failed.
@@ -1041,7 +1041,7 @@ export class GetImageByIdResponseBodyData extends $dara.Model {
 export class GetImageByIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates success. If the call fails, the corresponding error code is returned.
+   * The response code. 200 indicates success. If the call fails, the corresponding error code is returned.
    * 
    * @example
    * 200
@@ -1054,7 +1054,7 @@ export class GetImageByIdResponseBody extends $dara.Model {
   data?: GetImageByIdResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * The message returned by the API.
    * 
    * @example
    * success

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryUserAppUsageTimeRankResponseBodyIndexData extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The ID of the application.
    * 
    * @example
    * app-9ciijz60n4xsv****
@@ -13,7 +13,7 @@ export class QueryUserAppUsageTimeRankResponseBodyIndexData extends $dara.Model 
   appId?: string;
   /**
    * @remarks
-   * The application name.
+   * The name of the application.
    * 
    * @example
    * Visual Studio Code
@@ -29,7 +29,7 @@ export class QueryUserAppUsageTimeRankResponseBodyIndexData extends $dara.Model 
   appTimeCnt?: string;
   /**
    * @remarks
-   * The application version. The current version may not return this value, and callers should not rely on this field. A non-empty value indicates the application version.
+   * The version of the application. The current version may not return this value, and callers should not rely on this field. A non-empty value indicates the application version.
    * 
    * @example
    * 1.96.0
@@ -65,7 +65,7 @@ export class QueryUserAppUsageTimeRankResponseBodyIndexData extends $dara.Model 
 export class QueryUserAppUsageTimeRankResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business status code. A value of `200` indicates that the request is processed successfully. Other values indicate that the processing failed.
+   * The business status code. A value of `200` indicates that the request was processed successfully. Other values indicate that the processing failed.
    * 
    * @example
    * 200

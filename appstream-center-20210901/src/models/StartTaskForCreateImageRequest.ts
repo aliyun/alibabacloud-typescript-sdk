@@ -45,7 +45,7 @@ export class StartTaskForCreateImageRequestResourceList extends $dara.Model {
 export class StartTaskForCreateImageRequest extends $dara.Model {
   /**
    * @remarks
-   * The image creation mode. Currently, use the following mode:
+   * The image creation mode. Use the following mode:
    * 
    * - **BUILDER_MANUAL**: Manually enter the creation environment to install applications and configure the image.
    * 
@@ -63,7 +63,7 @@ export class StartTaskForCreateImageRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The WUYING instance ID. The instance can be a cloud desktop instance or a workstation instance. To ensure data consistency in the image, stop the instance before initiating image creation.
+   * The WUYING instance ID. The instance can be a cloud desktop instance or a workstation instance. To ensure data consistency in the image, stop the instance before starting the image creation task.
    * 
    * @example
    * ecd-5u87dainamz54yk10
@@ -87,9 +87,9 @@ export class StartTaskForCreateImageRequest extends $dara.Model {
   performanceType?: string;
   /**
    * @remarks
-   * The product type. Set this parameter to the following fixed value when you call the operation:
+   * The product type. Set this parameter to the following value when you call this operation:
    * 
-   * - CloudApp: WUYING Cloud App.
+   * - `CloudApp`: WUYING Cloud App.
    * 
    * @example
    * CloudApp
@@ -132,7 +132,7 @@ export class StartTaskForCreateImageRequest extends $dara.Model {
   sourceRegion?: string;
   /**
    * @remarks
-   * The sub-instance ID. This parameter is not applicable to cloud desktop scenarios. In workstation scenarios, pass the persistent session ID to ensure that a specific instance is located.
+   * The sub-instance ID. This parameter is not applicable to cloud desktop scenarios. In workstation scenarios, you must specify the persistent session ID to locate a specific instance.
    * 
    * @example
    * p-0cc7s3n1l*****
@@ -148,7 +148,7 @@ export class StartTaskForCreateImageRequest extends $dara.Model {
   systemDiskSize?: number;
   /**
    * @remarks
-   * The image version. This parameter is currently not exposed.
+   * The ID of the image version. This parameter is not exposed.
    * 
    * @example
    * iv-bp1example****

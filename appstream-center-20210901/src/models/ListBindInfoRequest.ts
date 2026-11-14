@@ -26,7 +26,7 @@ export class ListBindInfoRequest extends $dara.Model {
   appInstanceIdList?: string[];
   /**
    * @remarks
-   * The page number of the query results to display. Default value: `1`. Specify this parameter.
+   * The page number of the query results to return. Default value: `1`. Specify this parameter.
    * 
    * @example
    * 1
@@ -34,7 +34,7 @@ export class ListBindInfoRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of query results per page. Maximum value: `100`. Default value: `20`. Specify this parameter.
+   * The number of entries to return on each page. Maximum value: `100`. Default value: `20`. Specify this parameter.
    * 
    * @example
    * 10

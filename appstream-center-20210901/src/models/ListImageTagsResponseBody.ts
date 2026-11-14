@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListImageTagsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The label categorization.
+   * The tag categorization.
    * 
    * @example
    * Solution
@@ -74,7 +74,7 @@ export class ListImageTagsResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The token for the next query.
+   * The token used to start the next query.
    * 
    * @example
    * ptnJAAAAAAAxNzE5OTEwNQ==

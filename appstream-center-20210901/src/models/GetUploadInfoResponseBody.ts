@@ -13,7 +13,7 @@ export class GetUploadInfoResponseBodyData extends $dara.Model {
   accessKeyId?: string;
   /**
    * @remarks
-   * The AccessKey Secret of the STS temporary access credential. It is used together with AccessKeyId and StsToken.
+   * The AccessKey secret of the STS temporary access credential. This parameter is used together with AccessKeyId and StsToken.
    * 
    * @example
    * secret-example****
@@ -37,7 +37,7 @@ export class GetUploadInfoResponseBodyData extends $dara.Model {
   expiration?: string;
   /**
    * @remarks
-   * The OSS directory prefix where files are allowed to be uploaded. The path of the uploaded object must be located under this directory.
+   * The OSS directory prefix where files are allowed to be uploaded. The path of the uploaded object must be located in this directory.
    */
   filePath?: string;
   /**
@@ -58,7 +58,7 @@ export class GetUploadInfoResponseBodyData extends $dara.Model {
   ossPointInternal?: string;
   /**
    * @remarks
-   * The STS temporary security token. It is used together with AccessKeyId and AccessKeySecret for file uploads.
+   * The STS temporary security token. This parameter is used together with AccessKeyId and AccessKeySecret for file upload.
    * 
    * @example
    * CAISexample****
@@ -102,7 +102,7 @@ export class GetUploadInfoResponseBodyData extends $dara.Model {
 export class GetUploadInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code of the API. A value of 200 indicates success. If the call fails, the corresponding error code is returned.
+   * The response code of the API. A value of 200 indicates success. If the call fails, the corresponding error code is returned.
    * 
    * @example
    * 200
@@ -110,12 +110,12 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The file upload endpoint and temporary credentials.
+   * The file upload address and temporary credentials.
    */
   data?: GetUploadInfoResponseBodyData;
   /**
    * @remarks
-   * The message returned by the API.
+   * The processing message returned by the API.
    * 
    * @example
    * success
@@ -123,7 +123,7 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request. It is used to locate and troubleshoot the request.
+   * The request ID, which is used to locate and troubleshoot the request.
    * 
    * @example
    * 8737D130-BFD0-5D51-96F6-C08EB1139A25
@@ -132,8 +132,8 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the API call is successful. Valid values:
-   * - true: The call is successful.
-   * - false: The call fails.
+   * - true: Successful.
+   * - false: Failed.
    * 
    * @example
    * true

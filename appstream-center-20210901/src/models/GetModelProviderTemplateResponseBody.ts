@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetModelProviderTemplateResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The JSON configuration object of the model provider template.
+   * The JSON object for the model provider template configuration.
    * 
    * @example
    * {
@@ -20,12 +20,12 @@ export class GetModelProviderTemplateResponseBodyData extends $dara.Model {
    * The description of the model provider template.
    * 
    * @example
-   * 阿里云百炼服务商。
+   * Alibaba Cloud Model Studio provider
    */
   description?: string;
   /**
    * @remarks
-   * Indicates whether the WUYING secure gateway proxy is enabled.
+   * Indicates whether the Wuying security gateway proxy is enabled.
    * 
    * @example
    * true
@@ -36,7 +36,7 @@ export class GetModelProviderTemplateResponseBodyData extends $dara.Model {
    * The name of the model provider template.
    * 
    * @example
-   * 阿里云百炼。
+   * Alibaba Cloud Model Studio
    */
   name?: string;
   /**

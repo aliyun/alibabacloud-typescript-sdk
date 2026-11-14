@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeShareImageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of Alibaba Cloud account IDs to which the image is shared.
+   * The list of Alibaba Cloud account IDs with which the image is shared.
    */
   aliUidList?: number[];
   static names(): { [key: string]: string } {
@@ -43,7 +43,7 @@ export class DescribeShareImageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned object.
+   * The response object.
    * 
    * @example
    * None

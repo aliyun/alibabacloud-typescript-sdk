@@ -21,7 +21,7 @@ export class ListAppResponseBodyData extends $dara.Model {
   appIconUrl?: string;
   /**
    * @remarks
-   * The application ID, which is used to query the application or unbind an image later.
+   * The application ID, which is used for subsequent application queries or unbinding images.
    * 
    * @example
    * app-bp1example****
@@ -37,7 +37,7 @@ export class ListAppResponseBodyData extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The theme color saved for the application. If no theme color is specified when the application is created, #FFFFFF (white) is saved by default. The saved value is returned during a query. This field may not be configured for legacy applications.
+   * The theme color saved for the application. If no theme color is specified when the application is created, #FFFFFF (white) is saved by default. The saved value is returned during queries. This field may not be configured for legacy applications.
    * 
    * @example
    * #FFFFFF
@@ -47,9 +47,9 @@ export class ListAppResponseBodyData extends $dara.Model {
    * @remarks
    * The source type of the application. Valid values:
    * 
-   * - **USER_APP**: User-created applications.
-   * - **SYS_APP**: System-provided applications.
-   * - **VIRTUAL_APP**: Virtual applications.
+   * - **USER_APP**: user-created applications
+   * - **SYS_APP**: system-provided applications
+   * - **VIRTUAL_APP**: virtual applications
    * 
    * @example
    * USER_APP
@@ -59,13 +59,13 @@ export class ListAppResponseBodyData extends $dara.Model {
    * @remarks
    * The business type to which the application belongs. Valid values:
    * 
-   * - **1**: Basic products.
-   * - **2**: Personal cloud.
-   * - **3**: Cloud office.
-   * - **4**: Cloud Flow.
-   * - **10**: Personal Edition.
-   * - **20**: Business Edition.
-   * - **60**: Linggou Team Edition.
+   * - **1**: basic products
+   * - **2**: personal cloud
+   * - **3**: cloud office
+   * - **4**: Cloud Flow
+   * - **10**: Personal Edition
+   * - **20**: Business Edition
+   * - **60**: Linggou Team Edition
    * 
    * @example
    * 1
@@ -73,7 +73,7 @@ export class ListAppResponseBodyData extends $dara.Model {
   bizType?: number;
   /**
    * @remarks
-   * Indicates whether the current application is not referenced by any image. A value of true indicates that no image references the application. A value of false indicates that the application is still referenced by an image. You must remove the reference before deleting the application.
+   * Indicates whether the current application is not referenced by any image. A value of true indicates that no image references the application. A value of false indicates that the application is still referenced by an image, and you must remove the reference before deleting the application.
    */
   deletable?: boolean;
   /**
@@ -104,11 +104,11 @@ export class ListAppResponseBodyData extends $dara.Model {
    * @remarks
    * The form of the application. Valid values:
    * 
-   * - **CLIENT_BASE**: Client applications.
-   * - **WEB_BASE**: Browser applications.
-   * - **CLOUD_NATIVE_BASE**: Cloud-native applications.
-   * - **PORT_SERVICE_BASE**: Port service applications.
-   * - **AGENT_SERVICE_BASE**: Agent applications.
+   * - **CLIENT_BASE**: client applications
+   * - **WEB_BASE**: browser applications
+   * - **CLOUD_NATIVE_BASE**: cloud-native applications
+   * - **PORT_SERVICE_BASE**: port service applications
+   * - **AGENT_SERVICE_BASE**: agent applications
    * 
    * @example
    * WEB_BASE
@@ -118,10 +118,10 @@ export class ListAppResponseBodyData extends $dara.Model {
    * @remarks
    * The type of operating system used by the application. Valid values:
    * 
-   * - **Unknown**: The operating system is unknown.
-   * - **Windows**: Windows operating system.
-   * - **Linux**: Linux operating system.
-   * - **Android**: Android operating system.
+   * - **Unknown**: unknown operating system
+   * - **Windows**: Windows operating system
+   * - **Linux**: Linux operating system
+   * - **Android**: Android operating system
    * 
    * @example
    * Windows
@@ -131,23 +131,23 @@ export class ListAppResponseBodyData extends $dara.Model {
    * @remarks
    * The product to which the resource belongs. Valid values:
    * 
-   * - **CloudGame**: Cloud game.
-   * - **CloudApp**: Wuying cloud application.
-   * - **CloudBrowser**: Secure browser.
-   * - **CloudDesktop**: Wuying cloud desktop.
-   * - **ImageBuilder**: Image builder resources.
-   * - **ImageValidate**: Image validation resources.
-   * - **AndroidCloud**: Android cloud.
-   * - **GpuRender**: GPU rendering.
-   * - **AndroidGpuRender**: Android cloud GPU rendering.
-   * - **WuyingServer**: Enterprise Edition workstation.
-   * - **GpuProxy**: GPU remote rendering proxy.
-   * - **GpuCache**: GPU remote rendering cache.
-   * - **AIAgent**: AI Agent service.
-   * - **HostedDesktop**: Hosted desktop.
-   * - **WuyingWorkstation**: Personal Edition container workstation.
-   * - **WuyingWorkstationBusiness**: Business Edition container workstation.
-   * - **WuyingWorkstationTeam**: Linggou Team Edition container workstation.
+   * - **CloudGame**: cloud gaming
+   * - **CloudApp**: Wuying Cloud Application
+   * - **CloudBrowser**: secure browser
+   * - **CloudDesktop**: Wuying Cloud Computer
+   * - **ImageBuilder**: image builder resources
+   * - **ImageValidate**: image validation resources
+   * - **AndroidCloud**: Android cloud
+   * - **GpuRender**: GPU rendering
+   * - **AndroidGpuRender**: Android cloud GPU rendering
+   * - **WuyingServer**: Enterprise Edition workstation
+   * - **GpuProxy**: GPU remote rendering proxy
+   * - **GpuCache**: GPU remote rendering cache
+   * - **AIAgent**: AI agent service
+   * - **HostedDesktop**: hosted computer
+   * - **WuyingWorkstation**: Personal Edition container workstation
+   * - **WuyingWorkstationBusiness**: Business Edition container workstation
+   * - **WuyingWorkstationTeam**: Linggou Team Edition container workstation
    * 
    * @example
    * CloudApp
@@ -155,7 +155,7 @@ export class ListAppResponseBodyData extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The command-line parameters used when the application is started.
+   * The command-line arguments used when the application starts.
    * 
    * @example
    * --lang=zh-CN
@@ -173,10 +173,10 @@ export class ListAppResponseBodyData extends $dara.Model {
    * @remarks
    * The subtype of the application. Valid values:
    * 
-   * - **PWA**: Progressive web applications.
-   * - **SAAS**: Software as a Service (SaaS) applications.
-   * - **SANDBOX**: Sandbox applications.
-   * - **CONTAINER**: Container applications.
+   * - **PWA**: progressive web applications
+   * - **SAAS**: SaaS applications
+   * - **SANDBOX**: sandbox applications
+   * - **CONTAINER**: container applications
    * 
    * @example
    * SAAS
@@ -259,7 +259,7 @@ export class ListAppResponseBody extends $dara.Model {
   data?: ListAppResponseBodyData[];
   /**
    * @remarks
-   * The error or result message. This field describes the cause when a request fails. A successful response may not contain this field.
+   * The error or result message. This field describes the cause when the request fails. A successful response may not contain this field.
    * 
    * @example
    * Internal error.
@@ -267,7 +267,7 @@ export class ListAppResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The page number of this query. The name of this response field is PageNmuber.
+   * The page number of the current query. Note that the name of this response field is PageNmuber.
    * 
    * @example
    * 1
@@ -275,7 +275,7 @@ export class ListAppResponseBody extends $dara.Model {
   pageNmuber?: number;
   /**
    * @remarks
-   * The number of records per page in this paged query.
+   * The number of entries returned per page in the paged query.
    * 
    * @example
    * 10
@@ -291,7 +291,7 @@ export class ListAppResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was processed successfully. A value of true indicates that the request was processed successfully. To check whether an asynchronous task is completed, query the task status separately.
+   * Indicates whether the request was processed successfully. A value of true indicates that the current request was processed successfully. To check whether an asynchronous task is completed, you must query the task status separately.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

@@ -71,7 +71,7 @@ export class ListTagCloudResourcesResponseBodyResourceTags extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The tag list.
    */
   tags?: ListTagCloudResourcesResponseBodyResourceTagsTags[];
   static names(): { [key: string]: string } {
@@ -105,7 +105,7 @@ export class ListTagCloudResourcesResponseBodyResourceTags extends $dara.Model {
 export class ListTagCloudResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token that indicates whether more results exist.
+   * Indicates whether a token for the next query is available based on NextToken.
    * 
    * @example
    * AAAAAYRHtOLVQzCYj17y+OP7LZRrUJaF4rnBGQkWwMiVHlLZBB1w3Us37CVvhvyM0TXavA==
@@ -121,12 +121,12 @@ export class ListTagCloudResourcesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of tags bound to resources.
+   * The tags bound to the resource.
    */
   resourceTags?: ListTagCloudResourcesResponseBodyResourceTags[];
   /**
    * @remarks
-   * The total number of entries.
+   * The total count.
    * 
    * @example
    * 15

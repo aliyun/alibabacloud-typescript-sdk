@@ -115,12 +115,12 @@ export class ListBindInfoResponseBodyBindInfoModels extends $dara.Model {
 export class ListBindInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of binding information returned.
+   * The list of returned binding information.
    */
   bindInfoModels?: ListBindInfoResponseBodyBindInfoModels[];
   /**
    * @remarks
-   * The page number of the query results currently displayed.
+   * The current page number of the query results.
    * 
    * @example
    * 1
@@ -128,7 +128,7 @@ export class ListBindInfoResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of query results per page.
+   * The number of entries returned on each page.
    * 
    * @example
    * 10

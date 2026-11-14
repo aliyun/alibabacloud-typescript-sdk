@@ -84,7 +84,7 @@ export class ListRelatedResourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. A value of true indicates that the request is successful, and a value of false indicates that the request fails.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

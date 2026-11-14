@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLlmTemplatesResponseBodyDataCreditMultiplier extends $dara.Model {
   /**
    * @remarks
-   * The maximum multiplier. An empty value indicates no upper limit. For example, if Min is 1 and Max is empty, it is displayed as starting from 1x.
+   * The upper limit of the multiplier. An empty value indicates no upper limit. For example, if Min=1 and Max is empty, it is displayed as starting from 1x.
    * 
    * @example
    * 3
@@ -13,7 +13,7 @@ export class ListLlmTemplatesResponseBodyDataCreditMultiplier extends $dara.Mode
   max?: number;
   /**
    * @remarks
-   * The minimum multiplier. When it is equal to Max, it is a fixed multiplier. For example, if Min and Max are both 2, it is displayed as 2x.
+   * The lower limit of the multiplier. When it is equal to the maximum value, it is a fixed multiplier. For example, if Min=Max=2, it is displayed as 2x.
    * 
    * @example
    * 2
@@ -93,7 +93,7 @@ export class ListLlmTemplatesResponseBodyDataPricesPrices extends $dara.Model {
   price?: string;
   /**
    * @remarks
-   * The price name, such as input, output, or image generation.
+   * The name of the price, such as input, output, or image generation.
    * 
    * @example
    * Input
@@ -140,7 +140,7 @@ export class ListLlmTemplatesResponseBodyDataPrices extends $dara.Model {
   prices?: ListLlmTemplatesResponseBodyDataPricesPrices[];
   /**
    * @remarks
-   * The range name, such as Default or 0-1M tokens.
+   * The name of the range, such as Default or 0-1M tokens.
    * 
    * @example
    * Default
@@ -199,7 +199,7 @@ export class ListLlmTemplatesResponseBodyData extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The credit consumption multiplier. An empty value indicates that the model does not participate in credit billing.
+   * The credit consumption multiplier. An empty value indicates that the model is not billed by credits.
    */
   creditMultiplier?: ListLlmTemplatesResponseBodyDataCreditMultiplier;
   /**
@@ -222,7 +222,7 @@ export class ListLlmTemplatesResponseBodyData extends $dara.Model {
   inferenceMetadata?: ListLlmTemplatesResponseBodyDataInferenceMetadata;
   /**
    * @remarks
-   * Indicates whether the model is the default model in the associated model group.
+   * Specifies whether the model is the default model in the associated model group.
    * 
    * @example
    * true
@@ -275,7 +275,7 @@ export class ListLlmTemplatesResponseBodyData extends $dara.Model {
   providerTemplateId?: string;
   /**
    * @remarks
-   * The published time in ISO 8601 format, such as 2026-03-04T06:25:17.000+00:00.
+   * The time when the model was published. The time follows the ISO 8601 standard, such as 2026-03-04T06:25:17.000+00:00.
    * 
    * @example
    * 2026-03-04T06:25:17.000+00:00
@@ -291,7 +291,7 @@ export class ListLlmTemplatesResponseBodyData extends $dara.Model {
   refScope?: string;
   /**
    * @remarks
-   * The number of route policies configured for the model tier. This parameter is returned only when SmartModel is true. If no policies are configured for the tier, 0 is returned.
+   * The number of route policies. This is the number of route policies configured for the model tier. This parameter is returned only when SmartModel is true. If no policies are configured for the tier, 0 is returned.
    * 
    * @example
    * 1
@@ -369,7 +369,7 @@ export class ListLlmTemplatesResponseBody extends $dara.Model {
   data?: ListLlmTemplatesResponseBodyData[];
   /**
    * @remarks
-   * The page number of the returned query results.
+   * The current page number of the query results.
    * 
    * @example
    * 1
