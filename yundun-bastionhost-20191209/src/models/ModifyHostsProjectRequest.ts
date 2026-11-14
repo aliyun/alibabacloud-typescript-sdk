@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyHostsProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the hosts that you want to move. This parameter is a JSON-formatted string. You can specify up to 100 host IDs. Separate multiple host IDs with commas (,).
-   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to query this parameter.
+   * The IDs of the hosts to be moved. The value is a JSON string. You can specify up to 100 host IDs. Separate multiple host IDs with commas (,).
+   * > You can call the [ListHosts](https://help.aliyun.com/document_detail/200665.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -16,8 +16,8 @@ export class ModifyHostsProjectRequest extends $dara.Model {
   hostIds?: string;
   /**
    * @remarks
-   * The instance ID of the bastion host.
-   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
+   * The instance ID of the Bastionhost instance.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -35,8 +35,8 @@ export class ModifyHostsProjectRequest extends $dara.Model {
   projectId?: number;
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For more information about the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -44,8 +44,8 @@ export class ModifyHostsProjectRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the target project to which you want to move the hosts.
-   * > You can call the ListProjectsForProjectAuthorizationPrincipal operation to query this parameter.
+   * The ID of the destination project to which you want to move the hosts.
+   * > You can call the ListProjectsForProjectAuthorizationPrincipal operation to obtain this parameter.
    * 
    * This parameter is required.
    * 

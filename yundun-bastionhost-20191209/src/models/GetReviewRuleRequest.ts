@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetReviewRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the Bastionhost instance.
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+   * The ID of the Bastionhost instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class GetReviewRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The audit policy ID.
+   * The ID of the audit policy.
    * > You can invoke the ListReviewRules operation to obtain this parameter.
    * 
    * This parameter is required.

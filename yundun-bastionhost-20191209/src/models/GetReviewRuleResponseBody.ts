@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetReviewRuleResponseBodyReviewRulePrincipals extends $dara.Model {
   /**
    * @remarks
-   * If the value of PrincipalType is RamUser, the returned value is the RAM user ID of the associated auditor. If the value of PrincipalType is RamRole, the returned value is the ARN of the RAM role of the associated auditor.
+   * If the PrincipalType parameter is set to RamUser, this parameter returns the ID of the RAM user that acts as the auditor. If the PrincipalType parameter is set to RamRole, this parameter returns the ARN of the RAM role that acts as the auditor.
    * 
    * @example
    * 2061****5219
@@ -13,7 +13,7 @@ export class GetReviewRuleResponseBodyReviewRulePrincipals extends $dara.Model {
   principalId?: string;
   /**
    * @remarks
-   * The display name of the RAM user or RAM role of the associated auditor.
+   * The display name of the RAM user or RAM role that acts as the auditor.
    * 
    * @example
    * name
@@ -21,7 +21,7 @@ export class GetReviewRuleResponseBodyReviewRulePrincipals extends $dara.Model {
   principalName?: string;
   /**
    * @remarks
-   * The auditor type. Valid values:
+   * The type of the auditor. Valid values:
    * 
    * - **RamUser**: Resource Access Management (RAM) user.
    * 
@@ -59,7 +59,7 @@ export class GetReviewRuleResponseBodyReviewRulePrincipals extends $dara.Model {
 export class GetReviewRuleResponseBodyReviewRuleProjects extends $dara.Model {
   /**
    * @remarks
-   * The project description.
+   * The description of the project.
    * 
    * @example
    * comment
@@ -78,7 +78,7 @@ export class GetReviewRuleResponseBodyReviewRuleProjects extends $dara.Model {
   isDefault?: boolean;
   /**
    * @remarks
-   * The project name.
+   * The name of the project.
    * 
    * @example
    * project1
@@ -86,7 +86,7 @@ export class GetReviewRuleResponseBodyReviewRuleProjects extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The project ID.
+   * The ID of the project.
    * 
    * @example
    * 2
@@ -130,22 +130,25 @@ export class GetReviewRuleResponseBodyReviewRule extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The auditor information associated with the audit policy.
+   * The information about the auditors associated with the audit policy.
    */
   principals?: GetReviewRuleResponseBodyReviewRulePrincipals[];
   /**
    * @remarks
-   * The array of project IDs specified as auditable in the audit policy. This parameter is valid only when the value of ScopeType is 2.
+   * The array of project IDs that can be audited based on the audit policy. This parameter is valid only when the value of ScopeType is 2.
+   * 
+   * @example
+   * [2,3]
    */
   projectIds?: number[];
   /**
    * @remarks
-   * The auditable project information.
+   * The information about the projects that can be audited.
    */
   projects?: GetReviewRuleResponseBodyReviewRuleProjects[];
   /**
    * @remarks
-   * The audit policy ID.
+   * The ID of the audit policy.
    * 
    * @example
    * 1
@@ -161,7 +164,7 @@ export class GetReviewRuleResponseBodyReviewRule extends $dara.Model {
   reviewRuleName?: string;
   /**
    * @remarks
-   * The type of the auditable asset scope rule specified in the audit policy. Valid values:
+   * The type of the asset scope rule specified in the audit policy. Valid values:
    * 
    * - **1**: All projects.
    * 

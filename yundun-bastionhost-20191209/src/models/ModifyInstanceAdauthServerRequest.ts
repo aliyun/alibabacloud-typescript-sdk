@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceADAuthServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The server account.
+   * The account of the server.
    * 
    * This parameter is required.
    * 
@@ -51,8 +51,8 @@ export class ModifyInstanceADAuthServerRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The instance ID of the Bastionhost instance.
-   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+   * The ID of the Bastionhost instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -62,7 +62,7 @@ export class ModifyInstanceADAuthServerRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Specifies whether the AD authentication server is the default server. A value of true indicates that the server is the default AD authentication server. A value of false indicates that the server is not the default AD authentication server.
+   * Specifies whether the AD authentication server is the default server. Valid values: true and false. A value of true indicates that the server is the default AD authentication server, and a value of false indicates that the server is not the default AD authentication server.
    * 
    * @example
    * true
@@ -81,7 +81,7 @@ export class ModifyInstanceADAuthServerRequest extends $dara.Model {
   isSSL?: string;
   /**
    * @remarks
-   * Specifies whether to synchronize the email address. A value of true indicates that the email address is synchronized. A value of false indicates that the email address is not synchronized.
+   * Specifies whether to synchronize the email address. Valid values: true and false. A value of true indicates that the email address is synchronized, and a value of false indicates that the email address is not synchronized.
    * 
    * @example
    * true
@@ -89,7 +89,7 @@ export class ModifyInstanceADAuthServerRequest extends $dara.Model {
   isSyncEmailAttr?: string;
   /**
    * @remarks
-   * Specifies whether to synchronize the mobile phone number. A value of true indicates that the mobile phone number is synchronized. A value of false indicates that the mobile phone number is not synchronized.
+   * Specifies whether to synchronize the mobile phone number. Valid values: true and false. A value of true indicates that the mobile phone number is synchronized, and a value of false indicates that the mobile phone number is not synchronized.
    * 
    * @example
    * true
@@ -97,7 +97,7 @@ export class ModifyInstanceADAuthServerRequest extends $dara.Model {
   isSyncMobileAttr?: string;
   /**
    * @remarks
-   * Specifies whether to synchronize the display name. A value of true indicates that the display name is synchronized. A value of false indicates that the display name is not synchronized.
+   * Specifies whether to synchronize the display name. Valid values: true and false. A value of true indicates that the display name is synchronized, and a value of false indicates that the display name is not synchronized.
    * 
    * @example
    * true
@@ -105,7 +105,7 @@ export class ModifyInstanceADAuthServerRequest extends $dara.Model {
   isSyncNameAttr?: string;
   /**
    * @remarks
-   * Specifies whether to synchronize the organization to which the user belongs as a user group. A value of true indicates that the organization is synchronized as a user group. A value of false indicates that the organization is not synchronized as a user group.
+   * Specifies whether to synchronize the organization to which the user belongs as a user group. Valid values: true and false. A value of true indicates that the organization is synchronized as a user group, and a value of false indicates that the organization is not synchronized as a user group.
    * 
    * @example
    * true
@@ -132,7 +132,7 @@ export class ModifyInstanceADAuthServerRequest extends $dara.Model {
    * The password of the server account.
    * 
    * @example
-   * ******
+   * Demo****123!
    */
   password?: string;
   /**
@@ -182,12 +182,16 @@ export class ModifyInstanceADAuthServerRequest extends $dara.Model {
   standbyServer?: string;
   /**
    * @remarks
-   * The interval at which user snapshots are automatically synchronized, in hours. Valid values: 0, and 4 to 168. A value of 0 indicates that automatic synchronization is disabled.
+   * The interval at which user snapshots are automatically synchronized. Unit: hours. Valid values: 0, and 4 to 168. A value of 0 indicates that automatic synchronization is disabled.
    * 
    * @example
    * 12
    */
   syncInterval?: string;
+  /**
+   * @example
+   * 39
+   */
   userSourceId?: string;
   static names(): { [key: string]: string } {
     return {

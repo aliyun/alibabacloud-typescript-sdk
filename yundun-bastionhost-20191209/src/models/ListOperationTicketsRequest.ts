@@ -5,6 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ListOperationTicketsRequest extends $dara.Model {
   /**
    * @remarks
+   * The approval status. Valid values:
+   * - 1: Pending approval.
+   * - 2: Processed.
+   * 
+   * @example
+   * 1
+   */
+  approvalStatus?: number;
+  /**
+   * @remarks
    * The address of the O&M asset for exact search.
    * 
    * @example
@@ -24,7 +34,15 @@ export class ListOperationTicketsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number of the page to return in a paged query. Default value: **1**.
+   * The ID of the O&M ticket.
+   * 
+   * @example
+   * 1
+   */
+  operationTicketId?: string;
+  /**
+   * @remarks
+   * The page number for a paged query. Default value: **1**.
    * 
    * @example
    * 1
@@ -33,7 +51,7 @@ export class ListOperationTicketsRequest extends $dara.Model {
   /**
    * @remarks
    * The maximum number of entries to return on each page in a paged query.  
-   * The maximum value of the PageSize parameter is 1000. The default value is 20. If this parameter is left empty, 20 entries are returned by default.
+   * The maximum value of the PageSize parameter is 1000. Default value: 20. If the PageSize parameter is left empty, 20 entries are returned by default.
    * > We recommend that you specify a value for the PageSize parameter.
    * 
    * @example
@@ -51,7 +69,7 @@ export class ListOperationTicketsRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the Bastionhost instance.
-   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou
@@ -59,8 +77,10 @@ export class ListOperationTicketsRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      approvalStatus: 'ApprovalStatus',
       assetAddress: 'AssetAddress',
       instanceId: 'InstanceId',
+      operationTicketId: 'OperationTicketId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
       projectId: 'ProjectId',
@@ -70,8 +90,10 @@ export class ListOperationTicketsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      approvalStatus: 'number',
       assetAddress: 'string',
       instanceId: 'string',
+      operationTicketId: 'string',
       pageNumber: 'string',
       pageSize: 'string',
       projectId: 'number',

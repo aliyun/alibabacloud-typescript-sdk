@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VerifyInstanceADAuthServerRequest extends $dara.Model {
   /**
    * @remarks
-   * The account of the server.
+   * The server account.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class VerifyInstanceADAuthServerRequest extends $dara.Model {
   account?: string;
   /**
    * @remarks
-   * The Base DN.
+   * The base distinguished name (Base DN).
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class VerifyInstanceADAuthServerRequest extends $dara.Model {
   baseDN?: string;
   /**
    * @remarks
-   * The domain on the Active Directory server.
+   * The domain on the AD server.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class VerifyInstanceADAuthServerRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The ID of the Bastionhost instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+   * The instance ID of the Bastionhost instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
    * 
    * This parameter is required.
    * 
@@ -55,9 +55,8 @@ export class VerifyInstanceADAuthServerRequest extends $dara.Model {
    * @remarks
    * Specifies whether SSL is supported. Valid values:
    * 
-   * - **true**: supported
-   * 
-   * - **false**: not supported
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * This parameter is required.
    * 
@@ -70,7 +69,7 @@ export class VerifyInstanceADAuthServerRequest extends $dara.Model {
    * The password of the server account.
    * 
    * @example
-   * ******
+   * Demo****123!
    */
   password?: string;
   /**
@@ -85,7 +84,7 @@ export class VerifyInstanceADAuthServerRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The region ID of the Bastionhost instance. For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance. For the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

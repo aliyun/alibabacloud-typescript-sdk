@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class AttachHostAccountsToUserResponseBodyResultsHostAccounts extends $dara.Model {
   /**
    * @remarks
-   * The result returned for the operation of authorizing host accounts for the user. Valid values:
+   * The result returned for the operation of granting the user access to host accounts. Valid values:
    * - **OK**: The operation is successful.
    * - **UNEXPECTED**: An unknown error occurred.
    * - **INVALID_ARGUMENT**: A request parameter is invalid.
-   * - **OBJECT_NOT_FOUND**: The object on which the operation is performed does not exist.
-   * - **OBJECT_AlREADY_EXISTS**: The object on which the operation is performed already exists.
+   * - **OBJECT_NOT_FOUND**: The object on which you want to perform the operation does not exist.
+   * - **OBJECT_AlREADY_EXISTS**: The object on which you want to perform the operation already exists.
    * 
    * @example
    * OK
@@ -26,7 +26,7 @@ export class AttachHostAccountsToUserResponseBodyResultsHostAccounts extends $da
   hostAccountId?: string;
   /**
    * @remarks
-   * **[Deprecated]** This parameter is deprecated. You can ignore it.
+   * **[Deprecated]** This parameter is deprecated. You can ignore this parameter.
    * 
    * @example
    * None
@@ -65,13 +65,13 @@ export class AttachHostAccountsToUserResponseBodyResults extends $dara.Model {
    * - **UNEXPECTED**: An unknown error occurred.
    * - **INVALID_ARGUMENT**: A request parameter is invalid.
    * 
-   *     > Check the request parameters, ensure that they are correct, and then call the operation again.
+   *     > Check the request parameters and call the API operation again after you ensure that the parameters are valid.
    * 
-   * - **OBJECT_NOT_FOUND**: The object on which the operation is performed does not exist.
+   * - **OBJECT_NOT_FOUND**: The object on which you want to perform the operation does not exist.
    * 
-   *     > Check whether the ID of the Bastionhost instance exists, whether the host exists, and whether the host ID is correct, and then call the operation again.
+   *     > Check whether the ID of the Bastionhost instance exists, whether the host exists, and whether the host ID is correct, and then call the API operation again.
    * 
-   * - **OBJECT_AlREADY_EXISTS**: The object on which the operation is performed already exists.
+   * - **OBJECT_AlREADY_EXISTS**: The object on which you want to perform the operation already exists.
    * 
    * @example
    * OK
@@ -79,7 +79,7 @@ export class AttachHostAccountsToUserResponseBodyResults extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The results returned for the operation of authorizing host accounts for the user.
+   * The results returned for the operation of granting the user access to host accounts.
    */
   hostAccounts?: AttachHostAccountsToUserResponseBodyResultsHostAccounts[];
   /**
@@ -92,7 +92,7 @@ export class AttachHostAccountsToUserResponseBodyResults extends $dara.Model {
   hostId?: string;
   /**
    * @remarks
-   * **[Deprecated]** This parameter is deprecated. You can ignore it.
+   * **[Deprecated]** This parameter is deprecated. You can ignore this parameter.
    * 
    * @example
    * None

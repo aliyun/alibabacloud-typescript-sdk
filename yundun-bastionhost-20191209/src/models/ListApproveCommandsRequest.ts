@@ -5,8 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class ListApproveCommandsRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the Bastionhost instance.
-   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the value of this parameter.
+   * The approval status. Valid values:
+   * - 1: Pending.
+   * - 2: Processed.
+   * 
+   * @example
+   * 1
+   */
+  approvalStatus?: number;
+  /**
+   * @remarks
+   * The ID of the command approval.
+   * 
+   * @example
+   * 1
+   */
+  approveCommandId?: string;
+  /**
+   * @remarks
+   * The instance ID of the Bastionhost.
+   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain the parameter value.
    * 
    * This parameter is required.
    * 
@@ -16,7 +34,7 @@ export class ListApproveCommandsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number of the page to return in a paged query. Default value: **1**.
+   * The page number of the current page for a paged query. Default value: **1**.
    * 
    * This parameter is required.
    * 
@@ -26,9 +44,9 @@ export class ListApproveCommandsRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The maximum number of entries to return on each page in a paged query.  
-   * The maximum value of the PageSize parameter is 1000. Default value: 20. If the PageSize parameter is left empty, 20 entries are returned by default.
-   * > Specify the PageSize parameter.
+   * The maximum number of entries to return on each page for a paged query.  
+   * The maximum value of the PageSize parameter is 1000. The default number of entries per page is 20. If the PageSize parameter is left empty, 20 entries are returned by default.
+   * > Specify a value for the PageSize parameter.
    * 
    * This parameter is required.
    * 
@@ -47,7 +65,7 @@ export class ListApproveCommandsRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the Bastionhost instance.
-   * > For more information about the mappings between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-beijing
@@ -55,6 +73,8 @@ export class ListApproveCommandsRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      approvalStatus: 'ApprovalStatus',
+      approveCommandId: 'ApproveCommandId',
       instanceId: 'InstanceId',
       pageNumber: 'PageNumber',
       pageSize: 'PageSize',
@@ -65,6 +85,8 @@ export class ListApproveCommandsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      approvalStatus: 'number',
+      approveCommandId: 'string',
       instanceId: 'string',
       pageNumber: 'string',
       pageSize: 'string',

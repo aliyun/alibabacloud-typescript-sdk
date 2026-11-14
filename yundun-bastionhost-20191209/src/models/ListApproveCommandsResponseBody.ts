@@ -5,6 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model {
   /**
    * @remarks
+   * The approval status. Valid values:
+   * - 1: Pending.
+   * - 2: Processed.
+   * 
+   * @example
+   * 1
+   */
+  approvalStatus?: number;
+  /**
+   * @remarks
    * The ID of the command pending approval.
    * 
    * @example
@@ -13,7 +23,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   approveCommandId?: string;
   /**
    * @remarks
-   * The name of the asset account.
+   * The name of the asset account used for O&M.
    * 
    * @example
    * root
@@ -21,7 +31,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   assetAccountName?: string;
   /**
    * @remarks
-   * The IP address of the O&M asset.
+   * The IP address of the asset for O&M.
    * 
    * @example
    * 10.167.XX.XX
@@ -29,7 +39,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   assetIp?: string;
   /**
    * @remarks
-   * The name of the O&M asset.
+   * The name of the asset for O&M.
    * 
    * @example
    * poros-test
@@ -69,7 +79,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   createTime?: string;
   /**
    * @remarks
-   * The name of the O&M protocol.
+   * The name of the protocol used for O&M.
    * 
    * @example
    * SSH
@@ -85,8 +95,8 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   sessionId?: string;
   /**
    * @remarks
-   * The approval status.
-   * **Wait**: Pending approval.
+   * The approval status. Valid values:
+   * - **Wait**: Pending.
    * 
    * @example
    * Wait
@@ -94,6 +104,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
   state?: string;
   static names(): { [key: string]: string } {
     return {
+      approvalStatus: 'ApprovalStatus',
       approveCommandId: 'ApproveCommandId',
       assetAccountName: 'AssetAccountName',
       assetIp: 'AssetIp',
@@ -110,6 +121,7 @@ export class ListApproveCommandsResponseBodyApproveCommands extends $dara.Model 
 
   static types(): { [key: string]: any } {
     return {
+      approvalStatus: 'number',
       approveCommandId: 'string',
       assetAccountName: 'string',
       assetIp: 'string',

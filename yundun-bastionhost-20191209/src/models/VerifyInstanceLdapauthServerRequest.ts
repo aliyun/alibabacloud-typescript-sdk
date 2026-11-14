@@ -15,7 +15,7 @@ export class VerifyInstanceLDAPAuthServerRequest extends $dara.Model {
   account?: string;
   /**
    * @remarks
-   * The Base DN.
+   * The base distinguished name (Base DN).
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class VerifyInstanceLDAPAuthServerRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * The ID of the Bastionhost instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
+   * The ID of the Bastionhost instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -45,9 +45,8 @@ export class VerifyInstanceLDAPAuthServerRequest extends $dara.Model {
    * @remarks
    * Specifies whether SSL is supported. Valid values:
    * 
-   * - **true**: supported
-   * 
-   * - **false**: not supported
+   * - **true**: Supported.
+   * - **false**: Not supported.
    * 
    * @example
    * true
@@ -58,7 +57,7 @@ export class VerifyInstanceLDAPAuthServerRequest extends $dara.Model {
    * The password of the server account.
    * 
    * @example
-   * ******
+   * Demo****123!
    */
   password?: string;
   /**
@@ -73,7 +72,7 @@ export class VerifyInstanceLDAPAuthServerRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The region ID of the Bastionhost instance. For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance. For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

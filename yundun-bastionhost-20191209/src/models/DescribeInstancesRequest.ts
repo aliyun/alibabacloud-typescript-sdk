@@ -55,19 +55,19 @@ export class DescribeInstancesRequest extends $dara.Model {
    * @remarks
    * The status of the Bastionhost instance. Valid values:
    * 
-   * - **PENDING**: Uninitialized
+   * - **PENDING**: Not initialized.
    * 
-   * - **CREATING**: Creating 
+   * - **CREATING**: Being created. 
    * 
-   * - **RUNNING**: Running 
+   * - **RUNNING**: Running. 
    * 
-   * - **EXPIRED**: Expired 
+   * - **EXPIRED**: Expired. 
    * 
-   * - **CREATE_FAILED**: Creation failed
+   * - **CREATE_FAILED**: Creation failed.
    * 
-   * - **UPGRADING**: Upgrading
+   * - **UPGRADING**: Being upgraded.
    * 
-   * - **UPGRADE_FAILED**: Upgrade failed
+   * - **UPGRADE_FAILED**: Upgrade failed.
    * 
    * @example
    * RUNNING
@@ -75,7 +75,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   instanceStatus?: string;
   /**
    * @remarks
-   * Specifies the page number of the returned results. Default value: **1**.
+   * The page number of the returned results. Default value: **1**.
    * 
    * @example
    * 1
@@ -83,7 +83,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Settings for a paged query. Specifies the number of Bastionhost instances to display on each page during paging. Default value: **10**, which indicates that 10 Bastionhost instances are displayed on each page.
+   * Settings for the number of Bastionhost instances to return on each page in a paged query. Default value: **10**, which indicates that 10 Bastionhost instances are displayed on each page.
    * 
    * @example
    * 10

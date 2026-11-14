@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AttachProjectManagersToProjectAuthorizationRequestPrincipals extends $dara.Model {
   /**
    * @remarks
-   * When PrincipalType is set to RamUser, specify the ID of the RAM user to be designated as the project administrator. When PrincipalType is set to RamRole, specify the ARN of the RAM role to be designated as the project administrator.
+   * The ID of the RAM user or the ARN of the RAM role to be specified as a project administrator. If PrincipalType is set to RamUser, specify the ID of the RAM user. If PrincipalType is set to RamRole, specify the ARN of the RAM role.
    * 
    * @example
    * 160****2519
@@ -13,7 +13,7 @@ export class AttachProjectManagersToProjectAuthorizationRequestPrincipals extend
   principalId?: string;
   /**
    * @remarks
-   * The display name of the RAM user or RAM role designated as the project administrator.
+   * The display name of the RAM user or RAM role specified as the project administrator.
    * 
    * @example
    * name
@@ -60,7 +60,7 @@ export class AttachProjectManagersToProjectAuthorizationRequest extends $dara.Mo
   /**
    * @remarks
    * The project authorization ID.
-   * > You can call the ListProjectAuthorizations operation to query this parameter.
+   * > You can call the ListProjectAuthorizations operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -70,8 +70,8 @@ export class AttachProjectManagersToProjectAuthorizationRequest extends $dara.Mo
   authorizationId?: number;
   /**
    * @remarks
-   * The instance ID of the bastion host.
-   * > You can invoke the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to query this parameter.
+   * The instance ID of the Bastionhost instance.
+   * > You can call the [DescribeInstances](https://help.aliyun.com/document_detail/153281.html) operation to obtain this parameter.
    * 
    * This parameter is required.
    * 
@@ -86,8 +86,8 @@ export class AttachProjectManagersToProjectAuthorizationRequest extends $dara.Mo
   principals?: AttachProjectManagersToProjectAuthorizationRequestPrincipals[];
   /**
    * @remarks
-   * The region ID of the bastion host.
-   * > For the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
+   * The region ID of the Bastionhost instance.
+   * > For more information about the mapping between region IDs and region names, see [Regions and zones](https://help.aliyun.com/document_detail/40654.html).
    * 
    * @example
    * cn-hangzhou

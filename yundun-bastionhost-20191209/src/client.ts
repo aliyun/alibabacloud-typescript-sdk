@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "Yundun-bastionhost";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-qingdao': "yundun-bastionhost.aliyuncs.com",
@@ -702,7 +706,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Authorizes assets for a user. After the authorization, the user can use Bastionhost to perform O&M operations on the authorized assets.
+   * Grants a user access to assets. After the authorization, the user can use Bastionhost to perform O&M operations on the authorized assets.
    * 
    * @param request - AttachHostAccountsToUserRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -745,7 +749,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Authorizes assets for a user. After the authorization, the user can use Bastionhost to perform O&M operations on the authorized assets.
+   * Grants a user access to assets. After the authorization, the user can use Bastionhost to perform O&M operations on the authorized assets.
    * 
    * @param request - AttachHostAccountsToUserRequest
    * @returns AttachHostAccountsToUserResponse
@@ -982,7 +986,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates project authorization administrators.
+   * Associates administrators with a project authorization.
    * 
    * @param request - AttachProjectManagersToProjectAuthorizationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1025,7 +1029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates project authorization administrators.
+   * Associates administrators with a project authorization.
    * 
    * @param request - AttachProjectManagersToProjectAuthorizationRequest
    * @returns AttachProjectManagersToProjectAuthorizationResponse
@@ -3530,7 +3534,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of instances.
+   * Queries a list of instances.
    * 
    * @param request - DescribeInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3589,7 +3593,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of instances.
+   * Queries a list of instances.
    * 
    * @param request - DescribeInstancesRequest
    * @returns DescribeInstancesResponse
@@ -3600,7 +3604,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Alibaba Cloud regions that support Bastionhost instances.
+   * Queries the Alibaba Cloud regions supported by Bastionhost instances.
    * 
    * @param request - DescribeRegionsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3635,7 +3639,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Alibaba Cloud regions that support Bastionhost instances.
+   * Queries the Alibaba Cloud regions supported by Bastionhost instances.
    * 
    * @param request - DescribeRegionsRequest
    * @returns DescribeRegionsResponse
@@ -3870,7 +3874,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes authorized hosts and host accounts from a user group.
+   * Removes the hosts and host accounts authorized for a user group.
    * 
    * @param request - DetachHostAccountsFromUserGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3917,7 +3921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes authorized hosts and host accounts from a user group.
+   * Removes the hosts and host accounts authorized for a user group.
    * 
    * @param request - DetachHostAccountsFromUserGroupRequest
    * @returns DetachHostAccountsFromUserGroupResponse
@@ -5827,8 +5831,8 @@ export default class Client extends OpenApi {
    * Retrieves the list of commands that require approval.
    * 
    * @remarks
-   * This API operation allows administrators to retrieve the list of commands that require approval.
-   * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
+   * This operation allows administrators to retrieve the list of commands that require approval.
+   * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
    * 
    * @param request - ListApproveCommandsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5837,6 +5841,14 @@ export default class Client extends OpenApi {
   async listApproveCommandsWithOptions(request: $_model.ListApproveCommandsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApproveCommandsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.approvalStatus)) {
+      query["ApprovalStatus"] = request.approvalStatus;
+    }
+
+    if (!$dara.isNull(request.approveCommandId)) {
+      query["ApproveCommandId"] = request.approveCommandId;
+    }
+
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
     }
@@ -5878,8 +5890,8 @@ export default class Client extends OpenApi {
    * Retrieves the list of commands that require approval.
    * 
    * @remarks
-   * This API operation allows administrators to retrieve the list of commands that require approval.
-   * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
+   * This operation allows administrators to retrieve the list of commands that require approval.
+   * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
    * 
    * @param request - ListApproveCommandsRequest
    * @returns ListApproveCommandsResponse
@@ -7756,11 +7768,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of O&M tickets pending approval.
+   * Queries the list of O&M tickets pending approval.
    * 
    * @remarks
-   * This API operation allows administrators to retrieve a list of O&M tickets pending approval.
-   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
+   * This operation is used by administrators to query the list of O&M tickets pending approval.
+   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
    * 
    * @param request - ListOperationTicketsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7769,12 +7781,20 @@ export default class Client extends OpenApi {
   async listOperationTicketsWithOptions(request: $_model.ListOperationTicketsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListOperationTicketsResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.approvalStatus)) {
+      query["ApprovalStatus"] = request.approvalStatus;
+    }
+
     if (!$dara.isNull(request.assetAddress)) {
       query["AssetAddress"] = request.assetAddress;
     }
 
     if (!$dara.isNull(request.instanceId)) {
       query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.operationTicketId)) {
+      query["OperationTicketId"] = request.operationTicketId;
     }
 
     if (!$dara.isNull(request.pageNumber)) {
@@ -7811,11 +7831,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of O&M tickets pending approval.
+   * Queries the list of O&M tickets pending approval.
    * 
    * @remarks
-   * This API operation allows administrators to retrieve a list of O&M tickets pending approval.
-   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
+   * This operation is used by administrators to query the list of O&M tickets pending approval.
+   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable frequency.
    * 
    * @param request - ListOperationTicketsRequest
    * @returns ListOperationTicketsResponse
@@ -9564,7 +9584,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves hosts to a different project in a batch.
+   * Updates the project ownership of multiple hosts.
    * 
    * @param request - ModifyHostsProjectRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9611,7 +9631,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Moves hosts to a different project in a batch.
+   * Updates the project ownership of multiple hosts.
    * 
    * @param request - ModifyHostsProjectRequest
    * @returns ModifyHostsProjectResponse
@@ -11496,7 +11516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the effective asset scope for a specified control policy.
+   * Sets the asset scope for a specified control policy.
    * 
    * @param request - SetPolicyAssetScopeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -11555,7 +11575,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets the effective asset scope for a specified control policy.
+   * Sets the asset scope for a specified control policy.
    * 
    * @param request - SetPolicyAssetScopeRequest
    * @returns SetPolicyAssetScopeResponse
@@ -12062,7 +12082,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tests the connectivity to the Active Directory (AD) authentication server configured for a Bastionhost instance. Use this operation to validate your AD settings before you save them.
+   * Verifies the AD service configuration of an instance.
    * 
    * @param request - VerifyInstanceADAuthServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12133,7 +12153,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tests the connectivity to the Active Directory (AD) authentication server configured for a Bastionhost instance. Use this operation to validate your AD settings before you save them.
+   * Verifies the AD service configuration of an instance.
    * 
    * @param request - VerifyInstanceADAuthServerRequest
    * @returns VerifyInstanceADAuthServerResponse
@@ -12144,7 +12164,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tests the connectivity to the Lightweight Directory Access Protocol (LDAP) authentication server configured for a Bastionhost instance. Use this operation to validate your LDAP settings before you save them.
+   * Verifies the LDAP service configuration of an instance.
    * 
    * @param request - VerifyInstanceLDAPAuthServerRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12211,7 +12231,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Tests the connectivity to the Lightweight Directory Access Protocol (LDAP) authentication server configured for a Bastionhost instance. Use this operation to validate your LDAP settings before you save them.
+   * Verifies the LDAP service configuration of an instance.
    * 
    * @param request - VerifyInstanceLDAPAuthServerRequest
    * @returns VerifyInstanceLDAPAuthServerResponse
