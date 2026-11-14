@@ -29,7 +29,7 @@ export class CreateTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The unique identifier of the created template.
+   * The unique ID of the created template.
    * 
    * @example
    * us7dxqaezw5uu7aa2cm5

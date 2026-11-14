@@ -117,7 +117,7 @@ export default class Client extends OpenApi {
    * Creates a template.
    * 
    * @remarks
-   * Creates a template. runtimeConfig.vpcBindings is supported only for second-generation templates. A null value is treated as omitted. First-generation templates return a 400 error if an empty or non-empty array is explicitly provided. Inbound bindings are independent of the egress vpcConfig and API key source policies. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of the E2B sandbox are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+   * Creates a template. If runtimeConfig.vpcBindings is null, it is treated as omitted. Inbound bindings are independent of the egress vpcConfig and API key source policy.
    * 
    * @param request - CreateTemplateRequest
    * @param headers - map
@@ -148,7 +148,7 @@ export default class Client extends OpenApi {
    * Creates a template.
    * 
    * @remarks
-   * Creates a template. runtimeConfig.vpcBindings is supported only for second-generation templates. A null value is treated as omitted. First-generation templates return a 400 error if an empty or non-empty array is explicitly provided. Inbound bindings are independent of the egress vpcConfig and API key source policies. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of the E2B sandbox are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+   * Creates a template. If runtimeConfig.vpcBindings is null, it is treated as omitted. Inbound bindings are independent of the egress vpcConfig and API key source policy.
    * 
    * @param request - CreateTemplateRequest
    * @returns CreateTemplateResponse
@@ -237,6 +237,46 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createVolumeWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Creates a warm pool.
+   * 
+   * @param request - CreateWarmPoolRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWarmPoolResponse
+   */
+  async createWarmPoolWithOptions(teamID: string, request: $_model.CreateWarmPoolRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWarmPoolResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWarmPool",
+      version: "2026-08-20",
+      protocol: "HTTPS",
+      pathname: `/pop/2026-08-20/teams/${$dara.URL.percentEncode(teamID)}/warmPools`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWarmPoolResponse>(await this.callApi(params, req, runtime), new $_model.CreateWarmPoolResponse({}));
+  }
+
+  /**
+   * Creates a warm pool.
+   * 
+   * @param request - CreateWarmPoolRequest
+   * @returns CreateWarmPoolResponse
+   */
+  async createWarmPool(teamID: string, request: $_model.CreateWarmPoolRequest): Promise<$_model.CreateWarmPoolResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createWarmPoolWithOptions(teamID, request, headers, runtime);
   }
 
   /**
@@ -498,6 +538,45 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes a warm pool.
+   * 
+   * @param request - DeleteWarmPoolRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWarmPoolResponse
+   */
+  async deleteWarmPoolWithOptions(teamID: string, templateID: string, request: $_model.DeleteWarmPoolRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWarmPoolResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWarmPool",
+      version: "2026-08-20",
+      protocol: "HTTPS",
+      pathname: `/pop/2026-08-20/teams/${$dara.URL.percentEncode(teamID)}/warmPools/${$dara.URL.percentEncode(templateID)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "none",
+    });
+    return $dara.cast<$_model.DeleteWarmPoolResponse>(await this.callApi(params, req, runtime), new $_model.DeleteWarmPoolResponse({}));
+  }
+
+  /**
+   * Deletes a warm pool.
+   * 
+   * @param request - DeleteWarmPoolRequest
+   * @returns DeleteWarmPoolResponse
+   */
+  async deleteWarmPool(teamID: string, templateID: string, request: $_model.DeleteWarmPoolRequest): Promise<$_model.DeleteWarmPoolResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteWarmPoolWithOptions(teamID, templateID, request, headers, runtime);
+  }
+
+  /**
    * Queries the details of a specified API key.
    * 
    * @param request - DescribeApiKeyRequest
@@ -624,6 +703,45 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.describeTemplateCacheWithOptions(templateID, request, headers, runtime);
+  }
+
+  /**
+   * Queries the warm pool.
+   * 
+   * @param request - DescribeWarmPoolRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeWarmPoolResponse
+   */
+  async describeWarmPoolWithOptions(teamID: string, templateID: string, request: $_model.DescribeWarmPoolRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeWarmPoolResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeWarmPool",
+      version: "2026-08-20",
+      protocol: "HTTPS",
+      pathname: `/pop/2026-08-20/teams/${$dara.URL.percentEncode(teamID)}/warmPools/${$dara.URL.percentEncode(templateID)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeWarmPoolResponse>(await this.callApi(params, req, runtime), new $_model.DescribeWarmPoolResponse({}));
+  }
+
+  /**
+   * Queries the warm pool.
+   * 
+   * @param request - DescribeWarmPoolRequest
+   * @returns DescribeWarmPoolResponse
+   */
+  async describeWarmPool(teamID: string, templateID: string, request: $_model.DescribeWarmPoolRequest): Promise<$_model.DescribeWarmPoolResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.describeWarmPoolWithOptions(teamID, templateID, request, headers, runtime);
   }
 
   /**
@@ -1318,6 +1436,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the list of warm pools.
+   * 
+   * @param request - ListWarmPoolsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWarmPoolsResponse
+   */
+  async listWarmPoolsWithOptions(teamID: string, request: $_model.ListWarmPoolsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListWarmPoolsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWarmPools",
+      version: "2026-08-20",
+      protocol: "HTTPS",
+      pathname: `/pop/2026-08-20/teams/${$dara.URL.percentEncode(teamID)}/warmPools`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWarmPoolsResponse>(await this.callApi(params, req, runtime), new $_model.ListWarmPoolsResponse({}));
+  }
+
+  /**
+   * Queries the list of warm pools.
+   * 
+   * @param request - ListWarmPoolsRequest
+   * @returns ListWarmPoolsResponse
+   */
+  async listWarmPools(teamID: string, request: $_model.ListWarmPoolsRequest): Promise<$_model.ListWarmPoolsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listWarmPoolsWithOptions(teamID, request, headers, runtime);
+  }
+
+  /**
    * Resets a specified API key.
    * 
    * @remarks
@@ -1492,7 +1659,7 @@ export default class Client extends OpenApi {
    * Updates a template.
    * 
    * @remarks
-   * Updates a template. For Generation 2 templates, runtimeConfig.vpcBindings supports omission or null retention, full replacement with a non-empty array, or clearing with an empty array. The new list takes effect upon a successful build of the new version. Existing sandboxes continue to use the original functions and policies. If the build fails, the previously effective version is retained. For Generation 1 templates, explicitly passing an empty or non-empty array returns a 400 error. Before switching to Generation 1, you must clear the bindings and wait for the update to succeed. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of E2B sandboxes are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+   * Updates a template. For runtimeConfig.vpcBindings, you can omit the field or set it to null to retain the current bindings, provide a non-empty array to replace the entire list, or provide an empty array [] to clear the list. The new list takes effect when the new version is successfully built. Existing sandboxes continue to use the original configuration. If the build fails, the original effective version is retained.
    * 
    * @param request - UpdateTemplateRequest
    * @param headers - map
@@ -1529,7 +1696,7 @@ export default class Client extends OpenApi {
    * Updates a template.
    * 
    * @remarks
-   * Updates a template. For Generation 2 templates, runtimeConfig.vpcBindings supports omission or null retention, full replacement with a non-empty array, or clearing with an empty array. The new list takes effect upon a successful build of the new version. Existing sandboxes continue to use the original functions and policies. If the build fails, the previously effective version is retained. For Generation 1 templates, explicitly passing an empty or non-empty array returns a 400 error. Before switching to Generation 1, you must clear the bindings and wait for the update to succeed. When the feature switch is enabled, POST /init requests without query parameters to the standard envd port 49983 of E2B sandboxes are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+   * Updates a template. For runtimeConfig.vpcBindings, you can omit the field or set it to null to retain the current bindings, provide a non-empty array to replace the entire list, or provide an empty array [] to clear the list. The new list takes effect when the new version is successfully built. Existing sandboxes continue to use the original configuration. If the build fails, the original effective version is retained.
    * 
    * @param request - UpdateTemplateRequest
    * @returns UpdateTemplateResponse
@@ -1584,6 +1751,46 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateVolumeWithOptions(volumeID, request, headers, runtime);
+  }
+
+  /**
+   * Updates the capacity policy of a warm pool.
+   * 
+   * @param request - UpdateWarmPoolRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWarmPoolResponse
+   */
+  async updateWarmPoolWithOptions(teamID: string, templateID: string, request: $_model.UpdateWarmPoolRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWarmPoolResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(request.body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWarmPool",
+      version: "2026-08-20",
+      protocol: "HTTPS",
+      pathname: `/pop/2026-08-20/teams/${$dara.URL.percentEncode(teamID)}/warmPools/${$dara.URL.percentEncode(templateID)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWarmPoolResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWarmPoolResponse({}));
+  }
+
+  /**
+   * Updates the capacity policy of a warm pool.
+   * 
+   * @param request - UpdateWarmPoolRequest
+   * @returns UpdateWarmPoolResponse
+   */
+  async updateWarmPool(teamID: string, templateID: string, request: $_model.UpdateWarmPoolRequest): Promise<$_model.UpdateWarmPoolResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateWarmPoolWithOptions(teamID, templateID, request, headers, runtime);
   }
 
 }

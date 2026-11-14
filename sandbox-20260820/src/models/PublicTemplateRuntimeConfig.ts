@@ -8,7 +8,7 @@ import { PublicTemplateVPCConfig } from "./PublicTemplateVpcconfig";
 export class PublicTemplateRuntimeConfig extends $dara.Model {
   /**
    * @remarks
-   * The CPU specification of the sandbox instance, in cores.
+   * The CPU specifications of the sandbox instance, in cores.
    * 
    * @example
    * 2
@@ -16,7 +16,7 @@ export class PublicTemplateRuntimeConfig extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The disk specification of the sandbox instance, in MB.
+   * The disk specifications of the sandbox instance, in MB.
    * 
    * @example
    * 10240
@@ -34,7 +34,7 @@ export class PublicTemplateRuntimeConfig extends $dara.Model {
   logConfig?: PublicTemplateLogConfig;
   /**
    * @remarks
-   * The memory specification of the sandbox instance, in MB.
+   * The memory specifications of the sandbox instance, in MB.
    * 
    * @example
    * 2048
@@ -47,7 +47,7 @@ export class PublicTemplateRuntimeConfig extends $dara.Model {
   sandboxConfig?: PublicTemplateSandboxConfig;
   /**
    * @remarks
-   * The set of allowed inbound source VPCs configured for Generation 2 templates. An omitted or empty array indicates that no inbound VPC bindings are configured, and this field can be omitted for historical records without configurations. This configuration is independent of the egress network vpcConfig. Subsequent template updates do not overwrite the bindings of functions used by existing sandboxes. When the feature switch is enabled, POST /init requests without query parameters to the standard E2B sandbox envd port 49983 are temporarily exempt from VPC source checks, while other authentication mechanisms remain in effect.
+   * The collection of inbound source VPCs allowed by the current template configuration. Omitting this field or providing an empty array indicates that no inbound VPC bindings are configured. This configuration is independent of the egress network vpcConfig. Subsequent template updates do not change the inbound VPC bindings of existing sandbox instances.
    * 
    * @example
    * ["vpc-examplea","vpc-exampleb"]
@@ -55,7 +55,7 @@ export class PublicTemplateRuntimeConfig extends $dara.Model {
   vpcBindings?: string[];
   /**
    * @remarks
-   * The virtual private cloud (VPC) configuration of the sandbox instance.
+   * The VPC configuration of the sandbox instance.
    */
   vpcConfig?: PublicTemplateVPCConfig;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteVolumeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. 200 indicates success.
+   * The response code. The value is 200 if the request is successful.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class DeleteVolumeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message. success indicates a successful request.
+   * The response message. The value is success if the request is successful.
    * 
    * @example
    * success

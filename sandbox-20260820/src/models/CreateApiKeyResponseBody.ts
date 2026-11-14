@@ -10,7 +10,7 @@ export class CreateApiKeyResponseBody extends $dara.Model {
    * The API key information.
    * 
    * @example
-   * [Replace with a masked API key example]
+   * [Replace with a redacted API key example]
    */
   apiKey?: ApiKey;
   /**
@@ -33,7 +33,7 @@ export class CreateApiKeyResponseBody extends $dara.Model {
   ipWhitelist?: IPConfig[];
   /**
    * @remarks
-   * The response message. The value is success if the request is successful.
+   * The response message. The value is success for a successful request.
    * 
    * @example
    * success
