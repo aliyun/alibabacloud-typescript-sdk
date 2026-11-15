@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKnowledgeBasePreSignedUrlResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The bucket name.
+   * The name of the bucket.
    * 
    * @example
    * knowledgebase-fileupload
@@ -21,7 +21,7 @@ export class GetKnowledgeBasePreSignedUrlResponseBodyData extends $dara.Model {
   expiresIn?: number;
   /**
    * @remarks
-   * The list of pre-signed PUT URLs. **The order corresponds one-to-one with the `Documents` in the request.**
+   * The list of pre-signed PUT URLs. **The order corresponds one-to-one with the `Documents` in the request**.
    */
   preSignedUrls?: string[];
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class GetKnowledgeBasePreSignedUrlResponseBodyData extends $dara.Model {
 export class GetKnowledgeBasePreSignedUrlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the access denial.
    * 
    * @example
    * {"PolicyType":"AccountLevelIdentityBasedPolicy","AuthPrincipalOwnerId":"1234567890123456","AuthPrincipalType":"SubUser","AuthPrincipalDisplayName":"1234567890123456","NoPermissionType":"ImplicitDeny","AuthAction":"milvusknowledgebase:ListDatasets"}
@@ -84,7 +84,7 @@ export class GetKnowledgeBasePreSignedUrlResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

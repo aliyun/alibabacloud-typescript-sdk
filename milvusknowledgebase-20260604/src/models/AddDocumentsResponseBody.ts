@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddDocumentsResponseBodyDataDocuments extends $dara.Model {
   /**
    * @remarks
-   * The chunk count.
+   * The number of chunks.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class AddDocumentsResponseBodyDataDocuments extends $dara.Model {
   chunkCount?: number;
   /**
    * @remarks
-   * The chunk method.
+   * The chunking method.
    * 
    * @example
    * naive
@@ -21,7 +21,7 @@ export class AddDocumentsResponseBodyDataDocuments extends $dara.Model {
   chunkMethod?: string;
   /**
    * @remarks
-   * The knowledge base ID.
+   * The ID of the knowledge base.
    * 
    * @example
    * kb-123
@@ -45,7 +45,7 @@ export class AddDocumentsResponseBodyDataDocuments extends $dara.Model {
   location?: string;
   /**
    * @remarks
-   * The document name.
+   * The name of the document.
    * 
    * @example
    * example.pdf
@@ -69,7 +69,7 @@ export class AddDocumentsResponseBodyDataDocuments extends $dara.Model {
   run?: string;
   /**
    * @remarks
-   * The file size.
+   * The size of the file.
    * 
    * @example
    * 1024
@@ -93,7 +93,7 @@ export class AddDocumentsResponseBodyDataDocuments extends $dara.Model {
   thumbnail?: string;
   /**
    * @remarks
-   * The token count.
+   * The number of tokens.
    * 
    * @example
    * 0
@@ -185,7 +185,7 @@ export class AddDocumentsResponseBodyData extends $dara.Model {
 export class AddDocumentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The access denial details.
    * 
    * @example
    * {"PolicyType":"AccountLevelIdentityBasedPolicy","AuthPrincipalOwnerId":"1234567890123456","AuthPrincipalType":"SubUser","AuthPrincipalDisplayName":"1234567890123456","NoPermissionType":"ImplicitDeny","AuthAction":"milvusknowledgebase:ListDatasets"}
@@ -193,7 +193,7 @@ export class AddDocumentsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The status code.
+   * The response status code.
    * 
    * @example
    * 0
@@ -230,7 +230,7 @@ export class AddDocumentsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

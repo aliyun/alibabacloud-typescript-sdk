@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKnowledgeBasePreSignedUrlRequestDocuments extends $dara.Model {
   /**
    * @remarks
-   * The display name of the file. If not specified, the file name from Path is used.
+   * The display name of the file. If not specified, the file name from Path is used by default.
    * 
    * @example
    * CHANGELOG.md
@@ -13,7 +13,7 @@ export class GetKnowledgeBasePreSignedUrlRequestDocuments extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The file name or relative path for local upload scenarios. The value cannot start with `direct_upload/` or `uploaded/`, cannot contain empty segments, `.`, or `..`, and must be 1024 bytes or less.
+   * The **file name or relative path** for local upload scenarios. The path cannot start with `direct_upload/` or `uploaded/`, cannot contain empty segments, `.`, or `..`, and must be less than or equal to 1,024 bytes in length.
    * 
    * @example
    * contract-2026.md
@@ -21,7 +21,7 @@ export class GetKnowledgeBasePreSignedUrlRequestDocuments extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The file size in bytes.
+   * The size of the file in bytes.
    * 
    * @example
    * 1024
@@ -55,7 +55,7 @@ export class GetKnowledgeBasePreSignedUrlRequestDocuments extends $dara.Model {
 export class GetKnowledgeBasePreSignedUrlRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of files to upload. You can specify 1 to 100 files.
+   * The list of files to be uploaded. You can specify 1 to 100 files.
    */
   documents?: GetKnowledgeBasePreSignedUrlRequestDocuments[];
   /**
@@ -68,7 +68,7 @@ export class GetKnowledgeBasePreSignedUrlRequest extends $dara.Model {
   expiresIn?: number;
   /**
    * @remarks
-   * The knowledge base ID. Either this parameter or datasetId must be specified. This parameter takes priority.
+   * The ID of the knowledge base. This parameter and datasetId are mutually exclusive. If both are specified, this parameter takes precedence.
    * 
    * @example
    * kb-3bd02617e9be335f

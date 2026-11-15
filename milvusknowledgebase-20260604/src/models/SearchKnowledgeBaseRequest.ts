@@ -21,7 +21,7 @@ export class SearchKnowledgeBaseRequestImage extends $dara.Model {
   objectKey?: string;
   /**
    * @remarks
-   * The URL of the image.
+   * The image URL.
    * 
    * @example
    * https://example.com/invoice.png
@@ -55,12 +55,20 @@ export class SearchKnowledgeBaseRequestImage extends $dara.Model {
 export class SearchKnowledgeBaseRequestRetrievalConfig extends $dara.Model {
   /**
    * @remarks
-   * The number of recalled candidates.
+   * The number of candidates to recall.
    * 
    * @example
    * 5
    */
   candidateCount?: number;
+  /**
+   * @remarks
+   * Specifies whether to enable multi-hop evidence completion. Default value: false. For pilot knowledge bases, this feature can be used on the first page of DRAFT text retrieval. The pageSize can be 5, 10, or 20, which requires a minimum candidateCount of 40, 48, or 64, respectively. When enabled, results are returned by document.
+   * 
+   * @example
+   * true
+   */
+  enableEvidenceCompletion?: boolean;
   /**
    * @remarks
    * Specifies whether to enable query expansion.
@@ -79,7 +87,7 @@ export class SearchKnowledgeBaseRequestRetrievalConfig extends $dara.Model {
   minScore?: number;
   /**
    * @remarks
-   * The weight of semantic relevance.
+   * The weight for semantic relevance.
    * 
    * @example
    * 0.5
@@ -93,6 +101,7 @@ export class SearchKnowledgeBaseRequestRetrievalConfig extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       candidateCount: 'candidateCount',
+      enableEvidenceCompletion: 'enableEvidenceCompletion',
       enableQueryExpansion: 'enableQueryExpansion',
       minScore: 'minScore',
       semanticWeight: 'semanticWeight',
@@ -103,6 +112,7 @@ export class SearchKnowledgeBaseRequestRetrievalConfig extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       candidateCount: 'number',
+      enableEvidenceCompletion: 'boolean',
       enableQueryExpansion: 'boolean',
       minScore: 'number',
       semanticWeight: 'number',
@@ -180,7 +190,7 @@ export class SearchKnowledgeBaseRequestTagFilter extends $dara.Model {
   conditions?: SearchKnowledgeBaseRequestTagFilterConditions[];
   /**
    * @remarks
-   * The logical relation between conditions.
+   * The condition relation.
    * 
    * @example
    * or
@@ -228,7 +238,7 @@ export class SearchKnowledgeBaseRequest extends $dara.Model {
   enableKnowledgeGraph?: boolean;
   /**
    * @remarks
-   * Optional. This parameter is returned conditionally and can be passed only when includeWiki is set to true. Omit this parameter for the first evidence page. For subsequent pages, pass the evidenceNextToken from the previous page as is. The candidate pool, subject, parameters, and page size are fixed and expire after 5 minutes without renewal. If the token expires, a 409 error is returned and no automatic re-search is performed. The pageNumber parameter only controls the legacy results. Constraints: {"minLength":1,"maxLength":4096}.
+   * The evidence page token. This parameter is optional and conditionally returned. It can only be passed when includeWiki is set to true. Omit this parameter for the first evidence page, and pass the evidenceNextToken from the previous page as is for subsequent pages. The candidate pool, subject, parameters, and page size are fixed, and the token expires in 5 minutes without renewal. An expired token returns a 409 error and does not trigger an automatic re-search. The pageNumber parameter only controls the legacy results. Constraint: {"minLength":1,"maxLength":4096}.
    * 
    * @example
    * example-opaque-next-token
@@ -241,7 +251,7 @@ export class SearchKnowledgeBaseRequest extends $dara.Model {
   image?: SearchKnowledgeBaseRequestImage;
   /**
    * @remarks
-   * Optional. This parameter is returned conditionally and is added for compatibility. Default value: false. If set to true, the unified evidenceResults are additionally returned, and Wiki content is not disguised as original text. Constraints: {"default":false}.
+   * Specifies whether to use Wiki evidence. This parameter is optional and conditionally returned, and is added for backward compatibility. Default value: false. If set to true, a unified evidenceResults field is additionally returned without disguising Wiki content as original text. Constraint: {"default":false}.
    * 
    * @example
    * true
@@ -273,7 +283,7 @@ export class SearchKnowledgeBaseRequest extends $dara.Model {
   query?: string;
   /**
    * @remarks
-   * The ID of the rerank model.
+   * The rerank model ID.
    * 
    * @example
    * 123
@@ -299,7 +309,7 @@ export class SearchKnowledgeBaseRequest extends $dara.Model {
   tagFilter?: SearchKnowledgeBaseRequestTagFilter;
   /**
    * @remarks
-   * The version of the knowledge base.
+   * The knowledge base version.
    * 
    * @example
    * v1

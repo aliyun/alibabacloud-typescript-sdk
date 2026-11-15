@@ -47,7 +47,7 @@ export class AddDocumentsRequestDedup extends $dara.Model {
 export class AddDocumentsRequestDocuments extends $dara.Model {
   /**
    * @remarks
-   * The document name.
+   * The name of the document.
    * 
    * @example
    * CHANGELOG.md
@@ -55,7 +55,7 @@ export class AddDocumentsRequestDocuments extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The document path. This is the file name or relative path used during upload, which must be consistent with the pre-signed URL request.
+   * The document path, which is the file name or relative path used during upload. It must be consistent with the pre-signed request.
    * 
    * @example
    * 2026_06_23_17_49_52WwGSUezpG2u2iHWxyYGzkf9KtormhkxN/CHANGELOG.md
@@ -63,7 +63,7 @@ export class AddDocumentsRequestDocuments extends $dara.Model {
   path?: string;
   /**
    * @remarks
-   * The file size.
+   * The size of the file.
    * 
    * @example
    * 1024
@@ -71,7 +71,7 @@ export class AddDocumentsRequestDocuments extends $dara.Model {
   size?: number;
   /**
    * @remarks
-   * The processing strategy ID.
+   * The ID of the processing strategy.
    * 
    * @example
    * kb-strategy-7043984ca395eabd
@@ -107,7 +107,7 @@ export class AddDocumentsRequestDocuments extends $dara.Model {
 export class AddDocumentsRequestDingTalkConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Not supported. Ignore this parameter.
+   * This parameter is not supported and is ignored.
    * 
    * @example
    * ignore
@@ -115,7 +115,7 @@ export class AddDocumentsRequestDingTalkConfiguration extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * Not supported. Ignore this parameter.
+   * This parameter is not supported and is ignored.
    * 
    * @example
    * ignore
@@ -123,7 +123,7 @@ export class AddDocumentsRequestDingTalkConfiguration extends $dara.Model {
   appPassword?: string;
   /**
    * @remarks
-   * Not supported. Ignore this parameter.
+   * This parameter is not supported and is ignored.
    * 
    * @example
    * ignore
@@ -131,7 +131,7 @@ export class AddDocumentsRequestDingTalkConfiguration extends $dara.Model {
   dingDocMcpLink?: string;
   /**
    * @remarks
-   * Not supported. Ignore this parameter.
+   * This parameter is not supported and is ignored.
    * 
    * @example
    * ignore
@@ -139,7 +139,7 @@ export class AddDocumentsRequestDingTalkConfiguration extends $dara.Model {
   dingTableMcpLink?: string;
   /**
    * @remarks
-   * Not supported. Ignore this parameter.
+   * This parameter is not supported and is ignored.
    * 
    * @example
    * ignore
@@ -147,7 +147,7 @@ export class AddDocumentsRequestDingTalkConfiguration extends $dara.Model {
   knowledgeId?: string;
   /**
    * @remarks
-   * Not supported. Ignore this parameter.
+   * This parameter is not supported and is ignored.
    * 
    * @example
    * ignore
@@ -155,7 +155,7 @@ export class AddDocumentsRequestDingTalkConfiguration extends $dara.Model {
   knowledgeType?: string;
   /**
    * @remarks
-   * Not supported. Ignore this parameter.
+   * This parameter is not supported and is ignored.
    * 
    * @example
    * ignore
@@ -215,7 +215,7 @@ export class AddDocumentsRequest extends $dara.Model {
   importType?: string;
   /**
    * @remarks
-   * The knowledge base ID.
+   * The ID of the knowledge base.
    * 
    * @example
    * kb-3bd02617e9be335f
@@ -223,7 +223,7 @@ export class AddDocumentsRequest extends $dara.Model {
   knowledgeBaseId?: string;
   /**
    * @remarks
-   * The batch label configuration. The key must be a label field that is already defined in the knowledge base. The value supports string, int64, float32, bool, and list types.
+   * The batch tag configuration. The key must be a tag field defined in the knowledge base. The value supports the string, int64, float32, bool, and list data types.
    * 
    * @example
    * {"department":"legal","topics":["policy","contract"],"reviewed":true}
@@ -231,7 +231,7 @@ export class AddDocumentsRequest extends $dara.Model {
   metaFields?: any;
   /**
    * @remarks
-   * The processing strategy ID.
+   * The ID of the processing strategy.
    * 
    * @example
    * kb-strategy-7043984ca395eabd
@@ -239,7 +239,7 @@ export class AddDocumentsRequest extends $dara.Model {
   strategyId?: string;
   /**
    * @remarks
-   * Not supported. Ignore this parameter.
+   * This parameter is not supported and is ignored.
    */
   dingTalkConfiguration?: AddDocumentsRequestDingTalkConfiguration;
   /**
