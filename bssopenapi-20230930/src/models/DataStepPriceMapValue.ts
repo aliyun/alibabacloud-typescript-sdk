@@ -3,40 +3,40 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DataStepPriceMapValue extends $dara.Model {
-  rightClose?: boolean;
-  min?: string;
-  max?: string;
   currency?: string;
-  leftClose?: boolean;
-  stepPriceValue?: string;
-  priceValueType?: string;
-  priceValue?: string;
   deductCycleType?: string;
+  leftClose?: boolean;
+  max?: string;
+  min?: string;
+  priceValue?: string;
+  priceValueType?: string;
+  rightClose?: boolean;
+  stepPriceValue?: string;
   static names(): { [key: string]: string } {
     return {
-      rightClose: 'RightClose',
-      min: 'Min',
-      max: 'Max',
       currency: 'Currency',
-      leftClose: 'LeftClose',
-      stepPriceValue: 'StepPriceValue',
-      priceValueType: 'PriceValueType',
-      priceValue: 'PriceValue',
       deductCycleType: 'DeductCycleType',
+      leftClose: 'LeftClose',
+      max: 'Max',
+      min: 'Min',
+      priceValue: 'PriceValue',
+      priceValueType: 'PriceValueType',
+      rightClose: 'RightClose',
+      stepPriceValue: 'StepPriceValue',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      rightClose: 'boolean',
-      min: 'string',
-      max: 'string',
       currency: 'string',
-      leftClose: 'boolean',
-      stepPriceValue: 'string',
-      priceValueType: 'string',
-      priceValue: 'string',
       deductCycleType: 'string',
+      leftClose: 'boolean',
+      max: 'string',
+      min: 'string',
+      priceValue: 'string',
+      priceValueType: 'string',
+      rightClose: 'boolean',
+      stepPriceValue: 'string',
     };
   }
 

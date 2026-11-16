@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListInvoiceTitleResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Bank name.
+   * The account bank name.
    * 
    * @example
-   * 招商银行
+   * China Merchants Bank
    */
   accountBankName?: string;
   /**
    * @remarks
-   * Account ID.
+   * The account ID.
    * 
    * @example
    * 1990699401005016
@@ -21,7 +21,7 @@ export class ListInvoiceTitleResponseBodyData extends $dara.Model {
   accountId?: number;
   /**
    * @remarks
-   * Basic bank account number.
+   * The bank account number.
    * 
    * @example
    * 1234567890
@@ -29,7 +29,7 @@ export class ListInvoiceTitleResponseBodyData extends $dara.Model {
   bankAccountNumber?: string;
   /**
    * @remarks
-   * The time when the invoice title was created.
+   * The time when the invoice title was created. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-06-01 00:00:00
@@ -37,7 +37,7 @@ export class ListInvoiceTitleResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * Invoice title ID.
+   * The invoice title ID.
    * 
    * @example
    * 123456
@@ -45,23 +45,23 @@ export class ListInvoiceTitleResponseBodyData extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * Invoice title.
+   * The invoice title.
    * 
    * @example
-   * xx公司
+   * XX Company
    */
   invoiceTitle?: string;
   /**
    * @remarks
-   * Registered address.
+   * The registered address.
    * 
    * @example
-   * 北京市朝阳区
+   * Chaoyang District, Beijing
    */
   registeredAddress?: string;
   /**
    * @remarks
-   * Registered landline number.
+   * The registered landline number.
    * 
    * @example
    * 010-12345678
@@ -69,7 +69,7 @@ export class ListInvoiceTitleResponseBodyData extends $dara.Model {
   registeredLandline?: string;
   /**
    * @remarks
-   * Unified social credit code. 15, 17, 18, or 20 characters.
+   * The unified social credit code. The code is 15, 17, 18, or 20 characters in length.
    * 
    * @example
    * 111111111111111
@@ -115,12 +115,12 @@ export class ListInvoiceTitleResponseBodyData extends $dara.Model {
 export class ListInvoiceTitleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Invoice title list
+   * The list of invoice titles.
    */
   data?: ListInvoiceTitleResponseBodyData[];
   /**
    * @remarks
-   * Response metadata.
+   * The response metadata.
    * 
    * @example
    * {}
@@ -128,7 +128,7 @@ export class ListInvoiceTitleResponseBody extends $dara.Model {
   metadata?: any;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 6000EE23-274B-4E07-A697-FF2E999520A4

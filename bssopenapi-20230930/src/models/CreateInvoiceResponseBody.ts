@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInvoiceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Account ID.
+   * The account ID.
    * 
    * @example
    * 1990699401005016
@@ -13,7 +13,7 @@ export class CreateInvoiceResponseBodyData extends $dara.Model {
   accountId?: number;
   /**
    * @remarks
-   * Invoice amount.
+   * The invoice amount.
    * 
    * @example
    * 0.01
@@ -21,7 +21,7 @@ export class CreateInvoiceResponseBodyData extends $dara.Model {
   amount?: string;
   /**
    * @remarks
-   * Error code.
+   * The error code.
    * 
    * @example
    * 1001
@@ -29,7 +29,7 @@ export class CreateInvoiceResponseBodyData extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * Invoice issuer.
+   * The invoicing entity.
    * 
    * @example
    * ALIYUN_SERVICE
@@ -37,10 +37,10 @@ export class CreateInvoiceResponseBodyData extends $dara.Model {
   invoiceIssuer?: string;
   /**
    * @remarks
-   * Error message.
+   * The error message.
    * 
    * @example
-   * 不可开票
+   * Not invoiceable
    */
   message?: string;
   static names(): { [key: string]: string } {
@@ -75,12 +75,12 @@ export class CreateInvoiceResponseBodyData extends $dara.Model {
 export class CreateInvoiceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Data list.
+   * The data list.
    */
   data?: CreateInvoiceResponseBodyData[];
   /**
    * @remarks
-   * Response metadata.
+   * The metadata of the response structure.
    * 
    * @example
    * {}
@@ -88,7 +88,7 @@ export class CreateInvoiceResponseBody extends $dara.Model {
   metadata?: any;
   /**
    * @remarks
-   * Request ID.
+   * The request ID.
    * 
    * @example
    * 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F

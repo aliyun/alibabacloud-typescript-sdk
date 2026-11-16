@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitSlaCouponApplyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response struct metadata.
+   * The metadata of the response structure.
    * 
    * @example
    * {}
@@ -13,7 +13,7 @@ export class SubmitSlaCouponApplyResponseBody extends $dara.Model {
   metadata?: any;
   /**
    * @remarks
-   * The unique request ID, which is used to identify a request and troubleshoot issues.
+   * The unique identifier of the request, which is used to mark a request and facilitate troubleshooting.
    * 
    * @example
    * 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F
@@ -29,7 +29,7 @@ export class SubmitSlaCouponApplyResponseBody extends $dara.Model {
   sumCoupon?: number;
   /**
    * @remarks
-   * The end time.
+   * The end time in the EEE MMM dd HH:mm:ss z yyyy format, such as Mon Apr 27 00:00:00 CST 2026.
    * 
    * @example
    * Mon Apr 27 00:00:00 CST 2026
@@ -37,7 +37,7 @@ export class SubmitSlaCouponApplyResponseBody extends $dara.Model {
   validEndTime?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time in the EEE MMM dd HH:mm:ss z yyyy format, such as Tue Oct 27 13:15:58 CST 2026.
    * 
    * @example
    * Tue Oct 27 13:15:58 CST 2026

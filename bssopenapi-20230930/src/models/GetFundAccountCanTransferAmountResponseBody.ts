@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFundAccountCanTransferAmountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Available amount
+   * The available amount.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class GetFundAccountCanTransferAmountResponseBody extends $dara.Model {
   availableAmount?: string;
   /**
    * @remarks
-   * Cash ledger balance
+   * The cash ledger balance.
    * 
    * @example
    * 500
@@ -21,7 +21,7 @@ export class GetFundAccountCanTransferAmountResponseBody extends $dara.Model {
   cashAmount?: string;
   /**
    * @remarks
-   * Currency
+   * The currency.
    * 
    * @example
    * CNY
@@ -29,7 +29,7 @@ export class GetFundAccountCanTransferAmountResponseBody extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * Enterprise entity ID of the account owner
+   * The enterprise entity ID of the fund account owner.
    * 
    * @example
    * 2032121324
@@ -37,7 +37,7 @@ export class GetFundAccountCanTransferAmountResponseBody extends $dara.Model {
   fundAccountEcid?: string;
   /**
    * @remarks
-   * Account ID
+   * The fund account ID.
    * 
    * @example
    * 12332112
@@ -45,15 +45,15 @@ export class GetFundAccountCanTransferAmountResponseBody extends $dara.Model {
   fundAccountId?: number;
   /**
    * @remarks
-   * Account name
+   * The fund account name.
    * 
    * @example
-   * 云某的账户
+   * Yun\\"s account
    */
   fundAccountName?: string;
   /**
    * @remarks
-   * Alibaba Cloud account ID of the fund account owner
+   * The Alibaba Cloud account ID of the fund account owner.
    * 
    * @example
    * 154738212323
@@ -61,7 +61,7 @@ export class GetFundAccountCanTransferAmountResponseBody extends $dara.Model {
   fundAccountOwnerAccountId?: number;
   /**
    * @remarks
-   * Transferable amount
+   * The maximum transferable amount.
    * 
    * @example
    * 100
@@ -69,7 +69,7 @@ export class GetFundAccountCanTransferAmountResponseBody extends $dara.Model {
   maxTransferableAmount?: string;
   /**
    * @remarks
-   * Response metadata
+   * The metadata of the response structure.
    * 
    * @example
    * {}
@@ -77,7 +77,7 @@ export class GetFundAccountCanTransferAmountResponseBody extends $dara.Model {
   metadata?: any;
   /**
    * @remarks
-   * Primary marketplace
+   * The primary sales site.
    * 
    * @example
    * 2684210001
@@ -85,7 +85,7 @@ export class GetFundAccountCanTransferAmountResponseBody extends $dara.Model {
   nbid?: string;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 6000EE23-274B-4E07-A697-FF2E999520A4
@@ -93,7 +93,7 @@ export class GetFundAccountCanTransferAmountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Site
+   * The site.
    * 
    * @example
    * 26842
@@ -101,7 +101,7 @@ export class GetFundAccountCanTransferAmountResponseBody extends $dara.Model {
   site?: string;
   /**
    * @remarks
-   * Transfer ledger balance
+   * The transfer ledger balance.
    * 
    * @example
    * 100

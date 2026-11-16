@@ -16,7 +16,7 @@ export class DescribeCouponResponseBodyDataShareUidList extends $dara.Model {
    * The Alibaba Cloud account.
    * 
    * @example
-   * 阿里云计算有限公司
+   * Alibaba Cloud Computing Ltd
    */
   userNick?: string;
   static names(): { [key: string]: string } {
@@ -51,6 +51,13 @@ export class DescribeCouponResponseBodyData extends $dara.Model {
    * 9929.750000
    */
   amount?: string;
+  /**
+   * @remarks
+   * CertainAmount
+   * 
+   * @example
+   * 100.00
+   */
   certainAmount?: string;
   /**
    * @remarks
@@ -81,7 +88,7 @@ export class DescribeCouponResponseBodyData extends $dara.Model {
    * The coupon type name.
    * 
    * @example
-   * 满减券
+   * Threshold discount coupon
    */
   couponTypeName?: string;
   /**
@@ -94,7 +101,7 @@ export class DescribeCouponResponseBodyData extends $dara.Model {
   currency?: string;
   /**
    * @remarks
-   * The end time.
+   * The end time in ISO 8601 format. The time zone is UTC.
    * 
    * @example
    * 2021-03-06T15:12Z
@@ -102,12 +109,12 @@ export class DescribeCouponResponseBodyData extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * Indicates whether there is a first purchase restriction.
+   * Indicates whether a first-purchase limit applies.
    */
   firstBuy?: boolean;
   /**
    * @remarks
-   * The coupon issuance time.
+   * The time when the coupon was issued.
    * 
    * @example
    * 2021-03-02T15:12Z
@@ -115,7 +122,7 @@ export class DescribeCouponResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The product code list.
+   * The list of product codes.
    */
   itemNames?: string[];
   /**
@@ -123,7 +130,7 @@ export class DescribeCouponResponseBodyData extends $dara.Model {
    * The amount limit.
    * 
    * @example
-   * 无订单金额限制
+   * No order amount limit
    */
   moneyLimit?: string;
   /**
@@ -131,7 +138,7 @@ export class DescribeCouponResponseBodyData extends $dara.Model {
    * The order duration limit rule.
    * 
    * @example
-   * 预付费规则：购买订单时长大于3600s才能使用
+   * Subscription rule: The coupon can be used only for orders with a duration greater than 3,600 seconds
    */
   orderTimeRule?: string;
   /**
@@ -144,20 +151,20 @@ export class DescribeCouponResponseBodyData extends $dara.Model {
   remainAmount?: string;
   /**
    * @remarks
-   * The remarks.
+   * The remark.
    * 
    * @example
-   * 新买28号
+   * New purchase on the 28th
    */
   remark?: string;
   /**
    * @remarks
-   * The shared account list.
+   * The list of shared accounts.
    */
   shareUidList?: DescribeCouponResponseBodyDataShareUidList[];
   /**
    * @remarks
-   * Indicates whether to display the tag deduction button.
+   * Indicates whether the tag deduction button is displayed.
    * 
    * @example
    * true
@@ -176,12 +183,12 @@ export class DescribeCouponResponseBodyData extends $dara.Model {
    * The site name.
    * 
    * @example
-   * 官网自营
+   * Official website direct sales
    */
   siteName?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time in ISO 8601 format. The time zone is UTC.
    * 
    * @example
    * 2021-03-02T15:12Z
@@ -205,7 +212,7 @@ export class DescribeCouponResponseBodyData extends $dara.Model {
   suitAccount?: string;
   /**
    * @remarks
-   * The applicable product type. Valid values: all, which indicates that the coupon is applicable to all products. white, which indicates that the coupon is applicable to specified products. black, which indicates that the coupon is not applicable to specified products.
+   * The applicable product type. Valid values: all: Applicable to all products. white: Applicable to specified products. black: Not applicable to specified products.
    * 
    * @example
    * all
@@ -213,7 +220,7 @@ export class DescribeCouponResponseBodyData extends $dara.Model {
   suitItemType?: string;
   /**
    * @remarks
-   * The coupon applicable scope.
+   * The application scope of the coupon.
    * 
    * @example
    * UNIVERSAL
@@ -221,7 +228,7 @@ export class DescribeCouponResponseBodyData extends $dara.Model {
   universalType?: string;
   /**
    * @remarks
-   * The list of order types applicable to the coupon.
+   * The list of applicable order types for the coupon.
    */
   yhOrderTypes?: string[];
   static names(): { [key: string]: string } {
@@ -318,7 +325,7 @@ export class DescribeCouponResponseBody extends $dara.Model {
   data?: DescribeCouponResponseBodyData[];
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 20

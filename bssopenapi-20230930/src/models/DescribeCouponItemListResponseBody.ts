@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCouponItemListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The product code.
+   * The commodity code.
    * 
    * @example
    * vm
@@ -16,7 +16,7 @@ export class DescribeCouponItemListResponseBodyData extends $dara.Model {
    * The product name.
    * 
    * @example
-   * 云服务器ECS
+   * Elastic Compute Service
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -58,7 +58,7 @@ export class DescribeCouponItemListResponseBody extends $dara.Model {
   data?: DescribeCouponItemListResponseBodyData[];
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 20

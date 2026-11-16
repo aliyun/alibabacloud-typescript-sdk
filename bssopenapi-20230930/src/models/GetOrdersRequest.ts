@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOrdersRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range for order creation. By default, orders created within the most recent 1 hour are queried. Format: YYYY-MM-ddTHH:mm:ssZ. Time zone: UTC.
+   * The end of the time range during which orders were created. By default, orders created within the last hour are queried. Specify the time in the YYYY-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2016-05-23T12:00:00Z
@@ -13,7 +13,7 @@ export class GetOrdersRequest extends $dara.Model {
   createTimeEnd?: string;
   /**
    * @remarks
-   * The start of the time range for order creation. By default, orders created within the most recent 1 hour are queried. Format: YYYY-MM-ddTHH:mm:ssZ. Time zone: UTC.
+   * The start of the time range during which orders were created. By default, orders created within the last hour are queried. Specify the time in the YYYY-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2016-05-23T13:00:00Z
@@ -21,7 +21,7 @@ export class GetOrdersRequest extends $dara.Model {
   createTimeStart?: string;
   /**
    * @remarks
-   * The UID of a member account in the enterprise multi-account management. Leave this parameter empty if this scenario does not apply.
+   * The UID of the member accounts in the enterprise multi-account architecture. Leave this parameter empty if this scenario does not apply.
    * 
    * @example
    * 1779628988149763
@@ -30,18 +30,18 @@ export class GetOrdersRequest extends $dara.Model {
   /**
    * @remarks
    * The order type. Valid values:
-   * - New: new purchase.
-   * - Renew: renewal.
-   * - Upgrade: upgrade.
-   * - TempUpgrade: temporary upgrade.
-   * - Downgrade: downgrade.
-   * - Refund: refund.
-   * - Convert: billing method conversion.
-   * - ResizeDisk: cloud disk resizing.
-   * - CompensatoryRenew: compensatory renewal.
-   * - IncreaseUpgrade: bandwidth upgrade.
-   * - Exchange: exchange.
-   * - ChangeOperatingSystem: operating system change.
+   * - New: new purchase
+   * - Renew: renewal
+   * - Upgrade: upgrade
+   * - TempUpgrade: temporary upgrade
+   * - Downgrade: downgrade
+   * - Refund: refund
+   * - Convert: billing method change
+   * - ResizeDisk: disk resizing
+   * - CompensatoryRenew: compensatory renewal
+   * - IncreaseUpgrade: bandwidth upgrade
+   * - Exchange: exchange
+   * - ChangeOperatingSystem: operating system replacement
    * 
    * @example
    * New
@@ -67,11 +67,11 @@ export class GetOrdersRequest extends $dara.Model {
   /**
    * @remarks
    * The payment status. For non-refund orders, valid values:
-   * - Unpaid: unpaid.
-   * - Paid: paid.
-   * - Cancelled: cancelled.
+   * - Unpaid: unpaid
+   * - Paid: paid
+   * - Cancelled: cancelled
    * 
-   * > For refund orders, this parameter can be set to NULL.
+   * > For refund orders, this parameter can be NULL.
    * 
    * @example
    * Paid
@@ -96,8 +96,8 @@ export class GetOrdersRequest extends $dara.Model {
   /**
    * @remarks
    * The subscription type. Valid values:
-   * - Subscription: upfront.
-   * - PayAsYouGo: pay-as-you-go.
+   * - Subscription: subscription
+   * - PayAsYouGo: pay-as-you-go
    * 
    * @example
    * Subscription

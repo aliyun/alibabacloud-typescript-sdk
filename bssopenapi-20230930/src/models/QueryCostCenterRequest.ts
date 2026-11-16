@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCostCenterRequestEcIdAccountIds extends $dara.Model {
   /**
    * @remarks
-   * The list of account IDs to access. If this parameter is left empty, all accounts under the current entity ID are selected.
+   * The list of accounts to access. If this parameter is left empty, all accounts under the current enterprise entity ID are selected.
    */
   accountIds?: number[];
   /**
    * @remarks
-   * The enterprise entity ID.
+   * The ID of the enterprise entity.
    * 
    * This parameter is required.
    * 
@@ -57,12 +57,12 @@ export class QueryCostCenterRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The list of enterprises and accounts. If this parameter is left empty, the current account is queried.
+   * The list of enterprise entities and accounts. If this parameter is left empty, the current account is queried.
    */
   ecIdAccountIds?: QueryCostCenterRequestEcIdAccountIds[];
   /**
    * @remarks
-   * The ID of the primary marketplace. If this parameter is left empty, the marketplace ID of the current user is used by default.
+   * The ID of the level-1 marketplace. If this parameter is left empty, the ID of the marketplace to which the current user belongs is used by default.
    * 
    * @example
    * 2684201000001
@@ -70,7 +70,7 @@ export class QueryCostCenterRequest extends $dara.Model {
   nbid?: string;
   /**
    * @remarks
-   * The ID of the user who owns the cost center.
+   * The ID of the owner account of the cost center.
    * 
    * This parameter is required.
    * 

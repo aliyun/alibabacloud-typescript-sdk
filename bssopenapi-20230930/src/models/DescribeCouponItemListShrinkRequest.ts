@@ -21,20 +21,20 @@ export class DescribeCouponItemListShrinkRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The list of enterprise entities and accounts. If this parameter is left empty, the current account is queried.
+   * The list of enterprises and accounts. If this parameter is left empty, the current account is queried.
    */
   ecIdAccountIdsShrink?: string;
   /**
    * @remarks
-   * The product name. Fuzzy matching is supported.
+   * The product name. Fuzzy match is supported.
    * 
    * @example
-   * 云服务器ECS
+   * Elastic Compute Service
    */
   name?: string;
   /**
    * @remarks
-   * The level-1 sales channel ID. If this parameter is left empty, the channel ID of the current user is used by default.
+   * The primary marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
    * 
    * @example
    * 2684201000001
@@ -42,7 +42,7 @@ export class DescribeCouponItemListShrinkRequest extends $dara.Model {
   nbid?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 20

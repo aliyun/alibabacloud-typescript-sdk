@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFundAccountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Account creation time
+   * The time when the account was created. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-12-30 12:00:00
@@ -13,7 +13,7 @@ export class ListFundAccountResponseBodyData extends $dara.Model {
   createDate?: string;
   /**
    * @remarks
-   * Account ID of the MA user associated with the account
+   * The account ID of the MA user corresponding to the account.
    * 
    * @example
    * 1232121
@@ -21,15 +21,15 @@ export class ListFundAccountResponseBodyData extends $dara.Model {
   fundAccountAdminAccountId?: string;
   /**
    * @remarks
-   * Name of the MA user associated with the account
+   * The username of the MA user corresponding to the account.
    * 
    * @example
-   * 云某的账户
+   * Yun\\"s account
    */
   fundAccountAdminAccountName?: string;
   /**
    * @remarks
-   * Account ID
+   * The fund account ID.
    * 
    * @example
    * 1022231
@@ -37,15 +37,15 @@ export class ListFundAccountResponseBodyData extends $dara.Model {
   fundAccountId?: string;
   /**
    * @remarks
-   * Account name
+   * The fund account name.
    * 
    * @example
-   * 云某的账户
+   * Yun\\"s account
    */
   fundAccountName?: string;
   /**
    * @remarks
-   * Account ID of the fund account owner
+   * The account ID of the fund account owner.
    * 
    * @example
    * 132123211
@@ -53,10 +53,10 @@ export class ListFundAccountResponseBodyData extends $dara.Model {
   fundAccountOwnerAccountId?: string;
   /**
    * @remarks
-   * Account status.
-   * VALID: valid.
-   * FROZEN: frozen.
-   * CLOSED: closed.
+   * The account status. Valid values:
+   * - VALID: Valid.
+   * - FROZEN: Frozen. 
+   * - CLOSED: Closed.
    * 
    * @example
    * VALID
@@ -64,9 +64,9 @@ export class ListFundAccountResponseBodyData extends $dara.Model {
   fundAccountStatus?: string;
   /**
    * @remarks
-   * Account type.
-   * DIRECT_USER: Alibaba Cloud direct customer account.
-   * RESELLER_QUOTA: ecosystem account.
+   * The account type. Valid values:
+   * - DIRECT_USER: Alibaba Cloud direct customer account. 
+   * - RESELLER_QUOTA: Ecosystem account.
    * 
    * @example
    * DIRECT_USER
@@ -74,7 +74,7 @@ export class ListFundAccountResponseBodyData extends $dara.Model {
   fundAccountType?: string;
   /**
    * @remarks
-   * Level-1 marketplace
+   * The primary marketplace.
    * 
    * @example
    * 2684210001
@@ -82,15 +82,15 @@ export class ListFundAccountResponseBodyData extends $dara.Model {
   nbid?: string;
   /**
    * @remarks
-   * Set of account permissions that the user has.
-   * using: use.
-   * manage: manage.
-   * owner: own.
+   * The set of account permissions owned by the user. Valid values:
+   * - using: Use.
+   * - manage: Manage.
+   * - owner: Own.
    */
   permissions?: string[];
   /**
    * @remarks
-   * Site
+   * The site.
    * 
    * @example
    * 26842
@@ -143,12 +143,12 @@ export class ListFundAccountResponseBodyData extends $dara.Model {
 export class ListFundAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Data list
+   * The data list.
    */
   data?: ListFundAccountResponseBodyData[];
   /**
    * @remarks
-   * Response metadata
+   * The metadata of the response structure.
    * 
    * @example
    * {}
@@ -156,7 +156,7 @@ export class ListFundAccountResponseBody extends $dara.Model {
   metadata?: any;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * 6000EE23-274B-4E07-A697-FF2E999520A4

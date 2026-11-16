@@ -29,12 +29,12 @@ export class DescribeFrInstancesShrinkRequest extends $dara.Model {
   cycleType?: string;
   /**
    * @remarks
-   * The enterprise and account list. If empty, the current account is queried.
+   * The list of enterprises and accounts. If this parameter is left empty, the current account is queried.
    */
   ecIdAccountIdsShrink?: string;
   /**
    * @remarks
-   * The end time.
+   * The end time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1710604800000
@@ -42,7 +42,7 @@ export class DescribeFrInstancesShrinkRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The resource dimension for the query.
+   * The resource dimension to query.
    * 
    * @example
    * cu
@@ -58,7 +58,7 @@ export class DescribeFrInstancesShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The instance tag label value of the resource plan instance.
+   * The tag value of the resource plan instance.
    * 
    * @example
    * FR-***
@@ -66,7 +66,7 @@ export class DescribeFrInstancesShrinkRequest extends $dara.Model {
   instanceTag?: string;
   /**
    * @remarks
-   * The primary marketplace ID. If empty, the marketplace ID of the current user is used by default.
+   * The primary marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
    * 
    * @example
    * 2684202000018
@@ -106,7 +106,7 @@ export class DescribeFrInstancesShrinkRequest extends $dara.Model {
   sortField?: string;
   /**
    * @remarks
-   * The collation for sorting.
+   * The sorting rule.
    * 
    * @example
    * asc
@@ -122,7 +122,7 @@ export class DescribeFrInstancesShrinkRequest extends $dara.Model {
   spec?: string;
   /**
    * @remarks
-   * The start time.
+   * The start time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1678939035000

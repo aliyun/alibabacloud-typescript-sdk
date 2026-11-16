@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFundAccountLowAvailableAmountAlarmRequest extends $dara.Model {
   /**
    * @remarks
-   * Fund account ID. If not specified, the account ID owned by the current account is used by default.
+   * The ID of the fund account. If this parameter is not specified, the ID of the account owned by the current logon account is used by default.
    * 
    * @example
    * 12332112

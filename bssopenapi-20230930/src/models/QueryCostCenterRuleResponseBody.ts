@@ -13,7 +13,7 @@ export class QueryCostCenterRuleResponseBodyFilterExpressionFilterValues extends
   code?: string;
   /**
    * @remarks
-   * The condition filter key name (deprecated).
+   * **[Deprecated]** The name of the condition filter key.
    * 
    * @example
    * None
@@ -21,7 +21,7 @@ export class QueryCostCenterRuleResponseBodyFilterExpressionFilterValues extends
   codeName?: string;
   /**
    * @remarks
-   * The association between the code and value.
+   * The association between code and value.
    * 
    * @example
    * IN
@@ -29,7 +29,7 @@ export class QueryCostCenterRuleResponseBodyFilterExpressionFilterValues extends
   selectType?: string;
   /**
    * @remarks
-   * The attribute value type corresponding to the module Code. Valid values:
+   * The property value type corresponding to the module code. Valid values:
    * - single_float: single value type.
    * - range_float: range value type.
    */
@@ -80,7 +80,7 @@ export class QueryCostCenterRuleResponseBodyFilterExpression extends $dara.Model
   filterValues?: QueryCostCenterRuleResponseBodyFilterExpressionFilterValues;
   /**
    * @remarks
-   * The filter condition (deprecated).
+   * **[Deprecated]** The filter condition.
    * 
    * @example
    * None
@@ -137,7 +137,7 @@ export class QueryCostCenterRuleResponseBodyFilterExpression extends $dara.Model
 export class QueryCostCenterRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cost center ID.
+   * The ID of the cost center.
    * 
    * @example
    * 597745
@@ -175,16 +175,16 @@ export class QueryCostCenterRuleResponseBody extends $dara.Model {
   /**
    * @remarks
    * The deletion status. Valid values:
-   * * **0**: Active.
-   * * **1**: Inactive.
+   * * **0**: active.
+   * * **1**: inactive.
    * 
    * @example
-   * false
+   * 0
    */
   isDeleted?: number;
   /**
    * @remarks
-   * The response struct metadata.
+   * The metadata of the response structure.
    * 
    * @example
    * {}
@@ -192,7 +192,7 @@ export class QueryCostCenterRuleResponseBody extends $dara.Model {
   metadata?: any;
   /**
    * @remarks
-   * The owner of the cost center.
+   * The owner account of the cost center.
    * 
    * @example
    * 1977800748053695
@@ -208,7 +208,7 @@ export class QueryCostCenterRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The root cost center ID.
+   * The ID of the root cost center.
    * 
    * @example
    * 0
@@ -217,8 +217,8 @@ export class QueryCostCenterRuleResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status. Valid values:
-   * - on: Active.
-   * - off: Inactive.
+   * - on: valid.
+   * - off: invalid.
    * 
    * @example
    * on

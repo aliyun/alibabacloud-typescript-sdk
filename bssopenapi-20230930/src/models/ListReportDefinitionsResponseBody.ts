@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListReportDefinitionsResponseBodyReportDefinitions extends $dara.Model {
   /**
    * @remarks
-   * The start billing cycle for push. After the subscription is created, the system automatically pushes data from the start billing cycle to the current time. This parameter does not take effect for monthly bill PDF subscriptions, and historical data is not re-pushed. Data within the last year can be pushed at most.
+   * The start billing cycle for data push. After a successful subscription, the system automatically pushes data from the start billing cycle to the current time. This parameter is invalid for monthly bill PDF subscriptions and historical data is not pushed again. Data for up to the last year can be pushed.
    * 
    * @example
    * 2025-05
@@ -13,7 +13,7 @@ export class ListReportDefinitionsResponseBodyReportDefinitions extends $dara.Mo
   beginBillingCycle?: string;
   /**
    * @remarks
-   * The name of the OSS bucket for file storage.
+   * The name of the OSS bucket where files are stored.
    * 
    * @example
    * oss-bill
@@ -21,7 +21,7 @@ export class ListReportDefinitionsResponseBodyReportDefinitions extends $dara.Mo
   ossBucketName?: string;
   /**
    * @remarks
-   * The UID of the OSS owner that stores the files. If a Bid/Reseller subscription is used and data needs to be pushed to the OSS bucket of a sub-account, specify this parameter. The specified account must be a sub-account of the calling account, and the AliyunConsumeDump2OSSRole permission must be granted to this account. Regular users do not need to specify this parameter. The calling account is used by default.
+   * The UID of the OSS bucket owner. Specify this parameter if the subscription is made by a bidder or reseller and data needs to be pushed to the OSS bucket of a RAM user. The target account must be a RAM user of the calling account and must be granted the AliyunConsumeDump2OSSRole permission. Regular users do not need to specify this parameter. By default, the calling account is used.
    * 
    * @example
    * 1234567812345678
@@ -29,7 +29,7 @@ export class ListReportDefinitionsResponseBodyReportDefinitions extends $dara.Mo
   ossBucketOwnerAccountId?: number;
   /**
    * @remarks
-   * The storage path of the OSS bucket.
+   * The storage path in the OSS bucket.
    * 
    * @example
    * bill/
@@ -45,7 +45,7 @@ export class ListReportDefinitionsResponseBodyReportDefinitions extends $dara.Mo
   reportSourceName?: string;
   /**
    * @remarks
-   * The subscription source. Valid values: OSS and MC.
+   * The type of the subscription source, such as OSS or MC.
    * 
    * @example
    * OSS
@@ -62,19 +62,14 @@ export class ListReportDefinitionsResponseBodyReportDefinitions extends $dara.Mo
   /**
    * @remarks
    * The subscription type. Valid values:
-   * - BillingItemDetailForBillingPeriod: billing item consumption details.
-   * - InstanceDetailForBillingPeriod: instance consumption details.
-   * - BillingItemDetailMonthly: billing item consumption summary by billing cycle.
+   * - BillingItemDetailForBillingPeriod: billing item consumption details
+   * - InstanceDetailForBillingPeriod: instance consumption details
+   * - BillingItemDetailMonthly: billing item consumption summary by billing cycle
    * 
    * @example
    * BillingItemDetailForBillingPeriod
    */
   reportType?: string;
-  /**
-   * @remarks
-   * The fields specified by the user for the subscription.
-   */
-  selectedFields?: string[];
   /**
    * @remarks
    * The time when the subscription was created.
@@ -93,7 +88,6 @@ export class ListReportDefinitionsResponseBodyReportDefinitions extends $dara.Mo
       reportSourceType: 'ReportSourceType',
       reportTaskId: 'ReportTaskId',
       reportType: 'ReportType',
-      selectedFields: 'SelectedFields',
       subscribeCreateTime: 'SubscribeCreateTime',
     };
   }
@@ -108,15 +102,11 @@ export class ListReportDefinitionsResponseBodyReportDefinitions extends $dara.Mo
       reportSourceType: 'string',
       reportTaskId: 'number',
       reportType: 'string',
-      selectedFields: { 'type': 'array', 'itemType': 'string' },
       subscribeCreateTime: 'string',
     };
   }
 
   validate() {
-    if(Array.isArray(this.selectedFields)) {
-      $dara.Model.validateArray(this.selectedFields);
-    }
     super.validate();
   }
 
@@ -128,12 +118,12 @@ export class ListReportDefinitionsResponseBodyReportDefinitions extends $dara.Mo
 export class ListReportDefinitionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The metadata of the response struct.
+   * The metadata of the response structure.
    */
   metadata?: any;
   /**
    * @remarks
-   * The list of report definitions.
+   * The data list.
    */
   reportDefinitions?: ListReportDefinitionsResponseBodyReportDefinitions[];
   /**

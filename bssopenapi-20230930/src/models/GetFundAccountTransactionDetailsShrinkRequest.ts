@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFundAccountTransactionDetailsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * Transaction order number
+   * The transaction order number.
    * 
    * @example
    * 2023212312321
@@ -13,7 +13,7 @@ export class GetFundAccountTransactionDetailsShrinkRequest extends $dara.Model {
   billNumber?: string;
   /**
    * @remarks
-   * Transaction channel serial number
+   * The transaction channel serial number.
    * 
    * @example
    * 20250312334312322
@@ -21,7 +21,7 @@ export class GetFundAccountTransactionDetailsShrinkRequest extends $dara.Model {
   channelTransactionNumber?: string;
   /**
    * @remarks
-   * Current page number
+   * The current page number.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class GetFundAccountTransactionDetailsShrinkRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Query end timestamp (milliseconds)
+   * The end time of the query. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1735664561000
@@ -37,7 +37,7 @@ export class GetFundAccountTransactionDetailsShrinkRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * Fund account ID. If not specified, the account ID owned by the current account (owner) is used by default.
+   * The ID of the fund account. If this parameter is not specified, the ID of the fund account owned by the current account is used by default.
    * 
    * @example
    * 123221232
@@ -45,7 +45,7 @@ export class GetFundAccountTransactionDetailsShrinkRequest extends $dara.Model {
   fundAccountId?: number;
   /**
    * @remarks
-   * Page size (maximum 200)
+   * The number of entries per page. Maximum value: 200.
    * 
    * @example
    * 20
@@ -53,7 +53,7 @@ export class GetFundAccountTransactionDetailsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Query start timestamp (milliseconds)
+   * The start time of the query. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1735664461000
@@ -61,28 +61,22 @@ export class GetFundAccountTransactionDetailsShrinkRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * Transaction channel. If specified, the query filters by transaction channel. If not specified, all channels are queried by default.
-   * 
-   * User balance: ACCT_CASH.
-   * 
-   * Alipay: ALIPAY.
-   * 
-   * Alipay Zhifutong: ALIPAY_ZHIFUTONG.
-   * 
-   * Offline remittance: OFFLINE_REMIT.
-   * 
-   * Credit control quota refund: REFUND.
-   * 
-   * Online banking: UNION_PAY_BANK.
-   * 
-   * Credit card: CREDIT_CARD. (International site only)
-   * 
-   * PayPal: PAYPAL. (International site only)
+   * The list of transaction channels. If you specify transaction channels, the query returns results of the specified channels. If this parameter is not specified, all transaction channels are queried by default. Valid values:
+   * - ACCT_CASH: Account balance.
+   * - ALIPAY: Alipay.
+   * - ALIPAY_ZHIFUTONG: Alipay Zhifutong.
+   * - OFFLINE_REMIT: Offline remittance.
+   * - REFUND: Credit limit refund.
+   * - UNION_PAY_BANK: Online banking.
+   * - CREDIT_CARD: Credit card. (Available only on the international site.)
+   * - PAYPAL: PayPal. (Available only on the international site.)
    */
   transactionChannelListShrink?: string;
   /**
    * @remarks
-   * Transaction direction: in/out (fund inflow/outflow)
+   * The direction of the transaction. Valid values:
+   * - IN: Fund inflow.
+   * - OUT: Fund outflow.
    * 
    * @example
    * IN
@@ -90,7 +84,7 @@ export class GetFundAccountTransactionDetailsShrinkRequest extends $dara.Model {
   transactionDirection?: string;
   /**
    * @remarks
-   * Transaction serial number
+   * The transaction number.
    * 
    * @example
    * 543231231
@@ -98,21 +92,14 @@ export class GetFundAccountTransactionDetailsShrinkRequest extends $dara.Model {
   transactionNumber?: number;
   /**
    * @remarks
-   * Transaction type. If a transaction type is specified, only results of that type are returned. If the specified type does not exist, the result is empty. If not specified, all types are returned by default.
-   * 
-   * Top-up: CHARGE.
-   * 
-   * Withdrawal: WITHDRAW.
-   * 
-   * Refund: REFUND.
-   * 
-   * Payment: PAY.
-   * 
-   * Transfer: TRANSFER.
-   * 
-   * Adjustment: ADJUST.
-   * 
-   * Order expiration refund: PAY_FAILED.
+   * The transaction type. If you specify a transaction type, the query returns results of the specified type. If no results exist, an empty result is returned. If this parameter is not specified, all transaction types are returned by default. Valid values:
+   * - CHARGE: Top-up.
+   * - WITHDRAW: Withdrawal.
+   * - REFUND: Refund.
+   * - PAY: Payment.
+   * - TRANSFER: Transfer.
+   * - ADJUST: Adjustment.
+   * - PAY_FAILED: Refund for an invalid order.
    * 
    * @example
    * CHARGE
@@ -120,7 +107,7 @@ export class GetFundAccountTransactionDetailsShrinkRequest extends $dara.Model {
   transactionType?: string;
   /**
    * @remarks
-   * Transaction type list. Supports querying with multiple parameters.
+   * The list of transaction types. Supports multiple parameter query.
    */
   transactionTypeListShrink?: string;
   static names(): { [key: string]: string } {

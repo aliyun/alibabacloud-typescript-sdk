@@ -3,21 +3,21 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DataModuleMapListSpnTypeMapListValueFilterModules extends $dara.Model {
-  moduleId?: number;
   moduleCode?: string;
+  moduleId?: number;
   moduleName?: string;
   static names(): { [key: string]: string } {
     return {
-      moduleId: 'ModuleId',
       moduleCode: 'ModuleCode',
+      moduleId: 'ModuleId',
       moduleName: 'ModuleName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      moduleId: 'number',
       moduleCode: 'string',
+      moduleId: 'number',
       moduleName: 'string',
     };
   }
@@ -32,21 +32,21 @@ export class DataModuleMapListSpnTypeMapListValueFilterModules extends $dara.Mod
 }
 
 export class DataModuleMapListSpnTypeMapListValueShowModules extends $dara.Model {
-  moduleId?: number;
   moduleCode?: string;
+  moduleId?: number;
   moduleName?: string;
   static names(): { [key: string]: string } {
     return {
-      moduleId: 'ModuleId',
       moduleCode: 'ModuleCode',
+      moduleId: 'ModuleId',
       moduleName: 'ModuleName',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      moduleId: 'number',
       moduleCode: 'string',
+      moduleId: 'number',
       moduleName: 'string',
     };
   }

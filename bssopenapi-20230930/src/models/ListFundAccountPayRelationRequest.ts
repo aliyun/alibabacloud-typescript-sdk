@@ -13,7 +13,7 @@ export class ListFundAccountPayRelationRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Fund account ID.
+   * The fund account ID.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListFundAccountPayRelationRequest extends $dara.Model {
   fundAccountId?: string;
   /**
    * @remarks
-   * The primary marketplace ID. If this parameter is left empty, the ID of the marketplace to which the current user belongs is used by default.
+   * The level-1 marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
    * 
    * @example
    * 2684201000001
@@ -39,9 +39,9 @@ export class ListFundAccountPayRelationRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The relationship status.
-   * valid: valid.
-   * expired: invalid.
+   * The relationship status. Valid values:
+   * - valid: Valid.
+   * - expired: Invalid.
    * 
    * @example
    * valid

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDeductLogsResponseBodyDataBillingCommodity extends $dara.Model {
   /**
    * @remarks
-   * The property code.
+   * The attribute code.
    * 
    * @example
    * snapshot
@@ -13,10 +13,10 @@ export class DescribeDeductLogsResponseBodyDataBillingCommodity extends $dara.Mo
   code?: string;
   /**
    * @remarks
-   * The property name.
+   * The attribute name.
    * 
    * @example
-   * 云服务器ECS-快照
+   * ECS - Snapshot
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class DescribeDeductLogsResponseBodyDataBillingCommodity extends $dara.Mo
 export class DescribeDeductLogsResponseBodyDataBillingPriceField extends $dara.Model {
   /**
    * @remarks
-   * The property code.
+   * The attribute code.
    * 
    * @example
    * Storage
@@ -53,10 +53,10 @@ export class DescribeDeductLogsResponseBodyDataBillingPriceField extends $dara.M
   code?: string;
   /**
    * @remarks
-   * The property name.
+   * The attribute name.
    * 
    * @example
-   * 零折使用容量
+   * Fully offset used capacity
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -85,7 +85,7 @@ export class DescribeDeductLogsResponseBodyDataBillingPriceField extends $dara.M
 export class DescribeDeductLogsResponseBodyDataCapacityType extends $dara.Model {
   /**
    * @remarks
-   * The property code.
+   * The attribute code.
    * 
    * @example
    * absolute
@@ -93,10 +93,10 @@ export class DescribeDeductLogsResponseBodyDataCapacityType extends $dara.Model 
   code?: string;
   /**
    * @remarks
-   * The property name.
+   * The attribute name.
    * 
    * @example
-   * 总量恒定型
+   * Fixed total capacity
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -125,7 +125,7 @@ export class DescribeDeductLogsResponseBodyDataCapacityType extends $dara.Model 
 export class DescribeDeductLogsResponseBodyDataCommodity extends $dara.Model {
   /**
    * @remarks
-   * The property code.
+   * The attribute code.
    * 
    * @example
    * ossbag
@@ -133,10 +133,10 @@ export class DescribeDeductLogsResponseBodyDataCommodity extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The property name.
+   * The attribute name.
    * 
    * @example
-   * 对象存储OSS资源包(包月)
+   * OSS resource plan (subscription)
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -165,7 +165,7 @@ export class DescribeDeductLogsResponseBodyDataCommodity extends $dara.Model {
 export class DescribeDeductLogsResponseBodyDataCycleType extends $dara.Model {
   /**
    * @remarks
-   * The commitment cycle code.
+   * The commitment period code.
    * 
    * @example
    * hour
@@ -173,10 +173,10 @@ export class DescribeDeductLogsResponseBodyDataCycleType extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The commitment cycle name.
+   * The commitment period name.
    * 
    * @example
-   * 小时
+   * Hour
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -205,7 +205,7 @@ export class DescribeDeductLogsResponseBodyDataCycleType extends $dara.Model {
 export class DescribeDeductLogsResponseBodyDataProduct extends $dara.Model {
   /**
    * @remarks
-   * The property code.
+   * The attribute code.
    * 
    * @example
    * oss
@@ -213,10 +213,10 @@ export class DescribeDeductLogsResponseBodyDataProduct extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The property name.
+   * The attribute name.
    * 
    * @example
-   * 对象存储
+   * Object Storage Service
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -245,7 +245,7 @@ export class DescribeDeductLogsResponseBodyDataProduct extends $dara.Model {
 export class DescribeDeductLogsResponseBodyDataTemplate extends $dara.Model {
   /**
    * @remarks
-   * The property code.
+   * The attribute code.
    * 
    * @example
    * FPT_ossbag********
@@ -253,10 +253,10 @@ export class DescribeDeductLogsResponseBodyDataTemplate extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The property name.
+   * The attribute name.
    * 
    * @example
-   * 标准存储包
+   * Standard storage plan
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -301,12 +301,12 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The deducted commodity.
+   * The offset commodity.
    */
   billingCommodity?: DescribeDeductLogsResponseBodyDataBillingCommodity;
   /**
    * @remarks
-   * The deducted commodity code.
+   * The offset commodity code.
    * 
    * @example
    * snapshot
@@ -314,15 +314,15 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
   billingCommodityCode?: string;
   /**
    * @remarks
-   * The deducted commodity name.
+   * The offset commodity name.
    * 
    * @example
-   * 云服务器ECS-快照
+   * ECS - Snapshot
    */
   billingCommodityName?: string;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1679036400000
@@ -330,7 +330,7 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
   billingEndTime?: number;
   /**
    * @remarks
-   * The deduction instance.
+   * The offset instance.
    * 
    * @example
    * cn-beijing
@@ -338,12 +338,12 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
   billingInstanceId?: string;
   /**
    * @remarks
-   * The deduction billable item.
+   * The offset billable item.
    */
   billingPriceField?: DescribeDeductLogsResponseBodyDataBillingPriceField;
   /**
    * @remarks
-   * The deduction billable item code.
+   * The offset billable item code.
    * 
    * @example
    * Storage
@@ -351,15 +351,15 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
   billingPriceFieldCode?: string;
   /**
    * @remarks
-   * The deduction billable item name.
+   * The offset billable item name.
    * 
    * @example
-   * 零折使用容量
+   * Fully offset used capacity
    */
   billingPriceFieldName?: string;
   /**
    * @remarks
-   * The effective period.
+   * The effective period. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1679032800000
@@ -367,7 +367,7 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
   billingStartTime?: number;
   /**
    * @remarks
-   * The display unit of the capacity after deduction.
+   * The display unit for capacity after offset.
    * 
    * @example
    * GB
@@ -375,7 +375,7 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
   capacityAfterDeductViewUnit?: string;
   /**
    * @remarks
-   * The display value of the capacity after deduction.
+   * The display value for capacity after offset.
    * 
    * @example
    * 23.896484
@@ -383,7 +383,7 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
   capacityAfterDeductViewValue?: string;
   /**
    * @remarks
-   * The display unit of the capacity before deduction.
+   * The display unit for capacity before offset.
    * 
    * @example
    * GB
@@ -391,7 +391,7 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
   capacityBeforeDeductViewUnit?: string;
   /**
    * @remarks
-   * The display value of the capacity before deduction.
+   * The display value for capacity before offset.
    * 
    * @example
    * 40.000000
@@ -399,7 +399,7 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
   capacityBeforeDeductViewValue?: string;
   /**
    * @remarks
-   * The display unit of the deducted capacity.
+   * The display unit for offset capacity.
    * 
    * @example
    * GB
@@ -407,7 +407,7 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
   capacityDeductedViewUnit?: string;
   /**
    * @remarks
-   * The display value of the deducted capacity.
+   * The display value for offset capacity.
    * 
    * @example
    * 16.103515
@@ -431,7 +431,7 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
    * The capacity type name.
    * 
    * @example
-   * 总量恒定型
+   * Fixed total capacity
    */
   capacityTypeName?: string;
   /**
@@ -452,17 +452,17 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
    * The commodity name.
    * 
    * @example
-   * 对象存储OSS资源包(包月)
+   * OSS resource plan (subscription)
    */
   commodityName?: string;
   /**
    * @remarks
-   * The commitment cycle.
+   * The commitment period.
    */
   cycleType?: DescribeDeductLogsResponseBodyDataCycleType;
   /**
    * @remarks
-   * The commitment cycle code.
+   * The commitment period code.
    * 
    * @example
    * hour
@@ -470,15 +470,15 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
   cycleTypeCode?: string;
   /**
    * @remarks
-   * The commitment cycle name.
+   * The commitment period name.
    * 
    * @example
-   * 小时
+   * Hour
    */
   cycleTypeName?: string;
   /**
    * @remarks
-   * The deduction time.
+   * The offset time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1679039572000
@@ -510,7 +510,7 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
   instanceBelongAccountName?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * OSSBAG-cn-****s
@@ -518,7 +518,7 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The display unit of the metering amount after deduction.
+   * The display unit of the usage after deduction.
    * 
    * @example
    * Byte
@@ -526,7 +526,7 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
   measureAfterDeductViewUnit?: string;
   /**
    * @remarks
-   * The display value of the metering amount after deduction.
+   * The display value of the usage after deduction.
    * 
    * @example
    * 0
@@ -534,7 +534,7 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
   measureAfterDeductViewValue?: string;
   /**
    * @remarks
-   * The display unit of the metering amount before deduction.
+   * The display unit of the usage before deduction.
    * 
    * @example
    * GB
@@ -542,7 +542,7 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
   measureBeforeDeductViewUnit?: string;
   /**
    * @remarks
-   * The display value of the metering amount before deduction.
+   * The display value of the usage before deduction.
    * 
    * @example
    * 16.103515
@@ -550,7 +550,7 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
   measureBeforeDeductViewValue?: string;
   /**
    * @remarks
-   * The display unit of the deducted metering amount.
+   * The display unit of the deducted usage.
    * 
    * @example
    * GB
@@ -558,7 +558,7 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
   measureDeductedViewUnit?: string;
   /**
    * @remarks
-   * The display value of the deducted metering amount.
+   * The display value of the deducted usage.
    * 
    * @example
    * 16.103515
@@ -582,12 +582,12 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
    * The product name.
    * 
    * @example
-   * 对象存储
+   * Object Storage Service
    */
   productName?: string;
   /**
    * @remarks
-   * The deduction account ID.
+   * The ID of the deduction account.
    * 
    * @example
    * 1990699401005016
@@ -595,7 +595,7 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
   relationAccountId?: number;
   /**
    * @remarks
-   * The deduction account name.
+   * The name of the deduction account.
    * 
    * @example
    * icloudtest
@@ -619,7 +619,7 @@ export class DescribeDeductLogsResponseBodyData extends $dara.Model {
    * The template name.
    * 
    * @example
-   * 标准存储包
+   * Standard storage plan
    */
   templateName?: string;
   static names(): { [key: string]: string } {

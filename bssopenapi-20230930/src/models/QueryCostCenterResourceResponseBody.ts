@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extends $dara.Model {
   /**
    * @remarks
-   * The add strategy.
+   * The allocation strategy.
    * 
    * @example
    * AUTO_ALLOCATE
@@ -13,10 +13,10 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
   addStrategy?: string;
   /**
    * @remarks
-   * The Policy Name of the add policy.
+   * The added policy name.
    * 
    * @example
-   * automatic allocation
+   * Automatic allocation
    */
   addStrategyName?: string;
   /**
@@ -69,7 +69,7 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
   costCenterCode?: string;
   /**
    * @remarks
-   * The time when the cost center was created.
+   * The creation time of the cost center. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-05-18 12:12:25
@@ -93,7 +93,7 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
   costCenterName?: string;
   /**
    * @remarks
-   * The time when the cost center was last updated.
+   * The last update time of the cost center. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-05-18 16:12:25
@@ -101,7 +101,7 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
   costCenterUpdateTime?: string;
   /**
    * @remarks
-   * The rule version.
+   * The version of the rule.
    * 
    * @example
    * 3
@@ -109,7 +109,7 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
   financeUnitRuleVersion?: number;
   /**
    * @remarks
-   * The billing granularity ID.
+   * The ID of the billing granularity.
    * 
    * @example
    * cn-hangzhou;standard
@@ -117,7 +117,7 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
   instanceId?: string;
   /**
    * @remarks
-   * The associated commodity code.
+   * The code of the associated commodity.
    * 
    * @example
    * ecs
@@ -133,7 +133,7 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
   masterInstanceId?: string;
   /**
    * @remarks
-   * The ID of the customer to whom the cost center belongs.
+   * The ID of the customer to which the cost center belongs.
    * 
    * @example
    * 1234567812345678
@@ -141,10 +141,10 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
   ownerAccountId?: number;
   /**
    * @remarks
-   * The name of the customer to whom the cost center belongs.
+   * The name of the customer to which the cost center belongs.
    * 
    * @example
-   * CustomerA
+   * Customer A
    */
   ownerAccountName?: string;
   /**
@@ -157,7 +157,7 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
   parentCostCenterId?: number;
   /**
    * @remarks
-   * The product code, which is the same as the product code in User Center bills.
+   * The product code, which is the same as the product code in the User Center bill.
    * 
    * @example
    * rds
@@ -165,7 +165,7 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
   pipCode?: string;
   /**
    * @remarks
-   * The product name.
+   * The name of the product.
    * 
    * @example
    * ApsaraDB
@@ -173,7 +173,7 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
   pipName?: string;
   /**
    * @remarks
-   * The most recent billing cycle.
+   * The latest billing cycle.
    * 
    * @example
    * 202509
@@ -181,7 +181,7 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
   recentBillingMonth?: number;
   /**
    * @remarks
-   * The region name.
+   * The name of the region.
    * 
    * @example
    * Shanghai
@@ -205,7 +205,7 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
   resourceGroup?: string;
   /**
    * @remarks
-   * The resource ID.
+   * The ID of the resource.
    * 
    * @example
    * OSSBAG-cn-v0h1s4hma018
@@ -221,9 +221,9 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
   resourceNick?: string;
   /**
    * @remarks
-   * The resource source. Valid values:
-   * - AUTO_ALLOCATE: automatic allocation.
-   * - MANUAL_ALLOCATE: manual allocation.
+   * The source of the resource. Valid values:
+   * - AUTO_ALLOCATE: Automatic allocation.
+   * - MANUAL_ALLOCATE: Manual allocation.
    * 
    * @example
    * MANUAL_ALLOCATE
@@ -239,7 +239,7 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
   resourceTag?: string;
   /**
    * @remarks
-   * The resource type.
+   * The type of the resource.
    * 
    * @example
    * FPT_ossbag_absolute_Storage_bj
@@ -247,7 +247,7 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
   resourceType?: string;
   /**
    * @remarks
-   * The time when the cost center was last updated. This is a reserved field and is currently unavailable.
+   * The last update time of the cost center. This is a reserved field and is currently unavailable. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-05-18 16:12:25
@@ -255,7 +255,7 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
   resourceUpdateTime?: string;
   /**
    * @remarks
-   * The user ID of the resource owner.
+   * The ID of the user that owns the resource.
    * 
    * @example
    * 1234567812345678
@@ -263,7 +263,7 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
   resourceUserId?: number;
   /**
    * @remarks
-   * The username of the resource owner.
+   * The name of the user that owns the resource.
    * 
    * @example
    * test@test.aliyun.com
@@ -279,7 +279,7 @@ export class QueryCostCenterResourceResponseBodyCostCenterResourceDtoList extend
   rootCostCenterId?: number;
   /**
    * @remarks
-   * The billing cycle in which the rule takes effect.
+   * The billing cycle when the rule takes effect.
    * 
    * @example
    * 202509
@@ -390,7 +390,7 @@ export class QueryCostCenterResourceResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response metadata.
+   * The metadata of the response structure.
    * 
    * @example
    * {}
@@ -398,7 +398,7 @@ export class QueryCostCenterResourceResponseBody extends $dara.Model {
   metadata?: any;
   /**
    * @remarks
-   * The token for the next query. If this parameter is empty, no more results exist.
+   * The token for the next query. An empty value indicates that no more results are available.
    * 
    * This parameter is required.
    * 
@@ -408,7 +408,7 @@ export class QueryCostCenterResourceResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 79EE7556-0CFD-44EB-9CD6-B3B526E3A85F

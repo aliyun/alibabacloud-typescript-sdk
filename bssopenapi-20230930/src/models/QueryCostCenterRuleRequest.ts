@@ -10,7 +10,7 @@ export class QueryCostCenterRuleRequestEcIdAccountIds extends $dara.Model {
   accountIds?: number[];
   /**
    * @remarks
-   * The enterprise entity ID.
+   * The ID of the enterprise entity.
    * 
    * This parameter is required.
    * 
@@ -60,7 +60,7 @@ export class QueryCostCenterRuleRequest extends $dara.Model {
   ecIdAccountIds?: QueryCostCenterRuleRequestEcIdAccountIds[];
   /**
    * @remarks
-   * The ID of the primary marketplace. If this parameter is left empty, the marketplace ID of the current user is used by default.
+   * The ID of the level-1 marketplace. If this parameter is left empty, the ID of the marketplace to which the current user belongs is used by default.
    * 
    * @example
    * 2684201000001

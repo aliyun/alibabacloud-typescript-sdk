@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFundAccountTransactionDetailsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Balance after the operation
+   * The balance after the operation.
    * 
    * @example
    * 5
@@ -13,7 +13,7 @@ export class GetFundAccountTransactionDetailsResponseBodyData extends $dara.Mode
   balance?: string;
   /**
    * @remarks
-   * Order number or bill number
+   * The order number or bill number.
    * 
    * @example
    * 2323203243
@@ -21,7 +21,7 @@ export class GetFundAccountTransactionDetailsResponseBodyData extends $dara.Mode
   billNumber?: string;
   /**
    * @remarks
-   * External transaction serial number
+   * The external transaction reference number.
    * 
    * @example
    * 20244389232
@@ -29,7 +29,7 @@ export class GetFundAccountTransactionDetailsResponseBodyData extends $dara.Mode
   channelTransactionNumber?: string;
   /**
    * @remarks
-   * Transaction amount currency
+   * The currency of the transaction amount.
    * 
    * @example
    * USD
@@ -37,7 +37,7 @@ export class GetFundAccountTransactionDetailsResponseBodyData extends $dara.Mode
   currency?: string;
   /**
    * @remarks
-   * Enterprise entity ID
+   * The enterprise entity ID.
    * 
    * @example
    * 23473943
@@ -45,7 +45,7 @@ export class GetFundAccountTransactionDetailsResponseBodyData extends $dara.Mode
   fundAccountEcid?: string;
   /**
    * @remarks
-   * Account ID
+   * The account ID.
    * 
    * @example
    * 1232121
@@ -53,15 +53,15 @@ export class GetFundAccountTransactionDetailsResponseBodyData extends $dara.Mode
   fundAccountId?: number;
   /**
    * @remarks
-   * Account name
+   * The account name.
    * 
    * @example
-   * 云某的名称
+   * Name of the user
    */
   fundAccountName?: string;
   /**
    * @remarks
-   * Alibaba Cloud account ID of the account owner
+   * The Alibaba Cloud account ID of the account owner.
    * 
    * @example
    * 32343231
@@ -69,7 +69,7 @@ export class GetFundAccountTransactionDetailsResponseBodyData extends $dara.Mode
   fundAccountOwnerAccountId?: number;
   /**
    * @remarks
-   * Fund type
+   * The fund type.
    * 
    * @example
    * ACCT_BOOK
@@ -77,7 +77,7 @@ export class GetFundAccountTransactionDetailsResponseBodyData extends $dara.Mode
   fundType?: string;
   /**
    * @remarks
-   * Primary marketplace
+   * The primary sales channel.
    * 
    * @example
    * 2684210001
@@ -85,15 +85,15 @@ export class GetFundAccountTransactionDetailsResponseBodyData extends $dara.Mode
   nbid?: string;
   /**
    * @remarks
-   * Remarks
+   * The remark.
    * 
    * @example
-   * 订单备注
+   * Order remark
    */
   remark?: string;
   /**
    * @remarks
-   * Site
+   * The site.
    * 
    * @example
    * 26842
@@ -101,7 +101,7 @@ export class GetFundAccountTransactionDetailsResponseBodyData extends $dara.Mode
   site?: string;
   /**
    * @remarks
-   * Corresponding transaction account, such as the Alipay top-up account or the counterparty account for transfers.
+   * The corresponding transaction account, such as the Alipay top-up account or the peer account for transfers.
    * 
    * @example
    * 186****3975
@@ -109,7 +109,7 @@ export class GetFundAccountTransactionDetailsResponseBodyData extends $dara.Mode
   transactionAccount?: string;
   /**
    * @remarks
-   * Transaction amount
+   * The transaction amount.
    * 
    * @example
    * 10
@@ -117,23 +117,15 @@ export class GetFundAccountTransactionDetailsResponseBodyData extends $dara.Mode
   transactionAmount?: string;
   /**
    * @remarks
-   * Transaction channel. If specified, the query filters by transaction channel. If not specified, all channels are queried by default.
-   * 
-   * User balance: ACCT_CASH.
-   * 
-   * Alipay: ALIPAY.
-   * 
-   * Alipay Zhifutong: ALIPAY_ZHIFUTONG.
-   * 
-   * Offline remittance: OFFLINE_REMIT.
-   * 
-   * Credit control quota refund: REFUND.
-   * 
-   * Online banking: UNION_PAY_BANK.
-   * 
-   * Credit card: CREDIT_CARD. (International site only)
-   * 
-   * PayPal: PAYPAL. (International site only)
+   * The list of transaction channels. If you specify transaction channels, the query returns results of the specified channels. If this parameter is not specified, all transaction channels are queried by default. Valid values:
+   * - ACCT_CASH: Account balance.
+   * - ALIPAY: Alipay.
+   * - ALIPAY_ZHIFUTONG: Alipay Zhifutong.
+   * - OFFLINE_REMIT: Offline remittance.
+   * - REFUND: Credit limit refund.
+   * - UNION_PAY_BANK: Online banking.
+   * - CREDIT_CARD: Credit card. (Available only on the international site.)
+   * - PAYPAL: PayPal. (Available only on the international site.)
    * 
    * @example
    * ALIPAY
@@ -141,7 +133,7 @@ export class GetFundAccountTransactionDetailsResponseBodyData extends $dara.Mode
   transactionChannel?: string;
   /**
    * @remarks
-   * Transaction direction: in/out (income/expenditure)
+   * The transaction direction. Valid values: in (income) and out (expense).
    * 
    * @example
    * IN
@@ -149,7 +141,7 @@ export class GetFundAccountTransactionDetailsResponseBodyData extends $dara.Mode
   transactionDirection?: string;
   /**
    * @remarks
-   * Transaction serial number
+   * The transaction number.
    * 
    * @example
    * 5423121
@@ -157,7 +149,7 @@ export class GetFundAccountTransactionDetailsResponseBodyData extends $dara.Mode
   transactionNumber?: number;
   /**
    * @remarks
-   * Formatted transaction time string
+   * The formatted string of the transaction time.
    * 
    * @example
    * 2024-12-01 12:00:00
@@ -165,21 +157,14 @@ export class GetFundAccountTransactionDetailsResponseBodyData extends $dara.Mode
   transactionTime?: string;
   /**
    * @remarks
-   * Transaction type. If a transaction type is specified, only results of that type are returned. If the specified type does not exist, the result is empty. If not specified, all types are returned by default.
-   * 
-   * Top-up: CHARGE.
-   * 
-   * Withdrawal: WITHDRAW.
-   * 
-   * Refund: REFUND.
-   * 
-   * Payment: PAY.
-   * 
-   * Transfer: TRANSFER.
-   * 
-   * Adjustment: ADJUST.
-   * 
-   * Order expiration refund: PAY_FAILED.
+   * The transaction type. If you specify a transaction type, the query returns results of the specified type. If no results exist, an empty result is returned. If this parameter is not specified, all transaction types are returned by default. Valid values:
+   * - CHARGE: Top-up.
+   * - WITHDRAW: Withdrawal.
+   * - REFUND: Refund.
+   * - PAY: Payment.
+   * - TRANSFER: Transfer.
+   * - ADJUST: Adjustment.
+   * - PAY_FAILED: Refund for an invalid order.
    * 
    * @example
    * CHARGE
@@ -245,7 +230,7 @@ export class GetFundAccountTransactionDetailsResponseBodyData extends $dara.Mode
 export class GetFundAccountTransactionDetailsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Current page number
+   * The current page number.
    * 
    * @example
    * 1
@@ -253,12 +238,12 @@ export class GetFundAccountTransactionDetailsResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * Data list
+   * The data list.
    */
   data?: GetFundAccountTransactionDetailsResponseBodyData[];
   /**
    * @remarks
-   * Response structure metadata
+   * The metadata of the response structure.
    * 
    * @example
    * {}
@@ -266,7 +251,7 @@ export class GetFundAccountTransactionDetailsResponseBody extends $dara.Model {
   metadata?: any;
   /**
    * @remarks
-   * Page size
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -274,7 +259,7 @@ export class GetFundAccountTransactionDetailsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Request ID
+   * The request ID.
    * 
    * @example
    * D6E068C3-25BC-455A-85FE-45F0B22ECB1F
@@ -282,7 +267,7 @@ export class GetFundAccountTransactionDetailsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total number of records
+   * The total number of records.
    * 
    * @example
    * 30

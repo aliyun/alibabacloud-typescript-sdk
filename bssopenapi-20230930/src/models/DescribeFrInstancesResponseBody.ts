@@ -3,8 +3,20 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeFrInstancesResponseBodyDataAutoPurchase extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether auto-purchase is already applied.
+   */
   alreadyAutoPurchase?: boolean;
+  /**
+   * @remarks
+   * Indicates whether auto-purchase is configured.
+   */
   settingAutoPurchase?: boolean;
+  /**
+   * @remarks
+   * Indicates whether auto-purchase is supported.
+   */
   supportAutoPurchase?: boolean;
   static names(): { [key: string]: string } {
     return {
@@ -45,7 +57,7 @@ export class DescribeFrInstancesResponseBodyDataCapacityType extends $dara.Model
    * The property name.
    * 
    * @example
-   * Total decrement
+   * Total decreasing type
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -85,7 +97,7 @@ export class DescribeFrInstancesResponseBodyDataCommodity extends $dara.Model {
    * The property name.
    * 
    * @example
-   * ALB Resource Plan
+   * ALB resource plan
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -114,7 +126,7 @@ export class DescribeFrInstancesResponseBodyDataCommodity extends $dara.Model {
 export class DescribeFrInstancesResponseBodyDataCycleType extends $dara.Model {
   /**
    * @remarks
-   * The commitment cycle code.
+   * The commitment period code.
    * 
    * @example
    * hour
@@ -122,7 +134,7 @@ export class DescribeFrInstancesResponseBodyDataCycleType extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The commitment cycle name.
+   * The commitment period name.
    * 
    * @example
    * Hour
@@ -154,7 +166,7 @@ export class DescribeFrInstancesResponseBodyDataCycleType extends $dara.Model {
 export class DescribeFrInstancesResponseBodyDataDeductRegions extends $dara.Model {
   /**
    * @remarks
-   * The deductible region code.
+   * The code of the deductible region.
    * 
    * @example
    * cn-beijing
@@ -285,7 +297,7 @@ export class DescribeFrInstancesResponseBodyDataTemplate extends $dara.Model {
    * The property name.
    * 
    * @example
-   * Chinese mainland regions
+   * Chinese mainland region
    */
   name?: string;
   static names(): { [key: string]: string } {
@@ -328,13 +340,17 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
    * icloudtest
    */
   accountName?: string;
+  /**
+   * @remarks
+   * The auto-purchase information.
+   */
   autoPurchase?: DescribeFrInstancesResponseBodyDataAutoPurchase;
   /**
    * @remarks
    * The capacity type name.
    * 
    * @example
-   * Total decrement
+   * Total decreasing type
    */
   capacitiyTypeName?: string;
   /**
@@ -368,7 +384,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
    * The commodity name.
    * 
    * @example
-   * Performance Testing
+   * Performance testing
    */
   commodityName?: string;
   /**
@@ -405,12 +421,12 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
   currCapacityViewValue?: string;
   /**
    * @remarks
-   * The commitment cycle.
+   * The commitment period.
    */
   cycleType?: DescribeFrInstancesResponseBodyDataCycleType;
   /**
    * @remarks
-   * The commitment cycle code.
+   * The commitment period code.
    * 
    * @example
    * hour
@@ -418,7 +434,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
   cycleTypeCode?: string;
   /**
    * @remarks
-   * The commitment cycle name.
+   * The commitment period name.
    * 
    * @example
    * Hour
@@ -429,6 +445,10 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
    * The list of deductible regions.
    */
   deductRegions?: DescribeFrInstancesResponseBodyDataDeductRegions[];
+  /**
+   * @remarks
+   * Indicates whether the deduction rule is enabled.
+   */
   enableDeductRule?: boolean;
   /**
    * @remarks
@@ -456,7 +476,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
   enableUpgrade?: boolean;
   /**
    * @remarks
-   * The expiration time.
+   * The expiration time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1710604800000
@@ -464,7 +484,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The exchange commodity code.
+   * The commodity code for exchange.
    * 
    * @example
    * null
@@ -528,7 +548,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
   periodCapacityViewValue?: string;
   /**
    * @remarks
-   * The period time.
+   * The period time unit, such as hour.
    * 
    * @example
    * hour
@@ -552,12 +572,12 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
    * The product name.
    * 
    * @example
-   * Performance Testing
+   * Performance testing
    */
   productName?: string;
   /**
    * @remarks
-   * The purchase time.
+   * The purchase time. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1678939036000
@@ -568,7 +588,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
    * The region.
    * 
    * @example
-   * *
+   * cn-qingdao
    */
   region?: string;
   /**
@@ -584,12 +604,12 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
    * The specification.
    * 
    * @example
-   * *
+   * 1000CU
    */
   spec?: string;
   /**
    * @remarks
-   * The effective period.
+   * The effective period. This value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1678939035000
@@ -639,7 +659,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The periodic capacity base unit.
+   * The base unit of the period capacity.
    * 
    * @example
    * CU
@@ -647,7 +667,7 @@ export class DescribeFrInstancesResponseBodyData extends $dara.Model {
   periodCapacityBaseUnit?: string;
   /**
    * @remarks
-   * The periodic capacity base value.
+   * The base value of the period capacity.
    * 
    * @example
    * 1000.000000

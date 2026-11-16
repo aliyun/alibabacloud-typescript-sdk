@@ -13,7 +13,7 @@ export class QueryMonthlySlaListResponseBodyData extends $dara.Model {
   availableRate?: number;
   /**
    * @remarks
-   * The unique identifier of the damaged record, which is used to call the applyCoupon operation for targeted claim.
+   * The unique identifier of the damage record, which is used for targeted claims.
    * 
    * @example
    * 9b7***9413
@@ -21,7 +21,7 @@ export class QueryMonthlySlaListResponseBodyData extends $dara.Model {
   damagedId?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * @example
    * OSSBAG-cn-0xl0n****003
@@ -37,7 +37,7 @@ export class QueryMonthlySlaListResponseBodyData extends $dara.Model {
   month?: number;
   /**
    * @remarks
-   * The monthly service charge.
+   * The monthly service fee.
    * 
    * @example
    * 365.00
@@ -53,7 +53,7 @@ export class QueryMonthlySlaListResponseBodyData extends $dara.Model {
   payDescription?: string;
   /**
    * @remarks
-   * The compensation ratio, in percentage (%).
+   * The compensation ratio, in percentage.
    * 
    * @example
    * 10
@@ -61,10 +61,7 @@ export class QueryMonthlySlaListResponseBodyData extends $dara.Model {
   payRate?: number;
   /**
    * @remarks
-   * The compensation status. Valid values:
-   * - 0: not compensated.
-   * - 1: compensated.
-   * - 2: no compensation required.
+   * The compensation status. Valid values: 0: Not compensated. 1: Compensated. 2: No compensation required.
    * 
    * @example
    * 1
@@ -72,7 +69,7 @@ export class QueryMonthlySlaListResponseBodyData extends $dara.Model {
   payStatus?: number;
   /**
    * @remarks
-   * The product code.
+   * The code of the product.
    * 
    * @example
    * oss
@@ -80,7 +77,7 @@ export class QueryMonthlySlaListResponseBodyData extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The compensation amount that should be paid.
+   * The compensation amount to be paid.
    * 
    * @example
    * 36.5
@@ -136,12 +133,12 @@ export class QueryMonthlySlaListResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The data list.
+   * The list of data.
    */
   data?: QueryMonthlySlaListResponseBodyData[];
   /**
    * @remarks
-   * The response metadata.
+   * The metadata of the response structure.
    * 
    * @example
    * {}
@@ -157,7 +154,7 @@ export class QueryMonthlySlaListResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6000EE23-274B-4E07-A697-FF2E999520A4

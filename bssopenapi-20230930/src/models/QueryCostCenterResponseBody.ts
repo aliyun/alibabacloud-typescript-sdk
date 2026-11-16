@@ -24,7 +24,7 @@ export class QueryCostCenterResponseBodyCostCenterDtoList extends $dara.Model {
    * The name of the cost center. The name must be unique within the same account.
    * 
    * @example
-   * ResourceGroup
+   * Resource group
    */
   costCenterName?: string;
   /**
@@ -32,12 +32,12 @@ export class QueryCostCenterResponseBodyCostCenterDtoList extends $dara.Model {
    * The level of the cost center node.
    * 
    * @example
-   * loose
+   * 1
    */
   level?: number;
   /**
    * @remarks
-   * The ID of the user who owns the cost center.
+   * The ID of the owner account of the cost center.
    * 
    * @example
    * 1314839403940987
@@ -62,6 +62,9 @@ export class QueryCostCenterResponseBodyCostCenterDtoList extends $dara.Model {
   /**
    * @remarks
    * The priority of the cost center.
+   * 
+   * @example
+   * 0
    */
   priority?: number;
   static names(): { [key: string]: string } {
@@ -102,7 +105,7 @@ export class QueryCostCenterResponseBodyCostCenterDtoList extends $dara.Model {
 export class QueryCostCenterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of cost center data.
+   * The data list.
    */
   costCenterDtoList?: QueryCostCenterResponseBodyCostCenterDtoList[];
   /**
@@ -115,7 +118,7 @@ export class QueryCostCenterResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The metadata of the response struct.
+   * The metadata of the response structure.
    * 
    * @example
    * {}

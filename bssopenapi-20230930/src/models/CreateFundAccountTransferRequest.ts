@@ -26,7 +26,7 @@ export class CreateFundAccountTransferRequest extends $dara.Model {
   /**
    * @remarks
    * The asset type. Currently, only cash is supported. Valid values:
-   * - cash: cash.
+   * - cash: Cash.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class CreateFundAccountTransferRequest extends $dara.Model {
   financeType?: string;
   /**
    * @remarks
-   * The ID of the source account (payer account ID).
+   * The ID of the source account.
    * 
    * This parameter is required.
    * 
@@ -51,12 +51,12 @@ export class CreateFundAccountTransferRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 转账的备注
+   * Remarks for the transfer
    */
   remark?: string;
   /**
    * @remarks
-   * The ID of the destination account (payee account ID).
+   * The ID of the destination account.
    * 
    * This parameter is required.
    * 
@@ -67,8 +67,8 @@ export class CreateFundAccountTransferRequest extends $dara.Model {
   /**
    * @remarks
    * The transfer type. Valid values:
-   * - grant: transfer.
-   * - recycle: revocation.
+   * - grant: Allocation.
+   * - recycle: Revocation.
    * 
    * This parameter is required.
    * 

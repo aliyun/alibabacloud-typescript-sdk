@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class GetFundAccountLowAvailableAmountAlarmResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Whether the alert is enabled
+   * Indicates whether the low balance alert is enabled.
    */
   alarmEnabled?: boolean;
   /**
    * @remarks
-   * Response structure metadata
+   * The metadata of the response struct.
    * 
    * @example
    * {}
@@ -18,7 +18,7 @@ export class GetFundAccountLowAvailableAmountAlarmResponseBody extends $dara.Mod
   metadata?: any;
   /**
    * @remarks
-   * Request ID
+   * The ID of the request.
    * 
    * @example
    * 6000EE23-274B-4E07-A697-FF2E999520A4
@@ -26,7 +26,7 @@ export class GetFundAccountLowAvailableAmountAlarmResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * Alert threshold
+   * The alert threshold.
    * 
    * @example
    * 100

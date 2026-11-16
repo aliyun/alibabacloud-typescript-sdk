@@ -19,6 +19,10 @@ export class DescribeCouponShrinkRequest extends $dara.Model {
    * 554863270150
    */
   couponNo?: string;
+  /**
+   * @remarks
+   * The list of coupon template IDs.
+   */
   couponTemplateIdListShrink?: string;
   /**
    * @remarks
@@ -40,12 +44,12 @@ export class DescribeCouponShrinkRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The enterprise and account list. If this parameter is left empty, the current account is queried.
+   * The list of enterprises and accounts. If this parameter is left empty, the coupons of the current account are queried.
    */
   ecIdAccountIdsShrink?: string;
   /**
    * @remarks
-   * The effective end time.
+   * The effective end time, specified as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1708423156000
@@ -53,7 +57,7 @@ export class DescribeCouponShrinkRequest extends $dara.Model {
   effectiveEndTime?: number;
   /**
    * @remarks
-   * The effective start time.
+   * The effective start time, specified as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1684750028000
@@ -61,7 +65,7 @@ export class DescribeCouponShrinkRequest extends $dara.Model {
   effectiveStartTime?: number;
   /**
    * @remarks
-   * The expiration end time.
+   * The expiration end time, specified as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1708423156000
@@ -69,26 +73,41 @@ export class DescribeCouponShrinkRequest extends $dara.Model {
   expireEndDate?: number;
   /**
    * @remarks
-   * The expiration start time.
+   * The expiration start time, specified as a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1684750028000
    */
   expireStartDate?: number;
+  /**
+   * @remarks
+   * Specifies whether to include shared coupons.
+   */
   includeShare?: boolean;
+  /**
+   * @remarks
+   * The maximum number of entries to return for a single query.
+   * 
+   * @example
+   * 20
+   */
   maxResults?: number;
   /**
    * @remarks
-   * The primary campaign information.
+   * The level-1 site information.
    * 
    * @example
    * 2684201000001
    */
   nbid?: string;
+  /**
+   * @remarks
+   * The token used to start the next query. If this parameter is left empty, no more pages exist.
+   */
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * This parameter is required.
    * 
@@ -96,6 +115,13 @@ export class DescribeCouponShrinkRequest extends $dara.Model {
    * 20
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The product code.
+   * 
+   * @example
+   * sfm
+   */
   productCode?: string;
   /**
    * @remarks

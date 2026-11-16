@@ -24,7 +24,7 @@ export class ListInvoiceCandidateResponseBodyData extends $dara.Model {
    * The account name.
    * 
    * @example
-   * 测试账号
+   * Test account
    */
   accountName?: string;
   /**
@@ -45,7 +45,7 @@ export class ListInvoiceCandidateResponseBodyData extends $dara.Model {
   businessId?: string;
   /**
    * @remarks
-   * The time when the business event occurred.
+   * The time when the transaction occurred, in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-06-01 00:00:00
@@ -64,12 +64,12 @@ export class ListInvoiceCandidateResponseBodyData extends $dara.Model {
    * The commodity name.
    * 
    * @example
-   * 性能测试
+   * Performance testing
    */
   commodityName?: string;
   /**
    * @remarks
-   * The creation time.
+   * The creation time, in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-06-91 00:00:00
@@ -77,7 +77,7 @@ export class ListInvoiceCandidateResponseBodyData extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The ID of the invoice candidate.
+   * The ID of the invoicing object.
    * 
    * @example
    * 12345
@@ -128,12 +128,12 @@ export class ListInvoiceCandidateResponseBodyData extends $dara.Model {
    * The product name.
    * 
    * @example
-   * 性能测试
+   * Performance testing
    */
   productName?: string;
   /**
    * @remarks
-   * The ID of the resource owner account.
+   * The resource ownership account ID.
    * 
    * @example
    * 1990699401005016
@@ -141,15 +141,15 @@ export class ListInvoiceCandidateResponseBodyData extends $dara.Model {
   resourceOwnerAccountId?: number;
   /**
    * @remarks
-   * The name of the resource owner account.
+   * The resource ownership account name.
    * 
    * @example
-   * 测试账号
+   * Test account
    */
   resourceOwnerAccountName?: string;
   /**
    * @remarks
-   * The status of the invoice candidate.
+   * The invoice object status.
    * 
    * @example
    * 1
@@ -165,7 +165,7 @@ export class ListInvoiceCandidateResponseBodyData extends $dara.Model {
   totalAmount?: string;
   /**
    * @remarks
-   * The type of the invoice candidate.
+   * The invoice object type.
    * 
    * @example
    * 1
@@ -243,12 +243,12 @@ export class ListInvoiceCandidateResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The list of data entries.
+   * The data list.
    */
   data?: ListInvoiceCandidateResponseBodyData[];
   /**
    * @remarks
-   * The metadata of the response.
+   * The response structure metadata.
    * 
    * @example
    * {}

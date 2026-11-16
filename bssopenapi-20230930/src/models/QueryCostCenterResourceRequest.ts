@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCostCenterResourceRequestEcIdAccountIds extends $dara.Model {
   /**
    * @remarks
-   * The list of account IDs to access. If this parameter is empty, all accounts under the current entity ID are selected.
+   * The list of accounts to access. If this parameter is empty, all accounts under the current entity ID are selected.
    */
   accountIds?: number[];
   /**
@@ -76,7 +76,7 @@ export class QueryCostCenterResourceRequest extends $dara.Model {
   nbid?: string;
   /**
    * @remarks
-   * The token for the next query. If this parameter is empty, no more results exist.
+   * The token for the next query. An empty value indicates that no more results are available.
    * 
    * @example
    * CAESEgoQCg4KCmd
@@ -84,7 +84,7 @@ export class QueryCostCenterResourceRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the owner of the financial unit.
+   * The ID of the owner account for the financial unit.
    * 
    * @example
    * 1234567812345678

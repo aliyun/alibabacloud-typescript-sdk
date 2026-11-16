@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "BssOpenApi";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'cn-hangzhou': "business.aliyuncs.com",
@@ -630,7 +634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an account transfer or revocation.
+   * Creates a fund allocation or revocation for an account.
    * 
    * @param request - CreateFundAccountTransferRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -685,7 +689,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an account transfer or revocation.
+   * Creates a fund allocation or revocation for an account.
    * 
    * @param request - CreateFundAccountTransferRequest
    * @returns CreateFundAccountTransferResponse
@@ -696,7 +700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Apply for Invoice
+   * Applies for an invoice.
    * 
    * @param tmpReq - CreateInvoiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -773,7 +777,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Apply for Invoice
+   * Applies for an invoice.
    * 
    * @param request - CreateInvoiceRequest
    * @returns CreateInvoiceResponse
@@ -784,41 +788,35 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a bill report subscription.
+   * Creates a billing report subscription.
    * 
    * @remarks
    * When you call this operation, note the following items:
-   * - You can subscribe to one type of bill file at a time.
-   * - Except for monthly bill PDFs, after you subscribe, the system pushes a bill file that contains full detailed data from the beginning of the current month to the present day starting from the next day. Before the 4th of each month, the system pushes the full bill file for the entire previous billing cycle.
-   * - Monthly bill PDFs are pushed before the 4th of each month for the previous month.
-   * - Bill files generated on a daily basis may be delayed. Delayed bills are pushed the day after they are generated and may include bills from before the previous day that were delayed until the previous day. We recommend that you pull the full file for the previous month at the beginning of each month.
+   * - You can subscribe to only one type of billing file at a time.
+   * - Except for monthly billing PDF files, starting from the day after the subscription is created, a billing file that contains all detailed data from the beginning of the current month to the current day is pushed every day. A full billing file for the entire previous billing cycle is pushed before the 4th day of each month.
+   * - Monthly billing PDF files for the previous month are pushed before the 4th day of each month.
+   * - Billing files generated on a daily basis may be delayed. Delayed billing files are pushed on the day after they are generated, and may also include billing files that were delayed and generated on the previous day. Pull the full files for the previous month at the beginning of each month.
    * > Apply for permissions by following the instructions in [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
-   * - This subscription shares the same functionality as the Expenses and Costs - Billing Subscription feature. Subscriptions are synchronized between the two.
-   * - When you subscribe to a directory under a bucket, make sure the directory name complies with the naming conventions:
-   *     - Emojis are not allowed. Use valid UTF-8 characters.
-   *     - Use / to separate paths and quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
-   *     - Subdirectories named .. are not allowed.
-   *     - The total length must be 1 to 254 characters.
+   * - This subscription and the billing subscription feature in Expenses and Costs are the same feature, and subscriptions are interoperable.
+   * - When you subscribe to a directory under a bucket, make sure that the directory naming conventions are met:
+   *     - Do not use emojis. Use valid UTF-8 characters.
+   *     - Use forward slashes (/) to separate paths and quickly create subdirectories. Do not start a path with a forward slash (/) or a backslash (\\), and do not use consecutive forward slashes.
+   *     - Do not use subdirectories named `..`.
+   *     - Limit the total length to 1 to 254 characters.
    * - File names:
-   *     - Example: **consumeDetailBillV2** (billing item bill details)
+   *     - Example: **consumeDetailBillV2** (billing item details)
    *     
-   *         - Daily push file name format: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`, for example: `169**_2688801000001_consumeDetailBillV2_20190312`.
+   *         - Format of the file name pushed every day: `{Account UID}_{Site ID}_{Billing type}_{YYYYMM|YYYYMMDD}`. Example: `169**_2688801000001_consumeDetailBillV2_20190312`.
    *     
-   *         - Full file name format at the beginning of the next month: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMM}`, for example: `169**_2688801000001_consumeDetailBillV2_201903`.
-   * - Monthly bill PDF files are in .pdf format. All other file types are .csv files. When the data volume is large, the system automatically splits the exported bill into multiple files and compresses them into one or more zip files. The zip file name format remains the same.
+   *         - Format of the complete file name pushed at the beginning of the next month: `{Account UID}_{Site ID}_{Billing type}_{YYYYMM|YYYYMM}`. Example: `169**_2688801000001_consumeDetailBillV2_201903`.
+   * - Monthly billing PDF files are in the .pdf format, and other files are in the .csv format. When the data volume is large, the system automatically splits an exported bill into multiple files and compresses them into one or more ZIP files. The ZIP file names follow the same format.
    * 
-   * @param tmpReq - CreateReportDefinitionRequest
+   * @param request - CreateReportDefinitionRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns CreateReportDefinitionResponse
    */
-  async createReportDefinitionWithOptions(tmpReq: $_model.CreateReportDefinitionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateReportDefinitionResponse> {
-    tmpReq.validate();
-    let request = new $_model.CreateReportDefinitionShrinkRequest({ });
-    OpenApiUtil.convert(tmpReq, request);
-    if (!$dara.isNull(tmpReq.selectedFields)) {
-      request.selectedFieldsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.selectedFields, "SelectedFields", "json");
-    }
-
+  async createReportDefinitionWithOptions(request: $_model.CreateReportDefinitionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateReportDefinitionResponse> {
+    request.validate();
     let query = { };
     if (!$dara.isNull(request.beginBillingCycle)) {
       query["BeginBillingCycle"] = request.beginBillingCycle;
@@ -850,10 +848,6 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.reportType)) {
       query["ReportType"] = request.reportType;
-    }
-
-    if (!$dara.isNull(request.selectedFieldsShrink)) {
-      query["SelectedFields"] = request.selectedFieldsShrink;
     }
 
     if (!$dara.isNull(request.sendWithAttach)) {
@@ -896,28 +890,28 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a bill report subscription.
+   * Creates a billing report subscription.
    * 
    * @remarks
    * When you call this operation, note the following items:
-   * - You can subscribe to one type of bill file at a time.
-   * - Except for monthly bill PDFs, after you subscribe, the system pushes a bill file that contains full detailed data from the beginning of the current month to the present day starting from the next day. Before the 4th of each month, the system pushes the full bill file for the entire previous billing cycle.
-   * - Monthly bill PDFs are pushed before the 4th of each month for the previous month.
-   * - Bill files generated on a daily basis may be delayed. Delayed bills are pushed the day after they are generated and may include bills from before the previous day that were delayed until the previous day. We recommend that you pull the full file for the previous month at the beginning of each month.
+   * - You can subscribe to only one type of billing file at a time.
+   * - Except for monthly billing PDF files, starting from the day after the subscription is created, a billing file that contains all detailed data from the beginning of the current month to the current day is pushed every day. A full billing file for the entire previous billing cycle is pushed before the 4th day of each month.
+   * - Monthly billing PDF files for the previous month are pushed before the 4th day of each month.
+   * - Billing files generated on a daily basis may be delayed. Delayed billing files are pushed on the day after they are generated, and may also include billing files that were delayed and generated on the previous day. Pull the full files for the previous month at the beginning of each month.
    * > Apply for permissions by following the instructions in [Billing subscription](https://www.alibabacloud.com/help/en/user-center/user-guide/billing-subscription).
-   * - This subscription shares the same functionality as the Expenses and Costs - Billing Subscription feature. Subscriptions are synchronized between the two.
-   * - When you subscribe to a directory under a bucket, make sure the directory name complies with the naming conventions:
-   *     - Emojis are not allowed. Use valid UTF-8 characters.
-   *     - Use / to separate paths and quickly create subdirectories. Do not start with / or \\, and do not use consecutive / characters.
-   *     - Subdirectories named .. are not allowed.
-   *     - The total length must be 1 to 254 characters.
+   * - This subscription and the billing subscription feature in Expenses and Costs are the same feature, and subscriptions are interoperable.
+   * - When you subscribe to a directory under a bucket, make sure that the directory naming conventions are met:
+   *     - Do not use emojis. Use valid UTF-8 characters.
+   *     - Use forward slashes (/) to separate paths and quickly create subdirectories. Do not start a path with a forward slash (/) or a backslash (\\), and do not use consecutive forward slashes.
+   *     - Do not use subdirectories named `..`.
+   *     - Limit the total length to 1 to 254 characters.
    * - File names:
-   *     - Example: **consumeDetailBillV2** (billing item bill details)
+   *     - Example: **consumeDetailBillV2** (billing item details)
    *     
-   *         - Daily push file name format: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMMDD}`, for example: `169**_2688801000001_consumeDetailBillV2_20190312`.
+   *         - Format of the file name pushed every day: `{Account UID}_{Site ID}_{Billing type}_{YYYYMM|YYYYMMDD}`. Example: `169**_2688801000001_consumeDetailBillV2_20190312`.
    *     
-   *         - Full file name format at the beginning of the next month: `{Account UID}_{Sales site ID}_{Bill type}_{YYYYMM|YYYYMM}`, for example: `169**_2688801000001_consumeDetailBillV2_201903`.
-   * - Monthly bill PDF files are in .pdf format. All other file types are .csv files. When the data volume is large, the system automatically splits the exported bill into multiple files and compresses them into one or more zip files. The zip file name format remains the same.
+   *         - Format of the complete file name pushed at the beginning of the next month: `{Account UID}_{Site ID}_{Billing type}_{YYYYMM|YYYYMM}`. Example: `169**_2688801000001_consumeDetailBillV2_201903`.
+   * - Monthly billing PDF files are in the .pdf format, and other files are in the .csv format. When the data volume is large, the system automatically splits an exported bill into multiple files and compresses them into one or more ZIP files. The ZIP file names follow the same format.
    * 
    * @param request - CreateReportDefinitionRequest
    * @returns CreateReportDefinitionResponse
@@ -1158,7 +1152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of coupons.
+   * Queries the list of coupons.
    * 
    * @param tmpReq - DescribeCouponRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1263,7 +1257,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of coupons.
+   * Queries the list of coupons.
    * 
    * @param request - DescribeCouponRequest
    * @returns DescribeCouponResponse
@@ -1274,7 +1268,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of products available for a coupon.
+   * Queries the products available for a coupon.
    * 
    * @param tmpReq - DescribeCouponItemListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1331,7 +1325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of products available for a coupon.
+   * Queries the products available for a coupon.
    * 
    * @param request - DescribeCouponItemListRequest
    * @returns DescribeCouponItemListResponse
@@ -1342,7 +1336,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries resource plan deduction records.
+   * Queries the deduction records of resource plans.
    * 
    * @param tmpReq - DescribeDeductLogsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1429,7 +1423,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries resource plan deduction records.
+   * Queries the deduction records of resource plans.
    * 
    * @param request - DescribeDeductLogsRequest
    * @returns DescribeDeductLogsResponse
@@ -1740,7 +1734,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the transferable amount of a fund account
+   * Queries the transferable amount of a fund account.
    * 
    * @param request - GetFundAccountCanTransferAmountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1775,7 +1769,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the transferable amount of a fund account
+   * Queries the transferable amount of a fund account.
    * 
    * @param request - GetFundAccountCanTransferAmountRequest
    * @returns GetFundAccountCanTransferAmountResponse
@@ -1828,7 +1822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Fund Account Low Balance Alert
+   * Queries the low balance alert for a fund account.
    * 
    * @param request - GetFundAccountLowAvailableAmountAlarmRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1859,7 +1853,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query Fund Account Low Balance Alert
+   * Queries the low balance alert for a fund account.
    * 
    * @param request - GetFundAccountLowAvailableAmountAlarmRequest
    * @returns GetFundAccountLowAvailableAmountAlarmResponse
@@ -1870,7 +1864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query fund account transaction details
+   * Queries the transaction details of a fund account.
    * 
    * @param tmpReq - GetFundAccountTransactionDetailsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1957,7 +1951,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query fund account transaction details
+   * Queries the transaction details of a fund account.
    * 
    * @param request - GetFundAccountTransactionDetailsRequest
    * @returns GetFundAccountTransactionDetailsResponse
@@ -1968,7 +1962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specific order for a user or a reseller customer.
+   * Queries the details of a specific order for a user or a distribution customer.
    * 
    * @param request - GetOrderDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2007,7 +2001,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of a specific order for a user or a reseller customer.
+   * Queries the details of a specific order for a user or a distribution customer.
    * 
    * @param request - GetOrderDetailRequest
    * @returns GetOrderDetailResponse
@@ -2018,7 +2012,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the order list of a user or a reseller customer. By default, orders created within the most recent 1 hour are queried. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
+   * Queries the order list of a user or a distribution customer. By default, this operation queries orders created within the last hour. To query orders within a longer time range, specify the CreateTimeStart and CreateTimeEnd parameters.
    * 
    * @param request - GetOrdersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2089,7 +2083,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the order list of a user or a reseller customer. By default, orders created within the most recent 1 hour are queried. To query orders over a longer time range, set the CreateTimeStart and CreateTimeEnd parameters.
+   * Queries the order list of a user or a distribution customer. By default, this operation queries orders created within the last hour. To query orders within a longer time range, specify the CreateTimeStart and CreateTimeEnd parameters.
    * 
    * @param request - GetOrdersRequest
    * @returns GetOrdersResponse
@@ -2280,6 +2274,100 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the consumption summary for a specified billing month or billing date, and supports viewing expenses by dimensions such as billing item, resource, product, and account.
+   * 
+   * @remarks
+   * 1. The final billing details for the current month will be issued at 12:00 on the 3rd day of the following month. Query results before this time are for reference only and should not be used as a basis for reconciliation (minor scenarios that may occur during the month include but are not limited to delayed billing, refunds, adjustments, and overdue payment write-offs).
+   * 2. Billing details are updated with a 24-hour delay compared to actual expense consumption, and information related to instance IDs (resource names) is updated with a 48-hour delay.
+   * 3. Billing data does not support providing specific expenses for each attached resource (such as domain names, buckets, and EIPs) of split-type cloud products (such as CDN, OSS, and Internet Shared Bandwidth). To view data including attached resources, go to split bills.
+   * 4. Data for the last 18 months is supported.
+   * 5. Amounts, usage, and durations are returned as character strings. Use decimal numeric types to process amounts to avoid precision loss caused by binary floating-point numbers.
+   * 6. Whether a field has a value depends on the aggregation dimension, product Billable methods, and billing data. Null values or unreturned fields do not indicate that the value is zero.
+   * 7. This operation uses the field Glossary of the new version of bills. For related concepts, see [Differences and field descriptions of the new version of bills](https://www.alibabacloud.com/help/en/user-center/v2-version-bill-field-description). The English paths in the help documentation are OSS subscribe fields. The parameter names, field names, and return structures of this operation are subject to this topic.
+   * 
+   * @param tmpReq - ListConsumeSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListConsumeSummaryResponse
+   */
+  async listConsumeSummaryWithOptions(tmpReq: $_model.ListConsumeSummaryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListConsumeSummaryResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListConsumeSummaryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.commonFilters)) {
+      request.commonFiltersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.commonFilters, "CommonFilters", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
+      request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.period)) {
+      request.periodShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.period, "Period", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.commonFiltersShrink)) {
+      query["CommonFilters"] = request.commonFiltersShrink;
+    }
+
+    if (!$dara.isNull(request.dimensionType)) {
+      query["DimensionType"] = request.dimensionType;
+    }
+
+    if (!$dara.isNull(request.ecIdAccountIdsShrink)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIdsShrink;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.periodShrink)) {
+      query["Period"] = request.periodShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListConsumeSummary",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListConsumeSummaryResponse>(await this.callApi(params, req, runtime), new $_model.ListConsumeSummaryResponse({}));
+  }
+
+  /**
+   * Queries the consumption summary for a specified billing month or billing date, and supports viewing expenses by dimensions such as billing item, resource, product, and account.
+   * 
+   * @remarks
+   * 1. The final billing details for the current month will be issued at 12:00 on the 3rd day of the following month. Query results before this time are for reference only and should not be used as a basis for reconciliation (minor scenarios that may occur during the month include but are not limited to delayed billing, refunds, adjustments, and overdue payment write-offs).
+   * 2. Billing details are updated with a 24-hour delay compared to actual expense consumption, and information related to instance IDs (resource names) is updated with a 48-hour delay.
+   * 3. Billing data does not support providing specific expenses for each attached resource (such as domain names, buckets, and EIPs) of split-type cloud products (such as CDN, OSS, and Internet Shared Bandwidth). To view data including attached resources, go to split bills.
+   * 4. Data for the last 18 months is supported.
+   * 5. Amounts, usage, and durations are returned as character strings. Use decimal numeric types to process amounts to avoid precision loss caused by binary floating-point numbers.
+   * 6. Whether a field has a value depends on the aggregation dimension, product Billable methods, and billing data. Null values or unreturned fields do not indicate that the value is zero.
+   * 7. This operation uses the field Glossary of the new version of bills. For related concepts, see [Differences and field descriptions of the new version of bills](https://www.alibabacloud.com/help/en/user-center/v2-version-bill-field-description). The English paths in the help documentation are OSS subscribe fields. The parameter names, field names, and return structures of this operation are subject to this topic.
+   * 
+   * @param request - ListConsumeSummaryRequest
+   * @returns ListConsumeSummaryResponse
+   */
+  async listConsumeSummary(request: $_model.ListConsumeSummaryRequest): Promise<$_model.ListConsumeSummaryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listConsumeSummaryWithOptions(request, runtime);
+  }
+
+  /**
    * 查询优惠券设置的抵扣标签
    * 
    * @param tmpReq - ListCouponDeductTagRequest
@@ -2336,7 +2424,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query fund account list
+   * Queries the list of fund accounts.
    * 
    * @param request - ListFundAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2377,7 +2465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query fund account list
+   * Queries the list of fund accounts.
    * 
    * @param request - ListFundAccountRequest
    * @returns ListFundAccountResponse
@@ -2388,7 +2476,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query payment relationships of an account
+   * Queries the payment relationships of an account.
    * 
    * @param request - ListFundAccountPayRelationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2437,7 +2525,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query payment relationships of an account
+   * Queries the payment relationships of an account.
    * 
    * @param request - ListFundAccountPayRelationRequest
    * @returns ListFundAccountPayRelationResponse
@@ -2448,7 +2536,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query invoice candidate data, which can be used for invoicing.
+   * Queries invoice object data that can be used for invoicing.
    * 
    * @param tmpReq - ListInvoiceCandidateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2545,7 +2633,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query invoice candidate data, which can be used for invoicing.
+   * Queries invoice object data that can be used for invoicing.
    * 
    * @param request - ListInvoiceCandidateRequest
    * @returns ListInvoiceCandidateResponse
@@ -2556,7 +2644,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of available invoice titles
+   * Queries available invoice titles.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns ListInvoiceTitleResponse
@@ -2578,7 +2666,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Query the list of available invoice titles
+   * Queries available invoice titles.
    * @returns ListInvoiceTitleResponse
    */
   async listInvoiceTitle(): Promise<$_model.ListInvoiceTitleResponse> {
@@ -2626,6 +2714,108 @@ export default class Client extends OpenApi {
   async listReportDefinitions(request: $_model.ListReportDefinitionsRequest): Promise<$_model.ListReportDefinitionsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listReportDefinitionsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the split bill summary for a specified billing month or date. This operation supports viewing the costs of resources and split items, and filtering by product, account, financial unit, resource group, and tag.
+   * 
+   * @remarks
+   * 1. This operation aggregates split bill records by day or month. It can be used to view the cost attribution of split resources. For products that support automatic splitting, you can view costs by attached resource, such as OSS buckets, CDN domain names, and EIPs of Internet Shared Bandwidth. For the supported scope, refer to [Split bill details](https://www.alibabacloud.com/help/en/user-center/splitting-bill).
+   * 2. The final split bill data for the current month is generated at 12:00 on the fourth day of the next month. Query results before this time are for reference only and must not be used as the final basis for reconciliation. The generation of costs for attached resources is delayed. If the data is incomplete, query again after the update.
+   * 3. Amounts, usage, and durations are returned as character strings. Use decimal numeric types to process amounts and avoid precision loss caused by binary floating-point numbers.
+   * 4. Whether a field has a value depends on the product billing method, splitting rules, and bill data. A null value or an unreturned field does not mean the value is zero. Information such as public IP, private IP, and resource names also depends on the resource information query capabilities of the product.
+   * 5. This operation uses the field terminology of the new bill version. For related concepts, refer to [Differences and field descriptions of the new bill version](https://www.alibabacloud.com/help/en/user-center/v2-version-bill-field-description). The parameter names and response structure of this operation are subject to this topic.
+   * 
+   * @param tmpReq - ListSplitSummaryRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListSplitSummaryResponse
+   */
+  async listSplitSummaryWithOptions(tmpReq: $_model.ListSplitSummaryRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListSplitSummaryResponse> {
+    tmpReq.validate();
+    let request = new $_model.ListSplitSummaryShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.commonFilters)) {
+      request.commonFiltersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.commonFilters, "CommonFilters", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.costCategoriesFilters)) {
+      request.costCategoriesFiltersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.costCategoriesFilters, "CostCategoriesFilters", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.ecIdAccountIds)) {
+      request.ecIdAccountIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.ecIdAccountIds, "EcIdAccountIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.period)) {
+      request.periodShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.period, "Period", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.tagFilters)) {
+      request.tagFiltersShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.tagFilters, "TagFilters", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.commonFiltersShrink)) {
+      query["CommonFilters"] = request.commonFiltersShrink;
+    }
+
+    if (!$dara.isNull(request.costCategoriesFiltersShrink)) {
+      query["CostCategoriesFilters"] = request.costCategoriesFiltersShrink;
+    }
+
+    if (!$dara.isNull(request.ecIdAccountIdsShrink)) {
+      query["EcIdAccountIds"] = request.ecIdAccountIdsShrink;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.periodShrink)) {
+      query["Period"] = request.periodShrink;
+    }
+
+    if (!$dara.isNull(request.tagFiltersShrink)) {
+      query["TagFilters"] = request.tagFiltersShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListSplitSummary",
+      version: "2023-09-30",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListSplitSummaryResponse>(await this.callApi(params, req, runtime), new $_model.ListSplitSummaryResponse({}));
+  }
+
+  /**
+   * Queries the split bill summary for a specified billing month or date. This operation supports viewing the costs of resources and split items, and filtering by product, account, financial unit, resource group, and tag.
+   * 
+   * @remarks
+   * 1. This operation aggregates split bill records by day or month. It can be used to view the cost attribution of split resources. For products that support automatic splitting, you can view costs by attached resource, such as OSS buckets, CDN domain names, and EIPs of Internet Shared Bandwidth. For the supported scope, refer to [Split bill details](https://www.alibabacloud.com/help/en/user-center/splitting-bill).
+   * 2. The final split bill data for the current month is generated at 12:00 on the fourth day of the next month. Query results before this time are for reference only and must not be used as the final basis for reconciliation. The generation of costs for attached resources is delayed. If the data is incomplete, query again after the update.
+   * 3. Amounts, usage, and durations are returned as character strings. Use decimal numeric types to process amounts and avoid precision loss caused by binary floating-point numbers.
+   * 4. Whether a field has a value depends on the product billing method, splitting rules, and bill data. A null value or an unreturned field does not mean the value is zero. Information such as public IP, private IP, and resource names also depends on the resource information query capabilities of the product.
+   * 5. This operation uses the field terminology of the new bill version. For related concepts, refer to [Differences and field descriptions of the new bill version](https://www.alibabacloud.com/help/en/user-center/v2-version-bill-field-description). The parameter names and response structure of this operation are subject to this topic.
+   * 
+   * @param request - ListSplitSummaryRequest
+   * @returns ListSplitSummaryResponse
+   */
+  async listSplitSummary(request: $_model.ListSplitSummaryRequest): Promise<$_model.ListSplitSummaryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listSplitSummaryWithOptions(request, runtime);
   }
 
   /**
@@ -2888,7 +3078,7 @@ export default class Client extends OpenApi {
    * Queries cost centers.
    * 
    * @remarks
-   * Queries a parent cost center and its child cost centers.
+   * Queries parent cost centers and their child cost centers.
    * 
    * @param tmpReq - QueryCostCenterRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2948,7 +3138,7 @@ export default class Client extends OpenApi {
    * Queries cost centers.
    * 
    * @remarks
-   * Queries a parent cost center and its child cost centers.
+   * Queries parent cost centers and their child cost centers.
    * 
    * @param request - QueryCostCenterRequest
    * @returns QueryCostCenterResponse
@@ -2959,7 +3149,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of resource instances that belong to a financial unit of a user. If CostCenterId is set to 0, unallocated primary and sub-resource instances are queried.
+   * Queries the resource instances associated with a financial unit. If CostCenterId is set to 0, the operation queries unassigned parent and child resource instances.
    * 
    * @param request - QueryCostCenterResourceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3012,7 +3202,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of resource instances that belong to a financial unit of a user. If CostCenterId is set to 0, unallocated primary and sub-resource instances are queried.
+   * Queries the resource instances associated with a financial unit. If CostCenterId is set to 0, the operation queries unassigned parent and child resource instances.
    * 
    * @param request - QueryCostCenterResourceRequest
    * @returns QueryCostCenterResourceResponse
@@ -3023,10 +3213,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the automatic allocation rules of a cost center.
+   * Queries cost center rules.
    * 
    * @remarks
-   * Queries a parent cost center and its child cost centers.
+   * Queries the parent cost center and its child cost centers.
    * 
    * @param request - QueryCostCenterRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3067,10 +3257,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the automatic allocation rules of a cost center.
+   * Queries cost center rules.
    * 
    * @remarks
-   * Queries a parent cost center and its child cost centers.
+   * Queries the parent cost center and its child cost centers.
    * 
    * @param request - QueryCostCenterRuleRequest
    * @returns QueryCostCenterRuleResponse
@@ -3145,10 +3335,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the SLA compensation list for a user.
+   * Queries the SLA compensation list for users.
    * 
    * @remarks
-   * Queries the SLA compensation details list for a user. Only data from the last two months is available.
+   * Provides the list of SLA compensation details for users, including only data from the last two months.
    * 
    * @param request - QueryMonthlySlaListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3209,10 +3399,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the SLA compensation list for a user.
+   * Queries the SLA compensation list for users.
    * 
    * @remarks
-   * Queries the SLA compensation details list for a user. Only data from the last two months is available.
+   * Provides the list of SLA compensation details for users, including only data from the last two months.
    * 
    * @param request - QueryMonthlySlaListRequest
    * @returns QueryMonthlySlaListResponse
@@ -3585,12 +3775,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Claims SLA compensation coupons for the last two months.
+   * Claims SLA compensation coupons for the recent two months.
    * 
    * @remarks
-   * 1. Call QueryMonthlySlaList to retrieve the claimable months and records.
+   * 1. Call QueryMonthlySlaList to obtain the claimable months and records.
    * 2. Claim by month or by record.
-   * Note: Only compensation for the last two months can be claimed. Historical compensation has been automatically issued.
+   * Note: You can only claim compensation for the recent two months. Historical compensation has been automatically issued.
    * 
    * @param request - SubmitSlaCouponApplyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3635,12 +3825,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Claims SLA compensation coupons for the last two months.
+   * Claims SLA compensation coupons for the recent two months.
    * 
    * @remarks
-   * 1. Call QueryMonthlySlaList to retrieve the claimable months and records.
+   * 1. Call QueryMonthlySlaList to obtain the claimable months and records.
    * 2. Claim by month or by record.
-   * Note: Only compensation for the last two months can be claimed. Historical compensation has been automatically issued.
+   * Note: You can only claim compensation for the recent two months. Historical compensation has been automatically issued.
    * 
    * @param request - SubmitSlaCouponApplyRequest
    * @returns SubmitSlaCouponApplyResponse

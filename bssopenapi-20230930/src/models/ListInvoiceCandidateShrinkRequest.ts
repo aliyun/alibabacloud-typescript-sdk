@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListInvoiceCandidateShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * List of billing cycles.
+   * The list of billing cycles.
    */
   billingCyclesShrink?: string;
   /**
    * @remarks
-   * List of business document numbers.
+   * The list of business document numbers.
    */
   businessIdsShrink?: string;
   /**
@@ -23,7 +23,7 @@ export class ListInvoiceCandidateShrinkRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * List of enterprises and accounts. If empty, the current account itself is queried.
+   * The list of enterprises and accounts. If this parameter is left empty, the current account is queried.
    */
   ecIdAccountIdsShrink?: string;
   /**
@@ -36,12 +36,12 @@ export class ListInvoiceCandidateShrinkRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * List of invoice issuers.
+   * The list of invoice issuers.
    */
   invoiceIssuersShrink?: string;
   /**
    * @remarks
-   * Primary marketplace ID. If empty, the marketplace ID of the current user is used by default.
+   * The level-1 marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
    * 
    * @example
    * 2684201000001
@@ -65,12 +65,12 @@ export class ListInvoiceCandidateShrinkRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * List of invoice candidate statuses.
+   * The list of invoice object statuses.
    */
   statusShrink?: string;
   /**
    * @remarks
-   * List of invoice candidate types.
+   * The list of invoice object types.
    */
   typesShrink?: string;
   static names(): { [key: string]: string } {

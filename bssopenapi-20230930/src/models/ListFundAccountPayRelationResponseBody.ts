@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFundAccountPayRelationResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The account ID of the user associated with the payment relationship, that is, the account that uses this account for payment.
+   * The account ID of the user associated with the payment relationship, which is the account that uses this account for payment.
    * 
    * @example
    * 32812132121
@@ -13,10 +13,10 @@ export class ListFundAccountPayRelationResponseBodyData extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The user name.
+   * The username.
    * 
    * @example
-   * 云某的名称
+   * Sample username
    */
   accountName?: string;
   /**
@@ -29,7 +29,7 @@ export class ListFundAccountPayRelationResponseBodyData extends $dara.Model {
   ecid?: string;
   /**
    * @remarks
-   * The time when the payment relationship takes effect.
+   * The effective period of the payment relationship. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-12-01 12:00:10
@@ -53,7 +53,7 @@ export class ListFundAccountPayRelationResponseBodyData extends $dara.Model {
   fundAccountOwnerAccountId?: string;
   /**
    * @remarks
-   * The time when the payment relationship expires.
+   * The time when the payment relationship expires. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-01-01 12:12:12
@@ -61,7 +61,7 @@ export class ListFundAccountPayRelationResponseBodyData extends $dara.Model {
   ineffectiveTime?: string;
   /**
    * @remarks
-   * The primary marketplace.
+   * The level-1 marketplace.
    * 
    * @example
    * 2684210001
@@ -69,18 +69,15 @@ export class ListFundAccountPayRelationResponseBodyData extends $dara.Model {
   nbid?: string;
   /**
    * @remarks
-   * The operator name.
-   * When the operator type is aliyun_pk, the operator name is the Alibaba Cloud nickname.
-   * When the operator type is system, the operator name is "Alibaba Cloud assistant".
+   * The name of the operator. If the operator type is aliyun_pk, the value is the Alibaba Cloud nickname. If the operator type is system, the value is "Alibaba Cloud Support".
    * 
    * @example
-   * 云某的名称
+   * Sample username
    */
   operatorName?: string;
   /**
    * @remarks
-   * The authorized operator.
-   * When the operator type is aliyun_pk, operatorNo is the Alibaba Cloud account ID.
+   * The authorized operator. If the operator type is aliyun_pk, the value is the Alibaba Cloud account ID.
    * 
    * @example
    * 1232343423
@@ -88,9 +85,9 @@ export class ListFundAccountPayRelationResponseBodyData extends $dara.Model {
   operatorNo?: string;
   /**
    * @remarks
-   * The type of the authorized operator.
-   * aliyun_pk: user.
-   * system: Alibaba Cloud system.
+   * The type of the authorized operator. Valid values:
+   * - aliyun_pk: User.
+   * - system: Alibaba Cloud system.
    * 
    * @example
    * aliyun_pk
@@ -98,7 +95,7 @@ export class ListFundAccountPayRelationResponseBodyData extends $dara.Model {
   operatorType?: string;
   /**
    * @remarks
-   * The relationship type, which can be collection relationship or payment relationship.
+   * The relationship type, which can be a collection relationship or a payment relationship.
    * 
    * @example
    * PAYMENT
@@ -114,9 +111,9 @@ export class ListFundAccountPayRelationResponseBodyData extends $dara.Model {
   site?: string;
   /**
    * @remarks
-   * The relationship status.
-   * valid: valid.
-   * expired: invalid.
+   * The relationship status. Valid values:
+   * - valid: Valid.
+   * - expired: Invalid.
    * 
    * @example
    * valid
@@ -185,7 +182,7 @@ export class ListFundAccountPayRelationResponseBody extends $dara.Model {
   data?: ListFundAccountPayRelationResponseBodyData[];
   /**
    * @remarks
-   * The response metadata.
+   * The metadata of the response structure.
    * 
    * @example
    * {}

@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInvoiceRequestEcIdAccountIds extends $dara.Model {
   /**
    * @remarks
-   * List of accounts to access. If empty, all accounts under the current entity ID are selected.
+   * The list of accounts to access. If this parameter is left empty, all accounts under the current entity ID are selected.
    */
   accountIds?: number[];
   /**
    * @remarks
-   * Enterprise entity ID.
+   * The enterprise entity ID.
    * 
    * @example
    * 12345
@@ -45,9 +45,9 @@ export class CreateInvoiceRequestEcIdAccountIds extends $dara.Model {
 export class CreateInvoiceRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies the invoice amount. Supports up to two decimal places.
-   * - If not specified, the invoice will be issued for the total invoiceable amount of all invoiceCandidateIds.
-   * - If specified, the invoice will be issued for the specified amount. The specified amount cannot exceed the total invoiceable amount of all invoiceCandidateIds.
+   * Specifies the invoice amount. Two decimal places are supported.
+   * - If left empty, the invoice is issued for the total invoiceable amount of all invoice candidate IDs.
+   * - If specified, the invoice is issued for the specified amount. The specified amount cannot exceed the total invoiceable amount of all invoice candidate IDs.
    * 
    * @example
    * 0.01
@@ -55,22 +55,22 @@ export class CreateInvoiceRequest extends $dara.Model {
   amount?: string;
   /**
    * @remarks
-   * Enterprise and account list. If empty, the current account is queried.
+   * The list of enterprises and accounts. If this parameter is left empty, the current account is queried.
    */
   ecIdAccountIds?: CreateInvoiceRequestEcIdAccountIds[];
   /**
    * @remarks
-   * List of invoice candidate IDs.
+   * The list of invoice candidate IDs.
    * 
    * This parameter is required.
    */
   invoiceCandidateIds?: string[];
   /**
    * @remarks
-   * Invoice mode.
-   * - 0: Independent invoicing. Expenses of multiple accounts under the enterprise are invoiced separately for each account.
-   * - 1: Consolidated invoicing. Expenses of multiple accounts under the enterprise are consolidated and invoiced under the invoicing entity.
-   * If only one account is passed in the AccountIds parameter, independent invoicing is applied.
+   * The invoicing mode. Valid values:
+   * - 0: Independent invoicing. The consumption of multiple accounts under an enterprise is invoiced independently for each account.
+   * - 1: Consolidated invoicing. The consumption of multiple accounts under an enterprise is consolidated and invoiced based on the invoicing entity.
+   * If only one account is specified in the AccountIds request parameter, independent invoicing is applied.
    * 
    * This parameter is required.
    * 
@@ -80,17 +80,17 @@ export class CreateInvoiceRequest extends $dara.Model {
   invoiceMode?: number;
   /**
    * @remarks
-   * Invoice remark.
+   * The invoice remark.
    * 
    * @example
-   * 备注信息
+   * Remark information
    */
   invoiceRemark?: string;
   /**
    * @remarks
-   * Invoice title ID.
+   * The invoice title ID.
    * 
-   * - The ID parameter returned by the ListInvoiceTitle API for the current logged-in account.
+   * - The ID returned by the ListInvoiceTitle operation for the current logon account.
    * 
    * This parameter is required.
    * 
@@ -100,7 +100,7 @@ export class CreateInvoiceRequest extends $dara.Model {
   invoiceTitleId?: string;
   /**
    * @remarks
-   * Invoice type.
+   * The invoice type.
    * 
    * This parameter is required.
    * 
@@ -110,7 +110,7 @@ export class CreateInvoiceRequest extends $dara.Model {
   invoiceType?: number;
   /**
    * @remarks
-   * Primary marketplace ID. If empty, the marketplace ID of the current user is used by default.
+   * The level-1 marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
    * 
    * @example
    * 2684201000001
@@ -118,7 +118,7 @@ export class CreateInvoiceRequest extends $dara.Model {
   nbid?: string;
   /**
    * @remarks
-   * List of email addresses to receive the invoice. A maximum of 3 can be specified.
+   * The list of email addresses that receive the invoice. You can specify up to three email addresses.
    * 
    * This parameter is required.
    */

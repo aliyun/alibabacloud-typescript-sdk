@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListInvoiceCandidateRequestEcIdAccountIds extends $dara.Model {
   /**
    * @remarks
-   * List of accounts to access. If empty, all accounts under the current entity ID are selected.
+   * The list of accessed accounts. If this parameter is left empty, all accounts under the current entity ID are selected.
    */
   accountIds?: number[];
   /**
    * @remarks
-   * Enterprise entity ID.
+   * The enterprise entity ID.
    * 
    * @example
    * 12345
@@ -45,12 +45,12 @@ export class ListInvoiceCandidateRequestEcIdAccountIds extends $dara.Model {
 export class ListInvoiceCandidateRequest extends $dara.Model {
   /**
    * @remarks
-   * List of billing cycles.
+   * The list of billing cycles.
    */
   billingCycles?: number[];
   /**
    * @remarks
-   * List of business document numbers.
+   * The list of business document numbers.
    */
   businessIds?: string[];
   /**
@@ -63,7 +63,7 @@ export class ListInvoiceCandidateRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * List of enterprises and accounts. If empty, the current account itself is queried.
+   * The list of enterprises and accounts. If this parameter is left empty, the current account is queried.
    */
   ecIdAccountIds?: ListInvoiceCandidateRequestEcIdAccountIds[];
   /**
@@ -76,12 +76,12 @@ export class ListInvoiceCandidateRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * List of invoice issuers.
+   * The list of invoice issuers.
    */
   invoiceIssuers?: string[];
   /**
    * @remarks
-   * Primary marketplace ID. If empty, the marketplace ID of the current user is used by default.
+   * The level-1 marketplace ID. If this parameter is left empty, the marketplace ID of the current user is used by default.
    * 
    * @example
    * 2684201000001
@@ -105,12 +105,12 @@ export class ListInvoiceCandidateRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * List of invoice candidate statuses.
+   * The list of invoice object statuses.
    */
   status?: number[];
   /**
    * @remarks
-   * List of invoice candidate types.
+   * The list of invoice object types.
    */
   types?: number[];
   static names(): { [key: string]: string } {

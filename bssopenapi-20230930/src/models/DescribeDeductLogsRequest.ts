@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDeductLogsRequestEcIdAccountIds extends $dara.Model {
   /**
    * @remarks
-   * The list of accounts to access. If this parameter is empty, all accounts under the current entity ID are selected.
+   * The list of accessed accounts. If this parameter is left empty, all accounts under the current entity ID are selected.
    */
   accountIds?: number[];
   /**
    * @remarks
-   * The enterprise entity ID.
+   * The ID of the enterprise entity.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class DescribeDeductLogsRequestEcIdAccountIds extends $dara.Model {
 export class DescribeDeductLogsRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID for billing deduction.
+   * The ID of the instance for which the billing is deducted.
    * 
    * @example
    * ecs-******
@@ -63,7 +63,7 @@ export class DescribeDeductLogsRequest extends $dara.Model {
   billingCommodityCode?: string;
   /**
    * @remarks
-   * The billing end time.
+   * The end time of the billing cycle. The time is a UNIX timestamp in milliseconds.
    * 
    * This parameter is required.
    * 
@@ -73,7 +73,7 @@ export class DescribeDeductLogsRequest extends $dara.Model {
   billingEndTime?: number;
   /**
    * @remarks
-   * The billing start time.
+   * The start time of the billing cycle. The time is a UNIX timestamp in milliseconds.
    * 
    * This parameter is required.
    * 
@@ -91,12 +91,12 @@ export class DescribeDeductLogsRequest extends $dara.Model {
   commodityCode?: string;
   /**
    * @remarks
-   * The enterprise and account list. If this parameter is empty, the current account is queried.
+   * The list of enterprises and accounts. If this parameter is left empty, the current account is queried.
    */
   ecIdAccountIds?: DescribeDeductLogsRequestEcIdAccountIds[];
   /**
    * @remarks
-   * The resource dimension for the query.
+   * The resource dimension to query.
    * 
    * @example
    * oss_rc
@@ -104,7 +104,7 @@ export class DescribeDeductLogsRequest extends $dara.Model {
   group?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * OSSBAG-cn******
@@ -112,7 +112,7 @@ export class DescribeDeductLogsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The primary marketplace ID. If this parameter is empty, the marketplace ID of the current user is used by default.
+   * The ID of the level-1 marketplace. If this parameter is left empty, the ID of the marketplace to which the current user belongs is used by default.
    * 
    * @example
    * 2684201000001

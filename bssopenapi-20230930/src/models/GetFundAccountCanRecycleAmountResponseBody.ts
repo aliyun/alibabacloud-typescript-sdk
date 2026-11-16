@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFundAccountCanRecycleAmountResponseBodyRecycleToFundAccountList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the target account to which funds can be reclaimed.
+   * The ID of the reclaimable account.
    * 
    * @example
    * 122323121
@@ -13,15 +13,15 @@ export class GetFundAccountCanRecycleAmountResponseBodyRecycleToFundAccountList 
   fundAccountId?: string;
   /**
    * @remarks
-   * The name of the target account to which funds can be reclaimed.
+   * The name of the reclaimable account.
    * 
    * @example
-   * 云某的账户
+   * Yun\\"s account
    */
   fundAccountName?: string;
   /**
    * @remarks
-   * The account ID that owns the target account to which funds can be reclaimed.
+   * The ID of the account that owns the reclaimable account.
    * 
    * @example
    * 183221321
@@ -37,7 +37,7 @@ export class GetFundAccountCanRecycleAmountResponseBodyRecycleToFundAccountList 
   maxRecyclableAmount?: string;
   /**
    * @remarks
-   * The remaining transfer amount that can be reclaimed through the original transfer path.
+   * The transfer amount that can be reclaimed through the original route.
    * 
    * @example
    * 120
@@ -75,7 +75,7 @@ export class GetFundAccountCanRecycleAmountResponseBodyRecycleToFundAccountList 
 export class GetFundAccountCanRecycleAmountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The available balance of the account from which funds are reclaimed.
+   * The available balance of the reclaimed account.
    * 
    * @example
    * 300
@@ -99,7 +99,7 @@ export class GetFundAccountCanRecycleAmountResponseBody extends $dara.Model {
   metadata?: any;
   /**
    * @remarks
-   * The ID of the source account from which funds are reclaimed.
+   * The ID of the source account for reclamation.
    * 
    * @example
    * 1232122132
@@ -107,7 +107,7 @@ export class GetFundAccountCanRecycleAmountResponseBody extends $dara.Model {
   recycleFromFundAccountId?: string;
   /**
    * @remarks
-   * The list of accounts to which funds can be reclaimed.
+   * The list of accounts to which the funds can be reclaimed.
    */
   recycleToFundAccountList?: GetFundAccountCanRecycleAmountResponseBodyRecycleToFundAccountList[];
   /**
@@ -120,7 +120,7 @@ export class GetFundAccountCanRecycleAmountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The transfer ledger balance.
+   * The balance of the transfer ledger.
    * 
    * @example
    * 200
