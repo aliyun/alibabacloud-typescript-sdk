@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateChatFlowLogSettingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -42,9 +42,9 @@ export class UpdateChatFlowLogSettingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: The operation was successful.
+   * - true: The operation is successful.
    * 
    * - false: The operation failed.
    * 

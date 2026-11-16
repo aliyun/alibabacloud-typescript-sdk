@@ -35,7 +35,7 @@ export class GetChatFlowTemplateResponseBodyData extends $dara.Model {
 export class GetChatFlowTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -64,7 +64,7 @@ export class GetChatFlowTemplateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A94866411B2O
@@ -72,7 +72,7 @@ export class GetChatFlowTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
    * - true: Successful.
    * 

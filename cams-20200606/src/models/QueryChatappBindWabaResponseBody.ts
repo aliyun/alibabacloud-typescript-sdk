@@ -18,6 +18,9 @@ export class QueryChatappBindWabaResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The WABA-related information.
+   * 
+   * @example
+   * {"exception_countries":[{"country_code":"ID","start_time":1721952000}]}
    */
   authInternationalRateEligibility?: { [key: string]: any };
   /**

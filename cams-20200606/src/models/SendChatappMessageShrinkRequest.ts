@@ -482,6 +482,12 @@ export class SendChatappMessageShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The collection of template parameters.
+   * 
+   * @example
+   * {
+   *   "param1": "value1",
+   *   "param2": "value2"
+   * }
    */
   templateParamsShrink?: string;
   /**

@@ -8,7 +8,7 @@ export class CopyTemplateRequest extends $dara.Model {
    * The space ID of the ISV sub-customer.
    * 
    * @example
-   * 示例值示例值示例值
+   * Example value
    */
   custSpaceId?: string;
   /**
@@ -16,7 +16,7 @@ export class CopyTemplateRequest extends $dara.Model {
    * The language.
    * 
    * @example
-   * 示例值示例值示例值
+   * Example value
    */
   language?: string;
   ownerId?: number;
@@ -39,7 +39,7 @@ export class CopyTemplateRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * Example value
    */
   sceneTemplateName?: string;
   static names(): { [key: string]: string } {

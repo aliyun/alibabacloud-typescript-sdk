@@ -13,7 +13,7 @@ export class ReadChatFlowRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The business extension information. Default value: an empty collection.
+   * The business extension information. Default value: an empty set.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class ReadChatFlowRequest extends $dara.Model {
   bizExtend?: { [key: string]: any };
   /**
    * @remarks
-   * The flow code. You can view the flow code in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+   * The flow code. You can view the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
    * 
    * @example
    * 9ccc41**************************

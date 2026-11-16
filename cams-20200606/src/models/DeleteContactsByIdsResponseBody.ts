@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteContactsByIdsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -16,7 +16,7 @@ export class DeleteContactsByIdsResponseBody extends $dara.Model {
    * The status code.
    * 
    * @example
-   * 示例值
+   * Example value
    */
   code?: string;
   /**
@@ -24,7 +24,7 @@ export class DeleteContactsByIdsResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 示例值示例值
+   * Example value example value
    */
   message?: string;
   /**
@@ -40,12 +40,12 @@ export class DeleteContactsByIdsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 示例值示例值
+   * Example value example value
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Specifies whether the call was successful. Valid values:
    * - **true**: The call was successful.
    * - **false**: The call failed.
    * 

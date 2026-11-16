@@ -21,7 +21,7 @@ export class CreateChatFlowByImportRequest extends $dara.Model {
   bizExtend?: { [key: string]: any };
   /**
    * @remarks
-   * The imported flow DSL data, which is a JSON-formatted string. You can arrange flow components on the canvas in the flow orchestration console in advance, save the flow, and then click **Settings** > **Export** in the upper-right corner of the canvas to export a JSON data file for viewing.
+   * The imported flow DSL data, which is a JSON-formatted string. You can orchestrate the flow components on the canvas in the Flow Editor in advance, save the flow, and then click **Settings** > **Export** in the upper-right corner of the canvas to export and view it as a JSON data file.
    * 
    * @example
    * {
@@ -40,20 +40,20 @@ export class CreateChatFlowByImportRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The flow remarks.
+   * The remark of the flow.
    * 
    * @example
-   * Trigger Subscription.
+   * Trigger subscription
    */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The flow title.
+   * The title of the flow.
    * 
    * @example
-   * WhatsApp Trigger Subscription.
+   * WhatsApp trigger subscription
    */
   title?: string;
   static names(): { [key: string]: string } {

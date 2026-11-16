@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReadChatFlowLogSettingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied details.
+   * The details about the access denial.
    * 
    * @example
    * None

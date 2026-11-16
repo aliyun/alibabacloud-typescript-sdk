@@ -93,7 +93,7 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   ageLimit?: string;
   /**
    * @remarks
-   * The business account name.
+   * The name of the business account.
    * 
    * @example
    * example
@@ -101,7 +101,7 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   businessAccountName?: string;
   /**
    * @remarks
-   * The business license registration number.
+   * The registration number of the business license.
    * 
    * @example
    * example
@@ -207,7 +207,7 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   contactPosition?: string;
   /**
    * @remarks
-   * Specifies whether to enable auto-reply.
+   * Specifies whether auto-reply is enabled.
    * 
    * @example
    * example
@@ -254,7 +254,7 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   messageDestinationInternationalCountry?: string[];
   /**
    * @remarks
-   * The introduction of the message dialog box.
+   * The introduction to the message dialog box.
    * 
    * @example
    * example
@@ -262,7 +262,7 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   messageDialogueIntroduction?: string;
   /**
    * @remarks
-   * The date when messaging is enabled, in the YYYY-MM-DD format.
+   * The message activation date in the YYYY-MM-DD format.
    * 
    * @example
    * example
@@ -270,7 +270,7 @@ export class AddAuditViberOpenRequestAuditRecord extends $dara.Model {
   messageEnableDate?: string;
   /**
    * @remarks
-   * The message session name.
+   * The name of the message session.
    * 
    * @example
    * nPHK8uaRo
@@ -408,7 +408,7 @@ export class AddAuditViberOpenRequest extends $dara.Model {
   auditResult?: string;
   /**
    * @remarks
-   * The SpaceId of the ISV sub-customer.
+   * The space ID of the ISV sub-customer.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatappMessageResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The business phone number.
+   * The business number.
    * 
    * @example
    * 86183********
@@ -21,7 +21,7 @@ export class ListChatappMessageResponseBodyData extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The name of the message acceptance status.
+   * The name of the message reception status.
    * 
    * @example
    * Success
@@ -37,7 +37,7 @@ export class ListChatappMessageResponseBodyData extends $dara.Model {
   clientReadStatus?: string;
   /**
    * @remarks
-   * The message read status name.
+   * The name of the message read status.
    * 
    * @example
    * Success
@@ -61,7 +61,7 @@ export class ListChatappMessageResponseBodyData extends $dara.Model {
   eventAction?: string;
   /**
    * @remarks
-   * The name of the upstream or downstream message type. Valid values:
+   * The name of the upstream or downstream message. Valid values:
    * 
    * - DOWN: downstream message.
    * 
@@ -81,7 +81,7 @@ export class ListChatappMessageResponseBodyData extends $dara.Model {
   failBackContent?: string;
   /**
    * @remarks
-   * Indicates whether the message falls back to SMS. Valid values:
+   * Specifies whether the message falls back to SMS. Valid values:
    * 
    * - Y: Yes.
    * 
@@ -141,7 +141,7 @@ export class ListChatappMessageResponseBodyData extends $dara.Model {
   messageStatus?: string;
   /**
    * @remarks
-   * The message status name.
+   * The name of the message status.
    * 
    * @example
    * Success
@@ -157,7 +157,7 @@ export class ListChatappMessageResponseBodyData extends $dara.Model {
   messageType?: string;
   /**
    * @remarks
-   * The message type name.
+   * The name of the message type.
    * 
    * @example
    * interactive
@@ -173,7 +173,7 @@ export class ListChatappMessageResponseBodyData extends $dara.Model {
   month?: string;
   /**
    * @remarks
-   * The sending time in ISO 8601 format with a time zone offset.
+   * The sending time in ISO 8601 format, including the time zone offset.
    * 
    * @example
    * 2025-07-11T01:16:49.761+00:00
@@ -293,7 +293,7 @@ export class ListChatappMessageResponseBodyData extends $dara.Model {
 export class ListChatappMessageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The access denied details.
    * 
    * @example
    * None
@@ -303,7 +303,7 @@ export class ListChatappMessageResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - OK: The request was successful.
+   * - OK: The request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -334,9 +334,9 @@ export class ListChatappMessageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - **true**: The call was successful.
-   * - **false**: The call failed.
+   * Indicates whether the call is successful. Valid values:
+   * - **true**: The call is successful.
+   * - **false**: The call fails.
    * 
    * @example
    * false

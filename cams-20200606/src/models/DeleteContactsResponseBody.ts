@@ -15,7 +15,7 @@ export class DeleteContactsResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - A return value of OK indicates that the request is successful.
+   * - OK indicates that the request was successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -36,7 +36,7 @@ export class DeleteContactsResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * Sample value sample value sample value
+   * Sample value Sample value Sample value
    */
   message?: string;
   /**
@@ -49,9 +49,9 @@ export class DeleteContactsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
-   * - **true**: The call is successful.
-   * - **false**: The call fails.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

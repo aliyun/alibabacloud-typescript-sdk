@@ -21,7 +21,7 @@ export class OnlineFlowVersionShrinkRequest extends $dara.Model {
   bizExtendShrink?: string;
   /**
    * @remarks
-   * The flow code. You can view the flow code on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
+   * The flow code. You can view the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
    * 
    * @example
    * f4912c16943b4dfba44bd6fedacf****
@@ -29,7 +29,7 @@ export class OnlineFlowVersionShrinkRequest extends $dara.Model {
   flowCode?: string;
   /**
    * @remarks
-   * The flow version. You can click a flow name on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas page and view the flow version.
+   * The flow version. You can click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas page and view the flow version.
    * 
    * @example
    * 1
@@ -38,10 +38,10 @@ export class OnlineFlowVersionShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The flow remark. You can view the flow remark on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
+   * The flow remark. You can view the flow remark in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
    * 
    * @example
-   * Trigger verification template delivery through API.
+   * Trigger verification template delivery through API
    */
   remark?: string;
   resourceOwnerAccount?: string;

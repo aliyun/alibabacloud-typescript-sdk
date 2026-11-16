@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatappMessageShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The business phone number.
+   * The business number.
    * 
-   * - For WhatsApp channels, view the business phone number in the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **WABA Management** > **Phone Number Management** console.
+   * - For a WhatsApp channel, you can view the business number on the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **WABA Management** > **Number Management** page.
    * 
-   * <props="intl">- For Viber channels, view the Service ID in the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Service Account Management** console.
+   * <props="intl">- For a Viber channel, you can view the Service ID on the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Service Account Management** page.
    * 
    * This parameter is required.
    * 
@@ -21,9 +21,9 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
    * @remarks
    * The channel type. Valid values:
    * 
-   * - **whatsapp**.
+   * - **whatsapp**
    * 
-   * - **viber**.
+   * - **viber**
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The message acceptance status of the user.
+   * The user reception status.
    * 
    * @example
    * success
@@ -41,7 +41,7 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
   clientAcceptStatus?: string;
   /**
    * @remarks
-   * The space ID of the ISV sub-customer or the instance ID of the direct customer. View the Space ID in the [Channel Management](https://chatapp.console.aliyun.com/CustomerList) console.
+   * The space ID of the ISV sub-customer or the instance ID of the direct customer. You can view the space ID on the [Channel Management](https://chatapp.console.aliyun.com/CustomerList) page.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The end time. This value is a UNIX timestamp. Unit: milliseconds.
+   * The end time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1727057232686
@@ -59,7 +59,7 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The end time in the format of YYYY-MM-DD HH:mm:ss.
+   * The end time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-01-30 00:00:00
@@ -77,7 +77,7 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
   eventAction?: string;
   /**
    * @remarks
-   * The batch message ID. View the batch message ID in the [**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Message List** > **Batch Sending List** console.
+   * The batch message ID. You can view the batch message ID on the [**Channel Management**](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **Message List** > **Batch Sending List** page.
    * 
    * @example
    * 9292****
@@ -94,7 +94,7 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The pagination object.
+   * The pagination parameter object.
    * 
    * This parameter is required.
    */
@@ -103,7 +103,7 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The start time. This value is a UNIX timestamp. Unit: milliseconds.
+   * The start time. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1727057232686
@@ -111,7 +111,7 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The start time in the format of YYYY-MM-DD HH:mm:ss.
+   * The start time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2024-01-01 00:00:00
@@ -119,7 +119,7 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
   startTimeStr?: string;
   /**
    * @remarks
-   * The template code. View the template code in the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Template Design** console.
+   * The template code. You can view the template code on the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Template Design** page.
    * 
    * @example
    * 9938***
@@ -127,7 +127,7 @@ export class ListChatappMessageShrinkRequest extends $dara.Model {
   templateCode?: string;
   /**
    * @remarks
-   * The user phone number. This is the user phone number that you imported when sending messages in the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Message Sending** console.
+   * The user phone number. This refers to the user phone number that you imported when sending messages on the [**Channel Management**](https://chatapp.console.aliyun.com/CustomerList) > **Management** > **Message Sending** page.
    * 
    * @example
    * 86138***

@@ -29,7 +29,7 @@ export class UpdateConversationalAutomationShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The business phone number.
+   * The merchant phone number.
    * 
    * This parameter is required.
    * 
@@ -39,7 +39,7 @@ export class UpdateConversationalAutomationShrinkRequest extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * The list of conversation starters.
+   * The list of prompts.
    */
   promptsShrink?: string;
   resourceOwnerAccount?: string;

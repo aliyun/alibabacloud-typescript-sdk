@@ -8,12 +8,12 @@ export class FlowRebindPhoneRequestMultiWabaPhoneNumbers extends $dara.Model {
    * The channel code.
    * 
    * @example
-   * 示例值示例值
+   * Sample value Sample value
    */
   channelCode?: string;
   /**
    * @remarks
-   * The list of phone numbers.
+   * The phone number list.
    */
   phoneNumbers?: string[];
   /**
@@ -21,7 +21,7 @@ export class FlowRebindPhoneRequestMultiWabaPhoneNumbers extends $dara.Model {
    * wabaId
    * 
    * @example
-   * 示例值示例值
+   * Sample value Sample value
    */
   wabaId?: string;
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class FlowRebindPhoneRequestMultiWabaPhoneNumbers extends $dara.Model {
 export class FlowRebindPhoneRequest extends $dara.Model {
   /**
    * @remarks
-   * The message channel code, which is the channel ID. You can view the channel ID in the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) console.
+   * The message channel code, which is the channel ID. You can view the channel ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
    * 
    * @example
    * cams-8c8*********
@@ -81,7 +81,7 @@ export class FlowRebindPhoneRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The flow code. You can view this in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console.
+   * The flow code. You can view it in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
    * 
    * This parameter is required.
    * 
@@ -91,7 +91,7 @@ export class FlowRebindPhoneRequest extends $dara.Model {
   flowCode?: string;
   /**
    * @remarks
-   * The flow version. In the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console, click the flow name to open the flow editor canvas and view the flow version.
+   * The flow version. You can view the flow version by clicking the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas page.
    * 
    * @example
    * 1
@@ -99,24 +99,24 @@ export class FlowRebindPhoneRequest extends $dara.Model {
   flowVersion?: string;
   /**
    * @remarks
-   * The multi-WABA binding configurations.
+   * The multi-WABA binding.
    */
   multiWabaPhoneNumbers?: FlowRebindPhoneRequestMultiWabaPhoneNumbers[];
   ownerId?: number;
   /**
    * @remarks
-   * The list of phone numbers, PageIds, or AccountIds<props="intl">, or ServiceIds under the channel instance.
+   * The list of phone numbers, PageIds, AccountIds<props="intl">, or ServiceIds under the channel instance.
    */
   phoneNumbers?: string[];
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The WABA account ID, PageId, or AccountId<props="intl">, or ServiceId.
+   * The WABA account ID, PageId, AccountId<props="intl">, or ServiceId.
    * 
-   * - If ChannelType is set to WHATSAPP, specify the WABA account ID. You can view the WABA account ID in Channel Management > Manage > WABA Management.
+   * - When the ChannelType parameter is set to WHATSAPP, specify the WABA account ID. You can view the WABA account ID on the Channel Management > Management > WABA Management page.
    * 
-   * - If ChannelType is not set to WHATSAPP, specify the PageId for MESSENGER, the AccountId for INSTAGRAM<props="intl">, or the ServiceId for VIBER.
+   * - When the ChannelType parameter is not set to WHATSAPP, specify the PageId for MESSENGER, the AccountId for INSTAGRAM<props="intl">, or the ServiceId for VIBER.
    * 
    * @example
    * 1952************

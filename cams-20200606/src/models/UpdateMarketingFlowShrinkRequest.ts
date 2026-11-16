@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMarketingFLowShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The code of the campaign to modify.
+   * The code of the campaign to be updated.
    * 
    * @example
    * 115311507XXXX49888
@@ -21,7 +21,7 @@ export class UpdateMarketingFLowShrinkRequest extends $dara.Model {
   activityDesc?: string;
   /**
    * @remarks
-   * The ID of the campaign to modify.
+   * The ID of the campaign to be updated.
    * 
    * @example
    * 674574575658675XX
@@ -50,7 +50,7 @@ export class UpdateMarketingFLowShrinkRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The execution method. Set this parameter to 1 (cron).
+   * The execution method. Set the value to 1, which indicates cron.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class UpdateMarketingFLowShrinkRequest extends $dara.Model {
   paramFlag?: string;
   /**
    * @remarks
-   * The custom parameters to pass.
+   * The custom parameters.
    * 
    * @example
    * {"testEmail":"wy****999@alibaba-inc.com"}

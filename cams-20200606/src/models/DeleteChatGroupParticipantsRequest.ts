@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteChatGroupParticipantsRequestList extends $dara.Model {
   /**
    * @remarks
-   * The participant number of the group member. You can obtain the participant numbers of group members by calling the [ListChatGroupParticipants](https://help.aliyun.com/document_detail/2932628.html) operation.
+   * The group member. You can call the [ListChatGroupParticipants](https://api.aliyun.com/document/cams/2020-06-06/ListChatGroupParticipants) operation to obtain the group members.
    * 
    * @example
    * 86138***
@@ -35,7 +35,7 @@ export class DeleteChatGroupParticipantsRequestList extends $dara.Model {
 export class DeleteChatGroupParticipantsRequest extends $dara.Model {
   /**
    * @remarks
-   * The business number. You can obtain the business number by calling the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation.
+   * The business number. You can call the [ListChatGroup](https://api.aliyun.com/document/cams/2020-06-06/ListChatGroup) operation to view the business number.
    * 
    * This parameter is required.
    * 
@@ -45,11 +45,11 @@ export class DeleteChatGroupParticipantsRequest extends $dara.Model {
   businessNumber?: string;
   /**
    * @remarks
-   * The channel type. Valid value:
+   * The channel type. Valid values:
    * 
    * - **WHATSAPP**
    * 
-   * > Currently, only the WhatsApp channel is supported.
+   * > Currently, only WhatsApp channel messages are supported.
    * 
    * @example
    * WHATSAPP
@@ -57,7 +57,7 @@ export class DeleteChatGroupParticipantsRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The space ID of the ISV sub-customer or the instance ID. This ID is also the channel ID. You can find the channel ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * The space ID or instance ID of the ISV sub-customer. This is the channel ID. You can view it on the [Channels Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
    * 
    * This parameter is required.
    * 
@@ -67,7 +67,7 @@ export class DeleteChatGroupParticipantsRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The group ID. You can obtain the group ID by calling the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation.
+   * The group ID. You can call the [ListChatGroup](https://api.aliyun.com/document/cams/2020-06-06/ListChatGroup) operation to obtain the group ID.
    * 
    * This parameter is required.
    * 
@@ -77,7 +77,7 @@ export class DeleteChatGroupParticipantsRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * A list of group members to remove.
+   * The list of group members.
    */
   list?: DeleteChatGroupParticipantsRequestList[];
   ownerId?: number;

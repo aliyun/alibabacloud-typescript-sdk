@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BindDmAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denial details.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -13,9 +13,9 @@ export class BindDmAccountResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The status code of the request.
+   * The request status code.
    * 
-   * - A value of OK indicates that the request is successful.
+   * - A value of OK indicates that the request succeeded.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 

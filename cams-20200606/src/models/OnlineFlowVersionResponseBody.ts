@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class OnlineFlowVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied details.
+   * The details about the access denial.
    * 
    * @example
    * None
@@ -37,12 +37,12 @@ export class OnlineFlowVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response content.
+   * The content of the returned data.
    */
   response?: { [key: string]: any };
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
    * - true: Successful.
    * 

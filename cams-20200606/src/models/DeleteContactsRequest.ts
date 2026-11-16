@@ -29,7 +29,7 @@ export class DeleteContactsRequest extends $dara.Model {
   contactDetails?: string;
   /**
    * @remarks
-   * The contact name.
+   * The name of the contact.
    * 
    * @example
    * hahaha

@@ -15,7 +15,7 @@ export class ListChatFlowTemplateRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The search keyword. Used for fuzzy match of template names.
+   * The search keyword. This parameter is used to fuzzy match template names.
    * 
    * @example
    * LLM
@@ -32,7 +32,7 @@ export class ListChatFlowTemplateRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 10

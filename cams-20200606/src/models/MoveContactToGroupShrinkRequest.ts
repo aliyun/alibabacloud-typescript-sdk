@@ -13,7 +13,7 @@ export class MoveContactToGroupShrinkRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The business extension information. Default value: an empty collection.
+   * The business extension information. Default value: an empty set.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class MoveContactToGroupShrinkRequest extends $dara.Model {
   bizExtendShrink?: string;
   /**
    * @remarks
-   * The list of contacts whose group associations are to be modified.
+   * The list of contacts whose groups are to be modified.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class MoveContactToGroupShrinkRequest extends $dara.Model {
   contacts?: string;
   /**
    * @remarks
-   * The list of existing group IDs to associate with.
+   * The list of existing group IDs to associate with the contacts.
    * 
    * @example
    * [{"id":1}]
@@ -39,7 +39,7 @@ export class MoveContactToGroupShrinkRequest extends $dara.Model {
   linkExistGroups?: string;
   /**
    * @remarks
-   * The list of new group names to associate with.
+   * The list of new group names to associate with the contacts.
    * 
    * @example
    * [{"groupName":"aaa"}]

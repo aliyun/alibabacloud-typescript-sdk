@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateChatGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The business phone number. You can view the business phone number by calling the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation.
+   * The business phone number. You can call the [ListChatGroup](https://api.aliyun.com/document/cams/2020-06-06/ListChatGroup) operation to query the business phone number.
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class UpdateChatGroupRequest extends $dara.Model {
    * @remarks
    * The channel type. Valid values:
    * 
-   * - **WHATSAPP**.
+   * - **WHATSAPP**
    * 
-   * > Only the WhatsApp channel type is supported.
+   * > Currently, only the WhatsApp channel is supported.
    * 
    * @example
    * WHATSAPP
@@ -27,7 +27,7 @@ export class UpdateChatGroupRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The space ID of the ISV sub-customer, which is also the instance ID. This is the channel ID, which can be viewed on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * The space ID or instance ID of the ISV sub-customer, which is the channel ID. You can view the channel ID on the [Channels Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class UpdateChatGroupRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The group ID. You can view the group ID by calling the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation.
+   * The group ID. You can call the [ListChatGroup](https://api.aliyun.com/document/cams/2020-06-06/ListChatGroup) operation to query the group ID.
    * 
    * This parameter is required.
    * 
@@ -58,10 +58,10 @@ export class UpdateChatGroupRequest extends $dara.Model {
    * @remarks
    * The group profile picture.
    * 
-   * > Image restrictions:
-   * > - Supported MIME type: image/jpeg
-   * > - Maximum image size: 5 MB
-   * > - The image must be square with a minimum dimension of 192 × 192 pixels.
+   * > Image limits:
+   * > - Supported MIME type: image/jpeg.
+   * > - Maximum image size: 5 MB.
+   * > - The image must be square, with a minimum width and height of 192 × 192 pixels.
    */
   profilePictureFile?: string;
   resourceOwnerAccount?: string;

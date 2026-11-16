@@ -58,7 +58,7 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * The profile picture URL.
+   * The URL of the profile picture.
    * 
    * @example
    * http://a.img
@@ -68,7 +68,7 @@ export class ModifyPhoneBusinessProfileShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The industry vertical.
+   * The industry.
    * 
    * @example
    * OTHER

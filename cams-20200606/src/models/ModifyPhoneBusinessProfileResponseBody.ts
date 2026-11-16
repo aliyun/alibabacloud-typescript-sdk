@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyPhoneBusinessProfileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denied error.
    * 
    * @example
-   * 无
+   * None
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The request status code.
+   * The status code of the request.
    * 
-   * - OK indicates that the request was successful.
+   * - A value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -25,7 +25,7 @@ export class ModifyPhoneBusinessProfileResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The prompt message. A value is returned when an exception occurs.
+   * The message. This parameter has a value when an exception is returned.
    * 
    * @example
    * SUCCESS
@@ -41,8 +41,8 @@ export class ModifyPhoneBusinessProfileResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - **true**: The call was successful.
+   * Indicates whether the call is successful.
+   * - **true**: The call is successful.
    * - **false**: The call failed.
    * 
    * @example

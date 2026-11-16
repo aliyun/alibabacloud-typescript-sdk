@@ -16,7 +16,7 @@ export class SyncBusinessAppHistoryRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The phone number of the business.
+   * The phone number of the merchant.
    * 
    * This parameter is required.
    * 

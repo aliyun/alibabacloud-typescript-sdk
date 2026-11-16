@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMessengerPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial. This field is returned only when RAM authentication fails.
+   * The details of the access denial. This field is returned only when RAM authentication fails.
    * 
    * @example
-   * None.
+   * None
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The request status code.
+   * The status code of the request.
    * 
-   * - OK indicates that the request was successful.
+   * - A value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -28,12 +28,12 @@ export class CreateMessengerPageResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * None.
+   * None
    */
   message?: string;
   /**
    * @remarks
-   * The unique request ID.
+   * The unique ID of the request.
    * 
    * @example
    * 39***
@@ -41,7 +41,7 @@ export class CreateMessengerPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
    * - true: Successful.
    * 

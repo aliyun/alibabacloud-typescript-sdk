@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMarketingFlowResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The campaign code.
+   * The operational activity code.
    * 
    * @example
    * 3243243***
@@ -13,7 +13,7 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
   activityCode?: string;
   /**
    * @remarks
-   * The campaign description.
+   * The operational activity description.
    * 
    * @example
    * aaa
@@ -21,7 +21,7 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
   activityDesc?: string;
   /**
    * @remarks
-   * The campaign name.
+   * The operational activity name.
    * 
    * @example
    * aaa
@@ -29,7 +29,7 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
   activityName?: string;
   /**
    * @remarks
-   * The campaign status.
+   * The operational activity status.
    * 
    * @example
    * active
@@ -45,7 +45,7 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The business extension information. Default value: "{}".
+   * The business extension information. Default value: {}.
    * 
    * @example
    * {}
@@ -53,9 +53,7 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
   bizExtend?: { [key: string]: any };
   /**
    * @remarks
-   * The upgrade start time. The upgrade start time is specified as a cron expression.
-   * 
-   * For example, `0 0 4 1/1 * ?` indicates that the upgrade starts at 4:00 on the first day of each month and runs at 4:00 every day.
+   * The cron expression for the upgrade start time. For example, `0 0 4 1/1 * ?` indicates that the upgrade starts at 04:00 on the first day of each month and runs at 04:00 every day.
    * 
    * @example
    * 0 0 4 1/1 * ?
@@ -63,7 +61,7 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
-   * The end time in the YYYY-MM-DD HH:mm:ss format.
+   * The end time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-01-01 XX1:11:11
@@ -74,12 +72,12 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
    * The execution method.
    * 
    * @example
-   * 1(default cron)
+   * 1 (default: cron)
    */
   executionType?: string;
   /**
    * @remarks
-   * The creation time in the YYYY-MM-DD HH:mm:ss format.
+   * The creation time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-XX-01 11:11:11
@@ -87,7 +85,7 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * **[Deprecated]** The modification time.
+   * The modification time. **[Deprecated]**
    * 
    * @example
    * N/A
@@ -103,7 +101,7 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * Indicates whether custom parameters are enabled.
+   * Specifies whether custom parameters are enabled.
    * 
    * @example
    * Y
@@ -114,12 +112,12 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
    * The custom user parameters.
    * 
    * @example
-   * {\\"CustomerLimit\\":false}
+   * {"CustomerLimit":false}
    */
   params?: { [key: string]: any };
   /**
    * @remarks
-   * The associated flow code.
+   * The code of the associated flow.
    * 
    * @example
    * dsafdsf***
@@ -151,15 +149,15 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
   relatedGroupName?: string;
   /**
    * @remarks
-   * The specific time. This parameter is valid when ExecutionType is set to 2.
+   * The specific time. This parameter is valid when the execution method is set to 2.
    * 
    * @example
-   * Specific time (when ExecutionType is 2)
+   * Specific time (when the execution method is 2)
    */
   specificTime?: string;
   /**
    * @remarks
-   * The start time in the YYYY-MM-DD HH:mm:ss format.
+   * The start time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-01-XX 11:11:11
@@ -167,7 +165,7 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The tenant.
+   * The tenant code.
    * 
    * @example
    * 1111
@@ -243,7 +241,7 @@ export class ListMarketingFlowResponseBodyData extends $dara.Model {
 export class ListMarketingFlowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * {}
@@ -251,9 +249,9 @@ export class ListMarketingFlowResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The request status code.
+   * The status code of the request.
    * 
-   * - OK indicates that the request was successful.
+   * - A value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -263,12 +261,12 @@ export class ListMarketingFlowResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data object.
+   * The data object returned in the response.
    */
   data?: ListMarketingFlowResponseBodyData[];
   /**
    * @remarks
-   * The message returned for the request.
+   * The message returned in the response.
    * 
    * @example
    * NULL
@@ -276,7 +274,7 @@ export class ListMarketingFlowResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID. Alibaba Cloud generates a unique ID for each request. You can use the ID to troubleshoot issues.
+   * The ID of the request. The ID is a unique identifier generated by Alibaba Cloud for the request and can be used for troubleshooting.
    * 
    * @example
    * CB6122C9-09B5-5926-**476A96CB0
@@ -284,10 +282,10 @@ export class ListMarketingFlowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
+   * Indicates whether the call is successful. Valid values:
    * 
-   * - true: The call was successful.                                 
-   * - false: The call failed.
+   * - true: The call is successful.                                 
+   * - false: The call fails.
    * 
    * @example
    * true
@@ -295,7 +293,7 @@ export class ListMarketingFlowResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of entries in the list.
+   * The total number of entries.
    * 
    * @example
    * 15

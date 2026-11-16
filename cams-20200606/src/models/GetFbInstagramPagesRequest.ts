@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFbInstagramPagesRequest extends $dara.Model {
   /**
    * @remarks
-   * The personal access token.
-   * This field is not required if you use Alibaba Cloud AccessKey pair (AK+SK) or STS temporary authorization.
+   * The personal access token. This parameter is not required if you use an Alibaba Cloud AccessKey pair or Security Token Service (STS) for temporary authorization.
    * 
    * This parameter is required.
    * 
@@ -16,7 +15,7 @@ export class GetFbInstagramPagesRequest extends $dara.Model {
   accessToken?: string;
   /**
    * @remarks
-   * The instance ID. The unique identifier of the instance.
+   * The instance ID, which is the unique identity of the instance.
    * 
    * This parameter is required.
    * 

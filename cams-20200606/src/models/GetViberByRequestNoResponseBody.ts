@@ -45,7 +45,7 @@ export class GetViberByRequestNoResponseBodyDataAuditRecordCompanyAddress extend
 export class GetViberByRequestNoResponseBodyDataAuditRecordCompanyTel extends $dara.Model {
   /**
    * @remarks
-   * The company phone numbers.
+   * The company telephone number.
    * 
    * @example
    * 134213213
@@ -93,7 +93,7 @@ export class GetViberByRequestNoResponseBodyDataAuditRecord extends $dara.Model 
   ageLimit?: string;
   /**
    * @remarks
-   * The reason for the application.
+   * The application reason.
    * 
    * @example
    * aaa
@@ -138,7 +138,7 @@ export class GetViberByRequestNoResponseBodyDataAuditRecord extends $dara.Model 
   companyLegalName?: string;
   /**
    * @remarks
-   * The name of the company\\"s legal representative.
+   * The name of the legal representative of the company.
    * 
    * @example
    * jack
@@ -154,7 +154,7 @@ export class GetViberByRequestNoResponseBodyDataAuditRecord extends $dara.Model 
   companyProfile?: string;
   /**
    * @remarks
-   * The country where the company is registered.
+   * The country or region where the company is registered.
    * 
    * @example
    * beijing
@@ -162,7 +162,7 @@ export class GetViberByRequestNoResponseBodyDataAuditRecord extends $dara.Model 
   companyRegisteredCountry?: string;
   /**
    * @remarks
-   * The company phone numbers.
+   * The company telephone number.
    */
   companyTel?: GetViberByRequestNoResponseBodyDataAuditRecordCompanyTel[];
   /**
@@ -231,7 +231,7 @@ export class GetViberByRequestNoResponseBodyDataAuditRecord extends $dara.Model 
   industryDescription?: string;
   /**
    * @remarks
-   * The industry to which the company belongs.
+   * The industry.
    * 
    * @example
    * cateringServices
@@ -239,7 +239,7 @@ export class GetViberByRequestNoResponseBodyDataAuditRecord extends $dara.Model 
   industryInvolved?: string;
   /**
    * @remarks
-   * The address of the letter of guarantee.
+   * The URL of the letter of guarantee.
    * 
    * @example
    * https://xxxxxxxxxx
@@ -247,12 +247,12 @@ export class GetViberByRequestNoResponseBodyDataAuditRecord extends $dara.Model 
   letterGuarantee?: string;
   /**
    * @remarks
-   * The logo address.
+   * The logo URL.
    */
   logo?: string[];
   /**
    * @remarks
-   * The local destination or region.
+   * The local destination country or region.
    */
   messageDestinationCountry?: string[];
   /**
@@ -270,7 +270,7 @@ export class GetViberByRequestNoResponseBodyDataAuditRecord extends $dara.Model 
   messageDialogueIntroduction?: string;
   /**
    * @remarks
-   * The date on which business messaging is enabled, in YYYY-MM-DD format.
+   * The activation date of business messages. The format is YYYY-MM-DD.
    * 
    * @example
    * 2025-08-05
@@ -286,7 +286,7 @@ export class GetViberByRequestNoResponseBodyDataAuditRecord extends $dara.Model 
   messageSessionName?: string;
   /**
    * @remarks
-   * The recovery status.
+   * The recovery.
    * 
    * @example
    * NowRecovery
@@ -302,7 +302,7 @@ export class GetViberByRequestNoResponseBodyDataAuditRecord extends $dara.Model 
   otherLetterGuarantee?: string;
   /**
    * @remarks
-   * The recovery date, in YYYY-MM-DD format.
+   * The recovery date. The format is YYYY-MM-DD.
    * 
    * @example
    * 2025-11-11
@@ -326,7 +326,7 @@ export class GetViberByRequestNoResponseBodyDataAuditRecord extends $dara.Model 
   suspensionDate?: string;
   /**
    * @remarks
-   * The company website address.
+   * The company website.
    * 
    * @example
    * https://xxxxxx
@@ -435,7 +435,7 @@ export class GetViberByRequestNoResponseBodyDataAuditRecord extends $dara.Model 
 export class GetViberByRequestNoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The audit content.
+   * The review content.
    */
   auditRecord?: GetViberByRequestNoResponseBodyDataAuditRecord;
   /**
@@ -464,7 +464,7 @@ export class GetViberByRequestNoResponseBodyData extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The creation time, expressed as a Unix timestamp in milliseconds.
+   * The creation time. It is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1753236426000
@@ -472,7 +472,7 @@ export class GetViberByRequestNoResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 17833636
@@ -480,7 +480,7 @@ export class GetViberByRequestNoResponseBodyData extends $dara.Model {
   gmtModifier?: string;
   /**
    * @remarks
-   * ID。
+   * The ID.
    * 
    * @example
    * 11
@@ -504,7 +504,7 @@ export class GetViberByRequestNoResponseBodyData extends $dara.Model {
   modifier?: string;
   /**
    * @remarks
-   * The audit comment.
+   * The review comments.
    * 
    * @example
    * aa
@@ -595,7 +595,7 @@ export class GetViberByRequestNoResponseBodyData extends $dara.Model {
 export class GetViberByRequestNoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denied details.
    * 
    * @example
    * {}
@@ -605,7 +605,7 @@ export class GetViberByRequestNoResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - OK indicates that the request was successful.
+   * - A return value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -615,12 +615,12 @@ export class GetViberByRequestNoResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The return data.
+   * The returned data.
    */
   data?: GetViberByRequestNoResponseBodyData;
   /**
    * @remarks
-   * The return message.
+   * The returned message.
    * 
    * @example
    * successful
@@ -628,7 +628,7 @@ export class GetViberByRequestNoResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID. It is a unique identifier generated by Alibaba Cloud for the request. You can use the ID to troubleshoot and locate issues.
+   * The ID of the request. It is a unique identifier generated by Alibaba Cloud for the request and can be used to troubleshoot issues.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8**9-A94866411B2O
@@ -636,7 +636,7 @@ export class GetViberByRequestNoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
    * - true: Successful.
    * 

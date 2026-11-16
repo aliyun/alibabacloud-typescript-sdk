@@ -13,7 +13,7 @@ export class ModifyChatappTemplatePropertiesRequest extends $dara.Model {
   allowSend?: boolean;
   /**
    * @remarks
-   * Specifies whether to block sending after the Utility template category is changed.
+   * Specifies whether sending is blocked for utility templates after a category change.
    * 
    * @example
    * false
@@ -31,7 +31,7 @@ export class ModifyChatappTemplatePropertiesRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The template language. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * The template language. For detailed language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
    * 
    * This parameter is required.
    * 

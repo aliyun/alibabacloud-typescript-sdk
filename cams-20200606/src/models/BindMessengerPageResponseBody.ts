@@ -55,7 +55,7 @@ export class BindMessengerPageResponseBodyData extends $dara.Model {
 export class BindMessengerPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denial details.
+   * The details of the access denial.
    * 
    * @example
    * None

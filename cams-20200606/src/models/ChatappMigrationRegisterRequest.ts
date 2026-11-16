@@ -16,7 +16,7 @@ export class ChatappMigrationRegisterRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The phone number.
+   * The mobile phone number.
    * 
    * This parameter is required.
    * 

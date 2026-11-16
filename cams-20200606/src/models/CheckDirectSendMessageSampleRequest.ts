@@ -16,6 +16,9 @@ export class CheckDirectSendMessageSampleRequest extends $dara.Model {
   /**
    * @remarks
    * The message body of the interactive type.
+   * 
+   * @example
+   * {"type": "cta_url", "header": { "type": "text","text": "Order Update"}, "body": { "text": "Your order is ready."}, "action": { "name": "cta_url", "parameters": { "display_text": "View Order","url": "https://example.com"  } } }
    */
   interactive?: { [key: string]: any };
   /**

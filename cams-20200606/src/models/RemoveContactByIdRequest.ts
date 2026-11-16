@@ -15,7 +15,7 @@ export class RemoveContactByIdRequest extends $dara.Model {
   contactId?: string;
   /**
    * @remarks
-   * The contact group ID.
+   * The group ID.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddChatGroupInviteLinkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The details about the access denial.
    * 
    * @example
    * None
@@ -13,7 +13,7 @@ export class AddChatGroupInviteLinkResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The request status code. Valid values:
+   * The status code of the request. Valid values:
    * 
    * - OK: The request is successful.
    * 
@@ -25,7 +25,7 @@ export class AddChatGroupInviteLinkResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The invite link.
+   * The invitation link.
    * 
    * @example
    * https://chat.whatsapp.com/****
@@ -49,9 +49,9 @@ export class AddChatGroupInviteLinkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
-   * - **true**: The call is successful.
-   * - **false**: The call fails.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

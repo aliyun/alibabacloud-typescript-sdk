@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListFlowNodePrototypeV2ResponseBodyDataModel extends $dara.Model {
   /**
    * @remarks
-   * The component prototype code.
+   * The code of the component prototype.
    * 
    * @example
    * SendWhatsAppMessageNode
@@ -13,7 +13,7 @@ export class ListFlowNodePrototypeV2ResponseBodyDataModel extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The component group code.
+   * The code of the component group.
    * 
    * @example
    * Core
@@ -21,7 +21,7 @@ export class ListFlowNodePrototypeV2ResponseBodyDataModel extends $dara.Model {
   groupCode?: string;
   /**
    * @remarks
-   * The public extension information. This is used by the frontend to display extended information of flow components. The value is a JSON string. The first parameter in the string represents the flow component title. The following section describes the other fields:
+   * The public extension information. This information is used to display the extension information of the flow component on the frontend. It is a string in JSON format. The first parameter in the string represents the title of the flow component. The other fields are described as follows:
    * 
    * - en: the English information of the flow component.
    * 
@@ -35,7 +35,7 @@ export class ListFlowNodePrototypeV2ResponseBodyDataModel extends $dara.Model {
    * 
    * - style: the style of the flow component.
    * 
-   * - svg: the icon URL of the flow component.
+   * - svg: the URL of the flow component icon.
    * 
    * - icon: a deprecated field.
    * 
@@ -47,7 +47,7 @@ export class ListFlowNodePrototypeV2ResponseBodyDataModel extends $dara.Model {
   publicExtend?: string;
   /**
    * @remarks
-   * The component prototype status. Default value: NORMAL.
+   * The status of the component prototype. Default value: NORMAL (normal).
    * 
    * @example
    * NORMAL
@@ -83,7 +83,7 @@ export class ListFlowNodePrototypeV2ResponseBodyDataModel extends $dara.Model {
 export class ListFlowNodePrototypeV2ResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of request result data.
+   * The list of result data.
    */
   model?: ListFlowNodePrototypeV2ResponseBodyDataModel[];
   static names(): { [key: string]: string } {
@@ -113,7 +113,7 @@ export class ListFlowNodePrototypeV2ResponseBodyData extends $dara.Model {
 export class ListFlowNodePrototypeV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied details.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -142,7 +142,7 @@ export class ListFlowNodePrototypeV2ResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique request ID.
+   * The request ID.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A94866411B2O
@@ -150,11 +150,11 @@ export class ListFlowNodePrototypeV2ResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: The operation was successful.
+   * - true: successful
    * 
-   * - false: The operation failed.
+   * - false: failed
    * 
    * @example
    * true

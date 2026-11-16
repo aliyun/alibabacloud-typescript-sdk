@@ -8,7 +8,7 @@ export class AddContactsShrinkRequest extends $dara.Model {
    * The business code.
    * 
    * @example
-   * Sample value
+   * Example value
    */
   bizCode?: string;
   /**
@@ -48,7 +48,7 @@ export class AddContactsShrinkRequest extends $dara.Model {
    * The email address.
    * 
    * @example
-   * Sample value
+   * Example value
    */
   email?: string;
   /**
@@ -56,7 +56,7 @@ export class AddContactsShrinkRequest extends $dara.Model {
    * The file path.
    * 
    * @example
-   * Sample value
+   * Example value
    */
   filePath?: string;
   /**
@@ -66,12 +66,12 @@ export class AddContactsShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Sample value
+   * Example value
    */
   groups?: string;
   /**
    * @remarks
-   * Specifies whether the whitelist of back-to-origin IP addresses needs to be updated. If the whitelist of back-to-origin IP addresses in use differs from the latest whitelist of back-to-origin IP addresses, the whitelist needs to be updated and this parameter returns true. Valid values:
+   * Specifies whether the whitelist for back-to-origin IP addresses needs to be updated. If the whitelist for back-to-origin IP addresses in use differs from the latest whitelist for back-to-origin IP addresses, it needs to be updated and this parameter returns true. Valid values:
    * - true: The whitelist needs to be updated.
    * - false: The whitelist does not need to be updated.
    * 

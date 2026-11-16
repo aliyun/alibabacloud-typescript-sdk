@@ -8,25 +8,25 @@ export class ListViberServiceMessageResponseBodyData extends $dara.Model {
    * The business account name.
    * 
    * @example
-   * Test.
+   * Test
    */
   businessAccountName?: string;
   /**
    * @remarks
-   * The destination country or region ID.
+   * The ID of the destination country or region.
    */
   destinationCountryId?: string[];
   /**
    * @remarks
-   * The destination country or region ID.
+   * The ID of the destination country or region.
    */
   destinationInternationalCountryId?: string[];
   /**
    * @remarks
-   * The industry involved.
+   * The involved industry.
    * 
    * @example
-   * Healthcare.
+   * Healthcare
    */
   industryInvolved?: string;
   /**
@@ -105,7 +105,7 @@ export class ListViberServiceMessageResponseBodyData extends $dara.Model {
 export class ListViberServiceMessageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denial details.
+   * The details of the access denial.
    * 
    * @example
    * {}
@@ -115,7 +115,7 @@ export class ListViberServiceMessageResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - OK indicates that the request was successful.
+   * - A value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -138,7 +138,7 @@ export class ListViberServiceMessageResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID. This is used for troubleshooting when an error occurs.
+   * The request ID. You can use this ID to troubleshoot issues when errors occur.
    * 
    * @example
    * ddhjdn-dnjdnkdjknd**
@@ -146,7 +146,7 @@ export class ListViberServiceMessageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
    * - true: Successful.
    * 

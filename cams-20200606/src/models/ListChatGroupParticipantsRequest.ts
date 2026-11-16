@@ -45,7 +45,7 @@ export class ListChatGroupParticipantsRequestPage extends $dara.Model {
 export class ListChatGroupParticipantsRequest extends $dara.Model {
   /**
    * @remarks
-   * The business phone number. You can view the business phone number by calling the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation.
+   * The business number. You can call the [ListChatGroup](https://api.aliyun.com/document/cams/2020-06-06/ListChatGroup) operation to query the business number.
    * 
    * This parameter is required.
    * 
@@ -59,7 +59,7 @@ export class ListChatGroupParticipantsRequest extends $dara.Model {
    * 
    * - **WHATSAPP**
    * 
-   * > Only the WhatsApp channel type is supported.
+   * > Only the WhatsApp channel type is currently supported.
    * 
    * @example
    * WHATSAPP
@@ -67,7 +67,7 @@ export class ListChatGroupParticipantsRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The space ID of the ISV sub-customer, which is also the instance ID. This is the channel ID, which can be viewed on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * The space ID or instance ID of the ISV sub-customer. This is the channel ID. You can view it on the [Channels Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
    * 
    * This parameter is required.
    * 
@@ -77,7 +77,7 @@ export class ListChatGroupParticipantsRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The group ID. You can view the group ID by calling the [ListChatGroup](https://help.aliyun.com/document_detail/2932629.html) operation.
+   * The group ID. You can call the [ListChatGroup](https://api.aliyun.com/document/cams/2020-06-06/ListChatGroup) operation to query the group ID.
    * 
    * This parameter is required.
    * 

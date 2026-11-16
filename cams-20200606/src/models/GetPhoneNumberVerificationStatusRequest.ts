@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class GetPhoneNumberVerificationStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The space ID of the ISV sub-customer or the instance ID of the direct customer. You can view the Space ID in the
+   * The space ID of the ISV sub-customer or the instance ID of the direct customer. You can view the space ID on the 
    * <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)
-   * <props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList)
-   * page.
+   * <props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
    * 
    * This parameter is required.
    * 
@@ -19,9 +18,9 @@ export class GetPhoneNumberVerificationStatusRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The phone number. You can view it in the
+   * The phone number. You can view it on the 
    * <props="china">[**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement)
-   * <props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList)> **Manage** > **WABA Management** > **Phone Number Management** page.
+   * <props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) > **Management** > **WABA Management** > **Number Management** page.
    * 
    * This parameter is required.
    * 

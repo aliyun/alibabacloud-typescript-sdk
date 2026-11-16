@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCallingCallHoursHolidaySchedule extends $dara.Model {
   /**
+   * @remarks
+   * The date in the YYYY-MM-DD format.
+   * 
    * @example
    * 2026-01-01
    */
   date?: string;
   /**
+   * @remarks
+   * The end time in the HHmm format.
+   * 
    * @example
    * 2359
    */
   endTime?: string;
   /**
+   * @remarks
+   * The start time in the HHmm format.
+   * 
    * @example
    * 0000
    */
@@ -45,16 +54,25 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCalli
 
 export class ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCallingCallHoursWeeklyOperatingHours extends $dara.Model {
   /**
+   * @remarks
+   * The closing time in the HHmm format.
+   * 
    * @example
    * 2359
    */
   closeTime?: string;
   /**
+   * @remarks
+   * The day of the week.
+   * 
    * @example
    * MONDAY
    */
   dayOfWeek?: string;
   /**
+   * @remarks
+   * The opening time in the HHmm format.
+   * 
    * @example
    * 0000
    */
@@ -85,17 +103,31 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCalli
 }
 
 export class ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCallingCallHours extends $dara.Model {
+  /**
+   * @remarks
+   * The calling schedule for holidays.
+   */
   holidaySchedule?: ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCallingCallHoursHolidaySchedule[];
   /**
+   * @remarks
+   * The status of the calling hours configuration.
+   * 
    * @example
    * ENABLED
    */
   status?: string;
   /**
+   * @remarks
+   * The time zone ID, such as Asia/Shanghai.
+   * 
    * @example
    * Asia/Shanghai
    */
   timezoneId?: string;
+  /**
+   * @remarks
+   * The weekly operating hours schedule.
+   */
   weeklyOperatingHours?: ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCallingCallHoursWeeklyOperatingHours[];
   static names(): { [key: string]: string } {
     return {
@@ -131,18 +163,31 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCalli
 }
 
 export class ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCalling extends $dara.Model {
+  /**
+   * @remarks
+   * The calling hours configuration.
+   */
   callHours?: ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCallingCallHours;
   /**
+   * @remarks
+   * The visibility of the call icon.
+   * 
    * @example
    * DEFAULT
    */
   callIconVisibility?: string;
   /**
+   * @remarks
+   * The callback permission status.
+   * 
    * @example
-   * 示例值示例值示例值
+   * Sample value sample value sample value
    */
   callbackPermissionStatus?: string;
   /**
+   * @remarks
+   * The status of the calling feature.
+   * 
    * @example
    * ENABLED
    */
@@ -178,13 +223,23 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCalli
 }
 
 export class ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigure extends $dara.Model {
+  /**
+   * @remarks
+   * The calling feature configuration.
+   */
   calling?: ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigureCalling;
   /**
+   * @remarks
+   * The calling callback URL.
+   * 
    * @example
    * http://aliyun.com
    */
   callingCallbackUrl?: string;
   /**
+   * @remarks
+   * The maximum talk time.
+   * 
    * @example
    * 100
    */
@@ -218,15 +273,14 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigure exte
 }
 
 export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model {
+  /**
+   * @remarks
+   * The calling configuration.
+   */
   callingConfigure?: ChatappSyncPhoneNumberResponseBodyPhoneNumbersCallingConfigure;
   /**
    * @remarks
-   * The verification status. Valid values:
-   * 
-   * - REVOKED: The verification request is revoked.
-   * - MORE_INFORMATION_REQUESTED: More information is required.
-   * - VERIFIED: The verification is passed.
-   * - REJECTED: The verification is rejected.
+   * The verification status.
    * 
    * @example
    * VERIFIED
@@ -234,7 +288,7 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
   codeVerificationStatus?: string;
   /**
    * @remarks
-   * Indicates whether the phone number is OBA-certified.
+   * Specifies whether the phone number is OBA certified.
    * 
    * @example
    * N
@@ -250,7 +304,7 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
   messagingLimitTier?: string;
   /**
    * @remarks
-   * The name review status.
+   * The review status of the name.
    * 
    * @example
    * Approval
@@ -290,7 +344,7 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
   status?: string;
   /**
    * @remarks
-   * The callback URL for status reports.
+   * The URL for status report notifications.
    * 
    * @example
    * https://www.alibaba.com/status
@@ -306,7 +360,7 @@ export class ChatappSyncPhoneNumberResponseBodyPhoneNumbers extends $dara.Model 
   statusQueue?: string;
   /**
    * @remarks
-   * The callback URL for upstream messages.
+   * The URL for upstream message notifications.
    * 
    * @example
    * https://www.alibaba.com/inbound
@@ -384,12 +438,12 @@ export class ChatappSyncPhoneNumberResponseBody extends $dara.Model {
    * The details about the access denial.
    * 
    * @example
-   * 无
+   * None
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code.
+   * The request status code.
    * 
    * - A value of OK indicates that the request is successful.
    * 
@@ -404,7 +458,7 @@ export class ChatappSyncPhoneNumberResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**
@@ -422,9 +476,9 @@ export class ChatappSyncPhoneNumberResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
+   * Specifies whether the call is successful.
    * - **true**: The call is successful.
-   * - **false**: The call failed.
+   * - **false**: The call fails.
    * 
    * @example
    * true

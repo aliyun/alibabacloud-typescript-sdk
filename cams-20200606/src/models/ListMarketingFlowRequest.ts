@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMarketingFlowRequest extends $dara.Model {
   /**
    * @remarks
-   * The campaign code. You can use the system-generated code or modify it to use a custom code.
+   * The operational activity code. You can use the system-generated code or modify it to use a custom code.
    * 
    * @example
    * rewrwerw
@@ -21,7 +21,7 @@ export class ListMarketingFlowRequest extends $dara.Model {
   activityName?: string;
   /**
    * @remarks
-   * The campaign status.
+   * The operational activity status.
    * 
    * @example
    * sucess
@@ -37,7 +37,7 @@ export class ListMarketingFlowRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The business extension information. Default value: "{}".
+   * The business extension information. Default value: {}.
    * 
    * @example
    * {}
@@ -54,7 +54,7 @@ export class ListMarketingFlowRequest extends $dara.Model {
   pageIndex?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateMessageCampaignResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -13,7 +13,7 @@ export class CreateMessageCampaignResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The campaign ID.
+   * The budget ID.
    * 
    * @example
    * 39***
@@ -23,7 +23,7 @@ export class CreateMessageCampaignResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - A value of OK indicates that the request was successful.
+   * - OK indicates that the request was successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -49,10 +49,8 @@ export class CreateMessageCampaignResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful:
-   * 
+   * Indicates whether the call was successful. Valid values:
    * - **true**: The call was successful.
-   * 
    * - **false**: The call failed.
    * 
    * @example

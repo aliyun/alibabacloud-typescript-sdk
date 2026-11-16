@@ -5,22 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateGroupNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
-   * None.
+   * None
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
    * The request status code. Valid values:
    * 
-   * OK: The request was successful.
+   * - OK: The request is successful.
    * 
-   * For other error codes, see the error code list.
+   * - Other error codes: For more information, see Error codes.
    * 
    * @example
-   * Sample value sample value.
+   * Example value
    */
   code?: string;
   /**
@@ -28,7 +28,7 @@ export class UpdateGroupNameResponseBody extends $dara.Model {
    * The returned data object.
    * 
    * @example
-   * Sample value sample value.
+   * Example value
    */
   data?: string;
   /**
@@ -36,7 +36,7 @@ export class UpdateGroupNameResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * Sample value sample value.
+   * Example value
    */
   message?: string;
   /**
@@ -44,12 +44,12 @@ export class UpdateGroupNameResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * Sample value sample value.
+   * Example value
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
    * - true: Successful.
    * 

@@ -24,7 +24,7 @@ export class SyncMessengerSubscriptionTokenRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The PageId of Messenger.
+   * The page ID of Messenger.
    * 
    * This parameter is required.
    * 

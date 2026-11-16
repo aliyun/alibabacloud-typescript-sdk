@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFlowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the permission verification failure.
+   * The details of the permission check failure.
    * 
    * @example
    * None
@@ -13,7 +13,7 @@ export class DeleteFlowResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The result. OK indicates success.
+   * The result code. A value of OK indicates a successful response.
    * 
    * @example
    * OK
@@ -21,10 +21,10 @@ export class DeleteFlowResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error description.
+   * The error message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**

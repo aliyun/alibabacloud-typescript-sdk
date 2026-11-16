@@ -16,7 +16,7 @@ export class QueryPhoneBusinessProfileRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The mobile phone number.
+   * The phone number.
    * 
    * This parameter is required.
    * 

@@ -13,7 +13,7 @@ export class GetDownloadExcelListShrinkRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The business extension information. Default value: "{}".
+   * The business extension information. Default value: {}.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class GetDownloadExcelListShrinkRequest extends $dara.Model {
   bizExtendShrink?: string;
   /**
    * @remarks
-   * The query condition.
+   * The query conditions.
    * 
    * @example
    * aa
@@ -29,12 +29,12 @@ export class GetDownloadExcelListShrinkRequest extends $dara.Model {
   condition?: string;
   /**
    * @remarks
-   * The country name.
+   * The country names.
    */
   countryNamesShrink?: string;
   /**
    * @remarks
-   * The end date. Format: YYYY-MM-DD.
+   * The end time in the YYYY-MM-DD format.
    * 
    * @example
    * 2025-12-01
@@ -50,7 +50,7 @@ export class GetDownloadExcelListShrinkRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The contact group ID.
+   * The contact group IDs.
    */
   groupIdsShrink?: string;
   ownerId?: number;
@@ -58,7 +58,7 @@ export class GetDownloadExcelListShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The start date. Format: YYYY-MM-DD.
+   * The start time in the YYYY-MM-DD format.
    * 
    * @example
    * 2025-11-01

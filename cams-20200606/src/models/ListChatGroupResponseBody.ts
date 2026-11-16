@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatGroupResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The business phone number.
+   * The business number.
    * 
    * @example
    * 8613800**
@@ -182,7 +182,7 @@ export class ListChatGroupResponseBodyData extends $dara.Model {
 export class ListChatGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -192,7 +192,7 @@ export class ListChatGroupResponseBody extends $dara.Model {
    * @remarks
    * The request status code. Valid values:
    * 
-   * - OK: The request was successful.
+   * - OK: The request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -207,7 +207,7 @@ export class ListChatGroupResponseBody extends $dara.Model {
   data?: ListChatGroupResponseBodyData;
   /**
    * @remarks
-   * The prompt message. This parameter has a value when an exception is returned.
+   * The prompt message. This parameter is returned only when an exception occurs.
    * 
    * @example
    * None
@@ -223,9 +223,9 @@ export class ListChatGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - **true**: The call was successful.
-   * - **false**: The call failed.
+   * Indicates whether the call is successful. Valid values:
+   * - **true**: The call is successful.
+   * - **false**: The call fails.
    * 
    * @example
    * true

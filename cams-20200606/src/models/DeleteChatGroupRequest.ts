@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteChatGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The business phone number.
+   * The business number.
    * 
    * This parameter is required.
    * 
@@ -19,7 +19,7 @@ export class DeleteChatGroupRequest extends $dara.Model {
    * 
    * - **WHATSAPP**
    * 
-   * > Only the WhatsApp channel type is supported.
+   * > Currently, only WhatsApp channel messages are supported.
    * 
    * @example
    * WHATSAPP
@@ -27,7 +27,7 @@ export class DeleteChatGroupRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The space ID or instance ID of the ISV sub-customer, which is the channel ID. You can view it on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * The space ID or instance ID of the ISV sub-customer, which is the channel ID. You can view the channel ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
    * 
    * This parameter is required.
    * 

@@ -10,17 +10,17 @@ export class UpdateWabaMmlStatusRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * Example value
    */
   code?: string;
   /**
    * @remarks
-   * The space ID or instance ID of the ISV sub-customer, which is the channel ID. You can view it on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * The SpaceId or instance ID of the ISV sub-customer. This is the channel ID, which can be viewed on the [Channels Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * Example value
    */
   custSpaceId?: string;
   ownerId?: number;
@@ -28,12 +28,12 @@ export class UpdateWabaMmlStatusRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * waba Id。
+   * The WABA ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * Example value
    */
   wabaId?: string;
   static names(): { [key: string]: string } {

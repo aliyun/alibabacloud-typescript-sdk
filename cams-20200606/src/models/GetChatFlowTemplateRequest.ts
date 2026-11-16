@@ -15,7 +15,7 @@ export class GetChatFlowTemplateRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The template ID. You can obtain the template ID by calling the [ListChatFlowTemplate](https://help.aliyun.com/document_detail/2937208.html) operation.
+   * The template ID. You can obtain the template ID by calling the [ListChatFlowTemplate](https://api.aliyun.com/document/cams/2020-06-06/ListChatFlowTemplate) operation.
    * 
    * @example
    * 2

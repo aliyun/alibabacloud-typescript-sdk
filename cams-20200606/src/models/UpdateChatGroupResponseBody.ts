@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateChatGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -13,9 +13,9 @@ export class UpdateChatGroupResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code. Valid values:
+   * The status code of the request. Valid values:
    * 
-   * - OK: The request was successful.
+   * - OK: The request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 

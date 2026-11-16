@@ -105,7 +105,7 @@ export class ListMessageCampaignResponseBodyData extends $dara.Model {
 export class ListMessageCampaignResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denial details.
    * 
    * @example
    * None
@@ -115,7 +115,7 @@ export class ListMessageCampaignResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - A value of OK indicates that the request is successful.
+   * - OK: The request was successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -146,11 +146,11 @@ export class ListMessageCampaignResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. Valid values:
+   * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: Successful.
+   * - true: The operation was successful.
    * 
-   * - false: Failed.
+   * - false: The operation failed.
    * 
    * @example
    * true
@@ -158,7 +158,7 @@ export class ListMessageCampaignResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 70

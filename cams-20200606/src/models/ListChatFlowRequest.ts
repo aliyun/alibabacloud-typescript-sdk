@@ -13,7 +13,7 @@ export class ListChatFlowRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The business extension information. Default value: an empty collection.
+   * The business extension information. Default value: an empty set.
    * 
    * @example
    * {}
@@ -24,7 +24,7 @@ export class ListChatFlowRequest extends $dara.Model {
    * flowCode
    * 
    * @example
-   * SampleValueSampleValue
+   * Example value
    */
   flowCode?: string;
   /**
@@ -32,7 +32,7 @@ export class ListChatFlowRequest extends $dara.Model {
    * The flow status.
    * 
    * @example
-   * SampleValueSampleValue
+   * Example value
    */
   flowStatus?: string;
   /**
@@ -50,7 +50,7 @@ export class ListChatFlowRequest extends $dara.Model {
   flowTriggerType?: string;
   /**
    * @remarks
-   * The search keyword. This parameter is used for fuzzy match of flow names.
+   * The search keyword. This parameter is used to perform a fuzzy match on flow names.
    * 
    * @example
    * LLM
@@ -82,7 +82,7 @@ export class ListChatFlowRequest extends $dara.Model {
    * The phone number.
    * 
    * @example
-   * SampleValue
+   * Example value
    */
   phoneNumber?: string;
   /**
@@ -120,7 +120,7 @@ export class ListChatFlowRequest extends $dara.Model {
    * The title.
    * 
    * @example
-   * SampleValueSampleValue
+   * Example value
    */
   title?: string;
   static names(): { [key: string]: string } {

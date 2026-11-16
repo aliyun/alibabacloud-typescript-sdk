@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWhatsappHealthStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The space ID of the RAM user within the independent software vendor (ISV) account or the instance ID of the customer of Alibaba Cloud.
+   * The space ID of the ISV sub-customer or the instance ID of the direct customer.
    * 
    * This parameter is required.
    * 
@@ -25,14 +25,6 @@ export class GetWhatsappHealthStatusRequest extends $dara.Model {
    * @remarks
    * The node type.
    * 
-   * Valid values:
-   * 
-   * - template: message template
-   * 
-   * - phone: phone number
-   * 
-   * - waba: WhatsApp Business Account (WABA)
-   * 
    * This parameter is required.
    * 
    * @example
@@ -42,7 +34,7 @@ export class GetWhatsappHealthStatusRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The phone number of the enterprise.
+   * The merchant phone number.
    * 
    * @example
    * 86138***
@@ -60,7 +52,7 @@ export class GetWhatsappHealthStatusRequest extends $dara.Model {
   templateCode?: string;
   /**
    * @remarks
-   * WabaId
+   * The WABA ID.
    * 
    * @example
    * 299399****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetGroupExistResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The access denial details.
    * 
    * @example
    * {}
@@ -15,7 +15,7 @@ export class GetGroupExistResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - OK indicates that the request was successful.
+   * - A value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
    * 

@@ -15,7 +15,7 @@ export class DeleteMessageCampaignRequest extends $dara.Model {
   adAccountId?: string;
   /**
    * @remarks
-   * The campaign ID.
+   * The budget ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteMessageCampaignRequest extends $dara.Model {
   campaignId?: string;
   /**
    * @remarks
-   * The space ID of an Independent Software Vendor (ISV) sub-customer or the instance ID of a direct customer.
+   * The Space ID of the ISV sub-customer or the instance ID of the direct customer.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class DeleteMessageCampaignRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The Page ID of Messenger.
+   * The Messenger Page ID.
    * 
    * This parameter is required.
    * 

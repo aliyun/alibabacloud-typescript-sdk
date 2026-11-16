@@ -21,23 +21,23 @@ export class CreateChatFlowRequest extends $dara.Model {
   bizExtend?: { [key: string]: any };
   /**
    * @remarks
-   * The source flowCode for creation.
+   * The source flow code.
    * 
    * @example
-   * Sample value
+   * Example value
    */
   createFromFlowCode?: string;
   /**
    * @remarks
-   * The source flowVersion for creation.
+   * The source flow version.
    * 
    * @example
-   * Sample value sample value sample value
+   * Example value example value example value
    */
   createFromFlowVersion?: string;
   /**
    * @remarks
-   * The trigger type of the flow. Valid values:
+   * The flow trigger type. Valid values:
    *  - TriggeredManually
    * - TriggeredByWhatsApp
    * - TriggeredByMessenger
@@ -63,20 +63,20 @@ export class CreateChatFlowRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The remarks for the flow.
+   * The flow remark.
    * 
    * @example
-   * Trigger verification template delivery via API
+   * Trigger and deliver a verification template through the API
    */
   remark?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The title of the flow.
+   * The flow title.
    * 
    * @example
-   * WhatsApp Auto-Reply
+   * WhatsApp auto-reply
    */
   title?: string;
   static names(): { [key: string]: string } {

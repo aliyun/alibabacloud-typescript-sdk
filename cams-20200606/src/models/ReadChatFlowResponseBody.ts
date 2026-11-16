@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReadChatFlowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -37,12 +37,12 @@ export class ReadChatFlowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response content.
+   * The response data.
    */
   response?: { [key: string]: any };
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
    * - true: Successful.
    * 

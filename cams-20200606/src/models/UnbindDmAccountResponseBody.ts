@@ -15,7 +15,7 @@ export class UnbindDmAccountResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - OK indicates that the request was successful.
+   * - A value of OK indicates that the request succeeded.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -49,8 +49,8 @@ export class UnbindDmAccountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
-   * - **true**: The call was successful.
+   * Indicates whether the call was successful. Valid values:
+   * - **true**: The call succeeded.
    * - **false**: The call failed.
    * 
    * @example

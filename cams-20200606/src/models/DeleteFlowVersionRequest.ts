@@ -21,7 +21,7 @@ export class DeleteFlowVersionRequest extends $dara.Model {
   bizExtend?: { [key: string]: any };
   /**
    * @remarks
-   * The flow code. You can view the flow code in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+   * The flow code. You can view the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
    * 
    * @example
    * 9ccc41**************************
@@ -29,7 +29,7 @@ export class DeleteFlowVersionRequest extends $dara.Model {
   flowCode?: string;
   /**
    * @remarks
-   * The flow version. Click a flow name in the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas page and view the flow version.
+   * The flow version. You can click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas page of the flow editor and view the flow version.
    * 
    * @example
    * 1

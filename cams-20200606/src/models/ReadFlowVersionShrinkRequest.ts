@@ -13,7 +13,7 @@ export class ReadFlowVersionShrinkRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The business extension information. Default value: an empty collection.
+   * The business extension information. Default value: an empty set.
    * 
    * @example
    * {}
@@ -29,7 +29,7 @@ export class ReadFlowVersionShrinkRequest extends $dara.Model {
   draftVersion?: string;
   /**
    * @remarks
-   * The flow code. You can view the flow code on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
+   * The flow code. You can view the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
    * 
    * @example
    * 9ccc41**************************
@@ -37,7 +37,7 @@ export class ReadFlowVersionShrinkRequest extends $dara.Model {
   flowCode?: string;
   /**
    * @remarks
-   * The flow version. You can click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and view the flow version, or call [ListFlowVersion](https://help.aliyun.com/document_detail/2937202.html) to retrieve the flow version.
+   * The flow version. You can click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas orchestration page and view the flow version, or call the [ListFlowVersion](https://api.aliyun.com/document/cams/2020-06-06/ListFlowVersion) operation to obtain the flow version.
    * 
    * @example
    * 1
@@ -48,11 +48,11 @@ export class ReadFlowVersionShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The flow version status. Valid values:
-   * - DRAFT: draft.
-   * - DELETED: deleted.
-   * - ONLINE: online.
-   * - OFFLINE: offline.
+   * The status of the flow version. Valid values:
+   * - DRAFT: Draft.
+   * - DELETED: Deleted.
+   * - ONLINE: Online.
+   * - OFFLINE: Offline.
    * 
    * @example
    * DRAFT

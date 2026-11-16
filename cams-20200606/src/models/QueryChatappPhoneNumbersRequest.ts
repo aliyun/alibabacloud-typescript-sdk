@@ -13,7 +13,7 @@ export class QueryChatappPhoneNumbersRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The ISV verification code, used to verify whether a sub-account is authorized by an ISV.
+   * The ISV verification code used to verify whether the RAM user is authorized by the ISV.
    * 
    * @example
    * aksik93kdkkxmwol9****

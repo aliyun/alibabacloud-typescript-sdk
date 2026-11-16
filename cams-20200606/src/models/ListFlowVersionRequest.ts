@@ -13,7 +13,7 @@ export class ListFlowVersionRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The business extension information. Default value: an empty collection.
+   * The business extension information. Default value: an empty set.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class ListFlowVersionRequest extends $dara.Model {
   bizExtend?: { [key: string]: any };
   /**
    * @remarks
-   * The flow code. You can query the flow code on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
+   * The flow code. You can query the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
    * 
    * @example
    * 9ccc41**************************
@@ -38,7 +38,7 @@ export class ListFlowVersionRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 5
@@ -48,11 +48,11 @@ export class ListFlowVersionRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The flow version status. Valid values:
-   * - DRAFT: draft.
-   * - DELETED: deleted.
-   * - ONLINE: online.
-   * - OFFLINE: offline.
+   * The status of the flow version. Valid values:
+   * - DRAFT: Draft.
+   * - DELETED: Deleted.
+   * - ONLINE: Online.
+   * - OFFLINE: Offline.
    * 
    * @example
    * DRAFT

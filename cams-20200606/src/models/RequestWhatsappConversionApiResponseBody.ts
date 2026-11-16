@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RequestWhatsappConversionApiResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied details.
+   * The access denial details.
    * 
    * @example
    * None
@@ -13,9 +13,9 @@ export class RequestWhatsappConversionApiResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code.
+   * The status code of the request.
    * 
-   * - A value of OK indicates that the request was successful.
+   * - A value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -41,9 +41,9 @@ export class RequestWhatsappConversionApiResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - **true**
-   * - **false**.
+   * Indicates whether the call is successful. Valid values:
+   * - **true**: The call is successful.
+   * - **false**: The call fails.
    * 
    * @example
    * true

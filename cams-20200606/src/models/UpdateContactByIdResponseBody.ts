@@ -5,22 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateContactByIdResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
-   * None.
+   * None
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
    * The request status code.
    * 
-   * - OK indicates that the request was successful.
+   * - A value of OK indicates that the request succeeded.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
-   * Sample value.
+   * Example value
    */
   code?: string;
   /**
@@ -28,7 +28,7 @@ export class UpdateContactByIdResponseBody extends $dara.Model {
    * The returned data object.
    * 
    * @example
-   * Sample value.
+   * Example value
    */
   data?: string;
   /**
@@ -36,7 +36,7 @@ export class UpdateContactByIdResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * Sample value sample value sample value.
+   * Example value
    */
   message?: string;
   /**
@@ -44,12 +44,12 @@ export class UpdateContactByIdResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * Sample value sample value.
+   * Example value
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation succeeded. Valid values:
    * 
    * - true: Successful.
    * 

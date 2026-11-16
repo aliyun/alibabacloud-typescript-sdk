@@ -40,7 +40,7 @@ export class FlowUnbindPhoneRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The list of phone numbers, PageIds, AccountIds<props="intl">, and ServiceIds under the channel instance.
+   * The list of phone numbers, PageIds, AccountIds<props="intl">, or ServiceIds under the channel instance.
    */
   phoneNumbers?: string[];
   resourceOwnerAccount?: string;

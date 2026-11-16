@@ -45,7 +45,7 @@ export class ListMessengerSubscriptionTokenResponseBodyData extends $dara.Model 
   notificationMessagesTimezone?: string;
   /**
    * @remarks
-   * The page-scoped ID of the customer.
+   * The public page scope ID of the customer.
    * 
    * @example
    * Example
@@ -53,7 +53,7 @@ export class ListMessengerSubscriptionTokenResponseBodyData extends $dara.Model 
   notificationMessagesToken?: string;
   /**
    * @remarks
-   * The page ID of Messenger.
+   * The Page ID of Messenger.
    * 
    * @example
    * 239***
@@ -135,7 +135,7 @@ export class ListMessengerSubscriptionTokenResponseBodyData extends $dara.Model 
 export class ListMessengerSubscriptionTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -155,7 +155,7 @@ export class ListMessengerSubscriptionTokenResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data object.
+   * The returned data object.
    */
   data?: ListMessengerSubscriptionTokenResponseBodyData[];
   /**
@@ -168,7 +168,7 @@ export class ListMessengerSubscriptionTokenResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The next page token. Pass this value to query the next page.
+   * The next page token. This parameter is required when you query the next page.
    * 
    * @example
    * 3399***
@@ -186,9 +186,9 @@ export class ListMessengerSubscriptionTokenResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: The operation is successful.
+   * - true: Successful.
    * 
-   * - false: The operation fails.
+   * - false: Failed.
    * 
    * @example
    * true

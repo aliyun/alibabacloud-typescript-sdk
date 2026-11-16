@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
   /**
    * @remarks
-   * The audit status. Valid values:
+   * The review status. Valid values:
    * 
    * - **pass**: Approved.
    * 
@@ -13,7 +13,7 @@ export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
    * 
    * - **auditing**: Under review.
    * 
-   * - **unaudit**: Review suspended.
+   * - **unaudit**: Review paused.
    * 
    * @example
    * pass
@@ -21,21 +21,21 @@ export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
   auditStatus?: string;
   /**
    * @remarks
-   * The WhatsApp template category. Valid values:
+   * The categorization of the WhatsApp template. Valid values:
    * 
-   * - **UTILITY**: Transaction-related.
+   * - **UTILITY**: Transactional.
    * 
-   * - **MARKETING**: Marketing template.
+   * - **MARKETING**: Marketing.
    * 
-   * - **AUTHENTICATION**: Identity verification.
+   * - **AUTHENTICATION**: authenticate.
    * 
-   * Viber template category:
+   * The categorization of Viber templates. Valid values:
    * 
-   * - **UTILITY**: Transaction-related.
+   * - **UTILITY**: Transactional.
    * 
-   * - **MARKETING**: Marketing template.
+   * - **MARKETING**: Marketing.
    * 
-   * - **AUTHENTICATION**: Identity verification.
+   * - **AUTHENTICATION**: authenticate.
    * 
    * @example
    * UTILITY
@@ -43,7 +43,7 @@ export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
   category?: string;
   /**
    * @remarks
-   * The template language. For language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
+   * The language of the template. For more information about language codes, see [Language codes](https://help.aliyun.com/document_detail/463420.html).
    * 
    * @example
    * en
@@ -51,7 +51,7 @@ export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The last modification time, expressed as a UNIX timestamp in milliseconds.
+   * The last modification time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1711006633000
@@ -59,7 +59,7 @@ export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
   lastUpdateTime?: number;
   /**
    * @remarks
-   * The reason the template audit was rejected.
+   * The reason why the template was rejected.
    * 
    * @example
    * None
@@ -67,7 +67,7 @@ export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
   reason?: string;
   /**
    * @remarks
-   * The template code.
+   * The code of the template.
    * 
    * @example
    * 744c4b5c79c9432497a075bdfca3****
@@ -75,7 +75,7 @@ export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
   templateCode?: string;
   /**
    * @remarks
-   * The template name.
+   * The name of the template.
    * 
    * @example
    * hello_whatsapp
@@ -83,7 +83,7 @@ export class ListChatappTemplateResponseBodyListTemplate extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The templatetype. Valid values: WHATSAPP or VIBER.
+   * The templatetype. Valid values: WHATSAPP and VIBER.
    * 
    * @example
    * WHATSAPP
@@ -135,11 +135,11 @@ export class ListChatappTemplateResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The request status code.
+   * The status code of the request.
    * 
-   * - OK indicates that the request was successful.
+   * - A value of OK indicates that the request is successful.
    * 
-   * - For other error codes, see [Error code list](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -169,7 +169,7 @@ export class ListChatappTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call was successful. Valid values:
-   * - **true**: The call succeeded.
+   * - **true**: The call was successful.
    * - **false**: The call failed.
    * 
    * @example

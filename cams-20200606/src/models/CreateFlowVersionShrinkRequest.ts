@@ -21,7 +21,7 @@ export class CreateFlowVersionShrinkRequest extends $dara.Model {
   bizExtendShrink?: string;
   /**
    * @remarks
-   * The flow code. You can view the flow code on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
+   * The flow code. You can view the flow code on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
    * 
    * @example
    * 9ccc41**************************
@@ -29,7 +29,7 @@ export class CreateFlowVersionShrinkRequest extends $dara.Model {
   flowCode?: string;
   /**
    * @remarks
-   * The flow version to copy. Click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to enter the canvas orchestration page and view historical flow versions.
+   * The flow version to copy. You can click the flow name on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page and view the historical versions of the flow.
    * 
    * @example
    * 1
@@ -38,10 +38,10 @@ export class CreateFlowVersionShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The version remarks.
+   * The version remark.
    * 
    * @example
-   * Fix WhatsApp message sending error.
+   * Fixed WhatsApp message sending errors
    */
   remark?: string;
   resourceOwnerAccount?: string;

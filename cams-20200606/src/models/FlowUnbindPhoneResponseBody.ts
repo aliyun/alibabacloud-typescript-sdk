@@ -13,7 +13,7 @@ export class FlowUnbindPhoneResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The status code.
+   * The request status code.
    * 
    * @example
    * OK
@@ -29,7 +29,7 @@ export class FlowUnbindPhoneResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the request is successful. Valid values:
+   * Indicates whether the result is successful. Valid values:
    * 
    * - true: Yes.
    * 

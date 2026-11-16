@@ -13,7 +13,7 @@ export class ListDmAccountResponseBodyData extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The time when the account was created. The value is a UNIX timestamp in milliseconds.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1743579634000
@@ -68,7 +68,7 @@ export class ListDmAccountResponseBodyData extends $dara.Model {
 export class ListDmAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -76,9 +76,9 @@ export class ListDmAccountResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response status code. Valid values:
+   * The status code of the request. Valid values:
    * 
-   * - OK: The request was successful.
+   * - OK: The request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -109,9 +109,9 @@ export class ListDmAccountResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: The operation was successful.
+   * - true: The operation is successful.
    * 
    * - false: The operation failed.
    * 
@@ -121,7 +121,7 @@ export class ListDmAccountResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 1

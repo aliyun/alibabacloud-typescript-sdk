@@ -17,7 +17,7 @@ export class AddChatGroupResponseBody extends $dara.Model {
    * 
    * - OK: The request is successful.
    * 
-   * - Other error codes. For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK

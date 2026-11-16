@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMarketingFlowRequest extends $dara.Model {
   /**
    * @remarks
-   * The activity code. You can use the system-generated code or modify it to use a custom code.
+   * The campaign code. You can use the system-generated code or modify it to use a custom code.
    * 
    * @example
    * 1111
@@ -13,10 +13,10 @@ export class DeleteMarketingFlowRequest extends $dara.Model {
   activityCode?: string;
   /**
    * @remarks
-   * The activity ID (deprecated).
+   * The campaign ID. This parameter is deprecated.
    * 
    * @example
-   * 已弃用
+   * Deprecated
    */
   activityId?: string;
   ownerId?: number;

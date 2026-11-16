@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMessageCampaignResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The access denial details.
    * 
    * @example
    * None
@@ -15,7 +15,7 @@ export class DeleteMessageCampaignResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - A value of OK indicates that the request was successful.
+   * - A return value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -41,11 +41,9 @@ export class DeleteMessageCampaignResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
-   * 
-   * - **true**: successful.
-   * 
-   * - **false**: failed.
+   * Indicates whether the call is successful.
+   * - **true**: The call is successful.
+   * - **false**: The call fails.
    * 
    * @example
    * true

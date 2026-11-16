@@ -13,7 +13,7 @@ export class ListCustomAudienceShrinkRequest extends $dara.Model {
   adAccountId?: string;
   /**
    * @remarks
-   * The space ID or instance ID of the ISV sub-customer. This is the channel ID. You can view it on the <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
+   * The SpaceId or instance ID of the ISV sub-customer. This is the channel ID, which you can view on the <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListCustomAudienceShrinkRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The custom audience ID.
+   * The ID of the custom audience.
    * 
    * @example
    * 239**
@@ -31,7 +31,7 @@ export class ListCustomAudienceShrinkRequest extends $dara.Model {
   customAudienceId?: string;
   /**
    * @remarks
-   * The custom audience name.
+   * The name of the custom audience.
    * 
    * @example
    * name
@@ -47,7 +47,7 @@ export class ListCustomAudienceShrinkRequest extends $dara.Model {
   pageShrink?: string;
   /**
    * @remarks
-   * The page ID of Messenger.
+   * The Page ID of Messenger.
    * 
    * This parameter is required.
    * 

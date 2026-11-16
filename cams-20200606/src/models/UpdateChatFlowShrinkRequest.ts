@@ -13,7 +13,7 @@ export class UpdateChatFlowShrinkRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The business extension information. Default value: an empty collection.
+   * The business extension information. Default value: an empty set.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class UpdateChatFlowShrinkRequest extends $dara.Model {
   bizExtendShrink?: string;
   /**
    * @remarks
-   * The flow code. View the flow code in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+   * The flow code. You can view the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
    * 
    * @example
    * 9ccc41**************************
@@ -30,10 +30,10 @@ export class UpdateChatFlowShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The updated flow remark.
+   * The updated flow remarks.
    * 
    * @example
-   * FlowRemark.
+   * Flow remarks
    */
   remark?: string;
   resourceOwnerAccount?: string;
@@ -43,7 +43,7 @@ export class UpdateChatFlowShrinkRequest extends $dara.Model {
    * The updated flow name.
    * 
    * @example
-   * TestFlow.
+   * Test flow
    */
   title?: string;
   static names(): { [key: string]: string } {

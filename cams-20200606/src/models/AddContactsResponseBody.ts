@@ -16,7 +16,7 @@ export class AddContactsResponseBody extends $dara.Model {
    * The status code.
    * 
    * @example
-   * Sample value
+   * Example value
    */
   code?: string;
   /**
@@ -32,7 +32,7 @@ export class AddContactsResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * Sample value
+   * Example value
    */
   message?: string;
   /**
@@ -40,7 +40,7 @@ export class AddContactsResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * Sample value
+   * Example value
    */
   requestId?: string;
   /**

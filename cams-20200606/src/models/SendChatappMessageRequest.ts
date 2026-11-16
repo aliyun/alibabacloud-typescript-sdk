@@ -6,6 +6,11 @@ export class SendChatappMessageRequestFlowAction extends $dara.Model {
   /**
    * @remarks
    * The collection of Flow default parameters.
+   * 
+   * @example
+   * {
+   *   "name": "name"
+   * }
    */
   flowActionData?: { [key: string]: any };
   /**
@@ -632,6 +637,12 @@ export class SendChatappMessageRequest extends $dara.Model {
   /**
    * @remarks
    * The collection of template parameters.
+   * 
+   * @example
+   * {
+   *   "param1": "value1",
+   *   "param2": "value2"
+   * }
    */
   templateParams?: { [key: string]: string };
   /**

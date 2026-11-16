@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPledgeTemplateAddressRequest extends $dara.Model {
   /**
    * @remarks
-   * The space ID or instance ID of the ISV sub-customer. This is the channel ID, which can be viewed on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) interface.
+   * The SpaceId or instance ID of the ISV sub-customer. This is the channel ID, which you can view on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
    * 
    * @example
    * cams-x***

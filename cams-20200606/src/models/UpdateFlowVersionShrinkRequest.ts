@@ -21,7 +21,7 @@ export class UpdateFlowVersionShrinkRequest extends $dara.Model {
   bizExtendShrink?: string;
   /**
    * @remarks
-   * The flow code. You can view the flow code on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
+   * The flow code. You can view the flow code on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
    * 
    * @example
    * 9ccc41**************************
@@ -29,7 +29,7 @@ export class UpdateFlowVersionShrinkRequest extends $dara.Model {
   flowCode?: string;
   /**
    * @remarks
-   * The flow version. You can click a flow name on the [flow editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the flow editor canvas page and view the flow version.
+   * The flow version. You can click the flow name on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas page and view the flow version.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class UpdateFlowVersionShrinkRequest extends $dara.Model {
   flowVersion?: string;
   /**
    * @remarks
-   * The DSL data of the flow version. This is a JSON-formatted data string. You can orchestrate flow components on the flow editor canvas in advance, save the flow, and then click **Settings** > **Export** in the upper-right corner of the canvas orchestration page to export a JSON-formatted data file for viewing.
+   * The DSL data of the flow version. The data is in JSON format. You can orchestrate flow components on the canvas in the flow editor in advance, save the flow, and then click **Settings** > **Export** in the upper-right corner of the canvas to export the data as a JSON data file for viewing.
    * 
    * @example
    * {
@@ -56,10 +56,10 @@ export class UpdateFlowVersionShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The version remarks.
+   * The version remark.
    * 
    * @example
-   * Fix WhatsApp message sending error
+   * Fix the error in sending WhatsApp messages
    */
   remark?: string;
   resourceOwnerAccount?: string;
@@ -69,7 +69,7 @@ export class UpdateFlowVersionShrinkRequest extends $dara.Model {
    * The save type.
    * 
    * @example
-   * Sample value
+   * Sample value sample value sample value
    */
   type?: string;
   static names(): { [key: string]: string } {

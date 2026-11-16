@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FlowBindPhoneShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The message channel code, which is the channel ID. View the channel ID in the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * The message channel code, which is the channel ID. You can view the channel ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
    * 
    * @example
    * cams-8c8*********
@@ -28,7 +28,7 @@ export class FlowBindPhoneShrinkRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The flow code. View the flow code in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page.
+   * The flow code. You can view the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
    * 
    * This parameter is required.
    * 
@@ -38,7 +38,7 @@ export class FlowBindPhoneShrinkRequest extends $dara.Model {
   flowCode?: string;
   /**
    * @remarks
-   * The flow version. Click the flow name in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to enter the flow builder canvas and view the flow version.
+   * The flow version. To view the flow version, click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas page.
    * 
    * @example
    * 1
@@ -46,24 +46,24 @@ export class FlowBindPhoneShrinkRequest extends $dara.Model {
   flowVersion?: string;
   /**
    * @remarks
-   * The multi-WABA binding configuration.
+   * The multi-WABA binding.
    */
   multiWabaPhoneNumbersShrink?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The list of phone numbers, PageIds, or AccountIds<props="intl">, or ServiceIds under the channel instance.
+   * The list of phone numbers, Page IDs, or account IDs<props="intl">, or service IDs under the channel instance.
    */
   phoneNumbersShrink?: string;
   resourceOwnerAccount?: string;
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The WABA account ID, PageId, or AccountId<props="intl">, or ServiceId.
+   * The WABA account ID, Page ID, or account ID<props="intl">, or service ID.
    * 
-   * - If the ChannelType parameter is set to WHATSAPP, specify the WABA account ID. View the WABA account ID in [**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement) > **Manage** > **WABA Management**.
+   * - If the ChannelType parameter is set to WHATSAPP, specify the WABA account ID. You can view the WABA account ID by choosing [**Channel Management**](https://chatapp.console.aliyun.com/ChannelsManagement) > **Management** > **WABA Management**.
    * 
-   * - If the ChannelType parameter is not set to WHATSAPP, specify the PageId for MESSENGER, the AccountId for INSTAGRAM<props="intl">, or the ServiceId for VIBER.
+   * - If the ChannelType parameter is not set to WHATSAPP, specify the Page ID for MESSENGER, the account ID for INSTAGRAM<props="intl">, or the service ID for VIBER.
    * 
    * @example
    * 1952************

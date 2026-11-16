@@ -12,7 +12,7 @@ export class CreateMessengerPageShrinkRequest extends $dara.Model {
   adAccountIdsShrink?: string;
   /**
    * @remarks
-   * The authorization code obtained after the embedded authorization is completed.
+   * The authorization code obtained after the embedding process is completed.
    * 
    * This parameter is required.
    * 
@@ -22,7 +22,7 @@ export class CreateMessengerPageShrinkRequest extends $dara.Model {
   authenticationCode?: string;
   /**
    * @remarks
-   * The Business platform ID.
+   * The ID of the Business platform.
    * 
    * This parameter is required.
    * 
@@ -32,7 +32,7 @@ export class CreateMessengerPageShrinkRequest extends $dara.Model {
   businessId?: string;
   /**
    * @remarks
-   * The SpaceId of the ISV sub-customer or the instance ID of the direct customer.
+   * The space ID of the ISV sub-customer or the instance ID of the direct customer.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class CreateMessengerPageShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The PageId of the messenger.
+   * The Page ID of the Messenger.
    * 
    * This parameter is required.
    * 

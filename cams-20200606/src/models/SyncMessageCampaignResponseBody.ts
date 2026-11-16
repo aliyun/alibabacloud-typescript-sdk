@@ -15,9 +15,9 @@ export class SyncMessageCampaignResponseBody extends $dara.Model {
    * @remarks
    * The request status code. Valid values:
    * 
-   * OK: The request is successful.
+   * - OK: The request is successful.
    * 
-   * For other error codes, see the error code list.
+   * For other error codes, refer to the error code list.
    * 
    * @example
    * OK

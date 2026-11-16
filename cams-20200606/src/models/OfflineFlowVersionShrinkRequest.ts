@@ -13,7 +13,7 @@ export class OfflineFlowVersionShrinkRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The business extension information. Default value: an empty set.
+   * The business extension information. Default value: an empty collection.
    * 
    * @example
    * {}
@@ -29,7 +29,7 @@ export class OfflineFlowVersionShrinkRequest extends $dara.Model {
   flowCode?: string;
   /**
    * @remarks
-   * The flow version. You can click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas page of the flow editor and view the flow version.
+   * The flow version. You can click the flow name in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) to go to the canvas page and view the flow version.
    * 
    * @example
    * 1

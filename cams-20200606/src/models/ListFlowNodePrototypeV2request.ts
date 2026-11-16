@@ -15,15 +15,15 @@ export class ListFlowNodePrototypeV2Request extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The component group code. Valid values:
+   * The code of the component group. Valid values:
    * 
-   * - Messaging: messaging components.
+   * - Messaging: messaging components
    * 
-   * - Core: core components.
+   * - Core: core components
    * 
-   * - Intelligence: intelligent components.
+   * - Intelligence: intelligent components
    * 
-   * - Contact: contact management components.
+   * - Contact: contact management components
    * 
    * @example
    * Core
@@ -31,7 +31,7 @@ export class ListFlowNodePrototypeV2Request extends $dara.Model {
   groupCode?: string;
   /**
    * @remarks
-   * The search keyword. This parameter is used for fuzzy match based on the flow component name.
+   * The search keyword. This parameter is used to perform a fuzzy match based on the flow component name.
    * 
    * @example
    * WhatsApp

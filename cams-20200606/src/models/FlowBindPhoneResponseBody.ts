@@ -29,11 +29,11 @@ export class FlowBindPhoneResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. Valid values:
+   * Indicates whether the returned result is successful. Valid values:
    * 
-   * - true: The operation is successful.
+   * - true: Yes.
    * 
-   * - false: The operation failed.
+   * - false: No.
    * 
    * @example
    * false
@@ -51,9 +51,9 @@ export class FlowBindPhoneResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: The operation is successful.
+   * - true: Successful.
    * 
-   * - false: The operation failed.
+   * - false: Failed.
    * 
    * @example
    * true

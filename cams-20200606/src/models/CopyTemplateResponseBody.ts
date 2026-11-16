@@ -8,7 +8,7 @@ export class CopyTemplateResponseBodyData extends $dara.Model {
    * The template code.
    * 
    * @example
-   * 示例值示例值
+   * Example value
    */
   sceneTemplateCode?: string;
   /**
@@ -16,7 +16,7 @@ export class CopyTemplateResponseBodyData extends $dara.Model {
    * The template name.
    * 
    * @example
-   * 示例值示例值示例值
+   * Example value
    */
   sceneTemplateName?: string;
   /**
@@ -24,7 +24,7 @@ export class CopyTemplateResponseBodyData extends $dara.Model {
    * The WhatsApp category.
    * 
    * @example
-   * 示例值示例值
+   * Example value
    */
   whatsappCatagory?: string;
   static names(): { [key: string]: string } {
@@ -55,10 +55,10 @@ export class CopyTemplateResponseBodyData extends $dara.Model {
 export class CopyTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The access denial details.
    * 
    * @example
-   * 无
+   * None
    */
   accessDeniedDetail?: string;
   /**
@@ -66,7 +66,7 @@ export class CopyTemplateResponseBody extends $dara.Model {
    * The status code.
    * 
    * @example
-   * 示例值示例值
+   * Example value
    */
   code?: string;
   /**
@@ -79,7 +79,7 @@ export class CopyTemplateResponseBody extends $dara.Model {
    * The returned message.
    * 
    * @example
-   * 示例值
+   * Example value
    */
   message?: string;
   /**
@@ -87,7 +87,7 @@ export class CopyTemplateResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 示例值示例值
+   * Example value
    */
   requestId?: string;
   /**

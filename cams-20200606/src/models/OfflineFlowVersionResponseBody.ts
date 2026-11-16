@@ -37,12 +37,12 @@ export class OfflineFlowVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The content of the returned data.
+   * The returned data.
    */
   response?: { [key: string]: any };
   /**
    * @remarks
-   * Indicates whether the operation is successful. Valid values:
+   * Specifies whether the operation is successful. Valid values:
    * 
    * - true: Successful.
    * 

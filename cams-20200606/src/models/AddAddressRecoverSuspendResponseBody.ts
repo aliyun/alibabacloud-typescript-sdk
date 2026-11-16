@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddAddressRecoverSuspendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial.
+   * The access denial details.
    * 
    * @example
    * None
@@ -16,7 +16,7 @@ export class AddAddressRecoverSuspendResponseBody extends $dara.Model {
    * The status code.
    * 
    * @example
-   * 示例值示例值
+   * Example value example value
    */
   code?: string;
   /**
@@ -24,15 +24,15 @@ export class AddAddressRecoverSuspendResponseBody extends $dara.Model {
    * The returned data.
    * 
    * @example
-   * 示例值
+   * Example value
    */
   data?: { [key: string]: any };
   /**
    * @remarks
-   * The returned message. If the request succeeds, a success message is returned. If the request fails, the failure reason is returned.
+   * The returned message. If the request is successful, a success message is returned. If the request fails, the cause of the failure is returned.
    * 
    * @example
-   * 示例值示例值
+   * Example value example value
    */
   message?: string;
   /**
@@ -40,12 +40,12 @@ export class AddAddressRecoverSuspendResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * 示例值示例值示例值
+   * Example value example value example value
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values: true: The operation was successful. false: The operation failed.
+   * Indicates whether the operation is successful. A value of true indicates success. A value of false indicates failure.
    * 
    * @example
    * false

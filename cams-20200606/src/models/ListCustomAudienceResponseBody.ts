@@ -13,7 +13,7 @@ export class ListCustomAudienceResponseBodyData extends $dara.Model {
   adAccountId?: string;
   /**
    * @remarks
-   * The creation time, expressed as a UNIX timestamp in seconds.
+   * The creation time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1720356898
@@ -21,7 +21,7 @@ export class ListCustomAudienceResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The custom audience ID.
+   * The ID of the custom audience.
    * 
    * @example
    * 339**
@@ -29,7 +29,7 @@ export class ListCustomAudienceResponseBodyData extends $dara.Model {
   customAudienceId?: string;
   /**
    * @remarks
-   * The custom audience name.
+   * The name of the custom audience.
    * 
    * @example
    * custom audience name
@@ -45,7 +45,7 @@ export class ListCustomAudienceResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The page ID of Messenger.
+   * The Page ID of Messenger.
    * 
    * @example
    * 239**
@@ -145,9 +145,9 @@ export class ListCustomAudienceResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - A return value of OK indicates that the request was successful.
+   * - A value of OK indicates that the request is successful.
    * 
-   * - For other error codes, see [Error code list](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -160,7 +160,7 @@ export class ListCustomAudienceResponseBody extends $dara.Model {
   data?: ListCustomAudienceResponseBodyData[];
   /**
    * @remarks
-   * The error description.
+   * The error message.
    * 
    * @example
    * OK
@@ -176,9 +176,9 @@ export class ListCustomAudienceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
-   * - **true**: The call was successful.
-   * - **false**: The call failed.
+   * Indicates whether the call is successful. Valid values:
+   * - **true**: The call is successful.
+   * - **false**: The call fails.
    * 
    * @example
    * true

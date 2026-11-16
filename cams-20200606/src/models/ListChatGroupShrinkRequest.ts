@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The business phone number.
+   * The business number.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class ListChatGroupShrinkRequest extends $dara.Model {
    * @remarks
    * The channel type. Valid values: **WHATSAPP**.
    * 
-   * > Only the WhatsApp channel type is supported.
+   * > Currently, only messages of the WhatsApp channel type are supported.
    * 
    * @example
    * WHATSAPP
@@ -25,7 +25,7 @@ export class ListChatGroupShrinkRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The SpaceId or instance ID of the ISV sub-customer. This is the channel ID, which can be viewed on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
+   * The space ID or instance ID of the ISV sub-customer, which is the channel ID. You can view the channel ID on the [Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement) page.
    * 
    * This parameter is required.
    * 
@@ -45,17 +45,17 @@ export class ListChatGroupShrinkRequest extends $dara.Model {
    * @remarks
    * The group status. Valid values:
    * 
-   * - ACTIVE: In use.
+   * - ACTIVE: The group is in use.
    * 
-   * - INACTIVE: Not activated.
+   * - INACTIVE: The group is inactive.
    * 
-   * - SUSPENDED: Suspended.
+   * - SUSPENDED: The group is suspended.
    * 
-   * - CREATING: Being created.
+   * - CREATING: The group is being created.
    * 
-   * - DELETING: Being deleted.
+   * - DELETING: The group is being deleted.
    * 
-   * - UPDATING: Being updated.
+   * - UPDATING: The group is being updated.
    * 
    * @example
    * ACTIVE

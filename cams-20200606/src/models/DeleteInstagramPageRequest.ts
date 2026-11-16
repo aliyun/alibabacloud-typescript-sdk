@@ -10,13 +10,13 @@ export class DeleteInstagramPageRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Sample value.
+   * Sample value
    */
   instanceId?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The PageId of the Messenger page.
+   * The Messenger page ID.
    * 
    * This parameter is required.
    * 

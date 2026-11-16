@@ -69,7 +69,7 @@ export class ListInstanceResponseBodyData extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The ISV/Client agreement file name.
+   * The name of the ISV or client agreement file.
    * 
    * @example
    * aa
@@ -109,7 +109,7 @@ export class ListInstanceResponseBodyData extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The submit time in the YYYY-MM-DD HH:mm:ss format.
+   * The submission time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-12-12 00:00:00
@@ -165,7 +165,7 @@ export class ListInstanceResponseBodyData extends $dara.Model {
 export class ListInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The access denial details.
    * 
    * @example
    * {}
@@ -173,9 +173,9 @@ export class ListInstanceResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The request status code.
+   * The status code of the request.
    * 
-   * - OK indicates that the request was successful.
+   * - A value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -190,7 +190,7 @@ export class ListInstanceResponseBody extends $dara.Model {
   data?: ListInstanceResponseBodyData[];
   /**
    * @remarks
-   * The response message.
+   * The message returned by the operation.
    * 
    * @example
    * NULL
@@ -206,9 +206,9 @@ export class ListInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - **true**: The call was successful.
-   * - **false**: The call failed.
+   * Indicates whether the call is successful. Valid values:
+   * - **true**: The call is successful.
+   * - **false**: The call fails.
    * 
    * @example
    * true
@@ -216,7 +216,7 @@ export class ListInstanceResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of records that meet the conditions.
+   * The total number of entries that meet the conditions.
    * 
    * @example
    * 15

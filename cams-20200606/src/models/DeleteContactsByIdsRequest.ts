@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteContactsByIdsRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of contact codes, separated by commas (,).
+   * The list of contact codes, separated by commas.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值示例值
+   * Example value example value example value
    */
   contacts?: string;
   ownerId?: number;

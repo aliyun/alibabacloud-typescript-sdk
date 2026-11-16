@@ -15,7 +15,7 @@ export class ListCustomAudienceRequestPage extends $dara.Model {
   index?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class ListCustomAudienceRequest extends $dara.Model {
   adAccountId?: string;
   /**
    * @remarks
-   * The space ID or instance ID of the ISV sub-customer. This is the channel ID. You can view it on the <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
+   * The SpaceId or instance ID of the ISV sub-customer. This is the channel ID, which you can view on the <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
    * 
    * This parameter is required.
    * 
@@ -67,7 +67,7 @@ export class ListCustomAudienceRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The custom audience ID.
+   * The ID of the custom audience.
    * 
    * @example
    * 239**
@@ -75,7 +75,7 @@ export class ListCustomAudienceRequest extends $dara.Model {
   customAudienceId?: string;
   /**
    * @remarks
-   * The custom audience name.
+   * The name of the custom audience.
    * 
    * @example
    * name
@@ -91,7 +91,7 @@ export class ListCustomAudienceRequest extends $dara.Model {
   page?: ListCustomAudienceRequestPage;
   /**
    * @remarks
-   * The page ID of Messenger.
+   * The Page ID of Messenger.
    * 
    * This parameter is required.
    * 

@@ -8,12 +8,12 @@ export class UpdateContactByIdRequest extends $dara.Model {
    * The business code.
    * 
    * @example
-   * Sample value.
+   * Example value
    */
   bizCode?: string;
   /**
    * @remarks
-   * The business extension information. Default value: an empty collection.
+   * The extended business information. Default value: an empty set.
    * 
    * @example
    * {}
@@ -26,7 +26,7 @@ export class UpdateContactByIdRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Sample value sample value.
+   * Example value
    */
   contactDetails?: string;
   /**
@@ -36,7 +36,7 @@ export class UpdateContactByIdRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Sample value sample value sample value.
+   * Example value
    */
   contactId?: string;
   /**
@@ -46,7 +46,7 @@ export class UpdateContactByIdRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Sample value sample value.
+   * Example value
    */
   contactName?: string;
   /**
@@ -56,7 +56,7 @@ export class UpdateContactByIdRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Sample value sample value.
+   * Example value
    */
   country?: string;
   /**
@@ -64,7 +64,7 @@ export class UpdateContactByIdRequest extends $dara.Model {
    * The email address.
    * 
    * @example
-   * Sample value.
+   * Example value
    */
   email?: string;
   ownerId?: number;

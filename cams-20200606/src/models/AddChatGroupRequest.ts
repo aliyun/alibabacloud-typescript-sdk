@@ -38,7 +38,7 @@ export class AddChatGroupRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The description of the group.
+   * The group description.
    * 
    * @example
    * This is a newly created group
@@ -57,7 +57,7 @@ export class AddChatGroupRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The title of the group.
+   * The group subject.
    * 
    * @example
    * test

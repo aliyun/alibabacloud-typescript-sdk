@@ -6,7 +6,7 @@ export class CreateInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The channel type.
-   * >Notice: The Singapore site supports all channels, and the Germany site currently supports only WhatsApp.</notice>
+   * >Notice: The Singapore site supports all channels. The Germany site currently supports only WhatsApp.</notice>
    * 
    * This parameter is required.
    * 
@@ -66,7 +66,7 @@ export class CreateInstanceRequest extends $dara.Model {
   isConfirmAudit?: string;
   /**
    * @remarks
-   * The name of the ISV/client agreement file.
+   * The name of the ISV/Client agreement file.
    * 
    * @example
    * https://a.com/1.pdf

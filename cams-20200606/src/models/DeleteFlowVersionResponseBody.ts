@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFlowVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed reason why access was denied.
+   * The details about the access denial.
    * 
    * @example
    * None
@@ -37,7 +37,7 @@ export class DeleteFlowVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response content.
+   * The response data.
    * 
    * @example
    * 434991
@@ -45,7 +45,7 @@ export class DeleteFlowVersionResponseBody extends $dara.Model {
   response?: { [key: string]: any };
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Specifies whether the operation is successful. Valid values:
    * 
    * - true: Successful.
    * 

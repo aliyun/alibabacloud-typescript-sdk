@@ -15,12 +15,12 @@ export class RemoveContactByIdResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - OK indicates that the request was successful.
+   * - A return value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
-   * SampleValueSampleValueSampleValue.
+   * Sample value Sample value Sample value
    */
   code?: string;
   /**
@@ -28,15 +28,15 @@ export class RemoveContactByIdResponseBody extends $dara.Model {
    * The returned data.
    * 
    * @example
-   * SampleValueSampleValue.
+   * Sample value Sample value
    */
   data?: string;
   /**
    * @remarks
-   * The returned message. A success message is returned if the request succeeds. A failure reason is returned if the request fails.
+   * The returned message. If the request is successful, a success message is returned. If the request fails, the cause of the failure is returned.
    * 
    * @example
-   * SampleValueSampleValueSampleValue.
+   * Sample value Sample value Sample value
    */
   message?: string;
   /**
@@ -44,12 +44,12 @@ export class RemoveContactByIdResponseBody extends $dara.Model {
    * The request ID.
    * 
    * @example
-   * SampleValueSampleValueSampleValue.
+   * Sample value Sample value Sample value
    */
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
    * - true: Successful.
    * 

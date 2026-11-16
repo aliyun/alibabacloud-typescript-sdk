@@ -22,7 +22,7 @@ export class ListDmAccountRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10

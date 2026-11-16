@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecordCompanyAddress extends $dara.Model {
   /**
    * @remarks
-   * The company addresses.
+   * The company address.
    * 
    * @example
    * xxxxcompany
@@ -45,7 +45,7 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecordCompanyAddre
 export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecordCompanyTel extends $dara.Model {
   /**
    * @remarks
-   * The company phone numbers.
+   * The company phone number.
    * 
    * @example
    * 143243**
@@ -53,7 +53,7 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecordCompanyTel e
   companyTelNumber?: string;
   /**
    * @remarks
-   * The company phone title.
+   * The company phone number title.
    * 
    * @example
    * example
@@ -93,7 +93,7 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord extends $da
   ageLimit?: string;
   /**
    * @remarks
-   * The application reason.
+   * The reason for the application.
    * 
    * @example
    * bnv
@@ -109,7 +109,7 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord extends $da
   businessAccountName?: string;
   /**
    * @remarks
-   * The company addresses.
+   * The company address.
    */
   companyAddress?: GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecordCompanyAddress[];
   /**
@@ -151,7 +151,7 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord extends $da
   companyRegisteredCountry?: string[];
   /**
    * @remarks
-   * The company phone numbers.
+   * The company phone number.
    */
   companyTel?: GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecordCompanyTel[];
   /**
@@ -164,7 +164,7 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord extends $da
   contactMail?: string;
   /**
    * @remarks
-   * Indicates whether auto-reply is enabled.
+   * Specifies whether automatic reply is enabled.
    * 
    * @example
    * N
@@ -175,12 +175,12 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord extends $da
    * The industry description.
    * 
    * @example
-   * xxx
+   * The industry provides enterprise information technology services
    */
   industryDescription?: string;
   /**
    * @remarks
-   * The industry involved.
+   * The industry.
    * 
    * @example
    * it
@@ -188,7 +188,7 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord extends $da
   industryInvolved?: string;
   /**
    * @remarks
-   * The URL of the letter of guarantee.
+   * The address of the letter of guarantee.
    * 
    * @example
    * https://www.xxxxxxx
@@ -211,7 +211,7 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord extends $da
   messageDestinationInternationalCountry?: string[];
   /**
    * @remarks
-   * The business messaging introduction.
+   * The introduction to commercial messages.
    * 
    * @example
    * MessageDialogueIntroduction
@@ -219,7 +219,7 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord extends $da
   messageDialogueIntroduction?: string;
   /**
    * @remarks
-   * The date when business messaging is enabled, in the YYYY-MM-DD format.
+   * The activation date for commercial messages. The format is YYYY-MM-DD.
    * 
    * @example
    * 2025-11-01
@@ -227,7 +227,7 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord extends $da
   messageEnableDate?: string;
   /**
    * @remarks
-   * The business messaging session name.
+   * The name of the commercial message session.
    * 
    * @example
    * Message Session Name
@@ -235,7 +235,7 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord extends $da
   messageSessionName?: string;
   /**
    * @remarks
-   * The suspension status.
+   * The pause status.
    * 
    * @example
    * n
@@ -243,7 +243,7 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord extends $da
   nowRecovery?: string;
   /**
    * @remarks
-   * The recovery date in the YYYY-MM-DD format.
+   * The recovery date. The format is YYYY-MM-DD.
    * 
    * @example
    * 2025-111-06
@@ -267,7 +267,7 @@ export class GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord extends $da
   suspensionDate?: string;
   /**
    * @remarks
-   * The company website URL.
+   * The company website.
    * 
    * @example
    * www.xxxxx
@@ -373,12 +373,12 @@ export class GetAuditRequestByTypeUnAuditResponseBodyData extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * The audit data.
+   * The review data.
    */
   auditRecord?: GetAuditRequestByTypeUnAuditResponseBodyDataAuditRecord;
   /**
    * @remarks
-   * The audit result.
+   * The review result.
    * 
    * @example
    * pass
@@ -386,7 +386,7 @@ export class GetAuditRequestByTypeUnAuditResponseBodyData extends $dara.Model {
   auditResult?: string;
   /**
    * @remarks
-   * The audit time in the YYYYMMDD format.
+   * The review time. The format is YYYYMMDD.
    * 
    * @example
    * 20250106
@@ -525,7 +525,7 @@ export class GetAuditRequestByTypeUnAuditResponseBodyData extends $dara.Model {
 export class GetAuditRequestByTypeUnAuditResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied details.
+   * The details about the access denial.
    * 
    * @example
    * {}
@@ -535,7 +535,7 @@ export class GetAuditRequestByTypeUnAuditResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - OK indicates that the request was successful.
+   * - A value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -550,7 +550,7 @@ export class GetAuditRequestByTypeUnAuditResponseBody extends $dara.Model {
   data?: GetAuditRequestByTypeUnAuditResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -558,7 +558,7 @@ export class GetAuditRequestByTypeUnAuditResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID generated by Alibaba Cloud for this request. You can use this ID to troubleshoot issues.
+   * The request ID. This ID is generated by Alibaba Cloud for the request and can be used to troubleshoot and locate issues.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A9486***
@@ -566,11 +566,11 @@ export class GetAuditRequestByTypeUnAuditResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: Successful.
+   * - true: The operation is successful.
    * 
-   * - false: Failed.
+   * - false: The operation fails.
    * 
    * @example
    * true

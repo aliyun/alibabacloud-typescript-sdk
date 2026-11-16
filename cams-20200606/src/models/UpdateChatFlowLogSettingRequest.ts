@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateChatFlowLogSettingRequest extends $dara.Model {
   /**
    * @remarks
-   * The flow code. You can view the flow code in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder).
+   * The flow code. You can view the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
    * 
    * @example
    * 9ccc41**************************
@@ -13,7 +13,7 @@ export class UpdateChatFlowLogSettingRequest extends $dara.Model {
   flowCode?: string;
   /**
    * @remarks
-   * The unique ID of the setting. You can obtain this ID by calling the [ReadChatFlowLogSetting](https://help.aliyun.com/document_detail/2937212.html) operation.
+   * The unique ID of the settings. You can obtain the unique ID by calling the [ReadChatFlowLogSetting](https://api.aliyun.com/document/cams/2020-06-06/ReadChatFlowLogSetting) operation.
    * 
    * @example
    * 100
@@ -27,9 +27,9 @@ export class UpdateChatFlowLogSettingRequest extends $dara.Model {
    * The log enabling status. Valid values:
    * - ENABLED: Enables log writing.
    * 
-   * - DISABLED: Disables log writing but retains the Simple Log Service log instance.
+   * - DISABLED: Disables log writing and retains the Simple Log Service instance.
    * 
-   * - DELETED: Disables log writing and deletes the Simple Log Service log instance.
+   * - DELETED: Disables log writing and deletes the Simple Log Service instance.
    * 
    * @example
    * ENABLED

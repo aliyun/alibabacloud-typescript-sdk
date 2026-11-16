@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TriggerChatFlowResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denied error.
+   * The details of the permission check failure.
    * 
    * @example
    * None
@@ -45,11 +45,9 @@ export class TriggerChatFlowResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**: The request was successful.
-   * 
-   * - **false**: The request failed.
+   * Specifies whether the call was successful. Valid values:
+   * - **true**: The call was successful.
+   * - **false**: The call failed.
    * 
    * @example
    * true

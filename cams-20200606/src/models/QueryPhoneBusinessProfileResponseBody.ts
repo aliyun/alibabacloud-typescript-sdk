@@ -37,7 +37,7 @@ export class QueryPhoneBusinessProfileResponseBodyData extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The URL of the profile picture.
+   * The profile picture.
    * 
    * @example
    * https://example.img
@@ -105,7 +105,7 @@ export class QueryPhoneBusinessProfileResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - A value of OK indicates that the request is successful.
+   * - OK: The request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 

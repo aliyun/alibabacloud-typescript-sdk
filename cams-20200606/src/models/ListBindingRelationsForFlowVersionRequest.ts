@@ -21,7 +21,7 @@ export class ListBindingRelationsForFlowVersionRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The flow code. View the flow code in the [Flow Builder](https://chatapp.console.aliyun.com/ChatFlowBuilder) console.
+   * The flow code. You can view the flow code in the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder).
    * 
    * This parameter is required.
    * 

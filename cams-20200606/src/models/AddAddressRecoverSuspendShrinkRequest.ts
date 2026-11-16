@@ -13,7 +13,7 @@ export class AddAddressRecoverSuspendShrinkRequest extends $dara.Model {
    * The customer space ID.
    * 
    * @example
-   * 示例值示例值示例值
+   * Example value example value example value
    */
   custSpaceId?: string;
   ownerId?: number;
@@ -22,7 +22,7 @@ export class AddAddressRecoverSuspendShrinkRequest extends $dara.Model {
    * The request type.
    * 
    * @example
-   * 示例值
+   * Example value
    */
   requestType?: string;
   resourceOwnerAccount?: string;

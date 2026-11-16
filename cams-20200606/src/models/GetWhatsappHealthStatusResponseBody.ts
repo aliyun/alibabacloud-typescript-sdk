@@ -13,7 +13,7 @@ export class GetWhatsappHealthStatusResponseBodyDataEntitiesErrors extends $dara
   errorCode?: string;
   /**
    * @remarks
-   * The description of the error.
+   * The error description.
    * 
    * @example
    * There is an error with the payment method.
@@ -21,7 +21,7 @@ export class GetWhatsappHealthStatusResponseBodyDataEntitiesErrors extends $dara
   errorDescription?: string;
   /**
    * @remarks
-   * The possible solution to the error.
+   * The possible solutions.
    * 
    * @example
    * There was an error with your payment method. Please add a new payment method to the account.
@@ -55,7 +55,7 @@ export class GetWhatsappHealthStatusResponseBodyDataEntitiesErrors extends $dara
 export class GetWhatsappHealthStatusResponseBodyDataEntities extends $dara.Model {
   /**
    * @remarks
-   * The Business Manager ID.
+   * The business platform ID.
    * 
    * @example
    * 3992****
@@ -63,7 +63,7 @@ export class GetWhatsappHealthStatusResponseBodyDataEntities extends $dara.Model
   businessId?: string;
   /**
    * @remarks
-   * Indicates whether the messages can be sent.
+   * Specifies whether messages can be sent.
    * 
    * @example
    * AVAILABLE
@@ -79,7 +79,7 @@ export class GetWhatsappHealthStatusResponseBodyDataEntities extends $dara.Model
   entityType?: string;
   /**
    * @remarks
-   * The reasons why the messages failed to be sent.
+   * The list of errors.
    */
   errors?: GetWhatsappHealthStatusResponseBodyDataEntitiesErrors[];
   /**
@@ -92,7 +92,7 @@ export class GetWhatsappHealthStatusResponseBodyDataEntities extends $dara.Model
   language?: string;
   /**
    * @remarks
-   * The phone number to which the messages are sent.
+   * The sender phone number.
    * 
    * @example
    * 86138****
@@ -100,7 +100,7 @@ export class GetWhatsappHealthStatusResponseBodyDataEntities extends $dara.Model
   phoneNumber?: string;
   /**
    * @remarks
-   * The template code. This parameter is returned when the NodeType parameter is set to **template**.
+   * The template code. This field is required when NodeType is set to **template**.
    * 
    * @example
    * 939928****
@@ -108,7 +108,7 @@ export class GetWhatsappHealthStatusResponseBodyDataEntities extends $dara.Model
   templateCode?: string;
   /**
    * @remarks
-   * The WABA ID. You can view the WABA ID in the Chat App Message Service console after you create the WABA.
+   * The WABA account ID. You can view the WABA ID in the [Chat App Message Service console](https://cams.console.aliyun.com/) after WABA registration is completed.
    * 
    * @example
    * 39939***
@@ -155,7 +155,7 @@ export class GetWhatsappHealthStatusResponseBodyDataEntities extends $dara.Model
 export class GetWhatsappHealthStatusResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the messages can be sent.
+   * Specifies whether messages can be sent.
    * 
    * @example
    * AVAILABLE
@@ -163,7 +163,7 @@ export class GetWhatsappHealthStatusResponseBodyData extends $dara.Model {
   canSendMessage?: string;
   /**
    * @remarks
-   * The queried entities.
+   * The retrieved entity data.
    */
   entities?: GetWhatsappHealthStatusResponseBodyDataEntities[];
   static names(): { [key: string]: string } {
@@ -195,19 +195,19 @@ export class GetWhatsappHealthStatusResponseBodyData extends $dara.Model {
 export class GetWhatsappHealthStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The access denial details.
    * 
    * @example
-   * 无
+   * None
    */
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The response code.
+   * The request status code.
    * 
-   * - The value OK indicates that the request was successful.
+   * - A return value of OK indicates that the request is successful.
    * 
-   * - For more information about other response codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
+   * - For other error codes, see [Error codes](https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
    * 
    * @example
    * OK
@@ -215,7 +215,7 @@ export class GetWhatsappHealthStatusResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: GetWhatsappHealthStatusResponseBodyData;
   /**
@@ -223,7 +223,7 @@ export class GetWhatsappHealthStatusResponseBody extends $dara.Model {
    * The error message.
    * 
    * @example
-   * 无
+   * None
    */
   message?: string;
   /**
@@ -236,11 +236,9 @@ export class GetWhatsappHealthStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * 
-   * - **true**
-   * 
-   * - **false**
+   * Indicates whether the call is successful.
+   * - **true**: The call is successful.
+   * - **false**: The call fails.
    * 
    * @example
    * true

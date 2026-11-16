@@ -34,7 +34,7 @@ export class CreateChatFlowResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The unique request ID.
    * 
    * @example
    * 90E63D28-E31D-1EB2-8939-A94866411B2O

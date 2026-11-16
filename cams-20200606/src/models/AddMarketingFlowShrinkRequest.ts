@@ -8,7 +8,7 @@ export class AddMarketingFlowShrinkRequest extends $dara.Model {
    * The description of the campaign.
    * 
    * @example
-   * 示例值示例值
+   * Sample value
    */
   activityDesc?: string;
   /**
@@ -18,7 +18,7 @@ export class AddMarketingFlowShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 示例值示例值
+   * Sample value
    */
   activityName?: string;
   /**
@@ -26,12 +26,12 @@ export class AddMarketingFlowShrinkRequest extends $dara.Model {
    * The business code.
    * 
    * @example
-   * 示例值
+   * Sample value
    */
   bizCode?: string;
   /**
    * @remarks
-   * The business extension information. Default value: an empty collection.
+   * The business extension information. Default value: an empty set.
    * 
    * @example
    * {}
@@ -42,28 +42,28 @@ export class AddMarketingFlowShrinkRequest extends $dara.Model {
    * The cron expression.
    * 
    * @example
-   * 示例值示例值示例值
+   * Sample value
    */
   cronExpression?: string;
   /**
    * @remarks
-   * The end time in the YYYY-MM-DD HH:mm:ss format.
+   * The end time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
-   * 示例值示例值示例值
+   * Sample value
    */
   endDate?: string;
   /**
    * @remarks
-   * The trigger method of the baseline scan. Valid values:
+   * The trigger method for baseline scans. Valid values:
    * 
-   * - **Schedule**: Triggered by a periodic configuration task.
+   * - **Schedule**: Triggered by a scheduled task.
    * - **Manual**: Manually triggered.
    * 
    * This parameter is required.
    * 
    * @example
-   * 示例值
+   * Sample value
    */
   executionType?: string;
   ownerId?: number;
@@ -72,7 +72,7 @@ export class AddMarketingFlowShrinkRequest extends $dara.Model {
    * The parameter flag.
    * 
    * @example
-   * 示例值
+   * Sample value
    */
   paramFlag?: string;
   /**
@@ -88,7 +88,7 @@ export class AddMarketingFlowShrinkRequest extends $dara.Model {
    * The code of the associated flow.
    * 
    * @example
-   * 示例值
+   * Sample value
    */
   relatedFlowCode?: string;
   /**
@@ -96,7 +96,7 @@ export class AddMarketingFlowShrinkRequest extends $dara.Model {
    * The name of the associated flow.
    * 
    * @example
-   * 示例值
+   * Sample value
    */
   relatedFlowName?: string;
   /**
@@ -111,10 +111,10 @@ export class AddMarketingFlowShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The start time in the YYYY-MM-DD HH:mm:ss format.
+   * The start time. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
-   * 示例值
+   * Sample value
    */
   startDate?: string;
   static names(): { [key: string]: string } {

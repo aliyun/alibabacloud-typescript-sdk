@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCallingCallHoursHolidaySchedule extends $dara.Model {
   /**
    * @remarks
-   * The date in YYYY-MM-DD format.
+   * The date in the YYYY-MM-DD format.
    * 
    * @example
    * 2026-01-01
@@ -13,7 +13,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCal
   date?: string;
   /**
    * @remarks
-   * The end time in HHmm format.
+   * The end time in the HHmm format.
    * 
    * @example
    * 2359
@@ -21,7 +21,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCal
   endTime?: string;
   /**
    * @remarks
-   * The start time in HHmm format.
+   * The start time in the HHmm format.
    * 
    * @example
    * 0000
@@ -55,7 +55,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCal
 export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCallingCallHoursWeeklyOperatingHours extends $dara.Model {
   /**
    * @remarks
-   * The closing time in HHmm format.
+   * The closing time in the HHmm format.
    * 
    * @example
    * 2359
@@ -66,12 +66,12 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCal
    * The day of the week.
    * 
    * @example
-   * 示例值示例值示例值
+   * Sample value sample value sample value
    */
   dayOfWeek?: string;
   /**
    * @remarks
-   * The opening time in HHmm format.
+   * The opening time in the HHmm format.
    * 
    * @example
    * 0000
@@ -105,7 +105,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCal
 export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCallingCallHours extends $dara.Model {
   /**
    * @remarks
-   * The visibility of the call icon.
+   * The call icon visibility.
    * 
    * @example
    * DEFAULT
@@ -121,12 +121,12 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCal
   callbackPermissionStatus?: string;
   /**
    * @remarks
-   * The holiday call hours schedule.
+   * The holiday calling schedule.
    */
   holidaySchedule?: QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCallingCallHoursHolidaySchedule[];
   /**
    * @remarks
-   * The status of the call hours configuration.
+   * The calling hours configuration status.
    * 
    * @example
    * ENABLED
@@ -185,12 +185,12 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCal
 export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCalling extends $dara.Model {
   /**
    * @remarks
-   * The call hours configuration.
+   * The calling hours configuration.
    */
   callHours?: QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCallingCallHours;
   /**
    * @remarks
-   * The status of the calling feature.
+   * The calling feature status.
    * 
    * @example
    * ENABLED
@@ -230,7 +230,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigure ex
   calling?: QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigureCalling;
   /**
    * @remarks
-   * The callback URL for calls.
+   * The calling callback URL.
    * 
    * @example
    * https://aliyun.com
@@ -238,7 +238,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigure ex
   callingCallbackUrl?: string;
   /**
    * @remarks
-   * The maximum call duration.
+   * The maximum talk time.
    * 
    * @example
    * 1000
@@ -280,7 +280,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   callingConfigure?: QueryChatappPhoneNumbersResponseBodyPhoneNumbersCallingConfigure;
   /**
    * @remarks
-   * The verification status of the phone number.
+   * The code verification status of the phone number.
    * 
    * @example
    * VERIFIED
@@ -296,7 +296,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   isOfficial?: string;
   /**
    * @remarks
-   * The messaging volume limit tier of the phone number.
+   * The messaging limit tier of the phone number.
    * 
    * @example
    * TIER_10K
@@ -368,7 +368,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   upCallbackUrl?: string;
   /**
    * @remarks
-   * The queue for inbound message notifications.
+   * The inbound message notification queue.
    * 
    * @example
    * Alicom-Queue-****-ChatAppInbound
@@ -376,7 +376,7 @@ export class QueryChatappPhoneNumbersResponseBodyPhoneNumbers extends $dara.Mode
   upQueue?: string;
   /**
    * @remarks
-   * The application name.
+   * The applied name.
    * 
    * @example
    * Alibaba
@@ -445,7 +445,7 @@ export class QueryChatappPhoneNumbersResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - OK indicates that the request was successful.
+   * - A return value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -458,7 +458,7 @@ export class QueryChatappPhoneNumbersResponseBody extends $dara.Model {
    * The returned data.
    * 
    * @example
-   * 示例值
+   * Sample value
    */
   data?: string;
   /**
@@ -484,9 +484,9 @@ export class QueryChatappPhoneNumbersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful:
-   * - **true**: The call was successful.
-   * - **false**: The call failed.
+   * Indicates whether the call is successful. Valid values:
+   * - **true**: The call is successful.
+   * - **false**: The call fails.
    * 
    * @example
    * true

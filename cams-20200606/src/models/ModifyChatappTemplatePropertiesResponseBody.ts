@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyChatappTemplatePropertiesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The access denial details.
    * 
    * @example
    * None
@@ -14,9 +14,7 @@ export class ModifyChatappTemplatePropertiesResponseBody extends $dara.Model {
   /**
    * @remarks
    * The request status code.
-   * 
-   * - OK indicates that the request was successful.
-   * 
+   * - A return value of OK indicates that the request is successful.
    * - For other error codes, see [Error codes](https://www.alibabacloud.com/help/zh/cams/latest/api-error-codes).
    * 
    * @example
@@ -49,8 +47,8 @@ export class ModifyChatappTemplatePropertiesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - **true**: The call was successful.
+   * Indicates whether the call is successful. Valid values:
+   * - **true**: The call is successful.
    * - **false**: The call failed.
    * 
    * @example

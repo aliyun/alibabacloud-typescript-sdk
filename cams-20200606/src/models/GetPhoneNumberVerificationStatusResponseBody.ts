@@ -24,7 +24,7 @@ export class GetPhoneNumberVerificationStatusResponseBodyData extends $dara.Mode
   id?: string;
   /**
    * @remarks
-   * The phone number.
+   * The mobile phone number.
    * 
    * @example
    * 861390000****
@@ -68,7 +68,7 @@ export class GetPhoneNumberVerificationStatusResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - OK: The request was successful.
+   * - OK: The request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 

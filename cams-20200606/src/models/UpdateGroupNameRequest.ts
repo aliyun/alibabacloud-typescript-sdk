@@ -10,7 +10,7 @@ export class UpdateGroupNameRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Sample value sample value sample value.
+   * Example value
    */
   groupId?: string;
   /**
@@ -20,7 +20,7 @@ export class UpdateGroupNameRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Sample value sample value.
+   * Example value
    */
   groupName?: string;
   ownerId?: number;

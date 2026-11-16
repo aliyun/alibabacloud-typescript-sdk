@@ -13,7 +13,7 @@ export class GetChatFlowMetricShrinkRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The business extension information. Default value: an empty collection.
+   * The business extension information. Default value: an empty set.
    * 
    * @example
    * {}
@@ -29,7 +29,7 @@ export class GetChatFlowMetricShrinkRequest extends $dara.Model {
   flowCode?: string;
   /**
    * @remarks
-   * The flow version. On the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to enter the flow editor canvas page and view the flow version.
+   * The flow version. To view the flow version, click the flow name on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas page of the flow editor.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class GetChatFlowMetricShrinkRequest extends $dara.Model {
   flowVersion?: string;
   /**
    * @remarks
-   * The start time. This value is a UNIX timestamp. Unit: seconds.
+   * The start time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1751299200
@@ -45,11 +45,11 @@ export class GetChatFlowMetricShrinkRequest extends $dara.Model {
   from?: number;
   /**
    * @remarks
-   * The metric name. Valid values:
+   * The name of the monitoring metric. Valid values:
    * 
-   * - nodeUsageStatistics: node usage statistics.
+   * - nodeUsageStatistics: node usage statistics
    * 
-   * - nodeErrorDetails: node error details.
+   * - nodeErrorDetails: node error details
    * 
    * This parameter is required.
    * 
@@ -59,13 +59,13 @@ export class GetChatFlowMetricShrinkRequest extends $dara.Model {
   metricName?: string;
   /**
    * @remarks
-   * The extended parameter for the metric query. When MetricName is set to nodeErrorDetails, pass in a JSON string. Valid JSON fields:
+   * The extended parameters for querying the monitoring metric. When MetricName is set to nodeErrorDetails, you must pass a JSON string. Valid JSON fields:
    * 
-   * - pageNo: the current page number.
+   * - pageNo: the current page number
    * 
-   * - pageSize: the number of entries per page.
+   * - pageSize: the number of entries per page
    * 
-   * - nodeId: the node ID. On the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page, click the flow name to enter the canvas orchestration page and copy the node ID.
+   * - nodeId: the node ID. To copy the node ID, click the flow name on the [Flow Editor](https://chatapp.console.aliyun.com/ChatFlowBuilder) page to go to the canvas orchestration page.
    * 
    * @example
    * {
@@ -80,7 +80,7 @@ export class GetChatFlowMetricShrinkRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The end time. This value is a UNIX timestamp. Unit: seconds.
+   * The end time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1751385599

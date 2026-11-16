@@ -25,7 +25,7 @@ export class ListInstanceRequest extends $dara.Model {
   channelType?: string;
   /**
    * @remarks
-   * The filter condition.
+   * The filter conditions.
    * 
    * @example
    * aa
@@ -49,7 +49,7 @@ export class ListInstanceRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * Indicates whether the instance is bound.
+   * Specifies whether the instance is bound.
    */
   isBind?: boolean;
   /**
@@ -62,7 +62,7 @@ export class ListInstanceRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 87
@@ -70,7 +70,7 @@ export class ListInstanceRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the enterprise resource group to which the instance belongs.
+   * The ID of the resource group to which the instance belongs.
    * 
    * @example
    * 11
@@ -78,7 +78,7 @@ export class ListInstanceRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The submit time in the YYYY-MM-DD HH:mm:ss format.
+   * The submission time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-12-12 00:00:00

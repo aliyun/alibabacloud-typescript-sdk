@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddCustomAudienceUserShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The Meta ad account ID.
+   * The ID of the Meta ad account.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class AddCustomAudienceUserShrinkRequest extends $dara.Model {
   adAccountId?: string;
   /**
    * @remarks
-   * The last batch flag.
+   * The flag that indicates whether this is the last batch.
    * 
    * @example
    * false
@@ -35,7 +35,7 @@ export class AddCustomAudienceUserShrinkRequest extends $dara.Model {
   custSpaceId?: string;
   /**
    * @remarks
-   * The custom audience ID.
+   * The ID of the custom audience.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class AddCustomAudienceUserShrinkRequest extends $dara.Model {
   customAudienceId?: string;
   /**
    * @remarks
-   * The estimated phone number data.
+   * The estimated number of phone numbers.
    * 
    * @example
    * 26
@@ -54,7 +54,7 @@ export class AddCustomAudienceUserShrinkRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The Page ID of Messenger.
+   * The PageId of Messenger.
    * 
    * This parameter is required.
    * 

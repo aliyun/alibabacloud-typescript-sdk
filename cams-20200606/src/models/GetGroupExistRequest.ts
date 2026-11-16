@@ -13,7 +13,7 @@ export class GetGroupExistRequest extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The business extension information. Default value: "{}".
+   * The business extension information. Default value: {}.
    * 
    * @example
    * {}

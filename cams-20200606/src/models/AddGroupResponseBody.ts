@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied details.
+   * The access denial details.
    * 
    * @example
    * None
@@ -15,7 +15,7 @@ export class AddGroupResponseBody extends $dara.Model {
    * @remarks
    * The request status code.
    * 
-   * - OK: The request succeeded.
+   * - A value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -49,9 +49,9 @@ export class AddGroupResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful. Valid values:
-   * - **true**: The call was successful.
-   * - **false**: The call failed.
+   * Specifies whether the call is successful. Valid values:
+   * - **true**: The call is successful.
+   * - **false**: The call fails.
    * 
    * @example
    * false

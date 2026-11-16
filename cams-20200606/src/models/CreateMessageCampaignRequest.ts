@@ -15,7 +15,7 @@ export class CreateMessageCampaignRequest extends $dara.Model {
   adAccountId?: string;
   /**
    * @remarks
-   * The budget, in cents.
+   * The budget amount in cents.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CreateMessageCampaignRequest extends $dara.Model {
   budgetType?: string;
   /**
    * @remarks
-   * The space ID of an Independent Software Vendor (ISV) sub-customer or the instance ID of a direct customer.
+   * The space ID of the ISV sub-customer or the instance ID of the direct customer.
    * 
    * This parameter is required.
    * 
@@ -56,7 +56,7 @@ export class CreateMessageCampaignRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The Messenger Page ID.
+   * The page ID of Messenger.
    * 
    * This parameter is required.
    * 

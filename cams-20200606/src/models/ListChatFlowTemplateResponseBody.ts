@@ -35,7 +35,7 @@ export class ListChatFlowTemplateResponseBodyData extends $dara.Model {
 export class ListChatFlowTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -72,11 +72,11 @@ export class ListChatFlowTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. Valid values:
+   * Indicates whether the operation is successful. Valid values:
    * 
-   * - true: Successful.
+   * - true: The operation is successful.
    * 
-   * - false: Failed.
+   * - false: The operation fails.
    * 
    * @example
    * true

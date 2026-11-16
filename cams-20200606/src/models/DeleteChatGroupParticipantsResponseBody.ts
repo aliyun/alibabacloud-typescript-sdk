@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteChatGroupParticipantsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -13,11 +13,11 @@ export class DeleteChatGroupParticipantsResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The status code. Valid values:
+   * The request status code. Valid values:
    * 
    * - OK: The request is successful.
    * 
-   * - For other error codes, see the [error code list](https://help.aliyun.com/document_detail/196974.html).
+   * - Other error codes: For more information, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
    * @example
    * OK
@@ -25,7 +25,7 @@ export class DeleteChatGroupParticipantsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The error message.
    * 
    * @example
    * None
@@ -41,7 +41,7 @@ export class DeleteChatGroupParticipantsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of rows affected.
+   * The number of affected rows.
    * 
    * @example
    * 20
@@ -49,10 +49,8 @@ export class DeleteChatGroupParticipantsResponseBody extends $dara.Model {
   result?: number;
   /**
    * @remarks
-   * Indicates whether the request was successful. Valid values:
-   * 
-   * - **true**: The call was successful.
-   * 
+   * Indicates whether the call is successful. Valid values:
+   * - **true**: The call is successful.
    * - **false**: The call failed.
    * 
    * @example

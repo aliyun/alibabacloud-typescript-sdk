@@ -15,9 +15,7 @@ export class CreateCustomAudienceRequest extends $dara.Model {
   adAccountId?: string;
   /**
    * @remarks
-   * The Space ID of the ISV sub-customer, or the instance ID of the direct customer. View the Space ID on the
-   * 
-   * <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
+   * The SpaceId or instance ID of the ISV sub-customer. This is the channel ID, which you can view on the <props="china">[Channel Management](https://chatapp.console.aliyun.com/ChannelsManagement)<props="intl">[Channel Management](https://chatapp.console.alibabacloud.com/CustomerList) page.
    * 
    * This parameter is required.
    * 
@@ -54,7 +52,7 @@ export class CreateCustomAudienceRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The Page ID for Messenger.
+   * The Page ID of Messenger.
    * 
    * This parameter is required.
    * 
@@ -66,7 +64,7 @@ export class CreateCustomAudienceRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The upload method.
+   * The user upload type.
    * 
    * This parameter is required.
    * 

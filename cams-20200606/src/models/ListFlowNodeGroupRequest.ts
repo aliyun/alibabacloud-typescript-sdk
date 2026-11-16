@@ -16,7 +16,7 @@ export class ListFlowNodeGroupRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 

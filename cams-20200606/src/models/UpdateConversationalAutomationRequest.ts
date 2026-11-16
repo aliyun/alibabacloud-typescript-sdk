@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateConversationalAutomationRequestCommands extends $dara.Model {
   /**
    * @remarks
-   * The command description.
+   * The description of the command.
    * 
    * @example
    * Command 1
@@ -13,7 +13,7 @@ export class UpdateConversationalAutomationRequestCommands extends $dara.Model {
   commandDescription?: string;
   /**
    * @remarks
-   * The command name.
+   * The name of the command.
    * 
    * @example
    * test
@@ -69,7 +69,7 @@ export class UpdateConversationalAutomationRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The business phone number.
+   * The merchant phone number.
    * 
    * This parameter is required.
    * 
@@ -79,7 +79,7 @@ export class UpdateConversationalAutomationRequest extends $dara.Model {
   phoneNumber?: string;
   /**
    * @remarks
-   * The list of conversation starters.
+   * The list of prompts.
    */
   prompts?: string[];
   resourceOwnerAccount?: string;

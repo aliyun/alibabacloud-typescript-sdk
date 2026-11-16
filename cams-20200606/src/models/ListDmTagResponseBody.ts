@@ -8,7 +8,7 @@ export class ListDmTagResponseBodyData extends $dara.Model {
    * The tag description.
    * 
    * @example
-   * xx
+   * Used to tag technical documentation
    */
   tagDescription?: string;
   /**
@@ -24,7 +24,7 @@ export class ListDmTagResponseBodyData extends $dara.Model {
    * The tag name.
    * 
    * @example
-   * xx
+   * Technical documentation
    */
   tagName?: string;
   static names(): { [key: string]: string } {
@@ -55,7 +55,7 @@ export class ListDmTagResponseBodyData extends $dara.Model {
 export class ListDmTagResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denial details.
+   * The details about the access denial.
    * 
    * @example
    * None
@@ -63,9 +63,9 @@ export class ListDmTagResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The request status code.
+   * The status code of the request.
    * 
-   * - A value of OK indicates that the request succeeded.
+   * - OK indicates that the request succeeded.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -98,9 +98,9 @@ export class ListDmTagResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the operation was successful. Valid values:
    * 
-   * - true: The operation was successful.
+   * - true: Successful.
    * 
-   * - false: The operation failed.
+   * - false: Failed.
    * 
    * @example
    * false
@@ -108,7 +108,7 @@ export class ListDmTagResponseBody extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 42

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFlowVersionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied details.
+   * The access denial details.
    * 
    * @example
    * None
@@ -37,7 +37,7 @@ export class CreateFlowVersionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response content.
+   * The returned data.
    */
   response?: { [key: string]: any };
   /**

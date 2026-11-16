@@ -13,9 +13,9 @@ export class AddCustomAudienceUserResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The request status code.
+   * The status code of the request.
    * 
-   * - OK indicates that the request is successful.
+   * - A value of OK indicates that the request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
@@ -45,7 +45,7 @@ export class AddCustomAudienceUserResponseBody extends $dara.Model {
    * 
    * - true: The operation is successful.
    * 
-   * - false: The operation failed.
+   * - false: The operation fails.
    * 
    * @example
    * true

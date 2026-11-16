@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatGroupParticipantsResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The group member number.
+   * The group member.
    * 
    * @example
    * 861382***
@@ -75,7 +75,7 @@ export class ListChatGroupParticipantsResponseBodyData extends $dara.Model {
 export class ListChatGroupParticipantsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -85,7 +85,7 @@ export class ListChatGroupParticipantsResponseBody extends $dara.Model {
    * @remarks
    * The request status code. Valid values:
    * 
-   * - OK: The request was successful.
+   * - OK: The request is successful.
    * 
    * - For other error codes, see [Error codes](https://help.aliyun.com/document_detail/196974.html).
    * 
