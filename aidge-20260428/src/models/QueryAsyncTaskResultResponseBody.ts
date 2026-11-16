@@ -38,6 +38,9 @@ export class QueryAsyncTaskResultResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The usage information.
+   * 
+   * @example
+   * {"ProcessedDocumentPageCount":"1"}
    */
   usageMap?: { [key: string]: any };
   static names(): { [key: string]: string } {

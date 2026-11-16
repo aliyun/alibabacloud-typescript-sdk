@@ -62,7 +62,7 @@ export class ImageTranslationPlusRequest extends $dara.Model {
    * Specifies whether to use the image translation editor protocol. This parameter is optional.
    * 
    * @example
-   * false
+   * true
    */
   useImageEditor?: boolean;
   static names(): { [key: string]: string } {

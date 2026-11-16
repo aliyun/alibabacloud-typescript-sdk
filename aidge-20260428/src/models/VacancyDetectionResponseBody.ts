@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class VacancyDetectionResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asynchronous task. You can use this ID to call QueryAsyncTaskResult to query the result later.
+   * The ID of the asynchronous task. You can use this ID to query the result by calling QueryAsyncTaskResult later.
    * 
    * @example
    * 518c7318185d4db694236f79d672c156

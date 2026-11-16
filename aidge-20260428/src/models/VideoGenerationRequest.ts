@@ -71,6 +71,9 @@ export class VideoGenerationRequestInput extends $dara.Model {
   /**
    * @remarks
    * The extended information.
+   * 
+   * @example
+   * {}
    */
   extra?: { [key: string]: any };
   /**

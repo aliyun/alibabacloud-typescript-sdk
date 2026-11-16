@@ -21,7 +21,7 @@ export class DeleteDisplayKnowledgeResponseBodyDataResults extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The index in the original request array.
+   * The index of the item in the original request array.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class DeleteDisplayKnowledgeResponseBodyDataResults extends $dara.Model {
   recordId?: number;
   /**
    * @remarks
-   * The SKU ID. This field is empty for deletion results.
+   * The SKU ID. This parameter is empty in the deletion result.
    * 
    * @example
    * sku-001
@@ -45,15 +45,15 @@ export class DeleteDisplayKnowledgeResponseBodyDataResults extends $dara.Model {
   skuId?: string;
   /**
    * @remarks
-   * The record status. This field is empty for deletion results.
+   * The record status. This parameter is empty in the deletion result.
    * 
    * @example
-   * Empty for deletion API operations
+   * Empty for the delete operation
    */
   status?: string;
   /**
    * @remarks
-   * Indicates whether the deletion was successful.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * True
@@ -151,7 +151,7 @@ export class DeleteDisplayKnowledgeResponseBodyData extends $dara.Model {
   remainingCount?: number;
   /**
    * @remarks
-   * The processing results for each record.
+   * The processing result of each record.
    */
   results?: DeleteDisplayKnowledgeResponseBodyDataResults[];
   /**
@@ -164,7 +164,7 @@ export class DeleteDisplayKnowledgeResponseBodyData extends $dara.Model {
   success?: boolean;
   /**
    * @remarks
-   * The asynchronous task ID. This field is empty for synchronous API operations.
+   * The ID of the asynchronous task. This parameter is empty for synchronous API operations.
    * 
    * @example
    * task-xxxxx
@@ -172,7 +172,7 @@ export class DeleteDisplayKnowledgeResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The usage information. This field is empty for free API operations.
+   * The usage information. This parameter is empty for free API operations.
    * 
    * @example
    * {"ProcessedImageCount":1}

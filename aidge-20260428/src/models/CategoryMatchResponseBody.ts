@@ -54,6 +54,9 @@ export class CategoryMatchResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The usage information.
+   * 
+   * @example
+   * {"ProcessingCount":1}
    */
   usageMap?: { [key: string]: number };
   static names(): { [key: string]: string } {

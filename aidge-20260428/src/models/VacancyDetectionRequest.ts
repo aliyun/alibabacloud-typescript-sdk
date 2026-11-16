@@ -23,7 +23,7 @@ export class VacancyDetectionRequest extends $dara.Model {
   systemPrompt?: string;
   /**
    * @remarks
-   * The optional user prompt. If this parameter is empty, the complete vacancy detection prompt is used. Plain text and JSON containing only text in messages or content are supported.
+   * The optional user prompt. If this parameter is left empty, the complete vacancy detection prompt is used. Plain text and JSON containing only text in messages/content are supported.
    * 
    * @example
    * Detect vacancies and underfilled areas on the shelf

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageTranslationProRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to use the asynchronous mode. Default value: false, which indicates the synchronous mode. If set to true, the API immediately returns a TaskId, and you must call the query translation results API to obtain the final results.
+   * Specifies whether to use the asynchronous mode. Default value: false, which indicates the synchronous mode. If you set this parameter to true, the API immediately returns a TaskId, and you must call the query translation result API to obtain the final result.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class ImageTranslationProRequest extends $dara.Model {
   async?: boolean;
   /**
    * @remarks
-   * The ID of the intervention glossary. Optional. You must create the glossary in the console and provide its ID. If the intervention glossary ID is empty, the translation results are not modified.
+   * The ID of the intervention glossary. This parameter is optional. You must create the glossary in the console and provide its ID. If the provided intervention glossary ID is empty, the translation results are not modified.
    * 
    * @example
    * glossary_1
@@ -21,12 +21,12 @@ export class ImageTranslationProRequest extends $dara.Model {
   glossary?: string;
   /**
    * @remarks
-   * The URL of the source image. Required.  
+   * The URL of the original image. This parameter is required.  
    * Image requirements:  
-   * • Image URL: Must be publicly accessible.   
-   * • Format: PNG, JPEG, JPG, BMP, or WEBP.   
+   * • Image URL: The image must be accessible over the Internet.   
+   * • Format: PNG, JPEG, JPG, BMP, or WebP.   
    * • Pixels: The width and height must not exceed 4,000 pixels.  
-   * • File size: The original file must be 10 MB or smaller.
+   * • File size: The original file size must not exceed 10 MB.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class ImageTranslationProRequest extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Specifies whether to translate text on the product subject in the image. Optional. Default value: false. This helps you protect information and prevents embedded information such as product names from being translated.
+   * Specifies whether to translate the text on the image subject. This parameter is optional. Default value: false. This helps you protect information and prevents embedded information such as product names from being translated.
    * 
    * @example
    * false
@@ -44,8 +44,8 @@ export class ImageTranslationProRequest extends $dara.Model {
   includingProductArea?: boolean;
   /**
    * @remarks
-   * The source language code. Required.   
-   * <props="china">For supported language pairs, see [Language pair mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).   
+   * The source language code. This parameter is required.   
+   * <props="china">For supported language pairs, see [Language pair mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).      
    * <props="intl">For supported language pairs, see [Language pair mapping table](https://www.alibabacloud.com/help/zh/aidge/language-direction-mapping).
    * 
    * This parameter is required.
@@ -56,8 +56,8 @@ export class ImageTranslationProRequest extends $dara.Model {
   sourceLanguage?: string;
   /**
    * @remarks
-   * The target language code. Required.   
-   * <props="china">For supported language pairs, see [Language pair mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).   
+   * The target language code. This parameter is required.   
+   * <props="china">For supported language pairs, see [Language pair mapping table](https://www.alibabacloud.com/help/en/document_detail/3041883.html).      
    * <props="intl">For supported language pairs, see [Language pair mapping table](https://www.alibabacloud.com/help/zh/aidge/language-direction-mapping).
    * 
    * This parameter is required.
@@ -68,7 +68,7 @@ export class ImageTranslationProRequest extends $dara.Model {
   targetLanguage?: string;
   /**
    * @remarks
-   * Specifies whether to translate brand names in the image. Optional. Default value: false. This helps you protect brand name information from being translated.
+   * Specifies whether to translate brand names in the image. This parameter is optional. Default value: false. This helps you protect brand name information from being translated.
    * 
    * @example
    * false
@@ -76,10 +76,10 @@ export class ImageTranslationProRequest extends $dara.Model {
   translatingBrandInTheProduct?: boolean;
   /**
    * @remarks
-   * Specifies whether to return layout information such as text position, font, and color. If set to true, layer information is returned, which can be used for secondary editing in an image editor. Default value: false.
+   * Specifies whether to return layout information such as the position, font, and color of the text. If you set this parameter to true, layer information is returned, which can be used for secondary editing when you integrate an image editor. Default value: true.
    * 
    * @example
-   * false
+   * true
    */
   useImageEditor?: boolean;
   static names(): { [key: string]: string } {

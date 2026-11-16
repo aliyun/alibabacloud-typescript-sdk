@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ImageTranslationPlusResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asynchronous task. You can use this ID to poll the result by calling the queryTaskResult operation.
+   * The ID of the asynchronous task. You can call the queryTaskResult API operation to poll the task result later.
    * 
    * @example
    * task-abc123

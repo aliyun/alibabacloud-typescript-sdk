@@ -766,7 +766,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Synchronously deletes content from a display knowledge base in batches.
+   * Deletes multiple content items from a display knowledge base synchronously.
    * 
    * @param tmpReq - DeleteDisplayKnowledgeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -807,7 +807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Synchronously deletes content from a display knowledge base in batches.
+   * Deletes multiple content items from a display knowledge base synchronously.
    * 
    * @param request - DeleteDisplayKnowledgeRequest
    * @returns DeleteDisplayKnowledgeResponse
@@ -1341,6 +1341,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.productCategory)) {
       query["ProductCategory"] = request.productCategory;
+    }
+
+    if (!$dara.isNull(request.prompt)) {
+      query["Prompt"] = request.prompt;
     }
 
     if (!$dara.isNull(request.sourceLanguage)) {
@@ -2836,15 +2840,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Translates e-commerce images by using the PLUS edition of the image translation service. Built on the Mixture of Experts (MOE) architecture, this edition delivers higher translation accuracy for multiple minor languages than the Lite and Pro editions. It is recommended for the following 12 language pairs, with more to be added in the future.
+   * Provides the Image Translation Plus edition, which is specifically designed for e-commerce images and uses the MoE architecture. Compared with the Lite and Pro editions, it delivers higher translation accuracy across multiple minor languages. It is recommended for the following 12 language pairs, with more language pairs to be supported in the future.
    * 
    * @remarks
    * ## Product introduction
-   * The PLUS edition of the image translation service is designed specifically for e-commerce images. Built on the Mixture of Experts (MOE) architecture, it delivers higher translation accuracy for multiple minor languages than the Lite and Pro editions. We recommend that you use this edition for the following 12 language pairs. More language pairs will be supported in the future.
+   * The Plus edition of Image Translation is designed for e-commerce images and uses the Mixture of Experts (MoE) architecture. Compared with the Lite and Pro editions, the Plus edition delivers higher translation accuracy for multiple minor languages. This edition is recommended for the following 12 language pairs. More language pairs will be supported in the future.
    * Supported language pairs:
    * | **No.** | **Source language** |  | **Target language** |  |
    * | --- | --- | --- | --- | --- |
-   * |  | Language code | Language name | Language code | Language name |
+   * |  | Language code | Name | Language code | Name |
    * | 1 | en | English | ar | Arabic |
    * | 2 | en | English | id | Indonesian |
    * | 3 | en | English | th | Thai |
@@ -2862,9 +2866,9 @@ export default class Client extends OpenApi {
    * ## Features
    * *   **Product subject information protection**: Allows you to specify whether to translate the text on the product subject. This helps protect the subject information, such as the embedded product name, from being translated.
    *     
-   * *   **Brand name protection**: Allows you to specify whether to translate the brand name in the image. This helps protect the brand name from being translated.
+   * *   **Brand name protection**: Allows you to specify whether to translate the brand names in the image. This helps protect the brand names from being translated.
    *     
-   * *   **Translation intervention**: Allows you to customize translation results, including keeping the original text (ABC-ABC), specifying a translation (ABC-DEF), or leaving it untranslated (ABC-null). This is commonly used for scenarios such as brand word protection. You can implement this by passing the corresponding intervention glossary ID when calling the API operation to meet your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention words. If you need more, contact the platform for assistance.
+   * *   **Translation intervention**: Allows you to customize translation results, including keeping the original text (ABC-ABC), specifying a translation (ABC-DEF), and skipping translation (ABC-null). This is commonly used in scenarios such as brand word protection. You can implement this by passing the corresponding intervention glossary ID when calling the API operation, which meets your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention words. If you need more, contact the platform for assistance.
    * 
    * @param request - ImageTranslationPlusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2919,15 +2923,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Translates e-commerce images by using the PLUS edition of the image translation service. Built on the Mixture of Experts (MOE) architecture, this edition delivers higher translation accuracy for multiple minor languages than the Lite and Pro editions. It is recommended for the following 12 language pairs, with more to be added in the future.
+   * Provides the Image Translation Plus edition, which is specifically designed for e-commerce images and uses the MoE architecture. Compared with the Lite and Pro editions, it delivers higher translation accuracy across multiple minor languages. It is recommended for the following 12 language pairs, with more language pairs to be supported in the future.
    * 
    * @remarks
    * ## Product introduction
-   * The PLUS edition of the image translation service is designed specifically for e-commerce images. Built on the Mixture of Experts (MOE) architecture, it delivers higher translation accuracy for multiple minor languages than the Lite and Pro editions. We recommend that you use this edition for the following 12 language pairs. More language pairs will be supported in the future.
+   * The Plus edition of Image Translation is designed for e-commerce images and uses the Mixture of Experts (MoE) architecture. Compared with the Lite and Pro editions, the Plus edition delivers higher translation accuracy for multiple minor languages. This edition is recommended for the following 12 language pairs. More language pairs will be supported in the future.
    * Supported language pairs:
    * | **No.** | **Source language** |  | **Target language** |  |
    * | --- | --- | --- | --- | --- |
-   * |  | Language code | Language name | Language code | Language name |
+   * |  | Language code | Name | Language code | Name |
    * | 1 | en | English | ar | Arabic |
    * | 2 | en | English | id | Indonesian |
    * | 3 | en | English | th | Thai |
@@ -2945,9 +2949,9 @@ export default class Client extends OpenApi {
    * ## Features
    * *   **Product subject information protection**: Allows you to specify whether to translate the text on the product subject. This helps protect the subject information, such as the embedded product name, from being translated.
    *     
-   * *   **Brand name protection**: Allows you to specify whether to translate the brand name in the image. This helps protect the brand name from being translated.
+   * *   **Brand name protection**: Allows you to specify whether to translate the brand names in the image. This helps protect the brand names from being translated.
    *     
-   * *   **Translation intervention**: Allows you to customize translation results, including keeping the original text (ABC-ABC), specifying a translation (ABC-DEF), or leaving it untranslated (ABC-null). This is commonly used for scenarios such as brand word protection. You can implement this by passing the corresponding intervention glossary ID when calling the API operation to meet your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention words. If you need more, contact the platform for assistance.
+   * *   **Translation intervention**: Allows you to customize translation results, including keeping the original text (ABC-ABC), specifying a translation (ABC-DEF), and skipping translation (ABC-null). This is commonly used in scenarios such as brand word protection. You can implement this by passing the corresponding intervention glossary ID when calling the API operation, which meets your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention words. If you need more, contact the platform for assistance.
    * 
    * @param request - ImageTranslationPlusRequest
    * @returns ImageTranslationPlusResponse
@@ -3086,19 +3090,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Translates e-commerce images by using the Pro edition of the image translation service. Integrates multimodal large models to achieve more accurate image understanding, significantly improves translation quality, and continuously expands and optimizes multilingual translation capabilities. Supports over 400 language pairs, including bridged languages.
+   * Provides the Pro edition of image translation, which is specifically designed for e-commerce images, integrates multimodal large language model technology for more accurate image understanding, significantly improves translation quality, and continuously expands and optimizes multilingual translation capabilities. It supports more than 400 language pairs, including bridged language pairs.
    * 
    * @remarks
    * ## Product introduction
-   * The Pro edition of the image translation service is designed specifically for e-commerce images. It integrates multimodal large models to achieve more accurate image understanding, significantly improves translation quality, and continuously expands and optimizes multilingual translation capabilities. It supports over 400 language pairs, including bridged languages.
+   * The Pro edition of image translation is specifically designed for e-commerce images. It integrates multimodal large language model technology to achieve more accurate image understanding, significantly improves translation quality, and continuously expands and optimizes multilingual translation capabilities. It supports more than 400 language pairs, including bridged language pairs.
    * ## Scenarios
    * E-commerce product images, marketing images, and images in various other scenarios.
    * ## Features
-   * - **Product subject information protection**: Allows you to specify whether to translate text on the product subject. This helps you protect subject information and prevents embedded information such as product names from being translated.
-   * - **Secondary editing after translation**: Allows you to specify whether to return layout information such as text position, font, and color. This information can be used for secondary editing when you integrate an image editor. The SDK package for the editor is not yet available. Follow platform notifications for updates.
-   * - **Brand name protection**: Allows you to specify whether to translate brand names in images. This helps you protect brand name information from being translated.
-   * - **Translation intervention**: Allows you to customize translation results, including keeping the original text (ABC-ABC), specifying a translation (ABC-DEF), and omitting the translation (ABC-null). This is commonly used for scenarios such as brand word protection. You only need to pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention words. If you need a higher quota, contact the platform.  
-   * - <props="china"> **Image editor integration**: For details, see [Image translation editor protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
+   * - **Product subject information protection**: Allows you to specify whether to translate the text on the product subject. This helps you protect the subject information from being translated, such as embedded product names.
+   * - **Secondary editing after translation**: Allows you to specify whether to return layout information such as the position, font, and color of the text. This information can be used for secondary editing when you integrate an image editor. The SDK package for the editor is not yet available. Follow platform notifications for updates.
+   * - **Brand name protection**: Allows you to specify whether to translate brand names in the image. This helps you protect brand name information from being translated.
+   * - **Translation intervention**: Allows you to customize translation results, including keeping the original text (ABC-ABC), specifying a translation (ABC-DEF), or omitting the translation (ABC-null). This is commonly used in scenarios such as brand word protection. You can implement this by passing the corresponding intervention glossary ID when calling the API, which meets your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
+   * - <props="china"> **Image editor integration**: For more information, see [Image translation editor protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
    * 
    * @param request - ImageTranslationProRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3157,19 +3161,19 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Translates e-commerce images by using the Pro edition of the image translation service. Integrates multimodal large models to achieve more accurate image understanding, significantly improves translation quality, and continuously expands and optimizes multilingual translation capabilities. Supports over 400 language pairs, including bridged languages.
+   * Provides the Pro edition of image translation, which is specifically designed for e-commerce images, integrates multimodal large language model technology for more accurate image understanding, significantly improves translation quality, and continuously expands and optimizes multilingual translation capabilities. It supports more than 400 language pairs, including bridged language pairs.
    * 
    * @remarks
    * ## Product introduction
-   * The Pro edition of the image translation service is designed specifically for e-commerce images. It integrates multimodal large models to achieve more accurate image understanding, significantly improves translation quality, and continuously expands and optimizes multilingual translation capabilities. It supports over 400 language pairs, including bridged languages.
+   * The Pro edition of image translation is specifically designed for e-commerce images. It integrates multimodal large language model technology to achieve more accurate image understanding, significantly improves translation quality, and continuously expands and optimizes multilingual translation capabilities. It supports more than 400 language pairs, including bridged language pairs.
    * ## Scenarios
    * E-commerce product images, marketing images, and images in various other scenarios.
    * ## Features
-   * - **Product subject information protection**: Allows you to specify whether to translate text on the product subject. This helps you protect subject information and prevents embedded information such as product names from being translated.
-   * - **Secondary editing after translation**: Allows you to specify whether to return layout information such as text position, font, and color. This information can be used for secondary editing when you integrate an image editor. The SDK package for the editor is not yet available. Follow platform notifications for updates.
-   * - **Brand name protection**: Allows you to specify whether to translate brand names in images. This helps you protect brand name information from being translated.
-   * - **Translation intervention**: Allows you to customize translation results, including keeping the original text (ABC-ABC), specifying a translation (ABC-DEF), and omitting the translation (ABC-null). This is commonly used for scenarios such as brand word protection. You only need to pass the corresponding intervention glossary ID when calling the API to meet your translation needs in different scenarios. You can upload up to 100,000 intervention words. If you need a higher quota, contact the platform.  
-   * - <props="china"> **Image editor integration**: For details, see [Image translation editor protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
+   * - **Product subject information protection**: Allows you to specify whether to translate the text on the product subject. This helps you protect the subject information from being translated, such as embedded product names.
+   * - **Secondary editing after translation**: Allows you to specify whether to return layout information such as the position, font, and color of the text. This information can be used for secondary editing when you integrate an image editor. The SDK package for the editor is not yet available. Follow platform notifications for updates.
+   * - **Brand name protection**: Allows you to specify whether to translate brand names in the image. This helps you protect brand name information from being translated.
+   * - **Translation intervention**: Allows you to customize translation results, including keeping the original text (ABC-ABC), specifying a translation (ABC-DEF), or omitting the translation (ABC-null). This is commonly used in scenarios such as brand word protection. You can implement this by passing the corresponding intervention glossary ID when calling the API, which meets your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention terms. If you need more, contact the platform for assistance.  
+   * - <props="china"> **Image editor integration**: For more information, see [Image translation editor protocol](https://www.alibabacloud.com/help/en/document_detail/3042647.html).
    * 
    * @param request - ImageTranslationProRequest
    * @returns ImageTranslationProResponse
@@ -3180,7 +3184,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Translates images by using the Image Translation Pro edition, which is designed for e-commerce images, integrates multimodal large model technology for more accurate image understanding, significantly improves translation quality, and continuously expands and optimizes multilingual translation capabilities, supporting more than 400 language pairs including bridged languages.
+   * Translates images by using the Pro edition designed for e-commerce images. This feature integrates multimodal large models to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 400 language pairs, including bridged languages.
    * 
    * @remarks
    * ## Scenarios
@@ -3192,10 +3196,10 @@ export default class Client extends OpenApi {
    *     
    * *   Brand name protection: You can specify whether to translate brand names in the image. This helps you protect brand name information from being translated.
    *     
-   * *   Translation intervention: You can customize translation results, including keeping the original text (ABC-ABC), specifying a translation (ABC-DEF), or omitting the translation (ABC-null). This is commonly used in scenarios such as brand word protection. You can implement this by passing the corresponding intervention glossary ID when calling the API, which meets your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention entries. If you need more, contact the platform for assistance.
+   * *   Translation intervention: You can customize translation results, including keeping the original text (ABC-ABC), specifying a translation (ABC-DEF), or skipping translation (ABC-null). This is commonly used in scenarios such as brand word protection. You can implement this by passing the corresponding intervention glossary ID when calling the API, which meets your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention entries. If you need more, contact the platform for assistance.
    * ## Preparations and call process
-   * Image Translation Pro supports both synchronous and asynchronous call methods. This topic describes the asynchronous call API. For synchronous calls, refer to [Image Translation Pro](https://www.alibabacloud.com/help/en/aidge/image-translation-pro).
-   * Asynchronous APIs for text translation and other capabilities share the same result retrieval process, RocketMQ subscription rules, message encryption protocols, dependency configurations, and Java consumption and decryption code.
+   * Image Translation Pro edition supports both synchronous and asynchronous call methods. This topic describes the asynchronous call API. For synchronous calls, refer to [Image Translation Pro edition](https://www.alibabacloud.com/help/en/aidge/image-translation-pro).
+   * Asynchronous APIs for text translation and other capabilities share the result retrieval process, ApsaraMQ for RocketMQ subscription rules, message encryption protocols, dependency configurations, and Java consumption and decryption code.
    * For the integration process, subscription rules, message formats and encryption protocols, and detailed integration solutions for asynchronous calls, refer to [Asynchronous API call instructions](https://www.alibabacloud.com/help/en/aidge/asynchronous-interface-call-instructions).
    * 
    * @param request - ImageTranslationProAsyncRequest
@@ -3255,7 +3259,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Translates images by using the Image Translation Pro edition, which is designed for e-commerce images, integrates multimodal large model technology for more accurate image understanding, significantly improves translation quality, and continuously expands and optimizes multilingual translation capabilities, supporting more than 400 language pairs including bridged languages.
+   * Translates images by using the Pro edition designed for e-commerce images. This feature integrates multimodal large models to achieve more accurate image understanding, significantly improve translation quality, and continuously expand and optimize multilingual translation capabilities. It supports more than 400 language pairs, including bridged languages.
    * 
    * @remarks
    * ## Scenarios
@@ -3267,10 +3271,10 @@ export default class Client extends OpenApi {
    *     
    * *   Brand name protection: You can specify whether to translate brand names in the image. This helps you protect brand name information from being translated.
    *     
-   * *   Translation intervention: You can customize translation results, including keeping the original text (ABC-ABC), specifying a translation (ABC-DEF), or omitting the translation (ABC-null). This is commonly used in scenarios such as brand word protection. You can implement this by passing the corresponding intervention glossary ID when calling the API, which meets your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention entries. If you need more, contact the platform for assistance.
+   * *   Translation intervention: You can customize translation results, including keeping the original text (ABC-ABC), specifying a translation (ABC-DEF), or skipping translation (ABC-null). This is commonly used in scenarios such as brand word protection. You can implement this by passing the corresponding intervention glossary ID when calling the API, which meets your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention entries. If you need more, contact the platform for assistance.
    * ## Preparations and call process
-   * Image Translation Pro supports both synchronous and asynchronous call methods. This topic describes the asynchronous call API. For synchronous calls, refer to [Image Translation Pro](https://www.alibabacloud.com/help/en/aidge/image-translation-pro).
-   * Asynchronous APIs for text translation and other capabilities share the same result retrieval process, RocketMQ subscription rules, message encryption protocols, dependency configurations, and Java consumption and decryption code.
+   * Image Translation Pro edition supports both synchronous and asynchronous call methods. This topic describes the asynchronous call API. For synchronous calls, refer to [Image Translation Pro edition](https://www.alibabacloud.com/help/en/aidge/image-translation-pro).
+   * Asynchronous APIs for text translation and other capabilities share the result retrieval process, ApsaraMQ for RocketMQ subscription rules, message encryption protocols, dependency configurations, and Java consumption and decryption code.
    * For the integration process, subscription rules, message formats and encryption protocols, and detailed integration solutions for asynchronous calls, refer to [Asynchronous API call instructions](https://www.alibabacloud.com/help/en/aidge/asynchronous-interface-call-instructions).
    * 
    * @param request - ImageTranslationProAsyncRequest
@@ -3378,22 +3382,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Translates e-commerce images and supports over 400 language pairs, including bridged pairs. Accurately processes complex text layouts within images and ensures that the translated content matches the image context, which helps e-commerce platforms and developers easily achieve multilingual conversion and presentation of image content. Additionally, the service returns layer information such as the position, font, and color of text in the image to facilitate secondary editing of translation results by using image editors.
+   * Translates images tailored for e-commerce, supports over 400 language pairs including bridged languages, accurately processes complex text layouts within images, and ensures that the translated content matches the image context. This helps e-commerce platforms and developers easily implement multilingual conversion and presentation of image content. Additionally, the operation returns layer information such as the position, font, and color of text in the image to facilitate secondary editing of the translation results in an image editor.
    * 
    * @remarks
    * ## Scenarios  
-   * Product images, marketing images, and images for various other scenarios in e-commerce.
+   * E-commerce product images, marketing images, and images for various other scenarios.
    * ## Features
    * *   **Product subject information protection**: Allows you to specify whether to translate the text on the product subject. This helps protect the subject information from being translated and prevents embedded information such as product names from being translated.
    *     
    * *   **Brand name protection**: Allows you to specify whether to translate brand names in the image. This helps protect brand name information from being translated.
    *     
-   * *   **Secondary editing after translation (layer information)**: Allows you to specify whether to return layer information such as the position, font, and color of the text. This information can be used to integrate with image editors for secondary editing of translation results. For the release progress of the editor SDK package, refer to platform notifications.
+   * *   **Secondary editing after translation (layer information)**: Allows you to specify whether to return layer information such as the position, font, and color of the text. This information can be used to integrate with an image editor for secondary editing of the translation results. For the release progress of the editor SDK package, refer to platform notifications.
    *     
-   * *   **Translation intervention**: Allows you to customize translation results, including no translation (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-null value). This is commonly used in scenarios such as brand word protection. You can implement this by passing the corresponding intervention glossary ID when calling the API operation to meet your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention words. If you need more, contact the platform for assistance.
+   * *   **Translation intervention**: Allows you to customize translation results, including not translated (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-null value). This is commonly used in scenarios such as brand word protection. You can implement this by passing the corresponding intervention glossary ID when calling the API operation to meet your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention words. If you need more, contact the platform for assistance.
    * ## Preparations and call process 
-   * * Image Translation Standard Edition supports both synchronous and asynchronous call methods. This topic describes the asynchronous call API operation. For synchronous calls, refer to [Image Translation Standard Edition](https://www.alibabacloud.com/help/en/aidge/image-translation).   
-   * * The asynchronous API operations for Image Translation Standard Edition and other features share the same result retrieval process, ApsaraMQ for RocketMQ subscription rules, message encryption protocols, dependency configurations, and Java consumption and decryption code.   
+   * * The standard edition of image translation supports both synchronous and asynchronous call methods. This topic describes the asynchronous call API operation. To use the synchronous call method, refer to [Image translation standard edition](https://www.alibabacloud.com/help/en/aidge/image-translation).   
+   * * The asynchronous API operations for the standard edition of image translation and other features share the result retrieval process, ApsaraMQ for RocketMQ subscription rules, message encryption protocols, dependency configurations, and Java consumption and decryption code.   
    * * For the integration process, subscription rules, message formats and encryption protocols, and detailed integration solutions for asynchronous calls, refer to [Asynchronous API operation call instructions](https://www.alibabacloud.com/help/en/aidge/asynchronous-interface-call-instructions).
    * 
    * @param request - ImageTranslationStandardAsyncRequest
@@ -3453,22 +3457,22 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Translates e-commerce images and supports over 400 language pairs, including bridged pairs. Accurately processes complex text layouts within images and ensures that the translated content matches the image context, which helps e-commerce platforms and developers easily achieve multilingual conversion and presentation of image content. Additionally, the service returns layer information such as the position, font, and color of text in the image to facilitate secondary editing of translation results by using image editors.
+   * Translates images tailored for e-commerce, supports over 400 language pairs including bridged languages, accurately processes complex text layouts within images, and ensures that the translated content matches the image context. This helps e-commerce platforms and developers easily implement multilingual conversion and presentation of image content. Additionally, the operation returns layer information such as the position, font, and color of text in the image to facilitate secondary editing of the translation results in an image editor.
    * 
    * @remarks
    * ## Scenarios  
-   * Product images, marketing images, and images for various other scenarios in e-commerce.
+   * E-commerce product images, marketing images, and images for various other scenarios.
    * ## Features
    * *   **Product subject information protection**: Allows you to specify whether to translate the text on the product subject. This helps protect the subject information from being translated and prevents embedded information such as product names from being translated.
    *     
    * *   **Brand name protection**: Allows you to specify whether to translate brand names in the image. This helps protect brand name information from being translated.
    *     
-   * *   **Secondary editing after translation (layer information)**: Allows you to specify whether to return layer information such as the position, font, and color of the text. This information can be used to integrate with image editors for secondary editing of translation results. For the release progress of the editor SDK package, refer to platform notifications.
+   * *   **Secondary editing after translation (layer information)**: Allows you to specify whether to return layer information such as the position, font, and color of the text. This information can be used to integrate with an image editor for secondary editing of the translation results. For the release progress of the editor SDK package, refer to platform notifications.
    *     
-   * *   **Translation intervention**: Allows you to customize translation results, including no translation (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-null value). This is commonly used in scenarios such as brand word protection. You can implement this by passing the corresponding intervention glossary ID when calling the API operation to meet your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention words. If you need more, contact the platform for assistance.
+   * *   **Translation intervention**: Allows you to customize translation results, including not translated (ABC-ABC), specified translation (ABC-DEF), and skip translation (ABC-null value). This is commonly used in scenarios such as brand word protection. You can implement this by passing the corresponding intervention glossary ID when calling the API operation to meet your translation needs in different scenarios. Generally, you can upload up to 100,000 intervention words. If you need more, contact the platform for assistance.
    * ## Preparations and call process 
-   * * Image Translation Standard Edition supports both synchronous and asynchronous call methods. This topic describes the asynchronous call API operation. For synchronous calls, refer to [Image Translation Standard Edition](https://www.alibabacloud.com/help/en/aidge/image-translation).   
-   * * The asynchronous API operations for Image Translation Standard Edition and other features share the same result retrieval process, ApsaraMQ for RocketMQ subscription rules, message encryption protocols, dependency configurations, and Java consumption and decryption code.   
+   * * The standard edition of image translation supports both synchronous and asynchronous call methods. This topic describes the asynchronous call API operation. To use the synchronous call method, refer to [Image translation standard edition](https://www.alibabacloud.com/help/en/aidge/image-translation).   
+   * * The asynchronous API operations for the standard edition of image translation and other features share the result retrieval process, ApsaraMQ for RocketMQ subscription rules, message encryption protocols, dependency configurations, and Java consumption and decryption code.   
    * * For the integration process, subscription rules, message formats and encryption protocols, and detailed integration solutions for asynchronous calls, refer to [Asynchronous API operation call instructions](https://www.alibabacloud.com/help/en/aidge/asynchronous-interface-call-instructions).
    * 
    * @param request - ImageTranslationStandardAsyncRequest

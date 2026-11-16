@@ -21,7 +21,7 @@ export class AddDisplayKnowledgeResponseBodyDataResults extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The index of the record in the original request array.
+   * The index in the original request array.
    * 
    * @example
    * 3
@@ -147,7 +147,7 @@ export class AddDisplayKnowledgeResponseBodyData extends $dara.Model {
   ragId?: string;
   /**
    * @remarks
-   * The processing result of each record.
+   * The processing results for each record.
    */
   results?: AddDisplayKnowledgeResponseBodyDataResults[];
   /**
@@ -235,7 +235,7 @@ export class AddDisplayKnowledgeResponseBody extends $dara.Model {
   data?: AddDisplayKnowledgeResponseBodyData;
   /**
    * @remarks
-   * The returned message or failure description.
+   * The response message or failure description.
    * 
    * @example
    * Success

@@ -239,7 +239,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
   horizontalLayout?: string;
   /**
    * @remarks
-   * The coordinates of the image repair area.
+   * The coordinates of the image inpainting area.
    */
   imageRect?: ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsImageRect;
   /**
@@ -265,7 +265,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts e
   textRect?: ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTextsTextRect;
   /**
    * @remarks
-   * Indicates whether the text item is valid. If this value is missing or set to false, the text item is invalid.
+   * Indicates whether the TextItem is valid. If this value does not exist or is false, the item is invalid.
    * 
    * @example
    * true
@@ -346,7 +346,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas extend
    * The original text before translation.
    * 
    * @example
-   * Cute design · Crisp bell
+   * Cute design · crisp bell
    */
   content?: string;
   /**
@@ -375,7 +375,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreas extend
   lineCount?: number;
   /**
    * @remarks
-   * The list of translated texts, where each element corresponds to the translation result in a target language.
+   * The list of translated texts. Each element corresponds to the translation result in a target language.
    */
   texts?: ImageTranslationProResponseBodyDataGenFilesEditInfoTextAreasTexts[];
   /**
@@ -430,7 +430,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfo extends $dara.M
   font?: string[];
   /**
    * @remarks
-   * The coordinate information of the product bounding box area.
+   * The coordinate information of the product area bounding box.
    */
   goodsRects?: ImageTranslationProResponseBodyDataGenFilesEditInfoGoodsRects;
   /**
@@ -440,7 +440,7 @@ export class ImageTranslationProResponseBodyDataGenFilesEditInfo extends $dara.M
   languages?: string[];
   /**
    * @remarks
-   * The URL of the image with all text erased.
+   * The URL of the image with all text masked.
    * 
    * @example
    * http://dashscope-a717.oss-cn-beijing.aliyuncs.com/repaired.png
@@ -555,7 +555,7 @@ export class ImageTranslationProResponseBodyDataGenFiles extends $dara.Model {
   resultList?: ImageTranslationProResponseBodyDataGenFilesResultList[];
   /**
    * @remarks
-   * The URL of the source image.
+   * The URL of the original image.
    * 
    * @example
    * https://img.alicdn.com/imgextra/i3/O1CN01HTDhDi28Fd85ZYs7H_!!6000000007903-0-tps-800-800.jpg
@@ -653,7 +653,10 @@ export class ImageTranslationProResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The usage information, which includes the number of processed images.
+   * The usage information, including the number of processed images.
+   * 
+   * @example
+   * {"ProcessedImageCount":1}
    */
   usageMap?: { [key: string]: number };
   static names(): { [key: string]: string } {
@@ -695,7 +698,7 @@ export class ImageTranslationProResponseBodyData extends $dara.Model {
 export class ImageTranslationProResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates a successful call. For other response codes, refer to the error code information.
+   * The response code. A value of 200 indicates a successful call. For other response codes, see Error codes.
    * 
    * @example
    * 200
@@ -708,7 +711,7 @@ export class ImageTranslationProResponseBody extends $dara.Model {
   data?: ImageTranslationProResponseBodyData;
   /**
    * @remarks
-   * The error message. "Success" is returned for successful calls. Specific error messages are returned for exceptions, such as "The content contains sensitive data. Try another input."
+   * The error message. Success is returned for a successful call. For an exception, a specific error message is returned, such as "The content contains sensitive data. Try another input."
    * 
    * @example
    * Success
@@ -716,7 +719,7 @@ export class ImageTranslationProResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is used to uniquely identify a request.
+   * The ID of the request.
    * 
    * @example
    * 61785C32-80C2-19A3-9E55-2C3702C84B40

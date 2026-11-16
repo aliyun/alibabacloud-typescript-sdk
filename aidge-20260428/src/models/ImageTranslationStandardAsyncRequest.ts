@@ -34,7 +34,7 @@ export class ImageTranslationStandardAsyncRequest extends $dara.Model {
    * Specifies whether to include translation for the product area.
    * 
    * @example
-   * false
+   * true
    */
   includingProductArea?: boolean;
   /**
@@ -62,7 +62,7 @@ export class ImageTranslationStandardAsyncRequest extends $dara.Model {
    * Specifies whether to translate the brand text in the product area.
    * 
    * @example
-   * false
+   * true
    */
   translatingBrandInTheProduct?: boolean;
   /**

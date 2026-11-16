@@ -80,6 +80,11 @@ export class GenerateProductContentRequest extends $dara.Model {
    */
   productCategory?: string;
   /**
+   * @example
+   * 自定义
+   */
+  prompt?: string;
+  /**
    * @remarks
    * The source language. Valid values: zh and en. Automatic language identification is not supported. Supported source languages: Chinese (zh) and English (en).
    * 
@@ -118,6 +123,7 @@ export class GenerateProductContentRequest extends $dara.Model {
       platform: 'Platform',
       productAttributes: 'ProductAttributes',
       productCategory: 'ProductCategory',
+      prompt: 'Prompt',
       sourceLanguage: 'SourceLanguage',
       sourceText: 'SourceText',
       targetLanguage: 'TargetLanguage',
@@ -135,6 +141,7 @@ export class GenerateProductContentRequest extends $dara.Model {
       platform: 'string',
       productAttributes: 'string',
       productCategory: 'string',
+      prompt: 'string',
       sourceLanguage: 'string',
       sourceText: 'string',
       targetLanguage: 'string',

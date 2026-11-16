@@ -35,7 +35,7 @@ export class ImageTranslationProAsyncResponseBodyData extends $dara.Model {
 export class ImageTranslationProAsyncResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of success indicates that the task is submitted successfully.
+   * The response code. A value of success indicates that the task is submitted.
    * 
    * @example
    * success
@@ -48,7 +48,7 @@ export class ImageTranslationProAsyncResponseBody extends $dara.Model {
   data?: ImageTranslationProAsyncResponseBodyData;
   /**
    * @remarks
-   * The call description. A successful call returns Success. For a failed call, read the actual error message.
+   * The call description. A successful call returns Success. If the call fails, read the actual error message.
    * 
    * @example
    * success

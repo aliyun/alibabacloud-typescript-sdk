@@ -14,6 +14,9 @@ export class VideoGenerationResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The metering and usage information.
+   * 
+   * @example
+   * {"ProcessedVideoDurationSeconds":10}
    */
   usageMap?: { [key: string]: number };
   static names(): { [key: string]: string } {

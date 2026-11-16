@@ -48,6 +48,9 @@ export class GenerateProductContentResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The usage information.
+   * 
+   * @example
+   * {"OutputCharacterCount":53,"InputCharacterCount":8408}
    */
   usageMap?: { [key: string]: number };
   static names(): { [key: string]: string } {
