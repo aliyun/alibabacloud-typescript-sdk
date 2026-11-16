@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentSpaceResponseBodyMseNamespace extends $dara.Model {
   /**
    * @remarks
-   * The attach type of the MSE namespace. AutoCreated indicates automatic creation by AgentLoop. UserSelected indicates that an existing namespace is selected and attached when the AgentSpace is created.
+   * The attach type of the MSE namespace. AutoCreated indicates automatic creation by AgentLoop. UserSelected indicates that you select and attach an existing namespace when creating the AgentSpace.
    * 
    * @example
    * AutoCreated
@@ -54,11 +54,17 @@ export class GetAgentSpaceResponseBodyMseNamespace extends $dara.Model {
 
 export class GetAgentSpaceResponseBodyTags extends $dara.Model {
   /**
+   * @remarks
+   * The tag key.
+   * 
    * @example
    * env
    */
   key?: string;
   /**
+   * @remarks
+   * The tag value, which can be an empty string.
+   * 
    * @example
    * test
    */
@@ -159,8 +165,11 @@ export class GetAgentSpaceResponseBody extends $dara.Model {
    */
   slsProject?: string;
   /**
+   * @remarks
+   * The complete standard tags of the active AgentSpace in the current region. An empty array is returned if it is confirmed that no tags exist. This field is omitted if the AgentSpace is not active or the tags cannot be determined. The omission of this field does not indicate that no tags exist.
+   * 
    * @example
-   * [{\\"key\\": \\"env\\", \\"value\\": \\"test\\"}]
+   * [{"key":"env","value":"test"}]
    */
   tags?: GetAgentSpaceResponseBodyTags[];
   /**

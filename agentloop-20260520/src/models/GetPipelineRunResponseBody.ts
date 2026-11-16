@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPipelineRunResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The name of the AgentSpace to which the pipeline belongs.
+   * The name of the AgentSpace.
    * 
    * @example
    * my-agent-space
@@ -13,7 +13,7 @@ export class GetPipelineRunResponseBody extends $dara.Model {
   agentSpaceName?: string;
   /**
    * @remarks
-   * The current retry count.
+   * The current number of retries.
    * 
    * @example
    * 0
@@ -22,16 +22,22 @@ export class GetPipelineRunResponseBody extends $dara.Model {
   /**
    * @remarks
    * The semantic error code.
+   * 
+   * @example
+   * ExpressionEvaluationError
    */
   errorCode?: string;
   /**
    * @remarks
    * The error message.
+   * 
+   * @example
+   * Failed to evaluate filter expression in node \\"node-1\\": column \\"score\\" does not exist.
    */
   errorMessage?: string;
   /**
    * @remarks
-   * The finish time, in ISO 8601 UTC format.
+   * The finish time in ISO 8601 UTC format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -41,7 +47,7 @@ export class GetPipelineRunResponseBody extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The start of the data window, in UNIX seconds.
+   * The start time of the data window, in UNIX seconds.
    * 
    * @example
    * 1735660800
@@ -57,7 +63,7 @@ export class GetPipelineRunResponseBody extends $dara.Model {
   maxAttempts?: number;
   /**
    * @remarks
-   * The next retry time, in ISO 8601 UTC format.
+   * The next retry time in ISO 8601 UTC format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -75,7 +81,7 @@ export class GetPipelineRunResponseBody extends $dara.Model {
   pipelineName?: string;
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot issues.
+   * The ID of the request, which is used to locate the request during troubleshooting.
    * 
    * @example
    * 9ACFB10A-1B2C-3D4E-5F6G-7H8I9J0K1L2M
@@ -83,7 +89,10 @@ export class GetPipelineRunResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The inline run results. This field is returned only when output.inline is set to true at trigger time.
+   * The inline run results, which are returned only when output.inline is set to true during triggering.
+   * 
+   * @example
+   * {"outputRows": 100, "summary": "processed 100 rows, 92 matched", "passed": true}
    */
   results?: { [key: string]: any };
   /**
@@ -96,7 +105,7 @@ export class GetPipelineRunResponseBody extends $dara.Model {
   runId?: string;
   /**
    * @remarks
-   * The execution start time, in ISO 8601 UTC format.
+   * The execution start time in ISO 8601 UTC format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -106,17 +115,15 @@ export class GetPipelineRunResponseBody extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The run statistics, including processedRows (number of processed rows), processedBytes (number of processed bytes), outputRows (number of output rows), outputBytes (number of output bytes), elapsedMs (elapsed time in milliseconds), cpuSec (CPU seconds), cpuCores (number of CPU cores), and tokenCount (number of tokens consumed).
+   * The run statistics, including processedRows (number of processed rows), processedBytes (number of processed bytes), outputRows (number of output rows), outputBytes (number of output bytes), elapsedMs (elapsed time in milliseconds), cpuSec (CPU seconds), cpuCores (number of CPU cores), and tokenCount (number of consumed tokens).
+   * 
+   * @example
+   * {"processedRows":1000,"elapsedMs":2500}
    */
   stats?: { [key: string]: any };
   /**
    * @remarks
-   * The run status. Valid values:
-   * - Pending
-   * - Running
-   * - Succeeded
-   * - Failed
-   * - Cancelled
+   * The status of the run. Valid values: Pending, Running, Succeeded, Failed, and Cancelled.
    * 
    * @example
    * Succeeded
@@ -124,7 +131,7 @@ export class GetPipelineRunResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The end of the data window, in UNIX seconds.
+   * The end time of the data window, in UNIX seconds.
    * 
    * @example
    * 1735747200
@@ -132,7 +139,7 @@ export class GetPipelineRunResponseBody extends $dara.Model {
   toTime?: number;
   /**
    * @remarks
-   * The trigger time, in ISO 8601 UTC format.
+   * The trigger time in ISO 8601 UTC format.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ss.SSSZ
    * 
@@ -142,10 +149,7 @@ export class GetPipelineRunResponseBody extends $dara.Model {
   triggerTime?: string;
   /**
    * @remarks
-   * The trigger type. Valid values:
-   * - Scheduled
-   * - Manual
-   * - RunOnce
+   * The trigger type. Valid values: Scheduled, Manual, and RunOnce.
    * 
    * @example
    * Scheduled

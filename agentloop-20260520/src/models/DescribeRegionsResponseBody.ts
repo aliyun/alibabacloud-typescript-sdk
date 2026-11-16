@@ -16,7 +16,7 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
    * The region name.
    * 
    * @example
-   * 华东1（杭州）
+   * China (Hangzhou)
    */
   localName?: string;
   /**
@@ -65,7 +65,7 @@ export class DescribeRegionsResponseBodyRegions extends $dara.Model {
 export class DescribeRegionsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries returned per request.
+   * The maximum number of records returned in a single request.
    * 
    * @example
    * 100
@@ -73,7 +73,7 @@ export class DescribeRegionsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. If no more pages are available, this parameter is empty.
+   * The pagination token. This value is empty if no more pages are available.
    * 
    * @example
    * ydx438PDAW1lYRJZbBn9

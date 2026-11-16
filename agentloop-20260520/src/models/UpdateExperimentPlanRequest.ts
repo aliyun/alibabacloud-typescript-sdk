@@ -31,7 +31,7 @@ export class UpdateExperimentPlanRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The list of evaluators. If omitted, the list is not modified. If an empty array is passed, the list is cleared. When configured, evaluation is automatically triggered upon experiment completion.
+   * The list of evaluators. If omitted, the list is not modified. If an empty array is passed, the list is cleared.
    * 
    * @example
    * [{"evaluatorRef": "Builtin.agent_task_completion"}]
@@ -39,7 +39,7 @@ export class UpdateExperimentPlanRequest extends $dara.Model {
   evaluators?: Evaluator[];
   /**
    * @remarks
-   * The type of the experiment. Valid values: OFFLINE (offline experiment) and ONLINE (online experiment).
+   * The type of the experiment.
    * 
    * @example
    * OFFLINE
@@ -63,7 +63,10 @@ export class UpdateExperimentPlanRequest extends $dara.Model {
   input?: { [key: string]: any };
   /**
    * @remarks
-   * The name of the associated data processing pipeline. This parameter is optional. If you do not specify this parameter, the association is not updated. If you specify an empty string, the association is removed. After the association is established, when an experiment under this plan completes and writes experiment results to a Logstore, the system filters the data by the traceId of the current experiment trace and calls PreviewPipeline to write the pipeline-processed trace results together with the experiment results.
+   * The name of the associated data processing pipeline. This parameter is optional. If this parameter is not specified, the pipeline is not updated. If an empty character string is specified, the association is dissociated. After the association, when an experiment under this plan executes and completes writing experiment results to the Logstore, the system filters by the traceId of the current experiment trace and invokes PreviewPipeline to write the results processed by the pipeline.
+   * 
+   * @example
+   * my-pipeline
    */
   pipelineName?: string;
   /**
@@ -84,7 +87,7 @@ export class UpdateExperimentPlanRequest extends $dara.Model {
   querySql?: string;
   /**
    * @remarks
-   * The list of selected data item IDs in partial dataset mode. Passing an empty array clears the list.
+   * The list of selected data item IDs in partial dataset mode. If an empty array is passed, the list is cleared.
    * 
    * @example
    * []

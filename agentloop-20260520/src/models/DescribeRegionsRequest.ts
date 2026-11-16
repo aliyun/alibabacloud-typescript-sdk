@@ -17,7 +17,7 @@ export class DescribeRegionsRequest extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The maximum number of entries to return in a single request.
+   * The maximum number of results to return.
    * 
    * @example
    * 50

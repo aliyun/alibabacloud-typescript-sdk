@@ -5,7 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ListOptimizeTasksResponseBodyOptimizeTasks extends $dara.Model {
   /**
    * @remarks
-   * The scheduling checkpoint that stores states such as the general scheduling watermark.
+   * The scheduling checkpoint, which stores states such as the general scheduling watermark.
+   * 
+   * @example
+   * {
+   * 	"lastWindowEndTime": 1787133600000,
+   * 	"lastScheduleStatus": "Succeeded",
+   * 	"nextWindowStartTime": 1787133600000,
+   * 	"lastScheduleAttemptTime": 1787137386912,
+   * 	"lastScheduleSuccessTime": 1787137386912
+   * }
    */
   checkpoint?: { [key: string]: any };
   /**
@@ -18,7 +27,7 @@ export class ListOptimizeTasksResponseBodyOptimizeTasks extends $dara.Model {
   config?: { [key: string]: any };
   /**
    * @remarks
-   * The creation time.
+   * The time when the task was created.
    * 
    * @example
    * 2026-08-12T10:00:00Z
@@ -26,7 +35,7 @@ export class ListOptimizeTasksResponseBodyOptimizeTasks extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The next scheduling trigger time.
+   * The next scheduled trigger time.
    * 
    * @example
    * 2026-08-13T16:00:00Z
@@ -50,7 +59,7 @@ export class ListOptimizeTasksResponseBodyOptimizeTasks extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The task status.
+   * The status of the task.
    * 
    * @example
    * Enabled
@@ -66,7 +75,7 @@ export class ListOptimizeTasksResponseBodyOptimizeTasks extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The update time.
+   * The time when the task was updated.
    * 
    * @example
    * 2026-08-12T10:00:00Z
@@ -118,7 +127,7 @@ export class ListOptimizeTasksResponseBodyOptimizeTasks extends $dara.Model {
 export class ListOptimizeTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of results per page.
+   * The maximum number of results returned per page.
    * 
    * @example
    * 20
@@ -126,7 +135,7 @@ export class ListOptimizeTasksResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The token for the next page.
    * 
    * @example
    * MTIzNDU2Nzg5MA==
@@ -147,7 +156,7 @@ export class ListOptimizeTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count.
+   * The total number of tasks.
    * 
    * @example
    * 1

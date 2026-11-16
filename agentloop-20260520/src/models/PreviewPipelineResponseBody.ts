@@ -14,7 +14,7 @@ export class PreviewPipelineResponseBodyMeta extends $dara.Model {
   aggQuery?: string;
   /**
    * @remarks
-   * The list of data types for each column. This field provides a mapping from column names to data types, such as string, long, double, and json.
+   * The mapping from column names to data types, such as string, long, double, or json.
    * 
    * @example
    * ["long","string"]
@@ -54,7 +54,7 @@ export class PreviewPipelineResponseBodyMeta extends $dara.Model {
   elapsedMillisecond?: number;
   /**
    * @remarks
-   * Specifies whether an SQL query is used.
+   * Indicates whether an SQL query is used.
    * 
    * @example
    * true
@@ -62,7 +62,7 @@ export class PreviewPipelineResponseBodyMeta extends $dara.Model {
   hasSQL?: boolean;
   /**
    * @remarks
-   * Specifies whether nanosecond-level ordering is enabled.
+   * Indicates whether nanosecond-level ordering is enabled.
    * 
    * @example
    * true
@@ -78,7 +78,7 @@ export class PreviewPipelineResponseBodyMeta extends $dara.Model {
   keys?: string[];
   /**
    * @remarks
-   * The maximum number of rows returned in the result.
+   * The maximum number of returned rows.
    * 
    * @example
    * 5
@@ -86,7 +86,7 @@ export class PreviewPipelineResponseBodyMeta extends $dara.Model {
   limited?: number;
   /**
    * @remarks
-   * The identifier of the query mode.
+   * The query mode identifier.
    * 
    * @example
    * 1
@@ -94,7 +94,7 @@ export class PreviewPipelineResponseBodyMeta extends $dara.Model {
   mode?: number;
   /**
    * @remarks
-   * The number of bytes of processed data.
+   * The number of processed data bytes.
    * 
    * @example
    * 524288
@@ -110,7 +110,7 @@ export class PreviewPipelineResponseBodyMeta extends $dara.Model {
   processedRows?: number;
   /**
    * @remarks
-   * The Simple Log Service (SLS) query progress. A value of Complete indicates that the query is completed.
+   * The Simple Log Service (SLS) query progress. A value of Complete indicates that the query is finished.
    * 
    * @example
    * Complete
@@ -118,7 +118,7 @@ export class PreviewPipelineResponseBodyMeta extends $dara.Model {
   progress?: string;
   /**
    * @remarks
-   * The number of bytes of scanned raw data.
+   * The number of scanned raw data bytes.
    * 
    * @example
    * 1048576
@@ -126,7 +126,7 @@ export class PreviewPipelineResponseBodyMeta extends $dara.Model {
   scanBytes?: number;
   /**
    * @remarks
-   * The dataset schema of the final pipeline output. The keys are field names, and the type in the values supports text, long, double, and json. The field order is determined by the keys.
+   * The dataset schema for the final output of the pipeline. The keys are field names, and the type in the values supports text, long, double, and json. The field order is determined by the keys field.
    * 
    * @example
    * {"status":{"type":"long"}}
@@ -218,10 +218,10 @@ export class PreviewPipelineResponseBodyMeta extends $dara.Model {
 export class PreviewPipelineResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The collection of sample rows for the preview result. Each row is a key-value structure. The array contains only the first N rows, up to 5 rows by default, and does not reflect the complete write plan.
+   * The collection of sample rows. This array of maps includes only the first N rows (up to 5 rows by default) and does not reflect the complete write plan.
    * 
    * @example
-   * [{"status":"200","method":"POST"}]
+   * [{\\"type\\": \\"saturation\\", \\"value\\": 0}, {\\"type\\": \\"load\\", \\"value\\": 0}, {\\"type\\": \\"latency\\", \\"value\\": 1}, {\\"type\\": \\"error\\", \\"value\\": 0}]
    */
   data?: { [key: string]: string }[];
   /**
@@ -231,7 +231,7 @@ export class PreviewPipelineResponseBody extends $dara.Model {
   meta?: PreviewPipelineResponseBodyMeta;
   /**
    * @remarks
-   * The request ID. You can use this ID to locate the request when you troubleshoot issues.
+   * The request ID used to locate the request during troubleshooting.
    * 
    * @example
    * 9ACFB10A-1B2C-3D4E-5F6G-7H8I9J0K1L2M

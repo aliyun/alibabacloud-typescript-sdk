@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class MetaSchemaValue extends $dara.Model {
   /**
    * @remarks
-   * The dataset field types. Valid values: text, long, double, and json.
+   * The dataset field type. Valid values: text, long, double, and json.
    * 
    * @example
    * text

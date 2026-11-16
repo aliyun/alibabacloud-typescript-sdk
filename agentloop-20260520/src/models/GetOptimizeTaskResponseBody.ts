@@ -5,12 +5,21 @@ import * as $dara from '@darabonba/typescript';
 export class GetOptimizeTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The scheduling checkpoint, which stores states such as the general scheduling watermark.
+   * The scheduling checkpoint that stores states such as the general scheduling watermark.
+   * 
+   * @example
+   * {
+   * 	"lastWindowEndTime": 1787133600000,
+   * 	"lastScheduleStatus": "Succeeded",
+   * 	"nextWindowStartTime": 1787133600000,
+   * 	"lastScheduleAttemptTime": 1787137386912,
+   * 	"lastScheduleSuccessTime": 1787137386912
+   * }
    */
   checkpoint?: { [key: string]: any };
   /**
    * @remarks
-   * The type-specific configuration. Optional prompts for ExperienceMining or SkillOptimize support only inline Markdown. The body is saved to inputs.prompt.content, which must be a non-empty UTF-8 string of up to 16 KiB.
+   * The type-specific configuration. Optional prompts for ExperienceMining or SkillOptimize support only inline Markdown. The main text is stored in inputs.prompt.content, which must be non-empty UTF-8 and up to 16 KiB in size.
    * 
    * @example
    * {"ioVersion":2,"inputs":{"experienceLibrary":{"type":"dataset","dataset":"experiences"},"trajectory":{"type":"sls","project":"my-project","logstore":"agent-trajectory","format":"atif"},"prompt":{"type":"inline","format":"markdown","content":"# Guidance\\\\nExtract evidence-backed tool contracts."}},"outputs":{"changePlan":{"type":"dataset","dataset":"experience-plans"}},"operators":["tool_contract"],"application":{"mode":"manual"}}
@@ -34,7 +43,7 @@ export class GetOptimizeTaskResponseBody extends $dara.Model {
   nextTriggerTime?: string;
   /**
    * @remarks
-   * The optimization task name.
+   * The name of the optimization task.
    * 
    * @example
    * efficiency-analysis
@@ -58,7 +67,7 @@ export class GetOptimizeTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task status. Valid values: Enabled, Disabled.
+   * The task status. Valid values: Enabled and Disabled.
    * 
    * @example
    * Enabled
@@ -66,7 +75,7 @@ export class GetOptimizeTaskResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The optimization task type.
+   * The type of the optimization task.
    * 
    * @example
    * EfficiencyAnalysis

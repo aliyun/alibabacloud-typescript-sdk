@@ -13,7 +13,7 @@ export class ListDatasetVersionsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page. Do not specify this parameter in the first request. To query subsequent pages, pass the nextToken value from the previous response as is, and keep the agent workspace and dataset name unchanged. The example is for demonstration purposes only. Use the actual token returned by the API operation.
+   * The pagination token for the next page. Do not specify this parameter in the first request. To query subsequent pages, pass the nextToken value from the previous response as is, and keep the agent space and dataset name unchanged. The example is for demonstration purposes only. Use the actual token returned by the API operation.
    * 
    * @example
    * umaQfI7x758Ns4TgWrj8yA3fYlnk7dJgsfhMrSViRY8=

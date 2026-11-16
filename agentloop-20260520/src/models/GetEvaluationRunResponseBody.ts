@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEvaluationRunResponseBodyEvaluatorProgress extends $dara.Model {
   /**
    * @remarks
-   * The evaluator name.
+   * The name of the evaluator.
    * 
    * @example
    * Builtin.agent_task_completion
@@ -13,7 +13,7 @@ export class GetEvaluationRunResponseBodyEvaluatorProgress extends $dara.Model {
   evaluatorName?: string;
   /**
    * @remarks
-   * The number of failed items for this evaluator.
+   * The number of failed items for the evaluator.
    * 
    * @example
    * 4
@@ -21,7 +21,7 @@ export class GetEvaluationRunResponseBodyEvaluatorProgress extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The number of successful items for this evaluator.
+   * The number of successful items for the evaluator.
    * 
    * @example
    * 96
@@ -29,7 +29,7 @@ export class GetEvaluationRunResponseBodyEvaluatorProgress extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * The total number of items for this evaluator.
+   * The total number of items for the evaluator.
    * 
    * @example
    * 100
@@ -65,7 +65,7 @@ export class GetEvaluationRunResponseBodyEvaluatorProgress extends $dara.Model {
 export class GetEvaluationRunResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The creation time, in seconds-level UNIX timestamp.
+   * The creation time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1782816000
@@ -73,7 +73,7 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * The end time of the run data window, in seconds-level UNIX timestamp.
+   * The end time of the run data window. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1782902400
@@ -81,7 +81,7 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
   dataEndTime?: number;
   /**
    * @remarks
-   * The start time of the run data window, in seconds-level UNIX timestamp.
+   * The start time of the run data window. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1782816000
@@ -89,7 +89,7 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
   dataStartTime?: number;
   /**
    * @remarks
-   * The list of progress entries by evaluator.
+   * The progress list by evaluator dimension.
    * 
    * @example
    * [{"evaluatorName":"Builtin.agent_task_completion","totalCount":100,"successCount":96,"failedCount":4}]
@@ -97,7 +97,7 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
   evaluatorProgress?: GetEvaluationRunResponseBodyEvaluatorProgress[];
   /**
    * @remarks
-   * The snapshot of the evaluator configuration at the time the run was created, in JSON string format.
+   * The snapshot of the evaluator configuration when the run is created. The value is a JSON string.
    * 
    * @example
    * [{"evaluatorRef":"Builtin.agent_task_completion"}]
@@ -113,7 +113,15 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The request ID.
+   * The snapshot of the evaluator quality scores and coverage for the current run. This field is empty if the feature is not enabled.
+   * 
+   * @example
+   * {}
+   */
+  qualityMetrics?: { [key: string]: any };
+  /**
+   * @remarks
+   * The ID of the request.
    * 
    * @example
    * 3FE4CD1E-FF41-56BE-B590-7A021D9C1524
@@ -121,7 +129,7 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The run ID.
+   * The ID of the run.
    * 
    * @example
    * eval-run-4fd47f3d7e684e15b1d3d178c6a5b81a
@@ -129,7 +137,7 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
   runId?: string;
   /**
    * @remarks
-   * The run name.
+   * The name of the run.
    * 
    * @example
    * trace_task_completion_eval-backfill
@@ -137,7 +145,7 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
   runName?: string;
   /**
    * @remarks
-   * The run type.
+   * The type of the run.
    * 
    * @example
    * backfill
@@ -145,7 +153,7 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
   runType?: string;
   /**
    * @remarks
-   * The run status.
+   * The status of the run.
    * 
    * @example
    * Running
@@ -161,7 +169,7 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * The evaluation task ID.
+   * The ID of the evaluation task.
    * 
    * @example
    * eval-task-8b36f2e2b1f94f9c91ce7a4b0f6d9c25
@@ -169,7 +177,7 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The total number of evaluation items.
+   * The total number of evaluated items.
    * 
    * @example
    * 100
@@ -177,7 +185,7 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The update time, in seconds-level UNIX timestamp.
+   * The update time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1782816600
@@ -191,6 +199,7 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
       evaluatorProgress: 'evaluatorProgress',
       evaluators: 'evaluators',
       failedCount: 'failedCount',
+      qualityMetrics: 'qualityMetrics',
       requestId: 'requestId',
       runId: 'runId',
       runName: 'runName',
@@ -211,6 +220,7 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
       evaluatorProgress: { 'type': 'array', 'itemType': GetEvaluationRunResponseBodyEvaluatorProgress },
       evaluators: 'string',
       failedCount: 'number',
+      qualityMetrics: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       requestId: 'string',
       runId: 'string',
       runName: 'string',
@@ -226,6 +236,9 @@ export class GetEvaluationRunResponseBody extends $dara.Model {
   validate() {
     if(Array.isArray(this.evaluatorProgress)) {
       $dara.Model.validateArray(this.evaluatorProgress);
+    }
+    if(this.qualityMetrics) {
+      $dara.Model.validateMap(this.qualityMetrics);
     }
     super.validate();
   }

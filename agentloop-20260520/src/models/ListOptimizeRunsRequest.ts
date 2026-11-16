@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOptimizeRunsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return. Default value: 20. Maximum value: 100.
+   * The maximum number of results to return. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListOptimizeRunsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The status used to filter results.
+   * The status used to filter the results.
    * 
    * @example
    * Succeeded
@@ -29,18 +29,18 @@ export class ListOptimizeRunsRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The lower bound of the window start time in UNIX seconds.
+   * The lower bound of the window start time, in UNIX seconds.
    * 
    * @example
-   * 1786432688000
+   * 1786432688
    */
   windowStartTimeBegin?: number;
   /**
    * @remarks
-   * The upper bound of the window start time in UNIX seconds.
+   * The upper bound of the window start time, in UNIX seconds.
    * 
    * @example
-   * 1786432690000
+   * 1786432690
    */
   windowStartTimeEnd?: number;
   static names(): { [key: string]: string } {

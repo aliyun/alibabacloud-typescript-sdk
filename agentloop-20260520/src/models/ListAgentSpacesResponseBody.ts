@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentSpacesResponseBodyAgentSpacesMseNamespace extends $dara.Model {
   /**
    * @remarks
-   * The method used to attach the MSE namespace. AutoCreated indicates automatic creation by AgentLoop. UserSelected indicates that an existing namespace is selected and attached when the AgentSpace is created.
+   * The attach method for the MSE namespace. AutoCreated indicates automatic creation by AgentLoop. UserSelected indicates that an existing namespace is selected and attached when the AgentSpace is created.
    * 
    * @example
    * AutoCreated
@@ -150,10 +150,10 @@ export class ListAgentSpacesResponseBodyAgentSpaces extends $dara.Model {
   slsProject?: string;
   /**
    * @remarks
-   * Returns only the tags of AgentSpaces that are active in the current region and match the local instance. An empty array is returned when it is confirmed that there are no tags. This field is omitted for entries in other regions, inactive entries, or entries that do not match the local instance. Omission of this field does not indicate the absence of tags.
+   * Returns only AgentSpace tags that are active in the current region and match the local instance. An empty array is returned when it is confirmed that no tags exist. This field is omitted for entries in other regions, inactive entries, or entries that do not match the local instance. Omission of this field does not indicate the absence of tags.
    * 
    * @example
-   * [{\\"key\\": \\"env\\", \\"value\\": \\"test\\"}]
+   * [{"key":"env","value":"test"}]
    */
   tags?: ListAgentSpacesResponseBodyAgentSpacesTags[];
   /**
@@ -212,7 +212,7 @@ export class ListAgentSpacesResponseBodyAgentSpaces extends $dara.Model {
 export class ListAgentSpacesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the AgentSpaces.
+   * The AgentSpaces information.
    */
   agentSpaces?: ListAgentSpacesResponseBodyAgentSpaces[];
   /**
@@ -225,7 +225,7 @@ export class ListAgentSpacesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. This parameter is empty if there are no more pages.
+   * The pagination token. This parameter is empty if no next page exists.
    * 
    * @example
    * b5754ef15c784abc8696d82790d2985c

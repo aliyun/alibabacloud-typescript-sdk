@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEvaluatorsResponseBodyEvaluators extends $dara.Model {
   /**
    * @remarks
-   * The list of annotations.
+   * The list of annotation tags.
    * 
    * @example
    * ["__en"]
@@ -13,7 +13,7 @@ export class ListEvaluatorsResponseBodyEvaluators extends $dara.Model {
   annotations?: string[];
   /**
    * @remarks
-   * The creation time, in seconds-level UNIX timestamp.
+   * The creation time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1782816000
@@ -24,7 +24,7 @@ export class ListEvaluatorsResponseBodyEvaluators extends $dara.Model {
    * The evaluator description.
    * 
    * @example
-   * 判断 Agent 是否完成用户任务
+   * Determines whether the agent has completed the user task
    */
   description?: string;
   /**
@@ -32,7 +32,7 @@ export class ListEvaluatorsResponseBodyEvaluators extends $dara.Model {
    * The display name.
    * 
    * @example
-   * 链路任务完成度
+   * Pipeline task completion rate
    */
   displayName?: string;
   /**
@@ -77,7 +77,7 @@ export class ListEvaluatorsResponseBodyEvaluators extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The update time, in seconds-level UNIX timestamp.
+   * The update time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1782816600
@@ -139,7 +139,7 @@ export class ListEvaluatorsResponseBody extends $dara.Model {
   evaluators?: ListEvaluatorsResponseBodyEvaluators[];
   /**
    * @remarks
-   * The number of entries per page used in this request.
+   * The number of entries per page used for this request.
    * 
    * @example
    * 20
@@ -163,7 +163,7 @@ export class ListEvaluatorsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of evaluators that match the filter conditions.
+   * The total number of evaluators that meet the conditions.
    * 
    * @example
    * 12

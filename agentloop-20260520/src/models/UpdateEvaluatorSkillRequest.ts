@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateEvaluatorSkillRequestFiles extends $dara.Model {
   /**
    * @remarks
-   * The skill file content.
+   * The content of the skill file.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class UpdateEvaluatorSkillRequestFiles extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * The skill file name.
+   * The name of the skill file.
    * 
    * This parameter is required.
    * 
@@ -25,10 +25,10 @@ export class UpdateEvaluatorSkillRequestFiles extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The file remark.
+   * The remark for the file.
    * 
    * @example
-   * 主技能说明
+   * Primary skill description
    */
   remark?: string;
   static names(): { [key: string]: string } {
@@ -59,7 +59,7 @@ export class UpdateEvaluatorSkillRequestFiles extends $dara.Model {
 export class UpdateEvaluatorSkillRequest extends $dara.Model {
   /**
    * @remarks
-   * The AgentSpace name.
+   * The name of the AgentSpace.
    * 
    * This parameter is required.
    * 
@@ -72,7 +72,7 @@ export class UpdateEvaluatorSkillRequest extends $dara.Model {
    * The description of the skill.
    * 
    * @example
-   * 读取链路上下文辅助评估
+   * Read trace context to assist evaluation
    */
   description?: string;
   /**
@@ -80,12 +80,12 @@ export class UpdateEvaluatorSkillRequest extends $dara.Model {
    * The display name of the skill.
    * 
    * @example
-   * Trace 上下文读取
+   * Read Trace Context
    */
   displayName?: string;
   /**
    * @remarks
-   * Specifies whether to enable the skill.
+   * Specifies whether the skill is enabled.
    * 
    * @example
    * true
@@ -93,15 +93,15 @@ export class UpdateEvaluatorSkillRequest extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * The list of skill files. When provided, the skill file content is updated.
+   * The list of skill files. If specified, the content of the skill files is updated.
    * 
    * @example
-   * [{"name":"SKILL.md","content":"# Trace Context Loader","remark":"主技能说明"}]
+   * [{"name":"SKILL.md","content":"# Trace Context Loader","remark":"Primary skill description"}]
    */
   files?: UpdateEvaluatorSkillRequestFiles[];
   /**
    * @remarks
-   * The idempotency token. CloudSpec declares this query parameter, but the backend does not currently perform idempotency comparison.
+   * The idempotency token. CloudSpec declares this query parameter, but the backend does not currently perform idempotency checks.
    * 
    * @example
    * a1b2c3d4-1234-5678-90ab-cdef12345678

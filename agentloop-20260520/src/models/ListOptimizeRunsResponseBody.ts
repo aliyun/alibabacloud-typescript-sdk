@@ -45,7 +45,16 @@ export class ListOptimizeRunsResponseBodyOptimizeRuns extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The execution summary and finite-state information. To obtain complete result references, frozen outputs, and publish receipts, call GetOptimizeRun.
+   * The execution summary and finite-state information. Complete result references, frozen outputs, and publish receipts can be obtained by calling GetOptimizeRun.
+   * 
+   * @example
+   * {
+   * 	"inputSelection": "trigger-re",
+   * 	"inputSelectorHash": "sha256:43cfdbfc0260d11d3491c4987478a1a0e9966dda88*************",
+   * 	"sourceTrajectoryScanSkipped": true,
+   * 	"featureTriggerTrajectoryCount": 1011,
+   * 	"incompleteTriggerTrajectoryCount": 0
+   * }
    */
   extra?: { [key: string]: any };
   /**
@@ -83,11 +92,19 @@ export class ListOptimizeRunsResponseBodyOptimizeRuns extends $dara.Model {
   /**
    * @remarks
    * The current execution progress. The fields are defined by the task type.
+   * 
+   * @example
+   * {
+   * 	"total": 1469,
+   * 	"skipped": 2,
+   * 	"processed": 370,
+   * 	"succeeded": 368
+   * }
    */
   progress?: { [key: string]: any };
   /**
    * @remarks
-   * The initial start time.
+   * The first start time.
    * 
    * @example
    * 2026-08-12T10:00:01Z
@@ -119,7 +136,7 @@ export class ListOptimizeRunsResponseBodyOptimizeRuns extends $dara.Model {
   triggerType?: string;
   /**
    * @remarks
-   * The snapshot of the task type.
+   * The task type snapshot.
    * 
    * @example
    * EfficiencyAnalysis
@@ -127,18 +144,18 @@ export class ListOptimizeRunsResponseBodyOptimizeRuns extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The end time of the analysis window in UNIX seconds.
+   * The end time of the analysis window, in UNIX seconds.
    * 
    * @example
-   * 1786432690000
+   * 1786432690
    */
   windowEndTime?: number;
   /**
    * @remarks
-   * The start time of the analysis window in UNIX seconds.
+   * The start time of the analysis window, in UNIX seconds.
    * 
    * @example
-   * 1786432688000
+   * 1786432688
    */
   windowStartTime?: number;
   static names(): { [key: string]: string } {
@@ -234,7 +251,7 @@ export class ListOptimizeRunsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total count.
    * 
    * @example
    * 1

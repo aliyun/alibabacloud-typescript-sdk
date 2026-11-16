@@ -14,6 +14,9 @@ export class PreviewPipelineRequestPipelineNodes extends $dara.Model {
   /**
    * @remarks
    * The parameters of the node. The parameters are in key-value format and vary based on the node type.
+   * 
+   * @example
+   * {"ID":"ID"}
    */
   parameters?: { [key: string]: any };
   /**
@@ -96,7 +99,7 @@ export class PreviewPipelineRequestSourceDataset extends $dara.Model {
   dataset?: string;
   /**
    * @remarks
-   * The filter condition for the dataset data.
+   * The data filter condition for the dataset.
    * 
    * @example
    * status = \\"pending\\"
@@ -136,7 +139,7 @@ export class PreviewPipelineRequestSourceInputFields extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The type of the field. Valid values: text, long, double, and json.
+   * The data type of the field. Valid values: text, long, double, and json.
    * 
    * @example
    * text
@@ -168,7 +171,7 @@ export class PreviewPipelineRequestSourceInputFields extends $dara.Model {
 export class PreviewPipelineRequestSourceLogstore extends $dara.Model {
   /**
    * @remarks
-   * The name of the Simple Log Service Logstore.
+   * The name of the SLS Logstore.
    * 
    * @example
    * my-sls-logstore
@@ -176,7 +179,7 @@ export class PreviewPipelineRequestSourceLogstore extends $dara.Model {
   logstore?: string;
   /**
    * @remarks
-   * The name of the Simple Log Service project.
+   * The name of the SLS project.
    * 
    * @example
    * my-sls-project
@@ -184,7 +187,7 @@ export class PreviewPipelineRequestSourceLogstore extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * The filtered query statement (Simple Log Service query and analysis syntax).
+   * The filtered query statement (SLS query and analysis syntax).
    * 
    * @example
    * * | SELECT *
@@ -218,7 +221,7 @@ export class PreviewPipelineRequestSourceLogstore extends $dara.Model {
 export class PreviewPipelineRequestSourceTrajectoryEnrich extends $dara.Model {
   /**
    * @remarks
-   * The list of enrichment columns. This parameter is retained for compatibility. The current implementation outputs only the fixed agent_trajectory column, and this parameter no longer affects the output.
+   * The list of enrichment columns. This parameter is retained for compatibility. The current implementation outputs only the fixed column agent_trajectory, and this parameter no longer affects the output.
    * 
    * @example
    * ["input","output","session_id"]
@@ -261,7 +264,7 @@ export class PreviewPipelineRequestSourceTrajectoryEnrich extends $dara.Model {
 export class PreviewPipelineRequestSourceTrajectory extends $dara.Model {
   /**
    * @remarks
-   * Trajectory enrichment: mounts trajectory data into the cleaning results based on the trace_id. When writing data to a dataset, the data is stored in the fixed agent_trajectory column, and the column value is the JSON content of the trajectory.
+   * The trajectory enrichment configuration. Trajectory data is mounted into the cleaning results based on trace_id. When data is written to the dataset, it is stored in the fixed column agent_trajectory, where the column value is the trajectory JSON content.
    * 
    * @example
    * {"enabled":true,"columns":["input","output"]}
@@ -310,7 +313,7 @@ export class PreviewPipelineRequestSource extends $dara.Model {
   inputFields?: PreviewPipelineRequestSourceInputFields[];
   /**
    * @remarks
-   * The Simple Log Service Logstore datasource config.
+   * The Simple Log Service (SLS) Logstore datasource config.
    * 
    * @example
    * {"project":"my-sls-project","logstore":"agent-logs"}
@@ -318,7 +321,7 @@ export class PreviewPipelineRequestSource extends $dara.Model {
   logstore?: PreviewPipelineRequestSourceLogstore;
   /**
    * @remarks
-   * The configuration of trajectory data. This parameter is optional and takes effect only when the type is set to trace. It retrieves ATIF standard trajectory data from the trajectory cleaning service and extends the data based on features.
+   * The trajectory data configuration. This parameter is optional and takes effect only when the type is trace. It obtains ATIF standard trajectory data from the trajectory cleaning service and extends it based on features.
    * 
    * @example
    * {"enrich":{"enabled":true,"columns":["input","output"]}}
@@ -326,7 +329,7 @@ export class PreviewPipelineRequestSource extends $dara.Model {
   trajectory?: PreviewPipelineRequestSourceTrajectory;
   /**
    * @remarks
-   * The type of the data source. Simple Log Service is currently supported.
+   * The type of the data source. Currently, SLS is supported.
    * 
    * @example
    * SLS

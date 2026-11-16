@@ -21,7 +21,7 @@ export class ListOptimizeTasksRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The task status.
+   * Filters the results by status.
    * 
    * @example
    * Enabled
@@ -29,7 +29,7 @@ export class ListOptimizeTasksRequest extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task type.
+   * Filters the results by task type.
    * 
    * @example
    * EfficiencyAnalysis

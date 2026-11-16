@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListExperimentPlansRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries to return. Default value: 20.
+   * The maximum number of entries to return. Default value: 20.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListExperimentPlansRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * Optional. Use `offset` and `limit` for pagination instead.
+   * Optional. For pagination, use `offset` and `limit` instead.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListExperimentPlansRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * Optional. Use `offset` and `limit` for pagination instead.
+   * Optional. For pagination, use `offset` and `limit` instead.
    * 
    * @example
    * eyJsYXN0SWQiOjEyM30=
@@ -37,7 +37,7 @@ export class ListExperimentPlansRequest extends $dara.Model {
   offset?: number;
   /**
    * @remarks
-   * Fuzzy matches experiment plans by plan name.
+   * The plan name used for fuzzy match.
    * 
    * @example
    * arms_agent
@@ -45,7 +45,7 @@ export class ListExperimentPlansRequest extends $dara.Model {
   planName?: string;
   /**
    * @remarks
-   * Filters experiment plans by exact status.
+   * The exact status used for filtering.
    * 
    * @example
    * pending

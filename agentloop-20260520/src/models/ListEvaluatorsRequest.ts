@@ -15,7 +15,7 @@ export class ListEvaluatorsRequest extends $dara.Model {
   agentSpace?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20. Maximum value: 100.
+   * The number of entries returned per page. Default value: 20. Maximum value: 100.
    * 
    * @example
    * 20
@@ -23,7 +23,7 @@ export class ListEvaluatorsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The fuzzy match condition for the evaluator name.
+   * The fuzzy search condition for the evaluator name.
    * 
    * @example
    * trace_task_completion

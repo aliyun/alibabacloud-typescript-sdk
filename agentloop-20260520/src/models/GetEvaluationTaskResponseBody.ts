@@ -7,7 +7,7 @@ import { RunStrategies } from "./RunStrategies";
 export class GetEvaluationTaskResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The AgentSpace name.
+   * The name of the AgentSpace.
    * 
    * @example
    * prod-agentspace
@@ -23,7 +23,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The data source and execution configuration. Tasks with `dataType=trace` typically contain backend-populated `project`, `storeName`, and `dataScope` fields.
+   * The data source and execution configurations. Tasks with `dataType=trace` typically include the `project`, `storeName`, and `dataScope` fields populated by the backend.
    * 
    * @example
    * {"project":"agentspace-project","storeName":"logstore-tracing","dataScope":"trace"}
@@ -31,7 +31,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   config?: { [key: string]: string };
   /**
    * @remarks
-   * The creation time, in seconds as a UNIX timestamp.
+   * The creation time, represented as a UNIX timestamp in seconds.
    * 
    * @example
    * 1782816000
@@ -39,7 +39,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   createdAt?: number;
   /**
    * @remarks
-   * The evaluation data filter conditions, returned by the backend as a JSON string.
+   * The filter conditions for evaluation data. The backend returns this value as a JSON string.
    * 
    * @example
    * {"query":"serviceName=\\"checkout-service\\"","maxRecords":10,"samplingRate":100}
@@ -58,7 +58,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
    * The description of the evaluation task.
    * 
    * @example
-   * Evaluate the task completion of the online Agent pipeline
+   * Evaluate the task completion rate of online agent workflows
    */
   description?: string;
   /**
@@ -71,6 +71,14 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   evaluators?: Evaluator[];
   /**
    * @remarks
+   * The quality score and coverage snapshot of the most recent evaluator run. This field is empty when the feature is not enabled.
+   * 
+   * @example
+   * {}
+   */
+  qualityMetrics?: { [key: string]: any };
+  /**
+   * @remarks
    * The region to which the task belongs.
    * 
    * @example
@@ -79,7 +87,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 3FE4CD1E-FF41-56BE-B590-7A021D9C1524
@@ -87,7 +95,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The structured run strategy configuration, including the parsed backfill strategy and continuous evaluation strategy.
+   * The structured configuration of the run strategy, including the parsed backfill strategy and continuous evaluation strategy.
    * 
    * @example
    * {"backfill":{"enabled":true,"startTime":1782816000000,"endTime":1782902400000},"continuous":{"enabled":true,"intervalUnit":"HOUR","intervalValue":1,"dataDelayMinutes":5}}
@@ -95,7 +103,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   runStrategyConfig?: RunStrategies;
   /**
    * @remarks
-   * The evaluation task status.
+   * The status of the evaluation task.
    * 
    * @example
    * Running
@@ -103,7 +111,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The key-value pairs of task tags. Empty if not set.
+   * The key-value pairs of task tags. This field is empty when no tags are set.
    * 
    * @example
    * {"serviceId":"checkout-service","env":"prod"}
@@ -111,7 +119,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   tags?: { [key: string]: string };
   /**
    * @remarks
-   * The evaluation task ID.
+   * The ID of the evaluation task.
    * 
    * @example
    * eval-task-8b36f2e2b1f94f9c91ce7a4b0f6d9c25
@@ -119,7 +127,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The evaluation task mode.
+   * The mode of the evaluation task.
    * 
    * @example
    * batch
@@ -127,7 +135,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   taskMode?: string;
   /**
    * @remarks
-   * The task name.
+   * The name of the task.
    * 
    * @example
    * trace_task_completion_eval
@@ -135,7 +143,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The last update time, in seconds as a UNIX timestamp.
+   * The last update time, represented as a UNIX timestamp in seconds.
    * 
    * @example
    * 1782816600
@@ -151,6 +159,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
       dataType: 'dataType',
       description: 'description',
       evaluators: 'evaluators',
+      qualityMetrics: 'qualityMetrics',
       regionId: 'regionId',
       requestId: 'requestId',
       runStrategyConfig: 'runStrategyConfig',
@@ -173,6 +182,7 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
       dataType: 'string',
       description: 'string',
       evaluators: { 'type': 'array', 'itemType': Evaluator },
+      qualityMetrics: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       regionId: 'string',
       requestId: 'string',
       runStrategyConfig: RunStrategies,
@@ -191,6 +201,9 @@ export class GetEvaluationTaskResponseBody extends $dara.Model {
     }
     if(Array.isArray(this.evaluators)) {
       $dara.Model.validateArray(this.evaluators);
+    }
+    if(this.qualityMetrics) {
+      $dara.Model.validateMap(this.qualityMetrics);
     }
     if(this.runStrategyConfig && typeof (this.runStrategyConfig as any).validate === 'function') {
       (this.runStrategyConfig as any).validate();
