@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchGetMediasRequest extends $dara.Model {
   /**
    * @remarks
-   * The validity period of the signed file access URL. Unit: seconds.
+   * Specifies the validity period, in seconds, for accessing file URLs that require authentication.
    * 
    * @example
    * 3600
@@ -14,7 +14,7 @@ export class BatchGetMediasRequest extends $dara.Model {
   bizConfig?: string;
   /**
    * @remarks
-   * The IDs of the media assets to query, separated by commas.
+   * The IDs of the media assets to be queried, separated by commas.
    * 
    * @example
    * ******b48fb04483915d4f2cd8******,******c48fb37407365d4f2cd8******

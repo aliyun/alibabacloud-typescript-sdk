@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteMediasRequest extends $dara.Model {
   /**
    * @remarks
-   * The business configuration. It is a JSON string that can contain ProductionId (the project ID).
+   * The business configuration. A JSON string that can include ProductionId (the project ID).
    * 
    * @example
    * {"ProductionId":"pd_abc1234567"}
@@ -13,7 +13,7 @@ export class DeleteMediasRequest extends $dara.Model {
   bizConfig?: string;
   /**
    * @remarks
-   * Specifies whether to delete physical files at the same time.
+   * Specifies whether to delete the physical files at the same time.
    * 
    * @example
    * false
@@ -21,12 +21,12 @@ export class DeleteMediasRequest extends $dara.Model {
   deletePhysicalFiles?: boolean;
   /**
    * @remarks
-   * Not supported.
+   * This parameter is not supported.
    */
   inputURLs?: string;
   /**
    * @remarks
-   * The media asset IDs, separated by commas. Invalid IDs are added to IgnoredList.
+   * The media asset IDs, separated by commas. Invalid IDs are added to the IgnoredList.
    * 
    * @example
    * ******b48fb04483915d4f2cd8******,******c48fb37407365d4f2cd8******

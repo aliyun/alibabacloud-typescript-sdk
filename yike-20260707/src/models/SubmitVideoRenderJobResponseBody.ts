@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitVideoRenderJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code. This parameter is returned when the task is in the Failed state.
+   * The error code. This parameter is returned when the job is in the Failed state.
    * 
    * @example
    * 200

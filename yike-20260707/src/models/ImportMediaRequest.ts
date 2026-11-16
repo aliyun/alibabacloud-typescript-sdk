@@ -5,13 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class ImportMediaRequest extends $dara.Model {
   bizConfig?: string;
   /**
+   * @remarks
+   * The category ID.
+   * 
    * @example
    * 1
    */
   categoryId?: number;
   /**
    * @remarks
-   * The cover image URL. This parameter is valid only for video media assets.
+   * The URL of the cover image. This parameter is valid only for video media assets.
    * 
    * @example
    * https://outin-55c9ab3fb1b911ee817b00163e32b0a3.oss-cn-shanghai.aliyuncs.com/60425a2758a971f181385017f0e90102/covers/ice-generated/d4aee2d6c6f84769ac89f18c667699c6-cover.png
@@ -19,7 +22,7 @@ export class ImportMediaRequest extends $dara.Model {
   coverURL?: string;
   /**
    * @remarks
-   * The description of the media asset.
+   * The description.
    * 
    * @example
    * OK
@@ -59,10 +62,10 @@ export class ImportMediaRequest extends $dara.Model {
   inputURL?: string;
   /**
    * @remarks
-   * The tags of the media asset. Separate multiple tags with commas (,).
+   * The tags. Separate multiple tags with commas.
    * 
    * @example
-   * AdvancedImageToVideo,AIGenerated
+   * Advanced image-to-video, AI-generated
    */
   mediaTags?: string;
   /**
@@ -83,6 +86,14 @@ export class ImportMediaRequest extends $dara.Model {
   overwrite?: boolean;
   /**
    * @remarks
+   * The project ID.
+   * 
+   * @example
+   * pd_123456
+   */
+  projectId?: string;
+  /**
+   * @remarks
    * The configuration for registering the media asset.
    * 
    * @example
@@ -91,7 +102,7 @@ export class ImportMediaRequest extends $dara.Model {
   registerConfig?: string;
   /**
    * @remarks
-   * The title of the media asset.
+   * The title.
    * 
    * @example
    * title
@@ -99,7 +110,7 @@ export class ImportMediaRequest extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The user data. Maximum length: 1024 bytes.
+   * The user data. Maximum size: 1024 bytes.
    * 
    * @example
    * {}
@@ -119,6 +130,7 @@ export class ImportMediaRequest extends $dara.Model {
       mediaTags: 'MediaTags',
       mediaType: 'MediaType',
       overwrite: 'Overwrite',
+      projectId: 'ProjectId',
       registerConfig: 'RegisterConfig',
       title: 'Title',
       userData: 'UserData',
@@ -139,6 +151,7 @@ export class ImportMediaRequest extends $dara.Model {
       mediaTags: 'string',
       mediaType: 'string',
       overwrite: 'boolean',
+      projectId: 'string',
       registerConfig: 'string',
       title: 'string',
       userData: 'string',

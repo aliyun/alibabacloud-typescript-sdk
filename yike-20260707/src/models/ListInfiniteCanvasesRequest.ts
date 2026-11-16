@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInfiniteCanvasesRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword used to query site monitoring tasks. Note: Fuzzy match is supported based on the task name or task address.
+   * The keyword used to query site monitoring tasks. Note: Fuzzy match is supported based on the task name or task URL.
    * 
    * @example
    * v2_
@@ -37,7 +37,7 @@ export class ListInfiniteCanvasesRequest extends $dara.Model {
   productionId?: string;
   /**
    * @remarks
-   * The sort field and sort order. Separate multiple values with commas (,).
+   * The sort fields and sort orders. Separate multiple values with commas (,).
    * 
    * @example
    * utcCreate:Desc
@@ -45,9 +45,11 @@ export class ListInfiniteCanvasesRequest extends $dara.Model {
   sortBy?: string;
   /**
    * @remarks
-   * The sort direction. Valid values:
-   * - Asc: ascending order
-   * - Desc: descending order
+   * The sort direction.
+   * 
+   * Valid values:
+   * - Asc: Ascending order.
+   * - Desc: Descending order.
    * 
    * Default value: Desc.
    * 

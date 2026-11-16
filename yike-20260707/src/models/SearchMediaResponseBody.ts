@@ -29,7 +29,7 @@ export class SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo exten
   duration?: string;
   /**
    * @remarks
-   * The file name.
+   * The name of the file.
    * 
    * @example
    * 1642650802***0527050.wav
@@ -37,7 +37,7 @@ export class SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo exten
   fileName?: string;
   /**
    * @remarks
-   * The file size in bytes.
+   * The size of the file in bytes.
    * 
    * @example
    * 48524
@@ -45,7 +45,7 @@ export class SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo exten
   fileSize?: string;
   /**
    * @remarks
-   * The file status.
+   * The status of the file.
    * 
    * @example
    * Normal
@@ -53,7 +53,7 @@ export class SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo exten
   fileStatus?: string;
   /**
    * @remarks
-   * The file type.
+   * The type of the file.
    * 
    * @example
    * source_file
@@ -165,7 +165,7 @@ export class SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo exten
 export class SearchMediaResponseBodyMediaInfoListFileInfoList extends $dara.Model {
   /**
    * @remarks
-   * The basic file information, including the duration and size.
+   * The basic information of the file, including the duration and size.
    */
   fileBasicInfo?: SearchMediaResponseBodyMediaInfoListFileInfoListFileBasicInfo;
   static names(): { [key: string]: string } {
@@ -211,7 +211,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
   categoryId?: number;
   /**
    * @remarks
-   * The category name.
+   * The name of the category.
    * 
    * @example
    * test-category-01
@@ -219,7 +219,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
   categoryName?: string;
   /**
    * @remarks
-   * The cover URL.
+   * The URL of the cover image.
    * 
    * @example
    * https://test-bucket-***.oss-cn-shanghai.aliyuncs.com/cover/e694372e-4f5b-4821-ae09-efd064f2****_large_cover_url.jpg
@@ -227,7 +227,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
   coverURL?: string;
   /**
    * @remarks
-   * The creation time of the media asset.
+   * The time when the media asset was created.
    * 
    * @example
    * 2026-05-01T19:48Z
@@ -235,7 +235,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
   createTime?: string;
   /**
    * @remarks
-   * The content description.
+   * The description of the content.
    * 
    * @example
    * This is a test video.
@@ -251,7 +251,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
   entityId?: string;
   /**
    * @remarks
-   * The media asset URL.
+   * The URL of the media asset.
    * 
    * @example
    * https://test-bucket-***.oss-cn-shanghai.aliyuncs.com/sv/23d5cdd1-18180984899/23d5cdd1-1818098****.mp4
@@ -283,7 +283,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
   mediaType?: string;
   /**
    * @remarks
-   * The modification time of the media asset.
+   * The time when the media asset was modified.
    * 
    * @example
    * 2026-05-01T20:48Z
@@ -315,7 +315,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
   spriteImages?: string;
   /**
    * @remarks
-   * The resource status.
+   * The status of the resource.
    * 
    * @example
    * Normal
@@ -415,7 +415,7 @@ export class SearchMediaResponseBodyMediaInfoListMediaBasicInfo extends $dara.Mo
 export class SearchMediaResponseBodyMediaInfoListMediaDynamicInfoDynamicMetaData extends $dara.Model {
   /**
    * @remarks
-   * The dynamic metadata content.
+   * The content of the dynamic metadata.
    * 
    * @example
    * "{\\"ThirdPartyAssetStatus\\":\\"Success\\"}"
@@ -490,7 +490,7 @@ export class SearchMediaResponseBodyMediaInfoList extends $dara.Model {
   fileInfoList?: SearchMediaResponseBodyMediaInfoListFileInfoList[];
   /**
    * @remarks
-   * The basic media asset information.
+   * The basic information of the media asset.
    */
   mediaBasicInfo?: SearchMediaResponseBodyMediaInfoListMediaBasicInfo;
   /**
@@ -553,7 +553,7 @@ export class SearchMediaResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The collection of media assets that meet the requirements.
+   * The collection of matching media assets.
    */
   mediaInfoList?: SearchMediaResponseBodyMediaInfoList[];
   /**
@@ -566,7 +566,7 @@ export class SearchMediaResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The scroll token.
+   * The pagination token.
    * 
    * @example
    * F8C4F642184DBDA5D93907A70AAE****
@@ -574,7 +574,7 @@ export class SearchMediaResponseBody extends $dara.Model {
   scrollToken?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful.
+   * Indicates whether the call was successful.
    * 
    * @example
    * True
@@ -582,7 +582,7 @@ export class SearchMediaResponseBody extends $dara.Model {
   success?: string;
   /**
    * @remarks
-   * The total number of media assets that meet the requirements.
+   * The total number of matching media assets.
    * 
    * @example
    * 163

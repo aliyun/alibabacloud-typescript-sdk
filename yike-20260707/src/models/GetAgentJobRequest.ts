@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAgentJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * This parameter is required.
    * 

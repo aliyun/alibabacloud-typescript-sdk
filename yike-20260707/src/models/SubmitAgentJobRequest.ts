@@ -13,7 +13,7 @@ export class SubmitAgentJobRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * The callback URL. Currently, only HTTP and HTTPS addresses are supported.
+   * The callback URL. Only HTTP and HTTPS URLs are supported.
    * 
    * @example
    * https://api.ai-x.vip/callback
@@ -21,17 +21,17 @@ export class SubmitAgentJobRequest extends $dara.Model {
   notifyUrl?: string;
   /**
    * @remarks
-   * The prompt. Defined by the business as needed.
+   * The prompt. The specific content is defined by your business.
    * 
    * This parameter is required.
    * 
    * @example
-   * Compare the battle records of Yue Jin and Guan Yu in real history to determine who was stronger
+   * Compare the military records of Yue Jin and Guan Yu in real history to determine who was stronger
    */
   prompt?: string;
   /**
    * @remarks
-   * The skill identifier, provided by the skill provider.
+   * The skill identifier used for the task, which is provided by the skill provider.
    * 
    * @example
    * wf://xxx
@@ -39,7 +39,7 @@ export class SubmitAgentJobRequest extends $dara.Model {
   skill?: string;
   /**
    * @remarks
-   * The custom user data. This value is returned as-is in the callback.
+   * The user-defined information. This information is returned as-is in the callback.
    * 
    * @example
    * {“x”: 1}

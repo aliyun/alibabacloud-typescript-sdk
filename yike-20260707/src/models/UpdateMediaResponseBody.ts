@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMediaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Intelligent Cloud Editing (ICE) media asset ID.
+   * The ID of the ICE media asset.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -13,7 +13,7 @@ export class UpdateMediaResponseBody extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * ******3B-0E1A-586A-AC29-742247******

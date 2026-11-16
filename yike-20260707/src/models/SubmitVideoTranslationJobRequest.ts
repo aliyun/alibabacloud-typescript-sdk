@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitVideoTranslationJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The user-level idempotency token, which can be up to 40 characters in length. If the same user submits the request repeatedly with the same token, the original task is returned.
+   * The user-level idempotency token, which can be up to 40 characters in length. If the same user repeatedly submits a request with the same token, the original task is returned.
    * 
    * @example
    * vt-client-20260820-001
@@ -31,7 +31,7 @@ export class SubmitVideoTranslationJobRequest extends $dara.Model {
   input?: string;
   /**
    * @remarks
-   * The job parameters JSON string. It must include at least SourceLanguage and TargetLanguage. You can also configure primary subtitle erasure, voice translation, on-screen text translation, and final editing.
+   * The job parameters JSON string. It must include at least SourceLanguage and TargetLanguage. You can also configure primary subtitle removal, voice translation, on-screen text translation, lip sync, and final editing.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class SubmitVideoTranslationJobRequest extends $dara.Model {
   jobType?: string;
   /**
    * @remarks
-   * The output configuration JSON string. OssUri is the optional customer OSS output directory. If OssUri is not specified, a signed URL for the service-owned output is returned.
+   * The output configuration JSON string. OssUri is the optional OSS output directory for the customer. If OssUri is not specified, a signed URL for the service-owned output is returned.
    * 
    * @example
    * {"OssUri":"oss://example-bucket/video-translation/output/"}
@@ -62,12 +62,12 @@ export class SubmitVideoTranslationJobRequest extends $dara.Model {
    * The job title. If not specified, the service generates a default title.
    * 
    * @example
-   * English translation of product introduction video
+   * Product introduction video English translation
    */
   title?: string;
   /**
    * @remarks
-   * The user-defined data JSON string. When specifying an MNS queue to receive asynchronous notifications, set `NotifyAddress` to the pure queue name starting with `yike-callback-` instead of the full queue URL. You can optionally set `NotifyMnsEndpoint` to the MNS endpoint of the task account.
+   * The user-defined data JSON string. When specifying a Message Service (MNS) queue to receive asynchronous notifications, set NotifyAddress to the pure queue name starting with yike-callback- instead of the full queue URL. You can optionally set NotifyMnsEndpoint to the MNS endpoint of the task account.
    * 
    * @example
    * {"NotifyAddress":"yike-callback-test","NotifyMnsEndpoint":"https://1234567890123456.mns.cn-shanghai.aliyuncs.com"}

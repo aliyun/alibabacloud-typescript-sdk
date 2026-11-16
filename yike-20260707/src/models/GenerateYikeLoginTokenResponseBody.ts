@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateYikeLoginTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The session expiration time (millisecond timestamp).
+   * The session expiration time (timestamp in milliseconds).
    * 
    * @example
    * 1782008128000
@@ -21,7 +21,7 @@ export class GenerateYikeLoginTokenResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The login token.
+   * The logon token.
    * 
    * @example
    * ******d6931ff7e89b5eb19484*****

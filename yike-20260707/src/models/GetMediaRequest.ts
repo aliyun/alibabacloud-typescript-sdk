@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaRequest extends $dara.Model {
   /**
    * @remarks
-   * The validity period of the signed file URL. Unit: seconds.
+   * Specifies the validity period, in seconds, of the file URL that requires authentication for access.
    * 
    * @example
    * 3600
@@ -14,7 +14,7 @@ export class GetMediaRequest extends $dara.Model {
   bizConfig?: string;
   /**
    * @remarks
-   * Currently unavailable.
+   * This parameter is currently unavailable.
    * 
    * @example
    * https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
@@ -22,7 +22,7 @@ export class GetMediaRequest extends $dara.Model {
   inputURL?: string;
   /**
    * @remarks
-   * The media asset ID. If this parameter is not empty, the query is performed based on this parameter, and the system verifies whether the value is a valid MediaId.
+   * The ID of the media asset. If this parameter is specified, the query is performed based on this ID and the system verifies whether it is a valid media asset ID.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****

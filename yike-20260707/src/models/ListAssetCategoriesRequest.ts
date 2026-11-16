@@ -13,7 +13,7 @@ export class ListAssetCategoriesRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The page size. Default value: 10.
+   * The number of entries per page. Default value: 10.
    * 
    * @example
    * 10

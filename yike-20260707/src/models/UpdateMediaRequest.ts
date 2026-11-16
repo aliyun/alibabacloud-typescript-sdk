@@ -10,13 +10,16 @@ export class UpdateMediaRequest extends $dara.Model {
   appendTags?: boolean;
   bizConfig?: string;
   /**
+   * @remarks
+   * The category ID.
+   * 
    * @example
    * 1
    */
   categoryId?: number;
   /**
    * @remarks
-   * The cover image URL. This parameter is valid only for video media assets.
+   * The URL of the cover image. This parameter is valid only for video media assets.
    * 
    * @example
    * https://bullet-time-20240910.oss-cn-shanghai.aliyuncs.com/ice-generated/a97255309a7c71f093d3e7f6d75a6302/snapshots/normal/2a4030b1950443048f3e3f81489d57eb-00001.jpg
@@ -48,7 +51,7 @@ export class UpdateMediaRequest extends $dara.Model {
   inputURL?: string;
   /**
    * @remarks
-   * The media asset ID.
+   * The ID of the media asset.
    * 
    * @example
    * ****20b48fb04483915d4f2cd8ac****
@@ -56,10 +59,10 @@ export class UpdateMediaRequest extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The tags. Separate multiple tags with commas (,).
+   * The tags. Separate multiple tags with commas.
    * 
    * @example
-   * 剪映动画
+   * CapCut Animation
    */
   mediaTags?: string;
   /**
@@ -72,7 +75,7 @@ export class UpdateMediaRequest extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The user data. Maximum length: 1024 bytes.
+   * The user data. Maximum size: 1,024 bytes.
    * 
    * @example
    * {}

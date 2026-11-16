@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVideoCreativeGenerationJobResponseBodyJobResult extends $dara.Model {
   /**
    * @remarks
-   * The online editing project ID.
+   * The ID of the online editing project.
    * 
    * @example
    * 01a6adbbd181437eb5030d3d93e0182d
@@ -13,7 +13,7 @@ export class GetVideoCreativeGenerationJobResponseBodyJobResult extends $dara.Mo
   editingProjectId?: string;
   /**
    * @remarks
-   * The media asset ID of the output video.
+   * The media asset ID of the produced video.
    * 
    * @example
    * 9d7e982012c671f1b803e7f6d75a6302
@@ -29,7 +29,7 @@ export class GetVideoCreativeGenerationJobResponseBodyJobResult extends $dara.Mo
   outputLanguage?: string;
   /**
    * @remarks
-   * The signed download URL of the output video. The URL is time-limited.
+   * The download URL of the produced video. The URL is signed and time-sensitive.
    * 
    * @example
    * https://test.oss-cn-shanghai.aliyuncs.com/test.mp4
@@ -65,7 +65,7 @@ export class GetVideoCreativeGenerationJobResponseBodyJobResult extends $dara.Mo
 export class GetVideoCreativeGenerationJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The job creation time in UTC format (yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\").
+   * The time when the job was created. The time is displayed in UTC in the yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\" format.
    * 
    * @example
    * 2026-02-06T18:53:34.001+08:00
@@ -73,7 +73,7 @@ export class GetVideoCreativeGenerationJobResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The error code. This parameter is returned only when the job status is Failed.
+   * The error code. This field is returned only when the job status is Failed.
    * 
    * @example
    * WorkflowTaskFailed
@@ -81,7 +81,7 @@ export class GetVideoCreativeGenerationJobResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The job completion time in UTC format.
+   * The time when the job was completed. The time is displayed in UTC.
    * 
    * @example
    * 2026-02-06T18:53:34.001+08:00
@@ -97,7 +97,7 @@ export class GetVideoCreativeGenerationJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The task results of the node. This parameter is valid only when the job status is Succeeded. Each element represents the output for a single language.
+   * The task result. This field is valid only when the node status is Succeeded. Each element represents a single-language video output.
    */
   jobResult?: GetVideoCreativeGenerationJobResponseBodyJobResult[];
   /**
@@ -118,7 +118,7 @@ export class GetVideoCreativeGenerationJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The custom user data, which is returned as-is.
+   * The user-defined parameter. This value is returned as is.
    * 
    * @example
    * 12374214127312673137132

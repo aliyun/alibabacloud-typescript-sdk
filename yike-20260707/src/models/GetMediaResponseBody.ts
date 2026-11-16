@@ -29,7 +29,7 @@ export class GetMediaResponseBodyMediaInfoFileInfoListAudioStreamInfoList extend
   channels?: string;
   /**
    * @remarks
-   * The long name of the codec.
+   * The long name of the codec format.
    * 
    * @example
    * AAC (Advanced Audio Coding)
@@ -237,7 +237,7 @@ export class GetMediaResponseBodyMediaInfoFileInfoListFileBasicInfo extends $dar
   fileName?: string;
   /**
    * @remarks
-   * The file size, in bytes.
+   * The file size in bytes.
    * 
    * @example
    * 27007
@@ -293,7 +293,7 @@ export class GetMediaResponseBodyMediaInfoFileInfoListFileBasicInfo extends $dar
   modifiedTime?: string;
   /**
    * @remarks
-   * The region where the file is stored.
+   * The storage region of the file.
    * 
    * @example
    * cn-shanghai
@@ -355,7 +355,7 @@ export class GetMediaResponseBodyMediaInfoFileInfoListFileBasicInfo extends $dar
 export class GetMediaResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList extends $dara.Model {
   /**
    * @remarks
-   * The long name of the codec.
+   * The long name of the codec format.
    * 
    * @example
    * SubRip Text
@@ -491,7 +491,7 @@ export class GetMediaResponseBodyMediaInfoFileInfoListVideoStreamInfoList extend
   bitrate?: string;
   /**
    * @remarks
-   * The long name of the codec.
+   * The long name of the codec format.
    * 
    * @example
    * H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10
@@ -531,7 +531,7 @@ export class GetMediaResponseBodyMediaInfoFileInfoListVideoStreamInfoList extend
   codecTimeBase?: string;
   /**
    * @remarks
-   * The display aspect ratio (DAR).
+   * The display aspect ratio.
    * 
    * @example
    * 0:1
@@ -555,7 +555,7 @@ export class GetMediaResponseBodyMediaInfoFileInfoListVideoStreamInfoList extend
   fps?: string;
   /**
    * @remarks
-   * Indicates whether B-frames exist.
+   * Indicates whether the video stream contains B-frames.
    * 
    * @example
    * 2
@@ -571,7 +571,7 @@ export class GetMediaResponseBodyMediaInfoFileInfoListVideoStreamInfoList extend
   height?: string;
   /**
    * @remarks
-   * The video stream index.
+   * The index of the video stream.
    * 
    * @example
    * 0
@@ -587,7 +587,7 @@ export class GetMediaResponseBodyMediaInfoFileInfoListVideoStreamInfoList extend
   lang?: string;
   /**
    * @remarks
-   * The encoding level.
+   * The codec level.
    * 
    * @example
    * 30
@@ -598,7 +598,7 @@ export class GetMediaResponseBodyMediaInfoFileInfoListVideoStreamInfoList extend
    * The total number of frames.
    * 
    * @example
-   * xxx
+   * 5184
    */
   nbFrames?: string;
   /**
@@ -627,7 +627,7 @@ export class GetMediaResponseBodyMediaInfoFileInfoListVideoStreamInfoList extend
   profile?: string;
   /**
    * @remarks
-   * The rotation angle.
+   * The rotation.
    * 
    * @example
    * 0
@@ -635,7 +635,7 @@ export class GetMediaResponseBodyMediaInfoFileInfoListVideoStreamInfoList extend
   rotate?: string;
   /**
    * @remarks
-   * The sample aspect ratio (SAR).
+   * The sample aspect ratio.
    * 
    * @example
    * 0:1
@@ -735,22 +735,22 @@ export class GetMediaResponseBodyMediaInfoFileInfoListVideoStreamInfoList extend
 export class GetMediaResponseBodyMediaInfoFileInfoList extends $dara.Model {
   /**
    * @remarks
-   * The audio stream information. A media asset may have multiple audio streams.
+   * The audio stream information. A media asset may contain multiple audio streams.
    */
   audioStreamInfoList?: GetMediaResponseBodyMediaInfoFileInfoListAudioStreamInfoList[];
   /**
    * @remarks
-   * The basic file information, including duration and size.
+   * The basic information of the file, including the duration and size.
    */
   fileBasicInfo?: GetMediaResponseBodyMediaInfoFileInfoListFileBasicInfo;
   /**
    * @remarks
-   * The subtitle stream information. A media asset may have multiple subtitle streams.
+   * The subtitle stream information. A media asset may contain multiple subtitle streams.
    */
   subtitleStreamInfoList?: GetMediaResponseBodyMediaInfoFileInfoListSubtitleStreamInfoList[];
   /**
    * @remarks
-   * The video stream information. A media asset may have multiple video streams.
+   * The video stream information. A media asset may contain multiple video streams.
    */
   videoStreamInfoList?: GetMediaResponseBodyMediaInfoFileInfoListVideoStreamInfoList[];
   static names(): { [key: string]: string } {
@@ -802,18 +802,24 @@ export class GetMediaResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
    */
   businessType?: string;
   /**
+   * @remarks
+   * The category ID.
+   * 
    * @example
    * 1
    */
   categoryId?: number;
   /**
+   * @remarks
+   * The category name.
+   * 
    * @example
-   * 示例分类
+   * Sample category
    */
   categoryName?: string;
   /**
    * @remarks
-   * The cover URL, which is an authenticated access URL.
+   * The cover URL, which includes an authenticated access address.
    * 
    * @example
    * https://dtlive-vip.oss-cn-shanghai.aliyuncs.com/cover/4e88a055-75fc-4ff5-8b8a-f32224917514_open_live_cover.jpg
@@ -821,7 +827,7 @@ export class GetMediaResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
   coverURL?: string;
   /**
    * @remarks
-   * The creation time of the media asset.
+   * The time when the media asset was created.
    * 
    * @example
    * 2020-12-26T04:11:08Z
@@ -829,7 +835,7 @@ export class GetMediaResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The content description. This is the request parameter value of the RegisterMediaInfo API operation.
+   * The description. This corresponds to the request parameter value of the media asset registration API.
    * 
    * @example
    * description
@@ -845,7 +851,7 @@ export class GetMediaResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
   entityId?: string;
   /**
    * @remarks
-   * The publicly accessible HTTP URL. This is the request parameter value of the RegisterMediaInfo API operation.
+   * The publicly accessible HTTP URL. This corresponds to the request parameter value of the media asset registration API.
    * 
    * @example
    * https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
@@ -861,7 +867,7 @@ export class GetMediaResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
   mediaId?: string;
   /**
    * @remarks
-   * The tags, separated by commas. This is the request parameter value of the RegisterMediaInfo API operation.
+   * The tags. Separate multiple tags with commas. This corresponds to the request parameter value of the media asset registration API.
    * 
    * @example
    * pitaya,prd-wuxi,248
@@ -893,7 +899,7 @@ export class GetMediaResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
   snapshots?: string;
   /**
    * @remarks
-   * The source (currently unavailable).
+   * The source. This parameter is currently unavailable.
    * 
    * @example
    * /
@@ -917,7 +923,7 @@ export class GetMediaResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The title (the request parameter value of the register media asset API).
+   * The title. This corresponds to the request parameter value of the media asset registration API.
    * 
    * @example
    * T32
@@ -933,7 +939,7 @@ export class GetMediaResponseBodyMediaInfoMediaBasicInfo extends $dara.Model {
   uploadSource?: string;
   /**
    * @remarks
-   * The custom user data (the request parameter value of the register media asset API).
+   * The custom user data. This corresponds to the request parameter value of the media asset registration API.
    * 
    * @example
    * {}
@@ -1015,7 +1021,7 @@ export class GetMediaResponseBodyMediaInfoMediaDynamicInfoDynamicMetaData extend
   entityId?: string;
   /**
    * @remarks
-   * Currently not in use.
+   * The type. This field is currently unused.
    * 
    * @example
    * 1
@@ -1100,12 +1106,21 @@ export class GetMediaResponseBodyMediaInfo extends $dara.Model {
    * ****20b48fb04483915d4f2cd8ac****
    */
   mediaId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * pd_123456
+   */
+  projectId?: string;
   static names(): { [key: string]: string } {
     return {
       fileInfoList: 'FileInfoList',
       mediaBasicInfo: 'MediaBasicInfo',
       mediaDynamicInfo: 'MediaDynamicInfo',
       mediaId: 'MediaId',
+      projectId: 'ProjectId',
     };
   }
 
@@ -1115,6 +1130,7 @@ export class GetMediaResponseBodyMediaInfo extends $dara.Model {
       mediaBasicInfo: GetMediaResponseBodyMediaInfoMediaBasicInfo,
       mediaDynamicInfo: GetMediaResponseBodyMediaInfoMediaDynamicInfo,
       mediaId: 'string',
+      projectId: 'string',
     };
   }
 

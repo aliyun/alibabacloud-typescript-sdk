@@ -21,7 +21,7 @@ export class CreateAssetCategoryResponseBodyCategory extends $dara.Model {
   categoryName?: string;
   /**
    * @remarks
-   * The category level. The first-level category has a level of 0, the second-level category has a level of 1, and the third-level category has a level of 2.
+   * The level of the category. The level is 0 for level-1 categories, 1 for level-2 categories, and 2 for level-3 categories.
    * 
    * @example
    * 0
@@ -29,7 +29,7 @@ export class CreateAssetCategoryResponseBodyCategory extends $dara.Model {
   level?: number;
   /**
    * @remarks
-   * The parent category ID. If the ParentId parameter is set to empty or a value less than 1, the default return value is -1, which indicates that the created category is a root directory.
+   * The ID of the parent category. If the ParentId parameter is left empty or set to a value less than 1, the default return value is -1, which indicates that the created category is the root folder.
    * 
    * @example
    * -1

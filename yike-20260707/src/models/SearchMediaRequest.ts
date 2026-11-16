@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchMediaRequest extends $dara.Model {
   /**
    * @remarks
-   * The business configuration. The value is a JSON string that can contain ProductionId (project ID).
+   * The business configuration. A JSON string that can contain ProductionId (project ID).
    * 
    * @example
    * {"ProductionId":"pd_abc1234567"}
@@ -24,7 +24,7 @@ export class SearchMediaRequest extends $dara.Model {
   categoryId?: number;
   /**
    * @remarks
-   * The filter conditions. For the syntax rules, see [Media asset search protocol](https://www.alibabacloud.com/help/en/ims/developer-reference/media-asset-search-filter-description).
+   * The filter conditions. For syntax rules, see [Media asset search protocol](https://www.alibabacloud.com/help/en/ims/developer-reference/media-asset-search-filter-description).
    * 
    * @example
    * title = \\"China\\" and utcCreate = [\\"1693367158561\\",\\"1693367158562\\"]
@@ -32,7 +32,7 @@ export class SearchMediaRequest extends $dara.Model {
   match?: string;
   /**
    * @remarks
-   * The current page number. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -48,7 +48,15 @@ export class SearchMediaRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The pagination token, which is a 32-character string. You do not need to specify this parameter when you send a search request for the first time. If the search request returns data, the server returns this parameter to record the position of the current search data. Record the returned value and specify this parameter in subsequent searches based on the following requirements or recommendations: This parameter is required if you need to traverse all data that matches the search conditions. If the value of the PageNo parameter exceeds 200, specify this parameter to optimize search performance. You can only page forward, and the maximum paging distance is 1,000 media assets.
+   * The project ID.
+   * 
+   * @example
+   * pd_123456
+   */
+  projectId?: string;
+  /**
+   * @remarks
+   * The scroll token, which is a 32-character string. You do not need to specify this parameter when you make a search request for the first time. If the search request returns data, the server returns this parameter to record the position of the current search data. Record the returned value and specify this parameter in subsequent searches based on the following requirements or suggestions: This parameter is required to traverse all data that matches the search conditions. If the value of the PageNo parameter exceeds 200, specify this parameter to optimize search performance. You can only scroll forward. The maximum scroll distance is 1,000 media assets.
    * 
    * @example
    * F8C4F642184DBDA5D93907A70AAE****
@@ -56,7 +64,7 @@ export class SearchMediaRequest extends $dara.Model {
   scrollToken?: string;
   /**
    * @remarks
-   * The sort fields and sort orders. Separate multiple values with commas (,). Format: field1:Desc,field2:Asc. The sort direction can only be Asc or Desc.
+   * The sort fields and sort order. Separate multiple fields with commas (,). Format: field1:Desc,field2:Asc. The sort direction can only be Asc or Desc.
    * 
    * @example
    * utcCreate:Desc
@@ -69,6 +77,7 @@ export class SearchMediaRequest extends $dara.Model {
       match: 'Match',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      projectId: 'ProjectId',
       scrollToken: 'ScrollToken',
       sortBy: 'SortBy',
     };
@@ -81,6 +90,7 @@ export class SearchMediaRequest extends $dara.Model {
       match: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      projectId: 'string',
       scrollToken: 'string',
       sortBy: 'string',
     };

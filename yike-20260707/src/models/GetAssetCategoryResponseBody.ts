@@ -22,9 +22,9 @@ export class GetAssetCategoryResponseBodyCategory extends $dara.Model {
   /**
    * @remarks
    * The category level. Valid values:
-   * - **0**: level-1 category.
-   * - **1**: level-2 category.
-   * - **2**: level-3 category.
+   * - **0**: Level-1 category.
+   * - **1**: Level-2 category.
+   * - **2**: Level-3 category.
    * 
    * @example
    * 1
@@ -32,7 +32,7 @@ export class GetAssetCategoryResponseBodyCategory extends $dara.Model {
   level?: number;
   /**
    * @remarks
-   * The parent category ID.
+   * The ID of the parent category.
    * 
    * @example
    * 10
@@ -92,7 +92,7 @@ export class GetAssetCategoryResponseBodySubCategories extends $dara.Model {
   level?: number;
   /**
    * @remarks
-   * The parent category ID.
+   * The ID of the parent category.
    * 
    * @example
    * 50

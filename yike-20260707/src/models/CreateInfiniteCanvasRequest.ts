@@ -13,12 +13,20 @@ export class CreateInfiniteCanvasRequest extends $dara.Model {
   coverUrl?: string;
   /**
    * @remarks
-   * The project ID.
+   * The project ID. **[Deprecated]** Use ProjectId instead.
    * 
    * @example
    * pd_061716****
    */
   productionId?: string;
+  /**
+   * @remarks
+   * The project ID. This field takes precedence.
+   * 
+   * @example
+   * pd_061716****
+   */
+  projectId?: string;
   /**
    * @remarks
    * The project title.
@@ -41,6 +49,7 @@ export class CreateInfiniteCanvasRequest extends $dara.Model {
     return {
       coverUrl: 'CoverUrl',
       productionId: 'ProductionId',
+      projectId: 'ProjectId',
       title: 'Title',
       workspaceId: 'WorkspaceId',
     };
@@ -50,6 +59,7 @@ export class CreateInfiniteCanvasRequest extends $dara.Model {
     return {
       coverUrl: 'string',
       productionId: 'string',
+      projectId: 'string',
       title: 'string',
       workspaceId: 'string',
     };

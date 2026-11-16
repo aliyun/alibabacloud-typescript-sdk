@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetYikeAccountCreditResponseBodyCreditInfo extends $dara.Model {
   /**
    * @remarks
-   * The total granted credits.
+   * The total granted credit quota.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class GetYikeAccountCreditResponseBodyCreditInfo extends $dara.Model {
   grantedCreditQuota?: number;
   /**
    * @remarks
-   * The remaining granted credits.
+   * The granted credit balance.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class GetYikeAccountCreditResponseBodyCreditInfo extends $dara.Model {
   grantedCreditQuotaUsage?: number;
   /**
    * @remarks
-   * The total credits of the booster pack.
+   * The total credit quota of the top-up package.
    * 
    * @example
    * 20000
@@ -29,7 +29,7 @@ export class GetYikeAccountCreditResponseBodyCreditInfo extends $dara.Model {
   packCreditQuota?: number;
   /**
    * @remarks
-   * The remaining credits of the booster pack.
+   * The credit balance of the top-up package.
    * 
    * @example
    * 5000
@@ -37,7 +37,7 @@ export class GetYikeAccountCreditResponseBodyCreditInfo extends $dara.Model {
   packCreditQuotaUsage?: number;
   /**
    * @remarks
-   * The total credits of the membership plan.
+   * The total credit quota of the membership plan.
    * 
    * @example
    * 10000
@@ -45,7 +45,7 @@ export class GetYikeAccountCreditResponseBodyCreditInfo extends $dara.Model {
   resourceCreditQuota?: number;
   /**
    * @remarks
-   * The remaining credits of the membership plan.
+   * The credit balance of the membership plan.
    * 
    * @example
    * 2000
@@ -94,11 +94,10 @@ export class GetYikeAccountCreditResponseBodyMembershipInfo extends $dara.Model 
   /**
    * @remarks
    * The membership level. Valid values:
-   * 
-   * - basic: Basic Edition.
-   * - standard: Standard Edition.
-   * - professional: Ultimate Edition.
-   * - ultra: Ultra Edition.
+   * - basic: Basic Edition
+   * - standard: Standard Edition
+   * - professional: Ultimate Edition
+   * - ultra: Supreme Edition
    * 
    * @example
    * basic

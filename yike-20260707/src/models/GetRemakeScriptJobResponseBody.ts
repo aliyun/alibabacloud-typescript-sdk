@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRemakeScriptJobResponseBodyJob extends $dara.Model {
   /**
    * @remarks
-   * The error code. Returned when the status is Failed.
+   * The error code. This parameter is returned when the status is Failed.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class GetRemakeScriptJobResponseBodyJob extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message. Returned when the status is Failed.
+   * The error message. This parameter is of the String type and is returned when the status is Failed.
    * 
    * @example
    * The specified product does not exist.
@@ -21,7 +21,7 @@ export class GetRemakeScriptJobResponseBodyJob extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * @example
    * 68ca759e798b40b4903b255*******
@@ -37,13 +37,13 @@ export class GetRemakeScriptJobResponseBodyJob extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The status. Valid values:
+   * The file status. Valid values:
    * 
-   * - Created: The task is created.
-   * - Executing: The task is executing.
-   * - Finished: The task is finished.
-   * - Failed: The task failed.
-   * - Deleted: The task is deleted.
+   * - Created: Created.
+   * - Executing: Executing.
+   * - Finished: Finished.
+   * - Failed: Failed.
+   * - Deleted: Deleted.
    * 
    * @example
    * Executing

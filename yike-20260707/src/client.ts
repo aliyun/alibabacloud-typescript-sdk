@@ -34,10 +34,63 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about multiple media assets in a batch.
+   * Adds members to a project.
    * 
    * @remarks
-   * ## Request description.
+   * Adds users under the same Alibaba Cloud account to a specified project in the default workspace of the Alibaba Cloud account, and grants the Edit permission by default. ProjectId specifies the project ID. YikeUserIds specifies a comma-separated list of Yike user IDs, which are not Alibaba Cloud UIDs. Currently, only the default workspace of the Alibaba Cloud account is supported, and projects in newly created workspaces are not supported. This operation follows the behavior of the original member API operation: adding an existing member resets the project permissions. Regular members are assigned the Edit permission, and SuperAdmins of the default workspace retain the Manage permission. Only Alibaba Cloud accounts that have activated ProductionOpenAPI are supported. Default Alibaba Cloud account projects (pd_Alibaba Cloud account ID) are not supported.
+   * 
+   * @param request - AddProjectMembersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddProjectMembersResponse
+   */
+  async addProjectMembersWithOptions(request: $_model.AddProjectMembersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddProjectMembersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.yikeUserIds)) {
+      query["YikeUserIds"] = request.yikeUserIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddProjectMembers",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddProjectMembersResponse>(await this.callApi(params, req, runtime), new $_model.AddProjectMembersResponse({}));
+  }
+
+  /**
+   * Adds members to a project.
+   * 
+   * @remarks
+   * Adds users under the same Alibaba Cloud account to a specified project in the default workspace of the Alibaba Cloud account, and grants the Edit permission by default. ProjectId specifies the project ID. YikeUserIds specifies a comma-separated list of Yike user IDs, which are not Alibaba Cloud UIDs. Currently, only the default workspace of the Alibaba Cloud account is supported, and projects in newly created workspaces are not supported. This operation follows the behavior of the original member API operation: adding an existing member resets the project permissions. Regular members are assigned the Edit permission, and SuperAdmins of the default workspace retain the Manage permission. Only Alibaba Cloud accounts that have activated ProductionOpenAPI are supported. Default Alibaba Cloud account projects (pd_Alibaba Cloud account ID) are not supported.
+   * 
+   * @param request - AddProjectMembersRequest
+   * @returns AddProjectMembersResponse
+   */
+  async addProjectMembers(request: $_model.AddProjectMembersRequest): Promise<$_model.AddProjectMembersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addProjectMembersWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the information of multiple media assets.
+   * 
+   * @remarks
+   * ## Request description
+   * This API operation queries media asset content understanding jobs.
    * 
    * @param request - BatchGetMediasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -80,10 +133,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves information about multiple media assets in a batch.
+   * Retrieves the information of multiple media assets.
    * 
    * @remarks
-   * ## Request description.
+   * ## Request description
+   * This API operation queries media asset content understanding jobs.
    * 
    * @param request - BatchGetMediasRequest
    * @returns BatchGetMediasResponse
@@ -94,7 +148,55 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels an AI generation task.
+   * Queries video character replacement jobs in batches.
+   * 
+   * @remarks
+   * Queries the status and results of video character replacement jobs in batches. JobIds is a comma-separated string of job IDs. The response includes a JobList. The input parameters for each job are located in the AppInputConfig field. For the single query operation GetVideoCharacterReplaceJob, the corresponding field is AppParams. When the Status is Finished, you can retrieve the output media assets from Result.
+   * 
+   * @param request - BatchGetVideoCharacterReplaceJobsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchGetVideoCharacterReplaceJobsResponse
+   */
+  async batchGetVideoCharacterReplaceJobsWithOptions(request: $_model.BatchGetVideoCharacterReplaceJobsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchGetVideoCharacterReplaceJobsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobIds)) {
+      query["JobIds"] = request.jobIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchGetVideoCharacterReplaceJobs",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchGetVideoCharacterReplaceJobsResponse>(await this.callApi(params, req, runtime), new $_model.BatchGetVideoCharacterReplaceJobsResponse({}));
+  }
+
+  /**
+   * Queries video character replacement jobs in batches.
+   * 
+   * @remarks
+   * Queries the status and results of video character replacement jobs in batches. JobIds is a comma-separated string of job IDs. The response includes a JobList. The input parameters for each job are located in the AppInputConfig field. For the single query operation GetVideoCharacterReplaceJob, the corresponding field is AppParams. When the Status is Finished, you can retrieve the output media assets from Result.
+   * 
+   * @param request - BatchGetVideoCharacterReplaceJobsRequest
+   * @returns BatchGetVideoCharacterReplaceJobsResponse
+   */
+  async batchGetVideoCharacterReplaceJobs(request: $_model.BatchGetVideoCharacterReplaceJobsRequest): Promise<$_model.BatchGetVideoCharacterReplaceJobsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchGetVideoCharacterReplaceJobsWithOptions(request, runtime);
+  }
+
+  /**
+   * Cancels a generation task.
    * 
    * @param request - CancelGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -125,7 +227,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Cancels an AI generation task.
+   * Cancels a generation task.
    * 
    * @param request - CancelGenerationJobRequest
    * @returns CancelGenerationJobResponse
@@ -139,7 +241,7 @@ export default class Client extends OpenApi {
    * Creates a media asset category.
    * 
    * @remarks
-   * Categories support up to three levels, and each level supports up to 100 subcategories.
+   * Categories support up to three levels of hierarchy, and each level supports up to 100 subcategories.
    * 
    * @param request - CreateAssetCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -177,7 +279,7 @@ export default class Client extends OpenApi {
    * Creates a media asset category.
    * 
    * @remarks
-   * Categories support up to three levels, and each level supports up to 100 subcategories.
+   * Categories support up to three levels of hierarchy, and each level supports up to 100 subcategories.
    * 
    * @param request - CreateAssetCategoryRequest
    * @returns CreateAssetCategoryResponse
@@ -191,8 +293,8 @@ export default class Client extends OpenApi {
    * Creates an infinite canvas.
    * 
    * @remarks
-   * ## Operation description
-   * This API operation is used to query media asset content understanding jobs.
+   * ## Request description
+   * This API queries media asset content understanding jobs.
    * 
    * @param request - CreateInfiniteCanvasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -207,6 +309,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.productionId)) {
       query["ProductionId"] = request.productionId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
     }
 
     if (!$dara.isNull(request.title)) {
@@ -238,8 +344,8 @@ export default class Client extends OpenApi {
    * Creates an infinite canvas.
    * 
    * @remarks
-   * ## Operation description
-   * This API operation is used to query media asset content understanding jobs.
+   * ## Request description
+   * This API queries media asset content understanding jobs.
    * 
    * @param request - CreateInfiniteCanvasRequest
    * @returns CreateInfiniteCanvasResponse
@@ -250,10 +356,114 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates a project.
+   * 
+   * @remarks
+   * Creates a project in a specified workspace and returns the ProjectId. If WorkspaceId is not specified, the default workspace of the current account is used. After the project is created, you can call GetProject to query the details or call ListProjects to list projects.
+   * 
+   * @param request - CreateProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateProjectResponse
+   */
+  async createProjectWithOptions(request: $_model.CreateProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateProject",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateProjectResponse>(await this.callApi(params, req, runtime), new $_model.CreateProjectResponse({}));
+  }
+
+  /**
+   * Creates a project.
+   * 
+   * @remarks
+   * Creates a project in a specified workspace and returns the ProjectId. If WorkspaceId is not specified, the default workspace of the current account is used. After the project is created, you can call GetProject to query the details or call ListProjects to list projects.
+   * 
+   * @param request - CreateProjectRequest
+   * @returns CreateProjectResponse
+   */
+  async createProject(request: $_model.CreateProjectRequest): Promise<$_model.CreateProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a studio.
+   * 
+   * @remarks
+   * Creates a studio and triggers automatic creation of a default project for the studio. Returns the WorkspaceId and the ProjectId of the default project. You can directly use the ProjectId without creating the default project again.
+   * 
+   * @param request - CreateWorkspaceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWorkspaceResponse
+   */
+  async createWorkspaceWithOptions(request: $_model.CreateWorkspaceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWorkspaceResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    if (!$dara.isNull(request.userCountLimit)) {
+      query["UserCountLimit"] = request.userCountLimit;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWorkspace",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWorkspaceResponse>(await this.callApi(params, req, runtime), new $_model.CreateWorkspaceResponse({}));
+  }
+
+  /**
+   * Creates a studio.
+   * 
+   * @remarks
+   * Creates a studio and triggers automatic creation of a default project for the studio. Returns the WorkspaceId and the ProjectId of the default project. You can directly use the ProjectId without creating the default project again.
+   * 
+   * @param request - CreateWorkspaceRequest
+   * @returns CreateWorkspaceResponse
+   */
+  async createWorkspace(request: $_model.CreateWorkspaceRequest): Promise<$_model.CreateWorkspaceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createWorkspaceWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes a media asset category.
    * 
    * @remarks
-   * This operation also deletes all subcategories (including second-level and third-level categories). Proceed with caution.
+   * This operation also deletes its subcategories, including level-2 and level-3 subcategories. Proceed with caution.
    * 
    * @param request - DeleteAssetCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -287,7 +497,7 @@ export default class Client extends OpenApi {
    * Deletes a media asset category.
    * 
    * @remarks
-   * This operation also deletes all subcategories (including second-level and third-level categories). Proceed with caution.
+   * This operation also deletes its subcategories, including level-2 and level-3 subcategories. Proceed with caution.
    * 
    * @param request - DeleteAssetCategoryRequest
    * @returns DeleteAssetCategoryResponse
@@ -301,8 +511,8 @@ export default class Client extends OpenApi {
    * Deletes an infinite canvas.
    * 
    * @remarks
-   * ## Operation description
-   * This API operation is used to query media asset content understanding jobs.
+   * ## Request description
+   * This API operation queries media asset content understanding jobs.
    * 
    * @param request - DeleteInfiniteCanvasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -336,8 +546,8 @@ export default class Client extends OpenApi {
    * Deletes an infinite canvas.
    * 
    * @remarks
-   * ## Operation description
-   * This API operation is used to query media asset content understanding jobs.
+   * ## Request description
+   * This API operation queries media asset content understanding jobs.
    * 
    * @param request - DeleteInfiniteCanvasRequest
    * @returns DeleteInfiniteCanvasResponse
@@ -402,10 +612,60 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a login token for an enterprise account.
+   * Deletes a project.
    * 
    * @remarks
-   * >Notice:  The AI generation-related API operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
+   * Deletes a project by ProjectId. The caller must have project management permissions.
+   * Default projects cannot be deleted. If you attempt to delete a default project, DefaultProductionNotSupported is returned. This operation marks the project as deleted and does not physically delete all assets in the project.
+   * 
+   * @param request - DeleteProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteProjectResponse
+   */
+  async deleteProjectWithOptions(request: $_model.DeleteProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteProject",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteProjectResponse>(await this.callApi(params, req, runtime), new $_model.DeleteProjectResponse({}));
+  }
+
+  /**
+   * Deletes a project.
+   * 
+   * @remarks
+   * Deletes a project by ProjectId. The caller must have project management permissions.
+   * Default projects cannot be deleted. If you attempt to delete a default project, DefaultProductionNotSupported is returned. This operation marks the project as deleted and does not physically delete all assets in the project.
+   * 
+   * @param request - DeleteProjectRequest
+   * @returns DeleteProjectResponse
+   */
+  async deleteProject(request: $_model.DeleteProjectRequest): Promise<$_model.DeleteProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the logon token for an enterprise account.
+   * 
+   * @remarks
+   * >Notice:  The AI generation-related API operations in the current 2026-03-19 API version will be retired soon. Upgrade to the 2026-07-07 API version.
    * 
    * @param request - GenerateYikeLoginTokenRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -464,10 +724,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a login token for an enterprise account.
+   * Retrieves the logon token for an enterprise account.
    * 
    * @remarks
-   * >Notice:  The AI generation-related API operations in the 2026-03-19 API version will be deprecated soon. Upgrade to the 2026-07-07 API version.</notice>
+   * >Notice:  The AI generation-related API operations in the current 2026-03-19 API version will be retired soon. Upgrade to the 2026-07-07 API version.
    * 
    * @param request - GenerateYikeLoginTokenRequest
    * @returns GenerateYikeLoginTokenResponse
@@ -478,7 +738,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an agent asynchronous task.
+   * Queries an asynchronous task of the agent node.
    * 
    * @param request - GetAgentJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -509,7 +769,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries an agent asynchronous task.
+   * Queries an asynchronous task of the agent node.
    * 
    * @param request - GetAgentJobRequest
    * @returns GetAgentJobResponse
@@ -520,7 +780,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the information of a specified category and the list of its subcategories (immediate child categories).
+   * Retrieves the details of a specified category and a list of its subcategories.
    * 
    * @param request - GetAssetCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -551,7 +811,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the information of a specified category and the list of its subcategories (immediate child categories).
+   * Retrieves the details of a specified category and a list of its subcategories.
    * 
    * @param request - GetAssetCategoryRequest
    * @returns GetAssetCategoryResponse
@@ -607,8 +867,8 @@ export default class Client extends OpenApi {
    * Queries an infinite canvas.
    * 
    * @remarks
-   * ## Description
-   * This API is used to query a media asset content understanding job.
+   * ## Request description
+   * This API queries media asset content understanding jobs.
    * 
    * @param request - GetInfiniteCanvasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -642,8 +902,8 @@ export default class Client extends OpenApi {
    * Queries an infinite canvas.
    * 
    * @remarks
-   * ## Description
-   * This API is used to query a media asset content understanding job.
+   * ## Request description
+   * This API queries media asset content understanding jobs.
    * 
    * @param request - GetInfiniteCanvasRequest
    * @returns GetInfiniteCanvasResponse
@@ -654,11 +914,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a media asset.
+   * Queries media assets.
    * 
    * @remarks
-   * ## Operation description
-   * This API operation is used to query a media content analysis job.
+   * ## Request description
+   * This API operation queries media asset content understanding jobs.
    * 
    * @param request - GetMediaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -701,11 +961,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a media asset.
+   * Queries media assets.
    * 
    * @remarks
-   * ## Operation description
-   * This API operation is used to query a media content analysis job.
+   * ## Request description
+   * This API operation queries media asset content understanding jobs.
    * 
    * @param request - GetMediaRequest
    * @returns GetMediaResponse
@@ -766,6 +1026,54 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a project.
+   * 
+   * @remarks
+   * Queries the basic information of a project and the project permissions of the current caller by ProjectId. The project information is located in the Project object of the response and does not include the project asset list.
+   * 
+   * @param request - GetProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetProjectResponse
+   */
+  async getProjectWithOptions(request: $_model.GetProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetProject",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetProjectResponse>(await this.callApi(params, req, runtime), new $_model.GetProjectResponse({}));
+  }
+
+  /**
+   * Queries the details of a project.
+   * 
+   * @remarks
+   * Queries the basic information of a project and the project permissions of the current caller by ProjectId. The project information is located in the Project object of the response and does not include the project asset list.
+   * 
+   * @param request - GetProjectRequest
+   * @returns GetProjectResponse
+   */
+  async getProject(request: $_model.GetProjectRequest): Promise<$_model.GetProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getProjectWithOptions(request, runtime);
+  }
+
+  /**
    * Queries a creative script generation task.
    * 
    * @param request - GetRemakeScriptJobRequest
@@ -808,7 +1116,57 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a video creative generation job.
+   * Queries a video character replacement task.
+   * 
+   * @remarks
+   * Queries the status and result of a single task by using the JobId returned by the submit operation. When Status is Finished, you can read the output media assets in Result. Executing indicates that the task is still running.
+   * This operation uses AppParams to return the task input parameters. The corresponding field name in the batch query operation is AppInputConfig. The output results are categorized into ImageResult, VideoResult, and AudioResult. Each item contains MediaId and OutputUrl.
+   * 
+   * @param request - GetVideoCharacterReplaceJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoCharacterReplaceJobResponse
+   */
+  async getVideoCharacterReplaceJobWithOptions(request: $_model.GetVideoCharacterReplaceJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetVideoCharacterReplaceJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVideoCharacterReplaceJob",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVideoCharacterReplaceJobResponse>(await this.callApi(params, req, runtime), new $_model.GetVideoCharacterReplaceJobResponse({}));
+  }
+
+  /**
+   * Queries a video character replacement task.
+   * 
+   * @remarks
+   * Queries the status and result of a single task by using the JobId returned by the submit operation. When Status is Finished, you can read the output media assets in Result. Executing indicates that the task is still running.
+   * This operation uses AppParams to return the task input parameters. The corresponding field name in the batch query operation is AppInputConfig. The output results are categorized into ImageResult, VideoResult, and AudioResult. Each item contains MediaId and OutputUrl.
+   * 
+   * @param request - GetVideoCharacterReplaceJobRequest
+   * @returns GetVideoCharacterReplaceJobResponse
+   */
+  async getVideoCharacterReplaceJob(request: $_model.GetVideoCharacterReplaceJobRequest): Promise<$_model.GetVideoCharacterReplaceJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getVideoCharacterReplaceJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries video creative generation jobs.
    * 
    * @param request - GetVideoCreativeGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -839,7 +1197,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a video creative generation job.
+   * Queries video creative generation jobs.
    * 
    * @param request - GetVideoCreativeGenerationJobRequest
    * @returns GetVideoCreativeGenerationJobResponse
@@ -850,10 +1208,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status, input parameters, and video result of a video text erasure task.
+   * Queries the status, input parameters, and video results of a video text removal job.
    * 
    * @remarks
-   * Queries the status, input, parameters, and desired state result of a video text erasure task based on `JobId`.
+   * Queries the status, input, parameters, and final results of a video text removal job based on the `JobId`.
    * 
    * @param request - GetVideoDetextJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -884,10 +1242,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status, input parameters, and video result of a video text erasure task.
+   * Queries the status, input parameters, and video results of a video text removal job.
    * 
    * @remarks
-   * Queries the status, input, parameters, and desired state result of a video text erasure task based on `JobId`.
+   * Queries the status, input, parameters, and final results of a video text removal job based on the `JobId`.
    * 
    * @param request - GetVideoDetextJobRequest
    * @returns GetVideoDetextJobResponse
@@ -898,7 +1256,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a video generation task.
+   * Queries a video generation job.
    * 
    * @param request - GetVideoGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -933,7 +1291,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a video generation task.
+   * Queries a video generation job.
    * 
    * @param request - GetVideoGenerationJobRequest
    * @returns GetVideoGenerationJobResponse
@@ -941,6 +1299,54 @@ export default class Client extends OpenApi {
   async getVideoGenerationJob(request: $_model.GetVideoGenerationJobRequest): Promise<$_model.GetVideoGenerationJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getVideoGenerationJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a content understanding and creative script generation task.
+   * 
+   * @remarks
+   * Queries the task status based on the JobId returned by SubmitVideoRemakeJob. Upon completion, returns the download URLs of the JSON files for the video content understanding results and the creative script. If the task fails, returns ErrorCode and ErrorMessage.
+   * 
+   * @param request - GetVideoRemakeJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetVideoRemakeJobResponse
+   */
+  async getVideoRemakeJobWithOptions(request: $_model.GetVideoRemakeJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetVideoRemakeJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.jobId)) {
+      query["JobId"] = request.jobId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetVideoRemakeJob",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetVideoRemakeJobResponse>(await this.callApi(params, req, runtime), new $_model.GetVideoRemakeJobResponse({}));
+  }
+
+  /**
+   * Queries a content understanding and creative script generation task.
+   * 
+   * @remarks
+   * Queries the task status based on the JobId returned by SubmitVideoRemakeJob. Upon completion, returns the download URLs of the JSON files for the video content understanding results and the creative script. If the task fails, returns ErrorCode and ErrorMessage.
+   * 
+   * @param request - GetVideoRemakeJobRequest
+   * @returns GetVideoRemakeJobResponse
+   */
+  async getVideoRemakeJob(request: $_model.GetVideoRemakeJobRequest): Promise<$_model.GetVideoRemakeJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getVideoRemakeJobWithOptions(request, runtime);
   }
 
   /**
@@ -989,7 +1395,7 @@ export default class Client extends OpenApi {
    * Queries the status, input parameters, and multilingual outputs of a video translation job.
    * 
    * @remarks
-   * Queries the status, input, parameters, and final results of a video translation job by `JobId`.
+   * Queries the status, input, parameters, and final results of a video translation job based on JobId.
    * 
    * @param request - GetVideoTranslationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1023,7 +1429,7 @@ export default class Client extends OpenApi {
    * Queries the status, input parameters, and multilingual outputs of a video translation job.
    * 
    * @remarks
-   * Queries the status, input, parameters, and final results of a video translation job by `JobId`.
+   * Queries the status, input, parameters, and final results of a video translation job based on JobId.
    * 
    * @param request - GetVideoTranslationJobRequest
    * @returns GetVideoTranslationJobResponse
@@ -1034,7 +1440,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the membership plan and credit information for a Yike primary account.
+   * Retrieves the membership plan and credit information of the Yike main account.
    * 
    * @param request - GetYikeAccountCreditRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1058,7 +1464,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the membership plan and credit information for a Yike primary account.
+   * Retrieves the membership plan and credit information of the Yike main account.
    * 
    * @param request - GetYikeAccountCreditRequest
    * @returns GetYikeAccountCreditResponse
@@ -1069,7 +1475,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the actual credit consumption of a task.
+   * Queries the actual credits consumed by a task.
    * 
    * @param request - GetYikeJobCreditRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1100,7 +1506,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the actual credit consumption of a task.
+   * Queries the actual credits consumed by a task.
    * 
    * @param request - GetYikeJobCreditRequest
    * @returns GetYikeJobCreditResponse
@@ -1111,11 +1517,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports a media asset.
+   * Imports media assets.
    * 
    * @remarks
    * ## Request description
-   * This API is used to query media content analysis jobs.
+   * This API operation queries media content understanding jobs.
    * 
    * @param request - ImportMediaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1168,6 +1574,10 @@ export default class Client extends OpenApi {
       query["Overwrite"] = request.overwrite;
     }
 
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     if (!$dara.isNull(request.registerConfig)) {
       query["RegisterConfig"] = request.registerConfig;
     }
@@ -1202,11 +1612,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Imports a media asset.
+   * Imports media assets.
    * 
    * @remarks
    * ## Request description
-   * This API is used to query media content analysis jobs.
+   * This API operation queries media content understanding jobs.
    * 
    * @param request - ImportMediaRequest
    * @returns ImportMediaResponse
@@ -1217,7 +1627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paged list of categories.
+   * Retrieves a paginated list of categories.
    * 
    * @param request - ListAssetCategoriesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1252,7 +1662,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paged list of categories.
+   * Retrieves a paginated list of categories.
    * 
    * @param request - ListAssetCategoriesRequest
    * @returns ListAssetCategoriesResponse
@@ -1267,7 +1677,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * This API operation queries media asset content understanding jobs.
+   * This operation queries media asset content understanding jobs.
    * 
    * @param request - ListInfiniteCanvasesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1326,7 +1736,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Request description
-   * This API operation queries media asset content understanding jobs.
+   * This operation queries media asset content understanding jobs.
    * 
    * @param request - ListInfiniteCanvasesRequest
    * @returns ListInfiniteCanvasesResponse
@@ -1337,7 +1747,171 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries media assets that match the specified parameters.
+   * Queries the list of projects.
+   * 
+   * @remarks
+   * Queries the list of projects accessible to the current caller. You can use WorkspaceId to filter projects by workspace.
+   * For pagination, specify both PageNo and PageSize with valid positive integers starting from 1. If valid values are not provided for both parameters, the query defaults to page 1 with 10 entries per page. The response returns ProjectList but does not return TotalCount. MaxResults and NextToken are retained for compatibility and are not used for current pagination.
+   * 
+   * @param request - ListProjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListProjectsResponse
+   */
+  async listProjectsWithOptions(request: $_model.ListProjectsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListProjectsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.workspaceId)) {
+      query["WorkspaceId"] = request.workspaceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListProjects",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListProjectsResponse>(await this.callApi(params, req, runtime), new $_model.ListProjectsResponse({}));
+  }
+
+  /**
+   * Queries the list of projects.
+   * 
+   * @remarks
+   * Queries the list of projects accessible to the current caller. You can use WorkspaceId to filter projects by workspace.
+   * For pagination, specify both PageNo and PageSize with valid positive integers starting from 1. If valid values are not provided for both parameters, the query defaults to page 1 with 10 entries per page. The response returns ProjectList but does not return TotalCount. MaxResults and NextToken are retained for compatibility and are not used for current pagination.
+   * 
+   * @param request - ListProjectsRequest
+   * @returns ListProjectsResponse
+   */
+  async listProjects(request: $_model.ListProjectsRequest): Promise<$_model.ListProjectsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listProjectsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a list of workspaces.
+   * 
+   * @remarks
+   * Queries a list of workspaces accessible to the current caller. Pagination is supported by using PageNo and PageSize. The default value of PageNo is 1, and the default value of PageSize is 10. The response includes WorkspaceList and TotalCount. The ID of the default project for a workspace is returned in the DefaultProjectId field.
+   * 
+   * @param request - ListWorkspacesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWorkspacesResponse
+   */
+  async listWorkspacesWithOptions(request: $_model.ListWorkspacesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListWorkspacesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWorkspaces",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWorkspacesResponse>(await this.callApi(params, req, runtime), new $_model.ListWorkspacesResponse({}));
+  }
+
+  /**
+   * Queries a list of workspaces.
+   * 
+   * @remarks
+   * Queries a list of workspaces accessible to the current caller. Pagination is supported by using PageNo and PageSize. The default value of PageNo is 1, and the default value of PageSize is 10. The response includes WorkspaceList and TotalCount. The ID of the default project for a workspace is returned in the DefaultProjectId field.
+   * 
+   * @param request - ListWorkspacesRequest
+   * @returns ListWorkspacesResponse
+   */
+  async listWorkspaces(request: $_model.ListWorkspacesRequest): Promise<$_model.ListWorkspacesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWorkspacesWithOptions(request, runtime);
+  }
+
+  /**
+   * Pre-validates a video character replacement task.
+   * 
+   * @remarks
+   * Validates the input materials of a specified application before submitting a task. AppParams is a JSON-serialized string. The field names must be consistent with the input definition of the application corresponding to AppId. Image, audio, and video materials must match the input types and be accessible.
+   * If Status is Success, the validation passes and Result is an empty array. If Status is Failed, Result returns the failed parameter Key and ErrorCode for each item. This operation does not create a task. After the validation passes, call SubmitVideoCharacterReplaceJob to submit the task.
+   * 
+   * @param request - PrecheckVideoCharacterReplaceJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PrecheckVideoCharacterReplaceJobResponse
+   */
+  async precheckVideoCharacterReplaceJobWithOptions(request: $_model.PrecheckVideoCharacterReplaceJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.PrecheckVideoCharacterReplaceJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.appId)) {
+      query["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.appParams)) {
+      query["AppParams"] = request.appParams;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PrecheckVideoCharacterReplaceJob",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PrecheckVideoCharacterReplaceJobResponse>(await this.callApi(params, req, runtime), new $_model.PrecheckVideoCharacterReplaceJobResponse({}));
+  }
+
+  /**
+   * Pre-validates a video character replacement task.
+   * 
+   * @remarks
+   * Validates the input materials of a specified application before submitting a task. AppParams is a JSON-serialized string. The field names must be consistent with the input definition of the application corresponding to AppId. Image, audio, and video materials must match the input types and be accessible.
+   * If Status is Success, the validation passes and Result is an empty array. If Status is Failed, Result returns the failed parameter Key and ErrorCode for each item. This operation does not create a task. After the validation passes, call SubmitVideoCharacterReplaceJob to submit the task.
+   * 
+   * @param request - PrecheckVideoCharacterReplaceJobRequest
+   * @returns PrecheckVideoCharacterReplaceJobResponse
+   */
+  async precheckVideoCharacterReplaceJob(request: $_model.PrecheckVideoCharacterReplaceJobRequest): Promise<$_model.PrecheckVideoCharacterReplaceJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.precheckVideoCharacterReplaceJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves media asset information that matches the specified parameters.
    * 
    * @param request - SearchMediaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1366,6 +1940,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
     if (!$dara.isNull(request.scrollToken)) {
       query["ScrollToken"] = request.scrollToken;
     }
@@ -1392,7 +1970,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries media assets that match the specified parameters.
+   * Retrieves media asset information that matches the specified parameters.
    * 
    * @param request - SearchMediaRequest
    * @returns SearchMediaResponse
@@ -1403,7 +1981,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an agent asynchronous node.
+   * Submits an asynchronous task for an agent node.
    * 
    * @param request - SubmitAgentJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1454,7 +2032,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an agent asynchronous node.
+   * Submits an asynchronous task for an agent node.
    * 
    * @param request - SubmitAgentJobRequest
    * @returns SubmitAgentJobResponse
@@ -1465,7 +2043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an image generation request.
+   * Submits an image generation task.
    * 
    * @param request - SubmitImageGenerationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1532,7 +2110,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an image generation request.
+   * Submits an image generation task.
    * 
    * @param request - SubmitImageGenerationJobRequest
    * @returns SubmitImageGenerationJobResponse
@@ -1608,7 +2186,7 @@ export default class Client extends OpenApi {
    * Submits a creative script generation task.
    * 
    * @remarks
-   * This operation generates a new voiceover script based on content understanding results and new product or avatar information. It also supports passing custom parameters through the UserData field, which are returned as-is in callbacks.
+   * This API generates a new voiceover script based on content understanding results and new product or avatar information. It also supports passing custom parameters through the UserData field, which are returned as-is in the callback.
    * 
    * @param request - SubmitRemakeScriptJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1650,7 +2228,7 @@ export default class Client extends OpenApi {
    * Submits a creative script generation task.
    * 
    * @remarks
-   * This operation generates a new voiceover script based on content understanding results and new product or avatar information. It also supports passing custom parameters through the UserData field, which are returned as-is in callbacks.
+   * This API generates a new voiceover script based on content understanding results and new product or avatar information. It also supports passing custom parameters through the UserData field, which are returned as-is in the callback.
    * 
    * @param request - SubmitRemakeScriptJobRequest
    * @returns SubmitRemakeScriptJobResponse
@@ -1658,6 +2236,68 @@ export default class Client extends OpenApi {
   async submitRemakeScriptJob(request: $_model.SubmitRemakeScriptJobRequest): Promise<$_model.SubmitRemakeScriptJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitRemakeScriptJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Submits a video character replacement task.
+   * 
+   * @remarks
+   * Submits a video character replacement node via asynchronous commit. Invoke PrecheckVideoCharacterReplaceJob with the same AppId and AppParams to validate the input assets first.
+   * The returned JobId only indicates that the node is submitted, not completed. Use GetVideoCharacterReplaceJob or BatchGetVideoCharacterReplaceJobs to query the status and output results. ProjectId specifies the project, and FolderId specifies the file folder.
+   * 
+   * @param request - SubmitVideoCharacterReplaceJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitVideoCharacterReplaceJobResponse
+   */
+  async submitVideoCharacterReplaceJobWithOptions(request: $_model.SubmitVideoCharacterReplaceJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitVideoCharacterReplaceJobResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appId)) {
+      body["AppId"] = request.appId;
+    }
+
+    if (!$dara.isNull(request.appParams)) {
+      body["AppParams"] = request.appParams;
+    }
+
+    if (!$dara.isNull(request.folderId)) {
+      body["FolderId"] = request.folderId;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitVideoCharacterReplaceJob",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitVideoCharacterReplaceJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitVideoCharacterReplaceJobResponse({}));
+  }
+
+  /**
+   * Submits a video character replacement task.
+   * 
+   * @remarks
+   * Submits a video character replacement node via asynchronous commit. Invoke PrecheckVideoCharacterReplaceJob with the same AppId and AppParams to validate the input assets first.
+   * The returned JobId only indicates that the node is submitted, not completed. Use GetVideoCharacterReplaceJob or BatchGetVideoCharacterReplaceJobs to query the status and output results. ProjectId specifies the project, and FolderId specifies the file folder.
+   * 
+   * @param request - SubmitVideoCharacterReplaceJobRequest
+   * @returns SubmitVideoCharacterReplaceJobResponse
+   */
+  async submitVideoCharacterReplaceJob(request: $_model.SubmitVideoCharacterReplaceJobRequest): Promise<$_model.SubmitVideoCharacterReplaceJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitVideoCharacterReplaceJobWithOptions(request, runtime);
   }
 
   /**
@@ -1735,10 +2375,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an asynchronous video text removal job. Supports full-frame removal, time range–based removal, and region-based removal.
+   * Submits an asynchronous video text erasure task that supports full-area erasure, time ranges, and specified regions.
    * 
    * @remarks
-   * Submits an asynchronous video text removal job. The input can be an accessible video URL or a Yike media asset ID. You can configure the removal time range and text regions.
+   * Submits an asynchronous video text erasure task. The input can be an accessible video URL or a Yike video media asset ID. You can configure the erasure time range and text region.
    * 
    * @param request - SubmitVideoDetextJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1785,10 +2425,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an asynchronous video text removal job. Supports full-frame removal, time range–based removal, and region-based removal.
+   * Submits an asynchronous video text erasure task that supports full-area erasure, time ranges, and specified regions.
    * 
    * @remarks
-   * Submits an asynchronous video text removal job. The input can be an accessible video URL or a Yike media asset ID. You can configure the removal time range and text regions.
+   * Submits an asynchronous video text erasure task. The input can be an accessible video URL or a Yike video media asset ID. You can configure the erasure time range and text region.
    * 
    * @param request - SubmitVideoDetextJobRequest
    * @returns SubmitVideoDetextJobResponse
@@ -1885,6 +2525,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Submits a content understanding and creative script generation task.
+   * 
+   * @remarks
+   * Submits the original video and remake information such as new products and characters to asynchronously complete video content understanding and creative script generation. Uses the returned JobId to call GetVideoRemakeJob to query the progress and outputs. Video rendering requires a separate call to SubmitVideoRenderJob.
+   * 
+   * @param request - SubmitVideoRemakeJobRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SubmitVideoRemakeJobResponse
+   */
+  async submitVideoRemakeJobWithOptions(request: $_model.SubmitVideoRemakeJobRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SubmitVideoRemakeJobResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.input)) {
+      query["Input"] = request.input;
+    }
+
+    if (!$dara.isNull(request.remakeParams)) {
+      query["RemakeParams"] = request.remakeParams;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SubmitVideoRemakeJob",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SubmitVideoRemakeJobResponse>(await this.callApi(params, req, runtime), new $_model.SubmitVideoRemakeJobResponse({}));
+  }
+
+  /**
+   * Submits a content understanding and creative script generation task.
+   * 
+   * @remarks
+   * Submits the original video and remake information such as new products and characters to asynchronously complete video content understanding and creative script generation. Uses the returned JobId to call GetVideoRemakeJob to query the progress and outputs. Video rendering requires a separate call to SubmitVideoRenderJob.
+   * 
+   * @param request - SubmitVideoRemakeJobRequest
+   * @returns SubmitVideoRemakeJobResponse
+   */
+  async submitVideoRemakeJob(request: $_model.SubmitVideoRemakeJobRequest): Promise<$_model.SubmitVideoRemakeJobResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.submitVideoRemakeJobWithOptions(request, runtime);
+  }
+
+  /**
    * Submits a video rendering and compositing task.
    * 
    * @param request - SubmitVideoRenderJobRequest
@@ -1935,10 +2631,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an asynchronous video translation task that supports subtitle translation, voice translation, primary subtitle erasure, and on-screen text translation.
+   * Submits an asynchronous video translation task that supports subtitle translation, voice translation, primary subtitle removal, and on-screen text translation.
    * 
    * @remarks
-   * Submits an asynchronous video translation task. The input supports media URLs or Yike media asset IDs. The task parameters are used to select the source language, target language, and the translation capabilities to enable.
+   * Submits an asynchronous video translation task. The input supports a media URL or a Yike media asset ID. The task parameters are used to select the source language, target language, and the translation capabilities to be enabled.
    * 
    * @param request - SubmitVideoTranslationJobRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1997,10 +2693,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an asynchronous video translation task that supports subtitle translation, voice translation, primary subtitle erasure, and on-screen text translation.
+   * Submits an asynchronous video translation task that supports subtitle translation, voice translation, primary subtitle removal, and on-screen text translation.
    * 
    * @remarks
-   * Submits an asynchronous video translation task. The input supports media URLs or Yike media asset IDs. The task parameters are used to select the source language, target language, and the translation capabilities to enable.
+   * Submits an asynchronous video translation task. The input supports a media URL or a Yike media asset ID. The task parameters are used to select the source language, target language, and the translation capabilities to be enabled.
    * 
    * @param request - SubmitVideoTranslationJobRequest
    * @returns SubmitVideoTranslationJobResponse
@@ -2014,7 +2710,7 @@ export default class Client extends OpenApi {
    * Updates a media asset category.
    * 
    * @remarks
-   * After creating a media asset category, you can call this operation to locate and update the name of the category by category ID.
+   * After you create a media asset category, you can call this operation to update the name of the category by specifying its ID.
    * 
    * @param request - UpdateAssetCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2052,7 +2748,7 @@ export default class Client extends OpenApi {
    * Updates a media asset category.
    * 
    * @remarks
-   * After creating a media asset category, you can call this operation to locate and update the name of the category by category ID.
+   * After you create a media asset category, you can call this operation to update the name of the category by specifying its ID.
    * 
    * @param request - UpdateAssetCategoryRequest
    * @returns UpdateAssetCategoryResponse
@@ -2066,8 +2762,8 @@ export default class Client extends OpenApi {
    * Updates the information of an infinite canvas.
    * 
    * @remarks
-   * ## Operation description
-   * This API operation is used to query media asset content understanding jobs.
+   * ## Request description
+   * This API queries media asset content understanding jobs.
    * 
    * @param request - UpdateInfiniteCanvasRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2109,8 +2805,8 @@ export default class Client extends OpenApi {
    * Updates the information of an infinite canvas.
    * 
    * @remarks
-   * ## Operation description
-   * This API operation is used to query media asset content understanding jobs.
+   * ## Request description
+   * This API queries media asset content understanding jobs.
    * 
    * @param request - UpdateInfiniteCanvasRequest
    * @returns UpdateInfiniteCanvasResponse
@@ -2124,8 +2820,8 @@ export default class Client extends OpenApi {
    * Updates media asset information.
    * 
    * @remarks
-   * ## Operation description
-   * This API operation is used to query media content understanding jobs.
+   * ## Request description
+   * This API queries media asset content understanding jobs.
    * 
    * @param request - UpdateMediaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2199,8 +2895,8 @@ export default class Client extends OpenApi {
    * Updates media asset information.
    * 
    * @remarks
-   * ## Operation description
-   * This API operation is used to query media content understanding jobs.
+   * ## Request description
+   * This API queries media asset content understanding jobs.
    * 
    * @param request - UpdateMediaRequest
    * @returns UpdateMediaResponse
@@ -2208,6 +2904,58 @@ export default class Client extends OpenApi {
   async updateMedia(request: $_model.UpdateMediaRequest): Promise<$_model.UpdateMediaResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateMediaWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the name of a project.
+   * 
+   * @remarks
+   * Updates the name of a project specified by ProjectId. Use Title to specify the new name. This operation only supports modifying the project name. You cannot modify the description or cover image. The caller must have edit permissions for the project.
+   * 
+   * @param request - UpdateProjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateProjectResponse
+   */
+  async updateProjectWithOptions(request: $_model.UpdateProjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateProjectResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.title)) {
+      query["Title"] = request.title;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateProject",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateProjectResponse>(await this.callApi(params, req, runtime), new $_model.UpdateProjectResponse({}));
+  }
+
+  /**
+   * Updates the name of a project.
+   * 
+   * @remarks
+   * Updates the name of a project specified by ProjectId. Use Title to specify the new name. This operation only supports modifying the project name. You cannot modify the description or cover image. The caller must have edit permissions for the project.
+   * 
+   * @param request - UpdateProjectRequest
+   * @returns UpdateProjectResponse
+   */
+  async updateProject(request: $_model.UpdateProjectRequest): Promise<$_model.UpdateProjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateProjectWithOptions(request, runtime);
   }
 
 }

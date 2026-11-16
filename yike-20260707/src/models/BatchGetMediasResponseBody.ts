@@ -15,7 +15,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListAudioStreamInfoList
   bitrate?: string;
   /**
    * @remarks
-   * The channel output layout.
+   * The channel layout.
    * 
    * @example
    * -
@@ -31,7 +31,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListAudioStreamInfoList
   channels?: string;
   /**
    * @remarks
-   * The long name of the codec format.
+   * The long name of the codec.
    * 
    * @example
    * xx
@@ -39,7 +39,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListAudioStreamInfoList
   codecLongName?: string;
   /**
    * @remarks
-   * The short name of the codec format.
+   * The short name of the codec.
    * 
    * @example
    * H264
@@ -47,7 +47,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListAudioStreamInfoList
   codecName?: string;
   /**
    * @remarks
-   * The codec tag.
+   * The tag of the codec.
    * 
    * @example
    * xx
@@ -55,7 +55,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListAudioStreamInfoList
   codecTag?: string;
   /**
    * @remarks
-   * The codec tag string.
+   * The tag string of the codec.
    * 
    * @example
    * xx
@@ -63,7 +63,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListAudioStreamInfoList
   codecTagString?: string;
   /**
    * @remarks
-   * The codec time base.
+   * The time base of the codec.
    * 
    * @example
    * xx
@@ -111,7 +111,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListAudioStreamInfoList
   numFrames?: string;
   /**
    * @remarks
-   * The codec profile.
+   * The profile of the codec.
    * 
    * @example
    * {\\"ApiKey\\":\\"c0358c6e51c1013b446fdeb21a3a5d1c\\",\\"AppId\\":\\"5b347bfb\\",\\"ApiSecret\\":\\"a9872e2342952e248727798f642936b6\\"}
@@ -119,7 +119,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListAudioStreamInfoList
   profile?: string;
   /**
    * @remarks
-   * The sample format.
+   * The sample format of the audio stream.
    * 
    * @example
    * xx
@@ -127,7 +127,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListAudioStreamInfoList
   sampleFmt?: string;
   /**
    * @remarks
-   * The sample rate.
+   * The sample rate of the audio stream.
    * 
    * @example
    * 0.01
@@ -143,7 +143,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListAudioStreamInfoList
   startTime?: string;
   /**
    * @remarks
-   * The time base.
+   * The timebase.
    * 
    * @example
    * -
@@ -223,7 +223,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListFileBasicInfo exten
   duration?: string;
   /**
    * @remarks
-   * The file name.
+   * The name of the file.
    * 
    * @example
    * example.mp4
@@ -231,7 +231,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListFileBasicInfo exten
   fileName?: string;
   /**
    * @remarks
-   * The file size, in bytes.
+   * The size of the file in bytes.
    * 
    * @example
    * 191
@@ -239,7 +239,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListFileBasicInfo exten
   fileSize?: string;
   /**
    * @remarks
-   * The file status.
+   * The status of the file.
    * 
    * @example
    * Normal
@@ -247,7 +247,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListFileBasicInfo exten
   fileStatus?: string;
   /**
    * @remarks
-   * The file type.
+   * The type of the file.
    * 
    * @example
    * source_file
@@ -271,7 +271,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListFileBasicInfo exten
   formatName?: string;
   /**
    * @remarks
-   * The height of the file.
+   * The height of the video.
    * 
    * @example
    * 416
@@ -279,7 +279,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListFileBasicInfo exten
   height?: string;
   /**
    * @remarks
-   * The storage region of the file.
+   * The region where the file is stored.
    * 
    * @example
    * cn-shanghai
@@ -287,7 +287,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListFileBasicInfo exten
   region?: string;
   /**
    * @remarks
-   * The width of the file.
+   * The width of the video.
    * 
    * @example
    * 640
@@ -337,7 +337,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListFileBasicInfo exten
 export class BatchGetMediasResponseBodyMediaInfosFileInfoListSubtitleStreamInfoList extends $dara.Model {
   /**
    * @remarks
-   * The long name of the codec format.
+   * The long name of the codec.
    * 
    * @example
    * xx
@@ -345,7 +345,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListSubtitleStreamInfoL
   codecLongName?: string;
   /**
    * @remarks
-   * The short name of the codec format.
+   * The short name of the codec.
    * 
    * @example
    * H264
@@ -353,7 +353,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListSubtitleStreamInfoL
   codecName?: string;
   /**
    * @remarks
-   * The codec tag.
+   * The tag of the codec.
    * 
    * @example
    * xx
@@ -361,7 +361,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListSubtitleStreamInfoL
   codecTag?: string;
   /**
    * @remarks
-   * The codec tag string.
+   * The tag string of the codec.
    * 
    * @example
    * xx
@@ -369,7 +369,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListSubtitleStreamInfoL
   codecTagString?: string;
   /**
    * @remarks
-   * The codec time base.
+   * The time base of the codec.
    * 
    * @example
    * xx
@@ -409,7 +409,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListSubtitleStreamInfoL
   startTime?: string;
   /**
    * @remarks
-   * The time base.
+   * The timebase.
    * 
    * @example
    * xx
@@ -473,7 +473,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListVideoStreamInfoList
   bitrate?: string;
   /**
    * @remarks
-   * The long name of the codec format.
+   * The long name of the codec.
    * 
    * @example
    * xx
@@ -481,7 +481,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListVideoStreamInfoList
   codecLongName?: string;
   /**
    * @remarks
-   * The short name of the codec format.
+   * The short name of the codec.
    * 
    * @example
    * H264
@@ -489,7 +489,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListVideoStreamInfoList
   codecName?: string;
   /**
    * @remarks
-   * The codec tag.
+   * The tag of the codec.
    * 
    * @example
    * xx
@@ -497,7 +497,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListVideoStreamInfoList
   codecTag?: string;
   /**
    * @remarks
-   * The codec tag string.
+   * The tag string of the codec.
    * 
    * @example
    * xx
@@ -505,7 +505,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListVideoStreamInfoList
   codecTagString?: string;
   /**
    * @remarks
-   * The codec time base.
+   * The time base of the codec.
    * 
    * @example
    * xx
@@ -513,7 +513,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListVideoStreamInfoList
   codecTimeBase?: string;
   /**
    * @remarks
-   * The display aspect ratio (DAR).
+   * The display aspect ratio.
    * 
    * @example
    * xx
@@ -545,7 +545,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListVideoStreamInfoList
   hasBFrames?: string;
   /**
    * @remarks
-   * The height of the file.
+   * The height of the video.
    * 
    * @example
    * 0
@@ -601,7 +601,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListVideoStreamInfoList
   pixFmt?: string;
   /**
    * @remarks
-   * The codec profile.
+   * The profile of the codec.
    * 
    * @example
    * {\\"ApiKey\\":\\"c0358c6e51c1013b446fdeb21a3a5d1c\\",\\"AppId\\":\\"5b347bfb\\",\\"ApiSecret\\":\\"a9872e2342952e248727798f642936b6\\"}
@@ -609,7 +609,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListVideoStreamInfoList
   profile?: string;
   /**
    * @remarks
-   * The rotation angle.
+   * The rotation.
    * 
    * @example
    * xx
@@ -617,7 +617,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListVideoStreamInfoList
   rotate?: string;
   /**
    * @remarks
-   * The sample aspect ratio (SAR).
+   * The sample aspect ratio.
    * 
    * @example
    * xx
@@ -633,7 +633,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListVideoStreamInfoList
   startTime?: string;
   /**
    * @remarks
-   * The time base.
+   * The timebase.
    * 
    * @example
    * xx
@@ -641,7 +641,7 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoListVideoStreamInfoList
   timebase?: string;
   /**
    * @remarks
-   * The width of the file.
+   * The width of the video.
    * 
    * @example
    * 720
@@ -727,12 +727,12 @@ export class BatchGetMediasResponseBodyMediaInfosFileInfoList extends $dara.Mode
   fileBasicInfo?: BatchGetMediasResponseBodyMediaInfosFileInfoListFileBasicInfo;
   /**
    * @remarks
-   * The subtitle stream information. A media asset may have multiple subtitle streams.
+   * The subtitle stream information. A media asset may contain multiple subtitle streams.
    */
   subtitleStreamInfoList?: BatchGetMediasResponseBodyMediaInfosFileInfoListSubtitleStreamInfoList[];
   /**
    * @remarks
-   * The video stream information. A media asset may have multiple video streams.
+   * The video stream information. A media asset may contain multiple video streams.
    */
   videoStreamInfoList?: BatchGetMediasResponseBodyMediaInfosFileInfoListVideoStreamInfoList[];
   static names(): { [key: string]: string } {
@@ -795,7 +795,7 @@ export class BatchGetMediasResponseBodyMediaInfosMediaBasicInfo extends $dara.Mo
   createTime?: string;
   /**
    * @remarks
-   * The description of the media asset content.
+   * The description of the media asset.
    * 
    * @example
    * sample_description
@@ -803,7 +803,7 @@ export class BatchGetMediasResponseBodyMediaInfosMediaBasicInfo extends $dara.Mo
   description?: string;
   /**
    * @remarks
-   * The address of the media asset to be registered in the corresponding system.
+   * The URL of the media asset to be registered in the corresponding system.
    * 
    * @example
    * https://example-bucket.oss-cn-shanghai.aliyuncs.com/example.mp4
@@ -943,7 +943,7 @@ export class BatchGetMediasResponseBodyMediaInfosMediaBasicInfo extends $dara.Mo
 export class BatchGetMediasResponseBodyMediaInfosMediaDynamicInfoDynamicMetaData extends $dara.Model {
   /**
    * @remarks
-   * The dynamic metadata content.
+   * The content of the dynamic metadata.
    * 
    * @example
    * 05D92F7EE52363AE3C95FB23EC56611929613720
@@ -1013,23 +1013,32 @@ export class BatchGetMediasResponseBodyMediaInfos extends $dara.Model {
   mediaBasicInfo?: BatchGetMediasResponseBodyMediaInfosMediaBasicInfo;
   /**
    * @remarks
-   * The dynamic data of the media entity.
+   * The dynamic data of the entity.
    */
   mediaDynamicInfo?: BatchGetMediasResponseBodyMediaInfosMediaDynamicInfo;
   /**
    * @remarks
-   * The media asset ID.
+   * The ID of the media asset.
    * 
    * @example
    * ******c48fb37407365d4f2cd8******
    */
   mediaId?: string;
+  /**
+   * @remarks
+   * The project ID.
+   * 
+   * @example
+   * pd_123456
+   */
+  projectId?: string;
   static names(): { [key: string]: string } {
     return {
       fileInfoList: 'FileInfoList',
       mediaBasicInfo: 'MediaBasicInfo',
       mediaDynamicInfo: 'MediaDynamicInfo',
       mediaId: 'MediaId',
+      projectId: 'ProjectId',
     };
   }
 
@@ -1039,6 +1048,7 @@ export class BatchGetMediasResponseBodyMediaInfos extends $dara.Model {
       mediaBasicInfo: BatchGetMediasResponseBodyMediaInfosMediaBasicInfo,
       mediaDynamicInfo: BatchGetMediasResponseBodyMediaInfosMediaDynamicInfo,
       mediaId: 'string',
+      projectId: 'string',
     };
   }
 
@@ -1068,7 +1078,7 @@ export class BatchGetMediasResponseBody extends $dara.Model {
   ignoredList?: string[];
   /**
    * @remarks
-   * The collection of media assets that meet the specified criteria.
+   * The collection of media assets that meet the requirements.
    */
   mediaInfos?: BatchGetMediasResponseBodyMediaInfos[];
   /**

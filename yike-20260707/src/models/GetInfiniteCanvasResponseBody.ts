@@ -85,7 +85,7 @@ export class GetInfiniteCanvasResponseBodyInfiniteCanvas extends $dara.Model {
 export class GetInfiniteCanvasResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The infinite canvas details.
+   * The details of the infinite canvas.
    */
   infiniteCanvas?: GetInfiniteCanvasResponseBodyInfiniteCanvas;
   /**

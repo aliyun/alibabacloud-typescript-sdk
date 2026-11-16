@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRemakeScriptJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The job ID.
+   * The task ID.
    * 
    * @example
    * 68ca759e798b40b4903b255*******

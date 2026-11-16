@@ -21,7 +21,7 @@ export class CancelGenerationJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task status. The value is Canceled.
+   * The task status, which is Canceled.
    * 
    * @example
    * Canceled

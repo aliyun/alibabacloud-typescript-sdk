@@ -13,7 +13,7 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   aspectRatio?: string;
   /**
    * @remarks
-   * The video duration. Unit: seconds.
+   * The video duration, in seconds.
    * 
    * @example
    * 5
@@ -21,7 +21,7 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   duration?: string;
   /**
    * @remarks
-   * The error message. This parameter is returned only when the task is in the Failed state.
+   * The error message. The value is a string. This parameter is returned only when the job status is Failed.
    * 
    * @example
    * Input file not found.
@@ -29,15 +29,15 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   errorMessage?: string;
   /**
    * @remarks
-   * The task input.
+   * The job input.
    * 
    * @example
-   * {"Prompt":"Person in image 1 is on a basketball court, dunking with image 2","Medias":[{"Type":"image","Url":"https://xxx/xxx.jpg"},{"Type":"image","Url":"https://xxx/xxx.jpg"}]}
+   * {"Prompt":"Image 1 is on the basketball court, performing a slam dunk with Image 2","Medias":[{"Type":"image","Url":"https://xxx/xxx.jpg"},{"Type":"image","Url":"https://xxx/xxx.jpg"}]}
    */
   input?: string;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * @example
    * fdc7f121056249c2b64e04bba27bcc8c
@@ -45,7 +45,7 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   jobId?: string;
   /**
    * @remarks
-   * The task feature configuration. No configuration is required at this time.
+   * The job feature configurations. This parameter does not require configuration at this time.
    * 
    * @example
    * {}
@@ -53,7 +53,7 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   jobParameters?: string;
   /**
    * @remarks
-   * The task type.
+   * The job type.
    * 
    * @example
    * first_last_frame
@@ -77,11 +77,11 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   n?: number;
   /**
    * @remarks
-   * The generation result in JsonString format, which contains:
+   * The generation result. The value is a JSON string that contains the following fields:
    * 
-   * Medias: a list of media information (Media objects). Fields of a Media object:
+   * Medias: the list of media information (Media objects). Fields of a Media object:
    * MediaId: String. The media asset ID.
-   * OutputUrl: String. The media URL (with authentication string).
+   * OutputUrl: String. The media URL, including the authentication string.
    * 
    * @example
    * {\\"Medias\\":[{\\"MediaId\\":\\"*****470732171f1bfcaf7f6d44*****\\",\\"OutputUrl\\":\\"https://xxxxxxx/.../xxxxx.mp4?Expires=xxxx&OSSAccessKeyId=xxx&Signature=xxxx\\"}]}
@@ -97,7 +97,7 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   resolution?: string;
   /**
    * @remarks
-   * The scene type. Currently only general is supported.
+   * The scene type. Currently, only general is supported.
    * 
    * @example
    * general
@@ -105,13 +105,12 @@ export class GetVideoGenerationJobResponseBodyVideoGenerationJob extends $dara.M
   scene?: string;
   /**
    * @remarks
-   * The task status. Valid values:
-   * 
-   * - Created: The task is created.
-   * - Queuing: The task is queuing.
-   * - Executing: The task is being executed.
-   * - Finished: The task is completed.
-   * - Failed: The task failed.
+   * The job status. Valid values:
+   * - Created: The job is created.
+   * - Queuing: The job is queued.
+   * - Executing: The job is executing.
+   * - Finished: The job succeeded.
+   * - Failed: The job failed.
    * 
    * @example
    * Executing
@@ -183,7 +182,7 @@ export class GetVideoGenerationJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The video generation task.
+   * The video generation job.
    */
   videoGenerationJob?: GetVideoGenerationJobResponseBodyVideoGenerationJob;
   static names(): { [key: string]: string } {

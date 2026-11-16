@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetImageGenerationJobResponseBodyImageGenerationJob extends $dara.Model {
   /**
    * @remarks
-   * The video aspect ratio.
+   * The aspect ratio of the video.
    * 
    * @example
    * 16:9
@@ -13,7 +13,7 @@ export class GetImageGenerationJobResponseBodyImageGenerationJob extends $dara.M
   aspectRatio?: string;
   /**
    * @remarks
-   * The error message. This parameter is returned only when the task is in the Failed state.
+   * The error message. The value is a string. This field is returned when the job status is Failed.
    * 
    * @example
    * Input file not found.
@@ -21,15 +21,15 @@ export class GetImageGenerationJobResponseBodyImageGenerationJob extends $dara.M
   errorMessage?: string;
   /**
    * @remarks
-   * The task input.
+   * The job input.
    * 
    * @example
-   * {"Prompt":"Image 1 is on a basketball court, using Image 2 to perform a slam dunk"}
+   * {"Prompt":"Image 1 is on the basketball court, performing a slam dunk using Image 2"}
    */
   input?: string;
   /**
    * @remarks
-   * The task ID.
+   * The job ID.
    * 
    * @example
    * ag_68ca759b4903b255*******
@@ -37,7 +37,7 @@ export class GetImageGenerationJobResponseBodyImageGenerationJob extends $dara.M
   jobId?: string;
   /**
    * @remarks
-   * The task feature configuration. No configuration is required at this time.
+   * The job feature configurations. No configuration is required at this time.
    * 
    * @example
    * {}
@@ -45,7 +45,7 @@ export class GetImageGenerationJobResponseBodyImageGenerationJob extends $dara.M
   jobParameters?: string;
   /**
    * @remarks
-   * The task type.
+   * The job type.
    * 
    * @example
    * text_to_image
@@ -69,10 +69,10 @@ export class GetImageGenerationJobResponseBodyImageGenerationJob extends $dara.M
   n?: string;
   /**
    * @remarks
-   * The generation result in JSON string format. Fields:
-   * - Medias: a list of media information (Media objects). Fields of a Media object:
+   * The generation result. The value is a JSON string that contains the following fields:
+   * - Medias: the list of media information (Media objects). A Media object contains the following fields:
    *   - MediaId: String. The media asset ID.
-   *   - OutputUrl: String. The media URL (with authentication string).
+   *   - OutputUrl: String. The media URL, including the authentication string.
    * 
    * @example
    * {"Medias":[{"MediaId":"***e3700761971f19c32e7e7d5496***","OutputUrl":"https://**bucket**.oss-ap-southeast-1.aliyuncs.com/xxx.prd"}]}
@@ -88,7 +88,7 @@ export class GetImageGenerationJobResponseBodyImageGenerationJob extends $dara.M
   resolution?: string;
   /**
    * @remarks
-   * The scene type. Currently only `general` is supported.
+   * The scene type. Currently, only `general` is supported.
    * 
    * @example
    * general
@@ -96,12 +96,12 @@ export class GetImageGenerationJobResponseBodyImageGenerationJob extends $dara.M
   scene?: string;
   /**
    * @remarks
-   * The task status. Valid values:
-   * - Created: The task is created.
-   * - Queuing: The task is queuing.
-   * - Executing: The task is being executed.
-   * - Finished: The task is completed.
-   * - Failed: The task failed.
+   * The job status. Valid values:
+   * - Created: The job is created.
+   * - Queuing: The job is queuing.
+   * - Executing: The job is executing.
+   * - Finished: The job succeeded.
+   * - Failed: The job failed.
    * 
    * @example
    * Executing
@@ -163,7 +163,7 @@ export class GetImageGenerationJobResponseBodyImageGenerationJob extends $dara.M
 export class GetImageGenerationJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The image generation task.
+   * The image generation job.
    */
   imageGenerationJob?: GetImageGenerationJobResponseBodyImageGenerationJob;
   /**
