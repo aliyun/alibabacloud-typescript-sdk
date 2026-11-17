@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteConfigGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of configuration group IDs to delete.
+   * The IDs of the configuration groups to delete.
    */
   groupIds?: string[];
   /**
    * @remarks
-   * The region ID. This operation is not region-specific. Set this parameter to `cn-shanghai`.
+   * The region ID. This feature is not region-specific. Set this parameter to `cn-shanghai`.
    * 
    * @example
    * cn-shanghai

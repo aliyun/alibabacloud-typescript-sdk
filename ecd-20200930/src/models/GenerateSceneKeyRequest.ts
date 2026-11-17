@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GenerateSceneKeyRequest extends $dara.Model {
   /**
    * @remarks
-   * The cloud desktop ID.
+   * The Cloud Desktop ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GenerateSceneKeyRequest extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The validity period of the key, in hours. A value of 0 indicates that the key never expires. If this parameter is not specified, the default server value is used.
+   * The validity period of the key, in hours. A value of 0 indicates that the key never expires. If this parameter is not specified, the default value on the server is used.
    * 
    * @example
    * 6

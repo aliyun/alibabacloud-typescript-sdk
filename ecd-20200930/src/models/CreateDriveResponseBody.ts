@@ -13,7 +13,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
   aliUid?: string;
   /**
    * @remarks
-   * The storage resource description.
+   * The description of the storage resource.
    * 
    * @example
    * test****
@@ -29,7 +29,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
   domainId?: string;
   /**
    * @remarks
-   * The user-level storage resource ID.
+   * The ID of the user-level storage resource.
    * 
    * @example
    * dri-aaaa****
@@ -37,8 +37,8 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
   driveId?: string;
   /**
    * @remarks
-   * The external user-level storage resource ID.
-   * > This parameter is returned only when the storage resource type is PDS.
+   * The ID of the external user-level storage resource.
+   * > This parameter is returned only when the storage resource is PDS.
    * 
    * @example
    * 1100****
@@ -70,7 +70,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * ID。
+   * The ID.
    * 
    * @example
    * 1
@@ -78,7 +78,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The storage resource name.
+   * The name of the storage resource.
    * 
    * @example
    * test****
@@ -86,7 +86,7 @@ export class CreateDriveResponseBodyDrive extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * > This parameter is deprecated.
+   * > **[Deprecated]**
    * 
    * @example
    * true

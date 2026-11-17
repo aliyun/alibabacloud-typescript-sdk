@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteTemplatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details about the access denial.
+   * The details of the access denial.
    * 
    * @example
    * None
@@ -13,7 +13,7 @@ export class DeleteTemplatesResponseBody extends $dara.Model {
   accessDeniedDetail?: string;
   /**
    * @remarks
-   * The operation result. A value of `success` indicates success. Otherwise, an error message is returned.
+   * The operation result. A value of `success` indicates that the operation was successful. Otherwise, an error message is returned.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class DeleteTemplatesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The error message. This parameter is not returned if Code is `success`.
+   * The error message. This parameter is not returned when Code is `success`.
    * 
    * @example
    * success

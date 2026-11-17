@@ -16,7 +16,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevicesAdUser extend
    * The new display name of the user.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   displayNameNew?: string;
   /**
@@ -78,7 +78,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
   consecutiveFails?: number;
   /**
    * @remarks
-   * > This parameter is in invitational preview and is not publicly available.
+   * > This parameter is in invitational preview and is not yet available.
    * 
    * @example
    * cn-hangzhou+dir-gx2x1dhsmu52rd****
@@ -94,7 +94,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
   endUserId?: string;
   /**
    * @remarks
-   * The time when the virtual MFA device was enabled. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the virtual MFA device is enabled. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format and is in UTC.
    * 
    * @example
    * 2020-12-20T14:52:28Z
@@ -102,7 +102,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
   gmtEnabled?: string;
   /**
    * @remarks
-   * The automatic unlock time after the virtual MFA device is locked. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format. The time is displayed in UTC.
+   * The time when the virtual MFA device is automatically unlocked after being locked. The time follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the YYYY-MM-DDThh:mm:ssZ format and is in UTC.
    * 
    * @example
    * 2020-12-21T15:21:28Z
@@ -110,7 +110,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
   gmtUnlock?: string;
   /**
    * @remarks
-   * The office network ID.
+   * The ID of the office network.
    * 
    * @example
    * cn-hangzhou+dir-269345****
@@ -175,7 +175,7 @@ export class DescribeVirtualMFADevicesResponseBodyVirtualMFADevices extends $dar
 export class DescribeVirtualMFADevicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token for the next query. If NextToken is empty, no more results exist.
+   * The pagination token for the next query. An empty NextToken indicates that no more results are available.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL23as
@@ -191,7 +191,7 @@ export class DescribeVirtualMFADevicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about virtual MFA devices.
+   * The virtual MFA device information.
    */
   virtualMFADevices?: DescribeVirtualMFADevicesResponseBodyVirtualMFADevices[];
   static names(): { [key: string]: string } {

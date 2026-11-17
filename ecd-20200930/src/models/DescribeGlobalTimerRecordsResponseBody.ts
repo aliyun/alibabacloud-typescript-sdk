@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   /**
    * @remarks
-   * The type of action that was performed.
+   * The type of action performed.
    * 
    * @example
    * REBOOT
@@ -21,7 +21,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   batchId?: string;
   /**
    * @remarks
-   * The record information during the execution of the scheduled task.
+   * The record information generated during the execution of the scheduled task.
    * 
    * @example
    * {}
@@ -30,7 +30,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   /**
    * @remarks
    * The time when the record was created.
-   * The time is in the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
+   * The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2023-08-03T08:27:29Z
@@ -38,7 +38,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The cloud computer ID.
+   * The cloud desktop ID.
    * 
    * @example
    * ecd-0c951fy9arnk9****
@@ -46,7 +46,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The name of the cloud computer.
+   * The name of the cloud desktop.
    * 
    * @example
    * DesktopName
@@ -54,7 +54,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * The display result name.
+   * The display name of the result.
    * 
    * @example
    * SKIPPED
@@ -63,7 +63,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   /**
    * @remarks
    * The time when the task ended.
-   * The time follows the ISO 8601 standard in UTC: yyyy-MM-ddTHH:mm:ssZ.
+   * The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2025-01-21T02:00:45Z
@@ -79,7 +79,7 @@ export class DescribeGlobalTimerRecordsResponseBodyResults extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource parent.
+   * The ID of the parent resource.
    * 
    * @example
    * p-xxx
@@ -185,7 +185,7 @@ export class DescribeGlobalTimerRecordsResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The token for the next query. If NextToken is empty, no more results exist.
+   * The token used to start the next query. An empty NextToken indicates that no more results are available.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6mnFXZiT7NdvGNgkInJ****
@@ -201,7 +201,7 @@ export class DescribeGlobalTimerRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result information.
+   * The returned results.
    */
   results?: DescribeGlobalTimerRecordsResponseBodyResults[];
   static names(): { [key: string]: string } {

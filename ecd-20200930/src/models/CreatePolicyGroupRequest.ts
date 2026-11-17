@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePolicyGroupRequestAuthorizeAccessPolicyRule extends $dara.Model {
   /**
    * @remarks
-   * The client access IP CIDR block. The value is an IPv4 CIDR block in CIDR notation.
+   * The client access CIDR block. The value must be an IPv4 CIDR block.
    * 
    * @example
    * 47.100.XX.XX/16
@@ -13,10 +13,10 @@ export class CreatePolicyGroupRequestAuthorizeAccessPolicyRule extends $dara.Mod
   cidrIp?: string;
   /**
    * @remarks
-   * The description of the client IP whitelist rule.
+   * The description of the client IP address whitelist.
    * 
    * @example
-   * North China branch office
+   * North China branch
    */
   description?: string;
   static names(): { [key: string]: string } {
@@ -45,7 +45,7 @@ export class CreatePolicyGroupRequestAuthorizeAccessPolicyRule extends $dara.Mod
 export class CreatePolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.Model {
   /**
    * @remarks
-   * The object of the security group rule. The value is an IPv4 CIDR block in CIDR notation.
+   * The destination of the security group control rule, which is an IPv4 CIDR block.
    * 
    * @example
    * 47.100.XX.XX/16
@@ -53,7 +53,7 @@ export class CreatePolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.M
   cidrIp?: string;
   /**
    * @remarks
-   * The description of the security group rule.
+   * The description of the security group control rule.
    * 
    * @example
    * Allow access to the internal R&D environment
@@ -61,7 +61,7 @@ export class CreatePolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.M
   description?: string;
   /**
    * @remarks
-   * The protocol type of the security group rule.
+   * The protocol type of the security group control rule.
    * 
    * @example
    * tcp
@@ -69,7 +69,7 @@ export class CreatePolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.M
   ipProtocol?: string;
   /**
    * @remarks
-   * The authorization policy of the security group rule.
+   * The authorization policy of the security group control rule.
    * 
    * @example
    * accept
@@ -77,14 +77,14 @@ export class CreatePolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.M
   policy?: string;
   /**
    * @remarks
-   * The port range of the security group rule. The valid values of this parameter are determined by the value of IpProtocol:
+   * The port range of the security group control rule. The valid port range depends on the value of the IpProtocol parameter:
    * 
-   * - TCP or UDP: Valid values are 1 to 65535. Separate the start port and the end port with a forward slash (/). Example: 1/200.
-   * - ICMP: -1/-1.
-   * - GRE: -1/-1.
-   * - If IpProtocol is set to all: -1/-1.
+   * - TCP or UDP: The port range is 1 to 65535. Use a forward slash (/) to separate the start port and the end port. Example: 1/200.
+   * - ICMP: Set the value to -1/-1.
+   * - GRE: Set the value to -1/-1.
+   * - If IpProtocol is set to all: Set the value to -1/-1.
    * 
-   * For more information about the common ports of typical applications, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
+   * For more information about common ports used by typical applications, see [Common ports](https://help.aliyun.com/document_detail/40724.html).
    * 
    * @example
    * 22/22
@@ -92,10 +92,8 @@ export class CreatePolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.M
   portRange?: string;
   /**
    * @remarks
-   * The priority of the security group access control rule. A smaller value indicates a higher priority.
-   * 
-   * Valid values: 1 to 60.
-   * 
+   * The priority of the security group control rule. A smaller value indicates a higher priority.    
+   * Valid values: 1 to 60.    
    * Default value: 1.
    * 
    * @example
@@ -104,7 +102,7 @@ export class CreatePolicyGroupRequestAuthorizeSecurityPolicyRule extends $dara.M
   priority?: string;
   /**
    * @remarks
-   * The direction of the security group rule.
+   * The direction of the security group control rule.
    * 
    * @example
    * inflow
@@ -148,15 +146,17 @@ export class CreatePolicyGroupRequestClientType extends $dara.Model {
    * @remarks
    * The client type for logon method control.
    * 
+   * > If you do not specify the ClientType parameters, all types of clients are allowed to log on to the cloud computer by default.
+   * 
    * @example
    * windows
    */
   clientType?: string;
   /**
    * @remarks
-   * Specifies whether to allow users to log on to cloud desktops by using a specific type of client.
+   * Specifies whether to allow a specific type of client to log on to the cloud computer.
    * 
-   * > If you do not set `ClientType`-related parameters, all types of clients are allowed to log on to cloud desktops by default.
+   * > If you do not specify the ClientType parameters, all types of clients are allowed to log on to the cloud computer by default.
    * 
    * @example
    * ON
@@ -188,7 +188,7 @@ export class CreatePolicyGroupRequestClientType extends $dara.Model {
 export class CreatePolicyGroupRequestDeviceRedirects extends $dara.Model {
   /**
    * @remarks
-   * The peripheral type.
+   * The type of the peripheral.
    * 
    * @example
    * camera
@@ -228,7 +228,7 @@ export class CreatePolicyGroupRequestDeviceRedirects extends $dara.Model {
 export class CreatePolicyGroupRequestDeviceRules extends $dara.Model {
   /**
    * @remarks
-   * The device name.
+   * The name of the device.
    * 
    * @example
    * sandisk
@@ -244,7 +244,7 @@ export class CreatePolicyGroupRequestDeviceRules extends $dara.Model {
   devicePid?: string;
   /**
    * @remarks
-   * The peripheral type.
+   * The type of the peripheral.
    * 
    * @example
    * storage
@@ -252,7 +252,7 @@ export class CreatePolicyGroupRequestDeviceRules extends $dara.Model {
   deviceType?: string;
   /**
    * @remarks
-   * The vendor ID. See [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+   * The vendor ID. For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
    * 
    * @example
    * 0x0781
@@ -260,7 +260,7 @@ export class CreatePolicyGroupRequestDeviceRules extends $dara.Model {
   deviceVid?: string;
   /**
    * @remarks
-   * The link optimization instruction.
+   * The link optimization command.
    * 
    * @example
    * 2:0
@@ -376,7 +376,7 @@ export class CreatePolicyGroupRequestUsbSupplyRedirectRule extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The device class. This parameter is required when `usbRuleType` is set to 1. See [Defined Class Codes](https://www.usb.org/defined-class-codes).
+   * The device class. This parameter is required when usbRuleType is set to 1. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes).
    * 
    * @example
    * 0Eh
@@ -384,7 +384,7 @@ export class CreatePolicyGroupRequestUsbSupplyRedirectRule extends $dara.Model {
   deviceClass?: string;
   /**
    * @remarks
-   * The device subclass. This parameter is required when `usbRuleType` is set to 1. See [Defined Class Codes](https://www.usb.org/defined-class-codes).
+   * The device subclass. This parameter is required when usbRuleType is set to 1. For more information, see [Defined Class Codes](https://www.usb.org/defined-class-codes).
    * 
    * @example
    * xxh
@@ -416,7 +416,7 @@ export class CreatePolicyGroupRequestUsbSupplyRedirectRule extends $dara.Model {
   usbRuleType?: number;
   /**
    * @remarks
-   * The vendor ID. See [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
+   * The vendor ID. For more information, see [Valid USB Vendor IDs (VIDs)](https://www.usb.org/sites/default/files/vendor_ids032322.pdf_1.pdf).
    * 
    * @example
    * 04**
@@ -458,7 +458,9 @@ export class CreatePolicyGroupRequestUsbSupplyRedirectRule extends $dara.Model {
 export class CreatePolicyGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether users have administrator permissions after logging on to the cloud desktop.
+   * Specifies whether the user has administrator permissions after logging on to the cloud computer.
+   * 
+   * > This feature is in targeted invitation-only testing and is not yet publicly available.
    * 
    * @example
    * deny
@@ -466,7 +468,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   adminAccess?: string;
   /**
    * @remarks
-   * Specifies whether to enable the anti-screenshot feature.
+   * Specifies whether to enable the screen capture prevention feature.
    * 
    * @example
    * off
@@ -474,12 +476,12 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   appContentProtection?: string;
   /**
    * @remarks
-   * The list of client IP whitelist rules. After you configure this parameter, only IP addresses within the whitelisted CIDR blocks can access the cloud computer.
+   * The client IP address whitelist. After you configure this parameter, only IP addresses in the whitelisted CIDR blocks can access the cloud desktop.
    */
   authorizeAccessPolicyRule?: CreatePolicyGroupRequestAuthorizeAccessPolicyRule[];
   /**
    * @remarks
-   * The list of security group rules.
+   * The security group control rules.
    */
   authorizeSecurityPolicyRule?: CreatePolicyGroupRequestAuthorizeSecurityPolicyRule[];
   /**
@@ -492,12 +494,12 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   cameraRedirect?: string;
   /**
    * @remarks
-   * The list of logon method control rules. Specifies which client types are allowed to access cloud desktops.
+   * The list of logon method control rules. Specifies which clients can access the cloud computer.
    */
   clientType?: CreatePolicyGroupRequestClientType[];
   /**
    * @remarks
-   * The clipboard permission.
+   * The clipboard permissions.
    * 
    * @example
    * off
@@ -515,7 +517,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   deviceRules?: CreatePolicyGroupRequestDeviceRules[];
   /**
    * @remarks
-   * The domain name access control setting. Domain names support wildcards (\\*). Separate multiple domain names with commas (,).
+   * The domain name access control settings. Domain names support wildcards (*). Separate multiple domain names with commas (,).
    * 
    * @example
    * off
@@ -536,7 +538,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   domainResolveRuleType?: string;
   /**
    * @remarks
-   * Specifies whether to enable the feature that allows users to request administrator assistance.
+   * Specifies whether regular users can request administrator assistance.
    * 
    * @example
    * ON
@@ -544,7 +546,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   endUserApplyAdminCoordinate?: string;
   /**
    * @remarks
-   * Specifies whether to enable stream collaboration between users.
+   * Specifies whether stream collaboration between users is enabled.
    * 
    * @example
    * ON
@@ -552,7 +554,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   endUserGroupCoordinate?: string;
   /**
    * @remarks
-   * Specifies whether to enable the image quality policy for graphics-type cloud desktops. Enable this policy when high performance and user experience are required, such as in professional design scenarios.
+   * Specifies whether to enable the image quality policy for cloud computers with graphics-optimized specifications. Enable this policy when high performance and user experience are required, such as in professional design scenarios.
    * 
    * @example
    * off
@@ -561,6 +563,8 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   /**
    * @remarks
    * The web client access policy.
+   * 
+   * > Use the `ClientType` parameter to manage logon methods in a unified manner.
    * 
    * @example
    * off
@@ -584,7 +588,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   internetCommunicationProtocol?: string;
   /**
    * @remarks
-   * The local disk mapping permission.
+   * The local disk mapping permissions.
    * 
    * @example
    * off
@@ -592,7 +596,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   localDrive?: string;
   /**
    * @remarks
-   * The maximum reconnection retry time when the cloud desktop is disconnected due to objective reasons. Valid values: 30 to 7200. Unit: seconds.
+   * The maximum retry time for reconnecting to a cloud computer after it is disconnected due to objective reasons. Valid values: 30 to 7200. Unit: seconds.
    * 
    * @example
    * 120
@@ -600,7 +604,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   maxReconnectTime?: number;
   /**
    * @remarks
-   * The policy name.
+   * The Policy Name.
    * 
    * @example
    * testPolicyGroupName
@@ -610,15 +614,17 @@ export class CreatePolicyGroupRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable network redirection.
    * 
+   * > This feature is in invitational preview and is not publicly available.
+   * 
    * @example
    * off
    */
   netRedirect?: string;
   /**
    * @remarks
-   * The preemption policy for the cloud desktop.
+   * The cloud desktop preemption policy.
    * 
-   * > To ensure the user experience and data security of end users who are using the cloud desktop, preemption between multiple users is not allowed. This parameter is set to `off` by default and cannot be modified.
+   * > To ensure the user experience and data security of the end user who is using the cloud desktop, preemption among multiple users is not allowed. This configuration defaults to `off` and cannot be modified.
    * 
    * @example
    * off
@@ -626,8 +632,8 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   preemptLogin?: string;
   /**
    * @remarks
-   * The usernames of users who are allowed to preempt the cloud desktop. You can specify up to 5 usernames.
-   * > To ensure the user experience and data security of end users who are using the cloud desktop, mutual preemption among multiple users is not supported.
+   * The usernames of the users who are allowed to preempt the cloud desktop. You can specify up to five usernames.
+   * > To ensure the user experience and data security of the end user who is using the cloud desktop, preemption among multiple users is not allowed.
    * 
    * @example
    * Alice
@@ -667,7 +673,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   recording?: string;
   /**
    * @remarks
-   * The option for recording cloud desktop audio.
+   * The option for recording the audio of the cloud computer.
    * 
    * @example
    * on
@@ -675,7 +681,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   recordingAudio?: string;
   /**
    * @remarks
-   * The duration of each screen recording file segment. Unit: minutes. Recording files are automatically split and uploaded to the storage space based on the specified duration. Files are rolled over when they reach 300 MB.
+   * The viewing duration of screen recording files. Unit: minutes. Recorded files are automatically split and uploaded to the storage space based on the specified duration. When a file reaches 300 MB, it is rotated.
    * 
    * @example
    * 10
@@ -683,7 +689,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   recordingDuration?: number;
   /**
    * @remarks
-   * The end time of screen recording in the format of HH:MM:SS. This parameter takes effect only when `Recording` is set to `PERIOD`.
+   * The end time for screen recording. Format: HH:MM:SS. This parameter takes effect only when Recording is set to PERIOD.
    * 
    * @example
    * 08:59:00
@@ -699,7 +705,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   recordingExpires?: number;
   /**
    * @remarks
-   * The frame rate of screen recording. Unit: FPS (frames per second).
+   * The frame rate for screen recording. Unit: FPS (frames per second).
    * 
    * @example
    * 2
@@ -707,7 +713,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   recordingFps?: number;
   /**
    * @remarks
-   * The start time of screen recording in the format of HH:MM:SS. This parameter takes effect only when `Recording` is set to `PERIOD`.
+   * The start time for screen recording. Format: HH:MM:SS. This parameter takes effect only when Recording is set to PERIOD.
    * 
    * @example
    * 08:00:00
@@ -715,7 +721,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   recordingStartTime?: string;
   /**
    * @remarks
-   * The screen recording client notification feature.
+   * The screen recording notification feature for the client.
    * 
    * @example
    * off
@@ -723,15 +729,15 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   recordingUserNotify?: string;
   /**
    * @remarks
-   * The notification content for the screen recording client. Leave this parameter empty by default.
+   * The content of the screen recording notification displayed on the client. You do not need to specify this parameter by default.
    * 
    * @example
-   * Your cloud desktop is being recorded
+   * Your cloud computer is being recorded
    */
   recordingUserNotifyMessage?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by WUYING Workspace.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 
@@ -749,7 +755,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   remoteCoordinate?: string;
   /**
    * @remarks
-   * The scope of the policy.
+   * The effective scope of the policy.
    * 
    * @example
    * GLOBAL
@@ -757,12 +763,12 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The scope value. This parameter is required when `Scope` is set to `IP`. This parameter takes effect only when `Scope` is set to `IP`.
+   * This parameter is required when Scope is set to IP. This parameter takes effect only when Scope is set to IP.
    */
   scopeValue?: string[];
   /**
    * @remarks
-   * The USB redirection setting.
+   * The USB redirection settings.
    * 
    * @example
    * off
@@ -770,12 +776,12 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   usbRedirect?: string;
   /**
    * @remarks
-   * The USB redirection rules.
+   * The USB redirection rule.
    */
   usbSupplyRedirectRule?: CreatePolicyGroupRequestUsbSupplyRedirectRule[];
   /**
    * @remarks
-   * Multimedia redirection.
+   * The multimedia redirection setting.
    * 
    * @example
    * on
@@ -791,7 +797,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   visualQuality?: string;
   /**
    * @remarks
-   * The watermark setting.
+   * The watermark settings.
    * 
    * @example
    * off
@@ -799,7 +805,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   watermark?: string;
   /**
    * @remarks
-   * The anti-camera capture feature for invisible watermarks.
+   * The anti-camera capture feature for blind watermarks.
    * 
    * @example
    * off
@@ -807,7 +813,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   watermarkAntiCam?: string;
   /**
    * @remarks
-   * The watermark font color. Valid values: 0 to 16777215.
+   * The font color of the watermark. Valid values: 0 to 16777215.
    * 
    * @example
    * 0
@@ -815,7 +821,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   watermarkColor?: number;
   /**
    * @remarks
-   * The watermark tilt angle. Valid values: -10 to -30.
+   * The tilt angle of the watermark. Valid values: -10 to -30.
    * 
    * @example
    * -10
@@ -823,7 +829,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   watermarkDegree?: number;
   /**
    * @remarks
-   * The watermark font size. Valid values: 10 to 20.
+   * The font size of the watermark. Valid values: 10 to 20.
    * 
    * @example
    * 10
@@ -831,7 +837,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   watermarkFontSize?: number;
   /**
    * @remarks
-   * The watermark font style.
+   * The font style of the watermark.
    * 
    * @example
    * plain
@@ -839,7 +845,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   watermarkFontStyle?: string;
   /**
    * @remarks
-   * The enhancement level for invisible watermarks.
+   * The enhancement feature for blind watermarks.
    * 
    * @example
    * medium
@@ -849,13 +855,15 @@ export class CreatePolicyGroupRequest extends $dara.Model {
    * @remarks
    * The number of watermark rows.
    * 
+   * > This parameter is not yet available.
+   * 
    * @example
    * 5
    */
   watermarkRowAmount?: number;
   /**
    * @remarks
-   * The security-first rule for invisible watermarks.
+   * The security priority rule for blind watermarks.
    * 
    * @example
    * on
@@ -863,7 +871,7 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   watermarkSecurity?: string;
   /**
    * @remarks
-   * The transparency level of the watermark.
+   * The transparency of the watermark.
    * 
    * @example
    * LIGHT
@@ -879,7 +887,9 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   watermarkTransparencyValue?: number;
   /**
    * @remarks
-   * The watermark type. You can select up to three types, separated by commas (,).
+   * The watermark types. You can select up to three types and separate them with commas (,).
+   * 
+   * > If you specify `custom`, you must also use the `WatermarkCustomText` parameter to specify the custom text.
    * 
    * @example
    * EndUserId
@@ -887,9 +897,9 @@ export class CreatePolicyGroupRequest extends $dara.Model {
   watermarkType?: string;
   /**
    * @remarks
-   * Specifies whether to provide the WUYING AI Assistant entry in the floating ball when connecting to a cloud computer through a desktop client (including Windows and macOS clients).
+   * Specifies whether to provide the entry point for the WUYING AI Assistant in the floating ball when connecting to the cloud computer through a desktop client, including Windows and macOS clients.
    * 
-   * > Applicable only to desktop clients of V7.7 or later.
+   * > This feature applies only to desktop clients of V7.7 or later.
    * 
    * @example
    * on

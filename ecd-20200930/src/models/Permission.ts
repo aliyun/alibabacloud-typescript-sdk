@@ -11,11 +11,17 @@ export class Permission extends $dara.Model {
   /**
    * @remarks
    * The description.
+   * 
+   * @example
+   * 示例安全组规则
    */
   description?: string;
   /**
    * @remarks
    * The destination CIDR block.
+   * 
+   * @example
+   * 198.51.100.0/24
    */
   destCidrIp?: string;
   /**
@@ -46,6 +52,9 @@ export class Permission extends $dara.Model {
   /**
    * @remarks
    * The source CIDR block.
+   * 
+   * @example
+   * 192.0.2.0/24
    */
   sourceCidrIp?: string;
   /**

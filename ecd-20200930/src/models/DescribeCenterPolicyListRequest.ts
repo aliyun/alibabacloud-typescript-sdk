@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCenterPolicyListRequest extends $dara.Model {
   /**
    * @remarks
-   * 學術代理功能開關。取值範圍：
-   * - on：開啟。
-   * - off：關閉。
+   * Specifies whether the academic proxy feature is enabled. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * off
@@ -15,7 +15,7 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   academicProxy?: string;
   /**
    * @remarks
-   * 業務類型。
+   * The business type.
    * 
    * This parameter is required.
    * 
@@ -25,9 +25,9 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   businessType?: number;
   /**
    * @remarks
-   * 模型庫功能開關。取值範圍：
-   * - on：開啟。
-   * - off：關閉。
+   * Specifies whether the model library feature is enabled. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * off
@@ -35,8 +35,8 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   modelLibrary?: string;
   /**
    * @remarks
-   * 分頁查詢時，當前頁的頁碼。    
-   * 預設值：1。
+   * The page number of the current page for paging.    
+   * Default value: 1.
    * 
    * @example
    * 1
@@ -44,7 +44,7 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * 分頁查詢時，每頁最大行數。
+   * The maximum number of entries per page for paging.
    * 
    * @example
    * 20
@@ -52,14 +52,14 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * 雲端電腦策略ID清單。
+   * The list of cloud desktop policy IDs.
    */
   policyGroupId?: string[];
   /**
    * @remarks
-   * 連接埠代理功能開關。取值範圍：
-   * - on：開啟。
-   * - off：關閉。
+   * Specifies whether the port proxy feature is enabled. Valid values:
+   * - on: Enabled.
+   * - off: Disabled.
    * 
    * @example
    * off
@@ -67,7 +67,7 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   portProxy?: string;
   /**
    * @remarks
-   * 資源類型。
+   * The resource type.
    * 
    * This parameter is required.
    * 
@@ -77,7 +77,7 @@ export class DescribeCenterPolicyListRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * 雲端電腦策略的生效範圍。
+   * The effective scope of the cloud desktop policy.
    * 
    * @example
    * GLOBAL

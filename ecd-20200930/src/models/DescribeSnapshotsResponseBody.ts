@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   /**
    * @remarks
-   * The time when the snapshot was created. The time is displayed in UTC and follows the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in the `yyyy-mm-ddthh:mm:ssz` format.
+   * The time when the snapshot was created. The time is displayed in the `yyyy-mm-ddthh:mm:ssz` format based on the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in UTC.
    * 
    * @example
    * 2020-12-20T14:52:28Z
@@ -21,7 +21,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The time when the snapshot was created. The time is displayed in UTC+0 in the `yyyy-mm-ddthh:mm:ssz` format in accordance with the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard.
+   * The time when the snapshot was created. The time is displayed in the `yyyy-mm-ddthh:mm:ssz` format based on the [ISO 8601](https://help.aliyun.com/document_detail/25696.html) standard in UTC.
    * 
    * @example
    * 2020-12-20T14:52:28Z
@@ -29,7 +29,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   deletionTime?: string;
   /**
    * @remarks
-   * The description of the snapshot.
+   * The snapshot description.
    * 
    * @example
    * testDescription
@@ -53,7 +53,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * The status of the cloud desktop.
+   * The cloud desktop status.
    * 
    * @example
    * Running
@@ -80,7 +80,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The creation progress of the snapshot. Unit: percentage.
+   * The progress of snapshot creation. Unit: %.
    * 
    * @example
    * 100%
@@ -98,7 +98,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
    * @remarks
    * The remaining time required to create the snapshot. Unit: seconds.
    * 
-   * > If `Status` is `PROGRESSING`, the value of `RemainTime` is `-1`, which indicates that the remaining time is being calculated.
+   * > If `Status` is `PROGRESSING`, a `RemainTime` value of `-1` indicates that the remaining time is being calculated.
    * 
    * @example
    * 30
@@ -130,7 +130,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   snapshotId?: string;
   /**
    * @remarks
-   * The name of the snapshot.
+   * The snapshot name.
    * 
    * @example
    * testSnapshotName
@@ -146,7 +146,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   snapshotType?: string;
   /**
    * @remarks
-   * The capacity of the source disk. Unit: GiB.
+   * The size of the source disk. Unit: GiB.
    * 
    * @example
    * 150
@@ -154,7 +154,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
   sourceDiskSize?: string;
   /**
    * @remarks
-   * The type of the source disk.
+   * The source disk type.
    * 
    * @example
    * SYSTEM
@@ -256,7 +256,7 @@ export class DescribeSnapshotsResponseBodySnapshots extends $dara.Model {
 export class DescribeSnapshotsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token for the next query. If the value is empty, no more results are available.
+   * The token for the next query. An empty NextToken indicates that no more results are available.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6nmB7qrRFJ8vmttjxPL****
@@ -272,7 +272,7 @@ export class DescribeSnapshotsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The snapshots.
+   * The list of snapshots.
    */
   snapshots?: DescribeSnapshotsResponseBodySnapshots[];
   static names(): { [key: string]: string } {

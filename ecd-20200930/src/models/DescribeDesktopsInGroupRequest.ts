@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDesktopsInGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the custom time range.
+   * The end time of the custom time period.
    * 
    * @example
    * 18
@@ -13,7 +13,7 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
   customEndTimePeriod?: number;
   /**
    * @remarks
-   * The start time of the custom time range.
+   * The start time of the custom time period.
    * 
    * @example
    * 8
@@ -39,7 +39,9 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
   ignoreDeleted?: boolean;
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The number of entries to return per page for paging in a paged query.
+   * - Default value: 10.
+   * - Maximum value: 100.
    * 
    * @example
    * 10
@@ -47,7 +49,7 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next query. An empty value indicates that no more results exist.
+   * The pagination token used to start the next query. An empty value indicates that no more results are available.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -63,7 +65,7 @@ export class DescribeDesktopsInGroupRequest extends $dara.Model {
   payType?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to obtain the list of regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 

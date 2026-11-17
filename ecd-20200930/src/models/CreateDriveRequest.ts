@@ -22,7 +22,7 @@ export class CreateDriveRequest extends $dara.Model {
   /**
    * @remarks
    * The storage resource ID.
-   * > You can call the DescribeDrives operation to obtain this value.
+   * > You can obtain this ID by calling the DescribeDrives operation.
    * 
    * @example
    * dom-aaaa****
@@ -39,7 +39,7 @@ export class CreateDriveRequest extends $dara.Model {
   /**
    * @remarks
    * The external storage resource ID.
-   * > You can call the DescribeDrives operation to obtain this value.
+   * > You can obtain this ID by calling the DescribeDrives operation.
    * 
    * @example
    * 1234****
@@ -47,7 +47,7 @@ export class CreateDriveRequest extends $dara.Model {
   externalDomainId?: string;
   /**
    * @remarks
-   * > This parameter is deprecated.
+   * > **[Deprecated]**
    * 
    * @example
    * -

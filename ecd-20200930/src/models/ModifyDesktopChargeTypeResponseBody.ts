@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDesktopChargeTypeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cloud desktop IDs. If multiple cloud desktops are created in a single call, multiple cloud desktop IDs are returned.
+   * The IDs of the cloud desktops. If multiple cloud desktops are created in a single call, multiple cloud desktop IDs are returned.
    */
   desktopId?: string[];
   /**
    * @remarks
-   * The order ID.
+   * The ID of the order.
    * 
    * @example
    * 123456789
@@ -18,7 +18,7 @@ export class ModifyDesktopChargeTypeResponseBody extends $dara.Model {
   orderId?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
@@ -26,7 +26,7 @@ export class ModifyDesktopChargeTypeResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The file transfer task ID.
+   * The ID of the file transfer task.
    * 
    * @example
    * task_abc123

@@ -13,7 +13,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   connectionStatus?: string;
   /**
    * @remarks
-   * The cloud desktop ID.
+   * The ID of the cloud desktop.
    * 
    * @example
    * ud-7ftf5b6yu77b0****
@@ -21,7 +21,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   desktopId?: string;
   /**
    * @remarks
-   * The cloud desktop name.
+   * The name of the cloud desktop.
    * 
    * @example
    * DemoComputer
@@ -29,7 +29,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   desktopName?: string;
   /**
    * @remarks
-   * The cloud desktop status.
+   * The status of the cloud desktop.
    * 
    * @example
    * Running
@@ -37,7 +37,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   desktopStatus?: string;
   /**
    * @remarks
-   * The disk type.
+   * The cloud disk type.
    * 
    * @example
    * SYSTEM
@@ -45,7 +45,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   diskType?: string;
   /**
    * @remarks
-   * The authorized user.
+   * The ID of the authorized user.
    * 
    * @example
    * alice
@@ -53,12 +53,12 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   endUserId?: string;
   /**
    * @remarks
-   * The list of currently connected user IDs. This value is empty if the desktop is not connected.
+   * The list of IDs of currently connected users. This list is empty if the cloud desktop is disconnected.
    */
   endUserIds?: string[];
   /**
    * @remarks
-   * The authorized username.
+   * The username of the authorized user.
    * 
    * @example
    * alice
@@ -66,12 +66,12 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   endUserName?: string;
   /**
    * @remarks
-   * The list of current usernames. This value is empty if the desktop is not connected.
+   * The list of usernames of currently connected users. This list is empty if the cloud desktop is disconnected.
    */
   endUserNames?: string[];
   /**
    * @remarks
-   * The time when the cloud desktop expires. This value is returned only for cloud desktops that use the subscription billable methods. The time is in the ISO 8601 format (UTC).
+   * The time when the cloud desktop will expire. This value is returned only for cloud desktops whose Billable methods are subscription billing. Time format: ISO 8601 standard (UTC).
    * 
    * @example
    * 2021-12-31T15:59Z
@@ -124,7 +124,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   managementFlags?: string[];
   /**
    * @remarks
-   * The IP address of the secondary ENI of the instance.
+   * The IP address of the member elastic network interface (ENI) of the instance.
    * 
    * @example
    * 192.168.XX.XX
@@ -140,7 +140,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   osType?: string;
   /**
    * @remarks
-   * The IP address of the primary ENI of the instance.
+   * The IP address of the primary elastic network interface (ENI) of the instance.
    * 
    * @example
    * 192.168.XX.XX
@@ -156,7 +156,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   protocolType?: string;
   /**
    * @remarks
-   * The reset time of the cloud desktop.
+   * The reset time of the cloud desktop. Time format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2021-03-03 08:48:08
@@ -164,7 +164,7 @@ export class DescribeDesktopsInGroupResponseBodyPaidDesktops extends $dara.Model
   resetTime?: string;
   /**
    * @remarks
-   * The system cloud disk size. Unit: GiB.
+   * The size of the system cloud disk. Unit: GiB.
    * 
    * @example
    * 80
@@ -261,9 +261,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   createDuration?: string;
   /**
    * @remarks
-   * The creation time.
-   * 
-   * The time is displayed in UTC in the ISO 8601 standard format: yyyy-MM-ddTHH:mm:ssZ.
+   * The creation time. Time format: ISO 8601 standard in UTC (yyyy-MM-ddTHH:mm:ssZ).
    * 
    * @example
    * 2022-01-21T06:34:57Z
@@ -271,7 +269,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   createTime?: string;
   /**
    * @remarks
-   * The cloud desktop ID.
+   * The ID of the cloud desktop.
    * 
    * @example
    * ud-2i8qxpv6t1a07****
@@ -279,7 +277,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   desktopId?: string;
   /**
    * @remarks
-   * The cloud desktop name.
+   * The name of the cloud desktop.
    * 
    * @example
    * DemoComputer
@@ -287,7 +285,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   desktopName?: string;
   /**
    * @remarks
-   * The cloud desktop status.
+   * The status of the cloud desktop.
    * 
    * @example
    * Stopped
@@ -295,7 +293,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   desktopStatus?: string;
   /**
    * @remarks
-   * The disk type.
+   * The cloud disk type.
    * 
    * @example
    * SYSTEM
@@ -303,7 +301,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   diskType?: string;
   /**
    * @remarks
-   * The authorized user.
+   * The ID of the authorized user.
    * 
    * @example
    * alice
@@ -311,12 +309,12 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   endUserId?: string;
   /**
    * @remarks
-   * The list of currently connected user IDs. This value is empty if the desktop is not connected.
+   * The list of IDs of currently connected users. This list is empty if the cloud desktop is disconnected.
    */
   endUserIds?: string[];
   /**
    * @remarks
-   * The authorized username.
+   * The username of the authorized user.
    * 
    * @example
    * alice
@@ -324,7 +322,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   endUserName?: string;
   /**
    * @remarks
-   * The list of current usernames. This value is empty if the desktop is not connected.
+   * The list of usernames of currently connected users. This list is empty if the cloud desktop is disconnected.
    */
   endUserNames?: string[];
   /**
@@ -369,12 +367,12 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   managementFlag?: string;
   /**
    * @remarks
-   * The collection of management flags.
+   * The set of management flags.
    */
   managementFlags?: string[];
   /**
    * @remarks
-   * The IP address of the secondary ENI of the instance.
+   * The IP address of the member elastic network interface (ENI) of the instance.
    * 
    * @example
    * 192.168.XX.XX
@@ -390,7 +388,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   osType?: string;
   /**
    * @remarks
-   * The IP address of the primary ENI of the instance.
+   * The IP address of the primary elastic network interface (ENI) of the instance.
    * 
    * @example
    * 192.168.XX.XX
@@ -406,8 +404,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   protocolType?: string;
   /**
    * @remarks
-   * The release time.
-   * The time is displayed in UTC in the ISO 8601 standard format: yyyy-MM-ddTHH:mm:ssZ.
+   * The release time. Time format: ISO 8601 standard in UTC (yyyy-MM-ddTHH:mm:ssZ).
    * 
    * @example
    * 2022-01-21T16:34:57Z
@@ -415,7 +412,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   releaseTime?: string;
   /**
    * @remarks
-   * The reset time of the cloud desktop.
+   * The reset time of the cloud desktop. Time format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2021-03-03 08:48:08
@@ -423,7 +420,7 @@ export class DescribeDesktopsInGroupResponseBodyPostPaidDesktops extends $dara.M
   resetTime?: string;
   /**
    * @remarks
-   * The system cloud disk size. Unit: GiB.
+   * The size of the system cloud disk. Unit: GiB.
    * 
    * @example
    * 80
@@ -550,7 +547,7 @@ export class DescribeDesktopsInGroupResponseBody extends $dara.Model {
   postPaidDesktopsCount?: number;
   /**
    * @remarks
-   * The total billing amount of pay-as-you-go cloud desktops.
+   * The total billing amount for pay-as-you-go cloud desktops.
    * 
    * @example
    * 10000

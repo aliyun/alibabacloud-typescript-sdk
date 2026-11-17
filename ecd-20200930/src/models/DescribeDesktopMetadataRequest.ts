@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDesktopMetadataRequest extends $dara.Model {
   /**
    * @remarks
-   * The time when the cloud computer was created. The time is in UTC and follows the format:
+   * The time when the cloud desktop was created. Specify the time in the UTC format:
    * `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"`.
    * 
    * @example
@@ -14,7 +14,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
   creationTimeStart?: string;
   /**
    * @remarks
-   * The list of cloud computer IDs.
+   * The list of cloud desktop IDs.
    */
   desktopIds?: string[];
   /**
@@ -27,7 +27,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The shared cloud computer ID.
+   * The ID of the shared cloud desktop group.
    * 
    * @example
    * dg-i1ruuudp92qpj****
@@ -51,7 +51,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * Specifies whether the response includes cloud computers in shared cloud computer groups.
+   * Specifies whether the response includes cloud desktops in shared cloud desktop groups.
    * 
    * @example
    * false
@@ -59,7 +59,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
   includeDesktopGroup?: boolean;
   /**
    * @remarks
-   * >This parameter is not yet available for use.
+   * >This parameter is not available.
    * 
    * @example
    * ecd
@@ -67,7 +67,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The number of entries per page for a paged query. Maximum value: 100. Default value: 10.
+   * The number of entries to return per page in a paged query. This parameter is used for paging. Maximum value: 100. Default value: 10.
    * 
    * @example
    * 10
@@ -83,7 +83,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
   networkInterfaceIp?: string;
   /**
    * @remarks
-   * The token for the next query. An empty value indicates that there are no more results.
+   * The pagination token for the next query. If NextToken is empty, no more results are available.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -99,7 +99,7 @@ export class DescribeDesktopMetadataRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The start time of operations performed on the cloud computer. The time is in UTC and follows the format:
+   * The start time of the operation on the cloud desktop. Time format:
    * `yyyy-MM-dd\\"T\\"HH:mm:ss\\"Z\\"`.
    * 
    * @example

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteOfficeSiteAcceleratorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * EE9472BC-0B5D-5458-85CD-C52BDD******

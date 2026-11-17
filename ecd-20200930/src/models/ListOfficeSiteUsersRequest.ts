@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOfficeSiteUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * > This parameter is not publicly available. You can only pass in `1` or leave it empty.
+   * > This field is not available for use. You can only set this parameter to `1` or leave it empty.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListOfficeSiteUsersRequest extends $dara.Model {
   assignedInfo?: string;
   /**
    * @remarks
-   * The fuzzy query character string.
+   * The fuzzy query string.
    * 
    * @example
    * *jin*
@@ -21,7 +21,7 @@ export class ListOfficeSiteUsersRequest extends $dara.Model {
   filter?: string;
   /**
    * @remarks
-   * Specifies whether to return only users who are assigned cloud computers.
+   * Specifies whether to return only the users to which cloud desktops are assigned.
    */
   includeAssignedUser?: boolean;
   /**
@@ -37,7 +37,7 @@ export class ListOfficeSiteUsersRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Leave this parameter empty for the first request or if no more results exist. If more results exist, set this parameter to the NextToken value returned by the previous API call.
+   * The pagination token for the next query. Leave this parameter empty for the first query or when no subsequent query is required. For subsequent queries, set this parameter to the NextToken value returned by the previous API call.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -45,7 +45,7 @@ export class ListOfficeSiteUsersRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The specified AD domain organizational unit (OU).
+   * The specified organizational unit (OU) of the AD domain.
    * 
    * @example
    * example.com/Domain Controllers
@@ -63,7 +63,7 @@ export class ListOfficeSiteUsersRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the list of regions supported by Elastic Desktop Service.
    * 
    * This parameter is required.
    * 

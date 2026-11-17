@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class CreateQosRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of cloud phones to associate.
+   * The IDs of the cloud phones to associate.
    */
   authAndroidId?: string[];
   /**
    * @remarks
-   * The ID of the cloud computer pool for which the authorization takes effect.
+   * The ID of the cloud computer pool where the authorization takes effect.
    */
   authDesktopGroupId?: string[];
   /**
    * @remarks
-   * The list of cloud computer IDs to associate.
+   * The IDs of the cloud computers to associate.
    */
   authDesktopId?: string[];
   /**
@@ -30,7 +30,7 @@ export class CreateQosRuleRequest extends $dara.Model {
   download?: number;
   /**
    * @remarks
-   * The premium bandwidth ID.
+   * The ID of the premium bandwidth.
    * 
    * This parameter is required.
    * 
@@ -40,12 +40,12 @@ export class CreateQosRuleRequest extends $dara.Model {
   networkPackageId?: string;
   /**
    * @remarks
-   * The name of the rate limiting rule.
+   * The name of the bandwidth throttling rule.
    * 
    * This parameter is required.
    * 
    * @example
-   * Office network rate limiting rule
+   * Office network bandwidth throttling rule
    */
   qosRuleName?: string;
   /**

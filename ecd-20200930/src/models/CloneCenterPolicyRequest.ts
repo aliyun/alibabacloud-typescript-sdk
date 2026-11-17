@@ -25,7 +25,7 @@ export class CloneCenterPolicyRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the cloud computer policy to clone.
+   * The ID of the cloud desktop policy to be cloned.
    * 
    * This parameter is required.
    * 

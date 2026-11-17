@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDesktopChargeTypeRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to automatically pay for the order when you convert the billing method to subscription.
+   * Specifies whether to automatically pay for the order when you change the billing method to subscription.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class ModifyDesktopChargeTypeRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The target billing method to which you want to convert.
+   * The target billing method.
    * 
    * @example
    * PrePaid
@@ -21,7 +21,7 @@ export class ModifyDesktopChargeTypeRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The cloud desktop IDs. You can specify 1 to 20 IDs.
+   * The IDs of the cloud desktops. You can specify 1 to 20 IDs.
    * 
    * This parameter is required.
    * 
@@ -31,11 +31,11 @@ export class ModifyDesktopChargeTypeRequest extends $dara.Model {
   desktopId?: string[];
   /**
    * @remarks
-   * The subscription duration of the cloud desktop when you convert the billing method to subscription. The unit is specified by PeriodUnit. This parameter takes effect and is required only when ChargeType is set to PrePaid.
+   * The subscription duration of the cloud desktop when you change the billing method to subscription. The unit is specified by PeriodUnit. This parameter takes effect and is required only when ChargeType is set to PrePaid.
    * 
-   * - If PeriodUnit is set to Week, the valid value of this parameter is 1.
-   * - If PeriodUnit is set to Month, valid values of this parameter are 1, 2, 3, and 6.
-   * - If PeriodUnit is set to Year, valid values of this parameter are 1, 2, 3, 4, and 5.
+   * - If PeriodUnit is set to Week, the valid value is 1.
+   * - If PeriodUnit is set to Month, valid values for this parameter are 1, 2, 3, and 6.
+   * - If PeriodUnit is set to Year, valid values for this parameter are 1, 2, 3, 4, and 5.
    * 
    * @example
    * 1
@@ -43,7 +43,7 @@ export class ModifyDesktopChargeTypeRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription duration when you convert the billing method to subscription.
+   * The unit of the subscription duration when you change the billing method to subscription.
    * 
    * @example
    * Month
@@ -51,7 +51,7 @@ export class ModifyDesktopChargeTypeRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The promotion ID.
+   * The ID of the promotion.
    * 
    * @example
    * 50003836003****
@@ -59,7 +59,7 @@ export class ModifyDesktopChargeTypeRequest extends $dara.Model {
   promotionId?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) to query the regions supported by WUYING Workspace.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/196646.html) operation to query the regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class ModifyDesktopChargeTypeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource ownership user in reseller pattern. You do not need to specify this parameter if you are not using reseller pattern.
+   * The user ID for resource ownership in the reseller mode. You do not need to specify this parameter in the non-reseller mode.
    * 
    * @example
    * 1422724566551XXX
@@ -77,7 +77,7 @@ export class ModifyDesktopChargeTypeRequest extends $dara.Model {
   resellerOwnerUid?: number;
   /**
    * @remarks
-   * > This parameter is in invitational preview and is not publicly available.
+   * > This parameter is in closed beta and is not publicly available.
    * 
    * @example
    * 120

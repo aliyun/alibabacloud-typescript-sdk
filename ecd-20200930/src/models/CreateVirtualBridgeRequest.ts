@@ -47,22 +47,22 @@ export class CreateVirtualBridgeRequest extends $dara.Model {
   paidCallBackUrl?: string;
   /**
    * @remarks
-   * The subscription duration of the purchased resource. The unit is specified by `PeriodUnit`. This parameter is required and takes effect only when `ChargeType` is set to `PrePaid`.
+   * The subscription duration of the purchased resource. The unit is specified by `PeriodUnit`. This parameter takes effect and is required only when the `ChargeType` parameter is set to `PrePaid`.
    * 
    * - If `PeriodUnit` is set to `Month`, valid values:
    * 
    *      - 1
-   *      - 2
-   *      - 3
-   *      - 6
+   *     -  2
+   *     - 3
+   *     - 6
    * 
    * - If `PeriodUnit` is set to `Year`, valid values:
    * 
-   *      - 1
-   *      - 2
-   *      - 3
-   *      - 4
-   *      - 5
+   *     - 1
+   *     - 2
+   *     - 3
+   *     - 4
+   *     - 5
    * 
    * @example
    * 1
@@ -70,7 +70,7 @@ export class CreateVirtualBridgeRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The billing time unit of the subscription Billable methods.
+   * The unit of the subscription billing duration for the subscription Billable methods.
    * 
    * @example
    * Week
@@ -78,7 +78,7 @@ export class CreateVirtualBridgeRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The promotion ID.
+   * The ID of the promotion.
    * 
    * @example
    * youhuiquan_promotion_option_id_for_blank

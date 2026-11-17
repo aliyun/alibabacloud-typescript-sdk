@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateOfficeSiteAcceleratorResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The GA instance ID.
+   * The instance ID of the Alibaba Cloud Global Accelerator (GA).
    * 
    * @example
    * ga-bp1qxuk10jceqw3zb***p

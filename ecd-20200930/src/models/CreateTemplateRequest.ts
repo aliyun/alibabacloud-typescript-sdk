@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTemplateRequestDataDiskList extends $dara.Model {
   /**
    * @remarks
-   * The performance level of the data disk. Default value: `AutoPL`.
+   * The performance level of the data cloud disk. Default value: `AutoPL`.
    * 
    * @example
    * AutoPL
@@ -13,9 +13,9 @@ export class CreateTemplateRequestDataDiskList extends $dara.Model {
   performanceLevel?: string;
   /**
    * @remarks
-   * The data cloud disk size. Unit: GiB. Valid values: 40 to 2040, in increments of 10 GiB.
+   * The size of the data cloud disk. Unit: GiB. Valid values: 40 to 2040. The value must be a multiple of 10.
    * 
-   * >Notice: The larger the ESSD cloud disk capacity, the higher the available performance level (PL) (for example, PL2 is available for capacities of 460 GiB or more). Higher performance levels (PLs) incur higher costs. Select the ESSD cloud disk performance level (PL) based on your requirements.
+   * >Notice: The larger the capacity of a standard SSD, the higher the performance level (PL) that you can select. For example, you can select PL2 for a standard SSD with a capacity of 460 GiB or larger. A higher PL incurs higher costs. Select an appropriate PL based on your business requirements.</notice>
    * 
    * @example
    * 40
@@ -47,7 +47,7 @@ export class CreateTemplateRequestDataDiskList extends $dara.Model {
 export class CreateTemplateRequestRegionConfigList extends $dara.Model {
   /**
    * @remarks
-   * The office network ID.
+   * The ID of the office network.
    * 
    * @example
    * cn-hangzhou+dir-709******
@@ -55,7 +55,7 @@ export class CreateTemplateRequestRegionConfigList extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The region ID. Call [DescribeRegions](~~DescribeRegions~~) to query the list of regions supported by WUYING Workspace.
+   * The region ID. You can call the [DescribeRegions](~~DescribeRegions~~) operation to query the regions supported by WUYING Workspace.
    * 
    * @example
    * cn-hangzhou
@@ -63,7 +63,7 @@ export class CreateTemplateRequestRegionConfigList extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The cloud computer specification ID.
+   * The ID of the cloud desktop specification.
    * 
    * @example
    * eds.enterprise_office.8c16g
@@ -71,7 +71,7 @@ export class CreateTemplateRequestRegionConfigList extends $dara.Model {
   resourceInstanceType?: string;
   /**
    * @remarks
-   * The automatic snapshot policy ID.
+   * The ID of the automatic snapshot policy.
    * 
    * @example
    * sp-35fvn8m21pnx2****
@@ -79,7 +79,7 @@ export class CreateTemplateRequestRegionConfigList extends $dara.Model {
   snapshotPolicyId?: string;
   /**
    * @remarks
-   * The subnet ID.
+   * The ID of the subnet.
    * 
    * @example
    * vsw-bp1yiu**********
@@ -87,7 +87,7 @@ export class CreateTemplateRequestRegionConfigList extends $dara.Model {
   subnetId?: string;
   /**
    * @remarks
-   * The virtual node pool, used in workstation scenarios.
+   * The ID of the virtual node pool. This parameter is used in workstation scenarios.
    * 
    * @example
    * vnp-0bydg********
@@ -95,7 +95,7 @@ export class CreateTemplateRequestRegionConfigList extends $dara.Model {
   virtualNodePoolId?: string;
   /**
    * @remarks
-   * Specifies whether to enable disk encryption.
+   * Specifies whether to enable cloud disk encryption.
    * 
    * @example
    * false
@@ -103,7 +103,7 @@ export class CreateTemplateRequestRegionConfigList extends $dara.Model {
   volumeEncryptionEnable?: boolean;
   /**
    * @remarks
-   * The KMS key ID used when disk encryption is enabled. You can call [ListKeys](https://help.aliyun.com/document_detail/28951.html) to obtain the key ID.
+   * The ID of the Key Management Service (KMS) key used when cloud disk encryption is enabled. You can call the [ListKeys](https://help.aliyun.com/document_detail/28951.html) operation to obtain the key ID.
    * 
    * @example
    * a7b3c0c8-b3a2-4876-b1cc-*********
@@ -187,7 +187,7 @@ export class CreateTemplateRequestResourceTagList extends $dara.Model {
 export class CreateTemplateRequestSiteConfigList extends $dara.Model {
   /**
    * @remarks
-   * The application control policy ID.
+   * The ID of the application control policy.
    * 
    * @example
    * bwr-5a5371e0db954d********
@@ -232,12 +232,12 @@ export class CreateTemplateRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal for the subscription cloud computer.
+   * Specifies whether to enable auto-renewal for the subscription shared cloud desktop.
    */
   autoRenew?: boolean;
   /**
    * @remarks
-   * > This parameter is not publicly available.
+   * > This parameter is not available for public use.
    * 
    * @example
    * 1
@@ -245,7 +245,7 @@ export class CreateTemplateRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * The billing method of the cloud computer.
+   * The billing method of the cloud desktop.
    * 
    * @example
    * PrePaid
@@ -253,12 +253,12 @@ export class CreateTemplateRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The data disk size and specification configurations.
+   * The size and specification configurations of the data cloud disk.
    */
   dataDiskList?: CreateTemplateRequestDataDiskList[];
   /**
    * @remarks
-   * The default language set when the cloud computer starts. This parameter takes effect only when a system image is used to create the cloud computer.
+   * The default language configured when the cloud desktop starts. This parameter takes effect only when you use a system image to create a cloud desktop.
    * 
    * @example
    * zh-CN
@@ -268,16 +268,16 @@ export class CreateTemplateRequest extends $dara.Model {
    * @remarks
    * The description of the template. The description must meet the following requirements:
    * 
-   * - The description must be 2 to 256 characters in length and cannot start with `http://` or `https://`.
-   * - The description can contain Chinese characters, letters, digits, spaces, and special characters, and supports line breaks.
+   * - The description must be 2 to 256 characters in length, and cannot start with `http://` or `https://`.
+   * - The description can contain Chinese characters, English letters, digits, spaces, and special characters, and supports line breaks.
    * 
    * @example
-   * DesignDepartmentTemplate
+   * Design department template
    */
   description?: string;
   /**
    * @remarks
-   * The cloud computer image ID. You can query the ID on the image management page. System images, custom images, and other image types are supported.
+   * The ID of the cloud desktop image. You can query the image ID on the Images page. System images and custom images are supported.
    * 
    * @example
    * desktopimage-windows-server-2022-64-asp
@@ -285,7 +285,7 @@ export class CreateTemplateRequest extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
    * myHost
@@ -293,13 +293,13 @@ export class CreateTemplateRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The subscription duration of the subscription cloud computer. This parameter takes effect and is required only when `ChargeType` is set to `PrePaid`. The unit is specified by `PeriodUnit`.
-   * - If `PeriodUnit` is set to `Month`, valid values:
+   * The subscription duration of the shared cloud desktop. This parameter is required and takes effect only when the `ChargeType` parameter is set to `PrePaid`. The unit is specified by the `PeriodUnit` parameter.
+   * - If the `PeriodUnit` parameter is set to `Month`, valid values are:
    *     - 1
    *     - 2
    *     - 3
    *     - 6
-   * - If `PeriodUnit` is set to `Year`, valid values:
+   * - If the `PeriodUnit` parameter is set to `Year`, valid values are:
    *     - 1
    *     - 2
    *     - 3
@@ -312,7 +312,7 @@ export class CreateTemplateRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription billable methods duration.
+   * The time unit of the subscription Billable methods.
    * 
    * @example
    * Month
@@ -328,7 +328,7 @@ export class CreateTemplateRequest extends $dara.Model {
   policyGroupId?: string;
   /**
    * @remarks
-   * Specifies whether to automatically switch to pay-as-you-go billing after the duration plan is used up.
+   * Specifies whether to automatically switch to the pay-as-you-go billing method after the usage duration plan is exhausted.
    */
   postPaidAfterUsedUp?: boolean;
   /**
@@ -341,14 +341,14 @@ export class CreateTemplateRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The region-specific template configurations. Multiple configurations are supported. The configuration that matches the specific region is used.
+   * The region-specific template configurations. You can configure multiple regions. The configurations are matched based on the specific region when the template is used.
    * 
    * > You can configure up to 20 regions.
    */
   regionConfigList?: CreateTemplateRequestRegionConfigList[];
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-4knxmfneq1e******
@@ -356,19 +356,19 @@ export class CreateTemplateRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The cloud computer tags in key-value format. You can specify up to 20 tags.
+   * The tags of the cloud desktop. The tags are in key-value pairs. You can specify up to 20 tags.
    */
   resourceTagList?: CreateTemplateRequestResourceTagList[];
   /**
    * @remarks
-   * The site configuration management.
+   * Site configuration management.
    */
   siteConfigList?: CreateTemplateRequestSiteConfigList[];
   /**
    * @remarks
-   * The system disk type.
+   * The type of the system cloud disk.
    * 
-   * > Only high frequency and graphics cloud computer specifications support ESSD disks.
+   * > Only cloud desktops with high clock speeds or GPU-accelerated specifications support ESSDs.
    * 
    * @example
    * AutoPL
@@ -376,9 +376,9 @@ export class CreateTemplateRequest extends $dara.Model {
   systemDiskPerformanceLevel?: string;
   /**
    * @remarks
-   * The system disk size. Unit: GiB. Valid values: 40 to 500, in increments of 10 GiB.
+   * The size of the system cloud disk. Unit: GiB. Valid values: 40 to 500. The value must be a multiple of 10.
    * 
-   * > The system disk size cannot be smaller than the size of the configured image.
+   * > The size of the system cloud disk cannot be smaller than the size of the configured image.
    * 
    * @example
    * 80
@@ -388,19 +388,19 @@ export class CreateTemplateRequest extends $dara.Model {
    * @remarks
    * The name of the template. The name must meet the following requirements:
    * 
-   * - The name must be 2 to 126 characters in length and can contain letters and Chinese characters.
-   * - The name must start with a letter or a Chinese character. It cannot start with `http://` or `https://`.
-   * - The name can contain letters, digits, Chinese characters, colons (:), underscores (_), or hyphens (-). Periods (.) are not supported.
+   * - The name must be 2 to 126 characters in length.
+   * - The name must start with a letter or a Chinese character, and cannot start with `http://` or `https://`.
+   * - The name can contain letters, digits, Chinese characters, colons (:), underscores (_), and hyphens (-), but cannot contain periods (.).
    * 
    * This parameter is required.
    * 
    * @example
-   * MyCloudComputerTemplate001
+   * My cloud desktop template 001
    */
   templateName?: string;
   /**
    * @remarks
-   * The configuration group ID.
+   * The ID of the configuration group.
    * 
    * @example
    * ccg-0caoeogrk9m5****
@@ -408,7 +408,7 @@ export class CreateTemplateRequest extends $dara.Model {
   timerGroupId?: string;
   /**
    * @remarks
-   * The usage duration plan per user.
+   * The usage duration plan for a single user.
    * 
    * @example
    * 120

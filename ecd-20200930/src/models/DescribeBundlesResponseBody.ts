@@ -65,7 +65,7 @@ export class DescribeBundlesResponseBodyBundlesDesktopTypeAttribute extends $dar
 export class DescribeBundlesResponseBodyBundlesDisks extends $dara.Model {
   /**
    * @remarks
-   * The disk performance level.
+   * The performance level of the disk.
    * 
    * @example
    * PL0
@@ -73,7 +73,7 @@ export class DescribeBundlesResponseBodyBundlesDisks extends $dara.Model {
   diskPerformanceLevel?: string;
   /**
    * @remarks
-   * The disk size. Unit: GiB.
+   * The size of the disk. Unit: GiB.
    * 
    * @example
    * 150
@@ -81,7 +81,7 @@ export class DescribeBundlesResponseBodyBundlesDisks extends $dara.Model {
   diskSize?: number;
   /**
    * @remarks
-   * The disk type.
+   * The type of the disk.
    * 
    * @example
    * SYSTEM
@@ -115,7 +115,7 @@ export class DescribeBundlesResponseBodyBundlesDisks extends $dara.Model {
 export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   /**
    * @remarks
-   * The cloud computer template ID.
+   * The cloud desktop template ID.
    * 
    * @example
    * bundle_ecd_graphics.2xlarge_s15d15_win2019
@@ -123,7 +123,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   bundleId?: string;
   /**
    * @remarks
-   * The name of the cloud computer template.
+   * The name of the cloud desktop template.
    * 
    * @example
    * Advanced graphics with Windows 2019
@@ -131,7 +131,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   bundleName?: string;
   /**
    * @remarks
-   * The cloud computer templatetype.
+   * The cloud desktop templatetype.
    * 
    * @example
    * SYSTEM
@@ -139,7 +139,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   bundleType?: string;
   /**
    * @remarks
-   * The time when the cloud computer template was created. The time is in the ISO 8601 standard in UTC.
+   * The creation time of the cloud desktop template. The time follows the ISO 8601 standard in UTC.
    * 
    * @example
    * 2021-09-30T06:09Z
@@ -147,7 +147,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The data cloud disk type.
+   * The category of the data cloud disk.
    * 
    * @example
    * cloud_efficiency
@@ -155,7 +155,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   dataDiskCategory?: string;
   /**
    * @remarks
-   * The description of the cloud computer template.
+   * The description of the cloud desktop template.
    * 
    * @example
    * Template for daily office use
@@ -163,7 +163,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The cloud computer specifications.
+   * The cloud desktop specifications.
    * 
    * @example
    * ecd.graphics.2xlarge
@@ -171,12 +171,12 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   desktopType?: string;
   /**
    * @remarks
-   * The details of the cloud computer specifications.
+   * The details of the cloud desktop specifications.
    */
   desktopTypeAttribute?: DescribeBundlesResponseBodyBundlesDesktopTypeAttribute;
   /**
    * @remarks
-   * The cloud computer instance family.
+   * The cloud desktop instance family.
    * 
    * @example
    * eds.general
@@ -197,7 +197,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The image name.
+   * The name of the image.
    * 
    * @example
    * Windows server 2019 Chinese
@@ -205,7 +205,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   imageName?: string;
   /**
    * @remarks
-   * The image status.
+   * The status of the image.
    * 
    * @example
    * Available
@@ -213,7 +213,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   imageStatus?: string;
   /**
    * @remarks
-   * The language of the image operating system.
+   * The operating system language of the image.
    * 
    * @example
    * en-US
@@ -253,7 +253,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   sessionType?: string;
   /**
    * @remarks
-   * The stock status. This parameter is returned when `CheckStock` is set to `True`.
+   * The stock status. This parameter is returned when CheckStock is set to True.
    * 
    * @example
    * Sufficient
@@ -261,7 +261,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   stockState?: string;
   /**
    * @remarks
-   * The system cloud disk type.
+   * The category of the system cloud disk.
    * 
    * @example
    * cloud_efficiency
@@ -269,7 +269,7 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
   systemDiskCategory?: string;
   /**
    * @remarks
-   * Specifies whether to enable disk encryption.
+   * Specifies whether disk encryption is enabled.
    * 
    * @example
    * false
@@ -355,12 +355,12 @@ export class DescribeBundlesResponseBodyBundles extends $dara.Model {
 export class DescribeBundlesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of cloud computer templates.
+   * The list of cloud desktop templates.
    */
   bundles?: DescribeBundlesResponseBodyBundles[];
   /**
    * @remarks
-   * The token for the next query. If NextToken is empty, no more results exist.
+   * The token used to start the next query. An empty NextToken indicates that no more results are available.
    * 
    * @example
    * AAAAAV3MpHK1AP0pfERHZN5pu6lu3PTF6h3zE8egwlYuv8M8

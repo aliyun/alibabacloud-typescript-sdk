@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateDesktopGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the shared cloud computer.
+   * The ID of the shared cloud desktop.
    * 
    * @example
    * dg-2i8qxpv6t1a03****
@@ -13,7 +13,7 @@ export class CreateDesktopGroupResponseBody extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * The list of shared cloud computer IDs.
+   * The IDs of the shared cloud desktops.
    */
   desktopGroupIds?: string[];
   /**

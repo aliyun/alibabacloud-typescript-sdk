@@ -13,7 +13,7 @@ export class DeleteTemplatesRequest extends $dara.Model {
   bizType?: string;
   /**
    * @remarks
-   * The list of template IDs to delete.
+   * The IDs of the templates to delete.
    */
   templateIds?: string[];
   static names(): { [key: string]: string } {

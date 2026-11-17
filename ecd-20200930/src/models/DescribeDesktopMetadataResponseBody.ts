@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   /**
    * @remarks
-   * The agents supported by the current cloud computer.
+   * The agents supported by the cloud desktop.
    */
   agentProviderList?: string[];
   /**
    * @remarks
-   * The billing type of the cloud desktop. Valid values:
-   * - PostPaid: pay-as-you-go.
-   * - PrePaid: subscription.
+   * The billing method of the cloud desktop. Valid values:
+   * - PostPaid: pay-as-you-go
+   * - PrePaid: subscription
    * 
    * @example
    * PostPaid
@@ -20,7 +20,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The time when the cloud desktop was created. The time is in the ISO 8601 standard (UTC).
+   * The creation time of the cloud desktop. The time is displayed in the ISO 8601 standard in UTC.
    * 
    * @example
    * 2020-11-06T08:28Z
@@ -28,7 +28,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   creationTime?: string;
   /**
    * @remarks
-   * The shared cloud computer ID.
+   * The ID of the shared cloud desktop group.
    * 
    * @example
    * dg-3uiojcc0j4kh7****
@@ -44,7 +44,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   desktopId?: string;
   /**
    * @remarks
-   * The cloud desktop name.
+   * The name of the cloud desktop.
    * 
    * @example
    * testDesktopName
@@ -52,15 +52,15 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   desktopName?: string;
   /**
    * @remarks
-   * The cloud desktop status. Valid values:
-   * - Stopped: stopped.
-   * - Starting: starting.
-   * - Rebuilding: rebuilding.
-   * - Running: running.
-   * - Stopping: stopping.
-   * - Expired: expired.
-   * - Deleted: deleted.
-   * - Pending: pending.
+   * The status of the cloud desktop. Valid values:
+   * - Stopped: The cloud desktop is stopped.
+   * - Starting: The cloud desktop is starting.
+   * - Rebuilding: The cloud desktop is being rebuilt.
+   * - Running: The cloud desktop is running.
+   * - Stopping: The cloud desktop is stopping.
+   * - Expired: The cloud desktop has expired.
+   * - Deleted: The cloud desktop is deleted.
+   * - Pending: The cloud desktop is pending.
    * 
    * @example
    * Running
@@ -76,7 +76,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   desktopType?: string;
   /**
    * @remarks
-   * The time when the cloud desktop expires. This value is returned only for cloud desktops that use the subscription billable method. The time format follows the ISO 8601 standard (UTC).
+   * The time when the cloud desktop will expire. This parameter is returned only for cloud desktops whose Billable methods are subscription billing. The time format is ISO 8601 standard (UTC).
    * 
    * @example
    * 2021-12-31T15:59Z
@@ -92,15 +92,15 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The local name of the region to which the cloud desktop belongs.
+   * The local name of the region where the cloud desktop resides.
    * 
    * @example
-   * 华东2（上海）
+   * China (Shanghai)
    */
   localName?: string;
   /**
    * @remarks
-   * The management status of the cloud computer.
+   * The management status of the cloud desktop.
    */
   managementFlags?: string[];
   /**
@@ -153,7 +153,7 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
   resourceGroupName?: string;
   /**
    * @remarks
-   * The time when the cloud desktop was started. The time is in the ISO 8601 standard (UTC).
+   * The start time of the cloud desktop. The time is displayed in the ISO 8601 standard in UTC.
    * 
    * @example
    * 2020-11-06T08:31Z
@@ -225,12 +225,12 @@ export class DescribeDesktopMetadataResponseBodyDesktops extends $dara.Model {
 export class DescribeDesktopMetadataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The cloud desktop details.
+   * The detailed information of the cloud desktops.
    */
   desktops?: DescribeDesktopMetadataResponseBodyDesktops[];
   /**
    * @remarks
-   * The token for the next query. An empty value indicates that there are no more results.
+   * The pagination token for the next query. If NextToken is empty, no more results are available.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883

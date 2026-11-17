@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBundlesRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of cloud computer template IDs. You can specify 1 to 100 IDs.
+   * The list of cloud desktop template IDs. You can specify 1 to 100 IDs.
    * 
    * @example
    * bundle_ecd_graphics.2xlarge_s15d15_win2019
@@ -13,7 +13,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   bundleId?: string[];
   /**
    * @remarks
-   * The cloud computer templatetype.
+   * The cloud desktop templatetype.
    * 
    * @example
    * SYSTEM
@@ -21,7 +21,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   bundleType?: string;
   /**
    * @remarks
-   * Specifies whether to query the stock status of the cloud computer instance type.
+   * Specifies whether to query the inventory status of the cloud desktop instance type.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   checkStock?: boolean;
   /**
    * @remarks
-   * The number of vCPUs included in the cloud computer instance type.
+   * The number of vCPUs in the cloud desktop instance type.
    * 
    * @example
    * 2
@@ -37,7 +37,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   cpuCount?: number;
   /**
    * @remarks
-   * The cloud computer instance family.
+   * The cloud desktop instance family.
    * 
    * @example
    * eds.general
@@ -53,7 +53,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   fotaChannel?: string;
   /**
    * @remarks
-   * Specifies whether the template belongs to a cloud computer pool.
+   * Specifies whether the template belongs to a cloud desktop pool.
    * 
    * @example
    * false
@@ -61,7 +61,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   fromDesktopGroup?: boolean;
   /**
    * @remarks
-   * The number of GPUs included in the cloud computer instance type.
+   * The number of GPUs in the cloud desktop instance type.
    * 
    * @example
    * 1
@@ -82,7 +82,10 @@ export class DescribeBundlesRequest extends $dara.Model {
   imageId?: string[];
   /**
    * @remarks
-   * The maximum number of entries per page for a paged query.
+   * The maximum number of entries to return per page when paging in a paged query.
+   * 
+   * - Maximum value: 100.
+   * - Default value: 10.
    * 
    * @example
    * 10
@@ -90,7 +93,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The memory size included in the cloud computer instance type. Unit: GiB.
+   * The memory size of the cloud desktop instance type. Unit: GiB.
    * 
    * @example
    * 4
@@ -98,7 +101,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   memorySize?: number;
   /**
    * @remarks
-   * The token for the next query.
+   * The token that is used to start the next query.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -132,7 +135,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * Scenarios.
+   * The Scenarios.
    * 
    * @example
    * FastBuy
@@ -140,7 +143,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The selected template.
+   * The featured template.
    * 
    * @example
    * true
@@ -156,7 +159,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   sessionType?: string;
   /**
    * @remarks
-   * Specifies whether to return multi-session cloud computer templates when querying the cloud computer list. Multi-session templates are not returned by default.
+   * Specifies whether to return multi-session cloud desktop templates when you query the cloud desktop list. By default, multi-session templates are not returned.
    * 
    * @example
    * false
@@ -164,7 +167,7 @@ export class DescribeBundlesRequest extends $dara.Model {
   supportMultiSession?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable disk encryption.
+   * Specifies whether disk encryption is enabled.
    * 
    * @example
    * false

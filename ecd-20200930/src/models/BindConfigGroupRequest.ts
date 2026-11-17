@@ -83,7 +83,7 @@ export class BindConfigGroupRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource information to associate.
+   * The information about the resources to be associated.
    * 
    * This parameter is required.
    */

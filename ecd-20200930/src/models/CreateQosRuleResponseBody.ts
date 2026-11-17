@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateQosRuleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The rate limiting rule ID.
+   * The ID of the bandwidth throttling rule.
    * 
    * @example
    * qos-5605u0gelk200****

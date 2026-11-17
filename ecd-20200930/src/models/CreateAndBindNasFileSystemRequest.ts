@@ -13,9 +13,7 @@ export class CreateAndBindNasFileSystemRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the shared cloud computer.
-   * 
-   * This parameter is required.
+   * The ID of the shared cloud desktop.
    * 
    * @example
    * dg-fh0vdzyh6rdc*****
@@ -23,9 +21,9 @@ export class CreateAndBindNasFileSystemRequest extends $dara.Model {
   desktopGroupId?: string;
   /**
    * @remarks
-   * Specifies whether the file system uses a KMS-managed key to encrypt data at rest. Encrypted data does not need to be decrypted during read and write operations.
+   * Specifies whether the file system uses Key Management Service (KMS) managed keys to encrypt data at rest. No decryption is required when reading or writing encrypted data.
    * 
-   * > NAS-managed keys are supported when `FileSystemType` is set to `standard` or `extreme`. User-managed keys are supported when `FileSystemType` is set to `extreme`.
+   * > When `FileSystemType` is set to `standard` or `extreme`, NAS-managed keys are supported. When `FileSystemType` is set to `extreme`, user-managed keys are supported.
    * 
    * @example
    * 0
@@ -58,7 +56,7 @@ export class CreateAndBindNasFileSystemRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by Elastic Desktop Service.
+   * The region ID. You can call [DescribeRegions](~~DescribeRegions~~) to query the regions supported by WUYING Workspace.
    * 
    * This parameter is required.
    * 
@@ -68,7 +66,15 @@ export class CreateAndBindNasFileSystemRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The storage specification type of the NAS file system.
+   * The user VHD capacity tier in GiB. Valid values: 5, 20, 50, 100, and 500. Default value: 500.
+   * 
+   * @example
+   * 500
+   */
+  sizeQuota?: number;
+  /**
+   * @remarks
+   * The storage type of the NAS file system.
    * 
    * This parameter is required.
    * 
@@ -85,6 +91,7 @@ export class CreateAndBindNasFileSystemRequest extends $dara.Model {
       fileSystemName: 'FileSystemName',
       officeSiteId: 'OfficeSiteId',
       regionId: 'RegionId',
+      sizeQuota: 'SizeQuota',
       storageType: 'StorageType',
     };
   }
@@ -98,6 +105,7 @@ export class CreateAndBindNasFileSystemRequest extends $dara.Model {
       fileSystemName: 'string',
       officeSiteId: 'string',
       regionId: 'string',
+      sizeQuota: 'number',
       storageType: 'string',
     };
   }

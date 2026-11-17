@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOfficeSiteUsersResponseBodyUsers extends $dara.Model {
   /**
    * @remarks
-   * The number of assigned cloud computers.
+   * The number of assigned cloud desktops.
    * 
    * @example
    * 2
@@ -24,7 +24,7 @@ export class ListOfficeSiteUsersResponseBodyUsers extends $dara.Model {
    * The new display name of the user.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   displayNameNew?: string;
   /**
@@ -95,7 +95,7 @@ export class ListOfficeSiteUsersResponseBodyUsers extends $dara.Model {
 export class ListOfficeSiteUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The pagination token for the next query. An empty value indicates that no more results exist.
+   * The token for the next query. An empty NextToken indicates that no subsequent query is required.
    * 
    * @example
    * caeba0bbb2be03f84eb48b699f0a4883
@@ -111,7 +111,8 @@ export class ListOfficeSiteUsersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The array of AD account usernames. If the enterprise AD contains only the Administrator and Guest users and no other users, an empty Users array is returned.
+   * The array of AD account usernames.    
+   * If the enterprise AD domain contains only the Administrator and Guest users and no other users, an empty Users array is returned.
    */
   users?: ListOfficeSiteUsersResponseBodyUsers[];
   static names(): { [key: string]: string } {
