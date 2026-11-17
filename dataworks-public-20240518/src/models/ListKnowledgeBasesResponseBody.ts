@@ -160,7 +160,7 @@ export class ListKnowledgeBasesResponseBodyData extends $dara.Model {
 export class ListKnowledgeBasesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business error code. This field is omitted when the request is successful. If the request fails, the common error response protocol is followed.
+   * The business error code. This field may be omitted if the request succeeds. If the request fails, the common error response protocol applies.
    * 
    * @example
    * InvalidParameter
@@ -181,7 +181,7 @@ export class ListKnowledgeBasesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The readable description of the business error. This field is omitted when the request is successful. Provide the RequestId along with this message when troubleshooting failures.
+   * A human-readable description of the business error. This field may be omitted if the request succeeds. Provide the RequestId when troubleshooting failures.
    * 
    * @example
    * The request parameters are invalid.

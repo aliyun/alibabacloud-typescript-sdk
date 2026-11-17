@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCrossProjectPipelineRunResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the cross-workspace deployment pipeline.
+   * The cross-workspace deployment pipeline ID.
    * 
    * @example
    * fcfd4160-e2ff-4603-9719-09128fe733df
@@ -53,7 +53,7 @@ export class CreateCrossProjectPipelineRunResponseBody extends $dara.Model {
   data?: CreateCrossProjectPipelineRunResponseBodyData;
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot the API call.
+   * The request ID, which is used to locate and troubleshoot this API call.
    * 
    * @example
    * 735894D1-D5E5-50B8-8A6D-041C90A98B23

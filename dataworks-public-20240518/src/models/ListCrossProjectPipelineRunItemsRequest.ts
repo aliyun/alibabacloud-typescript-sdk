@@ -21,7 +21,7 @@ export class ListCrossProjectPipelineRunItemsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The cross-workspace deployment pipeline ID.
+   * The ID of the cross-workspace deployment pipeline.
    * 
    * This parameter is required.
    * 

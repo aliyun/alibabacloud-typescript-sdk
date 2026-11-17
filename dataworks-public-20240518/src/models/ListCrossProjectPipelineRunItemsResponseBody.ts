@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCrossProjectPipelineRunItemsResponseBodyDataPipelineRunItems extends $dara.Model {
   /**
    * @remarks
-   * The change type.
+   * The type of the change.
    * 
    * @example
    * ADD
@@ -37,7 +37,7 @@ export class ListCrossProjectPipelineRunItemsResponseBodyDataPipelineRunItems ex
   isRoot?: boolean;
   /**
    * @remarks
-   * The ID of the deployment object.
+   * The ID of the object to deploy.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ListCrossProjectPipelineRunItemsResponseBodyDataPipelineRunItems ex
   objectId?: string;
   /**
    * @remarks
-   * The name of the deployment object.
+   * The name of the object to deploy.
    * 
    * @example
    * object-1
@@ -53,7 +53,7 @@ export class ListCrossProjectPipelineRunItemsResponseBodyDataPipelineRunItems ex
   objectName?: string;
   /**
    * @remarks
-   * The deployment object type.
+   * The type of the object to deploy.
    * 
    * @example
    * ODPS_SQL
@@ -61,7 +61,7 @@ export class ListCrossProjectPipelineRunItemsResponseBodyDataPipelineRunItems ex
   objectType?: string;
   /**
    * @remarks
-   * The version of the deployment object.
+   * The version of the object to deploy.
    * 
    * @example
    * 7
@@ -141,7 +141,7 @@ export class ListCrossProjectPipelineRunItemsResponseBodyData extends $dara.Mode
   pageSize?: number;
   /**
    * @remarks
-   * The list of publish items for the root object and its child objects in the cross-workspace publish pipeline.
+   * The list of deployment items for the root object and its child objects snapshotted in the cross-workspace deployment pipeline.
    * 
    * @example
    * [{"ObjectId":"1","ObjectType":"ODPS_SQL","ObjectName":"object-1","ObjectVersion":"7","ChangeType":"ADD","IsRoot":true,"Status":"Ready"}]
@@ -198,7 +198,7 @@ export class ListCrossProjectPipelineRunItemsResponseBodyData extends $dara.Mode
 export class ListCrossProjectPipelineRunItemsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The business response.
    * 
    * @example
    * {"RequestId":"735894D1-D5E5-50B8-8A6D-041C90A98B23","PageNumber":1,"PageSize":10,"TotalCount":1,"PipelineRunItems":[{"ObjectId":"1","ObjectType":"ODPS_SQL","ObjectName":"object-1","ObjectVersion":"7","ChangeType":"ADD","IsRoot":true,"Status":"Ready"}]}
@@ -206,7 +206,7 @@ export class ListCrossProjectPipelineRunItemsResponseBody extends $dara.Model {
   data?: ListCrossProjectPipelineRunItemsResponseBodyData;
   /**
    * @remarks
-   * The request ID used to locate and troubleshoot the API call.
+   * The request ID, which is used to locate and troubleshoot the API call.
    * 
    * @example
    * 735894D1-D5E5-50B8-8A6D-041C90A98B23

@@ -13,7 +13,7 @@ export class SetSuccessTaskInstancesShrinkRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The list of task instance IDs.
+   * The list of node instance IDs.
    */
   idsShrink?: string;
   static names(): { [key: string]: string } {

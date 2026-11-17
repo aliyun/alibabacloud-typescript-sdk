@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTaskAsyncRequestDataSource extends $dara.Model {
   /**
    * @remarks
-   * The data source name.
+   * The name of the data source.
    * 
    * @example
    * odps_test
@@ -49,7 +49,7 @@ export class UpdateTaskAsyncRequestDependencies extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The output identifier of the upstream node. This field is returned for same-cycle dependencies when the input content is configured.
+   * The output identifier of the upstream node. This field is returned when the dependency is a same-cycle dependency and the input content is set.
    * 
    * @example
    * pre.odps_sql_demo_0
@@ -57,7 +57,7 @@ export class UpdateTaskAsyncRequestDependencies extends $dara.Model {
   upstreamOutput?: string;
   /**
    * @remarks
-   * The ID of the upstream node. This field is returned for cross-cycle dependencies on other nodes and for same-cycle dependencies when no input content is configured. It is not returned in other cases.
+   * The ID of the upstream node. This field is returned when the dependency is `CrossCycleDependsOnOtherNode` or `Normal` and the input content is not set. It is not returned in other cases.
    * 
    * @example
    * 1234
@@ -91,7 +91,7 @@ export class UpdateTaskAsyncRequestDependencies extends $dara.Model {
 export class UpdateTaskAsyncRequestInputsVariables extends $dara.Model {
   /**
    * @remarks
-   * The variable name.
+   * The name of the variable.
    * 
    * @example
    * key1
@@ -99,10 +99,10 @@ export class UpdateTaskAsyncRequestInputsVariables extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The variable type. Valid values:
+   * The type. Valid values:
    * - Constant: constant.
-   * - PassThrough: output of a pass-through parameter node.
-   * - System: system variable.
+   * - PassThrough: output of a parameter node.
+   * - System: variable.
    * - NodeOutput: script output.
    * 
    * This parameter is required.
@@ -113,7 +113,7 @@ export class UpdateTaskAsyncRequestInputsVariables extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The variable value.
+   * The value of the variable.
    * 
    * @example
    * value1
@@ -207,7 +207,7 @@ export class UpdateTaskAsyncRequestOutputsTaskOutputs extends $dara.Model {
 export class UpdateTaskAsyncRequestOutputsVariables extends $dara.Model {
   /**
    * @remarks
-   * The variable name.
+   * The name of the variable.
    * 
    * @example
    * key1
@@ -215,10 +215,10 @@ export class UpdateTaskAsyncRequestOutputsVariables extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The variable type. Valid values:
+   * The type. Valid values:
    * - Constant: constant.
-   * - PassThrough: output of a pass-through parameter node.
-   * - System: system variable.
+   * - PassThrough: output of a parameter node.
+   * - System: variable.
    * - NodeOutput: script output.
    * 
    * This parameter is required.
@@ -229,7 +229,7 @@ export class UpdateTaskAsyncRequestOutputsVariables extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The variable value.
+   * The value of the variable.
    * 
    * @example
    * value1
@@ -303,7 +303,7 @@ export class UpdateTaskAsyncRequestOutputs extends $dara.Model {
 export class UpdateTaskAsyncRequestRuntimeResource extends $dara.Model {
   /**
    * @remarks
-   * The CU consumption for the node runtime configuration.
+   * The number of compute units (CUs) consumed by the node runtime configuration.
    * 
    * @example
    * 0.25
@@ -311,7 +311,7 @@ export class UpdateTaskAsyncRequestRuntimeResource extends $dara.Model {
   cu?: string;
   /**
    * @remarks
-   * The image ID for the node runtime configuration.
+   * The image ID of the node runtime configuration.
    * 
    * @example
    * i-xxxxxx
@@ -319,7 +319,7 @@ export class UpdateTaskAsyncRequestRuntimeResource extends $dara.Model {
   image?: string;
   /**
    * @remarks
-   * The identifier of the schedule resource group for the node runtime configuration.
+   * The identifier of the scheduling resource group for the node runtime configuration.
    * 
    * @example
    * 63900680
@@ -353,7 +353,7 @@ export class UpdateTaskAsyncRequestRuntimeResource extends $dara.Model {
 export class UpdateTaskAsyncRequestScript extends $dara.Model {
   /**
    * @remarks
-   * The script content.
+   * The content of the script.
    * 
    * @example
    * echo "helloWorld"
@@ -437,7 +437,7 @@ export class UpdateTaskAsyncRequestTags extends $dara.Model {
 export class UpdateTaskAsyncRequestTrigger extends $dara.Model {
   /**
    * @remarks
-   * The cron expression. This parameter takes effect when Type is set to Scheduler.
+   * The cron expression. This parameter takes effect when the Type parameter is set to Scheduler.
    * 
    * @example
    * 00 00 00 * * ?
@@ -445,13 +445,10 @@ export class UpdateTaskAsyncRequestTrigger extends $dara.Model {
   cron?: string;
   /**
    * @remarks
-   * The scheduling cycle type. This parameter takes effect when Type is set to Scheduler and the cron expression specifies a timed scheduling at a specific hour. Default value: Daily. Valid values:
-   * 
-   * 
-   * 
-   * 
-   * - Daily: daily scheduling.
-   * - NotDaily: hourly scheduling.
+   * The cycle type. This parameter takes effect when Type is set to Scheduler and the cron expression specifies scheduling at a specific hour. Valid values:
+   * - Daily: Specifies daily scheduling.
+   * - NotDaily: Specifies hourly scheduling.
+   * Default value: Daily.
    * 
    * @example
    * Daily
@@ -459,7 +456,7 @@ export class UpdateTaskAsyncRequestTrigger extends $dara.Model {
   cycleType?: string;
   /**
    * @remarks
-   * The time when the periodic trigger expires. This parameter takes effect when Type is set to Scheduler. The format is `yyyy-mm-dd hh:mm:ss`.
+   * The expiration time of the periodic trigger. This parameter takes effect when the type parameter is set to Scheduler. The format is `yyyy-mm-dd hh:mm:ss`.
    * 
    * @example
    * 9999-01-01 00:00:00
@@ -467,10 +464,10 @@ export class UpdateTaskAsyncRequestTrigger extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The run mode when the trigger fires. This parameter takes effect when Type is set to Scheduler. Valid values:
+   * The running mode when the node is triggered. This parameter takes effect when the type parameter is set to Scheduler. Valid values:
    * - Pause: paused.
    * - Skip: dry run.
-   * - Normal: normal run.
+   * - Normal: normal running.
    * 
    * @example
    * Normal
@@ -478,7 +475,7 @@ export class UpdateTaskAsyncRequestTrigger extends $dara.Model {
   recurrence?: string;
   /**
    * @remarks
-   * The time at which the scheduled trigger takes effect. This parameter takes effect when Type is set to Scheduler. The format is `yyyy-mm-dd hh:mm:ss`.
+   * The start time of the recurring trigger. This parameter takes effect when the type parameter is set to Scheduler. The format is `yyyy-mm-dd hh:mm:ss`.
    * 
    * @example
    * 1970-01-01 00:00:00
@@ -487,11 +484,11 @@ export class UpdateTaskAsyncRequestTrigger extends $dara.Model {
   /**
    * @remarks
    * The trigger type. Valid values:
-   * - Scheduler: scheduled periodic trigger.
-   * - Manual: manual trigger.
+   * - Scheduler: triggered by a scheduling cycle.
+   * - Manual: manually triggered.
    * 
    * @example
-   * BySchedule
+   * Scheduler
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -528,7 +525,7 @@ export class UpdateTaskAsyncRequestTrigger extends $dara.Model {
 export class UpdateTaskAsyncRequest extends $dara.Model {
   /**
    * @remarks
-   * The client unique code of the node, used to uniquely identify a node. This code is used for asynchronous processing and idempotence. If you do not specify this parameter when creating a node, the system automatically generates a value and binds it to the resource ID. If you specify this parameter when updating or deleting a resource, the value must match the client unique code used when the resource was created.
+   * The client unique code of the node, which is used to uniquely identify a node. This parameter is used to implement asynchronous processing and idempotence. If you do not specify this parameter when you create a node, the system automatically generates one. This code is uniquely bound to the resource ID. If you specify this parameter when you update or delete a resource, it must be the same as the client unique code used when the resource was created.
    * 
    * @example
    * Workflow_0bc5213917368545132902xxxxxxxx
@@ -555,8 +552,8 @@ export class UpdateTaskAsyncRequest extends $dara.Model {
   /**
    * @remarks
    * The project environment. Valid values:
-   * - Prod: production
-   * - Dev: development
+   * - Prod: production.
+   * - Dev: development.
    * 
    * @example
    * Prod
@@ -580,8 +577,8 @@ export class UpdateTaskAsyncRequest extends $dara.Model {
   /**
    * @remarks
    * The instance generation mode. Valid values:
-   * - T+1: generates instances the next day.
-   * - Immediately: generates instances immediately. Note: only periodic instances whose scheduled time is more than 10 minutes after the node publish time are generated normally. During the full-to-instance conversion period (22:00–24:00), real-time instance conversion is not supported. You can submit and publish nodes, but new nodes are not automatically converted to instances.
+   * - T+1: generates instances on the next day.
+   * - Immediately: generates instances immediately. Note: Periodic instances are generated normally only if the scheduled time of the node is at least 10 minutes after the node is published. Real-time instance generation is not supported during the full instance generation period (22:00 to 24:00). You can submit and publish nodes, but new nodes are not automatically converted into instances.
    * 
    * @example
    * T+1
@@ -602,7 +599,7 @@ export class UpdateTaskAsyncRequest extends $dara.Model {
   outputs?: UpdateTaskAsyncRequestOutputs;
   /**
    * @remarks
-   * The account ID of the node owner. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and hover over the profile picture in the upper-right corner of the top navigation bar to view the account ID. If this parameter is left empty, the Alibaba Cloud account ID of the caller is used by default.
+   * The Alibaba Cloud account ID of the node owner. You can log on to the [DataWorks console](https://workbench.data.aliyun.com/console) and move the mouse over the profile picture in the upper-right corner of the top menu bar to view the account ID. If this parameter is left empty, the Alibaba Cloud account ID of the invoker is used by default.
    * 
    * @example
    * 1000000000001
@@ -618,14 +615,10 @@ export class UpdateTaskAsyncRequest extends $dara.Model {
   rerunInterval?: number;
   /**
    * @remarks
-   * The configuration that specifies whether the node can be rerun. Valid values:
-   * 
-   * 
-   * 
-   * 
-   * - AllDenied: the node cannot be rerun regardless of whether it succeeds or fails.
-   * - FailureAllowed: the node can be rerun only if it fails.
-   * - AllAllowed: the node can be rerun regardless of whether it succeeds or fails.
+   * Specifies whether the node can be rerun. Valid values:
+   * - AllDenied: The node cannot be rerun regardless of whether it succeeds or fails.
+   * - FailureAllowed: The node can be rerun only if it fails.
+   * - AllAllowed: The node can be rerun regardless of whether it succeeds or fails.
    * 
    * @example
    * AllAllowed
@@ -633,7 +626,7 @@ export class UpdateTaskAsyncRequest extends $dara.Model {
   rerunMode?: string;
   /**
    * @remarks
-   * The number of retries. This parameter takes effect only when the node is configured to allow reruns.
+   * The number of retries. This parameter takes effect when the node is configured to be rerunnable.
    * 
    * @example
    * 3
@@ -646,12 +639,12 @@ export class UpdateTaskAsyncRequest extends $dara.Model {
   runtimeResource?: UpdateTaskAsyncRequestRuntimeResource;
   /**
    * @remarks
-   * The runtime script information.
+   * The information about the script to be run.
    */
   script?: UpdateTaskAsyncRequestScript;
   /**
    * @remarks
-   * The list of data asset tags to attach.
+   * The list of data asset tags to be bound.
    */
   tags?: UpdateTaskAsyncRequestTags[];
   /**
@@ -664,7 +657,7 @@ export class UpdateTaskAsyncRequest extends $dara.Model {
   timeout?: number;
   /**
    * @remarks
-   * The trigger method of the node.
+   * The trigger mode of the node.
    */
   trigger?: UpdateTaskAsyncRequestTrigger;
   static names(): { [key: string]: string } {

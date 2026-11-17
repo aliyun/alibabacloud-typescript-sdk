@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class Partition extends $dara.Model {
   /**
    * @remarks
-   * The creation time, in millisecond-level timestamp.
+   * The creation time (millisecond timestamp).
    * 
    * @example
    * 1700192563000
@@ -21,7 +21,7 @@ export class Partition extends $dara.Model {
   dataSize?: number;
   /**
    * @remarks
-   * The modification time, in millisecond-level timestamp.
+   * The modification time (millisecond timestamp).
    * 
    * @example
    * 1700192563000
@@ -45,10 +45,10 @@ export class Partition extends $dara.Model {
   recordCount?: number;
   /**
    * @remarks
-   * The resource ID of the data table to which the partition belongs.
+   * The ID of the parent data table. Refer to the `Table` object.
    * 
    * @example
-   * maxcompute-table:accountId::project::table
+   * maxcompute-table:::project_name:[schema_name]:table_name
    */
   tableId?: string;
   static names(): { [key: string]: string } {

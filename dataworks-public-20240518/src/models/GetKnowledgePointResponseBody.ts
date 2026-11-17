@@ -685,7 +685,7 @@ export class GetKnowledgePointResponseBodyData extends $dara.Model {
 export class GetKnowledgePointResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business error code. This parameter is omitted when the request is successful. For failures, the common error response protocol is followed.
+   * The business error code. This field may be omitted if the request succeeds. If the request fails, the common error response protocol applies.
    * 
    * @example
    * InvalidParameter
@@ -698,7 +698,7 @@ export class GetKnowledgePointResponseBody extends $dara.Model {
   data?: GetKnowledgePointResponseBodyData;
   /**
    * @remarks
-   * The readable description of the business error. This parameter is omitted when the request is successful. Provide the RequestId when troubleshooting failures.
+   * A human-readable description of the business error. This field may be omitted if the request succeeds. Provide the RequestId when troubleshooting failures.
    * 
    * @example
    * The request parameters are invalid.

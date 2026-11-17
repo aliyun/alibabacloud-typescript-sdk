@@ -43,7 +43,7 @@ export class AbolishCrossProjectPipelineRunResponseBody extends $dara.Model {
   data?: AbolishCrossProjectPipelineRunResponseBodyData;
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot the API call.
+   * The request ID that is used to locate and troubleshoot the API call.
    * 
    * @example
    * 735894D1-D5E5-50B8-8A6D-041C90A98B23

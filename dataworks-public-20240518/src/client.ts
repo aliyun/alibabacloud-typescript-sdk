@@ -181,7 +181,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Terminates a cross-workspace deployment pipeline run.
+   * Stops the cross-workspace deployment pipeline.
    * 
    * @param request - AbolishCrossProjectPipelineRunRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -220,7 +220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Terminates a cross-workspace deployment pipeline run.
+   * Stops the cross-workspace deployment pipeline.
    * 
    * @param request - AbolishCrossProjectPipelineRunRequest
    * @returns AbolishCrossProjectPipelineRunResponse
@@ -336,6 +336,58 @@ export default class Client extends OpenApi {
   async addEntityIntoMetaCollection(request: $_model.AddEntityIntoMetaCollectionRequest): Promise<$_model.AddEntityIntoMetaCollectionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.addEntityIntoMetaCollectionWithOptions(request, runtime);
+  }
+
+  /**
+   * Adds an administrator to a specified knowledge base.
+   * 
+   * @remarks
+   * Adds an administrator. Only the owner or an administrator of the knowledge base can perform this operation. The caller and tenant are determined by the POP authentication context.
+   * 
+   * @param request - AddKnowledgeBaseAdministratorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns AddKnowledgeBaseAdministratorResponse
+   */
+  async addKnowledgeBaseAdministratorWithOptions(request: $_model.AddKnowledgeBaseAdministratorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.AddKnowledgeBaseAdministratorResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.administratorUserId)) {
+      body["AdministratorUserId"] = request.administratorUserId;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "AddKnowledgeBaseAdministrator",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.AddKnowledgeBaseAdministratorResponse>(await this.callApi(params, req, runtime), new $_model.AddKnowledgeBaseAdministratorResponse({}));
+  }
+
+  /**
+   * Adds an administrator to a specified knowledge base.
+   * 
+   * @remarks
+   * Adds an administrator. Only the owner or an administrator of the knowledge base can perform this operation. The caller and tenant are determined by the POP authentication context.
+   * 
+   * @param request - AddKnowledgeBaseAdministratorRequest
+   * @returns AddKnowledgeBaseAdministratorResponse
+   */
+  async addKnowledgeBaseAdministrator(request: $_model.AddKnowledgeBaseAdministratorRequest): Promise<$_model.AddKnowledgeBaseAdministratorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.addKnowledgeBaseAdministratorWithOptions(request, runtime);
   }
 
   /**
@@ -1875,7 +1927,7 @@ export default class Client extends OpenApi {
    * Creates a cross-workspace deployment pipeline.
    * 
    * @remarks
-   * Creates and solidifies a cross-project deployment pipeline. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Sub-objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call the ListCrossProjectDeploymentCandidates operation to query candidate objects. After the pipeline is created, call the ExecCrossProjectPipelineRun operation to execute the deployment, and call the GetCrossProjectPipelineRun operation to query the status.
+   * Creates and finalizes a cross-workspace deployment pipeline. The ObjectIds parameter must contain one and only one top-level object ID from the source workspace. Sub-objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call ListCrossProjectDeploymentCandidates to query candidate objects. After creation, call ExecCrossProjectPipelineRun to execute the deployment, and call GetCrossProjectPipelineRun to query the status.
    * 
    * @param tmpReq - CreateCrossProjectPipelineRunRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1931,7 +1983,7 @@ export default class Client extends OpenApi {
    * Creates a cross-workspace deployment pipeline.
    * 
    * @remarks
-   * Creates and solidifies a cross-project deployment pipeline. The ObjectIds parameter must contain exactly one top-level object ID from the source project. Sub-objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call the ListCrossProjectDeploymentCandidates operation to query candidate objects. After the pipeline is created, call the ExecCrossProjectPipelineRun operation to execute the deployment, and call the GetCrossProjectPipelineRun operation to query the status.
+   * Creates and finalizes a cross-workspace deployment pipeline. The ObjectIds parameter must contain one and only one top-level object ID from the source workspace. Sub-objects of composite objects such as workflows are automatically included by the system. Passing multiple objects causes parameter validation to fail. You can call ListCrossProjectDeploymentCandidates to query candidate objects. After creation, call ExecCrossProjectPipelineRun to execute the deployment, and call GetCrossProjectPipelineRun to query the status.
    * 
    * @param request - CreateCrossProjectPipelineRunRequest
    * @returns CreateCrossProjectPipelineRunResponse
@@ -3681,6 +3733,464 @@ export default class Client extends OpenApi {
   async createImage(request: $_model.CreateImageRequest): Promise<$_model.CreateImageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createImageWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a knowledge base and returns the knowledge base ID, name, ownership, and the access role of the current caller. This operation does not automatically add sources, build knowledge, or generate retrieval results. You can continue to configure knowledge sources and build tasks. The tenant and owner of the knowledge base are determined by the current caller identity. You do not need to specify a workspace or resource group.
+   * 
+   * @remarks
+   * Creates a knowledge base. The tenant and caller identity are determined by the POP authentication context.
+   * 
+   * @param request - CreateKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateKnowledgeBaseResponse
+   */
+  async createKnowledgeBaseWithOptions(request: $_model.CreateKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateKnowledgeBaseResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateKnowledgeBase",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.CreateKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * Creates a knowledge base and returns the knowledge base ID, name, ownership, and the access role of the current caller. This operation does not automatically add sources, build knowledge, or generate retrieval results. You can continue to configure knowledge sources and build tasks. The tenant and owner of the knowledge base are determined by the current caller identity. You do not need to specify a workspace or resource group.
+   * 
+   * @remarks
+   * Creates a knowledge base. The tenant and caller identity are determined by the POP authentication context.
+   * 
+   * @param request - CreateKnowledgeBaseRequest
+   * @returns CreateKnowledgeBaseResponse
+   */
+  async createKnowledgeBase(request: $_model.CreateKnowledgeBaseRequest): Promise<$_model.CreateKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createKnowledgeBaseWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a repeatable knowledge build task and configures the input scope, trigger mode, and runtime resources.
+   * 
+   * @remarks
+   * Creates a knowledge base build task. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param tmpReq - CreateKnowledgeBaseBuildTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateKnowledgeBaseBuildTaskResponse
+   */
+  async createKnowledgeBaseBuildTaskWithOptions(tmpReq: $_model.CreateKnowledgeBaseBuildTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateKnowledgeBaseBuildTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateKnowledgeBaseBuildTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.runtimeResource)) {
+      request.runtimeResourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.runtimeResource, "RuntimeResource", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.trigger)) {
+      request.triggerShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.trigger, "Trigger", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.contentLocale)) {
+      body["ContentLocale"] = request.contentLocale;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.inputShrink)) {
+      body["Input"] = request.inputShrink;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.llmModel)) {
+      body["LlmModel"] = request.llmModel;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.runtimeResourceShrink)) {
+      body["RuntimeResource"] = request.runtimeResourceShrink;
+    }
+
+    if (!$dara.isNull(request.triggerShrink)) {
+      body["Trigger"] = request.triggerShrink;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateKnowledgeBaseBuildTask",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateKnowledgeBaseBuildTaskResponse>(await this.callApi(params, req, runtime), new $_model.CreateKnowledgeBaseBuildTaskResponse({}));
+  }
+
+  /**
+   * Creates a repeatable knowledge build task and configures the input scope, trigger mode, and runtime resources.
+   * 
+   * @remarks
+   * Creates a knowledge base build task. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - CreateKnowledgeBaseBuildTaskRequest
+   * @returns CreateKnowledgeBaseBuildTaskResponse
+   */
+  async createKnowledgeBaseBuildTask(request: $_model.CreateKnowledgeBaseBuildTaskRequest): Promise<$_model.CreateKnowledgeBaseBuildTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createKnowledgeBaseBuildTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a build instance based on the current configuration of a specified task, and freezes the input and runtime configurations for this execution.
+   * 
+   * @remarks
+   * Creates a knowledge base build task instance. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - CreateKnowledgeBaseBuildTaskInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateKnowledgeBaseBuildTaskInstanceResponse
+   */
+  async createKnowledgeBaseBuildTaskInstanceWithOptions(request: $_model.CreateKnowledgeBaseBuildTaskInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateKnowledgeBaseBuildTaskInstanceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateKnowledgeBaseBuildTaskInstance",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateKnowledgeBaseBuildTaskInstanceResponse>(await this.callApi(params, req, runtime), new $_model.CreateKnowledgeBaseBuildTaskInstanceResponse({}));
+  }
+
+  /**
+   * Creates a build instance based on the current configuration of a specified task, and freezes the input and runtime configurations for this execution.
+   * 
+   * @remarks
+   * Creates a knowledge base build task instance. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - CreateKnowledgeBaseBuildTaskInstanceRequest
+   * @returns CreateKnowledgeBaseBuildTaskInstanceResponse
+   */
+  async createKnowledgeBaseBuildTaskInstance(request: $_model.CreateKnowledgeBaseBuildTaskInstanceRequest): Promise<$_model.CreateKnowledgeBaseBuildTaskInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createKnowledgeBaseBuildTaskInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a document object in a knowledge base by using the document body or an uploaded file.
+   * 
+   * @remarks
+   * Creates a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param tmpReq - CreateKnowledgeObjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateKnowledgeObjectResponse
+   */
+  async createKnowledgeObjectWithOptions(tmpReq: $_model.CreateKnowledgeObjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateKnowledgeObjectResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateKnowledgeObjectShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.content)) {
+      request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.contentShrink)) {
+      body["Content"] = request.contentShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    if (!$dara.isNull(request.uploadId)) {
+      body["UploadId"] = request.uploadId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateKnowledgeObject",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateKnowledgeObjectResponse>(await this.callApi(params, req, runtime), new $_model.CreateKnowledgeObjectResponse({}));
+  }
+
+  /**
+   * Creates a document object in a knowledge base by using the document body or an uploaded file.
+   * 
+   * @remarks
+   * Creates a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - CreateKnowledgeObjectRequest
+   * @returns CreateKnowledgeObjectResponse
+   */
+  async createKnowledgeObject(request: $_model.CreateKnowledgeObjectRequest): Promise<$_model.CreateKnowledgeObjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createKnowledgeObjectWithOptions(request, runtime);
+  }
+
+  /**
+   * Requests a file upload session and a temporary direct upload URL without creating a knowledge object or starting a build.
+   * 
+   * @remarks
+   * Creates an upload session for a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - CreateKnowledgeObjectUploadRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateKnowledgeObjectUploadResponse
+   */
+  async createKnowledgeObjectUploadWithOptions(request: $_model.CreateKnowledgeObjectUploadRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateKnowledgeObjectUploadResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.contentMd5)) {
+      body["ContentMd5"] = request.contentMd5;
+    }
+
+    if (!$dara.isNull(request.contentSha256)) {
+      body["ContentSha256"] = request.contentSha256;
+    }
+
+    if (!$dara.isNull(request.contentType)) {
+      body["ContentType"] = request.contentType;
+    }
+
+    if (!$dara.isNull(request.fileName)) {
+      body["FileName"] = request.fileName;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.sizeBytes)) {
+      body["SizeBytes"] = request.sizeBytes;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateKnowledgeObjectUpload",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateKnowledgeObjectUploadResponse>(await this.callApi(params, req, runtime), new $_model.CreateKnowledgeObjectUploadResponse({}));
+  }
+
+  /**
+   * Requests a file upload session and a temporary direct upload URL without creating a knowledge object or starting a build.
+   * 
+   * @remarks
+   * Creates an upload session for a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - CreateKnowledgeObjectUploadRequest
+   * @returns CreateKnowledgeObjectUploadResponse
+   */
+  async createKnowledgeObjectUpload(request: $_model.CreateKnowledgeObjectUploadRequest): Promise<$_model.CreateKnowledgeObjectUploadResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createKnowledgeObjectUploadWithOptions(request, runtime);
+  }
+
+  /**
+   * Registers projects, data sources, or external document sources that can be referenced by a knowledge base.
+   * 
+   * @remarks
+   * Manages knowledge sources for a knowledge base. The identity is determined by the POP context, and credentials are not returned in query responses.
+   * 
+   * @param tmpReq - CreateKnowledgeSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateKnowledgeSourceResponse
+   */
+  async createKnowledgeSourceWithOptions(tmpReq: $_model.CreateKnowledgeSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateKnowledgeSourceResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateKnowledgeSourceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dataSource)) {
+      request.dataSourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataSource, "DataSource", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.document)) {
+      request.documentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.document, "Document", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.project)) {
+      request.projectShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.project, "Project", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.dataSourceShrink)) {
+      body["DataSource"] = request.dataSourceShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.documentShrink)) {
+      body["Document"] = request.documentShrink;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.projectShrink)) {
+      body["Project"] = request.projectShrink;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateKnowledgeSource",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateKnowledgeSourceResponse>(await this.callApi(params, req, runtime), new $_model.CreateKnowledgeSourceResponse({}));
+  }
+
+  /**
+   * Registers projects, data sources, or external document sources that can be referenced by a knowledge base.
+   * 
+   * @remarks
+   * Manages knowledge sources for a knowledge base. The identity is determined by the POP context, and credentials are not returned in query responses.
+   * 
+   * @param request - CreateKnowledgeSourceRequest
+   * @returns CreateKnowledgeSourceResponse
+   */
+  async createKnowledgeSource(request: $_model.CreateKnowledgeSourceRequest): Promise<$_model.CreateKnowledgeSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createKnowledgeSourceWithOptions(request, runtime);
   }
 
   /**
@@ -6451,6 +6961,9 @@ export default class Client extends OpenApi {
   /**
    * Deletes a data quality monitoring rule.
    * 
+   * @remarks
+   * 需要购买DataWorks基础版及以上版本才能使用
+   * 
    * @param request - DeleteDataQualityRuleRequest
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DeleteDataQualityRuleResponse
@@ -6485,6 +6998,9 @@ export default class Client extends OpenApi {
 
   /**
    * Deletes a data quality monitoring rule.
+   * 
+   * @remarks
+   * 需要购买DataWorks基础版及以上版本才能使用
    * 
    * @param request - DeleteDataQualityRuleRequest
    * @returns DeleteDataQualityRuleResponse
@@ -7043,6 +7559,210 @@ export default class Client extends OpenApi {
   async deleteImage(request: $_model.DeleteImageRequest): Promise<$_model.DeleteImageResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteImageWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a specified knowledge base and returns the deleted status upon success.
+   * 
+   * @remarks
+   * Deletes a knowledge base. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - DeleteKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteKnowledgeBaseResponse
+   */
+  async deleteKnowledgeBaseWithOptions(request: $_model.DeleteKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteKnowledgeBaseResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteKnowledgeBase",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.DeleteKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * Deletes a specified knowledge base and returns the deleted status upon success.
+   * 
+   * @remarks
+   * Deletes a knowledge base. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - DeleteKnowledgeBaseRequest
+   * @returns DeleteKnowledgeBaseResponse
+   */
+  async deleteKnowledgeBase(request: $_model.DeleteKnowledgeBaseRequest): Promise<$_model.DeleteKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteKnowledgeBaseWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a specified knowledge base build task.
+   * 
+   * @remarks
+   * Deletes a knowledge base build task. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - DeleteKnowledgeBaseBuildTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteKnowledgeBaseBuildTaskResponse
+   */
+  async deleteKnowledgeBaseBuildTaskWithOptions(request: $_model.DeleteKnowledgeBaseBuildTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteKnowledgeBaseBuildTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteKnowledgeBaseBuildTask",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteKnowledgeBaseBuildTaskResponse>(await this.callApi(params, req, runtime), new $_model.DeleteKnowledgeBaseBuildTaskResponse({}));
+  }
+
+  /**
+   * Deletes a specified knowledge base build task.
+   * 
+   * @remarks
+   * Deletes a knowledge base build task. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - DeleteKnowledgeBaseBuildTaskRequest
+   * @returns DeleteKnowledgeBaseBuildTaskResponse
+   */
+  async deleteKnowledgeBaseBuildTask(request: $_model.DeleteKnowledgeBaseBuildTaskRequest): Promise<$_model.DeleteKnowledgeBaseBuildTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteKnowledgeBaseBuildTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Removes a document object from a knowledge base or archives a semantic model object.
+   * 
+   * @remarks
+   * Deletes a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - DeleteKnowledgeObjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteKnowledgeObjectResponse
+   */
+  async deleteKnowledgeObjectWithOptions(request: $_model.DeleteKnowledgeObjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteKnowledgeObjectResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.knowledgeObjectId)) {
+      body["KnowledgeObjectId"] = request.knowledgeObjectId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteKnowledgeObject",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteKnowledgeObjectResponse>(await this.callApi(params, req, runtime), new $_model.DeleteKnowledgeObjectResponse({}));
+  }
+
+  /**
+   * Removes a document object from a knowledge base or archives a semantic model object.
+   * 
+   * @remarks
+   * Deletes a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - DeleteKnowledgeObjectRequest
+   * @returns DeleteKnowledgeObjectResponse
+   */
+  async deleteKnowledgeObject(request: $_model.DeleteKnowledgeObjectRequest): Promise<$_model.DeleteKnowledgeObjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteKnowledgeObjectWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a knowledge source from a specified knowledge base.
+   * 
+   * @remarks
+   * Manages knowledge sources in a knowledge base. The identity is determined by the POP context, and credentials are not returned in the response.
+   * 
+   * @param request - DeleteKnowledgeSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteKnowledgeSourceResponse
+   */
+  async deleteKnowledgeSourceWithOptions(request: $_model.DeleteKnowledgeSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteKnowledgeSourceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.sourceId)) {
+      body["SourceId"] = request.sourceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteKnowledgeSource",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteKnowledgeSourceResponse>(await this.callApi(params, req, runtime), new $_model.DeleteKnowledgeSourceResponse({}));
+  }
+
+  /**
+   * Deletes a knowledge source from a specified knowledge base.
+   * 
+   * @remarks
+   * Manages knowledge sources in a knowledge base. The identity is determined by the POP context, and credentials are not returned in the response.
+   * 
+   * @param request - DeleteKnowledgeSourceRequest
+   * @returns DeleteKnowledgeSourceResponse
+   */
+  async deleteKnowledgeSource(request: $_model.DeleteKnowledgeSourceRequest): Promise<$_model.DeleteKnowledgeSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteKnowledgeSourceWithOptions(request, runtime);
   }
 
   /**
@@ -11275,6 +11995,218 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the current configuration of a specified knowledge base build task.
+   * 
+   * @remarks
+   * Reads a knowledge base build task or instance. The tenant and caller identity are determined by the POP authentication context.
+   * 
+   * @param request - GetKnowledgeBaseBuildTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKnowledgeBaseBuildTaskResponse
+   */
+  async getKnowledgeBaseBuildTaskWithOptions(request: $_model.GetKnowledgeBaseBuildTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetKnowledgeBaseBuildTaskResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetKnowledgeBaseBuildTask",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetKnowledgeBaseBuildTaskResponse>(await this.callApi(params, req, runtime), new $_model.GetKnowledgeBaseBuildTaskResponse({}));
+  }
+
+  /**
+   * Retrieves the current configuration of a specified knowledge base build task.
+   * 
+   * @remarks
+   * Reads a knowledge base build task or instance. The tenant and caller identity are determined by the POP authentication context.
+   * 
+   * @param request - GetKnowledgeBaseBuildTaskRequest
+   * @returns GetKnowledgeBaseBuildTaskResponse
+   */
+  async getKnowledgeBaseBuildTask(request: $_model.GetKnowledgeBaseBuildTaskRequest): Promise<$_model.GetKnowledgeBaseBuildTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getKnowledgeBaseBuildTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the execution status, input and configuration snapshots, and failure details for a build.
+   * 
+   * @remarks
+   * Retrieves a knowledge base build task or instance. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - GetKnowledgeBaseBuildTaskInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKnowledgeBaseBuildTaskInstanceResponse
+   */
+  async getKnowledgeBaseBuildTaskInstanceWithOptions(request: $_model.GetKnowledgeBaseBuildTaskInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetKnowledgeBaseBuildTaskInstanceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.taskInstanceId)) {
+      body["TaskInstanceId"] = request.taskInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetKnowledgeBaseBuildTaskInstance",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetKnowledgeBaseBuildTaskInstanceResponse>(await this.callApi(params, req, runtime), new $_model.GetKnowledgeBaseBuildTaskInstanceResponse({}));
+  }
+
+  /**
+   * Retrieves the execution status, input and configuration snapshots, and failure details for a build.
+   * 
+   * @remarks
+   * Retrieves a knowledge base build task or instance. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - GetKnowledgeBaseBuildTaskInstanceRequest
+   * @returns GetKnowledgeBaseBuildTaskInstanceResponse
+   */
+  async getKnowledgeBaseBuildTaskInstance(request: $_model.GetKnowledgeBaseBuildTaskInstanceRequest): Promise<$_model.GetKnowledgeBaseBuildTaskInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getKnowledgeBaseBuildTaskInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the original artifact information and temporary download URL of a successful build.
+   * 
+   * @remarks
+   * Retrieves the temporary download link for the original artifact package of a successful build instance. The model YAML is obtained through the knowledge object API and is not included in the TGZ result of this API.
+   * 
+   * @param request - GetKnowledgeBaseBuildTaskResultRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKnowledgeBaseBuildTaskResultResponse
+   */
+  async getKnowledgeBaseBuildTaskResultWithOptions(request: $_model.GetKnowledgeBaseBuildTaskResultRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetKnowledgeBaseBuildTaskResultResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.taskInstanceId)) {
+      body["TaskInstanceId"] = request.taskInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetKnowledgeBaseBuildTaskResult",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetKnowledgeBaseBuildTaskResultResponse>(await this.callApi(params, req, runtime), new $_model.GetKnowledgeBaseBuildTaskResultResponse({}));
+  }
+
+  /**
+   * Retrieves the original artifact information and temporary download URL of a successful build.
+   * 
+   * @remarks
+   * Retrieves the temporary download link for the original artifact package of a successful build instance. The model YAML is obtained through the knowledge object API and is not included in the TGZ result of this API.
+   * 
+   * @param request - GetKnowledgeBaseBuildTaskResultRequest
+   * @returns GetKnowledgeBaseBuildTaskResultResponse
+   */
+  async getKnowledgeBaseBuildTaskResult(request: $_model.GetKnowledgeBaseBuildTaskResultRequest): Promise<$_model.GetKnowledgeBaseBuildTaskResultResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getKnowledgeBaseBuildTaskResultWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the current content and available download URLs of a document or semantic model.
+   * 
+   * @remarks
+   * Retrieves a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - GetKnowledgeObjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKnowledgeObjectResponse
+   */
+  async getKnowledgeObjectWithOptions(request: $_model.GetKnowledgeObjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetKnowledgeObjectResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.knowledgeObjectId)) {
+      body["KnowledgeObjectId"] = request.knowledgeObjectId;
+    }
+
+    if (!$dara.isNull(request.versionNo)) {
+      body["VersionNo"] = request.versionNo;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetKnowledgeObject",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetKnowledgeObjectResponse>(await this.callApi(params, req, runtime), new $_model.GetKnowledgeObjectResponse({}));
+  }
+
+  /**
+   * Retrieves the current content and available download URLs of a document or semantic model.
+   * 
+   * @remarks
+   * Retrieves a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - GetKnowledgeObjectRequest
+   * @returns GetKnowledgeObjectResponse
+   */
+  async getKnowledgeObject(request: $_model.GetKnowledgeObjectRequest): Promise<$_model.GetKnowledgeObjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getKnowledgeObjectWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the current details of a single knowledge point, supporting local graphs, topic pages, and knowledge content.
    * 
    * @remarks
@@ -11336,6 +12268,58 @@ export default class Client extends OpenApi {
   async getKnowledgePoint(request: $_model.GetKnowledgePointRequest): Promise<$_model.GetKnowledgePointResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getKnowledgePointWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the current configuration of a knowledge source without returning connector credentials.
+   * 
+   * @remarks
+   * Manages knowledge sources for a knowledge base. The identity is determined by the POP context, and credentials are not returned in the query response.
+   * 
+   * @param request - GetKnowledgeSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetKnowledgeSourceResponse
+   */
+  async getKnowledgeSourceWithOptions(request: $_model.GetKnowledgeSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetKnowledgeSourceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.sourceId)) {
+      body["SourceId"] = request.sourceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetKnowledgeSource",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetKnowledgeSourceResponse>(await this.callApi(params, req, runtime), new $_model.GetKnowledgeSourceResponse({}));
+  }
+
+  /**
+   * Retrieves the current configuration of a knowledge source without returning connector credentials.
+   * 
+   * @remarks
+   * Manages knowledge sources for a knowledge base. The identity is determined by the POP context, and credentials are not returned in the query response.
+   * 
+   * @param request - GetKnowledgeSourceRequest
+   * @returns GetKnowledgeSourceResponse
+   */
+  async getKnowledgeSource(request: $_model.GetKnowledgeSourceRequest): Promise<$_model.GetKnowledgeSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getKnowledgeSourceWithOptions(request, runtime);
   }
 
   /**
@@ -12937,6 +13921,62 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Grants a specified user retrieval access to a knowledge base.
+   * 
+   * @remarks
+   * Grants retrieval permissions to a user. Only the knowledge base owner or administrator can perform this operation. The caller and tenant are determined by the POP authentication context.
+   * 
+   * @param request - GrantKnowledgeBaseRetrievalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GrantKnowledgeBaseRetrievalResponse
+   */
+  async grantKnowledgeBaseRetrievalWithOptions(request: $_model.GrantKnowledgeBaseRetrievalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GrantKnowledgeBaseRetrievalResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.principalId)) {
+      body["PrincipalId"] = request.principalId;
+    }
+
+    if (!$dara.isNull(request.principalType)) {
+      body["PrincipalType"] = request.principalType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GrantKnowledgeBaseRetrieval",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GrantKnowledgeBaseRetrievalResponse>(await this.callApi(params, req, runtime), new $_model.GrantKnowledgeBaseRetrievalResponse({}));
+  }
+
+  /**
+   * Grants a specified user retrieval access to a knowledge base.
+   * 
+   * @remarks
+   * Grants retrieval permissions to a user. Only the knowledge base owner or administrator can perform this operation. The caller and tenant are determined by the POP authentication context.
+   * 
+   * @param request - GrantKnowledgeBaseRetrievalRequest
+   * @returns GrantKnowledgeBaseRetrievalResponse
+   */
+  async grantKnowledgeBaseRetrieval(request: $_model.GrantKnowledgeBaseRetrievalRequest): Promise<$_model.GrantKnowledgeBaseRetrievalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.grantKnowledgeBaseRetrievalWithOptions(request, runtime);
+  }
+
+  /**
    * Assigns roles to members in a workspace.
    * 
    * @remarks
@@ -14306,7 +15346,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries cross-workspace deployment candidates.
+   * Queries candidate objects for cross-workspace deployment.
    * 
    * @param request - ListCrossProjectDeploymentCandidatesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14377,7 +15417,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries cross-workspace deployment candidates.
+   * Queries candidate objects for cross-workspace deployment.
    * 
    * @param request - ListCrossProjectDeploymentCandidatesRequest
    * @returns ListCrossProjectDeploymentCandidatesResponse
@@ -16711,7 +17751,239 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the knowledge bases that the current caller has permission to view in a specified region by using paging.
+   * Lists administrators of a specified knowledge base with pagination.
+   * 
+   * @remarks
+   * Lists the administrators. Only the owner or administrators of the knowledge base can perform this operation. The caller and tenant are determined by the POP authentication context.
+   * 
+   * @param request - ListKnowledgeBaseAdministratorsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKnowledgeBaseAdministratorsResponse
+   */
+  async listKnowledgeBaseAdministratorsWithOptions(request: $_model.ListKnowledgeBaseAdministratorsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListKnowledgeBaseAdministratorsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKnowledgeBaseAdministrators",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListKnowledgeBaseAdministratorsResponse>(await this.callApi(params, req, runtime), new $_model.ListKnowledgeBaseAdministratorsResponse({}));
+  }
+
+  /**
+   * Lists administrators of a specified knowledge base with pagination.
+   * 
+   * @remarks
+   * Lists the administrators. Only the owner or administrators of the knowledge base can perform this operation. The caller and tenant are determined by the POP authentication context.
+   * 
+   * @param request - ListKnowledgeBaseAdministratorsRequest
+   * @returns ListKnowledgeBaseAdministratorsResponse
+   */
+  async listKnowledgeBaseAdministrators(request: $_model.ListKnowledgeBaseAdministratorsRequest): Promise<$_model.ListKnowledgeBaseAdministratorsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listKnowledgeBaseAdministratorsWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists knowledge base build task instances and their run statuses with pagination.
+   * 
+   * @remarks
+   * Reads knowledge base build tasks or instances. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - ListKnowledgeBaseBuildTaskInstancesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKnowledgeBaseBuildTaskInstancesResponse
+   */
+  async listKnowledgeBaseBuildTaskInstancesWithOptions(request: $_model.ListKnowledgeBaseBuildTaskInstancesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListKnowledgeBaseBuildTaskInstancesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKnowledgeBaseBuildTaskInstances",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListKnowledgeBaseBuildTaskInstancesResponse>(await this.callApi(params, req, runtime), new $_model.ListKnowledgeBaseBuildTaskInstancesResponse({}));
+  }
+
+  /**
+   * Lists knowledge base build task instances and their run statuses with pagination.
+   * 
+   * @remarks
+   * Reads knowledge base build tasks or instances. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - ListKnowledgeBaseBuildTaskInstancesRequest
+   * @returns ListKnowledgeBaseBuildTaskInstancesResponse
+   */
+  async listKnowledgeBaseBuildTaskInstances(request: $_model.ListKnowledgeBaseBuildTaskInstancesRequest): Promise<$_model.ListKnowledgeBaseBuildTaskInstancesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listKnowledgeBaseBuildTaskInstancesWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists the build tasks for a specified knowledge base with pagination.
+   * 
+   * @remarks
+   * Reads knowledge base build tasks or instances. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - ListKnowledgeBaseBuildTasksRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKnowledgeBaseBuildTasksResponse
+   */
+  async listKnowledgeBaseBuildTasksWithOptions(request: $_model.ListKnowledgeBaseBuildTasksRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListKnowledgeBaseBuildTasksResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKnowledgeBaseBuildTasks",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListKnowledgeBaseBuildTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListKnowledgeBaseBuildTasksResponse({}));
+  }
+
+  /**
+   * Lists the build tasks for a specified knowledge base with pagination.
+   * 
+   * @remarks
+   * Reads knowledge base build tasks or instances. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - ListKnowledgeBaseBuildTasksRequest
+   * @returns ListKnowledgeBaseBuildTasksResponse
+   */
+  async listKnowledgeBaseBuildTasks(request: $_model.ListKnowledgeBaseBuildTasksRequest): Promise<$_model.ListKnowledgeBaseBuildTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listKnowledgeBaseBuildTasksWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists retrieval grants for a specified knowledge base with pagination.
+   * 
+   * @remarks
+   * Lists user retrieval authorizations. Only the knowledge base owner or administrator can perform this operation. The caller and tenant are determined by the POP authentication context.
+   * 
+   * @param request - ListKnowledgeBaseRetrievalGrantsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKnowledgeBaseRetrievalGrantsResponse
+   */
+  async listKnowledgeBaseRetrievalGrantsWithOptions(request: $_model.ListKnowledgeBaseRetrievalGrantsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListKnowledgeBaseRetrievalGrantsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.principalType)) {
+      body["PrincipalType"] = request.principalType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKnowledgeBaseRetrievalGrants",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListKnowledgeBaseRetrievalGrantsResponse>(await this.callApi(params, req, runtime), new $_model.ListKnowledgeBaseRetrievalGrantsResponse({}));
+  }
+
+  /**
+   * Lists retrieval grants for a specified knowledge base with pagination.
+   * 
+   * @remarks
+   * Lists user retrieval authorizations. Only the knowledge base owner or administrator can perform this operation. The caller and tenant are determined by the POP authentication context.
+   * 
+   * @param request - ListKnowledgeBaseRetrievalGrantsRequest
+   * @returns ListKnowledgeBaseRetrievalGrantsResponse
+   */
+  async listKnowledgeBaseRetrievalGrants(request: $_model.ListKnowledgeBaseRetrievalGrantsRequest): Promise<$_model.ListKnowledgeBaseRetrievalGrantsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listKnowledgeBaseRetrievalGrantsWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists the knowledge bases that the current caller can view in the specified region, with pagination.
    * 
    * @remarks
    * Lists knowledge bases. The tenant and caller identities are determined by the POP authentication context.
@@ -16749,7 +18021,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the knowledge bases that the current caller has permission to view in a specified region by using paging.
+   * Lists the knowledge bases that the current caller can view in the specified region, with pagination.
    * 
    * @remarks
    * Lists knowledge bases. The tenant and caller identities are determined by the POP authentication context.
@@ -16760,6 +18032,66 @@ export default class Client extends OpenApi {
   async listKnowledgeBases(request: $_model.ListKnowledgeBasesRequest): Promise<$_model.ListKnowledgeBasesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listKnowledgeBasesWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists knowledge objects in a knowledge base with pagination.
+   * 
+   * @remarks
+   * Lists knowledge objects. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - ListKnowledgeObjectsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKnowledgeObjectsResponse
+   */
+  async listKnowledgeObjectsWithOptions(request: $_model.ListKnowledgeObjectsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListKnowledgeObjectsResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKnowledgeObjects",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListKnowledgeObjectsResponse>(await this.callApi(params, req, runtime), new $_model.ListKnowledgeObjectsResponse({}));
+  }
+
+  /**
+   * Lists knowledge objects in a knowledge base with pagination.
+   * 
+   * @remarks
+   * Lists knowledge objects. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - ListKnowledgeObjectsRequest
+   * @returns ListKnowledgeObjectsResponse
+   */
+  async listKnowledgeObjects(request: $_model.ListKnowledgeObjectsRequest): Promise<$_model.ListKnowledgeObjectsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listKnowledgeObjectsWithOptions(request, runtime);
   }
 
   /**
@@ -16820,6 +18152,66 @@ export default class Client extends OpenApi {
   async listKnowledgePoints(request: $_model.ListKnowledgePointsRequest): Promise<$_model.ListKnowledgePointsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listKnowledgePointsWithOptions(request, runtime);
+  }
+
+  /**
+   * Lists the registered knowledge sources for a specified knowledge base with pagination.
+   * 
+   * @remarks
+   * Manages knowledge sources in a knowledge base. The identity is determined by the POP context, and credentials are not returned in the query response.
+   * 
+   * @param request - ListKnowledgeSourcesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListKnowledgeSourcesResponse
+   */
+  async listKnowledgeSourcesWithOptions(request: $_model.ListKnowledgeSourcesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListKnowledgeSourcesResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      body["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      body["NextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.type)) {
+      body["Type"] = request.type;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListKnowledgeSources",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListKnowledgeSourcesResponse>(await this.callApi(params, req, runtime), new $_model.ListKnowledgeSourcesResponse({}));
+  }
+
+  /**
+   * Lists the registered knowledge sources for a specified knowledge base with pagination.
+   * 
+   * @remarks
+   * Manages knowledge sources in a knowledge base. The identity is determined by the POP context, and credentials are not returned in the query response.
+   * 
+   * @param request - ListKnowledgeSourcesRequest
+   * @returns ListKnowledgeSourcesResponse
+   */
+  async listKnowledgeSources(request: $_model.ListKnowledgeSourcesRequest): Promise<$_model.ListKnowledgeSourcesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listKnowledgeSourcesWithOptions(request, runtime);
   }
 
   /**
@@ -20559,7 +21951,59 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes multiple upstream dependencies of a node instance in batches.
+   * Removes an administrator from a specified knowledge base.
+   * 
+   * @remarks
+   * Removes an administrator. Only the owner or an administrator of the knowledge base can perform this operation. The caller and tenant are determined by the POP authentication context.
+   * 
+   * @param request - RemoveKnowledgeBaseAdministratorRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RemoveKnowledgeBaseAdministratorResponse
+   */
+  async removeKnowledgeBaseAdministratorWithOptions(request: $_model.RemoveKnowledgeBaseAdministratorRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RemoveKnowledgeBaseAdministratorResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.administratorUserId)) {
+      body["AdministratorUserId"] = request.administratorUserId;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RemoveKnowledgeBaseAdministrator",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RemoveKnowledgeBaseAdministratorResponse>(await this.callApi(params, req, runtime), new $_model.RemoveKnowledgeBaseAdministratorResponse({}));
+  }
+
+  /**
+   * Removes an administrator from a specified knowledge base.
+   * 
+   * @remarks
+   * Removes an administrator. Only the owner or an administrator of the knowledge base can perform this operation. The caller and tenant are determined by the POP authentication context.
+   * 
+   * @param request - RemoveKnowledgeBaseAdministratorRequest
+   * @returns RemoveKnowledgeBaseAdministratorResponse
+   */
+  async removeKnowledgeBaseAdministrator(request: $_model.RemoveKnowledgeBaseAdministratorRequest): Promise<$_model.RemoveKnowledgeBaseAdministratorResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.removeKnowledgeBaseAdministratorWithOptions(request, runtime);
+  }
+
+  /**
+   * Removes multiple upstream dependencies from a node instance in a single call.
    * 
    * @remarks
    * You must purchase DataWorks Basic Edition or a later edition to use this operation.
@@ -20609,7 +22053,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Removes multiple upstream dependencies of a node instance in batches.
+   * Removes multiple upstream dependencies from a node instance in a single call.
    * 
    * @remarks
    * You must purchase DataWorks Basic Edition or a later edition to use this operation.
@@ -21167,6 +22611,118 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retries a specified build instance using the original frozen input and configuration.
+   * 
+   * @remarks
+   * Retries a knowledge base build task instance. The tenant and caller identity are determined by the POP authentication context.
+   * 
+   * @param request - RetryKnowledgeBaseBuildTaskInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RetryKnowledgeBaseBuildTaskInstanceResponse
+   */
+  async retryKnowledgeBaseBuildTaskInstanceWithOptions(request: $_model.RetryKnowledgeBaseBuildTaskInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RetryKnowledgeBaseBuildTaskInstanceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.taskInstanceId)) {
+      body["TaskInstanceId"] = request.taskInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RetryKnowledgeBaseBuildTaskInstance",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RetryKnowledgeBaseBuildTaskInstanceResponse>(await this.callApi(params, req, runtime), new $_model.RetryKnowledgeBaseBuildTaskInstanceResponse({}));
+  }
+
+  /**
+   * Retries a specified build instance using the original frozen input and configuration.
+   * 
+   * @remarks
+   * Retries a knowledge base build task instance. The tenant and caller identity are determined by the POP authentication context.
+   * 
+   * @param request - RetryKnowledgeBaseBuildTaskInstanceRequest
+   * @returns RetryKnowledgeBaseBuildTaskInstanceResponse
+   */
+  async retryKnowledgeBaseBuildTaskInstance(request: $_model.RetryKnowledgeBaseBuildTaskInstanceRequest): Promise<$_model.RetryKnowledgeBaseBuildTaskInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.retryKnowledgeBaseBuildTaskInstanceWithOptions(request, runtime);
+  }
+
+  /**
+   * Revokes a specified user’s retrieval access to a knowledge base.
+   * 
+   * @remarks
+   * Revokes user retrieval permissions. Only the knowledge base owner or administrator can perform this operation. The caller and tenant are determined by the POP authentication context.
+   * 
+   * @param request - RevokeKnowledgeBaseRetrievalRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeKnowledgeBaseRetrievalResponse
+   */
+  async revokeKnowledgeBaseRetrievalWithOptions(request: $_model.RevokeKnowledgeBaseRetrievalRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RevokeKnowledgeBaseRetrievalResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.principalId)) {
+      body["PrincipalId"] = request.principalId;
+    }
+
+    if (!$dara.isNull(request.principalType)) {
+      body["PrincipalType"] = request.principalType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RevokeKnowledgeBaseRetrieval",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RevokeKnowledgeBaseRetrievalResponse>(await this.callApi(params, req, runtime), new $_model.RevokeKnowledgeBaseRetrievalResponse({}));
+  }
+
+  /**
+   * Revokes a specified user’s retrieval access to a knowledge base.
+   * 
+   * @remarks
+   * Revokes user retrieval permissions. Only the knowledge base owner or administrator can perform this operation. The caller and tenant are determined by the POP authentication context.
+   * 
+   * @param request - RevokeKnowledgeBaseRetrievalRequest
+   * @returns RevokeKnowledgeBaseRetrievalResponse
+   */
+  async revokeKnowledgeBaseRetrieval(request: $_model.RevokeKnowledgeBaseRetrievalRequest): Promise<$_model.RevokeKnowledgeBaseRetrievalResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.revokeKnowledgeBaseRetrievalWithOptions(request, runtime);
+  }
+
+  /**
    * Revokes roles from a workspace member.
    * 
    * @remarks
@@ -21531,10 +23087,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Marks multiple task instances as successful.
+   * Marks multiple node instances as successful.
    * 
    * @remarks
-   * You must purchase DataWorks Basic Edition or higher to use this operation.
+   * You must purchase DataWorks Basic Edition or later to use this operation.
    * 
    * @param tmpReq - SetSuccessTaskInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -21575,10 +23131,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Marks multiple task instances as successful.
+   * Marks multiple node instances as successful.
    * 
    * @remarks
-   * You must purchase DataWorks Basic Edition or higher to use this operation.
+   * You must purchase DataWorks Basic Edition or later to use this operation.
    * 
    * @param request - SetSuccessTaskInstancesRequest
    * @returns SetSuccessTaskInstancesResponse
@@ -21852,6 +23408,58 @@ export default class Client extends OpenApi {
   async stopDIJob(request: $_model.StopDIJobRequest): Promise<$_model.StopDIJobResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.stopDIJobWithOptions(request, runtime);
+  }
+
+  /**
+   * Requests that a specified build task instance stop and returns its current status.
+   * 
+   * @remarks
+   * Stops a knowledge base build task instance. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - StopKnowledgeBaseBuildTaskInstanceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns StopKnowledgeBaseBuildTaskInstanceResponse
+   */
+  async stopKnowledgeBaseBuildTaskInstanceWithOptions(request: $_model.StopKnowledgeBaseBuildTaskInstanceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.StopKnowledgeBaseBuildTaskInstanceResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.taskInstanceId)) {
+      body["TaskInstanceId"] = request.taskInstanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "StopKnowledgeBaseBuildTaskInstance",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.StopKnowledgeBaseBuildTaskInstanceResponse>(await this.callApi(params, req, runtime), new $_model.StopKnowledgeBaseBuildTaskInstanceResponse({}));
+  }
+
+  /**
+   * Requests that a specified build task instance stop and returns its current status.
+   * 
+   * @remarks
+   * Stops a knowledge base build task instance. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - StopKnowledgeBaseBuildTaskInstanceRequest
+   * @returns StopKnowledgeBaseBuildTaskInstanceResponse
+   */
+  async stopKnowledgeBaseBuildTaskInstance(request: $_model.StopKnowledgeBaseBuildTaskInstanceRequest): Promise<$_model.StopKnowledgeBaseBuildTaskInstanceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.stopKnowledgeBaseBuildTaskInstanceWithOptions(request, runtime);
   }
 
   /**
@@ -24834,6 +26442,332 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Updates the editable information of a knowledge base.
+   * 
+   * @remarks
+   * Updates a knowledge base. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - UpdateKnowledgeBaseRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateKnowledgeBaseResponse
+   */
+  async updateKnowledgeBaseWithOptions(request: $_model.UpdateKnowledgeBaseRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKnowledgeBaseResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateKnowledgeBase",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateKnowledgeBaseResponse>(await this.callApi(params, req, runtime), new $_model.UpdateKnowledgeBaseResponse({}));
+  }
+
+  /**
+   * Updates the editable information of a knowledge base.
+   * 
+   * @remarks
+   * Updates a knowledge base. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - UpdateKnowledgeBaseRequest
+   * @returns UpdateKnowledgeBaseResponse
+   */
+  async updateKnowledgeBase(request: $_model.UpdateKnowledgeBaseRequest): Promise<$_model.UpdateKnowledgeBaseResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateKnowledgeBaseWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the configuration of a knowledge base build task without changing the input and configuration snapshots of created instances.
+   * 
+   * @remarks
+   * Updates a knowledge base build task. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param tmpReq - UpdateKnowledgeBaseBuildTaskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateKnowledgeBaseBuildTaskResponse
+   */
+  async updateKnowledgeBaseBuildTaskWithOptions(tmpReq: $_model.UpdateKnowledgeBaseBuildTaskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKnowledgeBaseBuildTaskResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateKnowledgeBaseBuildTaskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.input)) {
+      request.inputShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.input, "Input", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.runtimeResource)) {
+      request.runtimeResourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.runtimeResource, "RuntimeResource", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.trigger)) {
+      request.triggerShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.trigger, "Trigger", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.contentLocale)) {
+      body["ContentLocale"] = request.contentLocale;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.inputShrink)) {
+      body["Input"] = request.inputShrink;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.llmModel)) {
+      body["LlmModel"] = request.llmModel;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      body["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.runtimeResourceShrink)) {
+      body["RuntimeResource"] = request.runtimeResourceShrink;
+    }
+
+    if (!$dara.isNull(request.taskId)) {
+      body["TaskId"] = request.taskId;
+    }
+
+    if (!$dara.isNull(request.triggerShrink)) {
+      body["Trigger"] = request.triggerShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateKnowledgeBaseBuildTask",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateKnowledgeBaseBuildTaskResponse>(await this.callApi(params, req, runtime), new $_model.UpdateKnowledgeBaseBuildTaskResponse({}));
+  }
+
+  /**
+   * Updates the configuration of a knowledge base build task without changing the input and configuration snapshots of created instances.
+   * 
+   * @remarks
+   * Updates a knowledge base build task. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - UpdateKnowledgeBaseBuildTaskRequest
+   * @returns UpdateKnowledgeBaseBuildTaskResponse
+   */
+  async updateKnowledgeBaseBuildTask(request: $_model.UpdateKnowledgeBaseBuildTaskRequest): Promise<$_model.UpdateKnowledgeBaseBuildTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateKnowledgeBaseBuildTaskWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the name, description, or content of a document or semantic model.
+   * 
+   * @remarks
+   * Updates a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param tmpReq - UpdateKnowledgeObjectRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateKnowledgeObjectResponse
+   */
+  async updateKnowledgeObjectWithOptions(tmpReq: $_model.UpdateKnowledgeObjectRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKnowledgeObjectResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateKnowledgeObjectShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.content)) {
+      request.contentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.content, "Content", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      body["ClientToken"] = request.clientToken;
+    }
+
+    if (!$dara.isNull(request.contentShrink)) {
+      body["Content"] = request.contentShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.expectedModifyTime)) {
+      body["ExpectedModifyTime"] = request.expectedModifyTime;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.knowledgeObjectId)) {
+      body["KnowledgeObjectId"] = request.knowledgeObjectId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.uploadId)) {
+      body["UploadId"] = request.uploadId;
+    }
+
+    if (!$dara.isNull(request.versionNo)) {
+      body["VersionNo"] = request.versionNo;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateKnowledgeObject",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateKnowledgeObjectResponse>(await this.callApi(params, req, runtime), new $_model.UpdateKnowledgeObjectResponse({}));
+  }
+
+  /**
+   * Updates the name, description, or content of a document or semantic model.
+   * 
+   * @remarks
+   * Updates a knowledge object. The tenant and caller identities are determined by the POP authentication context.
+   * 
+   * @param request - UpdateKnowledgeObjectRequest
+   * @returns UpdateKnowledgeObjectResponse
+   */
+  async updateKnowledgeObject(request: $_model.UpdateKnowledgeObjectRequest): Promise<$_model.UpdateKnowledgeObjectResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateKnowledgeObjectWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the name, description, or supported connector configuration of a knowledge source.
+   * 
+   * @remarks
+   * Manages knowledge sources in a knowledge base. The identity is determined by the POP context, and credentials are not returned in the response.
+   * 
+   * @param tmpReq - UpdateKnowledgeSourceRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateKnowledgeSourceResponse
+   */
+  async updateKnowledgeSourceWithOptions(tmpReq: $_model.UpdateKnowledgeSourceRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateKnowledgeSourceResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateKnowledgeSourceShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dataSource)) {
+      request.dataSourceShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataSource, "DataSource", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.document)) {
+      request.documentShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.document, "Document", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.project)) {
+      request.projectShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.project, "Project", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dataSourceShrink)) {
+      body["DataSource"] = request.dataSourceShrink;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.documentShrink)) {
+      body["Document"] = request.documentShrink;
+    }
+
+    if (!$dara.isNull(request.knowledgeBaseId)) {
+      body["KnowledgeBaseId"] = request.knowledgeBaseId;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      body["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.projectShrink)) {
+      body["Project"] = request.projectShrink;
+    }
+
+    if (!$dara.isNull(request.sourceId)) {
+      body["SourceId"] = request.sourceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateKnowledgeSource",
+      version: "2024-05-18",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateKnowledgeSourceResponse>(await this.callApi(params, req, runtime), new $_model.UpdateKnowledgeSourceResponse({}));
+  }
+
+  /**
+   * Updates the name, description, or supported connector configuration of a knowledge source.
+   * 
+   * @remarks
+   * Manages knowledge sources in a knowledge base. The identity is determined by the POP context, and credentials are not returned in the response.
+   * 
+   * @param request - UpdateKnowledgeSourceRequest
+   * @returns UpdateKnowledgeSourceResponse
+   */
+  async updateKnowledgeSource(request: $_model.UpdateKnowledgeSourceRequest): Promise<$_model.UpdateKnowledgeSourceResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateKnowledgeSourceWithOptions(request, runtime);
+  }
+
+  /**
    * Updates an MCP server.
    * 
    * @remarks
@@ -26206,14 +28140,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Asynchronously updates a specified node and syncs the changes to Data Studio as a new saved version.
+   * Asynchronously updates a specified node and syncs the updates to Data Studio to generate a new saved version.
    * 
    * @remarks
-   * ## Operation description
-   * - This API is asynchronous. Use the `GetUpdateTaskResult` operation to poll for the update result.
-   * - This API updates the information of a specified node, including but not limited to the node name, description, and owner.
-   * - Changes are synchronized to Data Studio, and Data Studio creates a new saved version.
-   * - Supports settings for the node trigger method, runtime environment configuration, dependencies, and other detailed parameters.
+   * ## Request description
+   * - This API operation is asynchronous. You must call the `GetUpdateTaskResult` operation to poll the update result.
+   * - This API operation is used to update the information of a specified node, including but not limited to the node name, description, and owner.
+   * - The modifications are synced to Data Studio, and a new saved version is generated in Data Studio.
+   * - You can set detailed parameters such as the trigger mode, runtime environment configuration, and dependencies of the node.
    * 
    * @param tmpReq - UpdateTaskAsyncRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26350,14 +28284,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Asynchronously updates a specified node and syncs the changes to Data Studio as a new saved version.
+   * Asynchronously updates a specified node and syncs the updates to Data Studio to generate a new saved version.
    * 
    * @remarks
-   * ## Operation description
-   * - This API is asynchronous. Use the `GetUpdateTaskResult` operation to poll for the update result.
-   * - This API updates the information of a specified node, including but not limited to the node name, description, and owner.
-   * - Changes are synchronized to Data Studio, and Data Studio creates a new saved version.
-   * - Supports settings for the node trigger method, runtime environment configuration, dependencies, and other detailed parameters.
+   * ## Request description
+   * - This API operation is asynchronous. You must call the `GetUpdateTaskResult` operation to poll the update result.
+   * - This API operation is used to update the information of a specified node, including but not limited to the node name, description, and owner.
+   * - The modifications are synced to Data Studio, and a new saved version is generated in Data Studio.
+   * - You can set detailed parameters such as the trigger mode, runtime environment configuration, and dependencies of the node.
    * 
    * @param request - UpdateTaskAsyncRequest
    * @returns UpdateTaskAsyncResponse
@@ -26688,10 +28622,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上传 Agent 会话附件
+   * Issues a file upload URL for an agent session and confirms that the file has been written to the session instance for use in later messages. This operation is available during a canary release. Before calling it, make sure the canary release is enabled for your account and the target region.
    * 
    * @remarks
-   * 将文件通过 OSS 上传到当前账号有权访问的 Agent 会话。先用 prepare 获取 5 分钟公网 PUT 签名，上传原始字节后用 complete 确认，由会话 runtime 下载、校验并写入工作目录。UploadMode 必填，不接受 ContentBase64。须同时检查 POP/BFF 外层错误与 JsonRpcResponse.Error。
+   * This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the target region.
+   * Uploads a local file to an agent session that the current caller has access to, and references the file in the conversation. The size of a single file ranges from 1 byte to 10,485,760 bytes (10 MiB). The caller must have access permissions to the target session and the dataworks:UploadAgentSessionFile permission.
+   * Call sequence.
+   * 1. Use the SessionId of an existing session, set UploadMode to prepare, and pass the original file name, the byte count Size, and the 32-character lowercase hexadecimal ContentMd5 of the original bytes. The prepare step returns UploadId and Signature, issuing only the upload URL without starting a cold session instance.
+   * 2. Within the validity period of the signature, send an HTTP PUT request to Signature.Url with the original file bytes as the request body, using all the request headers returned in Signature.Headers. The URL and request headers must be used exactly as provided. The ContentMd5 parameter is in hexadecimal format, while the Content-MD5 signature header is Base64-encoded. The two are not interchangeable. The signature is valid for 5 minutes. For the exact expiration time, see ExpiresAt.
+   * 3. After the PUT request succeeds, set UploadMode to complete, pass the UploadId returned by prepare, and keep SessionId, Name, Size, and ContentMd5 consistent. The server resumes the session, and the runtime within the instance downloads the staged object, verifies the size and MD5, writes it to the working directory, and returns Id, Name, RelativePath, and Size. Repeated complete calls use the same UploadId. The same attachment receipt is returned only when the existing file content is identical.
+   * 4. Call PromptAgentSession, add a content block with Type set to resource_link, Name set to the original file name, and Uri set to dataagent-attachment: followed by RelativePath in Params.Prompt, and send it along with the text content block. The backend resolves the reference to the working directory of the session based on the current authenticated session.
+   * For the sample file sample.csv, the original bytes are hello followed by a line feed, Size is 6, and ContentMd5 is b1946ac92492d2347c6235b4d2611184. The SessionId example session and the upload identifier examples are used only to illustrate the parameter structure. Actual calls must use a created session and the values returned by prepare. The Signature.Url example is used only to illustrate the format. The actual PUT request must use the complete signed URL returned by the current prepare call.
+   * Error handling.
+   * You must check the outer POP/BFF failures, JsonRpcResponse.Error, and the expected result fields simultaneously. Missing upload stages or size limit exceedances may result in an HTTP 400 response from the gateway, such as MissingUploadMode or InvalidSize. Business rejections such as object not found or metadata mismatch return an HTTP 400 response with a general Code 400 in the public POP, and the Message retains the actual business code, such as SESSION_ATTACHMENT_OBJECT_MISMATCH. Dependency failures, HTTP 5xx errors, timeouts, and unknown execution results must not be treated as parameter rejections or successful uploads, and automatic write retries must not be performed. When the result is unknown, retain the original upload metadata and UploadId, and verify the result first.
+   * This API operation does not accept ContentBase64. Signature expiration only invalidates the upload authorization and does not indicate that the staged object has been deleted. This description does not guarantee an automatic cleanup cycle for the object.
    * 
    * @param tmpReq - UploadAgentSessionFileRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -26736,10 +28680,20 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * 上传 Agent 会话附件
+   * Issues a file upload URL for an agent session and confirms that the file has been written to the session instance for use in later messages. This operation is available during a canary release. Before calling it, make sure the canary release is enabled for your account and the target region.
    * 
    * @remarks
-   * 将文件通过 OSS 上传到当前账号有权访问的 Agent 会话。先用 prepare 获取 5 分钟公网 PUT 签名，上传原始字节后用 complete 确认，由会话 runtime 下载、校验并写入工作目录。UploadMode 必填，不接受 ContentBase64。须同时检查 POP/BFF 外层错误与 JsonRpcResponse.Error。
+   * This API operation is available only when the canary release feature is enabled. Before calling this operation, ensure that the canary release feature is enabled for the current account and the target region.
+   * Uploads a local file to an agent session that the current caller has access to, and references the file in the conversation. The size of a single file ranges from 1 byte to 10,485,760 bytes (10 MiB). The caller must have access permissions to the target session and the dataworks:UploadAgentSessionFile permission.
+   * Call sequence.
+   * 1. Use the SessionId of an existing session, set UploadMode to prepare, and pass the original file name, the byte count Size, and the 32-character lowercase hexadecimal ContentMd5 of the original bytes. The prepare step returns UploadId and Signature, issuing only the upload URL without starting a cold session instance.
+   * 2. Within the validity period of the signature, send an HTTP PUT request to Signature.Url with the original file bytes as the request body, using all the request headers returned in Signature.Headers. The URL and request headers must be used exactly as provided. The ContentMd5 parameter is in hexadecimal format, while the Content-MD5 signature header is Base64-encoded. The two are not interchangeable. The signature is valid for 5 minutes. For the exact expiration time, see ExpiresAt.
+   * 3. After the PUT request succeeds, set UploadMode to complete, pass the UploadId returned by prepare, and keep SessionId, Name, Size, and ContentMd5 consistent. The server resumes the session, and the runtime within the instance downloads the staged object, verifies the size and MD5, writes it to the working directory, and returns Id, Name, RelativePath, and Size. Repeated complete calls use the same UploadId. The same attachment receipt is returned only when the existing file content is identical.
+   * 4. Call PromptAgentSession, add a content block with Type set to resource_link, Name set to the original file name, and Uri set to dataagent-attachment: followed by RelativePath in Params.Prompt, and send it along with the text content block. The backend resolves the reference to the working directory of the session based on the current authenticated session.
+   * For the sample file sample.csv, the original bytes are hello followed by a line feed, Size is 6, and ContentMd5 is b1946ac92492d2347c6235b4d2611184. The SessionId example session and the upload identifier examples are used only to illustrate the parameter structure. Actual calls must use a created session and the values returned by prepare. The Signature.Url example is used only to illustrate the format. The actual PUT request must use the complete signed URL returned by the current prepare call.
+   * Error handling.
+   * You must check the outer POP/BFF failures, JsonRpcResponse.Error, and the expected result fields simultaneously. Missing upload stages or size limit exceedances may result in an HTTP 400 response from the gateway, such as MissingUploadMode or InvalidSize. Business rejections such as object not found or metadata mismatch return an HTTP 400 response with a general Code 400 in the public POP, and the Message retains the actual business code, such as SESSION_ATTACHMENT_OBJECT_MISMATCH. Dependency failures, HTTP 5xx errors, timeouts, and unknown execution results must not be treated as parameter rejections or successful uploads, and automatic write retries must not be performed. When the result is unknown, retain the original upload metadata and UploadId, and verify the result first.
+   * This API operation does not accept ContentBase64. Signature expiration only invalidates the upload authorization and does not indicate that the staged object has been deleted. This description does not guarantee an automatic cleanup cycle for the object.
    * 
    * @param request - UploadAgentSessionFileRequest
    * @returns UploadAgentSessionFileResponse

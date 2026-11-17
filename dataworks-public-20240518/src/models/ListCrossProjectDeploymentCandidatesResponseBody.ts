@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCrossProjectDeploymentCandidatesResponseBodyDataDeploymentCandidates extends $dara.Model {
   /**
    * @remarks
-   * The change type.
+   * The type of the change.
    * 
    * @example
    * ADD
@@ -21,7 +21,7 @@ export class ListCrossProjectDeploymentCandidatesResponseBodyDataDeploymentCandi
   commitTime?: number;
   /**
    * @remarks
-   * The submitter.
+   * The committer.
    * 
    * @example
    * operator
@@ -29,7 +29,7 @@ export class ListCrossProjectDeploymentCandidatesResponseBodyDataDeploymentCandi
   commitUser?: string;
   /**
    * @remarks
-   * The candidate object ID.
+   * The ID of the candidate object.
    * 
    * @example
    * 1
@@ -95,7 +95,7 @@ export class ListCrossProjectDeploymentCandidatesResponseBodyDataDeploymentCandi
 export class ListCrossProjectDeploymentCandidatesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of candidate objects in the source workspace that are available for cross-workspace deployment.
+   * The list of candidate objects in the source workspace that can be used for cross-workspace deployment.
    * 
    * @example
    * [{"ObjectId":"1","ObjectType":"ODPS_SQL","ObjectName":"object-1","ObjectVersion":"7","ChangeType":"ADD","CommitUser":"operator","CommitTime":1788739200000}]
@@ -111,7 +111,7 @@ export class ListCrossProjectDeploymentCandidatesResponseBodyData extends $dara.
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 10
@@ -176,7 +176,7 @@ export class ListCrossProjectDeploymentCandidatesResponseBody extends $dara.Mode
   data?: ListCrossProjectDeploymentCandidatesResponseBodyData;
   /**
    * @remarks
-   * The request ID. You can use the ID to locate and troubleshoot the API call.
+   * The request ID, which is used to locate and troubleshoot the API call.
    * 
    * @example
    * 735894D1-D5E5-50B8-8A6D-041C90A98B23

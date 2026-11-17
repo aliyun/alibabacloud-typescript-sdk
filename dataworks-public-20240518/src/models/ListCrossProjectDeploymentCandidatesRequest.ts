@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListCrossProjectDeploymentCandidatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The change type.
+   * The type of the change.
    * 
    * @example
    * ADD
@@ -13,7 +13,7 @@ export class ListCrossProjectDeploymentCandidatesRequest extends $dara.Model {
   changeType?: string;
   /**
    * @remarks
-   * The start of the commit time range. The value is a UNIX timestamp in milliseconds.
+   * The start time of the commit. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1788739200000
@@ -21,7 +21,7 @@ export class ListCrossProjectDeploymentCandidatesRequest extends $dara.Model {
   commitTimeFrom?: number;
   /**
    * @remarks
-   * The end of the commit time range. The value is a UNIX timestamp in milliseconds.
+   * The end time of the commit. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1788825599999
@@ -29,7 +29,7 @@ export class ListCrossProjectDeploymentCandidatesRequest extends $dara.Model {
   commitTimeTo?: number;
   /**
    * @remarks
-   * The submitter.
+   * The committer.
    * 
    * @example
    * operator
@@ -37,7 +37,7 @@ export class ListCrossProjectDeploymentCandidatesRequest extends $dara.Model {
   commitUser?: string;
   /**
    * @remarks
-   * The cross-workspace deployment environment ID.
+   * The ID of the cross-workspace deployment environment.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class ListCrossProjectDeploymentCandidatesRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The candidate object ID.
+   * The ID of the candidate object.
    * 
    * @example
    * 1
@@ -79,7 +79,7 @@ export class ListCrossProjectDeploymentCandidatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 10

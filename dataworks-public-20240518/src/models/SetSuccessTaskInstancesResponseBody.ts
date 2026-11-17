@@ -14,7 +14,7 @@ export class SetSuccessTaskInstancesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The results of the batch operation. The data structure is a map where the key is the task instance ID and the value is the result information.
+   * The results of the batch operation. Each map entry uses a node instance ID as the key and the corresponding operation result as the value.
    * 
    * @example
    * {"10001": {"Success": false, "Message": "The instance does not exist."}}
