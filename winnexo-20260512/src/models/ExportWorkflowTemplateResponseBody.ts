@@ -16,7 +16,7 @@ export class ExportWorkflowTemplateResponseBodyTemplateSteps extends $dara.Model
    * The step name.
    * 
    * @example
-   * Customer complaint handling process
+   * Customer Complaint Handling Process
    */
   name?: string;
   /**
@@ -47,7 +47,7 @@ export class ExportWorkflowTemplateResponseBodyTemplateSteps extends $dara.Model
   ownerUserId?: number;
   /**
    * @remarks
-   * 是否人工审核产出物，默认关闭；仅数字员工可开启，审核待办自动发负责人
+   * Specifies whether to manually review the output. Default value: false. This can only be enabled for digital workers, and review tasks are automatically sent to the owner.
    * 
    * @example
    * false
@@ -55,7 +55,7 @@ export class ExportWorkflowTemplateResponseBodyTemplateSteps extends $dara.Model
   reviewOutput?: boolean;
   /**
    * @remarks
-   * The user IDs of the reviewers.
+   * The list of user IDs of the reviewers.
    * 
    * @example
    * example
@@ -71,7 +71,7 @@ export class ExportWorkflowTemplateResponseBodyTemplateSteps extends $dara.Model
   sortOrder?: number;
   /**
    * @remarks
-   * The step handling instructions.
+   * The step processing instructions.
    * 
    * @example
    * Collect customer information and submit it to the owner for review
@@ -79,10 +79,10 @@ export class ExportWorkflowTemplateResponseBodyTemplateSteps extends $dara.Model
   specification?: string;
   /**
    * @remarks
-   * The ordered array of fragments. Supports text, mention, skill, app, files, and web_search. Preserves referenced identities and order.
+   * An ordered array of segments. Supports text, mention, skill, app, files, and web_search. Preserves reference identities and order.
    * 
    * @example
-   * [{"type":"text","content":"整理输入资料"}]
+   * [{"type":"text","content":"Organize input materials"}]
    */
   specificationJson?: { [key: string]: any }[];
   /**
@@ -151,7 +151,7 @@ export class ExportWorkflowTemplateResponseBodyTemplate extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 节点依赖边；每项包含from/to，引用稳定stepId
+   * The node dependency edges. Each item contains from and to fields that reference stable step IDs.
    * 
    * @example
    * []
@@ -159,7 +159,7 @@ export class ExportWorkflowTemplateResponseBodyTemplate extends $dara.Model {
   edges?: { [key: string]: any }[];
   /**
    * @remarks
-   * 可选画布布局，按stepId索引；只影响展示，不决定依赖
+   * The optional canvas layout, indexed by step ID. This only affects the display and does not determine dependencies.
    * 
    * @example
    * {"collect":{"x":0,"y":0},"review":{"x":240,"y":0}}
@@ -170,12 +170,12 @@ export class ExportWorkflowTemplateResponseBodyTemplate extends $dara.Model {
    * The template name.
    * 
    * @example
-   * Customer complaint handling process
+   * Customer Complaint Handling Process
    */
   name?: string;
   /**
    * @remarks
-   * 模板结构版本，当前为2，与业务版本vN独立
+   * The schema version of the template. The current value is 2, which is independent of the business version vN.
    * 
    * @example
    * 2
@@ -183,10 +183,10 @@ export class ExportWorkflowTemplateResponseBodyTemplate extends $dara.Model {
   schemaVersion?: number;
   /**
    * @remarks
-   * The standardized steps.
+   * The normalized steps.
    * 
    * @example
-   * [{\\"stepId\\":\\"collect\\",\\"sortOrder\\":1,\\"name\\":\\"收集客户信息\\"}]
+   * [{"stepId":"collect","sortOrder":1,"name":"Collect customer information"}]
    */
   steps?: ExportWorkflowTemplateResponseBodyTemplateSteps[];
   static names(): { [key: string]: string } {
@@ -240,7 +240,7 @@ export class ExportWorkflowTemplateResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The error message.
+   * The error description.
    * 
    * @example
    * The requested resource does not exist
@@ -248,7 +248,7 @@ export class ExportWorkflowTemplateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -259,7 +259,7 @@ export class ExportWorkflowTemplateResponseBody extends $dara.Model {
    * The simplified template definition that can be re-imported.
    * 
    * @example
-   * {\\"name\\":\\"客户投诉处理流程\\",\\"schemaVersion\\":2}
+   * {"name":"Customer Complaint Handling Process","schemaVersion":2}
    */
   template?: ExportWorkflowTemplateResponseBodyTemplate;
   static names(): { [key: string]: string } {

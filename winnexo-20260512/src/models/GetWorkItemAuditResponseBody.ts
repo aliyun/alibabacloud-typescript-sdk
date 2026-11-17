@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkItemAuditResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * 字段变更明细列表，每项包含变更字段与前后值
+   * The list of field change details. Each item includes the changed field and its values before and after the change.
    * 
    * @example
-   * [{"field":"title","before":"旧标题","after":"新标题"}]
+   * [{"field":"title","before":"Old title","after":"New title"}]
    */
   changes?: any;
   /**
    * @remarks
-   * 事件描述
+   * The event description.
    * 
    * @example
-   * 工作项标题调整为季度销售机会复盘
+   * The work item title is changed to Quarterly Sales Opportunity Review
    */
   description?: string;
   /**
    * @remarks
-   * 审计事件唯一标识
+   * The unique identifier of the audit event.
    * 
    * @example
    * evt_20261105_0001
@@ -29,7 +29,7 @@ export class GetWorkItemAuditResponseBodyItems extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * 审计事件类型，如 WORK_ITEM_UPDATED、TODO_COMPLETED
+   * The audit event type, such as WORK_ITEM_UPDATED or TODO_COMPLETED.
    * 
    * @example
    * WORK_ITEM_UPDATED
@@ -37,7 +37,7 @@ export class GetWorkItemAuditResponseBodyItems extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * 事件发生时间，ISO8601 格式
+   * The time when the event occurred, in ISO 8601 format.
    * 
    * @example
    * 2026-11-05T08:00:00Z
@@ -45,15 +45,15 @@ export class GetWorkItemAuditResponseBodyItems extends $dara.Model {
   occurredAt?: string;
   /**
    * @remarks
-   * 操作人显示名
+   * The display name of the operator.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   operatorName?: string;
   /**
    * @remarks
-   * 操作人用户 ID
+   * The user ID of the operator.
    * 
    * @example
    * 10001
@@ -61,15 +61,15 @@ export class GetWorkItemAuditResponseBodyItems extends $dara.Model {
   operatorUserId?: string;
   /**
    * @remarks
-   * 事件涉及的待确认问题列表
+   * The list of questions to be confirmed related to the event.
    * 
    * @example
-   * [{"question":"是否继续执行"}]
+   * [{"question":"Whether to continue execution"}]
    */
   questions?: any[];
   /**
    * @remarks
-   * 事件结果负载，JSON 对象；无结果时为空
+   * The event result payload as a JSON object. If no result is available, this field is empty.
    * 
    * @example
    * {"result":"ok"}
@@ -77,7 +77,7 @@ export class GetWorkItemAuditResponseBodyItems extends $dara.Model {
   resultPayload?: any;
   /**
    * @remarks
-   * 事件状态
+   * The event status.
    * 
    * @example
    * ACTIVE
@@ -85,15 +85,15 @@ export class GetWorkItemAuditResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * 事件标题
+   * The event title.
    * 
    * @example
-   * 调查销售机会
+   * Investigate sales opportunities
    */
   title?: string;
   /**
    * @remarks
-   * 关联待办 ID；无关联时为空字符串
+   * The ID of the associated to-do item. If no to-do item is associated, an empty string is returned.
    * 
    * @example
    * todo_20261105_0007
@@ -148,7 +148,7 @@ export class GetWorkItemAuditResponseBodyItems extends $dara.Model {
 export class GetWorkItemAuditResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 公共业务状态码
+   * The common business status code.
    * 
    * @example
    * 200
@@ -156,7 +156,7 @@ export class GetWorkItemAuditResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 按事件时间倒序排列的完整工作项审计记录
+   * The complete work item audit records sorted in descending order of event time.
    * 
    * @example
    * [{"eventId":"evt_example","eventType":"WORK_ITEM_UPDATED","occurredAt":"2026-11-05T08:00:00Z","status":"SUCCESS"}]
@@ -164,15 +164,15 @@ export class GetWorkItemAuditResponseBody extends $dara.Model {
   items?: GetWorkItemAuditResponseBodyItems[];
   /**
    * @remarks
-   * 公共错误描述
+   * The common error description.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D

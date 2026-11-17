@@ -20,7 +20,7 @@ export class ImportWorkflowTemplateShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * {"name":"Customer Complaint Handling Process","schemaVersion":2}
+   * {\\"name\\":\\"Customer Complaint Handling Process\\",\\"schemaVersion\\":2}
    */
   templateShrink?: string;
   /**

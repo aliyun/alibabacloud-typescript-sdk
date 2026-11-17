@@ -13,7 +13,7 @@ export class CreateScheduledTaskRequestDescription extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Specifies whether the throttling rule is enabled. A value of true indicates enabled, and a value of false indicates disabled.
+   * Specifies whether the throttling rule is enabled. A value of true indicates that the rule is enabled, and a value of false indicates that the rule is disabled.
    * 
    * @example
    * true
@@ -31,9 +31,9 @@ export class CreateScheduledTaskRequestDescription extends $dara.Model {
    * @remarks
    * The object ID. Pass the project task ID.
    * 
-   * - For internal enterprise applications, use the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) operation.
+   * - For internal enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) API operation to obtain the taskId.
    * 
-   * - For third-party enterprise applications, use the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) operation.
+   * - For third-party enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) API operation to obtain the taskId.
    * 
    * @example
    * exampleObjectId
@@ -41,7 +41,7 @@ export class CreateScheduledTaskRequestDescription extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * The object type. Fixed value: task, indicating a project task.
+   * The object type. Set the value to task, which indicates a project task.
    * 
    * @example
    * string_value
@@ -57,7 +57,7 @@ export class CreateScheduledTaskRequestDescription extends $dara.Model {
   skillCode?: string;
   /**
    * @remarks
-   * The HTTP API type. Valid values: Http (standard HTTP API), Rest (RESTful API), WebSocket (WebSocket API), HttpIngress (HTTP API accessed through Ingress), LLM (large language model API), and Agent (Agent proxy API).
+   * The HTTP API type. Valid values: Http (standard HTTP API), Rest (RESTful API), WebSocket (WebSocket API), HttpIngress (HTTP API accessed through Ingress), LLM (large language model API), and Agent (agent API).
    * 
    * @example
    * text
@@ -107,7 +107,7 @@ export class CreateScheduledTaskRequestSegments extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Specifies whether to enable this feature.
+   * Specifies whether the feature is enabled.
    * 
    * @example
    * true
@@ -123,7 +123,7 @@ export class CreateScheduledTaskRequestSegments extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the recommended item, which can be a **feedId** or a micro-application ID.
+   * The ID of the recommended item, which can be a **feedId** or a mini-app ID.
    * 
    * @example
    * exampleObjectId
@@ -131,7 +131,7 @@ export class CreateScheduledTaskRequestSegments extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * The customer type to save.
+   * The saved customer type.
    * 
    * @example
    * string_value
@@ -147,7 +147,7 @@ export class CreateScheduledTaskRequestSegments extends $dara.Model {
   skillCode?: string;
   /**
    * @remarks
-   * The billing type. Only fixed is supported.
+   * The billing type. Currently, only fixed is supported.
    * 
    * @example
    * text
@@ -207,9 +207,9 @@ export class CreateScheduledTaskRequestTaskDetailRelatedObjects extends $dara.Mo
    * @remarks
    * The object ID. Pass the project task ID.
    * 
-   * - For internal enterprise applications, use the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) operation.
+   * - For internal enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) API operation to obtain the taskId.
    * 
-   * - For third-party enterprise applications, use the taskId obtained by calling the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) operation.
+   * - For third-party enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) API operation to obtain the taskId.
    * 
    * @example
    * exampleObjectId
@@ -218,8 +218,8 @@ export class CreateScheduledTaskRequestTaskDetailRelatedObjects extends $dara.Mo
   /**
    * @remarks
    * The relationship type. Valid values:
-   * - crm_customer: enterprise customer.
-   * - crm_customer_personal: individual customer.
+   * - crm_customer: Enterprise customer.
+   * - crm_customer_personal: Individual customer.
    * 
    * @example
    * string_value
@@ -322,7 +322,7 @@ export class CreateScheduledTaskRequestTaskDetailRelatedSkills extends $dara.Mod
    * sourceIds
    * 
    * @example
-   * string_value
+   * ["113424"]
    */
   sourceIds?: string[];
   static names(): { [key: string]: string } {
@@ -358,17 +358,17 @@ export class CreateScheduledTaskRequestTaskDetailRelatedSkills extends $dara.Mod
 export class CreateScheduledTaskRequestTaskDetail extends $dara.Model {
   /**
    * @remarks
-   * The related objects.
+   * The associated objects.
    */
   relatedObjects?: CreateScheduledTaskRequestTaskDetailRelatedObjects[];
   /**
    * @remarks
-   * The related semantics.
+   * The associated semantics.
    */
   relatedSemantics?: CreateScheduledTaskRequestTaskDetailRelatedSemantics[];
   /**
    * @remarks
-   * The related skills.
+   * The associated skills.
    */
   relatedSkills?: CreateScheduledTaskRequestTaskDetailRelatedSkills[];
   /**
@@ -431,7 +431,7 @@ export class CreateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
   channelType?: string;
   /**
    * @remarks
-   * The push content scope. Default value: all_replies.
+   * The scope of the push content. Default value: all_replies.
    * 
    * @example
    * all_replies
@@ -449,7 +449,7 @@ export class CreateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
    * @remarks
    * Specifies whether the credential is enabled. Valid values:
    * 
-   * - true: Enabled.
+   * - true: Enabled. 
    * - false: Disabled.
    * 
    * @example
@@ -458,7 +458,7 @@ export class CreateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
   enabled?: boolean;
   /**
    * @remarks
-   * The file format. Valid values: Excel and CSV.
+   * The file format, such as Excel or CSV.
    * 
    * @example
    * file
@@ -466,7 +466,7 @@ export class CreateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
   fileFormat?: string;
   /**
    * @remarks
-   * The digital employee name (operating object name, optional).
+   * The name of the digital employee (the name of the operating object, optional).
    * 
    * @example
    * string_value
@@ -474,9 +474,9 @@ export class CreateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
   operatingObjectName?: string;
   /**
    * @remarks
-   * The file receiver type. Valid values:
+   * The type of the file recipient. Valid values:
    * 
-   * - 0: One-on-one chat.
+   * - 0: Private chat.
    * 
    * - 1: Group chat.
    * 
@@ -524,7 +524,7 @@ export class CreateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
 export class CreateScheduledTaskRequestTriggerConfig extends $dara.Model {
   /**
    * @remarks
-   * The periodic training information in cron syntax (Minutes Hours DayofMonth Month DayofWeek). An empty value indicates that periodic training is not performed (default). In DayofWeek, 0 indicates Sunday.
+   * The periodic training information. The cron syntax is used (Minutes Hours DayofMonth Month DayofWeek). If this parameter is empty, periodic training is not performed, which is the default value. In DayofWeek, 0 indicates Sunday.
    * 
    * @example
    * string_value
@@ -534,8 +534,8 @@ export class CreateScheduledTaskRequestTriggerConfig extends $dara.Model {
    * @remarks
    * The language. Valid values:
    * 
-   * - zh_CN: Chinese (default)
-   * - en_US: English
+   * - zh_CN: Chinese. This is the default value.
+   * - en_US: English.
    * 
    * @example
    * zh-CN
@@ -543,7 +543,7 @@ export class CreateScheduledTaskRequestTriggerConfig extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The list of task push channels. No push is performed if the list is empty or no channel is enabled.
+   * The list of task push channels. If the list is empty or no channel is enabled, no push is performed.
    */
   pushConfig?: CreateScheduledTaskRequestTriggerConfigPushConfig[];
   /**
@@ -556,7 +556,7 @@ export class CreateScheduledTaskRequestTriggerConfig extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * The trigger mode.
+   * - Trigger mode
    *  
    *   1: Manual trigger
    *    
@@ -566,7 +566,7 @@ export class CreateScheduledTaskRequestTriggerConfig extends $dara.Model {
    *  
    *   5: Pipeline trigger
    * 
-   *   6: WEBHOOK trigger
+   *   6: Webhook trigger
    * 
    * @example
    * manual
@@ -607,7 +607,7 @@ export class CreateScheduledTaskRequestTriggerConfig extends $dara.Model {
 export class CreateScheduledTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the collaboration group (such as cg_101). If specified, a group space task is created (the caller must be a valid group member). If empty, a personal task is created.
+   * The ID of the collaboration group to which the task belongs, such as cg_101. If this parameter is passed, a group space task is created, and the caller must be a valid group member. If this parameter is empty, a personal task is created.
    * 
    * @example
    * exampleCollaborationGroupId
@@ -620,15 +620,15 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   description?: CreateScheduledTaskRequestDescription[];
   /**
    * @remarks
-   * The name of the current effective digital employee. This parameter is empty if not configured.
+   * The name of the current effective digital employee. This parameter is empty if it is not configured.
    * 
    * @example
-   * string_value
+   * ["pcitc-magent"]
    */
   digitalEmployeeName?: string[];
   /**
    * @remarks
-   * Specifies whether public access is enabled.
+   * Specifies whether public access is allowed.
    * 
    * @example
    * true
@@ -636,7 +636,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   isOpen?: boolean;
   /**
    * @remarks
-   * The large model used by the assistant. An empty value indicates that DingTalk automatically selects the model.
+   * The large language model used by the assistant. The default value is empty, which indicates that DingTalk automatically selects the model.
    * 
    * @example
    * quick
@@ -654,6 +654,14 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * 输出会话模式，默认 NEW_CONVERSATION
+   * 
+   * @example
+   * NEW_CONVERSATION
+   */
+  outputMode?: string;
+  /**
+   * @remarks
    * The site ID.
    */
   segments?: CreateScheduledTaskRequestSegments[];
@@ -664,7 +672,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   taskDetail?: CreateScheduledTaskRequestTaskDetail;
   /**
    * @remarks
-   * The ID of the effective tenant.
+   * The effective tenant ID.
    * 
    * @example
    * 10000
@@ -672,21 +680,12 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The trigger configuration. The configuration varies depending on the trigger type. For the specific format, refer to the following data structures:
-   * 
-   *   - OSS trigger: See [OSSTriggerConfig](https://help.aliyun.com/document_detail/415697.html).
-   *   - Simple Log Service trigger: See [LogTriggerConfig](https://help.aliyun.com/document_detail/415694.html).
-   *   - Time trigger: See [TimeTriggerConfig](https://help.aliyun.com/document_detail/415712.html).
-   *   - HTTP trigger: See [HTTPTriggerConfig](https://help.aliyun.com/document_detail/415685.html).
-   *   - Tablestore trigger: You only need to specify the complete **SourceArn** parameter. No additional configuration is required. Set the value to an empty object {}.
-   *   - CDN event trigger: See [CDNEventsTriggerConfig](https://help.aliyun.com/document_detail/415674.html).
-   *   - MNS topic trigger: See [MnsTopicTriggerConfig](https://help.aliyun.com/document_detail/415695.html).
-   *   - EventBridge trigger: See [EventBridgeTriggerConfig](https://help.aliyun.com/document_detail/2508622.html).
+   * The trigger configuration of the scheduled task. The triggerMode parameter supports manual (manual trigger) and scheduled (scheduled trigger). If scheduled is used, the cron parameter must be specified. The timezone and language parameters are injected by the server, and the client does not need to pass them. The pushConfig parameter is the list of task push channels. If the list is empty or no channel is enabled, no push is performed.
    */
   triggerConfig?: CreateScheduledTaskRequestTriggerConfig;
   /**
    * @remarks
-   * The visibility scope of the group task. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaborators), and PUBLIC (visible to all group members). Default value for group tasks: PRIVATE. This parameter is ignored for personal tasks.
+   * The visibility scope of the group task. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaboration members), and PUBLIC (visible to all group members). If this parameter is not passed for a group task, the default value is PRIVATE. This field is ignored for personal tasks.
    * 
    * @example
    * PRIVATE
@@ -694,10 +693,10 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   visibility?: string;
   /**
    * @remarks
-   * The list of collaborator user IDs. This parameter takes effect only when visibility is set to COLLABORATIVE. It is ignored for other visibility levels. A maximum of 1000 IDs are supported. The task creator and group creator do not need to be included (covered by the authentication layer). This parameter is ignored for personal tasks.
+   * The list of user IDs of collaboration members. This parameter takes effect only when visibility is set to COLLABORATIVE and is ignored for other values. A maximum of 1,000 user IDs can be specified. You do not need to pass the IDs of the task creator and group creator because they are covered by the authentication layer. This field is ignored for personal tasks.
    * 
    * @example
-   * string_value
+   * ["1002"]
    */
   visibleMemberUserIds?: string[];
   static names(): { [key: string]: string } {
@@ -708,6 +707,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
       isOpen: 'isOpen',
       model: 'model',
       name: 'name',
+      outputMode: 'outputMode',
       segments: 'segments',
       taskDetail: 'taskDetail',
       tenantId: 'tenantId',
@@ -725,6 +725,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
       isOpen: 'boolean',
       model: 'string',
       name: 'string',
+      outputMode: 'string',
       segments: { 'type': 'array', 'itemType': CreateScheduledTaskRequestSegments },
       taskDetail: CreateScheduledTaskRequestTaskDetail,
       tenantId: 'string',

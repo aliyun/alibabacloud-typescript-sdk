@@ -8,7 +8,7 @@ export class ListOutputFilesResponseBodyItemsOutputItemsEmailInfo extends $dara.
    * The email content.
    * 
    * @example
-   * The quarterly business report has been generated. Please check your inbox
+   * The quarterly business report has been generated. Please check it
    */
   body?: string;
   /**
@@ -71,7 +71,7 @@ export class ListOutputFilesResponseBodyItemsOutputItemsFileInfo extends $dara.M
    * The file description.
    * 
    * @example
-   * Quarterly revenue, cost, and trend analysis report
+   * Analysis report on quarterly revenue, costs, and trends
    */
   description?: string;
   /**
@@ -84,7 +84,7 @@ export class ListOutputFilesResponseBodyItemsOutputItemsFileInfo extends $dara.M
   name?: string;
   /**
    * @remarks
-   * The file download link. For versioned files, it is bound to the published version and content revision at the time of query. The link has a time-to-live. If it expires, query the list again to obtain a new link.
+   * The file download link. For versioned files, it is bound to the published version and content revision at the time of query. The link has a validity period. If it expires, query the list again to obtain a new link.
    * 
    * @example
    * https://winnexo.agentone.console.aliyun.com/api/v1/output-preview/demo_download_ticket/download
@@ -136,7 +136,7 @@ export class ListOutputFilesResponseBodyItemsOutputItemsSlidesInfo extends $dara
   completedSlides?: number;
   /**
    * @remarks
-   * The PPT file ID.
+   * The ID of the PPT file.
    * 
    * @example
    * ppt_123e4567-e89b-42d3-a456-426614174015
@@ -144,10 +144,10 @@ export class ListOutputFilesResponseBodyItemsOutputItemsSlidesInfo extends $dara
   pptId?: string;
   /**
    * @remarks
-   * The PPT name.
+   * The name of the PPT file.
    * 
    * @example
-   * Quarterly Business Analysis Presentation
+   * Quarterly Business Analysis Report
    */
   pptName?: string;
   /**
@@ -188,7 +188,7 @@ export class ListOutputFilesResponseBodyItemsOutputItemsSlidesInfo extends $dara
 export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the output detail, serialized from a backend datetime value into an ISO 8601 string. The time zone information is returned with the original value.
+   * The creation time of the output detail. The backend datetime value is serialized into an ISO 8601 string, and the time zone information is returned with the original value.
    * 
    * @example
    * 2026-10-12T03:10:00+00:00
@@ -196,17 +196,17 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The email information. This field is present when the type is email.
+   * The email information. This field is available only when the item type is email.
    */
   emailInfo?: ListOutputFilesResponseBodyItemsOutputItemsEmailInfo;
   /**
    * @remarks
-   * The file information. This field is present when the type is file.
+   * The file information. This field is available only when the item type is file.
    */
   fileInfo?: ListOutputFilesResponseBodyItemsOutputItemsFileInfo;
   /**
    * @remarks
-   * The creation time of the output or detail, serialized from a backend datetime value into an ISO 8601 string. The time zone information is returned with the original value.
+   * The creation time of the output or detail. The backend datetime value is serialized into an ISO 8601 string, and the time zone information is returned with the original value.
    * 
    * @example
    * 2026-10-12T03:10:00+00:00
@@ -214,7 +214,7 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The update time of the output or detail, serialized from a backend datetime value into an ISO 8601 string. The time zone information is returned with the original value.
+   * The update time of the output or detail. The backend datetime value is serialized into an ISO 8601 string, and the time zone information is returned with the original value.
    * 
    * @example
    * 2026-10-12T03:12:00+00:00
@@ -238,7 +238,7 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   itemType?: string;
   /**
    * @remarks
-   * The internationalized display name of the output detail type.
+   * The localized display name of the output detail type.
    * 
    * @example
    * Document
@@ -262,7 +262,7 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   outputItemId?: string;
   /**
    * @remarks
-   * Specifies whether sharing is enabled.
+   * Indicates whether sharing is enabled.
    * 
    * @example
    * true
@@ -270,7 +270,7 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   shareEnabled?: boolean;
   /**
    * @remarks
-   * The share token. This field is present when sharing is enabled. You can use this token to access the public share preview API.
+   * The share token. This field is present when sharing is enabled and can be used to access the public share preview API.
    * 
    * @example
    * demo_public_preview_token
@@ -286,7 +286,7 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   skillOutputId?: string;
   /**
    * @remarks
-   * The slide deck information. This field is present when the type is slide deck.
+   * The slide deck information. This field is present when the output type is a slide deck.
    */
   slidesInfo?: ListOutputFilesResponseBodyItemsOutputItemsSlidesInfo;
   /**
@@ -366,7 +366,7 @@ export class ListOutputFilesResponseBodyItems extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The creation time of the output or detail, serialized from a backend datetime value into an ISO 8601 string. The time zone information is returned with the original value.
+   * The creation time of the output or detail. The backend datetime value is serialized into an ISO 8601 string, and the time zone information is returned with the original value.
    * 
    * @example
    * 2026-10-12T03:10:00+00:00
@@ -374,7 +374,7 @@ export class ListOutputFilesResponseBodyItems extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The update time of the output or detail, serialized from a backend datetime value into an ISO 8601 string. The time zone information is returned with the original value.
+   * The update time of the output or detail. The backend datetime value is serialized into an ISO 8601 string, and the time zone information is returned with the original value.
    * 
    * @example
    * 2026-10-12T03:12:00+00:00
@@ -390,7 +390,7 @@ export class ListOutputFilesResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the digital employee (operating object).
+   * The name of the digital worker (operating object).
    * 
    * @example
    * Business Analysis Assistant
@@ -406,7 +406,7 @@ export class ListOutputFilesResponseBodyItems extends $dara.Model {
   outputId?: string;
   /**
    * @remarks
-   * The list of details under the current output main record. For versioned files, only the latest published version is returned, and historical versions are not expanded.
+   * The list of details under the current output master record. For versioned files, only the latest published version is returned, and historical versions are not expanded.
    */
   outputItems?: ListOutputFilesResponseBodyItemsOutputItems[];
   /**
@@ -496,7 +496,7 @@ export class ListOutputFilesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The list of output main records on the current page. By default, the latest published version is returned for file details.
+   * The list of output master records on the current page. File details return the latest published version by default.
    */
   items?: ListOutputFilesResponseBodyItems[];
   /**
@@ -509,7 +509,7 @@ export class ListOutputFilesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The current page number, starting from 1. Pagination is based on primary output records.
+   * The current page number. The value starts from 1, and pagination is based on output master records.
    * 
    * @example
    * 1
@@ -517,7 +517,7 @@ export class ListOutputFilesResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of primary output records per page. Default value: 20. Valid values: 1 to 100.
+   * The number of output master records per page. Default value: 20. Valid values: 1 to 100.
    * 
    * @example
    * 20
@@ -533,7 +533,7 @@ export class ListOutputFilesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of primary output records that meet the filter conditions. The count is deduplicated by outputId and does not include the number of files or historical versions.
+   * The total number of output master records that match the filter conditions. The count is deduplicated by outputId and does not include the number of files or historical versions.
    * 
    * @example
    * 1

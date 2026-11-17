@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ReplaceManualMemoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The complete content of profile.md. An empty string indicates that the memory is cleared. This field is required, but an empty value is allowed.
+   * The complete content of profile.md. An empty string indicates that the memory is cleared. This field must be provided, but an empty value is allowed.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,9 @@ export class ReplaceManualMemoryRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The owner type. A value of user indicates the personal memory of the authenticated user. A value of group indicates the memory of a specified workspace.
+   * The owner type. Valid values:
+   * - user: the personal memory of the authenticated user.
+   * - group: the memory of the specified workspace.
    * 
    * @example
    * group

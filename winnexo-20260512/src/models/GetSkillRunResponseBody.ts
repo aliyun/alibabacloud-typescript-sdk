@@ -37,7 +37,7 @@ export class GetSkillRunResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The task end time in ISO 8601 format. This parameter has a value only when the task is in a desired state (Succeeded, Failed, or Cancelled).
+   * The task end time in ISO 8601 format. This parameter has a value only when the task reaches a terminal state (Succeeded, Failed, or Cancelled).
    * 
    * @example
    * string_value
@@ -45,12 +45,12 @@ export class GetSkillRunResponseBody extends $dara.Model {
   finishedAt?: string;
   /**
    * @remarks
-   * The execution log list. This parameter is returned only when IncludeLogs is set to true.
+   * The list of execution logs. This parameter is returned only when IncludeLogs is set to true.
    */
   logs?: { [key: string]: any }[];
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
    * successful
@@ -82,12 +82,15 @@ export class GetSkillRunResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The execution result. This parameter is returned only when the status is Succeeded. It contains a content list.
+   * The execution result. This parameter is returned only when the status is Succeeded and includes a list of content blocks.
+   * 
+   * @example
+   * {"content":[{"type":"Text","text":"Execution completed"}]}
    */
   result?: { [key: string]: any };
   /**
    * @remarks
-   * The asynchronous task ID.
+   * The ID of the asynchronous task.
    * 
    * @example
    * exampleRunId
@@ -111,7 +114,7 @@ export class GetSkillRunResponseBody extends $dara.Model {
   skillName?: string;
   /**
    * @remarks
-   * The task execution start time in ISO 8601 format.
+   * The task start time in ISO 8601 format.
    * 
    * @example
    * string_value
@@ -128,6 +131,9 @@ export class GetSkillRunResponseBody extends $dara.Model {
   /**
    * @remarks
    * The LLM token usage statistics. This parameter is returned only when the status is Succeeded.
+   * 
+   * @example
+   * {"inputTokens":100,"outputTokens":20,"totalTokens":120}
    */
   usage?: { [key: string]: any };
   static names(): { [key: string]: string } {

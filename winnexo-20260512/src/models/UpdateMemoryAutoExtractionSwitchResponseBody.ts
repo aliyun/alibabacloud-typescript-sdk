@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMemoryAutoExtractionSwitchResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of automatic memory files cleared in this synchronous operation. The value is 0 if no files are cleared or no memories are available to be cleared.
+   * The number of automatic memory files cleared in this synchronous operation. The value is 0 if no files are cleared or no memory is available to be cleared.
    * 
    * @example
    * 3
@@ -21,7 +21,7 @@ export class UpdateMemoryAutoExtractionSwitchResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The updated status of the automatic memory collection toggle. A value of true indicates that the feature is enabled, and a value of false indicates that the feature is disabled.
+   * The updated status of the automatic memory collection switch. A value of true indicates that the feature is enabled, and false indicates that it is disabled.
    * 
    * @example
    * false

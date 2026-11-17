@@ -13,7 +13,7 @@ export class CreateScheduledTaskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
    * successful

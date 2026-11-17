@@ -13,6 +13,14 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline extends $
   actualTime?: string;
   /**
    * @remarks
+   * 本次任务执行使用的真实会话 ID
+   * 
+   * @example
+   * exampleConversationId
+   */
+  conversationId?: string;
+  /**
+   * @remarks
    * The name of the schedule location.
    * 
    * @example
@@ -45,6 +53,14 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline extends $
   isExpired?: boolean;
   /**
    * @remarks
+   * 本次任务执行生成的结果消息 ID
+   * 
+   * @example
+   * exampleMessageId
+   */
+  messageId?: string;
+  /**
+   * @remarks
    * The execution output content (history records only).
    * 
    * @example
@@ -70,10 +86,12 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline extends $
   static names(): { [key: string]: string } {
     return {
       actualTime: 'actualTime',
+      conversationId: 'conversationId',
       displayName: 'displayName',
       errorMessage: 'errorMessage',
       executionId: 'executionId',
       isExpired: 'isExpired',
+      messageId: 'messageId',
       outputContent: 'outputContent',
       scheduledTime: 'scheduledTime',
       status: 'status',
@@ -83,10 +101,12 @@ export class GetScheduledTaskExecutionRecordsResponseBodyTasksTimeline extends $
   static types(): { [key: string]: any } {
     return {
       actualTime: 'string',
+      conversationId: 'string',
       displayName: 'string',
       errorMessage: 'string',
       executionId: 'string',
       isExpired: 'boolean',
+      messageId: 'string',
       outputContent: 'string',
       scheduledTime: 'string',
       status: 'string',

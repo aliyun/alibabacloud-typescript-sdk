@@ -38,6 +38,9 @@ export class CreateConversationResponseBody extends $dara.Model {
   /**
    * @remarks
    * A reserved field for extension purposes.
+   * 
+   * @example
+   * {"source":"openapi"}
    */
   metadata?: { [key: string]: any };
   /**

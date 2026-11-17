@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetWorkflowNodeConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * 协作空间ID
+   * The collaboration workspace ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ResetWorkflowNodeConfigurationRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 读取接口返回的configVersion；非负整数；版本冲突须刷新
+   * The configuration version returned by the read API. This must be a non-negative integer. Refresh the data if a version conflict occurs.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ResetWorkflowNodeConfigurationRequest extends $dara.Model {
   expectedVersion?: number;
   /**
    * @remarks
-   * 当前物理计划ID（planId）
+   * The current physical plan ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ResetWorkflowNodeConfigurationRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * 业务节点key（nodeKey）
+   * The business node key.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class ResetWorkflowNodeConfigurationRequest extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * 租户ID；缺省使用调用方默认租户
+   * The tenant ID. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000

@@ -13,7 +13,7 @@ export class UpdateWorkflowTemplateResponseBodySteps extends $dara.Model {
   modelMode?: string;
   /**
    * @remarks
-   * The name of the step.
+   * The step name.
    * 
    * @example
    * Customer Complaint Handling Process
@@ -21,7 +21,7 @@ export class UpdateWorkflowTemplateResponseBodySteps extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the agent assignee.
+   * The name of the agent owner.
    * 
    * @example
    * example
@@ -29,8 +29,8 @@ export class UpdateWorkflowTemplateResponseBodySteps extends $dara.Model {
   ownerAgentName?: string;
   /**
    * @remarks
-   * The type of the assignee. Valid values:
-   * - MEMBER: Human user.
+   * The owner type. Valid values:
+   * - MEMBER: Human.
    * - AGENT: Agent.
    * 
    * @example
@@ -39,7 +39,7 @@ export class UpdateWorkflowTemplateResponseBodySteps extends $dara.Model {
   ownerType?: string;
   /**
    * @remarks
-   * The user ID of the human assignee.
+   * The user ID of the human owner.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class UpdateWorkflowTemplateResponseBodySteps extends $dara.Model {
   ownerUserId?: number;
   /**
    * @remarks
-   * 是否人工审核产出物，默认关闭；仅数字员工可开启，审核待办自动发负责人
+   * Specifies whether to manually review the output. Default value: false. This feature can only be enabled for digital workers, and review to-do items are automatically sent to the owner.
    * 
    * @example
    * false
@@ -55,7 +55,7 @@ export class UpdateWorkflowTemplateResponseBodySteps extends $dara.Model {
   reviewOutput?: boolean;
   /**
    * @remarks
-   * The list of user IDs of the reviewers.
+   * The list of reviewer user IDs.
    * 
    * @example
    * example
@@ -63,7 +63,7 @@ export class UpdateWorkflowTemplateResponseBodySteps extends $dara.Model {
   reviewerUserIds?: number[];
   /**
    * @remarks
-   * The order of the step.
+   * The step order.
    * 
    * @example
    * 1
@@ -71,23 +71,23 @@ export class UpdateWorkflowTemplateResponseBodySteps extends $dara.Model {
   sortOrder?: number;
   /**
    * @remarks
-   * The processing instructions for the step.
+   * The step processing instructions.
    * 
    * @example
-   * Collect customer information and forward it to the person in charge for review
+   * Collect customer information and submit it to the owner for review
    */
   specification?: string;
   /**
    * @remarks
-   * The ordered array of fragments. Supported types include text, mention, skill, app, files, and web_search. Referenced identities and order are preserved.
+   * The ordered fragment array. Supports text, mention, skill, app, files, and web_search. Preserves reference identities and order.
    * 
    * @example
-   * [{\\"type\\":\\"text\\",\\"text\\":\\"收集客户信息\\"}]
+   * [{"type":"text","text":"Collect customer information"}]
    */
   specificationJson?: { [key: string]: any }[];
   /**
    * @remarks
-   * The ID of the step.
+   * The step ID.
    * 
    * @example
    * collect
@@ -159,7 +159,7 @@ export class UpdateWorkflowTemplateResponseBody extends $dara.Model {
   createdByUserId?: number;
   /**
    * @remarks
-   * The description of the template.
+   * The template description.
    * 
    * @example
    * Standard process for handling customer complaints
@@ -167,7 +167,7 @@ export class UpdateWorkflowTemplateResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 节点依赖边；每项包含from/to，引用稳定stepId；显式空数组表示没有依赖
+   * The node dependency edges. Each item contains from and to, referencing stable stepIds. An explicit empty array indicates no dependencies.
    * 
    * @example
    * [{"from":"collect","to":"deliver"}]
@@ -175,7 +175,7 @@ export class UpdateWorkflowTemplateResponseBody extends $dara.Model {
   edges?: { [key: string]: any }[];
   /**
    * @remarks
-   * The current effective version number of the template. An empty value indicates that only a draft exists and the template cannot be used for work items.
+   * The current effective version number of the template. An empty value indicates that only a draft exists and it cannot be used for work items.
    * 
    * @example
    * v2
@@ -199,7 +199,7 @@ export class UpdateWorkflowTemplateResponseBody extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * 可选画布布局，按stepId索引；只影响展示，不决定依赖
+   * The optional canvas layout, indexed by stepId. This only affects the display and does not determine dependencies.
    * 
    * @example
    * {"collect":{"x":0,"y":0},"review":{"x":240,"y":0}}
@@ -207,7 +207,7 @@ export class UpdateWorkflowTemplateResponseBody extends $dara.Model {
   layout?: { [key: string]: any };
   /**
    * @remarks
-   * The error message.
+   * The error description.
    * 
    * @example
    * The requested resource does not exist
@@ -215,7 +215,7 @@ export class UpdateWorkflowTemplateResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The name of the template.
+   * The template name.
    * 
    * @example
    * Customer Complaint Handling Process
@@ -231,7 +231,7 @@ export class UpdateWorkflowTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 模板结构版本，当前为2，与业务版本vN独立
+   * The template structure version. The current value is 2, which is independent of the business version vN.
    * 
    * @example
    * 2
@@ -242,12 +242,12 @@ export class UpdateWorkflowTemplateResponseBody extends $dara.Model {
    * The ordered steps.
    * 
    * @example
-   * [{\\"stepId\\":\\"collect\\",\\"sortOrder\\":1,\\"name\\":\\"收集客户信息\\"}]
+   * [{"stepId":"collect","sortOrder":1,"name":"Collect Customer Information"}]
    */
   steps?: UpdateWorkflowTemplateResponseBodySteps[];
   /**
    * @remarks
-   * The ID of the template.
+   * The template ID.
    * 
    * @example
    * tpl_9401
@@ -255,7 +255,7 @@ export class UpdateWorkflowTemplateResponseBody extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The version number to which the content belongs.
+   * The version number to which the returned content belongs.
    * 
    * @example
    * v2
@@ -266,7 +266,7 @@ export class UpdateWorkflowTemplateResponseBody extends $dara.Model {
    * The change description for this version. An empty value indicates that no description is provided.
    * 
    * @example
-   * Added a review step
+   * Added review step
    */
   versionDescription?: string;
   /**

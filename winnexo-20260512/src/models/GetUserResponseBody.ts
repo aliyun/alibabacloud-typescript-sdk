@@ -38,7 +38,7 @@ export class GetUserResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the account is activated. Valid values:
-   *  - **true**: Activated.
+   * - **true**: Activated.
    * - **false**: Not activated.
    * 
    * @example
@@ -71,23 +71,23 @@ export class GetUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of system role codes. The list performs a full replacement and must contain at least one role. Valid values: SUPER_ADMIN, SYSTEM_ADMIN, SEMANTIC_ADMIN, SKILL_ADMIN, KB_ADMIN, AGENT_ADMIN, and APPLICATION_USER.
+   * The list of new system role codes. This list fully replaces the existing roles and must contain at least one role. Valid values: SUPER_ADMIN, SYSTEM_ADMIN, SEMANTIC_ADMIN, SKILL_ADMIN, KB_ADMIN, AGENT_ADMIN, and APPLICATION_USER.
    * 
    * @example
-   * string_value
+   * ["SYSTEM_ADMIN"]
    */
   roleCodes?: string[];
   /**
    * @remarks
-   * The list of user group IDs to which the user belongs.
+   * The list of IDs of the user groups to which the user belongs.
    * 
    * @example
-   * string_value
+   * ["1023"]
    */
   userGroupIds?: string[];
   /**
    * @remarks
-   * The WINNEXO platform user ID.
+   * The user ID on the WINNEXO platform.
    * 
    * @example
    * 1

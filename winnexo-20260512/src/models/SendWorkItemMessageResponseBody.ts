@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SendWorkItemMessageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 公共业务状态码；成功为200，失败为后端错误码。
+   * The business status code. A value of 200 indicates success. Other values indicate backend error codes.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class SendWorkItemMessageResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 公共状态说明；成功时为success，失败时描述具体原因。
+   * The error description. This parameter is empty if the request is successful.
    * 
    * @example
    * success
@@ -21,7 +21,7 @@ export class SendWorkItemMessageResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 本轮助手消息ID；回复在后台异步生成，取得该ID不表示AI已开始或已完成回复。
+   * The ID of the assistant message. The reply is generated asynchronously in the background.
    * 
    * @example
    * 23456789-abcd-4ef0-8123-456789abcdef
@@ -29,7 +29,7 @@ export class SendWorkItemMessageResponseBody extends $dara.Model {
   messageId?: string;
   /**
    * @remarks
-   * 请求追踪ID，可用于定位本次调用及排查失败原因。
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -37,7 +37,7 @@ export class SendWorkItemMessageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 本次消息发送到的已有话题会话ID，不是新建会话ID。
+   * The ID of the existing topic session.
    * 
    * @example
    * 01234567-89ab-4def-8123-456789abcdef
@@ -45,7 +45,7 @@ export class SendWorkItemMessageResponseBody extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * 本次提交的用户消息ID。
+   * The ID of the user message.
    * 
    * @example
    * 12345678-9abc-4def-8123-456789abcdef
@@ -53,7 +53,7 @@ export class SendWorkItemMessageResponseBody extends $dara.Model {
   userMessageId?: string;
   /**
    * @remarks
-   * 请求传入的工作项ID；仅传conversationId时返回legacy-topic:<conversationId>形式的兼容ID。
+   * The work item ID in the request. If only conversationId is specified, a compatible ID in the legacy-topic:<conversationId> format is returned.
    * 
    * @example
    * wi_0123456789abcdef0123456789abcdef

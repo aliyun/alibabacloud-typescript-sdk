@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCollaborationGroupOutputItemPreviewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 公共业务状态码，由后端Code字段映射；错误时用于识别失败原因。
+   * The common business status code.
    * 
    * @example
    * ERR.Robject.Auth.TenantAccessDenied
@@ -13,15 +13,15 @@ export class GetCollaborationGroupOutputItemPreviewResponseBody extends $dara.Mo
   code?: string;
   /**
    * @remarks
-   * 可直接展示的文本正文或预览提示；不提供正文的文件类型可为空。
+   * The text content or preview prompt. This field can be empty.
    * 
    * @example
-   * # 技术方案
+   * # Technical solution
    */
   content?: string;
   /**
    * @remarks
-   * 是否降级为下载。true时应展示下载入口，不要按在线文档预览器处理。
+   * Indicates whether the preview is downgraded to a download preview.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class GetCollaborationGroupOutputItemPreviewResponseBody extends $dara.Mo
   degraded?: boolean;
   /**
    * @remarks
-   * 短期签名下载地址；普通文件有效期3600秒，邮件正文可为空。过期后重新调用本接口。示例仅展示URL格式，不包含真实签名。
+   * The short-term signed download URL. This field can be empty. If the URL expires, call this operation again.
    * 
    * @example
    * https://example.com/download/document.md
@@ -37,7 +37,7 @@ export class GetCollaborationGroupOutputItemPreviewResponseBody extends $dara.Mo
   downloadUrl?: string;
   /**
    * @remarks
-   * 文件扩展名，不含点；无扩展名时可为空。
+   * The file name extension. This field can be empty.
    * 
    * @example
    * md
@@ -45,7 +45,7 @@ export class GetCollaborationGroupOutputItemPreviewResponseBody extends $dara.Mo
   fileExt?: string;
   /**
    * @remarks
-   * 文件名，包含扩展名；无文件名时可为空。
+   * The file name. This field can be empty.
    * 
    * @example
    * codex-r2-a-baseline.md
@@ -53,7 +53,7 @@ export class GetCollaborationGroupOutputItemPreviewResponseBody extends $dara.Mo
   fileName?: string;
   /**
    * @remarks
-   * 对话生成文件的产出明细ID。取GetNodeDetail返回的artifacts中ref.kind为USER_OUTPUT_ITEM的ref.id；不是artifactId。
+   * The output detail ID.
    * 
    * @example
    * 51469466
@@ -61,15 +61,15 @@ export class GetCollaborationGroupOutputItemPreviewResponseBody extends $dara.Mo
   itemId?: string;
   /**
    * @remarks
-   * 公共错误说明，由后端Message字段映射；错误时描述失败原因。
+   * The common error description.
    * 
    * @example
-   * 无权访问租户 2147483647，用户不属于该租户
+   * Access denied to tenant 2147483647 because the user does not belong to the tenant
    */
   message?: string;
   /**
    * @remarks
-   * 预览方式，例如CONTENT为文本正文，HTML为网页，IMAGE为图片，AUDIO为音频，VIDEO为视频，OSS_IMM为文档预览。
+   * The preview type.
    * 
    * @example
    * CONTENT
@@ -77,7 +77,7 @@ export class GetCollaborationGroupOutputItemPreviewResponseBody extends $dara.Mo
   previewType?: string;
   /**
    * @remarks
-   * 短期预览地址；正文可直接展示时可为空。地址过期后重新调用本接口。示例仅展示URL格式，不是可访问凭证。
+   * The short-term preview URL. This field can be empty.
    * 
    * @example
    * https://example.com/preview/document
@@ -85,7 +85,7 @@ export class GetCollaborationGroupOutputItemPreviewResponseBody extends $dara.Mo
   previewUrl?: string;
   /**
    * @remarks
-   * 请求追踪ID，由后端RequestId字段映射，用于排查调用失败。
+   * The request tracking ID.
    * 
    * @example
    * c9cf6cb3-3f5c-4994-a8a1-c93379a6f5cf

@@ -23,6 +23,14 @@ export class TranscribeChatVoiceRequest extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
+   * 标准 Base64 音频内容，不含 data URI 前缀，与 FileUrl 二选一
+   * 
+   * @example
+   * UklGRg==
+   */
+  fileContentBase64?: string;
+  /**
+   * @remarks
    * The full path name of the file.
    * 
    * This parameter is required.
@@ -34,8 +42,6 @@ export class TranscribeChatVoiceRequest extends $dara.Model {
   /**
    * @remarks
    * The publicly accessible URL of the attachment.
-   * 
-   * This parameter is required.
    * 
    * @example
    * http://winnexo-file-transfer.oss-cn-hangzhou.aliyuncs.com/openapi/2026-09-08/9f8c2a1b
@@ -52,6 +58,7 @@ export class TranscribeChatVoiceRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       contentType: 'contentType',
+      fileContentBase64: 'fileContentBase64',
       fileName: 'fileName',
       fileUrl: 'fileUrl',
       tenantId: 'tenantId',
@@ -61,6 +68,7 @@ export class TranscribeChatVoiceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       contentType: 'string',
+      fileContentBase64: 'string',
       fileName: 'string',
       fileUrl: 'string',
       tenantId: 'string',

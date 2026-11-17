@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The reason for the exception. This parameter has a value only when status is abnormal.
+   * The cause of the exception. This field has a value only when status is abnormal.
    * 
    * @example
    * string_value
@@ -13,7 +13,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   abnormalReason?: string;
   /**
    * @remarks
-   * Indicates whether the current caller can delete the task. Only the task creator and group owner can delete the task. For personal tasks, this value is always true.
+   * Indicates whether the current caller can delete the task. This is valid only for the task creator and group owner. For personal tasks, the value is always true.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   canEdit?: boolean;
   /**
    * @remarks
-   * Indicates whether the current caller can immediately execute the task. A task is executable if it is visible to the caller, except for abnormal tasks which return false. For personal tasks, this value is always true.
+   * Indicates whether the current caller can immediately execute the task. Visible means operable. For abnormal tasks, the value is false. For personal tasks, the value is always true.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   canExecute?: boolean;
   /**
    * @remarks
-   * Indicates whether the current caller can start or stop the task. Only the task creator and group owner can toggle the task. Abnormal tasks return false. For personal tasks, this value is always true.
+   * Indicates whether the current caller can start or stop the task. This is valid only for the task creator and group owner. For abnormal tasks, the value is false. For personal tasks, the value is always true.
    * 
    * @example
    * true
@@ -45,7 +45,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   canToggle?: boolean;
   /**
    * @remarks
-   * The ID of the collaboration group (such as cg_101). If specified, a group task is created (the caller must be a valid group member). If left empty, a personal task is created.
+   * The ID of the collaboration group to which the task belongs, such as cg_101. If this parameter is specified, a group space task is created, and the caller must be a valid group member. If this parameter is left empty, a personal task is created.
    * 
    * @example
    * exampleCollaborationGroupId
@@ -88,7 +88,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
    * The list of digital employee names.
    * 
    * @example
-   * string_value
+   * ["pcitc-magent"]
    */
   digitalEmployeeName?: string[];
   /**
@@ -109,7 +109,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The last update time.
    * 
    * @example
    * string_value
@@ -125,7 +125,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   isOpen?: boolean;
   /**
    * @remarks
-   * The execution model tier. If not specified, the value is not updated.
+   * The execution model tier. If this parameter is not specified, the model tier is not updated.
    * 
    * @example
    * standard
@@ -141,7 +141,15 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The task status. Running is returned upon submission.
+   * The task output session mode.
+   * 
+   * @example
+   * NEW_CONVERSATION
+   */
+  outputMode?: string;
+  /**
+   * @remarks
+   * The task status. Running is returned immediately after submission.
    * 
    * @example
    * active
@@ -165,12 +173,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   triggerType?: string;
   /**
    * @remarks
-   * The visibility scope of the group task. Valid values:
-   * - PRIVATE: visible only to the creator and group owner.
-   * - COLLABORATIVE: visible to specified collaborators.
-   * - PUBLIC: visible to all group members.
-   * 
-   * If not specified for a group task, the default value is PRIVATE. This parameter is ignored for personal tasks.
+   * The visibility scope of the group task. Valid values: PRIVATE (visible only to the creator and group owner), COLLABORATIVE (visible to specified collaboration members), and PUBLIC (visible to all group members). Default value for group tasks: PRIVATE. This field is ignored for personal tasks.
    * 
    * @example
    * PRIVATE
@@ -178,10 +181,10 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
   visibility?: string;
   /**
    * @remarks
-   * The list of collaborator members, excluding the task creator and group creator whose access is governed by the authentication layer. This parameter is returned only for group tasks. An empty list is returned for PRIVATE and PUBLIC visibility.
+   * The list of collaboration members, excluding the task creator and group creator, which are covered by the authentication layer. This field is returned only for group tasks. An empty list is returned for PRIVATE or PUBLIC visibility scopes.
    * 
    * @example
-   * string_value
+   * ["1001"]
    */
   visibleMemberUserIds?: string[];
   static names(): { [key: string]: string } {
@@ -203,6 +206,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
       isOpen: 'isOpen',
       model: 'model',
       name: 'name',
+      outputMode: 'outputMode',
       status: 'status',
       taskId: 'taskId',
       triggerType: 'triggerType',
@@ -230,6 +234,7 @@ export class ListScheduledTasksResponseBodyItems extends $dara.Model {
       isOpen: 'boolean',
       model: 'string',
       name: 'string',
+      outputMode: 'string',
       status: 'string',
       taskId: 'string',
       triggerType: 'string',
@@ -264,9 +269,7 @@ export class ListScheduledTasksResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether more data is available. Valid values:
-   * - true: More data is available.
-   * - false: No more data is available.
+   * Indicates whether more data is available. Valid values: true (yes) and false (no).
    * 
    * @example
    * true
@@ -279,7 +282,7 @@ export class ListScheduledTasksResponseBody extends $dara.Model {
   items?: ListScheduledTasksResponseBodyItems[];
   /**
    * @remarks
-   * The maximum number of entries to return in this request.
+   * The maximum number of records to return for this request.
    * 
    * @example
    * 20
@@ -287,7 +290,7 @@ export class ListScheduledTasksResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The status code description.
+   * The description of the status code.
    * 
    * @example
    * ok
@@ -295,7 +298,7 @@ export class ListScheduledTasksResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token.
+   * The pagination cursor.
    * 
    * @example
    * 1763604514518000_531300
@@ -303,7 +306,7 @@ export class ListScheduledTasksResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The page number. Default value: 1.
+   * The specified page number. Default value: 1.
    * 
    * @example
    * 1
@@ -311,7 +314,7 @@ export class ListScheduledTasksResponseBody extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of records per page.
    * 
    * @example
    * 20

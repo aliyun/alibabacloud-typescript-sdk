@@ -21,7 +21,7 @@ export class GetSourceResponseBodyObjectBindings extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * The object type, such as customer. This field has a value when type is set to mention.
+   * The object type, such as customer. This field has a value only when the type is mention.
    * 
    * @example
    * string_value
@@ -55,7 +55,7 @@ export class GetSourceResponseBodyObjectBindings extends $dara.Model {
 export class GetSourceResponseBodyUnstructuredDocs extends $dara.Model {
   /**
    * @remarks
-   * The completion time, in milliseconds.
+   * The completion time in milliseconds.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -71,7 +71,7 @@ export class GetSourceResponseBodyUnstructuredDocs extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The file record ID (optional). This value corresponds to settings.file_record_id.
+   * The ID of the file record. This field is optional and corresponds to settings.file_record_id.
    * 
    * @example
    * exampleFileRecordId
@@ -79,9 +79,9 @@ export class GetSourceResponseBodyUnstructuredDocs extends $dara.Model {
   fileRecordId?: string;
   /**
    * @remarks
-   * The file type. Valid values:
-   * - **file**: file.
-   * - **folder**: folder.
+   * The file type.
+   * - **file**: File.
+   * - **folder**: Folder.
    * 
    * @example
    * pdf
@@ -89,7 +89,7 @@ export class GetSourceResponseBodyUnstructuredDocs extends $dara.Model {
   fileType?: string;
   /**
    * @remarks
-   * The session analysis result in OSS URL format. The URL expires after one hour.
+   * The result of the session analysis in the form of an OSS URL. The URL expires in one hour.
    * 
    * @example
    * https://example.com/winnexo/resource
@@ -97,7 +97,7 @@ export class GetSourceResponseBodyUnstructuredDocs extends $dara.Model {
   ossUrl?: string;
   /**
    * @remarks
-   * The DocumentAgent semantic ID.
+   * The semantic ID of DocumentAgent.
    * 
    * @example
    * exampleSemanticsId
@@ -145,7 +145,7 @@ export class GetSourceResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The completion time, in milliseconds.
+   * The completion time in milliseconds.
    * 
    * @example
    * 2023-10-01T12:00:00Z
@@ -169,7 +169,7 @@ export class GetSourceResponseBody extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The last modification time.
+   * The last update time.
    * 
    * @example
    * string_value
@@ -209,7 +209,7 @@ export class GetSourceResponseBody extends $dara.Model {
   hasUnstructuredDocs?: boolean;
   /**
    * @remarks
-   * The status code description.
+   * The description of the status code.
    * 
    * @example
    * ok
@@ -225,7 +225,7 @@ export class GetSourceResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The meeting notes content (optional). The notes are used for auxiliary analysis.
+   * The content of the meeting notes. This field is optional and is used for auxiliary analysis.
    * 
    * @example
    * string_value
@@ -246,7 +246,7 @@ export class GetSourceResponseBody extends $dara.Model {
   objectId?: string;
   /**
    * @remarks
-   * The object type, such as customer. This field has a value when type is set to mention.
+   * The object type, such as customer. This field has a value only when the type is mention.
    * 
    * @example
    * string_value
@@ -254,7 +254,7 @@ export class GetSourceResponseBody extends $dara.Model {
   objectType?: string;
   /**
    * @remarks
-   * The name of the digital employee (operating object name, optional).
+   * The name of the digital employee. This field is optional and represents the name of the operations object.
    * 
    * @example
    * string_value
@@ -270,7 +270,7 @@ export class GetSourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task scope.
+   * The scope of the task.
    * 
    * @example
    * PERSONAL
@@ -278,12 +278,15 @@ export class GetSourceResponseBody extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * The user card information settings.
+   * The datasource config. This field is returned only when includeDetails is set to true. The specific fields vary based on the data source type.
+   * 
+   * @example
+   * {"file_name":"report.pdf","file_type":"pdf"}
    */
   settings?: { [key: string]: any };
   /**
    * @remarks
-   * The skill output ID. This ID is included when the output is saved as a resource.
+   * The ID of the skill output. This field is included when the output is saved as a resource.
    * 
    * @example
    * exampleSkillOutputId
@@ -291,7 +294,7 @@ export class GetSourceResponseBody extends $dara.Model {
   skillOutputId?: string;
   /**
    * @remarks
-   * The data source ID.
+   * The ID of the data source.
    * 
    * @example
    * exampleSourceId
@@ -299,9 +302,7 @@ export class GetSourceResponseBody extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The knowledge base (KB) ownership type. Valid values:
-   * - aliding_kb_doc: DingTalk knowledge base document.
-   * - normal: standard knowledge.
+   * The ownership type of the knowledge base. Valid values: aliding_kb_doc (Alibaba DingTalk knowledge base document) and normal (common knowledge).
    * 
    * @example
    * string_value
@@ -309,7 +310,7 @@ export class GetSourceResponseBody extends $dara.Model {
   sourceKind?: string;
   /**
    * @remarks
-   * The resource tags (optional). The value is a JSON string list, such as ["tagA","tagB"].
+   * The resource tags. This field is optional and is a JSON string list, such as ["tagA","tagB"].
    * 
    * @example
    * string_value
@@ -325,7 +326,7 @@ export class GetSourceResponseBody extends $dara.Model {
   sourceType?: string;
   /**
    * @remarks
-   * The final message status.
+   * The final status of the message.
    * 
    * @example
    * READY
@@ -336,7 +337,7 @@ export class GetSourceResponseBody extends $dara.Model {
    * The list of structured tables.
    * 
    * @example
-   * string_value
+   * ["table01"]
    */
   structuredTables?: string[];
   /**

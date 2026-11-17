@@ -13,7 +13,7 @@ export class CreateWorkflowTemplateDraftVersionResponseBodySteps extends $dara.M
   modelMode?: string;
   /**
    * @remarks
-   * The name of the step. This parameter can be left empty for a draft, but is required when the template is submitted.
+   * The step name. This field can be left empty for a draft and is required upon submission.
    * 
    * @example
    * Customer complaint handling process
@@ -29,7 +29,9 @@ export class CreateWorkflowTemplateDraftVersionResponseBodySteps extends $dara.M
   ownerAgentName?: string;
   /**
    * @remarks
-   * The type of the owner. Valid values: MEMBER (manual) and AGENT (agent).
+   * The owner type. Valid values:
+   * - MEMBER: Human.
+   * - AGENT: Agent.
    * 
    * @example
    * MEMBER
@@ -37,7 +39,7 @@ export class CreateWorkflowTemplateDraftVersionResponseBodySteps extends $dara.M
   ownerType?: string;
   /**
    * @remarks
-   * The user ID of the manual owner.
+   * The user ID of the human owner.
    * 
    * @example
    * 1
@@ -45,7 +47,7 @@ export class CreateWorkflowTemplateDraftVersionResponseBodySteps extends $dara.M
   ownerUserId?: number;
   /**
    * @remarks
-   * 是否人工审核产出物，默认关闭；仅数字员工可开启，审核待办自动发负责人
+   * Specifies whether to manually review deliverables. By default, this feature is disabled. It can only be enabled for digital workers, and review tasks are automatically sent to the owner.
    * 
    * @example
    * false
@@ -53,7 +55,7 @@ export class CreateWorkflowTemplateDraftVersionResponseBodySteps extends $dara.M
   reviewOutput?: boolean;
   /**
    * @remarks
-   * The list of user IDs of the reviewers.
+   * The list of reviewer user IDs.
    * 
    * @example
    * example
@@ -61,7 +63,7 @@ export class CreateWorkflowTemplateDraftVersionResponseBodySteps extends $dara.M
   reviewerUserIds?: number[];
   /**
    * @remarks
-   * The order of the step.
+   * The step order.
    * 
    * @example
    * 1
@@ -72,20 +74,20 @@ export class CreateWorkflowTemplateDraftVersionResponseBodySteps extends $dara.M
    * The display text derived from ordered segments. Fixed titles are not added, and the text is not stored independently.
    * 
    * @example
-   * Collect customer information and forward it to the owner for review
+   * Collect customer information and submit it to the owner for review
    */
   specification?: string;
   /**
    * @remarks
-   * The array of ordered segments. This parameter supports text, mention, skill, app, files, and web_search, and retains reference identities and order.
+   * The array of ordered segments. Supported types include text, mention, skill, app, files, and web_search. Reference identities and order are preserved.
    * 
    * @example
-   * [{\\"type\\":\\"text\\",\\"text\\":\\"收集客户信息\\"}]
+   * [{"type":"text","text":"Collect customer information"}]
    */
   specificationJson?: { [key: string]: any }[];
   /**
    * @remarks
-   * The ID of the step.
+   * The step ID.
    * 
    * @example
    * collect
@@ -157,7 +159,7 @@ export class CreateWorkflowTemplateDraftVersionResponseBody extends $dara.Model 
   createdByUserId?: number;
   /**
    * @remarks
-   * The description of the template.
+   * The template description.
    * 
    * @example
    * Standard process for handling customer complaints
@@ -165,7 +167,7 @@ export class CreateWorkflowTemplateDraftVersionResponseBody extends $dara.Model 
   description?: string;
   /**
    * @remarks
-   * 节点依赖边；每项包含from/to，引用稳定stepId
+   * The node dependency edges. Each item contains a from and to field, referencing stable step IDs.
    * 
    * @example
    * []
@@ -173,7 +175,7 @@ export class CreateWorkflowTemplateDraftVersionResponseBody extends $dara.Model 
   edges?: { [key: string]: any }[];
   /**
    * @remarks
-   * The current effective version number of the template. An empty value indicates that only a draft exists and the template cannot be used for work items.
+   * The current effective version number of the template. An empty value indicates that only a draft exists and it cannot be used for work items.
    * 
    * @example
    * v1
@@ -197,7 +199,7 @@ export class CreateWorkflowTemplateDraftVersionResponseBody extends $dara.Model 
   gmtModified?: string;
   /**
    * @remarks
-   * 可选画布布局，按stepId索引；只影响展示，不决定依赖
+   * The optional canvas layout, indexed by step ID. This field only affects the display and does not determine dependencies.
    * 
    * @example
    * {"collect":{"x":0,"y":0},"review":{"x":240,"y":0}}
@@ -213,7 +215,7 @@ export class CreateWorkflowTemplateDraftVersionResponseBody extends $dara.Model 
   message?: string;
   /**
    * @remarks
-   * The name of the step. This parameter can be left empty for a draft, but is required when the template is submitted.
+   * The step name. This field can be left empty for a draft and is required upon submission.
    * 
    * @example
    * Customer complaint handling process
@@ -229,7 +231,7 @@ export class CreateWorkflowTemplateDraftVersionResponseBody extends $dara.Model 
   requestId?: string;
   /**
    * @remarks
-   * 模板结构版本，当前为2，与业务版本vN独立
+   * The schema version of the template. The current value is 2, which is independent of the business version vN.
    * 
    * @example
    * 2
@@ -240,12 +242,12 @@ export class CreateWorkflowTemplateDraftVersionResponseBody extends $dara.Model 
    * The ordered steps.
    * 
    * @example
-   * [{\\"stepId\\":\\"collect\\",\\"sortOrder\\":1,\\"name\\":\\"收集客户信息\\"}]
+   * [{"stepId":"collect","sortOrder":1,"name":"Collect customer information"}]
    */
   steps?: CreateWorkflowTemplateDraftVersionResponseBodySteps[];
   /**
    * @remarks
-   * The ID of the template.
+   * The template ID.
    * 
    * @example
    * tpl_9401
@@ -261,15 +263,17 @@ export class CreateWorkflowTemplateDraftVersionResponseBody extends $dara.Model 
   version?: string;
   /**
    * @remarks
-   * The change description of the version. An empty value indicates that no description is provided.
+   * The change description for this version. An empty value indicates that no description is provided.
    * 
    * @example
-   * Added a review step
+   * Add a review step
    */
   versionDescription?: string;
   /**
    * @remarks
-   * The version status. Valid values: DRAFT (draft) and SUBMITTED (submitted).
+   * The version status. Valid values:
+   * - DRAFT: Draft.
+   * - SUBMITTED: Submitted.
    * 
    * @example
    * DRAFT

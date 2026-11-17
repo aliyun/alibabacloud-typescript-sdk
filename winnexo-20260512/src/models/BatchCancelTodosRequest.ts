@@ -18,7 +18,7 @@ export class BatchCancelTodosRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * todo_abc123
+   * ["todo_abc123"]
    */
   todoIds?: string[];
   static names(): { [key: string]: string } {

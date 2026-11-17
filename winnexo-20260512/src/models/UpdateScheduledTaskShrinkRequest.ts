@@ -42,6 +42,14 @@ export class UpdateScheduledTaskShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * 输出会话模式，省略时保留当前配置
+   * 
+   * @example
+   * SAME_CONVERSATION
+   */
+  outputMode?: string;
+  /**
+   * @remarks
    * The segments.
    */
   segmentsShrink?: string;
@@ -96,6 +104,7 @@ export class UpdateScheduledTaskShrinkRequest extends $dara.Model {
       isOpen: 'isOpen',
       model: 'model',
       name: 'name',
+      outputMode: 'outputMode',
       segmentsShrink: 'segments',
       taskDetailShrink: 'taskDetail',
       taskId: 'taskId',
@@ -113,6 +122,7 @@ export class UpdateScheduledTaskShrinkRequest extends $dara.Model {
       isOpen: 'boolean',
       model: 'string',
       name: 'string',
+      outputMode: 'string',
       segmentsShrink: 'string',
       taskDetailShrink: 'string',
       taskId: 'string',

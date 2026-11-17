@@ -23,6 +23,14 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
+   * 作为本轮上下文引用的消息或文件条目
+   * 
+   * @example
+   * []
+   */
+  contextItemsShrink?: string;
+  /**
+   * @remarks
    * The list of digital employee names. For compatibility with the legacy format, a single string can also be passed.
    * 
    * @example
@@ -39,6 +47,14 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
   directChat?: boolean;
   /**
    * @remarks
+   * 本轮携带的最近完整 direct 问答轮数，不含本轮输入。仅 workMode=direct 或 directChat=true 时生效。有效值为 0–100 的 JSON 整数，省略时由后端按 0 处理，不携带历史但仍保存当前轮。null、布尔值、字符串、小数及越界值按原 direct 路径处理，网关保留原始值供后端判定。work/ask 忽略此字段。该参数不限制转换为 work 时的历史范围
+   * 
+   * @example
+   * 1
+   */
+  directMaxHistoryRounds?: any;
+  /**
+   * @remarks
    * Specifies whether to enable web search. Default value: false. In the task execution scenario where taskExecution is passed, the task configuration prevails.
    * 
    * @example
@@ -50,6 +66,14 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
    * The list of file references. Each item is an object, and the fileId parameter is required. The fileId is returned by the uploadChatFile operation.
    */
   filesShrink?: string;
+  /**
+   * @remarks
+   * 本轮语言，可选 zh-CN、en-US，用于接口错误文案并透传给 CodeAgent；省略时沿用当前语言行为，不修改用户设置
+   * 
+   * @example
+   * en-US
+   */
+  locale?: string;
   /**
    * @remarks
    * The abstract model tier. Valid values: quick, standard, and flagship. If not specified, standard is used for new sessions, and the current tier is retained for existing sessions.
@@ -66,6 +90,14 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
    * false
    */
   reuseLastSession?: boolean;
+  /**
+   * @remarks
+   * 消息中的结构化片段，例如会话或对象提及
+   * 
+   * @example
+   * []
+   */
+  segmentsShrink?: string;
   /**
    * @remarks
    * The session ID. If not specified, a new session is created.
@@ -107,12 +139,16 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
     return {
       content: 'content',
       contentType: 'contentType',
+      contextItemsShrink: 'contextItems',
       digitalEmployeeNameShrink: 'digitalEmployeeName',
       directChat: 'directChat',
+      directMaxHistoryRounds: 'directMaxHistoryRounds',
       enableWebSearch: 'enableWebSearch',
       filesShrink: 'files',
+      locale: 'locale',
       model: 'model',
       reuseLastSession: 'reuseLastSession',
+      segmentsShrink: 'segments',
       sessionId: 'sessionId',
       stream: 'stream',
       taskExecutionShrink: 'taskExecution',
@@ -125,12 +161,16 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
     return {
       content: 'string',
       contentType: 'string',
+      contextItemsShrink: 'string',
       digitalEmployeeNameShrink: 'string',
       directChat: 'boolean',
+      directMaxHistoryRounds: 'any',
       enableWebSearch: 'boolean',
       filesShrink: 'string',
+      locale: 'string',
       model: 'string',
       reuseLastSession: 'boolean',
+      segmentsShrink: 'string',
       sessionId: 'string',
       stream: 'boolean',
       taskExecutionShrink: 'string',

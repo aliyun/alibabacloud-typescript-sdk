@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateMemoryAutoExtractionSwitchRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to synchronously clear the automatically collected memories. This parameter can be used regardless of whether the feature is enabled or disabled.
+   * Specifies whether to synchronously clear the automatically collected memory. This parameter can be used when enabling or disabling the feature.
    * 
    * @example
    * true
@@ -23,7 +23,7 @@ export class UpdateMemoryAutoExtractionSwitchRequest extends $dara.Model {
   enabled?: boolean;
   /**
    * @remarks
-   * The collaborative workspace ID. This parameter is required when ownerType is set to group.
+   * The ID of the collaboration workspace. This parameter is required when ownerType is set to group.
    * 
    * @example
    * cg_12345
@@ -31,7 +31,9 @@ export class UpdateMemoryAutoExtractionSwitchRequest extends $dara.Model {
   groupId?: string;
   /**
    * @remarks
-   * The owner type. A value of user indicates personal memories of the authenticated user. A value of group indicates memories of a specified collaborative workspace.
+   * The owner type. Valid values:
+   * - user: the personal memory of the authenticated user
+   * - group: the memory of the specified collaboration workspace
    * 
    * @example
    * group

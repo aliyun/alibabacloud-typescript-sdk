@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListUserVisibleKnowledgeBaseContentsResponseBodyItemsShareInfos extends $dara.Model {
   /**
    * @remarks
-   * The Ray Job ID.
+   * The ID of the Ray job.
    * 
    * @example
    * submission_example
@@ -13,7 +13,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItemsShareInfos ext
   submissionId?: string;
   /**
    * @remarks
-   * The user ID of the submitter.
+   * The user ID of the timesheet submitter.
    * 
    * @example
    * 1
@@ -21,15 +21,15 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItemsShareInfos ext
   submitterId?: number;
   /**
    * @remarks
-   * The submitter name.
+   * The name of the submitter.
    * 
    * @example
-   * John
+   * Zhang San
    */
   submitterName?: string;
   /**
    * @remarks
-   * The target directory ID.
+   * The ID of the target directory.
    * 
    * @example
    * dir_target
@@ -37,7 +37,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItemsShareInfos ext
   targetDirectoryId?: string;
   /**
    * @remarks
-   * The target directory name.
+   * The name of the target directory.
    * 
    * @example
    * Shared directory
@@ -45,7 +45,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItemsShareInfos ext
   targetDirectoryName?: string;
   /**
    * @remarks
-   * The root directory ID of the target enterprise knowledge base.
+   * The ID of the root directory of the target enterprise knowledge base.
    * 
    * @example
    * dir_kb_root
@@ -98,7 +98,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
    * The name of the creator.
    * 
    * @example
-   * John
+   * Zhang San
    */
   creatorName?: string;
   /**
@@ -106,7 +106,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
    * The description of the to-do card type.
    * 
    * @example
-   * Product materials and user guide
+   * Product materials and user instructions
    */
   description?: string;
   /**
@@ -135,7 +135,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   gmtCreate?: number;
   /**
    * @remarks
-   * The last modification time.
+   * The last update time.
    * 
    * @example
    * 1
@@ -170,7 +170,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
    * The name of the modifier.
    * 
    * @example
-   * Jane
+   * Li Si
    */
   modifierName?: string;
   /**
@@ -188,7 +188,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   objectBindings?: { [key: string]: any }[];
   /**
    * @remarks
-   * The visibility mode of the knowledge base to digital employees.
+   * The visibility mode of the knowledge base for digital employees.
    * 
    * @example
    * PUBLIC
@@ -217,7 +217,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   shared?: boolean;
   /**
    * @remarks
-   * The number of resources in FAILED status. Returned only when listing top-level KB directories.
+   * The number of resources in the FAILED state. This parameter is returned only when the top-level directory list of the knowledge base is queried.
    * 
    * @example
    * 0
@@ -225,7 +225,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   sourceFailedCount?: number;
   /**
    * @remarks
-   * The knowledge base affiliation type. Valid values: aliding_kb_doc (DingTalk knowledge base document), normal (common knowledge).
+   * The ownership type of the knowledge base. Valid values: aliding_kb_doc (DingTalk knowledge base document) and normal (common knowledge).
    * 
    * @example
    * normal
@@ -233,7 +233,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   sourceKind?: string;
   /**
    * @remarks
-   * The number of resources in READY status. Returned only when listing top-level KB directories.
+   * The number of resources in the READY state. This parameter is returned only when the top-level directory list of the knowledge base is queried.
    * 
    * @example
    * 1
@@ -241,7 +241,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   sourceReadyCount?: number;
   /**
    * @remarks
-   * The resource status. This field has a value only when itemType is resource.
+   * The resource status. This parameter has a value only when itemType is set to resource.
    * 
    * @example
    * READY
@@ -249,7 +249,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBodyItems extends $dara
   sourceStatus?: string;
   /**
    * @remarks
-   * The total number of resources under the directory and its subdirectories. Returned only when listing top-level KB directories.
+   * The total number of resources in the directory and its subdirectories. This parameter is returned only when the top-level directory list of the knowledge base is queried.
    * 
    * @example
    * 1
@@ -356,7 +356,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBody extends $dara.Mode
   message?: string;
   /**
    * @remarks
-   * The page number. Default value: 1. Pages start from page 1.
+   * The page number. Default value: 1. The pages start from page 1.
    * 
    * @example
    * 1
@@ -364,7 +364,7 @@ export class ListUserVisibleKnowledgeBaseContentsResponseBody extends $dara.Mode
   page?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 20

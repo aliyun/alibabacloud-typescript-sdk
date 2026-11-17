@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to return the complete file tree. Default value: False. This avoids large responses.
+   * Specifies whether to return the complete file tree. Default value: false. This prevents large response payloads.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class GetSkillRequest extends $dara.Model {
   skillCode?: string;
   /**
    * @remarks
-   * The skill name.
+   * The name of the skill.
    * 
    * @example
    * string_value
@@ -37,7 +37,7 @@ export class GetSkillRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The view mode. Valid values: draft (draft/editing view) and published (published view, default).
+   * The view mode. Valid values: draft (draft or edit view) and published (published view, default).
    * 
    * @example
    * draft

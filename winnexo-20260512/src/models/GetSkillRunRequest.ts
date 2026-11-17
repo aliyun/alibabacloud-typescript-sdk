@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSkillRunRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to include execution logs. Default value: false. Enable this parameter only for troubleshooting.
+   * Specifies whether to include execution logs. Default value: false. Enable this only when troubleshooting issues.
    * 
    * @example
    * false
@@ -23,7 +23,7 @@ export class GetSkillRunRequest extends $dara.Model {
   runId?: string;
   /**
    * @remarks
-   * The tenant ID to which the task belongs.
+   * The ID of the tenant to which the task belongs.
    * 
    * @example
    * 10000

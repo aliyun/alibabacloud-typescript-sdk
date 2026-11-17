@@ -15,7 +15,7 @@ export class CheckAppResourcePermissionRequest extends $dara.Model {
   permission?: string;
   /**
    * @remarks
-   * The dot-separated resource key. The first segment is the APP application key.
+   * The dot-separated resource key. The first segment is the application key.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class CheckAppResourcePermissionRequest extends $dara.Model {
   targetUserId?: number;
   /**
    * @remarks
-   * The ID of the tenant to which the target user belongs. This parameter is required for cross-tenant targets.
+   * The tenant to which the target user belongs. This parameter is required for cross-tenant targets.
    * 
    * @example
    * 10000

@@ -6,8 +6,8 @@ export class UpdateWorkflowTemplateShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The write action. Valid values:
-   * - SAVE: Saves the template as a draft. The changes do not take effect. Node names and assignees can be left empty.
-   * - SUBMIT: Requires complete nodes. Saves and submits the template as the only effective version.
+   * - SAVE: Saves the template as a draft without taking effect, allowing node names and executors to be left empty.
+   * - SUBMIT: Requires complete nodes, and saves and submits the template as the only effective version.
    * Default value: SUBMIT.
    * 
    * @example
@@ -16,7 +16,7 @@ export class UpdateWorkflowTemplateShrinkRequest extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The ID of the collaboration workspace.
+   * The collaboration workspace ID.
    * 
    * This parameter is required.
    * 
@@ -26,7 +26,7 @@ export class UpdateWorkflowTemplateShrinkRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * The complete JSON definition of the template. This overwrites the existing definition.
+   * The complete JSON definition of the template for full overwriting.
    * 
    * This parameter is required.
    * 
@@ -36,7 +36,7 @@ export class UpdateWorkflowTemplateShrinkRequest extends $dara.Model {
   definitionShrink?: string;
   /**
    * @remarks
-   * The submitted version number on which the new version is based. This parameter is mutually exclusive with version. If you do not specify this parameter, the current effective version is used.
+   * The submitted version number on which the new version is based. This parameter is mutually exclusive with version. If not specified, the system falls back to the current effective version.
    * 
    * @example
    * v1
@@ -44,7 +44,7 @@ export class UpdateWorkflowTemplateShrinkRequest extends $dara.Model {
   sourceVersion?: string;
   /**
    * @remarks
-   * The ID of the template.
+   * The template ID.
    * 
    * This parameter is required.
    * 
@@ -62,7 +62,7 @@ export class UpdateWorkflowTemplateShrinkRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The version number to which the content belongs.
+   * The version number to which the returned content belongs.
    * 
    * @example
    * v2
@@ -73,7 +73,7 @@ export class UpdateWorkflowTemplateShrinkRequest extends $dara.Model {
    * The change description for this version. An empty value indicates that no description is provided.
    * 
    * @example
-   * Added a review step
+   * Added review step
    */
   versionDescription?: string;
   static names(): { [key: string]: string } {

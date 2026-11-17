@@ -13,7 +13,7 @@ export class SetWorkflowTemplateEffectiveVersionResponseBodySteps extends $dara.
   modelMode?: string;
   /**
    * @remarks
-   * The step name. This field can be empty for drafts but is required upon submission.
+   * The step name. This can be empty for drafts but is required upon submission.
    * 
    * @example
    * Collect customer information
@@ -29,9 +29,7 @@ export class SetWorkflowTemplateEffectiveVersionResponseBodySteps extends $dara.
   ownerAgentName?: string;
   /**
    * @remarks
-   * The owner type. Valid values:
-   * - MEMBER: Human.
-   * - AGENT: Agent.
+   * The owner type. Valid values: MEMBER (human) and AGENT (agent).
    * 
    * @example
    * MEMBER
@@ -47,7 +45,7 @@ export class SetWorkflowTemplateEffectiveVersionResponseBodySteps extends $dara.
   ownerUserId?: number;
   /**
    * @remarks
-   * 是否人工审核产出物，默认关闭；仅数字员工可开启，审核待办自动发负责人
+   * Specifies whether to manually review deliverables. This is disabled by default and can only be enabled for digital employees. Review tasks are automatically sent to the owner.
    * 
    * @example
    * false
@@ -55,7 +53,7 @@ export class SetWorkflowTemplateEffectiveVersionResponseBodySteps extends $dara.
   reviewOutput?: boolean;
   /**
    * @remarks
-   * The list of user IDs of the reviewers.
+   * The list of reviewer user IDs.
    * 
    * @example
    * example
@@ -71,18 +69,18 @@ export class SetWorkflowTemplateEffectiveVersionResponseBodySteps extends $dara.
   sortOrder?: number;
   /**
    * @remarks
-   * The display text derived from ordered segments. Fixed titles are not added, and the text is not stored independently.
+   * The display text derived from ordered segments. Fixed titles are not added, and it is not stored independently.
    * 
    * @example
-   * Collect customer information and submit it to the person in charge for review
+   * Collect customer information and submit it to the owner for review
    */
   specification?: string;
   /**
    * @remarks
-   * The array of ordered segments. Supports text, mention, skill, app, files, and web_search. Retains reference identities and order.
+   * The array of ordered segments. Supports text, mention, skill, app, files, and web_search. Preserves reference identities and order.
    * 
    * @example
-   * [{"type":"text","text":"收集客户信息"}]
+   * [{"type":"text","text":"Collect customer information"}]
    */
   specificationJson?: { [key: string]: any }[];
   /**
@@ -167,7 +165,7 @@ export class SetWorkflowTemplateEffectiveVersionResponseBody extends $dara.Model
   description?: string;
   /**
    * @remarks
-   * 节点依赖边；每项包含from/to，引用稳定stepId
+   * The node dependency edges. Each item contains a from and to field, referencing a stable stepId.
    * 
    * @example
    * []
@@ -199,7 +197,7 @@ export class SetWorkflowTemplateEffectiveVersionResponseBody extends $dara.Model
   gmtModified?: string;
   /**
    * @remarks
-   * 可选画布布局，按stepId索引；只影响展示，不决定依赖
+   * The optional canvas layout, indexed by stepId. This only affects the display and does not determine dependencies.
    * 
    * @example
    * {"collect":{"x":0,"y":0},"review":{"x":240,"y":0}}
@@ -215,7 +213,7 @@ export class SetWorkflowTemplateEffectiveVersionResponseBody extends $dara.Model
   message?: string;
   /**
    * @remarks
-   * The step name. This field can be empty for drafts but is required upon submission.
+   * The step name. This can be empty for drafts but is required upon submission.
    * 
    * @example
    * Customer complaint handling process
@@ -231,7 +229,7 @@ export class SetWorkflowTemplateEffectiveVersionResponseBody extends $dara.Model
   requestId?: string;
   /**
    * @remarks
-   * 模板结构版本，当前为2，与业务版本vN独立
+   * The template structure version. The current value is 2, which is independent of the business version vN.
    * 
    * @example
    * 2
@@ -242,7 +240,7 @@ export class SetWorkflowTemplateEffectiveVersionResponseBody extends $dara.Model
    * The ordered steps.
    * 
    * @example
-   * [{"stepId":"collect","sortOrder":1,"name":"收集客户信息"}]
+   * [{"stepId":"collect","sortOrder":1,"name":"Collect customer information"}]
    */
   steps?: SetWorkflowTemplateEffectiveVersionResponseBodySteps[];
   /**
@@ -255,7 +253,7 @@ export class SetWorkflowTemplateEffectiveVersionResponseBody extends $dara.Model
   templateId?: string;
   /**
    * @remarks
-   * The version number of the returned content.
+   * The version number to which the returned content belongs.
    * 
    * @example
    * v1
@@ -271,9 +269,7 @@ export class SetWorkflowTemplateEffectiveVersionResponseBody extends $dara.Model
   versionDescription?: string;
   /**
    * @remarks
-   * The version status. Valid values:
-   * - DRAFT: Draft.
-   * - SUBMITTED: Submitted.
+   * The version status. Valid values: DRAFT (draft) and SUBMITTED (submitted).
    * 
    * @example
    * SUBMITTED

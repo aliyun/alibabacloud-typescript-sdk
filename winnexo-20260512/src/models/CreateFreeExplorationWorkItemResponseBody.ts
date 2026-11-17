@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateFreeExplorationWorkItemResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 已选择的数字员工技术名称
+   * The technical names of the selected digital workers.
    * 
    * @example
    * ["sales-agent"]
@@ -13,7 +13,7 @@ export class CreateFreeExplorationWorkItemResponseBody extends $dara.Model {
   agentNames?: string[];
   /**
    * @remarks
-   * 业务状态码，成功为200
+   * The business status code. A value of 200 indicates success.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class CreateFreeExplorationWorkItemResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 所属协作空间 ID
+   * The ID of the collaboration workspace to which the work item belongs.
    * 
    * @example
    * cg_9401
@@ -29,7 +29,7 @@ export class CreateFreeExplorationWorkItemResponseBody extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 真实群话题 ID，可在 queryWorkItemFeed 中关联；不可作为 Workflow workItemId
+   * The actual group topic ID, which can be associated in queryWorkItemFeed. It cannot be used as a workItemId in Workflow.
    * 
    * @example
    * conv_20261105_9f2c
@@ -37,7 +37,7 @@ export class CreateFreeExplorationWorkItemResponseBody extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * 平台创建人用户 ID
+   * The user ID of the creator on the platform.
    * 
    * @example
    * 10001
@@ -45,7 +45,7 @@ export class CreateFreeExplorationWorkItemResponseBody extends $dara.Model {
   createdByUserId?: number;
   /**
    * @remarks
-   * 工作项模式，固定 FREE_EXPLORATION
+   * The work item mode. The value is fixed to FREE_EXPLORATION.
    * 
    * @example
    * FREE_EXPLORATION
@@ -53,7 +53,7 @@ export class CreateFreeExplorationWorkItemResponseBody extends $dara.Model {
   itemType?: string;
   /**
    * @remarks
-   * 实际话题成员，含创建人；公开档不枚举全空间成员
+   * The actual members of the topic, including the creator. For public topics, members of the entire workspace are not enumerated.
    * 
    * @example
    * [43]
@@ -61,15 +61,15 @@ export class CreateFreeExplorationWorkItemResponseBody extends $dara.Model {
   memberUserIds?: number[];
   /**
    * @remarks
-   * 错误描述
+   * The error description.
    * 
    * @example
-   * 请求的资源不存在
+   * The requested resource does not exist
    */
   message?: string;
   /**
    * @remarks
-   * 请求追踪ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -77,15 +77,15 @@ export class CreateFreeExplorationWorkItemResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 工作项标题
+   * The title of the work item.
    * 
    * @example
-   * 调查销售机会
+   * Investigate sales opportunities
    */
   title?: string;
   /**
    * @remarks
-   * 实际可见范围 PRIVATE/COLLABORATIVE/PUBLIC
+   * The actual visibility scope. Valid values: PRIVATE, COLLABORATIVE, and PUBLIC.
    * 
    * @example
    * PRIVATE

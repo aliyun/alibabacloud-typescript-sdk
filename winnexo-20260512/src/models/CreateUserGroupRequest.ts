@@ -13,7 +13,7 @@ export class CreateUserGroupRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The ID of the parent user group. If this parameter is not specified, a root node is created.
+   * The ID of the parent user group. If this parameter is not specified, the user group is created under the root node.
    * 
    * @example
    * 7ea8973f-7a5c-4e8a-956b-4fe0e7e2eb11
@@ -21,7 +21,7 @@ export class CreateUserGroupRequest extends $dara.Model {
   parentId?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+   * The tenant ID. This is a common parameter that can be explicitly passed by using the `--tenant-id` option in winnexo-cli.
    * 
    * @example
    * 10000

@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateUserGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The new description of the user group. If not specified, the description is not modified.
+   * The new description of the user group. If this parameter is not specified, the description is not modified.
    * 
    * @example
-   * South China Sales Organization
+   * string_value
    */
   description?: string;
   /**
    * @remarks
-   * Specifies whether to move the user group to the root node. This parameter cannot be set together with parentId.
+   * Specifies whether to move the user group to the root node. This parameter cannot be set at the same time as a non-null parentId.
    * 
    * @example
    * false
@@ -21,18 +21,18 @@ export class UpdateUserGroupRequest extends $dara.Model {
   moveToRoot?: boolean;
   /**
    * @remarks
-   * The ID of the new parent user group. If not specified, the user group is not moved.
+   * The ID of the new parent user group. If this parameter is not specified, the user group is not moved. If it is explicitly set to null, the user group is moved to the root node.
    * 
    * @example
-   * 7ea8973f-7a5c-4e8a-956b-4fe0e7e2eb11
+   * string_value
    */
   parentId?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
+   * The tenant ID. This is a common parameter. In winnexo-cli, it is explicitly passed by using --tenant-id.
    * 
    * @example
-   * 10000
+   * string_value
    */
   tenantId?: string;
   /**
@@ -42,15 +42,15 @@ export class UpdateUserGroupRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 7ea8973f-7a5c-4e8a-956b-4fe0e7e2eb11
+   * string_value
    */
   userGroupId?: string;
   /**
    * @remarks
-   * The new name of the user group. If not specified, the name is not modified.
+   * The new name of the user group. If this parameter is not specified, the name is not modified.
    * 
    * @example
-   * South China Sales
+   * string_value
    */
   userGroupName?: string;
   static names(): { [key: string]: string } {

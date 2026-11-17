@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkflowTemplateDraftVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the collaboration workspace.
+   * The collaboration workspace ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateWorkflowTemplateDraftVersionRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * The ID of the template.
+   * The template ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateWorkflowTemplateDraftVersionRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000

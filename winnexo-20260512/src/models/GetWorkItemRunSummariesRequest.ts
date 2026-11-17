@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkItemRunSummariesRequest extends $dara.Model {
   /**
    * @remarks
-   * 协作空间ID
+   * The ID of the collaboration workspace.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetWorkItemRunSummariesRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 可选节点key；传入后只返回该节点当前轮次的总结
+   * The node key.
    * 
    * @example
    * query.amount
@@ -23,7 +23,7 @@ export class GetWorkItemRunSummariesRequest extends $dara.Model {
   nodeKey?: string;
   /**
    * @remarks
-   * 租户ID；缺省使用调用方默认租户
+   * The tenant ID. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -31,7 +31,7 @@ export class GetWorkItemRunSummariesRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 工作项ID
+   * The ID of the work item.
    * 
    * This parameter is required.
    * 

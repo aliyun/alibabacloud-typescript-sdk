@@ -29,9 +29,7 @@ export class GetWorkflowTemplateResponseBodySteps extends $dara.Model {
   ownerAgentName?: string;
   /**
    * @remarks
-   * The owner type. Valid values:
-   * - MEMBER: Human.
-   * - AGENT: Agent.
+   * The owner type. Valid values: MEMBER: Human. AGENT: Agent.
    * 
    * @example
    * MEMBER
@@ -47,7 +45,7 @@ export class GetWorkflowTemplateResponseBodySteps extends $dara.Model {
   ownerUserId?: number;
   /**
    * @remarks
-   * 是否人工审核产出物，默认关闭；仅数字员工可开启，审核待办自动发负责人
+   * Specifies whether the output is manually reviewed. Default value: false. This feature can only be enabled for digital workers, and review to-do items are automatically sent to the owner.
    * 
    * @example
    * false
@@ -79,10 +77,10 @@ export class GetWorkflowTemplateResponseBodySteps extends $dara.Model {
   specification?: string;
   /**
    * @remarks
-   * The array of structured segments for the step instructions. Supported types include text, mention, skill, app, files, and web_search. The fields and nested attachments of each segment are preserved exactly as returned by the backend.
+   * The structured segment array for the step instructions. Supports text, mention, skill, app, files, and web_search. The fields and nested attachments of each segment are preserved as returned by the backend.
    * 
    * @example
-   * [{"type":"text","content":"整理输入资料"}]
+   * [{"type":"text","content":"Organize input materials"}]
    */
   specificationJson?: { [key: string]: any }[];
   /**
@@ -167,7 +165,7 @@ export class GetWorkflowTemplateResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * 节点依赖边；每项包含from/to，引用稳定stepId；显式空数组表示没有依赖
+   * The node dependency edges. Each item contains from and to fields that reference stable step IDs. An explicit empty array indicates no dependencies.
    * 
    * @example
    * [{"from":"collect","to":"deliver"}]
@@ -175,7 +173,7 @@ export class GetWorkflowTemplateResponseBody extends $dara.Model {
   edges?: { [key: string]: any }[];
   /**
    * @remarks
-   * The current effective version number of the template. An empty value indicates that only a draft exists and it cannot be used for work items.
+   * The current effective version number of the template. An empty value indicates that only a draft exists and the template cannot be used for work items.
    * 
    * @example
    * v1
@@ -199,7 +197,7 @@ export class GetWorkflowTemplateResponseBody extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * 可选画布布局，按stepId索引；只影响展示，不决定依赖
+   * The optional canvas layout, indexed by step ID. This only affects the display and does not determine dependencies.
    * 
    * @example
    * {"collect":{"x":0,"y":0},"review":{"x":240,"y":0}}
@@ -223,7 +221,7 @@ export class GetWorkflowTemplateResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The request ID.
+   * The request tracking ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -231,7 +229,7 @@ export class GetWorkflowTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * 模板结构版本，当前为2，与业务版本vN独立
+   * The schema version of the template. The current value is 2, which is independent of the business version vN.
    * 
    * @example
    * 2
@@ -242,7 +240,7 @@ export class GetWorkflowTemplateResponseBody extends $dara.Model {
    * The ordered steps.
    * 
    * @example
-   * [{\\"stepId\\":\\"collect\\",\\"sortOrder\\":1,\\"name\\":\\"收集客户信息\\"}]
+   * [{"stepId":"collect","sortOrder":1,"name":"Collect customer information"}]
    */
   steps?: GetWorkflowTemplateResponseBodySteps[];
   /**
@@ -271,9 +269,7 @@ export class GetWorkflowTemplateResponseBody extends $dara.Model {
   versionDescription?: string;
   /**
    * @remarks
-   * The version status. Valid values:
-   * - DRAFT: Draft.
-   * - SUBMITTED: Submitted.
+   * The version status. Valid values: DRAFT: Draft. SUBMITTED: Submitted.
    * 
    * @example
    * SUBMITTED

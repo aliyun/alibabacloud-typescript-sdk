@@ -29,7 +29,7 @@ export class ListTenantDirectoryResponseBodyItems extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The last modification time.
+   * The last update time.
    * 
    * @example
    * 1
@@ -37,7 +37,7 @@ export class ListTenantDirectoryResponseBodyItems extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * The signing record ID.
+   * The ID of the signing record.
    * 
    * @example
    * exampleItemId
@@ -45,7 +45,7 @@ export class ListTenantDirectoryResponseBodyItems extends $dara.Model {
   itemId?: string;
   /**
    * @remarks
-   * The data type (group, user, or role).
+   * The data type, such as group, user, or role.
    * 
    * @example
    * string_value
@@ -66,7 +66,7 @@ export class ListTenantDirectoryResponseBodyItems extends $dara.Model {
   objectBindings?: { [key: string]: any }[];
   /**
    * @remarks
-   * The number of resources with the FAILED status. This field is returned only when the top-level directory list of the knowledge base is queried.
+   * The number of resources in the FAILED state. This parameter is returned only when the top-level directory list of the knowledge base is queried.
    * 
    * @example
    * 1
@@ -74,7 +74,7 @@ export class ListTenantDirectoryResponseBodyItems extends $dara.Model {
   sourceFailedCount?: number;
   /**
    * @remarks
-   * The number of resources with the READY status. This field is returned only when the top-level directory list of the knowledge base is queried.
+   * The number of resources in the READY state. This parameter is returned only when the top-level directory list of the knowledge base is queried.
    * 
    * @example
    * 1
@@ -82,7 +82,7 @@ export class ListTenantDirectoryResponseBodyItems extends $dara.Model {
   sourceReadyCount?: number;
   /**
    * @remarks
-   * The resource status. This field has a value only when itemType is set to resource.
+   * The resource status. This parameter has a value only when itemType is set to resource.
    * 
    * @example
    * string_value
@@ -90,7 +90,7 @@ export class ListTenantDirectoryResponseBodyItems extends $dara.Model {
   sourceStatus?: string;
   /**
    * @remarks
-   * The total number of resources in the directory and its subdirectories. This field is returned only when the top-level directory list of the knowledge base is queried.
+   * The total number of resources in the directory and its subdirectories. This parameter is returned only when the top-level directory list of the knowledge base is queried.
    * 
    * @example
    * 1
@@ -168,7 +168,7 @@ export class ListTenantDirectoryResponseBody extends $dara.Model {
   items?: ListTenantDirectoryResponseBodyItems[];
   /**
    * @remarks
-   * The description of the status code.
+   * The status code description.
    * 
    * @example
    * successful

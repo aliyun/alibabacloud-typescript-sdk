@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetScheduledTaskExecutionDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The execution record ID.
+   * The ID of the execution record.
    * 
    * This parameter is required.
    * 

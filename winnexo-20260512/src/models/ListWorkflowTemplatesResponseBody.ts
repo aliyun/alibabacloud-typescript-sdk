@@ -21,7 +21,7 @@ export class ListWorkflowTemplatesResponseBodyItems extends $dara.Model {
   effectiveVersion?: string;
   /**
    * @remarks
-   * The time of the last modification. The time follows the ISO 8601 standard.
+   * The last modification time in ISO 8601 format.
    * 
    * @example
    * 2026-11-05T08:00:00Z
@@ -37,9 +37,7 @@ export class ListWorkflowTemplatesResponseBodyItems extends $dara.Model {
   latestVersion?: string;
   /**
    * @remarks
-   * The status of the latest version. Valid values:
-   * - DRAFT: Draft. Unsubmitted edits exist.
-   * - SUBMITTED: Submitted.
+   * The status of the latest version. Valid values: DRAFT (draft, indicating unsubmitted edits exist) and SUBMITTED (submitted).
    * 
    * @example
    * DRAFT
@@ -146,12 +144,12 @@ export class ListWorkflowTemplatesResponseBody extends $dara.Model {
    * The list of template summaries on the current page.
    * 
    * @example
-   * [{\\"id\\":\\"item_9401\\"}]
+   * [{"description":"Standard process for handling customer complaints","effectiveVersion":"v1","gmtModified":"2026-11-05T08:00:00Z","latestVersion":"v2","latestVersionStatus":"DRAFT","name":"Customer complaint handling process","ownerCount":1,"reviewStepCount":1,"stepCount":1,"templateId":"tpl_9401"}]
    */
   items?: ListWorkflowTemplatesResponseBodyItems[];
   /**
    * @remarks
-   * The effective maximum number of entries to return per page for the current request.
+   * The effective maximum number of entries to return per page in the current request.
    * 
    * @example
    * 1
@@ -167,7 +165,7 @@ export class ListWorkflowTemplatesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pagination token for the next page. An empty string indicates that no more data exists.
+   * The pagination token for the next page. An empty string is returned if no more data exists.
    * 
    * @example
    * tok_9401
@@ -191,7 +189,7 @@ export class ListWorkflowTemplatesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request tracking ID.
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -199,7 +197,7 @@ export class ListWorkflowTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of visible items under the filter conditions.
+   * The total number of entries that match the filter conditions.
    * 
    * @example
    * 1

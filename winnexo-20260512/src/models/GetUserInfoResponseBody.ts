@@ -30,9 +30,9 @@ export class GetUserInfoResponseBodyTenantList extends $dara.Model {
   /**
    * @remarks
    * The tenant type. Valid values:
-   * - user: individual.
-   * - org: enterprise.
-   * - group: group.
+   * - user: individual
+   * - org: enterprise
+   * - group: group
    * 
    * @example
    * normal
@@ -68,7 +68,7 @@ export class GetUserInfoResponseBodyTenantList extends $dara.Model {
 export class GetUserInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The profile picture URL.
+   * The avatar URL.
    * 
    * @example
    * https://example.com/avatar.png
@@ -100,7 +100,7 @@ export class GetUserInfoResponseBody extends $dara.Model {
   isAdmin?: boolean;
   /**
    * @remarks
-   * Indicates whether the current logon tenant is a system tenant (tenantId=10000).
+   * Indicates whether the currently logged-on tenant is the system tenant (tenantId=10000).
    * 
    * @example
    * true
@@ -132,7 +132,7 @@ export class GetUserInfoResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The user service description. The value can be up to 1000 characters in length.
+   * The user service description. Maximum length: 1,000 characters.
    * 
    * @example
    * string_value
@@ -140,7 +140,7 @@ export class GetUserInfoResponseBody extends $dara.Model {
   offering?: string;
   /**
    * @remarks
-   * The parsed result of the user service description in JSON format.
+   * The parsing result of the user service in JSON format.
    * 
    * @example
    * string_value
@@ -172,7 +172,7 @@ export class GetUserInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The user self-introduction. The value can be up to 1000 characters in length.
+   * The user self-introduction. Maximum length: 1,000 characters.
    * 
    * @example
    * string_value
@@ -202,9 +202,9 @@ export class GetUserInfoResponseBody extends $dara.Model {
   /**
    * @remarks
    * The tenant type. Valid values:
-   * - user: individual.
-   * - org: enterprise.
-   * - group: group.
+   * - user: individual
+   * - org: enterprise
+   * - group: group
    * 
    * @example
    * normal

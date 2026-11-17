@@ -21,7 +21,7 @@ export class CreateUserResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The cluster name.
+   * The display name.
    * 
    * @example
    * string_value
@@ -53,7 +53,7 @@ export class CreateUserResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The WINNEXO platform user ID.
+   * The user ID in the WINNEXO platform.
    * 
    * @example
    * 1

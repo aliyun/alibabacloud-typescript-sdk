@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTenantDirectoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The folder ID.
+   * The directory ID.
    * 
    * @example
    * exampleDirectoryId
@@ -29,11 +29,11 @@ export class ListTenantDirectoryRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The field by which the results are sorted. Valid values:
+   * The field by which to sort the returned results. Valid values:
    * 
-   * - event_time: the event creation time.
-   * - event_execute_start_time: the event execution time.
-   * - event_execute_finish_time: the event completion time.
+   * - event_time: the time when the event was created.
+   * - event_execute_start_time: the time when the event execution started.
+   * - event_execute_finish_time: the time when the event execution finished.
    * 
    * @example
    * name
@@ -41,7 +41,7 @@ export class ListTenantDirectoryRequest extends $dara.Model {
   sortField?: string;
   /**
    * @remarks
-   * The sort order. This parameter takes effect only when sortBy is specified. Valid values: ASC and DESC (case-insensitive).
+   * The sort order. This parameter takes effect only when the sort field is specified. Valid values: ASC and DESC (case-insensitive).
    * 
    * @example
    * asc
@@ -49,7 +49,7 @@ export class ListTenantDirectoryRequest extends $dara.Model {
   sortOrder?: string;
   /**
    * @remarks
-   * The list of source types.
+   * The list of service source types.
    * 
    * @example
    * string_value

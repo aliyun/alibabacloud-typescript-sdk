@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWorkItemAuditRequest extends $dara.Model {
   /**
    * @remarks
-   * 协作空间ID
+   * The collaboration workspace ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetWorkItemAuditRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 租户ID；缺省使用调用方默认租户
+   * The tenant ID. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000
@@ -23,7 +23,7 @@ export class GetWorkItemAuditRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * 工作项ID
+   * The work item ID.
    * 
    * This parameter is required.
    * 

@@ -611,6 +611,14 @@ export class UpdateScheduledTaskRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * 输出会话模式，省略时保留当前配置
+   * 
+   * @example
+   * SAME_CONVERSATION
+   */
+  outputMode?: string;
+  /**
+   * @remarks
    * The segments.
    */
   segments?: UpdateScheduledTaskRequestSegments[];
@@ -665,6 +673,7 @@ export class UpdateScheduledTaskRequest extends $dara.Model {
       isOpen: 'isOpen',
       model: 'model',
       name: 'name',
+      outputMode: 'outputMode',
       segments: 'segments',
       taskDetail: 'taskDetail',
       taskId: 'taskId',
@@ -682,6 +691,7 @@ export class UpdateScheduledTaskRequest extends $dara.Model {
       isOpen: 'boolean',
       model: 'string',
       name: 'string',
+      outputMode: 'string',
       segments: { 'type': 'array', 'itemType': UpdateScheduledTaskRequestSegments },
       taskDetail: UpdateScheduledTaskRequestTaskDetail,
       taskId: 'string',

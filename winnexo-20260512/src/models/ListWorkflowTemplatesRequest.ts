@@ -31,7 +31,7 @@ export class ListWorkflowTemplatesRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token. Obtain the token from the nextToken parameter in the previous response. This parameter takes precedence over page if both are specified.
+   * The pagination token. Obtain the token from the nextToken value in the previous response. This parameter takes precedence over page if both are specified.
    * 
    * @example
    * tok_9401

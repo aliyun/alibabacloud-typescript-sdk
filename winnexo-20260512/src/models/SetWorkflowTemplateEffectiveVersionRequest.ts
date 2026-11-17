@@ -33,7 +33,7 @@ export class SetWorkflowTemplateEffectiveVersionRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The version number of the returned content.
+   * The version number to which the returned content belongs.
    * 
    * This parameter is required.
    * 

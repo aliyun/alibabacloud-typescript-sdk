@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RerunWorkflowNodeRequest extends $dara.Model {
   /**
    * @remarks
-   * 协作空间ID
+   * The collaboration workspace ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class RerunWorkflowNodeRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * 重跑起始节点 key，包含固定规划节点和业务执行节点
+   * The key of the starting node for the rerun, which includes fixed planning nodes and business execution nodes.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class RerunWorkflowNodeRequest extends $dara.Model {
   nodeKey?: string;
   /**
    * @remarks
-   * 工作项当前物理计划ID
+   * The current physical plan ID after the rerun. Rerunning a fixed planning node may generate a new plan. Use this value for subsequent queries.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class RerunWorkflowNodeRequest extends $dara.Model {
   planId?: string;
   /**
    * @remarks
-   * 租户ID，缺省使用调用方默认租户
+   * The tenant ID. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000

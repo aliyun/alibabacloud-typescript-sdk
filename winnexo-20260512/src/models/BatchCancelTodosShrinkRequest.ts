@@ -18,7 +18,7 @@ export class BatchCancelTodosShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * todo_abc123
+   * ["todo_abc123"]
    */
   todoIdsShrink?: string;
   static names(): { [key: string]: string } {

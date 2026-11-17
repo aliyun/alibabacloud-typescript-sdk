@@ -7,7 +7,7 @@ export class CreateWorkflowTemplateRequest extends $dara.Model {
    * @remarks
    * The write action. Valid values:
    * - SAVE: Saves the template as a draft. The draft does not take effect. Node names and assignees can be left empty.
-   * - SUBMIT: Requires complete nodes. The template is saved and submitted as the only effective version.
+   * - SUBMIT: Requires complete nodes, and saves and submits the template as the only effective version.
    * Default value: SUBMIT.
    * 
    * @example
@@ -36,7 +36,7 @@ export class CreateWorkflowTemplateRequest extends $dara.Model {
   definition?: { [key: string]: any };
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If this parameter is not specified, the default tenant of the caller is used.
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used.
    * 
    * @example
    * 10000

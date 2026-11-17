@@ -15,7 +15,7 @@ export class ListUserVisibleKnowledgeBaseContentsRequest extends $dara.Model {
   directoryId?: string;
   /**
    * @remarks
-   * The search keyword. Supports fuzzy match on version names.
+   * The search keyword. Fuzzy search on version names is supported.
    * 
    * @example
    * Product description
@@ -31,7 +31,7 @@ export class ListUserVisibleKnowledgeBaseContentsRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -39,11 +39,11 @@ export class ListUserVisibleKnowledgeBaseContentsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The field by which the results are sorted. Valid values:
+   * The field by which to sort the returned results. Valid values:
    * 
-   * - event_time: the event creation time.
-   * - event_execute_start_time: the event execution time.
-   * - event_execute_finish_time: the event completion time.
+   * - event_time: the event creation time
+   * - event_execute_start_time: the event execution start time
+   * - event_execute_finish_time: the event execution completion time
    * 
    * @example
    * name
@@ -51,7 +51,7 @@ export class ListUserVisibleKnowledgeBaseContentsRequest extends $dara.Model {
   sortField?: string;
   /**
    * @remarks
-   * The sort order. This parameter takes effect when sortBy is specified. Valid values: ASC, DESC (case-insensitive).
+   * Specifies the sort order. This parameter takes effect only when sortBy is specified. Valid values: ASC and DESC. The values are case-insensitive.
    * 
    * @example
    * asc
@@ -67,7 +67,7 @@ export class ListUserVisibleKnowledgeBaseContentsRequest extends $dara.Model {
   sourceTypes?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. Pass it explicitly through --tenant-id in winnexo-cli.
+   * The tenant ID. This is a common parameter. For winnexo-cli, it is explicitly passed by using the --tenant-id option.
    * 
    * @example
    * 10000
