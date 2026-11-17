@@ -5,18 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class CardOcrResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The ID card and certificate recognition result.
+   * The recognition result of the ID card or certificate.
    * 
    * @example
    * {
    *   "idFaceQualityScore": 98.90,
    *   "ocrIdInfo": {
    *     "expiryDate": "2024-04-20",
-   *     "placeOfIssue": "广东",
+   *     "placeOfIssue": "Guangdong",
    *     "englishName": "ZHENGJIAN,YANGBEN",
-   *     "originOfIssue": "公安部出入境管理局",
-   *     "sex": "女",
-   *     "name": "证件样本",
+   *     "originOfIssue": "Exit-Entry Administration of the Ministry of Public Security",
+   *     "sex": "Female",
+   *     "name": "ID Sample",
    *     "idNumber": "C00000000",
    *     "issueDate": "2014-04-21",
    *     "birthDate": "1981-08-03"
@@ -41,7 +41,6 @@ export class CardOcrResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the authentication is passed. Valid values:
-   * 
    * - Y: Passed.
    * - N: Not passed.
    * 
@@ -59,7 +58,7 @@ export class CardOcrResponseBodyResult extends $dara.Model {
   subCode?: string;
   /**
    * @remarks
-   * The unique ID of the authentication request.
+   * The unique identifier of the authentication request.
    * 
    * @example
    * 08573be80f944d95ac812e019e3655a8
@@ -121,7 +120,7 @@ export class CardOcrResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The response result.
    */
   result?: CardOcrResponseBodyResult;
   static names(): { [key: string]: string } {

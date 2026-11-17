@@ -10,9 +10,9 @@ export class CredentialVerifyIntlResponseBodyResultObject extends $dara.Model {
    * @example
    * {
    *  "sameBackgroundDetail": {
-   *  // 相似背景对于的原始图请求RequestId
+   *  // The request ID of the original image request corresponding to the similar background
    *  "originalRequestId": "130A2C10-B9EE-4D84-88E3-5384FF03****";
-   *  // 相似背景对于的原始图请求商户ID 
+   *  // The merchant ID of the original image request corresponding to the similar background 
    *  "originalMerchantId": "xxxxxxxx" 
    *  }
    * }
@@ -22,9 +22,9 @@ export class CredentialVerifyIntlResponseBodyResultObject extends $dara.Model {
    * @remarks
    * The risk result. Valid values:
    * 
-   * - **0**: Low risk.
-   * - **1**: High risk.
-   * - **2**: Suspicious.
+   * - **0**: low risk
+   * - **1**: high risk
+   * - **2**: suspicious
    * 
    * @example
    * 1
@@ -32,17 +32,17 @@ export class CredentialVerifyIntlResponseBodyResultObject extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The risk score map.
+   * The map of risk scores.
    */
   riskScore?: { [key: string]: string };
   /**
    * @remarks
-   * The risk tags, separated by commas (,). Valid values:
+   * The risk tags. Multiple tags are separated by commas (,). Valid values:
    * 
-   * - PS: Image has been edited with photo editing software.
-   * - SCREEN_PHOTO: Photo taken from a screen.
-   * - SCREENSHOT: Screenshot.
-   * - ORIGINAL_PHOTO: Non-original image.
+   * - PS: The image is edited by using Photoshop.
+   * - SCREEN_PHOTO: The image is a photo of a screen.
+   * - SCREENSHOT: The image is a screenshot.
+   * - ORIGINAL_PHOTO: The image is not an original image.
    * 
    * @example
    * PS
@@ -81,7 +81,7 @@ export class CredentialVerifyIntlResponseBodyResultObject extends $dara.Model {
 export class CredentialVerifyIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates success. Other values indicate failure.
+   * The return code. A value of 200 indicates success, and other values indicate failure.
    * 
    * @example
    * 200
@@ -89,7 +89,7 @@ export class CredentialVerifyIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The return message.
+   * The returned message.
    * 
    * @example
    * success
@@ -105,7 +105,7 @@ export class CredentialVerifyIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result information.
+   * The returned result information.
    */
   resultObject?: CredentialVerifyIntlResponseBodyResultObject;
   static names(): { [key: string]: string } {

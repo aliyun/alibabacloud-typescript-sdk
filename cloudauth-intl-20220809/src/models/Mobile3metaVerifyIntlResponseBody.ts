@@ -6,6 +6,7 @@ export class Mobile3MetaVerifyIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The verification result code. Valid values:
+   * 
    * - 1: Consistent.
    * - 2: Inconsistent.
    * - 3: No record found.
@@ -16,10 +17,10 @@ export class Mobile3MetaVerifyIntlResponseBodyResult extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The carrier name. Valid values:
+   * The name of the Internet service provider (ISP). Valid values:
    * 
-   * - CMCC: China Mobile
-   * - CUCC: China Unicom
+   * - CMCC: China Mobile.
+   * - CUCC: China Unicom.
    * - CTCC: China Telecom.
    * 
    * @example
@@ -31,10 +32,10 @@ export class Mobile3MetaVerifyIntlResponseBodyResult extends $dara.Model {
    * The detailed verification result. Valid values:
    * 
    * - 101: Verification passed. 
-   * - 201: The phone number is inconsistent with the name, and the phone number is inconsistent with the ID card number. 
-   * - 202: The phone number is consistent with the name, but the phone number is inconsistent with the ID card number. 
-   * - 203: The phone number is consistent with the ID card number, but the phone number is inconsistent with the name. 
-   * - 204: Other inconsistency.
+   * - 201: The mobile phone number does not match the name or the ID card number. 
+   * - 202: The mobile phone number matches the name but does not match the ID card number. 
+   * - 203: The mobile phone number matches the ID card number but does not match the name. 
+   * - 204: Other inconsistencies.
    * - 301: No record found.
    * 
    * @example
@@ -93,7 +94,7 @@ export class Mobile3MetaVerifyIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The verification result.
+   * The return result.
    */
   result?: Mobile3MetaVerifyIntlResponseBodyResult;
   static names(): { [key: string]: string } {

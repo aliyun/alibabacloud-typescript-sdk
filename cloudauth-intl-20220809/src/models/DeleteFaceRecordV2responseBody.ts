@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteFaceRecordV2ResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The deletion result. Valid values:
-   * - Y: Succeeded.
-   * - N: Failed.
+   * The deletion result. Valid values: Y: The deletion succeeded. N: The deletion failed.
    * 
    * @example
    * Y
@@ -15,7 +13,7 @@ export class DeleteFaceRecordV2ResponseBodyResult extends $dara.Model {
   deleted?: string;
   /**
    * @remarks
-   * The list of face group codes from which the face data was actually deleted (comma-separated). This parameter is returned with all deleted group codes when FaceGroupCode is not specified.
+   * The list of codes of the face groups from which the face data was actually deleted, separated by commas. If FaceGroupCode is not specified, the codes of all face groups from which the data was deleted are returned.
    * 
    * @example
    * wqe***,dsa***
@@ -55,7 +53,7 @@ export class DeleteFaceRecordV2ResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -71,7 +69,7 @@ export class DeleteFaceRecordV2ResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response result.
+   * The returned result.
    */
   result?: DeleteFaceRecordV2ResponseBodyResult;
   static names(): { [key: string]: string } {

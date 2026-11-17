@@ -5,25 +5,25 @@ import * as $dara from '@darabonba/typescript';
 export class AddressCompareIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The sameLevel parameter has the following valid values:
-   * - all: completely identical
-   * - prov: province level 
-   * - city: city level
-   * - district: district level
-   * - town: street level
-   * - road: road level
-   * - roadno: road number level
-   * - poi: community/neighborhood level
-   * - roomno: room number level.
+   * Valid values:
+   * - all: Exactly the same.
+   * - prov: Province. 
+   * - city: City.
+   * - district: District.
+   * - town: Town.
+   * - road: Road.
+   * - roadno: Road number.
+   * - poi: Residential community.
+   * - roomno: Room number.
    * 
    * @example
    * {
    *      sameLevel: "city", 
-   *      distance:  5997.34m, -- 地址相差距离
-   *      same_info: {    -- 相同信息
-   *               prov: "浙江省",
-   *               city: "杭州市",
-   *               district: "西湖区"
+   *      distance:  5997.34m, -- Distance between addresses
+   *      same_info: {    -- Identical information
+   *               prov: "Zhejiang Province",
+   *               city: "Hangzhou",
+   *               district: "Xihu District"
    *       } 
    * }
    */
@@ -76,7 +76,7 @@ export class AddressCompareIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The return result.
    */
   result?: AddressCompareIntlResponseBodyResult;
   static names(): { [key: string]: string } {

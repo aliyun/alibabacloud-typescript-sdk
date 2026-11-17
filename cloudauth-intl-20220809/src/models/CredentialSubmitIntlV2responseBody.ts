@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CredentialSubmitIntlV2ResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the verification request.
+   * The unique identifier of the authentication request.
    * 
    * @example
    * hk573be80f944d95ac812e0*******a8
@@ -35,7 +35,7 @@ export class CredentialSubmitIntlV2ResponseBodyResult extends $dara.Model {
 export class CredentialSubmitIntlV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code.
+   * The response code.
    * 
    * @example
    * Success
@@ -43,7 +43,7 @@ export class CredentialSubmitIntlV2ResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The return message.
+   * The response message.
    * 
    * @example
    * success
@@ -59,7 +59,7 @@ export class CredentialSubmitIntlV2ResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The response result.
    */
   result?: CredentialSubmitIntlV2ResponseBodyResult;
   static names(): { [key: string]: string } {

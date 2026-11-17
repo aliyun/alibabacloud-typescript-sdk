@@ -48,7 +48,7 @@ export class TempOssUrlIntlResponseBody extends $dara.Model {
   data?: TempOssUrlIntlResponseBodyData;
   /**
    * @remarks
-   * The response message.
+   * The return message.
    * 
    * @example
    * success

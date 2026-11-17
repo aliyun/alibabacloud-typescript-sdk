@@ -6,11 +6,11 @@ import * as $dara from '@darabonba/typescript';
 export class InitializeV2AdvanceRequest extends $dara.Model {
   /**
    * @remarks
-   * <warning>This feature is not supported by the **Web SDK**. To use this feature, refer to the App SDK integration.</warning>
+   * <warning>This feature is not supported by the **Web SDK**. To use this feature, refer to the App SDK integration guide.</warning>
    * 
    * Specifies whether to enable strict face quality detection. Valid values:
-   * - Y: Enabled. This is the default value.
-   * - N: Not enabled.
+   * - Y: Enable. This is the default value.
+   * - N: Disable.
    * 
    * @example
    * N
@@ -18,12 +18,19 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   appQualityCheck?: string;
   /**
    * @remarks
-   * Specifies whether to enable authoritative identity verification. Currently, this applies only to second-generation ID cards in the Chinese mainland. This is an input parameter for the IDV product.
+   * Specifies whether to enable authoritative identity verification. This feature currently applies only to second-generation ID cards in the Chinese mainland. This parameter is applicable to IDV products.
    * 
    * @example
    * T
    */
   authorize?: string;
+  /**
+   * @remarks
+   * The automatic document page classification configuration. This parameter takes effect only when DocType is set to a country or region code. You can specify the pages to collect based on the specific document type code. For documents that are not configured, only the front side is collected.
+   * 
+   * @example
+   * {"BRA01001":"01","BRA01002":"01,02"}
+   */
   autoDocPageConfig?: string;
   /**
    * @remarks
@@ -35,7 +42,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   autoRegistration?: string;
   /**
    * @remarks
-   * The security token used for anti-replay and anti-tampering verification. If this parameter is passed in, the CallbackToken field is displayed in the callback URL.
+   * The security token used for anti-replay and anti-tampering verification. If you specify this parameter, the CallbackToken field is displayed in the callback URL.
    * 
    * @example
    * 7ca5c68d869344ea8eeb30cdfd544544-6358700
@@ -43,7 +50,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   callbackToken?: string;
   /**
    * @remarks
-   * The callback URL for the authentication result notification. The callback request method is GET by default, and the callback URL must start with https. After the authentication is complete, the platform calls back this URL and automatically appends the transactionId, passed, and subcode fields.
+   * The callback URL for authentication result notifications. The default callback request method is GET, and the callback URL must start with https. After the authentication is completed, the platform calls this URL and automatically appends the transactionId, passed, and subcode fields.
    * 
    * @example
    * https://www.aliyun.com?callbackToken=1000004826&transactionId=shaxxxx&passed=Y&subCode=200
@@ -51,7 +58,9 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   callbackUrl?: string;
   /**
    * @remarks
-   * Specifies whether to enable the adaptive color-changing window frame.
+   * Specifies whether to enable the adaptive color-changing window border. Valid values:
+   * - **Y**: Enable.
+   * - **N**: Disable.
    * 
    * @example
    * N
@@ -59,7 +68,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   chameleonFrameEnable?: string;
   /**
    * @remarks
-   * Specifies whether to enable cropping. This is an input parameter for the IDV product.
+   * Specifies whether to crop the image. This parameter is applicable to IDV products.
    * 
    * @example
    * N
@@ -67,18 +76,18 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   crop?: string;
   /**
    * @remarks
-   * The date of birth on the document.
+   * The date of birth on the document, in the YYMMDD format (6 digits). This parameter is required when **MRTDInput** is set to **2**.
    * 
    * @example
-   * -
+   * 900101
    */
   dateOfBirth?: string;
   /**
    * @remarks
-   * The expiration date on the document.
+   * The expiration date on the document, in the YYMMDD format (6 digits). This parameter is required when **MRTDInput** is set to **2**.
    * 
    * @example
-   * -
+   * 301231
    */
   dateOfExpiry?: string;
   /**
@@ -99,15 +108,15 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   docNo?: string;
   /**
    * @remarks
-   * The custom configuration for whether to collect additional pages.
-   * 
-   * @example
-   * OCR_ID_BACK
+   * The custom configuration passed by the customer to specify whether to collect more pages.
    */
   docPageConfig?: string[];
   /**
    * @remarks
-   * The document capture photo mode.
+   * The photo capture mode for document collection. Valid values:
+   * 
+   * - manual: Manual capture.
+   * - auto: Automatic capture. This is the default value.
    * 
    * @example
    * manual
@@ -115,10 +124,10 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   docScanMode?: string;
   /**
    * @remarks
-   * The document type.
-   * >For the eKYC_PRO and ID_OCR_MAX solutions, see the official documentation at https://www.alibabacloud.com/help/zh/ekyc/latest/certificate-code-table?spm=a2c63.p38356.help-menu-445633.d_2_8_2_0.279147abwKAWbr
+   * The document type. 
+   * > For the eKYC_PRO and ID_OCR_MAX editions, see the official documentation: https://www.alibabacloud.com/help/zh/ekyc/latest/certificate-code-table?spm=a2c63.p38356.help-menu-445633.d_2_8_2_0.279147abwKAWbr
    * 
-   * >For the ID_OCR, eKYC, and eKYC_MIN solutions, see the document type list in the official documentation at https://www.alibabacloud.com/help/zh/ekyc/latest/gnhekqy05ni51m4c?spm=a2c63.p38356.help-menu-445633.d_2_3_1_0_0_0.6243244777KoZ7
+   * > For the ID_OCR, eKYC, and eYKC_MIN editions, see the document type list in the official documentation: https://www.alibabacloud.com/help/zh/ekyc/latest/gnhekqy05ni51m4c?spm=a2c63.p38356.help-menu-445633.d_2_3_1_0_0_0.6243244777KoZ7
    * 
    * @example
    * 00000001
@@ -126,13 +135,13 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   docType?: string;
   /**
    * @remarks
-   * Specifies whether to collect a verification video.
+   * Specifies whether to store a video as evidence. Valid values:
    * 
-   * - N: No verification video is collected. This is the default value.
+   * - N: No. This is the default value.
    * 
-   * - Y: A short video (1 to 2 seconds) of the user\\"s face verification process is collected during authentication and returned through the query operation.
+   * - Y: Yes. During the authentication process, a video of the user\\"s face scanning process (a 1- to 2-second video file) is collected and returned through the query operation.
    * 
-   * > Because video files are large, the system discards video files when the network is unstable to prioritize the transmission of images required for authentication.
+   * > Because video files are large, the system discards the video file when the network is unstable to prioritize the transmission of images required for authentication.
    * 
    * @example
    * N
@@ -140,7 +149,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   docVideo?: string;
   /**
    * @remarks
-   * The document number.
+   * The document number. This parameter is required when **MRTDInput** is set to **2**.
    * 
    * @example
    * -
@@ -148,7 +157,11 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   documentNumber?: string;
   /**
    * @remarks
-   * Specifies whether the recognition result page is editable during the document OCR recognition step:
+   * Specifies whether the recognition result page is editable during the document OCR stage. Valid values:
+   * 
+   * - **0**: Not editable.
+   * 
+   * - **1**: Editable. This is the default value.
    * 
    * @example
    * 0
@@ -157,6 +170,9 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   /**
    * @remarks
    * The Indonesian email address. This field takes effect only when Authorize is set to T.
+   * 
+   * > Note
+   * > This field is required only when the Indonesian data source is enabled.
    * 
    * @example
    * evxxx@imigxxxxx.go.id
@@ -170,10 +186,17 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
    * 9be7b7d0180041219e5ab03ac6dab5fb
    */
   experienceCode?: string;
+  /**
+   * @remarks
+   * Specifies whether to return additional face attribute information. Valid values: N: Do not return. This is the default value. Y: Return. The result is located in Result.ExtFaceInfo.FaceAttributeInfo.
+   * 
+   * @example
+   * N
+   */
   faceAttributeCheck?: string;
   /**
    * @remarks
-   * The face libraries to compare against.
+   * The face databases for comparison.
    * 
    * @example
    * 0e0c34a77f
@@ -181,7 +204,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   faceGroupCodes?: string;
   /**
    * @remarks
-   * The Base64-encoded face photo. If you use FacePictureBase64 to pass in the face photo, check the photo size and do not pass in an excessively large photo.
+   * The Base64-encoded string of the photo. If you choose to pass the face photo by using FacePictureBase64, check the photo size and do not pass an excessively large photo.
    * 
    * @example
    * Base64
@@ -205,7 +228,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   facePictureUrl?: string;
   /**
    * @remarks
-   * The face registration library.
+   * The face database for registration.
    * 
    * @example
    * 0e0c34a77f
@@ -213,7 +236,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   faceRegisterGroupCode?: string;
   /**
    * @remarks
-   * The face verification threshold.
+   * The threshold for face verification.
    * 
    * @example
    * 0.5
@@ -221,7 +244,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   faceVerifyThreshold?: string;
   /**
    * @remarks
-   * The face image quality. This is an input parameter for the IDV product.
+   * The quality of the face image. This parameter is applicable to IDV products.
    * 
    * @example
    * Y
@@ -229,7 +252,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   idFaceQuality?: string;
   /**
    * @remarks
-   * Specifies whether to enable document anti-spoofing detection. This is an input parameter for the IDV product.
+   * Specifies whether to enable document anti-spoofing detection. This parameter is applicable to IDV products.
    * 
    * @example
    * Y
@@ -237,7 +260,12 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   idSpoof?: string;
   /**
    * @remarks
-   * The custom OCR quality detection threshold mode:
+   * The custom threshold mode for OCR quality detection. Valid values:
+   * 
+   * - 0: System default.
+   * - 1: Strict mode.
+   * - 2: Loose mode.
+   * - 3: Disable quality detection. This is the default value.
    * 
    * @example
    * 0
@@ -245,7 +273,18 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   idThreshold?: string;
   /**
    * @remarks
-   * The language configuration. This is an input parameter for the IDV product.
+   * The forced centering configuration. Specifies whether to intercept the request when an off-center face is detected on the terminal. Valid values:
+   * 
+   * - Y: Intercept. The client prompts the user to scan their face again.
+   * - N: Do not intercept. This is the default value. The system extracts the largest face from the face scanning screen and sends it to the server for security detection.
+   * 
+   * @example
+   * Y
+   */
+  isForceFaceCentered?: string;
+  /**
+   * @remarks
+   * The language configuration. This parameter is applicable to IDV products.
    * 
    * @example
    * en
@@ -253,13 +292,13 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   languageConfig?: string;
   /**
    * @remarks
-   * The source of the MRTD verification parameter input. This parameter is required to decrypt information when reading document chip data via NFC.
+   * The input source of the MRTD verification parameter. This parameter is required to decrypt information when NFC reads the document chip information. Valid values:
    * 
-   * - **0**: user input
+   * - **0**: User input.
    * 
-   * - **1**: OCR reading
+   * - **1**: OCR reading.
    * 
-   * - **2**: API input
+   * - **2**: API input.
    * 
    * @example
    * 0
@@ -267,7 +306,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   MRTDInput?: string;
   /**
    * @remarks
-   * The merchant-defined unique business ID used for subsequent troubleshooting. The value supports a combination of letters and numbers with a maximum length of 32 characters. Ensure that the value is unique.
+   * The custom unique business identifier on the merchant side, which is used for subsequent troubleshooting. It supports a combination of letters and digits, with a maximum length of 32 characters. Make sure that the value is unique.
    * 
    * @example
    * e0c34a***353888
@@ -275,7 +314,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   merchantBizId?: string;
   /**
    * @remarks
-   * The custom user ID, or another identifier that can identify a specific user, such as a phone number or email address. We strongly recommend that you hash or otherwise de-identify this value before passing it in.
+   * Your custom user ID or another identifier that can identify a specific user, such as a mobile phone number or an email address. We strongly recommend that you desensitize the value of this field in advance, for example, by hashing the value.
    * 
    * @example
    * 1221****6543
@@ -283,7 +322,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   merchantUserId?: string;
   /**
    * @remarks
-   * The Metainfo environment parameter, which must be obtained through the client SDK.
+   * The Metainfo environment parameter, which must be obtained by using the client SDK.
    * 
    * @example
    * {\\"bioMetaInfo\\":\\"4.1.0:2916352,0\\",\\"deviceType\\":\\"web\\",\\"ua\\":\\"Mozilla/5.0\\"}
@@ -291,7 +330,10 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   metaInfo?: string;
   /**
    * @remarks
-   * The Indonesian phone number. The format must start with +62 followed by 9 to 11 digits. This field takes effect only when Authorize is set to T.
+   * The Indonesian phone number. The format must be verified. It must start with +62 followed by 9 to 11 digits. This field takes effect only when Authorize is set to T.
+   * 
+   * > 
+   * > - This field is required only when the Indonesian data source is enabled.
    * 
    * @example
    * +6281293671234
@@ -299,15 +341,15 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
-   * The type of liveness detection to perform.
+   * The type of liveness detection to perform. Valid values:
    * 
-   * - **LIVENESS** (default): Blink-based liveness detection.
+   * - **LIVENESS**: Liveness detection based on blinking. This is the default value.
    * 
-   * - **PHOTINUS_LIVENESS**: Dual detection that combines blink-based liveness detection and colorful light liveness detection.
+   * - **PHOTINUS_LIVENESS**: Dual liveness detection based on blinking and photinus.
    * 
    * > 
    * > - For supported SDK versions, see [SDK release notes](https://www.alibabacloud.com/help/zh/ekyc/latest/sdk-publishing-record?spm=a2c63.p38356.0.i99).
-   * > - Colorful light dual detection is not supported on PCs.
+   * > - Dual liveness detection based on photinus is not supported on PCs.
    * 
    * @example
    * PHOTINUS_LIVENESS
@@ -315,7 +357,18 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * Specifies whether to enable OCR. This is an input parameter for the IDV product.
+   * Specifies whether to intercept the request when multiple faces are detected on the terminal. Valid values:
+   * 
+   * - Y: Intercept. The client prompts the user to scan their face again.
+   * - N: Do not intercept. This is the default value. The system extracts the largest face from the face scanning screen and sends it to the server for security detection.
+   * 
+   * @example
+   * Y
+   */
+  needMultiFaceCheck?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable OCR. This parameter is applicable to IDV products.
    * 
    * @example
    * Y
@@ -323,7 +376,10 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   ocr?: string;
   /**
    * @remarks
-   * Specifies whether to additionally return OCR recognition results in a standardized format:
+   * Specifies whether to return additional standardized OCR recognition fields. Valid values:
+   * 
+   * - 0: No. This is the default value.
+   * - 1: Yes.
    * 
    * @example
    * 0
@@ -331,13 +387,12 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   ocrValueStandard?: string;
   /**
    * @remarks
-   * The configuration for capture pages. Separate multiple pages with commas (,). Valid values:
+   * The configuration of the pages to collect. Separate multiple pages with commas (,). Valid values:
+   * - **01**: The portrait side of the document.
    * 
-   * - **01**: the portrait side of the identity document.
+   * - **01,02**: The portrait and back sides of the document.
    * 
-   * - **01,02**: the portrait side and back side of the identity document.
-   * 
-   * > When this parameter is set to 01,02, only China identity cards and Vietnam identity cards are supported.
+   * > If you set this parameter to 01,02, only Chinese ID cards and Vietnamese ID cards are supported.
    * 
    * @example
    * 01
@@ -345,16 +400,16 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   pages?: string;
   /**
    * @remarks
-   * Specifies whether to allow a degraded processing method when compatibility issues occur during mobile H5 authentication.
+   * Specifies whether to allow degraded processing when compatibility issues occur during mobile H5 authentication. Valid values:
    * 
-   * - **url (default)**: Degradation is supported. The page displays the authentication URL, and the user can copy the URL to open it or switch browsers to continue authentication.
+   * - **url**: Allow degradation. This is the default value. The page displays the authentication URL, and the user can copy the URL to open it or switch browsers to continue the authentication.
    * 
-   * - **keep**: Degradation is not supported. The error reason is directly returned, and the authentication process ends.
+   * - **keep**: Do not allow degradation. The system directly returns the error cause and ends the authentication process.
    * 
    * 
    * > 
-   * > - This parameter is not supported on PC.
-   * > - If the business scenario involves completing authentication within a webpage embedded in an app, set this parameter to keep to disallow URL degradation.
+   * > - This switch is not supported on PCs.
+   * > - If the business scenario involves completing authentication in an embedded web page within an app, we recommend that you set this parameter to keep to disable URL degradation.
    * 
    * @example
    * url
@@ -362,9 +417,9 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   procedurePriority?: string;
   /**
    * @remarks
-   * The product plan to use.
+   * The product edition to integrate. 
    * 
-   * >**Note** For more information, see the official documentation: https://www.alibabacloud.com/help/zh/ekyc/latest/product-introduction?spm=a2c63.p38356.0.i1
+   * > Note: For more information, see the official documentation: https://www.alibabacloud.com/help/zh/ekyc/latest/product-introduction?spm=a2c63.p38356.0.i1
    * 
    * @example
    * eKYC
@@ -372,12 +427,12 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Specifies the order of document and face verification steps. Valid values:
+   * The sequence of document and face verification. Valid values:
    * 
-   * - DOC_FACE: Document first, then face. This is the default value.
-   * - FACE_DOC: Face first, then document.
+   * - DOC_FACE: Document verification followed by face verification. This is the default value.
+   * - FACE_DOC: Face verification followed by document verification.
    * 
-   * >**Note**: This parameter is required only when ProductCode is set to KYC_GLOBAL.
+   * > Note: This parameter is required only when ProductCode is set to KYC_GLOBAL.
    * 
    * @example
    * DOC_FACE
@@ -385,7 +440,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   productFlow?: string;
   /**
    * @remarks
-   * The number of duplicate faces to return.
+   * The number of duplicate faces returned.
    * 
    * @example
    * 1
@@ -409,7 +464,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   saveFacePicture?: string;
   /**
    * @remarks
-   * The scene code. This is an input parameter for the IDV product.
+   * The scene code. This parameter is applicable to IDV products.
    * 
    * @example
    * 1234567890
@@ -417,10 +472,10 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   sceneCode?: string;
   /**
    * @remarks
-   * The mode that represents different security levels of the authentication process. Valid values:
+   * The pattern that represents different security levels of the authentication flow. Valid values:
    * 
-   * - 01: Normal mode (default).
-   * - 02: Safe mode. A relatively strict mode that can be used for high-risk scenarios (input parameter for IDV products).
+   * - 01: Normal pattern. This is the default value.
+   * - 02: safe mode. This is a relatively strict pattern that is active in high-risk scenarios. This parameter is applicable to IDV products.
    * 
    * @example
    * 01
@@ -428,7 +483,11 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   securityLevel?: string;
   /**
    * @remarks
-   * Specifies whether to display the album upload entry during the document OCR recognition step:
+   * Specifies whether to display the album upload entry during the document OCR stage. Valid values:
+   * 
+   * - **1**: Display. This is the default value.
+   * 
+   * - **0**: Do not display.
    * 
    * @example
    * 1
@@ -436,7 +495,11 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   showAlbumIcon?: string;
   /**
    * @remarks
-   * Specifies whether to display the guide page:
+   * Specifies whether to display the guide page. Valid values:
+   * 
+   * - **1**: Display. This is the default value.
+   * 
+   * - **0**: Do not display.
    * 
    * @example
    * 1
@@ -444,7 +507,11 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   showGuidePage?: string;
   /**
    * @remarks
-   * Specifies whether to display the recognition result page during the document OCR recognition step:
+   * Specifies whether to display the recognition result page during the document OCR stage. Valid values:
+   * 
+   * - **1**: Display. This is the default value.
+   * 
+   * - **0**: Do not display.
    * 
    * @example
    * 1
@@ -452,7 +519,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   showOcrResult?: string;
   /**
    * @remarks
-   * The custom UI configuration. Convert your custom UI configuration to a JSON string based on the configuration template, and pass it in through this parameter. For more information, see [IDV UI style customization](https://www.alibabacloud.com/help/zh/ekyc/latest/idv-kyc-custom-skin?spm=a2c63.p38356.0.i60).
+   * The custom UI configuration. Convert your custom UI configuration into a JSON string based on the configuration template, and pass it through this operation. For more information, see [Customize IDV UI styles](https://www.alibabacloud.com/help/zh/ekyc/latest/idv-kyc-custom-skin?spm=a2c63.p38356.0.i60).
    * 
    * @example
    * {
@@ -465,7 +532,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   styleConfig?: string;
   /**
    * @remarks
-   * The Base64-encoded face photo.
+   * The Base64-encoded string of the portrait photo.
    * 
    * @example
    * base64
@@ -473,7 +540,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   targetFacePicture?: string;
   /**
    * @remarks
-   * The file stream of the reference face photo.
+   * The file stream of the base face image.
    * 
    * @example
    * InputStream
@@ -481,7 +548,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   targetFacePictureFileObject?: Readable;
   /**
    * @remarks
-   * The URL of the face photo. The URL must be a publicly accessible HTTP or HTTPS link.
+   * The URL of the portrait photo. The URL must be a publicly accessible HTTP or HTTPS link.
    * 
    * @example
    * https://www.xxxxx.com/1.jpg
@@ -489,7 +556,17 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   targetFacePictureUrl?: string;
   /**
    * @remarks
-   * The custom action pool configuration for liveness detection.
+   * The custom action pool configuration for liveness detection. This parameter is required when Model is set to TEMPLATE.
+   * Configuration rules: Separate multiple action codes with commas (,). Best Practices: We recommend that you include at least one frontal face action (such as blinking) and keep the total number of actions to a maximum of 3.
+   * Action code lookup table:
+   * 
+   * - Blink: 01
+   * - Open Mouth: 02
+   * - Shake Head Left: 03
+   * - Shake Head Right: 04
+   * - Move Farther: 05
+   * - Move Closer: 06
+   * - Photinus: 07
    * 
    * @example
    * 01,02,07
@@ -497,7 +574,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   templateConfig?: string;
   /**
    * @remarks
-   * The number of actions to randomly select from TemplateConfig.
+   * **[Deprecated]** The random mode is no longer recommended. This field is deprecated.
    * 
    * @example
    * 2
@@ -505,7 +582,9 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   templateRanCount?: string;
   /**
    * @remarks
-   * The execution order of liveness detection actions in TemplateConfig.
+   * The execution sequence of liveness detection actions in TemplateConfig. This parameter is required when Model is set to TEMPLATE. Valid values:
+   * 
+   * - Seq: Execute from left to right in the sequence configured in TemplateConfig.
    * 
    * @example
    * Seq
@@ -513,14 +592,17 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   templateType?: string;
   /**
    * @remarks
-   * Specifies whether to overwrite the existing face with the current face when the MerchantUserId already exists during automatic registration. Valid values: Y (overwrite) and N (do not overwrite and return a message indicating that the UserId already exists).
+   * Specifies whether to overwrite the existing face with the current face if MerchantUserId already exists during automatic registration. Valid values: Y: Overwrite. N: Do not overwrite and return a message indicating that the UserId already exists.
+   * 
+   * @example
+   * N
    */
   updateFaceIfUserExists?: string;
   /**
    * @remarks
-   * When **DocType** is set to 01000000 (global passport), specifies whether to enable NFC verification.
-   * - **Y**: Enable NFC verification.
-   * - **N**: Disable NFC verification.
+   * Specifies whether to enable NFC verification when **DocType** is set to 01000000 (global passport). Valid values:
+   * - **Y**: Enable.
+   * - **N**: Disable.
    * 
    * @example
    * N
@@ -528,7 +610,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
   useNFC?: string;
   /**
    * @remarks
-   * The verification type.
+   * The type of verification.
    * 
    * @example
    * 0
@@ -566,6 +648,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
       idFaceQuality: 'IdFaceQuality',
       idSpoof: 'IdSpoof',
       idThreshold: 'IdThreshold',
+      isForceFaceCentered: 'IsForceFaceCentered',
       languageConfig: 'LanguageConfig',
       MRTDInput: 'MRTDInput',
       merchantBizId: 'MerchantBizId',
@@ -573,6 +656,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
       metaInfo: 'MetaInfo',
       mobile: 'Mobile',
       model: 'Model',
+      needMultiFaceCheck: 'NeedMultiFaceCheck',
       ocr: 'Ocr',
       ocrValueStandard: 'OcrValueStandard',
       pages: 'Pages',
@@ -632,6 +716,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
       idFaceQuality: 'string',
       idSpoof: 'string',
       idThreshold: 'string',
+      isForceFaceCentered: 'string',
       languageConfig: 'string',
       MRTDInput: 'string',
       merchantBizId: 'string',
@@ -639,6 +724,7 @@ export class InitializeV2AdvanceRequest extends $dara.Model {
       metaInfo: 'string',
       mobile: 'string',
       model: 'string',
+      needMultiFaceCheck: 'string',
       ocr: 'string',
       ocrValueStandard: 'string',
       pages: 'string',

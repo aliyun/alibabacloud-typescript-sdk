@@ -7,9 +7,9 @@ export class Id2MetaPeriodVerifyIntlResponseBodyResult extends $dara.Model {
    * @remarks
    * The final authentication result. Valid values:
    * 
-   * *  Y: Passed.
+   * * Y: Passed.
    * 
-   * * N: Not passed.
+   * * N: Failed.
    * 
    * @example
    * Y
@@ -17,7 +17,7 @@ export class Id2MetaPeriodVerifyIntlResponseBodyResult extends $dara.Model {
   passed?: string;
   /**
    * @remarks
-   * The description of the authentication result. For more information, see the ResultObject.SubCode error code description.
+   * The description of the authentication result. For more information, see ResultObject.SubCode error codes.
    * 
    * @example
    * 200
@@ -49,7 +49,7 @@ export class Id2MetaPeriodVerifyIntlResponseBodyResult extends $dara.Model {
 export class Id2MetaPeriodVerifyIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. For more information about response codes, see the description of response codes and messages.
+   * The return code. For more information about return codes, see Return codes and messages.
    * 
    * @example
    * success

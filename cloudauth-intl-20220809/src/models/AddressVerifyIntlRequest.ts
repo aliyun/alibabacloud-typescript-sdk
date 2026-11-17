@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AddressVerifyIntlRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the address to verify. Valid values:
-   * - "0": text address
-   * - "1": coordinates (longitude and latitude).
+   * The type of the address to be verified. Valid values:
+   * - 0: text address
+   * - 1: coordinates
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class AddressVerifyIntlRequest extends $dara.Model {
    * The default city.
    * 
    * @example
-   * 杭州市
+   * Hangzhou
    */
   defaultCity?: string;
   /**
@@ -30,7 +30,7 @@ export class AddressVerifyIntlRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 中国
+   * China
    */
   defaultCountry?: string;
   /**
@@ -38,7 +38,7 @@ export class AddressVerifyIntlRequest extends $dara.Model {
    * The default district.
    * 
    * @example
-   * 余杭区
+   * Yuhang District
    */
   defaultDistrict?: string;
   /**
@@ -46,7 +46,7 @@ export class AddressVerifyIntlRequest extends $dara.Model {
    * The default province.
    * 
    * @example
-   * 浙江省
+   * Zhejiang Province
    */
   defaultProvince?: string;
   /**
@@ -67,7 +67,7 @@ export class AddressVerifyIntlRequest extends $dara.Model {
   longitude?: string;
   /**
    * @remarks
-   * Chinese mainland phone numbers are supported.
+   * The mobile phone number. Only Chinese mobile phone numbers are supported.
    * 
    * This parameter is required.
    * 
@@ -77,7 +77,7 @@ export class AddressVerifyIntlRequest extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
-   * Fixed value: ADD_VERIFY_PRO.
+   * The fixed value: ADD_VERIFY_PRO.
    * 
    * This parameter is required.
    * 
@@ -87,17 +87,17 @@ export class AddressVerifyIntlRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The detailed address in text format.
+   * The detailed text of the address.
    * 
    * @example
-   * 阿里巴巴西溪园区
+   * Alibaba Xixi Campus
    */
   text?: string;
   /**
    * @remarks
    * The address verification method. Valid values:
    * - HOME: home address verification
-   * - WORK: work address verification.
+   * - WORK: work address verification
    * 
    * This parameter is required.
    * 

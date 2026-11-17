@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteVerifyResultRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the deletion depends on the query operation.
+   * Specifies whether to rely on the query API when deleting data.
    * 
    * @example
    * Y / N

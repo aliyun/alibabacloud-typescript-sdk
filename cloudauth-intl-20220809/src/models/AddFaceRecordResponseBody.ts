@@ -17,8 +17,7 @@ export class AddFaceRecordResponseBodyResult extends $dara.Model {
   extFaceInfo?: string;
   /**
    * @remarks
-   * Indicates whether the verification is passed. Valid values:
-   * 
+   * Indicates whether the authentication passed. Valid values:
    * - Y: Passed.
    * - N: Not passed.
    * 
@@ -76,7 +75,7 @@ export class AddFaceRecordResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The return result.
    */
   result?: AddFaceRecordResponseBodyResult;
   static names(): { [key: string]: string } {

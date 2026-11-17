@@ -13,7 +13,7 @@ export class DeleteFaceRecordResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned result.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DeleteFaceRecordResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The response message.
+   * The return message.
    * 
    * @example
    * success

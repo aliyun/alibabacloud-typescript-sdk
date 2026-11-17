@@ -6,9 +6,10 @@ export class AddressVerifyV2IntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The verification result. Valid values:
+   * 
    * - 1: Passed.
-   * - 2: Failed (the device is in a prohibited region). 
-   * - 3: Unable to determine.
+   * - 2: Failed. The device is located in a prohibited area.
+   * - 3: Undetermined.
    * 
    * @example
    * 1
@@ -16,11 +17,11 @@ export class AddressVerifyV2IntlResponseBodyResult extends $dara.Model {
   bizCode?: string;
   /**
    * @remarks
-   * The verification details, which include:
+   * The verification details, including:
    * 
    * - distanceRange: the location range.   
    * - ispName: the ISP name.     
-   * - phoneStatus: the phone status. A value of 0 indicates abnormal. A value of 1 indicates Normal. Otherwise, the status is unknown.
+   * - phoneStatus: the mobile phone status. 0 indicates abnormal, 1 indicates normal, and other values indicate unknown.
    * 
    * @example
    * {
@@ -66,7 +67,7 @@ export class AddressVerifyV2IntlResponseBodyResult extends $dara.Model {
 export class AddressVerifyV2IntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The return code.
    * 
    * @example
    * Success
@@ -74,7 +75,7 @@ export class AddressVerifyV2IntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -90,7 +91,7 @@ export class AddressVerifyV2IntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The verification result.
+   * The returned result.
    */
   result?: AddressVerifyV2IntlResponseBodyResult;
   static names(): { [key: string]: string } {

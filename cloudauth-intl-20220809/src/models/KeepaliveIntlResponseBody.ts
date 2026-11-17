@@ -43,7 +43,7 @@ export class KeepaliveIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The return message.
+   * The returned message.
    * 
    * @example
    * success

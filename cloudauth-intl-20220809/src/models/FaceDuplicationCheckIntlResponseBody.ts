@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FaceDuplicationCheckIntlResponseBodyResultExtFaceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The attribute detection result of the main face, returned as a string. The result includes information such as gender, glasses, hat, mask, tattoo, smoking, other people, environment, expression, and age.
+   * 
+   * @example
+   * {"gender":1,"glasses":0,"hat":1,"mask":1,"tattoo":0,"smoking":0,"others":1,"env":"office","expression":1,"age":16}
+   */
   faceAttributeInfo?: string;
   /**
    * @remarks
@@ -44,10 +51,45 @@ export class FaceDuplicationCheckIntlResponseBodyResultExtFaceInfo extends $dara
    * 86.47
    */
   sharpnessScore?: number;
+  /**
+   * @remarks
+   * The overall quality score of the retained face image. Valid values: 0 to 100. A higher score indicates better quality.
+   * 
+   * @example
+   * 39.04
+   */
   targetFaceQualityScore?: number;
+  /**
+   * @remarks
+   * The illumination score of the retained face image. Valid values: 0 to 100. A higher score indicates better quality.
+   * 
+   * @example
+   * 0.02
+   */
   targetIlluminationScore?: number;
+  /**
+   * @remarks
+   * The key area occlusion score of the retained face image. Valid values: 0 to 100. A higher score indicates better quality.
+   * 
+   * @example
+   * 20
+   */
   targetKaOcclusionScore?: number;
+  /**
+   * @remarks
+   * The occlusion score of the retained face image. Valid values: 0 to 100. A higher score indicates better quality.
+   * 
+   * @example
+   * 50.26
+   */
   targetOcclusionScore?: number;
+  /**
+   * @remarks
+   * The sharpness score of the retained face image. Valid values: 0 to 100. A higher score indicates better quality.
+   * 
+   * @example
+   * 86.47
+   */
   targetSharpnessScore?: number;
   static names(): { [key: string]: string } {
     return {
@@ -93,7 +135,7 @@ export class FaceDuplicationCheckIntlResponseBodyResultExtFaceInfo extends $dara
 export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The face ID and UserID retrieved from the face library when a duplicate face is detected.
+   * The face ID and user ID retrieved from the face library when a duplicate face is detected.
    * 
    * @example
    * [
@@ -107,12 +149,12 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   duplicateFace?: string;
   /**
    * @remarks
-   * The related result information.
+   * The extended face information.
    */
   extFaceInfo?: FaceDuplicationCheckIntlResponseBodyResultExtFaceInfo;
   /**
    * @remarks
-   * The predicted reference age of the face. The prediction may fail and the value may not be returned.
+   * The predicted reference age of the face. This parameter may not be returned if the prediction fails.
    * 
    * @example
    * 30
@@ -120,7 +162,7 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   faceAge?: string;
   /**
    * @remarks
-   * Indicates whether the captured face involves a liveness attack. Valid values: Y (attack detected) and N (no attack detected). This field is returned only when passive liveness detection is enabled.
+   * Specifies whether the collected face involves a liveness attack. Valid values: Y (attack) and N (no attack). This parameter is returned only when passive liveness detection is enabled.
    * 
    * @example
    * N
@@ -128,7 +170,7 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   faceAttack?: string;
   /**
    * @remarks
-   * The probability of a liveness attack on the face. The value ranges from 0 to 100. This field is returned only when passive liveness detection is enabled.
+   * The probability of a liveness attack detected by passive liveness detection. Valid values: 0 to 100. This parameter is returned only when passive liveness detection is enabled.
    * 
    * @example
    * 99
@@ -136,7 +178,7 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   faceAttackScore?: string;
   /**
    * @remarks
-   * The 1:1 comparison score returned when the verification mode is 1 or 2. The score ranges from 0 to 100.
+   * The 1:1 verification comparison score returned when the verification mode is 1 or 2. The score ranges from 0 to 100.
    * 
    * @example
    * 98
@@ -144,9 +186,9 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   faceComparisonScore?: string;
   /**
    * @remarks
-   * The predicted gender of the face image. The prediction may fail and the value may not be returned. Valid values:
-   * - M: male.
-   * - F: female.
+   * The predicted gender of the face image. This parameter may not be returned if the prediction fails. Valid values:
+   * - M: Male.
+   * - F: Female.
    * 
    * @example
    * M
@@ -154,9 +196,9 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   faceGender?: string;
   /**
    * @remarks
-   * The final verification result. Valid values:
-   * - Y: passed.
-   * - N: not passed.
+   * The final authentication result. Valid values:
+   * - Y: Passed.
+   * - N: Failed.
    * 
    * @example
    * Y
@@ -164,7 +206,7 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   facePassed?: string;
   /**
    * @remarks
-   * The corresponding FACEID returned only when the customer has enabled automatic registration and the face is successfully registered.
+   * The face ID returned only when automatic registration is configured by the customer and the face is successfully registered.
    * 
    * @example
    * 9e792ec84c8f0ca592a
@@ -173,8 +215,8 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The face registration result. Valid values: 
-   * - 0: failed. 
-   * - 1: succeeded.
+   * - 0: Failed. 
+   * - 1: Succeeded.
    * 
    * @example
    * 0
@@ -182,7 +224,7 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   faceRegistrationResult?: number;
   /**
    * @remarks
-   * The verification result description. For more information, refer to the ResultObject.SubCode error code description.
+   * The description of the authentication result. For more information, see the ResultObject.SubCode error code description.
    * 
    * @example
    * 200
@@ -190,7 +232,7 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
   subCode?: string;
   /**
    * @remarks
-   * The unique identifier of the verification request.
+   * The unique identifier of the authentication request.
    * 
    * @example
    * 4ab0b***cbde97
@@ -245,7 +287,7 @@ export class FaceDuplicationCheckIntlResponseBodyResult extends $dara.Model {
 export class FaceDuplicationCheckIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The return code.
    * 
    * @example
    * Success
@@ -253,7 +295,7 @@ export class FaceDuplicationCheckIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The return message.
    * 
    * @example
    * success
@@ -269,7 +311,7 @@ export class FaceDuplicationCheckIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response result.
+   * The return result.
    */
   result?: FaceDuplicationCheckIntlResponseBodyResult;
   static names(): { [key: string]: string } {

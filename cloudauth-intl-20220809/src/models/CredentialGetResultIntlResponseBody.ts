@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CredentialGetResultIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The key information identified, in JSON format.
+   * The recognized key information in JSON format.
    * 
    * @example
    * {
@@ -17,9 +17,9 @@ export class CredentialGetResultIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The task status. Valid values:
-   * - PROCESSING: Processing. Continue polling.
-   * - SUCCESS: Succeeded.
-   * - FAILED: Failed.
+   * - PROCESSING: The task is in progress. Continue polling.
+   * - SUCCESS: The task succeeded.
+   * - FAILED: The task failed.
    * 
    * @example
    * SUCCESS
@@ -27,7 +27,7 @@ export class CredentialGetResultIntlResponseBodyResult extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The description of the authentication result. For more information, refer to the ResultObject.SubCode error code description.
+   * The description of the authentication result. For more information, see the error code description for ResultObject.SubCode.
    * 
    * @example
    * 200
@@ -85,7 +85,7 @@ export class CredentialGetResultIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The return result.
    */
   result?: CredentialGetResultIntlResponseBodyResult;
   static names(): { [key: string]: string } {

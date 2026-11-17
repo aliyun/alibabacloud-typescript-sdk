@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FaceCompareResponseBodyResultExtFaceInfo extends $dara.Model {
   /**
    * @remarks
-   * Overall quality score
+   * The overall quality score.
    * 
    * @example
    * 39.04
@@ -13,7 +13,7 @@ export class FaceCompareResponseBodyResultExtFaceInfo extends $dara.Model {
   faceQualityScore?: number;
   /**
    * @remarks
-   * Illumination score
+   * The illumination score.
    * 
    * @example
    * 0.02
@@ -21,7 +21,7 @@ export class FaceCompareResponseBodyResultExtFaceInfo extends $dara.Model {
   illuminationScore?: number;
   /**
    * @remarks
-   * Key area occlusion score
+   * The key area occlusion score.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class FaceCompareResponseBodyResultExtFaceInfo extends $dara.Model {
   kaOcclusionScore?: number;
   /**
    * @remarks
-   * Occlusion score
+   * The occlusion score.
    * 
    * @example
    * 50.26
@@ -37,16 +37,51 @@ export class FaceCompareResponseBodyResultExtFaceInfo extends $dara.Model {
   occlusionScore?: number;
   /**
    * @remarks
-   * Sharpness score
+   * The sharpness score.
    * 
    * @example
    * 86.47
    */
   sharpnessScore?: number;
+  /**
+   * @remarks
+   * The overall quality score of the reference face photo.
+   * 
+   * @example
+   * 39.04
+   */
   targetFaceQualityScore?: number;
+  /**
+   * @remarks
+   * The illumination score of the reference face photo.
+   * 
+   * @example
+   * 0.02
+   */
   targetIlluminationScore?: number;
+  /**
+   * @remarks
+   * The key area occlusion score of the reference face photo.
+   * 
+   * @example
+   * 20
+   */
   targetKaOcclusionScore?: number;
+  /**
+   * @remarks
+   * The occlusion score of the reference face photo.
+   * 
+   * @example
+   * 50.26
+   */
   targetOcclusionScore?: number;
+  /**
+   * @remarks
+   * The sharpness score of the reference face photo.
+   * 
+   * @example
+   * 86.47
+   */
   targetSharpnessScore?: number;
   static names(): { [key: string]: string } {
     return {
@@ -90,12 +125,12 @@ export class FaceCompareResponseBodyResultExtFaceInfo extends $dara.Model {
 export class FaceCompareResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * Related result information
+   * The related result information.
    */
   extFaceInfo?: FaceCompareResponseBodyResultExtFaceInfo;
   /**
    * @remarks
-   * The comparison score between the submitted face photo and the reference face image during the authentication process. Value range: **0** to **100**.
+   * The comparison score between the submitted face photo and the reference face photo during the authentication process. Valid values: **0** to **100**.
    * 
    * @example
    * 98
@@ -103,8 +138,9 @@ export class FaceCompareResponseBodyResult extends $dara.Model {
   faceComparisonScore?: number;
   /**
    * @remarks
-   * Whether the authentication passed.
+   * Specifies whether the authentication is passed.
    * 
+   * Valid values:
    * - Y: Passed.
    * - N: Not passed.
    * 
@@ -153,10 +189,11 @@ export class FaceCompareResponseBodyResult extends $dara.Model {
 export class FaceCompareResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Response code.
+   * The return code.
    * 
-   * 200: Success.
-   * Other: Error code. For error code details, see Error Codes.
+   * Valid values:
+   * - 200: Success.
+   * - Other values: Error codes. For more information, see Error codes.
    * 
    * @example
    * 200
@@ -164,7 +201,7 @@ export class FaceCompareResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -180,7 +217,7 @@ export class FaceCompareResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Response result.
+   * The returned result.
    */
   result?: FaceCompareResponseBodyResult;
   static names(): { [key: string]: string } {

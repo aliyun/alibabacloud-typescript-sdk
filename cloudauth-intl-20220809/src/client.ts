@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi, * as $OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "Cloudauth-intl";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("cloudauth-intl", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -114,7 +118,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a face image to a specified face library.
+   * Adds a face image to a specified face group.
    * 
    * @param request - AddFaceRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -169,7 +173,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a face image to a specified face library.
+   * Adds a face image to a specified face group.
    * 
    * @param request - AddFaceRecordRequest
    * @returns AddFaceRecordResponse
@@ -266,10 +270,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Compares the similarity of two addresses.
+   * Compares the similarity of addresses.
    * 
    * @remarks
-   * Compares two addresses for consistency by using address standardization.
+   * Standardizes and compares two addresses to check for consistency.
    * 
    * @param request - AddressCompareIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -312,10 +316,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Compares the similarity of two addresses.
+   * Compares the similarity of addresses.
    * 
    * @remarks
-   * Compares two addresses for consistency by using address standardization.
+   * Standardizes and compares two addresses to check for consistency.
    * 
    * @param request - AddressCompareIntlRequest
    * @returns AddressCompareIntlResponse
@@ -326,10 +330,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
+   * Verifies whether a provided address belongs to the regular residence of a user based on carrier capabilities by using a mobile phone number and an address or coordinates.
    * 
    * @remarks
-   * Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
+   * Verifies whether a provided address belongs to the regular residence of a user based on carrier capabilities by using a mobile phone number and an address or coordinates.
    * 
    * @deprecated OpenAPI AddressVerifyIntl is deprecated, please use Cloudauth-intl::2022-08-09::AddressVerifyV2Intl instead.
    * 
@@ -402,10 +406,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
+   * Verifies whether a provided address belongs to the regular residence of a user based on carrier capabilities by using a mobile phone number and an address or coordinates.
    * 
    * @remarks
-   * Verifies whether a specified address belongs to a user\\"s residential address based on telecommunications service provider capabilities, using a phone number and an address (or coordinates).
+   * Verifies whether a provided address belongs to the regular residence of a user based on carrier capabilities by using a mobile phone number and an address or coordinates.
    * 
    * @deprecated OpenAPI AddressVerifyIntl is deprecated, please use Cloudauth-intl::2022-08-09::AddressVerifyV2Intl instead.
    * 
@@ -481,10 +485,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides bank card element verification (two-element, three-element, and four-element) API operations.
+   * Provides the API operation for bank card elements, including two-element, three-element, and four-element bank card information.
    * 
    * @remarks
-   * Verifies bank card elements, including two-element verification (name + bank card number), three-element verification (name + ID card number + bank card number), and four-element verification (name + ID card number + phone number + bank card number) for consistency.
+   * Verifies bank card information, including two-element verification (name and bank card number), three-element verification (name, ID card number, and bank card number), and four-element verification (name, ID card number, mobile phone number, and bank card number).
    * 
    * @param request - BankMetaVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -547,10 +551,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides bank card element verification (two-element, three-element, and four-element) API operations.
+   * Provides the API operation for bank card elements, including two-element, three-element, and four-element bank card information.
    * 
    * @remarks
-   * Verifies bank card elements, including two-element verification (name + bank card number), three-element verification (name + ID card number + bank card number), and four-element verification (name + ID card number + phone number + bank card number) for consistency.
+   * Verifies bank card information, including two-element verification (name and bank card number), three-element verification (name, ID card number, and bank card number), and four-element verification (name, ID card number, mobile phone number, and bank card number).
    * 
    * @param request - BankMetaVerifyIntlRequest
    * @returns BankMetaVerifyIntlResponse
@@ -561,7 +565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides server-side ID card and certificate OCR capabilities.
+   * Performs OCR on ID cards and certificates through a server-side API.
    * 
    * @deprecated OpenAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
    * 
@@ -628,7 +632,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides server-side ID card and certificate OCR capabilities.
+   * Performs OCR on ID cards and certificates through a server-side API.
    * 
    * @deprecated OpenAPI CardOcr is deprecated, please use Cloudauth-intl::2022-08-09::DocOcr instead.
    * 
@@ -642,7 +646,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the verification result.
+   * Queries the detailed results of an authentication transaction. This API operation is part of the SDK integration solution and must be used in conjunction with the client SDK. Calling this operation alone cannot complete identity verification. (Product solutions: eKYC_PRO, eKYC, eKYC_NDI, FACE_IDU, FACE_VERIFY, FACE_LIVENESS_PRO, and ID_OCR_PRO). After the client completes authentication, your server calls this operation by using the TransactionId to query Alibaba Cloud for the detailed results of the authentication. This operation only queries the results and does not trigger or perform verification.
    * 
    * @param request - CheckResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -689,7 +693,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the verification result.
+   * Queries the detailed results of an authentication transaction. This API operation is part of the SDK integration solution and must be used in conjunction with the client SDK. Calling this operation alone cannot complete identity verification. (Product solutions: eKYC_PRO, eKYC, eKYC_NDI, FACE_IDU, FACE_VERIFY, FACE_LIVENESS_PRO, and ID_OCR_PRO). After the client completes authentication, your server calls this operation by using the TransactionId to query Alibaba Cloud for the detailed results of the authentication. This operation only queries the results and does not trigger or perform verification.
    * 
    * @param request - CheckResultRequest
    * @returns CheckResultResponse
@@ -700,7 +704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Authentication log query.
+   * Queries the authentication log query.
    * 
    * @param request - CheckVerifyLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -735,7 +739,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Authentication log query.
+   * Queries the authentication log query.
    * 
    * @param request - CheckVerifyLogRequest
    * @returns CheckVerifyLogResponse
@@ -746,10 +750,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the credential recognition result.
+   * Queries the credential recognition results.
    * 
    * @remarks
-   * After you obtain the TransactionId, you can call this operation on the server side to retrieve the corresponding authentication result.
+   * After you obtain the TransactionId, you can call this operation on the server to retrieve the corresponding authentication results.
    * 
    * @param request - CredentialGetResultIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -780,10 +784,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the credential recognition result.
+   * Queries the credential recognition results.
    * 
    * @remarks
-   * After you obtain the TransactionId, you can call this operation on the server side to retrieve the corresponding authentication result.
+   * After you obtain the TransactionId, you can call this operation on the server to retrieve the corresponding authentication results.
    * 
    * @param request - CredentialGetResultIntlRequest
    * @returns CredentialGetResultIntlResponse
@@ -794,10 +798,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
+   * Uploads credential images, including utility bills and credit card statements, and uses Qwen-VL to intelligently fetch billing addresses and names through this API operation.
    * 
    * @remarks
-   * Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
+   * Uses AI technology to detect whether credential documents, such as electronic utility bills and credit card statements, are forged, and extracts key information from the documents.
    * 
    * @param request - CredentialRecognitionIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -870,10 +874,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
+   * Uploads credential images, including utility bills and credit card statements, and uses Qwen-VL to intelligently fetch billing addresses and names through this API operation.
    * 
    * @remarks
-   * Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) has been forged, and extracts key information from the credential.
+   * Uses AI technology to detect whether credential documents, such as electronic utility bills and credit card statements, are forged, and extracts key information from the documents.
    * 
    * @param request - CredentialRecognitionIntlRequest
    * @returns CredentialRecognitionIntlResponse
@@ -884,10 +888,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
+   * Provides an API operation to upload credential images, such as utility bills and credit card statements, and uses Qwen-VL to intelligently fetch the billing address and name.
    * 
    * @remarks
-   * Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) is forged, and extracts key information from the credential.
+   * Uses AI technology to detect whether credentials, such as electronic utility bills and credit card statements, are forged, and extracts key information from the credentials.
    * 
    * @param request - CredentialRecognitionIntlV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -964,10 +968,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * An API operation that uploads a credential image, such as a utility bill or credit card statement, and uses Qwen-VL to intelligently fetch the billing address and name.
+   * Provides an API operation to upload credential images, such as utility bills and credit card statements, and uses Qwen-VL to intelligently fetch the billing address and name.
    * 
    * @remarks
-   * Uses AI technology to detect whether a credential (such as a water, electricity, gas, or credit card electronic bill) is forged, and extracts key information from the credential.
+   * Uses AI technology to detect whether credentials, such as electronic utility bills and credit card statements, are forged, and extracts key information from the credentials.
    * 
    * @param request - CredentialRecognitionIntlV2Request
    * @returns CredentialRecognitionIntlV2Response
@@ -1067,7 +1071,7 @@ export default class Client extends OpenApi {
    * Submits credential recognition information.
    * 
    * @remarks
-   * Initializes the credential recognition OCR operation and retrieves a transactionId through this operation.
+   * Initializes the credential recognition OCR process and retrieves a transaction ID.
    * 
    * @param request - CredentialSubmitIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1151,7 +1155,7 @@ export default class Client extends OpenApi {
    * Submits credential recognition information.
    * 
    * @remarks
-   * Initializes the credential recognition OCR operation and retrieves a transactionId through this operation.
+   * Initializes the credential recognition OCR process and retrieves a transaction ID.
    * 
    * @param request - CredentialSubmitIntlRequest
    * @returns CredentialSubmitIntlResponse
@@ -1162,10 +1166,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a credential recognition request.
+   * Submits credential recognition information.
    * 
    * @remarks
-   * Initializes the credential recognition OCR operation. Call this operation to obtain a transactionId.
+   * Initializes the credential recognition OCR operation to obtain a transactionId.
    * 
    * @param request - CredentialSubmitIntlV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1250,10 +1254,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits a credential recognition request.
+   * Submits credential recognition information.
    * 
    * @remarks
-   * Initializes the credential recognition OCR operation. Call this operation to obtain a transactionId.
+   * Initializes the credential recognition OCR operation to obtain a transactionId.
    * 
    * @param request - CredentialSubmitIntlV2Request
    * @returns CredentialSubmitIntlV2Response
@@ -1350,10 +1354,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides the API operation for the credential verification service. This operation uses a large language model to detect image tampering, forgery, and image quality issues in submitted credential images.
+   * Detects image tampering, forgery, and quality issues in credential images by using large models for the credential verification API operation.
    * 
    * @remarks
-   * Submits credential image information, performs image quality, tampering, and forgery detection, and returns the detection results.
+   * Submits credential image information to detect image quality, tampering, and forgery, and returns the detection results.
    * 
    * @param request - CredentialVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1402,10 +1406,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides the API operation for the credential verification service. This operation uses a large language model to detect image tampering, forgery, and image quality issues in submitted credential images.
+   * Detects image tampering, forgery, and quality issues in credential images by using large models for the credential verification API operation.
    * 
    * @remarks
-   * Submits credential image information, performs image quality, tampering, and forgery detection, and returns the detection results.
+   * Submits credential image information to detect image quality, tampering, and forgery, and returns the detection results.
    * 
    * @param request - CredentialVerifyIntlRequest
    * @returns CredentialVerifyIntlResponse
@@ -1502,10 +1506,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detects deepfake risks in facial images.
+   * Provides the API for the face deepfake detection service.
    * 
    * @remarks
-   * Submits a facial image and uses algorithms to detect potential deepfake risks. This operation covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and recaptured faces. It returns risk labels and confidence scores.
+   * Accepts face images and uses algorithms to detect deepfake risks. Covers risk scenarios such as AIGC-generated faces, deepfake face swaps, template faces, and recaptured faces, and outputs risk tags and confidence scores.
    * 
    * @param request - DeepfakeDetectIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1558,10 +1562,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detects deepfake risks in facial images.
+   * Provides the API for the face deepfake detection service.
    * 
    * @remarks
-   * Submits a facial image and uses algorithms to detect potential deepfake risks. This operation covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and recaptured faces. It returns risk labels and confidence scores.
+   * Accepts face images and uses algorithms to detect deepfake risks. Covers risk scenarios such as AIGC-generated faces, deepfake face swaps, template faces, and recaptured faces, and outputs risk tags and confidence scores.
    * 
    * @param request - DeepfakeDetectIntlRequest
    * @returns DeepfakeDetectIntlResponse
@@ -1572,10 +1576,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ID Verification provides face deepfake detection capabilities, which can be integrated independently through API calls.
+   * Provides face deepfake detection capabilities for ID Verification, which can be integrated independently through API operations.
    * 
    * @remarks
-   * Submit a face image to detect deepfake risks through algorithms. This covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and re-captured faces, and outputs risk labels and confidence scores.
+   * Detects deepfake risks in face images by using algorithms. Covers risk scenarios such as AI-generated content (AIGC) faces, deepfake face swaps, template faces, and recaptured faces, and outputs risk tags and confidence levels.
    * 
    * @param request - DeepfakeDetectIntlStreamRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1630,10 +1634,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * ID Verification provides face deepfake detection capabilities, which can be integrated independently through API calls.
+   * Provides face deepfake detection capabilities for ID Verification, which can be integrated independently through API operations.
    * 
    * @remarks
-   * Submit a face image to detect deepfake risks through algorithms. This covers risk scenarios such as AIGC-generated faces, deep forgery face swaps, template faces, and re-captured faces, and outputs risk labels and confidence scores.
+   * Detects deepfake risks in face images by using algorithms. Covers risk scenarios such as AI-generated content (AIGC) faces, deepfake face swaps, template faces, and recaptured faces, and outputs risk tags and confidence levels.
    * 
    * @param request - DeepfakeDetectIntlStreamRequest
    * @returns DeepfakeDetectIntlStreamResponse
@@ -1772,7 +1776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a face record.
+   * Deletes face records.
    * 
    * @param request - DeleteFaceRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1803,7 +1807,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a face record.
+   * Deletes face records.
    * 
    * @param request - DeleteFaceRecordRequest
    * @returns DeleteFaceRecordResponse
@@ -1860,7 +1864,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes data related to a user authentication record.
+   * Deletes data related to user authentication records.
    * 
    * @param request - DeleteVerifyResultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1899,7 +1903,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes data related to a user authentication record.
+   * Deletes data related to user authentication records.
    * 
    * @param request - DeleteVerifyResultRequest
    * @returns DeleteVerifyResultResponse
@@ -1910,7 +1914,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides server-side card and certificate OCR capabilities.
+   * Performs server-side OCR for ID cards and certificates.
    * 
    * @param request - DocOcrRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1983,7 +1987,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides server-side card and certificate OCR capabilities.
+   * Performs server-side OCR for ID cards and certificates.
    * 
    * @param request - DocOcrRequest
    * @returns DocOcrResponse
@@ -1994,7 +1998,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Recognizes global identity documents through OCR.
+   * Recognizes global identity documents by using OCR.
    * 
    * @param request - DocOcrMaxRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2083,7 +2087,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Recognizes global identity documents through OCR.
+   * Recognizes global identity documents by using OCR.
    * 
    * @param request - DocOcrMaxRequest
    * @returns DocOcrMaxResponse
@@ -2094,7 +2098,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Recognizes identity documents worldwide through OCR.
+   * Recognizes global ID documents by using OCR.
    * 
    * @param request - DocOcrMaxV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2179,7 +2183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Recognizes identity documents worldwide through OCR.
+   * Recognizes global ID documents by using OCR.
    * 
    * @param request - DocOcrMaxV2Request
    * @returns DocOcrMaxV2Response
@@ -2276,7 +2280,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides server-side card and certificate OCR capabilities.
+   * Performs server-side optical character recognition (OCR) on ID cards.
    * 
    * @param request - DocOcrV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2353,7 +2357,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides server-side card and certificate OCR capabilities.
+   * Performs server-side optical character recognition (OCR) on ID cards.
    * 
    * @param request - DocOcrV2Request
    * @returns DocOcrV2Response
@@ -2450,7 +2454,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Downloads verification task records.
+   * Downloads a verification task.
    * 
    * @param request - DownloadVerifyRecordIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2497,7 +2501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Downloads verification task records.
+   * Downloads a verification task.
    * 
    * @param request - DownloadVerifyRecordIntlRequest
    * @returns DownloadVerifyRecordIntlResponse
@@ -2608,7 +2612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides a server-side-only API for the eKYC solution.
+   * Provides a server-side API for the eKYC solution.
    * 
    * @param request - EkycVerifyV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2705,7 +2709,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides a server-side-only API for the eKYC solution.
+   * Provides a server-side API for the eKYC solution.
    * 
    * @param request - EkycVerifyV2Request
    * @returns EkycVerifyV2Response
@@ -2825,7 +2829,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uses facial recognition technology to compare and verify two input face images, returning the face comparison result and similarity score.
+   * Compares and verifies two input face images by using face recognition technology, and returns the face comparison result and similarity score.
    * 
    * @param request - FaceCompareRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2882,7 +2886,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Uses facial recognition technology to compare and verify two input face images, returning the face comparison result and similarity score.
+   * Compares and verifies two input face images by using face recognition technology, and returns the face comparison result and similarity score.
    * 
    * @param request - FaceCompareRequest
    * @returns FaceCompareResponse
@@ -2893,7 +2897,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Compares two face images using face recognition technology and returns the comparison result and similarity score.
+   * Compares and verifies two input face images by using face recognition technology, and returns the face comparison result and similarity score.
    * 
    * @param request - FaceCompareV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2958,7 +2962,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Compares two face images using face recognition technology and returns the comparison result and similarity score.
+   * Compares and verifies two input face images by using face recognition technology, and returns the face comparison result and similarity score.
    * 
    * @param request - FaceCompareV2Request
    * @returns FaceCompareV2Response
@@ -3162,7 +3166,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs server-side liveness detection and face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether the user is a real person, compare the face against a retained face image for identity verification, search face libraries to determine whether the face already exists, and automatically register the face to a specified face library after successful verification.
+   * Detects duplicate faces in scenarios where SDK integration is unavailable. This operation uses the API to pass face images and provides the following capabilities: verifying whether the user is a real person, comparing the face with a retained face for identity verification, searching a face library to check for existence, and automatically registering the face to a specified face library after successful verification.
    * 
    * @param request - FaceDuplicationCheckIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3267,7 +3271,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs server-side liveness detection and face duplication check (FaceDuplicationCheckIntl) for scenarios where SDK integration is not feasible. Submits face images through the API to verify whether the user is a real person, compare the face against a retained face image for identity verification, search face libraries to determine whether the face already exists, and automatically register the face to a specified face library after successful verification.
+   * Detects duplicate faces in scenarios where SDK integration is unavailable. This operation uses the API to pass face images and provides the following capabilities: verifying whether the user is a real person, comparing the face with a retained face for identity verification, searching a face library to check for existence, and automatically registering the face to a specified face library after successful verification.
    * 
    * @param request - FaceDuplicationCheckIntlRequest
    * @returns FaceDuplicationCheckIntlResponse
@@ -3278,7 +3282,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Server-side API for the international Face Guard service.
+   * Calls the server-side API of Face Guard International.
    * 
    * @param request - FaceGuardRiskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3325,7 +3329,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Server-side API for the international Face Guard service.
+   * Calls the server-side API of Face Guard International.
    * 
    * @param request - FaceGuardRiskRequest
    * @returns FaceGuardRiskResponse
@@ -3336,7 +3340,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides the server-side API for passive liveness detection.
+   * Performs server-side passive liveness detection.
    * 
    * @param request - FaceLivenessRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3405,7 +3409,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Provides the server-side API for passive liveness detection.
+   * Performs server-side passive liveness detection.
    * 
    * @param request - FaceLivenessRequest
    * @returns FaceLivenessResponse
@@ -3416,7 +3420,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detects whether a face in an image is from a real person by using the API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
+   * Performs liveness detection on a pre-captured face image passed through an API operation, and uses the Qwen-VL large model to detect forgery risks and determine whether the face belongs to a real person.
    * 
    * @remarks
    * Calls the FaceLivenessV2 operation to perform liveness detection on a face image.
@@ -3480,7 +3484,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Detects whether a face in an image is from a real person by using the API operation. This service combines the Qwen-VL large model for in-depth forgery risk detection to determine face liveness.
+   * Performs liveness detection on a pre-captured face image passed through an API operation, and uses the Qwen-VL large model to detect forgery risks and determine whether the face belongs to a real person.
    * 
    * @remarks
    * Calls the FaceLivenessV2 operation to perform liveness detection on a face image.
@@ -3580,10 +3584,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs real face detection by receiving pre-captured face images through the API operation. The algorithm primarily identifies whether a face is a screen replay or printed photo type of basic render liveness attack, and supports comparison with another face image to authenticate whether they belong to the same person.
+   * Detects real faces by using pre-obtained face images passed through the API operation. The algorithm primarily identifies basic render liveness attacks such as screen recaptures and printed photos, and supports face comparison to authenticate whether two images belong to the same person.
    * 
    * @remarks
-   * Calls the FaceVerifyIntl operation to perform liveness detection on face images.
+   * Calls the FaceVerifyIntl API operation to perform liveness detection on face images.
    * 
    * @param request - FaceVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3680,10 +3684,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs real face detection by receiving pre-captured face images through the API operation. The algorithm primarily identifies whether a face is a screen replay or printed photo type of basic render liveness attack, and supports comparison with another face image to authenticate whether they belong to the same person.
+   * Detects real faces by using pre-obtained face images passed through the API operation. The algorithm primarily identifies basic render liveness attacks such as screen recaptures and printed photos, and supports face comparison to authenticate whether two images belong to the same person.
    * 
    * @remarks
-   * Calls the FaceVerifyIntl operation to perform liveness detection on face images.
+   * Calls the FaceVerifyIntl API operation to perform liveness detection on face images.
    * 
    * @param request - FaceVerifyIntlRequest
    * @returns FaceVerifyIntlResponse
@@ -3862,7 +3866,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the validity period of an identity document as a two-factor authentication element.
+   * Verifies the validity period of the two identity elements.
    * 
    * @param request - Id2MetaPeriodVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3925,7 +3929,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the validity period of an identity document as a two-factor authentication element.
+   * Verifies the validity period of the two identity elements.
    * 
    * @param request - Id2MetaPeriodVerifyIntlRequest
    * @returns Id2MetaPeriodVerifyIntlResponse
@@ -3936,7 +3940,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the authenticity and consistency of a name and ID card number against an authoritative data source.
+   * Verifies the authenticity and consistency of a name and an ID card number through an authoritative data source.
    * 
    * @param request - Id2MetaVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3979,7 +3983,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the authenticity and consistency of a name and ID card number against an authoritative data source.
+   * Verifies the authenticity and consistency of a name and an ID card number through an authoritative data source.
    * 
    * @param request - Id2MetaVerifyIntlRequest
    * @returns Id2MetaVerifyIntlResponse
@@ -3990,7 +3994,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the identity of an Indonesian user by calling the authoritative source API in a standalone business scenario.
+   * Verifies the identity of Indonesian users by directly calling the authoritative source API in independent business scenarios.
    * 
    * @param request - IdnAuthorityVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4071,7 +4075,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the identity of an Indonesian user by calling the authoritative source API in a standalone business scenario.
+   * Verifies the identity of Indonesian users by directly calling the authoritative source API in independent business scenarios.
    * 
    * @param request - IdnAuthorityVerifyIntlRequest
    * @returns IdnAuthorityVerifyIntlResponse
@@ -4168,7 +4172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initializes an authentication process.
+   * Initializes the authentication process.
    * 
    * @param tmpReq - InitializeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4295,6 +4299,10 @@ export default class Client extends OpenApi {
       query["IdThreshold"] = request.idThreshold;
     }
 
+    if (!$dara.isNull(request.isForceFaceCentered)) {
+      query["IsForceFaceCentered"] = request.isForceFaceCentered;
+    }
+
     if (!$dara.isNull(request.languageConfig)) {
       query["LanguageConfig"] = request.languageConfig;
     }
@@ -4321,6 +4329,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.model)) {
       query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.needMultiFaceCheck)) {
+      query["NeedMultiFaceCheck"] = request.needMultiFaceCheck;
     }
 
     if (!$dara.isNull(request.ocr)) {
@@ -4439,7 +4451,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initializes an authentication process.
+   * Initializes the authentication process.
    * 
    * @param request - InitializeRequest
    * @returns InitializeResponse
@@ -4450,7 +4462,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initializes an authentication session.
+   * Creates an authentication session for SDK integration. This operation must be used in conjunction with a client SDK and cannot complete identity verification if called independently. Supported product editions include eKYC_PRO, eKYC, eKYC_NDI, FACE_IDU, FACE_VERIFY, FACE_LIVENESS_PRO, and ID_OCR_PRO. Before the client initiates authentication, your server calls this operation to create an authentication session and returns a TransactionId. You must deliver this TransactionId to the client to launch the SDK and complete the authentication. This operation only creates the session and does not perform verification.
    * 
    * @param tmpReq - InitializeV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4581,6 +4593,10 @@ export default class Client extends OpenApi {
       query["IdThreshold"] = request.idThreshold;
     }
 
+    if (!$dara.isNull(request.isForceFaceCentered)) {
+      query["IsForceFaceCentered"] = request.isForceFaceCentered;
+    }
+
     if (!$dara.isNull(request.languageConfig)) {
       query["LanguageConfig"] = request.languageConfig;
     }
@@ -4607,6 +4623,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.model)) {
       query["Model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.needMultiFaceCheck)) {
+      query["NeedMultiFaceCheck"] = request.needMultiFaceCheck;
     }
 
     if (!$dara.isNull(request.ocr)) {
@@ -4729,7 +4749,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Initializes an authentication session.
+   * Creates an authentication session for SDK integration. This operation must be used in conjunction with a client SDK and cannot complete identity verification if called independently. Supported product editions include eKYC_PRO, eKYC, eKYC_NDI, FACE_IDU, FACE_VERIFY, FACE_LIVENESS_PRO, and ID_OCR_PRO. Before the client initiates authentication, your server calls this operation to create an authentication session and returns a TransactionId. You must deliver this TransactionId to the client to launch the SDK and complete the authentication. This operation only creates the session and does not perform verification.
    * 
    * @param request - InitializeV2Request
    * @returns InitializeV2Response
@@ -4849,10 +4869,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures client connection keep-alive settings.
+   * Maintains client connections.
    * 
    * @remarks
-   * Configures client connection keep-alive settings.
+   * Maintains client connections.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns KeepaliveIntlResponse
@@ -4874,10 +4894,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures client connection keep-alive settings.
+   * Maintains client connections.
    * 
    * @remarks
-   * Configures client connection keep-alive settings.
+   * Maintains client connections.
    * @returns KeepaliveIntlResponse
    */
   async keepaliveIntl(): Promise<$_model.KeepaliveIntlResponse> {
@@ -4886,10 +4906,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the identity of a phone number owner by using two-factor authentication.
+   * Verifies the mobile phone number and name.
    * 
    * @remarks
-   * Pass in a phone number and name to verify their authenticity and consistency through an authoritative data source. Before using this operation, make sure that you fully understand the billing method and pricing of the two-factor phone number verification service.
+   * Verifies the authenticity and consistency of a mobile phone number and name against authoritative data sources. Before using this API operation, make sure that you fully understand the billing method and pricing of the mobile phone number and name verification service.
    * 
    * @param request - Mobile2MetaVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4932,10 +4952,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the identity of a phone number owner by using two-factor authentication.
+   * Verifies the mobile phone number and name.
    * 
    * @remarks
-   * Pass in a phone number and name to verify their authenticity and consistency through an authoritative data source. Before using this operation, make sure that you fully understand the billing method and pricing of the two-factor phone number verification service.
+   * Verifies the authenticity and consistency of a mobile phone number and name against authoritative data sources. Before using this API operation, make sure that you fully understand the billing method and pricing of the mobile phone number and name verification service.
    * 
    * @param request - Mobile2MetaVerifyIntlRequest
    * @returns Mobile2MetaVerifyIntlResponse
@@ -4946,7 +4966,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the authenticity and consistency of a phone number, name, and ID card number against an authoritative data source. If the information is inconsistent, returns the reason for the inconsistency.
+   * Verifies the authenticity and consistency of a mobile phone number, name, and ID card number through authoritative data sources, and returns the cause of inconsistency if they do not match.
    * 
    * @param request - Mobile3MetaVerifyIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4993,7 +5013,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Verifies the authenticity and consistency of a phone number, name, and ID card number against an authoritative data source. If the information is inconsistent, returns the reason for the inconsistency.
+   * Verifies the authenticity and consistency of a mobile phone number, name, and ID card number through authoritative data sources, and returns the cause of inconsistency if they do not match.
    * 
    * @param request - Mobile3MetaVerifyIntlRequest
    * @returns Mobile3MetaVerifyIntlResponse
@@ -5004,7 +5024,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a face library.
+   * Updates a face library.
    * 
    * @param request - ModifyFaceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5043,7 +5063,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies a face library.
+   * Updates a face library.
    * 
    * @param request - ModifyFaceGroupRequest
    * @returns ModifyFaceGroupResponse
@@ -5054,7 +5074,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a face record.
+   * Modifies a face record.
    * 
    * @param request - ModifyFaceRecordRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5089,7 +5109,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a face record.
+   * Modifies a face record.
    * 
    * @param request - ModifyFaceRecordRequest
    * @returns ModifyFaceRecordResponse
@@ -5274,7 +5294,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a temporary URL for a file.
+   * Retrieves the temporary URL of a file.
    * 
    * @param request - TempOssUrlIntlRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5305,7 +5325,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a temporary URL for a file.
+   * Retrieves the temporary URL of a file.
    * 
    * @param request - TempOssUrlIntlRequest
    * @returns TempOssUrlIntlResponse

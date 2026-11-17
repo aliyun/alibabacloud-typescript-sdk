@@ -15,22 +15,22 @@ export class CheckVerifyLogResponseBodyResult extends $dara.Model {
    * @remarks
    * The last page where the authentication was interrupted. Valid values:
    * 
-   * - Page not started
-   * - OCR guide page
-   * - OCR camera authorization
-   * - OCR document capture page
-   * - OCR recognition loading
-   * - OCR recognition result editing page
-   * - OCR recognition result editing loading
-   * - Liveness detection guide page
-   * - Liveness detection camera authorization page
-   * - Liveness detection page
-   * - Liveness detection downgrade page
-   * - Liveness detection retry
-   * - Liveness detection loading.
+   * - The page is not started.
+   * - The OCR guide page.
+   * - The OCR camera authorization page.
+   * - The OCR document capture page.
+   * - The OCR recognition loading page.
+   * - The OCR recognition result editing page.
+   * - The OCR recognition result editing loading page.
+   * - The liveness detection guide page.
+   * - The liveness detection camera authorization page.
+   * - The liveness detection page.
+   * - The liveness detection fallback page.
+   * - The liveness detection retry page.
+   * - The liveness detection loading page.
    * 
    * @example
-   * OCR拍摄证件页面
+   * OCR document capture page
    */
   interruptPage?: string;
   /**
@@ -49,7 +49,7 @@ export class CheckVerifyLogResponseBodyResult extends $dara.Model {
    * 
    * - NFC_INPUT
    * 
-   * - NFC_READ.
+   * - NFC_READ
    * 
    * @example
    * LOADING
@@ -57,17 +57,17 @@ export class CheckVerifyLogResponseBodyResult extends $dara.Model {
   interruptPageEn?: string;
   /**
    * @remarks
-   * The SDK runtime log details.
+   * The details of the SDK runtime logs.
    */
   logInfo?: string[];
   /**
    * @remarks
-   * The SDK runtime trace log details in English. The format of this field is the same as **LogInfo**.
+   * The details of the SDK runtime trace logs in English. The format of this field is the same as that of **LogInfo**.
    */
   logInfoEn?: string[];
   /**
    * @remarks
-   * The SDK runtime log statistics details.
+   * The statistical details of the SDK runtime logs.
    * 
    * @example
    * {
@@ -113,21 +113,21 @@ export class CheckVerifyLogResponseBodyResult extends $dara.Model {
    * @remarks
    * The error code for authentication interruption. Valid values:
    * 
-   * - 1000: The user completed the face verification process, and the authentication result is passed.
-   * - 1001: The user completed the face verification process, and the authentication result is not passed.
-   * - 1002: System error.
+   * - 1000: The user completed the face scanning process, and the recommended authentication result is passed.
+   * - 1001: The user completed the face scanning process, and the recommended authentication result is not passed.
+   * - 1002: A system error occurred.
    * - 1003: SDK initialization failed. Check whether the client time is correct.
-   * - 1004: Camera permission error.
-   * - 1005: Network error.
+   * - 1004: A camera permission error occurred.
+   * - 1005: A network error occurred.
    * - 1006: The user exited.
-   * - 1007: Invalid TransactionId.
-   * - 1009: Client timestamp error.
-   * - 1011: Incorrect document type submitted.
-   * - 1012: Key information of the recognized document is missing or format validation failed.
-   * - 1013: Poor image quality.
+   * - 1007: The TransactionId is invalid.
+   * - 1009: The client timestamp is incorrect.
+   * - 1011: The submitted document type is incorrect.
+   * - 1012: The recognized key information of the document is missing or the format verification failed.
+   * - 1013: The image quality is poor.
    * - 1014: The number of errors exceeded the upper limit.
    * - 1015: The Android system version is too low.
-   * - 1016: Camera permission not obtained.
+   * - 1016: Camera permissions are not obtained.
    * - 9999: The authentication process is suspected to be interrupted.
    * 
    * @example
@@ -138,9 +138,9 @@ export class CheckVerifyLogResponseBodyResult extends $dara.Model {
    * @remarks
    * The authentication status. Valid values:
    * 
-   * - 0: finished. The authentication is complete.
+   * - 0: finished. The authentication is completed.
    * - 1: unfinished. The authentication is interrupted.
-   * - 2: notstart. The authentication has not started.
+   * - 2: notstart. The authentication is not started.
    * 
    * @example
    * 1
@@ -202,7 +202,7 @@ export class CheckVerifyLogResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success

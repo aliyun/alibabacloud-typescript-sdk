@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DocOcrMaxResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The card and certificate recognition result. This parameter is returned only when the API response is successful.
+   * The identity document recognition result. This parameter is returned only when the API responds successfully.
    * 
    * @example
    * {
@@ -28,9 +28,8 @@ export class DocOcrMaxResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the authentication is passed. Valid values:
-   * 
-   * - Y: passed.
-   * - N: not passed.
+   * - Y: Passed.
+   * - N: Not passed.
    * 
    * @example
    * Y
@@ -106,7 +105,7 @@ export class DocOcrMaxResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The response result.
    */
   result?: DocOcrMaxResponseBodyResult;
   static names(): { [key: string]: string } {

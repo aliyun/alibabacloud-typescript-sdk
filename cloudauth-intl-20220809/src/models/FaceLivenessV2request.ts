@@ -3,15 +3,22 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FaceLivenessV2Request extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether to detect face attributes.
+   * 
+   * @example
+   * Y
+   */
   faceAttributeCheck?: string;
   /**
    * @remarks
    * The Base64-encoded face image.
    * 
-   * > **Note**
+   * Note
    * 
-   * - If you use this method to pass in the image, check the image size and do not pass in an excessively large image.
-   * - Specify one of the following parameters: FacePictureBase64, FacePictureUrl, or FacePictureFile.
+   * - If you choose this method to pass the face image, check the image size and do not pass oversized images.
+   * - Specify only one of the following parameters: FacePictureBase64, FacePictureUrl, and FacePictureFile.
    * 
    * @example
    * Base64
@@ -19,7 +26,7 @@ export class FaceLivenessV2Request extends $dara.Model {
   facePictureBase64?: string;
   /**
    * @remarks
-   * The file stream of the face image.
+   * The file stream of the face photo.
    * 
    * @example
    * InputStream
@@ -27,7 +34,7 @@ export class FaceLivenessV2Request extends $dara.Model {
   facePictureFile?: string;
   /**
    * @remarks
-   * The URL of the face image. The URL must be a publicly accessible HTTPS URL.
+   * The URL of the face photo. The URL must be a publicly accessible HTTPS link.
    * 
    * @example
    * https://***
@@ -36,8 +43,8 @@ export class FaceLivenessV2Request extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to check the quality of the face image. Valid values:
-   * - Y: enabled.
-   * - N: disabled. This is the default value.
+   * - Y: enabled
+   * - N: disabled (default)
    * 
    * @example
    * Y
@@ -45,7 +52,7 @@ export class FaceLivenessV2Request extends $dara.Model {
   faceQualityCheck?: string;
   /**
    * @remarks
-   * The merchant-defined unique business ID for subsequent troubleshooting. The value can be a combination of letters and digits with a maximum length of 32 characters. Make sure the value is unique.
+   * The custom unique business identifier on the merchant side, which is used for subsequent troubleshooting. The value can contain letters and digits and must be up to 32 characters in length. Make sure that the value is unique.
    * 
    * @example
    * e0c34a***353888
@@ -53,7 +60,7 @@ export class FaceLivenessV2Request extends $dara.Model {
   merchantBizId?: string;
   /**
    * @remarks
-   * The custom user ID or another identifier that can identify a specific user, such as a phone number or email address. We strongly recommend that you desensitize the value of this field in advance, for example, by hashing the value.
+   * The custom user ID or another identifier that can identify a specific user, such as a mobile phone number or an email address. Desensitize the value of this field in advance, such as by hashing the value.
    * 
    * @example
    * 123456789
@@ -61,7 +68,7 @@ export class FaceLivenessV2Request extends $dara.Model {
   merchantUserId?: string;
   /**
    * @remarks
-   * The product plan to use. Valid values: FACE_LIVENESS_MIN_PRO and FACE_LIVENESS_MIN.
+   * The product solution to be integrated. Valid values: FACE_LIVENESS_MIN_PRO and FACE_LIVENESS_MIN.
    * 
    * This parameter is required.
    * 

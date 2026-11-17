@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FaceCompareRequest extends $dara.Model {
   /**
    * @remarks
-   * Whether to enable quality detection for the input face image>Danger: Deprecated
+   * **[Deprecated]** Specifies whether to enable the quality check for the input face image.
    * 
    * @example
    * N
@@ -13,7 +13,7 @@ export class FaceCompareRequest extends $dara.Model {
   facePictureQualityCheck?: string;
   /**
    * @remarks
-   * Face quality check
+   * The face quality check.
    * 
    * @example
    * Y
@@ -21,7 +21,7 @@ export class FaceCompareRequest extends $dara.Model {
   faceQualityCheck?: string;
   /**
    * @remarks
-   * A unique business identifier customized by the merchant, used for subsequent troubleshooting. Supports a combination of letters and numbers with a maximum length of 32 characters. Ensure it is unique.
+   * The custom unique business identifier on the merchant side, which is used for subsequent troubleshooting. It supports a combination of letters and digits, with a maximum length of 32 characters. Make sure that the identifier is unique.
    * 
    * @example
    * e0c34a77f5ac40a5aa5e6ed20c353888
@@ -29,11 +29,11 @@ export class FaceCompareRequest extends $dara.Model {
   merchantBizId?: string;
   /**
    * @remarks
-   * Base64-encoded face photo.
+   * The Base64-encoded portrait photo.
    * 
    * Note
-   * - If you choose this method to pass in the photo, check the photo size and do not pass in an oversized photo.
-   * - Either SourceFacePicture or SourceFacePictureUrl must be specified.
+   * - If you choose this method to pass the ID photo, check the photo size and do not pass oversized photos.
+   * - Specify either SourceFacePicture or SourceFacePictureUrl.
    * 
    * @example
    * base64
@@ -49,11 +49,11 @@ export class FaceCompareRequest extends $dara.Model {
   sourceFacePictureUrl?: string;
   /**
    * @remarks
-   * Base64-encoded reference photo.
+   * The Base64-encoded reference photo.
    * 
    * Note
-   * - If you choose this method to pass in the photo, check the photo size and do not pass in an oversized photo.
-   * - Either TargetFacePicture or TargetFacePictureUrl must be specified.
+   * - If you choose this method to pass the ID photo, check the photo size and do not pass oversized photos.
+   * - Specify either TargetFacePicture or TargetFacePictureUrl.
    * 
    * @example
    * base64

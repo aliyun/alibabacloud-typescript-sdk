@@ -43,7 +43,7 @@ export class CredentialSubmitIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The return message.
    * 
    * @example
    * success
@@ -59,7 +59,7 @@ export class CredentialSubmitIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The return result.
    */
   result?: CredentialSubmitIntlResponseBodyResult;
   static names(): { [key: string]: string } {

@@ -5,43 +5,43 @@ import * as $dara from '@darabonba/typescript';
 export class AddressCompareIntlRequest extends $dara.Model {
   /**
    * @remarks
-   * The country name. Valid values:
-   * - China.
+   * The country name.
+   * - China
    * 
    * This parameter is required.
    * 
    * @example
-   * 固定值：中国
+   * Fixed value: China
    */
   defaultCountry?: string;
   /**
    * @remarks
-   * ADD_VERIFY.
+   * ADD_VERIFY
    * 
    * This parameter is required.
    * 
    * @example
-   * 固定值：ADD_VERIFY
+   * Fixed value: ADD_VERIFY
    */
   productCode?: string;
   /**
    * @remarks
-   * Address 1.
+   * The first address.
    * 
    * This parameter is required.
    * 
    * @example
-   * 杭州市阿里巴巴西溪园区
+   * Alibaba Xixi Campus, Hangzhou
    */
   text1?: string;
   /**
    * @remarks
-   * Address 2.
+   * The second address.
    * 
    * This parameter is required.
    * 
    * @example
-   * 杭州市文一西路969号1号楼
+   * Building 1, No. 969 West Wenyi Road, Hangzhou
    */
   text2?: string;
   static names(): { [key: string]: string } {

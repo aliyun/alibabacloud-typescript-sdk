@@ -85,7 +85,7 @@ export class QueryFaceRecordResponseBodyItems extends $dara.Model {
 export class QueryFaceRecordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The return code.
    * 
    * @example
    * Success
@@ -101,7 +101,7 @@ export class QueryFaceRecordResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The list of returned records.
+   * The list of returned items.
    */
   items?: QueryFaceRecordResponseBodyItems[];
   /**
@@ -114,7 +114,7 @@ export class QueryFaceRecordResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The response message.
+   * The return message.
    * 
    * @example
    * success
@@ -122,7 +122,7 @@ export class QueryFaceRecordResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The token for the next query.
+   * The token used to start the next query.
    * 
    * @example
    * AAAAARfZmVDe9NvRXloR5+8CK9nwqHyx44CQz3pa71+mmu0e

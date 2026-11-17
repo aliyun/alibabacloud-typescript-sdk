@@ -21,7 +21,7 @@ export class ModifyFaceRecordResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The response message.
+   * The return message.
    * 
    * @example
    * success

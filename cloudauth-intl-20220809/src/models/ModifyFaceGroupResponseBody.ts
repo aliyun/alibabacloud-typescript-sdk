@@ -13,7 +13,7 @@ export class ModifyFaceGroupResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The returned result.
+   * The return result.
    * 
    * @example
    * 1

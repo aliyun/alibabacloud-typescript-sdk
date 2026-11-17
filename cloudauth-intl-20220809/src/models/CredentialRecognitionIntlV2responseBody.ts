@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CredentialRecognitionIntlV2ResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The recognized key information, in JSON format.
+   * The recognized key information in JSON format.
    * 
    * @example
    * {
@@ -17,12 +17,11 @@ export class CredentialRecognitionIntlV2ResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The result code. Valid values:
-   * 
-   * - 200: OCR extraction succeeded and all rule checks passed.
-   * - 204: Validation result is inconsistent. OCR extraction succeeded, but some fields in CheckRuleConfig did not pass (N).
-   * - 211: Quality does not meet requirements. Quality detection did not pass when idQuality is set to Y (not yet supported in the current version).
-   * - 212: Anti-forgery check did not pass. fraudCheck was triggered and anti-forgery verification failed.
-   * - 213: No text was extracted, or the credential type check did not pass.
+   * - 200: OCR extraction is successful and all rule checks are passed
+   * - 204: verification results are inconsistent. OCR extraction is successful, but some fields in CheckRuleConfig fail the check (N)
+   * - 211: quality does not meet the requirements. Quality detection fails when idQuality is set to Y. This feature is not available in the current version
+   * - 212: anti-counterfeiting check fails. fraudCheck is triggered and anti-counterfeiting verification fails
+   * - 213: no text is extracted or the credential type check fails
    * 
    * @example
    * 200
@@ -31,8 +30,8 @@ export class CredentialRecognitionIntlV2ResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The extraction result. Valid values:
-   * - S: Succeeded.
-   * - F: Failed.
+   * - S: success.
+   * - F: failure.
    * 
    * @example
    * S
@@ -66,7 +65,7 @@ export class CredentialRecognitionIntlV2ResponseBodyResult extends $dara.Model {
 export class CredentialRecognitionIntlV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code. A value of 200 indicates a successful request. Other values indicate failures.
+   * The return code. A value of 200 indicates that the request is successful. Other values indicate that the request failed.
    * 
    * @example
    * Success
@@ -74,7 +73,7 @@ export class CredentialRecognitionIntlV2ResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The returned message.
    * 
    * @example
    * success
@@ -90,7 +89,7 @@ export class CredentialRecognitionIntlV2ResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The response result.
+   * The returned result.
    */
   result?: CredentialRecognitionIntlV2ResponseBodyResult;
   static names(): { [key: string]: string } {

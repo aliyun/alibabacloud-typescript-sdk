@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeepfakeDetectIntlRequest extends $dara.Model {
   /**
    * @remarks
-   * The Base64-encoded content of the facial image.
-   * > Specify either FaceUrl or FaceBase64.
+   * The Base64-encoded string of the face image.
+   * > You must specify either FaceUrl or FaceBase64.
    * 
    * @example
    * /9j/4AAQSkZJRgABAQAASxxxxxxx
@@ -14,7 +14,7 @@ export class DeepfakeDetectIntlRequest extends $dara.Model {
   faceBase64?: string;
   /**
    * @remarks
-   * Set the value to **IMAGE** to specify a facial image.
+   * The face input type. Valid value: **IMAGE**, which indicates a face image.
    * 
    * @example
    * IMAGE
@@ -22,8 +22,8 @@ export class DeepfakeDetectIntlRequest extends $dara.Model {
   faceInputType?: string;
   /**
    * @remarks
-   * The URL of the facial image.
-   * > Specify either FaceUrl or FaceBase64.
+   * The URL of the face image.
+   * > You must specify either FaceUrl or FaceBase64.
    * 
    * @example
    * https://cn-shanghai-aliyun-cloudauth-xxxxxx.oss-cn-shanghai.aliyuncs.com/verify/xxxxx/xxxxx.jpeg
@@ -31,7 +31,7 @@ export class DeepfakeDetectIntlRequest extends $dara.Model {
   faceUrl?: string;
   /**
    * @remarks
-   * The unique identifier of the merchant request. The value is a 32-character combination of letters and digits. The first few characters are a custom merchant abbreviation, the middle part can contain a timestamp, and the last part can be a random or incremental sequence.
+   * The unique identifier of the merchant request. The value is a 32-character alphanumeric string. The first few characters consist of a custom merchant abbreviation, the middle part can contain a time period, and the latter part can be a random or incremental sequence.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class DeepfakeDetectIntlRequest extends $dara.Model {
   merchantBizId?: string;
   /**
    * @remarks
-   * The product solution to use. Set the value to **FACE_DEEPFAKE**.
+   * The product solution to access. Valid value: **FACE_DEEPFAKE**.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class DeepfakeDetectIntlRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The custom scene ID for authentication. You can use this scene ID to query related records in the console. The value can be up to 10 characters long and can contain letters, digits, and underscores.
+   * The custom authentication scene ID. You can use this ID to query related records in the console. The value can be up to 10 characters in length and can contain letters, digits, and underscores.
    * 
    * @example
    * 1234567890

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CredentialRecognitionIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The recognized key information, in JSON format.
+   * The recognized key information in JSON format.
    * 
    * @example
    * {
@@ -25,8 +25,8 @@ export class CredentialRecognitionIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * The extraction result. Valid values:
-   * - S: Succeeded.
-   * - F: Failed.
+   * - S: success.
+   * - F: failure.
    * 
    * @example
    * S

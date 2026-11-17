@@ -7,7 +7,7 @@ export class DownloadVerifyRecordIntlRequest extends $dara.Model {
    * @remarks
    * The business type. Valid values:
    * - INVOKE_STATISTICS
-   * - INVOKE_RECORD.
+   * - INVOKE_RECORD
    * 
    * @example
    * INVOKE_RECORD
@@ -25,8 +25,8 @@ export class DownloadVerifyRecordIntlRequest extends $dara.Model {
    * @remarks
    * The download mode. Valid values:
    * 
-   * - **async**: asynchronous
-   * - **sync**: synchronous.
+   * - **async**: Asynchronous.
+   * - **sync**: Synchronous.
    * 
    * @example
    * async

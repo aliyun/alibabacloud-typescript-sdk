@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DownloadVerifyRecordIntlResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The task ID. This parameter is returned in asynchronous mode. Use QueryDownloadTaskIntl to download the exported file.
+   * The task ID. This parameter is returned in asynchronous mode. You can subsequently call QueryDownloadTaskIntl to download the exported file.
    * 
    * @example
    * 202511284106866

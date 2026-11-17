@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class Id2MetaVerifyIntlRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID card number (in plaintext).
+   * The ID card number in plaintext.
    * 
    * @example
    * 429001********8211
@@ -15,8 +15,8 @@ export class Id2MetaVerifyIntlRequest extends $dara.Model {
    * @remarks
    * The parameter type. Valid values:
    * 
-   * - normal: original value (plaintext).
-   * - Note: Due to authoritative data source restrictions, two-factor identity verification does not support MD5 encryption.
+   * - normal: The original value in plaintext.
+   * - Note: Due to the limitations of the authoritative data source, two-element identity verification does not support the MD5 encryption method.
    * 
    * @example
    * normal
@@ -24,7 +24,7 @@ export class Id2MetaVerifyIntlRequest extends $dara.Model {
   paramType?: string;
   /**
    * @remarks
-   * The product solution code. Set this parameter to ID_2META.
+   * The product solution. Fixed value: ID_2META.
    * 
    * @example
    * ID_2META
@@ -32,10 +32,10 @@ export class Id2MetaVerifyIntlRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The name (in plaintext).
+   * The name in plaintext.
    * 
    * @example
-   * 张*
+   * Zhang*
    */
   userName?: string;
   static names(): { [key: string]: string } {

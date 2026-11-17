@@ -3,10 +3,17 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class FaceVerifyIntlResponseBodyResultExtFaceInfo extends $dara.Model {
+  /**
+   * @remarks
+   * The attribute detection result of the main face, returned as a string. The result includes information such as gender, glasses, hat, mask, tattoo, smoking, other people, environment, expression, and age.
+   * 
+   * @example
+   * {"gender":1,"glasses":0,"hat":1,"mask":1,"tattoo":0,"smoking":0,"others":1,"env":"office","expression":1,"age":16}
+   */
   faceAttributeInfo?: string;
   /**
    * @remarks
-   * The liveness face quality score. Value range: 0 to 100. A higher value indicates better quality.
+   * The quality score of the live face. Valid values: 0 to 100. A higher value indicates better quality.
    * 
    * @example
    * 39.04
@@ -14,7 +21,7 @@ export class FaceVerifyIntlResponseBodyResultExtFaceInfo extends $dara.Model {
   faceQualityScore?: number;
   /**
    * @remarks
-   * The algorithm score for illumination as a sub-dimension of quality assessment. Value range: 0 to 100. A higher value indicates better quality.
+   * The algorithm score for illumination, which is a sub-dimension of quality judgment. Valid values: 0 to 100. A higher value indicates better quality.
    * 
    * @example
    * 97.43
@@ -22,7 +29,7 @@ export class FaceVerifyIntlResponseBodyResultExtFaceInfo extends $dara.Model {
   illuminationScore?: number;
   /**
    * @remarks
-   * The algorithm score for key area occlusion as a sub-dimension of quality assessment. Value range: 0 to 100. A higher value indicates better quality.
+   * The algorithm score for key area occlusion, which is a sub-dimension of quality judgment. Valid values: 0 to 100. A higher value indicates better quality.
    * 
    * @example
    * 100
@@ -30,7 +37,7 @@ export class FaceVerifyIntlResponseBodyResultExtFaceInfo extends $dara.Model {
   kaOcclusionScore?: number;
   /**
    * @remarks
-   * The algorithm score for occlusion as a sub-dimension of quality assessment. Value range: 0 to 100. A higher value indicates better quality.
+   * The algorithm score for occlusion, which is a sub-dimension of quality judgment. Valid values: 0 to 100. A higher value indicates better quality.
    * 
    * @example
    * 50.26
@@ -38,16 +45,51 @@ export class FaceVerifyIntlResponseBodyResultExtFaceInfo extends $dara.Model {
   occlusionScore?: number;
   /**
    * @remarks
-   * The image sharpness score as a sub-dimension of quality assessment. Value range: 0 to 100. A higher value indicates better quality.
+   * The image sharpness score, which is a sub-dimension of quality judgment. Valid values: 0 to 100. A higher value indicates better quality.
    * 
    * @example
    * 86.47
    */
   sharpnessScore?: number;
+  /**
+   * @remarks
+   * The comprehensive quality score of the reference face image. Valid values: 0 to 100. A higher value indicates better quality.
+   * 
+   * @example
+   * 39.04
+   */
   targetFaceQualityScore?: number;
+  /**
+   * @remarks
+   * The illumination score of the reference face image. Valid values: 0 to 100. A higher value indicates better quality.
+   * 
+   * @example
+   * 0.02
+   */
   targetIlluminationScore?: number;
+  /**
+   * @remarks
+   * The key area occlusion score of the reference face image. Valid values: 0 to 100. A higher value indicates better quality.
+   * 
+   * @example
+   * 20
+   */
   targetKaOcclusionScore?: number;
+  /**
+   * @remarks
+   * The occlusion score of the reference face image. Valid values: 0 to 100. A higher value indicates better quality.
+   * 
+   * @example
+   * 50.26
+   */
   targetOcclusionScore?: number;
+  /**
+   * @remarks
+   * The sharpness score of the reference face image. Valid values: 0 to 100. A higher value indicates better quality.
+   * 
+   * @example
+   * 86.47
+   */
   targetSharpnessScore?: number;
   static names(): { [key: string]: string } {
     return {
@@ -93,7 +135,7 @@ export class FaceVerifyIntlResponseBodyResultExtFaceInfo extends $dara.Model {
 export class FaceVerifyIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The face ID, user ID, and comparison score of the corresponding face in the face library when a duplicate face is found during retrieval.
+   * The face ID, user ID, and comparison score of the duplicate face in the face library when a duplicate face is retrieved.
    * 
    * @example
    * [
@@ -112,7 +154,7 @@ export class FaceVerifyIntlResponseBodyResult extends $dara.Model {
   extFaceInfo?: FaceVerifyIntlResponseBodyResultExtFaceInfo;
   /**
    * @remarks
-   * The predicted reference age of the face. Prediction may fail and the value may not be returned in some cases.
+   * The predicted reference age of the face. This parameter may not be returned if the prediction fails.
    * 
    * @example
    * 30
@@ -120,11 +162,10 @@ export class FaceVerifyIntlResponseBodyResult extends $dara.Model {
   faceAge?: number;
   /**
    * @remarks
-   * Indicates whether the captured face involves a liveness attack. Valid values:
+   * Indicates whether the collected face involves a liveness attack. Valid values:
    * - Y: attack detected.
    * - N: no attack detected.
-   * 
-   * Returned when passive liveness detection is enabled.
+   * This parameter is returned only when passive liveness detection is enabled.
    * 
    * @example
    * N
@@ -132,7 +173,8 @@ export class FaceVerifyIntlResponseBodyResult extends $dara.Model {
   faceAttack?: string;
   /**
    * @remarks
-   * The probability of a passive liveness detection attack on the face. Value range: 0 to 100. Returned when passive liveness detection is enabled.
+   * The probability of a liveness attack detected by passive liveness detection. Valid values: 0 to 100.
+   * This parameter is returned only when passive liveness detection is enabled.
    * 
    * @example
    * 99
@@ -140,7 +182,7 @@ export class FaceVerifyIntlResponseBodyResult extends $dara.Model {
   faceAttackScore?: number;
   /**
    * @remarks
-   * The comparison score between the submitted face image and the reference face image during verification. Value range: 0 to 100.
+   * The comparison score between the submitted face photo and the reference face image during authentication. Valid values: 0 to 100.
    * 
    * @example
    * 95.0
@@ -148,7 +190,7 @@ export class FaceVerifyIntlResponseBodyResult extends $dara.Model {
   faceComparisonScore?: number;
   /**
    * @remarks
-   * The predicted gender of the face image. Prediction may fail and the value may not be returned in some cases. Valid values:
+   * The predicted gender of the face image. This parameter may not be returned if the prediction fails. Valid values:
    * - M: male.
    * - F: female.
    * 
@@ -158,9 +200,9 @@ export class FaceVerifyIntlResponseBodyResult extends $dara.Model {
   faceGender?: string;
   /**
    * @remarks
-   * The final verification result. Valid values:
+   * The final authentication result. Valid values:
    * - Y: passed.
-   * - N: not passed.
+   * - N: failed.
    * 
    * @example
    * Y
@@ -168,7 +210,7 @@ export class FaceVerifyIntlResponseBodyResult extends $dara.Model {
   facePassed?: string;
   /**
    * @remarks
-   * The corresponding FACEID returned only when the customer has enabled automatic registration and the face is registered successfully.
+   * The FACEID returned when face registration succeeds. This parameter is returned only when automatic registration is enabled by the customer.
    * 
    * @example
    * 9e792ec84c8f0ca592a
@@ -194,7 +236,7 @@ export class FaceVerifyIntlResponseBodyResult extends $dara.Model {
   subCode?: string;
   /**
    * @remarks
-   * The unique identifier of the verification request.
+   * The unique identifier of the authentication request.
    * 
    * @example
    * 4ab0b***cbde97
@@ -249,7 +291,7 @@ export class FaceVerifyIntlResponseBodyResult extends $dara.Model {
 export class FaceVerifyIntlResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code.
+   * The response code.
    * 
    * @example
    * Success
@@ -257,7 +299,7 @@ export class FaceVerifyIntlResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The return message.
+   * The response message.
    * 
    * @example
    * success
@@ -273,7 +315,7 @@ export class FaceVerifyIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The response result.
    */
   result?: FaceVerifyIntlResponseBodyResult;
   static names(): { [key: string]: string } {

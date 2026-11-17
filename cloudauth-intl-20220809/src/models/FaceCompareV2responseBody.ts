@@ -45,7 +45,7 @@ export class FaceCompareV2ResponseBodyResultExtFaceInfo extends $dara.Model {
   sharpnessScore?: number;
   /**
    * @remarks
-   * The overall quality score of the target reference face image.
+   * The overall quality score of the reference face image.
    * 
    * @example
    * 39.04
@@ -53,7 +53,7 @@ export class FaceCompareV2ResponseBodyResultExtFaceInfo extends $dara.Model {
   targetFaceQualityScore?: number;
   /**
    * @remarks
-   * The illumination score of the target reference face image.
+   * The illumination score of the reference face image.
    * 
    * @example
    * 0.02
@@ -61,7 +61,7 @@ export class FaceCompareV2ResponseBodyResultExtFaceInfo extends $dara.Model {
   targetIlluminationScore?: number;
   /**
    * @remarks
-   * The key area occlusion score of the target reference face image.
+   * The key area occlusion score of the reference face image.
    * 
    * @example
    * 20
@@ -69,7 +69,7 @@ export class FaceCompareV2ResponseBodyResultExtFaceInfo extends $dara.Model {
   targetKaOcclusionScore?: number;
   /**
    * @remarks
-   * The occlusion score of the target reference face image.
+   * The occlusion score of the reference face image.
    * 
    * @example
    * 50.26
@@ -77,7 +77,7 @@ export class FaceCompareV2ResponseBodyResultExtFaceInfo extends $dara.Model {
   targetOcclusionScore?: number;
   /**
    * @remarks
-   * The sharpness score of the target reference face image.
+   * The sharpness score of the reference face image.
    * 
    * @example
    * 86.47
@@ -130,7 +130,7 @@ export class FaceCompareV2ResponseBodyResult extends $dara.Model {
   extFaceInfo?: FaceCompareV2ResponseBodyResultExtFaceInfo;
   /**
    * @remarks
-   * The comparison score between the submitted face photo and the target reference face image during verification. Value range: 0 to 100.
+   * The comparison score between the submitted face photo and the reference face photo during the authentication process. Valid values: 0 to 100.
    * 
    * @example
    * 98
@@ -138,8 +138,9 @@ export class FaceCompareV2ResponseBodyResult extends $dara.Model {
   faceComparisonScore?: number;
   /**
    * @remarks
-   * Indicates whether the verification passed.
+   * Indicates whether the authentication is passed.
    * 
+   * Valid values:
    * - Y: Passed.
    * - N: Not passed.
    * 
@@ -149,7 +150,7 @@ export class FaceCompareV2ResponseBodyResult extends $dara.Model {
   passed?: string;
   /**
    * @remarks
-   * The unique identifier of the verification request.
+   * The unique identifier of the authentication request.
    * 
    * @example
    * 08573be80f944d95ac812e019e3655a8
@@ -188,9 +189,9 @@ export class FaceCompareV2ResponseBodyResult extends $dara.Model {
 export class FaceCompareV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The return code.
    * 
-   * 200: success. Other values: error codes. For more information, see error codes.
+   * 200: Success. Other values: Error codes. For more information, see Error codes.
    * 
    * @example
    * 200
@@ -198,7 +199,7 @@ export class FaceCompareV2ResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The return message.
    * 
    * @example
    * success
@@ -214,7 +215,7 @@ export class FaceCompareV2ResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The return result.
    */
   result?: FaceCompareV2ResponseBodyResult;
   static names(): { [key: string]: string } {

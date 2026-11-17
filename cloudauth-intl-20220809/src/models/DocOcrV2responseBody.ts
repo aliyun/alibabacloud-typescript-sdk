@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DocOcrV2ResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The card and certificate recognition result. This parameter is returned only when the API response is successful.
+   * The ID card recognition result. This parameter is returned only when the API response is successful.
    * 
    * @example
    * {
-   *   "idFaceQualityScore": 98.0
+   *   "idFaceQualityScore": 98.0,
    *   "ocrIdInfo": {
    *     "expiryDate": "",
-   *     "originOfIssue": "公安部出入境管理局",
+   *     "originOfIssue": "Exit-Entry Administration of the Ministry of Public Security",
    *     "englishName": "LI SI",
-   *     "sex": "男",
-   *     "name": "李四",
+   *     "sex": "Male",
+   *     "name": "Li Si",
    *     "idNumber": "H11111112",
    *     "issueDate": "2013-01-02",
    *     "birthDate": "1990-02-21"
@@ -32,9 +32,8 @@ export class DocOcrV2ResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the authentication is passed. Valid values:
-   * 
-   * - Y: Passed.
-   * - N: Not passed.
+   * - Y: passed.
+   * - N: not passed.
    * 
    * @example
    * Y
@@ -50,7 +49,7 @@ export class DocOcrV2ResponseBodyResult extends $dara.Model {
   subCode?: string;
   /**
    * @remarks
-   * The unique ID of the authentication request.
+   * The unique identifier of the authentication request.
    * 
    * @example
    * 08573be80f944d95ac812e019e3655a8
@@ -86,7 +85,7 @@ export class DocOcrV2ResponseBodyResult extends $dara.Model {
 export class DocOcrV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code.
+   * The response code.
    * 
    * @example
    * Success
@@ -94,7 +93,7 @@ export class DocOcrV2ResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The return message.
+   * The response message.
    * 
    * @example
    * success
@@ -110,7 +109,7 @@ export class DocOcrV2ResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The response result.
    */
   result?: DocOcrV2ResponseBodyResult;
   static names(): { [key: string]: string } {

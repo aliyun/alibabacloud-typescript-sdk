@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FaceGuardRiskResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The device risk probability predicted by the Face Guard algorithm. A higher score indicates a higher device risk.
-   * 
-   * Value range: 0 to 100.
+   * The device risk probability predicted by the Face Guard algorithm. A higher score indicates a higher device risk. Valid values: 0 to 100.
    * 
    * @example
    * 0
@@ -15,19 +13,15 @@ export class FaceGuardRiskResponseBodyResult extends $dara.Model {
   guardRiskScore?: number;
   /**
    * @remarks
-   * The extended information in JSON format. The response is customized based on tenant requirements.
+   * The extended information in JSON format. The returned content is customized based on tenant requirements.
    * 
    * @example
-   * 默认为空
+   * Empty by default
    */
   riskExtends?: string;
   /**
    * @remarks
-   * The device risk tags.
-   * 
-   * - Multiple device risk tags are separated by commas (,), such as "ROOT,VPN,HOOK".
-   * 
-   * - For more information about device risk tags and their meanings, refer to the Face Guard tag description in the official documentation.
+   * The device risk tags. Multiple tags are separated by commas (,), such as ROOT,VPN,HOOK. For more information about device risk tags and their meanings, refer to the Face Guard tag description in the official documentation.
    * 
    * @example
    * ROOT,VPN,HOOK
@@ -79,7 +73,7 @@ export class FaceGuardRiskResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The return message.
+   * The returned message.
    * 
    * @example
    * success

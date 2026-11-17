@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DocOcrMaxV2ResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The card and certificate recognition result. This parameter is returned only when the API response is successful.
+   * The ID document recognition result. This parameter is returned only when the API response is successful.
    * 
    * @example
    * {
    *   "ocrIdInfo": {
    *     "id_number": "*****719******",
-   *     "address": "xxxxxx,
-   *     "ethnicity": "汉",
-   *     "date_of_birth": "1990年06月02日",
-   *     "sex": "女",
-   *     "name": "何**"
+   *     "address": "xxxxxx",
+   *     "ethnicity": "Han",
+   *     "date_of_birth": "June 02, 1990",
+   *     "sex": "Female",
+   *     "name": "He**"
    *   },
    *   "ocrStandardData": {
    *     "given_name_s": "**",
@@ -28,8 +28,7 @@ export class DocOcrMaxV2ResponseBodyResult extends $dara.Model {
   extIdInfo?: string;
   /**
    * @remarks
-   * Indicates whether the verification passed. Valid values:
-   * 
+   * Indicates whether the authentication is passed. Valid values:
    * - Y: passed.
    * - N: not passed.
    * 
@@ -47,7 +46,7 @@ export class DocOcrMaxV2ResponseBodyResult extends $dara.Model {
   subCode?: string;
   /**
    * @remarks
-   * The unique identifier of the verification request.
+   * The unique identifier of the authentication request.
    * 
    * @example
    * 08573be80f944d95ac812e019e3655a8
@@ -83,7 +82,7 @@ export class DocOcrMaxV2ResponseBodyResult extends $dara.Model {
 export class DocOcrMaxV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The return code.
    * 
    * @example
    * Success
@@ -91,7 +90,7 @@ export class DocOcrMaxV2ResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The return message.
    * 
    * @example
    * success
@@ -107,7 +106,7 @@ export class DocOcrMaxV2ResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The return result.
    */
   result?: DocOcrMaxV2ResponseBodyResult;
   static names(): { [key: string]: string } {

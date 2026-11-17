@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DeepfakeDetectIntlStreamResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * The risk result:
-   * 
-   * - **0**: Low risk
-   * - **1**: High risk
-   * - **2**: Suspicious
+   * The risk result. Valid values:
+   * - **0**: low risk.
+   * - **1**: high risk.
+   * - **2**: suspicious.
    * 
    * @example
    * 1
@@ -22,17 +21,23 @@ export class DeepfakeDetectIntlStreamResponseBodyResultObject extends $dara.Mode
   riskScore?: { [key: string]: string };
   /**
    * @remarks
-   * The risk labels. Multiple labels are separated by commas (,), including:
-   * 
-   * - SuspectDeepForgery: Suspected deep forgery
-   * - SuspectPSFace: Suspected face synthesis attack
-   * - SuspectTemple: Suspected template attack
-   * - SuspectRemake: Suspected presentation attack
+   * The risk tags. Multiple tags are separated by commas (,). Valid values:
+   * - SuspectDeepForgery: suspected deepfake.
+   * - SuspectPSFace: suspected synthetic attack.
+   * - SuspectTemple: suspected template attack.
+   * - SuspectRemake: suspected presentation attack.
    * 
    * @example
    * SuspectDeepForgery
    */
   riskTag?: string;
+  /**
+   * @remarks
+   * The unique identifier of the authentication request.
+   * 
+   * @example
+   * hksb7ba1b28130d24e015d69********
+   */
   transactionId?: string;
   static names(): { [key: string]: string } {
     return {
@@ -67,7 +72,7 @@ export class DeepfakeDetectIntlStreamResponseBodyResultObject extends $dara.Mode
 export class DeepfakeDetectIntlStreamResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code.
+   * The return code.
    * 
    * @example
    * Success
@@ -75,7 +80,7 @@ export class DeepfakeDetectIntlStreamResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response message.
+   * The return message.
    * 
    * @example
    * success
@@ -91,7 +96,7 @@ export class DeepfakeDetectIntlStreamResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result information.
+   * The result information.
    */
   resultObject?: DeepfakeDetectIntlStreamResponseBodyResultObject;
   static names(): { [key: string]: string } {

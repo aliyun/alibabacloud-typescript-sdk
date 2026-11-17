@@ -6,7 +6,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddFaceRecordAdvanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The face library code.
+   * The code of the face group.
    * 
    * This parameter is required.
    * 
@@ -41,8 +41,8 @@ export class AddFaceRecordAdvanceRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to check the quality of the face image. Valid values:
-   * - Y: enabled.
-   * - N: disabled (default).
+   * - Y: Enabled.
+   * - N: Disabled (default).
    * 
    * @example
    * N
@@ -50,9 +50,9 @@ export class AddFaceRecordAdvanceRequest extends $dara.Model {
   faceQualityCheck?: string;
   /**
    * @remarks
-   * The custom unique user ID. The value cannot exceed 32 characters.
-   * - If this parameter is specified, the system registers the user with the specified MerchantUserId.
-   * - If this parameter is not specified, the image name is used by default.
+   * The custom unique user ID, which cannot exceed 32 characters.
+   * - If specified, the system preferentially uses this MerchantUserId for registration.
+   * - If not specified, the image name is used by default.
    * 
    * @example
    * 130A2C10B9EE4D8488E35384FF03hst

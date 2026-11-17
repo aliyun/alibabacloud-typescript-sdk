@@ -15,7 +15,7 @@ export class QueryFaceRecordRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The face library code.
+   * The face group code.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class QueryFaceRecordRequest extends $dara.Model {
   faceId?: string;
   /**
    * @remarks
-   * The maximum number of entries per page for a paginated query.
+   * The maximum number of entries per page for paging.
    * 
    * @example
    * 100

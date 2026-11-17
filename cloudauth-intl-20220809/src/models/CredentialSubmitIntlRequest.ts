@@ -5,19 +5,19 @@ import * as $dara from '@darabonba/typescript';
 export class CredentialSubmitIntlRequest extends $dara.Model {
   /**
    * @remarks
-   * The field validation rule configuration in JSON string format.
+   * The field validation rule configuration, which is a JSON string.
    * 
    * @example
    * {
-   * 	"address_rule": "Includes Address Hangzhou***",
-   * 	"name_rule": "Includes Name Zhang*",
+   * 	"address_rule": "Includes Adrress Hangzhou***",
+   * 	"name_rule": "Includes Name  Zhang*",
    * 	"date_of_issue_rule": "Whthin 2026.05.20"
    * }
    */
   checkRuleConfig?: string;
   /**
    * @remarks
-   * The Base64-encoded image. If you use this method to submit a photo, check the photo size and do not submit an excessively large photo.
+   * The Base64-encoded image. If you choose this method to upload the image, check the image size and do not upload an excessively large image.
    * 
    * @example
    * base64
@@ -25,7 +25,7 @@ export class CredentialSubmitIntlRequest extends $dara.Model {
   credentialOcrPictureBase64?: string;
   /**
    * @remarks
-   * The URL of the image. The URL must be a publicly accessible HTTP or HTTPS link.
+   * The image URL, which must be a publicly accessible HTTP or HTTPS link.
    * 
    * @example
    * https://***
@@ -34,7 +34,7 @@ export class CredentialSubmitIntlRequest extends $dara.Model {
   /**
    * @remarks
    * The credential type. Valid values:
-   * - 02: vehicle registration certificate.
+   * - 02: Vehicle registration certificate.
    * 
    * This parameter is required.
    * 
@@ -44,9 +44,9 @@ export class CredentialSubmitIntlRequest extends $dara.Model {
   docType?: string;
   /**
    * @remarks
-   * The input file type. Valid values:
+   * The material input type. Valid values:
    * 
-   * - IMAGE (default): image.
+   * - IMAGE: Image. This is the default value.
    * 
    * - PDF: PDF format.
    * 
@@ -68,9 +68,7 @@ export class CredentialSubmitIntlRequest extends $dara.Model {
   fraudCheck?: string;
   /**
    * @remarks
-   * Specifies whether to enable quality detection. Valid values:
-   * - Y: Enabled.
-   * - N: Disabled.
+   * Specifies whether to enable quality detection. Valid values: Y: Enabled. N: Disabled.
    * 
    * @example
    * Y
@@ -78,7 +76,7 @@ export class CredentialSubmitIntlRequest extends $dara.Model {
   idQuality?: string;
   /**
    * @remarks
-   * The custom business unique identifier on the merchant side, used for subsequent troubleshooting. The value can be a combination of letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
+   * The custom unique business identifier on the merchant side, which is used for subsequent troubleshooting. The identifier can be up to 32 characters in length and can contain letters and digits. Make sure that the identifier is unique.
    * 
    * This parameter is required.
    * 
@@ -100,9 +98,7 @@ export class CredentialSubmitIntlRequest extends $dara.Model {
   ocrArea?: string;
   /**
    * @remarks
-   * Specifies whether to enable translation. Valid values:
-   * - 0: Disabled.
-   * - 1: Enabled.
+   * Specifies whether to enable translation. Valid values: 0: Disabled. 1: Enabled.
    * 
    * @example
    * 1
@@ -110,9 +106,7 @@ export class CredentialSubmitIntlRequest extends $dara.Model {
   ocrTranslation?: string;
   /**
    * @remarks
-   * Specifies whether to enable OCR result standardization. Valid values:
-   * - 0: Disabled.
-   * - 1: Enabled.
+   * Specifies whether to enable OCR result standardization. Valid values: 0: Disabled. 1: Enabled.
    * 
    * @example
    * 1
@@ -120,7 +114,7 @@ export class CredentialSubmitIntlRequest extends $dara.Model {
   ocrValueStandard?: string;
   /**
    * @remarks
-   * The product solution to use. Set this parameter to CREDENTIAL_RECOGNITION.
+   * The product solution to be integrated. Valid value: CREDENTIAL_RECOGNITION.
    * 
    * This parameter is required.
    * 
@@ -130,7 +124,7 @@ export class CredentialSubmitIntlRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The custom authentication scenario ID. You can use this scenario ID to query related records in the console. The value can be a combination of letters, digits, or underscores with a maximum length of 10 characters.
+   * The custom authentication scene ID, which is used to query related records in the console. The ID can be up to 10 characters in length and can contain letters, digits, and underscores (_).
    * 
    * This parameter is required.
    * 

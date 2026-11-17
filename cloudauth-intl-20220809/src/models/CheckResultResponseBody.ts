@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckResultResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The verification result.
+   * The authentication result.
    * 
    * @example
    * **
@@ -24,7 +24,7 @@ export class CheckResultResponseBodyResult extends $dara.Model {
    * The face information.
    * 
    * @example
-   * **
+   * {"facePassed":"Y"}
    */
   extFaceInfo?: string;
   /**
@@ -32,12 +32,12 @@ export class CheckResultResponseBodyResult extends $dara.Model {
    * The ID information.
    * 
    * @example
-   * **
+   * {"ocrIdPassed":"Y"}
    */
   extIdInfo?: string;
   /**
    * @remarks
-   * The extended information, in JSON string format.
+   * The extended information, which is a JSON string.
    * 
    * @example
    * {}
@@ -53,9 +53,9 @@ export class CheckResultResponseBodyResult extends $dara.Model {
   extRiskInfo?: string;
   /**
    * @remarks
-   * The data source verification details are described as follows (using the Indonesian data source as an example):
-   * - **govId, fullName, dob**: A comparison score equal to 1.0 indicates a complete match with the official data source. A score lower than 1.0 indicates a mismatch. 
-   * - **selfiePhoto**: A comparison score greater than 0.8 indicates a match with the official data source. A score equal to or lower than 0.8 indicates a mismatch. 
+   * The detailed verification results of the data source. The following descriptions use the Indonesian data source as an example:
+   * - **govId, fullName, dob**: A comparison score of 1.0 indicates an exact match with the official data source information. A score lower than 1.0 indicates a mismatch. 
+   * - **selfiePhoto**: A comparison score greater than 0.8 indicates a match with the official data source information. A score lower than or equal to 0.8 indicates a mismatch. 
    * - **liveness**: A score higher than 0.95 indicates a liveness detection risk. 
    * - **imgManipulationScore**: A score higher than 0.95 indicates an image tampering risk.
    * 
@@ -72,8 +72,7 @@ export class CheckResultResponseBodyResult extends $dara.Model {
   extSourceInfo?: string;
   /**
    * @remarks
-   * Indicates whether the verification is passed. Valid values:
-   * 
+   * Specifies whether the authentication is passed. Valid values:
    * - Y: Passed.
    * - N: Not passed.
    * 
@@ -86,7 +85,7 @@ export class CheckResultResponseBodyResult extends $dara.Model {
    * The sub-result code.
    * 
    * @example
-   * ***
+   * 200
    */
   subCode?: string;
   static names(): { [key: string]: string } {
@@ -153,7 +152,7 @@ export class CheckResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The return result.
    */
   result?: CheckResultResponseBodyResult;
   static names(): { [key: string]: string } {

@@ -8,7 +8,7 @@ export class Id2MetaVerifyIntlResponseBodyResult extends $dara.Model {
    * The verification result code. Valid values:
    * - 1: Consistent.
    * - 2: Inconsistent.
-   * - 3: No record found.
+   * - 3: Not found.
    * 
    * @example
    * 1
@@ -62,7 +62,7 @@ export class Id2MetaVerifyIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The verification result.
+   * The return result.
    */
   result?: Id2MetaVerifyIntlResponseBodyResult;
   static names(): { [key: string]: string } {

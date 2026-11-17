@@ -13,7 +13,7 @@ export class FaceGuardRiskRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The device token obtained from the Face Guard SDK.
+   * The device token obtained through the Face Guard SDK.
    * 
    * @example
    * Tk9SSUQuMS*****************ZDNmNWY5NzQxOW1o
@@ -21,7 +21,7 @@ export class FaceGuardRiskRequest extends $dara.Model {
   deviceToken?: string;
   /**
    * @remarks
-   * The merchant-defined unique business identifier, used for subsequent troubleshooting. The value can contain letters and digits with a maximum length of 32 characters. Make sure the value is unique.
+   * The custom unique business identifier on the merchant side, used for subsequent troubleshooting. It supports a combination of letters and digits and can be up to 32 characters in length. Ensure that the value is unique.
    * 
    * @example
    * 0c83ce0101d34eff886b1f7d1cdef67f
@@ -29,12 +29,19 @@ export class FaceGuardRiskRequest extends $dara.Model {
   merchantBizId?: string;
   /**
    * @remarks
-   * The product code. Set the value to FACE_GUARD.
+   * The product code. Valid values: FACE_GUARD and FACE_GUARD_PRO.
    * 
    * @example
-   * FACE_GUARD
+   * FACE_GUARD_PRO
    */
   productCode?: string;
+  /**
+   * @remarks
+   * The type of the risk scenario detected by Device Assistant.
+   * 
+   * @example
+   * Face
+   */
   type?: string;
   static names(): { [key: string]: string } {
     return {

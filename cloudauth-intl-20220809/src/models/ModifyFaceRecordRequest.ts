@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyFaceRecordRequest extends $dara.Model {
   /**
    * @remarks
-   * The face library code.
+   * The face group code.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyFaceRecordRequest extends $dara.Model {
   faceGroupCode?: string;
   /**
    * @remarks
-   * The OSS information of the image.
+   * The image OSS information.
    * 
    * This parameter is required.
    * 

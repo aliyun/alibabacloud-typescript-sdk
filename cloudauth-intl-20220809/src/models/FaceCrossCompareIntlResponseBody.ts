@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FaceCrossCompareIntlResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The comparison score between A and B. Value range: 0 to 1.
+   * The comparison score between A and B. Valid values: 0 to 1.
    * 
    * @example
    * 0.9999999999999999
@@ -13,7 +13,7 @@ export class FaceCrossCompareIntlResponseBodyResult extends $dara.Model {
   faceComparisonScoreA2B?: number;
   /**
    * @remarks
-   * The comparison score between B and C. Value range: 0 to 1.
+   * The comparison score between B and C. Valid values: 0 to 1.
    * 
    * @example
    * 0.9999999999999999
@@ -21,7 +21,7 @@ export class FaceCrossCompareIntlResponseBodyResult extends $dara.Model {
   faceComparisonScoreB2C?: number;
   /**
    * @remarks
-   * The comparison score between C and A. Value range: 0 to 1.
+   * The comparison score between C and A. Valid values: 0 to 1.
    * 
    * @example
    * 0.9999999999999999
@@ -31,7 +31,7 @@ export class FaceCrossCompareIntlResponseBodyResult extends $dara.Model {
    * @remarks
    * The final verification result. Valid values:
    * - Y: Passed.
-   * - N: Not passed.
+   * - N: Failed.
    * 
    * @example
    * Y
@@ -101,7 +101,7 @@ export class FaceCrossCompareIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The return result.
    */
   result?: FaceCrossCompareIntlResponseBodyResult;
   static names(): { [key: string]: string } {

@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DocOcrResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The card and certificate recognition result. This parameter is returned only when the API response is successful.
+   * The recognition result of the ID card or certificate. This parameter is returned only when the API response is successful.
    * 
    * @example
    * {
-   *   "idFaceQualityScore": 98.0
+   *   "idFaceQualityScore": 98.0,
    *   "ocrIdInfo": {
    *     "expiryDate": "",
-   *     "originOfIssue": "公安部出入境管理局",
+   *     "originOfIssue": "Exit-Entry Administration of the Ministry of Public Security",
    *     "englishName": "LI SI",
-   *     "sex": "男",
-   *     "name": "李四",
+   *     "sex": "Male",
+   *     "name": "Li Si",
    *     "idNumber": "H11111112",
    *     "issueDate": "2013-01-02",
    *     "birthDate": "1990-02-21"
@@ -32,7 +32,6 @@ export class DocOcrResponseBodyResult extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the authentication is passed. Valid values:
-   * 
    * - Y: Passed.
    * - N: Not passed.
    * 
@@ -110,7 +109,7 @@ export class DocOcrResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The returned result.
+   * The return result.
    */
   result?: DocOcrResponseBodyResult;
   static names(): { [key: string]: string } {

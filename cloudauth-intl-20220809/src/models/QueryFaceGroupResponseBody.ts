@@ -81,12 +81,12 @@ export class QueryFaceGroupResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The list of returned entries.
+   * The list of returned items.
    */
   items?: QueryFaceGroupResponseBodyItems[];
   /**
    * @remarks
-   * The number of entries per page in a paged query.
+   * The number of entries per page during paging.
    * 
    * @example
    * 50
@@ -94,7 +94,7 @@ export class QueryFaceGroupResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The return message.
+   * The returned message.
    * 
    * @example
    * success

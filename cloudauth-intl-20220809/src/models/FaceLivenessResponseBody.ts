@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
   /**
    * @remarks
-   * The predicted reference age based on the face image. The prediction may fail, in which case no value is returned.
+   * The predicted reference age of the face. This parameter may be empty if the prediction fails.
    * 
    * @example
    * 18
@@ -19,13 +19,52 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
    * Y
    */
   faceAttack?: string;
+  /**
+   * @remarks
+   * Detects the facial attributes of the main face (the face closest to the camera, with the largest facial area, and clear) in the input image. The detection result is returned as a string, which can be used for decision-making.
+   * 
+   * The returned fields are defined as follows:
+   * 
+   * **gender**: The gender of the main person. 1 indicates male, and 0 indicates female.
+   * 
+   * **glasses**: Indicates whether the main person is wearing glasses. 1 indicates detected, and 0 indicates not detected.
+   * 
+   * **hat**: Indicates whether the main person is wearing a hat (including headscarves or veils). 1 indicates detected, and 0 indicates not detected.
+   * 
+   * **mask**: Indicates whether the main person is wearing a mask. 1 indicates detected, and 0 indicates not detected.
+   * 
+   * **tattoo**: Indicates whether the main person has visible tattoos. 1 indicates detected, and 0 indicates not detected.
+   * 
+   * **smoking**: Indicates whether the main person is smoking. 1 indicates detected, and 0 indicates not detected.
+   * 
+   * **others**: Indicates whether there are other people present besides the main person. 1 indicates detected, and 0 indicates not detected.
+   * 
+   * **env**: The environment where the main person is located, such as an office, factory, hospital, or inside a vehicle. Valid values: office, hospital, factory, vehical, and other.
+   * 
+   * **expression**: Indicates whether the main person has an exaggerated expression (referring to strong facial expressions that are significantly different from a natural or calm state). 1 indicates detected, and 0 indicates not detected.
+   * 
+   * **age**: The actual age (in years) of the main person.
+   * 
+   * @example
+   * {
+   *         gender: 1
+   *         glasses: 0
+   *         hat: 1
+   *         mask: 1
+   *         tattoo: 0
+   *         smoking: 0
+   *         others: 1
+   *         env：office
+   *         expression：1
+   *         age：16
+   * }
+   */
   faceAttributeInfo?: string;
   /**
    * @remarks
-   * The predicted gender based on the face image. The prediction may fail, in which case no value is returned. Valid values:
-   * 
-   * - M: male.
-   * - F: female.
+   * The predicted gender of the face in the image. This parameter may be empty if the prediction fails. Valid values:
+   * - M: Male.
+   * - F: Female.
    * 
    * @example
    * M
@@ -33,7 +72,7 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
   faceGender?: string;
   /**
    * @remarks
-   * The face quality score (0 to 100). This value is returned only when the face quality score switch is enabled in the request parameters.
+   * The face quality score, which ranges from 0 to 100. This parameter is returned only when the face quality score switch in the request parameters is turned on.
    * 
    * @example
    * 87.19
@@ -49,7 +88,7 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
   illuminationScore?: number;
   /**
    * @remarks
-   * The key area occlusion score.
+   * The occlusion score of the key area.
    * 
    * @example
    * 20
@@ -57,7 +96,7 @@ export class FaceLivenessResponseBodyResultExtFaceInfo extends $dara.Model {
   kaOcclusionScore?: number;
   /**
    * @remarks
-   * The occlusion detection result. Valid values: Y (occluded) and N (not occluded). This value is returned only when the occlusion detection switch is enabled in the request parameters.
+   * The occlusion detection result. Valid values: Y (occluded) and N (not occluded). This parameter is returned only when the occlusion detection switch in the request parameters is turned on.
    * 
    * @example
    * Y
@@ -126,10 +165,9 @@ export class FaceLivenessResponseBodyResult extends $dara.Model {
   extFaceInfo?: FaceLivenessResponseBodyResultExtFaceInfo;
   /**
    * @remarks
-   * Indicates whether the authentication passed. Valid values:
-   * 
-   * - Y: passed.
-   * - N: not passed.
+   * Indicates whether the authentication is passed. Valid values:
+   * - Y: Passed.
+   * - N: Not passed.
    * 
    * @example
    * N
@@ -145,7 +183,7 @@ export class FaceLivenessResponseBodyResult extends $dara.Model {
   subCode?: string;
   /**
    * @remarks
-   * The unique ID of the authentication request.
+   * The unique identifier of the authentication request.
    * 
    * @example
    * 08573be80f944d95ac812e019e3655a8
@@ -192,7 +230,7 @@ export class FaceLivenessResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The description of the return result.
+   * The prompt message returned in the response.
    * 
    * @example
    * success
@@ -200,7 +238,7 @@ export class FaceLivenessResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique ID that Alibaba Cloud generates for the request.
+   * The unique identifier generated by Alibaba Cloud for the request.
    * 
    * @example
    * 42EA58CA-5DF4-55D5-82C4-5E7A40DA62BA

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddressVerifyIntlResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
-   * The address verification details.
+   * The details of the address verification.
    * 
    * @example
    * 0-3000
@@ -13,10 +13,10 @@ export class AddressVerifyIntlResponseBodyResultObject extends $dara.Model {
   addressInfo?: string;
   /**
    * @remarks
-   * The telecommunications service provider name. Valid values:
+   * The name of the carrier. Valid values:
    * - CMCC: China Mobile
    * - CTCC: China Telecom
-   * - CUCC: China Unicom.
+   * - CUCC: China Unicom
    * 
    * @example
    * CMCC
@@ -25,8 +25,8 @@ export class AddressVerifyIntlResponseBodyResultObject extends $dara.Model {
   /**
    * @remarks
    * The verification result. Valid values:
-   * - Y: The verified address is within 10 km of the residential address.
-   * - N: The verified address is more than 10 km from the residential address.
+   * - Y: Yes. The distance to the verified address is less than or equal to 10 km.
+   * - N: No. The distance to the verified address is greater than 10 km.
    * 
    * @example
    * Y
@@ -34,7 +34,7 @@ export class AddressVerifyIntlResponseBodyResultObject extends $dara.Model {
   passed?: string;
   /**
    * @remarks
-   * The description of the verification result.
+   * The description of the authentication result.
    * 
    * @example
    * 200
@@ -42,7 +42,7 @@ export class AddressVerifyIntlResponseBodyResultObject extends $dara.Model {
   subCode?: string;
   /**
    * @remarks
-   * The unique identifier of the verification request.
+   * The unique identifier of the authentication request.
    * 
    * @example
    * hksb7ba1b28130d24e015d69********
@@ -104,7 +104,7 @@ export class AddressVerifyIntlResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The result information.
+   * The returned result information.
    */
   resultObject?: AddressVerifyIntlResponseBodyResultObject;
   static names(): { [key: string]: string } {

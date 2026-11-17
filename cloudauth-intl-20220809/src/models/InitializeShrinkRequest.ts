@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class InitializeShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * <warning>This feature is not supported by the **Web SDK**. To use this feature, use the App SDK.</warning>
+   * <warning>This feature is not supported by the **Web SDK**. To use this feature, refer to the App SDK integration guide.</warning>
    * 
    * Specifies whether to enable strict face quality detection. Valid values:
-   * - Y: Enabled. This is the default value.
-   * - N: Not enabled.
+   * - Y: Enable. This is the default value.
+   * - N: Disable.
    * 
    * @example
    * N
@@ -17,7 +17,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   appQualityCheck?: string;
   /**
    * @remarks
-   * Specifies whether to enable authoritative identity verification. Currently, this parameter applies only to second-generation ID cards in the Chinese mainland. This is an input parameter for the IDV product.
+   * Specifies whether to enable authoritative identity verification. This parameter is currently applicable only to second-generation ID cards in the Chinese mainland and is used for IDV products.
    * 
    * @example
    * Y
@@ -25,7 +25,10 @@ export class InitializeShrinkRequest extends $dara.Model {
   authorize?: string;
   /**
    * @remarks
-   * The automatic document classification configuration.
+   * The automatic document page classification configuration. This parameter takes effect only when DocType is set to a country or region code. You can specify the pages to be captured based on the specific document type code. For documents that are not configured, only the front page is captured.
+   * 
+   * @example
+   * {"BRA01001":"01","BRA01002":"01,02"}
    */
   autoDocPageConfig?: string;
   /**
@@ -38,7 +41,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   autoRegistration?: string;
   /**
    * @remarks
-   * The security token used for anti-replay and anti-tampering verification. If this parameter is specified, the CallbackToken field is displayed in the callback URL.
+   * The security token used for anti-replay and anti-tampering verification. If this parameter is passed, the CallbackToken field is displayed in the callback URL.
    * 
    * @example
    * 7ca5c68d869344ea8eeb30cdfd544544-6358700
@@ -46,7 +49,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   callbackToken?: string;
   /**
    * @remarks
-   * The callback URL for the authentication result. The callback request method is GET by default, and the callback URL must start with https. After the authentication is complete, the platform calls back this URL and automatically adds the transactionId, passed, and subcode fields.
+   * The callback URL for authentication result notifications. The default callback request method is GET, and the callback URL must start with https. After the authentication is completed, the platform calls back this URL and automatically adds the transactionId, passed, and subcode fields.
    * 
    * @example
    * https://www.aliyun.com?callbackToken=1000004826&transactionId=shaxxxx&passed=Y&subCode=200
@@ -54,7 +57,9 @@ export class InitializeShrinkRequest extends $dara.Model {
   callbackUrl?: string;
   /**
    * @remarks
-   * Specifies whether to enable the adaptive color-changing window border.
+   * Specifies whether to enable the adaptive color-changing window border. Valid values:
+   * - **Y**: Enable.
+   * - **N**: Disable.
    * 
    * @example
    * N
@@ -62,7 +67,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   chameleonFrameEnable?: string;
   /**
    * @remarks
-   * Specifies whether to enable cropping. This is an input parameter for the IDV product.
+   * Specifies whether to crop the image. This parameter is applicable to IDV products.
    * 
    * @example
    * N
@@ -70,7 +75,9 @@ export class InitializeShrinkRequest extends $dara.Model {
   crop?: string;
   /**
    * @remarks
-   * The date of birth on the document.
+   * The date of birth on the document, in the format of YYMMDD (6 digits).
+   * 
+   * This parameter is required when **MRTDInput** is set to **2**.
    * 
    * @example
    * -
@@ -78,7 +85,9 @@ export class InitializeShrinkRequest extends $dara.Model {
   dateOfBirth?: string;
   /**
    * @remarks
-   * The expiration date on the document.
+   * The expiration date on the document, in the format of YYMMDD (6 digits).
+   * 
+   * This parameter is required when **MRTDInput** is set to **2**.
    * 
    * @example
    * -
@@ -89,7 +98,7 @@ export class InitializeShrinkRequest extends $dara.Model {
    * The real name of the user.
    * 
    * @example
-   * John Smith
+   * John Doe
    */
   docName?: string;
   /**
@@ -102,12 +111,15 @@ export class InitializeShrinkRequest extends $dara.Model {
   docNo?: string;
   /**
    * @remarks
-   * The custom configuration for whether to collect additional pages.
+   * The custom configuration passed by the customer to specify whether to capture more pages.
    */
   docPageConfigShrink?: string;
   /**
    * @remarks
-   * The document capture and photo mode.
+   * The photo capture mode for document collection. Valid values:
+   * 
+   * - manual: Manual capture.
+   * - auto: Automatic capture. This is the default value.
    * 
    * @example
    * manual
@@ -115,10 +127,10 @@ export class InitializeShrinkRequest extends $dara.Model {
   docScanMode?: string;
   /**
    * @remarks
-   * The document type.
-   * >For the eKYC_PRO and ID_OCR_MAX solutions, see the official documentation at https://www.alibabacloud.com/help/zh/ekyc/latest/certificate-code-table?spm=a2c63.p38356.help-menu-445633.d_2_8_2_0.279147abwKAWbr
+   * The type of the identity document.
+   * >For the eKYC_PRO and ID_OCR_MAX solutions, see the official documentation: https://www.alibabacloud.com/help/zh/ekyc/latest/certificate-code-table?spm=a2c63.p38356.help-menu-445633.d_2_8_2_0.279147abwKAWbr
    * 
-   * >For the ID_OCR, eKYC, and eKYC_MIN solutions, see the document type list in the official documentation at https://www.alibabacloud.com/help/zh/ekyc/latest/gnhekqy05ni51m4c?spm=a2c63.p38356.help-menu-445633.d_2_3_1_0_0_0.6243244777KoZ7
+   * >For the ID_OCR, eKYC, and eYKC_MIN solutions, see the identity document type list in the official documentation: https://www.alibabacloud.com/help/zh/ekyc/latest/gnhekqy05ni51m4c?spm=a2c63.p38356.help-menu-445633.d_2_3_1_0_0_0.6243244777KoZ7
    * 
    * @example
    * 00000001
@@ -126,13 +138,13 @@ export class InitializeShrinkRequest extends $dara.Model {
   docType?: string;
   /**
    * @remarks
-   * Specifies whether to collect a verification video.
+   * Specifies whether to store a video for evidence. Valid values:
    * 
-   * - N: No (default).
+   * - N: Not required. This is the default value.
    * 
-   * - Y: A short video (1 to 2 seconds) of the user\\"s face verification process is collected and returned through the query operation.
+   * - Y: A video of the user\\"s face scanning process (a 1 to 2-second video file) is captured during the authentication process and returned through the query API.
    * 
-   * > Because video files are large, the system discards video files when the network is unstable to prioritize the transmission of images required for verification.
+   * > Because video files are large, the system discards video files when the network is unstable to prioritize the transmission of images required for authentication.
    * 
    * @example
    * N
@@ -142,13 +154,19 @@ export class InitializeShrinkRequest extends $dara.Model {
    * @remarks
    * The document number.
    * 
+   * This parameter is required when **MRTDInput** is set to **2**.
+   * 
    * @example
    * -
    */
   documentNumber?: string;
   /**
    * @remarks
-   * Specifies whether the recognition result page is editable during the document OCR recognition step:
+   * Specifies whether the recognition result page is editable during the document OCR recognition phase. Valid values:
+   * 
+   * - **0**: Not editable.
+   * 
+   * - **1**: Editable. This is the default value.
    * 
    * @example
    * 0
@@ -157,6 +175,9 @@ export class InitializeShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The Indonesian email address. This field takes effect only when Authorize is set to T.
+   * 
+   * > 
+   * > - This field is required only when the Indonesian data source is enabled.
    * 
    * @example
    * evxxx@imigxxxxx.go.id
@@ -172,12 +193,17 @@ export class InitializeShrinkRequest extends $dara.Model {
   experienceCode?: string;
   /**
    * @remarks
-   * Specifies whether to enable face attribute check.
+   * Specifies whether to return additional face attribute information. Valid values:
+   * - N: Do not return. This is the default value.
+   * - Y: Return. The result is located in Result.ExtFaceInfo.FaceAttributeInfo.
+   * 
+   * @example
+   * N
    */
   faceAttributeCheck?: string;
   /**
    * @remarks
-   * The face libraries to compare against.
+   * The face databases to be compared.
    * 
    * @example
    * 0e0c34a77f
@@ -185,7 +211,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   faceGroupCodes?: string;
   /**
    * @remarks
-   * The Base64-encoded face photo. If you use FacePictureBase64 to pass in a face photo, check the photo size and do not pass in an excessively large photo.
+   * The Base64-encoded string of the photo. If you choose to pass the face photo by using the FacePictureBase64 parameter, check the photo size and do not pass an oversized photo.
    * 
    * @example
    * Base64
@@ -201,7 +227,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   facePictureUrl?: string;
   /**
    * @remarks
-   * The face registration library.
+   * The face database for registration.
    * 
    * @example
    * 0e0c34a77f
@@ -209,7 +235,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   faceRegisterGroupCode?: string;
   /**
    * @remarks
-   * The face verification threshold.
+   * The threshold for face verification.
    * 
    * @example
    * 0.5
@@ -217,7 +243,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   faceVerifyThreshold?: string;
   /**
    * @remarks
-   * The face image quality. This is an input parameter for the IDV product.
+   * The quality of the face image. This parameter is applicable to IDV products.
    * 
    * @example
    * Y
@@ -225,7 +251,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   idFaceQuality?: string;
   /**
    * @remarks
-   * Specifies whether to enable document anti-forgery detection. This is an input parameter for the IDV product.
+   * Specifies whether to enable document anti-spoofing detection. This parameter is applicable to IDV products.
    * 
    * @example
    * Y
@@ -233,11 +259,11 @@ export class InitializeShrinkRequest extends $dara.Model {
   idSpoof?: string;
   /**
    * @remarks
-   * The custom OCR quality detection threshold mode. Valid values:
+   * The custom threshold mode for OCR quality detection. Valid values:
    * - **0**: Standard mode.
    * - **1**: Strict mode.
    * - **2**: Loose mode.
-   * - **3** (default): Quality detection disabled.
+   * - **3**: Quality detection disabled. This is the default value.
    * 
    * @example
    * 0
@@ -245,7 +271,18 @@ export class InitializeShrinkRequest extends $dara.Model {
   idThreshold?: string;
   /**
    * @remarks
-   * The language configuration. This is an input parameter for the IDV product.
+   * The forced centering configuration. Specifies whether to intercept when an off-center face is detected on the client. Valid values:
+   * 
+   * - Y: Intercept. The client prompts the user to scan their face again.
+   * - N: Do not intercept. This is the default value. The largest face in the scanning screen is sent to the server for security detection.
+   * 
+   * @example
+   * Y
+   */
+  isForceFaceCentered?: string;
+  /**
+   * @remarks
+   * The language configuration. This parameter is applicable to IDV products.
    * 
    * @example
    * en
@@ -253,13 +290,13 @@ export class InitializeShrinkRequest extends $dara.Model {
   languageConfig?: string;
   /**
    * @remarks
-   * The input source of MRTD verification parameters. This parameter is required to decrypt information when reading document chip data via NFC.
+   * The input source of the MRTD verification parameter. This parameter is required to decrypt information when NFC reads the document chip information. Valid values:
    * 
-   * - **0**: user input
+   * - **0**: User input.
    * 
-   * - **1**: OCR reading
+   * - **1**: OCR reading.
    * 
-   * - **2**: API input
+   * - **2**: API input.
    * 
    * @example
    * 0
@@ -267,7 +304,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   MRTDInput?: string;
   /**
    * @remarks
-   * The merchant-defined unique business ID for subsequent troubleshooting. The value can contain letters and digits with a maximum length of 32 characters. Ensure that the value is unique.
+   * The custom unique business identifier on the merchant side, used for subsequent troubleshooting. It supports a combination of letters and digits, with a maximum length of 32 characters. Ensure that the value is unique.
    * 
    * @example
    * e0c34a***353888
@@ -275,7 +312,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   merchantBizId?: string;
   /**
    * @remarks
-   * Your custom user ID, or another identifier that can identify a specific user, such as a phone number or email address. We strongly recommend that you desensitize this field value in advance, for example, by hashing the value.
+   * The custom user ID or another identifier that can identify a specific user, such as a mobile phone number or email address. It is highly recommended to desensitize the value of this field in advance, for example, by hashing the value.
    * 
    * @example
    * 1221****6543
@@ -283,7 +320,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   merchantUserId?: string;
   /**
    * @remarks
-   * The Metainfo environment parameter, which must be obtained from the client SDK.
+   * The MetaInfo environment parameter, which must be obtained through the client SDK.
    * 
    * @example
    * {\\"bioMetaInfo\\":\\"4.1.0:2916352,0\\",\\"deviceType\\":\\"web\\",\\"ua\\":\\"Mozilla/5.0 (Macintosh
@@ -291,7 +328,10 @@ export class InitializeShrinkRequest extends $dara.Model {
   metaInfo?: string;
   /**
    * @remarks
-   * The Indonesian phone number. The format must be verified (starting with +62, followed by 9 to 11 digits). This field takes effect only when Authorize is set to T.
+   * The Indonesian phone number. The format must be verified, starting with +62 followed by 9 to 11 digits. This field takes effect only when Authorize is set to T.
+   * 
+   * > 
+   * > - This field is required only when the Indonesian data source is enabled.
    * 
    * @example
    * +6281293671234
@@ -299,15 +339,15 @@ export class InitializeShrinkRequest extends $dara.Model {
   mobile?: string;
   /**
    * @remarks
-   * The type of liveness detection to perform.
+   * The type of liveness detection to be performed. Valid values:
    * 
-   * - **LIVENESS** (default): Blink-based liveness detection.
+   * - **LIVENESS**: Blink liveness detection. This is the default value.
    * 
-   * - **PHOTINUS_LIVENESS**: Dual detection combining blink-based liveness detection and flash-based liveness detection.
+   * - **PHOTINUS_LIVENESS**: Dual detection of blink liveness and photinus liveness.
    * 
    * > 
    * > - For supported SDK versions, see [SDK release notes](https://www.alibabacloud.com/help/zh/ekyc/latest/sdk-publishing-record?spm=a2c63.p38356.0.i99).
-   * > - Flash-based dual liveness detection is not supported on PCs.
+   * > - Dual detection of photinus liveness is not supported on the PC client.
    * 
    * @example
    * PHOTINUS_LIVENESS
@@ -315,7 +355,18 @@ export class InitializeShrinkRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * Specifies whether to enable OCR. This is an input parameter for the IDV product.
+   * Specifies whether to intercept when multiple faces are detected on the client. Valid values:
+   * 
+   * - Y: Intercept. The client prompts the user to scan their face again.
+   * - N: Do not intercept. This is the default value. The largest face in the scanning screen is sent to the server for security detection.
+   * 
+   * @example
+   * Y
+   */
+  needMultiFaceCheck?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable OCR. This parameter is applicable to IDV products.
    * 
    * @example
    * Y
@@ -323,7 +374,11 @@ export class InitializeShrinkRequest extends $dara.Model {
   ocr?: string;
   /**
    * @remarks
-   * Specifies whether to additionally return OCR recognition results in standardized format fields:
+   * Specifies whether to return additional standardized format fields for OCR recognition. Valid values:
+   * 
+   * - 0: No. This is the default value.
+   * 
+   * - 1: Yes.
    * 
    * @example
    * 0
@@ -331,12 +386,12 @@ export class InitializeShrinkRequest extends $dara.Model {
   ocrValueStandard?: string;
   /**
    * @remarks
-   * The configuration for capture pages. Separate multiple pages with commas (,). Valid values:
-   * - **01**: the portrait side of the identity document.
+   * The configuration of the pages to be captured. Separate multiple pages with commas (,). Valid values:
+   * - **01**: The portrait side of the identity document.
    * 
-   * - **01,02**: the portrait side and back side of the identity document.
+   * - **01,02**: The portrait side and the back side of the identity document.
    * 
-   * > When this parameter is set to 01,02, only China identity cards and Vietnam identity cards are supported.
+   * > When this value is set to 01,02, only Chinese ID cards and Vietnamese ID cards are supported.
    * 
    * @example
    * 01
@@ -344,7 +399,16 @@ export class InitializeShrinkRequest extends $dara.Model {
   pages?: string;
   /**
    * @remarks
-   * Specifies whether to allow a degraded processing method when compatibility issues occur during mobile H5 authentication.
+   * Specifies whether to allow degraded processing when compatibility issues occur during mobile H5 authentication. Valid values:
+   * 
+   * - **url**: Degradation supported. This is the default value. The page displays the authentication URL, and the user can copy the URL to open it or switch browsers to continue the authentication flow.
+   * 
+   * - **keep**: Degradation not supported. The error cause is directly returned, and the authentication flow ends.
+   * 
+   * 
+   * > 
+   * > - This switch is not supported on the PC client.
+   * > - If the business application scenario is to complete authentication in a web page embedded in an app, we recommend that you set this parameter to keep to disable URL degradation.
    * 
    * @example
    * url
@@ -352,7 +416,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   procedurePriority?: string;
   /**
    * @remarks
-   * The product plan to use.
+   * The product solution to be integrated.
    * >For more information, see the official documentation: https://www.alibabacloud.com/help/zh/ekyc/latest/product-introduction?spm=a2c63.p38356.0.i1
    * 
    * @example
@@ -361,12 +425,12 @@ export class InitializeShrinkRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * Specifies the order of document and face verification steps. Valid values:
+   * The sequence of document and face verification. Valid values:
    * 
    * - DOC_FACE: Document first, then face. This is the default value.
    * - FACE_DOC: Face first, then document.
    * 
-   * >**Note:** This parameter is required only when ProductCode is set to KYC_GLOBAL.
+   * Note: This parameter is required only when ProductCode is set to KYC_GLOBAL.
    * 
    * @example
    * DOC_FACE
@@ -374,7 +438,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   productFlow?: string;
   /**
    * @remarks
-   * The number of duplicate faces to return.
+   * The number of duplicate faces returned.
    * 
    * @example
    * 1
@@ -390,7 +454,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   returnUrl?: string;
   /**
    * @remarks
-   * Specifies whether to save the face picture.
+   * Specifies whether to save the face photo.
    * 
    * @example
    * 0
@@ -398,7 +462,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   saveFacePicture?: string;
   /**
    * @remarks
-   * The scene code. This is an input parameter for the IDV product.
+   * The scene code. This parameter is applicable to IDV products.
    * 
    * @example
    * 123****123
@@ -406,7 +470,10 @@ export class InitializeShrinkRequest extends $dara.Model {
   sceneCode?: string;
   /**
    * @remarks
-   * The mode that represents different security levels of the authentication process. Valid values:
+   * The pattern that represents different security levels of the authentication flow. Valid values:
+   * 
+   * - 01: Normal pattern. This is the default value.
+   * - 02: safe mode. This is a relatively strict pattern and is active in high-risk scenarios. This parameter is applicable to IDV products.
    * 
    * @example
    * 01
@@ -414,7 +481,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   securityLevel?: string;
   /**
    * @remarks
-   * Specifies whether to display the album upload entry during the document OCR recognition step. Valid values:
+   * Specifies whether to display the album upload entry during the document OCR recognition phase. Valid values:
    * 
    * - **1**: Display. This is the default value.
    * 
@@ -426,7 +493,11 @@ export class InitializeShrinkRequest extends $dara.Model {
   showAlbumIcon?: string;
   /**
    * @remarks
-   * Specifies whether to display the guide page:
+   * Specifies whether to display the guide page. Valid values:
+   * 
+   * - **1**: Display. This is the default value.
+   * 
+   * - **0**: Do not display.
    * 
    * @example
    * 1
@@ -434,7 +505,11 @@ export class InitializeShrinkRequest extends $dara.Model {
   showGuidePage?: string;
   /**
    * @remarks
-   * Specifies whether to display the recognition result page during the document OCR recognition step:
+   * Specifies whether to display the recognition result page during the document OCR recognition phase. Valid values:
+   * 
+   * - **1**: Display. This is the default value.
+   * 
+   * - **0**: Do not display.
    * 
    * @example
    * 1
@@ -442,7 +517,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   showOcrResult?: string;
   /**
    * @remarks
-   * The custom UI configuration. Convert your custom UI configuration to a JSON string based on the configuration template, and pass it in through this parameter. For more information, see [IDV UI style customization](https://www.alibabacloud.com/help/zh/ekyc/latest/idv-kyc-custom-skin?spm=a2c63.p38356.0.i60).
+   * The custom UI configuration. Convert your custom UI configuration into a JSON string based on the configuration template and pass it through this parameter. For more information, see [Customize IDV UI styles](https://www.alibabacloud.com/help/zh/ekyc/latest/idv-kyc-custom-skin?spm=a2c63.p38356.0.i60).
    * 
    * @example
    * {
@@ -455,7 +530,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   styleConfig?: string;
   /**
    * @remarks
-   * The Base64-encoded portrait photo.
+   * The Base64-encoded string of the portrait photo.
    * 
    * @example
    * base64
@@ -463,7 +538,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   targetFacePicture?: string;
   /**
    * @remarks
-   * The URL of the portrait image. The URL must be a publicly accessible HTTP or HTTPS link.
+   * The URL of the portrait photo. The URL must be a publicly accessible HTTP or HTTPS link.
    * 
    * @example
    * https://www.xxxxx.com/1.jpg
@@ -471,10 +546,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   targetFacePictureUrl?: string;
   /**
    * @remarks
-   * The custom action pool configuration for liveness detection.
-   * This parameter is required when Model is set to TEMPLATE.
-   * Configuration rule: Separate multiple action codes with commas. Best practice: Include at least one frontal face action (such as blink), and use no more than 3 actions in total.
-   * Action code table:
+   * The custom action pool configuration for liveness detection. This parameter is required when Model is set to TEMPLATE. Configuration rules: Separate multiple action codes with commas (,). Best Practices: Include at least one frontal face action (such as blinking), and the total number of actions should not exceed 3. Action code lookup table:
    * 
    * - Blink: 01
    * - Open Mouth: 02
@@ -490,7 +562,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   templateConfig?: string;
   /**
    * @remarks
-   * The number of actions to randomly select from TemplateConfig.
+   * **[Deprecated]** The random mode is no longer recommended, and this field is deprecated.
    * 
    * @example
    * 2
@@ -498,7 +570,9 @@ export class InitializeShrinkRequest extends $dara.Model {
   templateRanCount?: string;
   /**
    * @remarks
-   * The execution order of liveness detection actions in TemplateConfig.
+   * The execution sequence of liveness detection actions in TemplateConfig. This parameter is required when Model is set to TEMPLATE. Valid values:
+   * 
+   * - Seq: Execute from left to right in the sequence configured in TemplateConfig.
    * 
    * @example
    * Seq
@@ -506,14 +580,19 @@ export class InitializeShrinkRequest extends $dara.Model {
   templateType?: string;
   /**
    * @remarks
-   * Specifies whether to overwrite the existing face with the current face when MerchantUserId already exists during automatic registration. Y: overwrite. N: do not overwrite and return a message indicating that the UserId already exists.
+   * Specifies whether to use the current face to overwrite the existing face when MerchantUserId already exists during automatic registration. Valid values:
+   * - Y: Overwrite.
+   * - N: Do not overwrite and return that the UserId already exists.
+   * 
+   * @example
+   * N
    */
   updateFaceIfUserExists?: string;
   /**
    * @remarks
    * Specifies whether to enable NFC verification when **DocType** is set to 01000000 (global passport). Valid values:
-   * - **Y**: Enabled.
-   * - **N**: Not enabled.
+   * - **Y**: Enable.
+   * - **N**: Disable.
    * 
    * @example
    * N
@@ -521,7 +600,7 @@ export class InitializeShrinkRequest extends $dara.Model {
   useNFC?: string;
   /**
    * @remarks
-   * The verification type.
+   * The type of verification.
    * 
    * @example
    * 0
@@ -558,6 +637,7 @@ export class InitializeShrinkRequest extends $dara.Model {
       idFaceQuality: 'IdFaceQuality',
       idSpoof: 'IdSpoof',
       idThreshold: 'IdThreshold',
+      isForceFaceCentered: 'IsForceFaceCentered',
       languageConfig: 'LanguageConfig',
       MRTDInput: 'MRTDInput',
       merchantBizId: 'MerchantBizId',
@@ -565,6 +645,7 @@ export class InitializeShrinkRequest extends $dara.Model {
       metaInfo: 'MetaInfo',
       mobile: 'Mobile',
       model: 'Model',
+      needMultiFaceCheck: 'NeedMultiFaceCheck',
       ocr: 'Ocr',
       ocrValueStandard: 'OcrValueStandard',
       pages: 'Pages',
@@ -622,6 +703,7 @@ export class InitializeShrinkRequest extends $dara.Model {
       idFaceQuality: 'string',
       idSpoof: 'string',
       idThreshold: 'string',
+      isForceFaceCentered: 'string',
       languageConfig: 'string',
       MRTDInput: 'string',
       merchantBizId: 'string',
@@ -629,6 +711,7 @@ export class InitializeShrinkRequest extends $dara.Model {
       metaInfo: 'string',
       mobile: 'string',
       model: 'string',
+      needMultiFaceCheck: 'string',
       ocr: 'string',
       ocrValueStandard: 'string',
       pages: 'string',
