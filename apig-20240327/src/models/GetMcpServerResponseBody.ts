@@ -115,7 +115,7 @@ export class GetMcpServerResponseBodyDataGrayMcpServerConfigsBackendConfigServic
   port?: number;
   /**
    * @remarks
-   * The service protocol.
+   * The protocol.
    * 
    * @example
    * HTTP
@@ -223,6 +223,9 @@ export class GetMcpServerResponseBodyDataGrayMcpServerConfigs extends $dara.Mode
   /**
    * @remarks
    * The match rule of the canary route.
+   * 
+   * @example
+   * {\\"change_order_revision\\":\\"3.686.0_fc-sz-futian.1662568293908382_faas-eerouter\\"}
    */
   match?: HttpRouteMatch;
   /**
@@ -275,7 +278,7 @@ export class GetMcpServerResponseBodyDataNacosMcpSyncInfo extends $dara.Model {
   importInstanceId?: string;
   /**
    * @remarks
-   * The ID of the synchronized MCP server.
+   * The ID of the synced MCP server.
    * 
    * @example
    * test-mcp
@@ -335,12 +338,13 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   backend?: Backend;
   /**
    * @remarks
-   * The creation source type. Valid values:
-   * - ApiGatewayHttpToMCP: Gateway-hosted HTTP-to-MCP.
-   * - ApiGatewayMcpHosting: Gateway-hosted MCP direct proxy.
-   * - ApiGatewayAssembly: Gateway MCP assembly.
-   * - NacosHttpToMCP: Gateway-hosted Nacos-synchronized HTTP-to-MCP.
-   * - NacosMcpHosting: Gateway-hosted Nacos-synchronized MCP direct proxy.
+   * The creation source type.
+   * 
+   * ApiGatewayHttpToMCP: HTTP-to-MCP conversion hosted by the gateway.
+   * ApiGatewayMcpHosting: Direct MCP proxy hosted by the gateway.
+   * ApiGatewayAssembly: MCP assembly by the gateway.
+   * NacosHttpToMCP: HTTP-to-MCP conversion synced from Nacos and hosted by the gateway.
+   * NacosMcpHosting: Direct MCP proxy synced from Nacos and hosted by the gateway.
    * 
    * @example
    * ApiGatewayHttpToMCP
@@ -359,7 +363,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
    * The description.
    * 
    * @example
-   * Test MCP server
+   * Dedicated MCP server for testing
    */
   description?: string;
   /**
@@ -398,12 +402,20 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The canary route configurations.
+   * The canary route configuration.
    */
   grayMcpServerConfigs?: GetMcpServerResponseBodyDataGrayMcpServerConfigs[];
   /**
    * @remarks
-   * The route match rule.
+   * The MCP service instructions.
+   * 
+   * @example
+   * Used to query order status. An order number is required for the query
+   */
+  instructions?: string;
+  /**
+   * @remarks
+   * The match rule of the route.
    * 
    * @example
    * {\\"product_code\\":\\"apigw\\"}
@@ -419,7 +431,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   mcpServerConfig?: string;
   /**
    * @remarks
-   * The attachment ID of the MCP server plugin configuration.
+   * The mount ID of the MCP server plugin configuration.
    * 
    * @example
    * pa-adfaefwaef
@@ -451,7 +463,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   mcpStatisticsEnable?: boolean;
   /**
    * @remarks
-   * The information about Nacos-synchronized managed MCP.
+   * The information about the MCP server synced and hosted by Nacos.
    */
   nacosMcpSyncInfo?: GetMcpServerResponseBodyDataNacosMcpSyncInfo;
   /**
@@ -464,7 +476,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The service protocol.
+   * The protocol.
    * 
    * @example
    * HTTP
@@ -500,6 +512,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
       exposedUriPath: 'exposedUriPath',
       gatewayId: 'gatewayId',
       grayMcpServerConfigs: 'grayMcpServerConfigs',
+      instructions: 'instructions',
       match: 'match',
       mcpServerConfig: 'mcpServerConfig',
       mcpServerConfigPluginAttachmentId: 'mcpServerConfigPluginAttachmentId',
@@ -528,6 +541,7 @@ export class GetMcpServerResponseBodyData extends $dara.Model {
       exposedUriPath: 'string',
       gatewayId: 'string',
       grayMcpServerConfigs: { 'type': 'array', 'itemType': GetMcpServerResponseBodyDataGrayMcpServerConfigs },
+      instructions: 'string',
       match: HttpRouteMatch,
       mcpServerConfig: 'string',
       mcpServerConfigPluginAttachmentId: 'string',

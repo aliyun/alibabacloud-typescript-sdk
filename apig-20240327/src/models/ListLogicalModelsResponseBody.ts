@@ -95,7 +95,7 @@ export class ListLogicalModelsResponseBodyDataItemsDeployment extends $dara.Mode
 export class ListLogicalModelsResponseBodyDataItemsFallbackTargets extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source model card within the same instance.
+   * The ID of the actual source card within the same instance.
    * 
    * This parameter is required.
    * 
@@ -197,7 +197,7 @@ export class ListLogicalModelsResponseBodyDataItemsMeta extends $dara.Model {
 export class ListLogicalModelsResponseBodyDataItemsSlotsComplex extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source model card within the same instance. The ID starts with "msc-". VMs or service overrides are not supported.
+   * The ID of the actual source card within the same instance. The ID starts with "msc-". VMs or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -229,7 +229,7 @@ export class ListLogicalModelsResponseBodyDataItemsSlotsComplex extends $dara.Mo
 export class ListLogicalModelsResponseBodyDataItemsSlotsSimple extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source model card within the same instance. The ID starts with "msc-". VMs or service overrides are not supported.
+   * The ID of the actual source card within the same instance. The ID starts with "msc-". VMs or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -261,7 +261,7 @@ export class ListLogicalModelsResponseBodyDataItemsSlotsSimple extends $dara.Mod
 export class ListLogicalModelsResponseBodyDataItemsSlotsStandard extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source model card within the same instance. The ID starts with "msc-". VMs or service overrides are not supported.
+   * The ID of the actual source card within the same instance. The ID starts with "msc-". VMs or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -359,7 +359,7 @@ export class ListLogicalModelsResponseBodyDataItemsTargets extends $dara.Model {
   modelCardId?: string;
   /**
    * @remarks
-   * The weight. The value must be an integer from 0 to 10000 and is saved as is. A value of 0 is allowed for the Mapping policy.
+   * The weight. The value is an integer from 0 to 10000 and is saved as the original value. A value of 0 is allowed for the Mapping policy.
    * 
    * This parameter is required.
    * 
@@ -411,7 +411,7 @@ export class ListLogicalModelsResponseBodyDataItems extends $dara.Model {
   deployment?: ListLogicalModelsResponseBodyDataItemsDeployment;
   /**
    * @remarks
-   * The ordered fallback targets. A maximum of 5 fallback targets are supported. The targets are deduplicated by the actual card ID. This can be an empty array.
+   * The ordered fallback targets. A maximum of 5 fallback targets are supported. The targets are deduplicated by the actual card ID. This parameter can be an empty array.
    */
   fallbackTargets?: ListLogicalModelsResponseBodyDataItemsFallbackTargets[];
   /**
@@ -432,7 +432,7 @@ export class ListLogicalModelsResponseBodyDataItems extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The ID of the logical model. The ID starts with "vm-".
+   * The logical model ID. The ID starts with "vm-".
    * 
    * @example
    * vm-xxxxxxxx
@@ -445,7 +445,7 @@ export class ListLogicalModelsResponseBodyDataItems extends $dara.Model {
   meta?: ListLogicalModelsResponseBodyDataItemsMeta;
   /**
    * @remarks
-   * The client logical call name. The name must be encoded in UTF-8, up to 256 bytes in length, contain no whitespace or slashes, and not start with "auto".
+   * The client logical call name. It supports a maximum of 256 bytes in UTF-8, must not contain spaces or slashes, and must not start with "auto".
    * 
    * @example
    * chat-entry
@@ -466,7 +466,7 @@ export class ListLogicalModelsResponseBodyDataItems extends $dara.Model {
   responseModel?: string;
   /**
    * @remarks
-   * The object version number. The initial value is 1 upon creation and increments with each successful update.
+   * The object version number. The initial value is 1 upon creation and increments after each successful update.
    * 
    * @example
    * 1
@@ -487,7 +487,7 @@ export class ListLogicalModelsResponseBodyDataItems extends $dara.Model {
   slots?: ListLogicalModelsResponseBodyDataItemsSlots;
   /**
    * @remarks
-   * The primary targets. For the Mapping policy, exactly one target is allowed. For the Weighted policy, the sum of the original relative weights must be greater than 0. For the Auto policy, this must be an empty array.
+   * The primary targets. For the Mapping policy, exactly one target is allowed. For the Weighted policy, the sum of original relative weights must be greater than 0. For the Auto policy, this must be an empty array.
    */
   targets?: ListLogicalModelsResponseBodyDataItemsTargets[];
   /**
@@ -586,7 +586,7 @@ export class ListLogicalModelsResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The cursor token for querying the next page. This parameter is not returned if no more data exists.
+   * The cursor token for querying the next page. This parameter is not returned if no more data is available.
    * 
    * @example
    * next-token-xxxxxxxx

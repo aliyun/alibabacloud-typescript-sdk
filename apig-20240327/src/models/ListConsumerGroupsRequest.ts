@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListConsumerGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The gateway type. Valid values: API and AI. Note: This parameter is required. If it is not provided, the API returns the InvalidParameter.IsEmpty (400) error with the message "Parameter gatewayType should not be empty.".
+   * The gateway type. Valid values: API and AI. Note: This parameter is actually required. If it is not provided, the API returns InvalidParameter.IsEmpty(400) "Parameter gatewayType should not be empty."
    * 
    * @example
    * API

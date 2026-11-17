@@ -13,7 +13,7 @@ export class CreateModelGroupResponseBodyDataConfigurationDeployment extends $da
   operationId?: string;
   /**
    * @remarks
-   * The group version corresponding to the task. It may be earlier than the current group version.
+   * The group version corresponding to the task. This version may be earlier than the current group version.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class CreateModelGroupResponseBodyDataConfigurationDeployment extends $da
   revision?: number;
   /**
    * @remarks
-   * The deployment status. Valid values: Pending, Running, Succeeded, Failed, and PartiallyFailed.
+   * The status of the deployment. Valid values: Pending, Running, Succeeded, Failed, and PartiallyFailed.
    * 
    * @example
    * Succeeded
@@ -63,7 +63,7 @@ export class CreateModelGroupResponseBodyDataEntitlementState extends $dara.Mode
   appliedRevision?: number;
   /**
    * @remarks
-   * The expected entitlement revision number to be delivered.
+   * The desired entitlement revision number to be delivered.
    * 
    * @example
    * 2
@@ -71,7 +71,7 @@ export class CreateModelGroupResponseBodyDataEntitlementState extends $dara.Mode
   desiredRevision?: number;
   /**
    * @remarks
-   * The error message when processing fails. This parameter is empty if no error occurs.
+   * The error message when processing fails. This field is empty if no errors occur.
    * 
    * @example
    * Configuration delivery failed
@@ -79,7 +79,7 @@ export class CreateModelGroupResponseBodyDataEntitlementState extends $dara.Mode
   errorMessage?: string;
   /**
    * @remarks
-   * The entitlement status. Valid values: Pending, Applying, Committed, and Failed. Committed only indicates that the control plane has submitted and read back the configuration, and does not guarantee acknowledgment from all pods.
+   * The status of the entitlement. Valid values: Pending, Applying, Committed, and Failed. Committed indicates that the control plane has submitted and read back the configuration, but does not guarantee acknowledgment from all pods.
    * 
    * @example
    * Committed
@@ -115,7 +115,7 @@ export class CreateModelGroupResponseBodyDataEntitlementState extends $dara.Mode
 export class CreateModelGroupResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The summary of the most recent group configuration deployment returned by GetModelGroup. This is independent of the API release and entitlement status. It is omitted when no task exists and does not indicate success. A revision that matches the current version indicates the current version. This field is not guaranteed to be populated in list operations.
+   * The summary of the most recent group configuration deployment returned by GetModelGroup. This is independent of the API release and entitlement status. It is omitted when no task exists and does not indicate success. The deployment represents the current version only when the revision matches the current version. This field is not guaranteed to be populated in list operations.
    */
   configurationDeployment?: CreateModelGroupResponseBodyDataConfigurationDeployment;
   /**
@@ -225,7 +225,7 @@ export class CreateModelGroupResponseBodyData extends $dara.Model {
 export class CreateModelGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. The value is Ok if the request is successful, or a specific business error code if the request fails.
+   * The response status code. The value is Ok for successful requests, or a specific business error code for failed requests.
    * 
    * @example
    * Ok

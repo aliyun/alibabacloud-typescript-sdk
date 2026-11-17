@@ -8,7 +8,7 @@ import { JwtIdentityConfig } from "./JwtIdentityConfig";
 export class GetConsumerResponseBodyDataConsumerGroups extends $dara.Model {
   /**
    * @remarks
-   * The consumer group ID.
+   * The ID of the consumer group.
    * 
    * @example
    * csg-8c13d2b4f8a1
@@ -16,15 +16,15 @@ export class GetConsumerResponseBodyDataConsumerGroups extends $dara.Model {
   consumerGroupId?: string;
   /**
    * @remarks
-   * The consumer group description.
+   * The description of the consumer group.
    * 
    * @example
-   * Grouping for production API call invokers
+   * Used to group production API call invokers
    */
   description?: string;
   /**
    * @remarks
-   * The time when the consumer joined the consumer group, represented as a UNIX timestamp in milliseconds.
+   * The time when the consumer joined the consumer group, as a Unix timestamp in milliseconds.
    * 
    * @example
    * 1715769600000
@@ -32,7 +32,7 @@ export class GetConsumerResponseBodyDataConsumerGroups extends $dara.Model {
   joinTimestamp?: number;
   /**
    * @remarks
-   * The consumer group name.
+   * The name of the consumer group.
    * 
    * @example
    * api-consumer-group
@@ -68,7 +68,7 @@ export class GetConsumerResponseBodyDataConsumerGroups extends $dara.Model {
 export class GetConsumerResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AKSK identity authentication configuration.
+   * The AccessKey pair identity authentication configuration.
    */
   akSkIdentityConfigs?: AkSkIdentityConfig[];
   /**
@@ -83,7 +83,7 @@ export class GetConsumerResponseBodyData extends $dara.Model {
   consumerGroups?: GetConsumerResponseBodyDataConsumerGroups[];
   /**
    * @remarks
-   * The consumer ID.
+   * The ID of the consumer.
    * 
    * @example
    * cs-cvgbtk6m1hkji5sb8dr0
@@ -110,12 +110,12 @@ export class GetConsumerResponseBodyData extends $dara.Model {
    * The description.
    * 
    * @example
-   * Test consumer
+   * Consumer dedicated for testing
    */
   description?: string;
   /**
    * @remarks
-   * Indicates whether the consumer is enabled.
+   * Specifies whether the consumer is enabled.
    * 
    * @example
    * true
@@ -123,12 +123,28 @@ export class GetConsumerResponseBodyData extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
+   * The expiration time of the consumer in UTC Unix seconds. A null value indicates permanent validity and does not affect the enable or disable semantics of the enable parameter.
+   * 
+   * @example
+   * 1893456000
+   */
+  expireAt?: number;
+  /**
+   * @remarks
+   * The validity status calculated based on the current time. Valid values: Permanent: permanently valid. InEffect: more than seven days remaining. AboutToExpire: more than zero and up to seven days remaining. Expired: the expiration time has been reached.
+   * 
+   * @example
+   * InEffect
+   */
+  expireStatus?: string;
+  /**
+   * @remarks
    * The JWT identity authentication configuration.
    */
   jwtIdentityConfig?: JwtIdentityConfig;
   /**
    * @remarks
-   * The consumer name.
+   * The name of the consumer.
    * 
    * @example
    * consumer-1
@@ -152,6 +168,8 @@ export class GetConsumerResponseBodyData extends $dara.Model {
       deployStatus: 'deployStatus',
       description: 'description',
       enable: 'enable',
+      expireAt: 'expireAt',
+      expireStatus: 'expireStatus',
       jwtIdentityConfig: 'jwtIdentityConfig',
       name: 'name',
       updateTimestamp: 'updateTimestamp',
@@ -168,6 +186,8 @@ export class GetConsumerResponseBodyData extends $dara.Model {
       deployStatus: 'string',
       description: 'string',
       enable: 'boolean',
+      expireAt: 'number',
+      expireStatus: 'string',
       jwtIdentityConfig: JwtIdentityConfig,
       name: 'string',
       updateTimestamp: 'number',

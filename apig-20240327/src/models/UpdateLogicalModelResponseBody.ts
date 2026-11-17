@@ -45,7 +45,7 @@ export class UpdateLogicalModelResponseBodyDataAvailablePaths extends $dara.Mode
 export class UpdateLogicalModelResponseBodyDataDeployment extends $dara.Model {
   /**
    * @remarks
-   * The ID of the current shared configuration delivery.
+   * The operation ID for the current shared configuration deployment.
    * 
    * @example
    * op-d00000000000000000000
@@ -53,7 +53,7 @@ export class UpdateLogicalModelResponseBodyDataDeployment extends $dara.Model {
   operationId?: string;
   /**
    * @remarks
-   * The configuration version of the object.
+   * The revision of the object configuration.
    * 
    * @example
    * 1
@@ -127,7 +127,7 @@ export class UpdateLogicalModelResponseBodyDataFallbackTargets extends $dara.Mod
 export class UpdateLogicalModelResponseBodyDataMeta extends $dara.Model {
   /**
    * @remarks
-   * The minimum value when all primary targets are known. Otherwise, this field is omitted.
+   * The minimum value among all primary targets when known. Otherwise, this field is omitted.
    * 
    * @example
    * 32768
@@ -135,7 +135,7 @@ export class UpdateLogicalModelResponseBodyDataMeta extends $dara.Model {
   maxInputTokens?: number;
   /**
    * @remarks
-   * The minimum value when all primary targets are known. Otherwise, this field is omitted.
+   * The minimum value among all primary targets when known. Otherwise, this field is omitted.
    * 
    * @example
    * 8192
@@ -143,7 +143,7 @@ export class UpdateLogicalModelResponseBodyDataMeta extends $dara.Model {
   maxOutputTokens?: number;
   /**
    * @remarks
-   * The minimum value when all primary targets are known. Otherwise, this field is omitted.
+   * The minimum value among all primary targets when known. Otherwise, this field is omitted.
    * 
    * @example
    * 40960
@@ -151,12 +151,12 @@ export class UpdateLogicalModelResponseBodyDataMeta extends $dara.Model {
   maxTokens?: number;
   /**
    * @remarks
-   * The intersection of supported input modalities for the primary targets.
+   * The intersection of supported input modalities for the primary target.
    */
   supportedInputModalities?: string[];
   /**
    * @remarks
-   * The intersection of supported input modalities for the primary targets.
+   * The intersection of supported input modalities for the primary target.
    */
   supportedOutputModalities?: string[];
   static names(): { [key: string]: string } {
@@ -197,7 +197,7 @@ export class UpdateLogicalModelResponseBodyDataMeta extends $dara.Model {
 export class UpdateLogicalModelResponseBodyDataSlotsComplex extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source card in the same instance. The ID starts with msc-. Virtual machines or service overrides are not supported.
+   * The ID of the actual source card in the same instance. The ID starts with msc-. VMs or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -229,7 +229,7 @@ export class UpdateLogicalModelResponseBodyDataSlotsComplex extends $dara.Model 
 export class UpdateLogicalModelResponseBodyDataSlotsSimple extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source card in the same instance. The ID starts with msc-. Virtual machines or service overrides are not supported.
+   * The ID of the actual source card in the same instance. The ID starts with msc-. VMs or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -261,7 +261,7 @@ export class UpdateLogicalModelResponseBodyDataSlotsSimple extends $dara.Model {
 export class UpdateLogicalModelResponseBodyDataSlotsStandard extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source card in the same instance. The ID starts with msc-. Virtual machines or service overrides are not supported.
+   * The ID of the actual source card in the same instance. The ID starts with msc-. VMs or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -349,7 +349,7 @@ export class UpdateLogicalModelResponseBodyDataSlots extends $dara.Model {
 export class UpdateLogicalModelResponseBodyDataTargets extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source model card in the same instance. The ID starts with msc-. Virtual machines or service overrides are not supported.
+   * The ID of the actual source model card in the same instance. The ID starts with msc-. VMs or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -359,7 +359,7 @@ export class UpdateLogicalModelResponseBodyDataTargets extends $dara.Model {
   modelCardId?: string;
   /**
    * @remarks
-   * The weight. Valid values: integers from 0 to 10000. The original value is saved. For Mapping, 0 is allowed.
+   * The weight. Valid values: integers from 0 to 10000. The original value is preserved. For Mapping, 0 is allowed.
    * 
    * This parameter is required.
    * 
@@ -393,12 +393,12 @@ export class UpdateLogicalModelResponseBodyDataTargets extends $dara.Model {
 export class UpdateLogicalModelResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The intersection of all supported paths for the primary targets.
+   * The intersection of supported paths for all primary targets.
    */
   availablePaths?: UpdateLogicalModelResponseBodyDataAvailablePaths[];
   /**
    * @remarks
-   * Returned for the new Auto version as balanced, cheap, fast, or quality. Omitted for legacy configurations, where the base name remains balanced. Omitted for Mapping and Weighted configurations.
+   * Returned in the new version of Auto mode. Valid values: balanced, cheap, fast, and quality. This field may be omitted for legacy configurations, where the base name remains balanced. Omitted for Mapping and Weighted modes.
    * 
    * @example
    * balanced
@@ -406,17 +406,17 @@ export class UpdateLogicalModelResponseBodyData extends $dara.Model {
   callStrategy?: string;
   /**
    * @remarks
-   * The independent configuration delivery corresponding to the save intent. Acceptance does not indicate that the configuration has taken effect.
+   * The deployment of the independent configuration corresponding to the save intent. Acceptance does not indicate that the configuration has taken effect.
    */
   deployment?: UpdateLogicalModelResponseBodyDataDeployment;
   /**
    * @remarks
-   * The ordered fallback targets. A maximum of 5 targets are supported. The targets are deduplicated by actual card ID. This can be an empty array.
+   * The ordered fallback targets. A maximum of 5 targets are supported. The targets are deduplicated by the actual card ID. This can be an empty array.
    */
   fallbackTargets?: UpdateLogicalModelResponseBodyDataFallbackTargets[];
   /**
    * @remarks
-   * The intersection of Boolean features for the primary targets.
+   * The intersection of boolean features for the primary target.
    * 
    * @example
    * {"nativeStreaming":true}
@@ -424,7 +424,7 @@ export class UpdateLogicalModelResponseBodyData extends $dara.Model {
   features?: { [key: string]: any };
   /**
    * @remarks
-   * The associated instance.
+   * The ID of the associated instance.
    * 
    * @example
    * gw-d00000000000000000000
@@ -432,7 +432,7 @@ export class UpdateLogicalModelResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The logical model ID of the independent VM.
+   * The logical model ID of the independent virtual machine.
    * 
    * @example
    * vm-d00000000000000000000
@@ -445,7 +445,7 @@ export class UpdateLogicalModelResponseBodyData extends $dara.Model {
   meta?: UpdateLogicalModelResponseBodyDataMeta;
   /**
    * @remarks
-   * The client logical call name. It can be up to 256 bytes in UTF-8 encoding, must not contain spaces or slashes, and must not start with auto.
+   * The client logical invocation name. It must be encoded in UTF-8 and can be up to 256 bytes in length. It cannot contain spaces or slashes, and cannot start with auto.
    * 
    * @example
    * beta-chat
@@ -453,12 +453,12 @@ export class UpdateLogicalModelResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Returned only for Auto. Set to true if the AI Credits Router commodity is not activated, and false if it is activated. Omitted if the read fails or the status is unknown. Omitted for Mapping and Weighted configurations.
+   * Returned only in Auto mode. Set to true if the AI Credits Router commodity is not activated, and false if it is activated. Omitted if the read fails or the status is unknown. Omitted for Mapping and Weighted modes.
    */
   requiresActivation?: boolean;
   /**
    * @remarks
-   * The response model. Actual returns the public name of the actual model, and Logical returns the entry name, including Server-Sent Events (SSE).
+   * The response model. If set to Actual, the public name of the actual model is returned. If set to Logical, the entry name is returned, including Server-Sent Events (SSE).
    * 
    * @example
    * Actual
@@ -466,7 +466,7 @@ export class UpdateLogicalModelResponseBodyData extends $dara.Model {
   responseModel?: string;
   /**
    * @remarks
-   * The revision number. Initialized to 1 upon creation and incremented upon each successful update.
+   * The revision number. The initial value is 1 upon creation, and it increments upon each successful update.
    * 
    * @example
    * 1
@@ -482,7 +482,7 @@ export class UpdateLogicalModelResponseBodyData extends $dara.Model {
   routingPolicy?: string;
   /**
    * @remarks
-   * Returned only for Auto. Includes 1 to 3 source cards for simple, standard, or complex configurations. The three slots are globally deduplicated by modelCardId. Omitted for Mapping and Weighted configurations.
+   * Returned only in Auto mode. Includes 1 to 3 source cards for simple, standard, or complex types. The three slots are globally deduplicated by modelCardId. Omitted for Mapping and Weighted modes.
    */
   slots?: UpdateLogicalModelResponseBodyDataSlots;
   /**
@@ -492,7 +492,7 @@ export class UpdateLogicalModelResponseBodyData extends $dara.Model {
   targets?: UpdateLogicalModelResponseBodyDataTargets[];
   /**
    * @remarks
-   * The business modification time. Dry runs do not advance this time. The time is formatted in ISO 8601 (RFC 3339) in the UTC time zone, such as 2026-11-12T00:00:00Z.
+   * The time when the business was updated. This time is not updated during dry runs. The time is formatted in the ISO 8601 (RFC 3339) standard in UTC, such as 2026-11-12T00:00:00Z.
    * 
    * @example
    * 2026-11-12T00:00:00Z
@@ -586,7 +586,7 @@ export class UpdateLogicalModelResponseBody extends $dara.Model {
   data?: UpdateLogicalModelResponseBodyData;
   /**
    * @remarks
-   * The response message that describes the result of the request.
+   * The response message that describes the request processing result.
    * 
    * @example
    * success

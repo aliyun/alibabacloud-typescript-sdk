@@ -13,16 +13,15 @@ export class ListPrivateLinkSecurityGroupsResponseBodyDataItems extends $dara.Mo
   securityGroupId?: string;
   /**
    * @remarks
-   * The security group name.
+   * The name of the security group.
    * 
    * @example
-   * Product Center Cluster Security Group
+   * Product Center cluster security group
    */
   securityGroupName?: string;
   /**
    * @remarks
    * Specifies whether the resource is created by a service account. Valid values:
-   * 
    * - 0: Not created by a service account.
    * - 1: Created by a service account.
    */
@@ -70,7 +69,7 @@ export class ListPrivateLinkSecurityGroupsResponseBodyData extends $dara.Model {
   items?: ListPrivateLinkSecurityGroupsResponseBodyDataItems[];
   /**
    * @remarks
-   * The maximum number of entries returned in this query.
+   * The maximum number of results returned in this query.
    * 
    * @example
    * 100
@@ -78,7 +77,7 @@ export class ListPrivateLinkSecurityGroupsResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The next token.
+   * The token for the next page.
    * 
    * @example
    * None

@@ -71,7 +71,7 @@ export class GetModelGroupResponseBodyDataEntitlementState extends $dara.Model {
   desiredRevision?: number;
   /**
    * @remarks
-   * The error message when entitlement fails. This field is not returned when no error occurs.
+   * The error message when entitlement fails. This parameter is not returned when no error occurs.
    * 
    * @example
    * Entitlement synchronization failed
@@ -79,7 +79,7 @@ export class GetModelGroupResponseBodyDataEntitlementState extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The entitlement status. Valid values: Pending, Applying, Committed, and Failed. Committed only indicates that the control plane has successfully submitted and read back the configuration, and does not guarantee that all nodes have acknowledged it.
+   * The entitlement status. Valid values: Pending, Applying, Committed, and Failed. Committed only indicates that the control plane has successfully submitted and read back the status, and does not mean that all nodes have acknowledged it.
    * 
    * @example
    * Committed
@@ -115,15 +115,15 @@ export class GetModelGroupResponseBodyDataEntitlementState extends $dara.Model {
 export class GetModelGroupResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The summary of the latest group configuration deployment, which is independent of API release and entitlement status. This field is not returned when no deployment task exists, and its presence does not indicate success. It represents the current version only when the revision matches the current version. List operations do not guarantee that this field is populated.
+   * The summary of the latest group configuration deployment, which is independent of API release and entitlement status. This parameter is not returned when no deployment task exists, and its return does not indicate success. It represents the current version only when the revision matches the current version. List operations do not guarantee that this parameter is populated.
    */
   configurationDeployment?: GetModelGroupResponseBodyDataConfigurationDeployment;
   /**
    * @remarks
-   * The model group description.
+   * The description of the model group.
    * 
    * @example
-   * A model group for conversation scenarios
+   * A model group for conversational scenarios
    */
   description?: string;
   /**
@@ -133,7 +133,7 @@ export class GetModelGroupResponseBodyData extends $dara.Model {
   entitlementState?: GetModelGroupResponseBodyDataEntitlementState;
   /**
    * @remarks
-   * The gateway instance ID.
+   * The ID of the gateway instance.
    * 
    * @example
    * gw-xxxxxxxx
@@ -146,7 +146,7 @@ export class GetModelGroupResponseBodyData extends $dara.Model {
   modelCardIds?: string[];
   /**
    * @remarks
-   * The model group ID.
+   * The ID of the model group.
    * 
    * @example
    * mg-xxxxxxxx
@@ -154,7 +154,7 @@ export class GetModelGroupResponseBodyData extends $dara.Model {
   modelGroupId?: string;
   /**
    * @remarks
-   * The model group name.
+   * The name of the model group.
    * 
    * @example
    * chat-group
@@ -170,7 +170,7 @@ export class GetModelGroupResponseBodyData extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The model group version number.
+   * The version number of the model group.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListPrivateLinkSecurityGroupsRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return.
+   * The maximum number of results to return.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class ListPrivateLinkSecurityGroupsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The next token.
+   * The token for the next page.
    * 
    * @example
    * next-token-xxxxxxxx
@@ -21,7 +21,7 @@ export class ListPrivateLinkSecurityGroupsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the VPC owned by the currently authorized user. The candidate security groups must belong to this VPC.
+   * The ID of the VPC owned by the authorized user. The candidate security groups must belong to this VPC.
    * 
    * This parameter is required.
    * 

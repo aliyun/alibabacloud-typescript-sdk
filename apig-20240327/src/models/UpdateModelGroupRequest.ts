@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateModelGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The description. This field can be null and contains up to 1,024 UTF-16 code units.
+   * The nullable description. The maximum length is 1024 UTF-16 code units.
    * 
    * @example
-   * Model group for business integration
+   * Model group for service integration
    */
   description?: string;
   /**
    * @remarks
-   * The group version obtained from the most recent Get operation. A stale version returns Conflict.ModelGroupChanged. Submitting the same expectedVersion, name, description, and modelCardIds as-is retries the Failed or PartiallyFailed configuration of the same version, reuses the operationId, and does not increment the group version. Pending, Running, or Succeeded states are not forcibly reset.
+   * The group version obtained from the most recent Get operation. A stale version returns Conflict.ModelGroupChanged. Submitting the same expectedVersion, name, description, and modelCardIds retries the Failed or PartiallyFailed configuration for the same version, reuses the operationId, and does not increment the group version. Pending, Running, or Succeeded states are not forcibly reset.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UpdateModelGroupRequest extends $dara.Model {
   expectedVersion?: number;
   /**
    * @remarks
-   * The actual or logical model identities within the same instance. This field can be null and must not contain duplicates. Model groups are not accepted as members.
+   * The actual or logical model identities within the same instance. The list can be null and must not contain duplicates. Model groups are not accepted as members.
    * 
    * This parameter is required.
    */

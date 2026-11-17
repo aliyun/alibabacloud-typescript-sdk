@@ -27,7 +27,7 @@ export class CreateSecretRequest extends $dara.Model {
   kmsConfig?: KMSConfig;
   /**
    * @remarks
-   * The name of the secret. The name can contain letters, digits, and underscores (_) and cannot exceed 64 characters in length.
+   * The name of the secret. The name can contain letters, digits, and underscores (_) and can be up to 64 characters in length.
    * 
    * @example
    * my_secret
@@ -35,7 +35,7 @@ export class CreateSecretRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The KMS secret value.
+   * The KMS secret value. This parameter is required. If this parameter is omitted, the API returns InvalidParameter.IsEmpty(400). Because secretSource only supports KMS, you must always provide this parameter in actual calls.
    * 
    * @example
    * apikey-123456xxxxxxxx

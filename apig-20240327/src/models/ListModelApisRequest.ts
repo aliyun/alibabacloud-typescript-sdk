@@ -26,7 +26,7 @@ export class ListModelApisRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The name for an exact search.
+   * The API name for exact search.
    * 
    * @example
    * beta-model-api

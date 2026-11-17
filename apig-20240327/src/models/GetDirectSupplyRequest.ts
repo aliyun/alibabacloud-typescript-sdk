@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDirectSupplyRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the gateway instance for which to query direct-supply models.
+   * The ID of the gateway instance for which you want to query direct-supply models.
    * 
    * This parameter is required.
    * 

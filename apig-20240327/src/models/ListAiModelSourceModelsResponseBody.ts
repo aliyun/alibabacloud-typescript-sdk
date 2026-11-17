@@ -69,7 +69,7 @@ export class ListAiModelSourceModelsResponseBodyDataItemsCredit extends $dara.Mo
   outputCost?: number;
   /**
    * @remarks
-   * The pricing method. Valid values: fixed (fixed credit pricing).
+   * The pricing method. Currently, only fixed is supported, which indicates fixed credit pricing.
    * 
    * @example
    * fixed
@@ -206,7 +206,7 @@ export class ListAiModelSourceModelsResponseBodyDataItems extends $dara.Model {
   meta?: ListAiModelSourceModelsResponseBodyDataItemsMeta;
   /**
    * @remarks
-   * The model identifier. The source model card ID is used for standard models, and the vm- prefix is used for logical model entries.
+   * The model identifier. Standard models use the source model card ID, and logical model entries use the vm- prefix.
    * 
    * @example
    * msc-d00000000000000000000
@@ -246,7 +246,7 @@ export class ListAiModelSourceModelsResponseBodyDataItems extends $dara.Model {
   modelSourceName?: string;
   /**
    * @remarks
-   * The current version of the model source to which the model belongs.
+   * The current version of the associated model source.
    * 
    * @example
    * 1
@@ -254,7 +254,7 @@ export class ListAiModelSourceModelsResponseBodyDataItems extends $dara.Model {
   modelSourceVersion?: number;
   /**
    * @remarks
-   * The synchronization status of the model pricing configuration. A value of Pending indicates that the current version is not synchronized, and Ready indicates that it is synchronized.
+   * The synchronization status of the model pricing configuration. Pending indicates that the current version is not synchronized, and Ready indicates that it is synchronized.
    * 
    * @example
    * Ready
@@ -358,7 +358,7 @@ export class ListAiModelSourceModelsResponseBodyDataItems extends $dara.Model {
 export class ListAiModelSourceModelsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of models in the model source returned on the current page.
+   * The list of models in the source returned on the current page.
    */
   items?: ListAiModelSourceModelsResponseBodyDataItems[];
   /**
@@ -371,7 +371,7 @@ export class ListAiModelSourceModelsResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned from the previous page. Omit this parameter when querying the first page.
+   * The pagination token returned from the previous page. Do not specify this parameter when you query the first page.
    * 
    * @example
    * eyJvZmZzZXQiOjIwfQ==
@@ -418,7 +418,7 @@ export class ListAiModelSourceModelsResponseBodyData extends $dara.Model {
 export class ListAiModelSourceModelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. A value of Ok indicates success, and a specific business error code indicates failure.
+   * The response status code. Ok is returned for successful requests, and a specific business error code is returned for failed requests.
    * 
    * @example
    * Ok
@@ -426,7 +426,7 @@ export class ListAiModelSourceModelsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The business result returned for the model source operation.
+   * The business result returned by the model source operation.
    */
   data?: ListAiModelSourceModelsResponseBodyData;
   /**

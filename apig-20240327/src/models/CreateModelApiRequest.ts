@@ -7,7 +7,7 @@ import { ModelApiPolicyConfig } from "./ModelApiPolicyConfig";
 export class CreateModelApiRequest extends $dara.Model {
   /**
    * @remarks
-   * The API access prefix. The default value is / for creation. If this parameter is omitted during an update, the original value is retained.
+   * The API access prefix. The default value is / during creation. If omitted during an update, the original value is retained.
    * 
    * @example
    * /beta
@@ -15,7 +15,7 @@ export class CreateModelApiRequest extends $dara.Model {
   basePath?: string;
   /**
    * @remarks
-   * The description of the model API. If this parameter is omitted during an update, the original value is retained.
+   * The description of the model API. If omitted during an update, the original value is retained.
    * 
    * @example
    * Model API for service integration
@@ -23,7 +23,7 @@ export class CreateModelApiRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Specifies whether to enable the direct supply fallback. If this parameter is omitted during creation, the default value is false. This does not implicitly generate paid fallback traffic. Only an explicit value of true is allowed to enable this feature.
+   * Specifies whether to enable direct supply fallback. If omitted during creation, the default value is false, which does not implicitly generate pay-as-you-go tail charges. Only an explicit true value is allowed.
    * 
    * **if can be null:**
    * false
@@ -31,7 +31,7 @@ export class CreateModelApiRequest extends $dara.Model {
   directSupplyFallbackEnabled?: boolean;
   /**
    * @remarks
-   * The IDs of the selected custom or default instance domain names. This parameter must be explicitly specified and cannot be empty during creation. If this parameter is omitted during an update, the original value is retained. If this parameter is submitted, it replaces the entire list and cannot be empty.
+   * The IDs of the selected custom or default domain names of the instance. This parameter must be explicitly specified and non-empty during creation. If omitted during an update, the original value is retained. Submitted values replace the entire list and cannot be empty.
    * 
    * This parameter is required.
    * 
@@ -41,12 +41,12 @@ export class CreateModelApiRequest extends $dara.Model {
   domainIds?: string[];
   /**
    * @remarks
-   * Specifies whether to enable consumer API key authentication. If this parameter is omitted during an update, the original value is retained. The type is fixed to Apikey or Custom.
+   * Specifies whether to enable API key authentication for consumers. If omitted during an update, the original value is retained. The type is fixed to Apikey or Custom.
    */
   enableAuth?: boolean;
   /**
    * @remarks
-   * The time to first byte (TTFB) timeout.
+   * The time to first byte timeout.
    * 
    * @example
    * 30000
@@ -64,7 +64,7 @@ export class CreateModelApiRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * Specifies whether to explicitly perform the initial configuration. If this parameter is omitted or set to false, the standard multi-API creation is retained. If this parameter is set to true, the name must be explicitly set to default, the basePath must be set to /, and the clientToken must not be empty. Additionally, when saving, multi-API management must be disabled and the number of complete new-version APIs must be zero.
+   * Specifies whether to explicitly perform the initial configuration. If omitted or set to false, standard multi-API creation is retained. If set to true, name=default, basePath=/, and a non-empty clientToken are required. Additionally, multi-API management must be disabled and the number of complete new-version APIs must be zero when saving.
    * 
    * **if can be null:**
    * false
@@ -72,7 +72,7 @@ export class CreateModelApiRequest extends $dara.Model {
   initialConfiguration?: boolean;
   /**
    * @remarks
-   * The model selection. This parameter is required for creation. If this parameter is omitted during an update, the original value is retained. If this parameter is submitted, it replaces the entire configuration.
+   * The model selection. This parameter is required during creation. If omitted during an update, the original value is retained. Submitted values replace the entire configuration.
    * 
    * This parameter is required.
    * 
@@ -92,7 +92,7 @@ export class CreateModelApiRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The configurations for AI request logging and AI security protection. If this parameter is omitted during an update, the original value is retained. If this parameter is submitted, it replaces the inline policies of both types. An empty array clears both types. Independent token quotas are not affected.
+   * The configurations for AI request logging and AI security protection. If omitted during an update, the original value is retained. Submitted values replace the two types of inline policies entirely. An empty array clears both types. Independent token quotas are not affected.
    * 
    * **if can be null:**
    * false
@@ -108,7 +108,7 @@ export class CreateModelApiRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The idempotency token. It is a globally unique value generated by the caller, such as a UUID, and can be up to 64 characters in length. If a repeated request with the same client token and identical request parameters is sent within 24 hours after the first request succeeds, the system directly returns the result of the first creation. If the parameters are inconsistent or the first request is still being processed, the system returns a corresponding idempotency error. If this parameter is not specified, the original creation behavior is maintained.
+   * The idempotency identity. It is a globally unique value generated by the invoker, such as a UUID, and cannot exceed 64 characters in length. Within approximately 24 hours after the initial request succeeds, repeated requests with the same clientToken and identical request parameters return the result of the initial creation. If the request parameters are inconsistent or the initial request is still being processed, a corresponding idempotency error is returned. If this parameter is omitted, the default creation behavior applies.
    * 
    * @example
    * create-model-api-client-token-001

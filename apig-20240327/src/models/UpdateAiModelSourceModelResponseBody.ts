@@ -45,7 +45,7 @@ export class UpdateAiModelSourceModelResponseBodyDataAvailablePaths extends $dar
 export class UpdateAiModelSourceModelResponseBodyDataCredit extends $dara.Model {
   /**
    * @remarks
-   * The number of credits per million cached input tokens. This value must be a non-negative number. Set this value to 0 to indicate that cached input is free.
+   * The number of credits per million cached input tokens. The value must be a non-negative number. A value of 0 indicates that cached input is free of charge.
    * 
    * @example
    * 0.1
@@ -53,7 +53,7 @@ export class UpdateAiModelSourceModelResponseBodyDataCredit extends $dara.Model 
   cacheCost?: number;
   /**
    * @remarks
-   * The number of credits per million input tokens. This value must be a non-negative number. Set this value to 0 to indicate that the input is free.
+   * The number of credits per million input tokens. The value must be a non-negative number. A value of 0 indicates that input is free of charge.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class UpdateAiModelSourceModelResponseBodyDataCredit extends $dara.Model 
   inputCost?: number;
   /**
    * @remarks
-   * The number of credits per million output tokens. This value must be a non-negative number. Set this value to 0 to indicate that the output is free.
+   * The number of credits per million output tokens. The value must be a non-negative number. A value of 0 indicates that output is free of charge.
    * 
    * @example
    * 2
@@ -69,7 +69,7 @@ export class UpdateAiModelSourceModelResponseBodyDataCredit extends $dara.Model 
   outputCost?: number;
   /**
    * @remarks
-   * The pricing method. Currently, only fixed credit pricing is supported.
+   * The pricing method. Valid value: fixed (fixed credit pricing).
    * 
    * @example
    * fixed
@@ -180,7 +180,7 @@ export class UpdateAiModelSourceModelResponseBodyData extends $dara.Model {
   availablePaths?: UpdateAiModelSourceModelResponseBodyDataAvailablePaths[];
   /**
    * @remarks
-   * The credit pricing configuration for the model.
+   * The credit pricing configuration of the model.
    */
   credit?: UpdateAiModelSourceModelResponseBodyDataCredit;
   /**
@@ -246,7 +246,7 @@ export class UpdateAiModelSourceModelResponseBodyData extends $dara.Model {
   modelSourceName?: string;
   /**
    * @remarks
-   * The current version of the associated model source.
+   * The current version of the model source to which the model belongs.
    * 
    * @example
    * 1
@@ -254,7 +254,7 @@ export class UpdateAiModelSourceModelResponseBodyData extends $dara.Model {
   modelSourceVersion?: number;
   /**
    * @remarks
-   * The synchronization status of the model pricing configuration. A value of Pending indicates that the current version has not been synchronized, and a value of Ready indicates that the current version has been synchronized.
+   * The synchronization status of the model pricing configuration. Valid values: Pending (the current version is not synchronized) and Ready (the current version is synchronized).
    * 
    * @example
    * Ready
@@ -270,7 +270,7 @@ export class UpdateAiModelSourceModelResponseBodyData extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The source of the model asset. A value of user indicates a user model, and a value of builtin indicates a system built-in model.
+   * The source of the model asset. Valid values: user (user model) and builtin (system built-in model).
    * 
    * @example
    * user
@@ -278,7 +278,7 @@ export class UpdateAiModelSourceModelResponseBodyData extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The time of the most recent business update. The time is in RFC 3339 format and in the UTC time zone.
+   * The most recent business update time in RFC 3339 format and UTC time zone.
    * 
    * @example
    * 2026-11-12T00:00:00Z
@@ -358,7 +358,7 @@ export class UpdateAiModelSourceModelResponseBodyData extends $dara.Model {
 export class UpdateAiModelSourceModelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. Ok is returned for a successful request, and a specific business error code is returned for a failed request.
+   * The response status code. A value of Ok indicates success. If the request fails, a specific business error code is returned.
    * 
    * @example
    * Ok
@@ -366,12 +366,12 @@ export class UpdateAiModelSourceModelResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The business result returned by the operation on the model in the model source.
+   * The business result returned by the operation on the AI model in the source.
    */
   data?: UpdateAiModelSourceModelResponseBodyData;
   /**
    * @remarks
-   * The response message that describes the request processing result.
+   * The response message, which describes the request processing result.
    * 
    * @example
    * success
@@ -379,7 +379,7 @@ export class UpdateAiModelSourceModelResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID generated by the system to trace the call.
+   * The request ID, which is generated by the system and used to locate this call.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

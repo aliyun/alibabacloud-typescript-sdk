@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAiModelSourceModelResponseBodyDataAvailablePaths extends $dara.Model {
   /**
    * @remarks
-   * The call path for the model.
+   * The invocation path of the model.
    * 
    * @example
    * /v1/chat/completions
@@ -13,7 +13,7 @@ export class GetAiModelSourceModelResponseBodyDataAvailablePaths extends $dara.M
   path?: string;
   /**
    * @remarks
-   * The protocol type used for the call path.
+   * The protocol type used by the invocation path.
    * 
    * @example
    * OpenAI/v1
@@ -45,7 +45,7 @@ export class GetAiModelSourceModelResponseBodyDataAvailablePaths extends $dara.M
 export class GetAiModelSourceModelResponseBodyDataCredit extends $dara.Model {
   /**
    * @remarks
-   * The number of credits per million input tokens that hit the cache. This must be a non-negative number. A value of 0 indicates that cached input is free.
+   * The number of credits per million input tokens that hit the cache. The value must be a non-negative number. A value of 0 indicates that cached input is free of charge.
    * 
    * @example
    * 0.1
@@ -53,7 +53,7 @@ export class GetAiModelSourceModelResponseBodyDataCredit extends $dara.Model {
   cacheCost?: number;
   /**
    * @remarks
-   * The number of credits per million input tokens. This must be a non-negative number. A value of 0 indicates that input is free.
+   * The number of credits per million input tokens. The value must be a non-negative number. A value of 0 indicates that the input is free of charge.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class GetAiModelSourceModelResponseBodyDataCredit extends $dara.Model {
   inputCost?: number;
   /**
    * @remarks
-   * The number of credits per million output tokens. This must be a non-negative number. A value of 0 indicates that output is free.
+   * The number of credits per million output tokens. The value must be a non-negative number. A value of 0 indicates that the output is free of charge.
    * 
    * @example
    * 2
@@ -69,7 +69,7 @@ export class GetAiModelSourceModelResponseBodyDataCredit extends $dara.Model {
   outputCost?: number;
   /**
    * @remarks
-   * The pricing method. Currently, only fixed (fixed credit pricing) is supported.
+   * The pricing method. Valid values: fixed: fixed credit pricing.
    * 
    * @example
    * fixed
@@ -175,12 +175,12 @@ export class GetAiModelSourceModelResponseBodyDataMeta extends $dara.Model {
 export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The protocols and call paths supported by the model.
+   * The protocols and invocation paths supported by the model.
    */
   availablePaths?: GetAiModelSourceModelResponseBodyDataAvailablePaths[];
   /**
    * @remarks
-   * The credit pricing configuration for the model.
+   * The credit pricing configuration of the model.
    */
   credit?: GetAiModelSourceModelResponseBodyDataCredit;
   /**
@@ -201,12 +201,12 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The token limits and the input and output modality information of the model.
+   * The token limits and input and output modality information of the model.
    */
   meta?: GetAiModelSourceModelResponseBodyDataMeta;
   /**
    * @remarks
-   * The model identifier. For standard models, use the source model card ID. For logical model entries, use the vm- prefix.
+   * The model identifier. Use the source model card ID for standard models and the vm- identifier for logical model entries.
    * 
    * @example
    * msc-d00000000000000000000
@@ -246,7 +246,7 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   modelSourceName?: string;
   /**
    * @remarks
-   * The current version of the model source to which the model belongs.
+   * The current version of the associated model source.
    * 
    * @example
    * 1
@@ -254,7 +254,7 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   modelSourceVersion?: number;
   /**
    * @remarks
-   * The synchronization status of the model pricing configuration. A value of Pending indicates that the current version is not synchronized, and a value of Ready indicates that it is synchronized.
+   * The synchronization status of the model pricing configuration. A value of Pending indicates that the current version is not synchronized. A value of Ready indicates that the current version is synchronized.
    * 
    * @example
    * Ready
@@ -262,7 +262,7 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   pricingStatus?: string;
   /**
    * @remarks
-   * The ID of the actual AI service that is bound to the model source.
+   * The ID of the AI service bound to the model source.
    * 
    * @example
    * svc-d00000000000000000000
@@ -270,7 +270,7 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The source of the model asset. A value of user indicates a user model, and a value of builtin indicates a built-in system model.
+   * The source of the model asset. A value of user indicates a user-defined model, and a value of builtin indicates a system built-in model.
    * 
    * @example
    * user
@@ -278,7 +278,7 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The time of the last business update. The time is in RFC 3339 format and the UTC time zone.
+   * The time of the last business update. The time is in RFC 3339 format and in the UTC time zone.
    * 
    * @example
    * 2026-11-12T00:00:00Z
@@ -286,7 +286,7 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The current version of the object. This version is used for conditional validation during update or delete operations.
+   * The current version of the object. This version is used for conditional validation during updates or deletions.
    * 
    * @example
    * 1
@@ -358,7 +358,7 @@ export class GetAiModelSourceModelResponseBodyData extends $dara.Model {
 export class GetAiModelSourceModelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. A value of Ok indicates success, and a specific business error code indicates failure.
+   * The response status code. The value is Ok for successful requests and a specific business error code for failed requests.
    * 
    * @example
    * Ok
@@ -366,12 +366,12 @@ export class GetAiModelSourceModelResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The business result returned by the in-source model operation.
+   * The business result returned by the model source operation.
    */
   data?: GetAiModelSourceModelResponseBodyData;
   /**
    * @remarks
-   * The response message that describes the result of the request.
+   * The response message that indicates the result of the request.
    * 
    * @example
    * success
@@ -379,7 +379,7 @@ export class GetAiModelSourceModelResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID. This ID is generated by the system to trace the call.
+   * The request ID generated by the system to trace the call.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

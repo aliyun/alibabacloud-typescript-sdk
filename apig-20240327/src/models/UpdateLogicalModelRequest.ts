@@ -37,7 +37,7 @@ export class UpdateLogicalModelRequestFallbackTargets extends $dara.Model {
 export class UpdateLogicalModelRequestSlotsComplex extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source card in the same instance. The ID starts with msc-. Virtual machines or service overrides are not supported.
+   * The ID of the actual source card in the same instance. The ID starts with msc-. VMs or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class UpdateLogicalModelRequestSlotsComplex extends $dara.Model {
 export class UpdateLogicalModelRequestSlotsSimple extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source card in the same instance. The ID starts with msc-. Virtual machines or service overrides are not supported.
+   * The ID of the actual source card in the same instance. The ID starts with msc-. VMs or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -101,7 +101,7 @@ export class UpdateLogicalModelRequestSlotsSimple extends $dara.Model {
 export class UpdateLogicalModelRequestSlotsStandard extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source card in the same instance. The ID starts with msc-. Virtual machines or service overrides are not supported.
+   * The ID of the actual source card in the same instance. The ID starts with msc-. VMs or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -189,7 +189,7 @@ export class UpdateLogicalModelRequestSlots extends $dara.Model {
 export class UpdateLogicalModelRequestTargets extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source model card in the same instance. The ID starts with msc-. Virtual machines or service overrides are not supported.
+   * The ID of the actual source model card in the same instance. The ID starts with msc-. VMs or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -199,7 +199,7 @@ export class UpdateLogicalModelRequestTargets extends $dara.Model {
   modelCardId?: string;
   /**
    * @remarks
-   * The weight. Valid values: integers from 0 to 10000. The original value is saved. For Mapping, 0 is allowed.
+   * The weight. Valid values: integers from 0 to 10000. The original value is preserved. For Mapping, 0 is allowed.
    * 
    * This parameter is required.
    * 
@@ -233,7 +233,7 @@ export class UpdateLogicalModelRequestTargets extends $dara.Model {
 export class UpdateLogicalModelRequest extends $dara.Model {
   /**
    * @remarks
-   * The call strategy. This parameter is required for new Auto write requests. Valid values: balanced, cheap, fast, and quality. The new version uses only the basic call name. Do not submit this parameter for Mapping and Weighted. The server performs conditional validation.
+   * The call strategy. This parameter is required for new Auto write requests. Valid values: balanced, cheap, fast, and quality. The new version uses only the basic invocation name. Do not submit this parameter for Mapping and Weighted. The server performs conditional validation.
    * 
    * @example
    * balanced
@@ -241,14 +241,14 @@ export class UpdateLogicalModelRequest extends $dara.Model {
   callStrategy?: string;
   /**
    * @remarks
-   * The ordered fallback targets. A maximum of 5 targets are supported. The targets are deduplicated by actual card ID. This can be an empty array.
+   * The ordered fallback targets. A maximum of 5 targets are supported. The targets are deduplicated by the actual card ID. This can be an empty array.
    * 
    * This parameter is required.
    */
   fallbackTargets?: UpdateLogicalModelRequestFallbackTargets[];
   /**
    * @remarks
-   * The client logical call name. It can be up to 256 bytes in UTF-8 encoding, must not contain spaces or slashes, and must not start with auto.
+   * The client logical invocation name. It must be encoded in UTF-8 and can be up to 256 bytes in length. It cannot contain spaces or slashes, and cannot start with auto.
    * 
    * This parameter is required.
    * 
@@ -258,7 +258,7 @@ export class UpdateLogicalModelRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The response model. Actual returns the public name of the actual model, and Logical returns the entry name, including Server-Sent Events (SSE).
+   * The response model. If set to Actual, the public name of the actual model is returned. If set to Logical, the entry name is returned, including Server-Sent Events (SSE).
    * 
    * This parameter is required.
    * 
@@ -290,7 +290,7 @@ export class UpdateLogicalModelRequest extends $dara.Model {
   targets?: UpdateLogicalModelRequestTargets[];
   /**
    * @remarks
-   * The confirmation token returned by the configuration update dry run. Pass this token as is when submitting the update.
+   * The confirmation token returned by the configuration update dry run. Pass this token as is when you submit the update.
    * 
    * @example
    * 6b8e7d61b3a94c7285cf0d9ee1a72c836b8e7d61b3a94c7285cf0d9ee1a72c83

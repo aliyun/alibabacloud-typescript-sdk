@@ -71,7 +71,7 @@ export class GetGatewayDfpExtProcServiceResponseBody extends $dara.Model {
   data?: GetGatewayDfpExtProcServiceResponseBodyData;
   /**
    * @remarks
-   * The request result description, which contains the fault message if the request fails.
+   * The request result message. If the request fails, this parameter contains the error message.
    * 
    * @example
    * success

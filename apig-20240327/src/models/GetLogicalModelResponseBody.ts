@@ -53,7 +53,7 @@ export class GetLogicalModelResponseBodyDataDeployment extends $dara.Model {
   operationId?: string;
   /**
    * @remarks
-   * The object configuration version.
+   * The configuration revision of the object.
    * 
    * @example
    * 1
@@ -127,7 +127,7 @@ export class GetLogicalModelResponseBodyDataFallbackTargets extends $dara.Model 
 export class GetLogicalModelResponseBodyDataMeta extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of input tokens. It takes the minimum value when all primary targets are known. Otherwise, it is omitted.
+   * The maximum number of input tokens. The minimum value among all primary targets is used when all are known. Otherwise, this is omitted.
    * 
    * @example
    * 32768
@@ -135,7 +135,7 @@ export class GetLogicalModelResponseBodyDataMeta extends $dara.Model {
   maxInputTokens?: number;
   /**
    * @remarks
-   * The maximum number of input tokens. It takes the minimum value when all primary targets are known. Otherwise, it is omitted.
+   * The maximum number of input tokens. The minimum value among all primary targets is used when all are known. Otherwise, this is omitted.
    * 
    * @example
    * 8192
@@ -143,7 +143,7 @@ export class GetLogicalModelResponseBodyDataMeta extends $dara.Model {
   maxOutputTokens?: number;
   /**
    * @remarks
-   * The maximum number of input tokens. It takes the minimum value when all primary targets are known. Otherwise, it is omitted.
+   * The maximum number of input tokens. The minimum value among all primary targets is used when all are known. Otherwise, this is omitted.
    * 
    * @example
    * 40960
@@ -197,7 +197,7 @@ export class GetLogicalModelResponseBodyDataMeta extends $dara.Model {
 export class GetLogicalModelResponseBodyDataSlotsComplex extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source card in the same instance, which starts with msc-. VM or service overrides are not supported.
+   * The ID of the actual source card in the same instance. The ID starts with msc-. VM or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -229,7 +229,7 @@ export class GetLogicalModelResponseBodyDataSlotsComplex extends $dara.Model {
 export class GetLogicalModelResponseBodyDataSlotsSimple extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source card in the same instance, which starts with msc-. VM or service overrides are not supported.
+   * The ID of the actual source card in the same instance. The ID starts with msc-. VM or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -261,7 +261,7 @@ export class GetLogicalModelResponseBodyDataSlotsSimple extends $dara.Model {
 export class GetLogicalModelResponseBodyDataSlotsStandard extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source card in the same instance, which starts with msc-. VM or service overrides are not supported.
+   * The ID of the actual source card in the same instance. The ID starts with msc-. VM or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -349,7 +349,7 @@ export class GetLogicalModelResponseBodyDataSlots extends $dara.Model {
 export class GetLogicalModelResponseBodyDataTargets extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source model card in the same instance, which starts with msc-. VM or service overrides are not supported.
+   * The ID of the actual source model card in the same instance. The ID starts with msc-. VM or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -359,7 +359,7 @@ export class GetLogicalModelResponseBodyDataTargets extends $dara.Model {
   modelCardId?: string;
   /**
    * @remarks
-   * The weight. It is an integer from 0 to 10000 and is saved as the original value. A value of 0 is allowed for Mapping.
+   * The weight. The value is an integer from 0 to 10000 and is saved as the original value. A value of 0 is allowed for Mapping.
    * 
    * This parameter is required.
    * 
@@ -398,7 +398,7 @@ export class GetLogicalModelResponseBodyData extends $dara.Model {
   availablePaths?: GetLogicalModelResponseBodyDataAvailablePaths[];
   /**
    * @remarks
-   * The call strategy. For the new version of Auto, valid values are balanced, cheap, fast, and quality. For legacy configurations, this field can be omitted and the base name remains balanced. This field is omitted for Mapping and Weighted.
+   * The call strategy. For the new version of Auto, valid values are balanced, cheap, fast, and quality. For legacy configurations, this can be omitted and the base name remains balanced. This is omitted for Mapping and Weighted.
    * 
    * @example
    * balanced
@@ -406,17 +406,17 @@ export class GetLogicalModelResponseBodyData extends $dara.Model {
   callStrategy?: string;
   /**
    * @remarks
-   * The deployment. Saving the intent corresponds to independent configuration delivery. Acceptance does not indicate that the configuration has taken effect.
+   * The deployment. Saving the intent triggers an independent configuration delivery. Acceptance does not mean the configuration has taken effect.
    */
   deployment?: GetLogicalModelResponseBodyDataDeployment;
   /**
    * @remarks
-   * The ordered fallback targets. A maximum of 5 targets are supported. They are deduplicated by the actual card ID and can be an empty array.
+   * The ordered fallback targets. A maximum of 5 fallback targets are supported. They are deduplicated by the actual card ID and can be an empty array.
    */
   fallbackTargets?: GetLogicalModelResponseBodyDataFallbackTargets[];
   /**
    * @remarks
-   * The intersection of boolean features for the primary targets.
+   * The intersection of Boolean features for the primary targets.
    * 
    * @example
    * {"nativeStreaming":true}
@@ -432,7 +432,7 @@ export class GetLogicalModelResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The independent logical model ID, which starts with vm-.
+   * The ID of the independent logical model, which starts with vm-.
    * 
    * @example
    * vm-d00000000000000000000
@@ -445,7 +445,7 @@ export class GetLogicalModelResponseBodyData extends $dara.Model {
   meta?: GetLogicalModelResponseBodyDataMeta;
   /**
    * @remarks
-   * The client logical call name. It supports up to 256 bytes in UTF-8, cannot contain spaces or slashes, and must not start with auto.
+   * The client logical call name. The name can be up to 256 bytes in UTF-8 encoding, must not contain spaces or slashes, and must not start with auto.
    * 
    * @example
    * beta-chat
@@ -453,7 +453,7 @@ export class GetLogicalModelResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether activation is required. This field is returned only for Auto. It is set to true if the AI Credits Router commodity is not activated, and false if it is activated. It is omitted if the read fails or the status is unknown, or for Mapping and Weighted.
+   * Specifies whether activation is required. This is returned only for Auto. A value of true indicates that the AI Credits Router commodity is not activated, and false indicates that it is activated. This is omitted if the read fails or the status is unknown, or for Mapping and Weighted.
    */
   requiresActivation?: boolean;
   /**
@@ -466,7 +466,7 @@ export class GetLogicalModelResponseBodyData extends $dara.Model {
   responseModel?: string;
   /**
    * @remarks
-   * The revision number. It is set to 1 upon creation and increments upon each successful update.
+   * The revision number. The initial value upon creation is 1, and it increments upon each successful update.
    * 
    * @example
    * 1
@@ -474,7 +474,7 @@ export class GetLogicalModelResponseBodyData extends $dara.Model {
   revision?: number;
   /**
    * @remarks
-   * The routing policy. Valid values: Mapping, Weighted, or Auto. If Auto is selected, targets must be an empty array and slots is required.
+   * The routing policy. Valid values: Mapping, Weighted, and Auto. If Auto is specified, targets must be an empty array and slots is required.
    * 
    * @example
    * Weighted
@@ -482,17 +482,17 @@ export class GetLogicalModelResponseBodyData extends $dara.Model {
   routingPolicy?: string;
   /**
    * @remarks
-   * The slots. This field is returned only for Auto. Each of the simple, standard, and complex slots contains 1 to 3 source cards. The three slots are globally deduplicated by modelCardId. This field is omitted for Mapping and Weighted.
+   * The slots. This is returned only for Auto. Each of the simple, standard, and complex slots contains 1 to 3 source cards. The three slots are globally deduplicated by modelCardId. This is omitted for Mapping and Weighted.
    */
   slots?: GetLogicalModelResponseBodyDataSlots;
   /**
    * @remarks
-   * The primary targets. For Mapping, exactly one item is allowed. For Weighted, the sum of original relative weights must be greater than 0. For Auto, it must be an empty array.
+   * The primary targets. For Mapping, exactly one target is allowed. For Weighted, the sum of original relative weights must be greater than 0. For Auto, this must be an empty array.
    */
   targets?: GetLogicalModelResponseBodyDataTargets[];
   /**
    * @remarks
-   * The business modification time. Dry runs do not advance this time. The format is ISO 8601 (RFC 3339) in the UTC time zone, such as 2026-11-12T00:00:00Z.
+   * The time when the business was modified. Dry runs do not advance this time. The time is in ISO 8601 (RFC 3339) format and in the UTC time zone, such as 2026-11-12T00:00:00Z.
    * 
    * @example
    * 2026-11-12T00:00:00Z
@@ -573,7 +573,7 @@ export class GetLogicalModelResponseBodyData extends $dara.Model {
 export class GetLogicalModelResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. Ok is returned upon success, and a specific business error code is returned upon failure.
+   * The response status code. A value of Ok indicates success, and a specific business error code indicates failure.
    * 
    * @example
    * Ok
@@ -594,7 +594,7 @@ export class GetLogicalModelResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID generated by the system to trace the call.
+   * The request ID, which is generated by the system to trace the current call.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

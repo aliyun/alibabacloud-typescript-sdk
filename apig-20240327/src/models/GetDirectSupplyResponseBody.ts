@@ -319,7 +319,7 @@ export class GetDirectSupplyResponseBodyDataCatalogError extends $dara.Model {
    * The error message.
    * 
    * @example
-   * Failed to query the model catalog
+   * Model catalog query failed
    */
   message?: string;
   /**
@@ -666,7 +666,7 @@ export class GetDirectSupplyResponseBodyData extends $dara.Model {
   candidateModels?: GetDirectSupplyResponseBodyDataCandidateModels[];
   /**
    * @remarks
-   * The error message returned when the model catalog query fails. This parameter is not returned if the query succeeds.
+   * The error message returned when the model catalog query fails. This parameter is not returned when the query succeeds.
    */
   catalogError?: GetDirectSupplyResponseBodyDataCatalogError;
   /**

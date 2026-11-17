@@ -45,7 +45,7 @@ export class GetConsumerAccessOverviewResponseBodyDataGateway extends $dara.Mode
 export class GetConsumerAccessOverviewResponseBodyDataImpactsAuthorizationCounts extends $dara.Model {
   /**
    * @remarks
-   * The number of agent APIs with configured authorization.
+   * The number of agent APIs for which authorization is configured.
    * 
    * @example
    * 1
@@ -53,7 +53,7 @@ export class GetConsumerAccessOverviewResponseBodyDataImpactsAuthorizationCounts
   agentApis?: number;
   /**
    * @remarks
-   * The number of MCP servers with configured authorization.
+   * The number of MCP servers for which authorization is configured.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class GetConsumerAccessOverviewResponseBodyDataImpactsAuthorizationCounts
   mcpServers?: number;
   /**
    * @remarks
-   * The number of model APIs with configured authorization.
+   * The number of model APIs for which authorization is configured.
    * 
    * @example
    * 1
@@ -135,7 +135,7 @@ export class GetConsumerAccessOverviewResponseBodyDataImpactsGateway extends $da
 export class GetConsumerAccessOverviewResponseBodyDataImpacts extends $dara.Model {
   /**
    * @remarks
-   * The number of authorization configurations counted by resource type.
+   * The number of authorization configurations categorized by resource type.
    */
   authorizationCounts?: GetConsumerAccessOverviewResponseBodyDataImpactsAuthorizationCounts;
   /**
@@ -185,7 +185,7 @@ export class GetConsumerAccessOverviewResponseBodyDataImpacts extends $dara.Mode
 export class GetConsumerAccessOverviewResponseBodyDataQuotas extends $dara.Model {
   /**
    * @remarks
-   * The quota limit for the current rule, measured in the same unit as the unit field.
+   * The quota limit for the current rule. This value uses the same unit of measurement as the unit field.
    * 
    * @example
    * 1000000
@@ -209,7 +209,7 @@ export class GetConsumerAccessOverviewResponseBodyDataQuotas extends $dara.Model
   periodMultiplier?: number;
   /**
    * @remarks
-   * The quota period type, which can be day, week, or month.
+   * The type of the quota period. Valid values: day, week, and month.
    * 
    * @example
    * day
@@ -217,7 +217,7 @@ export class GetConsumerAccessOverviewResponseBodyDataQuotas extends $dara.Model
   periodType?: string;
   /**
    * @remarks
-   * The quota rule ID.
+   * The ID of the quota rule.
    * 
    * @example
    * qr-d00000000000000000000
@@ -241,7 +241,7 @@ export class GetConsumerAccessOverviewResponseBodyDataQuotas extends $dara.Model
   subjectName?: string;
   /**
    * @remarks
-   * The quota subject type, which can be consumer or consumer_group.
+   * The type of the quota subject. Valid values: consumer and consumer_group.
    * 
    * @example
    * consumer
@@ -249,7 +249,7 @@ export class GetConsumerAccessOverviewResponseBodyDataQuotas extends $dara.Model
   subjectType?: string;
   /**
    * @remarks
-   * The quota measurement unit.
+   * The unit of measurement for the quota.
    * 
    * @example
    * token
@@ -257,7 +257,7 @@ export class GetConsumerAccessOverviewResponseBodyDataQuotas extends $dara.Model
   unit?: string;
   /**
    * @remarks
-   * The used quota within the period corresponding to the current rule, measured in the same unit as the unit field.
+   * The used quota within the period corresponding to the current rule. This value uses the same unit of measurement as the unit field.
    * 
    * @example
    * 100
@@ -265,7 +265,7 @@ export class GetConsumerAccessOverviewResponseBodyDataQuotas extends $dara.Model
   used?: number;
   /**
    * @remarks
-   * The alignment method of the period window, which can be calendar for a natural period or epoch for a custom base period.
+   * The alignment method of the period window. Valid values: calendar for natural periods and epoch for custom base periods.
    * 
    * @example
    * calendar
@@ -323,7 +323,7 @@ export class GetConsumerAccessOverviewResponseBodyDataResourcesEntitlementState 
   appliedRevision?: number;
   /**
    * @remarks
-   * The desired authorization revision number to be delivered.
+   * The desired authorization revision number to be distributed.
    * 
    * @example
    * 2
@@ -339,7 +339,7 @@ export class GetConsumerAccessOverviewResponseBodyDataResourcesEntitlementState 
   errorMessage?: string;
   /**
    * @remarks
-   * The status, which can be Pending, Applying, Committed, or Failed.
+   * The status. Valid values: Pending, Applying, Committed, and Failed.
    * 
    * @example
    * Committed
@@ -383,7 +383,7 @@ export class GetConsumerAccessOverviewResponseBodyDataResourcesModelGroupsModels
   consumerGroupName?: string;
   /**
    * @remarks
-   * The model identifier. Source model card IDs are used for standard models, and vm- identifiers are used for logical model entries.
+   * The identifier of the model. Standard models use the source model card ID, and logical model endpoints use an identifier prefixed with vm-.
    * 
    * @example
    * msc-d00000000000000000000
@@ -391,7 +391,7 @@ export class GetConsumerAccessOverviewResponseBodyDataResourcesModelGroupsModels
   modelCardId?: string;
   /**
    * @remarks
-   * The model source ID. Use the modelSourceId returned by CreateAiModelSource.
+   * The ID of the model source. Use the modelSourceId returned by CreateAiModelSource.
    * 
    * @example
    * ms-d00000000000000000000
@@ -407,7 +407,7 @@ export class GetConsumerAccessOverviewResponseBodyDataResourcesModelGroupsModels
   modelSourceName?: string;
   /**
    * @remarks
-   * The model type, which can be Model or LogicalModel.
+   * The type of the model. Valid values: Model and LogicalModel.
    * 
    * @example
    * Model
@@ -463,7 +463,7 @@ export class GetConsumerAccessOverviewResponseBodyDataResourcesModelGroups exten
   consumerGroupName?: string;
   /**
    * @remarks
-   * The model group ID. Use the modelGroupId returned by CreateModelGroup.
+   * The ID of the model group. Use the modelGroupId returned by CreateModelGroup.
    * 
    * @example
    * mg-d00000000000000000000
@@ -471,7 +471,7 @@ export class GetConsumerAccessOverviewResponseBodyDataResourcesModelGroups exten
   modelGroupId?: string;
   /**
    * @remarks
-   * The list of accessible model entries within the current resource scope.
+   * The list of model endpoints accessible within the current resource scope.
    */
   models?: GetConsumerAccessOverviewResponseBodyDataResourcesModelGroupsModels[];
   /**
@@ -523,7 +523,7 @@ export class GetConsumerAccessOverviewResponseBodyDataResourcesModels extends $d
   consumerGroupName?: string;
   /**
    * @remarks
-   * The model identifier. Source model card IDs are used for standard models, and vm- identifiers are used for logical model entries.
+   * The identifier of the model. Standard models use the source model card ID, and logical model endpoints use an identifier prefixed with vm-.
    * 
    * @example
    * msc-d00000000000000000000
@@ -531,7 +531,7 @@ export class GetConsumerAccessOverviewResponseBodyDataResourcesModels extends $d
   modelCardId?: string;
   /**
    * @remarks
-   * The model source ID. Use the modelSourceId returned by CreateAiModelSource.
+   * The ID of the model source. Use the modelSourceId returned by CreateAiModelSource.
    * 
    * @example
    * ms-d00000000000000000000
@@ -547,7 +547,7 @@ export class GetConsumerAccessOverviewResponseBodyDataResourcesModels extends $d
   modelSourceName?: string;
   /**
    * @remarks
-   * The model type, which can be Model or LogicalModel.
+   * The type of the model. Valid values: Model and LogicalModel.
    * 
    * @example
    * Model
@@ -595,7 +595,7 @@ export class GetConsumerAccessOverviewResponseBodyDataResourcesModels extends $d
 export class GetConsumerAccessOverviewResponseBodyDataResources extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the authorization scope of this resource includes all models.
+   * Indicates whether the authorization scope of this resource includes all models.
    * 
    * **if can be null:**
    * true
@@ -603,7 +603,7 @@ export class GetConsumerAccessOverviewResponseBodyDataResources extends $dara.Mo
   allModels?: boolean;
   /**
    * @remarks
-   * Specifies whether the authorization scope of this MCP resource includes all tools.
+   * Indicates whether the authorization scope of this MCP resource includes all tools.
    * 
    * **if can be null:**
    * true
@@ -635,12 +635,12 @@ export class GetConsumerAccessOverviewResponseBodyDataResources extends $dara.Mo
   expireTime?: string;
   /**
    * @remarks
-   * The accessible model groups and their model sets.
+   * The model groups and their model collections that are accessible.
    */
   modelGroups?: GetConsumerAccessOverviewResponseBodyDataResourcesModelGroups[];
   /**
    * @remarks
-   * The list of accessible model entries within the current resource scope.
+   * The list of model endpoints accessible within the current resource scope.
    */
   models?: GetConsumerAccessOverviewResponseBodyDataResourcesModels[];
   /**
@@ -661,7 +661,7 @@ export class GetConsumerAccessOverviewResponseBodyDataResources extends $dara.Mo
   resourceId?: string;
   /**
    * @remarks
-   * The resource type, which can be ModelApi, MCP, or Agent.
+   * The type of the resource. Valid values: ModelApi, MCP, and Agent.
    * 
    * @example
    * ModelApi
@@ -669,7 +669,7 @@ export class GetConsumerAccessOverviewResponseBodyDataResources extends $dara.Mo
   resourceType?: string;
   /**
    * @remarks
-   * The list of MCP tool names that can be called within this resource scope.
+   * The list of MCP tool names that can be called within the resource scope.
    */
   tools?: string[];
   static names(): { [key: string]: string } {
@@ -738,7 +738,7 @@ export class GetConsumerAccessOverviewResponseBodyData extends $dara.Model {
   gateway?: GetConsumerAccessOverviewResponseBodyDataGateway;
   /**
    * @remarks
-   * The description text of the consumer.
+   * The description of the consumer.
    * 
    * @example
    * Consumer for business applications
@@ -746,12 +746,12 @@ export class GetConsumerAccessOverviewResponseBodyData extends $dara.Model {
   identityDescription?: string;
   /**
    * @remarks
-   * The impact of the authorization configuration for this consumer on readable gateways in the local region.
+   * The impact of the authorization configuration of this consumer on readable gateways in the local region.
    */
   impacts?: GetConsumerAccessOverviewResponseBodyDataImpacts[];
   /**
    * @remarks
-   * The quota rules and usage of the consumer and its consumer group.
+   * The quota rules and usage of the consumer and the consumer group to which it belongs.
    */
   quotas?: GetConsumerAccessOverviewResponseBodyDataQuotas[];
   /**
@@ -805,7 +805,7 @@ export class GetConsumerAccessOverviewResponseBodyData extends $dara.Model {
 export class GetConsumerAccessOverviewResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. Ok is returned upon success, and a specific business error code is returned upon failure.
+   * The response status code. Ok is returned for a successful request, and a specific business error code is returned for a failed request.
    * 
    * @example
    * Ok
@@ -813,12 +813,12 @@ export class GetConsumerAccessOverviewResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The business result returned by the consumer operation.
+   * The business result returned for the consumer operation.
    */
   data?: GetConsumerAccessOverviewResponseBodyData;
   /**
    * @remarks
-   * The response message, which describes the request processing result.
+   * The response message that describes the processing result of the request.
    * 
    * @example
    * success
@@ -826,7 +826,7 @@ export class GetConsumerAccessOverviewResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is generated by the system to trace the current call.
+   * The ID of the request. This ID is generated by the system to trace the call.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

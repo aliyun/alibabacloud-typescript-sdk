@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateModelGroupResponseBodyDataConfigurationDeployment extends $dara.Model {
   /**
    * @remarks
-   * The identity of the group configuration task, which is used for tracking only. It cannot be accessed by GetLogicalModelDeployment or RetryLogicalModelDeployment.
+   * The identity of the group configuration task, used for tracking only. It cannot be accessed by GetLogicalModelDeployment or RetryLogicalModelDeployment.
    * 
    * @example
    * op-d00000000000000000000
@@ -13,7 +13,7 @@ export class UpdateModelGroupResponseBodyDataConfigurationDeployment extends $da
   operationId?: string;
   /**
    * @remarks
-   * The group version corresponding to this task, which may be earlier than the current group version.
+   * The group version corresponding to this task. It may be earlier than the current group version.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class UpdateModelGroupResponseBodyDataConfigurationDeployment extends $da
   revision?: number;
   /**
    * @remarks
-   * The status. Valid values: Pending, Running, Succeeded, Failed, or PartiallyFailed.
+   * Pending, Running, Succeeded, Failed, or PartiallyFailed.
    * 
    * @example
    * Succeeded
@@ -55,7 +55,7 @@ export class UpdateModelGroupResponseBodyDataConfigurationDeployment extends $da
 export class UpdateModelGroupResponseBodyDataEntitlementState extends $dara.Model {
   /**
    * @remarks
-   * The applied authorization revision number.
+   * The applied entitlement revision number.
    * 
    * @example
    * 1
@@ -63,7 +63,7 @@ export class UpdateModelGroupResponseBodyDataEntitlementState extends $dara.Mode
   appliedRevision?: number;
   /**
    * @remarks
-   * The expected authorization revision number to be delivered.
+   * The expected entitlement revision number to be delivered.
    * 
    * @example
    * 2
@@ -71,7 +71,7 @@ export class UpdateModelGroupResponseBodyDataEntitlementState extends $dara.Mode
   desiredRevision?: number;
   /**
    * @remarks
-   * The error description when processing fails. This field is empty when no errors occur.
+   * The error description when processing fails. It is empty when there are no errors.
    * 
    * @example
    * Configuration delivery failed
@@ -79,7 +79,7 @@ export class UpdateModelGroupResponseBodyDataEntitlementState extends $dara.Mode
   errorMessage?: string;
   /**
    * @remarks
-   * The status. Valid values: Pending, Applying, Committed, or Failed. Committed only indicates that the control plane has submitted and read back the configuration, and does not guarantee ACK from all pods.
+   * Pending, Applying, Committed, or Failed. Committed only indicates that the control plane has submitted and read back the configuration, and does not guarantee ACK from all pods.
    * 
    * @example
    * Committed
@@ -115,7 +115,7 @@ export class UpdateModelGroupResponseBodyDataEntitlementState extends $dara.Mode
 export class UpdateModelGroupResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The summary of the most recent group configuration delivery returned by GetModelGroup. This is independent of API publishing and entitlement status. It is omitted when no task exists and does not indicate success. The configuration applies to the current version only when the revision matches the current version. List operations do not guarantee this field is populated.
+   * The summary of the most recent group configuration delivery returned by GetModelGroup. It is independent of API publishing and entitlement status. It is omitted when there is no task and does not indicate success. The revision matches the current version only when it represents the current version. List operations do not guarantee this field is populated.
    */
   configurationDeployment?: UpdateModelGroupResponseBodyDataConfigurationDeployment;
   /**
@@ -123,7 +123,7 @@ export class UpdateModelGroupResponseBodyData extends $dara.Model {
    * The description of the model group.
    * 
    * @example
-   * Model group for business integration
+   * Model group for service integration
    */
   description?: string;
   /**
@@ -141,12 +141,12 @@ export class UpdateModelGroupResponseBodyData extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The collection of model card identifiers.
+   * The collection of model card IDs.
    */
   modelCardIds?: string[];
   /**
    * @remarks
-   * The ID of the model group. Use the modelGroupId returned by CreateModelGroup.
+   * The model group ID. Use the modelGroupId returned by CreateModelGroup.
    * 
    * @example
    * mg-d00000000000000000000
@@ -162,7 +162,7 @@ export class UpdateModelGroupResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The update time in RFC 3339 format.
+   * The update time in RFC3339 format.
    * 
    * @example
    * 2026-11-12T00:00:00Z
@@ -170,7 +170,7 @@ export class UpdateModelGroupResponseBodyData extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The current version of the object, which is used for conditional validation during updates or deletions.
+   * The current version of the object. It is used for conditional validation during updates or deletions.
    * 
    * @example
    * 1
@@ -238,7 +238,7 @@ export class UpdateModelGroupResponseBody extends $dara.Model {
   data?: UpdateModelGroupResponseBodyData;
   /**
    * @remarks
-   * The response message, which describes the request processing result.
+   * The response message. It describes the request processing result.
    * 
    * @example
    * success
@@ -246,7 +246,7 @@ export class UpdateModelGroupResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID, which is generated by the system and used to locate this call.
+   * The request ID. It is generated by the system and used to locate this call.
    * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E

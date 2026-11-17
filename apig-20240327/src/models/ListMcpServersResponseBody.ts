@@ -16,7 +16,7 @@ export class ListMcpServersResponseBodyDataItemsAssembledSources extends $dara.M
   mcpServerId?: string;
   /**
    * @remarks
-   * The name of the MCP server.
+   * The MCP server name.
    * 
    * @example
    * test-mcp
@@ -66,10 +66,10 @@ export class ListMcpServersResponseBodyDataItemsNacosMcpSyncInfo extends $dara.M
   importInstanceId?: string;
   /**
    * @remarks
-   * The ID of the synced MCP server.
+   * The ID of the synchronized MCP server.
    * 
    * @example
-   * The ID of the synced MCP server
+   * The ID of the synchronized MCP server
    */
   importMcpServerId?: string;
   /**
@@ -116,7 +116,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   apiId?: string;
   /**
    * @remarks
-   * The list of assembly sources. This parameter is required when the type is AssemblyMCP.
+   * The list of assembly sources. This parameter is required when type is set to AssemblyMCP.
    */
   assembledSources?: ListMcpServersResponseBodyDataItemsAssembledSources[];
   /**
@@ -128,11 +128,11 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
    * @remarks
    * The creation source type.
    * 
-   * ApiGatewayHttpToMCP: Gateway-hosted HTTP-to-MCP
-   * ApiGatewayMcpHosting: Gateway-hosted direct MCP proxy
-   * ApiGatewayAssembly: Gateway-assembled MCP
-   * NacosHttpToMCP: Gateway-hosted Nacos-synced HTTP-to-MCP
-   * NacosMcpHosting: Gateway-hosted Nacos-synced direct MCP proxy
+   * ApiGatewayHttpToMCP: HTTP-to-MCP hosted by the gateway
+   * ApiGatewayMcpHosting: Direct MCP proxy hosted by the gateway
+   * ApiGatewayAssembly: MCP assembly by the gateway
+   * NacosHttpToMCP: HTTP-to-MCP synchronized from Nacos and hosted by the gateway
+   * NacosMcpHosting: Direct MCP proxy synchronized from Nacos and hosted by the gateway
    * 
    * @example
    * ApiGatewayHttpToMCP
@@ -140,7 +140,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   createFromType?: string;
   /**
    * @remarks
-   * The publish status of the API in the current environment.
+   * The deployment status of the API in the current environment.
    * 
    * @example
    * Deployed
@@ -174,7 +174,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   environmentId?: string;
   /**
    * @remarks
-   * The exposed URI path. This parameter is required when the protocol is SSE or StreamableHTTP and the type is RealMCP.
+   * The exposed URI path. This parameter is required when protocol is set to SSE or StreamableHTTP and type is set to RealMCP.
    * 
    * @example
    * /sse
@@ -190,6 +190,14 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
+   * The MCP service instructions.
+   * 
+   * @example
+   * Used to query the order status. An order number is required for the query
+   */
+  instructions?: string;
+  /**
+   * @remarks
    * The route match rule.
    */
   match?: HttpRouteMatch;
@@ -198,7 +206,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
    * The HTTP-to-MCP configuration.
    * 
    * @example
-   * Base64-encoded value of the HTTP-to-MCP configuration
+   * The Base64-encoded value of the HTTP-to-MCP configuration
    */
   mcpServerConfig?: string;
   /**
@@ -211,7 +219,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   mcpServerId?: string;
   /**
    * @remarks
-   * The access path of the MCP server provided by the gateway.
+   * The MCP server access path provided by the gateway.
    * 
    * @example
    * /mcp-servers/test-mcp
@@ -219,7 +227,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   mcpServerPath?: string;
   /**
    * @remarks
-   * Indicates whether MCP observability is enabled. Default value: false.
+   * Specifies whether MCP observability is enabled. Default value: false.
    * 
    * @example
    * false
@@ -227,12 +235,12 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
   mcpStatisticsEnable?: boolean;
   /**
    * @remarks
-   * The information about the Nacos-synced managed MCP.
+   * The Nacos-synchronized and hosted MCP information.
    */
   nacosMcpSyncInfo?: ListMcpServersResponseBodyDataItemsNacosMcpSyncInfo;
   /**
    * @remarks
-   * The name of the MCP server.
+   * The MCP server name.
    * 
    * @example
    * itemcenter-dev-cluster
@@ -259,7 +267,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
    * The MCP server type.
    * 
    * @example
-   * Valid values: RealMCP and AssemblyMCP
+   * Valid values: RealMCP, AssemblyMCP
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -275,6 +283,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
       environmentId: 'environmentId',
       exposedUriPath: 'exposedUriPath',
       gatewayId: 'gatewayId',
+      instructions: 'instructions',
       match: 'match',
       mcpServerConfig: 'mcpServerConfig',
       mcpServerId: 'mcpServerId',
@@ -301,6 +310,7 @@ export class ListMcpServersResponseBodyDataItems extends $dara.Model {
       environmentId: 'string',
       exposedUriPath: 'string',
       gatewayId: 'string',
+      instructions: 'string',
       match: HttpRouteMatch,
       mcpServerConfig: 'string',
       mcpServerId: 'string',

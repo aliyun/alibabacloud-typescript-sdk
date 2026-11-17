@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLogicalModelRequest extends $dara.Model {
   /**
    * @remarks
-   * The expected version number of the object.
+   * The expected object version number.
    * 
    * This parameter is required.
    * 

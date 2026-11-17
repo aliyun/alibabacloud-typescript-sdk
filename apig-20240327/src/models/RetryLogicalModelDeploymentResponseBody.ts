@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RetryLogicalModelDeploymentResponseBodyDataTargets extends $dara.Model {
   /**
    * @remarks
-   * The semantic version of the target configuration. It is used only for delivery recovery and does not record the API release time.
+   * The semantic version of the target configuration. This version is used only for delivery recovery and does not record the API release time.
    * 
    * @example
    * 7e4f52a9b0c34d16a268e913f5c2087b
@@ -13,7 +13,7 @@ export class RetryLogicalModelDeploymentResponseBodyDataTargets extends $dara.Mo
   configRevision?: string;
   /**
    * @remarks
-   * The related configuration environment.
+   * The associated configuration environment.
    * 
    * @example
    * env-d00000000000000000000
@@ -29,7 +29,7 @@ export class RetryLogicalModelDeploymentResponseBodyDataTargets extends $dara.Mo
   error?: string;
   /**
    * @remarks
-   * The related API configuration target.
+   * The associated API configuration target.
    * 
    * @example
    * api-d00000000000000000000
@@ -104,7 +104,7 @@ export class RetryLogicalModelDeploymentResponseBodyData extends $dara.Model {
   operationId?: string;
   /**
    * @remarks
-   * The configuration version.
+   * The configuration revision.
    * 
    * @example
    * 1
@@ -158,7 +158,7 @@ export class RetryLogicalModelDeploymentResponseBodyData extends $dara.Model {
 export class RetryLogicalModelDeploymentResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. Ok is returned for a successful request, and a specific business error code is returned for a failed request.
+   * The response status code. Returns Ok upon success and a specific business error code upon failure.
    * 
    * @example
    * Ok

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListMcpServersRequest extends $dara.Model {
   /**
    * @remarks
-   * The creation source types.
+   * The creation source type.
    * 
    * @example
    * ApiGatewayHttpToMCP
@@ -13,7 +13,7 @@ export class ListMcpServersRequest extends $dara.Model {
   createFromTypes?: string;
   /**
    * @remarks
-   * The deployment statuses of the MCP servers.
+   * The deployment status of the MCP server.
    * 
    * @example
    * Deployed
@@ -31,7 +31,7 @@ export class ListMcpServersRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The keyword used to perform a fuzzy search for MCP servers by API name.
+   * The keyword used to perform a fuzzy search for MCP servers by name.
    * 
    * @example
    * test

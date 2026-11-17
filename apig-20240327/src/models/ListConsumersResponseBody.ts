@@ -2,6 +2,46 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListConsumersResponseBodyDataExpirationSummary extends $dara.Model {
+  /**
+   * @remarks
+   * The number of unexpired consumers with a remaining validity period of no more than seven days, including those that are manually disabled.
+   * 
+   * @example
+   * 1
+   */
+  aboutToExpire?: number;
+  /**
+   * @remarks
+   * The number of expired consumers, including those that are manually disabled.
+   * 
+   * @example
+   * 2
+   */
+  expired?: number;
+  static names(): { [key: string]: string } {
+    return {
+      aboutToExpire: 'aboutToExpire',
+      expired: 'expired',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      aboutToExpire: 'number',
+      expired: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListConsumersResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
@@ -37,12 +77,28 @@ export class ListConsumersResponseBodyDataItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the consumer is enabled.
+   * Specifies whether the consumer is enabled.
    * 
    * @example
    * true
    */
   enable?: boolean;
+  /**
+   * @remarks
+   * The expiration time of the consumer, in UTC UNIX seconds. A null value indicates that the consumer is permanently valid.
+   * 
+   * @example
+   * 1893456000
+   */
+  expireAt?: number;
+  /**
+   * @remarks
+   * The validity status. Valid values: Permanent, InEffect, AboutToExpire, and Expired. The status is accurate to the second. A remaining time of exactly seven days is classified as AboutToExpire, and an exact expiration time is classified as Expired.
+   * 
+   * @example
+   * InEffect
+   */
+  expireStatus?: string;
   /**
    * @remarks
    * The consumer name.
@@ -66,6 +122,8 @@ export class ListConsumersResponseBodyDataItems extends $dara.Model {
       deployStatus: 'deployStatus',
       description: 'description',
       enable: 'enable',
+      expireAt: 'expireAt',
+      expireStatus: 'expireStatus',
       name: 'name',
       updateTimestamp: 'updateTimestamp',
     };
@@ -78,6 +136,8 @@ export class ListConsumersResponseBodyDataItems extends $dara.Model {
       deployStatus: 'string',
       description: 'string',
       enable: 'boolean',
+      expireAt: 'number',
+      expireStatus: 'string',
       name: 'string',
       updateTimestamp: 'number',
     };
@@ -95,7 +155,12 @@ export class ListConsumersResponseBodyDataItems extends $dara.Model {
 export class ListConsumersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of consumers.
+   * The expiration reminder count for all consumers under the same account and gateway type. This count is not affected by name filters, status filters, or pagination. This field is returned only when includeExpirationSummary is set to true.
+   */
+  expirationSummary?: ListConsumersResponseBodyDataExpirationSummary;
+  /**
+   * @remarks
+   * The list of consumer information.
    */
   items?: ListConsumersResponseBodyDataItems[];
   /**
@@ -124,6 +189,7 @@ export class ListConsumersResponseBodyData extends $dara.Model {
   totalSize?: number;
   static names(): { [key: string]: string } {
     return {
+      expirationSummary: 'expirationSummary',
       items: 'items',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
@@ -133,6 +199,7 @@ export class ListConsumersResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      expirationSummary: ListConsumersResponseBodyDataExpirationSummary,
       items: { 'type': 'array', 'itemType': ListConsumersResponseBodyDataItems },
       pageNumber: 'number',
       pageSize: 'number',
@@ -141,6 +208,9 @@ export class ListConsumersResponseBodyData extends $dara.Model {
   }
 
   validate() {
+    if(this.expirationSummary && typeof (this.expirationSummary as any).validate === 'function') {
+      (this.expirationSummary as any).validate();
+    }
     if(Array.isArray(this.items)) {
       $dara.Model.validateArray(this.items);
     }

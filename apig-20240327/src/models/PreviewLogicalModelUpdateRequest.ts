@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PreviewLogicalModelUpdateRequestFallbackTargets extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source card in the same instance.
+   * The actual source card ID within the same instance.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class PreviewLogicalModelUpdateRequestFallbackTargets extends $dara.Model
 export class PreviewLogicalModelUpdateRequestSlotsComplex extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source card in the same instance. The ID starts with msc-. Virtual machines or service overrides are not supported.
+   * The actual source card ID within the same instance, which starts with msc-. VM or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class PreviewLogicalModelUpdateRequestSlotsComplex extends $dara.Model {
 export class PreviewLogicalModelUpdateRequestSlotsSimple extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source card in the same instance. The ID starts with msc-. Virtual machines or service overrides are not supported.
+   * The actual source card ID within the same instance, which starts with msc-. VM or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -101,7 +101,7 @@ export class PreviewLogicalModelUpdateRequestSlotsSimple extends $dara.Model {
 export class PreviewLogicalModelUpdateRequestSlotsStandard extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source card in the same instance. The ID starts with msc-. Virtual machines or service overrides are not supported.
+   * The actual source card ID within the same instance, which starts with msc-. VM or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -133,21 +133,21 @@ export class PreviewLogicalModelUpdateRequestSlotsStandard extends $dara.Model {
 export class PreviewLogicalModelUpdateRequestSlots extends $dara.Model {
   /**
    * @remarks
-   * The complex slot. Requires 1 to 3 source cards. The three slots are globally deduplicated by modelCardId.
+   * The complex slot, which requires 1 to 3 source cards. Cards across the three slots are globally deduplicated by modelCardId.
    * 
    * This parameter is required.
    */
   complex?: PreviewLogicalModelUpdateRequestSlotsComplex[];
   /**
    * @remarks
-   * The simple slot. Requires 1 to 3 source cards. The three slots are globally deduplicated by modelCardId.
+   * The simple slot, which requires 1 to 3 source cards. Cards across the three slots are globally deduplicated by modelCardId.
    * 
    * This parameter is required.
    */
   simple?: PreviewLogicalModelUpdateRequestSlotsSimple[];
   /**
    * @remarks
-   * The standard slot. Requires 1 to 3 source cards. The three slots are globally deduplicated by modelCardId.
+   * The standard slot, which requires 1 to 3 source cards. Cards across the three slots are globally deduplicated by modelCardId.
    * 
    * This parameter is required.
    */
@@ -189,7 +189,7 @@ export class PreviewLogicalModelUpdateRequestSlots extends $dara.Model {
 export class PreviewLogicalModelUpdateRequestTargets extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source model card in the same instance. The ID starts with msc-. Virtual machines or service overrides are not supported.
+   * The actual source model card ID within the same instance, which starts with msc-. VM or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -199,7 +199,7 @@ export class PreviewLogicalModelUpdateRequestTargets extends $dara.Model {
   modelCardId?: string;
   /**
    * @remarks
-   * The weight. Valid values: integers from 0 to 10000. The original value is saved. For Mapping, 0 is allowed.
+   * The weight value. Valid values: integers from 0 to 10000. The original value is preserved. For Mapping, 0 is allowed.
    * 
    * This parameter is required.
    * 
@@ -233,7 +233,7 @@ export class PreviewLogicalModelUpdateRequestTargets extends $dara.Model {
 export class PreviewLogicalModelUpdateRequest extends $dara.Model {
   /**
    * @remarks
-   * The call strategy. This parameter is required for new Auto write requests. Valid values: balanced, cheap, fast, or quality. The new version uses only the basic call name. Do not submit this parameter for Mapping or Weighted. The server performs conditional validation.
+   * The call strategy, which is required for new Auto write requests. Valid values: balanced, cheap, fast, and quality. The new version uses only the basic call name. Do not submit this parameter for Mapping or Weighted. The server performs conditional validation.
    * 
    * @example
    * balanced
@@ -241,14 +241,14 @@ export class PreviewLogicalModelUpdateRequest extends $dara.Model {
   callStrategy?: string;
   /**
    * @remarks
-   * The ordered fallback targets. A maximum of 5 targets are allowed. The targets are deduplicated by actual card ID. This can be an empty array.
+   * An ordered list of up to 5 fallback targets. The targets are deduplicated by the actual card ID. This can be an empty array.
    * 
    * This parameter is required.
    */
   fallbackTargets?: PreviewLogicalModelUpdateRequestFallbackTargets[];
   /**
    * @remarks
-   * The client logical call name. The name can be up to 256 bytes in UTF-8 encoding, must not contain spaces or slashes, and must not start with auto.
+   * The client logical call name. The value can be up to 256 bytes in UTF-8 encoding, must not contain spaces or slashes, and must not start with auto.
    * 
    * This parameter is required.
    * 
@@ -258,7 +258,7 @@ export class PreviewLogicalModelUpdateRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The response model. If Actual is specified, the public name of the actual model is returned. If Logical is specified, the entry name is returned, including Server-Sent Events (SSE).
+   * The response model type. If set to Actual, the public name of the actual model is returned. If set to Logical, the entry name is returned, including SSE.
    * 
    * This parameter is required.
    * 
@@ -268,7 +268,7 @@ export class PreviewLogicalModelUpdateRequest extends $dara.Model {
   responseModel?: string;
   /**
    * @remarks
-   * The routing policy. Valid values: Mapping, Weighted, or Auto. If Auto is specified, targets must be an empty array and slots is required.
+   * The routing policy. Valid values: Mapping, Weighted, and Auto. If you set this parameter to Auto, targets must be an empty array and slots is required.
    * 
    * This parameter is required.
    * 
@@ -278,12 +278,12 @@ export class PreviewLogicalModelUpdateRequest extends $dara.Model {
   routingPolicy?: string;
   /**
    * @remarks
-   * The slots. This parameter is submitted only for Auto. Each of the simple, standard, and complex slots requires 1 to 3 source cards. The three slots are globally deduplicated by modelCardId. Omit this parameter for Mapping or Weighted.
+   * The slots configuration, which is submitted only for Auto. Each of the simple, standard, and complex slots requires 1 to 3 source cards. Cards across the three slots are globally deduplicated by modelCardId. Omit this parameter for Mapping or Weighted.
    */
   slots?: PreviewLogicalModelUpdateRequestSlots;
   /**
    * @remarks
-   * The primary targets. For Mapping, exactly one item is allowed. For Weighted, the sum of original relative weights must be greater than 0. For Auto, this must be an empty array.
+   * The primary targets. For Mapping, exactly one item is required. For Weighted, the sum of the original relative weights must be greater than 0. For Auto, this must be an empty array.
    * 
    * This parameter is required.
    */

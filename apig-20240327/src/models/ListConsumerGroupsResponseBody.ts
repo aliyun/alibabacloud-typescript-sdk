@@ -32,7 +32,7 @@ export class ListConsumerGroupsResponseBodyDataItems extends $dara.Model {
    * The description of the consumer group.
    * 
    * @example
-   * Used to group online API callers
+   * Used for grouping online API callers
    */
   description?: string;
   /**
@@ -106,7 +106,7 @@ export class ListConsumerGroupsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of matched consumer groups.
+   * The total number of consumer groups that meet the conditions.
    * 
    * @example
    * 2
@@ -145,7 +145,7 @@ export class ListConsumerGroupsResponseBodyData extends $dara.Model {
 export class ListConsumerGroupsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. Ok is returned if the request succeeds.
+   * The response status code. Ok is returned when the request is successful.
    * 
    * @example
    * Ok

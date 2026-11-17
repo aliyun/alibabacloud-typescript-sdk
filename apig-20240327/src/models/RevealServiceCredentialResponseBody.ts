@@ -13,7 +13,7 @@ export class RevealServiceCredentialResponseBodyDataCredential extends $dara.Mod
   apiKeyGenerateMode?: string;
   /**
    * @remarks
-   * The list of Key Management Service (KMS) reference names. This parameter is returned only in Reference mode. The reference values are not returned.
+   * The list of KMS reference names. This parameter is returned only in Reference mode. The reference values are not returned.
    * 
    * @example
    * ["my-kms-ref"]
@@ -21,7 +21,7 @@ export class RevealServiceCredentialResponseBodyDataCredential extends $dara.Mod
   apiKeyReferences?: string[];
   /**
    * @remarks
-   * The list of custom API keys. This parameter is returned only when apiKeyGenerateMode is set to Custom. The keys are returned in the original order without deduplication.
+   * The list of custom API keys. This parameter is returned only when apiKeyGenerateMode is set to Custom. The keys are returned in their original order without deduplication.
    * 
    * @example
    * ["sk-xxxxxxxx","sk-yyyyyyyy"]
@@ -29,7 +29,7 @@ export class RevealServiceCredentialResponseBodyDataCredential extends $dara.Mod
   apiKeys?: string[];
   /**
    * @remarks
-   * The AWS access key ID for Bedrock.
+   * The Bedrock AWS access key ID.
    * 
    * @example
    * AKIAxxxxxxxx
@@ -37,7 +37,7 @@ export class RevealServiceCredentialResponseBodyDataCredential extends $dara.Mod
   awsAccessKey?: string;
   /**
    * @remarks
-   * The AWS region for Bedrock.
+   * The region where Bedrock AWS is located.
    * 
    * @example
    * us-east-1
@@ -45,7 +45,7 @@ export class RevealServiceCredentialResponseBodyDataCredential extends $dara.Mod
   awsRegion?: string;
   /**
    * @remarks
-   * The AWS secret access key for Bedrock.
+   * The Bedrock AWS secret access key.
    * 
    * @example
    * wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
@@ -61,7 +61,7 @@ export class RevealServiceCredentialResponseBodyDataCredential extends $dara.Mod
   credentialSource?: string;
   /**
    * @remarks
-   * The Bedrock endpoint mode. The value is runtime for historical null values.
+   * The Bedrock endpoint mode. Historical null values return runtime.
    * 
    * @example
    * runtime
@@ -69,7 +69,7 @@ export class RevealServiceCredentialResponseBodyDataCredential extends $dara.Mod
   endpointMode?: string;
   /**
    * @remarks
-   * The access key ID for Kling.
+   * The Kling access key ID.
    * 
    * @example
    * AKxxxxxxxx
@@ -77,7 +77,7 @@ export class RevealServiceCredentialResponseBodyDataCredential extends $dara.Mod
   klingAccessKey?: string;
   /**
    * @remarks
-   * The secret access key for Kling.
+   * The Kling secret access key.
    * 
    * @example
    * sk-kling-9f2c1d7e
@@ -85,7 +85,7 @@ export class RevealServiceCredentialResponseBodyDataCredential extends $dara.Mod
   klingSecretKey?: string;
   /**
    * @remarks
-   * The original JSON text of the Vertex service account. The text is neither parsed nor reordered.
+   * The raw JSON text of the Vertex service account. The text is not parsed or reordered.
    * 
    * @example
    * {"type":"service_account","private_key":"********"}
@@ -101,7 +101,7 @@ export class RevealServiceCredentialResponseBodyDataCredential extends $dara.Mod
   vertexProjectId?: string;
   /**
    * @remarks
-   * The Vertex region.
+   * The region where Vertex is located.
    * 
    * @example
    * us-central1
@@ -169,7 +169,7 @@ export class RevealServiceCredentialResponseBodyData extends $dara.Model {
   configRevision?: string;
   /**
    * @remarks
-   * The credential object of the currently active type. Only the fields corresponding to credentialType are populated.
+   * The credential object for the active type. Only the fields corresponding to the credentialType are populated.
    * 
    * @example
    * {"apiKeyGenerateMode":"Custom","apiKeys":["sk-xxxxxxxx"]}
@@ -177,7 +177,7 @@ export class RevealServiceCredentialResponseBodyData extends $dara.Model {
   credential?: RevealServiceCredentialResponseBodyDataCredential;
   /**
    * @remarks
-   * The currently active credential type. Valid values: apiKey, bedrock, vertex, and kling.
+   * The type of the active credential. Valid values: apiKey, bedrock, vertex, and kling.
    * 
    * @example
    * apiKey
@@ -242,7 +242,7 @@ export class RevealServiceCredentialResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The currently active credential data.
+   * The active credential data.
    * 
    * @example
    * {"serviceId":"svc-xxxxxxxx","provider":"qwen","credentialType":"apiKey","configRevision":"1","credential":{"apiKeyGenerateMode":"Custom","apiKeys":["sk-xxxxxxxx"]}}

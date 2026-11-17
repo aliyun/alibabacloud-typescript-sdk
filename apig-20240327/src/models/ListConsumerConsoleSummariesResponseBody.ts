@@ -76,7 +76,7 @@ export class ListConsumerConsoleSummariesResponseBodyDataItemsConsumerGroups ext
    * The description of the consumer.
    * 
    * @example
-   * Consumer used for business integration
+   * Consumer for service integration
    */
   description?: string;
   /**
@@ -165,7 +165,7 @@ export class ListConsumerConsoleSummariesResponseBodyDataItemsCredentials extend
 export class ListConsumerConsoleSummariesResponseBodyDataItemsLocalAccess extends $dara.Model {
   /**
    * @remarks
-   * The number of agent APIs that have authorizations configured.
+   * The number of agent APIs with configured authorizations.
    * 
    * @example
    * 1
@@ -173,7 +173,7 @@ export class ListConsumerConsoleSummariesResponseBodyDataItemsLocalAccess extend
   agentApis?: number;
   /**
    * @remarks
-   * The number of MCP servers that have authorizations configured.
+   * The number of MCP servers with configured authorizations.
    * 
    * @example
    * 1
@@ -181,7 +181,7 @@ export class ListConsumerConsoleSummariesResponseBodyDataItemsLocalAccess extend
   mcpServers?: number;
   /**
    * @remarks
-   * The number of model APIs that have authorizations configured.
+   * The number of model APIs with configured authorizations.
    * 
    * @example
    * 1
@@ -255,7 +255,7 @@ export class ListConsumerConsoleSummariesResponseBodyDataItemsOtherGateways exte
 export class ListConsumerConsoleSummariesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the authorization scope of this resource includes all models.
+   * Indicates whether the authorization scope of the resource includes all models.
    */
   allModels?: boolean;
   /**
@@ -265,7 +265,7 @@ export class ListConsumerConsoleSummariesResponseBodyDataItems extends $dara.Mod
   consumerGroups?: ListConsumerConsoleSummariesResponseBodyDataItemsConsumerGroups[];
   /**
    * @remarks
-   * The consumer ID returned by the create or query consumer API.
+   * The consumer ID returned by the create or query consumer API operation.
    * 
    * @example
    * cs-d00000000000000000000
@@ -281,7 +281,7 @@ export class ListConsumerConsoleSummariesResponseBodyDataItems extends $dara.Mod
   createTimestamp?: number;
   /**
    * @remarks
-   * The summary of credential types and quantities for the consumer. The actual credential content is not returned.
+   * The summary of credential types and quantities for the consumer. The credential content is not returned.
    */
   credentials?: ListConsumerConsoleSummariesResponseBodyDataItemsCredentials[];
   /**
@@ -297,7 +297,7 @@ export class ListConsumerConsoleSummariesResponseBodyDataItems extends $dara.Mod
    * The description of the consumer.
    * 
    * @example
-   * Consumer used for business integration
+   * Consumer for service integration
    */
   description?: string;
   /**
@@ -307,7 +307,7 @@ export class ListConsumerConsoleSummariesResponseBodyDataItems extends $dara.Mod
   enable?: boolean;
   /**
    * @remarks
-   * The number of authorization configurations in the current gateway, counted by resource type.
+   * The number of authorization configurations in the current gateway, aggregated by resource type.
    */
   localAccess?: ListConsumerConsoleSummariesResponseBodyDataItemsLocalAccess;
   /**
@@ -404,7 +404,7 @@ export class ListConsumerConsoleSummariesResponseBodyData extends $dara.Model {
   complete?: boolean;
   /**
    * @remarks
-   * The statistics of the complete consumer set in the local region. This value is not affected by the current pagination.
+   * The statistics of the complete consumer set in the local region, which are not affected by the current pagination.
    */
   counts?: ListConsumerConsoleSummariesResponseBodyDataCounts;
   /**
@@ -414,7 +414,7 @@ export class ListConsumerConsoleSummariesResponseBodyData extends $dara.Model {
   items?: ListConsumerConsoleSummariesResponseBodyDataItems[];
   /**
    * @remarks
-   * The maximum number of entries returned per page.
+   * The maximum number of entries returned on each page.
    * 
    * @example
    * 20
@@ -422,7 +422,7 @@ export class ListConsumerConsoleSummariesResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned from the previous page. Do not specify this parameter when you query the first page.
+   * The pagination token returned from the previous page. Omit this parameter when querying the first page.
    * 
    * @example
    * eyJvZmZzZXQiOjIwfQ==
@@ -430,7 +430,7 @@ export class ListConsumerConsoleSummariesResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The total number of entries that match the current query conditions.
+   * The total number of records that match the current query conditions.
    * 
    * @example
    * 4
@@ -476,7 +476,7 @@ export class ListConsumerConsoleSummariesResponseBodyData extends $dara.Model {
 export class ListConsumerConsoleSummariesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. A value of Ok indicates success. If the call fails, a specific business error code is returned.
+   * The response status code. A value of Ok indicates a successful request. A specific business error code is returned for a failed request.
    * 
    * @example
    * Ok

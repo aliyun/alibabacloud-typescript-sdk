@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLogicalModelRequestFallbackTargets extends $dara.Model {
   /**
    * @remarks
-   * The actual source card ID within the same instance.
+   * The ID of the actual source card in the same instance.
    * 
    * This parameter is required.
    * 
@@ -37,7 +37,7 @@ export class CreateLogicalModelRequestFallbackTargets extends $dara.Model {
 export class CreateLogicalModelRequestSlotsComplex extends $dara.Model {
   /**
    * @remarks
-   * The actual source card ID within the same instance, which starts with msc-. VM or service overrides are not supported.
+   * The ID of the actual source card in the same instance. The ID starts with msc-. Virtual machines or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -69,7 +69,7 @@ export class CreateLogicalModelRequestSlotsComplex extends $dara.Model {
 export class CreateLogicalModelRequestSlotsSimple extends $dara.Model {
   /**
    * @remarks
-   * The actual source card ID within the same instance, which starts with msc-. VM or service overrides are not supported.
+   * The ID of the actual source card in the same instance. The ID starts with msc-. Virtual machines or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -101,7 +101,7 @@ export class CreateLogicalModelRequestSlotsSimple extends $dara.Model {
 export class CreateLogicalModelRequestSlotsStandard extends $dara.Model {
   /**
    * @remarks
-   * The actual source card ID within the same instance, which starts with msc-. VM or service overrides are not supported.
+   * The ID of the actual source card in the same instance. The ID starts with msc-. Virtual machines or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -133,21 +133,21 @@ export class CreateLogicalModelRequestSlotsStandard extends $dara.Model {
 export class CreateLogicalModelRequestSlots extends $dara.Model {
   /**
    * @remarks
-   * The complex slot requires 1 to 3 source cards. The three slots are globally deduplicated by modelCardId.
+   * The complex slot. It must contain 1 to 3 source cards. The three slots are globally deduplicated by modelCardId.
    * 
    * This parameter is required.
    */
   complex?: CreateLogicalModelRequestSlotsComplex[];
   /**
    * @remarks
-   * The simple slot requires 1 to 3 source cards. The three slots are globally deduplicated by modelCardId.
+   * The simple slot. It must contain 1 to 3 source cards. The three slots are globally deduplicated by modelCardId.
    * 
    * This parameter is required.
    */
   simple?: CreateLogicalModelRequestSlotsSimple[];
   /**
    * @remarks
-   * The standard slot requires 1 to 3 source cards. The three slots are globally deduplicated by modelCardId.
+   * The standard slot. It must contain 1 to 3 source cards. The three slots are globally deduplicated by modelCardId.
    * 
    * This parameter is required.
    */
@@ -189,7 +189,7 @@ export class CreateLogicalModelRequestSlots extends $dara.Model {
 export class CreateLogicalModelRequestTargets extends $dara.Model {
   /**
    * @remarks
-   * The actual source model card ID within the same instance, which starts with msc-. VM or service overrides are not supported.
+   * The ID of the actual source model card in the same instance. The ID starts with msc-. Virtual machines or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -199,7 +199,7 @@ export class CreateLogicalModelRequestTargets extends $dara.Model {
   modelCardId?: string;
   /**
    * @remarks
-   * An integer from 0 to 10000, saved as the original value. A value of 0 is allowed for Mapping.
+   * The weight. The value must be an integer from 0 to 10000 and is saved as the original value. A value of 0 is allowed for the Mapping policy.
    * 
    * This parameter is required.
    * 
@@ -233,7 +233,7 @@ export class CreateLogicalModelRequestTargets extends $dara.Model {
 export class CreateLogicalModelRequest extends $dara.Model {
   /**
    * @remarks
-   * Required for new Auto write requests. Valid values: balanced, cheap, fast, and quality. The new version only uses the basic call name. Do not submit this parameter for Mapping or Weighted. The server performs conditional validation.
+   * The call strategy. This parameter is required for new write requests of the Auto policy. Valid values: balanced, cheap, fast, and quality. The new version uses only the basic call name. Do not submit this parameter for the Mapping and Weighted policies. The server performs conditional validation.
    * 
    * @example
    * balanced
@@ -241,14 +241,14 @@ export class CreateLogicalModelRequest extends $dara.Model {
   callStrategy?: string;
   /**
    * @remarks
-   * An ordered list of up to 5 fallback targets. The targets are deduplicated by actual card ID and can be an empty array.
+   * The ordered fallback targets. You can specify up to 5 fallback targets. They are deduplicated by the actual card ID and can be an empty array.
    * 
    * This parameter is required.
    */
   fallbackTargets?: CreateLogicalModelRequestFallbackTargets[];
   /**
    * @remarks
-   * The associated AI gateway.
+   * The AI gateway to which the logical model belongs.
    * 
    * This parameter is required.
    * 
@@ -258,7 +258,7 @@ export class CreateLogicalModelRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The client logical call name. It can be up to 256 bytes in UTF-8, must not contain spaces or slashes, and must not start with auto.
+   * The client logical call name. The name can be up to 256 bytes in UTF-8 encoding, and cannot contain spaces or slashes or start with auto.
    * 
    * This parameter is required.
    * 
@@ -268,7 +268,7 @@ export class CreateLogicalModelRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * If set to Actual, the public name of the actual model is returned. If set to Logical, the entry name is returned, including SSE.
+   * The response model. If you set this parameter to Actual, the public name of the actual model is returned. If you set this parameter to Logical, the entry name is returned, including Server-Sent Events (SSE).
    * 
    * This parameter is required.
    * 
@@ -278,7 +278,7 @@ export class CreateLogicalModelRequest extends $dara.Model {
   responseModel?: string;
   /**
    * @remarks
-   * The routing policy. Valid values: Mapping, Weighted, and Auto. When set to Auto, targets must be an empty array and slots is required.
+   * The routing policy. Valid values: Mapping, Weighted, and Auto. If you set this parameter to Auto, the targets parameter must be an empty array and the slots parameter is required.
    * 
    * This parameter is required.
    * 
@@ -288,19 +288,19 @@ export class CreateLogicalModelRequest extends $dara.Model {
   routingPolicy?: string;
   /**
    * @remarks
-   * Submitted only for Auto. Each of the simple, standard, and complex slots requires 1 to 3 source cards. The three slots are globally deduplicated by modelCardId. Omit this parameter for Mapping and Weighted.
+   * The slots. This parameter is submitted only for the Auto policy. Each of the simple, standard, and complex slots must contain 1 to 3 source cards. The three slots are globally deduplicated by modelCardId. Omit this parameter for the Mapping and Weighted policies.
    */
   slots?: CreateLogicalModelRequestSlots;
   /**
    * @remarks
-   * The primary targets. For Mapping, exactly one item is required. For Weighted, the sum of the original relative weights must be greater than 0. For Auto, this must be an empty array.
+   * The primary targets. For the Mapping policy, exactly one target is allowed. For the Weighted policy, the sum of the original relative weights must be greater than 0. For the Auto policy, this parameter must be an empty array.
    * 
    * This parameter is required.
    */
   targets?: CreateLogicalModelRequestTargets[];
   /**
    * @remarks
-   * The request idempotency identity generated by the invoker to identify the same creation or retry operation.
+   * The client token that is generated by the caller to ensure the idempotence of the request. It is used to identify the same creation or retry operation.
    * 
    * @example
    * b1907ca4-952c-4c5f-8d1f-0aa6ae339c96

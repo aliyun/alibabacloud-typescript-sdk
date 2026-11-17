@@ -69,7 +69,7 @@ export class HttpApiApiInfoEnvironmentsServiceConfigs extends $dara.Model {
   gatewayServiceId?: string;
   /**
    * @remarks
-   * The match conditions.
+   * The match condition.
    */
   match?: HttpApiBackendMatchConditions;
   /**
@@ -250,7 +250,7 @@ export class HttpApiApiInfoEnvironments extends $dara.Model {
   customDomains?: HttpApiDomainInfo[];
   /**
    * @remarks
-   * The API deployment status in the current environment.
+   * The deployment status of the API in the current environment.
    * 
    * @example
    * Deployed
@@ -279,12 +279,12 @@ export class HttpApiApiInfoEnvironments extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The existing service configurations.
+   * The existing service configuration.
    */
   serviceConfigs?: HttpApiApiInfoEnvironmentsServiceConfigs[];
   /**
    * @remarks
-   * The list of default domain names for the environment.
+   * The default domain names for the environment.
    */
   subDomains?: HttpApiApiInfoEnvironmentsSubDomains[];
   static names(): { [key: string]: string } {
@@ -406,7 +406,7 @@ export class HttpApiApiInfoIngressInfo extends $dara.Model {
   environmentInfo?: HttpApiApiInfoIngressInfoEnvironmentInfo;
   /**
    * @remarks
-   * The ingress class to listen on.
+   * The Ingress class to listen on.
    * 
    * @example
    * mse
@@ -419,7 +419,7 @@ export class HttpApiApiInfoIngressInfo extends $dara.Model {
   k8sClusterInfo?: HttpApiApiInfoIngressInfoK8sClusterInfo;
   /**
    * @remarks
-   * Specifies whether to update the address in the ingress status.
+   * Specifies whether to update the IP address in the Ingress status.
    * 
    * @example
    * true
@@ -435,7 +435,7 @@ export class HttpApiApiInfoIngressInfo extends $dara.Model {
   sourceId?: string;
   /**
    * @remarks
-   * The watched namespace.
+   * The namespace to watch.
    * 
    * @example
    * default
@@ -496,7 +496,7 @@ export class HttpApiApiInfo extends $dara.Model {
   authConfig?: AuthConfig;
   /**
    * @remarks
-   * The API base path.
+   * The base path of the API.
    * 
    * @example
    * /v1
@@ -504,7 +504,7 @@ export class HttpApiApiInfo extends $dara.Model {
   basePath?: string;
   /**
    * @remarks
-   * The API operation deployment status.
+   * The publish status of the API operation.
    */
   deployCntMap?: { [key: string]: HttpApiApiInfoDeployCntMapValue };
   /**
@@ -514,10 +514,10 @@ export class HttpApiApiInfo extends $dara.Model {
   deployConfigs?: HttpApiDeployConfig[];
   /**
    * @remarks
-   * The API description.
+   * The description of the API.
    * 
    * @example
-   * Test-specific API
+   * Test API
    */
   description?: string;
   /**
@@ -543,7 +543,7 @@ export class HttpApiApiInfo extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The HTTP API ID.
+   * The ID of the HTTP API.
    * 
    * @example
    * api-xxx
@@ -551,7 +551,7 @@ export class HttpApiApiInfo extends $dara.Model {
   httpApiId?: string;
   /**
    * @remarks
-   * The HTTP ingress API information.
+   * The information of the HTTP Ingress API.
    */
   ingressInfo?: HttpApiApiInfoIngressInfo;
   /**
@@ -593,7 +593,7 @@ export class HttpApiApiInfo extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The API versioning information.
+   * The versioning information of the API.
    */
   versionInfo?: HttpApiVersionInfo;
   static names(): { [key: string]: string } {

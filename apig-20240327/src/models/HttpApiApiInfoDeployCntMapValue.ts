@@ -13,7 +13,7 @@ export class HttpApiApiInfoDeployCntMapValue extends $dara.Model {
   deployedCnt?: number;
   /**
    * @remarks
-   * The total number of operations.
+   * The total number of API operations.
    * 
    * @example
    * 10

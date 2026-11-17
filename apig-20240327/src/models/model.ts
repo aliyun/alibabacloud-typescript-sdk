@@ -457,6 +457,7 @@ export { ListConsumerModelCardGrantsResponseBodyDataGrants } from './ListConsume
 export { ListConsumerModelCardGrantsResponseBodyData } from './ListConsumerModelCardGrantsResponseBody';
 export { ListConsumerQuotaRulesResponseBodyDataItems } from './ListConsumerQuotaRulesResponseBody';
 export { ListConsumerQuotaRulesResponseBodyData } from './ListConsumerQuotaRulesResponseBody';
+export { ListConsumersResponseBodyDataExpirationSummary } from './ListConsumersResponseBody';
 export { ListConsumersResponseBodyDataItems } from './ListConsumersResponseBody';
 export { ListConsumersResponseBodyData } from './ListConsumersResponseBody';
 export { ListDevelopersResponseBodyDataContent } from './ListDevelopersResponseBody';
@@ -776,6 +777,7 @@ export { ModelApiDomainInfo } from './ModelApiDomainInfo';
 export { ModelApiListApiInfo } from './ModelApiListApiInfo';
 export { ModelApiPolicyConfig } from './ModelApiPolicyConfig';
 export { ModelSelection } from './ModelSelection';
+export { ModelSelectionDelta } from './ModelSelectionDelta';
 export { ParentResourceInfo } from './ParentResourceInfo';
 export { PluginClassInfo } from './PluginClassInfo';
 export { PolicyClassInfo } from './PolicyClassInfo';

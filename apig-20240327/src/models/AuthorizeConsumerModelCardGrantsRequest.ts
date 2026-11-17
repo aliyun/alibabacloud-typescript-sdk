@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class AuthorizeConsumerModelCardGrantsRequest extends $dara.Model {
   /**
    * @remarks
-   * The IDs of the selected model cards for this API. You can leave this parameter empty or omit it, but at least one of modelCardIds and modelGroupIds must be specified.
+   * The collection of selected model card IDs for this API. This parameter can be empty or omitted, but at least one of modelCardIds and modelGroupIds must be non-empty.
    */
   modelCardIds?: string[];
   /**
    * @remarks
-   * The actual model group IDs of the current instance. You can leave modelCardIds empty only when you grant group entitlements. Group entitlements allow zero intersection with the current API, but you cannot save principal relationships if both target types are empty.
+   * The actual model group IDs of the current instance. The modelCardIds parameter can be empty only when group licenses are granted. Group licenses allow zero intersection with the current API, but principal relationships with both target types empty cannot be saved.
    */
   modelGroupIds?: string[];
   /**
    * @remarks
-   * The immutable ID of the authorization principal. This is not the name.
+   * The immutable ID of the authorization principal, not the name.
    * 
    * This parameter is required.
    * 

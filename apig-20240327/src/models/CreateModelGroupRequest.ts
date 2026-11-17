@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateModelGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The description of the model group. This parameter can be empty and contain up to 1,024 UTF-16 code units.
+   * The description of the model group. The description can be up to 1,024 UTF-16 code units in length and can be left empty.
    * 
    * @example
    * Model group for service integration
@@ -23,14 +23,14 @@ export class CreateModelGroupRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The IDs of the actual or logical models within the same instance. This parameter can be empty, but the IDs must be unique. Model groups cannot be used as members.
+   * The IDs of the actual or logical model cards within the same instance. The list can be empty and must not contain duplicate values. Model groups are not accepted as members.
    * 
    * This parameter is required.
    */
   modelCardIds?: string[];
   /**
    * @remarks
-   * The unique name within the instance. It must be 1 to 128 bytes in length after trimming and encoded in UTF-8.
+   * The unique name within the instance. The name must be 1 to 128 UTF-8 bytes in length after trimming.
    * 
    * This parameter is required.
    * 

@@ -45,7 +45,7 @@ export class UpdateAiModelSourceResponseBodyData extends $dara.Model {
   provider?: string;
   /**
    * @remarks
-   * The ID of the AI service bound to the model source.
+   * The ID of the actual AI service bound to the model source.
    * 
    * @example
    * svc-d00000000000000000000
@@ -53,7 +53,7 @@ export class UpdateAiModelSourceResponseBodyData extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The time of the most recent business update, in RFC 3339 format and the UTC time zone.
+   * The time of the most recent business update. The time is in RFC 3339 format and in the UTC time zone.
    * 
    * @example
    * 2026-11-12T00:00:00Z
@@ -61,7 +61,7 @@ export class UpdateAiModelSourceResponseBodyData extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The current version of the object, used for conditional validation during update or delete operations.
+   * The current version of the object. This version is used for conditional validation during updates or deletions.
    * 
    * @example
    * 1
@@ -105,7 +105,7 @@ export class UpdateAiModelSourceResponseBodyData extends $dara.Model {
 export class UpdateAiModelSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. Ok is returned upon success, and a specific business error code is returned upon failure.
+   * The response status code. Ok indicates success, and a specific business error code indicates failure.
    * 
    * @example
    * Ok
@@ -118,7 +118,7 @@ export class UpdateAiModelSourceResponseBody extends $dara.Model {
   data?: UpdateAiModelSourceResponseBodyData;
   /**
    * @remarks
-   * The response message that describes the result of the request.
+   * The response message that describes the request processing result.
    * 
    * @example
    * success

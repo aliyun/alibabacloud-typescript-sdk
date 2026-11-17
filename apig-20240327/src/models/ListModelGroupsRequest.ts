@@ -15,7 +15,7 @@ export class ListModelGroupsRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The keyword used to match model groups by name, description, membership, or invocation name.
+   * The keyword used to match model groups by name, description, member identity, or invocation name.
    * 
    * @example
    * beta

@@ -200,7 +200,7 @@ export class HttpRouteEnvironmentInfo extends $dara.Model {
    * The alias of the environment name.
    * 
    * @example
-   * 商品中心预发环境
+   * Product center staging environment
    */
   alias?: string;
   /**
@@ -226,7 +226,7 @@ export class HttpRouteEnvironmentInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of default subdomains for the environment.
+   * The list of default second-level domain names of the environment.
    */
   subDomains?: HttpRouteEnvironmentInfoSubDomains[];
   static names(): { [key: string]: string } {
@@ -267,7 +267,7 @@ export class HttpRouteEnvironmentInfo extends $dara.Model {
 export class HttpRouteMcpServerInfoMcpRouteConfig extends $dara.Model {
   /**
    * @remarks
-   * mcp route path
+   * The URI path exposed by the MCP route.
    * 
    * @example
    * /mcp
@@ -419,17 +419,17 @@ export class HttpRoute extends $dara.Model {
    * The route description.
    * 
    * @example
-   * 商品中心预发路由
+   * Product center staging route
    */
   description?: string;
   /**
    * @remarks
-   * The ExtProc service selection for fixed dynamic forwarding routes. This field is not returned when no matching binding exists.
+   * The ExtProc service selection mounted for fixed dynamic forwarding routes. This field is not returned when no matching binding exists.
    */
   dfpConfig?: HttpRouteDfpConfig;
   /**
    * @remarks
-   * The list of domain name information.
+   * The domain name information list.
    */
   domainInfos?: HttpRouteDomainInfos[];
   /**
