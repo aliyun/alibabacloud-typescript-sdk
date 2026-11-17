@@ -21,7 +21,7 @@ export class UpdateSecretResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request.
+   * The request ID.
    * 
    * @example
    * B01CABA5-9AA1-51A2-A5A7-8BD83BA062F7

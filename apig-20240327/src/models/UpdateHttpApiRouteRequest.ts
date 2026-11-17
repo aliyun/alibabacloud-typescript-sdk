@@ -8,7 +8,7 @@ import { HttpDubboTranscoder } from "./HttpDubboTranscoder";
 export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model {
   /**
    * @remarks
-   * The service group. Used in HTTP-to-Dubbo conversion scenarios.
+   * The service group. Used for HTTP-to-Dubbo conversion scenarios.
    * 
    * @example
    * DEFAULT_GROUP
@@ -24,7 +24,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   httpDubboTranscoder?: HttpDubboTranscoder;
   /**
    * @remarks
-   * The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewriting semantics are determined by backendConfig.scene. It must be configured for the SemanticRouter scenario. If it is not configured for the AiAutoRouter scenario, the default model of the AI service is used.
+   * The target model name. This field is shared by multiple existing model backend scenarios. The specific routing or model rewriting semantics are determined by backendConfig.scene. This field is required for the SemanticRouter scenario. If this field is not configured for the AiAutoRouter scenario, the default model of the AI service is used.
    * 
    * @example
    * qwen-plus
@@ -32,7 +32,7 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   modelName?: string;
   /**
    * @remarks
-   * The service namespace. Used in HTTP-to-Dubbo conversion scenarios.
+   * The service namespace. Used for HTTP-to-Dubbo conversion scenarios.
    * 
    * @example
    * public
@@ -48,9 +48,9 @@ export class UpdateHttpApiRouteRequestBackendConfigServices extends $dara.Model 
   port?: number;
   /**
    * @remarks
-   * The service protocol:
-   * - HTTP.
-   * - HTTPS.
+   * The service protocol. Valid values:
+   * - HTTP
+   * - HTTPS
    * 
    * @example
    * HTTP
@@ -173,7 +173,7 @@ export class UpdateHttpApiRouteRequestBackendConfig extends $dara.Model {
 export class UpdateHttpApiRouteRequestDfpConfig extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ExtProc service mounted to the current route. When updating a fixed DFP route, the value must be consistent with the existing service. Service switching is not supported.
+   * The ID of the ExtProc service mounted to the current route. When updating a fixed DFP route, this ID must match the existing service. Service switching is not supported.
    * 
    * @example
    * svc-cr8k0udlhtgt80sh7png
@@ -266,7 +266,7 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The current ExtProc service selection for fixed DFP routes. Only edit mounted routes. This parameter cannot be submitted together with backendConfig, mcpRouteConfig, or policyConfigs.
+   * The ExtProc service selection for fixed DFP routes. You can only edit mounted routes. This parameter cannot be submitted together with backendConfig, mcpRouteConfig, or policyConfigs.
    */
   dfpConfig?: UpdateHttpApiRouteRequestDfpConfig;
   /**
@@ -280,8 +280,18 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
    * 
    * @example
    * env-cquqsollhtgid***
+   * 
+   * @deprecated
    */
   environmentId?: string;
+  /**
+   * @remarks
+   * The gateway ID. This parameter is used to replace the deprecated environment ID for verifying the gateway to which the route belongs. If the gateway ID does not match the gateway to which the route record belongs, the request is rejected. If the environment ID is omitted, the route ownership remains unchanged.
+   * 
+   * @example
+   * gw-xxx
+   */
+  gatewayId?: string;
   /**
    * @remarks
    * The route match rule.
@@ -304,6 +314,7 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
       dfpConfig: 'dfpConfig',
       domainIds: 'domainIds',
       environmentId: 'environmentId',
+      gatewayId: 'gatewayId',
       match: 'match',
       mcpRouteConfig: 'mcpRouteConfig',
       policyConfigs: 'policyConfigs',
@@ -317,6 +328,7 @@ export class UpdateHttpApiRouteRequest extends $dara.Model {
       dfpConfig: UpdateHttpApiRouteRequestDfpConfig,
       domainIds: { 'type': 'array', 'itemType': 'string' },
       environmentId: 'string',
+      gatewayId: 'string',
       match: HttpRouteMatch,
       mcpRouteConfig: UpdateHttpApiRouteRequestMcpRouteConfig,
       policyConfigs: { 'type': 'array', 'itemType': HttpApiPolicyConfigs },

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RevealServiceCredentialResponseBodyDataCredential extends $dara.Model {
   /**
    * @remarks
-   * The API key generation mode. Valid values: Custom and Reference. Historical null values are treated as Custom.
+   * The API key generation mode. Valid values: Custom and Reference. Historical null values are processed as Custom.
    * 
    * @example
    * Custom
@@ -53,7 +53,7 @@ export class RevealServiceCredentialResponseBodyDataCredential extends $dara.Mod
   awsSecretKey?: string;
   /**
    * @remarks
-   * The source of the credential. The value is pai-eas when the credential is backfilled by the PAI-EAS system.
+   * The source of the credential. The value is pai-eas when backfilled by the PAI-EAS system.
    * 
    * @example
    * pai-eas
@@ -101,7 +101,7 @@ export class RevealServiceCredentialResponseBodyDataCredential extends $dara.Mod
   vertexProjectId?: string;
   /**
    * @remarks
-   * The region for Vertex.
+   * The Vertex region.
    * 
    * @example
    * us-central1
@@ -161,7 +161,7 @@ export class RevealServiceCredentialResponseBodyDataCredential extends $dara.Mod
 export class RevealServiceCredentialResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The current configuration revision. The value is legacy for historical objects.
+   * The current configuration version. The value is legacy for historical objects.
    * 
    * @example
    * 1
@@ -169,7 +169,7 @@ export class RevealServiceCredentialResponseBodyData extends $dara.Model {
   configRevision?: string;
   /**
    * @remarks
-   * The credential object of the currently active type. Only the fields corresponding to the credentialType are populated.
+   * The credential object of the currently active type. Only the fields corresponding to credentialType are populated.
    * 
    * @example
    * {"apiKeyGenerateMode":"Custom","apiKeys":["sk-xxxxxxxx"]}

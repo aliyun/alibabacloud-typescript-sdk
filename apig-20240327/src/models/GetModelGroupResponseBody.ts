@@ -4,16 +4,25 @@ import * as $dara from '@darabonba/typescript';
 
 export class GetModelGroupResponseBodyDataConfigurationDeployment extends $dara.Model {
   /**
+   * @remarks
+   * The operation ID of the group configuration task, which is used for tracking only. It cannot be used in GetLogicalModelDeployment or RetryLogicalModelDeployment.
+   * 
    * @example
    * op-xxxxxxxx
    */
   operationId?: string;
   /**
+   * @remarks
+   * The model group version corresponding to the task, which may be earlier than the current version.
+   * 
    * @example
    * 1
    */
   revision?: number;
   /**
+   * @remarks
+   * The configuration deployment status. Valid values: Pending, Running, Succeeded, Failed, and PartiallyFailed.
+   * 
    * @example
    * Succeeded
    */
@@ -45,21 +54,33 @@ export class GetModelGroupResponseBodyDataConfigurationDeployment extends $dara.
 
 export class GetModelGroupResponseBodyDataEntitlementState extends $dara.Model {
   /**
+   * @remarks
+   * The applied entitlement revision.
+   * 
    * @example
    * 1
    */
   appliedRevision?: number;
   /**
+   * @remarks
+   * The desired entitlement revision.
+   * 
    * @example
    * 1
    */
   desiredRevision?: number;
   /**
+   * @remarks
+   * The error message when entitlement fails. This field is not returned when no error occurs.
+   * 
    * @example
-   * 许可同步失败。
+   * Entitlement synchronization failed
    */
   errorMessage?: string;
   /**
+   * @remarks
+   * The entitlement status. Valid values: Pending, Applying, Committed, and Failed. Committed only indicates that the control plane has successfully submitted and read back the configuration, and does not guarantee that all nodes have acknowledged it.
+   * 
    * @example
    * Committed
    */
@@ -92,35 +113,65 @@ export class GetModelGroupResponseBodyDataEntitlementState extends $dara.Model {
 }
 
 export class GetModelGroupResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The summary of the latest group configuration deployment, which is independent of API release and entitlement status. This field is not returned when no deployment task exists, and its presence does not indicate success. It represents the current version only when the revision matches the current version. List operations do not guarantee that this field is populated.
+   */
   configurationDeployment?: GetModelGroupResponseBodyDataConfigurationDeployment;
   /**
+   * @remarks
+   * The model group description.
+   * 
    * @example
-   * 面向对话场景的模型组。
+   * A model group for conversation scenarios
    */
   description?: string;
+  /**
+   * @remarks
+   * The entitlement status information.
+   */
   entitlementState?: GetModelGroupResponseBodyDataEntitlementState;
   /**
+   * @remarks
+   * The gateway instance ID.
+   * 
    * @example
    * gw-xxxxxxxx
    */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The list of model card IDs included in the model group.
+   */
   modelCardIds?: string[];
   /**
+   * @remarks
+   * The model group ID.
+   * 
    * @example
    * mg-xxxxxxxx
    */
   modelGroupId?: string;
   /**
+   * @remarks
+   * The model group name.
+   * 
    * @example
    * chat-group
    */
   name?: string;
   /**
+   * @remarks
+   * The last update time in ISO 8601 (RFC 3339) format in the UTC time zone, such as 2026-05-15T10:00:00Z.
+   * 
    * @example
    * 2026-05-15T10:00:00Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The model group version number.
+   * 
    * @example
    * 1
    */
@@ -173,17 +224,30 @@ export class GetModelGroupResponseBodyData extends $dara.Model {
 
 export class GetModelGroupResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The response data.
+   */
   data?: GetModelGroupResponseBodyData;
   /**
+   * @remarks
+   * The response message.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID.
+   * 
    * @example
    * 393E2630-DBE7-5221-AB35-9E740675491A
    */

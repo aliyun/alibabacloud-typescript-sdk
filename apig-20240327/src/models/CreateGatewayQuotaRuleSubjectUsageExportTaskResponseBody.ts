@@ -5,14 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class CreateGatewayQuotaRuleSubjectUsageExportTaskResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The current status of create task. Valid values:
+   * The current status of create task.
    * 
    * - Pending: Create task is submitted and waiting to be processed.
    * - Running: The system is querying details, generating the file, or uploading the file.
    * - Success: The export is successful. Call the query operation to obtain the file information.
-   * - Failed: The export failed. Call the query operation to view the errorMessage.
+   * - Failed: The export fails. Call the query operation to view the errorMessage.
    * 
-   * A newly created task returns Pending. When an existing task is reused through clientToken, the current status of create task is returned, which is not guaranteed to be Pending.
+   * A newly created task returns Pending. When an existing task is reused through clientToken, the status of create task at that time is returned, which is not guaranteed to be Pending.
    * 
    * @example
    * Pending
@@ -20,7 +20,7 @@ export class CreateGatewayQuotaRuleSubjectUsageExportTaskResponseBodyData extend
   status?: string;
   /**
    * @remarks
-   * The export task ID. When you call GetGatewayQuotaRuleSubjectUsageExportTask, pass this value along with the gatewayId, ruleId, and subjectId from this request.
+   * The ID of the export task. When you call GetGatewayQuotaRuleSubjectUsageExportTask, pass this value along with the gatewayId, ruleId, and subjectId from this request.
    * 
    * @example
    * finops-export-abcdef1234567890

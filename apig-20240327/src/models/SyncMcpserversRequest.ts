@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SyncMCPServersRequestNacosMcpServers extends $dara.Model {
   /**
    * @remarks
-   * The exposed URI path. Required when the protocol is SSE or StreamableHTTP and the type is RealMCP.
+   * The exposed URI path. This parameter is required when the protocol is SSE or StreamableHTTP and the type is RealMCP.
    * 
    * @example
    * /sse
@@ -21,7 +21,7 @@ export class SyncMCPServersRequestNacosMcpServers extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * MCP Server ID
+   * The unique ID of the MCP server.
    * 
    * @example
    * mcp-d3s8qo6m1hknegofa3bg
@@ -29,7 +29,7 @@ export class SyncMCPServersRequestNacosMcpServers extends $dara.Model {
   mcpServerId?: string;
   /**
    * @remarks
-   * The MCP server name.
+   * The name of the MCP server.
    * 
    * @example
    * test
@@ -75,12 +75,12 @@ export class SyncMCPServersRequestNacosMcpServers extends $dara.Model {
 export class SyncMCPServersRequest extends $dara.Model {
   /**
    * @remarks
-   * The domain name IDs.
+   * The list of domain name IDs. You can obtain the system default domain name ID from the subDomainInfos[].domainId field in the ListGateways response. Note: This parameter is required. If you do not specify this parameter, the API returns the InvalidParameter.IsEmpty (400) error.
    */
   domainIds?: string[];
   /**
    * @remarks
-   * The gateway ID.
+   * The ID of the gateway. Note: This parameter is required. If you do not specify this parameter, the API returns the InvalidParameter.IsEmpty (400) error.
    * 
    * @example
    * gw-cq7l5s5lhtg***
@@ -88,12 +88,12 @@ export class SyncMCPServersRequest extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The list of Nacos MCP servers to synchronize. If the list includes already synchronized MCP servers, specify the mcpServerId.
+   * The list of Nacos MCP servers to sync. If the list includes an already synced MCP server, you must specify the mcpServerId parameter.
    */
   nacosMcpServers?: SyncMCPServersRequestNacosMcpServers[];
   /**
    * @remarks
-   * The Nacos namespace.
+   * The Nacos namespace. Note: This parameter is required. If you do not specify this parameter, the API returns the InvalidParameter.IsEmpty (400) error.
    * 
    * @example
    * default
@@ -101,7 +101,7 @@ export class SyncMCPServersRequest extends $dara.Model {
   namespace?: string;
   /**
    * @remarks
-   * The source ID.
+   * The ID of the source.
    * 
    * @example
    * src-d40mff6m1hkpt84vep60

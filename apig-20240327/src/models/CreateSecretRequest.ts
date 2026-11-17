@@ -22,12 +22,12 @@ export class CreateSecretRequest extends $dara.Model {
   gatewayType?: string;
   /**
    * @remarks
-   * The KMS key configuration information.
+   * The KMS key configuration. This parameter is required when secretSource is set to KMS. If this parameter is omitted, the API returns InvalidParameter.IsEmpty(400) with the message "Parameter kmsConfig should not be empty.". This parameter contains two sub-fields: kmsInstanceId (the KMS instance ID) and kmsKeyId (the KMS key ID).
    */
   kmsConfig?: KMSConfig;
   /**
    * @remarks
-   * The name of the secret. The name can contain letters, digits, and underscores (_) and must not exceed 64 characters in length.
+   * The name of the secret. The name can contain letters, digits, and underscores (_) and cannot exceed 64 characters in length.
    * 
    * @example
    * my_secret
@@ -43,7 +43,7 @@ export class CreateSecretRequest extends $dara.Model {
   secretData?: string;
   /**
    * @remarks
-   * The source of the secret.
+   * The source of the secret. Currently, only KMS is supported. If you specify other values such as MANUAL, the API returns InvalidParameter.WithValue(400). This parameter is required. If this parameter is not provided, the API also returns InvalidParameter.WithValue(400).
    * 
    * @example
    * KMS

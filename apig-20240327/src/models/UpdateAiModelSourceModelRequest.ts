@@ -45,7 +45,7 @@ export class UpdateAiModelSourceModelRequestAvailablePaths extends $dara.Model {
 export class UpdateAiModelSourceModelRequestCredit extends $dara.Model {
   /**
    * @remarks
-   * The number of credits per one million cached input tokens. The value must be a non-negative number. A value of 0 indicates that cached input is free of charge.
+   * The number of credits per million cached input tokens. This value must be a non-negative number. Set this value to 0 to indicate that cached input is free.
    * 
    * @example
    * 0.1
@@ -53,7 +53,7 @@ export class UpdateAiModelSourceModelRequestCredit extends $dara.Model {
   cacheCost?: number;
   /**
    * @remarks
-   * The number of credits per one million input tokens. The value must be a non-negative number. A value of 0 indicates that the input is free of charge.
+   * The number of credits per million input tokens. This value must be a non-negative number. Set this value to 0 to indicate that the input is free.
    * 
    * @example
    * 1
@@ -61,7 +61,7 @@ export class UpdateAiModelSourceModelRequestCredit extends $dara.Model {
   inputCost?: number;
   /**
    * @remarks
-   * The number of credits per one million output tokens. The value must be a non-negative number. A value of 0 indicates that the output is free of charge.
+   * The number of credits per million output tokens. This value must be a non-negative number. Set this value to 0 to indicate that the output is free.
    * 
    * @example
    * 2
@@ -69,7 +69,7 @@ export class UpdateAiModelSourceModelRequestCredit extends $dara.Model {
   outputCost?: number;
   /**
    * @remarks
-   * The pricing method. Currently, fixed credit pricing is supported.
+   * The pricing method. Currently, only fixed credit pricing is supported.
    * 
    * @example
    * fixed
@@ -180,7 +180,7 @@ export class UpdateAiModelSourceModelRequest extends $dara.Model {
   availablePaths?: UpdateAiModelSourceModelRequestAvailablePaths[];
   /**
    * @remarks
-   * The credit pricing configuration of the model.
+   * The credit pricing configuration for the model.
    */
   credit?: UpdateAiModelSourceModelRequestCredit;
   /**

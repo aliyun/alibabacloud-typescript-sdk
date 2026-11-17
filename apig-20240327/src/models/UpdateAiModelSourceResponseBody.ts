@@ -53,7 +53,7 @@ export class UpdateAiModelSourceResponseBodyData extends $dara.Model {
   serviceId?: string;
   /**
    * @remarks
-   * The time of the most recent business update. The time is in RFC 3339 format and in the UTC time zone.
+   * The time of the most recent business update, in RFC 3339 format and the UTC time zone.
    * 
    * @example
    * 2026-11-12T00:00:00Z
@@ -61,7 +61,7 @@ export class UpdateAiModelSourceResponseBodyData extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The current version of the object. This version is used for conditional validation during updates or deletions.
+   * The current version of the object, used for conditional validation during update or delete operations.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLogicalModelsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the gateway instance. Specifies the gateway instance whose logical models you want to query.
+   * The ID of the gateway instance.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class ListLogicalModelsRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The maximum number of entries to return per page. Valid values: 1 to 100. This parameter is required. This operation uses token-based pagination with maxResults and nextToken, and does not use pageNumber or pageSize.
+   * The maximum number of entries to return per page. Valid values: 1 to 100. This parameter is required. This operation uses token-based pagination with maxResults and nextToken instead of pageNumber and pageSize.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ListLogicalModelsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The nextToken value returned in the response of the previous page. Do not specify this parameter for the first page. The nextToken value is not returned for the last page.
+   * The pagination token returned from the previous request. Do not specify this parameter for the first request. This token is not returned in the response for the last page.
    * 
    * @example
    * next-token-xxxxxxxx

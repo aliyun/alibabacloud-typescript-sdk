@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelGroupsRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the AI gateway instance to which the resource belongs.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -12,12 +14,17 @@ export class ListModelGroupsRequest extends $dara.Model {
    */
   gatewayId?: string;
   /**
+   * @remarks
+   * The keyword used to match model groups by name, description, membership, or invocation name.
+   * 
    * @example
    * beta
    */
   keyword?: string;
   /**
    * @remarks
+   * The maximum number of results to return per page. Valid values: 1 to 100. This parameter is required. Token-based pagination is used instead of pageNumber and pageSize.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,6 +32,9 @@ export class ListModelGroupsRequest extends $dara.Model {
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token returned from the previous page. Omit this parameter for the first page. The value is empty or omitted for the last page.
+   * 
    * @example
    * eyJvZmZzZXQiOjIwfQ==
    */

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateLogicalModelRequestFallbackTargets extends $dara.Model {
   /**
    * @remarks
+   * The ID of the actual source card in the same instance.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -35,6 +37,8 @@ export class UpdateLogicalModelRequestFallbackTargets extends $dara.Model {
 export class UpdateLogicalModelRequestSlotsComplex extends $dara.Model {
   /**
    * @remarks
+   * The ID of the actual source card in the same instance. The ID starts with msc-. Virtual machines or service overrides are not supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -65,6 +69,8 @@ export class UpdateLogicalModelRequestSlotsComplex extends $dara.Model {
 export class UpdateLogicalModelRequestSlotsSimple extends $dara.Model {
   /**
    * @remarks
+   * The ID of the actual source card in the same instance. The ID starts with msc-. Virtual machines or service overrides are not supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -95,6 +101,8 @@ export class UpdateLogicalModelRequestSlotsSimple extends $dara.Model {
 export class UpdateLogicalModelRequestSlotsStandard extends $dara.Model {
   /**
    * @remarks
+   * The ID of the actual source card in the same instance. The ID starts with msc-. Virtual machines or service overrides are not supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -125,16 +133,22 @@ export class UpdateLogicalModelRequestSlotsStandard extends $dara.Model {
 export class UpdateLogicalModelRequestSlots extends $dara.Model {
   /**
    * @remarks
+   * The complex slot. It requires 1 to 3 source cards. The three slots are globally deduplicated by modelCardId.
+   * 
    * This parameter is required.
    */
   complex?: UpdateLogicalModelRequestSlotsComplex[];
   /**
    * @remarks
+   * The simple slot. It requires 1 to 3 source cards. The three slots are globally deduplicated by modelCardId.
+   * 
    * This parameter is required.
    */
   simple?: UpdateLogicalModelRequestSlotsSimple[];
   /**
    * @remarks
+   * The standard slot. It requires 1 to 3 source cards. The three slots are globally deduplicated by modelCardId.
+   * 
    * This parameter is required.
    */
   standard?: UpdateLogicalModelRequestSlotsStandard[];
@@ -175,6 +189,8 @@ export class UpdateLogicalModelRequestSlots extends $dara.Model {
 export class UpdateLogicalModelRequestTargets extends $dara.Model {
   /**
    * @remarks
+   * The ID of the actual source model card in the same instance. The ID starts with msc-. Virtual machines or service overrides are not supported.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -183,6 +199,8 @@ export class UpdateLogicalModelRequestTargets extends $dara.Model {
   modelCardId?: string;
   /**
    * @remarks
+   * The weight. Valid values: integers from 0 to 10000. The original value is saved. For Mapping, 0 is allowed.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -214,17 +232,24 @@ export class UpdateLogicalModelRequestTargets extends $dara.Model {
 
 export class UpdateLogicalModelRequest extends $dara.Model {
   /**
+   * @remarks
+   * The call strategy. This parameter is required for new Auto write requests. Valid values: balanced, cheap, fast, and quality. The new version uses only the basic call name. Do not submit this parameter for Mapping and Weighted. The server performs conditional validation.
+   * 
    * @example
    * balanced
    */
   callStrategy?: string;
   /**
    * @remarks
+   * The ordered fallback targets. A maximum of 5 targets are supported. The targets are deduplicated by actual card ID. This can be an empty array.
+   * 
    * This parameter is required.
    */
   fallbackTargets?: UpdateLogicalModelRequestFallbackTargets[];
   /**
    * @remarks
+   * The client logical call name. It can be up to 256 bytes in UTF-8 encoding, must not contain spaces or slashes, and must not start with auto.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -233,6 +258,8 @@ export class UpdateLogicalModelRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
+   * The response model. Actual returns the public name of the actual model, and Logical returns the entry name, including Server-Sent Events (SSE).
+   * 
    * This parameter is required.
    * 
    * @example
@@ -241,25 +268,38 @@ export class UpdateLogicalModelRequest extends $dara.Model {
   responseModel?: string;
   /**
    * @remarks
+   * The routing policy. Valid values: Mapping, Weighted, and Auto. If you set this parameter to Auto, targets must be an empty array and slots is required.
+   * 
    * This parameter is required.
    * 
    * @example
    * Weighted
    */
   routingPolicy?: string;
+  /**
+   * @remarks
+   * The slots. This parameter is submitted only for Auto. Each of the simple, standard, and complex slots requires 1 to 3 source cards. The three slots are globally deduplicated by modelCardId. Omit this parameter for Mapping and Weighted.
+   */
   slots?: UpdateLogicalModelRequestSlots;
   /**
    * @remarks
+   * The primary targets. For Mapping, exactly one item is allowed. For Weighted, the sum of original relative weights must be greater than 0. For Auto, this must be an empty array.
+   * 
    * This parameter is required.
    */
   targets?: UpdateLogicalModelRequestTargets[];
   /**
+   * @remarks
+   * The confirmation token returned by the configuration update dry run. Pass this token as is when submitting the update.
+   * 
    * @example
    * 6b8e7d61b3a94c7285cf0d9ee1a72c836b8e7d61b3a94c7285cf0d9ee1a72c83
    */
   confirmationToken?: string;
   /**
    * @remarks
+   * The expected configuration revision number. Use the revision returned by the most recent query or dry run.
+   * 
    * This parameter is required.
    * 
    * @example

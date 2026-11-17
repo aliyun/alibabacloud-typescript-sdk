@@ -65,7 +65,7 @@ export class RiskCheckResultsMetadata extends $dara.Model {
 export class RiskCheckResultsRiskDetails extends $dara.Model {
   /**
    * @remarks
-   * The name of the module that performed the check.
+   * The name of the module that performs the check.
    * 
    * @example
    * BaseInfo
@@ -73,7 +73,10 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
   checkModule?: string;
   /**
    * @remarks
-   * The detailed data related to the risk. The data structure varies by risk type.
+   * The detailed data related to the risk. The data structure varies based on the risk type.
+   * 
+   * @example
+   * {"30010010001":"[\\"\\",\\"\\"]"}
    */
   data?: { [key: string]: string };
   /**
@@ -81,12 +84,12 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
    * The detailed description of the risk in JSON string format.
    * 
    * @example
-   * {"desc":"The single-node instance has an architecture risk. A single point of failure can cause service unavailability. Scale out to two or more nodes."}
+   * {"desc":"Single-node instances have architecture risks. A single point of failure causes service unavailability. Scale out to two or more nodes."}
    */
   description?: string;
   /**
    * @remarks
-   * Indicates whether the alert notification for the risk item is muted.
+   * Specifies whether the alert notification for the risk item is muted.
    * 
    * @example
    * false
@@ -118,11 +121,7 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
   riskName?: string;
   /**
    * @remarks
-   * The risk category. Valid values:
-   * - SYSTEM: System risk.
-   * - VERSION: Version risk.
-   * - SAFE: Security risk.
-   * - CAPACITY: Capacity risk.
+   * The risk categorization. Valid values: SYSTEM (system risk), VERSION (version risk), SAFE (security risk), and CAPACITY (capacity risk).
    * 
    * @example
    * SYSTEM
@@ -138,10 +137,10 @@ export class RiskCheckResultsRiskDetails extends $dara.Model {
   situation?: string;
   /**
    * @remarks
-   * The optimization suggestions for the risk in JSON string format, including descriptions and action links.
+   * The optimization suggestions for the risk in JSON string format, including descriptions and operation links.
    * 
    * @example
-   * {"desc":"Scale out to two or more nodes.","links":[{"descEn":"click to upgrade specification","type":"upgrade","desc":"Click to scale out"}]}
+   * {"desc":"Scale out to two or more nodes","links":[{"descEn":"click to upgrade specification","type":"upgrade","desc":"Click to scale out"}]}
    */
   suggestion?: string;
   static names(): { [key: string]: string } {
@@ -205,21 +204,17 @@ export class RiskCheckResults extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The basic information about the instance.
+   * The basic information of the instance.
    */
   metadata?: RiskCheckResultsMetadata;
   /**
    * @remarks
-   * The list of detailed risk items.
+   * The list of detailed risk item information.
    */
   riskDetails?: RiskCheckResultsRiskDetails[];
   /**
    * @remarks
-   * The overall risk level. Valid values:
-   * - LOW: Low risk.
-   * - MEDIUM: Medium risk.
-   * - HIGH: High risk.
-   * - CRITICAL: Critical risk.
+   * The overall risk level. Valid values: LOW (low risk), MEDIUM (medium risk), HIGH (high risk), and CRITICAL (critical risk).
    * 
    * @example
    * MEDIUM
@@ -243,10 +238,7 @@ export class RiskCheckResults extends $dara.Model {
   snapshotTime?: number;
   /**
    * @remarks
-   * The risk detection status. Valid values:
-   * - SUCCESS: The detection succeeded.
-   * - FAIL: The detection failed.
-   * - RUNNING: The detection is running.
+   * The risk check status. Valid values: SUCCESS, FAIL, and RUNNING.
    * 
    * @example
    * SUCCESS

@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ListAiModelSourceModelsResponseBodyDataItemsAvailablePaths extends $dara.Model {
   /**
+   * @remarks
+   * The invocation path of the model.
+   * 
    * @example
    * /v1/chat/completions
    */
   path?: string;
   /**
+   * @remarks
+   * The protocol type used by the invocation path.
+   * 
    * @example
    * OpenAI/v1
    */
@@ -38,21 +44,33 @@ export class ListAiModelSourceModelsResponseBodyDataItemsAvailablePaths extends 
 
 export class ListAiModelSourceModelsResponseBodyDataItemsCredit extends $dara.Model {
   /**
+   * @remarks
+   * The number of credits per million cached input tokens. The value must be a non-negative number. A value of 0 indicates that cached input is free of charge.
+   * 
    * @example
    * 0.1
    */
   cacheCost?: number;
   /**
+   * @remarks
+   * The number of credits per million input tokens. The value must be a non-negative number. A value of 0 indicates that the input is free of charge.
+   * 
    * @example
    * 1
    */
   inputCost?: number;
   /**
+   * @remarks
+   * The number of credits per million output tokens. The value must be a non-negative number. A value of 0 indicates that the output is free of charge.
+   * 
    * @example
    * 2
    */
   outputCost?: number;
   /**
+   * @remarks
+   * The pricing method. Valid values: fixed (fixed credit pricing).
+   * 
    * @example
    * fixed
    */
@@ -86,21 +104,38 @@ export class ListAiModelSourceModelsResponseBodyDataItemsCredit extends $dara.Mo
 
 export class ListAiModelSourceModelsResponseBodyDataItemsMeta extends $dara.Model {
   /**
+   * @remarks
+   * The maximum number of input tokens supported by the model.
+   * 
    * @example
    * 32768
    */
   maxInputTokens?: number;
   /**
+   * @remarks
+   * The maximum number of output tokens supported by the model.
+   * 
    * @example
    * 8192
    */
   maxOutputTokens?: number;
   /**
+   * @remarks
+   * The maximum number of context tokens supported by the model.
+   * 
    * @example
    * 40960
    */
   maxTokens?: number;
+  /**
+   * @remarks
+   * The input modalities supported by the model.
+   */
   supportedInputModalities?: string[];
+  /**
+   * @remarks
+   * The output modalities supported by the model.
+   */
   supportedOutputModalities?: string[];
   static names(): { [key: string]: string } {
     return {
@@ -138,70 +173,121 @@ export class ListAiModelSourceModelsResponseBodyDataItemsMeta extends $dara.Mode
 }
 
 export class ListAiModelSourceModelsResponseBodyDataItems extends $dara.Model {
+  /**
+   * @remarks
+   * The protocols and invocation paths supported by the model.
+   */
   availablePaths?: ListAiModelSourceModelsResponseBodyDataItemsAvailablePaths[];
+  /**
+   * @remarks
+   * The credit pricing configuration of the model.
+   */
   credit?: ListAiModelSourceModelsResponseBodyDataItemsCredit;
   /**
+   * @remarks
+   * The set of capabilities declared by the model. The key is the capability name, and the value indicates whether the capability is supported.
+   * 
    * @example
    * {"nativeStreaming":true}
    */
   features?: { [key: string]: any };
   /**
+   * @remarks
+   * The ID of the AI gateway instance to which the resource belongs.
+   * 
    * @example
    * gw-d00000000000000000000
    */
   gatewayId?: string;
+  /**
+   * @remarks
+   * The token limits and input and output modality information of the model.
+   */
   meta?: ListAiModelSourceModelsResponseBodyDataItemsMeta;
   /**
+   * @remarks
+   * The model identifier. The source model card ID is used for standard models, and the vm- prefix is used for logical model entries.
+   * 
    * @example
    * msc-d00000000000000000000
    */
   modelCardId?: string;
   /**
+   * @remarks
+   * The actual model name used by the upstream service.
+   * 
    * @example
    * qwen-plus
    */
   modelName?: string;
   /**
+   * @remarks
+   * The stable identifier of the provider to which the model belongs.
+   * 
    * @example
    * qwen
    */
   modelProvider?: string;
   /**
+   * @remarks
+   * The ID of the model source. Use the modelSourceId returned by CreateAiModelSource.
+   * 
    * @example
    * ms-d00000000000000000000
    */
   modelSourceId?: string;
   /**
+   * @remarks
+   * The display name of the model source.
+   * 
    * @example
-   * 百炼模型源
+   * Model Studio model source
    */
   modelSourceName?: string;
   /**
+   * @remarks
+   * The current version of the model source to which the model belongs.
+   * 
    * @example
    * 1
    */
   modelSourceVersion?: number;
   /**
+   * @remarks
+   * The synchronization status of the model pricing configuration. A value of Pending indicates that the current version is not synchronized, and Ready indicates that it is synchronized.
+   * 
    * @example
    * Ready
    */
   pricingStatus?: string;
   /**
+   * @remarks
+   * The ID of the actual AI service bound to the model source.
+   * 
    * @example
    * svc-d00000000000000000000
    */
   serviceId?: string;
   /**
+   * @remarks
+   * The source of the model asset. A value of user indicates a user model, and builtin indicates a system built-in model.
+   * 
    * @example
    * user
    */
   source?: string;
   /**
+   * @remarks
+   * The time of the last business update, in RFC 3339 format and UTC time zone.
+   * 
    * @example
    * 2026-11-12T00:00:00Z
    */
   updateTime?: string;
   /**
+   * @remarks
+   * The current version of the object, which is used for conditional validation during updates or deletions.
+   * 
    * @example
    * 1
    */
@@ -270,18 +356,31 @@ export class ListAiModelSourceModelsResponseBodyDataItems extends $dara.Model {
 }
 
 export class ListAiModelSourceModelsResponseBodyData extends $dara.Model {
+  /**
+   * @remarks
+   * The list of models in the model source returned on the current page.
+   */
   items?: ListAiModelSourceModelsResponseBodyDataItems[];
   /**
+   * @remarks
+   * The maximum number of records returned per page.
+   * 
    * @example
    * 20
    */
   maxResults?: number;
   /**
+   * @remarks
+   * The pagination token returned from the previous page. Omit this parameter when querying the first page.
+   * 
    * @example
    * eyJvZmZzZXQiOjIwfQ==
    */
   nextToken?: string;
   /**
+   * @remarks
+   * The total number of records that match the current query conditions.
+   * 
    * @example
    * 4
    */
@@ -318,17 +417,30 @@ export class ListAiModelSourceModelsResponseBodyData extends $dara.Model {
 
 export class ListAiModelSourceModelsResponseBody extends $dara.Model {
   /**
+   * @remarks
+   * The response status code. A value of Ok indicates success, and a specific business error code indicates failure.
+   * 
    * @example
    * Ok
    */
   code?: string;
+  /**
+   * @remarks
+   * The business result returned for the model source operation.
+   */
   data?: ListAiModelSourceModelsResponseBodyData;
   /**
+   * @remarks
+   * The response message, which describes the request processing result.
+   * 
    * @example
    * success
    */
   message?: string;
   /**
+   * @remarks
+   * The request ID, which is generated by the system to trace the call.
+   * 
    * @example
    * 473469C7-AA6F-4DC5-B3DB-A3DC0DE3C83E
    */

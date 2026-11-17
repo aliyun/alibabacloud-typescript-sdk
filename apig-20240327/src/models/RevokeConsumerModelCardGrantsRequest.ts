@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class RevokeConsumerModelCardGrantsRequest extends $dara.Model {
   /**
    * @remarks
-   * The collection of model card IDs to be revoked within this API. Revoking a non-existent license is a valid no-op.
+   * The collection of model card IDs to revoke within this API. Revoking non-existent entitlements is a valid no-op.
    */
   modelCardIds?: string[];
   /**
    * @remarks
-   * The collection of actual model group IDs to be revoked within this API. When revoking only group licenses, modelCardIds can be empty, and the group or principal is not required to exist. At least one of the two target types must be non-empty. This operation does not delete consumers, keys, or quotas.
+   * The actual model group IDs to revoke within this API. When revoking only group entitlements, modelCardIds can be empty, and the group or principal is not required to still exist. At least one of the two target types must be non-empty. This operation does not delete consumers, keys, or quotas.
    */
   modelGroupIds?: string[];
   /**
    * @remarks
-   * The immutable ID of the principal for which the license is revoked. This is not the name.
+   * The immutable ID of the principal for revocation, not the name.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class RevokeConsumerModelCardGrantsRequest extends $dara.Model {
   principalId?: string;
   /**
    * @remarks
-   * The type of the principal for which the license is revoked. Valid values: Consumer and ConsumerGroup.
+   * The type of the principal for revocation. Valid values: Consumer, ConsumerGroup.
    * 
    * This parameter is required.
    * 

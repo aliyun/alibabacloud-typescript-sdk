@@ -56,7 +56,7 @@ export class CreateSecretResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * ID of the request.
+   * The request ID.
    * 
    * @example
    * CFF809D7-045D-502F-BF6C-947Exxxxxxxx

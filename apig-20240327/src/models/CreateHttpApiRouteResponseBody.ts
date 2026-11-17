@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHttpApiRouteResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The route ID.
+   * The ID of the route.
    * 
    * @example
    * hr-cr82undlhtgrlej***
@@ -56,7 +56,7 @@ export class CreateHttpApiRouteResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 3ACFC7A7-45A9-58CF-B2D5-765B60254695

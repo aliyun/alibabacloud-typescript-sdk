@@ -127,7 +127,7 @@ export class ListLogicalModelsResponseBodyDataItemsFallbackTargets extends $dara
 export class ListLogicalModelsResponseBodyDataItemsMeta extends $dara.Model {
   /**
    * @remarks
-   * The minimum input token limit when all primary targets declare this limit. This field is not returned if any target\\"s limit is unknown.
+   * The minimum input token limit when all primary targets declare the limit. This parameter is not returned if the limit of any target is unknown.
    * 
    * @example
    * 128000
@@ -135,7 +135,7 @@ export class ListLogicalModelsResponseBodyDataItemsMeta extends $dara.Model {
   maxInputTokens?: number;
   /**
    * @remarks
-   * The minimum output token limit when all primary targets declare this limit. This field is not returned if any target\\"s limit is unknown.
+   * The minimum output token limit when all primary targets declare the limit. This parameter is not returned if the limit of any target is unknown.
    * 
    * @example
    * 16384
@@ -143,7 +143,7 @@ export class ListLogicalModelsResponseBodyDataItemsMeta extends $dara.Model {
   maxOutputTokens?: number;
   /**
    * @remarks
-   * The minimum total token limit when all primary targets declare this limit. This field is not returned if any target\\"s limit is unknown.
+   * The minimum total token limit when all primary targets declare the limit. This parameter is not returned if the limit of any target is unknown.
    * 
    * @example
    * 16384
@@ -197,7 +197,7 @@ export class ListLogicalModelsResponseBodyDataItemsMeta extends $dara.Model {
 export class ListLogicalModelsResponseBodyDataItemsSlotsComplex extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source model card within the same instance. The ID starts with msc-. VM or service overrides are not supported.
+   * The ID of the actual source model card within the same instance. The ID starts with "msc-". VMs or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -229,7 +229,7 @@ export class ListLogicalModelsResponseBodyDataItemsSlotsComplex extends $dara.Mo
 export class ListLogicalModelsResponseBodyDataItemsSlotsSimple extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source model card within the same instance. The ID starts with msc-. VM or service overrides are not supported.
+   * The ID of the actual source model card within the same instance. The ID starts with "msc-". VMs or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -261,7 +261,7 @@ export class ListLogicalModelsResponseBodyDataItemsSlotsSimple extends $dara.Mod
 export class ListLogicalModelsResponseBodyDataItemsSlotsStandard extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source model card within the same instance. The ID starts with msc-. VM or service overrides are not supported.
+   * The ID of the actual source model card within the same instance. The ID starts with "msc-". VMs or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -349,7 +349,7 @@ export class ListLogicalModelsResponseBodyDataItemsSlots extends $dara.Model {
 export class ListLogicalModelsResponseBodyDataItemsTargets extends $dara.Model {
   /**
    * @remarks
-   * The ID of the actual source model card within the same instance. The ID starts with msc-. VM or service overrides are not supported.
+   * The ID of the actual source model card within the same instance. The ID starts with "msc-". Virtual machines (VMs) or service overrides are not supported.
    * 
    * This parameter is required.
    * 
@@ -359,7 +359,7 @@ export class ListLogicalModelsResponseBodyDataItemsTargets extends $dara.Model {
   modelCardId?: string;
   /**
    * @remarks
-   * The weight. It is an integer from 0 to 10000 and is saved as the original value. A value of 0 is allowed for Mapping.
+   * The weight. The value must be an integer from 0 to 10000 and is saved as is. A value of 0 is allowed for the Mapping policy.
    * 
    * This parameter is required.
    * 
@@ -398,7 +398,7 @@ export class ListLogicalModelsResponseBodyDataItems extends $dara.Model {
   availablePaths?: ListLogicalModelsResponseBodyDataItemsAvailablePaths[];
   /**
    * @remarks
-   * The call strategy. This field is returned only for Auto. Valid values: balanced, cheap, fast, and quality. This field can be omitted. If omitted, the default strategy is balanced. This field is not returned for Mapping and Weighted.
+   * The call strategy. This parameter is returned only for the Auto policy. Valid values: balanced, cheap, fast, and quality. This parameter can be omitted. If omitted, the default strategy is balanced. This parameter is not returned for the Mapping and Weighted policies.
    * 
    * @example
    * balanced
@@ -411,7 +411,7 @@ export class ListLogicalModelsResponseBodyDataItems extends $dara.Model {
   deployment?: ListLogicalModelsResponseBodyDataItemsDeployment;
   /**
    * @remarks
-   * The ordered fallback targets. A maximum of 5 fallback targets are supported. They are deduplicated by the actual card ID and can be an empty array.
+   * The ordered fallback targets. A maximum of 5 fallback targets are supported. The targets are deduplicated by the actual card ID. This can be an empty array.
    */
   fallbackTargets?: ListLogicalModelsResponseBodyDataItemsFallbackTargets[];
   /**
@@ -432,7 +432,7 @@ export class ListLogicalModelsResponseBodyDataItems extends $dara.Model {
   gatewayId?: string;
   /**
    * @remarks
-   * The logical model ID. The ID starts with vm-.
+   * The ID of the logical model. The ID starts with "vm-".
    * 
    * @example
    * vm-xxxxxxxx
@@ -445,7 +445,7 @@ export class ListLogicalModelsResponseBodyDataItems extends $dara.Model {
   meta?: ListLogicalModelsResponseBodyDataItemsMeta;
   /**
    * @remarks
-   * The client logical call name. It supports up to 256 bytes in UTF-8, must not contain spaces or slashes, and must not start with auto.
+   * The client logical call name. The name must be encoded in UTF-8, up to 256 bytes in length, contain no whitespace or slashes, and not start with "auto".
    * 
    * @example
    * chat-entry
@@ -453,12 +453,12 @@ export class ListLogicalModelsResponseBodyDataItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Specifies whether activation is required. This field is returned only for Auto. If the AI Credits Router commodity is not activated, the value is true. If it is activated, the value is false. This field is omitted if the read operation fails or the status is unknown. This field is omitted for Mapping and Weighted.
+   * Specifies whether activation is required. This parameter is returned only for the Auto policy. The value is true if the AI Credits Router commodity is not activated, and false if it is activated. This parameter is omitted if the read operation fails or the status is unknown. This parameter is omitted for the Mapping and Weighted policies.
    */
   requiresActivation?: boolean;
   /**
    * @remarks
-   * The response model type. If Actual is specified, the public name of the actual model is returned. If Logical is specified, the entry name of the logical model is returned.
+   * The response model type. If the value is Actual, the public name of the actual model is returned. If the value is Logical, the entry name of the logical model is returned.
    * 
    * @example
    * Logical
@@ -474,7 +474,7 @@ export class ListLogicalModelsResponseBodyDataItems extends $dara.Model {
   revision?: number;
   /**
    * @remarks
-   * The routing policy. Valid values: Mapping, Weighted, and Auto. If Auto is specified, targets must be an empty array and slots is required.
+   * The routing policy. Valid values: Mapping, Weighted, and Auto. If the value is Auto, the targets parameter must be an empty array and the slots parameter is required.
    * 
    * @example
    * Mapping
@@ -482,17 +482,17 @@ export class ListLogicalModelsResponseBodyDataItems extends $dara.Model {
   routingPolicy?: string;
   /**
    * @remarks
-   * The slots. This field is returned only for Auto. Each of the simple, standard, and complex slots contains 1 to 3 source cards. The three slots are globally deduplicated by modelCardId. This field is omitted for Mapping and Weighted.
+   * The slots. This parameter is returned only for the Auto policy. Each of the simple, standard, and complex slots contains 1 to 3 source cards. The three slots are globally deduplicated by modelCardId. This parameter is omitted for the Mapping and Weighted policies.
    */
   slots?: ListLogicalModelsResponseBodyDataItemsSlots;
   /**
    * @remarks
-   * The primary targets. For Mapping, exactly one target is allowed. For Weighted, the sum of original relative weights must be greater than 0. For Auto, this must be an empty array.
+   * The primary targets. For the Mapping policy, exactly one target is allowed. For the Weighted policy, the sum of the original relative weights must be greater than 0. For the Auto policy, this must be an empty array.
    */
   targets?: ListLogicalModelsResponseBodyDataItemsTargets[];
   /**
    * @remarks
-   * The last modification time in ISO 8601 (RFC 3339) format in the UTC time zone, such as 2026-05-15T10:00:00Z.
+   * The last modification time. The time is in the ISO 8601 (RFC 3339) format and UTC time zone, such as 2026-05-15T10:00:00Z.
    * 
    * @example
    * 2026-05-15T10:00:00Z
@@ -586,7 +586,7 @@ export class ListLogicalModelsResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The cursor token for querying the next page. This field is not returned if no more data is available.
+   * The cursor token for querying the next page. This parameter is not returned if no more data exists.
    * 
    * @example
    * next-token-xxxxxxxx

@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteModelGroupRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies the expected version to delete. Saved-state API references prevent deletion, and authorization references are cleared.
+   * 
    * This parameter is required.
    * 
    * @example

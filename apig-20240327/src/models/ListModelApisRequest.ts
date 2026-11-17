@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListModelApisRequest extends $dara.Model {
   /**
    * @remarks
-   * The gateway instance ID.
+   * The gateway instance ID used to filter results.
    * 
    * @example
    * gw-d00000000000000000000
@@ -26,7 +26,7 @@ export class ListModelApisRequest extends $dara.Model {
   keyword?: string;
   /**
    * @remarks
-   * The name for exact search.
+   * The name for an exact search.
    * 
    * @example
    * beta-model-api

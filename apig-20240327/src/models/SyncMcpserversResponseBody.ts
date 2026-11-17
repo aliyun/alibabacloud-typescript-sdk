@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SyncMCPServersResponseBodyDataFailedMcpServers extends $dara.Model {
   /**
    * @remarks
-   * The MCP server name.
+   * The name of the MCP server.
    * 
    * @example
    * mcp-fail
@@ -45,7 +45,7 @@ export class SyncMCPServersResponseBodyDataFailedMcpServers extends $dara.Model 
 export class SyncMCPServersResponseBodyDataSucceedMcpServers extends $dara.Model {
   /**
    * @remarks
-   * The MCP server name.
+   * The name of the MCP server.
    * 
    * @example
    * mcp-success
@@ -85,12 +85,12 @@ export class SyncMCPServersResponseBodyDataSucceedMcpServers extends $dara.Model
 export class SyncMCPServersResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of MCP servers that failed to synchronize.
+   * The list of MCP servers that fail to sync.
    */
   failedMcpServers?: SyncMCPServersResponseBodyDataFailedMcpServers[];
   /**
    * @remarks
-   * The list of successfully synchronized MCP servers.
+   * The list of MCP servers that are successfully synced.
    */
   succeedMcpServers?: SyncMCPServersResponseBodyDataSucceedMcpServers[];
   static names(): { [key: string]: string } {
@@ -146,7 +146,7 @@ export class SyncMCPServersResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * Id of the request
+   * The request ID.
    * 
    * @example
    * 2F46B9E7-67EF-5C8A-BA52-D38D5B32AF2C
