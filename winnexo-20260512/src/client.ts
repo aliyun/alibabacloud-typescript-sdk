@@ -5575,6 +5575,128 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Disables session sharing.
+   * 
+   * @remarks
+   * Idempotently disables session sharing owned by the current calling user. Existing share links become invalid immediately.
+   * 
+   * @param request - DisableConversationShareRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableConversationShareResponse
+   */
+  async disableConversationShareWithOptions(request: $_model.DisableConversationShareRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DisableConversationShareResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableConversationShare",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/disableConversationShare`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableConversationShareResponse>(await this.callApi(params, req, runtime), new $_model.DisableConversationShareResponse({}));
+  }
+
+  /**
+   * Disables session sharing.
+   * 
+   * @remarks
+   * Idempotently disables session sharing owned by the current calling user. Existing share links become invalid immediately.
+   * 
+   * @param request - DisableConversationShareRequest
+   * @returns DisableConversationShareResponse
+   */
+  async disableConversationShare(request: $_model.DisableConversationShareRequest): Promise<$_model.DisableConversationShareResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.disableConversationShareWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Disables sharing for output item details.
+   * 
+   * @remarks
+   * Idempotently disables sharing for output item details owned by the current calling user, and immediately invalidates previous sharing links. You can locate the target by outputItemId, or precisely by sessionId and outputItemName.
+   * 
+   * @param request - DisableOutputItemShareRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DisableOutputItemShareResponse
+   */
+  async disableOutputItemShareWithOptions(request: $_model.DisableOutputItemShareRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DisableOutputItemShareResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.outputItemId)) {
+      body["outputItemId"] = request.outputItemId;
+    }
+
+    if (!$dara.isNull(request.outputItemName)) {
+      body["outputItemName"] = request.outputItemName;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DisableOutputItemShare",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/disableOutputItemShare`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DisableOutputItemShareResponse>(await this.callApi(params, req, runtime), new $_model.DisableOutputItemShareResponse({}));
+  }
+
+  /**
+   * Disables sharing for output item details.
+   * 
+   * @remarks
+   * Idempotently disables sharing for output item details owned by the current calling user, and immediately invalidates previous sharing links. You can locate the target by outputItemId, or precisely by sessionId and outputItemName.
+   * 
+   * @param request - DisableOutputItemShareRequest
+   * @returns DisableOutputItemShareResponse
+   */
+  async disableOutputItemShare(request: $_model.DisableOutputItemShareRequest): Promise<$_model.DisableOutputItemShareResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.disableOutputItemShareWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Disables an API token.
    * 
    * @remarks
@@ -5641,6 +5763,172 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.disableTokenWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Enables session sharing and retrieves the sharing link.
+   * 
+   * @remarks
+   * Enables sharing for a session owned by the current calling user and returns the sharing link. The first time sharing is enabled, a snapshot of the currently shareable messages is taken. Subsequent enabling retains the original link.
+   * 
+   * @param tmpReq - EnableConversationShareRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableConversationShareResponse
+   */
+  async enableConversationShareWithOptions(tmpReq: $_model.EnableConversationShareRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EnableConversationShareResponse> {
+    tmpReq.validate();
+    let request = new $_model.EnableConversationShareShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.shareUserGroupIds)) {
+      request.shareUserGroupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.shareUserGroupIds, "shareUserGroupIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.shareUserIds)) {
+      request.shareUserIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.shareUserIds, "shareUserIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.shareAccessType)) {
+      body["shareAccessType"] = request.shareAccessType;
+    }
+
+    if (!$dara.isNull(request.shareUserGroupIdsShrink)) {
+      body["shareUserGroupIds"] = request.shareUserGroupIdsShrink;
+    }
+
+    if (!$dara.isNull(request.shareUserIdsShrink)) {
+      body["shareUserIds"] = request.shareUserIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableConversationShare",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/enableConversationShare`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableConversationShareResponse>(await this.callApi(params, req, runtime), new $_model.EnableConversationShareResponse({}));
+  }
+
+  /**
+   * Enables session sharing and retrieves the sharing link.
+   * 
+   * @remarks
+   * Enables sharing for a session owned by the current calling user and returns the sharing link. The first time sharing is enabled, a snapshot of the currently shareable messages is taken. Subsequent enabling retains the original link.
+   * 
+   * @param request - EnableConversationShareRequest
+   * @returns EnableConversationShareResponse
+   */
+  async enableConversationShare(request: $_model.EnableConversationShareRequest): Promise<$_model.EnableConversationShareResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.enableConversationShareWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Enables sharing for an output item and retrieves the share link.
+   * 
+   * @remarks
+   * Enables sharing for an output item owned by the current caller and returns the share link. You can locate the output item by outputItemId, or precisely locate it by sessionId and outputItemName. If both methods are provided, outputItemId takes precedence.
+   * 
+   * @param tmpReq - EnableOutputItemShareRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EnableOutputItemShareResponse
+   */
+  async enableOutputItemShareWithOptions(tmpReq: $_model.EnableOutputItemShareRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.EnableOutputItemShareResponse> {
+    tmpReq.validate();
+    let request = new $_model.EnableOutputItemShareShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.shareUserGroupIds)) {
+      request.shareUserGroupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.shareUserGroupIds, "shareUserGroupIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.shareUserIds)) {
+      request.shareUserIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.shareUserIds, "shareUserIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.outputItemId)) {
+      body["outputItemId"] = request.outputItemId;
+    }
+
+    if (!$dara.isNull(request.outputItemName)) {
+      body["outputItemName"] = request.outputItemName;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.shareAccessType)) {
+      body["shareAccessType"] = request.shareAccessType;
+    }
+
+    if (!$dara.isNull(request.shareUserGroupIdsShrink)) {
+      body["shareUserGroupIds"] = request.shareUserGroupIdsShrink;
+    }
+
+    if (!$dara.isNull(request.shareUserIdsShrink)) {
+      body["shareUserIds"] = request.shareUserIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EnableOutputItemShare",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/enableOutputItemShare`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EnableOutputItemShareResponse>(await this.callApi(params, req, runtime), new $_model.EnableOutputItemShareResponse({}));
+  }
+
+  /**
+   * Enables sharing for an output item and retrieves the share link.
+   * 
+   * @remarks
+   * Enables sharing for an output item owned by the current caller and returns the share link. You can locate the output item by outputItemId, or precisely locate it by sessionId and outputItemName. If both methods are provided, outputItemId takes precedence.
+   * 
+   * @param request - EnableOutputItemShareRequest
+   * @returns EnableOutputItemShareResponse
+   */
+  async enableOutputItemShare(request: $_model.EnableOutputItemShareRequest): Promise<$_model.EnableOutputItemShareResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.enableOutputItemShareWithOptions(request, headers, runtime);
   }
 
   /**
@@ -9457,6 +9745,75 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Reads group chat text and multimedia content in message order.
+   * 
+   * @remarks
+   * Reads the connected DingTalk, AliDing, or WeCom group chat sources, and paginates the results in ascending order by send time and message record ID. Each message includes the original text, as well as document content, image descriptions, or audio and video transcriptions arranged in the order they appear in the message. The caller must have read permissions for the source. Reading does not trigger attachment parsing. Pagination provides a real-time view, and historical backfilling may change pagination positions. Attachment content is retrieved from the Document Agent. For unparsed items, the API returns found=false and the local processing status. Upstream failures return errors.
+   * 
+   * @param request - ListChatMessageContentsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListChatMessageContentsResponse
+   */
+  async listChatMessageContentsWithOptions(request: $_model.ListChatMessageContentsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListChatMessageContentsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxCharsPerAttachment)) {
+      body["maxCharsPerAttachment"] = request.maxCharsPerAttachment;
+    }
+
+    if (!$dara.isNull(request.page)) {
+      body["page"] = request.page;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["pageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.sourceId)) {
+      body["sourceId"] = request.sourceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListChatMessageContents",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/listChatMessageContents`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListChatMessageContentsResponse>(await this.callApi(params, req, runtime), new $_model.ListChatMessageContentsResponse({}));
+  }
+
+  /**
+   * Reads group chat text and multimedia content in message order.
+   * 
+   * @remarks
+   * Reads the connected DingTalk, AliDing, or WeCom group chat sources, and paginates the results in ascending order by send time and message record ID. Each message includes the original text, as well as document content, image descriptions, or audio and video transcriptions arranged in the order they appear in the message. The caller must have read permissions for the source. Reading does not trigger attachment parsing. Pagination provides a real-time view, and historical backfilling may change pagination positions. Attachment content is retrieved from the Document Agent. For unparsed items, the API returns found=false and the local processing status. Upstream failures return errors.
+   * 
+   * @param request - ListChatMessageContentsRequest
+   * @returns ListChatMessageContentsResponse
+   */
+  async listChatMessageContents(request: $_model.ListChatMessageContentsRequest): Promise<$_model.ListChatMessageContentsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listChatMessageContentsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Lists chat sessions of the current user in reverse chronological order by creation time.
    * 
    * @remarks
@@ -12459,6 +12816,67 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.previewKnowledgeBaseSourceWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Previews an output file or a non-file output.
+   * 
+   * @remarks
+   * Previews the output that the current calling user has permission to access based on the output item ID. This operation supports managed versions, archived history, unversioned history, and non-file outputs such as emails and slide decks. If a short-term preview or download URL is returned, you must call the operation again after the URL expires.
+   * 
+   * @param request - PreviewOutputFileRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns PreviewOutputFileResponse
+   */
+  async previewOutputFileWithOptions(request: $_model.PreviewOutputFileRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.PreviewOutputFileResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.outputItemId)) {
+      body["outputItemId"] = request.outputItemId;
+    }
+
+    if (!$dara.isNull(request.versionId)) {
+      body["versionId"] = request.versionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "PreviewOutputFile",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/previewOutputFile`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.PreviewOutputFileResponse>(await this.callApi(params, req, runtime), new $_model.PreviewOutputFileResponse({}));
+  }
+
+  /**
+   * Previews an output file or a non-file output.
+   * 
+   * @remarks
+   * Previews the output that the current calling user has permission to access based on the output item ID. This operation supports managed versions, archived history, unversioned history, and non-file outputs such as emails and slide decks. If a short-term preview or download URL is returned, you must call the operation again after the URL expires.
+   * 
+   * @param request - PreviewOutputFileRequest
+   * @returns PreviewOutputFileResponse
+   */
+  async previewOutputFile(request: $_model.PreviewOutputFileRequest): Promise<$_model.PreviewOutputFileResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.previewOutputFileWithOptions(request, headers, runtime);
   }
 
   /**
@@ -17800,6 +18218,105 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateScheduledTaskWithOptions(request, headers, runtime);
+  }
+
+  /**
+   * Updates the sharing status, scope, or output link.
+   * 
+   * @remarks
+   * Updates the sharing status and scope of a session or output item. Only output items support refreshing the sharing link. For session targets, use sessionId. For output targets, use outputItemId or a combination of sessionId and outputItemName.
+   * 
+   * @param tmpReq - UpdateShareRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateShareResponse
+   */
+  async updateShareWithOptions(tmpReq: $_model.UpdateShareRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateShareResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateShareShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.shareUserGroupIds)) {
+      request.shareUserGroupIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.shareUserGroupIds, "shareUserGroupIds", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.shareUserIds)) {
+      request.shareUserIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.shareUserIds, "shareUserIds", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.tenantId)) {
+      query["tenantId"] = request.tenantId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.outputItemId)) {
+      body["outputItemId"] = request.outputItemId;
+    }
+
+    if (!$dara.isNull(request.outputItemName)) {
+      body["outputItemName"] = request.outputItemName;
+    }
+
+    if (!$dara.isNull(request.refreshShareLink)) {
+      body["refreshShareLink"] = request.refreshShareLink;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      body["sessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.shareAccessType)) {
+      body["shareAccessType"] = request.shareAccessType;
+    }
+
+    if (!$dara.isNull(request.shareEnabled)) {
+      body["shareEnabled"] = request.shareEnabled;
+    }
+
+    if (!$dara.isNull(request.shareUserGroupIdsShrink)) {
+      body["shareUserGroupIds"] = request.shareUserGroupIdsShrink;
+    }
+
+    if (!$dara.isNull(request.shareUserIdsShrink)) {
+      body["shareUserIds"] = request.shareUserIdsShrink;
+    }
+
+    if (!$dara.isNull(request.targetType)) {
+      body["targetType"] = request.targetType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateShare",
+      version: "2026-05-12",
+      protocol: "HTTPS",
+      pathname: `/openapi/updateShare`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateShareResponse>(await this.callApi(params, req, runtime), new $_model.UpdateShareResponse({}));
+  }
+
+  /**
+   * Updates the sharing status, scope, or output link.
+   * 
+   * @remarks
+   * Updates the sharing status and scope of a session or output item. Only output items support refreshing the sharing link. For session targets, use sessionId. For output targets, use outputItemId or a combination of sessionId and outputItemName.
+   * 
+   * @param request - UpdateShareRequest
+   * @returns UpdateShareResponse
+   */
+  async updateShare(request: $_model.UpdateShareRequest): Promise<$_model.UpdateShareResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateShareWithOptions(request, headers, runtime);
   }
 
   /**
