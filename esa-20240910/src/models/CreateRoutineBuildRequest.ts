@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRoutineBuildRequest extends $dara.Model {
   /**
    * @remarks
-   * The OSS object URL. This parameter is required in upload mode but is not required in git mode.
+   * The URL of the OSS object. This parameter is required in upload mode but is not required in git mode.
    * 
    * @example
    * https://bucket.oss-.aliyuncs.com/key

@@ -13,7 +13,7 @@ export class CreateRoutineBuildConfigurationResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ER build configuration ID.
+   * The ID of the Edge Routine build configuration.
    * 
    * @example
    * 3472165674357056

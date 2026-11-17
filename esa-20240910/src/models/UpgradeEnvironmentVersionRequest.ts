@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class UpgradeEnvironmentVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The environment name. The version of this environment is upgraded and deployed to the environment with the next priority level.
+   * The environment name. The version of this environment is upgraded and deployed to the environment at the next priority level.
    * 
    * This parameter is required.
    * 
    * @example
-   * 默认环境
+   * Default environment
    */
   environmentName?: string;
   /**

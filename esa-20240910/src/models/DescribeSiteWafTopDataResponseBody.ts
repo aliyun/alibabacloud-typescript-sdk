@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSiteWafTopDataResponseBodyDataDetailData extends $dara.Model {
   /**
    * @remarks
-   * The query dimension value.
+   * The value of the query dimension.
    * 
    * @example
    * ALL
@@ -58,7 +58,7 @@ export class DescribeSiteWafTopDataResponseBodyData extends $dara.Model {
   dimensionName?: string;
   /**
    * @remarks
-   * The query metric value.
+   * The name of the query metric.
    * 
    * @example
    * Requests
@@ -100,9 +100,9 @@ export class DescribeSiteWafTopDataResponseBody extends $dara.Model {
   data?: DescribeSiteWafTopDataResponseBodyData[];
   /**
    * @remarks
-   * The end of the time range for the returned data.
+   * The end time of the retrieved data.
    * 
-   * The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC+0.
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2023-04-09T16:00:00Z
@@ -118,7 +118,7 @@ export class DescribeSiteWafTopDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The sampling rate. Unit: %.
+   * The sampling rate, in percentage.
    * 
    * @example
    * 100
@@ -126,9 +126,9 @@ export class DescribeSiteWafTopDataResponseBody extends $dara.Model {
   samplingRate?: number;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time of the data to retrieve.
    * 
-   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2023-04-08T16:00:00Z

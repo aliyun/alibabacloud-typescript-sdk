@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListVersionsRequest extends $dara.Model {
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](~~ListSites~~) operation to query the site ID.
+   * The ID of the site. You can obtain the ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 

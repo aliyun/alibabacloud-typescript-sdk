@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteRoutineEnvironmentVariablesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The keys of the successfully deleted environment variables.
+   * The list of environment variable keys that were successfully deleted.
    */
   deletedKeys?: string[];
   /**
    * @remarks
-   * The keys of the environment variables that failed to be deleted.
+   * The list of environment variable keys that failed to be deleted.
    */
   failedKeys?: string[];
   /**

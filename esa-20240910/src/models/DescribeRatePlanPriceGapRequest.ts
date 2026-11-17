@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRatePlanPriceGapRequest extends $dara.Model {
   /**
    * @remarks
-   * The target plan name. You can obtain this value from the [DescribeRatePlanPrice](~~DescribeRatePlanPrice~~) operation.
+   * The name of the target plan. You can obtain it by calling the [DescribeRatePlanPrice](~~DescribeRatePlanPrice~~) operation.
    * 
    * @example
    * entranceplan
@@ -13,9 +13,9 @@ export class DescribeRatePlanPriceGapRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The specification change type. Valid values:
-   * - DOWNGRADE: downgrade.
-   * - UPGRADE: upgrade.
+   * The type of the specification change. Valid values:
+   * - DOWNGRADE: Downgrade.
+   * - UPGRADE: Upgrade.
    * 
    * @example
    * UPGRADE

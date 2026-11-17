@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetClientCaCertificateHostnamesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * A list of hostnames.
+   * The domain names.
    * 
    * This parameter is required.
    */

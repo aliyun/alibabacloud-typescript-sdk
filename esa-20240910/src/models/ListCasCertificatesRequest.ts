@@ -13,7 +13,7 @@ export class ListCasCertificatesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Valid values: any integer from 1 to 1000.
+   * The number of entries per page. Valid values: an integer from 1 to 1000.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListCasCertificatesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The certificate name for fuzzy match.
+   * The keyword used to perform a fuzzy match on certificate names.
    * 
    * @example
    * aliyun

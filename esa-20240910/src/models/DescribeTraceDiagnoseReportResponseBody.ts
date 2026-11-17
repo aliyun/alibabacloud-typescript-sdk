@@ -13,7 +13,7 @@ export class DescribeTraceDiagnoseReportResponseBodyClientInfo extends $dara.Mod
   browserInfo?: string;
   /**
    * @remarks
-   * The operating system name.
+   * The name of the operating system.
    * 
    * @example
    * Macintosh
@@ -128,7 +128,7 @@ export class DescribeTraceDiagnoseReportResponseBody extends $dara.Model {
   clientInfo?: DescribeTraceDiagnoseReportResponseBodyClientInfo;
   /**
    * @remarks
-   * The client IP address.
+   * The IP address of the client.
    * 
    * @example
    * 33.7.98.136
@@ -136,7 +136,7 @@ export class DescribeTraceDiagnoseReportResponseBody extends $dara.Model {
   clientIp?: string;
   /**
    * @remarks
-   * The creation time. Format: yyyy-MM-dd HH:mm:ss. Time zone: UTC+8.
+   * The creation time. Format: yyyy-MM-dd HH:mm:ss. Time zone: +08:00.
    * 
    * @example
    * 2024-03-11T01:23:21Z
@@ -152,7 +152,7 @@ export class DescribeTraceDiagnoseReportResponseBody extends $dara.Model {
   diagnoseId?: string;
   /**
    * @remarks
-   * The diagnostic report link.
+   * The link to the diagnostic report.
    * 
    * @example
    * https://cdnskyeye.alibaba-inc.com/#/databrain/detectionPlatformAction?module=trace&id=xxx&instance_id=xxxx&type=copy&edition_id=xxxxx
@@ -176,7 +176,7 @@ export class DescribeTraceDiagnoseReportResponseBody extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The expiration time. The value is a UNIX timestamp. Unit: seconds.
+   * The expiration time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1678701915
@@ -184,7 +184,7 @@ export class DescribeTraceDiagnoseReportResponseBody extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The remaining number of available diagnostic attempts.
+   * The number of remaining available diagnoses.
    * 
    * @example
    * 10
@@ -192,7 +192,7 @@ export class DescribeTraceDiagnoseReportResponseBody extends $dara.Model {
   remainDiagnoseTimes?: number;
   /**
    * @remarks
-   * The diagnostic report details.
+   * The details of the diagnostic report.
    */
   report?: DescribeTraceDiagnoseReportResponseBodyReport;
   /**
@@ -205,13 +205,13 @@ export class DescribeTraceDiagnoseReportResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The report generation status.
+   * The report generation status. Valid values:
    * 
-   * 0: succeeded.
-   * 1: failed.
-   * 2: timed out.
-   * 3: running.
-   * 4: waiting.
+   * - 0: Succeeded.
+   * - 1: Failed.
+   * - 2: Timed out.
+   * - 3: Running.
+   * - 4: Pending.
    * 
    * @example
    * ok
@@ -219,10 +219,10 @@ export class DescribeTraceDiagnoseReportResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The status of the diagnostic link.
+   * The status of the diagnostic link. Valid values:
    * 
-   * 1: active.
-   * 0: expired.
+   * - 1: Active.
+   * - 0: Expired.
    * 
    * @example
    * 1
@@ -238,7 +238,7 @@ export class DescribeTraceDiagnoseReportResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The time consumed to generate the report. Unit: seconds.
+   * The time consumed to generate the report, in seconds.
    * 
    * @example
    * 10
@@ -254,7 +254,7 @@ export class DescribeTraceDiagnoseReportResponseBody extends $dara.Model {
   traceDisplayLink?: string;
   /**
    * @remarks
-   * The diagnostic trace ID.
+   * The ID of the diagnostic trace.
    * 
    * @example
    * 0000006xxxxxxxxxxxx533427e

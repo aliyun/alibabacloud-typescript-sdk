@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSiteTrafficSequenceRequest extends $dara.Model {
   /**
    * @remarks
-   * The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to query the site ID.
    * 
    * This parameter is required.
    * 
@@ -18,7 +18,7 @@ export class GetSiteTrafficSequenceRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version number of the site. After version management is enabled for the site, you can specify a site version number to obtain the traffic sequence information of the corresponding version. The default version is 0. If version management is not enabled for the site, you do not need to specify this parameter.
+   * The version number of the site. After version management is enabled for the site, you can specify a site version number to query the traffic sequence information of the corresponding version. The default version is 0. If version management is not enabled for the site, you do not need to specify this parameter.
    * 
    * @example
    * 0

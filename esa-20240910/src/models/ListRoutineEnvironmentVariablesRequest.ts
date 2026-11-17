@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListRoutineEnvironmentVariablesRequest extends $dara.Model {
   /**
    * @remarks
-   * The environment name.
-   * 
+   * The name of the environment.
    * Valid values:
-   * - `production`: production environment
-   * - `staging`: staging environment
+   * - `production`: Production environment.
+   * - `staging`: Staging environment.
    * 
    * This parameter is required.
    * 
@@ -19,7 +18,7 @@ export class ListRoutineEnvironmentVariablesRequest extends $dara.Model {
   env?: string;
   /**
    * @remarks
-   * The keyword used to perform a case-insensitive fuzzy search on environment variable keys.
+   * The keyword used to perform a case-insensitive fuzzy search for environment variable keys and values.
    * 
    * @example
    * LOG
@@ -27,7 +26,7 @@ export class ListRoutineEnvironmentVariablesRequest extends $dara.Model {
   keyWord?: string;
   /**
    * @remarks
-   * The function name.
+   * The name of the function.
    * 
    * This parameter is required.
    * 

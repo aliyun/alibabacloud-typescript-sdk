@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetEdgeContainerResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The billing mode.
+   * The billing method.
    * 
    * @example
    * container_95
@@ -13,7 +13,7 @@ export class GetEdgeContainerResponseBody extends $dara.Model {
   billingMode?: string;
   /**
    * @remarks
-   * The plan instance ID.
+   * The ID of the plan instance.
    * 
    * @example
    * esa-cn-jea67jfbs0x
@@ -29,7 +29,7 @@ export class GetEdgeContainerResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The plan instance status.
+   * The instance status.
    * 
    * @example
    * Running

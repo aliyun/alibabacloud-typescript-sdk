@@ -13,7 +13,7 @@ export class GetRoutineBuildConfigurationResponseBody extends $dara.Model {
   assetsDirectory?: string;
   /**
    * @remarks
-   * The branches that trigger builds. A value of * indicates all branches. Multiple specific branches are separated by commas.
+   * The branches that trigger the build. An asterisk (*) indicates all branches. Multiple specific branches are separated by commas.
    * 
    * @example
    * int,abc
@@ -29,7 +29,7 @@ export class GetRoutineBuildConfigurationResponseBody extends $dara.Model {
   buildCommand?: string;
   /**
    * @remarks
-   * The creation time, in ISO 8601 format using UTC time. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2026-03-11T01:23:21Z
@@ -38,6 +38,9 @@ export class GetRoutineBuildConfigurationResponseBody extends $dara.Model {
   /**
    * @remarks
    * The environment variables.
+   * 
+   * @example
+   * {"NODE_ENV":"development"}
    */
   environmentVariables?: { [key: string]: string };
   /**
@@ -51,8 +54,8 @@ export class GetRoutineBuildConfigurationResponseBody extends $dara.Model {
   /**
    * @remarks
    * The Git account type. Valid values:
-   * - User: individual account.
-   * - Organization: organization account.
+   * - User: Individual account.
+   * - Organization: Organization account.
    * 
    * @example
    * User
@@ -127,7 +130,7 @@ export class GetRoutineBuildConfigurationResponseBody extends $dara.Model {
   rootDirectory?: string;
   /**
    * @remarks
-   * The ER build configuration ID.
+   * The ID of the ER build configuration.
    * 
    * @example
    * 3472165674357056
@@ -135,7 +138,7 @@ export class GetRoutineBuildConfigurationResponseBody extends $dara.Model {
   routineBuildConfigurationId?: number;
   /**
    * @remarks
-   * The ER entry file path.
+   * The path to the ER entry file.
    * 
    * @example
    * /home
@@ -151,7 +154,7 @@ export class GetRoutineBuildConfigurationResponseBody extends $dara.Model {
   routineName?: string;
   /**
    * @remarks
-   * The modification time, in ISO 8601 format using UTC time. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * The update time. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2026-04-19T11:15:20Z

@@ -8,7 +8,7 @@ export class DescribeRuleMetadataResponseBodyDatasChildren extends $dara.Model {
    * The human-readable content.
    * 
    * @example
-   * 北京市
+   * Beijing
    */
   text?: string;
   /**
@@ -53,7 +53,7 @@ export class DescribeRuleMetadataResponseBodyDatas extends $dara.Model {
    * The human-readable content.
    * 
    * @example
-   * 中国
+   * China
    */
   text?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEnvironmentRequest extends $dara.Model {
   /**
    * @remarks
-   * The environment name.
+   * The name of the environment.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class CreateEnvironmentRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 默认环境
+   * Default environment
    */
   nextEnvironmentName?: string;
   /**
@@ -35,7 +35,7 @@ export class CreateEnvironmentRequest extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+   * The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 

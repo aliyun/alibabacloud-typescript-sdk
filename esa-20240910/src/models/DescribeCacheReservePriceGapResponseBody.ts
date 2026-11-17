@@ -58,9 +58,9 @@ export class DescribeCacheReservePriceGapResponseBodyPriceModel extends $dara.Mo
   /**
    * @remarks
    * The currency. Valid values:
-   * - JPY: Japanese Yen.
-   * - USD: US Dollar.
-   * - CNY: Chinese Yuan.
+   * - JPY: Japanese yen.
+   * - USD: US dollar.
+   * - CNY: Chinese yuan.
    * 
    * @example
    * CNY
@@ -68,7 +68,7 @@ export class DescribeCacheReservePriceGapResponseBodyPriceModel extends $dara.Mo
   currency?: string;
   /**
    * @remarks
-   * The discount amount of the order.
+   * The order discount amount.
    * 
    * @example
    * 1
@@ -93,7 +93,7 @@ export class DescribeCacheReservePriceGapResponseBodyPriceModel extends $dara.Mo
   rule?: DescribeCacheReservePriceGapResponseBodyPriceModelRule;
   /**
    * @remarks
-   * The original order price. Original order price = actual transaction price + discount amount.
+   * The original order price, which equals the actual transaction price plus the discount amount.
    * 
    * @example
    * 2

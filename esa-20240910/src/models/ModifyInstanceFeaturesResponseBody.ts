@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceFeaturesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The site feature configurations that failed to be modified.
+   * The failed site feature information.
    * 
    * @example
    * loadbalance

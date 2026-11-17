@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRoutineBuildConfigurationsResponseBodyRoutineBuildConfigurationsLatestRoutineBuildTask extends $dara.Model {
   /**
    * @remarks
-   * The creation time, in ISO 8601 format (UTC), formatted as yyyy-MM-ddTHH:mm:ssZ.
+   * The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2026-03-10T02:18:55Z
@@ -13,7 +13,7 @@ export class ListRoutineBuildConfigurationsResponseBodyRoutineBuildConfiguration
   createTime?: string;
   /**
    * @remarks
-   * The ER routine name.
+   * The ER name.
    * 
    * @example
    * rwa-test
@@ -22,13 +22,12 @@ export class ListRoutineBuildConfigurationsResponseBodyRoutineBuildConfiguration
   /**
    * @remarks
    * The status of the build task. Valid values:
-   * 
-   * - int: Init.
-   * - pending: Pending.
-   * - building: Building.
-   * - succeed: Succeeded.
-   * - failed: Failed.
-   * - canceled: Canceled.
+   * - int: initialized
+   * - pending: preparing
+   * - building: building
+   * - succeed: succeeded
+   * - failed: failed
+   * - canceled: canceled
    * 
    * @example
    * building
@@ -94,7 +93,7 @@ export class ListRoutineBuildConfigurationsResponseBodyRoutineBuildConfiguration
   repository?: string;
   /**
    * @remarks
-   * The ER routine name.
+   * The ER name.
    * 
    * @example
    * rwa-test
@@ -132,7 +131,7 @@ export class ListRoutineBuildConfigurationsResponseBodyRoutineBuildConfiguration
 export class ListRoutineBuildConfigurationsResponseBodyRoutineBuildConfigurations extends $dara.Model {
   /**
    * @remarks
-   * The latest ER build task information.
+   * The ER build task information.
    */
   latestRoutineBuildTask?: ListRoutineBuildConfigurationsResponseBodyRoutineBuildConfigurationsLatestRoutineBuildTask;
   /**

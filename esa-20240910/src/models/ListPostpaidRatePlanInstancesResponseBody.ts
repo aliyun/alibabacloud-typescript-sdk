@@ -26,7 +26,7 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfoSites extends 
    * - pending: The site is pending configuration.
    * - active: The site is activated.
    * - offline: The site is offline.
-   * - moved: The site is replaced.
+   * - moved: The site has been replaced.
    * 
    * @example
    * pending
@@ -60,7 +60,7 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfoSites extends 
 export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara.Model {
   /**
    * @remarks
-   * The billing method. Valid values:
+   * The Billable methods. Valid values:
    * - dps_month95: Monthly 95th percentile billing.
    * 
    * @example
@@ -71,7 +71,7 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
    * @remarks
    * The billing mode. Valid values:
    * 
-   * - POSTPAY: Pay-as-you-go.
+   *  * POSTPAY: Pay-as-you-go.
    * 
    * @example
    * POSTPAY
@@ -79,7 +79,7 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
   billingMode?: string;
   /**
    * @remarks
-   * The acceleration regions for sites that can be bound to the instance. Multiple values are separated by commas (,). Valid values:
+   * The acceleration regions for sites that can be bound to the instance. Multiple regions are separated by commas (,). Valid values:
    * 
    * - domestic: The Chinese mainland.
    * - overseas: Global (excluding the Chinese mainland).
@@ -99,7 +99,7 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
   createTime?: string;
   /**
    * @remarks
-   * The scheduled time for the specification change. The time is displayed in UTC and formatted as yyyy-MM-ddTHH:mm:ssZ in accordance with the ISO 8601 standard.
+   * The scheduled time for specification change. The time is displayed in UTC and formatted as yyyy-MM-ddTHH:mm:ssZ in accordance with the ISO 8601 standard.
    * 
    * @example
    * 2026-04-19T11:15:20Z
@@ -136,9 +136,9 @@ export class ListPostpaidRatePlanInstancesResponseBodyInstanceInfo extends $dara
   planNameCn?: string;
   /**
    * @remarks
-   * The plan type of the instance. Valid values:
-   * - normal: Standard plan.
-   * - enterprise: Enterprise plan.
+   * The plan type of the plan instance. Valid values:
+   * - normal: Fixed edition plan.
+   * - enterprise: Enterprise edition plan.
    * 
    * @example
    * normal

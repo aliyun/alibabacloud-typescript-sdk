@@ -13,10 +13,10 @@ export class UpdateCacheReserveRequest extends $dara.Model {
   cacheReserveInstanceId?: string;
   /**
    * @remarks
-   * The switch. Valid values:
+   * Specifies whether to enable the feature. Valid values:
    * 
-   * - **on**: enabled.
-   * - **off**: disabled.
+   * - **on**: Enabled.
+   * - **off**: Disabled.
    * 
    * @example
    * on
@@ -24,7 +24,7 @@ export class UpdateCacheReserveRequest extends $dara.Model {
   enable?: string;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+   * The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 

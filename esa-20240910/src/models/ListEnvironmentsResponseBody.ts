@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListEnvironmentsResponseBodyEnvironmentList extends $dara.Model {
   /**
    * @remarks
-   * The time when the environment was created. The time follows the ISO 8601 standard and is in UTC. Example: 2024-08-15T08:15:30Z.
+   * The creation time. The time is displayed in UTC and follows the ISO 8601 standard. Example: 2024-08-15T08:15:30Z.
    * 
    * @example
    * 2024-08-15T08:15:30Z
@@ -13,7 +13,7 @@ export class ListEnvironmentsResponseBodyEnvironmentList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The name of the environment.
+   * The environment name.
    * 
    * @example
    * yichao-test-yctest
@@ -61,7 +61,7 @@ export class ListEnvironmentsResponseBodyEnvironmentList extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * The version number of the site.
+   * The site version number.
    * 
    * @example
    * 8
@@ -69,7 +69,7 @@ export class ListEnvironmentsResponseBodyEnvironmentList extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * The time when the environment was updated. The time follows the ISO 8601 standard and is in UTC. Example: 2023-09-15T08:16:04Z.
+   * The update time. The time is displayed in UTC and follows the ISO 8601 standard. Example: 2023-09-15T08:16:04Z.
    * 
    * @example
    * 2023-09-15T08:16:04Z

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetClientCaCertificateHostnamesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of bound hostnames.
+   * The domain names.
    */
   hostnames?: string[];
   /**
@@ -26,7 +26,7 @@ export class SetClientCaCertificateHostnamesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The site ID. You can obtain the ID by calling the [ListSites](~~ListSites~~) API.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
    * 
    * @example
    * 123456****

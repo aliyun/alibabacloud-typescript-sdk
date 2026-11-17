@@ -56,10 +56,10 @@ export class ListInstancesQuotaResponseBody extends $dara.Model {
    * The threshold type of the quota. Valid values:
    * 
    * - **value**: Enumeration type. The enumeration range of quota values.
-   * - **bool**: Boolean type. Indicates whether the quota is available.
+   * - **bool**: Boolean type. Whether the quota is available.
    * - **num**: Numeric type. The upper limit of the quota usage.
    * - **range**: Range type. The value range of the quota.
-   * - **custom**: Custom type. Other types beyond the four threshold types above.
+   * - **custom**: Custom type. Other types besides the preceding four quota threshold types.
    * 
    * @example
    * bool

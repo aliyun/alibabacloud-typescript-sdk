@@ -6,7 +6,7 @@ export class ListPostpaidSitePlansResponseBodyPlanInfo extends $dara.Model {
   /**
    * @remarks
    * The billable methods of the plan. Valid values:
-   * - dps_month95: monthly 95th percentile billing method.
+   * - dps_month95: Monthly 95th percentile billing.
    * 
    * @example
    * dps_month95
@@ -16,8 +16,8 @@ export class ListPostpaidSitePlansResponseBodyPlanInfo extends $dara.Model {
    * @remarks
    * The payment type. Valid values:
    * 
-   * - PREPAY: subscription.
-   * - POSTPAY: pay-as-you-go.
+   * - PREPAY: Subscription.
+   * - POSTPAY: Pay-as-you-go.
    * 
    * @example
    * PREPAY
@@ -25,11 +25,11 @@ export class ListPostpaidSitePlansResponseBodyPlanInfo extends $dara.Model {
   billingMode?: string;
   /**
    * @remarks
-   * The acceleration regions to which sites can be added under the plan. Multiple values are separated by commas (,). Valid values:
+   * The acceleration regions for sites that can be added to the plan. Separate multiple values with commas (,). Valid values:
    * 
-   * - domestic: the Chinese mainland.
-   * - overseas: global (excluding the Chinese mainland).
-   * - global: global (including the Chinese mainland).
+   * - domestic: The Chinese mainland.
+   * - overseas: Global (excluding the Chinese mainland).
+   * - global: Global (including the Chinese mainland).
    * 
    * @example
    * domestic
@@ -37,7 +37,7 @@ export class ListPostpaidSitePlansResponseBodyPlanInfo extends $dara.Model {
   coverages?: string;
   /**
    * @remarks
-   * The name of the plan, which serves as a unique identifier in English.
+   * The name of the plan, which is uniquely identified in English.
    * 
    * @example
    * basic
@@ -45,17 +45,17 @@ export class ListPostpaidSitePlansResponseBodyPlanInfo extends $dara.Model {
   planName?: string;
   /**
    * @remarks
-   * The plan description.
+   * The description of the plan.
    * 
    * @example
-   * 测试版套餐
+   * Beta plan
    */
   planNameCn?: string;
   /**
    * @remarks
    * The plan type of the plan instance. Valid values:
-   * - normal: fixed edition plan.
-   * - enterprise: enterprise edition plan.
+   * - normal: Fixed plan.
+   * - enterprise: Enterprise plan.
    * 
    * @example
    * normal
@@ -63,10 +63,10 @@ export class ListPostpaidSitePlansResponseBodyPlanInfo extends $dara.Model {
   planType?: string;
   /**
    * @remarks
-   * The sale status of the plan. Valid values for enterprise edition plans:
+   * The sales status of the plan. For Enterprise plans, valid values are:
    * 
-   * - saled: sold.
-   * - upgrading: specification change in progress.
+   * - saled: Sold.
+   * - upgrading: Upgrading or downgrading.
    * 
    * @example
    * saled
@@ -74,7 +74,7 @@ export class ListPostpaidSitePlansResponseBodyPlanInfo extends $dara.Model {
   saleStatus?: string;
   /**
    * @remarks
-   * The site quantity quota.
+   * The quota for the number of sites.
    * 
    * @example
    * 1
@@ -126,7 +126,7 @@ export class ListPostpaidSitePlansResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size. Default value: 20. Maximum value: 500. Valid values: any integer from 1 to 500.
+   * The number of entries per page. Default value: 20. Maximum value: 500. Valid values: any integer from 1 to 500.
    * 
    * @example
    * 20
@@ -134,7 +134,7 @@ export class ListPostpaidSitePlansResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The pay-as-you-go plan details.
+   * The details of the pay-as-you-go plan.
    */
   planInfo?: ListPostpaidSitePlansResponseBodyPlanInfo[];
   /**

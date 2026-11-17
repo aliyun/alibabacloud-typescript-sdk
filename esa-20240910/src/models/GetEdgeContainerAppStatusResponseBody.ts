@@ -70,7 +70,7 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
    * The expected publishing percentage of the application.
    * 
    * @example
-   * 50%
+   * 50
    */
   expectPercentage?: number;
   /**
@@ -97,7 +97,7 @@ export class GetEdgeContainerAppStatusResponseBodyAppStatus extends $dara.Model 
    * The publishing percentage of the application.
    * 
    * @example
-   * 50%
+   * 50
    */
   publishPercentage?: number;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWafUsageDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+   * The end time of the data to retrieve. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * >The end time must be later than the start time.
    * 
    * @example
@@ -14,15 +14,15 @@ export class DescribeWafUsageDataRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The time granularity for the query data, in seconds.
+   * The time granularity of the queried data. Unit: seconds.
    * 
-   * The valid values vary based on the time range specified by **StartTime** and **EndTime**:
+   * The valid values vary based on the time span between **StartTime** and **EndTime**:
    * 
-   * - Less than 3 days: Valid values are **300**, **3600**, and **86400**. Default value: **300**.
+   * - Less than 3 days: **300**, **3600**, and **86400**. Default value: **300**.
    * 
-   * - 3 to 31 days (exclusive of 31 days): Valid values are **3600** and **86400**. Default value: **3600**.
+   * - 3 to 31 days: **3600** and **86400**. Default value: **3600**.
    * 
-   * - 31 days or more: The only valid value is **86400**. Default value: **86400**.
+   * - 31 days or more: **86400**. Default value: **86400**.
    * 
    * @example
    * 300
@@ -30,7 +30,7 @@ export class DescribeWafUsageDataRequest extends $dara.Model {
   interval?: string;
   /**
    * @remarks
-   * The domain record name. You can call the [ListSites](~~ListSites~~) operation to obtain the domain record name.
+   * The name of the domain name record. You can call the [ListSites](~~ListSites~~) operation to obtain the name of the domain name record.
    * 
    * @example
    * test.example.com
@@ -38,7 +38,7 @@ export class DescribeWafUsageDataRequest extends $dara.Model {
   recordName?: string;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+   * The ID of the site. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
    * 
    * @example
    * 123456****
@@ -48,7 +48,7 @@ export class DescribeWafUsageDataRequest extends $dara.Model {
    * @remarks
    * The grouping key. You can set this parameter to **domain**.
    * 
-   * - **domain**: groups the data by domain name.
+   * - **domain**: The data is grouped by domain name.
    * 
    * @example
    * domain
@@ -56,7 +56,7 @@ export class DescribeWafUsageDataRequest extends $dara.Model {
   splitBy?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+   * The start time of the data to retrieve. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2022-08-10T00:00:00Z

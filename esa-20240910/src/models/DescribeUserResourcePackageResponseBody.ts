@@ -14,9 +14,9 @@ export class DescribeUserResourcePackageResponseBodyResourcePackageInfos extends
   /**
    * @remarks
    * The current remaining capacity of the instance.
-   * - Unit for traffic plans: Byte.
+   * - Unit for data transfer plans: bytes.
    * 
-   * - Unit for request plans: count.
+   * - Unit for request plans: requests.
    * 
    * @example
    * 53661095687
@@ -24,7 +24,7 @@ export class DescribeUserResourcePackageResponseBodyResourcePackageInfos extends
   currCapacity?: string;
   /**
    * @remarks
-   * The base unit of the current remaining capacity of the instance.
+   * The unit of the current remaining capacity of the instance.
    * 
    * @example
    * Byte
@@ -32,7 +32,7 @@ export class DescribeUserResourcePackageResponseBodyResourcePackageInfos extends
   currCapacityBaseUnit?: string;
   /**
    * @remarks
-   * The display unit of the current remaining capacity of the instance.
+   * The unit of the current displayed remaining capacity of the instance.
    * 
    * @example
    * GB
@@ -40,7 +40,7 @@ export class DescribeUserResourcePackageResponseBodyResourcePackageInfos extends
   currCapacityShowUnit?: string;
   /**
    * @remarks
-   * The display value of the current remaining capacity of the instance.
+   * The current displayed remaining capacity of the instance.
    * 
    * @example
    * 49.975789
@@ -56,7 +56,7 @@ export class DescribeUserResourcePackageResponseBodyResourcePackageInfos extends
   displayName?: string;
   /**
    * @remarks
-   * The expiration time in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
+   * The expiration time. The time is displayed in UTC. Format: YYYY-MM-DDTHH:mm:ssZ.
    * 
    * @example
    * 2024-12-02T15:59:59Z
@@ -65,9 +65,9 @@ export class DescribeUserResourcePackageResponseBodyResourcePackageInfos extends
   /**
    * @remarks
    * The total capacity of the resource plan.
-   * - Unit for traffic plans: Byte.
+   * - Unit for data transfer plans: bytes.
    * 
-   * - Unit for request plans: count.
+   * - Unit for request plans: requests.
    * 
    * @example
    * 107374182400
@@ -75,7 +75,7 @@ export class DescribeUserResourcePackageResponseBodyResourcePackageInfos extends
   initCapacity?: string;
   /**
    * @remarks
-   * The base unit of the total capacity of the resource plan.
+   * The unit of the total capacity of the resource plan.
    * 
    * @example
    * Byte
@@ -83,7 +83,7 @@ export class DescribeUserResourcePackageResponseBodyResourcePackageInfos extends
   initCapacityBaseUnit?: string;
   /**
    * @remarks
-   * The display unit of the total capacity of the resource plan.
+   * The unit of the displayed total capacity of the resource plan.
    * 
    * @example
    * GB
@@ -91,7 +91,7 @@ export class DescribeUserResourcePackageResponseBodyResourcePackageInfos extends
   initCapacityShowUnit?: string;
   /**
    * @remarks
-   * The display value of the total capacity of the resource plan.
+   * The displayed total capacity of the resource plan.
    * 
    * @example
    * 100.000000
@@ -131,7 +131,7 @@ export class DescribeUserResourcePackageResponseBodyResourcePackageInfos extends
   status?: string;
   /**
    * @remarks
-   * The template name.
+   * The name of the template.
    * 
    * @example
    * FPT_dcdnpaybag_deadlineAcc_****

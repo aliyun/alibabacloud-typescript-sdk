@@ -59,11 +59,11 @@ export class DescribeDDoSPriceResponseBodyPriceModel extends $dara.Model {
    * @remarks
    * The currency. Valid values:
    * 
-   * - JPY: Japanese Yen.
+   * - JPY: Japanese yen.
    * 
-   * - USD: US Dollar.
+   * - USD: US dollar.
    * 
-   * - CNY: Chinese Yuan.
+   * - CNY: Chinese yuan.
    * 
    * @example
    * CNY
@@ -88,7 +88,7 @@ export class DescribeDDoSPriceResponseBodyPriceModel extends $dara.Model {
   rule?: DescribeDDoSPriceResponseBodyPriceModelRule;
   /**
    * @remarks
-   * The original price of the order. Original price = actual transaction price + discount amount.
+   * The original price of the order, which equals the actual transaction price plus the discount amount.
    * 
    * @example
    * 100
@@ -129,7 +129,7 @@ export class DescribeDDoSPriceResponseBodyPriceModel extends $dara.Model {
 export class DescribeDDoSPriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The price information.
+   * The pricing information.
    */
   priceModel?: DescribeDDoSPriceResponseBodyPriceModel;
   /**

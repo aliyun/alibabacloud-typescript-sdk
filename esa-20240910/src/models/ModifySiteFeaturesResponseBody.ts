@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifySiteFeaturesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The site feature information that failed to be cleared.
+   * The information about the site features that failed to be cleared.
    * 
    * @example
    * loadbalance

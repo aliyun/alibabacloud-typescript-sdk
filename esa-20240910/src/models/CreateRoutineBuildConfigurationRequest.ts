@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRoutineBuildConfigurationRequest extends $dara.Model {
   /**
    * @remarks
-   * The static resource directory.
+   * The static asset directory.
    * 
    * @example
    * /root/user
@@ -13,7 +13,7 @@ export class CreateRoutineBuildConfigurationRequest extends $dara.Model {
   assetsDirectory?: string;
   /**
    * @remarks
-   * The branches that trigger a build. Set this parameter to * for all branches. To specify multiple branches, separate branch names with commas.
+   * The branches that trigger a build. Specify an asterisk (*) to include all branches, or separate multiple specific branch names with commas.
    * 
    * @example
    * feature/test,hotfix/test
@@ -30,11 +30,14 @@ export class CreateRoutineBuildConfigurationRequest extends $dara.Model {
   /**
    * @remarks
    * The environment variables.
+   * 
+   * @example
+   * {"NODE_ENV":"development"}
    */
   environmentVariables?: { [key: string]: string };
   /**
    * @remarks
-   * The Git account ID.
+   * The ID of the Git account.
    * 
    * @example
    * 3472021274759488
@@ -50,7 +53,7 @@ export class CreateRoutineBuildConfigurationRequest extends $dara.Model {
   gitPlatform?: string;
   /**
    * @remarks
-   * The install command.
+   * The installation command.
    * 
    * @example
    * npm install
@@ -59,8 +62,8 @@ export class CreateRoutineBuildConfigurationRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether the repository is private. Valid values:
-   * - true: The repository is private.
-   * - false: The repository is not private.
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * false
@@ -68,7 +71,7 @@ export class CreateRoutineBuildConfigurationRequest extends $dara.Model {
   isPrivate?: boolean;
   /**
    * @remarks
-   * The Node.js version. Valid values: `22.x`, `20.x`, `18.x`, `16.x`, `14.x`, `12.x`.
+   * The Node.js version. Valid values: `22.x`, `20.x`, `18.x`, `16.x`, `14.x`, and `12.x`.
    * 
    * This parameter is required.
    * 
@@ -78,7 +81,7 @@ export class CreateRoutineBuildConfigurationRequest extends $dara.Model {
   nodeVersion?: string;
   /**
    * @remarks
-   * The production branch name.
+   * The name of the production branch.
    * 
    * @example
    * main
@@ -86,7 +89,7 @@ export class CreateRoutineBuildConfigurationRequest extends $dara.Model {
   productionBranch?: string;
   /**
    * @remarks
-   * The repository name.
+   * The name of the repository.
    * 
    * @example
    * webdeck
@@ -102,7 +105,7 @@ export class CreateRoutineBuildConfigurationRequest extends $dara.Model {
   rootDirectory?: string;
   /**
    * @remarks
-   * The ER entry file path.
+   * The path to the Edge Routine entry file.
    * 
    * @example
    * /home
@@ -110,7 +113,7 @@ export class CreateRoutineBuildConfigurationRequest extends $dara.Model {
   routineEntry?: string;
   /**
    * @remarks
-   * The ER name.
+   * The name of the Edge Routine.
    * 
    * This parameter is required.
    * 
@@ -120,7 +123,7 @@ export class CreateRoutineBuildConfigurationRequest extends $dara.Model {
   routineName?: string;
   /**
    * @remarks
-   * The build template name.
+   * The name of the build template.
    * 
    * @example
    * react-router

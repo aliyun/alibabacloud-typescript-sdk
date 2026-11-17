@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConditionIPBInfoResponseBodyDatas extends $dara.Model {
   /**
    * @remarks
-   * The returned data details, including the name of the country, ISP, or region, and its corresponding identifier.
+   * The returned data details, including the name of the country, ISP, or region and its corresponding code.
    * 
    * @example
    * [{"text":"Anhui","value":"340000"},{"text":"Beijing","value":"110000"},{"text":"Chongqing","value":"500000"}]

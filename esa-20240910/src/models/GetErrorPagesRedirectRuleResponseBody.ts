@@ -68,7 +68,7 @@ export class GetErrorPagesRedirectRuleResponseBody extends $dara.Model {
    * - global: Queries global configurations.
    * - rule: Queries rule configurations.
    * 
-   * This parameter is optional. If you do not specify this parameter, global and rule configurations are not distinguished. This parameter takes effect only when the functionName parameter is specified.
+   * If this parameter is not specified, global and rule configurations are not distinguished. This parameter takes effect only when the functionName parameter is specified.
    * 
    * @example
    * rule
@@ -89,9 +89,9 @@ export class GetErrorPagesRedirectRuleResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The rule content, which uses a conditional expression to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+   * The rule content. A conditional expression is used to match user requests. You do not need to specify this parameter when adding a global configuration. Two scenarios are supported:
    * - Match all incoming requests: Set the value to true.
-   * - Match specified requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
+   * - Match specific requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
    * 
    * @example
    * (http.host eq \\"video.example.com\\")
@@ -99,7 +99,7 @@ export class GetErrorPagesRedirectRuleResponseBody extends $dara.Model {
   rule?: string;
   /**
    * @remarks
-   * The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
+   * The rule switch. You do not need to specify this parameter when adding a global configuration. Valid values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -109,7 +109,7 @@ export class GetErrorPagesRedirectRuleResponseBody extends $dara.Model {
   ruleEnable?: string;
   /**
    * @remarks
-   * The rule name. You do not need to set this parameter when adding a global configuration.
+   * The rule name. You do not need to specify this parameter when adding a global configuration.
    * 
    * @example
    * rule_example

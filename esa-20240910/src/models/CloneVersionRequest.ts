@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CloneVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+   * The ID of the site. You can obtain the ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CloneVersionRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The site version number to be cloned.
+   * The version number of the source site version.
    * 
    * This parameter is required.
    * 

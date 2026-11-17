@@ -15,7 +15,7 @@ export class DescribeDDoSPriceRequest extends $dara.Model {
   DDoSBillingMode?: string;
   /**
    * @remarks
-   * The specification of the instance in the Chinese mainland.
+   * The instance specifications in the Chinese mainland.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeDDoSPriceRequest extends $dara.Model {
   DDoSBurstableDomesticProtection?: string;
   /**
    * @remarks
-   * The specification of the instance outside the Chinese mainland.
+   * The instance specifications outside China.
    * 
    * This parameter is required.
    * 

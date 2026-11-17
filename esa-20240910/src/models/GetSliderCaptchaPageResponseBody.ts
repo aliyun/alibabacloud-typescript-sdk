@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSliderCaptchaPageResponseBodyConfigsEn extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to show the footer.
+   * Specifies whether to display the footer.
    * 
    * @example
    * true
@@ -13,7 +13,7 @@ export class GetSliderCaptchaPageResponseBodyConfigsEn extends $dara.Model {
   showFooter?: boolean;
   /**
    * @remarks
-   * Specifies whether to show the request ID.
+   * Specifies whether to display the request ID.
    * 
    * @example
    * true
@@ -65,7 +65,7 @@ export class GetSliderCaptchaPageResponseBodyConfigsEn extends $dara.Model {
 export class GetSliderCaptchaPageResponseBodyConfigsZh extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to show the footer.
+   * Specifies whether to display the footer.
    * 
    * @example
    * false
@@ -73,7 +73,7 @@ export class GetSliderCaptchaPageResponseBodyConfigsZh extends $dara.Model {
   showFooter?: boolean;
   /**
    * @remarks
-   * Specifies whether to show the request ID.
+   * Specifies whether to display the request ID.
    * 
    * @example
    * false
@@ -165,7 +165,7 @@ export class GetSliderCaptchaPageResponseBodyConfigs extends $dara.Model {
 export class GetSliderCaptchaPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The predefined configurations of the custom slider page.
+   * The predefined configurations for the custom slider page.
    */
   configs?: GetSliderCaptchaPageResponseBodyConfigs;
   /**
@@ -178,7 +178,7 @@ export class GetSliderCaptchaPageResponseBody extends $dara.Model {
   customContent?: string;
   /**
    * @remarks
-   * The forcibly specified language.
+   * The forced language.
    * 
    * @example
    * zh
@@ -210,7 +210,7 @@ export class GetSliderCaptchaPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of associated site IDs.
+   * The list of bound site IDs.
    */
   siteIds?: number[];
   static names(): { [key: string]: string } {

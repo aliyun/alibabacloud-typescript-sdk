@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceFeaturesRequestSiteFeatures extends $dara.Model {
   /**
    * @remarks
-   * The site feature configurations to modify.
+   * The site feature information to be modified.
    * 
    * @example
    * network_optimization|smart_routing,loadbalance
@@ -13,7 +13,7 @@ export class ModifyInstanceFeaturesRequestSiteFeatures extends $dara.Model {
   features?: string;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * The ID of the site. You can obtain the ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * @example
    * 151097616427232
@@ -45,7 +45,7 @@ export class ModifyInstanceFeaturesRequestSiteFeatures extends $dara.Model {
 export class ModifyInstanceFeaturesRequest extends $dara.Model {
   /**
    * @remarks
-   * The plan instance ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * Instance ID of the plan instance. You can obtain instance ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class ModifyInstanceFeaturesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of site feature configurations.
+   * The list of site feature information.
    * 
    * This parameter is required.
    */

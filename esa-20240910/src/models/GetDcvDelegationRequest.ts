@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetDcvDelegationRequest extends $dara.Model {
   /**
    * @remarks
-   * The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can obtain it by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) API operation.
    * 
    * This parameter is required.
    * 

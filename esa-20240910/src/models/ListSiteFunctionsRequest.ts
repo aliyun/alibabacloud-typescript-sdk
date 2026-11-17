@@ -17,7 +17,7 @@ export class ListSiteFunctionsRequest extends $dara.Model {
    * - global: Queries global configurations.
    * - rule: Queries rule configurations.
    * 
-   * This parameter is optional. If you do not specify this parameter, global and rule configurations are not distinguished. This parameter takes effect only when the FunctionName parameter is specified.
+   * This parameter is optional. If you do not specify this parameter, the system does not distinguish between global and rule configurations. This parameter takes effect only when the FunctionName parameter is specified.
    * 
    * @example
    * rule
@@ -25,7 +25,7 @@ export class ListSiteFunctionsRequest extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * The name of the feature function.
+   * The name of the function.
    * 
    * @example
    * CacheRules
@@ -57,7 +57,7 @@ export class ListSiteFunctionsRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 

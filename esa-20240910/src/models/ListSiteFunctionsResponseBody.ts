@@ -57,7 +57,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheReserve extends $dara.Mode
 export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model {
   /**
    * @remarks
-   * The additional ports on which caching is enabled. Valid values: 8880, 2052, 2082, 2086, 2095, 2053, 2083, 2087, and 2096.
+   * The specified ports on which the caching feature is enabled. Valid values: 8880, 2052, 2082, 2086, 2095, 2053, 2083, 2087, and 2096.
    * 
    * @example
    * 8880
@@ -67,8 +67,8 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
    * @remarks
    * The browser cache mode. Valid values:
    * - no_cache: No caching.
-   * - follow_origin: Follow the origin server cache policy.
-   * - override_origin: Override the origin server cache policy.
+   * - follow_origin: Follows the origin server cache policy.
+   * - override_origin: Overrides the origin server cache policy.
    * 
    * @example
    * follow_origin
@@ -84,7 +84,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   browserCacheTtl?: string;
   /**
    * @remarks
-   * Specifies the bypass cache mode. Valid values:
+   * The bypass cache mode. Valid values:
    * - cache_all: All requests are cached.
    * - bypass_all: All requests bypass the cache.
    * 
@@ -104,7 +104,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   cacheDeceptionArmor?: string;
   /**
    * @remarks
-   * The cache reserve eligibility. This parameter controls whether user requests bypass the cache reserve node when being routed to the origin server. Valid values:
+   * The cache reserve eligibility. This parameter controls whether user requests bypass cache reserve nodes when rerouted to the origin server. Valid values:
    * - bypass_cache_reserve: Requests bypass cache reserve.
    * - eligible_for_cache_reserve: Requests are eligible for cache reserve.
    * 
@@ -114,7 +114,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   cacheReserveEligibility?: string;
   /**
    * @remarks
-   * The cookies to check for presence when generating a cache key. If a cookie exists, its name is added to the cache key. Cookie names are case-insensitive. You can specify multiple cookie names separated by spaces.
+   * The cookie names to check for presence when generating cache keys. If a cookie exists, its name is added to the cache key. Cookie names are case-insensitive. You can specify multiple cookie names separated by spaces.
    * 
    * @example
    * cookiename
@@ -122,7 +122,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   checkPresenceCookie?: string;
   /**
    * @remarks
-   * The headers to check for presence when generating a cache key. If a header exists, its name is added to the cache key. Header names are case-insensitive. You can specify multiple header names separated by spaces.
+   * The header names to check for presence when generating cache keys. If a header exists, its name is added to the cache key. Header names are case-insensitive. You can specify multiple header names separated by spaces.
    * 
    * @example
    * headername
@@ -139,10 +139,10 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   /**
    * @remarks
    * The edge node cache mode. Valid values:
-   * - follow_origin: Follow the origin server cache policy if it exists. Otherwise, use the default cache policy.
+   * - follow_origin: Follows the origin server cache policy if it exists. Otherwise, the default cache policy is used.
    * - no_cache: No caching.
-   * - override_origin: Override the origin server cache policy.
-   * - follow_origin_bypass: Follow the origin server cache policy if it exists. Otherwise, do not cache.
+   * - override_origin: Overrides the origin server cache policy.
+   * - follow_origin_bypass: Follows the origin server cache policy if it exists. Otherwise, no caching is performed.
    * 
    * @example
    * follow_origin
@@ -166,7 +166,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   edgeStatusCodeCacheTtl?: string;
   /**
    * @remarks
-   * The cookies and their values to be included when generating a cache key. You can specify multiple values separated by spaces.
+   * The specified cookie names and their values to be included when generating cache keys. You can specify multiple values separated by spaces.
    * 
    * @example
    * cookie_exapmle
@@ -174,7 +174,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   includeCookie?: string;
   /**
    * @remarks
-   * The headers and their values to be included when generating a cache key. You can specify multiple values separated by spaces.
+   * The specified header names and their values to be included when generating cache keys. You can specify multiple values separated by spaces.
    * 
    * @example
    * example
@@ -182,7 +182,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   includeHeader?: string;
   /**
    * @remarks
-   * The cache key processing mode.
+   * The processing mode for cache keys.
    * 
    * @example
    * ignore
@@ -190,7 +190,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   postBodyCacheKey?: string;
   /**
    * @remarks
-   * The request body size limit, in KB. The value must be a number. Supported body sizes range from 1 KB to 8 KB. If this parameter is left empty, the default value of 8 KB is used.
+   * The body size limit, in KB. Valid values are 1 to 8. If this parameter is left empty, the default value 8 is used.
    * 
    * @example
    * 1
@@ -206,7 +206,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   postCache?: string;
   /**
    * @remarks
-   * The query strings to be retained or excluded. You can specify multiple values separated by spaces.
+   * The query strings to be reserved or excluded. You can specify multiple values separated by spaces.
    * 
    * @example
    * example
@@ -214,11 +214,11 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   queryString?: string;
   /**
    * @remarks
-   * The query string processing mode when generating a cache key. Valid values:
-   * - ignore_all: Ignore all query strings.
-   * - exclude_query_string: Exclude specified query strings.
-   * - reserve_all: Reserve all query strings. This is the default value.
-   * - include_query_string: Include specified query strings.
+   * The processing mode for query strings when generating cache keys. Valid values:
+   * - ignore_all: Ignores all query strings.
+   * - exclude_query_string: Excludes specified query strings.
+   * - reserve_all: Reserves all query strings. This is the default value.
+   * - include_query_string: Includes specified query strings.
    * 
    * @example
    * reserve_all
@@ -260,7 +260,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   sequence?: string;
   /**
    * @remarks
-   * Specifies whether to serve stale content. When enabled, edge nodes can respond to user requests with stale cached files if the origin server is unavailable. Valid values:
+   * Specifies whether to serve stale cache. When enabled, edge nodes can use cached stale files to respond to user requests if the origin server is unavailable. Valid values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -280,7 +280,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   sortQueryStringForCache?: string;
   /**
    * @remarks
-   * Specifies whether to include the type of the client when generating a cache key. Valid values:
+   * Specifies whether to include the type of the client when generating cache keys. Valid values:
    * - on: Enabled.
    * - off: shutdown.
    * 
@@ -290,7 +290,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   userDeviceType?: string;
   /**
    * @remarks
-   * Specifies whether to include the client geographic location when generating a cache key. Valid values:
+   * Specifies whether to include the client geographic location when generating cache keys. Valid values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -300,7 +300,7 @@ export class ListSiteFunctionsResponseBodyConfigsCacheRules extends $dara.Model 
   userGeo?: string;
   /**
    * @remarks
-   * Specifies whether to include the client language type when generating a cache key. Valid values:
+   * Specifies whether to include the client language type when generating cache keys. Valid values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -684,7 +684,7 @@ export class ListSiteFunctionsResponseBodyConfigsCustomResponseCode extends $dar
   returnCode?: string;
   /**
    * @remarks
-   * The content of the rule, which uses a conditional expression to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
+   * The content of the rule. A conditional expression is used to match user requests. You do not need to specify this parameter when you add a global configuration. This parameter applies to the following scenarios:
    * - Match all incoming requests: Set the value to true.
    * - Match specific requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
    * 
@@ -694,7 +694,8 @@ export class ListSiteFunctionsResponseBodyConfigsCustomResponseCode extends $dar
   rule?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule. This parameter is not required when you add a global configuration. Valid values:
+   * Specifies whether to enable the rule. You do not need to specify this parameter when you add a global configuration. Valid values:
+   * 
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -704,7 +705,7 @@ export class ListSiteFunctionsResponseBodyConfigsCustomResponseCode extends $dar
   ruleEnable?: string;
   /**
    * @remarks
-   * The name of the rule. This parameter is not required when you add a global configuration.
+   * The name of the rule. You do not need to specify this parameter when you add a global configuration.
    * 
    * @example
    * rule_example
@@ -806,7 +807,7 @@ export class ListSiteFunctionsResponseBodyConfigsDevelopmentMode extends $dara.M
 export class ListSiteFunctionsResponseBodyConfigsErrorPagesRedirectsErrorPagesRedirect extends $dara.Model {
   /**
    * @remarks
-   * The HTTP status code used by the edge node to respond to the client with a redirect address. Valid values:
+   * The HTTP status code used by the edge node to respond to the client with a redirect URL. Valid values:
    * - 400
    * - 403
    * - 404
@@ -825,7 +826,7 @@ export class ListSiteFunctionsResponseBodyConfigsErrorPagesRedirectsErrorPagesRe
   statusCode?: string;
   /**
    * @remarks
-   * The destination URL after the redirect.
+   * The destination URL after redirection.
    * 
    * @example
    * http://example.com/test
@@ -865,12 +866,12 @@ export class ListSiteFunctionsResponseBodyConfigsErrorPagesRedirects extends $da
   configId?: number;
   /**
    * @remarks
-   * The error code redirect configurations.
+   * The error code redirection configurations.
    */
   errorPagesRedirect?: ListSiteFunctionsResponseBodyConfigsErrorPagesRedirectsErrorPagesRedirect[];
   /**
    * @remarks
-   * The content of the rule, which uses a conditional expression to match user requests. This parameter is not required when you add a global configuration. Two scenarios are supported:
+   * The content of the rule. A conditional expression is used to match user requests. You do not need to specify this parameter when you add a global configuration. This parameter applies to the following scenarios:
    * - Match all incoming requests: Set the value to true.
    * - Match specific requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
    * 
@@ -880,7 +881,7 @@ export class ListSiteFunctionsResponseBodyConfigsErrorPagesRedirects extends $da
   rule?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule. This parameter is not required when you add a global configuration. Valid values:
+   * Specifies whether to enable the rule. You do not need to specify this parameter when you add a global configuration. Valid values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -890,7 +891,7 @@ export class ListSiteFunctionsResponseBodyConfigsErrorPagesRedirects extends $da
   ruleEnable?: string;
   /**
    * @remarks
-   * The name of the rule. This parameter is not required when you add a global configuration.
+   * The name of the rule. You do not need to specify this parameter when you add a global configuration.
    * 
    * @example
    * rule_example
@@ -950,9 +951,9 @@ export class ListSiteFunctionsResponseBodyConfigsHttpIncomingRequestHeaderModifi
   /**
    * @remarks
    * The operation type. Valid values:
-   * - add: Add.
-   * - del: Delete.
-   * - modify: Modify.
+   * - add: Adds a header.
+   * - del: Deletes a header.
+   * - modify: Modifies a header.
    * 
    * @example
    * add
@@ -1085,9 +1086,9 @@ export class ListSiteFunctionsResponseBodyConfigsHttpIncomingResponseHeaderModif
   /**
    * @remarks
    * The operation type. Valid values:
-   * - add: Add.
-   * - del: Delete.
-   * - modify: Modify.
+   * - add: Adds a header.
+   * - del: Deletes a header.
+   * - modify: Modifies a header.
    * 
    * @example
    * add
@@ -1220,9 +1221,9 @@ export class ListSiteFunctionsResponseBodyConfigsHttpRequestHeaderModificationRu
   /**
    * @remarks
    * The operation type. Valid values:
-   * - add: Add.
-   * - del: Delete.
-   * - modify: Modify.
+   * - add: Adds a header.
+   * - del: Deletes a header.
+   * - modify: Modifies a header.
    * 
    * @example
    * add
@@ -1358,9 +1359,9 @@ export class ListSiteFunctionsResponseBodyConfigsHttpResponseHeaderModificationR
   /**
    * @remarks
    * The operation type. Valid values:
-   * - add: Add.
-   * - del: Delete.
-   * - modify: Modify.
+   * - add: Adds a header.
+   * - del: Deletes a header.
+   * - modify: Modifies a header.
    * 
    * @example
    * add
@@ -1536,7 +1537,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration e
    * Specifies whether to enable HSTS. Default value: off. Valid values:
    * 
    * - on: Enabled.
-   * 
    * - off: Disabled.
    * 
    * @example
@@ -1548,7 +1548,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration e
    * Specifies whether to include subdomains in HSTS. Default value: off. Valid values:
    * 
    * - on: Enabled.
-   * 
    * - off: Disabled.
    * 
    * @example
@@ -1568,7 +1567,6 @@ export class ListSiteFunctionsResponseBodyConfigsHttpsApplicationConfiguration e
    * Specifies whether to enable HSTS preload. Default value: off. Valid values:
    * 
    * - on: Enabled.
-   * 
    * - off: Disabled.
    * 
    * @example
@@ -2044,7 +2042,7 @@ export class ListSiteFunctionsResponseBodyConfigsManagedTransforms extends $dara
   addClientGeolocationHeaders?: string;
   /**
    * @remarks
-   * Specifies whether to add the "ali-real-client-ip" header that contains the real client IP address. Valid values:
+   * Specifies whether to add the "ali-real-client-ip" header that contains the originating IP address of the client. Valid values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -2106,7 +2104,7 @@ export class ListSiteFunctionsResponseBodyConfigsMarkdownForAgent extends $dara.
   configId?: number;
   /**
    * @remarks
-   * Specifies whether to enable the feature. Valid values: on (enabled) and off (disabled).
+   * Specifies whether to enable the feature. Valid values: on and off.
    * 
    * @example
    * on
@@ -2114,7 +2112,7 @@ export class ListSiteFunctionsResponseBodyConfigsMarkdownForAgent extends $dara.
   enable?: string;
   /**
    * @remarks
-   * The content of the rule, which uses a conditional expression to match requests.
+   * The content of the rule. A conditional expression is used to match requests.
    * 
    * @example
    * (http.host eq "video.example.com")
@@ -2122,7 +2120,7 @@ export class ListSiteFunctionsResponseBodyConfigsMarkdownForAgent extends $dara.
   rule?: string;
   /**
    * @remarks
-   * Specifies whether to enable the rule. Valid values: on (enabled) and off (disabled).
+   * Specifies whether to enable the rule. Valid values: on and off.
    * 
    * @example
    * on
@@ -2197,6 +2195,7 @@ export class ListSiteFunctionsResponseBodyConfigsNetworkOptimization extends $da
   /**
    * @remarks
    * Specifies whether to enable HTTP/2 back-to-origin routing. Default value: off. Valid values:
+   * 
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -2316,7 +2315,7 @@ export class ListSiteFunctionsResponseBodyConfigsOriginRules extends $dara.Model
   configId?: number;
   /**
    * @remarks
-   * The DNS record rewritten for the back-to-origin request.
+   * The DNS record rewritten for back-to-origin requests.
    * 
    * @example
    * test.example.com
@@ -2324,7 +2323,7 @@ export class ListSiteFunctionsResponseBodyConfigsOriginRules extends $dara.Model
   dnsRecord?: string;
   /**
    * @remarks
-   * The Host header carried in the back-to-origin request.
+   * The Host header in the back-to-origin request.
    * 
    * @example
    * origin.example.com
@@ -2348,7 +2347,7 @@ export class ListSiteFunctionsResponseBodyConfigsOriginRules extends $dara.Model
   originHttpsPort?: string;
   /**
    * @remarks
-   * Specifies whether to enable mTLS for back-to-origin requests. Valid values:
+   * Specifies whether to enable mutual TLS (mTLS) for back-to-origin requests. Valid values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -2358,7 +2357,7 @@ export class ListSiteFunctionsResponseBodyConfigsOriginRules extends $dara.Model
   originMtls?: string;
   /**
    * @remarks
-   * The origin read timeout, in seconds.
+   * The origin read timeout in seconds.
    * 
    * @example
    * 300
@@ -2377,7 +2376,7 @@ export class ListSiteFunctionsResponseBodyConfigsOriginRules extends $dara.Model
   originScheme?: string;
   /**
    * @remarks
-   * The SNI carried in the back-to-origin request.
+   * The Server Name Indication (SNI) carried in the back-to-origin request.
    * 
    * @example
    * origin.example.com
@@ -2569,7 +2568,7 @@ export class ListSiteFunctionsResponseBodyConfigsRedirectRules extends $dara.Mod
   statusCode?: string;
   /**
    * @remarks
-   * The target URL for the redirect.
+   * The target URL after redirection.
    * 
    * @example
    * http://www.exapmle.com/index.html
@@ -2850,9 +2849,9 @@ export class ListSiteFunctionsResponseBodyConfigsSitePause extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * Specifies whether the proxy acceleration feature for the entire site is temporarily paused. When this feature is enabled, all DNS records directly return record values to clients. Valid values:
-   * - true: The site acceleration is paused.
-   * - false: The site acceleration is running normally.
+   * Specifies whether to temporarily pause the proxy acceleration feature for the entire site. After this feature is enabled, all DNS records directly return record values to clients. Valid values:
+   * - true: Site acceleration is paused.
+   * - false: Site acceleration is running normally.
    * 
    * @example
    * false
@@ -2973,8 +2972,8 @@ export class ListSiteFunctionsResponseBodyConfigsVideoProcessing extends $dara.M
   /**
    * @remarks
    * The FLV video seeking mode. Valid values:
-   * - by_byte: Seeks by byte.
-   * - by_time: Seeks by time.
+   * - by_byte: Seek by byte.
+   * - by_time: Seek by time.
    * 
    * @example
    * by_time
@@ -3033,7 +3032,9 @@ export class ListSiteFunctionsResponseBodyConfigsVideoProcessing extends $dara.M
   /**
    * @remarks
    * Specifies whether to enable the video seeking feature. Valid values:
+   * 
    * - on: Enabled.
+   * 
    * - off: Disabled.
    * 
    * @example
@@ -3084,7 +3085,7 @@ export class ListSiteFunctionsResponseBodyConfigsVideoProcessing extends $dara.M
 export class ListSiteFunctionsResponseBodyConfigs extends $dara.Model {
   /**
    * @remarks
-   * The cache reserve configuration.
+   * The cache reserve.
    */
   cacheReserve?: ListSiteFunctionsResponseBodyConfigsCacheReserve[];
   /**
@@ -3124,7 +3125,7 @@ export class ListSiteFunctionsResponseBodyConfigs extends $dara.Model {
   developmentMode?: ListSiteFunctionsResponseBodyConfigsDevelopmentMode[];
   /**
    * @remarks
-   * The error code redirect rules.
+   * The error code redirection rules.
    */
   errorPagesRedirects?: ListSiteFunctionsResponseBodyConfigsErrorPagesRedirects[];
   /**
@@ -3174,7 +3175,7 @@ export class ListSiteFunctionsResponseBodyConfigs extends $dara.Model {
   managedTransforms?: ListSiteFunctionsResponseBodyConfigsManagedTransforms[];
   /**
    * @remarks
-   * The list of Markdown for Agent feature configurations.
+   * The Markdown for Agent feature configurations.
    */
   markdownForAgent?: ListSiteFunctionsResponseBodyConfigsMarkdownForAgent[];
   /**
@@ -3199,22 +3200,22 @@ export class ListSiteFunctionsResponseBodyConfigs extends $dara.Model {
   rewriteUrlRules?: ListSiteFunctionsResponseBodyConfigsRewriteUrlRules[];
   /**
    * @remarks
-   * The search engine (index and DPI engine) crawler bypass configuration.
+   * The search engine crawler bypass configuration.
    */
   seoBypass?: ListSiteFunctionsResponseBodyConfigsSeoBypass[];
   /**
    * @remarks
-   * The site name exclusivity configuration. After this feature is enabled, other accounts can no longer create sites or subsites with the same name as the current site.
+   * The exclusive site name configuration. After this feature is enabled, other accounts can no longer create sites or subsites with the same name as the current site.
    */
   siteNameExclusive?: ListSiteFunctionsResponseBodyConfigsSiteNameExclusive[];
   /**
    * @remarks
-   * The site pause configuration. It temporarily pauses the proxy acceleration feature for the entire site. After this feature is enabled, all DNS records directly return record values to clients.
+   * The site pause configuration. It is used to temporarily pause the proxy acceleration feature for the entire site. After it is enabled, all DNS records directly return record values to clients.
    */
   sitePause?: ListSiteFunctionsResponseBodyConfigsSitePause[];
   /**
    * @remarks
-   * The tiered cache configuration.
+   * The tiered cache.
    */
   tieredCache?: ListSiteFunctionsResponseBodyConfigsTieredCache[];
   /**

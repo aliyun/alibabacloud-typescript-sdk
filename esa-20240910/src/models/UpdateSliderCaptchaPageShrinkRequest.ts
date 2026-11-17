@@ -44,7 +44,7 @@ export class UpdateSliderCaptchaPageShrinkRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of bound site IDs.
+   * The IDs of the bound sites.
    */
   siteIdsShrink?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRoutineBuildsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The directory of static resources.
+   * The static resource directory.
    * 
    * @example
    * /root/usr
@@ -13,7 +13,7 @@ export class ListRoutineBuildsResponseBodyData extends $dara.Model {
   assetsDirectory?: string;
   /**
    * @remarks
-   * The branch used for the build.
+   * The build branch.
    * 
    * @example
    * dev
@@ -54,11 +54,22 @@ export class ListRoutineBuildsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The environment variables.
+   * 
+   * @example
+   * {"NODE_ENV":"development"}
    */
   environmentVariables?: { [key: string]: string };
   /**
    * @remarks
-   * The ID of the Git account.
+   * The name of the file uploaded for the build task.
+   * 
+   * @example
+   * index.html
+   */
+  fileName?: string;
+  /**
+   * @remarks
+   * The Git account ID.
    * 
    * @example
    * 162124764031208
@@ -66,7 +77,7 @@ export class ListRoutineBuildsResponseBodyData extends $dara.Model {
   gitAccountId?: number;
   /**
    * @remarks
-   * The name of the Git account.
+   * The Git account name.
    * 
    * @example
    * rwa
@@ -74,7 +85,7 @@ export class ListRoutineBuildsResponseBodyData extends $dara.Model {
   gitAccountName?: string;
   /**
    * @remarks
-   * The installation command.
+   * The install command.
    * 
    * @example
    * npm install
@@ -196,7 +207,7 @@ export class ListRoutineBuildsResponseBodyData extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The ID of the user.
+   * The user ID.
    * 
    * @example
    * 1427812834792318
@@ -211,6 +222,7 @@ export class ListRoutineBuildsResponseBodyData extends $dara.Model {
       commitMessage: 'CommitMessage',
       createTime: 'CreateTime',
       environmentVariables: 'EnvironmentVariables',
+      fileName: 'FileName',
       gitAccountId: 'GitAccountId',
       gitAccountName: 'GitAccountName',
       installCommand: 'InstallCommand',
@@ -240,6 +252,7 @@ export class ListRoutineBuildsResponseBodyData extends $dara.Model {
       commitMessage: 'string',
       createTime: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      fileName: 'string',
       gitAccountId: 'number',
       gitAccountName: 'string',
       installCommand: 'string',

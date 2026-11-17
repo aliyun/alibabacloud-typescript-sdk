@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeWafUsageDataResponseBodyUsageData extends $dara.Model {
   /**
    * @remarks
-   * The number of requests with normal access.
+   * The number of normal access requests.
    * 
    * @example
    * 123
@@ -29,7 +29,7 @@ export class DescribeWafUsageDataResponseBodyUsageData extends $dara.Model {
   observeCount?: number;
   /**
    * @remarks
-   * The domain record name.
+   * The name of the domain name record.
    * 
    * @example
    * test.example.com
@@ -37,9 +37,9 @@ export class DescribeWafUsageDataResponseBodyUsageData extends $dara.Model {
   recordName?: string;
   /**
    * @remarks
-   * The beginning of the time interval.
+   * The start time of the time slice.
    * 
-   * The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC+0.
+   * The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
    * 
    * @example
    * 2022-08-10T00:00:00Z
@@ -77,7 +77,7 @@ export class DescribeWafUsageDataResponseBodyUsageData extends $dara.Model {
 export class DescribeWafUsageDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range for the returned data. The time is in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC+0.
+   * The end time of the retrieved data. The time is displayed in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is in UTC.
    * 
    * @example
    * 2022-08-10T23:59:59Z
@@ -85,7 +85,7 @@ export class DescribeWafUsageDataResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * C370DAF1-C838-4288-A1A0-9A87633D2***
@@ -93,7 +93,7 @@ export class DescribeWafUsageDataResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+   * The start time of the data to retrieve. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2022-08-10T00:00:00Z

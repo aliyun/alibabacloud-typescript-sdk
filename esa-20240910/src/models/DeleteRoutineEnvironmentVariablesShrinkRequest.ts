@@ -6,7 +6,7 @@ export class DeleteRoutineEnvironmentVariablesShrinkRequest extends $dara.Model 
   /**
    * @remarks
    * The environment name. Valid values:
-   * - `staging`: the staging environment.
+   * - `staging`: the test environment.
    * - `production`: the production environment.
    * 
    * This parameter is required.
@@ -17,7 +17,7 @@ export class DeleteRoutineEnvironmentVariablesShrinkRequest extends $dara.Model 
   env?: string;
   /**
    * @remarks
-   * The keys of the environment variables to delete.
+   * The list of environment variable keys to delete.
    * 
    * This parameter is required.
    * 
@@ -27,7 +27,7 @@ export class DeleteRoutineEnvironmentVariablesShrinkRequest extends $dara.Model 
   environmentVariableKeysShrink?: string;
   /**
    * @remarks
-   * The name of the routine.
+   * The name of the routine function.
    * 
    * This parameter is required.
    * 

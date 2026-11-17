@@ -71,14 +71,14 @@ export class UpdateErrorPagesRedirectRuleRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The error code redirect.
+   * The error code redirect configuration.
    */
   errorPagesRedirect?: UpdateErrorPagesRedirectRuleRequestErrorPagesRedirect[];
   /**
    * @remarks
-   * The rule content, which uses conditional expressions to match user requests. You do not need to specify this parameter when adding a global configuration. This parameter applies to the following scenarios:
+   * The rule content, which uses a conditional expression to match user requests. You do not need to specify this parameter when adding a global configuration. This parameter applies to the following scenarios:
    * - Match all incoming requests: Set the value to true.
-   * - Match specific requests: Set the value to a custom expression, such as (http.host eq \\"video.example.com\\").
+   * - Match specific requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
    * 
    * @example
    * (http.host eq \\"video.example.com\\")

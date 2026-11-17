@@ -7,9 +7,9 @@ export class RecoverSiteResponseBody extends $dara.Model {
    * @remarks
    * The access type. Valid values:
    * 
-   * - **NS**: access through NS hosting.
+   * - **NS**: NS hosting.
    * 
-   * - **CNAME**: access through CNAME.
+   * - **CNAME**: CNAME access.
    * 
    * @example
    * NS
@@ -17,7 +17,7 @@ export class RecoverSiteResponseBody extends $dara.Model {
   accessType?: string;
   /**
    * @remarks
-   * The CNAME suffix of the site. For sites that are accessed through CNAME, this field indicates the CNAME suffix that needs to be configured for records.
+   * The CNAME suffix of the site. For sites accessed through CNAME, this field records the CNAME suffix that needs to be configured.
    * 
    * @example
    * gf-test.hkrt.cn
@@ -26,9 +26,9 @@ export class RecoverSiteResponseBody extends $dara.Model {
   /**
    * @remarks
    * The acceleration region of the site. Valid values:
-   * - **domestic**: the Chinese mainland only.
-   * - **global**: global.
-   * - **overseas**: global (excluding the Chinese mainland).
+   * - **domestic**: The Chinese mainland only.
+   * - **global**: Global.
+   * - **overseas**: Global (excluding the Chinese mainland).
    * 
    * @example
    * global
@@ -52,7 +52,7 @@ export class RecoverSiteResponseBody extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of name servers assigned to the site, separated by commas (,). When the site uses NS access, this field contains values. You need to change the DNS servers of the site to these name servers. Then you can verify the site ownership and activate the site.
+   * The list of name servers assigned to the site, separated by commas (,). This field has a value when the site is accessed through NS. You must change the DNS servers of the site to these name servers. Then, you can verify the ownership of the site and activate it.
    * 
    * @example
    * ns1.example.com,ns2.example.com
@@ -60,13 +60,13 @@ export class RecoverSiteResponseBody extends $dara.Model {
   nameServerList?: string;
   /**
    * @remarks
-   * The reason why the site was deactivated. Valid values:
+   * The reason why the site is disabled. Valid values:
    * 
-   * - **expiration_arrears**: The subscription plan expired or the account has an overdue payment.
-   * - **internally_disabled**: The site was disabled by the system.
-   * - **missing_icp**: The domain name does not have an ICP filing.
+   * - **expiration_ arrears**: The subscription plan has expired or the account has an overdue payment.
+   * - **internally_disabled**: Disabled internally by the system.
+   * - **missing_icp**: The domain name lacks an ICP filing.
    * - **content_violation**: Content violation.
-   * - **proactively_disabled**: You proactively disabled the site or the site was disabled because the usage cap you configured was reached.
+   * - **proactively_disabled**: Manually disabled by you or disabled due to a usage cap set by you.
    * 
    * @example
    * expiration_ arrears
@@ -119,7 +119,7 @@ export class RecoverSiteResponseBody extends $dara.Model {
    * - **pending**: The site is pending configuration.
    * - **active**: The site is activated.
    * - **offline**: The site is offline.
-   * - **moved**: The site has been replaced.
+   * - **moved**: The site has been moved.
    * 
    * @example
    * active
@@ -127,7 +127,7 @@ export class RecoverSiteResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2025-03-13T02:13:28Z
@@ -135,7 +135,7 @@ export class RecoverSiteResponseBody extends $dara.Model {
   updateTime?: string;
   /**
    * @remarks
-   * The site ownership verification code. When the site is accessed through CNAME, this is the TXT verification code that needs to be configured.
+   * The verification code for site ownership. When a site is accessed through CNAME, this is the TXT verification code that needs to be configured.
    * 
    * @example
    * verify_d516cb3740f81f0cef77d162edd1****

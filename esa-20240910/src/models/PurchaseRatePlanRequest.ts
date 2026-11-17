@@ -13,7 +13,7 @@ export class PurchaseRatePlanRequest extends $dara.Model {
   amount?: number;
   /**
    * @remarks
-   * Specifies whether to enable automatic payment. Set this parameter to true when you directly call this operation.
+   * Specifies whether to enable automatic payment. Set this parameter to true when you directly call the operation.
    * 
    * @example
    * true
@@ -22,8 +22,8 @@ export class PurchaseRatePlanRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable auto-renewal. Valid values:
-   * - true: Auto-renewal is enabled.
-   * - false: Auto-renewal is disabled.
+   * - true: Enables auto-renewal.
+   * - false: Disables auto-renewal.
    * 
    * @example
    * true
@@ -40,10 +40,9 @@ export class PurchaseRatePlanRequest extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
-   * - PREPAY: subscription.
-   * - POSTPAY: pay-as-you-go.
-   * 
-   * Set this parameter to PREPAY when you directly call this operation.
+   * - PREPAY: Subscription.
+   * - POSTPAY: Pay-as-you-go.
+   * Set this parameter to PREPAY when you directly call the operation.
    * 
    * @example
    * PREPAY
@@ -52,9 +51,9 @@ export class PurchaseRatePlanRequest extends $dara.Model {
   /**
    * @remarks
    * The acceleration region. Valid values:
-   * - domestic: the Chinese mainland only.
-   * - global: global.
-   * - overseas: global (excluding the Chinese mainland).
+   * - domestic: The Chinese mainland only.
+   * - global: Global.
+   * - overseas: Global, excluding the Chinese mainland.
    * 
    * @example
    * domestic
@@ -70,7 +69,7 @@ export class PurchaseRatePlanRequest extends $dara.Model {
   overagePolicy?: string;
   /**
    * @remarks
-   * The purchase period, in months. This parameter is required when you directly call this operation.
+   * The subscription period. Unit: months. This parameter is required when you directly call the operation.
    * 
    * @example
    * 1
@@ -78,14 +77,14 @@ export class PurchaseRatePlanRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The plan code.
+   * The code of the plan.
    * 
    * China site
    * 
    * - Free Edition: entranceplan
-   * - Basic: basicplan
-   * - Standard: standardplan
-   * - Advanced: advancedplan
+   * - Basic Edition: basicplan
+   * - Standard Edition: standardplan
+   * - Advanced Edition: advancedplan
    * 
    * International site
    * 
@@ -99,14 +98,14 @@ export class PurchaseRatePlanRequest extends $dara.Model {
   planCode?: string;
   /**
    * @remarks
-   * The plan name.
+   * The name of the plan.
    * 
    * China site
    * 
    * - Free Edition: entranceplan
-   * - Basic: basic
-   * - Standard: medium
-   * - Advanced: high
+   * - Basic Edition: basic
+   * - Standard Edition: medium
+   * - Advanced Edition: high
    * 
    * International site
    * 
@@ -114,7 +113,7 @@ export class PurchaseRatePlanRequest extends $dara.Model {
    * - Pro: basicplan_intl
    * - Premium: vipplan_intl
    * 
-   * Note: For Enterprise Edition plans, the plan name is provided after backend configuration.
+   * Note: For Enterprise Edition plans, the plan name must be configured in the backend and then provided to the customer.
    * 
    * @example
    * basic
@@ -122,7 +121,7 @@ export class PurchaseRatePlanRequest extends $dara.Model {
   planName?: string;
   /**
    * @remarks
-   * The site name.
+   * The name of the site.
    * 
    * @example
    * test.com

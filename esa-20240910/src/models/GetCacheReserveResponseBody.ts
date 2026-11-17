@@ -13,7 +13,7 @@ export class GetCacheReserveResponseBody extends $dara.Model {
   cacheReserveInstanceId?: string;
   /**
    * @remarks
-   * The switch status. Valid values:
+   * Specifies whether the cache reserve feature is enabled. Valid values:
    * 
    * - **on**: Enabled.
    * - **off**: Disabled.

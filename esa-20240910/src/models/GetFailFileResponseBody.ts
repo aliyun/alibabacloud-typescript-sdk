@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFailFileResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The download link for the failed task file.
+   * The download link for the files of the failed task.
    * 
    * @example
    * https://****.oss-cn-shenzhen.aliyuncs.com/fail-1593805857882113?Expires=1708659191&OSSAccessKeyId=**********&Signature=**********

@@ -67,7 +67,6 @@ export class ListAsyncTasksResponseBodyAsyncTasks extends $dara.Model {
   /**
    * @remarks
    * The current status of the task. Valid values:
-   * 
    * - in_progress: The task is in progress.
    * - success: The task is completed.
    * - fail: The task failed.

@@ -10,7 +10,7 @@ export class GetClientCaCertificateHostnamesResponseBody extends $dara.Model {
   hostnames?: string[];
   /**
    * @remarks
-   * The client CA certificate ID.
+   * The ID of the client CA certificate.
    * 
    * @example
    * babaded901474b9693acf530e0fb****
@@ -26,7 +26,7 @@ export class GetClientCaCertificateHostnamesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to query the site ID.
    * 
    * @example
    * 1234567890123
@@ -34,7 +34,7 @@ export class GetClientCaCertificateHostnamesResponseBody extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The site name.
+   * The name of the site.
    * 
    * @example
    * example.com

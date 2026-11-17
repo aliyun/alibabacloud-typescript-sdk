@@ -58,9 +58,9 @@ export class DescribeRatePlanPriceGapResponseBodyPriceModel extends $dara.Model 
   /**
    * @remarks
    * The currency. Valid values:
-   * - JPY: Japanese Yen.
-   * - USD: US Dollar.
-   * - CNY: Chinese Yuan.
+   * - JPY: Japanese yen.
+   * - USD: US dollar.
+   * - CNY: Chinese yuan.
    * 
    * @example
    * CNY
@@ -84,7 +84,7 @@ export class DescribeRatePlanPriceGapResponseBodyPriceModel extends $dara.Model 
   instanceId?: string;
   /**
    * @remarks
-   * The final order price, which is the actual transaction price.
+   * The final price of the order, which is the actual transaction price.
    * 
    * @example
    * 1
@@ -93,7 +93,7 @@ export class DescribeRatePlanPriceGapResponseBodyPriceModel extends $dara.Model 
   rule?: DescribeRatePlanPriceGapResponseBodyPriceModelRule;
   /**
    * @remarks
-   * The target plan code.
+   * The code of the target plan.
    * 
    * @example
    * entranceplan
@@ -101,7 +101,7 @@ export class DescribeRatePlanPriceGapResponseBodyPriceModel extends $dara.Model 
   targetPlanCode?: string;
   /**
    * @remarks
-   * The original order price. Original order price = actual transaction price + discount amount.
+   * The original price of the order, which is the sum of the actual transaction price and the discount amount.
    * 
    * @example
    * 2
@@ -146,7 +146,7 @@ export class DescribeRatePlanPriceGapResponseBodyPriceModel extends $dara.Model 
 export class DescribeRatePlanPriceGapResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The price information.
+   * The pricing information.
    */
   priceModel?: DescribeRatePlanPriceGapResponseBodyPriceModel;
   /**

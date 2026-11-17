@@ -45,10 +45,10 @@ export class AddUserBusinessFormRequest extends $dara.Model {
   position?: string;
   /**
    * @remarks
-   * Additional remarks.
+   * The additional remarks.
    * 
    * @example
-   * Please contact us as soon as possible
+   * Contact us as soon as possible
    */
   remark?: string;
   /**

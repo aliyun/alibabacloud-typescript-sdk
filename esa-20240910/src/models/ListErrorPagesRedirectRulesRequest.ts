@@ -13,10 +13,10 @@ export class ListErrorPagesRedirectRulesRequest extends $dara.Model {
   configId?: number;
   /**
    * @remarks
-   * The configuration type. You can use this parameter to query global or rule configurations. Valid values:
+   * The configuration type. You can use this parameter to query global configurations or rule configurations. Valid values:
    * 
-   * - global: Global configurations.
-   * - rule: Rule configurations.
+   * - global: Queries global configurations.
+   * - rule: Queries rule configurations.
    * 
    * @example
    * global
@@ -48,7 +48,7 @@ export class ListErrorPagesRedirectRulesRequest extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+   * The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 

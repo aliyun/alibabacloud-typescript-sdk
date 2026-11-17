@@ -27,13 +27,13 @@ export class UpdateListRequest extends $dara.Model {
    * @remarks
    * The updated items in the list. The value is a JSON array string, such as `["1.1.1.1","2.2.2.2"]`.
    * 
-   * **Full overwrite semantics**: The specified `Items` completely overwrites the original list content instead of appending to it.
+   * **Full overwrite semantics**: The specified Items completely overwrite the existing list items instead of being appended to them.
    * 
-   * > ⚠️ **If this parameter is not specified or is left empty, the original list content is cleared**. To retain the original items and append new ones, call `GetList` to retrieve the existing `Items`, concatenate them, and submit them at once.
+   * > ⚠️ **If you do not specify this parameter or specify an empty value, the existing list items are cleared**. To retain the existing items and append new ones, call the GetList operation to retrieve the existing Items, concatenate the new items, and then submit them all at once.
    * 
-   * **Element format**: The format depends on the `Kind` specified when the list was created. UpdateList does not support modifying the kind.
-   * - Kind = `ip`: Each element must be a valid IP address or CIDR block. If an element is invalid, `WrongValueMatched` is returned.
-   * - Other kinds: The element format is subject to conventions, and the number of elements is limited by the tenant quota `NumberItemsPerList`. Only the `ip` kind is not subject to this limit.
+   * **Item format**: The format depends on the Kind specified when the list was created. The UpdateList operation does not support modifying the Kind.
+   * - If Kind is set to ip: Each item must be a valid IP address or CIDR block. If an item is invalid, the WrongValueMatched error is returned.
+   * - For other Kind values: The item format follows the specified conventions. The number of items is limited by the tenant quota NumberItemsPerList. This limit does not apply to the ip kind.
    * 
    * This parameter is required.
    * 
@@ -43,9 +43,9 @@ export class UpdateListRequest extends $dara.Model {
   items?: string[];
   /**
    * @remarks
-   * The updated name of the custom list. If this parameter is not specified, the original name is retained.
+   * The updated name of the custom list. This parameter is required if you want to update the name. If you do not specify this parameter, the original name is retained.
    * 
-   * **Naming rules**: Only letters, digits, and underscores are supported. The regular expression is `^\\w{1,64}$`, and the length is 1 to 64 characters.
+   * **Naming rules**: The name can contain only letters, digits, and underscores (`^\\w{1,64}$`) and must be 1 to 64 characters in length.
    * 
    * This parameter is required.
    * 

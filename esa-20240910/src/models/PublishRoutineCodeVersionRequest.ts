@@ -13,7 +13,7 @@ export class PublishRoutineCodeVersionRequest extends $dara.Model {
   codeVersion?: string;
   /**
    * @remarks
-   * The environment name.
+   * The name of the environment.
    * 
    * This parameter is required.
    * 

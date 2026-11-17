@@ -59,11 +59,11 @@ export class DescribeCacheReservePriceResponseBodyPriceModel extends $dara.Model
    * @remarks
    * The currency. Valid values:
    * 
-   * - JPY: Japanese Yen.
+   * - JPY: Japanese yen
    * 
-   * - USD: US Dollar.
+   * - USD: US dollar
    * 
-   * - CNY: Chinese Yuan.
+   * - CNY: Chinese yuan
    * 
    * @example
    * CNY
@@ -71,7 +71,7 @@ export class DescribeCacheReservePriceResponseBodyPriceModel extends $dara.Model
   currency?: string;
   /**
    * @remarks
-   * The discount amount of the order.
+   * The order discount amount.
    * 
    * @example
    * 1
@@ -88,7 +88,7 @@ export class DescribeCacheReservePriceResponseBodyPriceModel extends $dara.Model
   rule?: DescribeCacheReservePriceResponseBodyPriceModelRule;
   /**
    * @remarks
-   * The original order price. Original order price = actual transaction price + discount amount.
+   * The original order price, which equals the actual transaction price plus the discount amount.
    * 
    * @example
    * 2
@@ -129,7 +129,7 @@ export class DescribeCacheReservePriceResponseBodyPriceModel extends $dara.Model
 export class DescribeCacheReservePriceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The price information.
+   * The pricing information.
    */
   priceModel?: DescribeCacheReservePriceResponseBodyPriceModel;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBotPriceRequest extends $dara.Model {
   /**
    * @remarks
-   * The bot instance type.
+   * The bot instance specifications.
    * 
    * This parameter is required.
    * 

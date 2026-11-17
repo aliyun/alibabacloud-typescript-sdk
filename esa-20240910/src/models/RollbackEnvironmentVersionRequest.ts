@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class RollbackEnvironmentVersionRequest extends $dara.Model {
   /**
    * @remarks
-   * The environment name.
+   * The name of the environment.
    * 
    * This parameter is required.
    * 
    * @example
-   * 默认环境
+   * Default environment
    */
   environmentName?: string;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+   * The site ID. You can call the [ListSites](~~ListSites~~) operation to query the site ID.
    * 
    * This parameter is required.
    * 

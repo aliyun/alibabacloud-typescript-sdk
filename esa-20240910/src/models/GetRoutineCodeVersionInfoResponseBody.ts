@@ -35,7 +35,7 @@ export class GetRoutineCodeVersionInfoResponseBodyConfOptions extends $dara.Mode
 export class GetRoutineCodeVersionInfoResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The build ID of the code.
+   * The ID of the code build.
    * 
    * @example
    * 26035169
@@ -64,7 +64,7 @@ export class GetRoutineCodeVersionInfoResponseBody extends $dara.Model {
   confOptions?: GetRoutineCodeVersionInfoResponseBodyConfOptions;
   /**
    * @remarks
-   * The time when the code version was created. The time follows the RFC 3339 standard in the UTC time zone.
+   * The creation time of the code version. The time follows the RFC 3339 standard and is displayed in UTC.
    * 
    * @example
    * 2025-08-04T01:54:19Z
@@ -72,7 +72,7 @@ export class GetRoutineCodeVersionInfoResponseBody extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The extra information of the code version. The value is in JSON string format.
+   * The additional information about the code version. The value is a JSON string.
    * 
    * @example
    * {}
@@ -80,7 +80,7 @@ export class GetRoutineCodeVersionInfoResponseBody extends $dara.Model {
   extraInfo?: string;
   /**
    * @remarks
-   * Indicates whether the code version contains Assets files.
+   * Indicates whether the code version contains asset files.
    * 
    * @example
    * true
@@ -88,7 +88,7 @@ export class GetRoutineCodeVersionInfoResponseBody extends $dara.Model {
   hasAssets?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 0AEDAF20-4DDF-4165-8750-47FF9C1929C9

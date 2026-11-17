@@ -21,7 +21,7 @@ export class DescribeDDoSOverseasAttackCountResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The number of attacks that have been used.
+   * The number of attacks used.
    * 
    * @example
    * 0

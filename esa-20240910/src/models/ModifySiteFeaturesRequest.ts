@@ -15,7 +15,7 @@ export class ModifySiteFeaturesRequest extends $dara.Model {
   newInstanceId?: string;
   /**
    * @remarks
-   * The site feature information to be cleared.
+   * The information about the site features to be cleared.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifySiteFeaturesRequest extends $dara.Model {
   siteFeatures?: string;
   /**
    * @remarks
-   * The site ID. You can obtain the ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 

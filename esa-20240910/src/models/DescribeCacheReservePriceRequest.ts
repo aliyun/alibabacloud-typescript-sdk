@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCacheReservePriceRequest extends $dara.Model {
   /**
    * @remarks
-   * The cache reserve region.
+   * The cache reservation region. Valid values:
    * 
    * - HK: Hong Kong (China)
    * 
-   * - CN: the Chinese mainland.
+   * - CN: the Chinese mainland
    * 
    * @example
    * HK
@@ -17,7 +17,7 @@ export class DescribeCacheReservePriceRequest extends $dara.Model {
   crRegion?: string;
   /**
    * @remarks
-   * The purchase period. Unit: months.
+   * The subscription period. Unit: months.
    * 
    * @example
    * 2
@@ -25,7 +25,7 @@ export class DescribeCacheReservePriceRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The cache reserve specification. Unit: GB.
+   * The cache reservation capacity. Unit: GB.
    * 
    * @example
    * 512000

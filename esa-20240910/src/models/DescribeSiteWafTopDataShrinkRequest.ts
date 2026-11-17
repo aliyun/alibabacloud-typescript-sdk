@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSiteWafTopDataShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time of the data to retrieve.
    * 
-   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * > The end time must be later than the start time.
    * 
@@ -24,7 +24,7 @@ export class DescribeSiteWafTopDataShrinkRequest extends $dara.Model {
   fieldsShrink?: string;
   /**
    * @remarks
-   * The time granularity for querying data. Unit: seconds.
+   * The time granularity of the queried data, in seconds.
    * 
    * @example
    * 300
@@ -42,7 +42,7 @@ export class DescribeSiteWafTopDataShrinkRequest extends $dara.Model {
    * @remarks
    * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
    * 
-   * If this parameter is left empty, user-level data is queried.
+   * If this parameter is empty, user-level data is queried.
    * 
    * @example
    * 1150376036*****
@@ -50,9 +50,9 @@ export class DescribeSiteWafTopDataShrinkRequest extends $dara.Model {
   siteId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time of the data to retrieve.
    * 
-   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2023-04-08T16:00:00Z

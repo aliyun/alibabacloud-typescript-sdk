@@ -29,7 +29,7 @@ export class ListTraceTasksResponseBodyList extends $dara.Model {
   clientIp?: string;
   /**
    * @remarks
-   * The time when the report was created. Format: yyyy-MM-dd HH:mm:ss. Time zone: UTC+8.
+   * The time when the report was created. Format: yyyy-MM-dd HH:mm:ss. Time zone: +08:00.
    * 
    * @example
    * 2022-12-10 15:11:47
@@ -37,7 +37,7 @@ export class ListTraceTasksResponseBodyList extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The diagnose ID.
+   * The diagnostic ID.
    * 
    * @example
    * f2a18ad5
@@ -45,7 +45,7 @@ export class ListTraceTasksResponseBodyList extends $dara.Model {
   diagnoseId?: string;
   /**
    * @remarks
-   * The diagnose URL.
+   * The diagnostic URL.
    * 
    * @example
    * http://cdn.dns-detect.alicdn.com/diagnose/xxxxxx
@@ -61,7 +61,7 @@ export class ListTraceTasksResponseBodyList extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The expiration time. The value is a UNIX timestamp. Unit: seconds.
+   * The expiration time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1669285111
@@ -69,7 +69,7 @@ export class ListTraceTasksResponseBodyList extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The remaining number of available diagnostic attempts.
+   * The remaining diagnostic quota.
    * 
    * @example
    * 10
@@ -78,12 +78,11 @@ export class ListTraceTasksResponseBodyList extends $dara.Model {
   /**
    * @remarks
    * The report generation status. Valid values:
-   * 
    * - 0: Succeeded.
    * - 1: Failed.
    * - 2: Timed out.
    * - 3: Running.
-   * - 4: Waiting.
+   * - 4: Pending.
    * 
    * @example
    * 0
@@ -91,10 +90,9 @@ export class ListTraceTasksResponseBodyList extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The status of the diagnose URL. Valid values:
-   * 
+   * The status of the diagnostic URL. Valid values:
    * - 1: Active.
-   * - 0: Expired.
+   * - 0: Invalid.
    * 
    * @example
    * 1
@@ -110,7 +108,7 @@ export class ListTraceTasksResponseBodyList extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The time consumed to generate the report.
+   * The report generation duration.
    * 
    * @example
    * 1
@@ -118,7 +116,7 @@ export class ListTraceTasksResponseBodyList extends $dara.Model {
   timeConsuming?: number;
   /**
    * @remarks
-   * The trace ID of the diagnostic task.
+   * The diagnostic trace ID.
    * 
    * @example
    * 000000xxxxxxxxxxxxxxxxxxxxxx25941e
@@ -174,7 +172,7 @@ export class ListTraceTasksResponseBodyList extends $dara.Model {
 export class ListTraceTasksResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of pages.
+   * The total number of pages.
    * 
    * @example
    * 10
@@ -195,7 +193,7 @@ export class ListTraceTasksResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: any integer from 1 to 1000.
+   * The number of entries per page. Valid values: an integer from 1 to 1000.
    * 
    * @example
    * 6

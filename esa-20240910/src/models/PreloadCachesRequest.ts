@@ -11,6 +11,9 @@ export class PreloadCachesRequest extends $dara.Model {
   /**
    * @remarks
    * The default header carried in a prefetch request is Accept-Encoding:gzip. If you want the prefetch request to carry other headers or implement multi-copy prefetching, use this parameter to customize the prefetch headers.
+   * 
+   * @example
+   * {"Accept-Encoding":"gzip"}
    */
   headers?: { [key: string]: string };
   /**

@@ -10,12 +10,12 @@ export class UpdateEnvironmentVersionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 默认环境
+   * Default environment
    */
   environmentName?: string;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+   * The site ID. You can obtain the ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class UpdateEnvironmentVersionRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The new site version number.
+   * The updated site version number.
    * 
    * This parameter is required.
    * 

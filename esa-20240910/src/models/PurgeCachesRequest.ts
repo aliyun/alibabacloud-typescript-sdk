@@ -22,6 +22,9 @@ export class PurgeCachesRequestContentCacheKeys extends $dara.Model {
    * **UserLanguage: language**
    * 
    * - Language codes follow the ISO 639-1 or BCP 47 standard. For example, set this to zh to refresh content in Chinese.
+   * 
+   * @example
+   * {"UserDeviceType":"desktop","UserLanguage":"zh-CN"}
    */
   headers?: { [key: string]: string };
   /**

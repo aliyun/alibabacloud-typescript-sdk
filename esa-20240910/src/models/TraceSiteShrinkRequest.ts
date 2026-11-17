@@ -13,7 +13,7 @@ export class TraceSiteShrinkRequest extends $dara.Model {
   bodyShrink?: string;
   /**
    * @remarks
-   * The environment context. This parameter is optional.
+   * The context information. This parameter is optional.
    */
   contextShrink?: string;
   /**
@@ -50,7 +50,7 @@ export class TraceSiteShrinkRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The URL of the request.
+   * The request URL.
    * 
    * This parameter is required.
    * 

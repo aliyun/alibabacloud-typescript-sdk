@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRoutineBuildConfigurationsRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of ER routine names, separated by commas.
+   * The list of ER names, separated by commas.
    * 
    * This parameter is required.
    * 

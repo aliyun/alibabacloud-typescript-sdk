@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceFeaturesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The plan instance ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the ID.
+   * Instance ID of the plan instance. You can obtain instance ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ModifyInstanceFeaturesShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The list of site feature configurations.
+   * The list of site feature information.
    * 
    * This parameter is required.
    */

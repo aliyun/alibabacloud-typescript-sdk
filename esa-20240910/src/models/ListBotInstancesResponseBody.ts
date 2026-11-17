@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBotInstancesResponseBodyInstanceInfo extends $dara.Model {
   /**
    * @remarks
-   * The bot protection edition. If this parameter is empty, no bot protection instance is purchased in the plan. If a value is returned, a bot protection instance is purchased in the plan. Valid values:
+   * The Bot management instance level. If this parameter is empty, no Bot management instance is purchased in the plan. If a value is returned, a Bot management instance is purchased in the plan. Valid values:
    * 
    * - enterprise_bot: Web edition.
    * 
@@ -17,7 +17,7 @@ export class ListBotInstancesResponseBodyInstanceInfo extends $dara.Model {
   botInstanceLevel?: string;
   /**
    * @remarks
-   * The creation time of the instance. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+   * The creation time of the instance. The time is displayed in UTC and formatted as yyyy-MM-ddTHH:mm:ssZ in accordance with ISO 8601.
    * 
    * @example
    * 2024-04-12T05:41:51Z
@@ -33,7 +33,7 @@ export class ListBotInstancesResponseBodyInstanceInfo extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The scheduled release time. The time is displayed in UTC and formatted in accordance with the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
+   * The scheduled release time. The time is displayed in UTC and formatted as yyyy-MM-ddTHH:mm:ssZ in accordance with ISO 8601.
    * 
    * @example
    * 2026-03-25T16:00:00Z
@@ -93,7 +93,7 @@ export class ListBotInstancesResponseBodyInstanceInfo extends $dara.Model {
 export class ListBotInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instances that meet the query conditions for the user.
+   * The instances that meet the specified conditions.
    */
   instanceInfo?: ListBotInstancesResponseBodyInstanceInfo[];
   /**

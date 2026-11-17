@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMainDomainNameResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The level of the input domain name.
+   * The level of the specified domain name.
    * 
    * @example
    * 2

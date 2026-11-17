@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RecoverSiteRequest extends $dara.Model {
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the site ID.
+   * The site ID. You can obtain the site ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 

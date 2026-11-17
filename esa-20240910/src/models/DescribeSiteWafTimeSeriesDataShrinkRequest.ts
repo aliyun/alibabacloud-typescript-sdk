@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSiteWafTimeSeriesDataShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query.
+   * The end time of the data to retrieve.
    * 
-   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * > The end time must be later than the start time.
    * 
@@ -24,9 +24,9 @@ export class DescribeSiteWafTimeSeriesDataShrinkRequest extends $dara.Model {
   fieldsShrink?: string;
   /**
    * @remarks
-   * The time granularity of the queried data. Unit: seconds.
+   * The time granularity of the queried data, in seconds.
    * 
-   * Based on the maximum time span of a single query, this parameter supports the values 60 (1 minute), 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see the **supported query time granularity** section above.
+   * Based on the maximum time span of a single query, this parameter supports the following values: 60 (1 minute), 300 (5 minutes), 3600 (1 hour), and 86400 (1 day). For more information, see **Supported time granularities** above.
    * 
    * @example
    * 300
@@ -44,9 +44,9 @@ export class DescribeSiteWafTimeSeriesDataShrinkRequest extends $dara.Model {
   siteId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query.
+   * The start time of the data to retrieve.
    * 
-   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+   * Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2023-04-08T16:00:00Z

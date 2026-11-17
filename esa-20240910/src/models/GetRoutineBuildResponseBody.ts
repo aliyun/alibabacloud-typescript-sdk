@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetRoutineBuildResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The static resource directory.
+   * The static assets directory.
    * 
    * @example
    * /root/user
@@ -13,7 +13,7 @@ export class GetRoutineBuildResponseBody extends $dara.Model {
   assetsDirectory?: string;
   /**
    * @remarks
-   * The branch used for the build.
+   * The build branch.
    * 
    * @example
    * dev
@@ -29,7 +29,7 @@ export class GetRoutineBuildResponseBody extends $dara.Model {
   buildCommand?: string;
   /**
    * @remarks
-   * The commit ID.
+   * The ID of the commit.
    * 
    * @example
    * 9bf55641a1a608b9e7297d3fe51e39baa4b68ba0
@@ -40,12 +40,12 @@ export class GetRoutineBuildResponseBody extends $dara.Model {
    * The commit message.
    * 
    * @example
-   * Add configuration file.
+   * Add a configuration file
    */
   commitMessage?: string;
   /**
    * @remarks
-   * The creation time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The creation time. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2026-02-28T09:03:42Z
@@ -54,8 +54,19 @@ export class GetRoutineBuildResponseBody extends $dara.Model {
   /**
    * @remarks
    * The environment variables.
+   * 
+   * @example
+   * {"NODE_ENV":"development"}
    */
   environmentVariables?: { [key: string]: string };
+  /**
+   * @remarks
+   * The name of the file uploaded for the build task.
+   * 
+   * @example
+   * index.html
+   */
+  fileName?: string;
   /**
    * @remarks
    * The Git account ID.
@@ -82,10 +93,9 @@ export class GetRoutineBuildResponseBody extends $dara.Model {
   installCommand?: string;
   /**
    * @remarks
-   * Indicates whether the repository is private. Valid values:
-   * 
-   * - true: The repository is private.
-   * - false: The repository is not private.
+   * Specifies whether the repository is private. Valid values:
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * false
@@ -93,7 +103,7 @@ export class GetRoutineBuildResponseBody extends $dara.Model {
   isPrivate?: boolean;
   /**
    * @remarks
-   * The Node.js version. Valid values: `22.x`, `20.x`, `18.x`, `16.x`, `14.x`, `12.x`.
+   * The Node.js version. Valid values: `22.x`, `20.x`, `18.x`, `16.x`, `14.x`, and `12.x`.
    * 
    * @example
    * 22.x
@@ -101,7 +111,7 @@ export class GetRoutineBuildResponseBody extends $dara.Model {
   nodeVersion?: string;
   /**
    * @remarks
-   * The pipeline ID in Yunxiao.
+   * The ID of the Yunxiao pipeline.
    * 
    * @example
    * 4371588
@@ -109,7 +119,7 @@ export class GetRoutineBuildResponseBody extends $dara.Model {
   pipelineId?: number;
   /**
    * @remarks
-   * The build task ID in Yunxiao.
+   * The ID of the Yunxiao build task.
    * 
    * @example
    * 70
@@ -117,7 +127,7 @@ export class GetRoutineBuildResponseBody extends $dara.Model {
   pipelineRunId?: number;
   /**
    * @remarks
-   * The production branch name.
+   * The name of the production branch.
    * 
    * @example
    * main
@@ -149,7 +159,7 @@ export class GetRoutineBuildResponseBody extends $dara.Model {
   rootDirectory?: string;
   /**
    * @remarks
-   * The ER entry file path.
+   * The path to the ER entry file.
    * 
    * @example
    * /home
@@ -157,7 +167,7 @@ export class GetRoutineBuildResponseBody extends $dara.Model {
   routineEntry?: string;
   /**
    * @remarks
-   * The ER name.
+   * The name of the ER.
    * 
    * @example
    * test-routine
@@ -166,13 +176,12 @@ export class GetRoutineBuildResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status of the build task. Valid values:
-   * 
-   * - int: init
-   * - pending: preparing
-   * - building: building
-   * - succeed: build succeeded
-   * - failed: build failed
-   * - canceled: canceled
+   * - int: Initialized.
+   * - pending: Preparing.
+   * - building: Building.
+   * - succeed: Succeeded.
+   * - failed: Failed.
+   * - canceled: Canceled.
    * 
    * @example
    * succeed
@@ -188,7 +197,7 @@ export class GetRoutineBuildResponseBody extends $dara.Model {
   templateName?: string;
   /**
    * @remarks
-   * The modification time. The time follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time is displayed in UTC.
+   * The update time. The time is displayed in UTC and follows the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format.
    * 
    * @example
    * 2026-07-20T09:59:28+08:00
@@ -203,6 +212,7 @@ export class GetRoutineBuildResponseBody extends $dara.Model {
       commitMessage: 'CommitMessage',
       createTime: 'CreateTime',
       environmentVariables: 'EnvironmentVariables',
+      fileName: 'FileName',
       gitAccountId: 'GitAccountId',
       id: 'Id',
       installCommand: 'InstallCommand',
@@ -231,6 +241,7 @@ export class GetRoutineBuildResponseBody extends $dara.Model {
       commitMessage: 'string',
       createTime: 'string',
       environmentVariables: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+      fileName: 'string',
       gitAccountId: 'number',
       id: 'number',
       installCommand: 'string',

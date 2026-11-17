@@ -14,7 +14,7 @@ export class ListRoutineEnvironmentVariablesResponseBody extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The environment variable dictionary.
+   * The dictionary of environment variables.
    */
   environmentVariables?: { [key: string]: EnvironmentVariablesValue };
   /**
@@ -27,7 +27,7 @@ export class ListRoutineEnvironmentVariablesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10

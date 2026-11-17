@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitUploadTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to purge resources in the corresponding directory when the back-to-origin content is inconsistent with the origin server resources. Default value: false. This parameter is valid only for purge tasks.
-   * 
-   * - **true**: Purges all resources in the corresponding directory.
-   * - **false**: Purges only the changed resources in the corresponding directory.
+   * Specifies whether to refresh the resources in the corresponding directory when the back-to-origin content is inconsistent with the origin server resources. Default value: false. This parameter is valid only for refresh tasks. Valid values:
+   * - **true**: Refreshes all resources in the corresponding directory.
+   * - **false**: Refreshes only the changed resources in the corresponding directory.
    */
   force?: boolean;
   /**
@@ -21,7 +20,7 @@ export class SubmitUploadTaskRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The file upload task ID, which is generated when you call the [UploadTask](~~UploadTask~~) operation.
+   * The ID of the file upload task. The ID is generated when you call the [UploadTask](~~UploadTask~~) operation.
    * 
    * @example
    * 1593805857882113

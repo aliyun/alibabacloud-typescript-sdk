@@ -13,7 +13,7 @@ export class ListTraceTasksRequest extends $dara.Model {
   clientIp?: string;
   /**
    * @remarks
-   * The diagnose ID.
+   * The diagnostic ID.
    * 
    * @example
    * f2xxx5
@@ -45,7 +45,7 @@ export class ListTraceTasksRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Valid values: any integer from 1 to 1000.
+   * The number of entries per page. Valid values: an integer from 1 to 1000.
    * 
    * @example
    * 10
@@ -69,7 +69,7 @@ export class ListTraceTasksRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The trace ID of the diagnostic task.
+   * The diagnostic trace ID.
    * 
    * @example
    * 000000xxxxxxxxxxxxxxxxxxxxxx33427e

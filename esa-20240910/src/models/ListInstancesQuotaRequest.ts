@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesQuotaRequest extends $dara.Model {
   /**
    * @remarks
-   * Multiple instance IDs separated by commas (,). You can obtain instance IDs by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The instance IDs. Separate multiple IDs with commas (,). You can obtain the instance IDs by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
    * 
    * This parameter is required.
    * 
@@ -15,96 +15,96 @@ export class ListInstancesQuotaRequest extends $dara.Model {
   instanceIds?: string;
   /**
    * @remarks
-   * The quota name. Separate multiple names with commas (,). Valid values:
+   * The quota names. Separate multiple names with commas (,). Valid values:
    * 
-   * - **waf:phase:http_anti_scan:actions**: WAF scan protection - action enumeration.
-   * - **waf:phase:http_bot:actions**: WAF bot management - all action enumeration.
-   * - **waf:phase:http_bot:http_custom_cc_dev:characteristic:fields**: WAF bot management - custom device rate limiting statistical object enumeration.
-   * - **waf:phase:http_bot:http_custom_cc_ip:characteristic:fields**: WAF bot management - custom IP rate limiting statistical object enumeration.
-   * - **waf:phase:http_bot:match:symbols**: WAF bot management - match operator enumeration.
-   * - **waf:phase:http_bot:http_custom_cc:characteristic:fields**: WAF bot management - custom session rate limiting statistical object enumeration.
-   * - **waf:phase:http_bot:match:fields**: WAF bot management - match field enumeration.
-   * - **waf:phase:http_whitelist:match:symbols**: WAF whitelist - match operator enumeration.
-   * - **waf:phase:http_whitelist:match:fields**: WAF whitelist - match field enumeration.
-   * - **waf:phase:http_anti_scan:http_directory_traversal:characteristic:fields**: WAF scan protection - folder traverse blocking statistical object enumeration.
-   * - **waf:phase:http_anti_scan:http_high_frequency:characteristic:fields**: WAF scan protection - high-frequency scan blocking statistical object enumeration.
-   * - **waf:phase:http_anti_scan:match:symbols**: WAF scan protection - match operator enumeration.
-   * - **waf:phase:http_anti_scan:match:fields**: WAF scan protection - match field enumeration.
-   * - **waf:phase:http_managed:actions**: WAF managed rules - action enumeration.
-   * - **waf:phase:http_managed:group:reference:ids**: WAF managed rules - referenced rule group enumeration.
-   * - **waf:phase:http_ratelimit:actions**: WAF rate limiting - action enumeration.
-   * - **waf:phase:http_ratelimit:ttls**: WAF rate limiting - duration enumeration.
-   * - **waf:phase:http_ratelimit:intervals**: WAF rate limiting - statistical period.
-   * - **waf:phase:http_ratelimit:http_ratelimit:characteristic:fields**: WAF rate limiting - control type rule match characteristic enumeration.
-   * - **waf:phase:http_ratelimit:match:symbols**: WAF rate limiting rule phase match operator enumeration.
-   * - **waf:phase:http_ratelimit:match:fields**: WAF rate limiting rule phase match field enumeration.
-   * - **waf:phase:http_custom:actions**: WAF custom rule phase action enumeration.
-   * - **waf:phase:http_custom:match:symbols**: WAF custom rule phase match operator enumeration.
-   * - **waf:phase:http_custom:match:fields**: WAF custom rule phase match field.
-   * - **waiting_roomqueuing_method**: waiting room - queuing method.
-   * - **origin_rulesorigin_scheme**: back-to-origin rules - back-to-origin protocol.
-   * - **origin_rulesorigin_sni**: back-to-origin rules - back-to-origin SNI.
-   * - **origin_rulesorigin_host**: back-to-origin rules - back-to-origin host.
+   * - **waf:phase:http_anti_scan:actions**: Action enumeration for WAF scan protection.
+   * - **waf:phase:http_bot:actions**: Action enumeration for WAF bot management.
+   * - **waf:phase:http_bot:http_custom_cc_dev:characteristic:fields**: Statistical object enumeration for custom device rate limiting in WAF bot management.
+   * - **waf:phase:http_bot:http_custom_cc_ip:characteristic:fields**: Statistical object enumeration for custom IP rate limiting in WAF bot management.
+   * - ****waf:phase:http_bot:match:symbols****: Match operator enumeration for WAF bot management.
+   * - **waf:phase:http_bot:http_custom_cc:characteristic:fields**: Statistical object enumeration for custom session rate limiting in WAF bot management.
+   * - **waf:phase:http_bot:match:fields**: Match field enumeration for WAF bot management.
+   * - **waf:phase:http_whitelist:match:symbols**: Match operator enumeration for the WAF whitelist.
+   * - **waf:phase:http_whitelist:match:fields**: Match field enumeration for the WAF whitelist.
+   * - **waf:phase:http_anti_scan:http_directory_traversal:characteristic:fields**: Statistical object enumeration for folder traverse blocking in WAF scan protection.
+   * - **waf:phase:http_anti_scan:http_high_frequency:characteristic:fields**: Statistical object enumeration for high-frequency scan blocking in WAF scan protection.
+   * - **waf:phase:http_anti_scan:match:symbols**: Match operator enumeration for WAF scan protection.
+   * - **waf:phase:http_anti_scan:match:fields**: Match field enumeration for WAF scan protection.
+   * - **waf:phase:http_managed:actions**: Action enumeration for WAF managed rules.
+   * - **waf:phase:http_managed:group:reference:ids**: Referenced rule group enumeration for WAF managed rules.
+   * - **waf:phase:http_ratelimit:actions**: Action enumeration for WAF rate limiting.
+   * - **waf:phase:http_ratelimit:ttls**: Duration enumeration for WAF rate limiting.
+   * - **waf:phase:http_ratelimit:intervals**: Statistical duration for WAF rate limiting.
+   * - **waf:phase:http_ratelimit:http_ratelimit:characteristic:fields**: Match feature enumeration for WAF rate limiting rules.
+   * - **waf:phase:http_ratelimit:match:symbols**: Match operator enumeration for WAF rate limiting rules.
+   * - **waf:phase:http_ratelimit:match:fields**: Match field enumeration for WAF rate limiting rules.
+   * - **waf:phase:http_custom:actions**: Action enumeration for WAF custom rules.
+   * - **waf:phase:http_custom:match:symbols**: Match operator enumeration for WAF custom rules.
+   * - **waf:phase:http_custom:match:fields**: Match fields for WAF custom rules.
+   * - **waiting_roomqueuing_method**: Queuing method for the waiting room.
+   * - **origin_rulesorigin_scheme**: Back-to-origin protocol for origin rules.
+   * - **origin_rulesorigin_sni**: Back-to-origin SNI for origin rules.
+   * - **origin_rulesorigin_host**: Back-to-origin host for origin rules.
    * - **fourlayeracceleration**: Layer 4 acceleration.
-   * - **rtlog_service**: real-time log feature switch.
-   * - **dashboard_traffic**: value-added capability of network traffic analysis.
-   * - **custom_name_server**: custom NS name.
+   * - **rtlog_service**: Real-time log feature switch.
+   * - **dashboard_traffic**: Value-added capability for network traffic analysis.
+   * - **custom_name_server**: Custom NS name.
    * - **waf:phase:http_bot:enable**: WAF bot management switch.
    * - **waf:phase:http_whitelist:enable**: WAF whitelist switch.
-   * - **instantlog**: instant log active or inactive.
+   * - **instantlog**: Whether instant logs are active.
    * - **waf:phase:http_anti_scan:enable**: WAF scan protection switch.
-   * - **waf:phase:http_managed:group:reference:enable**: WAF managed rules - referenced rule group configuration switch.
+   * - **waf:phase:http_managed:group:reference:enable**: Switch for configuring referenced rule groups in WAF managed rules.
    * - **waf:phase:http_managed:enable**: WAF managed rules switch.
-   * - **waf:phase:http_ratelimit:on_hit:enable**: WAF rate limiting - apply on cache-hit requests switch.
+   * - **waf:phase:http_ratelimit:on_hit:enable**: Switch for applying WAF rate limiting to cached requests.
    * - **ddos**: DDoS instance.
-   * - **waf:phase:http_ratelimit:enable**: WAF rate limiting rule phase switch.
-   * - **waf:phase:http_custom:enable**: WAF custom rule phase switch.
+   * - **waf:phase:http_ratelimit:enable**: WAF rate limiting rule switch.
+   * - **waf:phase:http_custom:enable**: WAF custom rule switch.
    * - **waf:phase:all:page:reference:enable**: WAF custom response page switch.
-   * - **rules_support_regex**: whether the rule DPI engine supports regular expressions.
-   * - **waiting_room_event**: waiting room - scheduled event.
-   * - **waiting_room_rule**: waiting room - bypass waiting room.
-   * - **waiting_roomjson_response**: waiting room - enable JSON response.
-   * - **waiting_roomdisable_session_renewal**: waiting room - disable session renewal.
-   * - **origin_rulesdns_record**: back-to-origin rules - DNS record.
-   * - **managed_transformsadd_client_geolocation_headers**: whether the real client IP header is active in transform rules.
-   * - **tiered_cacheregional_enable**: area cache.
-   * - **real_client_ip_header**: client IP header.
-   * - **data_timerange**: data query time range in minutes.
-   * - **cache_rulesedge_cache_ttl**: cache - edge TTL.
-   * - **cache_rulesbrowser_cache_ttl**: cache - browser TTL.
-   * - **fourLayerRecordCount**: record count limit for Layer 4 acceleration.
-   * - **waitingroomRuleCount**: maximum number of rules per waiting room ID.
-   * - **waitingroomEventCount**: maximum number of events per waiting room ID.
-   * - **waitingroom_custom_pathhost**: waiting room - hostname and path.
-   * - **er_routers**: function routing.
-   * - **cache_rulesrule_quota**: cache rules.
-   * - **configuration_rulesrule_quota**: configuration rules.
-   * - **redirect_rulesrule_quota**: redirect rules.
-   * - **compression_rulesrule_quota**: compression rules.
-   * - **origin_rulesrule_quota**: back-to-origin rules.
-   * - **waf:phase:http_bot:rulesets_per_instance:less_than_or_equal**: WAF bot management - maximum number of rule groups per instance.
-   * - **waf:phase:http_whitelist:rules_per_instance:less_than_or_equal**: WAF whitelist - maximum number of rules per instance.
-   * - **rtlog_quota**: quota for real-time log push node count.
-   * - **waf:phase:http_anti_scan:rulesets_per_instance:less_than_or_equal**: WAF scan protection - maximum number of rule groups per instance.
-   * - **ddos_instance**: number of DDoS instances.
-   * - **waf:phase:http_ratelimit:rules_per_instance:less_than_or_equal**: maximum number of WAF rate limiting rules.
-   * - **waf:phase:http_custom:rules_per_instance:less_than_or_equal**: WAF custom rule phase - maximum number of rules per instance.
-   * - **ruleNestedConditionalCount**: number of nesting levels for rules.
-   * - **waiting_room**: waiting room.
-   * - **transition_rule**: transform rule.
-   * - **customHttpCert**: number of custom certificates.
-   * - **free_cert**: number of free certificates.
-   * - **preload**: resource prefetch.
-   * - **refresh_cache_tag**: refresh - cache tag.
-   * - **refresh_ignore_param**: refresh - purge without parameters.
-   * - **refresh_directory**: refresh - purge by folder.
-   * - **refresh_hostname**: refresh - purge by hostname.
-   * - **refresh_all**: refresh - purge all cache.
-   * - **refresh_file**: URL purge.
-   * - **wildcard**: number of wildcard domain names.
-   * - **recordCount**: number of Layer 7 records.
-   * - **siteCount**: number of sites.
-   * - **httpsrule_quota**: number of SSL/TLS rules.
+   * - **rules_support_regex**: Whether the rule DPI engine supports regular expression operations.
+   * - **waiting_room_event**: Scheduled events for the waiting room.
+   * - **waiting_room_rule**: Bypass waiting room.
+   * - **waiting_roomjson_response**: Enable JSON response for the waiting room.
+   * - **waiting_roomdisable_session_renewal**: Disable session renewal for the waiting room.
+   * - **origin_rulesdns_record**: DNS record for origin rules.
+   * - **managed_transformsadd_client_geolocation_headers**: Whether the real client IP header is active in transformation rules.
+   * - **tiered_cacheregional_enable**: Area cache.
+   * - **real_client_ip_header**: Client IP header.
+   * - **data_timerange**: Data query time in minutes.
+   * - **cache_rulesedge_cache_ttl**: Edge node TTL for cache rules.
+   * - **cache_rulesbrowser_cache_ttl**: Browser TTL for cache rules.
+   * - **fourLayerRecordCount**: Record count limit for Layer 4 acceleration.
+   * - **waitingroomRuleCount**: Number of rules that can be associated with a single waitingRoomId.
+   * - **waitingroomEventCount**: Number of events that can be associated with a single waitingRoomId.
+   * - **waitingroom_custom_pathhost**: Hostname and path for the waiting room.
+   * - **er_routers**: Function routing.
+   * - **cache_rulesrule_quota**: Cache rules.
+   * - **configuration_rulesrule_quota**: Configuration rules.
+   * - **redirect_rulesrule_quota**: Redirect rules.
+   * - **compression_rulesrule_quota**: Compression rules.
+   * - **origin_rulesrule_quota**: Origin rules.
+   * - **waf:phase:http_bot:rulesets_per_instance:less_than_or_equal**: Maximum number of rule groups per instance in WAF bot management.
+   * - **waf:phase:http_whitelist:rules_per_instance:less_than_or_equal**: Maximum number of rules per instance in the WAF whitelist.
+   * - **rtlog_quota**: Quota for the number of real-time log push tasks.
+   * - **waf:phase:http_anti_scan:rulesets_per_instance:less_than_or_equal**: Maximum number of rule groups per instance in WAF scan protection.
+   * - **ddos_instance**: Number of DDoS instances.
+   * - **waf:phase:http_ratelimit:rules_per_instance:less_than_or_equal**: Maximum number of WAF rate limiting rules.
+   * - **waf:phase:http_custom:rules_per_instance:less_than_or_equal**: Maximum number of rules per instance for WAF custom rules.
+   * - **ruleNestedConditionalCount**: Nesting level of rules.
+   * - **waiting_room**: Waiting room.
+   * - **transition_rule**: Transformation rules.
+   * - **customHttpCert**: Number of custom certificates.
+   * - **free_cert**: Number of free certificates.
+   * - **preload**: Prefetch.
+   * - **refresh_cache_tag**: Refresh by cache tag.
+   * - **refresh_ignore_param**: Refresh without parameters.
+   * - **refresh_directory**: Refresh by folder.
+   * - **refresh_hostname**: Refresh by hostname.
+   * - **refresh_all**: Purge all caches.
+   * - **refresh_file**: URL refresh.
+   * - **wildcard**: Number of wildcard domain names.
+   * - **recordCount**: Number of Layer 7 records.
+   * - **siteCount**: Number of sites.
+   * - **httpsrule_quota**: Number of SSL/TLS rules.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPageShieldRequest extends $dara.Model {
   /**
    * @remarks
-   * The site ID. You can obtain the ID by calling [ListSites](~~ListSites~~).
+   * The ID of the site. You can call the [ListSites](~~ListSites~~) operation to obtain the ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetPageShieldRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The version number of the site. For sites with version management enabled, you can use this parameter to specify the site version on which the configuration takes effect. The default value is 0.
+   * The version number of the site. For a site with version management enabled, you can use this parameter to specify the site version to which the configuration applies. Default value: 0.
    * 
    * @example
    * 0

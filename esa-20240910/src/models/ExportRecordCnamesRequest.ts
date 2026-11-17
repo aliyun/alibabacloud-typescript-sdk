@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportRecordCnamesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the site. You can call the [ListSites](~~ListSites~~) operation to query the ID.
+   * The site ID. You can obtain the site ID by calling the [ListSites](~~ListSites~~) operation.
    * 
    * This parameter is required.
    * 

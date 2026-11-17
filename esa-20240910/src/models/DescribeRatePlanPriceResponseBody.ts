@@ -221,7 +221,7 @@ export class DescribeRatePlanPriceResponseBody extends $dara.Model {
   priceModel?: DescribeRatePlanPriceResponseBodyPriceModel;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 50423A7F-A83D-1E24-B80E-86DD25790759

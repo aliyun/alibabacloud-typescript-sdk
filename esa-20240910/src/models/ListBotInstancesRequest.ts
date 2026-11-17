@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBotInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID. You can obtain the ID by calling the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation.
+   * The instance ID. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to obtain the instance ID.
    * 
    * @example
    * sp-xcdn-96wblslz****
@@ -29,7 +29,7 @@ export class ListBotInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The sort field. By default, instances are sorted by creation time. Valid values:
+   * The field used for sorting. By default, instances are sorted by creation time. Valid values:
    * 
    * - **CreateTime**: creation time.
    * - **ExpireTime**: expiration time.

@@ -65,8 +65,8 @@ export class ListErrorPagesRedirectRulesResponseBodyConfigs extends $dara.Model 
   /**
    * @remarks
    * The configuration type. Valid values:
-   * - global: Global configuration.
-   * - rule: Rule configuration.
+   * - global: global configuration
+   * - rule: rule configuration
    * 
    * @example
    * global
@@ -74,12 +74,12 @@ export class ListErrorPagesRedirectRulesResponseBodyConfigs extends $dara.Model 
   configType?: string;
   /**
    * @remarks
-   * The error code redirection.
+   * The error code redirect.
    */
   errorPagesRedirect?: ListErrorPagesRedirectRulesResponseBodyConfigsErrorPagesRedirect[];
   /**
    * @remarks
-   * The rule content. Uses a conditional expression to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
+   * The rule content. A conditional expression is used to match user requests. You do not need to set this parameter when adding a global configuration. Two scenarios are supported:
    * - Match all incoming requests: Set the value to true.
    * - Match specific requests: Set the value to a custom expression, such as (http.host eq "video.example.com").
    * 
@@ -90,8 +90,8 @@ export class ListErrorPagesRedirectRulesResponseBodyConfigs extends $dara.Model 
   /**
    * @remarks
    * The rule switch. You do not need to set this parameter when adding a global configuration. Valid values:
-   * - on: Enabled.
-   * - off: Disabled.
+   * - on: Enables the rule.
+   * - off: Disables the rule.
    * 
    * @example
    * on
@@ -107,7 +107,7 @@ export class ListErrorPagesRedirectRulesResponseBodyConfigs extends $dara.Model 
   ruleName?: string;
   /**
    * @remarks
-   * The execution order of the rule. A smaller value indicates a higher priority.
+   * The execution sequence of the rule. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -162,7 +162,7 @@ export class ListErrorPagesRedirectRulesResponseBodyConfigs extends $dara.Model 
 export class ListErrorPagesRedirectRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code redirection configurations.
+   * The error code redirect configurations.
    */
   configs?: ListErrorPagesRedirectRulesResponseBodyConfigs[];
   /**

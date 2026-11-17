@@ -25,7 +25,7 @@ export class UpdateSliderCaptchaPageRequestConfigsEn extends $dara.Model {
   showRequestId?: boolean;
   /**
    * @remarks
-   * The color of the slider.
+   * The slider color.
    * 
    * This parameter is required.
    * 
@@ -93,7 +93,7 @@ export class UpdateSliderCaptchaPageRequestConfigsZh extends $dara.Model {
   showRequestId?: boolean;
   /**
    * @remarks
-   * The color of the slider.
+   * The slider color.
    * 
    * This parameter is required.
    * 
@@ -220,7 +220,7 @@ export class UpdateSliderCaptchaPageRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The list of bound site IDs.
+   * The IDs of the bound sites.
    */
   siteIds?: number[];
   static names(): { [key: string]: string } {

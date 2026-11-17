@@ -5,17 +5,17 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteEnvironmentRequest extends $dara.Model {
   /**
    * @remarks
-   * The environment name.
+   * The name of the environment.
    * 
    * This parameter is required.
    * 
    * @example
-   * 环境1
+   * Environment 1
    */
   environmentName?: string;
   /**
    * @remarks
-   * The site ID. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
+   * The ID of the site. You can call the [ListSites](~~ListSites~~) operation to obtain the site ID.
    * 
    * This parameter is required.
    * 

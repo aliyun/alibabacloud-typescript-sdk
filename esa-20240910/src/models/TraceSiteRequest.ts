@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TraceSiteRequestBody extends $dara.Model {
   /**
    * @remarks
-   * The content in JSON format. If both JSON format content and plain text content are specified, the JSON format content takes precedence.
+   * The JSON-formatted content. If both JSON-formatted content and plain text content are specified, the JSON-formatted content takes precedence.
    * 
    * @example
    * {"request_id","3f809c32"}
@@ -45,7 +45,7 @@ export class TraceSiteRequestBody extends $dara.Model {
 export class TraceSiteRequestContextGeoLocation extends $dara.Model {
   /**
    * @remarks
-   * The country/region code.
+   * The country or region code.
    * 
    * @example
    * CN
@@ -53,7 +53,7 @@ export class TraceSiteRequestContextGeoLocation extends $dara.Model {
   countryCode?: string;
   /**
    * @remarks
-   * The Internet service provider (ISP) code. This parameter is valid only when the country or region is the Chinese mainland.
+   * The ISP code. Valid only when the country or region is the Chinese mainland.
    * 
    * @example
    * 100025
@@ -61,7 +61,7 @@ export class TraceSiteRequestContextGeoLocation extends $dara.Model {
   ispCode?: string;
   /**
    * @remarks
-   * The region or province code. This parameter is valid only when the country or region is the Chinese mainland.
+   * The region or province code. Valid only when the country or region is the Chinese mainland.
    * 
    * @example
    * CN-BJ
@@ -95,7 +95,7 @@ export class TraceSiteRequestContextGeoLocation extends $dara.Model {
 export class TraceSiteRequestContext extends $dara.Model {
   /**
    * @remarks
-   * The simulated geolocation information.
+   * The simulated geographic location information.
    */
   geoLocation?: TraceSiteRequestContextGeoLocation;
   /**
@@ -135,7 +135,7 @@ export class TraceSiteRequestContext extends $dara.Model {
 export class TraceSiteRequestCookies extends $dara.Model {
   /**
    * @remarks
-   * The cookie name.
+   * The name of the cookie.
    * 
    * @example
    * sessionId
@@ -143,7 +143,7 @@ export class TraceSiteRequestCookies extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The cookie value.
+   * The value of the cookie.
    * 
    * @example
    * f9ca1f7d-15bb-4c60-ad99-71b8e3e4985b
@@ -175,7 +175,7 @@ export class TraceSiteRequestCookies extends $dara.Model {
 export class TraceSiteRequestHeaders extends $dara.Model {
   /**
    * @remarks
-   * The HTTP request header name.
+   * The name of the HTTP request header.
    * 
    * @example
    * User-Agent
@@ -183,7 +183,7 @@ export class TraceSiteRequestHeaders extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The HTTP request header value.
+   * The value of the HTTP request header.
    * 
    * @example
    * trace-test
@@ -223,7 +223,7 @@ export class TraceSiteRequest extends $dara.Model {
   body?: TraceSiteRequestBody;
   /**
    * @remarks
-   * The environment context. This parameter is optional.
+   * The context information. This parameter is optional.
    */
   context?: TraceSiteRequestContext;
   /**
@@ -260,7 +260,7 @@ export class TraceSiteRequest extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The URL of the request.
+   * The request URL.
    * 
    * This parameter is required.
    * 

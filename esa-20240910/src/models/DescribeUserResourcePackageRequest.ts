@@ -21,7 +21,7 @@ export class DescribeUserResourcePackageRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page. Default value: 20.
+   * The number of entries to return on each page. Default value: 20.
    * 
    * @example
    * 20
@@ -31,11 +31,11 @@ export class DescribeUserResourcePackageRequest extends $dara.Model {
   /**
    * @remarks
    * The sorting field. Valid values:
-   * - startTime: the effective period of the instance.
-   * - endTime: the expiration time of the instance.
-   * - StartTime: the effective period of the instance.
-   * - EndTime: the expiration time of the instance.
-   * - default: no sorting field.
+   * - startTime: the effective period of the instance
+   * - endTime: the expiration time of the instance
+   * - StartTime: the effective period of the instance
+   * - EndTime: the expiration time of the instance
+   * - default: no sorting field
    * 
    * @example
    * startTime
@@ -43,7 +43,7 @@ export class DescribeUserResourcePackageRequest extends $dara.Model {
   sortField?: string;
   /**
    * @remarks
-   * The sorting rule. Default value: desc. Valid values:
+   * The sorting collation. Default value: desc. Valid values:
    * - asc
    * - desc
    * 

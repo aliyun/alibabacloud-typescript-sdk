@@ -63,7 +63,7 @@ export class CheckSiteFeaturesMatchPlanResponseBody extends $dara.Model {
   isPassed?: boolean;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 65705631-908C-5D24-997C-17E0397721C8
@@ -71,7 +71,7 @@ export class CheckSiteFeaturesMatchPlanResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The information about site quotas that do not meet the requirements.
+   * The site quota information for incompatible quotas.
    */
   unPassedSiteQuotas?: CheckSiteFeaturesMatchPlanResponseBodyUnPassedSiteQuotas[];
   static names(): { [key: string]: string } {

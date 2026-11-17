@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRoutineBuildsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number Settings for paging in a paged query. The value must be greater than or equal to 1.
+   * The page number Settings for paging. Minimum value: 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListRoutineBuildsRequest extends $dara.Model {
   pageIndex?: number;
   /**
    * @remarks
-   * The number of entries per page for paging in a paged query. Valid values: 1 to 500.
+   * The number of entries to return on each page for paging. Valid values: 1 to 500.
    * 
    * @example
    * 500
@@ -21,7 +21,7 @@ export class ListRoutineBuildsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The name of the Edge Routine (ER).
+   * The name of the ER.
    * 
    * @example
    * test-routine

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class TraceSiteResponseBodyTraceTrace extends $dara.Model {
   /**
    * @remarks
-   * The action to perform.
+   * The action performed.
    * 
    * @example
    * deny
@@ -21,7 +21,7 @@ export class TraceSiteResponseBodyTraceTrace extends $dara.Model {
   configType?: string;
   /**
    * @remarks
-   * The mitigation capability (China).
+   * The mitigation capability in the Chinese mainland.
    * 
    * @example
    * cn300
@@ -29,7 +29,7 @@ export class TraceSiteResponseBodyTraceTrace extends $dara.Model {
   ddosLevelDomestic?: string;
   /**
    * @remarks
-   * The mitigation capability (global, excluding China).
+   * The mitigation capability outside the Chinese mainland.
    * 
    * @example
    * unlimit
@@ -109,7 +109,7 @@ export class TraceSiteResponseBodyTraceTrace extends $dara.Model {
   siteVersion?: number;
   /**
    * @remarks
-   * The security-related rule type.
+   * The type of the security-related rule.
    * 
    * @example
    * l4_ddos
@@ -117,7 +117,7 @@ export class TraceSiteResponseBodyTraceTrace extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The value specified in the IP access rule.
+   * The value configured for the IP access rule.
    * 
    * @example
    * 1.1.1.1
@@ -175,7 +175,7 @@ export class TraceSiteResponseBodyTraceTrace extends $dara.Model {
 export class TraceSiteResponseBodyTrace extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the module is matched. Valid values: true and false.
+   * Indicates whether the module is matched.
    * 
    * @example
    * true
@@ -191,7 +191,7 @@ export class TraceSiteResponseBodyTrace extends $dara.Model {
   stepModuleName?: string;
   /**
    * @remarks
-   * The matching results of rules in the feature module.
+   * The matching result of rules in the feature module.
    */
   trace?: TraceSiteResponseBodyTraceTrace[];
   static names(): { [key: string]: string } {
@@ -241,7 +241,7 @@ export class TraceSiteResponseBody extends $dara.Model {
   statusCode?: number;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

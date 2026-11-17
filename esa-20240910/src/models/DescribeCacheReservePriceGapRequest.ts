@@ -13,7 +13,7 @@ export class DescribeCacheReservePriceGapRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The requested cache size. Unit: GB.
+   * The requested cache size in GB.
    * 
    * @example
    * 1000

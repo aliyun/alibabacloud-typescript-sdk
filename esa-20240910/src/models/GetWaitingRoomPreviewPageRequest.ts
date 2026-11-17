@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWaitingRoomPreviewPageRequest extends $dara.Model {
   /**
    * @remarks
-   * The custom waiting room page content. This parameter is required when the waiting room type is custom. The content must be URL-encoded.
+   * The custom content of the waiting room page. This parameter is required when the waiting room type is set to custom. The content must be URL-encoded.
    * 
    * This parameter is required.
    * 

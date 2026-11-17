@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDDoSEventMaxRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query.
-   * 
-   * The date is in ISO 8601 format. The time is displayed in UTC. The format is yyyy-MM-ddTHH:mm:ssZ. The maximum time span between the start time and end time is 31 days.
-   * 
-   * If you do not set this parameter, the current time is used as the end time.
+   * The end time of the query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The time span between the start time and the end time cannot exceed 31 days. If you do not specify this parameter, the current time is used as the end time.
    * 
    * @example
    * 2023-04-10T02:10:10Z
@@ -17,7 +13,7 @@ export class DescribeDDoSEventMaxRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The site ID, which can be obtained by calling the [ListSites](~~ListSites~~) operation.
+   * The ID of the site. You can call the [ListSites](~~ListSites~~) operation to query the site ID.
    * 
    * This parameter is required.
    * 
@@ -27,9 +23,7 @@ export class DescribeDDoSEventMaxRequest extends $dara.Model {
   siteId?: number;
   /**
    * @remarks
-   * The beginning of the time range to query.
-   * 
-   * The date is in ISO 8601 format. The time is displayed in UTC. The format is yyyy-MM-ddTHH:mm:ssZ.
+   * The start time of the query. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * This parameter is required.
    * 

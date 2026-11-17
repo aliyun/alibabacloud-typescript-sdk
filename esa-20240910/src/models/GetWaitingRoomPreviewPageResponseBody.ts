@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetWaitingRoomPreviewPageResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The waiting room preview page URL.
+   * The preview page URL of the waiting room.
    * 
    * @example
    * http://waitingroom.myalicdn.com/testxxxx

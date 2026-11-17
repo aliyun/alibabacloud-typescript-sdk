@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class EnvironmentVariablesValue extends $dara.Model {
   /**
    * @remarks
-   * The environment variable type.
-   * 
-   * Valid values:
-   * - `plain_text`: plain text
-   * - `secret_text`: encrypted text
+   * The type of the environment variable. Valid values:
+   * - `plain_text`: Plain text.
+   * - `secret_text`: Encrypted text.
    * 
    * @example
    * plain_text
@@ -17,7 +15,7 @@ export class EnvironmentVariablesValue extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * The environment variable value.
+   * The value of the environment variable.
    * 
    * @example
    * value

@@ -53,7 +53,7 @@ export class ListCasCertificatesResponseBodyCertificates extends $dara.Model {
   notAfter?: string;
   /**
    * @remarks
-   * The region where the certificate resides. Supported values: **cn-hangzhou** and **ap-southeast-1**.
+   * The region where the certificate is located. Valid values: **cn-hangzhou** and **ap-southeast-1**.
    * 
    * @example
    * ap-southeast-1
@@ -95,7 +95,7 @@ export class ListCasCertificatesResponseBodyCertificates extends $dara.Model {
 export class ListCasCertificatesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The certificate list.
+   * The list of certificates.
    */
   certificates?: ListCasCertificatesResponseBodyCertificates[];
   /**
@@ -108,7 +108,7 @@ export class ListCasCertificatesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -124,7 +124,7 @@ export class ListCasCertificatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 20

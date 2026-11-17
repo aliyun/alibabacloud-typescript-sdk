@@ -14,8 +14,8 @@ export class GetSiteTrafficSequenceResponseBodyTrafficSequencesFunctionListConfi
   /**
    * @remarks
    * The configuration type. Valid values:
-   * - global: global configuration.
-   * - rule: rule configuration.
+   * - global: global configuration
+   * - rule: rule configuration
    * 
    * @example
    * global
@@ -47,7 +47,7 @@ export class GetSiteTrafficSequenceResponseBodyTrafficSequencesFunctionListConfi
 export class GetSiteTrafficSequenceResponseBodyTrafficSequencesFunctionList extends $dara.Model {
   /**
    * @remarks
-   * The list of configurations for the site feature associated with the traffic sequence.
+   * The list of configurations for the site feature corresponding to the traffic sequence.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class GetSiteTrafficSequenceResponseBodyTrafficSequencesFunctionList exte
   configs?: GetSiteTrafficSequenceResponseBodyTrafficSequencesFunctionListConfigs[];
   /**
    * @remarks
-   * The feature name.
+   * The name of the feature.
    * 
    * @example
    * redirect_rules
@@ -65,9 +65,9 @@ export class GetSiteTrafficSequenceResponseBodyTrafficSequencesFunctionList exte
   functionName?: string;
   /**
    * @remarks
-   * Indicates whether the site has a corresponding configuration. Valid values:
-   * - true: The site has a corresponding configuration.
-   * - false: The site does not have a corresponding configuration.
+   * Specifies whether the site has the corresponding configuration. Valid values:
+   * - true: The site has the corresponding configuration.
+   * - false: The site does not have the corresponding configuration.
    * 
    * @example
    * true
@@ -104,12 +104,12 @@ export class GetSiteTrafficSequenceResponseBodyTrafficSequencesFunctionList exte
 export class GetSiteTrafficSequenceResponseBodyTrafficSequences extends $dara.Model {
   /**
    * @remarks
-   * The list of site features associated with the traffic sequence.
+   * The list of site features corresponding to the traffic sequence.
    */
   functionList?: GetSiteTrafficSequenceResponseBodyTrafficSequencesFunctionList[];
   /**
    * @remarks
-   * The order of the current sequence in the entire traffic sequence.
+   * The order of the current sequence among all traffic sequences.
    * 
    * @example
    * 1
@@ -117,7 +117,7 @@ export class GetSiteTrafficSequenceResponseBodyTrafficSequences extends $dara.Mo
   order?: string;
   /**
    * @remarks
-   * The traffic sequence routing.
+   * The route of the traffic sequence.
    * 
    * @example
    * /safe/ddos/basic
@@ -133,7 +133,7 @@ export class GetSiteTrafficSequenceResponseBodyTrafficSequences extends $dara.Mo
   sequenceCode?: string;
   /**
    * @remarks
-   * The sequence name.
+   * The name of the sequence.
    * 
    * @example
    * DDOS

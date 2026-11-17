@@ -7,7 +7,7 @@ export class ListQuotasMinEffectPlanResponseBodyQuotasQuotaValueDetail extends $
    * @remarks
    * Specifies whether the quota value is available in the plan version corresponding to the current site. Valid values:
    * - ture: Available.
-   * - false: Unavailable.
+   * - false: Not available.
    * 
    * @example
    * true
@@ -20,9 +20,10 @@ export class ListQuotasMinEffectPlanResponseBodyQuotasQuotaValueDetail extends $
    * - medium: Standard Edition.
    * - high: Advanced Edition.
    * - enterprise_standard_cn: Enterprise Edition.
+   * 
    * The return value of this parameter follows these rules:
-   * - If the quota value is already available in the current plan version, this parameter is left empty, meaning the minimum required plan version is not displayed.
-   * - If the quota value is unavailable in the current plan version, the minimum required plan version is displayed.
+   * - If the quota value is already available in the current plan version, this parameter is left empty, which means the minimum required plan version is not displayed.
+   * - If the quota value is not available in the current plan version, the minimum required plan version is displayed.
    * - If the current plan is already the Enterprise Edition, this parameter is always empty.
    * 
    * @example
@@ -65,59 +66,59 @@ export class ListQuotasMinEffectPlanResponseBodyQuotasQuotaValueDetail extends $
 export class ListQuotasMinEffectPlanResponseBodyQuotas extends $dara.Model {
   /**
    * @remarks
-   * The name of the quota. Valid values:
-   * - **waf:phase:http_anti_scan:actions**: WAF scan protection - action enumeration
-   * - **waf:phase:http_bot:actions**: WAF bot management - all action enumerations
-   * - **waf:phase:http_bot:http_custom_cc_dev:characteristic:fields**: WAF bot management - statistical object enumeration for custom device rate limiting
-   * - **waf:phase:http_bot:http_custom_cc_ip:characteristic:fields**: WAF bot management - statistical object enumeration for custom IP rate limiting
-   * - ****waf:phase:http_bot:match:symbols****: WAF bot management - match symbol enumeration
-   * - **waf:phase:http_bot:http_custom_cc:characteristic:fields**: WAF bot management - statistical object enumeration for custom session rate limiting
-   * - **waf:phase:http_bot:match:fields**: WAF bot management phase - match field enumeration
-   * - **waf:phase:http_whitelist:match:symbols**: WAF whitelist - match symbol enumeration
-   * - **waf:phase:http_whitelist:match:fields**: WAF whitelist - match field enumeration
-   * - **waf:phase:http_anti_scan:http_directory_traversal:characteristic:fields**: WAF scan protection - statistical object enumeration for folder traverse blocking
-   * - **waf:phase:http_anti_scan:http_high_frequency:characteristic:fields**: WAF scan protection - statistical object enumeration for high-frequency scan blocking
-   * - **waf:phase:http_anti_scan:match:symbols**: WAF scan protection - match symbol enumeration
-   * - **waf:phase:http_anti_scan:match:fields**: WAF scan protection - match field enumeration
-   * - **waf:phase:http_managed:actions**: WAF managed rules - action enumeration
-   * - **waf:phase:http_managed:group:reference:ids**: WAF managed rules - referenced rule group enumeration
-   * - **waf:phase:http_ratelimit:actions**: WAF rate limiting - action enumeration
-   * - **waf:phase:http_ratelimit:ttls**: WAF rate limiting - duration enumeration
-   * - **waf:phase:http_ratelimit:intervals**: WAF rate limiting - statistical duration
-   * - **waf:phase:http_ratelimit:http_ratelimit:characteristic:fields**: WAF rate limiting - match characteristic enumeration for control type rules
-   * - **waf:phase:http_ratelimit:match:symbols**: WAF rate limiting rule phase - match symbol enumeration
-   * - **waf:phase:http_ratelimit:match:fields**: WAF rate limiting rule phase - match field enumeration
-   * - **waf:phase:http_custom:actions**: WAF custom rule phase - action enumeration
-   * - **waf:phase:http_custom:match:symbols**: WAF custom rule phase - match symbol enumeration
-   * - **waf:phase:http_custom:match:fields**: WAF custom rule phase - match fields
-   * - **waitingroom|wr_queueing_method**: Waiting room - queuing method
-   * - **origin_rules|origin_scheme**: Back-to-origin rules - back-to-origin protocol
-   * - **origin_rules|origin_sni**: Back-to-origin rules - back-to-origin SNI
-   * - **origin_rules|origin_host**: Back-to-origin rules - back-to-origin host
-   * - **fourlayeracceleration**: Layer 4 acceleration
-   * - **rtlog_service**: Real-time log feature switch
-   * - **dashboard_traffic**: Value-added capability for network traffic analysis
-   * - **custom_name_server**: Custom NS name
-   * - **waf:phase:http_bot:enable**: WAF bot management switch
-   * - **waf:phase:http_whitelist:enable**: WAF whitelist switch
-   * - **instantlog**: Whether instant logs are active
-   * - **waf:phase:http_anti_scan:enable**: WAF scan protection switch
-   * - **waf:phase:http_managed:group:reference:enable**: WAF managed rules - configure referenced rule group switch
-   * - **waf:phase:http_managed:enable**: WAF managed rules switch
-   * - **waf:phase:http_ratelimit:on_hit:enable**: WAF rate limiting - apply to cached requests switch
-   * - **ddos**: DDoS instance
-   * - **waf:phase:http_ratelimit:enable**: WAF rate limiting rule phase switch
-   * - **waf:phase:http_custom:enable**: WAF custom rule phase switch
-   * - **waf:phase:all:page:reference:enable**: WAF custom response page switch
-   * - **rules_support_regex**: Whether the rule DPI engine supports regular expression operations
-   * - **waitingroom_event**: Waiting room - scheduled events
-   * - **waitingroom_rule**: Waiting room - bypass waiting room
-   * - **waitingroom|wr_json_response**: Waiting room - enable JSON response
-   * - **waitingroom|wr_disable_session_renewal**: Waiting room - disable session renewal
-   * - **origin_rules|dns_record**: Back-to-origin rules - DNS record
-   * - **managed_transforms|add_client_geolocation_headers**: Whether the real client IP header is active in transformation rules
-   * - **tiered_cache|regional_enable**: Area cache
-   * - **real_client_ip_header**: Client IP header
+   * The quota name. Valid values:
+   * - **waf:phase:http_anti_scan:actions**: The action enumeration for WAF scan protection.
+   * - **waf:phase:http_bot:actions**: The action enumeration for WAF bot management.
+   * - **waf:phase:http_bot:http_custom_cc_dev:characteristic:fields**: The statistical object enumeration for the custom device rate limiting type in WAF bot management.
+   * - **waf:phase:http_bot:http_custom_cc_ip:characteristic:fields**: The statistical object enumeration for the custom IP rate limiting type in WAF bot management.
+   * - ****waf:phase:http_bot:match:symbols****: The match operator enumeration for WAF bot management.
+   * - **waf:phase:http_bot:http_custom_cc:characteristic:fields**: The statistical object enumeration for the custom session rate limiting type in WAF bot management.
+   * - **waf:phase:http_bot:match:fields**: The match field enumeration for WAF bot management.
+   * - **waf:phase:http_whitelist:match:symbols**: The match operator enumeration for the WAF whitelist.
+   * - **waf:phase:http_whitelist:match:fields**: The match field enumeration for the WAF whitelist.
+   * - **waf:phase:http_anti_scan:http_directory_traversal:characteristic:fields**: The statistical object enumeration for the folder traverse blocking type in WAF scan protection.
+   * - **waf:phase:http_anti_scan:http_high_frequency:characteristic:fields**: The statistical object enumeration for the high-frequency scan blocking type in WAF scan protection.
+   * - **waf:phase:http_anti_scan:match:symbols**: The match operator enumeration for WAF scan protection.
+   * - **waf:phase:http_anti_scan:match:fields**: The match field enumeration for WAF scan protection.
+   * - **waf:phase:http_managed:actions**: The action enumeration for WAF managed rules.
+   * - **waf:phase:http_managed:group:reference:ids**: The referenced rule group enumeration for WAF managed rules.
+   * - **waf:phase:http_ratelimit:actions**: The action enumeration for WAF rate limiting.
+   * - **waf:phase:http_ratelimit:ttls**: The duration enumeration for WAF rate limiting.
+   * - **waf:phase:http_ratelimit:intervals**: The statistical duration for WAF rate limiting.
+   * - **waf:phase:http_ratelimit:http_ratelimit:characteristic:fields**: The match feature enumeration for the control type rule in WAF rate limiting.
+   * - **waf:phase:http_ratelimit:match:symbols**: The match operator enumeration for the WAF rate limiting rule phase.
+   * - **waf:phase:http_ratelimit:match:fields**: The match field enumeration for the WAF rate limiting rule phase.
+   * - **waf:phase:http_custom:actions**: The action enumeration for the WAF custom rule phase.
+   * - **waf:phase:http_custom:match:symbols**: The match operator enumeration for the WAF custom rule phase.
+   * - **waf:phase:http_custom:match:fields**: The match fields for the WAF custom rule phase.
+   * - **waitingroom|wr_queueing_method**: The queuing method for the waiting room.
+   * - **origin_rules|origin_scheme**: The back-to-origin protocol for origin rules.
+   * - **origin_rules|origin_sni**: The back-to-origin SNI for origin rules.
+   * - **origin_rules|origin_host**: The back-to-origin host for origin rules.
+   * - **fourlayeracceleration**: Layer 4 acceleration.
+   * - **rtlog_service**: The real-time log feature switch.
+   * - **dashboard_traffic**: The value-added capability for network traffic analysis.
+   * - **custom_name_server**: The custom NS name.
+   * - **waf:phase:http_bot:enable**: The WAF bot management switch.
+   * - **waf:phase:http_whitelist:enable**: The WAF whitelist switch.
+   * - **instantlog**: Specifies whether instant logs are active.
+   * - **waf:phase:http_anti_scan:enable**: The WAF scan protection switch.
+   * - **waf:phase:http_managed:group:reference:enable**: The switch for configuring referenced rule groups in WAF managed rules.
+   * - **waf:phase:http_managed:enable**: The WAF managed rules switch.
+   * - **waf:phase:http_ratelimit:on_hit:enable**: The switch for applying WAF rate limiting to cache-hit requests.
+   * - **ddos**: The DDoS instance.
+   * - **waf:phase:http_ratelimit:enable**: The switch for the WAF rate limiting rule phase.
+   * - **waf:phase:http_custom:enable**: The switch for the WAF custom rule phase.
+   * - **waf:phase:all:page:reference:enable**: The WAF custom response page switch.
+   * - **rules_support_regex**: Specifies whether the rule DPI engine supports regular expression operations.
+   * - **waitingroom_event**: The scheduled event for the waiting room.
+   * - **waitingroom_rule**: The waiting room bypass rule.
+   * - **waitingroom|wr_json_response**: The JSON response switch for the waiting room.
+   * - **waitingroom|wr_disable_session_renewal**: The switch for disabling session renewal in the waiting room.
+   * - **origin_rules|dns_record**: The DNS record for origin rules.
+   * - **managed_transforms|add_client_geolocation_headers**: Specifies whether the real client IP header is active in transform rules.
+   * - **tiered_cache|regional_enable**: area caching.
+   * - **real_client_ip_header**: The client IP header.
    * 
    * @example
    * waf:phase:http_anti_scan:actions
@@ -131,8 +132,8 @@ export class ListQuotasMinEffectPlanResponseBodyQuotas extends $dara.Model {
   /**
    * @remarks
    * The threshold type of the quota. Valid values:
-   * - value: enumeration type. A quota of the enumeration type has multiple enumeration thresholds. For each enumeration threshold, the response indicates whether it is available in the current plan version. If it is unavailable, the response indicates the minimum required plan version.
-   * - bool: Boolean type. A quota of the Boolean type is abstracted into two enumeration thresholds: true and false. To check whether the quota is available in the current plan version and identify the minimum required plan version, you only need to focus on the quota details where the enumeration value is true.
+   * - value: Enumeration type. An enumeration quota has multiple enumeration thresholds. For each enumeration threshold, the response indicates whether it is available in the current plan version. If it is not available, the response indicates the minimum required plan version.
+   * - bool: Boolean type. A boolean quota is abstracted into two enumeration thresholds: true and false. To check whether the quota is available in the current plan version and to find the minimum required plan version, you only need to focus on the quota details where the enumeration value is true.
    * 
    * @example
    * value

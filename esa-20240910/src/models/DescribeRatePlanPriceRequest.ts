@@ -13,7 +13,7 @@ export class DescribeRatePlanPriceRequest extends $dara.Model {
   amount?: number;
   /**
    * @remarks
-   * The purchase duration, in months.
+   * The subscription period, in months.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeRatePlanPriceRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The plan name.
+   * The name of the plan.
    * 
    * @example
    * basic

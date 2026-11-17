@@ -6,11 +6,11 @@ export class UpdateSiteCoverageRequest extends $dara.Model {
   /**
    * @remarks
    * The target acceleration region. Valid values:
-   * - **domestic**: the Chinese mainland.
-   * - **global**: global.
-   * - **overseas**: global (excluding the Chinese mainland).
+   * - **domestic**: the Chinese mainland
+   * - **global**: global
+   * - **overseas**: global (excluding the Chinese mainland)
    * 
-   * <props="china">If you set this parameter to domestic or global, the site specified by SiteId must have an ICP filing.
+   * <props="china">If you set this parameter to domestic or global, the site specified by SiteId must have completed the ICP filing.
    * 
    * This parameter is required.
    * 
@@ -20,7 +20,7 @@ export class UpdateSiteCoverageRequest extends $dara.Model {
   coverage?: string;
   /**
    * @remarks
-   * The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to query the site ID.
+   * The ID of the site. You can call the [ListSites](https://help.aliyun.com/document_detail/2850189.html) operation to query the ID.
    * 
    * This parameter is required.
    * 

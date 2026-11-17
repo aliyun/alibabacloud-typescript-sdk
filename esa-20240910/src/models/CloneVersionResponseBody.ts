@@ -13,7 +13,7 @@ export class CloneVersionResponseBody extends $dara.Model {
   cloneVersion?: number;
   /**
    * @remarks
-   * The version number that was cloned.
+   * The version number of the source version.
    * 
    * @example
    * 0

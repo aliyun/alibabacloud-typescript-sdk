@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPageShieldResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The switch status. Valid values:
+   * Indicates whether the feature is enabled. Valid values:
    * - on: Enabled.
    * - off: Disabled.
    * 
@@ -31,7 +31,7 @@ export class GetPageShieldResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The version number of the site. For sites with version management enabled, you can use this parameter to specify the site version on which the configuration takes effect. The default value is 0.
+   * The version number of the site. For a site with version management enabled, you can use this parameter to specify the site version to which the configuration applies. Default value: 0.
    * 
    * @example
    * 0
