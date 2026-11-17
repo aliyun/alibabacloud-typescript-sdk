@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtConfigDetail extends $dara.Model {
   /**
    * @remarks
-   * The detected content.
+   * The matched content.
    * 
    * @example
    * allowed-tools: Bash(agent-browser:*)
@@ -21,7 +21,7 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
   description?: string;
   /**
    * @remarks
-   * The check item name.
+   * The name of the check item.
    * 
    * @example
    * Dangerous Tools Without Confirmation
@@ -29,7 +29,7 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
   itemName?: string;
   /**
    * @remarks
-   * The line number of the detected content.
+   * The line number of the matched content.
    * 
    * @example
    * 2555
@@ -95,7 +95,7 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
 export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtGuardrailDetailResult extends $dara.Model {
   /**
    * @remarks
-   * The confidence score. Valid values: 0 to 100.
+   * The confidence level. Valid values: 0 to 100.
    * 
    * @example
    * 25
@@ -120,7 +120,6 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
   /**
    * @remarks
    * The risk level. Valid values:
-   * 
    * - **high**: High risk.
    * - **medium**: Medium risk.
    * - **low**: Low risk.
@@ -161,7 +160,6 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
   /**
    * @remarks
    * The risk level. Valid values:
-   * 
    * - **high**: High risk.
    * - **medium**: Medium risk.
    * - **low**: Low risk.
@@ -178,7 +176,7 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
   result?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtGuardrailDetailResult[];
   /**
    * @remarks
-   * The processing suggestion.
+   * The handling suggestion.
    * 
    * @example
    * block
@@ -230,7 +228,7 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
   detail?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtGuardrailDetail[];
   /**
    * @remarks
-   * The processing suggestion.
+   * The handling suggestion.
    * 
    * @example
    * block
@@ -335,7 +333,7 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
 export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtVirus extends $dara.Model {
   /**
    * @remarks
-   * The extended information field. This is a reserved parameter.
+   * The extended information field, which is a reserved parameter.
    * 
    * @example
    * {}
@@ -343,7 +341,7 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
   ext?: string;
   /**
    * @remarks
-   * The risk score. Maximum value: 100.
+   * The risk score. The maximum score is 100.
    * 
    * @example
    * 100
@@ -385,22 +383,22 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
 export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExt extends $dara.Model {
   /**
    * @remarks
-   * The configuration detection risks.
+   * The configuration detection risk.
    */
   config?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtConfig;
   /**
    * @remarks
-   * The safety guardrail detection risks.
+   * The security guardrail detection risk.
    */
   guardrail?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtGuardrail;
   /**
    * @remarks
-   * The sensitive information risks.
+   * The sensitive information risk.
    */
   sensitive?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtSensitive;
   /**
    * @remarks
-   * The virus detection risks.
+   * The virus detection risk.
    */
   virus?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExtVirus[];
   static names(): { [key: string]: string } {
@@ -445,7 +443,7 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
 export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfo extends $dara.Model {
   /**
    * @remarks
-   * The file detection risk list.
+   * The list of file detection risks.
    */
   ext?: ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskInfoExt;
   /**
@@ -458,10 +456,12 @@ export class ListSubTasksResponseBodyDataTaskResultMessageSkillCheckResultRiskIn
   path?: string;
   /**
    * @remarks
-   * The result type.
+   * The detection result type. Valid values:
+   * - **0**: No risk.
+   * - **1**: Risk detected.
    * 
    * @example
-   * file
+   * 1
    */
   resultType?: string;
   static names(): { [key: string]: string } {
@@ -579,7 +579,7 @@ export class ListSubTasksResponseBodyData extends $dara.Model {
   target?: string;
   /**
    * @remarks
-   * The task result information.
+   * The task result message.
    */
   taskResultMessage?: ListSubTasksResponseBodyDataTaskResultMessage;
   /**
@@ -625,7 +625,7 @@ export class ListSubTasksResponseBodyData extends $dara.Model {
 export class ListSubTasksResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The number of data entries displayed on the current page.
+   * The number of entries displayed on the current page.
    * 
    * @example
    * 1
@@ -641,7 +641,7 @@ export class ListSubTasksResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10

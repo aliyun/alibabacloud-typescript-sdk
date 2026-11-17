@@ -61,7 +61,7 @@ export class ListAIAgentEventRequest extends $dara.Model {
   infraInstanceId?: string;
   /**
    * @remarks
-   * The infrastructure name.
+   * The name of the infrastructure.
    * 
    * @example
    * test
@@ -69,7 +69,7 @@ export class ListAIAgentEventRequest extends $dara.Model {
   infraName?: string;
   /**
    * @remarks
-   * The infrastructure region.
+   * The region of the infrastructure.
    * 
    * @example
    * cn-shanghai
@@ -77,8 +77,7 @@ export class ListAIAgentEventRequest extends $dara.Model {
   infraRegionId?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
-   * 
+   * The language of the notification message. Valid values:
    * - **zh** (default): Chinese.
    * - **en**: English.
    * 
@@ -88,7 +87,7 @@ export class ListAIAgentEventRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The sort order. Valid values: asc indicates ascending order. desc indicates descending order.
+   * The sort order. Valid values: asc for ascending order; desc for descending order.
    * 
    * @example
    * asc
@@ -96,7 +95,7 @@ export class ListAIAgentEventRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The field by which to sort results. Currently, only sorting by check time is supported.
+   * The field used for sorting. Currently, only sorting by check time is supported.
    * 
    * @example
    * CheckTime
@@ -110,14 +109,20 @@ export class ListAIAgentEventRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  /**
+   * @remarks
+   * The ID of the member account in the resource directory (Alibaba Cloud account). You can call the [DescribeMonitorAccounts](~~DescribeMonitorAccounts~~) operation to obtain this parameter.
+   * 
+   * @example
+   * 1460245082233792
+   */
   resourceDirectoryAccountId?: number;
   /**
    * @remarks
    * The risk level of the check item to query. Valid values:
-   * 
-   * - **high**: High.
-   * - **medium**: Medium.
-   * - **low**: Low.
+   * - **high**: High risk.
+   * - **medium**: Medium risk.
+   * - **low**: Low risk.
    * 
    * @example
    * high
@@ -128,7 +133,7 @@ export class ListAIAgentEventRequest extends $dara.Model {
    * The risk name. Fuzzy match is supported.
    * 
    * @example
-   * defense
+   * Defense
    */
   riskName?: string;
   /**
@@ -148,7 +153,7 @@ export class ListAIAgentEventRequest extends $dara.Model {
    * @remarks
    * The event status. Valid values:
    * 1. unhandled: Pending.
-   * 2. handling: Being processed.
+   * 2. handling: Processing.
    * 3. fixed: Fixed.
    * 4. ignored: Ignored.
    * 5. rescanned: Rescanned.
@@ -165,12 +170,12 @@ export class ListAIAgentEventRequest extends $dara.Model {
   /**
    * @remarks
    * The cloud asset vendor. Valid values:
-   * - ** DIFY**: DIFY
-   * - ** BAILIAN**: BAILIAN
-   * - ** VOLCAI**: VOLCAI
-   * - ** AGENTRUN**: AGENTRUN
-   * - ** PAI**: PAI
-   * - ** OpenClaw**: OpenClaw
+   * - ** DIFY**: DIFY.
+   * - ** BAILIAN**: BAILIAN.
+   * - ** VOLCAI**: VOLCAI.
+   * - ** AGENTRUN**: AGENTRUN.
+   * - ** PAI**: PAI.
+   * - ** OpenClaw**: OpenClaw.
    * 
    * @example
    * DIFY

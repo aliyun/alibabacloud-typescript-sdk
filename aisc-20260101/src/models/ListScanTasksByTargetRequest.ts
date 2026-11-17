@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScanTasksByTargetRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number, starting from 1. Values less than 1 are normalized to 1.
+   * The page number. Pages start from 1. If the value is less than 1, it is normalized to 1.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ListScanTasksByTargetRequest extends $dara.Model {
   pageNumber?: string;
   /**
    * @remarks
-   * The number of entries per page. Default value: 10. Maximum value: 100. Values greater than 100 are clamped to 100. Values less than 1 return HTTP status code 400.
+   * The number of entries per page. Default value: 10. Maximum value: 100. If the value is greater than 100, it is clamped to 100. If the value is less than 1, a 400 error is returned.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ListScanTasksByTargetRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * Filters by detection intensity. If this parameter is not specified, no filtering by intensity is applied.
+   * Filters tasks by detection intensity. If this parameter is not specified, tasks are not filtered by intensity.
    * 
    * @example
    * 2
@@ -33,7 +33,7 @@ export class ListScanTasksByTargetRequest extends $dara.Model {
   sampleLevel?: string;
   /**
    * @remarks
-   * Filters by scan type. If this parameter is not specified, tasks of all scan types are returned.
+   * Filters tasks by scan mode. If this parameter is not specified, tasks of all modes are returned.
    * 
    * @example
    * attack
@@ -41,7 +41,7 @@ export class ListScanTasksByTargetRequest extends $dara.Model {
   scanType?: string;
   /**
    * @remarks
-   * The unique identifier of the scan target. Only tasks under this target are queried. If the target does not exist or does not belong to the current tenant, HTTP status code 400 is returned.
+   * The unique identifier of the scan target. Only tasks under this target are queried. If the target does not exist or does not belong to the current tenant, a 400 error is returned.
    * 
    * This parameter is required.
    * 
@@ -51,7 +51,7 @@ export class ListScanTasksByTargetRequest extends $dara.Model {
   targetId?: string;
   /**
    * @remarks
-   * Filters by task status. If this parameter is not specified, tasks in all statuses are returned.
+   * Filters tasks by task status. If this parameter is not specified, tasks of all statuses are returned.
    * 
    * @example
    * completed

@@ -13,7 +13,7 @@ export class ListSubTasksRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListSubTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The main task ID returned upon task submission.
+   * The ID of the parent task returned after the task is submitted.
    * 
    * @example
    * 110146ac282314fe4f7cd11afc7540eb

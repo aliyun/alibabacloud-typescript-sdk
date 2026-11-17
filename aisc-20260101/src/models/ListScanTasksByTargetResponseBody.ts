@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScanTasksByTargetResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The task creation time, in milliseconds (Unix epoch milliseconds).
+   * The creation time of the task. The value is a millisecond timestamp (Unix epoch in milliseconds).
    * 
    * @example
    * 1735689600000
@@ -13,7 +13,7 @@ export class ListScanTasksByTargetResponseBodyData extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The task end time, in milliseconds (Unix epoch milliseconds). This value is null if the task has not ended.
+   * The end time of the task. The value is a millisecond timestamp (Unix epoch in milliseconds). If the task has not ended, the value is null.
    * 
    * @example
    * 1735689600000
@@ -21,7 +21,7 @@ export class ListScanTasksByTargetResponseBodyData extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The number of samples that the task has executed.
+   * The number of samples that have been executed for the task.
    * 
    * @example
    * 80
@@ -29,12 +29,28 @@ export class ListScanTasksByTargetResponseBodyData extends $dara.Model {
   executeCaseCount?: number;
   /**
    * @remarks
-   * The risk level of the task result. This value is null if the task is not completed or no risk assessment has been generated.
+   * The report language.
+   * 
+   * @example
+   * zh
+   */
+  reportLanguage?: string;
+  /**
+   * @remarks
+   * The risk level of the task result. If the task is not completed or no risk assessment is generated, the value is null.
    * 
    * @example
    * high
    */
   riskLevel?: string;
+  /**
+   * @remarks
+   * The sample language.
+   * 
+   * @example
+   * zh
+   */
+  sampleLanguage?: string;
   /**
    * @remarks
    * The detection intensity of the task.
@@ -45,7 +61,7 @@ export class ListScanTasksByTargetResponseBodyData extends $dara.Model {
   sampleLevel?: number;
   /**
    * @remarks
-   * The scan type of the task. Historical tasks without a recorded scan type are normalized to attack.
+   * The scan mode of the task. For historical tasks that do not have a recorded scan mode, the value is normalized to attack.
    * 
    * @example
    * attack
@@ -53,7 +69,7 @@ export class ListScanTasksByTargetResponseBodyData extends $dara.Model {
   scanType?: string;
   /**
    * @remarks
-   * The unique identifier of the scan task. You can use this ID for result download and status tracking.
+   * The unique identifier of the scan task. It can be used to download results and track status.
    * 
    * @example
    * task-abc123def4567
@@ -61,7 +77,7 @@ export class ListScanTasksByTargetResponseBodyData extends $dara.Model {
   scannerTaskId?: string;
   /**
    * @remarks
-   * The task message. This value contains the failure reason if the task failed, or is empty if the task succeeded or no message is available.
+   * The task message. If the task fails, this parameter indicates the cause of the failure. If the task succeeds or no message is available, this parameter is empty.
    * 
    * @example
    * Execution timed out
@@ -77,7 +93,15 @@ export class ListScanTasksByTargetResponseBodyData extends $dara.Model {
   scannerTaskStatus?: string;
   /**
    * @remarks
-   * The task start time, in milliseconds (Unix epoch milliseconds). This value is null if the task has not started.
+   * The actual execution mode used by the scan task, which is obtained from the scannerType field of the task. classic indicates the sample mode. agent indicates the autonomous multi-round attack mode of the agent. executor is a historical compatibility value, which is equivalent to classic.
+   * 
+   * @example
+   * classic
+   */
+  scannerType?: string;
+  /**
+   * @remarks
+   * The start time of the task. The value is a millisecond timestamp (Unix epoch in milliseconds). If the task has not started, the value is null.
    * 
    * @example
    * 1735689600000
@@ -85,15 +109,15 @@ export class ListScanTasksByTargetResponseBodyData extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The task name. If no name is specified during creation, the default value is "Target Scan - target name".
+   * The name of the task. If no name is specified during creation, the default value is Target Scan - target name.
    * 
    * @example
-   * Target Scan - My Bailian Target
+   * Target Scan - My Model Studio target
    */
   taskName?: string;
   /**
    * @remarks
-   * The total number of samples that the task plans to execute.
+   * The total number of samples planned to be executed for the task.
    * 
    * @example
    * 120
@@ -104,12 +128,15 @@ export class ListScanTasksByTargetResponseBodyData extends $dara.Model {
       createTime: 'CreateTime',
       endTime: 'EndTime',
       executeCaseCount: 'ExecuteCaseCount',
+      reportLanguage: 'ReportLanguage',
       riskLevel: 'RiskLevel',
+      sampleLanguage: 'SampleLanguage',
       sampleLevel: 'SampleLevel',
       scanType: 'ScanType',
       scannerTaskId: 'ScannerTaskId',
       scannerTaskMessage: 'ScannerTaskMessage',
       scannerTaskStatus: 'ScannerTaskStatus',
+      scannerType: 'ScannerType',
       startTime: 'StartTime',
       taskName: 'TaskName',
       totalCaseCount: 'TotalCaseCount',
@@ -121,12 +148,15 @@ export class ListScanTasksByTargetResponseBodyData extends $dara.Model {
       createTime: 'number',
       endTime: 'number',
       executeCaseCount: 'number',
+      reportLanguage: 'string',
       riskLevel: 'string',
+      sampleLanguage: 'string',
       sampleLevel: 'number',
       scanType: 'string',
       scannerTaskId: 'string',
       scannerTaskMessage: 'string',
       scannerTaskStatus: 'string',
+      scannerType: 'string',
       startTime: 'number',
       taskName: 'string',
       totalCaseCount: 'number',
@@ -150,7 +180,7 @@ export class ListScanTasksByTargetResponseBody extends $dara.Model {
   data?: ListScanTasksByTargetResponseBodyData[];
   /**
    * @remarks
-   * The normalized page number that actually takes effect. This value may differ from the input parameter.
+   * The actual effective page number after normalization. This value may not be equal to the input parameter.
    * 
    * @example
    * 1
@@ -158,7 +188,7 @@ export class ListScanTasksByTargetResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The normalized number of entries per page that actually takes effect. This value may differ from the input parameter.
+   * The actual effective number of entries per page after normalization. This value may not be equal to the input parameter.
    * 
    * @example
    * 10
@@ -166,7 +196,7 @@ export class ListScanTasksByTargetResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The unique identifier of the request, used for troubleshooting and log tracing.
+   * The unique identifier of the request. It is used for troubleshooting and log tracing.
    * 
    * @example
    * 1EBD0C05-6C1F-4C95-9C63-B7AB7B5A9C8E
@@ -174,7 +204,7 @@ export class ListScanTasksByTargetResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of scan tasks that match the filter conditions within the last 366-day window.
+   * The total number of scan tasks that meet the filter conditions within the last 366 days.
    * 
    * @example
    * 42

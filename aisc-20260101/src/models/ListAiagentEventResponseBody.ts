@@ -45,7 +45,7 @@ export class ListAIAgentEventResponseBodyData extends $dara.Model {
   assetType?: string;
   /**
    * @remarks
-   * The check time, in UNIX timestamp format. Unit: seconds.
+   * The check time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1763949968
@@ -53,7 +53,7 @@ export class ListAIAgentEventResponseBodyData extends $dara.Model {
   checkTime?: string;
   /**
    * @remarks
-   * The event handling time, in UNIX timestamp format. Unit: seconds.
+   * The event processing time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1763949968
@@ -69,7 +69,7 @@ export class ListAIAgentEventResponseBodyData extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The infrastructure instance ID.
+   * The ID of the infrastructure instance.
    * 
    * @example
    * i-test
@@ -93,7 +93,7 @@ export class ListAIAgentEventResponseBodyData extends $dara.Model {
   infraIntranetIp?: string;
   /**
    * @remarks
-   * The infrastructure name.
+   * The name of the infrastructure.
    * 
    * @example
    * test
@@ -101,7 +101,7 @@ export class ListAIAgentEventResponseBodyData extends $dara.Model {
   infraName?: string;
   /**
    * @remarks
-   * The infrastructure region.
+   * The region of the infrastructure.
    * 
    * @example
    * cn-shanghai
@@ -120,16 +120,15 @@ export class ListAIAgentEventResponseBodyData extends $dara.Model {
    * The risk description.
    * 
    * @example
-   * The workflow does not have AI security guardrails enabled, which may lead to compliance violations, prompt injection and bypass, sensitive data leaks, and other risks
+   * The workflow does not have AI security guardrails enabled, which may lead to various risks such as compliance violations, prompt injection and bypass, and sensitive data leakage
    */
   riskDesc?: string;
   /**
    * @remarks
-   * The risk level of the detected alert. Valid values:
-   * 
-   * - **high**: High.
-   * - **medium**: Medium.
-   * - **low**: Low.
+   * The risk level of the scanned alert. Valid values:
+   * - **high**: High risk.
+   * - **medium**: Medium risk.
+   * - **low**: Low risk.
    * 
    * @example
    * high
@@ -145,7 +144,7 @@ export class ListAIAgentEventResponseBodyData extends $dara.Model {
   riskName?: string;
   /**
    * @remarks
-   * The associated skill ID.
+   * The ID of the associated skill.
    * 
    * @example
    * 0
@@ -168,7 +167,7 @@ export class ListAIAgentEventResponseBodyData extends $dara.Model {
    * @remarks
    * The status. Valid values:
    * 1. unhandled: Pending.
-   * 2. handling: Being processed.
+   * 2. handling: Processing.
    * 3. fixed: Fixed.
    * 4. ignored: Ignored.
    * 5. rescanned: Rescanned.
@@ -180,12 +179,12 @@ export class ListAIAgentEventResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The cloud asset vendor. Valid values:
-   * - ** DIFY**: DIFY
-   * - ** BAILIAN**: BAILIAN
-   * - ** VOLCAI**: VOLCAI
-   * - ** AGENTRUN**: AGENTRUN
-   * - ** PAI**: PAI
-   * - ** OpenClaw**: OpenClaw
+   * - ** DIFY**: DIFY.
+   * - ** BAILIAN**: BAILIAN.
+   * - ** VOLCAI**: VOLCAI.
+   * - ** AGENTRUN**: AGENTRUN.
+   * - ** PAI**: PAI.
+   * - ** OpenClaw**: OpenClaw.
    * 
    * @example
    * DIFY
@@ -261,7 +260,7 @@ export class ListAIAgentEventResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The NextToken value returned when the NextToken-based pagination method is used.
+   * The NextToken value returned when the NextToken pagination method is used.
    * 
    * @example
    * d6yVpGGP9cH8f9AWtqEXqOawJdolFvFeqJJSIPnYLoGc7/XPd5nbDfZcn1mJCj66Ep3Gbr55tl4NuBtNwsc0A0qvqC2Onfm9h2QmtG8HhaulnPkGmBnhntKqJmpRptTU
@@ -277,7 +276,7 @@ export class ListAIAgentEventResponseBodyPageInfo extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of records in the query result.
+   * The total number of entries returned.
    * 
    * @example
    * 1
@@ -313,7 +312,7 @@ export class ListAIAgentEventResponseBodyPageInfo extends $dara.Model {
 export class ListAIAgentEventResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of event information returned.
+   * The list of returned event information.
    */
   data?: ListAIAgentEventResponseBodyData[];
   /**
