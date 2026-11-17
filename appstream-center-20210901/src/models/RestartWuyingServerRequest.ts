@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class RestartWuyingServerRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to enable the restart retry feature.
+   */
+  enableRestartRetry?: boolean;
+  /**
+   * @remarks
    * The product type.
    * 
    * @example
@@ -18,6 +23,7 @@ export class RestartWuyingServerRequest extends $dara.Model {
   wuyingServerIdList?: string[];
   static names(): { [key: string]: string } {
     return {
+      enableRestartRetry: 'EnableRestartRetry',
       productType: 'ProductType',
       wuyingServerIdList: 'WuyingServerIdList',
     };
@@ -25,6 +31,7 @@ export class RestartWuyingServerRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      enableRestartRetry: 'boolean',
       productType: 'string',
       wuyingServerIdList: { 'type': 'array', 'itemType': 'string' },
     };

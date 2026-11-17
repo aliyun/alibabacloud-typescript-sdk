@@ -9769,6 +9769,11 @@ export default class Client extends OpenApi {
    */
   async restartWuyingServerWithOptions(request: $_model.RestartWuyingServerRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RestartWuyingServerResponse> {
     request.validate();
+    let query = { };
+    if (!$dara.isNull(request.enableRestartRetry)) {
+      query["EnableRestartRetry"] = request.enableRestartRetry;
+    }
+
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.productType)) {
       body["ProductType"] = request.productType;
@@ -9784,6 +9789,7 @@ export default class Client extends OpenApi {
       ...OpenApiUtil.query(bodyFlat),
     };
     let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
       body: OpenApiUtil.parseToMap(body),
     });
     let params = new $OpenApiUtil.Params({
