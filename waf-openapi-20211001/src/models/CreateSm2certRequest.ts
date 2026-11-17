@@ -13,7 +13,7 @@ export class CreateSM2CertRequest extends $dara.Model {
   certName?: string;
   /**
    * @remarks
-   * The content of the SM encryption certificate.
+   * The content of the ShangMi certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -23,7 +23,7 @@ export class CreateSM2CertRequest extends $dara.Model {
   encryptCertificate?: string;
   /**
    * @remarks
-   * The private key content of the SM encryption certificate.
+   * The content of the private key for the ShangMi certificate.
    * 
    * @example
    * -----BEGIN PRIVATE KEY-----
@@ -45,7 +45,7 @@ export class CreateSM2CertRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -57,7 +57,7 @@ export class CreateSM2CertRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -65,7 +65,7 @@ export class CreateSM2CertRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The signing certificate content of the SM certificate.
+   * The content of the signing certificate for the ShangMi certificate.
    * 
    * @example
    * -----BEGIN CERTIFICATE-----
@@ -75,7 +75,7 @@ export class CreateSM2CertRequest extends $dara.Model {
   signCertificate?: string;
   /**
    * @remarks
-   * The private key content of the SM signing certificate.
+   * The content of the private key for the signing certificate of the ShangMi certificate.
    * 
    * @example
    * -----BEGIN PRIVATE KEY-----

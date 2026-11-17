@@ -13,7 +13,13 @@ export class ModifyDomainRequestListen extends $dara.Model {
   certId?: string;
   /**
    * @remarks
-   * The type of cipher suite to add. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * The type of cipher suite to add. This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * 
+   * - **1**: adds all cipher suites.
+   * 
+   * - **2**: adds strong cipher suites. You can select this value only when **TLSVersion** is set to **tlsv1.2**.
+   * 
+   * - **99**: adds custom cipher suites. You can select this value only when **TLSVersion** is not set to **tlsv1.3**.
    * 
    * @example
    * 2
@@ -21,12 +27,18 @@ export class ModifyDomainRequestListen extends $dara.Model {
   cipherSuite?: number;
   /**
    * @remarks
-   * The specific custom cipher suites to add. This parameter is used only when **CipherSuite** is set to **99**.
+   * The custom cipher suites to add. This parameter takes effect only when **CipherSuite** is set to **99**.
    */
   customCiphers?: string[];
   /**
    * @remarks
    * Specifies whether to support TLS 1.3. Valid values:
+   * 
+   * - **true**: supports TLS 1.3.
+   * 
+   * - **false**: does not support TLS 1.3.
+   * 
+   * > This parameter takes effect only when HttpsPorts is not empty, which indicates that the domain name uses HTTPS. If TLSVersion is set to tlsv1.3, this parameter must be set to true.
    * 
    * @example
    * true
@@ -34,11 +46,11 @@ export class ModifyDomainRequestListen extends $dara.Model {
   enableTLSv3?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable the exclusive IP address feature. This parameter is available only when **IPv6Enabled** is set to false and **ProtectionResource** is set to **share**. Valid values:
+   * Specifies whether to enable an exclusive IP address. This parameter takes effect only when **IPv6Enabled** is set to false, which indicates that IPv6 is disabled, and **ProtectionResource** is set to **share**, which indicates that a shared cluster is used. Valid values:
    * 
-   * - **true**: Enables the exclusive IP address feature.
+   * - **true**: enables an exclusive IP address.
    * 
-   * - **false** (default): Does not enable the exclusive IP address feature.
+   * - **false**: disables an exclusive IP address. This is the default value.
    * 
    * @example
    * true
@@ -46,11 +58,11 @@ export class ModifyDomainRequestListen extends $dara.Model {
   exclusiveIp?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable forced HTTPS redirect. This parameter takes effect only when **HttpsPorts** is not empty (indicating that the domain name uses the HTTPS protocol) and **HttpPorts** is empty (indicating that the domain name does not use the HTTP protocol). Valid values:
+   * Specifies whether to enable force redirect to HTTPS. This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS, and **HttpPorts** is empty, which indicates that the domain name does not use HTTP. Valid values:
    * 
-   * - **true**: Enables forced HTTPS redirect.
+   * - **true**: enables force redirect to HTTPS.
    * 
-   * - **false**: Does not enable forced HTTPS redirect.
+   * - **false**: disables force redirect to HTTPS.
    * 
    * @example
    * true
@@ -58,11 +70,11 @@ export class ModifyDomainRequestListen extends $dara.Model {
   focusHttps?: boolean;
   /**
    * @remarks
-   * Specifies whether HSTS includes subdomains. Valid values:
+   * Specifies whether HTTP Strict Transport Security (HSTS) includes subdomains. Valid values:
    * 
-   * - **true**: Enabled.
+   * - **true**: includes subdomains.
    * 
-   * - **false**: Not enabled.
+   * - **false**: does not include subdomains.
    * 
    * @example
    * false
@@ -70,7 +82,7 @@ export class ModifyDomainRequestListen extends $dara.Model {
   hstsIncludeSubDomain?: boolean;
   /**
    * @remarks
-   * The HSTS expiration time. Unit: seconds.
+   * The expiration time of HSTS. Unit: seconds.
    * 
    * @example
    * 365000
@@ -78,7 +90,9 @@ export class ModifyDomainRequestListen extends $dara.Model {
   hstsMaxAge?: number;
   /**
    * @remarks
-   * Specifies whether to enable HSTS preloading. This feature is disabled by default. Valid values:
+   * Specifies whether to enable HSTS preload. Default value: false. Valid values:
+   * - true: enables HSTS preload.
+   * - false: disables HSTS preload.
    * 
    * @example
    * false
@@ -86,7 +100,11 @@ export class ModifyDomainRequestListen extends $dara.Model {
   hstsPreload?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable HTTP/2. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * Specifies whether to enable HTTP/2. This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * 
+   * - **true**: enables HTTP/2.
+   * 
+   * - **false**: disables HTTP/2. This is the default value.
    * 
    * @example
    * true
@@ -94,17 +112,21 @@ export class ModifyDomainRequestListen extends $dara.Model {
   http2Enabled?: boolean;
   /**
    * @remarks
-   * The listening ports for HTTP. Use the [**port1,port2,...**] format.
+   * The listening ports for HTTP. Specify the ports in the [**port1,port2,...**] format.
    */
   httpPorts?: number[];
   /**
    * @remarks
-   * The listening ports for HTTPS. Use the [**port1,port2,...**] format.
+   * The listening ports for HTTPS. Specify the ports in the [**port1,port2,...**] format.
    */
   httpsPorts?: number[];
   /**
    * @remarks
    * Specifies whether to enable IPv6. Valid values:
+   * 
+   * - **true**: enables IPv6.
+   * 
+   * - **false**: disables IPv6. This is the default value.
    * 
    * @example
    * true
@@ -114,13 +136,21 @@ export class ModifyDomainRequestListen extends $dara.Model {
    * @remarks
    * The type of protection resource to use. Valid values:
    * 
+   * - **share**: uses a shared cluster. This is the default value.
+   * 
+   * - **gslb**: uses intelligent load balancing of a shared cluster.
+   * 
    * @example
    * share
    */
   protectionResource?: string;
   /**
    * @remarks
-   * Specifies whether to allow only client access. This parameter is used only when SM2Enable is set to true.
+   * Specifies whether to allow access only from SM2 clients. This parameter takes effect only when SM2Enabled is set to true. Valid values:
+   * 
+   * - true: allows access only from SM2 clients.
+   * 
+   * - false: allows access from both SM2 and non-SM2 clients.
    * 
    * @example
    * true
@@ -128,7 +158,7 @@ export class ModifyDomainRequestListen extends $dara.Model {
   SM2AccessOnly?: boolean;
   /**
    * @remarks
-   * The ID of the China SM certificate to add. This parameter is used only when SM2Enable is set to true.
+   * The ID of the SM2 certificate to add. This parameter takes effect only when SM2Enabled is set to true.
    * 
    * @example
    * 123-cn-hangzhou
@@ -136,7 +166,7 @@ export class ModifyDomainRequestListen extends $dara.Model {
   SM2CertId?: string;
   /**
    * @remarks
-   * Specifies whether to enable the China Encryption (China SM) certificate.
+   * Specifies whether to enable the SM2 certificate.
    * 
    * @example
    * true
@@ -144,11 +174,11 @@ export class ModifyDomainRequestListen extends $dara.Model {
   SM2Enabled?: boolean;
   /**
    * @remarks
-   * The TLS version to add. This parameter is used only when **HttpsPorts** is not empty (indicating that the domain name uses the HTTPS protocol). Valid values:
-   * - **tlsv1**: Supports TLS 1.0 and later. Provides the highest compatibility and the lowest security.
-   * - **tlsv1.1**: Supports TLS 1.1 and later. Provides good compatibility and good security.
-   * - **tlsv1.2**: Supports TLS 1.2 and later. Provides good compatibility and the highest security.
-   * - **tlsv1.3**: Supports only TLS 1.3. Provides the highest security and the lowest compatibility.
+   * The TLS version to add. This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * - **tlsv1**: supports TLS 1.0 and later. This version provides the highest compatibility but lower security.
+   * - **tlsv1.1**: supports TLS 1.1 and later. This version provides good compatibility and security.
+   * - **tlsv1.2**: supports TLS 1.2 and later. This version provides good compatibility and the highest security.
+   * - **tlsv1.3**: supports only TLS 1.3. This version provides the highest security but lower compatibility.
    * 
    * @example
    * tlsv1
@@ -156,7 +186,7 @@ export class ModifyDomainRequestListen extends $dara.Model {
   TLSVersion?: string;
   /**
    * @remarks
-   * The method that WAF uses to obtain the originating IP address of the client.
+   * The method that WAF uses to obtain the actual IP address of the client.
    * 
    * @example
    * 2
@@ -164,7 +194,9 @@ export class ModifyDomainRequestListen extends $dara.Model {
   xffHeaderMode?: number;
   /**
    * @remarks
-   * The list of custom header fields used to obtain the client IP address. Use the [**"header1","header2",...**] format.
+   * The list of custom fields used to obtain the client IP address. Specify the fields in the [**"header1","header2",...**] format.
+   * 
+   * > You need to set this parameter only when **XffHeaderMode** is set to 2, which indicates that WAF reads the value of a custom field that you specified in the request header as the client IP address.
    */
   xffHeaders?: string[];
   static names(): { [key: string]: string } {
@@ -257,11 +289,11 @@ export class ModifyDomainRequestRedirectBackendPorts extends $dara.Model {
   listenPort?: number;
   /**
    * @remarks
-   * The protocol of the listener port. Valid values:
+   * The protocol of the listening port. Valid values:
    * 
-   * - **http**: The protocol of the listener port is HTTP.
+   * - **http**: the protocol of the listening port is HTTP.
    * 
-   * - **https**: The protocol of the listener port is HTTPS.
+   * - **https**: the protocol of the listening port is HTTPS.
    * 
    * @example
    * http
@@ -295,7 +327,7 @@ export class ModifyDomainRequestRedirectBackendPorts extends $dara.Model {
 export class ModifyDomainRequestRedirectRequestHeaders extends $dara.Model {
   /**
    * @remarks
-   * The custom request header field.
+   * The specified custom request header field.
    * 
    * @example
    * aaa
@@ -303,7 +335,7 @@ export class ModifyDomainRequestRedirectRequestHeaders extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value set for the custom request header field.
+   * The value set for the specified custom request header field.
    * 
    * @example
    * bbb
@@ -335,22 +367,30 @@ export class ModifyDomainRequestRedirectRequestHeaders extends $dara.Model {
 export class ModifyDomainRequestRedirect extends $dara.Model {
   /**
    * @remarks
-   * The custom port configuration.
+   * The custom port configurations.
    */
   backendPorts?: ModifyDomainRequestRedirectBackendPorts[];
   /**
    * @remarks
-   * The IP addresses or domain names of the origin servers that correspond to the domain name. You can set only one type: origin server IP addresses or origin server domain names. When the back-to-origin address is a domain name, only IPv4 is supported. IPv6 is not supported.
+   * The IP addresses of the origin servers or the back-to-origin domain names for the domain name. You can specify either origin server IP addresses or back-to-origin domain names. If the back-to-origin address is a domain name, only IPv4 is supported. IPv6 is not supported.
+   * 
+   * - To specify origin server IP addresses, use the [**"ip1","ip2",...**] format. You can add up to 20 IP addresses.
+   * 
+   * - To specify back-to-origin domain names, use the [**"domain"**] format. You can add up to 20 domain names.
    */
   backends?: string[];
   /**
    * @remarks
-   * The IP addresses or domain names of the secondary origin servers that correspond to the domain name.
+   * The IP addresses of the secondary origin servers or the secondary back-to-origin domain names for the domain name.
    */
   backupBackends?: string[];
   /**
    * @remarks
    * Specifies whether to enable public cloud disaster recovery. Valid values:
+   * 
+   * - **true**: enables public cloud disaster recovery.
+   * 
+   * - **false**: disables public cloud disaster recovery. This is the default value.
    * 
    * @example
    * true
@@ -359,6 +399,8 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   /**
    * @remarks
    * The connection timeout period. Unit: seconds.
+   * Valid values: 1 to 3600.
+   * Default value: 5.
    * 
    * @example
    * 120
@@ -366,7 +408,11 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   connectTimeout?: number;
   /**
    * @remarks
-   * Specifies whether to enable forced HTTP back-to-origin. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * Specifies whether to enable force back-to-origin over HTTP. This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * 
+   * - **true**: enables force back-to-origin over HTTP.
+   * 
+   * - **false**: disables force back-to-origin over HTTP.
    * 
    * @example
    * true
@@ -374,11 +420,11 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   focusHttpBackend?: boolean;
   /**
    * @remarks
-   * Specifies whether to enable origin fetch over HTTP/2. Valid values:
+   * Specifies whether to enable HTTP/2 back-to-origin. Valid values:
    * 
-   * - **true**: Enables origin fetch over HTTP/2.
+   * - **true**: enables HTTP/2 back-to-origin.
    * 
-   * - **false**: Does not enable origin fetch over HTTP/2.
+   * - **false**: disables HTTP/2 back-to-origin.
    * 
    * @example
    * true
@@ -386,7 +432,7 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   http2Origin?: boolean;
   /**
    * @remarks
-   * The maximum number of concurrent connections for HTTP/2 back-to-origin. Valid values: 1 to 512. Default value: 2.
+   * The maximum number of concurrent HTTP/2 back-to-origin connections. Valid values: 1 to 512. Default value: 2. Unit: connections.
    * 
    * @example
    * 128
@@ -394,7 +440,11 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   http2OriginMaxConcurrency?: number;
   /**
    * @remarks
-   * Specifies whether to enable persistent connections. Valid values:
+   * Specifies whether to maintain persistent connections. Valid values:
+   * 
+   * - **true**: maintains persistent connections. This is the default value.
+   * 
+   * - **false**: does not maintain persistent connections.
    * 
    * @example
    * true
@@ -402,7 +452,9 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   keepalive?: boolean;
   /**
    * @remarks
-   * The number of requests that reuse a persistent connection. Valid values: 60 to 1000. Default value: 1000.
+   * The number of requests that reuse a persistent connection. Valid values: 60 to 1000. Default value: 1000. Unit: requests.
+   * 
+   * > This parameter specifies the number of requests that can reuse a persistent connection after persistent connections are enabled.
    * 
    * @example
    * 1000
@@ -410,7 +462,9 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   keepaliveRequests?: number;
   /**
    * @remarks
-   * The idle persistent connection timeout period. Valid values: 1 to 60. Default value: 15. Unit: seconds.
+   * The timeout period for idle persistent connections. Valid values: 1 to 60. Default value: 15. Unit: seconds.
+   * 
+   * > This parameter specifies the duration after which an idle persistent connection is released.
    * 
    * @example
    * 15
@@ -420,11 +474,11 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
    * @remarks
    * The load balancing algorithm used for back-to-origin requests. Valid values:
    * 
-   * - **iphash**: IP Hash algorithm.
+   * - **iphash**: the IP hash algorithm.
    * 
-   * - **roundRobin**: Round-robin algorithm.
+   * - **roundRobin**: the round-robin algorithm.
    * 
-   * - **leastTime**: Least Time algorithm. This value is available only when **ProtectionResource** is set to **gslb**, which indicates that the protection resource type uses intelligent load balancing of the shared cluster.
+   * - **leastTime**: the least time algorithm. You can select this value only when **ProtectionResource** is set to **gslb**, which indicates that intelligent load balancing of a shared cluster is used.
    * 
    * This parameter is required.
    * 
@@ -434,7 +488,8 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   loadbalance?: string;
   /**
    * @remarks
-   * The maximum request body size. Valid values: 2 to 10. Default value: 2. Unit: GB.
+   * The maximum size of the request body. Valid values: 2 to 10. Default value: 2. Unit: GB.
+   * > This parameter is supported only by the Ultimate Edition.
    * 
    * @example
    * 2
@@ -442,11 +497,11 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   maxBodySize?: number;
   /**
    * @remarks
-   * Indicates whether the client source IP preservation feature is enabled.
+   * Specifies whether to enable the feature of preserving the originating IP address of the client. Valid values:
    * 
-   * - **true**: The client source IP preservation feature is enabled. After this feature is enabled, backend services can view the originating IP address of the client.
+   * - **true**: enables the feature. After this feature is enabled, backend services can view the originating IP address of the client.
    * 
-   * - **false**: The client source IP preservation feature is not enabled.
+   * - **false**: disables the feature.
    * 
    * @example
    * false
@@ -455,6 +510,8 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   /**
    * @remarks
    * The read timeout period. Unit: seconds.
+   * Valid values: 1 to 3600.
+   * Default value: 120.
    * 
    * @example
    * 200
@@ -462,15 +519,18 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   readTimeout?: number;
   /**
    * @remarks
-   * The traffic tag fields and values of the domain name, used to tag traffic processed by WAF.
+   * The traffic marking fields and values for the domain name, which are used to mark the traffic processed by WAF.
+   * 
+   * By specifying custom request header fields and their corresponding values, WAF automatically adds the specified custom field values to the request headers as traffic marks when the access traffic of the domain name passes through WAF. This facilitates the collection of relevant information by backend services.
    */
   requestHeaders?: ModifyDomainRequestRedirectRequestHeaders[];
   /**
    * @remarks
    * Specifies whether to retry when WAF fails to forward requests to the origin server. Valid values:
    * 
-   * - **true** (default): Retry.
-   * - **false**: Do not retry.
+   * - **true**: retries. This is the default value.
+   * 
+   * - **false**: does not retry.
    * 
    * @example
    * true
@@ -478,14 +538,14 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   retry?: boolean;
   /**
    * @remarks
-   * The hybrid cloud forwarding rules. The value is a string that represents a JSON array. Each element in the JSON array is a struct that contains the following fields:
-   * - **rs**: Array type | The list of back-to-origin IP addresses or back-to-origin CNAMEs.
+   * The hybrid cloud forwarding rules. The value is a string transformed from a JSON array. Each element in the JSON array is a struct that contains the following fields:
+   * - **rs**: Array | The list of back-to-origin IP addresses or back-to-origin CNAMEs.
    * 
-   * - **backupRs**: Array type | The list of backup back-to-origin IP addresses or back-to-origin CNAMEs. This field is required. [] indicates that no backup is configured.
+   * - **backupRs**: Array | The list of secondary back-to-origin IP addresses or back-to-origin CNAMEs. This field is required. An empty array [] indicates that no secondary back-to-origin addresses are set.
    * 
-   * - **location**: String type | The name of the protection node.
+   * - **location**: String | The name of the protection node.
    * 
-   * - **locationId**: Long type | The ID of the protection node.
+   * - **locationId**: Long | The ID of the protection node.
    * 
    * @example
    * [
@@ -506,7 +566,11 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   routingRules?: string;
   /**
    * @remarks
-   * Specifies whether to enable back-to-origin SNI. This parameter is used only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * Specifies whether to enable back-to-origin Server Name Indication (SNI). This parameter takes effect only when **HttpsPorts** is not empty, which indicates that the domain name uses HTTPS. Valid values:
+   * 
+   * - **true**: enables back-to-origin SNI.
+   * 
+   * - **false**: disables back-to-origin SNI. This is the default value.
    * 
    * @example
    * true
@@ -515,10 +579,9 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   /**
    * @remarks
    * The value of the custom SNI extension field. If you do not set this parameter, the value of the **Host** field in the request header is used as the value of the SNI extension field by default.
+   * In most cases, you do not need to customize the SNI unless your service has special configuration requirements and you want WAF to use an SNI that is different from the actual request Host in the back-to-origin request.
    * 
-   * In most cases, you do not need to customize the SNI unless your business has special configuration requirements and you want WAF to use an SNI that is different from the actual request Host in back-to-origin requests (that is, the custom SNI set here).
-   * 
-   * > This parameter is required only when **SniEnalbed** is set to xxx (custom back-to-origin SNI).
+   * > You need to set this parameter only when **SniEnabled** is set to true, which indicates that a custom back-to-origin SNI is used.
    * 
    * @example
    * www.aliyundoc.com
@@ -526,7 +589,11 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   sniHost?: string;
   /**
    * @remarks
-   * Specifies whether to allow WAF to overwrite WL-Proxy-Client-IP. Valid values:
+   * Specifies whether to allow WAF to overwrite the WL-Proxy-Client-IP header. Valid values:
+   * 
+   * - **true**: allows WAF to overwrite the header. This is the default value.
+   * 
+   * - **false**: does not allow WAF to overwrite the header.
    * 
    * @example
    * true
@@ -537,7 +604,11 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   WLProxyClientIp?: boolean;
   /**
    * @remarks
-   * Specifies whether to allow WAF to overwrite Web-Server-Type. Valid values:
+   * Specifies whether to allow WAF to overwrite the Web-Server-Type header. Valid values:
+   * 
+   * - **true**: allows WAF to overwrite the header. This is the default value.
+   * 
+   * - **false**: does not allow WAF to overwrite the header.
    * 
    * @example
    * true
@@ -549,6 +620,8 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   /**
    * @remarks
    * The write timeout period. Unit: seconds.
+   * Valid values: 1 to 3600.
+   * Default value: 120.
    * 
    * @example
    * 200
@@ -556,7 +629,11 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   writeTimeout?: number;
   /**
    * @remarks
-   * Specifies whether to allow WAF to overwrite X-Client-IP. Valid values:
+   * Specifies whether to allow WAF to overwrite the X-Client-IP header. Valid values:
+   * 
+   * - **true**: allows WAF to overwrite the header. This is the default value.
+   * 
+   * - **false**: does not allow WAF to overwrite the header.
    * 
    * @example
    * true
@@ -567,11 +644,11 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   XClientIp?: boolean;
   /**
    * @remarks
-   * Specifies whether WAF is allowed to overwrite X-True-IP. Valid values:
+   * Specifies whether to allow WAF to overwrite the X-True-IP header. Valid values:
    * 
-   * - **true** (default): WAF is allowed to overwrite.
+   * - **true**: allows WAF to overwrite the header. This is the default value.
    * 
-   * - **false**: WAF is not allowed to overwrite.
+   * - **false**: does not allow WAF to overwrite the header.
    * 
    * @example
    * true
@@ -582,7 +659,11 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
   XTrueIp?: boolean;
   /**
    * @remarks
-   * Specifies whether X-Forward-For-Proto passes the WAF protocol. Valid values:
+   * Specifies whether to pass the WAF protocol in the X-Forwarded-Proto header. Valid values:
+   * 
+   * - **true**: passes the WAF protocol. This is the default value.
+   * 
+   * - **false**: does not pass the WAF protocol.
    * 
    * @example
    * true
@@ -674,7 +755,11 @@ export class ModifyDomainRequestRedirect extends $dara.Model {
 export class ModifyDomainRequest extends $dara.Model {
   /**
    * @remarks
-   * The access type of the WAF instance. Valid values:
+   * The access mode of the WAF instance. Valid values:
+   * 
+   * - **share**: CNAME access. This is the default value.
+   * 
+   * - **hybrid_cloud_cname**: hybrid cloud CNAME access.
    * 
    * @example
    * share
@@ -682,7 +767,7 @@ export class ModifyDomainRequest extends $dara.Model {
   accessType?: string;
   /**
    * @remarks
-   * The domain name to operate on.
+   * The domain name to manage.
    * 
    * @example
    * www.aliyundoc.com
@@ -690,7 +775,7 @@ export class ModifyDomainRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The domain name ID.
+   * The ID of the domain name.
    * 
    * @example
    * www.aliyundoc.com-waf
@@ -700,7 +785,7 @@ export class ModifyDomainRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -710,23 +795,24 @@ export class ModifyDomainRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The listening configuration.
+   * The listener settings.
    * 
    * This parameter is required.
    */
   listen?: ModifyDomainRequestListen;
   /**
    * @remarks
-   * The forwarding configuration.
+   * The forwarding settings.
    * 
    * This parameter is required.
    */
   redirect?: ModifyDomainRequestRedirect;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
+   * 
    * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * This parameter is required.

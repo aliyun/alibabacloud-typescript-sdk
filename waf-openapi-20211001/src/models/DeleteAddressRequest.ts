@@ -14,7 +14,7 @@ export class DeleteAddressRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -24,7 +24,7 @@ export class DeleteAddressRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q

@@ -6,7 +6,7 @@ export class DescribeApisecSensitiveDomainStatisticRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the hybrid cloud cluster.
-   * > This parameter applies only to hybrid cloud scenarios. You can call [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) to obtain hybrid cloud cluster information.
+   * > This parameter applies only to hybrid cloud scenarios. You can call the [DescribeHybridCloudClusters](https://help.aliyun.com/document_detail/2849376.html) operation to obtain hybrid cloud cluster information.
    * 
    * @example
    * 428
@@ -14,7 +14,7 @@ export class DescribeApisecSensitiveDomainStatisticRequest extends $dara.Model {
   clusterId?: string;
   /**
    * @remarks
-   * The end time. This value is a UNIX timestamp (UTC) in milliseconds.
+   * The end time in the UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1686895256
@@ -24,7 +24,7 @@ export class DescribeApisecSensitiveDomainStatisticRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -34,7 +34,7 @@ export class DescribeApisecSensitiveDomainStatisticRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The sort order of the list. Valid values:
+   * The sorting order of the list. Valid values:
    * 
    * - asc: ascending order.
    * 
@@ -46,7 +46,7 @@ export class DescribeApisecSensitiveDomainStatisticRequest extends $dara.Model {
   orderWay?: string;
   /**
    * @remarks
-   * The page number of the page to return in a paged query. Default value: **1**, which indicates the first page. For more information about paging, see the paging parameters.
+   * The page number. Default value: **1**, which indicates that the first page is returned.
    * 
    * @example
    * 1
@@ -54,7 +54,7 @@ export class DescribeApisecSensitiveDomainStatisticRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page in a paged query. Default value: **5**, which indicates 5 entries per page. For more information about paging, see the paging parameters.
+   * The number of entries to return per page. Default value: **5**, which indicates that each page contains 5 entries.
    * 
    * @example
    * 10
@@ -62,7 +62,7 @@ export class DescribeApisecSensitiveDomainStatisticRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -82,7 +82,7 @@ export class DescribeApisecSensitiveDomainStatisticRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The start time. This value is a UNIX timestamp (UTC) in milliseconds.
+   * The start time in the UNIX timestamp format. Unit: milliseconds.
    * 
    * @example
    * 1668496310
@@ -92,9 +92,9 @@ export class DescribeApisecSensitiveDomainStatisticRequest extends $dara.Model {
    * @remarks
    * The type of sensitive data. Valid values:
    * 
-   * - request: request sensitive data.
+   * - request: sensitive data in requests.
    * 
-   * - response: response sensitive data.
+   * - response: sensitive data in responses.
    * 
    * @example
    * request

@@ -16,7 +16,7 @@ export class ModifyUserWafLogStatusResponseBody extends $dara.Model {
    * Indicates whether the Simple Log Service project is created.
    * 
    * @example
-   * wafng-project-14316572********-cn-hangzhou
+   * false
    */
   projectName?: boolean;
   /**

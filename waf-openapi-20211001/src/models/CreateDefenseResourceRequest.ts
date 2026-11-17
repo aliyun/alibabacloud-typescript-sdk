@@ -46,7 +46,7 @@ export class CreateDefenseResourceRequest extends $dara.Model {
   /**
    * @remarks
    * The list of specified header fields.
-   * > When XffStatus is set to 1, the first IP in the specified header field is used as the client source IP to prevent XFF spoofing. When multiple headers are specified, the system attempts to obtain the source IP from each header in order. If the first header does not contain an IP, the system tries the second header, and so on. If no specified header contains an IP, the first IP in the X-Forwarded-For header is used. When XffStatus is set to 1, the IP is obtained from the first available header.
+   * > When XffStatus is set to 1, the first IP address in the specified header field is used as the originating IP address of the client to prevent XFF spoofing. If multiple headers are specified, the system attempts to obtain the originating IP address in sequence. If the first header does not contain an IP address, the system checks the second header, and so on. If no IP address is found in any of the specified headers, the first IP address in the X-Forwarded-For header is used. When XffStatus is set to 1, it indicates that the first IP address is obtained.
    */
   customHeaders?: string[];
   /**
@@ -59,11 +59,11 @@ export class CreateDefenseResourceRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The specific parameter information of the protected object, which is a string converted from a JSON object constructed with a series of parameters.
+   * The detailed parameter information of the protected object, which is converted into a JSON string constructed from a series of parameters.
    * 
-   * > The parameters vary depending on the specified **cloud product** (**Product**) and **protection mode** (**Pattern**). For more information, see **Detail parameter description for protected objects**.
+   * > The specific parameters involved vary depending on the specified **cloud service** (**Product**) and **protection mode** (**Pattern**). For more information, see **Parameter description of Detail for protected objects**.
    * 
-   * >Notice: When **Product** is set to **ecs**, **clb4**, **clb7**, or **nlb**, domain names connected to regions in the Chinese mainland must have completed ICP filing.</notice>
+   * >Notice: When **Product** is set to **ecs**, **clb4**, **clb7**, or **nlb**, domain names that are connected to regions in the Chinese mainland must have an ICP filing.</notice>
    * 
    * This parameter is required.
    * 
@@ -75,7 +75,7 @@ export class CreateDefenseResourceRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -85,7 +85,7 @@ export class CreateDefenseResourceRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the account to which the protected object belongs in multi-account scenarios. By default, the protected object belongs to the WAF administrator account.
+   * The ID of the account to which the protected object belongs in a multi-account scenario. By default, the protected object belongs to the WAF administrator account.
    * 
    * @example
    * 123221XXX
@@ -99,7 +99,7 @@ export class CreateDefenseResourceRequest extends $dara.Model {
    * 
    * - **multi_service**: hybrid cloud service-based protection.
    * 
-   * > Currently, only the following combinations are supported: when **Product** is set to **alb**, **ecs**, **clb4**, **clb7**, or **nlb**, **Pattern** must be set to **domain**. When **Product** is set to **waf**, **Pattern** must be set to **multi_service**.
+   * > Currently, only the following combinations are supported: When **Product** is set to **alb**, **ecs**, **clb4**, **clb7**, or **nlb**, **Pattern** must be set to **domain**. When **Product** is set to **waf**, **Pattern** must be set to **multi_service**.
    * 
    * This parameter is required.
    * 
@@ -109,19 +109,19 @@ export class CreateDefenseResourceRequest extends $dara.Model {
   pattern?: string;
   /**
    * @remarks
-   * The cloud product name. Valid values:
+   * The name of the cloud service. Valid values:
    * 
-   * - **alb**: Application Load Balancer (ALB).
+   * - **alb**: ALB.
    * 
-   * - **ecs**: Elastic Compute Service (ECS).
+   * - **ecs**: ECS.
    * 
-   * - **clb4**: Classic Load Balancer (CLB) Layer 4 access.
+   * - **clb4**: CLB Layer 4.
    * 
-   * - **clb7**: Classic Load Balancer (CLB) Layer 7 access.
+   * - **clb7**: CLB Layer 7.
    * 
-   * - **nlb**: Network Load Balancer (NLB).
+   * - **nlb**: NLB.
    * 
-   * - **waf**: Web Application Firewall (WAF).
+   * - **waf**: WAF.
    * 
    * This parameter is required.
    * 
@@ -161,7 +161,7 @@ export class CreateDefenseResourceRequest extends $dara.Model {
   resourceGroup?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -181,16 +181,16 @@ export class CreateDefenseResourceRequest extends $dara.Model {
   resourceOrigin?: string;
   /**
    * @remarks
-   * The tag list, which contains up to 20 items.
+   * The list of tags. You can specify up to 20 tags.
    */
   tag?: CreateDefenseResourceRequestTag[];
   /**
    * @remarks
-   * Specifies whether XFF proxy is enabled for the protected object. Valid values:
+   * Specifies whether to enable the X-Forwarded-For (XFF) proxy for the protected object. Valid values:
    * 
-   * - **0**: Disabled (default).
+   * - **0**: disabled (default).
    * 
-   * - **1**: Enabled.
+   * - **1**: enabled.
    * 
    * @example
    * 0

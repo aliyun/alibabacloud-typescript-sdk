@@ -13,7 +13,7 @@ export class DescribeDomainDetailRequest extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The domain name ID.
+   * The ID of the domain name.
    * 
    * @example
    * www.aliyundoc.com-waf
@@ -22,7 +22,7 @@ export class DescribeDomainDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The ID of the WAF instance.
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -33,6 +33,10 @@ export class DescribeDomainDetailRequest extends $dara.Model {
   /**
    * @remarks
    * The region where the WAF instance resides. Valid values:
+   * 
+   * - **cn-hangzhou**: the Chinese mainland.
+   * 
+   * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example
    * cn-hangzhou

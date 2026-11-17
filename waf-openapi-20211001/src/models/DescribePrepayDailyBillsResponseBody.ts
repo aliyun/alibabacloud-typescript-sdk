@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePrepayDailyBillsResponseBodyBills extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether Agentic WAF is activated.
+   * 
+   * @example
+   * true
+   */
+  agenticWaf?: boolean;
+  /**
+   * @remarks
    * The burstable QPS specification of the WAF instance.
    * 
    * @example
@@ -13,7 +21,7 @@ export class DescribePrepayDailyBillsResponseBodyBills extends $dara.Model {
   elasticQpsSetValue?: number;
   /**
    * @remarks
-   * The end time of the billing record. The value is a UNIX timestamp (UTC). Unit: seconds.
+   * The end time of the bill. The value is a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1687591200
@@ -21,8 +29,8 @@ export class DescribePrepayDailyBillsResponseBodyBills extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The overuse status of the current period. Valid values:
-   * - **0**: Normal.
+   * The overuse status for the current period. Valid values:
+   * - **0**: normal.
    * - **1**: overused.
    * - **2**: sandboxed.
    * 
@@ -32,9 +40,9 @@ export class DescribePrepayDailyBillsResponseBodyBills extends $dara.Model {
   exceedStatus?: number;
   /**
    * @remarks
-   * Indicates whether the extension plug-in is enabled. Valid values:
-   * - **true**: The extension plug-in is enabled.
-   * - **false**: The extension plug-in is not enabled.
+   * Specifies whether the extension plug-in is enabled. Valid values:
+   * - **true**: enabled.
+   * - **false**: disabled.
    * 
    * @example
    * true
@@ -42,7 +50,7 @@ export class DescribePrepayDailyBillsResponseBodyBills extends $dara.Model {
   extensionPlugin?: boolean;
   /**
    * @remarks
-   * The number of requests processed by the plug-in.
+   * The number of plug-in requests processed.
    * 
    * @example
    * 100
@@ -50,7 +58,7 @@ export class DescribePrepayDailyBillsResponseBodyBills extends $dara.Model {
   extensionPluginRequest?: number;
   /**
    * @remarks
-   * The maximum QPS during the current period.
+   * The maximum QPS for the current period.
    * 
    * @example
    * 600
@@ -58,7 +66,7 @@ export class DescribePrepayDailyBillsResponseBodyBills extends $dara.Model {
   maxQps?: number;
   /**
    * @remarks
-   * The unit price for burstable billing. Unit: CNY for the China site and USD for the international site.
+   * The unit price of elastic billing. Unit: CNY on the Chinese site and USD on the international site.
    * 
    * @example
    * 0.25
@@ -66,7 +74,7 @@ export class DescribePrepayDailyBillsResponseBodyBills extends $dara.Model {
   price?: number;
   /**
    * @remarks
-   * The QPS extension specification of the WAF instance.
+   * The extended QPS specification of the WAF instance.
    * 
    * @example
    * 10
@@ -82,9 +90,9 @@ export class DescribePrepayDailyBillsResponseBodyBills extends $dara.Model {
   qpsVersion?: number;
   /**
    * @remarks
-   * Indicates whether risk identification is enabled. Valid values:
-   * - **true**: Risk identification is enabled.
-   * - **false**: Risk identification is not enabled.
+   * Specifies whether risk identification is enabled. Valid values:
+   * - **true**: enabled.
+   * - **false**: disabled.
    * 
    * @example
    * true
@@ -100,7 +108,7 @@ export class DescribePrepayDailyBillsResponseBodyBills extends $dara.Model {
   riskTraffic?: number;
   /**
    * @remarks
-   * The start time of the billing record. The value is a UNIX timestamp (UTC). Unit: seconds.
+   * The start time of the bill. The value is a UNIX timestamp in UTC. Unit: seconds.
    * 
    * @example
    * 1687822980
@@ -108,7 +116,7 @@ export class DescribePrepayDailyBillsResponseBodyBills extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The total QPS that is billed.
+   * The total QPS to be billed.
    * 
    * @example
    * 0
@@ -116,11 +124,12 @@ export class DescribePrepayDailyBillsResponseBodyBills extends $dara.Model {
   total?: number;
   /**
    * @remarks
-   * The burstable billing type.
+   * The elastic billing type.
    */
   type?: string[];
   static names(): { [key: string]: string } {
     return {
+      agenticWaf: 'AgenticWaf',
       elasticQpsSetValue: 'ElasticQpsSetValue',
       endTime: 'EndTime',
       exceedStatus: 'ExceedStatus',
@@ -140,6 +149,7 @@ export class DescribePrepayDailyBillsResponseBodyBills extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      agenticWaf: 'boolean',
       elasticQpsSetValue: 'number',
       endTime: 'number',
       exceedStatus: 'number',
@@ -172,12 +182,12 @@ export class DescribePrepayDailyBillsResponseBodyBills extends $dara.Model {
 export class DescribePrepayDailyBillsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of WAF burstable billing records.
+   * The list of elastic pay-as-you-go bills for the WAF instance.
    */
   bills?: DescribePrepayDailyBillsResponseBodyBills[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * EC10C9EA-A367-52D5-***-***
@@ -185,7 +195,7 @@ export class DescribePrepayDailyBillsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned entries.
    * 
    * @example
    * 10

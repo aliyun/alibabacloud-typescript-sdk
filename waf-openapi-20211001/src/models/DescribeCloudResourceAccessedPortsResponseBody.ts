@@ -6,11 +6,17 @@ export class DescribeCloudResourceAccessedPortsResponseBody extends $dara.Model 
   /**
    * @remarks
    * The HTTP port.
+   * 
+   * @example
+   * [80]
    */
   http?: number[];
   /**
    * @remarks
    * The HTTPS port.
+   * 
+   * @example
+   * [443]
    */
   https?: number[];
   /**

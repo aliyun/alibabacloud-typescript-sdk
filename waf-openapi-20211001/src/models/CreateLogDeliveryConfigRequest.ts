@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLogDeliveryConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The content of the log delivery configuration. The value is a JSON string constructed from a series of parameters.
+   * The content of the log delivery configuration. The content is a JSON string constructed from a series of parameters.
    * 
-   * > The parameters vary based on the specified **delivery type** (**DeliveryType**). For more information, see **Description of delivery configuration content parameters**.
+   * > The specific parameters vary based on the specified **log delivery configuration type** (**DeliveryType**). For more information, see **Parameter descriptions for log delivery configuration content**.
    * 
    * This parameter is required.
    * 

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDomainResponseBodyDomainInfo extends $dara.Model {
   /**
    * @remarks
-   * The CNAME assigned by WAF to the domain name.
+   * The CNAME address assigned by WAF to the domain name.
    * 
    * @example
    * xxxxxcvdaf.****.com

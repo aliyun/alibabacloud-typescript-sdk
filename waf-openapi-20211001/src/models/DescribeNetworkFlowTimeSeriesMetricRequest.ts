@@ -5,11 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions extends $dara.Model {
   /**
    * @remarks
-   * The field to use for filtering. This parameter supports the following fields:
+   * The name of the field on which the filter operation is performed. The Key parameter of this operation supports only the following two fields:
    * 
-   * - matched_host: The protected object.
-   * 
-   * - cluster: The protection cluster.
+   * - matched_host: the protected object.
+   * - cluster: the protection cluster.
    * 
    * @example
    * matched_host
@@ -25,7 +24,7 @@ export class DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions extends 
   opValue?: string;
   /**
    * @remarks
-   * The filter value.
+   * The filter values.
    * 
    * @example
    * test.waf-top
@@ -59,7 +58,7 @@ export class DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions extends 
 export class DescribeNetworkFlowTimeSeriesMetricRequestFilterDateRange extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. This value is a UNIX timestamp. Unit: seconds.
+   * The end time of the query. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -69,9 +68,9 @@ export class DescribeNetworkFlowTimeSeriesMetricRequestFilterDateRange extends $
   endDate?: number;
   /**
    * @remarks
-   * The start of the time range to query, in UNIX timestamp format. Unit: seconds. The query time range cannot exceed the last 30 days.
-   * 
-   * > ## The start time must be within the last 30 days.
+   * The start time of the query. The time range for the query cannot exceed the past 30 days. The value is a UNIX timestamp in seconds.
+   * > The start time must be later than 30 days before the current time.
+   * > -
    * 
    * This parameter is required.
    * 
@@ -105,12 +104,12 @@ export class DescribeNetworkFlowTimeSeriesMetricRequestFilterDateRange extends $
 export class DescribeNetworkFlowTimeSeriesMetricRequestFilter extends $dara.Model {
   /**
    * @remarks
-   * A list of filter conditions. Each item describes a filter condition.
+   * The list of filter conditions. Each node describes a filter condition.
    */
   conditions?: DescribeNetworkFlowTimeSeriesMetricRequestFilterConditions[];
   /**
    * @remarks
-   * The time range to query.
+   * The time range for the query.
    * 
    * This parameter is required.
    */
@@ -147,7 +146,7 @@ export class DescribeNetworkFlowTimeSeriesMetricRequestFilter extends $dara.Mode
 export class DescribeNetworkFlowTimeSeriesMetricRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter conditions for the query. Multiple filter conditions have a logical AND relationship.
+   * The query filter conditions. Multiple filter conditions are combined by using the logical AND operator.
    * 
    * This parameter is required.
    */
@@ -156,7 +155,7 @@ export class DescribeNetworkFlowTimeSeriesMetricRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the instance ID.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -166,15 +165,12 @@ export class DescribeNetworkFlowTimeSeriesMetricRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The metric to query. Different metrics return different data. Valid values:
+   * The metric used to distinguish the returned data content. Different metrics correspond to different data content. This operation supports the following metrics:
    * 
-   * - qps: The number of requests that WAF processes per second. This is a peak value. WAF calculates a queries per second (QPS) value every 10 seconds and uses the peak value within the specified time granularity as the QPS.
-   * 
-   * - total_requests: The total number of requests that WAF processes.
-   * 
-   * - top5_status: The top five response codes that WAF returns to the client and the corresponding time series statistics.
-   * 
-   * - top5_upstream_status: The top five response codes that the origin server returns to the client and the corresponding time series statistics.
+   * *   qps: returns the number of requests processed by WAF per second. The peak calculation method is used. A QPS value is calculated every 10 seconds, and the maximum peak value among multiple values is used as the QPS value within the current statistical time granularity.
+   * *   total_requests: returns the total number of requests processed by WAF.
+   * *   top5_status: returns the top 5 response codes returned by WAF to the client and the corresponding time series statistics.
+   * *   top 5_upstream_status: returns the top 5 response codes returned by the origin server to the client and the corresponding time series statistics.
    * 
    * This parameter is required.
    * 
@@ -184,10 +180,9 @@ export class DescribeNetworkFlowTimeSeriesMetricRequest extends $dara.Model {
   metric?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
-   * 
    * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example

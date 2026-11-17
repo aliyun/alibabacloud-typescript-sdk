@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeSecurityEventTimeSeriesMetricResponseBodySecurityEventTimeSeries extends $dara.Model {
   /**
    * @remarks
-   * The content of the returned data. This is consistent with the \\`Metric\\` request parameter.
+   * The returned data content, which is consistent with the meaning of the Metric parameter in the request.
    * 
    * @example
    * monitored_requests
@@ -19,6 +19,9 @@ export class DescribeSecurityEventTimeSeriesMetricResponseBodySecurityEventTimeS
   /**
    * @remarks
    * The data series. Each point represents the statistical count within a specific time range.
+   * 
+   * @example
+   * []
    */
   values?: number[];
   static names(): { [key: string]: string } {
@@ -55,7 +58,7 @@ export class DescribeSecurityEventTimeSeriesMetricResponseBodySecurityEventTimeS
 export class DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange extends $dara.Model {
   /**
    * @remarks
-   * The end time of the query. This is a UNIX timestamp. Unit: seconds. This value is the same as the \\`EndDate\\` request parameter.
+   * The end time used for the data query, represented by a UNIX timestamp in seconds. This value is the same as the EndDate parameter in the request.
    * 
    * @example
    * 1713888600
@@ -63,7 +66,7 @@ export class DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaData
   endDate?: number;
   /**
    * @remarks
-   * The start time of the query. This is a UNIX timestamp. Unit: seconds. This value is the same as the \\`StartDate\\` request parameter.
+   * The start time used for the data query, represented by a UNIX timestamp in seconds. This value is the same as the StartDate parameter in the request.
    * 
    * @example
    * 1713888000
@@ -95,7 +98,7 @@ export class DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaData
 export class DescribeSecurityEventTimeSeriesMetricResponseBodyTimeSeriesMetaData extends $dara.Model {
   /**
    * @remarks
-   * The time granularity of each data point in the returned time series data. For example, "15m" indicates that each returned data point represents statistics for a 15-minute interval. For more information about the time granularity of the returned data, see the Time granularity of time series data points section.
+   * The statistical time granularity of each data point in the returned time series data. For example, "15m" indicates that each returned data point is the statistical data for every 15 minutes. For the time granularity of the returned data, see **Time granularity description of time series data points**.
    * 
    * @example
    * 1m
@@ -153,7 +156,7 @@ export class DescribeSecurityEventTimeSeriesMetricResponseBody extends $dara.Mod
   requestId?: string;
   /**
    * @remarks
-   * The returned time series data. The operation can return time series data for multiple values.
+   * The returned time series data. Time series data for multiple values is supported.
    */
   securityEventTimeSeries?: DescribeSecurityEventTimeSeriesMetricResponseBodySecurityEventTimeSeries[];
   /**

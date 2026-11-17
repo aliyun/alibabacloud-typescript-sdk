@@ -13,7 +13,7 @@ export class DescribeDomainDetailResponseBodyCertDetail extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The time when the certificate expires. The value is a UNIX timestamp (UTC). Unit: milliseconds.
+   * The time when the certificate expires. The value is a UNIX timestamp in UTC. Unit: milliseconds.
    * 
    * @example
    * 1685590400000
@@ -21,7 +21,7 @@ export class DescribeDomainDetailResponseBodyCertDetail extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The SSL certificate ID.
+   * The ID of the SSL certificate.
    * 
    * @example
    * 123-cn-hangzhou
@@ -29,7 +29,7 @@ export class DescribeDomainDetailResponseBodyCertDetail extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The certificate name.
+   * The name of the certificate.
    * 
    * @example
    * test-cert-name
@@ -37,12 +37,12 @@ export class DescribeDomainDetailResponseBodyCertDetail extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * All domain names that are bound to the certificate.
+   * All domain names bound to the certificate.
    */
   sans?: string[];
   /**
    * @remarks
-   * The effective period of the certificate. The value is in the format of a UNIX timestamp (UTC). Unit: milliseconds.
+   * The effective period of the certificate. The format is a UNIX timestamp in UTC. Unit: milliseconds.
    * 
    * @example
    * 1677772800000
@@ -93,7 +93,13 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   certId?: string;
   /**
    * @remarks
-   * The type of the cipher suite. Valid values:
+   * The cipher suite type. Valid values:
+   * 
+   * - **1**: All cipher suites.
+   * 
+   * - **2**: Strong cipher suites. This value is available only when TLSVersion is set to tlsv1.2.
+   * 
+   * - **99**: Custom cipher suites. This value is available only when TLSVersion is not set to tlsv1.3.
    * 
    * @example
    * 2
@@ -106,7 +112,13 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   customCiphers?: string[];
   /**
    * @remarks
-   * Indicates whether TLS 1.3 is supported. Valid values:
+   * Specifies whether TLS 1.3 is supported. Valid values:
+   * 
+   * - **true**: TLS 1.3 is supported.
+   * 
+   * - **false**: TLS 1.3 is not supported.
+   * 
+   * > This parameter is used only when the HttpsPorts parameter is not empty, which indicates that the domain name uses the HTTPS protocol. When TLSVersion is set to tlsv1.3, this value must be set to true.
    * 
    * @example
    * true
@@ -114,7 +126,7 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   enableTLSv3?: boolean;
   /**
    * @remarks
-   * Indicates whether an exclusive IP address is enabled. Valid values:
+   * Specifies whether an exclusive IP address is enabled. Valid values:
    * 
    * - **true**: An exclusive IP address is enabled.
    * 
@@ -126,7 +138,11 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   exclusiveIp?: boolean;
   /**
    * @remarks
-   * Indicates whether HTTPS forced redirect is enabled. Valid values:
+   * Specifies whether forcible redirect to HTTPS is enabled. Valid values:
+   * 
+   * - **true**: Forcible redirect to HTTPS is enabled.
+   * 
+   * - **false**: Forcible redirect to HTTPS is not enabled.
    * 
    * @example
    * true
@@ -134,16 +150,16 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   focusHttps?: boolean;
   /**
    * @remarks
-   * Indicates whether HSTS includes subdomains. Valid values:
+   * Specifies whether HTTP Strict Transport Security (HSTS) includes subdomains. Valid values:
    * 
-   * - **true**: Enabled.
+   * - **true**: HSTS includes subdomains.
    * 
-   * - **false**: Not enabled.
+   * - **false**: HSTS does not include subdomains.
    */
   hstsIncludeSubDomain?: boolean;
   /**
    * @remarks
-   * The HSTS expiration time. Unit: seconds.
+   * The expiration time of HSTS, in seconds.
    * 
    * @example
    * 365000
@@ -151,7 +167,9 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   hstsMaxAge?: number;
   /**
    * @remarks
-   * Indicates whether HSTS preloading is enabled. This feature is disabled by default. Valid values:
+   * Specifies whether HSTS preload is enabled. Default value: false. Valid values:
+   * - **true**: HSTS preload is enabled.
+   * - **false**: HSTS preload is disabled.
    * 
    * @example
    * false
@@ -159,7 +177,7 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   hstsPreload?: boolean;
   /**
    * @remarks
-   * Indicates whether HTTP/2 is enabled. Valid values:
+   * Specifies whether HTTP/2 is enabled. Valid values:
    * 
    * - **true**: HTTP/2 is enabled.
    * 
@@ -171,17 +189,17 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   http2Enabled?: boolean;
   /**
    * @remarks
-   * The listening port for the HTTP protocol.
+   * The listening ports for the HTTP protocol.
    */
   httpPorts?: number[];
   /**
    * @remarks
-   * The listening port for the HTTPS protocol.
+   * The listening ports for the HTTPS protocol.
    */
   httpsPorts?: number[];
   /**
    * @remarks
-   * Indicates whether IPv6 is enabled. Valid values:
+   * Specifies whether IPv6 is enabled. Valid values:
    * 
    * - **true**: IPv6 is enabled.
    * 
@@ -193,7 +211,11 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   IPv6Enabled?: boolean;
   /**
    * @remarks
-   * The type of protection resource to use. Valid values:
+   * The type of protection resource to be used. Valid values:
+   * 
+   * - **share**: Shared cluster.
+   * 
+   * - **gslb**: Intelligent load balancing for shared clusters.
    * 
    * @example
    * share
@@ -201,7 +223,11 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   protectionResource?: string;
   /**
    * @remarks
-   * Indicates whether only SM client access is allowed. This parameter is used only when SM2Enable is set to true.
+   * Specifies whether only SM2 clients are allowed to access. This parameter is used only when SM2Enabled is set to true. Valid values:
+   * 
+   * - **true**: Only SM2 clients can access.
+   * 
+   * - **false**: Both SM2 and non-SM2 clients can access.
    * 
    * @example
    * true
@@ -209,7 +235,7 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   SM2AccessOnly?: boolean;
   /**
    * @remarks
-   * The ID of the China Encryption Standard (SM) certificate to add. This parameter is used only when SM2Enable is set to true.
+   * The ID of the SM2 certificate to be added. This parameter is used only when SM2Enabled is set to true.
    * 
    * @example
    * 123-cn-hangzhou
@@ -217,7 +243,11 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   SM2CertId?: string;
   /**
    * @remarks
-   * Indicates whether the China Encryption Standard (SM) certificate is enabled. Valid values:
+   * Specifies whether the SM2 certificate is enabled. Valid values:
+   * 
+   * - **true**: The SM2 certificate is enabled.
+   * 
+   * - **false**: The SM2 certificate is not enabled.
    * 
    * @example
    * true
@@ -227,13 +257,13 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
    * @remarks
    * The TLS version. Valid values:
    * 
-   * - **tlsv1**: Supports TLS 1.0 and later. Provides the highest compatibility and the lowest security.
+   * - **tlsv1**: Supports TLS 1.0 and later versions. This version provides the highest compatibility but lower security.
    * 
-   * - **tlsv1.1**: Supports TLS 1.1 and later. Provides good compatibility and good security.
+   * - **tlsv1.1**: Supports TLS 1.1 and later versions. This version provides good compatibility and better security.
    * 
-   * - **tlsv1.2**: Supports TLS 1.2 and later. Provides good compatibility and the highest security.
+   * - **tlsv1.2**: Supports TLS 1.2 and later versions. This version provides good compatibility and the highest security.
    * 
-   * - **tlsv1.3**: Supports only TLS 1.3. Provides the highest security and the lowest compatibility.
+   * - **tlsv1.3**: Supports only TLS 1.3. This version provides the highest security but lower compatibility.
    * 
    * @example
    * tlsv1.2
@@ -241,15 +271,15 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   TLSVersion?: string;
   /**
    * @remarks
-   * The method that WAF uses to obtain the originating IP address of the client. Valid values:
+   * The method used by WAF to obtain the actual IP address of the client. Valid values:
    * 
    * - **0**: The client access traffic is not forwarded by other Layer 7 proxies before reaching WAF.
    * 
-   * - **1**: WAF reads the first value in the X-Forwarded-For (XFF) header field of the request as the client IP address.
+   * - **1**: WAF reads the first value of the X-Forwarded-For (XFF) field in the request header as the client IP address.
    * 
-   * - **2**: WAF reads the value of a custom header field that you specify in the request as the client IP address.
+   * - **2**: WAF reads the value of a custom field that you specified in the request header as the client IP address.
    * 
-   * - **3**: WAF reads the Client IP from the Proxy Protocol header as the client IP address.
+   * - **3**: WAF reads the Client IP in the Proxy Protocol header as the client IP address.
    * 
    * @example
    * 2
@@ -257,7 +287,7 @@ export class DescribeDomainDetailResponseBodyListen extends $dara.Model {
   xffHeaderMode?: number;
   /**
    * @remarks
-   * The custom header fields used to obtain the client IP address.
+   * The list of custom fields used to obtain the client IP address.
    */
   xffHeaders?: string[];
   static names(): { [key: string]: string } {
@@ -342,7 +372,7 @@ export class DescribeDomainDetailResponseBodyRedirectBackendPorts extends $dara.
   backendPort?: number;
   /**
    * @remarks
-   * The listener port.
+   * The listening port.
    * 
    * @example
    * 80
@@ -350,10 +380,9 @@ export class DescribeDomainDetailResponseBodyRedirectBackendPorts extends $dara.
   listenPort?: number;
   /**
    * @remarks
-   * The protocol type of the listener port. Valid values:
-   * 
-   * - **http**: HTTP protocol.
-   * - **https**: HTTPS protocol.
+   * The protocol type of the listening port. Valid values:
+   * - **http**: HTTP.
+   * - **https**: HTTPS.
    * 
    * @example
    * http
@@ -387,7 +416,7 @@ export class DescribeDomainDetailResponseBodyRedirectBackendPorts extends $dara.
 export class DescribeDomainDetailResponseBodyRedirectBackends extends $dara.Model {
   /**
    * @remarks
-   * The IP address or domain name of the origin server for the domain name.
+   * The IP address of the origin server or the back-to-origin domain name of the server for the domain name.
    * 
    * @example
    * 1.1.XX.XX
@@ -417,7 +446,7 @@ export class DescribeDomainDetailResponseBodyRedirectBackends extends $dara.Mode
 export class DescribeDomainDetailResponseBodyRedirectBackupBackends extends $dara.Model {
   /**
    * @remarks
-   * The IP address or domain name of the secondary origin server for the domain name.
+   * The IP address of the secondary origin server or the secondary back-to-origin domain name of the server for the domain name.
    * 
    * @example
    * [
@@ -450,7 +479,7 @@ export class DescribeDomainDetailResponseBodyRedirectBackupBackends extends $dar
 export class DescribeDomainDetailResponseBodyRedirectRequestHeaders extends $dara.Model {
   /**
    * @remarks
-   * The custom request header field.
+   * The specified custom request header field.
    * 
    * @example
    * aaa
@@ -458,7 +487,7 @@ export class DescribeDomainDetailResponseBodyRedirectRequestHeaders extends $dar
   key?: string;
   /**
    * @remarks
-   * The value of the custom request header field.
+   * The value set for the specified custom request header field.
    * 
    * @example
    * bbb
@@ -490,38 +519,40 @@ export class DescribeDomainDetailResponseBodyRedirectRequestHeaders extends $dar
 export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   /**
    * @remarks
-   * The list of backup origin server IP addresses or back-to-origin domain names for the domain name.
+   * The list of IP addresses of secondary origin servers or back-to-origin domain names for the domain name.
    */
   backUpBackendList?: string[];
   /**
    * @remarks
-   * The list of origin server IP addresses or back-to-origin domain names for the domain name.
+   * The list of IP addresses of the origin servers or back-to-origin domain names of the servers for the domain name.
    */
   backendList?: string[];
   /**
    * @remarks
-   * The custom port configuration. By default, the port is the same as the listener port.
+   * The custom port configurations. By default, the ports are the same as the listening ports.
    */
   backendPorts?: DescribeDomainDetailResponseBodyRedirectBackendPorts[];
   /**
    * @remarks
-   * The back-to-origin addresses of the domain name.
+   * The back-to-origin addresses for the domain name.
+   * 
+   * > This parameter will be deprecated. We recommend that you use **BackendList** to obtain the relevant information.
    * 
    * @deprecated
    */
   backends?: DescribeDomainDetailResponseBodyRedirectBackends[];
   /**
    * @remarks
-   * The secondary origin addresses of the domain name.
+   * The secondary back-to-origin addresses for the domain name.
    * 
-   * > This parameter is about to be deprecated. Use **BackUpBackendList** to obtain the related information.
+   * > This parameter will be deprecated. We recommend that you use **BackUpBackendList** to obtain the relevant information.
    * 
    * @deprecated
    */
   backupBackends?: DescribeDomainDetailResponseBodyRedirectBackupBackends[];
   /**
    * @remarks
-   * The connection timeout period. Unit: seconds.
+   * The connection timeout period, in seconds. Valid values: 5 to 120.
    * 
    * @example
    * 120
@@ -529,11 +560,11 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   connectTimeout?: number;
   /**
    * @remarks
-   * Indicates whether forced HTTP back-to-origin is enabled. Valid values:
+   * Specifies whether forcible back-to-origin routing over HTTP is enabled. Valid values:
    * 
-   * - **true**: Forced HTTP back-to-origin is enabled.
+   * - **true**: Forcible back-to-origin routing over HTTP is enabled.
    * 
-   * - **false**: Forced HTTP back-to-origin is not enabled.
+   * - **false**: Forcible back-to-origin routing over HTTP is not enabled.
    * 
    * @example
    * true
@@ -541,7 +572,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   focusHttpBackend?: boolean;
   /**
    * @remarks
-   * Indicates whether HTTP/2 back-to-origin is enabled.
+   * The HTTP/2 back-to-origin configuration.
    * 
    * @example
    * true
@@ -549,7 +580,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   http2Origin?: boolean;
   /**
    * @remarks
-   * The maximum number of concurrent connections for HTTP/2 back-to-origin.
+   * The maximum number of concurrent connections for HTTP/2 back-to-origin routing.
    * 
    * @example
    * 128
@@ -557,11 +588,11 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   http2OriginMaxConcurrency?: number;
   /**
    * @remarks
-   * Specifies whether to keep the connection alive. Valid values:
+   * Specifies whether to maintain persistent connections. Valid values:
    * 
-   * - **true** (default): The connection is kept alive.
+   * - **true**: Persistent connections are maintained. This is the default value.
    * 
-   * - **false**: The connection is not kept alive.
+   * - **false**: Persistent connections are not maintained.
    * 
    * @example
    * true
@@ -571,13 +602,17 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
    * @remarks
    * The number of requests that reuse a persistent connection. Valid values: 60 to 1000.
    * 
+   * > This parameter specifies the number of requests that can reuse a persistent connection after persistent connections are enabled.
+   * 
    * @example
    * 1000
    */
   keepaliveRequests?: number;
   /**
    * @remarks
-   * The idle timeout period for persistent connections. Valid values: 1 to 60. Default value: 15. Unit: seconds.
+   * The timeout period for idle persistent connections. Valid values: 1 to 60. Default value: 15. Unit: seconds.
+   * 
+   * > This parameter specifies the duration after which an idle persistent connection is released.
    * 
    * @example
    * 15
@@ -585,13 +620,13 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   keepaliveTimeout?: number;
   /**
    * @remarks
-   * The load balancing algorithm used for back-to-origin requests. Valid values:
+   * The load balancing algorithm used for back-to-origin routing. Valid values:
    * 
-   * - **iphash**: IP Hash algorithm.
+   * - **iphash**: IP hash algorithm.
    * 
-   * - **roundRobin**: round-robin algorithm.
+   *  - **roundRobin**: Round-robin algorithm.
    * 
-   * - **leastTime**: Least Time algorithm.
+   * - **leastTime**: Least time algorithm.
    * 
    * @example
    * iphash
@@ -600,6 +635,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   /**
    * @remarks
    * The maximum request body size. Valid values: 2 to 10. Default value: 2. Unit: GB.
+   * > This parameter is supported only by the Ultimate Edition.
    * 
    * @example
    * 2
@@ -607,9 +643,9 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   maxBodySize?: number;
   /**
    * @remarks
-   * Indicates whether the client source IP address preservation feature is enabled.
-   * - **true**: The client source IP address preservation feature is enabled. After this feature is enabled, backend services can view the original IP address of the client.
-   * - **false**: The client source IP address preservation feature is not enabled.
+   * Specifies whether the feature to preserve the originating IP address of the client is enabled. Valid values:
+   * - **true**: The feature is enabled. After this feature is enabled, backend services can view the originating IP address of the client.
+   * - **false**: The feature is not enabled.
    * 
    * @example
    * false
@@ -617,7 +653,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   proxyProtocol?: boolean;
   /**
    * @remarks
-   * The read timeout period. Unit: seconds.
+   * The read timeout period, in seconds. Valid values: 5 to 1800.
    * 
    * @example
    * 200
@@ -625,16 +661,16 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   readTimeout?: number;
   /**
    * @remarks
-   * The traffic tag fields and values of the domain name, which are used to tag traffic processed by WAF.
+   * The traffic marking fields and values for the domain name, which are used to mark the traffic processed by WAF.
    */
   requestHeaders?: DescribeDomainDetailResponseBodyRedirectRequestHeaders[];
   /**
    * @remarks
-   * Specifies whether to retry when WAF fails to forward requests to the origin server. Valid values:
+   * Specifies whether to retry when WAF fails to route traffic back to the origin server. Valid values:
    * 
-   * - **true** (default): Retry.
+   * - **true**: Retries are performed. This is the default value.
    * 
-   * - **false**: Do not retry.
+   * - **false**: Retries are not performed.
    * 
    * @example
    * true
@@ -642,11 +678,11 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   retry?: boolean;
   /**
    * @remarks
-   * Indicates whether Server Name Indication (SNI) is enabled for back-to-origin requests. Valid values:
+   * Specifies whether back-to-origin Server Name Indication (SNI) is enabled. Valid values:
    * 
-   * - **true**: SNI is enabled for back-to-origin requests.
+   * - **true**: Back-to-origin SNI is enabled.
    * 
-   * - **false** (default): SNI is not enabled for back-to-origin requests.
+   * - **false**: Back-to-origin SNI is not enabled. This is the default value.
    * 
    * @example
    * true
@@ -664,7 +700,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
    * @remarks
    * Specifies whether WAF is allowed to overwrite the WL-Proxy-Client-IP header. Valid values:
    * 
-   * - **true** (default): WAF is allowed to overwrite the header.
+   * - **true**: WAF is allowed to overwrite the header. This is the default value.
    * 
    * - **false**: WAF is not allowed to overwrite the header.
    * 
@@ -676,7 +712,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
    * @remarks
    * Specifies whether WAF is allowed to overwrite the Web-Server-Type header. Valid values:
    * 
-   * - **true** (default): WAF is allowed to overwrite the header.
+   * - **true**: WAF is allowed to overwrite the header. This is the default value.
    * 
    * - **false**: WAF is not allowed to overwrite the header.
    * 
@@ -686,7 +722,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   webServerType?: boolean;
   /**
    * @remarks
-   * The write timeout period. Unit: seconds.
+   * The write timeout period, in seconds. Valid values: 5 to 1800.
    * 
    * @example
    * 200
@@ -694,9 +730,9 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   writeTimeout?: number;
   /**
    * @remarks
-   * Specifies whether WAF is allowed to overwrite X-Client-IP. Valid values:
+   * Specifies whether WAF is allowed to overwrite the X-Client-IP header. Valid values:
    * 
-   * - **true** (default): WAF is allowed to overwrite the header.
+   * - **true**: WAF is allowed to overwrite the header. This is the default value.
    * 
    * - **false**: WAF is not allowed to overwrite the header.
    * 
@@ -708,7 +744,7 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
    * @remarks
    * Specifies whether WAF is allowed to overwrite the X-True-IP header. Valid values:
    * 
-   * - **true** (default): WAF is allowed to overwrite the header.
+   * - **true**: WAF is allowed to overwrite the header. This is the default value.
    * 
    * - **false**: WAF is not allowed to overwrite the header.
    * 
@@ -718,7 +754,11 @@ export class DescribeDomainDetailResponseBodyRedirect extends $dara.Model {
   XTrueIp?: boolean;
   /**
    * @remarks
-   * Indicates whether X-Forward-For-Proto is used to pass the protocol used by WAF. Valid values:
+   * Specifies whether the X-Forwarded-Proto header passes the protocol used by WAF. Valid values:
+   * 
+   * - **true**: The protocol used by WAF is passed. This is the default value.
+   * 
+   * - **false**: The protocol used by WAF is not passed.
    * 
    * @example
    * true
@@ -824,7 +864,7 @@ export class DescribeDomainDetailResponseBodySM2CertDetail extends $dara.Model {
   commonName?: string;
   /**
    * @remarks
-   * The time when the certificate expires. The value is a UNIX timestamp (UTC). Unit: milliseconds.
+   * The time when the certificate expires. The value is a UNIX timestamp in UTC. Unit: milliseconds.
    * 
    * @example
    * 1665590400000
@@ -832,7 +872,7 @@ export class DescribeDomainDetailResponseBodySM2CertDetail extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The SSL certificate ID.
+   * The ID of the SSL certificate.
    * 
    * @example
    * 123-cn-hangzhou
@@ -840,7 +880,7 @@ export class DescribeDomainDetailResponseBodySM2CertDetail extends $dara.Model {
   id?: string;
   /**
    * @remarks
-   * The certificate name.
+   * The name of the certificate.
    * 
    * @example
    * test-sm2-cert-name
@@ -848,12 +888,12 @@ export class DescribeDomainDetailResponseBodySM2CertDetail extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * All domain names that are bound to the certificate.
+   * All domain names bound to the certificate.
    */
   sans?: string[];
   /**
    * @remarks
-   * The effective period of the certificate. The value is in the format of a UNIX timestamp (UTC). Unit: milliseconds.
+   * The effective period of the certificate. The format is a UNIX timestamp in UTC. Unit: milliseconds.
    * 
    * @example
    * 1657551525000
@@ -896,12 +936,12 @@ export class DescribeDomainDetailResponseBodySM2CertDetail extends $dara.Model {
 export class DescribeDomainDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The SSL certificate details.
+   * The details of the SSL certificate.
    */
   certDetail?: DescribeDomainDetailResponseBodyCertDetail;
   /**
    * @remarks
-   * The CNAME assigned by WAF to the domain name.
+   * The CNAME address assigned by WAF to the domain name.
    * 
    * @example
    * xxxxxcvdaf.****.com
@@ -917,7 +957,7 @@ export class DescribeDomainDetailResponseBody extends $dara.Model {
   domain?: string;
   /**
    * @remarks
-   * The domain name ID.
+   * The ID of the domain name.
    * 
    * @example
    * www.aliyundoc.com-waf
@@ -925,12 +965,12 @@ export class DescribeDomainDetailResponseBody extends $dara.Model {
   domainId?: string;
   /**
    * @remarks
-   * The listener configuration.
+   * The listener configuration information.
    */
   listen?: DescribeDomainDetailResponseBodyListen;
   /**
    * @remarks
-   * The forwarding configuration.
+   * The forwarding configuration information.
    */
   redirect?: DescribeDomainDetailResponseBodyRedirect;
   /**
@@ -943,7 +983,7 @@ export class DescribeDomainDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q
@@ -957,6 +997,16 @@ export class DescribeDomainDetailResponseBody extends $dara.Model {
   /**
    * @remarks
    * The domain name status. Valid values:
+   * 
+   * - **1**: The domain name is in a normal state.
+   * 
+   * - **2**: The domain name is being created.
+   * 
+   * - **3**: The domain name is being modified.
+   * 
+   * - **4**: The domain name is being released.
+   * 
+   * - **5**: Traffic forwarding for the domain name is stopped.
    * 
    * @example
    * 1

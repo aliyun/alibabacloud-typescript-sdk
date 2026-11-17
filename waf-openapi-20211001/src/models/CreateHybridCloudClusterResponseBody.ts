@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateHybridCloudClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the hybrid cloud cluster.
+   * The cluster ID.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class CreateHybridCloudClusterResponseBody extends $dara.Model {
   data?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 66A98669-ER12-WE34-23PO-301469*****E

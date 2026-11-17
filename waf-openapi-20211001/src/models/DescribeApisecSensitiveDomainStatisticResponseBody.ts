@@ -21,8 +21,8 @@ export class DescribeApisecSensitiveDomainStatisticResponseBodyData extends $dar
   domainCount?: number;
   /**
    * @remarks
-   * The code of the sensitive data type.
-   * > You can call [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) to obtain the supported sensitive data types.
+   * The code of the sensitive data.
+   * > You can call the [DescribeApisecRules](https://help.aliyun.com/document_detail/2859155.html) operation to obtain the supported types of sensitive data.
    * 
    * @example
    * 10
@@ -41,10 +41,10 @@ export class DescribeApisecSensitiveDomainStatisticResponseBodyData extends $dar
   sensitiveLevel?: string;
   /**
    * @remarks
-   * The name of the sensitive data type.
+   * The name of the sensitive data.
    * 
    * @example
-   * 自定义敏感类型。
+   * Custom sensitive data type
    */
   sensitiveName?: string;
   static names(): { [key: string]: string } {
@@ -79,7 +79,7 @@ export class DescribeApisecSensitiveDomainStatisticResponseBodyData extends $dar
 export class DescribeApisecSensitiveDomainStatisticResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The returned results.
    */
   data?: DescribeApisecSensitiveDomainStatisticResponseBodyData[];
   /**
@@ -92,7 +92,7 @@ export class DescribeApisecSensitiveDomainStatisticResponseBody extends $dara.Mo
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned entries.
    * 
    * @example
    * 27

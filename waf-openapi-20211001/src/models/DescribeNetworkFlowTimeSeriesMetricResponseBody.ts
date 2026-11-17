@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetworkFlowTimeSeriesMetricResponseBodyNetworkFlowTimeSeries extends $dara.Model {
   /**
    * @remarks
-   * The metric name. This value is the same as the Metric request parameter.
+   * The returned data content. The meaning is consistent with the Metric parameter in the request parameters.
    * 
    * @example
    * total_requests
@@ -13,12 +13,15 @@ export class DescribeNetworkFlowTimeSeriesMetricResponseBodyNetworkFlowTimeSerie
   metric?: string;
   /**
    * @remarks
-   * The timestamps. Each value represents the start of a time interval.
+   * The time series. Each point represents the start time of a time range.
    */
   timestamps?: string[];
   /**
    * @remarks
-   * The metric values. Each value represents the count within the corresponding time interval.
+   * The data series. Each point represents the statistical count within a specific time range.
+   * 
+   * @example
+   * []
    */
   values?: number[];
   static names(): { [key: string]: string } {
@@ -55,7 +58,7 @@ export class DescribeNetworkFlowTimeSeriesMetricResponseBodyNetworkFlowTimeSerie
 export class DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range that was queried. This value is a UNIX timestamp. Unit: seconds. This value is the same as the EndDate request parameter.
+   * The end time used for querying data. The value is a UNIX timestamp in seconds. This value is the same as the EndDate parameter in the request parameters.
    * 
    * @example
    * 1713888600
@@ -63,7 +66,7 @@ export class DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaDataDa
   endDate?: number;
   /**
    * @remarks
-   * The start of the time range that was queried. This value is a UNIX timestamp. Unit: seconds. This value is the same as the StartDate request parameter.
+   * The start time used for querying data. The value is a UNIX timestamp in seconds. This value is the same as the StartDate parameter in the request parameters.
    * 
    * @example
    * 1713888000
@@ -95,7 +98,7 @@ export class DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaDataDa
 export class DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaData extends $dara.Model {
   /**
    * @remarks
-   * The time granularity of each data point in the returned time series. For example, "15m" indicates that each data point represents statistics for a 15-minute interval. For more information about the time granularity, see the **Time granularity of data points** section.
+   * The statistical time granularity of each data point in the returned time series data. For example, "15m" indicates that each returned data point is the statistical data for every 15 minutes. For more information about the time granularity of the returned data, see **Description of the time granularity of time series data points**.
    * 
    * @example
    * 1m
@@ -103,12 +106,12 @@ export class DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaData e
   aggregateInterval?: string;
   /**
    * @remarks
-   * The time range that was queried.
+   * The time range used for the query.
    */
   dateRange?: DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaDataDateRange;
   /**
    * @remarks
-   * The unit of the returned data. Default value: requests.
+   * The unit of the returned statistical data. Default value: requests.
    * 
    * @example
    * requests
@@ -145,7 +148,7 @@ export class DescribeNetworkFlowTimeSeriesMetricResponseBodyTimeSeriesMetaData e
 export class DescribeNetworkFlowTimeSeriesMetricResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time series data. Multiple data series can be returned.
+   * The returned time series data. Time series data of multiple values can be returned.
    */
   networkFlowTimeSeries?: DescribeNetworkFlowTimeSeriesMetricResponseBodyNetworkFlowTimeSeries[];
   /**

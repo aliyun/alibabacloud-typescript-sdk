@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDefenseRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The protection scenario to modify. For more information, see the **DefenseScene** parameter in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
+   * The protection scenario to be modified. For more information, see the **DefenseScene** parameter in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
    * 
    * @example
    * waf_group
@@ -21,9 +21,9 @@ export class ModifyDefenseRuleRequest extends $dara.Model {
   defenseType?: string;
   /**
    * @remarks
-   * Specifies whether to enable the dry run mode. If you do not specify this parameter, a normal request is sent. Valid values:
-   * - **true**: A dry run request is sent. The system checks whether the request meets the execution conditions without performing the specified operation. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Defense.Control.DryRunOperation is returned.
-   * - **false**: A normal request is sent. The specified operation is performed after the request passes the check.
+   * Specifies whether to enable the dry run mode. If you do not specify this parameter, a normal request is initiated. Valid values:
+   * - **true**: initiates a dry run request. The system only checks whether the request meets the execution conditions and does not perform the operations specified in the request. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Defense.Control.DryRunOperation is returned.
+   * - **false**: initiates a normal request. The system performs the operations specified in the request after the check succeeds.
    * 
    * @example
    * false
@@ -33,7 +33,7 @@ export class ModifyDefenseRuleRequest extends $dara.Model {
    * @remarks
    * Instance ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the current WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -43,7 +43,7 @@ export class ModifyDefenseRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -55,7 +55,7 @@ export class ModifyDefenseRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The protected object associated with the rule to modify.
+   * The protected object to which the modified rule applies.
    * > This parameter is required only when **DefenseType** is set to **resource**.
    * 
    * @example
@@ -72,11 +72,22 @@ export class ModifyDefenseRuleRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The details of the protection rule. The value is a string that is converted from a JSON object constructed by a series of parameters. When you configure this parameter, specify the rule ID and the protection rule configuration to modify. The following parameters are included:
+   * The protection target type. This applies to rules where **DefenseType** is set to **resource**. Valid values:
+   * 
+   * - **single** (default): Single protected object.
+   * - **group**: Protected object group.
+   * 
+   * @example
+   * single
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The details of the protection rule. The value is a JSON string that consists of multiple parameters. When you configure this parameter, you must specify the rule ID and set the configuration of the protection rule to be modified. The details include:
    * 
    * - **id**: Long | Required | The rule ID.
    * 
-   * - Protection rule configuration: Same as the **Rules** parameter of the **CreateDefenseRule** operation. For more information, see the **protection rule parameter description** in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
+   * - Protection rule configuration: Same as the **Rules** parameter of the **CreateDefenseRule** operation. For more information, see the **Protection rule parameter description** in [CreateDefenseRule](https://help.aliyun.com/document_detail/461421.html).
    * 
    * This parameter is required.
    * 
@@ -108,6 +119,7 @@ export class ModifyDefenseRuleRequest extends $dara.Model {
       regionId: 'RegionId',
       resource: 'Resource',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      resourceType: 'ResourceType',
       rules: 'Rules',
       templateId: 'TemplateId',
     };
@@ -122,6 +134,7 @@ export class ModifyDefenseRuleRequest extends $dara.Model {
       regionId: 'string',
       resource: 'string',
       resourceManagerResourceGroupId: 'string',
+      resourceType: 'string',
       rules: 'string',
       templateId: 'number',
     };

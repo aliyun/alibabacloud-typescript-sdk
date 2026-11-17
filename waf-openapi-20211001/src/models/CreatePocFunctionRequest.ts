@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePocFunctionRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Web Application Firewall (WAF) instance.
+   * The ID of the WAF instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,11 +17,9 @@ export class CreatePocFunctionRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
-   * 
-   * - **cn-hangzhou**: the Chinese mainland.
-   * 
-   * - **ap-southeast-1**: outside the Chinese mainland.
+   * The region where the WAF instance resides. Valid values:
+   * - **cn-hangzhou**: the Chinese mainland
+   * - **ap-southeast-1**: outside the Chinese mainland
    * 
    * @example
    * cn-hangzhou
@@ -38,14 +36,10 @@ export class CreatePocFunctionRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the POC feature trial. Valid values:
-   * 
-   * - **apisec**: API security.
-   * 
-   * - **botWeb**: bot management for websites.
-   * 
-   * - **botApp**: bot management for applications.
-   * 
-   * - **largeLanguageModel**: protection for AI-powered applications.
+   * - **apisec**: API security
+   * - **botWeb**: bot management for web
+   * - **botApp**: bot management for apps
+   * - **largeLanguageModel**: AI application protection
    * 
    * This parameter is required.
    * 

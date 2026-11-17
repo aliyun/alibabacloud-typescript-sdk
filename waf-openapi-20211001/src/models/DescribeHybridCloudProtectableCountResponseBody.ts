@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHybridCloudProtectableCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of protectable nodes that can be added to the cluster.
+   * The number of protection nodes that can be added to the cluster.
    * 
    * @example
    * 1

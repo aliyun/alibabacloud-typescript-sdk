@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePrepayDailyBillsRequest extends $dara.Model {
   /**
    * @remarks
-   * The WAF instance ID.
+   * Instance ID of the WAF instance.
    * 
-   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query instance ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -17,7 +17,7 @@ export class DescribePrepayDailyBillsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribePrepayDailyBillsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud resource group ID.
+   * The ID of the Alibaba Cloud resource group.
    * 
    * @example
    * rg-acfm***q

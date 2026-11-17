@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNetworkFlowTimeSeriesMetricShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter conditions for the query. Multiple filter conditions have a logical AND relationship.
+   * The query filter conditions. Multiple filter conditions are combined by using the logical AND operator.
    * 
    * This parameter is required.
    */
@@ -14,7 +14,7 @@ export class DescribeNetworkFlowTimeSeriesMetricShrinkRequest extends $dara.Mode
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > Call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to obtain the instance ID.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the WAF instance.
    * 
    * This parameter is required.
    * 
@@ -24,15 +24,12 @@ export class DescribeNetworkFlowTimeSeriesMetricShrinkRequest extends $dara.Mode
   instanceId?: string;
   /**
    * @remarks
-   * The metric to query. Different metrics return different data. Valid values:
+   * The metric used to distinguish the returned data content. Different metrics correspond to different data content. This operation supports the following metrics:
    * 
-   * - qps: The number of requests that WAF processes per second. This is a peak value. WAF calculates a queries per second (QPS) value every 10 seconds and uses the peak value within the specified time granularity as the QPS.
-   * 
-   * - total_requests: The total number of requests that WAF processes.
-   * 
-   * - top5_status: The top five response codes that WAF returns to the client and the corresponding time series statistics.
-   * 
-   * - top5_upstream_status: The top five response codes that the origin server returns to the client and the corresponding time series statistics.
+   * *   qps: returns the number of requests processed by WAF per second. The peak calculation method is used. A QPS value is calculated every 10 seconds, and the maximum peak value among multiple values is used as the QPS value within the current statistical time granularity.
+   * *   total_requests: returns the total number of requests processed by WAF.
+   * *   top5_status: returns the top 5 response codes returned by WAF to the client and the corresponding time series statistics.
+   * *   top 5_upstream_status: returns the top 5 response codes returned by the origin server to the client and the corresponding time series statistics.
    * 
    * This parameter is required.
    * 
@@ -42,10 +39,9 @@ export class DescribeNetworkFlowTimeSeriesMetricShrinkRequest extends $dara.Mode
   metric?: string;
   /**
    * @remarks
-   * The region of the WAF instance. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
-   * 
    * - **ap-southeast-1**: outside the Chinese mainland.
    * 
    * @example

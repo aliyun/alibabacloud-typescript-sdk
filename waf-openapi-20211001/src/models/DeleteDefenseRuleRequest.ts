@@ -13,9 +13,9 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
   defenseType?: string;
   /**
    * @remarks
-   * Specifies whether to enable the DryRun dry run mode. If you do not specify this parameter, a normal request is sent. Valid values:
-   * - **true**: A dry run request is sent. The system checks whether the request meets the execution conditions without performing the specified operation. If the dry run fails, the corresponding error code is returned. If the dry run succeeds, the error code Defense.Control.DryRunOperation is returned.
-   * - **false**: A normal request is sent. The specified operation is performed after the request passes the check.
+   * Specifies whether to enable the dry run mode. If you do not specify this parameter, a normal request is initiated. Valid values:
+   * - **true**: initiates a dry run request. The system only checks whether the request meets the execution conditions and does not perform the operations specified in the request. If the dry run fails, the system returns the corresponding error code. If the dry run succeeds, the system returns the Defense.Control.DryRunOperation error code.
+   * - **false**: initiates a normal request. If the check succeeds, the system performs the operations specified in the request.
    * 
    * @example
    * false
@@ -25,7 +25,7 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
    * @remarks
    * The ID of the WAF instance.
    * 
-   * > You can call [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) to query the ID of the current WAF instance.
+   * > You can call the [DescribeInstance](https://help.aliyun.com/document_detail/433756.html) operation to query the ID of the current WAF instance.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The region where the WAF instance is deployed. Valid values:
+   * The region where the WAF instance resides. Valid values:
    * 
    * - **cn-hangzhou**: the Chinese mainland.
    * 
@@ -47,7 +47,7 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The protected object associated with the rule to delete.
+   * The protected object to which the rules to be deleted apply.
    * > This parameter is required only when **DefenseType** is set to **resource**.
    * 
    * @example
@@ -64,7 +64,18 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
   resourceManagerResourceGroupId?: string;
   /**
    * @remarks
-   * The IDs of the protection rules to delete. Separate multiple IDs with commas (,).
+   * The type of the protection target. This parameter applies to rules whose **DefenseType** is **resource**. Valid values:
+   * 
+   * - **single** (default): a single protected object.
+   * - **group**: a protection group.
+   * 
+   * @example
+   * single
+   */
+  resourceType?: string;
+  /**
+   * @remarks
+   * The IDs of the protection rules to be deleted. Separate multiple rule IDs with commas (,).
    * 
    * This parameter is required.
    * 
@@ -74,7 +85,7 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
   ruleIds?: string;
   /**
    * @remarks
-   * The ID of the protection template to delete.
+   * The ID of the protection template to be deleted.
    * > This parameter is required only when **DefenseType** is set to **template**.
    * 
    * @example
@@ -89,6 +100,7 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
       regionId: 'RegionId',
       resource: 'Resource',
       resourceManagerResourceGroupId: 'ResourceManagerResourceGroupId',
+      resourceType: 'ResourceType',
       ruleIds: 'RuleIds',
       templateId: 'TemplateId',
     };
@@ -102,6 +114,7 @@ export class DeleteDefenseRuleRequest extends $dara.Model {
       regionId: 'string',
       resource: 'string',
       resourceManagerResourceGroupId: 'string',
+      resourceType: 'string',
       ruleIds: 'string',
       templateId: 'number',
     };
