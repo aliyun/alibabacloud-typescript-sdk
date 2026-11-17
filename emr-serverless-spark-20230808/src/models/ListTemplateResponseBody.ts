@@ -11,9 +11,9 @@ export class ListTemplateResponseBody extends $dara.Model {
   data?: Template[];
   /**
    * @remarks
-   * - If the value of success is false, an error code is returned.
-   * 
-   * - If the value of success is true, this parameter is empty.
+   * - If success is false, the business error code is returned.
+   *  
+   * - If success is true, null is returned.
    * 
    * @example
    * ERR-00000000
@@ -21,9 +21,9 @@ export class ListTemplateResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * - If the value of success is false, an error message is returned.
+   * - If success is false, the business error message is returned.
    * 
-   * - If the value of success is true, this parameter is empty.
+   * - If success is true, null is returned.
    * 
    * @example
    * ok
@@ -47,11 +47,11 @@ export class ListTemplateResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
-   * - true: The request was successful.
+   * - true: Successful.
    * 
-   * - false: The request failed.
+   * - false: Failed.
    * 
    * @example
    * true

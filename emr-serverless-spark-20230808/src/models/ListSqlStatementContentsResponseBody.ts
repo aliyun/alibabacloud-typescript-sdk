@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListSqlStatementContentsResponseBodySqlStatementContents extends $dara.Model {
   /**
    * @remarks
-   * A list of the SQL execution results.
+   * The list of SQL execution result contents.
    * 
    * @example
    * [{\\"values\\":[\\"wj*****\\",\\"test\\",\\"2025-04-15\\"]}]
@@ -13,7 +13,7 @@ export class ListSqlStatementContentsResponseBodySqlStatementContents extends $d
   contents?: string;
   /**
    * @remarks
-   * The maximum number of records returned for a single request.
+   * The maximum number of records to retrieve at a time.
    * 
    * @example
    * 2000
@@ -21,7 +21,7 @@ export class ListSqlStatementContentsResponseBodySqlStatementContents extends $d
   maxResults?: number;
   /**
    * @remarks
-   * The token that specifies the position from which to start reading the results.
+   * The token that indicates the starting position for reading.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListSqlStatementContentsResponseBodySqlStatementContents extends $d
   nextToken?: string;
   /**
    * @remarks
-   * The total number of rows in the result.
+   * The total number of rows in the results.
    * 
    * @example
    * 40000
@@ -73,7 +73,7 @@ export class ListSqlStatementContentsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The content of the SQL execution result.
+   * The content of the SQL execution results.
    */
   sqlStatementContents?: ListSqlStatementContentsResponseBodySqlStatementContents;
   static names(): { [key: string]: string } {

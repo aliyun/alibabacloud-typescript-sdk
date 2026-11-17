@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class EditWorkspaceQueueRequestResourceSpec extends $dara.Model {
   /**
    * @remarks
-   * The resource upper limit of the workspace queue.
+   * The resource limit for the workspace queue.
    * 
    * @example
    * 1000
@@ -13,7 +13,7 @@ export class EditWorkspaceQueueRequestResourceSpec extends $dara.Model {
   cu?: number;
   /**
    * @remarks
-   * The number of GPU cards.
+   * The number of GPUs.
    * 
    * @example
    * 100
@@ -70,18 +70,18 @@ export class EditWorkspaceQueueRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The environment type of the queue.
+   * The queue environment type.
    */
   environments?: string[];
   /**
    * @remarks
-   * The list of GPU models.
+   * The list of GPU instance types.
    */
   gpuSpec?: string[];
   instanceId?: string;
   /**
    * @remarks
-   * The resource quota.
+   * The resource specifications.
    */
   resourceSpec?: EditWorkspaceQueueRequestResourceSpec;
   /**

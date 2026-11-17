@@ -136,6 +136,11 @@ export class UpdateLivyComputeRequest extends $dara.Model {
    */
   fusion?: boolean;
   /**
+   * @example
+   * 0.9.0
+   */
+  livyReleaseVersion?: string;
+  /**
    * @remarks
    * The Livy gateway configuration in JSON format. The following files are supported:
    * 
@@ -222,6 +227,7 @@ export class UpdateLivyComputeRequest extends $dara.Model {
       enablePublic: 'enablePublic',
       environmentId: 'environmentId',
       fusion: 'fusion',
+      livyReleaseVersion: 'livyReleaseVersion',
       livyServerConf: 'livyServerConf',
       livyVersion: 'livyVersion',
       memoryLimit: 'memoryLimit',
@@ -243,6 +249,7 @@ export class UpdateLivyComputeRequest extends $dara.Model {
       enablePublic: 'boolean',
       environmentId: 'string',
       fusion: 'boolean',
+      livyReleaseVersion: 'string',
       livyServerConf: 'string',
       livyVersion: 'string',
       memoryLimit: 'string',

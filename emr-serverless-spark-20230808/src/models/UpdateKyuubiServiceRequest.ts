@@ -13,7 +13,15 @@ export class UpdateKyuubiServiceRequest extends $dara.Model {
   computeInstance?: string;
   /**
    * @remarks
-   * The Kyuubi service configuration.
+   * The expected number of instances.
+   * 
+   * @example
+   * 5
+   */
+  expectedReplica?: number;
+  /**
+   * @remarks
+   * The Kyuubi service configurations.
    * 
    * @example
    * []
@@ -21,7 +29,7 @@ export class UpdateKyuubiServiceRequest extends $dara.Model {
   kyuubiConfigs?: string;
   /**
    * @remarks
-   * The Kyuubi service engine version.
+   * The Kyuubi service DPI engine version.
    * 
    * @example
    * 1.9.2-0.0.2
@@ -45,7 +53,7 @@ export class UpdateKyuubiServiceRequest extends $dara.Model {
   publicEndpointEnabled?: boolean;
   /**
    * @remarks
-   * The queue in which the Kyuubi service runs.
+   * The running queue for the Kyuubi service.
    * 
    * @example
    * dev_queue
@@ -53,7 +61,15 @@ export class UpdateKyuubiServiceRequest extends $dara.Model {
   queue?: string;
   /**
    * @remarks
-   * The version of the Spark engine.
+   * Specifies whether to update the configurations.
+   * 
+   * @example
+   * true
+   */
+  refresh?: boolean;
+  /**
+   * @remarks
+   * The Spark DPI engine version number.
    * 
    * @example
    * esr-4.6.0 (Spark 3.5.2, Scala 2.12)
@@ -61,7 +77,7 @@ export class UpdateKyuubiServiceRequest extends $dara.Model {
   releaseVersion?: string;
   /**
    * @remarks
-   * The number of replicas for high availability (HA).
+   * The number of replicas enabled for high availability.
    * 
    * @example
    * 0
@@ -69,7 +85,7 @@ export class UpdateKyuubiServiceRequest extends $dara.Model {
   replica?: number;
   /**
    * @remarks
-   * Specifies whether to restart the service.
+   * Specifies whether to restart.
    * 
    * @example
    * false
@@ -77,7 +93,15 @@ export class UpdateKyuubiServiceRequest extends $dara.Model {
   restart?: boolean;
   /**
    * @remarks
-   * The Spark configuration.
+   * Specifies whether to update the number of replicas.
+   * 
+   * @example
+   * true
+   */
+  scale?: boolean;
+  /**
+   * @remarks
+   * The Spark configurations.
    * 
    * @example
    * []
@@ -86,14 +110,17 @@ export class UpdateKyuubiServiceRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       computeInstance: 'computeInstance',
+      expectedReplica: 'expectedReplica',
       kyuubiConfigs: 'kyuubiConfigs',
       kyuubiReleaseVersion: 'kyuubiReleaseVersion',
       name: 'name',
       publicEndpointEnabled: 'publicEndpointEnabled',
       queue: 'queue',
+      refresh: 'refresh',
       releaseVersion: 'releaseVersion',
       replica: 'replica',
       restart: 'restart',
+      scale: 'scale',
       sparkConfigs: 'sparkConfigs',
     };
   }
@@ -101,14 +128,17 @@ export class UpdateKyuubiServiceRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       computeInstance: 'string',
+      expectedReplica: 'number',
       kyuubiConfigs: 'string',
       kyuubiReleaseVersion: 'string',
       name: 'string',
       publicEndpointEnabled: 'boolean',
       queue: 'string',
+      refresh: 'boolean',
       releaseVersion: 'string',
       replica: 'number',
       restart: 'boolean',
+      scale: 'boolean',
       sparkConfigs: 'string',
     };
   }

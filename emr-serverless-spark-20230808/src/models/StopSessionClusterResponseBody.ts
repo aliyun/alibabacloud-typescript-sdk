@@ -13,7 +13,7 @@ export class StopSessionClusterResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The session ID.
+   * The workspace ID.
    * 
    * @example
    * w-******

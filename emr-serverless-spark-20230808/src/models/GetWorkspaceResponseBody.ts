@@ -2,6 +2,33 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class GetWorkspaceResponseBodyWorkspaceFeatures extends $dara.Model {
+  /**
+   * @remarks
+   * Specifies whether fine-grained permissions are enabled for the workspace.
+   */
+  fineGrainedAuthz?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      fineGrainedAuthz: 'fineGrainedAuthz',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fineGrainedAuthz: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetWorkspaceResponseBodyWorkspacePrePaidQuota extends $dara.Model {
   /**
    * @remarks
@@ -23,7 +50,7 @@ export class GetWorkspaceResponseBodyWorkspacePrePaidQuota extends $dara.Model {
   autoRenewal?: boolean;
   /**
    * @remarks
-   * The time when the workspace was created. The time is displayed as a UNIX timestamp in milliseconds.
+   * The time when the workspace was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1791802817000
@@ -31,7 +58,7 @@ export class GetWorkspaceResponseBodyWorkspacePrePaidQuota extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * The expiration time of the GPU subscription quota. The time is displayed as a UNIX timestamp in milliseconds.
+   * The expiration time of the GPU subscription quota. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1779768979586
@@ -133,7 +160,7 @@ export class GetWorkspaceResponseBodyWorkspacePrePaidQuotaGpu extends $dara.Mode
   cpuCoreCount?: string;
   /**
    * @remarks
-   * The time when the resource was created.
+   * The creation time.
    * 
    * @example
    * 1782292672000
@@ -141,7 +168,7 @@ export class GetWorkspaceResponseBodyWorkspacePrePaidQuotaGpu extends $dara.Mode
   createTime?: number;
   /**
    * @remarks
-   * The expiration time of the resource.
+   * The expiration time.
    * 
    * @example
    * 1782292772000
@@ -367,7 +394,7 @@ export class GetWorkspaceResponseBodyWorkspaceTags extends $dara.Model {
 export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable auto-renewal. This parameter is required for subscription instances.
+   * Specifies whether to enable auto-renewal. This parameter is required for subscription resources.
    * 
    * @example
    * true
@@ -375,7 +402,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The auto-renewal duration. This parameter is required for subscription instances.
+   * The auto-renewal duration. This parameter is required for subscription resources.
    * 
    * @example
    * 1
@@ -383,7 +410,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   autoRenewPeriod?: number;
   /**
    * @remarks
-   * The auto-renewal cycle. This parameter is required for subscription instances.
+   * The auto-renewal cycle. This parameter is required for subscription resources.
    * 
    * @example
    * YEAR, MONTH, WEEK, DAY, HOUR, MINUTE
@@ -391,7 +418,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   autoRenewPeriodUnit?: string;
   /**
    * @remarks
-   * The time when the workspace was created. The time is displayed as a UNIX timestamp in milliseconds.
+   * The time when the workspace was created. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1776824869000
@@ -407,7 +434,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   dlfCatalogId?: string;
   /**
    * @remarks
-   * The type of the bound DLF.
+   * The type of the associated DLF.
    * 
    * @example
    * DLF-NEXT
@@ -415,7 +442,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   dlfType?: string;
   /**
    * @remarks
-   * The subscription duration. This parameter is required for subscription instances.
+   * The duration of the subscription period. This parameter is required for subscription resources.
    * 
    * @example
    * 1
@@ -439,6 +466,11 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   failReason?: string;
   /**
    * @remarks
+   * The features of the workspace.
+   */
+  features?: GetWorkspaceResponseBodyWorkspaceFeatures;
+  /**
+   * @remarks
    * The list of GPU instance types.
    */
   gpuSpec?: string[];
@@ -449,7 +481,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   ipWhiteList?: string[];
   /**
    * @remarks
-   * The unit of the subscription duration. This parameter is required for subscription instances.
+   * The unit of the subscription period. This parameter is required for subscription resources.
    * 
    * @example
    * YEAR, MONTH, WEEK, DAY, HOUR, MINUTE
@@ -478,7 +510,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   prePaidQuota?: GetWorkspaceResponseBodyWorkspacePrePaidQuota;
   /**
    * @remarks
-   * The list of GPU subscription resources.
+   * The list of GPU subscriptions.
    */
   prePaidQuotaGpu?: GetWorkspaceResponseBodyWorkspacePrePaidQuotaGpu[];
   /**
@@ -499,7 +531,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The reason why the workspace was released.
+   * The reason for the workspace release.
    * 
    * @example
    * stable
@@ -507,7 +539,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   releaseType?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-aek4f7uj74wdthi
@@ -523,7 +555,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   resourceOwnerId?: string;
   /**
    * @remarks
-   * The resource specifications.
+   * The resource specification.
    * 
    * @example
    * {"cu": 100}
@@ -582,6 +614,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
       duration: 'duration',
       endTime: 'endTime',
       failReason: 'failReason',
+      features: 'features',
       gpuSpec: 'gpuSpec',
       ipWhiteList: 'ipWhiteList',
       paymentDurationUnit: 'paymentDurationUnit',
@@ -615,6 +648,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
       duration: 'number',
       endTime: 'number',
       failReason: 'string',
+      features: GetWorkspaceResponseBodyWorkspaceFeatures,
       gpuSpec: { 'type': 'array', 'itemType': 'string' },
       ipWhiteList: { 'type': 'array', 'itemType': 'string' },
       paymentDurationUnit: 'string',
@@ -638,6 +672,9 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
   }
 
   validate() {
+    if(this.features && typeof (this.features as any).validate === 'function') {
+      (this.features as any).validate();
+    }
     if(Array.isArray(this.gpuSpec)) {
       $dara.Model.validateArray(this.gpuSpec);
     }
@@ -667,7 +704,7 @@ export class GetWorkspaceResponseBodyWorkspace extends $dara.Model {
 export class GetWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****

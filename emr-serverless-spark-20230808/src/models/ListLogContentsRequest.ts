@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListLogContentsRequest extends $dara.Model {
   /**
    * @remarks
-   * Full path of the file.
+   * The full path of the file.
    */
   fileName?: string;
   /**
    * @remarks
-   * Length of the log.
+   * The length of the log.
    * 
    * @example
    * 9999
@@ -18,7 +18,7 @@ export class ListLogContentsRequest extends $dara.Model {
   length?: number;
   /**
    * @remarks
-   * Start line for query.
+   * The starting line of the query.
    * 
    * @example
    * 0
@@ -26,7 +26,7 @@ export class ListLogContentsRequest extends $dara.Model {
   offset?: number;
   /**
    * @remarks
-   * Region ID.
+   * The region ID.
    * 
    * @example
    * cn-hangzhou

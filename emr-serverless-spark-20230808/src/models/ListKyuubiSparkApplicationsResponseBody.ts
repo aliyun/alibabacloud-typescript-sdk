@@ -23,7 +23,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
   applicationName?: string;
   /**
    * @remarks
-   * The number of compute units (CUs) consumed during the task execution. This value is an estimate. The actual value is subject to the bill.
+   * The number of compute units (CUs) consumed during the task runtime. This value is an estimate. The final value is subject to the bill.
    * 
    * @example
    * 0.238302
@@ -31,7 +31,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
   cuHours?: number;
   /**
    * @remarks
-   * The end time of the task. The format is YYYY-MM-DD HH:mm:ss.
+   * The end time of the task. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-02-12 20:02:02
@@ -55,7 +55,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
   kyuubiServiceId?: string;
   /**
    * @remarks
-   * The execution status of the latest SQL statement in the application.
+   * The execution status of the most recent SQL statement in the application.
    * 
    * @example
    * SUCCESS
@@ -63,7 +63,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
   latestSqlStatementStatus?: string;
   /**
    * @remarks
-   * The total memory allocated to the task multiplied by the task execution duration in seconds.
+   * The total memory allocated to the task multiplied by the number of seconds the task has run.
    * 
    * @example
    * 3513900
@@ -79,7 +79,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
   priority?: string;
   /**
    * @remarks
-   * The name of the resource queue in which the Spark task runs.
+   * The name of the resource queue where the Spark task runs.
    * 
    * @example
    * dev_queue
@@ -95,7 +95,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
   runLog?: RunLog;
   /**
    * @remarks
-   * The start time of the task. The format is YYYY-MM-DD HH:mm:ss.
+   * The start time of the task. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-02-12 19:59:16
@@ -103,10 +103,10 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
   startTime?: string;
   /**
    * @remarks
-   * The state of the Spark application. Valid values:
-   * - STARTING: The application is starting.
-   * - RUNNING: The application is running.
-   * - TERMINATED: The application is terminated.
+   * The status of the Spark application. Valid values:
+   * - STARTING: Starting.
+   * - RUNNING: Running.
+   * - TERMINATED: Terminated.
    * 
    * @example
    * STARTING
@@ -119,7 +119,15 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
   tags?: Tag[];
   /**
    * @remarks
-   * The total number of vcores allocated to the task multiplied by the task execution duration in seconds.
+   * The username.
+   * 
+   * @example
+   * user-a
+   */
+  userName?: string;
+  /**
+   * @remarks
+   * The total vcores allocated to the task multiplied by the number of seconds the task has run.
    * 
    * @example
    * 780
@@ -146,6 +154,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
       startTime: 'startTime',
       state: 'state',
       tags: 'tags',
+      userName: 'userName',
       vcoreSeconds: 'vcoreSeconds',
       webUI: 'webUI',
     };
@@ -167,6 +176,7 @@ export class ListKyuubiSparkApplicationsResponseBodyApplications extends $dara.M
       startTime: 'string',
       state: 'string',
       tags: { 'type': 'array', 'itemType': Tag },
+      userName: 'string',
       vcoreSeconds: 'number',
       webUI: 'string',
     };
@@ -195,7 +205,7 @@ export class ListKyuubiSparkApplicationsResponseBody extends $dara.Model {
   applications?: ListKyuubiSparkApplicationsResponseBodyApplications[];
   /**
    * @remarks
-   * The maximum number of records to retrieve at a time.
+   * The maximum number of records to return in a single request.
    * 
    * @example
    * 20

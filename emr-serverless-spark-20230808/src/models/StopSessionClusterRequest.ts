@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopSessionClusterRequest extends $dara.Model {
   /**
    * @remarks
-   * The queue name.
+   * The name of the queue.
    * 
    * @example
    * root_queue

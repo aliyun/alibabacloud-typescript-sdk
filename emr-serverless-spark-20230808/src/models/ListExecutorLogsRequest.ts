@@ -13,7 +13,7 @@ export class ListExecutorLogsRequest extends $dara.Model {
   logType?: string;
   /**
    * @remarks
-   * The maximum number of records to return in a single request.
+   * The maximum number of records to retrieve at a time.
    * 
    * @example
    * 20

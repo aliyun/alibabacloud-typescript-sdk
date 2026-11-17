@@ -42,7 +42,7 @@ export class UpdateWorkspaceRequestGpuSubscription extends $dara.Model {
   instanceTypeId?: string;
   /**
    * @remarks
-   * The operation type. Valid values: BUY and UPGRADE. BUY indicates a new purchase, and UPGRADE indicates an upgrade. If you set this parameter to UPGRADE, you must specify the orderId parameter. Default value: BUY.
+   * The operation type. Valid values: BUY and UPGRADE. BUY indicates a new purchase. UPGRADE indicates an upgrade. If you set this parameter to UPGRADE, you must specify the orderId parameter. Default value: BUY.
    * 
    * @example
    * BUY
@@ -56,6 +56,14 @@ export class UpdateWorkspaceRequestGpuSubscription extends $dara.Model {
    * MONTH
    */
   paymentDurationUnit?: string;
+  /**
+   * @remarks
+   * Supported only for new GPU subscription purchases (BUY). Not supported for upgrades (UPGRADE). Use the voucher option ID returned by the price inquiry API. To not use a voucher, set this parameter to youhuiquan_promotion_option_id_for_blank. If you omit this parameter, the previous call behavior is retained.
+   * 
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
+  promotionOptionNo?: string;
   static names(): { [key: string]: string } {
     return {
       autoRenew: 'autoRenew',
@@ -65,6 +73,7 @@ export class UpdateWorkspaceRequestGpuSubscription extends $dara.Model {
       instanceTypeId: 'instanceTypeId',
       operation: 'operation',
       paymentDurationUnit: 'paymentDurationUnit',
+      promotionOptionNo: 'promotionOptionNo',
     };
   }
 
@@ -77,6 +86,7 @@ export class UpdateWorkspaceRequestGpuSubscription extends $dara.Model {
       instanceTypeId: 'string',
       operation: 'string',
       paymentDurationUnit: 'string',
+      promotionOptionNo: 'string',
     };
   }
 
@@ -116,7 +126,7 @@ export class UpdateWorkspaceRequestSubscription extends $dara.Model {
   autoRenewPeriodUnit?: string;
   /**
    * @remarks
-   * The client token used to ensure the idempotence of the request.
+   * The client token for idempotence verification.
    * 
    * @example
    * my-token-asxkxxxxxxx
@@ -140,7 +150,15 @@ export class UpdateWorkspaceRequestSubscription extends $dara.Model {
   paymentDurationUnit?: string;
   /**
    * @remarks
-   * The list of running queues to be switched.
+   * Supported only when you switch the billing method of CUs from pay-as-you-go to subscription. Use the voucher option ID returned by the price inquiry API. To not use a voucher, set this parameter to youhuiquan_promotion_option_id_for_blank. If you omit this parameter, the previous call behavior is retained.
+   * 
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
+  promotionOptionNo?: string;
+  /**
+   * @remarks
+   * The list of running queues to be converted.
    */
   queue?: string[];
   static names(): { [key: string]: string } {
@@ -151,6 +169,7 @@ export class UpdateWorkspaceRequestSubscription extends $dara.Model {
       clientToken: 'clientToken',
       duration: 'duration',
       paymentDurationUnit: 'paymentDurationUnit',
+      promotionOptionNo: 'promotionOptionNo',
       queue: 'queue',
     };
   }
@@ -163,6 +182,7 @@ export class UpdateWorkspaceRequestSubscription extends $dara.Model {
       clientToken: 'string',
       duration: 'string',
       paymentDurationUnit: 'string',
+      promotionOptionNo: 'string',
       queue: { 'type': 'array', 'itemType': 'string' },
     };
   }
@@ -203,7 +223,7 @@ export class UpdateWorkspaceRequest extends $dara.Model {
   gpuSpec?: string[];
   /**
    * @remarks
-   * The GPU subscription.
+   * The GPU subscription information.
    */
   gpuSubscription?: UpdateWorkspaceRequestGpuSubscription;
   /**

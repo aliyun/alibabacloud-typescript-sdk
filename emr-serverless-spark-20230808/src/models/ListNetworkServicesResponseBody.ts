@@ -13,7 +13,7 @@ export class ListNetworkServicesResponseBodyNetworkServicesStateChangeReason ext
   code?: string;
   /**
    * @remarks
-   * The message that provides details about the state change.
+   * The response message.
    * 
    * @example
    * message
@@ -45,7 +45,7 @@ export class ListNetworkServicesResponseBodyNetworkServicesStateChangeReason ext
 export class ListNetworkServicesResponseBodyNetworkServices extends $dara.Model {
   /**
    * @remarks
-   * The name of the network connection.
+   * The name of the network connectivity.
    * 
    * @example
    * vpc_test
@@ -53,7 +53,7 @@ export class ListNetworkServicesResponseBodyNetworkServices extends $dara.Model 
   name?: string;
   /**
    * @remarks
-   * The ID of the network connection.
+   * The network connectivity ID.
    * 
    * @example
    * ns-d7a1d02045fb****
@@ -61,7 +61,7 @@ export class ListNetworkServicesResponseBodyNetworkServices extends $dara.Model 
   networkServiceId?: string;
   /**
    * @remarks
-   * The state of the network connection.
+   * The state.
    * 
    * @example
    * running
@@ -74,7 +74,7 @@ export class ListNetworkServicesResponseBodyNetworkServices extends $dara.Model 
   stateChangeReason?: ListNetworkServicesResponseBodyNetworkServicesStateChangeReason;
   /**
    * @remarks
-   * The type of the network connection.
+   * The type.
    * 
    * @example
    * NetworkService
@@ -95,7 +95,7 @@ export class ListNetworkServicesResponseBodyNetworkServices extends $dara.Model 
   vswitchIds?: string[];
   /**
    * @remarks
-   * The ID of the workspace.
+   * The workspace ID.
    * 
    * @example
    * w-d2d82aa09155****
@@ -145,7 +145,7 @@ export class ListNetworkServicesResponseBodyNetworkServices extends $dara.Model 
 export class ListNetworkServicesResponseBodyQueuesStateChangeReason extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated.
+   * The deprecated parameter.
    * 
    * @example
    * code
@@ -153,7 +153,7 @@ export class ListNetworkServicesResponseBodyQueuesStateChangeReason extends $dar
   code?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * The deprecated parameter.
    * 
    * @example
    * message
@@ -185,7 +185,7 @@ export class ListNetworkServicesResponseBodyQueuesStateChangeReason extends $dar
 export class ListNetworkServicesResponseBodyQueues extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated.
+   * The deprecated parameter.
    * 
    * @example
    * test
@@ -193,7 +193,7 @@ export class ListNetworkServicesResponseBodyQueues extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * The deprecated parameter.
    * 
    * @example
    * ns-d7a1d02045fb****
@@ -201,7 +201,7 @@ export class ListNetworkServicesResponseBodyQueues extends $dara.Model {
   networkServiceId?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * The deprecated parameter.
    * 
    * @example
    * running
@@ -209,12 +209,12 @@ export class ListNetworkServicesResponseBodyQueues extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * The deprecated parameter.
    */
   stateChangeReason?: ListNetworkServicesResponseBodyQueuesStateChangeReason;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * The deprecated parameter.
    * 
    * @example
    * NetworkService
@@ -222,7 +222,7 @@ export class ListNetworkServicesResponseBodyQueues extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * The deprecated parameter.
    * 
    * @example
    * vpc-uf6k2anfa9nzbm4cj****
@@ -230,12 +230,12 @@ export class ListNetworkServicesResponseBodyQueues extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * The deprecated parameter.
    */
   vswitchIds?: string[];
   /**
    * @remarks
-   * This parameter is deprecated.
+   * The deprecated parameter.
    * 
    * @example
    * w-d2d82aa09155****
@@ -285,7 +285,7 @@ export class ListNetworkServicesResponseBodyQueues extends $dara.Model {
 export class ListNetworkServicesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of entries to return on each page.
+   * The maximum number of records returned per request.
    * 
    * @example
    * 20
@@ -293,12 +293,12 @@ export class ListNetworkServicesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A list of network connections.
+   * The list of network connectivity.
    */
   networkServices?: ListNetworkServicesResponseBodyNetworkServices[];
   /**
    * @remarks
-   * The pagination token that is used in the next request to retrieve a new page of results. If this parameter is empty, all results have been returned.
+   * The next page token.
    * 
    * @example
    * 1
@@ -306,7 +306,7 @@ export class ListNetworkServicesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * This parameter is deprecated.
+   * The deprecated parameter.
    */
   queues?: ListNetworkServicesResponseBodyQueues[];
   /**
@@ -319,7 +319,7 @@ export class ListNetworkServicesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of records.
    * 
    * @example
    * 200

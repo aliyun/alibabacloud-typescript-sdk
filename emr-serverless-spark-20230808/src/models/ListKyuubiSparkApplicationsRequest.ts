@@ -106,7 +106,7 @@ export class ListKyuubiSparkApplicationsRequest extends $dara.Model {
   endTime?: ListKyuubiSparkApplicationsRequestEndTime;
   /**
    * @remarks
-   * The list of statuses of the latest SQL statement used for filtering.
+   * The list of statuses of the most recent SQL statement used for filtering.
    * 
    * @example
    * ["SUCCESS"]
@@ -114,7 +114,7 @@ export class ListKyuubiSparkApplicationsRequest extends $dara.Model {
   latestSqlStatementStatuses?: string;
   /**
    * @remarks
-   * The maximum number of records to retrieve at a time.
+   * The maximum number of records to return in a single request.
    * 
    * @example
    * 20
@@ -151,7 +151,7 @@ export class ListKyuubiSparkApplicationsRequest extends $dara.Model {
   resourceQueueId?: string;
   /**
    * @remarks
-   * The sort order. A value of asc indicates ascending order, and desc indicates descending order.
+   * The sort order. asc indicates ascending order, and desc indicates descending order.
    * 
    * @example
    * asc
@@ -164,12 +164,20 @@ export class ListKyuubiSparkApplicationsRequest extends $dara.Model {
   startTime?: ListKyuubiSparkApplicationsRequestStartTime;
   /**
    * @remarks
-   * The list of Spark application states used for filtering.
+   * The list of Spark application statuses used for filtering.
    * 
    * @example
    * ["ERROR"]
    */
   states?: string;
+  /**
+   * @remarks
+   * The username.
+   * 
+   * @example
+   * user-a
+   */
+  userName?: string;
   static names(): { [key: string]: string } {
     return {
       applicationId: 'applicationId',
@@ -184,6 +192,7 @@ export class ListKyuubiSparkApplicationsRequest extends $dara.Model {
       sort: 'sort',
       startTime: 'startTime',
       states: 'states',
+      userName: 'userName',
     };
   }
 
@@ -201,6 +210,7 @@ export class ListKyuubiSparkApplicationsRequest extends $dara.Model {
       sort: 'string',
       startTime: ListKyuubiSparkApplicationsRequestStartTime,
       states: 'string',
+      userName: 'string',
     };
   }
 

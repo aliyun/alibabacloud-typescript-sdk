@@ -16,7 +16,7 @@ export class ListWorkspacesRequestTag extends $dara.Model {
    * The tag value.
    * 
    * @example
-   * iPhone disk space remaining rate
+   * iPhone disk space remaining percentage
    */
   value?: string;
   static names(): { [key: string]: string } {
@@ -61,7 +61,7 @@ export class ListWorkspacesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The pagination token that specifies the starting position for the current read operation.
+   * The pagination token that specifies the starting position for the query.
    * 
    * @example
    * 1
@@ -86,11 +86,11 @@ export class ListWorkspacesRequest extends $dara.Model {
   /**
    * @remarks
    * The state of the workspace. Valid values:
-   * - Starting: The workspace is starting.
-   * - Running: The workspace is running.
-   * - Stopping: The workspace is stopping.
-   * - Stopped: The workspace is stopped.
-   * - Error: The workspace has failed.
+   * - Starting: Starting.
+   * - Running: Running.
+   * - Stopping: Stopping.
+   * - Stopped: Stopped.
+   * - Error: Failed.
    * 
    * @example
    * running

@@ -34,7 +34,7 @@ export class GenerateTaskCodesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The detailed description corresponding to the request code.
+   * The detailed description corresponding to the request error code.
    * 
    * @example
    * No permission for resource action
@@ -50,7 +50,7 @@ export class GenerateTaskCodesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

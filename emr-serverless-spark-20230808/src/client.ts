@@ -505,6 +505,10 @@ export default class Client extends OpenApi {
       body["fusion"] = request.fusion;
     }
 
+    if (!$dara.isNull(request.livyReleaseVersion)) {
+      body["livyReleaseVersion"] = request.livyReleaseVersion;
+    }
+
     if (!$dara.isNull(request.livyServerConf)) {
       body["livyServerConf"] = request.livyServerConf;
     }
@@ -844,6 +848,10 @@ export default class Client extends OpenApi {
       body["displayReleaseVersion"] = request.displayReleaseVersion;
     }
 
+    if (!$dara.isNull(request.enableMetricsUpload)) {
+      body["enableMetricsUpload"] = request.enableMetricsUpload;
+    }
+
     if (!$dara.isNull(request.extraParam)) {
       body["extraParam"] = request.extraParam;
     }
@@ -858,6 +866,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.networkServiceName)) {
       body["networkServiceName"] = request.networkServiceName;
+    }
+
+    if (!$dara.isNull(request.slsLogStore)) {
+      body["slsLogStore"] = request.slsLogStore;
+    }
+
+    if (!$dara.isNull(request.slsProject)) {
+      body["slsProject"] = request.slsProject;
     }
 
     if (!$dara.isNull(request.volumeIds)) {
@@ -1128,6 +1144,10 @@ export default class Client extends OpenApi {
       body["paymentType"] = request.paymentType;
     }
 
+    if (!$dara.isNull(request.promotionOptionNo)) {
+      body["promotionOptionNo"] = request.promotionOptionNo;
+    }
+
     if (!$dara.isNull(request.ramRoleName)) {
       body["ramRoleName"] = request.ramRoleName;
     }
@@ -1302,7 +1322,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Kyuubi Gateway authentication token.
+   * Deletes the Kyuubi Gateway authentication token.
    * 
    * @param request - DeleteKyuubiTokenRequest
    * @param headers - map
@@ -1335,7 +1355,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a Kyuubi Gateway authentication token.
+   * Deletes the Kyuubi Gateway authentication token.
    * 
    * @param request - DeleteKyuubiTokenRequest
    * @returns DeleteKyuubiTokenResponse
@@ -1392,7 +1412,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the token of a Livy gateway.
+   * Deletes a Livy Gateway token.
    * 
    * @param request - DeleteLivyComputeTokenRequest
    * @param headers - map
@@ -1425,7 +1445,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the token of a Livy gateway.
+   * Deletes a Livy Gateway token.
    * 
    * @param request - DeleteLivyComputeTokenRequest
    * @returns DeleteLivyComputeTokenResponse
@@ -1517,7 +1537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a workspace queue.
+   * Modifies a workspace queue.
    * 
    * @param request - EditWorkspaceQueueRequest
    * @param headers - map
@@ -1580,7 +1600,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a workspace queue.
+   * Modifies a workspace queue.
    * 
    * @param request - EditWorkspaceQueueRequest
    * @returns EditWorkspaceQueueResponse
@@ -1592,7 +1612,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes a workflow and its scheduling.
+   * Publishes a workflow and its schedule.
    * 
    * @param request - GenerateTaskCodesRequest
    * @param headers - map
@@ -1633,7 +1653,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Publishes a workflow and its scheduling.
+   * Publishes a workflow and its schedule.
    * 
    * @param request - GenerateTaskCodesRequest
    * @returns GenerateTaskCodesResponse
@@ -1684,7 +1704,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Cache cluster.
+   * Retrieves the details of a cache cluster.
    * 
    * @param request - GetCacheClusterRequest
    * @param headers - map
@@ -1717,7 +1737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Cache cluster.
+   * Retrieves the details of a cache cluster.
    * 
    * @param request - GetCacheClusterRequest
    * @returns GetCacheClusterResponse
@@ -1729,7 +1749,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of CU-hours consumed by a queue during a specified cycle.
+   * Retrieves the CU hours of a workspace queue.
    * 
    * @param request - GetCuHoursRequest
    * @param headers - map
@@ -1766,7 +1786,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of CU-hours consumed by a queue during a specified cycle.
+   * Retrieves the CU hours of a workspace queue.
    * 
    * @param request - GetCuHoursRequest
    * @returns GetCuHoursResponse
@@ -1831,7 +1851,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Spark job run by calling GetJobRun.
+   * Retrieves the details of a job run.
    * 
    * @param request - GetJobRunRequest
    * @param headers - map
@@ -1864,7 +1884,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a Spark job run by calling GetJobRun.
+   * Retrieves the details of a job run.
    * 
    * @param request - GetJobRunRequest
    * @returns GetJobRunResponse
@@ -1876,7 +1896,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a Kyuubi Gateway.
+   * Retrieves the Kyuubi Gateway.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1901,7 +1921,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a Kyuubi Gateway.
+   * Retrieves the Kyuubi Gateway.
    * @returns GetKyuubiServiceResponse
    */
   async getKyuubiService(workspaceId: string, kyuubiServiceId: string): Promise<$_model.GetKyuubiServiceResponse> {
@@ -1956,7 +1976,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the Livy Gateway information.
+   * Retrieves the details of a Livy gateway.
    * 
    * @param request - GetLivyComputeRequest
    * @param headers - map
@@ -1989,7 +2009,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the Livy Gateway information.
+   * Retrieves the details of a Livy gateway.
    * 
    * @param request - GetLivyComputeRequest
    * @returns GetLivyComputeResponse
@@ -2001,7 +2021,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the token for a Livy Gateway.
+   * Retrieves the token for the Livy Gateway.
    * 
    * @param request - GetLivyComputeTokenRequest
    * @param headers - map
@@ -2034,7 +2054,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the token for a Livy Gateway.
+   * Retrieves the token for the Livy Gateway.
    * 
    * @param request - GetLivyComputeTokenRequest
    * @returns GetLivyComputeTokenResponse
@@ -2402,7 +2422,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Assigns a specified role to users.
+   * Grants the specified role permissions to users.
    * 
    * @param request - GrantRoleToUsersRequest
    * @param headers - map
@@ -2445,7 +2465,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Assigns a specified role to users.
+   * Grants the specified role permissions to users.
    * 
    * @param request - GrantRoleToUsersRequest
    * @returns GrantRoleToUsersResponse
@@ -2796,7 +2816,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Spark applications submitted by Kyuubi.
+   * Retrieves a list of Spark applications submitted by Kyuubi.
    * 
    * @param tmpReq - ListKyuubiSparkApplicationsRequest
    * @param headers - map
@@ -2868,6 +2888,10 @@ export default class Client extends OpenApi {
       query["states"] = request.states;
     }
 
+    if (!$dara.isNull(request.userName)) {
+      query["userName"] = request.userName;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       headers: headers,
       query: OpenApiUtil.query(query),
@@ -2887,7 +2911,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Spark applications submitted by Kyuubi.
+   * Retrieves a list of Spark applications submitted by Kyuubi.
    * 
    * @param request - ListKyuubiSparkApplicationsRequest
    * @returns ListKyuubiSparkApplicationsResponse
@@ -2993,7 +3017,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the historical sessions of a Livy Gateway.
+   * Retrieves the historical sessions of a Livy gateway.
    * 
    * @param request - ListLivyComputeSessionsRequest
    * @param headers - map
@@ -3034,7 +3058,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the historical sessions of a Livy Gateway.
+   * Retrieves the historical sessions of a Livy gateway.
    * 
    * @param request - ListLivyComputeSessionsRequest
    * @returns ListLivyComputeSessionsResponse
@@ -3046,7 +3070,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the tokens of a Livy gateway.
+   * Lists the tokens of Livy Gateway.
    * 
    * @param request - ListLivyComputeTokenRequest
    * @param headers - map
@@ -3079,7 +3103,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists the tokens of a Livy gateway.
+   * Lists the tokens of Livy Gateway.
    * 
    * @param request - ListLivyComputeTokenRequest
    * @returns ListLivyComputeTokenResponse
@@ -3091,7 +3115,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Log Content
+   * Retrieves the log content.
    * 
    * @param request - ListLogContentsRequest
    * @param headers - map
@@ -3136,7 +3160,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Get Log Content
+   * Retrieves the log content.
    * 
    * @param request - ListLogContentsRequest
    * @returns ListLogContentsResponse
@@ -3148,7 +3172,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of members in a workspace.
+   * Queries the members of a workspace.
    * 
    * @param request - ListMembersRequest
    * @param headers - map
@@ -3189,7 +3213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of members in a workspace.
+   * Queries the members of a workspace.
    * 
    * @param request - ListMembersRequest
    * @returns ListMembersResponse
@@ -3201,7 +3225,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists network connections.
+   * Retrieves a list of network connectivity.
    * 
    * @param request - ListNetworkServicesRequest
    * @param headers - map
@@ -3234,7 +3258,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists network connections.
+   * Retrieves a list of network connectivity.
    * 
    * @param request - ListNetworkServicesRequest
    * @returns ListNetworkServicesResponse
@@ -3476,6 +3500,51 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the list of available regions.
+   * 
+   * @param request - ListRegionsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListRegionsResponse
+   */
+  async listRegionsWithOptions(request: $_model.ListRegionsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListRegionsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.regionId)) {
+      query["regionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListRegions",
+      version: "2023-08-08",
+      protocol: "HTTPS",
+      pathname: `/api/v1/workspaces/action/listRegions`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListRegionsResponse>(await this.callApi(params, req, runtime), new $_model.ListRegionsResponse({}));
+  }
+
+  /**
+   * Retrieves the list of available regions.
+   * 
+   * @param request - ListRegionsRequest
+   * @returns ListRegionsResponse
+   */
+  async listRegions(request: $_model.ListRegionsRequest): Promise<$_model.ListRegionsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listRegionsWithOptions(request, headers, runtime);
+  }
+
+  /**
    * Retrieves a list of release versions.
    * 
    * @param request - ListReleaseVersionsRequest
@@ -3606,7 +3675,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the execution results of an SQL statement.
+   * Retrieves the content of SQL statements.
    * 
    * @param request - ListSqlStatementContentsRequest
    * @param headers - map
@@ -3647,7 +3716,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the execution results of an SQL statement.
+   * Retrieves the content of SQL statements.
    * 
    * @param request - ListSqlStatementContentsRequest
    * @returns ListSqlStatementContentsResponse
@@ -3659,7 +3728,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists job templates.
+   * Retrieves a list of task templates.
    * 
    * @param request - ListTemplateRequest
    * @param headers - map
@@ -3692,7 +3761,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Lists job templates.
+   * Retrieves a list of task templates.
    * 
    * @param request - ListTemplateRequest
    * @returns ListTemplateResponse
@@ -3753,7 +3822,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of workspaces.
+   * Retrieves a list of workspaces.
    * 
    * @param tmpReq - ListWorkspacesRequest
    * @param headers - map
@@ -3816,7 +3885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of workspaces.
+   * Retrieves a list of workspaces.
    * 
    * @param request - ListWorkspacesRequest
    * @returns ListWorkspacesResponse
@@ -3927,7 +3996,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Refreshes the token for a Livy Gateway.
+   * Updates the token of a Livy gateway.
    * 
    * @param request - RefreshLivyComputeTokenRequest
    * @param headers - map
@@ -3974,7 +4043,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Refreshes the token for a Livy Gateway.
+   * Updates the token of a Livy gateway.
    * 
    * @param request - RefreshLivyComputeTokenRequest
    * @returns RefreshLivyComputeTokenResponse
@@ -3986,7 +4055,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Start CacheCluster
+   * Starts a cache cluster.
    * 
    * @param request - StartCacheClusterRequest
    * @param headers - map
@@ -4019,7 +4088,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Start CacheCluster
+   * Starts a cache cluster.
    * 
    * @param request - StartCacheClusterRequest
    * @returns StartCacheClusterResponse
@@ -4031,7 +4100,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a Spark Job.
+   * Starts a Spark job.
    * 
    * @param request - StartJobRunRequest
    * @param headers - map
@@ -4114,7 +4183,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a Spark Job.
+   * Starts a Spark job.
    * 
    * @param request - StartJobRunRequest
    * @returns StartJobRunResponse
@@ -4126,7 +4195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts the Kyuubi Gateway.
+   * Starts Kyuubi Gateway.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4151,7 +4220,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts the Kyuubi Gateway.
+   * Starts Kyuubi Gateway.
    * @returns StartKyuubiServiceResponse
    */
   async startKyuubiService(workspaceId: string, kyuubiServiceId: string): Promise<$_model.StartKyuubiServiceResponse> {
@@ -4161,7 +4230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a Livy gateway.
+   * Starts Livy Gateway.
    * 
    * @param request - StartLivyComputeRequest
    * @param headers - map
@@ -4194,7 +4263,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a Livy gateway.
+   * Starts Livy Gateway.
    * 
    * @param request - StartLivyComputeRequest
    * @returns StartLivyComputeResponse
@@ -4399,7 +4468,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a CacheCluster.
+   * Stops a cache cluster.
    * 
    * @param request - StopCacheClusterRequest
    * @param headers - map
@@ -4432,7 +4501,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a CacheCluster.
+   * Stops a cache cluster.
    * 
    * @param request - StopCacheClusterRequest
    * @returns StopCacheClusterResponse
@@ -4444,7 +4513,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a Kyuubi Gateway.
+   * Stops Kyuubi Gateway.
    * 
    * @param headers - map
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4469,7 +4538,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a Kyuubi Gateway.
+   * Stops Kyuubi Gateway.
    * @returns StopKyuubiServiceResponse
    */
   async stopKyuubiService(workspaceId: string, kyuubiServiceId: string): Promise<$_model.StopKyuubiServiceResponse> {
@@ -4479,7 +4548,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a Livy Gateway.
+   * Stops the Livy Gateway.
    * 
    * @param request - StopLivyComputeRequest
    * @param headers - map
@@ -4512,7 +4581,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a Livy Gateway.
+   * Stops the Livy Gateway.
    * 
    * @param request - StopLivyComputeRequest
    * @returns StopLivyComputeResponse
@@ -4569,7 +4638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a session.
+   * Stops a session cluster.
    * 
    * @param request - StopSessionClusterRequest
    * @param headers - map
@@ -4612,7 +4681,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops a session.
+   * Stops a session cluster.
    * 
    * @param request - StopSessionClusterRequest
    * @returns StopSessionClusterResponse
@@ -4794,7 +4863,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a Kyuubi Gateway.
+   * Updates Kyuubi Gateway.
    * 
    * @param request - UpdateKyuubiServiceRequest
    * @param headers - map
@@ -4806,6 +4875,10 @@ export default class Client extends OpenApi {
     let body : {[key: string ]: any} = { };
     if (!$dara.isNull(request.computeInstance)) {
       body["computeInstance"] = request.computeInstance;
+    }
+
+    if (!$dara.isNull(request.expectedReplica)) {
+      body["expectedReplica"] = request.expectedReplica;
     }
 
     if (!$dara.isNull(request.kyuubiConfigs)) {
@@ -4828,6 +4901,10 @@ export default class Client extends OpenApi {
       body["queue"] = request.queue;
     }
 
+    if (!$dara.isNull(request.refresh)) {
+      body["refresh"] = request.refresh;
+    }
+
     if (!$dara.isNull(request.releaseVersion)) {
       body["releaseVersion"] = request.releaseVersion;
     }
@@ -4838,6 +4915,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.restart)) {
       body["restart"] = request.restart;
+    }
+
+    if (!$dara.isNull(request.scale)) {
+      body["scale"] = request.scale;
     }
 
     if (!$dara.isNull(request.sparkConfigs)) {
@@ -4863,7 +4944,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates a Kyuubi Gateway.
+   * Updates Kyuubi Gateway.
    * 
    * @param request - UpdateKyuubiServiceRequest
    * @returns UpdateKyuubiServiceResponse
@@ -4987,6 +5068,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.fusion)) {
       body["fusion"] = request.fusion;
+    }
+
+    if (!$dara.isNull(request.livyReleaseVersion)) {
+      body["livyReleaseVersion"] = request.livyReleaseVersion;
     }
 
     if (!$dara.isNull(request.livyServerConf)) {
@@ -5202,6 +5287,10 @@ export default class Client extends OpenApi {
       body["displayReleaseVersion"] = request.displayReleaseVersion;
     }
 
+    if (!$dara.isNull(request.enableMetricsUpload)) {
+      body["enableMetricsUpload"] = request.enableMetricsUpload;
+    }
+
     if (!$dara.isNull(request.extraParam)) {
       body["extraParam"] = request.extraParam;
     }
@@ -5216,6 +5305,14 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.networkServiceName)) {
       body["networkServiceName"] = request.networkServiceName;
+    }
+
+    if (!$dara.isNull(request.slsLogStore)) {
+      body["slsLogStore"] = request.slsLogStore;
+    }
+
+    if (!$dara.isNull(request.slsProject)) {
+      body["slsProject"] = request.slsProject;
     }
 
     if (!$dara.isNull(request.volumeIds)) {

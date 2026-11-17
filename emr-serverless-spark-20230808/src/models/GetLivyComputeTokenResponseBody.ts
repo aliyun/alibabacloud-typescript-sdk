@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetLivyComputeTokenResponseBodyDataAutoExpireConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the token expires automatically. Valid values:
+   * Indicates whether the token automatically expires. Valid values:
    * - true: Yes.
    * - false: No.
    * 
@@ -15,7 +15,7 @@ export class GetLivyComputeTokenResponseBodyDataAutoExpireConfiguration extends 
   enable?: boolean;
   /**
    * @remarks
-   * The expiration period in days.
+   * The expiration time in days.
    * 
    * @example
    * 7
@@ -47,7 +47,7 @@ export class GetLivyComputeTokenResponseBodyDataAutoExpireConfiguration extends 
 export class GetLivyComputeTokenResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The token expiration configuration struct.
+   * The token expiration information struct.
    */
   autoExpireConfiguration?: GetLivyComputeTokenResponseBodyDataAutoExpireConfiguration;
   /**
@@ -76,7 +76,7 @@ export class GetLivyComputeTokenResponseBodyData extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The last used time. The value is a UNIX timestamp in milliseconds.
+   * The time when the token was last used. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1749456098000
@@ -100,7 +100,7 @@ export class GetLivyComputeTokenResponseBodyData extends $dara.Model {
   token?: string;
   /**
    * @remarks
-   * Token ID。
+   * The token ID.
    * 
    * @example
    * lctk-xxxxxxxxxx
@@ -147,7 +147,7 @@ export class GetLivyComputeTokenResponseBodyData extends $dara.Model {
 export class GetLivyComputeTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code of the request. A value of 1000000 indicates that the request succeeded. Other values indicate that the request failed. For details about the error, see the message field.
+   * The response code. A value of 1000000 indicates that the request was successful. Other values indicate that the request failed. For details about the error, see the message.
    * 
    * @example
    * 1000000

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLivyComputeSessionsResponseBodySessions extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Livy Gateway.
+   * The ID of the Livy gateway.
    * 
    * @example
    * lc-xxxxxx
@@ -45,7 +45,7 @@ export class ListLivyComputeSessionsResponseBodySessions extends $dara.Model {
   info?: string;
   /**
    * @remarks
-   * The total amount of memory allocated to the job multiplied by the number of seconds the job has run.
+   * The total amount of memory allocated to the job multiplied by the running time of the job in seconds.
    * 
    * @example
    * 1098888
@@ -69,7 +69,7 @@ export class ListLivyComputeSessionsResponseBodySessions extends $dara.Model {
   queue?: string;
   /**
    * @remarks
-   * The ID of the Livy Gateway session.
+   * The ID of the Livy gateway session.
    * 
    * @example
    * livy-xxxxxx
@@ -95,7 +95,7 @@ export class ListLivyComputeSessionsResponseBodySessions extends $dara.Model {
    * - running: Running.
    * - terminating: Terminating.
    * - terminated: Terminated.
-   * - error: Error.
+   * - error: Failed.
    * 
    * @example
    * running
@@ -103,7 +103,7 @@ export class ListLivyComputeSessionsResponseBodySessions extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The total number of vcores allocated to the job multiplied by the number of seconds the job has run.
+   * The total number of vcores allocated to the job multiplied by the running time of the job in seconds.
    * 
    * @example
    * 343
@@ -111,7 +111,7 @@ export class ListLivyComputeSessionsResponseBodySessions extends $dara.Model {
   vcoreSeconds?: number;
   /**
    * @remarks
-   * The web UI address of the session.
+   * The web UI URL of the session.
    * 
    * @example
    * http://emr-spark-ui-cn-hangzhou.data.aliyun.com

@@ -35,7 +35,7 @@ export class UpdateWorkspaceResponseBodyData extends $dara.Model {
 export class UpdateWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: UpdateWorkspaceResponseBodyData;
   /**

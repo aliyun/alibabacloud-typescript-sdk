@@ -2,6 +2,33 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class ListWorkspacesResponseBodyWorkspacesFeatures extends $dara.Model {
+  /**
+   * @remarks
+   * Indicates whether fine-grained access control is enabled for the workspace.
+   */
+  fineGrainedAuthz?: boolean;
+  static names(): { [key: string]: string } {
+    return {
+      fineGrainedAuthz: 'fineGrainedAuthz',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      fineGrainedAuthz: 'boolean',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListWorkspacesResponseBodyWorkspacesPrePaidQuota extends $dara.Model {
   /**
    * @remarks
@@ -15,7 +42,7 @@ export class ListWorkspacesResponseBodyWorkspacesPrePaidQuota extends $dara.Mode
    * @remarks
    * Specifies whether auto-renewal is enabled for the resource. Valid values:
    * - true: Auto-renewal is enabled. The resource is automatically renewed upon expiration.
-   * - false: Auto-renewal is disabled. The resource stops working upon expiration.
+   * - false: Auto-renewal is disabled. The resource is stopped upon expiration.
    * 
    * @example
    * true
@@ -31,7 +58,7 @@ export class ListWorkspacesResponseBodyWorkspacesPrePaidQuota extends $dara.Mode
   createTime?: number;
   /**
    * @remarks
-   * The time when the resource quota expires. The value is a UNIX timestamp in milliseconds.
+   * The expiration time of the resource quota. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1740537153000
@@ -144,7 +171,7 @@ export class ListWorkspacesResponseBodyWorkspacesPrePaidQuotaGpu extends $dara.M
   createTime?: number;
   /**
    * @remarks
-   * The time when the GPU subscription quota expires. The value is a UNIX timestamp in milliseconds.
+   * The expiration time of the GPU subscription quota. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1782292772000
@@ -184,7 +211,7 @@ export class ListWorkspacesResponseBodyWorkspacesPrePaidQuotaGpu extends $dara.M
   gpuNum?: number;
   /**
    * @remarks
-   * The GPU instance type.
+   * The GPU model.
    * 
    * @example
    * ecs.gn7i-c8g1.2xlarge
@@ -386,7 +413,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   autoRenewPeriod?: number;
   /**
    * @remarks
-   * The auto-renewal cycle. This parameter is required for the subscription billing method.
+   * The auto-renewal epoch. This parameter is required for the subscription billing method.
    * 
    * @example
    * YEAR, MONTH, WEEK, DAY, HOUR, MINUTE
@@ -418,7 +445,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   dlfType?: string;
   /**
    * @remarks
-   * The length of the subscription period. This parameter is required for the subscription billing method.
+   * The duration of the subscription period. This parameter is required for the subscription billing method.
    * 
    * @example
    * 1
@@ -434,7 +461,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The cause of the failure.
+   * The reason for the failure.
    * 
    * @example
    * out of stock
@@ -442,12 +469,17 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   failReason?: string;
   /**
    * @remarks
+   * The workspace features.
+   */
+  features?: ListWorkspacesResponseBodyWorkspacesFeatures;
+  /**
+   * @remarks
    * The list of GPU instance types.
    */
   gpuSpec?: string[];
   /**
    * @remarks
-   * The IP whitelist of the workspace.
+   * The workspace IP whitelist.
    */
   ipWhiteList?: string[];
   /**
@@ -547,7 +579,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
    * The name of the workspace.
    * 
    * @example
-   * spark-batch-job-workspace-1
+   * Spark batch job workspace-1
    */
   workspaceName?: string;
   /**
@@ -569,6 +601,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
       duration: 'duration',
       endTime: 'endTime',
       failReason: 'failReason',
+      features: 'features',
       gpuSpec: 'gpuSpec',
       ipWhiteList: 'ipWhiteList',
       paymentDurationUnit: 'paymentDurationUnit',
@@ -600,6 +633,7 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
       duration: 'number',
       endTime: 'number',
       failReason: 'string',
+      features: ListWorkspacesResponseBodyWorkspacesFeatures,
       gpuSpec: { 'type': 'array', 'itemType': 'string' },
       ipWhiteList: { 'type': 'array', 'itemType': 'string' },
       paymentDurationUnit: 'string',
@@ -621,6 +655,9 @@ export class ListWorkspacesResponseBodyWorkspaces extends $dara.Model {
   }
 
   validate() {
+    if(this.features && typeof (this.features as any).validate === 'function') {
+      (this.features as any).validate();
+    }
     if(Array.isArray(this.gpuSpec)) {
       $dara.Model.validateArray(this.gpuSpec);
     }
@@ -658,7 +695,7 @@ export class ListWorkspacesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The next token.
+   * The token for the next page.
    * 
    * @example
    * 1

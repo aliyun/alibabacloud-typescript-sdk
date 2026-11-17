@@ -13,7 +13,7 @@ export class ListMembersResponseBodyMembersActions extends $dara.Model {
   actionArn?: string;
   /**
    * @remarks
-   * The name of the action.
+   * The name of the permission.
    * 
    * @example
    * add
@@ -86,7 +86,7 @@ export class ListMembersResponseBodyMembersRolesActions extends $dara.Model {
   actionArn?: string;
   /**
    * @remarks
-   * The name of the action.
+   * The name of the permission.
    * 
    * @example
    * add
@@ -242,7 +242,7 @@ export class ListMembersResponseBodyMembers extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * The ARN of the member.
+   * The ARN of the user.
    * 
    * @example
    * acs:emr::w-1234****abcd:member/202265*****276
@@ -263,7 +263,7 @@ export class ListMembersResponseBodyMembers extends $dara.Model {
   userName?: string;
   /**
    * @remarks
-   * The type of the user. Valid values:
+   * The user type.
    * - ROLE
    * - MEMBER
    * 
@@ -323,7 +323,7 @@ export class ListMembersResponseBodyMembers extends $dara.Model {
 export class ListMembersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of records to return per request.
+   * The maximum number of records to return in a single request.
    * 
    * @example
    * 20
@@ -344,7 +344,7 @@ export class ListMembersResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****

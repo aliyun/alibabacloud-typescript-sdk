@@ -99,6 +99,11 @@ export class UpdateRayClusterRequestHeadSpec extends $dara.Model {
    */
   gftEnabled?: boolean;
   /**
+   * @example
+   * 550
+   */
+  gpuDriverVersion?: string;
+  /**
    * @remarks
    * The GPU instance type.
    * 
@@ -146,6 +151,7 @@ export class UpdateRayClusterRequestHeadSpec extends $dara.Model {
       env: 'env',
       gftConfig: 'gftConfig',
       gftEnabled: 'gftEnabled',
+      gpuDriverVersion: 'gpuDriverVersion',
       gpuSpec: 'gpuSpec',
       idleTimeoutSeconds: 'idleTimeoutSeconds',
       memory: 'memory',
@@ -162,6 +168,7 @@ export class UpdateRayClusterRequestHeadSpec extends $dara.Model {
       env: 'string',
       gftConfig: UpdateRayClusterRequestHeadSpecGftConfig,
       gftEnabled: 'boolean',
+      gpuDriverVersion: 'string',
       gpuSpec: 'string',
       idleTimeoutSeconds: 'number',
       memory: 'string',
@@ -207,6 +214,11 @@ export class UpdateRayClusterRequestWorkerSpec extends $dara.Model {
    * MY_ENV=123456
    */
   env?: string;
+  /**
+   * @example
+   * 550
+   */
+  gpuDriverVersion?: string;
   /**
    * @remarks
    * The GPU instance type.
@@ -284,6 +296,7 @@ export class UpdateRayClusterRequestWorkerSpec extends $dara.Model {
       cpu: 'cpu',
       displayReleaseVersion: 'displayReleaseVersion',
       env: 'env',
+      gpuDriverVersion: 'gpuDriverVersion',
       gpuSpec: 'gpuSpec',
       groupName: 'groupName',
       maxReplica: 'maxReplica',
@@ -301,6 +314,7 @@ export class UpdateRayClusterRequestWorkerSpec extends $dara.Model {
       cpu: 'string',
       displayReleaseVersion: 'string',
       env: 'string',
+      gpuDriverVersion: 'string',
       gpuSpec: 'string',
       groupName: 'string',
       maxReplica: 'number',
@@ -339,6 +353,7 @@ export class UpdateRayClusterRequest extends $dara.Model {
    * ray-1.0.0 (Ray 2.47.1, Python 3.12)
    */
   displayReleaseVersion?: string;
+  enableMetricsUpload?: boolean;
   /**
    * @remarks
    * The extra parameters. The value must be in JSON format.
@@ -369,6 +384,16 @@ export class UpdateRayClusterRequest extends $dara.Model {
    */
   networkServiceName?: string;
   /**
+   * @example
+   * myLogStore
+   */
+  slsLogStore?: string;
+  /**
+   * @example
+   * myproject
+   */
+  slsProject?: string;
+  /**
    * @remarks
    * The list of managed directory IDs to mount.
    */
@@ -382,10 +407,13 @@ export class UpdateRayClusterRequest extends $dara.Model {
     return {
       description: 'description',
       displayReleaseVersion: 'displayReleaseVersion',
+      enableMetricsUpload: 'enableMetricsUpload',
       extraParam: 'extraParam',
       headSpec: 'headSpec',
       name: 'name',
       networkServiceName: 'networkServiceName',
+      slsLogStore: 'slsLogStore',
+      slsProject: 'slsProject',
       volumeIds: 'volumeIds',
       workerSpec: 'workerSpec',
     };
@@ -395,10 +423,13 @@ export class UpdateRayClusterRequest extends $dara.Model {
     return {
       description: 'string',
       displayReleaseVersion: 'string',
+      enableMetricsUpload: 'boolean',
       extraParam: 'string',
       headSpec: UpdateRayClusterRequestHeadSpec,
       name: 'string',
       networkServiceName: 'string',
+      slsLogStore: 'string',
+      slsProject: 'string',
       volumeIds: { 'type': 'array', 'itemType': 'string' },
       workerSpec: { 'type': 'array', 'itemType': UpdateRayClusterRequestWorkerSpec },
     };

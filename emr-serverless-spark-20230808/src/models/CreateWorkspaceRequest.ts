@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkspaceRequestResourceSpec extends $dara.Model {
   /**
    * @remarks
-   * The resource limit of the workspace.
+   * The maximum resource limit for the workspace.
    * 
    * @example
    * 1000
@@ -93,7 +93,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
   autoRenew?: string;
   /**
    * @remarks
-   * The auto-renewal period. This parameter is required when the paymentType parameter is set to Pre.
+   * The auto-renewal duration. This parameter is required when the paymentType parameter is set to Pre.
    * 
    * @example
    * 100
@@ -101,7 +101,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
   autoRenewPeriod?: string;
   /**
    * @remarks
-   * The auto-renewal epoch. This parameter is required when the paymentType parameter is set to Pre.
+   * The auto-renewal cycle. This parameter is required when the paymentType parameter is set to Pre.
    * 
    * @example
    * month
@@ -117,7 +117,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
   autoStartSessionCluster?: boolean;
   /**
    * @remarks
-   * The client token for idempotence verification.
+   * The client token used to ensure the idempotence of the request.
    * 
    * @example
    * 8e6aae2810c8f67229ca70bb31cd****
@@ -162,7 +162,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
   ossBucket?: string;
   /**
    * @remarks
-   * The subscription period unit.
+   * The unit of the subscription period.
    * 
    * @example
    * 1000
@@ -179,6 +179,14 @@ export class CreateWorkspaceRequest extends $dara.Model {
    * PayAsYouGo
    */
   paymentType?: string;
+  /**
+   * @remarks
+   * Supported only for subscription instances. Use the voucher option ID returned by the price inquiry API. To not use a voucher, pass youhuiquan_promotion_option_id_for_blank. If this parameter is omitted, the previous calling behavior is maintained.
+   * 
+   * @example
+   * youhuiquan_promotion_option_id_for_blank
+   */
+  promotionOptionNo?: string;
   /**
    * @remarks
    * The name of the RAM role used to execute Spark jobs.
@@ -246,6 +254,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
       ossBucket: 'ossBucket',
       paymentDurationUnit: 'paymentDurationUnit',
       paymentType: 'paymentType',
+      promotionOptionNo: 'promotionOptionNo',
       ramRoleName: 'ramRoleName',
       releaseType: 'releaseType',
       resourceGroupId: 'resourceGroupId',
@@ -270,6 +279,7 @@ export class CreateWorkspaceRequest extends $dara.Model {
       ossBucket: 'string',
       paymentDurationUnit: 'string',
       paymentType: 'string',
+      promotionOptionNo: 'string',
       ramRoleName: 'string',
       releaseType: 'string',
       resourceGroupId: 'string',

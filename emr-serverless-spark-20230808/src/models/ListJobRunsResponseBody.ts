@@ -81,11 +81,11 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
    * @remarks
    * The code type of the job. Valid values:
    * 
-   * - SQL
+   * SQL
    * 
-   * - JAR
+   * JAR
    * 
-   * - PYTHON
+   * PYTHON.
    * 
    * @example
    * SQL
@@ -98,7 +98,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   configurationOverrides?: ListJobRunsResponseBodyJobRunsConfigurationOverrides;
   /**
    * @remarks
-   * The UID of the creator.
+   * The UID of the user who created the job.
    * 
    * @example
    * 150978934701****
@@ -106,7 +106,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The number of compute units (CUs) consumed during the job run. This value is an estimate and the final value is subject to the bill.
+   * The number of compute units (CUs) consumed during the job run. This value is an estimate. The actual value is subject to the bill.
    * 
    * @example
    * 2.059
@@ -136,6 +136,14 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
    * 3600
    */
   executionTimeoutSeconds?: number;
+  /**
+   * @remarks
+   * The timestamp in milliseconds when the resources are ready, which is the first report time. If the first report time is empty, the job report time is used. If both are empty, null is returned.
+   * 
+   * @example
+   * 1684119314000
+   */
+  firstReportTime?: number;
   /**
    * @remarks
    * Specifies whether Fusion engine acceleration is enabled.
@@ -204,6 +212,22 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
   resourceQueueId?: string;
   /**
    * @remarks
+   * The resource startup duration in milliseconds. It is calculated by subtracting the first submission time from the resource ready time. If the first submission time or the resource ready time is missing, or if the calculation result is negative, null is returned instead of 0.
+   * 
+   * @example
+   * 60000
+   */
+  resourceStartupDurationMs?: number;
+  /**
+   * @remarks
+   * The job run duration in milliseconds. It is calculated by subtracting the resource ready time from the job end time. If the job has not ended, the current time is used. If the resource ready time is missing, or if the calculation result is negative, null is returned instead of 0.
+   * 
+   * @example
+   * 120000
+   */
+  runDurationMs?: number;
+  /**
+   * @remarks
    * The states of the job runs.
    * 
    * @example
@@ -261,6 +285,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
       displayReleaseVersion: 'displayReleaseVersion',
       endTime: 'endTime',
       executionTimeoutSeconds: 'executionTimeoutSeconds',
+      firstReportTime: 'firstReportTime',
       fusion: 'fusion',
       jobDriver: 'jobDriver',
       jobRunId: 'jobRunId',
@@ -270,6 +295,8 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
       priority: 'priority',
       releaseVersion: 'releaseVersion',
       resourceQueueId: 'resourceQueueId',
+      resourceStartupDurationMs: 'resourceStartupDurationMs',
+      runDurationMs: 'runDurationMs',
       state: 'state',
       stateChangeReason: 'stateChangeReason',
       submitTime: 'submitTime',
@@ -289,6 +316,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
       displayReleaseVersion: 'string',
       endTime: 'number',
       executionTimeoutSeconds: 'number',
+      firstReportTime: 'number',
       fusion: 'boolean',
       jobDriver: JobDriver,
       jobRunId: 'string',
@@ -298,6 +326,8 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
       priority: 'string',
       releaseVersion: 'string',
       resourceQueueId: 'string',
+      resourceStartupDurationMs: 'number',
+      runDurationMs: 'number',
       state: 'string',
       stateChangeReason: ListJobRunsResponseBodyJobRunsStateChangeReason,
       submitTime: 'number',
@@ -335,7 +365,7 @@ export class ListJobRunsResponseBodyJobRuns extends $dara.Model {
 export class ListJobRunsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The statistical results aggregated by job status.
+   * The statistical results aggregated by job state.
    * 
    * @example
    * {"Success":"2"}
@@ -356,7 +386,7 @@ export class ListJobRunsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that indicates the position of the next data record to be read.
+   * The position of the data read.
    * 
    * @example
    * 1

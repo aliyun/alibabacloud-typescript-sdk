@@ -35,7 +35,7 @@ export class CreateLivyComputeResponseBodyData extends $dara.Model {
 export class CreateLivyComputeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 1000000 indicates that the request is successful. Other values indicate that the request failed. For detailed error causes, refer to the message.
+   * The response code. A value of 1000000 indicates a successful request. Any other value indicates a failed request. For detailed error causes, refer to the message.
    * 
    * @example
    * 1000000
@@ -43,7 +43,7 @@ export class CreateLivyComputeResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The response data.
+   * The returned data.
    */
   data?: CreateLivyComputeResponseBodyData;
   /**

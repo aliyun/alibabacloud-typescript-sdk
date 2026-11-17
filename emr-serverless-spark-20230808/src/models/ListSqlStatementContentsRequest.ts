@@ -13,7 +13,7 @@ export class ListSqlStatementContentsRequest extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * The maximum number of records to return for a single request.
+   * The maximum number of records to retrieve at a time.
    * 
    * @example
    * 2000
@@ -21,7 +21,7 @@ export class ListSqlStatementContentsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token that specifies the position from which to start reading the results.
+   * The token that indicates the starting position for reading.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GrantRoleToUsersRequest extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud Resource Name (ARN) of the RAM role.
+   * The ARN of the role.
    * 
    * @example
    * acs:emr::w-975bcfda9625****:role/Owner
@@ -13,7 +13,7 @@ export class GrantRoleToUsersRequest extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
-   * The user ARNs.
+   * The list of user ARNs.
    */
   userArns?: string[];
   /**

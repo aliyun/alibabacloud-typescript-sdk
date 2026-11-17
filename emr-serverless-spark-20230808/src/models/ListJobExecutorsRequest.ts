@@ -21,7 +21,7 @@ export class ListJobExecutorsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results.
+   * The next token.
    * 
    * @example
    * 2

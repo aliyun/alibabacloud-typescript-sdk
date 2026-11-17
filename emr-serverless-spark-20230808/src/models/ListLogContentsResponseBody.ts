@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListLogContentsResponseBodyListLogContentContents extends $dara.Model {
   /**
    * @remarks
-   * Log line content.
+   * The content of the log line.
    * 
    * @example
    * spark pi is 3.14\\n
@@ -35,12 +35,12 @@ export class ListLogContentsResponseBodyListLogContentContents extends $dara.Mod
 export class ListLogContentsResponseBodyListLogContent extends $dara.Model {
   /**
    * @remarks
-   * List of log line contents.
+   * The list of log lines.
    */
   contents?: ListLogContentsResponseBodyListLogContentContents[];
   /**
    * @remarks
-   * Total number of log lines.
+   * The total number of log lines.
    * 
    * @example
    * 10
@@ -75,7 +75,7 @@ export class ListLogContentsResponseBodyListLogContent extends $dara.Model {
 export class ListLogContentsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Log content.
+   * The log content.
    */
   listLogContent?: ListLogContentsResponseBodyListLogContent;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListJobExecutorsResponseBodyExexutors extends $dara.Model {
   /**
    * @remarks
-   * The total number of active tasks that the executor is running.
+   * The total number of active tasks running on the executor.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class ListJobExecutorsResponseBodyExexutors extends $dara.Model {
   activeTasks?: number;
   /**
    * @remarks
-   * The time when the executor was created.
+   * The creation time of the executor.
    * 
    * @example
    * 1760601***
@@ -21,7 +21,7 @@ export class ListJobExecutorsResponseBodyExexutors extends $dara.Model {
   addTime?: number;
   /**
    * @remarks
-   * The total number of completed tasks that the executor has run.
+   * The total number of tasks completed by the executor.
    * 
    * @example
    * 8
@@ -53,7 +53,7 @@ export class ListJobExecutorsResponseBodyExexutors extends $dara.Model {
   executorType?: string;
   /**
    * @remarks
-   * The total number of failed tasks that the executor has run.
+   * The total number of failed tasks executed by the executor.
    * 
    * @example
    * 2
@@ -61,7 +61,7 @@ export class ListJobExecutorsResponseBodyExexutors extends $dara.Model {
   failedTasks?: number;
   /**
    * @remarks
-   * The address of the executor.
+   * The address information of the executor.
    * 
    * @example
    * 21.10.x.x:1201x
@@ -93,7 +93,7 @@ export class ListJobExecutorsResponseBodyExexutors extends $dara.Model {
   memoryUsed?: number;
   /**
    * @remarks
-   * The number of Resilient Distributed Dataset (RDD) blocks managed by the executor.
+   * The number of RDD blocks managed by the executor.
    * 
    * @example
    * 10
@@ -109,7 +109,7 @@ export class ListJobExecutorsResponseBodyExexutors extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The total number of cores for the executor.
+   * The total number of cores of the executor.
    * 
    * @example
    * 4
@@ -117,7 +117,7 @@ export class ListJobExecutorsResponseBodyExexutors extends $dara.Model {
   totalCores?: number;
   /**
    * @remarks
-   * The total runtime of the executor.
+   * The total running duration of the executor.
    * 
    * @example
    * 123
@@ -125,7 +125,7 @@ export class ListJobExecutorsResponseBodyExexutors extends $dara.Model {
   totalDuration?: number;
   /**
    * @remarks
-   * The total garbage collection (GC) time of the executor.
+   * The total GC time of the executor.
    * 
    * @example
    * 3
@@ -133,7 +133,7 @@ export class ListJobExecutorsResponseBodyExexutors extends $dara.Model {
   totalGCTime?: number;
   /**
    * @remarks
-   * The number of bytes of input data for the executor.
+   * The total number of input bytes for the executor.
    * 
    * @example
    * 1024
@@ -141,7 +141,7 @@ export class ListJobExecutorsResponseBodyExexutors extends $dara.Model {
   totalInputBytes?: number;
   /**
    * @remarks
-   * The number of bytes read during the shuffle phase by the executor.
+   * The total number of shuffle read bytes for the executor.
    * 
    * @example
    * 2048
@@ -149,7 +149,7 @@ export class ListJobExecutorsResponseBodyExexutors extends $dara.Model {
   totalShuffleRead?: number;
   /**
    * @remarks
-   * The number of bytes written during the shuffle phase by the executor.
+   * The total number of shuffle write bytes for the executor.
    * 
    * @example
    * 2048
@@ -157,7 +157,7 @@ export class ListJobExecutorsResponseBodyExexutors extends $dara.Model {
   totalShuffleWrite?: number;
   /**
    * @remarks
-   * The total number of tasks that the executor has run.
+   * The total number of tasks executed by the executor.
    * 
    * @example
    * 50
@@ -240,7 +240,7 @@ export class ListJobExecutorsResponseBody extends $dara.Model {
   exexutors?: ListJobExecutorsResponseBodyExexutors[];
   /**
    * @remarks
-   * The maximum number of records returned.
+   * The maximum number of records to return in a single request.
    * 
    * @example
    * 20
@@ -248,7 +248,7 @@ export class ListJobExecutorsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page of results.
+   * The next token.
    * 
    * @example
    * 2
@@ -256,7 +256,7 @@ export class ListJobExecutorsResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * DD6B1B2A-5837-5237-ABE4-FF0C8944****

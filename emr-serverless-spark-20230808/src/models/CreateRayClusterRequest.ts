@@ -63,7 +63,7 @@ export class CreateRayClusterRequestHeadSpec extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * The database engine version of the Ray DPI engine.
+   * The Ray database engine version.
    * 
    * @example
    * ray-1.2.0 (Ray 2.55.1, Python 3.12)
@@ -92,12 +92,20 @@ export class CreateRayClusterRequestHeadSpec extends $dara.Model {
   gftConfig?: CreateRayClusterRequestHeadSpecGftConfig;
   /**
    * @remarks
-   * Specifies whether to enable GCS fault tolerance.
+   * Specifies whether to enable Global Control Store (GCS) fault tolerance.
    * 
    * **if can be null:**
    * true
    */
   gftEnabled?: boolean;
+  /**
+   * @remarks
+   * The GPU driver version.
+   * 
+   * @example
+   * 550
+   */
+  gpuDriverVersion?: string;
   /**
    * @remarks
    * The GPU instance type.
@@ -108,7 +116,7 @@ export class CreateRayClusterRequestHeadSpec extends $dara.Model {
   gpuSpec?: string;
   /**
    * @remarks
-   * The idle timeout period for worker nodes after auto-scaling is enabled.
+   * The idle timeout for worker nodes after auto-scaling is enabled.
    * 
    * @example
    * 60
@@ -116,7 +124,7 @@ export class CreateRayClusterRequestHeadSpec extends $dara.Model {
   idleTimeoutSeconds?: number;
   /**
    * @remarks
-   * The memory size. Unit: Gi.
+   * The memory size. Unit: GiB.
    * 
    * @example
    * 8Gi
@@ -146,6 +154,7 @@ export class CreateRayClusterRequestHeadSpec extends $dara.Model {
       env: 'env',
       gftConfig: 'gftConfig',
       gftEnabled: 'gftEnabled',
+      gpuDriverVersion: 'gpuDriverVersion',
       gpuSpec: 'gpuSpec',
       idleTimeoutSeconds: 'idleTimeoutSeconds',
       memory: 'memory',
@@ -162,6 +171,7 @@ export class CreateRayClusterRequestHeadSpec extends $dara.Model {
       env: 'string',
       gftConfig: CreateRayClusterRequestHeadSpecGftConfig,
       gftEnabled: 'boolean',
+      gpuDriverVersion: 'string',
       gpuSpec: 'string',
       idleTimeoutSeconds: 'number',
       memory: 'string',
@@ -193,7 +203,7 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * The engine name. If you do not specify this parameter, the value is the same as that of the head node.
+   * The engine name. If you do not specify this parameter, it is the same as that of the head node.
    * 
    * @example
    * ray-1.2.0 (Ray 2.55.1, Python 3.12)
@@ -207,6 +217,14 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
    * MY_ENV=hello\\nMY_ENV2=hello2
    */
   env?: string;
+  /**
+   * @remarks
+   * The GPU driver version.
+   * 
+   * @example
+   * 550
+   */
+  gpuDriverVersion?: string;
   /**
    * @remarks
    * The GPU instance type.
@@ -225,7 +243,7 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The maximum number of worker nodes after auto-scaling is enabled. Minimum value: 1.
+   * The maximum number of workers after auto-scaling is enabled. Minimum value: 1.
    * 
    * @example
    * 10
@@ -233,7 +251,7 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
   maxReplica?: number;
   /**
    * @remarks
-   * The memory size. Unit: Gi.
+   * The memory size. Unit: GiB.
    * 
    * @example
    * 16Gi
@@ -241,7 +259,7 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
   memory?: string;
   /**
    * @remarks
-   * The minimum number of worker nodes after auto-scaling is enabled. Minimum value: 1. The value must be less than or equal to the value of maxReplica.
+   * The minimum number of workers after auto-scaling is enabled. Minimum value: 1. The value must be less than or equal to maxReplica.
    * 
    * @example
    * 1
@@ -265,7 +283,7 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
   rayStartParams?: string;
   /**
    * @remarks
-   * The number of worker nodes. Minimum value: 1.
+   * The number of workers. Minimum value: 1.
    * 
    * @example
    * 2
@@ -273,7 +291,7 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
   replica?: number;
   /**
    * @remarks
-   * The type of the worker node.
+   * The worker type.
    * 
    * @example
    * CPU
@@ -284,6 +302,7 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
       cpu: 'cpu',
       displayReleaseVersion: 'displayReleaseVersion',
       env: 'env',
+      gpuDriverVersion: 'gpuDriverVersion',
       gpuSpec: 'gpuSpec',
       groupName: 'groupName',
       maxReplica: 'maxReplica',
@@ -301,6 +320,7 @@ export class CreateRayClusterRequestWorkerSpec extends $dara.Model {
       cpu: 'string',
       displayReleaseVersion: 'string',
       env: 'string',
+      gpuDriverVersion: 'string',
       gpuSpec: 'string',
       groupName: 'string',
       maxReplica: 'number',
@@ -333,12 +353,17 @@ export class CreateRayClusterRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The database engine version of the Ray DPI engine.
+   * The Ray database engine version.
    * 
    * @example
    * ray-1.0.0 (Ray 2.47.1, Python 3.12)
    */
   displayReleaseVersion?: string;
+  /**
+   * @remarks
+   * Specifies whether to upload metrics.
+   */
+  enableMetricsUpload?: boolean;
   /**
    * @remarks
    * The extra parameters. The value must be in JSON format.
@@ -370,22 +395,41 @@ export class CreateRayClusterRequest extends $dara.Model {
   networkServiceName?: string;
   /**
    * @remarks
-   * The IDs of the managed directories to be mounted.
+   * The SLS Logstore for uploading metrics.
+   * 
+   * @example
+   * myLogStore
+   */
+  slsLogStore?: string;
+  /**
+   * @remarks
+   * The SLS project for uploading metrics.
+   * 
+   * @example
+   * mySLSProject
+   */
+  slsProject?: string;
+  /**
+   * @remarks
+   * The IDs of the managed directories to mount.
    */
   volumeIds?: string[];
   /**
    * @remarks
-   * The worker node parameters of the Ray cluster. You can configure up to 50 worker node groups.
+   * The worker node parameters of the Ray cluster. You can configure up to 50 groups.
    */
   workerSpec?: CreateRayClusterRequestWorkerSpec[];
   static names(): { [key: string]: string } {
     return {
       description: 'description',
       displayReleaseVersion: 'displayReleaseVersion',
+      enableMetricsUpload: 'enableMetricsUpload',
       extraParam: 'extraParam',
       headSpec: 'headSpec',
       name: 'name',
       networkServiceName: 'networkServiceName',
+      slsLogStore: 'slsLogStore',
+      slsProject: 'slsProject',
       volumeIds: 'volumeIds',
       workerSpec: 'workerSpec',
     };
@@ -395,10 +439,13 @@ export class CreateRayClusterRequest extends $dara.Model {
     return {
       description: 'string',
       displayReleaseVersion: 'string',
+      enableMetricsUpload: 'boolean',
       extraParam: 'string',
       headSpec: CreateRayClusterRequestHeadSpec,
       name: 'string',
       networkServiceName: 'string',
+      slsLogStore: 'string',
+      slsProject: 'string',
       volumeIds: { 'type': 'array', 'itemType': 'string' },
       workerSpec: { 'type': 'array', 'itemType': CreateRayClusterRequestWorkerSpec },
     };

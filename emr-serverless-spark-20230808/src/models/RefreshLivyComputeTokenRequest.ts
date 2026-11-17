@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class RefreshLivyComputeTokenRequestAutoExpireConfiguration extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether the token automatically expires.
-   * 
-   * - true: The token automatically expires.
-   * 
-   * - false: The token does not automatically expire.
+   * Specifies whether the token automatically expires. Valid values:
+   * - true: Yes.
+   * - false: No.
    * 
    * @example
    * false
@@ -17,7 +15,7 @@ export class RefreshLivyComputeTokenRequestAutoExpireConfiguration extends $dara
   enable?: boolean;
   /**
    * @remarks
-   * The expiration period in days.
+   * The expiration time in days.
    * 
    * @example
    * 7
@@ -49,7 +47,7 @@ export class RefreshLivyComputeTokenRequestAutoExpireConfiguration extends $dara
 export class RefreshLivyComputeTokenRequest extends $dara.Model {
   /**
    * @remarks
-   * The information about token expiration.
+   * The token expiration information struct.
    */
   autoExpireConfiguration?: RefreshLivyComputeTokenRequestAutoExpireConfiguration;
   /**
@@ -62,7 +60,7 @@ export class RefreshLivyComputeTokenRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The token must be 16 or more characters in length.
+   * The token content. The length must be at least 16.
    * 
    * @example
    * fe86812667f04v343

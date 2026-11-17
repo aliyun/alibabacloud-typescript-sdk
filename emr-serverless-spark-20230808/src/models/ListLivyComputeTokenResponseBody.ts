@@ -29,7 +29,7 @@ export class ListLivyComputeTokenResponseBodyDataTokens extends $dara.Model {
   expireTime?: number;
   /**
    * @remarks
-   * The time when the token was last used. The value is a UNIX timestamp in milliseconds.
+   * The last used time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1749456098000
@@ -125,7 +125,7 @@ export class ListLivyComputeTokenResponseBodyData extends $dara.Model {
 export class ListLivyComputeTokenResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code of the request. A value of 1000000 indicates that the request was successful. Other values indicate that the request failed. For details about the error cause, see the message.
+   * The response code. A value of 1000000 indicates a successful request, while other values indicate a failed request. For details about the error cause, see the message.
    * 
    * @example
    * 1000000

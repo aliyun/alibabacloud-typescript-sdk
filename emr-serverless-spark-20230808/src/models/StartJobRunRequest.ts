@@ -87,7 +87,7 @@ export class StartJobRunRequestConfigurationOverrides extends $dara.Model {
 export class StartJobRunRequest extends $dara.Model {
   /**
    * @remarks
-   * The idempotence token.
+   * The client token for idempotency.
    * 
    * @example
    * 8e6aae2810c8f67229ca70bb31cd****
@@ -95,7 +95,7 @@ export class StartJobRunRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The job type. Valid values:
+   * The type of the job. Valid values:
    * 
    * - SQL
    * 
@@ -109,12 +109,12 @@ export class StartJobRunRequest extends $dara.Model {
   codeType?: string;
   /**
    * @remarks
-   * The advanced Spark configurations.
+   * The advanced configurations for Spark.
    */
   configurationOverrides?: StartJobRunRequestConfigurationOverrides;
   /**
    * @remarks
-   * The version that is displayed in the console.
+   * The version displayed in the console.
    * 
    * @example
    * esr-3.3.1
@@ -130,7 +130,7 @@ export class StartJobRunRequest extends $dara.Model {
   executionTimeoutSeconds?: number;
   /**
    * @remarks
-   * Specifies whether to enable the Fusion engine for acceleration.
+   * Specifies whether to enable Fusion engine acceleration.
    * 
    * @example
    * false
@@ -143,7 +143,7 @@ export class StartJobRunRequest extends $dara.Model {
   jobDriver?: JobDriver;
   /**
    * @remarks
-   * The job ID.
+   * The ID of the job.
    * 
    * @example
    * jr-12345
@@ -151,7 +151,7 @@ export class StartJobRunRequest extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The job name.
+   * The name of the job.
    * 
    * @example
    * spark_job_name
@@ -159,7 +159,7 @@ export class StartJobRunRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The version of the Spark engine.
+   * The version number of the Spark engine.
    * 
    * @example
    * esr-3.3.1
@@ -167,7 +167,7 @@ export class StartJobRunRequest extends $dara.Model {
   releaseVersion?: string;
   /**
    * @remarks
-   * The resource queue on which the Spark job runs.
+   * The resource queue in which the Spark job runs.
    * 
    * @example
    * dev_queue

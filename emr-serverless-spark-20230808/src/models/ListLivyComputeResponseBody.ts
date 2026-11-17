@@ -21,7 +21,7 @@ export class ListLivyComputeResponseBodyDataLivyComputes extends $dara.Model {
   createdBy?: string;
   /**
    * @remarks
-   * The public network connection endpoint.
+   * The public endpoint.
    * 
    * @example
    * emr-spark-livy-gateway-cn-hangzhou.data.aliyun.com/api/v1/workspace/w-xxxxxxxxx/livycompute/lc-xxxxxxxxxxx
@@ -29,7 +29,7 @@ export class ListLivyComputeResponseBodyDataLivyComputes extends $dara.Model {
   endpoint?: string;
   /**
    * @remarks
-   * The internal network connection endpoint.
+   * The internal network endpoint.
    * 
    * @example
    * emr-spark-livy-gateway-cn-hangzhou-internal.aliyun.com/api/v1/workspace/w-xxxxxxxxx/livycompute/lc-xxxxxxxxxxx
@@ -145,7 +145,7 @@ export class ListLivyComputeResponseBodyData extends $dara.Model {
 export class ListLivyComputeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code of the request. A value of 1000000 indicates that the request is successful. Other values indicate that the request failed. For specific error details, see the message.
+   * The response code. A value of 1000000 indicates a successful request, whereas other values indicate a failed request. For detailed error causes, refer to the message.
    * 
    * @example
    * 1000000

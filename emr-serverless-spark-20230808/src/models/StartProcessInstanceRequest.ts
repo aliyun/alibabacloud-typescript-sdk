@@ -77,7 +77,7 @@ export class StartProcessInstanceRequest extends $dara.Model {
   versionHashCode?: string;
   /**
    * @remarks
-   * The workflow definition version number.
+   * The version number of the workflow definition.
    * 
    * @example
    * 1

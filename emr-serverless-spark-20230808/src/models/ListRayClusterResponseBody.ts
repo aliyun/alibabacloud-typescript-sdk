@@ -13,7 +13,7 @@ export class ListRayClusterResponseBodyRayClustersHeadSpec extends $dara.Model {
   cpu?: string;
   /**
    * @remarks
-   * Specifies whether auto scaling is enabled for worker nodes.
+   * Specifies whether auto-scaling is enabled for worker nodes.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class ListRayClusterResponseBodyRayClustersHeadSpec extends $dara.Model {
   gpuSpec?: string;
   /**
    * @remarks
-   * The idle timeout for worker nodes, in seconds.
+   * The idle timeout for worker nodes.
    * 
    * @example
    * 60
@@ -37,7 +37,7 @@ export class ListRayClusterResponseBodyRayClustersHeadSpec extends $dara.Model {
   idleTimeoutSeconds?: number;
   /**
    * @remarks
-   * The memory size, in GiB.
+   * The memory size. Unit: Gi.
    * 
    * @example
    * 8Gi
@@ -45,7 +45,7 @@ export class ListRayClusterResponseBodyRayClustersHeadSpec extends $dara.Model {
   memory?: string;
   /**
    * @remarks
-   * The name of the queue.
+   * The queue name.
    * 
    * @example
    * root_queue
@@ -119,7 +119,7 @@ export class ListRayClusterResponseBodyRayClustersWorkerSpec extends $dara.Model
   groupName?: string;
   /**
    * @remarks
-   * The maximum number of workers when auto scaling is enabled.
+   * The maximum number of worker nodes when auto-scaling is enabled.
    * 
    * @example
    * 10
@@ -127,7 +127,7 @@ export class ListRayClusterResponseBodyRayClustersWorkerSpec extends $dara.Model
   maxReplica?: number;
   /**
    * @remarks
-   * The memory size, in GiB.
+   * The memory size. Unit: Gi.
    * 
    * @example
    * 8Gi
@@ -135,7 +135,7 @@ export class ListRayClusterResponseBodyRayClustersWorkerSpec extends $dara.Model
   memory?: string;
   /**
    * @remarks
-   * The minimum number of workers when auto scaling is enabled.
+   * The minimum number of worker nodes when auto-scaling is enabled.
    * 
    * @example
    * 1
@@ -143,7 +143,7 @@ export class ListRayClusterResponseBodyRayClustersWorkerSpec extends $dara.Model
   minReplica?: number;
   /**
    * @remarks
-   * The name of the queue.
+   * The queue name.
    * 
    * @example
    * root_queue
@@ -159,7 +159,7 @@ export class ListRayClusterResponseBodyRayClustersWorkerSpec extends $dara.Model
   replica?: number;
   /**
    * @remarks
-   * The type of the worker.
+   * The worker type.
    * 
    * @example
    * CPU
@@ -253,7 +253,7 @@ export class ListRayClusterResponseBodyRayClusters extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The Ray DPI engine version.
+   * The Ray engine version.
    * 
    * @example
    * ray-1.0.0 (Ray 2.47.1, Python 3.12)
@@ -261,7 +261,7 @@ export class ListRayClusterResponseBodyRayClusters extends $dara.Model {
   displayReleaseVersion?: string;
   /**
    * @remarks
-   * The internal gRPC endpoint. You can also use the domain name to submit Ray jobs.
+   * The gRPC endpoint on the internal network. The domain name can also be used to submit Ray jobs.
    * 
    * @example
    * ray://emr-spark-ray-gateway-cn-hanghzou-internal.emr.aliyuncs.com:80
@@ -330,7 +330,7 @@ export class ListRayClusterResponseBodyRayClusters extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The network connectivity name.
+   * The network connection name.
    * 
    * @example
    * vpc
@@ -367,7 +367,7 @@ export class ListRayClusterResponseBodyRayClusters extends $dara.Model {
   userId?: string;
   /**
    * @remarks
-   * The worker information of the Ray cluster.
+   * The worker node information of the Ray cluster.
    */
   workerSpec?: ListRayClusterResponseBodyRayClustersWorkerSpec[];
   static names(): { [key: string]: string } {
@@ -440,7 +440,7 @@ export class ListRayClusterResponseBodyRayClusters extends $dara.Model {
 export class ListRayClusterResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of Ray clusters.
+   * The Ray clusters.
    */
   rayClusters?: ListRayClusterResponseBodyRayClusters[];
   /**
