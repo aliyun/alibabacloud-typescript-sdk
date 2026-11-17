@@ -15,6 +15,7 @@ export { ConnectorAuthenticationUpdateInputOauth } from './ConnectorAuthenticati
 export { ConnectorAuthenticationUpdateInputPatToken } from './ConnectorAuthenticationUpdateInput';
 export { ConnectorAuthenticationUpdateInputRole } from './ConnectorAuthenticationUpdateInput';
 export { ConnectorAuthenticationUpdateInputSatellite } from './ConnectorAuthenticationUpdateInput';
+export { HookExecution } from './Hook';
 export { CreateChatRequestMessagesContents } from './CreateChatRequest';
 export { CreateChatRequestMessages } from './CreateChatRequest';
 export { CreateChatResponseBodyMessages } from './CreateChatResponseBody';
@@ -23,6 +24,7 @@ export { CreateDigitalEmployeeRequestKnowledges } from './CreateDigitalEmployeeR
 export { CreateDigitalEmployeeRequestSandboxNetworkPolicy } from './CreateDigitalEmployeeRequest';
 export { CreateDigitalEmployeeRequestToolPolicyAliyunStatements } from './CreateDigitalEmployeeRequest';
 export { CreateDigitalEmployeeRequestToolPolicyAliyun } from './CreateDigitalEmployeeRequest';
+export { CreateDigitalEmployeeRequestToolPolicyGlobal } from './CreateDigitalEmployeeRequest';
 export { CreateDigitalEmployeeRequestToolPolicy } from './CreateDigitalEmployeeRequest';
 export { CreateDigitalEmployeeSkillRequestFiles } from './CreateDigitalEmployeeSkillRequest';
 export { CreateMcpServiceRequestConnectionAuth } from './CreateMcpServiceRequest';
@@ -38,6 +40,7 @@ export { GetDigitalEmployeeResponseBodyKnowledges } from './GetDigitalEmployeeRe
 export { GetDigitalEmployeeResponseBodySandboxNetworkPolicy } from './GetDigitalEmployeeResponseBody';
 export { GetDigitalEmployeeResponseBodyToolPolicyAliyunStatements } from './GetDigitalEmployeeResponseBody';
 export { GetDigitalEmployeeResponseBodyToolPolicyAliyun } from './GetDigitalEmployeeResponseBody';
+export { GetDigitalEmployeeResponseBodyToolPolicyGlobal } from './GetDigitalEmployeeResponseBody';
 export { GetDigitalEmployeeResponseBodyToolPolicy } from './GetDigitalEmployeeResponseBody';
 export { GetDigitalEmployeeEntityDataResponseBodyResponseStatusStatusItem } from './GetDigitalEmployeeEntityDataResponseBody';
 export { GetDigitalEmployeeEntityDataResponseBodyResponseStatus } from './GetDigitalEmployeeEntityDataResponseBody';
@@ -71,12 +74,14 @@ export { UpdateDigitalEmployeeRequestKnowledges } from './UpdateDigitalEmployeeR
 export { UpdateDigitalEmployeeRequestSandboxNetworkPolicy } from './UpdateDigitalEmployeeRequest';
 export { UpdateDigitalEmployeeRequestToolPolicyAliyunStatements } from './UpdateDigitalEmployeeRequest';
 export { UpdateDigitalEmployeeRequestToolPolicyAliyun } from './UpdateDigitalEmployeeRequest';
+export { UpdateDigitalEmployeeRequestToolPolicyGlobal } from './UpdateDigitalEmployeeRequest';
 export { UpdateDigitalEmployeeRequestToolPolicy } from './UpdateDigitalEmployeeRequest';
 export { UpdateDigitalEmployeeSkillRequestFiles } from './UpdateDigitalEmployeeSkillRequest';
 export { UpdateMcpServiceRequestConnectionAuth } from './UpdateMcpServiceRequest';
 export { UpdateMcpServiceRequestConnection } from './UpdateMcpServiceRequest';
 export { UpdateMcpServiceRequestNetwork } from './UpdateMcpServiceRequest';
 export { UpdateMcpServiceRequestTools } from './UpdateMcpServiceRequest';
+export { AutoPassPolicy } from './AutoPassPolicy';
 export { ConnectorAuthentication } from './ConnectorAuthentication';
 export { ConnectorAuthenticationInput } from './ConnectorAuthenticationInput';
 export { ConnectorAuthenticationUpdateInput } from './ConnectorAuthenticationUpdateInput';
@@ -84,6 +89,7 @@ export { ConnectorCreateInput } from './ConnectorCreateInput';
 export { ConnectorInfo } from './ConnectorInfo';
 export { ConnectorRuntime } from './ConnectorRuntime';
 export { ConnectorUpdateInput } from './ConnectorUpdateInput';
+export { Hook } from './Hook';
 export { Tag } from './Tag';
 export { CreateArtifactUploadTokenRequest } from './CreateArtifactUploadTokenRequest';
 export { CreateArtifactUploadTokenResponseBody } from './CreateArtifactUploadTokenResponseBody';

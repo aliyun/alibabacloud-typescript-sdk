@@ -5,6 +5,22 @@ import * as $dara from '@darabonba/typescript';
 export class ConnectorRuntime extends $dara.Model {
   /**
    * @remarks
+   * The native client capability referenced by the SATELLITE runtime. This parameter is mutually exclusive with extensionName.
+   * 
+   * @example
+   * bash
+   */
+  capabilityId?: string;
+  /**
+   * @remarks
+   * The environment agent extension name referenced by the SATELLITE runtime. This parameter is mutually exclusive with capabilityId.
+   * 
+   * @example
+   * gitlab-corp
+   */
+  extensionName?: string;
+  /**
+   * @remarks
    * Runtime mode
    * 
    * This parameter is required.
@@ -31,6 +47,8 @@ export class ConnectorRuntime extends $dara.Model {
   satelliteId?: string;
   static names(): { [key: string]: string } {
     return {
+      capabilityId: 'capabilityId',
+      extensionName: 'extensionName',
       mode: 'mode',
       pluginId: 'pluginId',
       satelliteId: 'satelliteId',
@@ -39,6 +57,8 @@ export class ConnectorRuntime extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      capabilityId: 'string',
+      extensionName: 'string',
       mode: 'string',
       pluginId: 'string',
       satelliteId: 'string',

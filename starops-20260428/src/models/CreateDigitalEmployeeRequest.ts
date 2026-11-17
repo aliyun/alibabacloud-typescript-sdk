@@ -1,12 +1,14 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { Tag } from "./Tag";
+import { Hook } from "./Hook";
+import { AutoPassPolicy } from "./AutoPassPolicy";
 
 
 export class CreateDigitalEmployeeRequestKnowledgesBailian extends $dara.Model {
   /**
    * @remarks
-   * The knowledge base properties.
+   * The attributes of the knowledge base.
    * 
    * @example
    * test
@@ -14,7 +16,7 @@ export class CreateDigitalEmployeeRequestKnowledgesBailian extends $dara.Model {
   attributes?: string;
   /**
    * @remarks
-   * The Bailian index ID.
+   * The ID of the Bailian index.
    * 
    * @example
    * index-xxxx
@@ -30,7 +32,7 @@ export class CreateDigitalEmployeeRequestKnowledgesBailian extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The Bailian workspace ID.
+   * The ID of the Bailian workspace.
    * 
    * @example
    * llm-xxxxx
@@ -106,7 +108,7 @@ export class CreateDigitalEmployeeRequestKnowledges extends $dara.Model {
 export class CreateDigitalEmployeeRequestSandboxNetworkPolicy extends $dara.Model {
   /**
    * @remarks
-   * The list of allowed CIDRs or IP addresses.
+   * The list of allowed CIDR blocks or IP addresses.
    */
   allowCidrs?: string[];
   /**
@@ -164,7 +166,7 @@ export class CreateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dar
   actions?: string[];
   /**
    * @remarks
-   * The Aliyun OpenAPI version that this statement applies to.
+   * The Aliyun OpenAPI version corresponding to this statement.
    * 
    * @example
    * 2020-12-30
@@ -174,7 +176,7 @@ export class CreateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dar
   apiVersion?: string;
   /**
    * @remarks
-   * The execution policy when the API is matched.
+   * The execution policy after the API is matched.
    * 
    * @example
    * user_ack
@@ -182,7 +184,7 @@ export class CreateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dar
   decision?: string;
   /**
    * @remarks
-   * The Aliyun OpenAPI product name that this statement applies to.
+   * The Aliyun OpenAPI product name corresponding to this statement.
    * 
    * @example
    * Sls
@@ -221,7 +223,7 @@ export class CreateDigitalEmployeeRequestToolPolicyAliyunStatements extends $dar
 export class CreateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
   /**
    * @remarks
-   * The RAM actions that are automatically allowed. The format is *, product:ApiName, or product:Prefix*.
+   * The auto-passed RAM actions. The format is *, product:ApiName, or product:Prefix*.
    * 
    * @example
    * ["log:Get*","log:List*"]
@@ -229,7 +231,7 @@ export class CreateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
   autoPassPolicy?: string[];
   /**
    * @remarks
-   * The RAM actions that are denied. The format is *, product:ApiName, or product:Prefix*.
+   * The denied RAM actions. The format is *, product:ApiName, or product:Prefix*.
    * 
    * @example
    * ["ecs:RunCommand","ecs:Delete*"]
@@ -245,7 +247,7 @@ export class CreateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
   enable?: boolean;
   /**
    * @remarks
-   * **[Deprecated]** Use denyPolicy and autoPassPolicy instead. This field is still returned during the transition period. Original description: The list of Aliyun OpenAPI tool policy statements.
+   * **[Deprecated]** Use denyPolicy and autoPassPolicy instead. This field is still read during the transition period. Original description: The list of Aliyun OpenAPI tool policy statements.
    * 
    * @example
    * [{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]
@@ -289,6 +291,39 @@ export class CreateDigitalEmployeeRequestToolPolicyAliyun extends $dara.Model {
   }
 }
 
+export class CreateDigitalEmployeeRequestToolPolicyGlobal extends $dara.Model {
+  /**
+   * @remarks
+   * The array of auto-pass policies.
+   * 
+   * @example
+   * [{"version":"v1.0.0","fullCommand":"starops tool list"},{"version":"v1.0.0","commandPrefix":["starops sls"]}]
+   */
+  autoPassPolicy?: AutoPassPolicy[];
+  static names(): { [key: string]: string } {
+    return {
+      autoPassPolicy: 'autoPassPolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPassPolicy: { 'type': 'array', 'itemType': AutoPassPolicy },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.autoPassPolicy)) {
+      $dara.Model.validateArray(this.autoPassPolicy);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class CreateDigitalEmployeeRequestToolPolicy extends $dara.Model {
   /**
    * @remarks
@@ -298,21 +333,41 @@ export class CreateDigitalEmployeeRequestToolPolicy extends $dara.Model {
    * {"enable":true,"denyPolicy":["ecs:RunCommand","ecs:Delete*"],"autoPassPolicy":["log:Get*","log:List*"],"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}
    */
   aliyun?: CreateDigitalEmployeeRequestToolPolicyAliyun;
+  /**
+   * @remarks
+   * The global auto-pass rules for tool invocation.
+   */
+  global?: CreateDigitalEmployeeRequestToolPolicyGlobal;
+  /**
+   * @remarks
+   * The hook configuration.
+   */
+  hooks?: Hook[];
   static names(): { [key: string]: string } {
     return {
       aliyun: 'aliyun',
+      global: 'global',
+      hooks: 'hooks',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       aliyun: CreateDigitalEmployeeRequestToolPolicyAliyun,
+      global: CreateDigitalEmployeeRequestToolPolicyGlobal,
+      hooks: { 'type': 'array', 'itemType': Hook },
     };
   }
 
   validate() {
     if(this.aliyun && typeof (this.aliyun as any).validate === 'function') {
       (this.aliyun as any).validate();
+    }
+    if(this.global && typeof (this.global as any).validate === 'function') {
+      (this.global as any).validate();
+    }
+    if(Array.isArray(this.hooks)) {
+      $dara.Model.validateArray(this.hooks);
     }
     super.validate();
   }
@@ -325,7 +380,7 @@ export class CreateDigitalEmployeeRequestToolPolicy extends $dara.Model {
 export class CreateDigitalEmployeeRequest extends $dara.Model {
   /**
    * @remarks
-   * The digital employee properties.
+   * The attributes of the digital employee.
    */
   attributes?: { [key: string]: string };
   /**
@@ -377,7 +432,7 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-ae******ey
@@ -385,7 +440,7 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The RAM role ARN.
+   * The ARN of the RAM role.
    * 
    * This parameter is required.
    * 
@@ -395,7 +450,7 @@ export class CreateDigitalEmployeeRequest extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
-   * The sandbox network ACL policy configuration of the digital employee.
+   * The sandbox network ACL policy configuration for the digital employee.
    * 
    * @example
    * {"allowFqdns":["api.example.com"],"allowCidrs":["1.2.3.0/24","8.8.8.8"],"enableAcl":false}

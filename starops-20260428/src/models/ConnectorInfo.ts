@@ -14,7 +14,7 @@ export class ConnectorInfo extends $dara.Model {
   authentication?: ConnectorAuthentication;
   /**
    * @remarks
-   * The list of capabilities granted to the Connector.
+   * The list of capabilities granted to the connector.
    * 
    * This parameter is required.
    */
@@ -69,7 +69,7 @@ export class ConnectorInfo extends $dara.Model {
   displayName?: string;
   /**
    * @remarks
-   * Specifies whether the Connector is enabled.
+   * Specifies whether the connector is enabled.
    * 
    * This parameter is required.
    */
@@ -96,7 +96,7 @@ export class ConnectorInfo extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The execution policy of the Connector.
+   * The execution policy of the connector.
    * 
    * This parameter is required.
    */
@@ -123,7 +123,7 @@ export class ConnectorInfo extends $dara.Model {
   revision?: number;
   /**
    * @remarks
-   * The runtime configuration of the Connector.
+   * The runtime configuration of the connector.
    * 
    * This parameter is required.
    */

@@ -1,6 +1,8 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
 import { Tag } from "./Tag";
+import { Hook } from "./Hook";
+import { AutoPassPolicy } from "./AutoPassPolicy";
 
 
 export class GetDigitalEmployeeResponseBodyKnowledgesBailian extends $dara.Model {
@@ -14,7 +16,7 @@ export class GetDigitalEmployeeResponseBodyKnowledgesBailian extends $dara.Model
   attributes?: string;
   /**
    * @remarks
-   * The ID of the Model Studio index.
+   * The index ID of Model Studio.
    * 
    * @example
    * index-xxxx
@@ -30,7 +32,7 @@ export class GetDigitalEmployeeResponseBodyKnowledgesBailian extends $dara.Model
   region?: string;
   /**
    * @remarks
-   * The ID of the Model Studio workspace.
+   * The workspace ID of Model Studio.
    * 
    * @example
    * llm-xxxxx
@@ -184,8 +186,6 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyunStatements extends $d
    * @remarks
    * The code of the cloud service.
    * 
-   * This parameter is required.
-   * 
    * @example
    * Sls
    */
@@ -223,7 +223,7 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyunStatements extends $d
 export class GetDigitalEmployeeResponseBodyToolPolicyAliyun extends $dara.Model {
   /**
    * @remarks
-   * The automatic allow policy. Each entry is a RAM action string in the format of product:ApiName, product:Prefix*, or product:*. If an action matches an entry, the action is automatically allowed without manual confirmation. If this parameter is empty or not configured, built-in read-only actions (Get*, List*, and Describe*) are automatically allowed. Unmatched actions require human-in-the-loop (HIL) confirmation.
+   * The auto-pass policy. Each entry is a RAM action string in the format of product:ApiName, product:Prefix*, or product:*. If an operation matches the policy, it is automatically allowed without manual confirmation. If this parameter is empty or not configured, built-in read-only actions (Get*, List*, and Describe*) are automatically allowed. Unmatched operations require manual confirmation (HIL).
    * 
    * @example
    * ["log:Get*","log:List*"]
@@ -231,7 +231,7 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyun extends $dara.Model 
   autoPassPolicy?: string[];
   /**
    * @remarks
-   * The explicit deny policy, which has the highest priority. Each entry is a RAM action string in the format of product:ApiName, product:Prefix*, or product:*. If this parameter is empty or not configured, no operations are actively denied. If an action matches a STAROps entry, the action is directly denied. The POP layer provides a secondary fallback check.
+   * The explicit deny policy, which has the highest priority. Each entry is a RAM action string in the format of product:ApiName, product:Prefix*, or product:*. If this parameter is empty or not configured, no operations are actively denied. If a STAROps operation matches the policy, it is directly denied. The POP side provides a secondary fallback.
    * 
    * @example
    * ["ecs:RunCommand","ecs:Delete*"]
@@ -247,7 +247,7 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyun extends $dara.Model 
   enable?: boolean;
   /**
    * @remarks
-   * The list of Aliyun CLI tool policy statements.
+   * The list of policy statements for Alibaba Cloud CLI tools.
    * 
    * @example
    * [{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]
@@ -291,30 +291,83 @@ export class GetDigitalEmployeeResponseBodyToolPolicyAliyun extends $dara.Model 
   }
 }
 
+export class GetDigitalEmployeeResponseBodyToolPolicyGlobal extends $dara.Model {
+  /**
+   * @remarks
+   * The auto-pass policy for CLI commands.
+   * 
+   * @example
+   * [{"version":"v1.0.0","fullCommand":"starops tool list"},{"version":"v1.0.0","commandPrefix":["starops sls"]}]
+   */
+  autoPassPolicy?: AutoPassPolicy[];
+  static names(): { [key: string]: string } {
+    return {
+      autoPassPolicy: 'autoPassPolicy',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      autoPassPolicy: { 'type': 'array', 'itemType': AutoPassPolicy },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.autoPassPolicy)) {
+      $dara.Model.validateArray(this.autoPassPolicy);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetDigitalEmployeeResponseBodyToolPolicy extends $dara.Model {
   /**
    * @remarks
-   * The security policy configuration to invoke Aliyun CLI tools.
+   * The security policy configuration for Alibaba Cloud CLI tool invocation.
    * 
    * @example
    * {"enable":true,"statements":[{"decision":"user_ack","product":"Sls","apiVersion":"2020-12-30","actions":["log:GetProject","log:CreateDashboard"]}]}
    */
   aliyun?: GetDigitalEmployeeResponseBodyToolPolicyAliyun;
+  /**
+   * @remarks
+   * The global auto-pass configuration for the digital employee.
+   */
+  global?: GetDigitalEmployeeResponseBodyToolPolicyGlobal;
+  /**
+   * @remarks
+   * The hook configuration.
+   */
+  hooks?: Hook[];
   static names(): { [key: string]: string } {
     return {
       aliyun: 'aliyun',
+      global: 'global',
+      hooks: 'hooks',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
       aliyun: GetDigitalEmployeeResponseBodyToolPolicyAliyun,
+      global: GetDigitalEmployeeResponseBodyToolPolicyGlobal,
+      hooks: { 'type': 'array', 'itemType': Hook },
     };
   }
 
   validate() {
     if(this.aliyun && typeof (this.aliyun as any).validate === 'function') {
       (this.aliyun as any).validate();
+    }
+    if(this.global && typeof (this.global as any).validate === 'function') {
+      (this.global as any).validate();
+    }
+    if(Array.isArray(this.hooks)) {
+      $dara.Model.validateArray(this.hooks);
     }
     super.validate();
   }
@@ -340,7 +393,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The creation time in UTC, which follows the RFC 3339 format.
+   * The creation time in RFC 3339 format. The time zone is UTC.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
@@ -395,7 +448,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The region ID.
+   * The resource property field that represents the region ID.
    * 
    * @example
    * cn-beijing
@@ -427,7 +480,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   roleArn?: string;
   /**
    * @remarks
-   * The sandbox network ACL policy configuration of the digital employee.
+   * The sandbox network ACL policy configuration for the digital employee.
    * 
    * @example
    * {"allowFqdns":["api.example.com"],"allowCidrs":["1.2.3.0/24","8.8.8.8"],"enableAcl":false}
@@ -435,7 +488,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   sandboxNetworkPolicy?: GetDigitalEmployeeResponseBodySandboxNetworkPolicy;
   /**
    * @remarks
-   * The status of the digital employee. Valid values: 0 (normal) and 1 (disabled).
+   * The status of the digital employee. Valid values: 0: Normal. 1: Disabled.
    * 
    * @example
    * 0
@@ -456,7 +509,7 @@ export class GetDigitalEmployeeResponseBody extends $dara.Model {
   toolPolicy?: GetDigitalEmployeeResponseBodyToolPolicy;
   /**
    * @remarks
-   * The update time in UTC, which follows the RFC 3339 format.
+   * The update time in RFC 3339 format. The time zone is UTC.
    * 
    * Use the UTC time format: yyyy-MM-ddTHH:mm:ssZ
    * 
