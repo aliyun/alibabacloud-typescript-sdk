@@ -37,7 +37,7 @@ export class ListDataMaskingColumnsRequest extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * The instance identity of the database. You can obtain it from Items[].InstanceId in the response of ListDataMaskingInstances.
+   * The database instance identity. You can obtain it from Items[].InstanceId in the response of ListDataMaskingInstances.
    * 
    * @example
    * rm-2ze1abcdefgh****
@@ -45,7 +45,9 @@ export class ListDataMaskingColumnsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the response description. Valid values: zh: Chinese; en: English.
+   * The language of the response description. Valid values:
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -53,7 +55,10 @@ export class ListDataMaskingColumnsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The filter for the column encryption status. Valid values: NotEncrypted: not encrypted; Success: encrypted successfully; Failed: encryption failed.
+   * The filter for the column encryption status. Valid values:
+   * - NotEncrypted: Not encrypted.
+   * - Success: Encryption succeeded.
+   * - Failed: Encryption failed.
    * 
    * @example
    * NotEncrypted
@@ -69,7 +74,7 @@ export class ListDataMaskingColumnsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The code of the cloud service. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also provided, the two must correspond to each other.
+   * The code of the cloud service. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also provided, the two must match.
    * 
    * @example
    * RDS
@@ -77,7 +82,7 @@ export class ListDataMaskingColumnsRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the cloud service type. Valid values: 5: RDS; 8: POLARDB; 27: PolarDBX2. It must correspond to ProductCode if both are specified.
+   * The ID of the cloud service type. Valid values: 5 for RDS, 8 for POLARDB, and 27 for PolarDBX2. If specified together with ProductCode, they must match.
    * 
    * @example
    * 5
@@ -85,7 +90,7 @@ export class ListDataMaskingColumnsRequest extends $dara.Model {
   productId?: number;
   /**
    * @remarks
-   * The compatible parameter for the list of product IDs. For the current column query, use a single ProductId or ProductCode. Call the operation separately to query multiple products.
+   * The compatible parameter for a list of product IDs. For the current column query, use a single ProductId or ProductCode. Call the operation separately to query multiple products.
    * 
    * @example
    * 5
@@ -109,7 +114,7 @@ export class ListDataMaskingColumnsRequest extends $dara.Model {
   riskLevelIds?: string;
   /**
    * @remarks
-   * The name of the table. In PostgreSQL or Oracle scenarios, retain the schema.table format obtained from the table list.
+   * The name of the table. For PostgreSQL or Oracle scenarios, preserve the schema.table format obtained from the table list.
    * 
    * @example
    * customer

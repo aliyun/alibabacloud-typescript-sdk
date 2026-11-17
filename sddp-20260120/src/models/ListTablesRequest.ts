@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTablesRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the current page. Pages start from page 1.
+   * The page number of the current query. Pages start from 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ListTablesRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The instance identity of the cloud database instance. Set the value to the InstanceId value in the instance list.
+   * The instance identity of the cloud database instance. Use the InstanceId from the instance list.
    * 
    * @example
    * rm-2ze1abcdefgh****
@@ -21,7 +21,7 @@ export class ListTablesRequest extends $dara.Model {
   dataAssetSourceId?: string;
   /**
    * @remarks
-   * The name of the database. Set the value to the DbName value returned by the ListDataSources operation.
+   * The database name. Use the DbName returned by ListDataSources.
    * 
    * @example
    * business_db
@@ -29,7 +29,9 @@ export class ListTablesRequest extends $dara.Model {
   dataSourceName?: string;
   /**
    * @remarks
-   * The language of the response. Valid values: zh: Chinese. en: English.
+   * The language of the response description. Valid values:
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -37,7 +39,7 @@ export class ListTablesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The start position of the cursor-based pagination. Use the NextMarker value returned in the previous request for subsequent requests. Keep the value consistent with the original filter conditions.
+   * The starting position for cursor-based pagination. Use the NextMarker returned in the previous request for subsequent requests. Keep it consistent with the original filter conditions.
    * 
    * @example
    * 0
@@ -45,7 +47,7 @@ export class ListTablesRequest extends $dara.Model {
   marker?: number;
   /**
    * @remarks
-   * The name filter.
+   * The name filter condition.
    * 
    * @example
    * customer
@@ -53,7 +55,7 @@ export class ListTablesRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The number of entries to return on each page. Keep other filter conditions consistent when you query the next page.
+   * The number of entries to return on each page. Keep other filter conditions consistent when querying the next page.
    * 
    * @example
    * 20
@@ -61,7 +63,7 @@ export class ListTablesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The code of the cloud service. Column encryption supports ApsaraDB RDS, PolarDB, and PolarDB-X 2.0. If you specify this parameter and ProductId at the same time, the values must match.
+   * The cloud service code. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also passed, the two values must match.
    * 
    * @example
    * RDS
@@ -69,7 +71,11 @@ export class ListTablesRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the cloud service type. Valid values: 5: ApsaraDB RDS. 8: PolarDB. 27: PolarDB-X 2.0. If you specify this parameter and ProductCode at the same time, the values must match.
+   * The cloud service type ID. Valid values:
+   * - 5: RDS.
+   * - 8: POLARDB.
+   * - 27: PolarDBX2.
+   * If specified together with ProductCode, the values must match.
    * 
    * @example
    * 5
@@ -77,7 +83,7 @@ export class ListTablesRequest extends $dara.Model {
   productId?: number;
   /**
    * @remarks
-   * The ID of the sensitivity level. You can obtain the ID from the response of the ListRiskLevels operation.
+   * The sensitivity level ID. You can obtain the value from the returned list of ListRiskLevels.
    * 
    * @example
    * 1
@@ -85,7 +91,7 @@ export class ListTablesRequest extends $dara.Model {
   riskLevelId?: number;
   /**
    * @remarks
-   * The ID of the detection rule or model. Set the value to the ID of the corresponding detection rule in the target template.
+   * The detection rule or model ID. Use the ID of the corresponding detection rule in the target template.
    * 
    * @example
    * 1001
@@ -93,7 +99,7 @@ export class ListTablesRequest extends $dara.Model {
   ruleId?: number;
   /**
    * @remarks
-   * The ID of the data classification template. You can obtain the ID from the Items[].Id parameter in the response of the ListTemplates operation. The value must be consistent with the selected sensitivity level and detection model.
+   * The data classification template ID. You can obtain the value from Items[].Id in the response of ListTemplates. Keep it consistent with the selected sensitivity level and detection model.
    * 
    * @example
    * 1

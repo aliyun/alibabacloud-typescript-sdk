@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckDataMaskingInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The database instance identity. You can obtain the value from Items[].InstanceId in the response of ListDataMaskingInstances.
+   * The database instance identity. You can obtain this value from Items[].InstanceId in the response of ListDataMaskingInstances.
    * 
    * @example
    * rm-2ze1abcdefgh****
@@ -14,8 +14,8 @@ export class CheckDataMaskingInstanceRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response description. Valid values:
-   * - zh: Chinese
-   * - en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -23,7 +23,7 @@ export class CheckDataMaskingInstanceRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The cloud service code. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also specified, the two parameters must match.
+   * The cloud product code. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also specified, the two parameters must match.
    * 
    * @example
    * RDS
@@ -31,10 +31,10 @@ export class CheckDataMaskingInstanceRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The cloud service type identifier. Valid values:
-   * - 5: RDS
-   * - 8: POLARDB
-   * - 27: PolarDBX2
+   * The cloud product type identifier. Valid values:
+   * - 5: RDS.
+   * - 8: POLARDB.
+   * - 27: PolarDBX2.
    * If this parameter is specified together with ProductCode, the values must match.
    * 
    * @example

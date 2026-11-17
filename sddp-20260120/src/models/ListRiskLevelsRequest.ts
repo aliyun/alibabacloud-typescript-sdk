@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListRiskLevelsRequest extends $dara.Model {
   /**
    * @remarks
-   * The reserved feature type parameter. This parameter is not used to filter results in the current query. You do not need to specify this parameter for column encryption calls.
+   * The reserved feature type parameter. This parameter is not used to filter results in the current query. You do not need to pass this parameter when calling the column encryption API.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListRiskLevelsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The ID of the data classification template. You can obtain the ID from the Items[].Id parameter in the response of the ListTemplates operation. The template must be consistent with the selected sensitivity level and detection model.
+   * The ID of the data classification template. You can obtain the ID from the Items[].Id parameter in the ListTemplates response. The template must be consistent with the selected sensitivity level and detection model.
    * 
    * @example
    * 1

@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataSourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * The connection status of the data source. Valid values:
-   * - UnConnected: Not connected.
-   * - Processing: Connecting.
-   * - Success: Connected.
-   * - Failed: Connection failed.
+   * The connection status of the data source. Valid values: UnConnected: not connected. Processing: connecting. Success: connected. Failed: connection failed.
    * 
    * @example
    * Success
@@ -62,15 +58,7 @@ export class ListDataSourcesRequest extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * The status of the data source detection switch. Valid values:
-   * - Enable: Submitted for enabling.
-   * - Enabling: Enabling.
-   * - Enabled: Enabled.
-   * - EnableFailed: Enabling failed.
-   * - Disable: Submitted for disabling.
-   * - Disabling: Disabling.
-   * - Disabled: Disabled.
-   * - DisableFailed: Disabling failed.
+   * The status of the data source detection switch. Valid values: Enable: submitted for enabling. Enabling: enabling. Enabled: enabled. EnableFailed: enabling failed. Disable: submitted for disabling. Disabling: disabling. Disabled: disabled. DisableFailed: disabling failed.
    * 
    * @example
    * Enabled
@@ -86,9 +74,7 @@ export class ListDataSourcesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the response message. Valid values:
-   * - zh: Chinese.
-   * - en: English.
+   * The language of the response description. Valid values: zh: Chinese. en: English.
    * 
    * @example
    * zh
@@ -120,7 +106,7 @@ export class ListDataSourcesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The port for the database connection.
+   * The database connection port.
    * 
    * @example
    * 3306
@@ -136,7 +122,7 @@ export class ListDataSourcesRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The identifier of the cloud service type. 5: ApsaraDB RDS; 8: PolarDB; 27: PolarDB-X 2.0. If this parameter is specified together with ProductCode, the values must match.
+   * The identifier of the cloud service type. 5: ApsaraDB RDS. 8: PolarDB. 27: PolarDB-X 2.0. If this parameter is specified together with ProductCode, the values must match.
    * 
    * @example
    * 5

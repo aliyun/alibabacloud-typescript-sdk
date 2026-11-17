@@ -69,7 +69,7 @@ export class ListDataMaskingColumnsResponseBodyItems extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * The business error code of the record or operation. It can be empty if no error occurs. Evaluate it together with ErrorMessage.
+   * The business error code for the record or operation. It can be empty if no error occurs. Evaluate it together with ErrorMessage.
    * 
    * @example
    * data_masking_not_running
@@ -77,7 +77,7 @@ export class ListDataMaskingColumnsResponseBodyItems extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The business error message of the record or operation.
+   * The business error message for the record or operation.
    * 
    * @example
    * The instance is not in the running state
@@ -101,7 +101,13 @@ export class ListDataMaskingColumnsResponseBodyItems extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The column encryption status. Valid values: NotEncrypted: not encrypted; Processing: processing; Success: encrypted successfully; Failed: encryption failed; Deleting: disabling; DeleteFailed: disabling failed.
+   * The column encryption status. Valid values:
+   * - NotEncrypted: Not encrypted.
+   * - Processing: Processing.
+   * - Success: Encryption succeeded.
+   * - Failed: Encryption failed.
+   * - Deleting: Disabling.
+   * - DeleteFailed: Disabling failed.
    * 
    * @example
    * Success
@@ -130,7 +136,7 @@ export class ListDataMaskingColumnsResponseBodyItems extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the cloud service type. Valid values: 5: RDS; 8: POLARDB; 27: PolarDBX2.
+   * The ID of the cloud service type. Valid values: 5 for RDS, 8 for POLARDB, and 27 for PolarDBX2.
    * 
    * @example
    * 5
@@ -173,7 +179,7 @@ export class ListDataMaskingColumnsResponseBodyItems extends $dara.Model {
    * The name of the matched detection rule.
    * 
    * @example
-   * Mobile phone number
+   * Phone number
    */
   ruleName?: string;
   /**
@@ -266,7 +272,7 @@ export class ListDataMaskingColumnsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request. It can be used to locate the current API call.
+   * The ID of the request. You can use it to locate the API call.
    * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB

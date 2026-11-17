@@ -37,7 +37,7 @@ export class ListDataMaskingInstancesRequest extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * The database instance identity. You can obtain the identity from the Items[].InstanceId parameter in the response of the ListDataMaskingInstances operation.
+   * The database instance identity. You can obtain the value from the Items[].InstanceId parameter in the response of the ListDataMaskingInstances operation.
    * 
    * @example
    * rm-2ze1abcdefgh****
@@ -45,7 +45,9 @@ export class ListDataMaskingInstancesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the response description. Valid values: zh: Chinese. en: English.
+   * The language of the response description. Valid values:
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -53,7 +55,10 @@ export class ListDataMaskingInstancesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The column encryption status filter. Valid values: NotEncrypted: not encrypted. Success: encrypted. Failed: encryption failed.
+   * The column encryption status filter. Valid values:
+   * - NotEncrypted: Unencrypted.
+   * - Success: Encrypted successfully.
+   * - Failed: Encryption failed.
    * 
    * @example
    * NotEncrypted
@@ -61,7 +66,7 @@ export class ListDataMaskingInstancesRequest extends $dara.Model {
   maskingStatus?: string;
   /**
    * @remarks
-   * The ID of the model tag. This parameter is used to filter data that matches the specified model tag.
+   * The ID of the model tag. This parameter is used to limit the data that matches the corresponding model tag.
    * 
    * @example
    * 101
@@ -77,7 +82,7 @@ export class ListDataMaskingInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The code of the cloud service. Column encryption supports RDS, POLARDB, and PolarDBX2. If you specify this parameter and ProductId at the same time, the values must match.
+   * The code of the cloud service. Column encryption supports RDS, PolarDB, and PolarDB-X 2.0. If this parameter is specified together with ProductId, the values must correspond to each other.
    * 
    * @example
    * RDS
@@ -85,7 +90,11 @@ export class ListDataMaskingInstancesRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the cloud service type. Valid values: 5: RDS. 8: POLARDB. 27: PolarDBX2. If you specify this parameter and ProductCode at the same time, the values must match.
+   * The ID of the cloud service type. Valid values:
+   * - 5: RDS.
+   * - 8: PolarDB.
+   * - 27: PolarDB-X 2.0.
+   * If this parameter is specified together with ProductCode, the values must correspond to each other.
    * 
    * @example
    * 5
@@ -93,7 +102,7 @@ export class ListDataMaskingInstancesRequest extends $dara.Model {
   productId?: number;
   /**
    * @remarks
-   * The list of cloud service type IDs. Separate multiple values with commas (,). In column encryption scenarios, the valid values are 5 (RDS), 8 (POLARDB), and 27 (PolarDBX2).
+   * The list of cloud service type IDs. Separate multiple values with commas (,). In column encryption scenarios, the valid values are 5 (RDS), 8 (PolarDB), and 27 (PolarDB-X 2.0).
    * 
    * @example
    * 5
@@ -101,7 +110,7 @@ export class ListDataMaskingInstancesRequest extends $dara.Model {
   productIds?: string;
   /**
    * @remarks
-   * The ID of the sensitivity level. You can obtain the ID from the response of the ListRiskLevels operation.
+   * The ID of the sensitivity level. You can obtain the value from the response list of the ListRiskLevels operation.
    * 
    * @example
    * 1
@@ -109,7 +118,7 @@ export class ListDataMaskingInstancesRequest extends $dara.Model {
   riskLevelId?: number;
   /**
    * @remarks
-   * The list of sensitivity level IDs. Separate multiple values with commas (,). Select the values from the response of the ListRiskLevels operation that corresponds to the same TemplateId.
+   * The list of sensitivity level IDs. Separate multiple values with commas (,). Select the values from the response of the ListRiskLevels operation corresponding to the same TemplateId.
    * 
    * @example
    * 1,2
@@ -125,7 +134,7 @@ export class ListDataMaskingInstancesRequest extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The ID of the data classification template. You can obtain the ID from the Items[].Id parameter in the response of the ListTemplates operation. The ID must be consistent with the selected sensitivity level and identification model.
+   * The ID of the data classification template. You can obtain the value from the Items[].Id parameter in the response of the ListTemplates operation. The value must be consistent with the selected sensitivity level and identification model.
    * 
    * @example
    * 1
@@ -133,7 +142,7 @@ export class ListDataMaskingInstancesRequest extends $dara.Model {
   templateId?: number;
   /**
    * @remarks
-   * The list of identification model IDs. Separate multiple values with commas (,). Select the values from the response of the ListIdentifyModels operation that corresponds to the same TemplateId.
+   * The list of identification model IDs. Separate multiple values with commas (,). Select the values from the response of the ListIdentifyModels operation corresponding to the same TemplateId.
    * 
    * @example
    * 1001,1002

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListColumnsResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The creation time of the data object. The value is a UNIX timestamp that represents the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The creation time of the data object. The value is a UNIX timestamp in milliseconds that represents the time elapsed since 00:00:00 UTC on January 1, 1970.
    * 
    * @example
    * 1788566400000
@@ -13,7 +13,7 @@ export class ListColumnsResponseBodyItems extends $dara.Model {
   creationTime?: number;
   /**
    * @remarks
-   * The instance identity of the cloud instance.
+   * The cloud instance ID.
    * 
    * @example
    * rm-2ze1abcdefgh****
@@ -45,7 +45,7 @@ export class ListColumnsResponseBodyItems extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * The instance identity of the cloud instance to which the column belongs. This is a compatible field.
+   * The cloud instance ID to which the column belongs. This is a compatible field.
    * 
    * @example
    * rm-2ze1abcdefgh****
@@ -53,7 +53,7 @@ export class ListColumnsResponseBodyItems extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The compatibility field for the column encryption status. To query the column encryption results, call ListDataMaskingColumns.
+   * The compatibility field for the column encryption status. To query column encryption results, call ListDataMaskingColumns.
    * 
    * @example
    * 0
@@ -77,7 +77,7 @@ export class ListColumnsResponseBodyItems extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the region where the asset is located.
+   * The identifier of the region where the asset is located.
    * 
    * @example
    * cn-zhangjiakou
@@ -220,12 +220,12 @@ export class ListColumnsResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The list of records returned in the current query.
+   * The list of records returned for the current query.
    */
   items?: ListColumnsResponseBodyItems[];
   /**
    * @remarks
-   * The number of entries returned per page in the current query.
+   * The number of entries returned per page for the current query.
    * 
    * @example
    * 20
@@ -233,7 +233,7 @@ export class ListColumnsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID. You can use the ID to locate this API call.
+   * The request ID, which can be used to locate this API invoke.
    * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB

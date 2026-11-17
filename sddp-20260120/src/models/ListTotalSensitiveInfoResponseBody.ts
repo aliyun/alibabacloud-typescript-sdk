@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTotalSensitiveInfoResponseBodyDataCountDOListDataCountDOList extends $dara.Model {
   /**
    * @remarks
-   * The statistics date, represented by a UNIX timestamp in nanoseconds. The time corresponds to 00:00:00 of the day in the server time zone.
+   * The statistics date, represented as a UNIX timestamp in nanoseconds. The time corresponds to midnight of the current day in the server time zone.
    * 
    * @example
    * 1788537600000000000
@@ -13,7 +13,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOListDataCountDOList ex
   date?: number;
   /**
    * @remarks
-   * The number of sensitive data objects within the current statistics scope.
+   * The number of sensitive data items within the current statistics scope.
    * 
    * @example
    * 20
@@ -21,7 +21,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOListDataCountDOList ex
   sensitiveCount?: number;
   /**
    * @remarks
-   * The total number of data objects that meet the current statistics or query scope.
+   * The total number of items that meet the current statistics or query scope.
    * 
    * @example
    * 100
@@ -63,7 +63,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOListRuleInfoList exten
   ruleCount?: number;
   /**
    * @remarks
-   * The ID of the hit detection rule.
+   * The ID of the matched detection rule.
    * 
    * @example
    * 1001
@@ -71,7 +71,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOListRuleInfoList exten
   ruleId?: number;
   /**
    * @remarks
-   * The name of the hit detection rule.
+   * The name of the matched detection rule.
    * 
    * @example
    * Phone number
@@ -110,7 +110,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Mod
   dataCountDOList?: ListTotalSensitiveInfoResponseBodyDataCountDOListDataCountDOList[];
   /**
    * @remarks
-   * The statistics date, represented by a UNIX timestamp in nanoseconds. The time corresponds to 00:00:00 of the day in the server time zone.
+   * The statistics date, represented as a UNIX timestamp in nanoseconds. The time corresponds to midnight of the current day in the server time zone.
    * 
    * @example
    * 1788537600000000000
@@ -126,12 +126,12 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Mod
   regionId?: string;
   /**
    * @remarks
-   * The list of quantities aggregated by detection rule.
+   * The list of aggregated counts by detection rule.
    */
   ruleInfoList?: ListTotalSensitiveInfoResponseBodyDataCountDOListRuleInfoList[];
   /**
    * @remarks
-   * The number of data objects at the S0 sensitivity level.
+   * The number of S0-level data objects.
    * 
    * @example
    * 0
@@ -139,7 +139,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Mod
   s0Count?: number;
   /**
    * @remarks
-   * The number of data objects at the S10 sensitivity level.
+   * The number of S10-level data objects.
    * 
    * @example
    * 0
@@ -147,7 +147,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Mod
   s10Count?: number;
   /**
    * @remarks
-   * The number of data objects at the S1 sensitivity level.
+   * The number of S1-level data objects.
    * 
    * @example
    * 0
@@ -155,7 +155,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Mod
   s1Count?: number;
   /**
    * @remarks
-   * The number of data objects at the S2 sensitivity level.
+   * The number of S2-level data objects.
    * 
    * @example
    * 0
@@ -163,7 +163,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Mod
   s2Count?: number;
   /**
    * @remarks
-   * The number of data objects at the S3 sensitivity level.
+   * The number of S3-level data objects.
    * 
    * @example
    * 0
@@ -171,7 +171,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Mod
   s3Count?: number;
   /**
    * @remarks
-   * The number of data objects at the S4 sensitivity level.
+   * The number of S4-level data objects.
    * 
    * @example
    * 0
@@ -179,7 +179,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Mod
   s4Count?: number;
   /**
    * @remarks
-   * The number of data objects at the S5 sensitivity level.
+   * The number of S5-level data objects.
    * 
    * @example
    * 0
@@ -187,7 +187,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Mod
   s5Count?: number;
   /**
    * @remarks
-   * The number of data objects at the S6 sensitivity level.
+   * The number of S6-level data objects.
    * 
    * @example
    * 0
@@ -195,7 +195,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Mod
   s6Count?: number;
   /**
    * @remarks
-   * The number of data objects at the S7 sensitivity level.
+   * The number of S7-level data objects.
    * 
    * @example
    * 0
@@ -203,7 +203,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Mod
   s7Count?: number;
   /**
    * @remarks
-   * The number of data objects at the S8 sensitivity level.
+   * The number of S8-level data objects.
    * 
    * @example
    * 0
@@ -211,7 +211,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Mod
   s8Count?: number;
   /**
    * @remarks
-   * The number of data objects at the S9 sensitivity level.
+   * The number of S9-level data objects.
    * 
    * @example
    * 0
@@ -219,7 +219,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Mod
   s9Count?: number;
   /**
    * @remarks
-   * The number of sensitive data objects within the current statistics scope.
+   * The number of sensitive data items within the current statistics scope.
    * 
    * @example
    * 20
@@ -237,7 +237,7 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Mod
   structFlag?: number;
   /**
    * @remarks
-   * The ID of the data classification template.
+   * The ID of the data classification and grading template.
    * 
    * @example
    * 1
@@ -245,15 +245,15 @@ export class ListTotalSensitiveInfoResponseBodyDataCountDOList extends $dara.Mod
   templateId?: number;
   /**
    * @remarks
-   * The name of the data classification template.
+   * The name of the data classification and grading template.
    * 
    * @example
-   * General data classification template
+   * General classification and grading template
    */
   templateName?: string;
   /**
    * @remarks
-   * The total number of data objects that meet the current statistics or query scope.
+   * The total number of items that meet the current statistics or query scope.
    * 
    * @example
    * 100
@@ -335,7 +335,7 @@ export class ListTotalSensitiveInfoResponseBodyRuleInfoList extends $dara.Model 
   ruleCount?: number;
   /**
    * @remarks
-   * The ID of the hit detection rule.
+   * The ID of the matched detection rule.
    * 
    * @example
    * 1001
@@ -343,7 +343,7 @@ export class ListTotalSensitiveInfoResponseBodyRuleInfoList extends $dara.Model 
   ruleId?: number;
   /**
    * @remarks
-   * The name of the hit detection rule.
+   * The name of the matched detection rule.
    * 
    * @example
    * Phone number
@@ -398,7 +398,7 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   instanceCount?: number;
   /**
    * @remarks
-   * The request identity, which is active for locating the current API call when you invoke the API.
+   * The request ID, which is active and can be used to locate the API you invoke.
    * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB
@@ -406,12 +406,12 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of quantities aggregated by detection rule.
+   * The list of aggregated counts by detection rule.
    */
   ruleInfoList?: ListTotalSensitiveInfoResponseBodyRuleInfoList[];
   /**
    * @remarks
-   * The number of data objects at the S0 sensitivity level.
+   * The number of S0-level data objects.
    * 
    * @example
    * 0
@@ -419,7 +419,7 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   s0Count?: number;
   /**
    * @remarks
-   * The number of data objects at the S10 sensitivity level.
+   * The number of S10-level data objects.
    * 
    * @example
    * 0
@@ -427,7 +427,7 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   s10Count?: number;
   /**
    * @remarks
-   * The number of data objects at the S1 sensitivity level.
+   * The number of S1-level data objects.
    * 
    * @example
    * 0
@@ -435,7 +435,7 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   s1Count?: number;
   /**
    * @remarks
-   * The number of data objects at the S2 sensitivity level.
+   * The number of S2-level data objects.
    * 
    * @example
    * 0
@@ -443,7 +443,7 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   s2Count?: number;
   /**
    * @remarks
-   * The number of data objects at the S3 sensitivity level.
+   * The number of S3-level data objects.
    * 
    * @example
    * 0
@@ -451,7 +451,7 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   s3Count?: number;
   /**
    * @remarks
-   * The number of data objects at the S4 sensitivity level.
+   * The number of S4-level data objects.
    * 
    * @example
    * 0
@@ -459,7 +459,7 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   s4Count?: number;
   /**
    * @remarks
-   * The number of data objects at the S5 sensitivity level.
+   * The number of S5-level data objects.
    * 
    * @example
    * 0
@@ -467,7 +467,7 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   s5Count?: number;
   /**
    * @remarks
-   * The number of data objects at the S6 sensitivity level.
+   * The number of S6-level data objects.
    * 
    * @example
    * 0
@@ -475,7 +475,7 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   s6Count?: number;
   /**
    * @remarks
-   * The number of data objects at the S7 sensitivity level.
+   * The number of S7-level data objects.
    * 
    * @example
    * 0
@@ -483,7 +483,7 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   s7Count?: number;
   /**
    * @remarks
-   * The number of data objects at the S8 sensitivity level.
+   * The number of S8-level data objects.
    * 
    * @example
    * 0
@@ -491,7 +491,7 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   s8Count?: number;
   /**
    * @remarks
-   * The number of data objects at the S9 sensitivity level.
+   * The number of S9-level data objects.
    * 
    * @example
    * 0
@@ -499,7 +499,7 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   s9Count?: number;
   /**
    * @remarks
-   * The number of sensitive data objects within the current statistics scope.
+   * The number of sensitive data items within the current statistics scope.
    * 
    * @example
    * 20
@@ -531,7 +531,7 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   sensitiveUnStructSize?: number;
   /**
    * @remarks
-   * The number of child sensitive data objects, which is used for sensitive column statistics in structured data scenarios.
+   * The number of child sensitive data objects. This parameter is used for sensitive column statistics in structured data scenarios.
    * 
    * @example
    * 20
@@ -539,7 +539,7 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   subSensitiveCount?: number;
   /**
    * @remarks
-   * The total number of child data objects, which is used for column-level statistics in structured data scenarios.
+   * The total number of child data objects. This parameter is used for column-level statistics in structured data scenarios.
    * 
    * @example
    * 100
@@ -547,7 +547,7 @@ export class ListTotalSensitiveInfoResponseBody extends $dara.Model {
   subTotalCount?: number;
   /**
    * @remarks
-   * The total number of data objects that meet the current statistics or query scope.
+   * The total number of items that meet the current statistics or query scope.
    * 
    * @example
    * 100

@@ -1,6 +1,6 @@
 {
   "name": "@alicloud/sddp20260120",
-  "version": "1.0.5",
+  "version": "1.0.7",
   "description": "",
   "main": "dist/client.js",
   "scripts": {

@@ -5,6 +5,14 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataMaskingInstancesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
+   * The description of the instance.
+   * 
+   * @example
+   * Description
+   */
+  description?: string;
+  /**
+   * @remarks
    * The current column encryption algorithm of the instance.
    * 
    * @example
@@ -53,7 +61,7 @@ export class ListDataMaskingInstancesResponseBodyItems extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the cloud service type. Valid values: 5: RDS. 8: POLARDB. 27: PolarDBX2.
+   * The ID of the cloud service type. Valid values: 5 (RDS), 8 (PolarDB), and 27 (PolarDB-X 2.0).
    * 
    * @example
    * 5
@@ -77,6 +85,7 @@ export class ListDataMaskingInstancesResponseBodyItems extends $dara.Model {
   regionName?: string;
   static names(): { [key: string]: string } {
     return {
+      description: 'Description',
       encryptionAlgorithm: 'EncryptionAlgorithm',
       encryptionKeyId: 'EncryptionKeyId',
       engineType: 'EngineType',
@@ -91,6 +100,7 @@ export class ListDataMaskingInstancesResponseBodyItems extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      description: 'string',
       encryptionAlgorithm: 'string',
       encryptionKeyId: 'string',
       engineType: 'string',
@@ -123,12 +133,12 @@ export class ListDataMaskingInstancesResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The list of records returned by the current query.
+   * The list of records returned in this query.
    */
   items?: ListDataMaskingInstancesResponseBodyItems[];
   /**
    * @remarks
-   * The number of entries returned per page in the current query.
+   * The number of entries returned per page in this query.
    * 
    * @example
    * 20
@@ -136,7 +146,7 @@ export class ListDataMaskingInstancesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID, which can be used to locate the current API call.
+   * The request ID. You can use the ID to locate this API call.
    * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB

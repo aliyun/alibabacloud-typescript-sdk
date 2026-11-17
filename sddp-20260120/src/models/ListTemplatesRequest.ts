@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTemplatesRequest extends $dara.Model {
   /**
    * @remarks
-   * The current page number, starting from 1.
+   * The current page number. Pages start from 1.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListTemplatesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of records returned per page. Keep other filter conditions consistent when querying the next page.
+   * The number of entries to return per page. Keep other filter conditions consistent when querying the next page.
    * 
    * @example
    * 20

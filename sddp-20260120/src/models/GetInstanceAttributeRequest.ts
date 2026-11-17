@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetInstanceAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The database instance ID. You can obtain this value from Items[].InstanceId in the response of the ListDataMaskingInstances operation.
+   * The database instance ID. You can obtain this value from Items[].InstanceId returned by ListDataMaskingInstances.
    * 
    * @example
    * rm-2ze1abcdefgh****
@@ -13,9 +13,7 @@ export class GetInstanceAttributeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language of the response description. Valid values:
-   * - zh: Chinese.
-   * - en: English.
+   * The language of the response description. Valid values: zh: Chinese; en: English.
    * 
    * @example
    * zh
@@ -31,11 +29,7 @@ export class GetInstanceAttributeRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The cloud service type identifier. Valid values:
-   * - 5: RDS.
-   * - 8: POLARDB.
-   * - 27: PolarDBX2.
-   * If this parameter is specified together with ProductCode, the values must match.
+   * The cloud service type identifier. Valid values: 5: RDS; 8: POLARDB; 27: PolarDBX2. If this parameter is specified together with ProductCode, the values must match.
    * 
    * @example
    * 5

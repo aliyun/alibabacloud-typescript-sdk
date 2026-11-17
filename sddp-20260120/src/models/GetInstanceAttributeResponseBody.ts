@@ -29,7 +29,7 @@ export class GetInstanceAttributeResponseBody extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The business error code for the record or operation. This parameter can be empty when no error occurs. You should evaluate this parameter together with ErrorMessage.
+   * The business error code of the record or operation. This parameter can be empty when no error occurs. You should evaluate this parameter together with ErrorMessage.
    * 
    * @example
    * data_masking_not_running
@@ -37,7 +37,7 @@ export class GetInstanceAttributeResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The business error message for the record or operation.
+   * The business error message of the record or operation.
    * 
    * @example
    * The instance is not in the running state
@@ -50,7 +50,7 @@ export class GetInstanceAttributeResponseBody extends $dara.Model {
   kmsEncryptionSupported?: boolean;
   /**
    * @remarks
-   * The end time of the maintenance window. The value is a UNIX timestamp in milliseconds that have elapsed since 1970-01-01 00:00:00 UTC. The returned value combines the UTC time of the maintenance window with the date of the query day.
+   * The end time of the maintenance window. The value is a UNIX timestamp in milliseconds that have elapsed since 1970-01-01 00:00:00 UTC. The UTC time of the maintenance window is combined with the date of the query day and returned.
    * 
    * @example
    * 1788570000000
@@ -58,7 +58,7 @@ export class GetInstanceAttributeResponseBody extends $dara.Model {
   maintainEndTime?: number;
   /**
    * @remarks
-   * The start time of the maintenance window. The value is a UNIX timestamp in milliseconds that have elapsed since 1970-01-01 00:00:00 UTC. The returned value combines the UTC time of the maintenance window with the date of the query day.
+   * The start time of the maintenance window. The value is a UNIX timestamp in milliseconds that have elapsed since 1970-01-01 00:00:00 UTC. The UTC time of the maintenance window is combined with the date of the query day and returned.
    * 
    * @example
    * 1788566400000
@@ -66,7 +66,7 @@ export class GetInstanceAttributeResponseBody extends $dara.Model {
   maintainStartTime?: number;
   /**
    * @remarks
-   * The request ID, which can be used to locate this API call.
+   * The request ID, which can be used to locate the API call.
    * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB

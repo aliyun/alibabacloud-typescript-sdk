@@ -5,11 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListDataSourcesResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The connection status of the data source. Valid values:
-   * - UnConnected: Not connected.
-   * - Processing: Connecting.
-   * - Success: Connected.
-   * - Failed: Connection failed.
+   * The connection status of the data source. Valid values: UnConnected: not connected. Processing: connecting. Success: connected. Failed: connection failed.
    * 
    * @example
    * Success
@@ -65,7 +61,7 @@ export class ListDataSourcesResponseBodyItems extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * The business error code of the record or operation. This field can be empty if no error occurs. Evaluate this field together with ErrorMessage.
+   * The business error code for the record or operation. This parameter may be empty if no error occurs. Evaluate this parameter together with ErrorMessage.
    * 
    * @example
    * data_masking_not_running
@@ -73,7 +69,7 @@ export class ListDataSourcesResponseBodyItems extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The business error message of the record or operation.
+   * The business error message for the record or operation.
    * 
    * @example
    * The instance is not in the running state
@@ -81,7 +77,7 @@ export class ListDataSourcesResponseBodyItems extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The identifier of the record.
+   * The ID of the record.
    * 
    * @example
    * 1001
@@ -89,15 +85,7 @@ export class ListDataSourcesResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The status of the data source detection switch. Valid values:
-   * - Enable: Submitted for enabling.
-   * - Enabling: Enabling.
-   * - Enabled: Enabled.
-   * - EnableFailed: Enabling failed.
-   * - Disable: Submitted for disabling.
-   * - Disabling: Disabling.
-   * - Disabled: Disabled.
-   * - DisableFailed: Disabling failed.
+   * The status of the data source detection switch. Valid values: Enable: submitted for enabling. Enabling: enabling. Enabled: enabled. EnableFailed: enabling failed. Disable: submitted for disabling. Disabling: disabling. Disabled: disabled. DisableFailed: disabling failed.
    * 
    * @example
    * Enabled
@@ -121,7 +109,7 @@ export class ListDataSourcesResponseBodyItems extends $dara.Model {
   memberAccount?: number;
   /**
    * @remarks
-   * The port for the database connection.
+   * The database connection port.
    * 
    * @example
    * 3306
@@ -137,7 +125,7 @@ export class ListDataSourcesResponseBodyItems extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The identifier of the cloud service type. 5: ApsaraDB RDS; 8: PolarDB; 27: PolarDB-X 2.0.
+   * The identifier of the cloud service type. 5: ApsaraDB RDS. 8: PolarDB. 27: PolarDB-X 2.0.
    * 
    * @example
    * 5
@@ -145,7 +133,7 @@ export class ListDataSourcesResponseBodyItems extends $dara.Model {
   productId?: number;
   /**
    * @remarks
-   * The ID of the region where the asset resides.
+   * The ID of the region where the asset is located.
    * 
    * @example
    * cn-zhangjiakou
@@ -153,7 +141,7 @@ export class ListDataSourcesResponseBodyItems extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the region where the asset resides.
+   * The name of the region where the asset is located.
    * 
    * @example
    * China (Zhangjiakou)
@@ -161,7 +149,7 @@ export class ListDataSourcesResponseBodyItems extends $dara.Model {
   regionName?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the asset belongs.
+   * The identifier of the resource group to which the asset belongs.
    * 
    * @example
    * rg-acfmexample****
@@ -268,7 +256,7 @@ export class ListDataSourcesResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A compatible pagination cursor field. The ListDataSources operation uses page number-based pagination and does not rely on this field to determine whether more pages exist.
+   * A compatible pagination cursor field. The ListDataSources operation uses page number-based pagination and does not rely on this field to determine whether a next page exists.
    * 
    * @example
    * token-example
@@ -276,7 +264,7 @@ export class ListDataSourcesResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of records returned on each page.
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -284,7 +272,7 @@ export class ListDataSourcesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request identity, which is active when you invoke this API call.
+   * The ID of the request. You can use the ID to locate the API call.
    * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB

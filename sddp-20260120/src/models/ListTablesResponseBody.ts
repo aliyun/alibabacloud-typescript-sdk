@@ -21,7 +21,7 @@ export class ListTablesResponseBodyItemsRuleList extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the sensitivity level.
+   * The sensitivity level ID.
    * 
    * @example
    * 1
@@ -63,7 +63,7 @@ export class ListTablesResponseBodyItems extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The time when the data object was created. The value is a UNIX timestamp representing the number of milliseconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The creation time of the data object. The value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC.
    * 
    * @example
    * 1788566400000
@@ -79,7 +79,7 @@ export class ListTablesResponseBodyItems extends $dara.Model {
   dataAssetSourceId?: string;
   /**
    * @remarks
-   * The name of the database.
+   * The database name.
    * 
    * @example
    * business_db
@@ -103,7 +103,7 @@ export class ListTablesResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the Alibaba Cloud account that owns the database table.
+   * The cloud account ID of the database table owner.
    * 
    * @example
    * 123456789012****
@@ -111,7 +111,7 @@ export class ListTablesResponseBodyItems extends $dara.Model {
   owner?: string;
   /**
    * @remarks
-   * The code of the cloud service.
+   * The cloud service code.
    * 
    * @example
    * RDS
@@ -119,7 +119,7 @@ export class ListTablesResponseBodyItems extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The ID of the sensitivity level.
+   * The sensitivity level ID.
    * 
    * @example
    * 1
@@ -145,7 +145,7 @@ export class ListTablesResponseBodyItems extends $dara.Model {
   sensitive?: boolean;
   /**
    * @remarks
-   * The number of sensitive data entries within the current statistical scope.
+   * The number of sensitive data entries within the current statistics scope.
    * 
    * @example
    * 20
@@ -169,7 +169,7 @@ export class ListTablesResponseBodyItems extends $dara.Model {
   tenantName?: string;
   /**
    * @remarks
-   * The total number of entries that meet the current statistical or query scope.
+   * The total number of entries that meet the current statistics or query scope.
    * 
    * @example
    * 100
@@ -240,7 +240,7 @@ export class ListTablesResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The list of records returned by the query.
+   * The list of records returned for the current query.
    */
   items?: ListTablesResponseBodyItems[];
   /**
@@ -269,7 +269,7 @@ export class ListTablesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request. You can use the ID to locate the API call.
+   * The request ID. You can use this ID to locate the API call.
    * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB
@@ -277,7 +277,7 @@ export class ListTablesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries that meet the current statistical or query scope.
+   * The total number of entries that meet the current statistics or query scope.
    * 
    * @example
    * 100
@@ -285,7 +285,7 @@ export class ListTablesResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * Indicates whether more pages exist. A value of true indicates that more data exists. A value of false indicates that no more data exists.
+   * Indicates whether subsequent pages exist. The string true indicates that more data is available, and false indicates that no more data is available.
    * 
    * @example
    * false

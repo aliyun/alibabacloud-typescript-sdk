@@ -30,8 +30,8 @@ export class UpdateDataMaskingEncryptionAlgorithmRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response description. Valid values:
-   * - zh: Chinese.
-   * - en: English.
+   * - zh: Chinese
+   * - en: English
    * 
    * @example
    * zh
@@ -39,7 +39,7 @@ export class UpdateDataMaskingEncryptionAlgorithmRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The code of the cloud service. Column encryption supports ApsaraDB RDS, PolarDB, and PolarDB-X 2.0. If ProductId is also provided, the two parameters must match.
+   * The code of the cloud service. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also provided, the two values must match.
    * 
    * @example
    * RDS
@@ -48,9 +48,9 @@ export class UpdateDataMaskingEncryptionAlgorithmRequest extends $dara.Model {
   /**
    * @remarks
    * The identifier of the cloud service type. Valid values:
-   * - 5: ApsaraDB RDS.
-   * - 8: PolarDB.
-   * - 27: PolarDB-X 2.0.
+   * - 5: RDS
+   * - 8: POLARDB
+   * - 27: PolarDBX2
    * If specified together with ProductCode, the values must match.
    * 
    * @example

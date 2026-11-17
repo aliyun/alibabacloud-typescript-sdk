@@ -13,7 +13,7 @@ export class CreateDataMaskingRuleShrinkRequest extends $dara.Model {
   encAlgorithm?: string;
   /**
    * @remarks
-   * The identifier of the Key Management Service (KMS) key. You can obtain it from Items[].KeyId in the response of the ListKmsKeys operation. Provide this parameter when you use a KMS key. Do not pass this parameter in local key scenarios.
+   * The KMS key identifier. You can obtain it from Items[].KeyId in the response of ListKmsKeys. Provide this parameter when you use a KMS key. Do not pass this parameter in local key scenarios.
    * 
    * @example
    * 12345678-1234-1234-1234-12345678****
@@ -22,9 +22,9 @@ export class CreateDataMaskingRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The key mode. Valid values:
-   * - client_key: local key
-   * - kms_key: KMS key
-   * When you use kms_key, you must specify EncryptionKeyId.
+   * - client_key: local key.
+   * - kms_key: KMS key.
+   * If you use kms_key, you must specify EncryptionKeyId.
    * 
    * @example
    * client_key
@@ -32,7 +32,7 @@ export class CreateDataMaskingRuleShrinkRequest extends $dara.Model {
   encryptionKeyMode?: string;
   /**
    * @remarks
-   * The type of the database engine. The value must be consistent with the EngineType of the target instance, such as MySQL or PostgreSQL.
+   * The database engine type. The value must be consistent with the EngineType of the target instance, such as MySQL or PostgreSQL.
    * 
    * @example
    * MySQL
@@ -40,7 +40,7 @@ export class CreateDataMaskingRuleShrinkRequest extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * The expiration time of the plaintext permission. The value is a UNIX timestamp in milliseconds since 00:00:00 UTC on January 1, 1970. Specify this parameter only when ExpireTimeOperation is set to SET. The value must be later than the current time and no greater than 2145953410000. The server saves the value with second precision. Do not specify this parameter when ExpireTimeOperation is set to PRESERVE or CLEAR.
+   * The expiration time of the plaintext access permissions. The value is a UNIX timestamp in milliseconds since 00:00:00 UTC on January 1, 1970. Specify this parameter only when ExpireTimeOperation is set to SET. The value must be later than the current time and no greater than 2145953410000. The server saves the value with second precision. Do not pass this parameter when ExpireTimeOperation is set to PRESERVE or CLEAR.
    * 
    * @example
    * 2145953410000
@@ -60,7 +60,7 @@ export class CreateDataMaskingRuleShrinkRequest extends $dara.Model {
   expireTimeOperation?: string;
   /**
    * @remarks
-   * The instance identity. You can obtain it from Items[].InstanceId in the response of the ListDataMaskingInstances operation.
+   * The database instance identity. You can obtain it from Items[].InstanceId in the response of ListDataMaskingInstances.
    * 
    * @example
    * rm-2ze1abcdefgh****
@@ -69,8 +69,8 @@ export class CreateDataMaskingRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the response description. Valid values:
-   * - zh: Chinese
-   * - en: English
+   * - zh: Chinese.
+   * - en: English.
    * 
    * @example
    * zh
@@ -78,7 +78,7 @@ export class CreateDataMaskingRuleShrinkRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The code of the cloud service. Column encryption supports RDS, POLARDB, and PolarDBX2. If ProductId is also passed, the two must correspond to each other.
+   * The cloud service code. Column encryption supports RDS, POLARDB, and PolarDBX2. If you pass ProductId at the same time, the two values must match.
    * 
    * @example
    * RDS
@@ -86,11 +86,11 @@ export class CreateDataMaskingRuleShrinkRequest extends $dara.Model {
   productCode?: string;
   /**
    * @remarks
-   * The identifier of the cloud service type. Valid values:
-   * - 5: RDS
-   * - 8: POLARDB
-   * - 27: PolarDBX2
-   * When specified together with ProductCode, the values must correspond to each other.
+   * The cloud service type identifier. Valid values:
+   * - 5: RDS.
+   * - 8: POLARDB.
+   * - 27: PolarDBX2.
+   * If you specify this parameter together with ProductCode, the values must match.
    * 
    * @example
    * 5
@@ -111,7 +111,7 @@ export class CreateDataMaskingRuleShrinkRequest extends $dara.Model {
   subRuleListShrink?: string;
   /**
    * @remarks
-   * The list of database accounts to which the fullAccess plaintext permission is granted. The accounts must belong to the target instance.
+   * The list of database accounts to which the fullAccess plaintext access permissions are granted. The accounts must belong to the target instance.
    */
   userListShrink?: string;
   static names(): { [key: string]: string } {

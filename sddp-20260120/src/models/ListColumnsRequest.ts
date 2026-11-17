@@ -13,7 +13,7 @@ export class ListColumnsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The instance identity of the cloud database. Set this parameter to the InstanceId in the instance list.
+   * The cloud database instance ID. Set this parameter to the InstanceId in the instance list.
    * 
    * @example
    * rm-2ze1abcdefgh****
@@ -37,7 +37,7 @@ export class ListColumnsRequest extends $dara.Model {
   engineType?: string;
   /**
    * @remarks
-   * The compatible parameter for the instance identity. DataAssetSourceId takes precedence. If both parameters are specified, DataAssetSourceId is used.
+   * The compatible parameter for the instance ID. DataAssetSourceId takes precedence. If both parameters are specified, DataAssetSourceId is used.
    * 
    * @example
    * rm-2ze1abcdefgh****

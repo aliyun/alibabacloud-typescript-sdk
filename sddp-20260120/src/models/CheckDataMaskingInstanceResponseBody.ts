@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckDataMaskingInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance check result code. A value of Success indicates that the check is passed. For other values, refer to ErrorMessage for troubleshooting.
+   * The instance check result code. A value of Success indicates that the check is passed. For other values, handle them based on ErrorMessage.
    * 
    * @example
    * Success
@@ -13,7 +13,7 @@ export class CheckDataMaskingInstanceResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The instance check result message. If the check fails, the specific cause is returned.
+   * The instance check result description. If the check fails, the specific cause is returned.
    * 
    * @example
    * The instance is not in the running state
@@ -21,7 +21,7 @@ export class CheckDataMaskingInstanceResponseBody extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The request ID. You can use the ID to locate this API call.
+   * The request ID. You can use this ID to locate the API call.
    * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB

@@ -70,7 +70,7 @@ export class GetDataMaskingColumnCountResponseBody extends $dara.Model {
   columnCount?: GetDataMaskingColumnCountResponseBodyColumnCount;
   /**
    * @remarks
-   * The request ID, which can be used to locate the API call.
+   * The ID of the request, which can be used to locate the API call.
    * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB

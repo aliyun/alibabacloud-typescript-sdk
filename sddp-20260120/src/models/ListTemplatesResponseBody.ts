@@ -21,7 +21,7 @@ export class ListTemplatesResponseBodyItems extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The creation time of the template. The value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC.
+   * The time when the template was created. The value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC.
    * 
    * @example
    * 1788566400000
@@ -29,7 +29,7 @@ export class ListTemplatesResponseBodyItems extends $dara.Model {
   gmtCreate?: number;
   /**
    * @remarks
-   * The last modification time of the template. The value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC.
+   * The time when the template was last modified. The value is a UNIX timestamp in milliseconds since 1970-01-01 00:00:00 UTC.
    * 
    * @example
    * 1788566400000
@@ -37,7 +37,7 @@ export class ListTemplatesResponseBodyItems extends $dara.Model {
   gmtModified?: number;
   /**
    * @remarks
-   * The identifier of the classification and grading template.
+   * The ID of the classification and grading template.
    * 
    * @example
    * 1
@@ -69,7 +69,7 @@ export class ListTemplatesResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The status of the template. Valid values: 0: Disabled. 1: Enabled primary template. 2: Active template. 3: General detection model.
+   * The template status. Valid values: 0: Disabled. 1: Enabled primary template. 2: Active template. 3: General detection model.
    * 
    * @example
    * 1
@@ -85,7 +85,7 @@ export class ListTemplatesResponseBodyItems extends $dara.Model {
   supportEdit?: number;
   /**
    * @remarks
-   * The category of the template. Valid values: 1: Alibaba Cloud template. 2: Finance template. 3: Energy template. 4: Personal information security template. 5: Travel template. 65: General template. 66: Custom template. 67: Template from other cloud services.
+   * The template category. Valid values: 1: Alibaba Cloud template. 2: Finance template. 3: Energy template. 4: Personal information security template. 5: Travel template. 65: General template. 66: Custom template. 67: Template from other cloud services.
    * 
    * @example
    * 65
@@ -143,12 +143,12 @@ export class ListTemplatesResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The list of records returned for the current query.
+   * The list of records returned for this query.
    */
   items?: ListTemplatesResponseBodyItems[];
   /**
    * @remarks
-   * The number of records per page for the current query.
+   * The number of entries returned per page for this query.
    * 
    * @example
    * 20
@@ -156,7 +156,7 @@ export class ListTemplatesResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID, which can be used to trace the current API call.
+   * The request ID, which can be used to locate this API call.
    * 
    * @example
    * 7C6D8E9F-1234-5678-ABCD-0123456789AB
@@ -164,7 +164,7 @@ export class ListTemplatesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records that match the current query conditions.
+   * The total number of entries that meet the current statistics or query scope.
    * 
    * @example
    * 100
