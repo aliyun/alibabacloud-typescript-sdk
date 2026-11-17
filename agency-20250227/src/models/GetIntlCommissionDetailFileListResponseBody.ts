@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIntlCommissionDetailFileListResponseBodyDataFileList extends $dara.Model {
   /**
    * @remarks
-   * The OSS file push status. Valid values: init, processing, succeeded, or failed.
+   * The push status of the file to OSS. Valid values: Initialized, Processing, Succeeded, Failed.
    * 
    * @example
    * PROCESSING
@@ -13,7 +13,7 @@ export class GetIntlCommissionDetailFileListResponseBodyDataFileList extends $da
   bucketSyncStatus?: string;
   /**
    * @remarks
-   * The commission policy name.
+   * The name of the policy.
    * 
    * @example
    * 202606_FY27_TEST
@@ -21,7 +21,7 @@ export class GetIntlCommissionDetailFileListResponseBodyDataFileList extends $da
   commissionPolicyName?: string;
   /**
    * @remarks
-   * The file name.
+   * The name of the file.
    * 
    * @example
    * 202606_FY27_TEST_4397912340.xlsx
@@ -55,7 +55,7 @@ export class GetIntlCommissionDetailFileListResponseBodyDataFileList extends $da
 export class GetIntlCommissionDetailFileListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The bill month.
+   * The billing month.
    * 
    * @example
    * 202502
@@ -118,7 +118,7 @@ export class GetIntlCommissionDetailFileListResponseBody extends $dara.Model {
   data?: GetIntlCommissionDetailFileListResponseBodyData;
   /**
    * @remarks
-   * The message information.
+   * The message.
    * 
    * @example
    * SUCCESS
@@ -134,7 +134,7 @@ export class GetIntlCommissionDetailFileListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the call is successful.
    * 
    * @example
    * true

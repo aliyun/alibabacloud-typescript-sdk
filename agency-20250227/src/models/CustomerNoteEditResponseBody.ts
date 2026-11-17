@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CustomerNoteEditResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denial returned by the POP API when RAM permissions are not granted.
+   * The details about the access denial. This parameter is returned by the POP API operation when the RAM user does not have the required permissions.
    * 
    * @example
    * {}
@@ -21,7 +21,7 @@ export class CustomerNoteEditResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The HTTP status code returned by the POP API.
+   * The HTTP status code returned by the POP API operation.
    * 
    * @example
    * 200
@@ -29,23 +29,23 @@ export class CustomerNoteEditResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned by the operation.
+   * The message returned by the API operation.
    * 
    * @example
-   * 成功
+   * Success
    */
   message?: string;
   /**
    * @remarks
-   * Same as Message.
+   * The message. This parameter is the same as Message.
    * 
    * @example
-   * 成功
+   * Success
    */
   msg?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4

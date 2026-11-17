@@ -16,7 +16,7 @@ export class GetBillDetailFileListResponseBodyData extends $dara.Model {
    * The file name.
    * 
    * @example
-   * 账单202502021112
+   * Bill202502021112
    */
   fileName?: string;
   /**
@@ -30,9 +30,9 @@ export class GetBillDetailFileListResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The OSS file push status. Valid values:
-   * - 1: pending
-   * - 2: processing
-   * - 3: completed.
+   * - 1: Pending.
+   * - 2: Processing.
+   * - 3: Completed.
    * 
    * @example
    * 3
@@ -40,10 +40,10 @@ export class GetBillDetailFileListResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The type. Valid values: customer acquisition or channel expansion.
+   * The type. Valid values: Customer Acquisition, Channel Expansion.
    * 
    * @example
-   * 拓渠
+   * Channel Expansion
    */
   type?: string;
   static names(): { [key: string]: string } {
@@ -94,7 +94,7 @@ export class GetBillDetailFileListResponseBody extends $dara.Model {
    * The message.
    * 
    * @example
-   * 成功
+   * Success
    */
   message?: string;
   /**
@@ -102,7 +102,7 @@ export class GetBillDetailFileListResponseBody extends $dara.Model {
    * Same as Message.
    * 
    * @example
-   * 成功
+   * Success
    */
   msg?: string;
   /**

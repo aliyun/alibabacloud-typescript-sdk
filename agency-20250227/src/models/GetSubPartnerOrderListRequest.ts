@@ -119,7 +119,7 @@ export class GetSubPartnerOrderListRequest extends $dara.Model {
    * The product name.
    * 
    * @example
-   * 弹性计算
+   * Elastic computing
    */
   productName?: string;
   /**
@@ -135,7 +135,7 @@ export class GetSubPartnerOrderListRequest extends $dara.Model {
    * The name of the secondary partner.
    * 
    * @example
-   * XXX有限公司
+   * XXX Co., Ltd.
    */
   subPartnerName?: string;
   /**

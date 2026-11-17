@@ -8,7 +8,7 @@ export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
    * The detailed registered address.
    * 
    * @example
-   * xxx街道xxx号
+   * xxx Street, No. xxx
    */
   address?: string;
   /**
@@ -24,7 +24,7 @@ export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
    * The description of the agreement status.
    * 
    * @example
-   * 生效期
+   * Effective period
    */
   agreementStatusDesc?: string;
   /**
@@ -32,7 +32,7 @@ export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
    * The city of the registered address.
    * 
    * @example
-   * 杭州市
+   * Hangzhou
    */
   city?: string;
   /**
@@ -40,7 +40,7 @@ export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
    * The name of the secondary distributor.
    * 
    * @example
-   * xxx有限公司
+   * xxx Co., Ltd.
    */
   companyName?: string;
   /**
@@ -48,7 +48,7 @@ export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
    * The name of the contact.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   contact?: string;
   /**
@@ -56,7 +56,7 @@ export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
    * The district or county of the registered address.
    * 
    * @example
-   * 西湖区
+   * Xihu District
    */
   district?: string;
   /**
@@ -72,7 +72,7 @@ export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
    * The name of the primary account of the secondary distributor.
    * 
    * @example
-   * xxxxxx有限公司主账号
+   * Primary account of xxxxxx Co., Ltd.
    */
   masterAccount?: string;
   /**
@@ -96,7 +96,7 @@ export class GetSubPartnerListResponseBodySubPartnerList extends $dara.Model {
    * The province of the registered address.
    * 
    * @example
-   * 浙江省
+   * Zhejiang Province
    */
   province?: string;
   static names(): { [key: string]: string } {
@@ -148,7 +148,7 @@ export class GetSubPartnerListResponseBody extends $dara.Model {
    * The message returned.
    * 
    * @example
-   * 成功
+   * Success
    */
   message?: string;
   /**

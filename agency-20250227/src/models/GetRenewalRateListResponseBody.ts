@@ -120,7 +120,7 @@ export class GetRenewalRateListResponseBodyData extends $dara.Model {
    * The partner PID name.
    * 
    * @example
-   * XX有限公司
+   * XX Co., Ltd.
    */
   masterPidName?: string;
   /**
@@ -301,7 +301,7 @@ export class GetRenewalRateListResponseBody extends $dara.Model {
    * The prompt message.
    * 
    * @example
-   * 成功
+   * Success
    */
   message?: string;
   /**

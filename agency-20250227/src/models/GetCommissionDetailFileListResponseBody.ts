@@ -8,7 +8,7 @@ export class GetCommissionDetailFileListResponseBodyDataFileList extends $dara.M
    * The push status of the OSS file. Valid values: Processing, Succeeded, or Failed.
    * 
    * @example
-   * 处理中
+   * Processing
    */
   bucketSyncStatus?: string;
   /**
@@ -16,7 +16,7 @@ export class GetCommissionDetailFileListResponseBodyDataFileList extends $dara.M
    * The policy name.
    * 
    * @example
-   * 参考【APS佣金查询下载功能】的政策名称
+   * The policy name. For more information, see the APS commission query and download feature.
    */
   commissionPolicyName?: string;
   /**
@@ -24,7 +24,7 @@ export class GetCommissionDetailFileListResponseBodyDataFileList extends $dara.M
    * The file name.
    * 
    * @example
-   * 佣金202502021112
+   * Commission202502021112
    */
   fileName?: string;
   /**
@@ -32,7 +32,7 @@ export class GetCommissionDetailFileListResponseBodyDataFileList extends $dara.M
    * The file type.
    * 
    * @example
-   * 总代政策为拓渠、普通政策为拓客
+   * Distributor policies are used to expand channels, and standard policies are used to acquire customers.
    */
   fileType?: string;
   /**
@@ -141,7 +141,7 @@ export class GetCommissionDetailFileListResponseBody extends $dara.Model {
    * The message returned.
    * 
    * @example
-   * 成功
+   * Success
    */
   message?: string;
   /**

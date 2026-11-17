@@ -13,23 +13,23 @@ export class CustomerNoteCreateRequest extends $dara.Model {
   contactInformation?: string;
   /**
    * @remarks
-   * The name of the contact.
+   * The contact name.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   contactName?: string;
   /**
    * @remarks
-   * The name of the customer.
+   * The customer name.
    * 
    * @example
-   * XXXX有限公司
+   * XXXX Co., Ltd
    */
   customerName?: string;
   /**
    * @remarks
-   * The UID of the customer.
+   * The customer UID.
    * 
    * @example
    * 1647796581073291
@@ -37,15 +37,15 @@ export class CustomerNoteCreateRequest extends $dara.Model {
   customerUid?: string;
   /**
    * @remarks
-   * The content of the note.
+   * The note content.
    * 
    * @example
-   * 日常拜访客户，讨论客户agent建设方案
+   * Routine customer visit to discuss the agent implementation plan for the customer
    */
   noteContent?: string;
   /**
    * @remarks
-   * The touch time. This value is a UNIX timestamp in milliseconds.
+   * The contact time (timestamp, in milliseconds).
    * 
    * @example
    * 1784266662000

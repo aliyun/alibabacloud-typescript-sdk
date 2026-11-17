@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "Agency";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'ap-northeast-1': "agency.aliyuncs.com",
@@ -69,7 +73,6 @@ export default class Client extends OpenApi {
       'rus-west-1-pop': "agency.aliyuncs.com",
       'us-east-1': "agency.aliyuncs.com",
       'us-west-1': "agency.aliyuncs.com",
-      'ap-southeast-1': "agency.ap-southeast-1.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("agency", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -151,7 +154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a customer note.
+   * Updates a customer note.
    * 
    * @param request - CustomerNoteEditRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -198,7 +201,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Edits a customer note.
+   * Updates a customer note.
    * 
    * @param request - CustomerNoteEditRequest
    * @returns CustomerNoteEditResponse
@@ -209,7 +212,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a paged query list of customer notes with paging support.
+   * Queries the customer note list by using paging.
    * 
    * @param request - CustomerNoteListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -248,7 +251,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a paged query list of customer notes with paging support.
+   * Queries the customer note list by using paging.
    * 
    * @param request - CustomerNoteListRequest
    * @returns CustomerNoteListResponse
@@ -301,7 +304,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries exported bill files.
+   * Queries the bill export file of a China partner for a specific billing cycle. The system pushes the file to the OSS bucket specified by the partner.
    * 
    * @param request - GetBillDetailFileListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -356,7 +359,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries exported bill files.
+   * Queries the bill export file of a China partner for a specific billing cycle. The system pushes the file to the OSS bucket specified by the partner.
    * 
    * @param request - GetBillDetailFileListRequest
    * @returns GetBillDetailFileListResponse
@@ -520,6 +523,10 @@ export default class Client extends OpenApi {
       query["RamAccountForCustomerManager"] = request.ramAccountForCustomerManager;
     }
 
+    if (!$dara.isNull(request.rebateType)) {
+      query["RebateType"] = request.rebateType;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -549,11 +556,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Downloads the commission details of an international partner.
+   * Downloads the commission details of international partners.
    * 
    * @remarks
-   * Ensure that the current caller identity is a T1 distribution partner. 
-   * <notice>Available only for international site.</notice>.
+   * Ensure that the current caller account is a T1 distribution partner. 
+   * <notice>Available only on the international site.</notice>
    * 
    * @param request - GetIntlCommissionDetailFileListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -608,11 +615,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Downloads the commission details of an international partner.
+   * Downloads the commission details of international partners.
    * 
    * @remarks
-   * Ensure that the current caller identity is a T1 distribution partner. 
-   * <notice>Available only for international site.</notice>.
+   * Ensure that the current caller account is a T1 distribution partner. 
+   * <notice>Available only on the international site.</notice>
    * 
    * @param request - GetIntlCommissionDetailFileListRequest
    * @returns GetIntlCommissionDetailFileListResponse

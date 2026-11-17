@@ -16,7 +16,7 @@ export class CustomerNoteEditRequest extends $dara.Model {
    * The name of the contact.
    * 
    * @example
-   * 张三
+   * John Smith
    */
   contactName?: string;
   /**
@@ -24,12 +24,12 @@ export class CustomerNoteEditRequest extends $dara.Model {
    * The content of the note.
    * 
    * @example
-   * 日常拜访客户，讨论客户agent建设方案
+   * Routine customer visit to discuss the agent development plan for the customer
    */
   noteContent?: string;
   /**
    * @remarks
-   * The note ID. This parameter is required.
+   * The ID of the note. This parameter is required.
    * 
    * @example
    * 1629862
@@ -37,7 +37,7 @@ export class CustomerNoteEditRequest extends $dara.Model {
   noteId?: number;
   /**
    * @remarks
-   * The touch date. The value is a UNIX timestamp in milliseconds.
+   * The time when the contact was made. The value is a timestamp in milliseconds.
    * 
    * @example
    * 1784266662000

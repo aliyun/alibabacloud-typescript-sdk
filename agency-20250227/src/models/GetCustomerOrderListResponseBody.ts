@@ -40,7 +40,7 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
    * The customer classification.
    * 
    * @example
-   * C类
+   * Type C
    */
   customerClassification?: string;
   /**
@@ -149,6 +149,11 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
    * The employee who follows up with the customer.
    */
   ramAccountForCustomerManagers?: string[];
+  /**
+   * @example
+   * 1
+   */
+  rebateType?: number;
   static names(): { [key: string]: string } {
     return {
       amountDiscount: 'AmountDiscount',
@@ -169,6 +174,7 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
       productName: 'ProductName',
       projectId: 'ProjectId',
       ramAccountForCustomerManagers: 'RamAccountForCustomerManagers',
+      rebateType: 'RebateType',
     };
   }
 
@@ -192,6 +198,7 @@ export class GetCustomerOrderListResponseBodyData extends $dara.Model {
       productName: 'string',
       projectId: 'number',
       ramAccountForCustomerManagers: { 'type': 'array', 'itemType': 'string' },
+      rebateType: 'number',
     };
   }
 

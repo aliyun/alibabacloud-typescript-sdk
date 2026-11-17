@@ -28,7 +28,7 @@ export class GetSubPartnerListRequest extends $dara.Model {
    * The company name of the secondary partner.
    * 
    * @example
-   * xxx有限公司
+   * xxx Co., Ltd.
    */
   subPartnerCompanyName?: string;
   /**

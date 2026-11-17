@@ -10,7 +10,7 @@ export class CustomerNoteListResponseBodyDataData extends $dara.Model {
    * The name of the contact.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   contactName?: string;
   /**
@@ -26,12 +26,12 @@ export class CustomerNoteListResponseBodyDataData extends $dara.Model {
    * The logon name of the creator.
    * 
    * @example
-   * 张三
+   * Zhang San
    */
   creatorName?: string;
   /**
    * @remarks
-   * The creation time in the format of yyyy-MM-dd HH:mm:ss.
+   * The creation time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2026-07-17 12:18:23
@@ -42,12 +42,12 @@ export class CustomerNoteListResponseBodyDataData extends $dara.Model {
    * The content of the note.
    * 
    * @example
-   * 讨论技术方案
+   * Discuss technical solutions
    */
   noteContent?: string;
   /**
    * @remarks
-   * The ID of the note.
+   * The note ID.
    * 
    * @example
    * 2932252
@@ -55,7 +55,7 @@ export class CustomerNoteListResponseBodyDataData extends $dara.Model {
   noteId?: number;
   /**
    * @remarks
-   * The type of the note (CUSTOMER).
+   * The note type. Valid value: CUSTOMER.
    * 
    * @example
    * CUSTOMER
@@ -63,15 +63,15 @@ export class CustomerNoteListResponseBodyDataData extends $dara.Model {
   noteType?: string;
   /**
    * @remarks
-   * The label of the note type.
+   * The name of the note type.
    * 
    * @example
-   * 客户
+   * Customer
    */
   noteTypeLabel?: string;
   /**
    * @remarks
-   * The touch date (timestamp).
+   * The contact date. The value is a timestamp.
    * 
    * @example
    * 1784266662000
@@ -167,7 +167,7 @@ export class CustomerNoteListResponseBodyDataPageInfo extends $dara.Model {
 export class CustomerNoteListResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denied error returned by the POP API when the caller does not have the required RAM permissions.
+   * The details of the access denial returned by the POP API when the RAM user lacks the required permissions.
    * 
    * @example
    * {}
@@ -204,7 +204,7 @@ export class CustomerNoteListResponseBodyData extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The prompt message, same as message.
+   * The prompt message. This parameter is the same as Message.
    * 
    * @example
    * success
@@ -212,7 +212,7 @@ export class CustomerNoteListResponseBodyData extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The pagination information compatible with the legacy interface (deprecated).
+   * **[Deprecated]** The pagination information compatible with the legacy fenxiao-service API.
    */
   pageInfo?: CustomerNoteListResponseBodyDataPageInfo;
   /**
@@ -297,7 +297,7 @@ export class CustomerNoteListResponseBodyData extends $dara.Model {
 export class CustomerNoteListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the access denied error returned by the POP API when the caller does not have the required RAM permissions.
+   * The details of the access denial returned by the POP API when the RAM user lacks the required permissions.
    * 
    * @example
    * {}
@@ -334,7 +334,7 @@ export class CustomerNoteListResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The prompt message, same as message.
+   * The prompt message. This parameter is the same as Message.
    * 
    * @example
    * success

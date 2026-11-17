@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetIntlCommissionDetailFileListRequest extends $dara.Model {
   /**
    * @remarks
-   * The bill month.
+   * The billing month.
    * 
    * This parameter is required.
    * 
@@ -45,7 +45,7 @@ export class GetIntlCommissionDetailFileListRequest extends $dara.Model {
   ossBucketName?: string;
   /**
    * @remarks
-   * The endpoint of the region where the Object Storage Service (OSS) bucket for file sharing resides.
+   * The endpoint of the OSS bucket used for file sharing.
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class GetIntlCommissionDetailFileListRequest extends $dara.Model {
   ossEndpoint?: string;
   /**
    * @remarks
-   * The region where the current OSS bucket resides.
+   * The region where the current OSS bucket is located.
    * 
    * This parameter is required.
    * 

@@ -5,12 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class CustomerNoteListDetailResponseBodyDataAttachment extends $dara.Model {
   /**
    * @remarks
-   * The attachment signature.
+   * The download URL of the attachment.
+   * 
+   * @example
+   * http://geoip-sdk-user.oss-cn-zhangjiakou.aliyuncs.com/product/v1/ipv4-inner/common/v1.20251010002216.dex?Expires=1760062445&OSSAccessKeyId=x6R87i97yKeKRggz&Signature=****
    */
   downloadUrl?: string;
   /**
    * @remarks
-   * The attachment ID.
+   * The ID of the attachment.
    * 
    * @example
    * 307
@@ -18,15 +21,15 @@ export class CustomerNoteListDetailResponseBodyDataAttachment extends $dara.Mode
   id?: number;
   /**
    * @remarks
-   * The attachment name.
+   * The name of the attachment.
    * 
    * @example
-   * Course Training
+   * Course training
    */
   name?: string;
   /**
    * @remarks
-   * The attachment signature.
+   * The signature of the attachment.
    * 
    * @example
    * hF2UrEMc4XWy990sh9LGM0+ScI8=
@@ -34,7 +37,7 @@ export class CustomerNoteListDetailResponseBodyDataAttachment extends $dara.Mode
   signature?: string;
   /**
    * @remarks
-   * The attachment size in bytes.
+   * The size of the attachment. Unit: bytes.
    * 
    * @example
    * 111222121
@@ -42,7 +45,7 @@ export class CustomerNoteListDetailResponseBodyDataAttachment extends $dara.Mode
   size?: number;
   /**
    * @remarks
-   * The attachment type.
+   * The type of the attachment.
    * 
    * @example
    * image/png
@@ -82,15 +85,15 @@ export class CustomerNoteListDetailResponseBodyDataAttachment extends $dara.Mode
 export class CustomerNoteListDetailResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The AI parsing result (JSON string).
+   * The AI analysis result. The value is a JSON string.
    * 
    * @example
-   * {"TouchDate":"2026-07-17 10:00:01"}
+   * {"Contact date":"2026-07-17 10:00:01"}
    */
   aiResult?: string;
   /**
    * @remarks
-   * The attachment list.
+   * The list of attachments.
    */
   attachment?: CustomerNoteListDetailResponseBodyDataAttachment[];
   /**
@@ -103,10 +106,10 @@ export class CustomerNoteListDetailResponseBodyData extends $dara.Model {
   contactInformation?: string;
   /**
    * @remarks
-   * The contact name.
+   * The name of the contact.
    * 
    * @example
-   * John
+   * Zhang San
    */
   contactName?: string;
   /**
@@ -122,12 +125,12 @@ export class CustomerNoteListDetailResponseBodyData extends $dara.Model {
    * The logon name of the creator.
    * 
    * @example
-   * John
+   * Zhang San
    */
   creatorName?: string;
   /**
    * @remarks
-   * The customer name.
+   * The name of the customer.
    * 
    * @example
    * XXXX Co., Ltd
@@ -135,7 +138,7 @@ export class CustomerNoteListDetailResponseBodyData extends $dara.Model {
   customerName?: string;
   /**
    * @remarks
-   * The customer UID.
+   * The UID of the customer.
    * 
    * @example
    * 1271202085096245
@@ -143,7 +146,7 @@ export class CustomerNoteListDetailResponseBodyData extends $dara.Model {
   customerUid?: number;
   /**
    * @remarks
-   * The creation time in the yyyy-MM-dd HH:mm:ss format.
+   * The time when the note was created. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2026-05-07 10:27:46
@@ -151,7 +154,7 @@ export class CustomerNoteListDetailResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The note content.
+   * The content of the note.
    * 
    * @example
    * Note content
@@ -159,7 +162,7 @@ export class CustomerNoteListDetailResponseBodyData extends $dara.Model {
   noteContent?: string;
   /**
    * @remarks
-   * The note ID.
+   * The ID of the note.
    * 
    * @example
    * 1620737
@@ -167,7 +170,7 @@ export class CustomerNoteListDetailResponseBodyData extends $dara.Model {
   noteId?: number;
   /**
    * @remarks
-   * The note type (CUSTOMER).
+   * The type of the note.
    * 
    * @example
    * CUSTOMER
@@ -175,7 +178,7 @@ export class CustomerNoteListDetailResponseBodyData extends $dara.Model {
   noteType?: string;
   /**
    * @remarks
-   * The note type label.
+   * The name of the note type.
    * 
    * @example
    * Customer
@@ -183,7 +186,7 @@ export class CustomerNoteListDetailResponseBodyData extends $dara.Model {
   noteTypeLabel?: string;
   /**
    * @remarks
-   * The touch date (timestamp).
+   * The contact date. The value is a timestamp.
    * 
    * @example
    * 1784266662000
@@ -242,7 +245,7 @@ export class CustomerNoteListDetailResponseBodyData extends $dara.Model {
 export class CustomerNoteListDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access denied details returned by the POP API when RAM permissions are missing.
+   * The detailed information about the access denial returned in the POP API response when the RAM user lacks the required permissions.
    * 
    * @example
    * {}
@@ -263,7 +266,7 @@ export class CustomerNoteListDetailResponseBody extends $dara.Model {
   data?: CustomerNoteListDetailResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code returned by the POP API.
+   * The HTTP status code used in the POP API response.
    * 
    * @example
    * 200
@@ -279,7 +282,7 @@ export class CustomerNoteListDetailResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The prompt message. This is the same as Message.
+   * The prompt message, which is the same as Message.
    * 
    * @example
    * SUCCESS
@@ -287,7 +290,7 @@ export class CustomerNoteListDetailResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9C14ADFE-DF0A-54D4-8BD5-45D0839246B4

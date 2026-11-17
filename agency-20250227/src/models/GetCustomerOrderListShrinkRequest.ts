@@ -134,7 +134,7 @@ export class GetCustomerOrderListShrinkRequest extends $dara.Model {
    * The product name.
    * 
    * @example
-   * 弹性计算
+   * Elastic computing
    */
   productName?: string;
   /**
@@ -153,6 +153,11 @@ export class GetCustomerOrderListShrinkRequest extends $dara.Model {
    * 1234532
    */
   ramAccountForCustomerManager?: string;
+  /**
+   * @example
+   * 1
+   */
+  rebateType?: number;
   static names(): { [key: string]: string } {
     return {
       customerAccount: 'CustomerAccount',
@@ -173,6 +178,7 @@ export class GetCustomerOrderListShrinkRequest extends $dara.Model {
       productName: 'ProductName',
       projectId: 'ProjectId',
       ramAccountForCustomerManager: 'RamAccountForCustomerManager',
+      rebateType: 'RebateType',
     };
   }
 
@@ -196,6 +202,7 @@ export class GetCustomerOrderListShrinkRequest extends $dara.Model {
       productName: 'string',
       projectId: 'number',
       ramAccountForCustomerManager: 'string',
+      rebateType: 'number',
     };
   }
 

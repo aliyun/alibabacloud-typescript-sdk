@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CustomerNoteListDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The note ID.
+   * The ID of the note.
    * 
    * @example
    * 1620737

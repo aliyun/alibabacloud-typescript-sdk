@@ -32,7 +32,7 @@ export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
    * The customer classification.
    * 
    * @example
-   * C类
+   * Type C
    */
   customerClassification?: string;
   /**
@@ -123,7 +123,7 @@ export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
    * The product name.
    * 
    * @example
-   * 弹性计算
+   * Elastic computing
    */
   productName?: string;
   /**
@@ -139,7 +139,7 @@ export class GetSubPartnerOrderListResponseBodyData extends $dara.Model {
    * The name of the secondary partner.
    * 
    * @example
-   * xxx有限公司
+   * xxx Co., Ltd.
    */
   subPartnerName?: string;
   /**
@@ -222,7 +222,7 @@ export class GetSubPartnerOrderListResponseBody extends $dara.Model {
    * The message returned.
    * 
    * @example
-   * 成功
+   * Success
    */
   message?: string;
   /**
