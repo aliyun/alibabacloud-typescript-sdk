@@ -70,6 +70,7 @@ export { QueryCreateInstancePriceRequestResourceSpec } from './QueryCreateInstan
 export { QueryCreateInstancePriceRequestStorageOss } from './QueryCreateInstancePriceRequest';
 export { QueryCreateInstancePriceRequestStorage } from './QueryCreateInstancePriceRequest';
 export { QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo } from './QueryCreateInstancePriceResponseBody';
+export { QueryCreateInstancePriceResponseBodyPriceInfoModulePrices } from './QueryCreateInstancePriceResponseBody';
 export { QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions } from './QueryCreateInstancePriceResponseBody';
 export { QueryCreateInstancePriceResponseBodyPriceInfoRules } from './QueryCreateInstancePriceResponseBody';
 export { QueryCreateInstancePriceResponseBodyPriceInfo } from './QueryCreateInstancePriceResponseBody';

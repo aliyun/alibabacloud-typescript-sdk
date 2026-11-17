@@ -16,7 +16,7 @@ export class QueryCreateInstancePriceRequestHaResourceSpec extends $dara.Model {
   cpu?: number;
   /**
    * @remarks
-   * The active available memory size for cross-zone high availability.
+   * The memory size of the active zone-disaster recovery resource.
    * 
    * @example
    * 80
@@ -227,7 +227,7 @@ export class QueryCreateInstancePriceRequest extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The billing cycle. Subscription instances support only yearly (Year) and monthly (Month) billing cycles. For pay-as-you-go instances, select hourly (Hour).
+   * The billing cycle. Subscription instances support only yearly (Year) and monthly (Month) billing cycles. Pay-as-you-go instances support only hourly (Hour) billing cycles.
    * 
    * @example
    * Month
@@ -279,7 +279,7 @@ export class QueryCreateInstancePriceRequest extends $dara.Model {
   vSwitchIds?: string[];
   /**
    * @remarks
-   * The VPC ID.
+   * The ID of the VPC.
    * 
    * @example
    * vpc-2ze9xoh8qyt1rnxfmfcdi

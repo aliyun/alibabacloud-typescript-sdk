@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo extends $dara.Model {
   /**
    * @remarks
-   * The price reduction ratio.
+   * The price reduction rate.
    * 
    * @example
    * 34%
@@ -13,7 +13,7 @@ export class QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo extends
   cheapRate?: string;
   /**
    * @remarks
-   * The reduced total price on the official website.
+   * The total price on the official website after the price reduction.
    * 
    * @example
    * 8000
@@ -21,7 +21,7 @@ export class QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo extends
   cheapStandAmount?: string;
   /**
    * @remarks
-   * Indicates whether the price reduction margin is displayed.
+   * Indicates whether to display the price reduction rate.
    */
   isShow?: boolean;
   /**
@@ -79,13 +79,123 @@ export class QueryCreateInstancePriceResponseBodyPriceInfoDepreciateInfo extends
   }
 }
 
+export class QueryCreateInstancePriceResponseBodyPriceInfoModulePrices extends $dara.Model {
+  /**
+   * @remarks
+   * The discount amount.
+   * 
+   * @example
+   * 648.0
+   */
+  discountAmount?: number;
+  /**
+   * @remarks
+   * The unit price of the module.
+   * 
+   * @example
+   * 183600.0000
+   */
+  finalUnitFee?: string;
+  /**
+   * @remarks
+   * The module code.
+   * 
+   * @example
+   * overhead_cu
+   */
+  moduleCode?: string;
+  /**
+   * @remarks
+   * The module name.
+   * 
+   * @example
+   * Control and Management Services
+   */
+  moduleName?: string;
+  /**
+   * @remarks
+   * The original amount.
+   * 
+   * @example
+   * 4320.0
+   */
+  originalAmount?: number;
+  /**
+   * @remarks
+   * The payment amount.
+   * 
+   * @example
+   * 3672.0
+   */
+  payAmount?: number;
+  /**
+   * @remarks
+   * The billing method.
+   * 
+   * @example
+   * yearPrice
+   */
+  priceType?: string;
+  /**
+   * @remarks
+   * The pricing unit.
+   * 
+   * @example
+   * Yuan/CU
+   */
+  priceUnit?: string;
+  /**
+   * @remarks
+   * The order quantity.
+   * 
+   * @example
+   * 1
+   */
+  quantity?: string;
+  static names(): { [key: string]: string } {
+    return {
+      discountAmount: 'DiscountAmount',
+      finalUnitFee: 'FinalUnitFee',
+      moduleCode: 'ModuleCode',
+      moduleName: 'ModuleName',
+      originalAmount: 'OriginalAmount',
+      payAmount: 'PayAmount',
+      priceType: 'PriceType',
+      priceUnit: 'PriceUnit',
+      quantity: 'Quantity',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      discountAmount: 'number',
+      finalUnitFee: 'string',
+      moduleCode: 'string',
+      moduleName: 'string',
+      originalAmount: 'number',
+      payAmount: 'number',
+      priceType: 'string',
+      priceUnit: 'string',
+      quantity: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions extends $dara.Model {
   /**
    * @remarks
    * The description of the coupon.
    * 
    * @example
-   * CNY 1,391.5 coupon (valid until 03/23/2022)
+   * ¥1,391.5 coupon (valid until 03/23/2022)
    */
   promotionDesc?: string;
   /**
@@ -93,7 +203,7 @@ export class QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions ext
    * The name of the coupon.
    * 
    * @example
-   * CNY 1,391.5 coupon
+   * ¥1,391.5 coupon
    */
   promotionName?: string;
   /**
@@ -106,7 +216,7 @@ export class QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions ext
   promotionOptionNo?: string;
   /**
    * @remarks
-   * Indicates whether the coupon is selected. Valid values:
+   * Specifies whether the coupon is selected. Valid values:
    * - true: Selected.
    * - false: Not selected.
    * 
@@ -152,7 +262,7 @@ export class QueryCreateInstancePriceResponseBodyPriceInfoRules extends $dara.Mo
   description?: string;
   /**
    * @remarks
-   * The ID of the promotion.
+   * The ID of the promotion rule.
    * 
    * @example
    * 587
@@ -213,12 +323,12 @@ export class QueryCreateInstancePriceResponseBodyPriceInfo extends $dara.Model {
   discountAmount?: number;
   /**
    * @remarks
-   * Indicates whether the key account discount is applied.
+   * Indicates whether the key account promotion is applied.
    */
   isContractActivity?: boolean;
   /**
    * @remarks
-   * The Lingxiao request ID for the invocation.
+   * The Lingxiao request ID.
    * 
    * @example
    * 67F33190-946B-1105-B6A1-E2DF0426DD51
@@ -234,12 +344,17 @@ export class QueryCreateInstancePriceResponseBodyPriceInfo extends $dara.Model {
   message?: string;
   /**
    * @remarks
+   * The module prices.
+   */
+  modulePrices?: QueryCreateInstancePriceResponseBodyPriceInfoModulePrices[];
+  /**
+   * @remarks
    * The coupon group information.
    */
   optionalPromotions?: QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions[];
   /**
    * @remarks
-   * The original price.
+   * The original amount.
    * 
    * @example
    * 4368
@@ -260,7 +375,7 @@ export class QueryCreateInstancePriceResponseBodyPriceInfo extends $dara.Model {
   standDiscountPrice?: string;
   /**
    * @remarks
-   * The official website discount price or direct sales contract discount price.
+   * The discounted price on the official website or the discounted price in the direct sales contract.
    * 
    * @example
    * 32432
@@ -268,7 +383,7 @@ export class QueryCreateInstancePriceResponseBodyPriceInfo extends $dara.Model {
   standPrice?: string;
   /**
    * @remarks
-   * The final price, which is the original price minus the discount.
+   * The final amount, which is the original amount minus the discount.
    * 
    * @example
    * 3712.8
@@ -283,6 +398,7 @@ export class QueryCreateInstancePriceResponseBodyPriceInfo extends $dara.Model {
       isContractActivity: 'IsContractActivity',
       lxRequestId: 'LxRequestId',
       message: 'Message',
+      modulePrices: 'ModulePrices',
       optionalPromotions: 'OptionalPromotions',
       originalAmount: 'OriginalAmount',
       rules: 'Rules',
@@ -301,6 +417,7 @@ export class QueryCreateInstancePriceResponseBodyPriceInfo extends $dara.Model {
       isContractActivity: 'boolean',
       lxRequestId: 'string',
       message: 'string',
+      modulePrices: { 'type': 'array', 'itemType': QueryCreateInstancePriceResponseBodyPriceInfoModulePrices },
       optionalPromotions: { 'type': 'array', 'itemType': QueryCreateInstancePriceResponseBodyPriceInfoOptionalPromotions },
       originalAmount: 'number',
       rules: { 'type': 'array', 'itemType': QueryCreateInstancePriceResponseBodyPriceInfoRules },
@@ -313,6 +430,9 @@ export class QueryCreateInstancePriceResponseBodyPriceInfo extends $dara.Model {
   validate() {
     if(this.depreciateInfo && typeof (this.depreciateInfo as any).validate === 'function') {
       (this.depreciateInfo as any).validate();
+    }
+    if(Array.isArray(this.modulePrices)) {
+      $dara.Model.validateArray(this.modulePrices);
     }
     if(Array.isArray(this.optionalPromotions)) {
       $dara.Model.validateArray(this.optionalPromotions);

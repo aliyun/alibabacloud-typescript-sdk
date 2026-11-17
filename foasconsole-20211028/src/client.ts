@@ -54,7 +54,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the resource group.
+   * Changes the resource group of a resource.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -93,7 +93,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the resource group.
+   * Changes the resource group of a resource.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -1648,7 +1648,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the price for purchasing a workspace under the current account.
+   * Retrieves the pricing for purchasing a workspace for the current account.
    * 
    * @param tmpReq - QueryCreateInstancePriceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1757,7 +1757,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the price for purchasing a workspace under the current account.
+   * Retrieves the pricing for purchasing a workspace for the current account.
    * 
    * @param request - QueryCreateInstancePriceRequest
    * @returns QueryCreateInstancePriceResponse
