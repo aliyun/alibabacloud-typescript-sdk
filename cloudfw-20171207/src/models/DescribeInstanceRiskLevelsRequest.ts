@@ -70,10 +70,9 @@ export class DescribeInstanceRiskLevelsRequest extends $dara.Model {
   instances?: DescribeInstanceRiskLevelsRequestInstances[];
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language in which messages are received. Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
    * - **en**: English
    * 
    * @example

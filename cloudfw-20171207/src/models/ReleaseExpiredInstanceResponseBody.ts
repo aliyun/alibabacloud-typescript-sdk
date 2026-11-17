@@ -13,10 +13,8 @@ export class ReleaseExpiredInstanceResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Indicates whether the instance was released:
-   * 
+   * Indicates whether the release is successful. Valid values:
    * - **true**: Successful.
-   * 
    * - **false**: Failed.
    * 
    * @example
@@ -33,7 +31,7 @@ export class ReleaseExpiredInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

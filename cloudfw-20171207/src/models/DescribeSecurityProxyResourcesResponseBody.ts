@@ -13,6 +13,19 @@ export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcListNatGat
   destinationCidr?: string;
   /**
    * @remarks
+   * The current traffic redirection status of the route entry. Valid values:
+   * - diverted: Traffic is redirected to the firewall.
+   * - undiverted: Traffic is not redirected and still points to the NAT gateway.
+   * - diverting: Traffic redirection is in progress.
+   * - undiverting: Traffic redirection cancellation is in progress.
+   * - abnormal: Traffic redirection is abnormal.
+   * 
+   * @example
+   * diverted
+   */
+  divertStatus?: string;
+  /**
+   * @remarks
    * The next hop instance ID.
    * 
    * @example
@@ -21,7 +34,7 @@ export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcListNatGat
   nextHopId?: string;
   /**
    * @remarks
-   * The network type of the next hop.
+   * The next hop network type.
    * 
    * @example
    * NatGateway
@@ -29,7 +42,7 @@ export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcListNatGat
   nextHopType?: string;
   /**
    * @remarks
-   * The ID of the route table.
+   * The route table ID.
    * 
    * @example
    * vtb-2ze409pp09d994a****
@@ -38,6 +51,7 @@ export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcListNatGat
   static names(): { [key: string]: string } {
     return {
       destinationCidr: 'DestinationCidr',
+      divertStatus: 'DivertStatus',
       nextHopId: 'NextHopId',
       nextHopType: 'NextHopType',
       routeTableId: 'RouteTableId',
@@ -47,6 +61,7 @@ export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcListNatGat
   static types(): { [key: string]: any } {
     return {
       destinationCidr: 'string',
+      divertStatus: 'string',
       nextHopId: 'string',
       nextHopType: 'string',
       routeTableId: 'string',
@@ -143,7 +158,7 @@ export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcList exten
   cidrBlock?: string;
   /**
    * @remarks
-   * The UID of the member accounts.
+   * The UID of member accounts.
    * 
    * @example
    * 157862808111****
@@ -164,7 +179,7 @@ export class DescribeSecurityProxyResourcesResponseBodyResourceListVpcList exten
   vpcId?: string;
   /**
    * @remarks
-   * The name of the VPC-connected instance.
+   * The VPC-connected instance name.
    * 
    * @example
    * vpc-wz94a4q37rgl7g****

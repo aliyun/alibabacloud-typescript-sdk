@@ -37,7 +37,7 @@ export class DescribeNatFirewallQuotaResponseBody extends $dara.Model {
   unprotectedCount?: number;
   /**
    * @remarks
-   * The number of used quotas.
+   * The used count.
    * 
    * @example
    * 10

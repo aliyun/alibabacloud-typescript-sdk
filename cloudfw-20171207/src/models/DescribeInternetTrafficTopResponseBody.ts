@@ -13,7 +13,7 @@ export class DescribeInternetTrafficTopResponseBodyDataList extends $dara.Model 
   dataName?: string;
   /**
    * @remarks
-   * The inbound percentage.
+   * The inbound traffic percentage.
    * 
    * @example
    * 47.12
@@ -29,7 +29,7 @@ export class DescribeInternetTrafficTopResponseBodyDataList extends $dara.Model 
   isSubscribed?: boolean;
   /**
    * @remarks
-   * The label list.
+   * The list of labels.
    */
   labelList?: string[];
   /**
@@ -93,7 +93,7 @@ export class DescribeInternetTrafficTopResponseBody extends $dara.Model {
   dataCount?: number;
   /**
    * @remarks
-   * The traffic data list.
+   * The list of traffic data.
    */
   dataList?: DescribeInternetTrafficTopResponseBodyDataList[];
   /**
@@ -106,7 +106,7 @@ export class DescribeInternetTrafficTopResponseBody extends $dara.Model {
   dataType?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 15FCCC52-1E23-57AE-B5EF-3E00A3******

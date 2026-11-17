@@ -21,7 +21,7 @@ export class DescribeAccessInstanceVSwitchListResponseBodyZonesVSwitchList exten
   cidrBlock?: string;
   /**
    * @remarks
-   * Indicates whether the vSwitch is in a VPC that is managed by Cloud Firewall.
+   * Indicates whether the VPC is managed by a firewall.
    * 
    * @example
    * false
@@ -29,7 +29,7 @@ export class DescribeAccessInstanceVSwitchListResponseBodyZonesVSwitchList exten
   firewallVSwitch?: boolean;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-qzeaol304m***
@@ -85,7 +85,7 @@ export class DescribeAccessInstanceVSwitchListResponseBodyZonesVSwitchList exten
 export class DescribeAccessInstanceVSwitchListResponseBodyZones extends $dara.Model {
   /**
    * @remarks
-   * The list of vSwitches.
+   * The vSwitches.
    */
   vSwitchList?: DescribeAccessInstanceVSwitchListResponseBodyZonesVSwitchList[];
   /**
@@ -157,7 +157,7 @@ export class DescribeAccessInstanceVSwitchListResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The list of zones.
+   * The zones.
    */
   zones?: DescribeAccessInstanceVSwitchListResponseBodyZones[];
   static names(): { [key: string]: string } {

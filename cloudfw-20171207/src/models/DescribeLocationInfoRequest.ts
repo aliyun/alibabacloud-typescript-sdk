@@ -13,7 +13,7 @@ export class DescribeLocationInfoRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The tracing code.
+   * The source code.
    * 
    * This parameter is required.
    * 

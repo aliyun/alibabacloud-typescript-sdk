@@ -15,7 +15,7 @@ export class DescribeAclBackupListRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The language of the response.
+   * The language type for receiving messages.
    * 
    * @example
    * zh
@@ -33,7 +33,7 @@ export class DescribeAclBackupListRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address.
    * 
    * @example
    * 110.191.179.XXX

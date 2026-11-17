@@ -21,7 +21,7 @@ export class CreatePrivateDnsEndpointResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID, which is the unique identifier of the task.
+   * The task ID, which uniquely identifies the task.
    * 
    * @example
    * 132

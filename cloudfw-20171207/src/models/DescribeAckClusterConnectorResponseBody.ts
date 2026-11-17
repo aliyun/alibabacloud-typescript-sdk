@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAckClusterConnectorResponseBodyAckClusterConnector extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ACK cluster. You can obtain the value from:
-   * - [DescribeAckClusters](~~DescribeAckClusters~~): Lists ACK clusters.
+   * The ID of the ACK cluster. You can call the following API operation to obtain the value:
+   * - [DescribeAckClusters](~~DescribeAckClusters~~): Queries a list of ACK clusters.
    * 
    * @example
    * c857d908016794125883a9ee8196cba17
@@ -30,8 +30,8 @@ export class DescribeAckClusterConnectorResponseBodyAckClusterConnector extends 
   connectorHealthCheckStatus?: string;
   /**
    * @remarks
-   * The ID of the ACK cluster connector. You can obtain the value from:
-   * - [DescribeAckClusterConnectors](~~DescribeAckClusterConnectors~~): Lists ACK cluster connectors.
+   * The ID of the ACK cluster connector. You can call the following API operation to obtain the value:
+   * - [DescribeAckClusterConnectors](~~DescribeAckClusterConnectors~~): Queries a list of ACK cluster connectors.
    * 
    * @example
    * ac-7c1bad6c3cc84c33baab
@@ -39,7 +39,7 @@ export class DescribeAckClusterConnectorResponseBodyAckClusterConnector extends 
   connectorId?: string;
   /**
    * @remarks
-   * The name of the ACK cluster connector. The name is 1 to 64 characters in length and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
+   * The name of the ACK cluster connector. The name must be 1 to 64 characters in length, and can contain Chinese characters, uppercase and lowercase letters, digits, periods (.), underscores (_), and hyphens (-).
    * 
    * @example
    * ack-cluster-connector-name
@@ -63,7 +63,7 @@ export class DescribeAckClusterConnectorResponseBodyAckClusterConnector extends 
   createTime?: string;
   /**
    * @remarks
-   * The Alibaba Cloud UID of the account to which the ACK cluster resource belongs.
+   * The Alibaba Cloud account ID to which the ACK cluster resources belong.
    * 
    * @example
    * 135809047715****
@@ -71,8 +71,8 @@ export class DescribeAckClusterConnectorResponseBodyAckClusterConnector extends 
   memberUid?: string;
   /**
    * @remarks
-   * The primary vSwitch of the ACK cluster connector. You can obtain the value from:
-   * - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Lists vSwitches of synchronization nodes.
+   * The ID of the primary vSwitch for the ACK cluster connector. You can call the following API operation to obtain the value:
+   * - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Queries a list of vSwitches for synchronization nodes.
    * 
    * @example
    * vsw-2zerfbbje7dvnbii2****
@@ -80,7 +80,7 @@ export class DescribeAckClusterConnectorResponseBodyAckClusterConnector extends 
   primaryVswitchId?: string;
   /**
    * @remarks
-   * The IP address of the primary vSwitch of the ACK cluster connector.
+   * The IP address of the primary vSwitch for the ACK cluster connector.
    * 
    * @example
    * 10.100.1.1
@@ -88,8 +88,8 @@ export class DescribeAckClusterConnectorResponseBodyAckClusterConnector extends 
   primaryVswitchIp?: string;
   /**
    * @remarks
-   * The zone of the primary vSwitch of the ACK cluster connector. You can obtain the value from:
-   * - [DescribeAccessInstanceZoneList](~~DescribeAccessInstanceZoneList~~): Lists zones of synchronization node vSwitches.
+   * The zone ID of the primary vSwitch for the ACK cluster connector. You can call the following API operation to obtain the value:
+   * - [DescribeAccessInstanceZoneList](~~DescribeAccessInstanceZoneList~~): Queries a list of zones for the vSwitches of synchronization nodes.
    * 
    * @example
    * cn-beijing-g
@@ -97,10 +97,10 @@ export class DescribeAckClusterConnectorResponseBodyAckClusterConnector extends 
   primaryVswitchZoneId?: string;
   /**
    * @remarks
-   * The region ID of the ACK cluster connector. You can obtain the value from:
-   * - [DescribeAccessInstanceRegionList](~~DescribeAccessInstanceRegionList~~): Queries the list of synchronization node regions.
+   * The region ID of the ACK cluster connector. You can call the following API operation to obtain the value:
+   * - [DescribeAccessInstanceRegionList](~~DescribeAccessInstanceRegionList~~): Queries the regions of synchronization nodes.
    * 
-   * > For more information about the regions supported by ACK cluster connectors in Cloud Firewall, see [ACK cluster synchronization nodes](https://help.aliyun.com/document_detail/2865120.html).
+   * > For more information about the regions supported by Cloud Firewall for ACK cluster connectors, see [ACK cluster synchronization nodes](https://help.aliyun.com/document_detail/2865120.html).
    * 
    * @example
    * cn-beijing
@@ -108,8 +108,8 @@ export class DescribeAckClusterConnectorResponseBodyAckClusterConnector extends 
   regionNo?: string;
   /**
    * @remarks
-   * The standby vSwitch of the ACK cluster connector. You can obtain the value from:
-   * - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Lists vSwitches of synchronization nodes.
+   * The ID of the secondary vSwitch for the ACK cluster connector. You can call the following API operation to obtain the value:
+   * - [DescribeAccessInstanceVSwitchList](~~DescribeAccessInstanceVSwitchList~~): Queries a list of vSwitches for synchronization nodes.
    * 
    * @example
    * vsw-2ze2gtlfozrab01cfo****
@@ -117,7 +117,7 @@ export class DescribeAckClusterConnectorResponseBodyAckClusterConnector extends 
   standbyVswitchId?: string;
   /**
    * @remarks
-   * The IP address of the standby vSwitch of the ACK cluster connector.
+   * The IP address of the secondary vSwitch for the ACK cluster connector.
    * 
    * @example
    * 10.100.2.1
@@ -125,8 +125,8 @@ export class DescribeAckClusterConnectorResponseBodyAckClusterConnector extends 
   standbyVswitchIp?: string;
   /**
    * @remarks
-   * The zone of the standby vSwitch of the ACK cluster connector. You can obtain the value from:
-   * - [DescribeAccessInstanceZoneList](~~DescribeAccessInstanceZoneList~~): Lists zones of synchronization node vSwitches.
+   * The zone ID of the secondary vSwitch for the ACK cluster connector. You can call the following API operation to obtain the value:
+   * - [DescribeAccessInstanceZoneList](~~DescribeAccessInstanceZoneList~~): Queries a list of zones for the vSwitches of synchronization nodes.
    * 
    * @example
    * cn-beijing-h
@@ -142,7 +142,7 @@ export class DescribeAckClusterConnectorResponseBodyAckClusterConnector extends 
   ttl?: number;
   /**
    * @remarks
-   * The reason why the ACK cluster connector is unhealthy.
+   * The cause of the unhealthy status of the ACK cluster connector.
    * 
    * @example
    * The ACK cluster status is unavailable.

@@ -13,9 +13,8 @@ export class DescribeInstanceRiskLevelsResponseBodyInstanceRisksDetails extends 
   ip?: string;
   /**
    * @remarks
-   * The threat level. Valid value:
-   * 
-   * - **medium**: medium
+   * The risk level. Valid values:
+   * - **medium**: Medium
    * 
    * @example
    * medium
@@ -57,7 +56,7 @@ export class DescribeInstanceRiskLevelsResponseBodyInstanceRisksDetails extends 
 export class DescribeInstanceRiskLevelsResponseBodyInstanceRisks extends $dara.Model {
   /**
    * @remarks
-   * The list of threats for the ECS instances.
+   * The list of ECS instance risks.
    */
   details?: DescribeInstanceRiskLevelsResponseBodyInstanceRisksDetails[];
   /**
@@ -70,9 +69,8 @@ export class DescribeInstanceRiskLevelsResponseBodyInstanceRisks extends $dara.M
   instanceId?: string;
   /**
    * @remarks
-   * The threat level. Valid value:
-   * 
-   * - **medium**: medium
+   * The risk level. Valid values:
+   * - **medium**: Medium
    * 
    * @example
    * medium
@@ -109,7 +107,7 @@ export class DescribeInstanceRiskLevelsResponseBodyInstanceRisks extends $dara.M
 export class DescribeInstanceRiskLevelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of instance threats.
+   * The list of instance risks.
    */
   instanceRisks?: DescribeInstanceRiskLevelsResponseBodyInstanceRisks[];
   /**

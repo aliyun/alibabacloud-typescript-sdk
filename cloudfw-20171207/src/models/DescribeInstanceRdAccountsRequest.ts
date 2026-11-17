@@ -13,7 +13,7 @@ export class DescribeInstanceRdAccountsRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The language type for the request and response messages.
+   * The language of the request and response messages.
    * 
    * @example
    * zh
@@ -21,7 +21,7 @@ export class DescribeInstanceRdAccountsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The remarks of the Cloud Firewall member accounts.
+   * The description of the Cloud Firewall member accounts.
    * 
    * @example
    * renewal
@@ -53,7 +53,7 @@ export class DescribeInstanceRdAccountsRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The IP address of the requester.
+   * The source IP address of the requester.
    * 
    * @example
    * 47.100.170.XXX

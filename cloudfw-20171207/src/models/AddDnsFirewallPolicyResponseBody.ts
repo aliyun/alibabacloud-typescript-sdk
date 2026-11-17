@@ -13,7 +13,7 @@ export class AddDnsFirewallPolicyResponseBody extends $dara.Model {
   aclUuid?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 71209DFE-XXX-XXX-52B4A4E9DA3B

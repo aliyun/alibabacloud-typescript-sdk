@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInternetDropTrafficTrendRequest extends $dara.Model {
   /**
    * @remarks
-   * The traffic direction.
+   * The direction.
    * 
    * @example
    * out
@@ -13,7 +13,7 @@ export class DescribeInternetDropTrafficTrendRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The end time of the query, specified as a timestamp in seconds.
+   * The end time of the query. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class DescribeInternetDropTrafficTrendRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The language of the response.
+   * The language type.
    * 
    * @example
    * zh
@@ -31,7 +31,7 @@ export class DescribeInternetDropTrafficTrendRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The traceability code.
+   * The tracing code.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class DescribeInternetDropTrafficTrendRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The start time, specified as a timestamp in seconds.
+   * The start time. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 

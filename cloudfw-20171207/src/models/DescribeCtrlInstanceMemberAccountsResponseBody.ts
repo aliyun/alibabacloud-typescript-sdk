@@ -13,7 +13,7 @@ export class DescribeCtrlInstanceMemberAccountsResponseBody extends $dara.Model 
   instanceMemberCount?: number;
   /**
    * @remarks
-   * The maximum number of member accounts supported by Cloud Firewall.
+   * The maximum quota for Cloud Firewall member accounts.
    * 
    * @example
    * 1000

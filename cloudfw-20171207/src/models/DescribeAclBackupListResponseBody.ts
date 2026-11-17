@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAclBackupListResponseBodyBackups extends $dara.Model {
   /**
    * @remarks
-   * The number of access control policies in the backup.
+   * The number of ACLs.
    * 
    * @example
    * 10
@@ -13,7 +13,7 @@ export class DescribeAclBackupListResponseBodyBackups extends $dara.Model {
   aclCount?: number;
   /**
    * @remarks
-   * The time when the backup was created. This value is a UNIX timestamp representing the number of seconds that have elapsed since January 1, 1970, 00:00:00 UTC.
+   * The backup time. The value is a UNIX timestamp in seconds, which indicates the number of seconds that have elapsed since January 1, 1970 (UTC).
    * 
    * @example
    * 1743683400
@@ -21,7 +21,7 @@ export class DescribeAclBackupListResponseBodyBackups extends $dara.Model {
   backUpTime?: number;
   /**
    * @remarks
-   * The description of the backup.
+   * The description of the backup task.
    * 
    * @example
    * description
@@ -55,12 +55,12 @@ export class DescribeAclBackupListResponseBodyBackups extends $dara.Model {
 export class DescribeAclBackupListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The backup records.
+   * The collection of backup records.
    */
   backups?: DescribeAclBackupListResponseBodyBackups[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 6C9105F2-9F31-5A62-8D52-FA65A3E5****
@@ -68,7 +68,7 @@ export class DescribeAclBackupListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 32

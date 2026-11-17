@@ -13,7 +13,7 @@ export class DescribePostpayUserVpcStatusRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The language in which messages are received. Valid values:
+   * The language in which you want to receive messages. Valid values:
    * 
    * - **zh** (default): Chinese.
    * - **en**: English.

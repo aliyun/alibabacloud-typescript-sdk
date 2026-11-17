@@ -13,7 +13,7 @@ export class DescribeBatchSlsDispatchStatusResponseBodyInfoListItemList extends 
   configStatus?: string;
   /**
    * @remarks
-   * The Chinese name of the delivery type.
+   * The name of the delivery type.
    * 
    * @example
    * internet-traffic-log
@@ -21,7 +21,7 @@ export class DescribeBatchSlsDispatchStatusResponseBodyInfoListItemList extends 
   dispatchName?: string;
   /**
    * @remarks
-   * The key for classified logs. Valid values:
+   * The log classification key. Valid values:
    * 
    * **internet_log**
    * 
@@ -39,7 +39,7 @@ export class DescribeBatchSlsDispatchStatusResponseBodyInfoListItemList extends 
   dispatchValue?: string;
   /**
    * @remarks
-   * The switch status of the delivery type.
+   * The enablement status of the delivery type.
    * 
    * @example
    * true
@@ -47,12 +47,12 @@ export class DescribeBatchSlsDispatchStatusResponseBodyInfoListItemList extends 
   enable?: boolean;
   /**
    * @remarks
-   * The detailed delivery configurations for the Internet and VPC.
+   * The detailed delivery configuration for the Internet and VPC firewalls.
    */
   filterKeys?: string[];
   /**
    * @remarks
-   * The value is fixed as log_type and can be ignored.
+   * The name of the search type. This parameter is fixed as log_type and can be ignored.
    * 
    * @example
    * log_type
@@ -116,7 +116,7 @@ export class DescribeBatchSlsDispatchStatusResponseBodyInfoList extends $dara.Mo
   projectName?: string;
   /**
    * @remarks
-   * The site. A value of cn represents the Chinese mainland, intl represents regions outside the Chinese mainland, and global represents global.
+   * The site. A value of cn indicates the Chinese mainland, intl indicates regions outside the Chinese mainland, and global indicates global.
    * 
    * @example
    * cn
@@ -163,7 +163,7 @@ export class DescribeBatchSlsDispatchStatusResponseBodyItemList extends $dara.Mo
   configStatus?: string;
   /**
    * @remarks
-   * The delivery name.
+   * The name of the delivery type.
    * 
    * @example
    * internet-traffic-log
@@ -171,7 +171,7 @@ export class DescribeBatchSlsDispatchStatusResponseBodyItemList extends $dara.Mo
   dispatchName?: string;
   /**
    * @remarks
-   * The value of the delivery log.
+   * The value of the log classification.
    * 
    * @example
    * internet_log
@@ -187,12 +187,12 @@ export class DescribeBatchSlsDispatchStatusResponseBodyItemList extends $dara.Mo
   enable?: boolean;
   /**
    * @remarks
-   * The supported filter conditions.
+   * The supported filter conditions for the Internet and VPC firewalls.
    */
   filterKeys?: string[];
   /**
    * @remarks
-   * The name of the search type.
+   * The name of the search type. This parameter is fixed as log_type and can be ignored.
    * 
    * @example
    * log_type
@@ -235,7 +235,7 @@ export class DescribeBatchSlsDispatchStatusResponseBodyItemList extends $dara.Mo
 export class DescribeBatchSlsDispatchStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The detailed information list of Logstores.
+   * The list of Logstore details.
    */
   infoList?: DescribeBatchSlsDispatchStatusResponseBodyInfoList[];
   /**
@@ -245,7 +245,7 @@ export class DescribeBatchSlsDispatchStatusResponseBody extends $dara.Model {
   itemList?: DescribeBatchSlsDispatchStatusResponseBodyItemList[];
   /**
    * @remarks
-   * The log version. A value of 1 indicates only one Logstore, and a value of 2 indicates two Logstores.
+   * The log version. A value of 1 indicates one Logstore, and a value of 2 indicates two Logstores.
    * 
    * @example
    * 1
@@ -269,7 +269,7 @@ export class DescribeBatchSlsDispatchStatusResponseBody extends $dara.Model {
   projectName?: string;
   /**
    * @remarks
-   * The request ID of the returned result.
+   * The ID of the request.
    * 
    * @example
    * 7036EBAB-F85F-5AAE-976F-C75AEE59****

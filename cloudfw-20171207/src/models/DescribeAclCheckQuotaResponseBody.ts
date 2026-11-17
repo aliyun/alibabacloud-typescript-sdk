@@ -29,7 +29,7 @@ export class DescribeAclCheckQuotaResponseBodyQuota extends $dara.Model {
   totalQuota?: number;
   /**
    * @remarks
-   * The time when the quota was last updated. This value is a UNIX timestamp. Unit: seconds.
+   * The last update time of the quota. Unit: seconds.
    * 
    * @example
    * 1724982259

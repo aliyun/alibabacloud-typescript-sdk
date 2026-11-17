@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOpenIpAccessSrcStatResponseBodyStatList extends $dara.Model {
   /**
    * @remarks
-   * The number of abnormal source IP addresses.
+   * The number of abnormal IP addresses.
    * 
    * @example
    * 12
@@ -21,7 +21,7 @@ export class DescribeOpenIpAccessSrcStatResponseBodyStatList extends $dara.Model
   app?: string;
   /**
    * @remarks
-   * The number of normal source IP addresses.
+   * The number of normal IP addresses.
    * 
    * @example
    * 21
@@ -73,7 +73,7 @@ export class DescribeOpenIpAccessSrcStatResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The list of statistics.
+   * The statistics list.
    */
   statList?: DescribeOpenIpAccessSrcStatResponseBodyStatList[];
   /**

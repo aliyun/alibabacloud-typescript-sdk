@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIPSRulesResponseBodyRules extends $dara.Model {
   /**
    * @remarks
-   * The attacked application.
+   * The attack application.
    * 
    * @example
    * SMB
@@ -16,7 +16,7 @@ export class DescribeIPSRulesResponseBodyRules extends $dara.Model {
    * The attack type.
    * 
    * @example
-   * Exception connection
+   * Abnormal connection
    */
   attackType?: string;
   /**
@@ -55,7 +55,7 @@ export class DescribeIPSRulesResponseBodyRules extends $dara.Model {
    * @remarks
    * The supported engine mode.
    * 
-   * This value is valid only when DefaultMode is set to drop (Block). In other modes, this value is meaningless.
+   * This value takes effect only when DefaultMode is set to drop (Block). It is not applicable in other modes.
    * 
    * @example
    * 1
@@ -87,7 +87,7 @@ export class DescribeIPSRulesResponseBodyRules extends $dara.Model {
   ruleName?: string;
   /**
    * @remarks
-   * The UUID of the rule.
+   * The rule UUID.
    * 
    * @example
    * d401b0cb-dc64-4bbe-bba0-3e7c744****
@@ -95,7 +95,7 @@ export class DescribeIPSRulesResponseBodyRules extends $dara.Model {
   ruleUuid?: string;
   /**
    * @remarks
-   * The timestamp when the rule was modified.
+   * The timestamp when the rule was updated.
    * 
    * @example
    * 1775101028
@@ -103,7 +103,7 @@ export class DescribeIPSRulesResponseBodyRules extends $dara.Model {
   updateTime?: number;
   /**
    * @remarks
-   * Specifies whether the rule is a custom rule.
+   * Indicates whether the rule is a custom rule.
    * 
    * @example
    * 1
@@ -167,7 +167,7 @@ export class DescribeIPSRulesResponseBodyRules extends $dara.Model {
 export class DescribeIPSRulesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of rules with the block action.
+   * The total number of block rules.
    * 
    * @example
    * 976

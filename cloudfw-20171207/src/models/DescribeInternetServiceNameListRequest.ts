@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInternetServiceNameListRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the response.
+   * The language type.
    * 
    * @example
    * zh
@@ -13,7 +13,7 @@ export class DescribeInternetServiceNameListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address of the requester.
    * 
    * @example
    * 140.240.17.XXX

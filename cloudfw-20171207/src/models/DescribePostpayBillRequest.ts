@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePostpayBillRequest extends $dara.Model {
   /**
    * @remarks
-   * The Settings for the page number of the current page during paging in a paged query.
+   * The page number of the current page in a paging query.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribePostpayBillRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end time of the bill query. The time is a UNIX timestamp accurate to seconds and must be later than StartTime.
+   * The end time of the bill query. The time is a UNIX timestamp accurate to seconds and must be later than the start time.
    * 
    * This parameter is required.
    * 
@@ -23,12 +23,12 @@ export class DescribePostpayBillRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The time interval for querying data. This parameter is required. If this parameter is not specified, ERR_PARAMS_INVALID is returned. Valid values:
-   * - 3600: hourly data.
-   * - 86400: daily data.
+   * The aggregation interval of the bill data. Unit: seconds. This parameter is required. If you do not specify this parameter, the ERR_PARAMS_INVALID error is returned. Valid values:
+   * - 3600: Hourly aggregation.
+   * - 86400: Daily aggregation.
    * 
    * @example
-   * 60
+   * 3600
    */
   interval?: number;
   /**
@@ -44,7 +44,7 @@ export class DescribePostpayBillRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries to return per page during paging in a paged query. Default value: 10.
+   * The maximum number of entries to return on each page in a paging query. Default value: 10.
    * 
    * @example
    * 10

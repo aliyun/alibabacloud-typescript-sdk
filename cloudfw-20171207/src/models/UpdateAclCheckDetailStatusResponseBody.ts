@@ -46,6 +46,7 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   /**
    * @remarks
    * The action that Cloud Firewall performs on the traffic in the access control policy. Valid values:
+   * 
    * - **accept**: allows the traffic.
    * - **drop**: blocks the traffic.
    * - **log**: monitors the traffic.
@@ -64,7 +65,7 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   aclUuid?: string;
   /**
    * @remarks
-   * The list of addresses in the address book.
+   * The address list information of the address book.
    */
   addressList?: string[];
   /**
@@ -77,7 +78,7 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   addressListCount?: number;
   /**
    * @remarks
-   * The ID of the application for the traffic in the access control policy.
+   * The application ID of the traffic in the access control policy.
    * 
    * @example
    * HTTP
@@ -85,7 +86,7 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   applicationId?: string;
   /**
    * @remarks
-   * The application type supported by the access control policy. Valid values:
+   * The Protocol Type supported by the access control policy. Valid values:
    * - **FTP**
    * - **HTTP**
    * - **HTTPS**
@@ -102,7 +103,7 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
    * - **SSL**
    * - **VNC**
    * 
-   * > The valid values of the application type depend on the protocol type specified by Proto. If Proto is set to TCP, ApplicationNameList supports all the preceding application types. If both ApplicationNameList and ApplicationName are specified, ApplicationNameList takes precedence.
+   * > The valid values of this parameter depend on the value of the Proto parameter. If Proto is set to TCP, ApplicationNameList supports all the preceding Protocol Types. If both ApplicationNameList and ApplicationName are specified, ApplicationNameList takes precedence.
    * 
    * @example
    * ANY
@@ -115,7 +116,7 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   applicationNameList?: string[];
   /**
    * @remarks
-   * Specifies whether to automatically add the public IP addresses of newly tagged ECS instances to the address book. Newly tagged ECS instances include newly purchased ECS instances with tags configured and ECS instances with modified tags.
+   * Specifies whether to automatically add the public IP addresses of newly matched ECS instances to the address book. Newly matched ECS instances refer to newly purchased ECS instances with tags configured or ECS instances with modified tags.
    * 
    * @example
    * 0
@@ -147,9 +148,9 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   destPort?: string;
   /**
    * @remarks
-   * The type of the destination port in the access control policy. Valid values:
-   * - **port**: port
-   * - **group**: port address book
+   * The destination port type in the access control policy. Valid values:
+   * - **port**: port.
+   * - **group**: port address book.
    * 
    * @example
    * port
@@ -162,9 +163,9 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   destPortGroupPorts?: string[];
   /**
    * @remarks
-   * The type of the destination port in the access control policy. Valid values:
-   * - **port**: port
-   * - **group**: port address book
+   * The destination port type in the access control policy. Valid values:
+   * - **port**: port.
+   * - **group**: port address book.
    * 
    * @example
    * port
@@ -172,13 +173,17 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   destPortType?: string;
   /**
    * @remarks
-   * The destination address in the access control policy. Fuzzy match is supported. The value of this parameter varies based on the destination type (DestinationType).
-   * - If DestinationType is set to `net`, the value is a CIDR block. Example: 10.0.3.0/24.
-   * - If DestinationType is set to `domain`, the value is a domain name. Example: aliyun.
-   * - If DestinationType is set to `group`, the value is the name of an address book. Example: db_group.
-   * - If DestinationType is set to `location`, the value is an area name. For more information about the area positional encoding, see AddControlPolicy. Example: ["BJ11", "ZB"].
+   * The destination address in the access control policy. Fuzzy match is supported. The value of this parameter varies based on the destination type.
    * 
-   * > If the Settings for this parameter are not specified, all types of destination addresses are queried.
+   * - If DestinationType is set to `net`, the destination address is a CIDR block. Example: 10.0.3.0/24.
+   * 
+   * - If DestinationType is set to `domain`, the destination address is a domain name. Example: aliyun.
+   * 
+   * - If DestinationType is set to `group`, the destination address is the name of an address book. Example: db_group.
+   * 
+   * - If DestinationType is set to `location`, the destination address is an area name. For more information about specific area positional encoding, see AddControlPolicy. Example: ["BJ11", "ZB"].
+   * 
+   * > If this parameter is not specified, all types of destination addresses are queried.
    * 
    * @example
    * kms.cn-shanghai.aliyuncs.com
@@ -191,12 +196,17 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   destinationGroupCidrs?: string[];
   /**
    * @remarks
-   * The type of the destination address book in the access control policy. Valid values:
-   * - **ip**: IP address book that contains one or more CIDR blocks
-   * - **tag**: ECS tag-based address book that contains the IP addresses of one or more ECS tags
-   * - **domain**: domain name address book that contains one or more domain names
-   * - **threat**: threat intelligence address book that contains one or more malicious IP addresses or domain names
-   * - **backsrc**: back-to-origin address book that contains the back-to-origin addresses of one or more Anti-DDoS or WAF instances
+   * The destination address book type in the access control policy. Valid values:
+   * 
+   * - **ip**: IP address book, which contains one or more CIDR blocks.
+   * 
+   * - **tag**: ECS tag-based address book, which contains IP addresses of one or more ECS tags.
+   * 
+   * - **domain**: domain name address book, which contains one or more domain names.
+   * 
+   * - **threat**: threat intelligence address book, which contains one or more malicious IP addresses or domain names.
+   * 
+   * - **backsrc**: back-to-origin address book, which contains back-to-origin IP addresses of one or more Anti-DDoS or WAF instances.
    * 
    * @example
    * domain
@@ -204,10 +214,11 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   destinationGroupType?: string;
   /**
    * @remarks
-   * The type of the destination address in the access control policy. Valid values:
-   * - **net**: destination CIDR block
-   * - **group**: destination address book
-   * - **domain**: destination domain name
+   * The destination address type in the access control policy. Valid values:
+   * 
+   * - **net**: destination CIDR block.
+   * - **group**: destination address book.
+   * - **domain**: destination domain name.
    * 
    * @example
    * group
@@ -216,8 +227,9 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   /**
    * @remarks
    * The traffic direction controlled by the access control policy. Valid values:
-   * - **in**: inbound traffic
-   * - **out**: outbound traffic
+   * 
+   * - **in**: Inbound traffic.
+   * - **out**: Outbound traffic.
    * 
    * @example
    * in
@@ -242,9 +254,10 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   /**
    * @remarks
    * The domain name resolution mode of the access control policy. Valid values:
-   * - **FQDN**: FQDN-based resolution
-   * - **DNS**: DNS-based dynamic resolution
-   * - **FQDN_AND_DNS**: FQDN- and DNS-based dynamic resolution
+   * 
+   * * **FQDN**: FQDN-based resolution.
+   * * **DNS**: DNS-based dynamic resolution.
+   * * **FQDN_AND_DNS**: FQDN- and DNS-based dynamic resolution.
    * 
    * @example
    * 0
@@ -269,12 +282,18 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   /**
    * @remarks
    * The type of the address book. Valid values:
-   * - **ip**: IP address book
-   * - **domain**: domain name address book
-   * - **port**: port address book
-   * - **tag**: ECS tag-based address book
-   * - **allCloud**: cloud service address book
-   * - **threat**: threat intelligence address book
+   * 
+   * - **ip**: IP address book.
+   * 
+   * - **domain**: domain name address book.
+   * 
+   * - **port**: port address book.
+   * 
+   * - **tag**: ECS tag-based address book.
+   * 
+   * - **allCloud**: cloud service address book.
+   * 
+   * - **threat**: threat intelligence address book.
    * 
    * @example
    * port
@@ -292,7 +311,7 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   groupUuid?: string;
   /**
    * @remarks
-   * The timestamp of the latest time of hits. The value is in the UNIX timestamp format measured in seconds.
+   * The UNIX timestamp of the last hit. The value is a UNIX timestamp measured in seconds.
    * 
    * @example
    * 1579261141
@@ -300,7 +319,7 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   hitLastTime?: number;
   /**
    * @remarks
-   * The number of hits of the access control policy.
+   * The number of hits for the access control policy.
    * 
    * @example
    * 1
@@ -309,7 +328,8 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   /**
    * @remarks
    * The IP version of the asset protected by Cloud Firewall. Valid values:
-   * - **4**: IPv4 (default).
+   * 
+   * - **4**: IPv4. This is the default value.
    * - **6**: IPv6.
    * 
    * @example
@@ -334,8 +354,7 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   natGatewayId?: string;
   /**
    * @remarks
-   * The priority of the access control policy.
-   * The priority starts from 1 and increases in ascending order. A smaller priority number indicates a higher priority.
+   * The priority of the access control policy. The priority value starts from 1 and increments sequentially. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -344,10 +363,11 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   /**
    * @remarks
    * The protocol type of the traffic in the access control policy. Valid values:
+   * 
    * - **TCP**
    * - **UDP**
    * - **ICMP**
-   * - **ANY**: all protocol types
+   * - **ANY**: all protocol types.
    * > If this parameter is not specified, all protocol types are queried.
    * 
    * @example
@@ -364,9 +384,10 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   referenceCount?: number;
   /**
    * @remarks
-   * The status of the access control policy. By default, a policy is enabled after it is created. Valid values:
-   * - **true**: The policy is enabled.
-   * - **false**: The policy is disabled.
+   * The enabling status of the access control policy. By default, a policy is enabled after it is created. Valid values:
+   * 
+   * - **true**: The access control policy is enabled.
+   * - **false**: The access control policy is disabled.
    * 
    * @example
    * true
@@ -374,17 +395,17 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   release?: string;
   /**
    * @remarks
-   * The set of recurrence days for the Policy Validity Period of the access control policy.
+   * The recurrence days of the Policy Validity Period for the access control policy.
    * - If RepeatType is set to `Permanent`, `None`, or `Daily`, RepeatDays is an empty set. Example: [].
    * - If RepeatType is set to `Weekly`, RepeatDays cannot be empty. Example: [0, 6].
-   * > If the Settings for RepeatType are `Weekly`, the values in RepeatDays cannot be duplicate.
+   * > When RepeatType is set to `Weekly`, the values in RepeatDays cannot be duplicate.
    * - If RepeatType is set to `Monthly`, RepeatDays cannot be empty. Example: [1, 31].
-   * > If the Settings for RepeatType are `Monthly`, the values in RepeatDays cannot be duplicate.
+   * > When RepeatType is set to `Monthly`, the values in RepeatDays cannot be duplicate.
    */
   repeatDays?: number[];
   /**
    * @remarks
-   * The recurrence end time of the policy validity period. The time must be in the 24-hour HH:mm format, such as 23:30. It must be on the hour or half hour, and at least 30 minutes later than the recurrence start time.
+   * The recurrence end time of the policy validity period. The time must be in the HH:mm 24-hour format, such as 23:30. It must be on the hour or half-hour, and at least 30 minutes later than the recurrence start time.
    * > If RepeatType is set to `Permanent` or `None`, RepeatEndTime is empty. If RepeatType is set to `Daily`, `Weekly`, or `Monthly`, RepeatEndTime must be specified.
    * 
    * @example
@@ -393,7 +414,7 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   repeatEndTime?: string;
   /**
    * @remarks
-   * The recurrence start time of the policy validity period. The time must be in the 24-hour HH:mm format, such as 08:00. It must be on the hour or half hour, and at least 30 minutes earlier than the recurrence end time.
+   * The recurrence start time of the policy validity period. The time must be in the HH:mm 24-hour format, such as 08:00. It must be on the hour or half-hour, and at least 30 minutes earlier than the recurrence end time.
    * > If RepeatType is set to `Permanent` or `None`, RepeatStartTime is empty. If RepeatType is set to `Daily`, `Weekly`, or `Monthly`, RepeatStartTime must be specified.
    * 
    * @example
@@ -403,11 +424,11 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   /**
    * @remarks
    * The recurrence type of the Policy Validity Period for the access control policy. Valid values:
-   * - **Permanent**: always (default)
-   * - **None**: specified single time
-   * - **Daily**: every day
-   * - **Weekly**: every week
-   * - **Monthly**: every month
+   * - **Permanent**: always. This is the default value.
+   * - **None**: specified single time.
+   * - **Daily**: every day.
+   * - **Weekly**: every week.
+   * - **Monthly**: every month.
    * 
    * @example
    * None
@@ -416,8 +437,10 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   /**
    * @remarks
    * The source address in the access control policy. Valid values:
-   * - If **SourceType** is set to `net`, the value is a source CIDR block. Example: 10.2.4.0/24.
-   * - If **SourceType** is set to `group`, the value is the name of a source address book. Example: db_group.
+   * 
+   * - If **SourceType** is set to `net`, the value of Source is a source CIDR block. Example: 10.2.4.0/24.
+   * 
+   * - If **SourceType** is set to `group`, the value of Source is the name of a source address book. Example: db_group.
    * 
    * @example
    * 10.71.94.24
@@ -430,12 +453,17 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   sourceGroupCidrs?: string[];
   /**
    * @remarks
-   * The type of the source address book in the access control policy. Valid values:
-   * - **ip**: IP address book that contains one or more CIDR blocks
-   * - **tag**: ECS tag-based address book that contains the IP addresses of one or more ECS tags
-   * - **domain**: domain name address book that contains one or more domain names
-   * - **threat**: threat intelligence address book that contains one or more malicious IP addresses or domain names
-   * - **backsrc**: back-to-origin address book that contains the back-to-origin addresses of one or more Anti-DDoS or WAF instances
+   * The source address book type in the access control policy. Valid values:
+   * 
+   * - **ip**: IP address book, which contains one or more CIDR blocks.
+   * 
+   * - **tag**: ECS tag-based address book, which contains IP addresses of one or more ECS tags.
+   * 
+   * - **domain**: domain name address book, which contains one or more domain names.
+   * 
+   * - **threat**: threat intelligence address book, which contains one or more malicious IP addresses or domain names.
+   * 
+   * - **backsrc**: back-to-origin address book, which contains back-to-origin IP addresses of one or more Anti-DDoS or WAF instances.
    * 
    * @example
    * ip
@@ -443,10 +471,11 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   sourceGroupType?: string;
   /**
    * @remarks
-   * The type of the source address in the access control policy. Valid values:
-   * - **net**: source CIDR block
-   * - **group**: source address book
-   * - **location**: source region
+   * The source address type in the access control policy. Valid values:
+   * 
+   * - **net**: source CIDR block.
+   * - **group**: source address book.
+   * - **location**: source location.
    * 
    * @example
    * net
@@ -454,8 +483,7 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   sourceType?: string;
   /**
    * @remarks
-   * The number of access control policy quotas consumed. This value is the sum of the quotas consumed by each policy.
-   * The number of quotas consumed by a single policy = Number of source CIDR blocks × Number of destination addresses (number of CIDR blocks, regions, or domain names) × Number of applications × Number of port ranges.
+   * The number of access control policy quotas consumed. This value is the sum of quotas consumed by each policy. The number of quotas consumed by a single policy = Number of source CIDR blocks × Number of destination addresses (CIDR blocks, locations, or domain names) × Number of applications × Number of port ranges.
    * 
    * @example
    * 10
@@ -484,7 +512,7 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecordAclsAcl extends $d
   tagRelation?: string;
   /**
    * @remarks
-   * The instance ID of the border virtual private cloud (VPC) firewalls.
+   * The instance ID of the virtual private cloud (VPC) firewalls.
    * 
    * @example
    * cen-cw4z051hr8x53qniv5
@@ -685,16 +713,26 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecord extends $dara.Mod
   /**
    * @remarks
    * The name of the ACL check. Valid values:
-   * - **PolicyHitCountZero**: policies with no traffic hits
-   * - **PolicySourceDestinationSame**: Invalid policy with the same source and destination
-   * - **PolicyDuplicate**: Duplicate or redundant policy
-   * - **PolicyConflict**: Policy that conflicts with business
-   * - **DefaultPolicyNotDeny**: default policy that does not use the Deny All whitelist mechanism
-   * - **PolicyPortHighRisk**: policies that allow traffic on high-risk ports
-   * - **PolicyTooLoose**: overly loose control policy
-   * - **AddressBookIpSeparated**: duplicate, overlapping, or scattered IP address books
-   * - **AddressBookPortSeparated**: duplicate, overlapping, or scattered port address books
-   * - **AddressBookDomainValid**: validity check for domain name address books
+   * 
+   * - **PolicyHitCountZero**: Policies with no traffic hits.
+   * 
+   * - **PolicySourceDestinationSame**: Invalid policy with the same source and destination objects.
+   * 
+   * - **PolicyDuplicate**: Duplicate or redundant policy.
+   * 
+   * - **PolicyConflict**: Policy that conflicts with business.
+   * 
+   * - **DefaultPolicyNotDeny**: The default policy does not use the deny-all whitelist mechanism.
+   * 
+   * - **PolicyPortHighRisk**: Risky policies that allow traffic on high-risk ports.
+   * 
+   * - **PolicyTooLoose**: Overly loose control policy.
+   * 
+   * - **AddressBookIpSeparated**: Duplicate, overlapping, or scattered IP address books.
+   * 
+   * - **AddressBookPortSeparated**: Duplicate, overlapping, or scattered port address books.
+   * 
+   * - **AddressBookDomainValid**: Validity check for domain name address books.
    * 
    * @example
    * PolicyHitCountZero
@@ -702,7 +740,7 @@ export class UpdateAclCheckDetailStatusResponseBodyCheckRecord extends $dara.Mod
   checkName?: string;
   /**
    * @remarks
-   * The description of the rule.
+   * The rule description.
    * 
    * @example
    * dwd_mysql_lingwan_faxing_chat_config_di

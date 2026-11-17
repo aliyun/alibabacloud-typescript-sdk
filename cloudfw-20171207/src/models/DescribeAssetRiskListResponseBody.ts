@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAssetRiskListResponseBodyAssetList extends $dara.Model {
   /**
    * @remarks
-   * The server IP address.
+   * The IP address of the server.
    * 
    * @example
    * 39.108.XX.XX
@@ -13,13 +13,10 @@ export class DescribeAssetRiskListResponseBodyAssetList extends $dara.Model {
   ip?: string;
   /**
    * @remarks
-   * The IP address version of the assets protected by Cloud Firewall.
+   * The IP version of the asset protected by Cloud Firewall. Valid values:
    * 
-   * Valid values:
-   * 
-   * - **4**: IPv4 address.
-   * 
-   * - **6**: IPv6 address.
+   * - **4**: IPv4 address
+   * - **6**: IPv6 address
    * 
    * @example
    * 4
@@ -27,7 +24,7 @@ export class DescribeAssetRiskListResponseBodyAssetList extends $dara.Model {
   ipVersion?: number;
   /**
    * @remarks
-   * The risk reason.
+   * The cause of the risk.
    * 
    * @example
    * other
@@ -36,9 +33,9 @@ export class DescribeAssetRiskListResponseBodyAssetList extends $dara.Model {
   /**
    * @remarks
    * The risk level. Valid values:
-   * - **low**: low risk
-   * - **middle**: medium risk
-   * - **high**: high risk
+   * - **low**: Low risk
+   * - **middle**: Medium risk
+   * - **high**: High risk
    * 
    * @example
    * low
@@ -74,12 +71,12 @@ export class DescribeAssetRiskListResponseBodyAssetList extends $dara.Model {
 export class DescribeAssetRiskListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The asset details returned.
+   * The details of the returned assets.
    */
   assetList?: DescribeAssetRiskListResponseBodyAssetList[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 443C5781-1C03-5FCD-8EC5-FB9C0B9AC396
@@ -87,7 +84,7 @@ export class DescribeAssetRiskListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned entries.
    * 
    * @example
    * 12

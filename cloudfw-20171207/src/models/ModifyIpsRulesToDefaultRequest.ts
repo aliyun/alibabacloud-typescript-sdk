@@ -13,9 +13,9 @@ export class ModifyIpsRulesToDefaultRequest extends $dara.Model {
   attackApp?: string;
   /**
    * @remarks
-   * The type of the cloud firewall. Valid values:
-   * - **VpcFirewall**: virtual private cloud (VPC) firewalls.
-   * - **InternetFirewall** (default): the Internet border firewall.
+   * The Cloud Firewall type. Valid values:
+   * - **VpcFirewall**: virtual private cloud (VPC) firewall
+   * - **InternetFirewall** (default): the Internet firewall
    * 
    * @example
    * InternetFirewall
@@ -23,7 +23,7 @@ export class ModifyIpsRulesToDefaultRequest extends $dara.Model {
   firewallType?: string;
   /**
    * @remarks
-   * The language of the content. Valid values:
+   * The language type. Valid values:
    * 
    * - **zh** (default): Chinese.
    * 
@@ -35,11 +35,17 @@ export class ModifyIpsRulesToDefaultRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
+   * Instance ID of the NAT firewall instance. This parameter is required only when FirewallType is set to **NatFirewall**. In this case, the scope is the rules under this instance. This parameter is ignored for Internet and VPC firewalls. You can call the [ListNatFirewallIpsConfigs](https://help.aliyun.com/document_detail/2879296.html) operation to query instance ID.
+   * 
+   * @example
+   * proxy-nat53f4bbc233234271a1d7
+   */
+  proxyId?: string;
+  /**
+   * @remarks
    * The rule type. Valid values:
    * - **basicRule**
    * - **customize**
-   * 
-   * This parameter is required.
    * 
    * @example
    * customize
@@ -47,7 +53,7 @@ export class ModifyIpsRulesToDefaultRequest extends $dara.Model {
   ruleType?: string;
   /**
    * @remarks
-   * The rule list. Conditional requirement: when RuleType is set to customize, you must specify at least one of this parameter or AttackApp. If you specify only RuleType without Rules or AttackApp, the API returns ErrorParameters.
+   * The list of rules. This parameter is conditionally required: when RuleType is set to customize, you must specify at least one of this parameter or AttackApp. If you specify only RuleType without Rules or AttackApp, the API returns an ErrorParameters error.
    * 
    * @example
    * [
@@ -58,7 +64,7 @@ export class ModifyIpsRulesToDefaultRequest extends $dara.Model {
   rules?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address of the requester.
    * 
    * @example
    * 140.205.118.XXX
@@ -69,6 +75,7 @@ export class ModifyIpsRulesToDefaultRequest extends $dara.Model {
       attackApp: 'AttackApp',
       firewallType: 'FirewallType',
       lang: 'Lang',
+      proxyId: 'ProxyId',
       ruleType: 'RuleType',
       rules: 'Rules',
       sourceIp: 'SourceIp',
@@ -80,6 +87,7 @@ export class ModifyIpsRulesToDefaultRequest extends $dara.Model {
       attackApp: 'string',
       firewallType: 'string',
       lang: 'string',
+      proxyId: 'string',
       ruleType: 'string',
       rules: 'string',
       sourceIp: 'string',

@@ -8,7 +8,7 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPListAddressGroupList 
    * The name of the address book.
    * 
    * @example
-   * IP地址簿
+   * IP address book
    */
   addressGroupName?: string;
   /**
@@ -45,39 +45,24 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPListAddressGroupList 
 export class DescribeOutgoingDestinationIPResponseBodyDstIPListApplicationPortList extends $dara.Model {
   /**
    * @remarks
-   * The application protocol detected for the connection. Valid values:
-   * 
+   * The Protocol Type supported by the access control policy. Valid values:
    * - **FTP**
-   * 
    * - **HTTP**
-   * 
    * - **HTTPS**
-   * 
    * - **Memcache**
-   * 
    * - **MongoDB**
-   * 
    * - **MQTT**
-   * 
    * - **MySQL**
-   * 
    * - **RDP**
-   * 
    * - **Redis**
-   * 
    * - **SMTP**
-   * 
    * - **SMTPS**
-   * 
    * - **SSH**
-   * 
    * - **SSL_No_Cert**
-   * 
    * - **SSL**
-   * 
    * - **VNC**
    * 
-   * >
+   * > The valid values of this parameter depend on the value of the Proto parameter. If Proto is set to TCP, ApplicationNameList supports all the preceding Protocol Types. If both ApplicationNameList and ApplicationName are specified, ApplicationNameList takes precedence.
    * 
    * @example
    * HTTP
@@ -85,7 +70,7 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPListApplicationPortLi
   applicationName?: string;
   /**
    * @remarks
-   * The application port.
+   * The port of the application.
    * 
    * @example
    * 80
@@ -93,7 +78,7 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPListApplicationPortLi
   port?: number;
   /**
    * @remarks
-   * A list of reasons why the application protocol was not identified.
+   * The list of reasons why the protocol is not analyzed when the identified protocol is Unknown.
    */
   unknownReason?: string[];
   static names(): { [key: string]: string } {
@@ -127,13 +112,11 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPListApplicationPortLi
 export class DescribeOutgoingDestinationIPResponseBodyDstIPListTagList extends $dara.Model {
   /**
    * @remarks
-   * The category of the threat intelligence tag. Valid values:
+   * The categorization of the intelligence tags label. Valid values:
    * 
-   * - **Suspicious**
-   * 
-   * - **Malicious**
-   * 
-   * - **Trusted**
+   * - **Suspicious**: Suspicious.
+   * - **Malicious**: Malicious.
+   * - **Trusted**: Trusted.
    * 
    * @example
    * Trusted
@@ -141,13 +124,11 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPListTagList extends $
   classId?: string;
   /**
    * @remarks
-   * The risk level. Valid values:
+   * The risk assessment level. Valid values:
    * 
-   * - **1**: Low
-   * 
-   * - **2**: Medium
-   * 
-   * - **3**: High
+   * - **1**: Low risk.
+   * - **2**: Medium risk.
+   * - **3**: High risk.
    * 
    * @example
    * 1
@@ -155,7 +136,7 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPListTagList extends $
   riskLevel?: number;
   /**
    * @remarks
-   * The description of the threat intelligence tag.
+   * The description of the intelligence tags label.
    * 
    * @example
    * ReleaseLabel
@@ -163,7 +144,7 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPListTagList extends $
   tagDescribe?: string;
   /**
    * @remarks
-   * The ID of the threat intelligence tag.
+   * The ID of the intelligence tags label.
    * 
    * @example
    * ReleaseLabel
@@ -171,7 +152,7 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPListTagList extends $
   tagId?: string;
   /**
    * @remarks
-   * The name of the threat intelligence tag.
+   * The name of the intelligence label sign.
    * 
    * @example
    * ReleaseLabel
@@ -209,11 +190,11 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPListTagList extends $
 export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether an access control policy is applied. Valid values:
+   * Specifies whether to overwrite the access control policy. Valid values:
    * 
-   * - **Uncovered**: No policy is applied.
+   * - **Uncovered**: Not covered.
    * 
-   * - **FullCoverage**: A policy is applied.
+   * - **FullCoverage**: Covered.
    * 
    * @example
    * Uncovered
@@ -221,10 +202,10 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $dara.Mo
   aclCoverage?: string;
   /**
    * @remarks
-   * Details of the ACL recommendation.
+   * The recommendation information for the ACL.
    * 
    * @example
-   * 建议放行
+   * Allow recommended
    */
   aclRecommendDetail?: string;
   /**
@@ -232,7 +213,6 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $dara.Mo
    * The health status of the access control policy. Valid values:
    * 
    * - **Normal**: Healthy.
-   * 
    * - **Abnormal**: Unhealthy.
    * 
    * @example
@@ -241,19 +221,19 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $dara.Mo
   aclStatus?: string;
   /**
    * @remarks
-   * A list of address books that contain this destination IP address.
+   * The address book information.
    */
   addressGroupList?: DescribeOutgoingDestinationIPResponseBodyDstIPListAddressGroupList[];
   /**
    * @remarks
    * The list of application ports.
    * 
-   * > This response returns a maximum of 99 application ports. If more than 99 ports exist, only the first 99 are returned.
+   * > The list displays only the first 99 application ports. If the number of outbound application ports exceeds 99, only the first 99 entries are displayed.
    */
   applicationPortList?: DescribeOutgoingDestinationIPResponseBodyDstIPListApplicationPortList[];
   /**
    * @remarks
-   * The total number of assets that initiated outgoing connections to this destination IP.
+   * The total number of assets that initiate outbound connections.
    * 
    * @example
    * 20
@@ -261,13 +241,11 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $dara.Mo
   assetCount?: number;
   /**
    * @remarks
-   * The threat intelligence category of the destination IP address. Valid values:
+   * The categorization of the intelligence tags label. Valid values:
    * 
-   * - **Suspicious**
-   * 
-   * - **Malicious**
-   * 
-   * - **Trusted**
+   * - **Suspicious**: Suspicious.
+   * - **Malicious**: Malicious.
+   * - **Trusted**: Trusted.
    * 
    * @example
    * Trusted
@@ -275,11 +253,11 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $dara.Mo
   categoryClassId?: string;
   /**
    * @remarks
-   * The ID of the service category. Valid values:
+   * The category ID of the product. Valid values:
    * 
-   * - **Aliyun**: The destination is an Alibaba Cloud product.
+   * - **Aliyun**: Alibaba Cloud service.
    * 
-   * - **NotAliyun**: The destination is a non-Alibaba Cloud product.
+   * - **NotAliyun**: Non-Alibaba Cloud service.
    * 
    * @example
    * Aliyun
@@ -287,19 +265,19 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $dara.Mo
   categoryId?: string;
   /**
    * @remarks
-   * The service category of the destination IP address. Valid values:
+   * The category name of the product. Valid values:
    * 
-   * - **Alibaba Cloud product**
+   * - **Alibaba Cloud service**
    * 
-   * - **non-Alibaba Cloud product**
+   * - **Non-Alibaba Cloud service**
    * 
    * @example
-   * 阿里云产品
+   * Alibaba Cloud service
    */
   categoryName?: string;
   /**
    * @remarks
-   * The destination IP address of the outgoing connection.
+   * The destination IP address of the domain name for outbound connections.
    * 
    * @example
    * 10.0.XX.XX
@@ -307,7 +285,7 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $dara.Mo
   dstIP?: string;
   /**
    * @remarks
-   * The name of the rule group.
+   * The name of the group in the rule.
    * 
    * @example
    * rules_test
@@ -317,9 +295,8 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $dara.Mo
    * @remarks
    * Indicates whether an access control rule exists. Valid values:
    * 
-   * - **true**: An access control rule exists.
-   * 
-   * - **false**: No access control rule exists.
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -327,11 +304,11 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $dara.Mo
   hasAcl?: string;
   /**
    * @remarks
-   * Indicates whether an ACL is recommended. Valid values:
+   * Indicates whether an ACL recommendation is available. Valid values:
    * 
-   * - **true**: An ACL is recommended.
+   * - **true**: Yes.
    * 
-   * - **false**: No ACL is recommended.
+   * - **false**: No.
    * 
    * @example
    * true
@@ -339,7 +316,7 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $dara.Mo
   hasAclRecommend?: boolean;
   /**
    * @remarks
-   * The total inbound traffic in bytes.
+   * The inbound traffic. Unit: bytes.
    * 
    * @example
    * 472
@@ -347,11 +324,10 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $dara.Mo
   inBytes?: number;
   /**
    * @remarks
-   * Indicates whether the destination IP address is added to the allowlist. Valid values:
+   * Indicates whether the IP address is added to the whitelist. Valid values:
+   * - **true**: Added.
    * 
-   * - **true**: The destination IP address is on the allowlist.
-   * 
-   * - **false**: The destination IP address is not on the allowlist.
+   * - **false**: Not added.
    * 
    * @example
    * true
@@ -359,15 +335,15 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $dara.Mo
   isMarkNormal?: boolean;
   /**
    * @remarks
-   * The geographical location of the destination IP address.
+   * The region name.
    * 
    * @example
-   * 山东省青岛市
+   * Qingdao, Shandong Province
    */
   locationName?: string;
   /**
    * @remarks
-   * The total outbound traffic in bytes.
+   * The outbound traffic. Unit: bytes.
    * 
    * @example
    * 965
@@ -375,7 +351,7 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $dara.Mo
   outBytes?: number;
   /**
    * @remarks
-   * The total number of private assets that initiated outgoing connections to this destination IP.
+   * The total number of private network assets that initiate outbound connections.
    * 
    * @example
    * 20
@@ -394,26 +370,26 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $dara.Mo
    * The name of the ACL rule.
    * 
    * @example
-   * 默认规则
+   * Default rule
    */
   ruleName?: string;
   /**
    * @remarks
-   * The reason for the security recommendation.
+   * The security reason.
    * 
    * @example
-   * 智能策略：该目的域名所属组织为阿里云计算有限公司，主要业务为阿里云，未发现安全风险，可用于配置外联白名单。
+   * Intelligent policy: The organization to which the destination domain name belongs is Alibaba Cloud Computing Ltd. Its main business is Alibaba Cloud. No security risks are found. It can be used to configure an outbound whitelist.
    */
   securityReason?: string;
   /**
    * @remarks
-   * The recommended security action for the outgoing connection. Valid values:
+   * The security policy for the domain name for outbound connections. Valid values:
    * 
-   * - **pass**: Allows the connection.
+   * - **pass**: Allow.
    * 
-   * - **alert**: Rejects the connection.
+   * - **alert**: Deny.
    * 
-   * - **drop**: Drops the connection.
+   * - **drop**: Monitor.
    * 
    * @example
    * pass
@@ -429,12 +405,12 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $dara.Mo
   sessionCount?: number;
   /**
    * @remarks
-   * A list of tags associated with the destination IP.
+   * The list of tags.
    */
   tagList?: DescribeOutgoingDestinationIPResponseBodyDstIPListTagList[];
   /**
    * @remarks
-   * The total traffic volume in bytes.
+   * The total traffic. Unit: bytes.
    * 
    * @example
    * 800
@@ -521,12 +497,12 @@ export class DescribeOutgoingDestinationIPResponseBodyDstIPList extends $dara.Mo
 export class DescribeOutgoingDestinationIPResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of destination IP addresses for outgoing connections.
+   * The list of IP addresses for outbound connections.
    */
   dstIPList?: DescribeOutgoingDestinationIPResponseBodyDstIPList[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F0F82705-CFC7-5F83-86C8-A063892F****
@@ -534,7 +510,7 @@ export class DescribeOutgoingDestinationIPResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of outgoing IPs.
+   * The total number of outbound IP addresses.
    * 
    * @example
    * 50

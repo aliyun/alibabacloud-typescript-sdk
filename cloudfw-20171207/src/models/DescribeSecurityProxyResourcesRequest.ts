@@ -13,7 +13,7 @@ export class DescribeSecurityProxyResourcesRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of the member accounts.
+   * The UID of member accounts.
    * 
    * @example
    * 136481150091****

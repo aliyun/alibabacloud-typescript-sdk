@@ -16,7 +16,6 @@ export class CreateVpcFirewallTaskRequest extends $dara.Model {
    * The language of the response message. Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
    * - **en**: English
    * 
    * @example

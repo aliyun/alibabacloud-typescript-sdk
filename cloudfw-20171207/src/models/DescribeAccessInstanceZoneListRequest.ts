@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccessInstanceZoneListRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of the access instance.
+   * The type of the synchronization node.
    * 
    * @example
    * AckClusterConnector
@@ -13,7 +13,7 @@ export class DescribeAccessInstanceZoneListRequest extends $dara.Model {
   accessInstanceType?: string;
   /**
    * @remarks
-   * The language of the response.
+   * The language type for receiving messages.
    * 
    * @example
    * zh
@@ -21,7 +21,7 @@ export class DescribeAccessInstanceZoneListRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The region of the access instance.
+   * The region of the synchronization node.
    * 
    * @example
    * cn-hangzhou

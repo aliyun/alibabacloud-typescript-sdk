@@ -1,0 +1,36 @@
+// This file is auto-generated, don't edit it
+import * as $dara from '@darabonba/typescript';
+
+
+export class DeleteApplicationCustomRulesRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The list of IDs of the custom application rules to delete. You can specify up to 100 IDs in a single request. The IDs cannot be empty and must be unique.
+   * 
+   * This parameter is required.
+   */
+  applicationCustomRuleIds?: string[];
+  static names(): { [key: string]: string } {
+    return {
+      applicationCustomRuleIds: 'ApplicationCustomRuleIds',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      applicationCustomRuleIds: { 'type': 'array', 'itemType': 'string' },
+    };
+  }
+
+  validate() {
+    if(Array.isArray(this.applicationCustomRuleIds)) {
+      $dara.Model.validateArray(this.applicationCustomRuleIds);
+    }
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+

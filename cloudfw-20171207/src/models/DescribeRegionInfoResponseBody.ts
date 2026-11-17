@@ -58,7 +58,7 @@ export class DescribeRegionInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total count.
    * 
    * @example
    * 8

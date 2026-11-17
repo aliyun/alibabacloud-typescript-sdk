@@ -5,31 +5,31 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallZoneResponseBodyZoneList extends $dara.Model {
   /**
    * @remarks
-   * The zone ID.
-   * 
-   * @example
-   * cn-hangzhou-c
-   */
-  zoneId?: string;
-  /**
-   * @remarks
    * The zone name.
    * 
    * @example
    * Hangzhou Zone C
    */
   localName?: string;
+  /**
+   * @remarks
+   * The zone ID.
+   * 
+   * @example
+   * cn-hangzhou-c
+   */
+  zoneId?: string;
   static names(): { [key: string]: string } {
     return {
-      zoneId: 'ZoneId',
       localName: 'LocalName',
+      zoneId: 'ZoneId',
     };
   }
 
   static types(): { [key: string]: any } {
     return {
-      zoneId: 'string',
       localName: 'string',
+      zoneId: 'string',
     };
   }
 
@@ -45,10 +45,7 @@ export class DescribeVpcFirewallZoneResponseBodyZoneList extends $dara.Model {
 export class DescribeVpcFirewallZoneResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The deployment mode of the virtual private cloud (VPC) firewall service. Valid values:
-   * 
-   * - **PrimaryStandby**: active/standby mode.
-   * - **MultiPrimary**: active-active mode.
+   * The deployment mode of the VPC firewall service. Valid values: **PrimaryStandby** (primary/secondary mode) and **MultiPrimary** (active-active mode).
    * 
    * @example
    * PrimaryStandby
@@ -56,7 +53,7 @@ export class DescribeVpcFirewallZoneResponseBody extends $dara.Model {
   firewallServiceMode?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 337A4DBA-8A01-5E9C-99CA-84293E13****

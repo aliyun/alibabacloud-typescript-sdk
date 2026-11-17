@@ -16,7 +16,7 @@ export class DescribeAclRuleCountRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address of the requester.
    * 
    * @example
    * 27.151.85.XX

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInternetOpenDetailResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asset instance.
+   * The asset instance ID.
    * 
    * @example
    * i-bp1ix9w22kv6aew9****
@@ -29,7 +29,7 @@ export class DescribeInternetOpenDetailResponseBodyDataList extends $dara.Model 
   assetsType?: string;
   /**
    * @remarks
-   * The ID of the details.
+   * The detail ID.
    * 
    * @example
    * 1123
@@ -53,7 +53,7 @@ export class DescribeInternetOpenDetailResponseBodyDataList extends $dara.Model 
   outBytes?: number;
   /**
    * @remarks
-   * The port that is exposed to the Internet.
+   * The open public port.
    * 
    * @example
    * 3389
@@ -61,7 +61,7 @@ export class DescribeInternetOpenDetailResponseBodyDataList extends $dara.Model 
   port?: number;
   /**
    * @remarks
-   * The security threat.
+   * The security risk.
    * 
    * @example
    * test
@@ -69,7 +69,7 @@ export class DescribeInternetOpenDetailResponseBodyDataList extends $dara.Model 
   probRisk?: string;
   /**
    * @remarks
-   * The description of the security threat.
+   * The description of the security risk.
    * 
    * @example
    * test
@@ -93,7 +93,7 @@ export class DescribeInternetOpenDetailResponseBodyDataList extends $dara.Model 
   publicIp?: string;
   /**
    * @remarks
-   * The region ID of the instance.
+   * The ID of the region where the instance resides.
    * 
    * @example
    * cn-shenzhen
@@ -141,7 +141,7 @@ export class DescribeInternetOpenDetailResponseBodyDataList extends $dara.Model 
   totalBytes?: number;
   /**
    * @remarks
-   * The percentage of traffic in the last 24 hours.
+   * The traffic proportion over the last 1 day.
    * 
    * @example
    * 10
@@ -149,7 +149,7 @@ export class DescribeInternetOpenDetailResponseBodyDataList extends $dara.Model 
   trafficPercent1Day?: string;
   /**
    * @remarks
-   * The percentage of traffic in the last 30 days.
+   * The traffic proportion over the last 30 days.
    * 
    * @example
    * 48
@@ -157,7 +157,7 @@ export class DescribeInternetOpenDetailResponseBodyDataList extends $dara.Model 
   trafficPercent30Day?: string;
   /**
    * @remarks
-   * The percentage of traffic in the last 7 days.
+   * The traffic proportion over the last 7 days.
    * 
    * @example
    * 30
@@ -165,7 +165,7 @@ export class DescribeInternetOpenDetailResponseBodyDataList extends $dara.Model 
   trafficPercent7Day?: string;
   /**
    * @remarks
-   * The reason why the protocol is not detected when the protocol is identified as Unknown.
+   * The reason why the protocol is not identified when the recognized protocol is Unknown.
    */
   unknownReason?: string[];
   static names(): { [key: string]: string } {
@@ -235,7 +235,7 @@ export class DescribeInternetOpenDetailResponseBodyDataList extends $dara.Model 
 export class DescribeInternetOpenDetailResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -243,7 +243,7 @@ export class DescribeInternetOpenDetailResponseBodyPageInfo extends $dara.Model 
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned per page.
+   * The number of entries per page.
    * 
    * @example
    * 50
@@ -251,7 +251,7 @@ export class DescribeInternetOpenDetailResponseBodyPageInfo extends $dara.Model 
   pageSize?: number;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of entries.
    * 
    * @example
    * 5

@@ -29,7 +29,7 @@ export class DescribeVpcFirewallZoneRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of the Cloud Firewall member accounts.
+   * The UID of the Cloud Firewall member account.
    * 
    * @example
    * 135809047715****
@@ -45,7 +45,7 @@ export class DescribeVpcFirewallZoneRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address of the requester.
    * 
    * @example
    * 222.212.86.7XXX
@@ -53,7 +53,7 @@ export class DescribeVpcFirewallZoneRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The transit router instance ID.
+   * The ID of the transit router instance used for forward routing.
    * 
    * @example
    * tr-m5etmb2q7e0mxcur****

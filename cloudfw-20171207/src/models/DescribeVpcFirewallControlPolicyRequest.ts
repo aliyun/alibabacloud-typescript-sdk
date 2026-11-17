@@ -5,7 +5,13 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The action (settings) that Cloud Firewall performs on the traffic in the access control policy of the virtual private cloud (VPC) firewall. Valid values:
+   * The action that Cloud Firewall performs on the traffic in the access control policy of the virtual private cloud (VPC) firewalls. Valid values:
+   * 
+   * - **accept**: allows the traffic.
+   * - **drop**: denies the traffic.
+   * - **log**: monitors the traffic.
+   * 
+   * > If you do not specify this parameter, all actions are queried.
    * 
    * @example
    * accept
@@ -13,7 +19,7 @@ export class DescribeVpcFirewallControlPolicyRequest extends $dara.Model {
   aclAction?: string;
   /**
    * @remarks
-   * The unique identity ID of the access control policy of the virtual private cloud (VPC) firewall.
+   * The unique identifier of the access control policy of the virtual private cloud (VPC) firewalls.
    * 
    * @example
    * 4037fbf7-3e39-4634-92a4-d0155247****
@@ -21,7 +27,8 @@ export class DescribeVpcFirewallControlPolicyRequest extends $dara.Model {
   aclUuid?: string;
   /**
    * @remarks
-   * The page number in a paged query. Settings the current page number for paging.
+   * The page number of the current page for a paged query.
+   * > You must specify both CurrentPage and PageSize or omit both. If you specify only one of them, the operation returns the ErrorParametersPageSizeOrNo (400) error.
    * 
    * @example
    * 1
@@ -29,7 +36,7 @@ export class DescribeVpcFirewallControlPolicyRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The description of the access control policy of the virtual private cloud (VPC) firewall. Fuzzy queries are supported.
+   * The description of the access control policy of the virtual private cloud (VPC) firewalls. Fuzzy match is supported.
    * 
    * @example
    * test
@@ -37,7 +44,9 @@ export class DescribeVpcFirewallControlPolicyRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The destination address in the access control policy of the virtual private cloud (VPC) firewall. Fuzzy queries are supported.
+   * The destination address in the access control policy of the virtual private cloud (VPC) firewalls. Fuzzy match is supported.
+   * 
+   * > Destination can be a single CIDR block, a domain name, or an address book name.
    * 
    * @example
    * 192.0.XX.XX/24
@@ -45,7 +54,13 @@ export class DescribeVpcFirewallControlPolicyRequest extends $dara.Model {
   destination?: string;
   /**
    * @remarks
-   * The language type for requests and responses.
+   * The language of the request and response.
+   * 
+   * Valid values:
+   * 
+   * - **zh** (default): Chinese.
+   * 
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -53,7 +68,7 @@ export class DescribeVpcFirewallControlPolicyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of a member account of the current Alibaba Cloud account.
+   * The UID of the member account of the current Alibaba Cloud account.
    * 
    * @example
    * 258039427902****
@@ -61,7 +76,11 @@ export class DescribeVpcFirewallControlPolicyRequest extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The number of access control policies for the virtual private cloud (VPC) firewall on each page in a paged query. Settings the number of policies per page for paging.
+   * The number of access control policies of the virtual private cloud (VPC) firewalls to return on each page for a paged query.
+   * 
+   * Maximum value: 50.
+   * 
+   * > You must specify both CurrentPage and PageSize or omit both. If you specify only one of them, the operation returns the ErrorParametersPageSizeOrNo (400) error.
    * 
    * @example
    * 10
@@ -69,7 +88,14 @@ export class DescribeVpcFirewallControlPolicyRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The protocol type of the traffic in the access control policy of the virtual private cloud (VPC) firewall. Valid values:
+   * The protocol type of the traffic in the access control policy of the virtual private cloud (VPC) firewalls. Valid values:
+   * 
+   * - **TCP**
+   * - **UDP**
+   * - **ICMP**
+   * - **ANY**: all protocol types.
+   * 
+   * > If you do not specify this parameter, all protocol types are queried.
    * 
    * @example
    * TCP
@@ -77,7 +103,10 @@ export class DescribeVpcFirewallControlPolicyRequest extends $dara.Model {
   proto?: string;
   /**
    * @remarks
-   * The enabled status of the access control policy. Valid values:
+   * The enabling status of the access control policy. Valid values:
+   * 
+   * - **true**: The access control policy is enabled.
+   * - **false**: The access control policy is disabled.
    * 
    * @example
    * true
@@ -86,6 +115,11 @@ export class DescribeVpcFirewallControlPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The recurrence type of the policy validity period for the access control policy. Valid values:
+   * - **Permanent** (default): always.
+   * - **None**: a specific single time.
+   * - **Daily**: every day.
+   * - **Weekly**: every week.
+   * - **Monthly**: every month.
    * 
    * @example
    * Permanent
@@ -93,7 +127,9 @@ export class DescribeVpcFirewallControlPolicyRequest extends $dara.Model {
   repeatType?: string;
   /**
    * @remarks
-   * The source address in the access control policy of the virtual private cloud (VPC) firewall. Fuzzy queries are supported.
+   * The source address in the access control policy of the virtual private cloud (VPC) firewalls. Fuzzy match is supported.
+   * 
+   * > Source can be a single CIDR block or an address book name.
    * 
    * @example
    * 192.0.XX.XX/24
@@ -101,7 +137,13 @@ export class DescribeVpcFirewallControlPolicyRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The instance ID of the virtual private cloud (VPC) firewall. Valid values:
+   * The instance ID of the virtual private cloud (VPC) firewalls. Valid values:
+   * 
+   * - If the virtual private cloud (VPC) firewalls protect traffic between two VPCs connected by CEN, set this parameter to the instance ID of the CEN instance.
+   * 
+   * - If the virtual private cloud (VPC) firewalls protect traffic between two VPCs connected by Express Connect, set this parameter to the instance ID of the virtual private cloud (VPC) firewalls.
+   * 
+   * > You can call the [DescribeVpcFirewallAclGroupList](https://help.aliyun.com/document_detail/159760.html) operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 

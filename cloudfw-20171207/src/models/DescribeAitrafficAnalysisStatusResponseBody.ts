@@ -15,9 +15,8 @@ export class DescribeAITrafficAnalysisStatusResponseBody extends $dara.Model {
    * @remarks
    * The enabling status. Valid values:
    * 
-   * - **open**
-   * 
-   * - **close**
+   * - **open**: Enabled.
+   * - **close**: Disabled.
    * 
    * @example
    * open

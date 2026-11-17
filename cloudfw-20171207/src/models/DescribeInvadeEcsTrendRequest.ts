@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInvadeEcsTrendRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. This is a UNIX timestamp. Unit: seconds.
+   * The end time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1733796528
@@ -13,7 +13,7 @@ export class DescribeInvadeEcsTrendRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The language of the response.
+   * The language for receiving messages.
    * 
    * @example
    * zh
@@ -21,7 +21,7 @@ export class DescribeInvadeEcsTrendRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address of the requester.
    * 
    * @example
    * 120.230.45.XXX
@@ -29,7 +29,7 @@ export class DescribeInvadeEcsTrendRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The start of the time range to query. This is a UNIX timestamp. Unit: seconds.
+   * The start time of the query. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1736561456

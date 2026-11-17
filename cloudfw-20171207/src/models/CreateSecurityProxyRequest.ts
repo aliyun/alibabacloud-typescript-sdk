@@ -15,7 +15,7 @@ export class CreateSecurityProxyRequestNatRouteEntryList extends $dara.Model {
   destinationCidr?: string;
   /**
    * @remarks
-   * The next hop address of the original NAT gateway.
+   * The next hop ID of the original NAT gateway.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class CreateSecurityProxyRequestNatRouteEntryList extends $dara.Model {
   nextHopType?: string;
   /**
    * @remarks
-   * The route table to which the default route of the NAT gateway belongs.
+   * The ID of the route table to which the default route of the NAT gateway belongs.
    * 
    * This parameter is required.
    * 
@@ -73,10 +73,21 @@ export class CreateSecurityProxyRequestNatRouteEntryList extends $dara.Model {
 export class CreateSecurityProxyRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether to enable the basic protection policies of the IPS. If this parameter is not specified, the system default (enabled) is used. Valid values:
+   * 
+   * - **0**: disabled.
+   * - **1**: enabled.
+   * 
+   * @example
+   * 1
+   */
+  basicDefenseEnabled?: string;
+  /**
+   * @remarks
    * The deployment mode of the firewall service. Valid values:
    * 
-   * - PrimaryStandby: primary/secondary mode
-   * - MultiPrimary: active-active mode
+   * - **PrimaryStandby**: primary/secondary mode.
+   * - **MultiPrimary**: active-active mode.
    * 
    * @example
    * PrimaryStandby
@@ -90,8 +101,9 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   /**
    * @remarks
    * The security protection switch. Valid values:
-   * - **open**: enable
-   * - **close**: disable
+   * 
+   * - **open**: enabled.
+   * - **close**: disabled.
    * 
    * @example
    * close
@@ -118,6 +130,22 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
+   * The vSwitch CIDR block of the GWLB endpoint (GWLBe) in the active zone. This parameter applies only to NAT firewalls that use the GWLB architecture. For the GWLB architecture, this parameter is required along with MasterZoneId, StandbyZoneId, and StandbyVSwitchCidr. If any of these parameters is missing, ErrorParameters is returned. The vSwitch is created by the firewall creation node based on this vSwitch CIDR block. This parameter is not read for the ENI architecture.
+   * 
+   * @example
+   * 192.168.0.0/24
+   */
+  masterVSwitchCidr?: string;
+  /**
+   * @remarks
+   * The ID of the primary zone. This parameter applies only to NAT firewalls that use the GWLB architecture. For the GWLB architecture, this parameter is required along with MasterVSwitchCidr, StandbyZoneId, and StandbyVSwitchCidr. If any of these parameters is missing, ErrorParameters is returned. The value must be the same as the zone where the NAT gateway resides. This parameter is not read for the ENI architecture.
+   * 
+   * @example
+   * cn-hangzhou-h
+   */
+  masterZoneId?: string;
+  /**
+   * @remarks
    * The ID of the NAT gateway.
    * 
    * This parameter is required.
@@ -128,9 +156,15 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   natGatewayId?: string;
   /**
    * @remarks
-   * The list of routes to be switched for the NAT gateway.
+   * The architecture type of the NAT firewall. Valid values: **eni** (traditional ENI architecture) and **gwlb** (new GWLB architecture). If this parameter is omitted or left empty, the firewall is created by using the ENI architecture, and no implicit selection is performed on the server side. You can obtain the recommended architecture from the response of the DescribeNatFirewallArchitecture operation and pass it back when you create the firewall.
    * 
-   * This parameter is required.
+   * @example
+   * gwlb
+   */
+  natMode?: string;
+  /**
+   * @remarks
+   * The list of routes to be switched for the NAT gateway.
    */
   natRouteEntryList?: CreateSecurityProxyRequestNatRouteEntryList[];
   /**
@@ -157,10 +191,50 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
+   * The level of the IPS rule group. This parameter is valid only in block mode. If this parameter is not specified, the system default (medium) is used. Valid values:
+   * 
+   * - **0**: none. The value is forced to 0 in monitor mode.
+   * - **1**: loose.
+   * - **2**: medium.
+   * - **3**: strict.
+   * 
+   * @example
+   * 2
+   */
+  ruleClass?: string;
+  /**
+   * @remarks
+   * The IPS defense mode. This parameter is supported only by NAT firewalls that use the GWLB architecture. If this parameter is not specified, the system default (Block Mode) is used. Valid values:
+   * 
+   * - **0**: monitor mode. Only alerting is triggered, and traffic is not blocked.
+   * - **1**: Block Mode.
+   * 
+   * @example
+   * 1
+   */
+  runMode?: string;
+  /**
+   * @remarks
+   * The vSwitch CIDR block of the GWLBe in the standby zone. This parameter applies only to NAT firewalls that use the GWLB architecture. For the GWLB architecture, this parameter is required along with MasterZoneId, MasterVSwitchCidr, and StandbyZoneId. If any of these parameters is missing, ErrorParameters is returned. The vSwitch is created by the firewall creation node based on this vSwitch CIDR block. This parameter is not read for the ENI architecture.
+   * 
+   * @example
+   * 192.168.1.0/24
+   */
+  standbyVSwitchCidr?: string;
+  /**
+   * @remarks
+   * The ID of the secondary zone. This parameter applies only to NAT firewalls that use the GWLB architecture. For the GWLB architecture, this parameter is required along with MasterZoneId, MasterVSwitchCidr, and StandbyVSwitchCidr. If any of these parameters is missing, ErrorParameters is returned. The value cannot be the same as MasterZoneId. If they are the same, ErrorZoneIdInvalid is returned. This parameter is not read for the ENI architecture.
+   * 
+   * @example
+   * cn-hangzhou-i
+   */
+  standbyZoneId?: string;
+  /**
+   * @remarks
    * Specifies whether to enable strict mode. Valid values:
    * 
-   * - 1: Enable strict mode.
-   * - 0: Disable strict mode.
+   * - **1**: enables strict mode.
+   * - **0**: disables strict mode.
    * 
    * @example
    * 0
@@ -168,7 +242,29 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   strictMode?: number;
   /**
    * @remarks
-   * The VPC-connected instance ID.
+   * Specifies whether to enable the threat intelligence rules of the IPS. If this parameter is not specified, the system default (enabled) is used. Valid values:
+   * 
+   * - **0**: disabled.
+   * - **1**: enabled.
+   * 
+   * @example
+   * 1
+   */
+  threatIntelEnabled?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the Virtual Patches of the IPS. If this parameter is not specified, the system default (enabled) is used. Valid values:
+   * 
+   * - **0**: disabled.
+   * - **1**: enabled.
+   * 
+   * @example
+   * 1
+   */
+  virtualPatchEnabled?: string;
+  /**
+   * @remarks
+   * The instance ID of the VPC.
    * 
    * This parameter is required.
    * 
@@ -179,9 +275,11 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to use the automatic mode for the vSwitch. Valid values:
+   * 
    * - **true**: automatic mode.
    * - **false**: manual mode.
-   * > Default value: true. If VswitchAuto is set to true, VswitchCidr is required and must be a valid CIDR block. If VswitchAuto is set to false, VswitchId is required.
+   * 
+   * > Default value: **true**. If VswitchAuto is set to true, VswitchCidr is required and must be a valid CIDR block. If VswitchAuto is set to false, VswitchId is required.
    * 
    * @example
    * true
@@ -205,16 +303,26 @@ export class CreateSecurityProxyRequest extends $dara.Model {
   vswitchId?: string;
   static names(): { [key: string]: string } {
     return {
+      basicDefenseEnabled: 'BasicDefenseEnabled',
       firewallServiceMode: 'FirewallServiceMode',
       firewallServiceZones: 'FirewallServiceZones',
       firewallSwitch: 'FirewallSwitch',
       fwVswitchZoneId: 'FwVswitchZoneId',
       lang: 'Lang',
+      masterVSwitchCidr: 'MasterVSwitchCidr',
+      masterZoneId: 'MasterZoneId',
       natGatewayId: 'NatGatewayId',
+      natMode: 'NatMode',
       natRouteEntryList: 'NatRouteEntryList',
       proxyName: 'ProxyName',
       regionNo: 'RegionNo',
+      ruleClass: 'RuleClass',
+      runMode: 'RunMode',
+      standbyVSwitchCidr: 'StandbyVSwitchCidr',
+      standbyZoneId: 'StandbyZoneId',
       strictMode: 'StrictMode',
+      threatIntelEnabled: 'ThreatIntelEnabled',
+      virtualPatchEnabled: 'VirtualPatchEnabled',
       vpcId: 'VpcId',
       vswitchAuto: 'VswitchAuto',
       vswitchCidr: 'VswitchCidr',
@@ -224,16 +332,26 @@ export class CreateSecurityProxyRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      basicDefenseEnabled: 'string',
       firewallServiceMode: 'string',
       firewallServiceZones: { 'type': 'array', 'itemType': 'string' },
       firewallSwitch: 'string',
       fwVswitchZoneId: 'string',
       lang: 'string',
+      masterVSwitchCidr: 'string',
+      masterZoneId: 'string',
       natGatewayId: 'string',
+      natMode: 'string',
       natRouteEntryList: { 'type': 'array', 'itemType': CreateSecurityProxyRequestNatRouteEntryList },
       proxyName: 'string',
       regionNo: 'string',
+      ruleClass: 'string',
+      runMode: 'string',
+      standbyVSwitchCidr: 'string',
+      standbyZoneId: 'string',
       strictMode: 'number',
+      threatIntelEnabled: 'string',
+      virtualPatchEnabled: 'string',
       vpcId: 'string',
       vswitchAuto: 'string',
       vswitchCidr: 'string',

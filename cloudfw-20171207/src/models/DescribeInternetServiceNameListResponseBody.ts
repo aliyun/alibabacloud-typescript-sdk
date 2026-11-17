@@ -13,7 +13,7 @@ export class DescribeInternetServiceNameListResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * A list of application names.
+   * The list of application names.
    */
   serviceNameList?: string[];
   static names(): { [key: string]: string } {

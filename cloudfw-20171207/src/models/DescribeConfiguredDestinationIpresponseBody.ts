@@ -37,7 +37,7 @@ export class DescribeConfiguredDestinationIPResponseBodyDestinations extends $da
   destinationRegion?: string;
   /**
    * @remarks
-   * The operation time. The value is a UNIX timestamp accurate to seconds, such as 1672502400.
+   * The operation time. The value is a UNIX timestamp in seconds, such as 1672502400.
    * 
    * @example
    * 1534408189
@@ -75,7 +75,7 @@ export class DescribeConfiguredDestinationIPResponseBodyDestinations extends $da
 export class DescribeConfiguredDestinationIPResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of destinations returned.
+   * The returned list of destinations.
    */
   destinations?: DescribeConfiguredDestinationIPResponseBodyDestinations[];
   /**

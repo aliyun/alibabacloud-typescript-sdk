@@ -15,7 +15,7 @@ export class DescribePrefixListsRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The source IP address of the caller.
+   * The source IP address of the requester.
    * 
    * @example
    * 47.100.XX.XX

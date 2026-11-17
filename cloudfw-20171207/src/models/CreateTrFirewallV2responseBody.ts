@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTrFirewallV2ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the virtual private cloud (VPC) firewalls at the border.
+   * The ID of the VPC firewall instance.
    * 
    * @example
    * vfw-tr-37e22bf0d9b34870****

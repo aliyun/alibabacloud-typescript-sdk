@@ -32,6 +32,14 @@ export class DescribeFirewallTaskRequest extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
+   * The action of the task, which is used to filter tasks by action. Valid values: init, open, close, delete, and change_route. This parameter takes effect only when TaskType is set to NAT. If TaskId is specified, this parameter is ignored. If this parameter is not specified, the most recently started task of the instance is retrieved, regardless of the action.
+   * 
+   * @example
+   * open
+   */
+  taskName?: string;
+  /**
+   * @remarks
    * The type of the task. Valid values:
    * 
    * - **NAT**: NAT firewall task
@@ -47,6 +55,7 @@ export class DescribeFirewallTaskRequest extends $dara.Model {
       childInstanceId: 'ChildInstanceId',
       lang: 'Lang',
       taskId: 'TaskId',
+      taskName: 'TaskName',
       taskType: 'TaskType',
     };
   }
@@ -56,6 +65,7 @@ export class DescribeFirewallTaskRequest extends $dara.Model {
       childInstanceId: 'string',
       lang: 'string',
       taskId: 'string',
+      taskName: 'string',
       taskType: 'string',
     };
   }

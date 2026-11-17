@@ -13,12 +13,7 @@ export class DescribeTaskDispatchStatusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The status of the task. Valid values:
-   * - PENDING: Pending.
-   * - RUNNING: Running.
-   * - SUCCESS: Successful.
-   * - FAILED: Failed.
-   * - CANCELLED: Cancelled.
+   * The task status. Valid values: PENDING (pending execution), RUNNING (running), SUCCESS (successful), FAILED (failed), and CANCELLED (canceled).
    * 
    * @example
    * SUCCESS

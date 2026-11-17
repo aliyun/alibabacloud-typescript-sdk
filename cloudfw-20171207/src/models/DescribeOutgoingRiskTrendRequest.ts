@@ -13,7 +13,7 @@ export class DescribeOutgoingRiskTrendRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The language type for receiving messages.
+   * The language of the response message.
    * 
    * @example
    * zh
@@ -21,7 +21,7 @@ export class DescribeOutgoingRiskTrendRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address of the requester.
    * 
    * @example
    * 219.145.94.XXX

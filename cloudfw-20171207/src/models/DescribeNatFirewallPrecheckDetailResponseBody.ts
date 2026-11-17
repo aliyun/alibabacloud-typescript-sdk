@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNatFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheckEntityGroupsPrecheckEntities extends $dara.Model {
   /**
    * @remarks
-   * The information about the failed precheck item.
+   * The information about the check failure.
    * 
    * @example
    * VPC Firewall Quota Full
@@ -25,7 +25,7 @@ export class DescribeNatFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheck
    * 
    * - **running**: The precheck is in progress.
    * 
-   * - **passed**: The precheck is passed.
+   * - **passed**: The precheck passed.
    * 
    * - **failed**: The precheck failed.
    * 
@@ -35,7 +35,7 @@ export class DescribeNatFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheck
   status?: string;
   /**
    * @remarks
-   * The suggested solution.
+   * The recommended solution.
    * 
    * @example
    * The VPC firewall quota is full. We recommend that you increase the firewall quota
@@ -82,7 +82,7 @@ export class DescribeNatFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheck
    * The name of the precheck instance.
    * 
    * @example
-   * test
+   * Account And Region Check
    */
   name?: string;
   /**
@@ -92,7 +92,7 @@ export class DescribeNatFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheck
   precheckEntities?: DescribeNatFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheckEntityGroupsPrecheckEntities[];
   /**
    * @remarks
-   * The status of the precheck. Valid values:
+   * The status of the precheck entity group. Valid values:
    * 
    * - **running**
    * 
@@ -137,7 +137,7 @@ export class DescribeNatFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheck
 export class DescribeNatFirewallPrecheckDetailResponseBodyPrecheckDetail extends $dara.Model {
   /**
    * @remarks
-   * The ID of the firewall instance.
+   * The firewall instance ID.
    * 
    * @example
    * vfw-tr-7a9c8901ed394****
@@ -145,7 +145,7 @@ export class DescribeNatFirewallPrecheckDetailResponseBodyPrecheckDetail extends
   firewallId?: string;
   /**
    * @remarks
-   * The ID of the network instance.
+   * The network instance ID.
    * 
    * @example
    * vpc-m5emh0w6v2e15****
@@ -153,16 +153,16 @@ export class DescribeNatFirewallPrecheckDetailResponseBodyPrecheckDetail extends
   networkInstanceId?: string;
   /**
    * @remarks
-   * The list of precheck item groups.
+   * The list of precheck entity groups.
    */
   precheckEntityGroups?: DescribeNatFirewallPrecheckDetailResponseBodyPrecheckDetailPrecheckEntityGroups[];
   /**
    * @remarks
-   * The status of the precheck. Valid values:
+   * The precheck status. Valid values:
    * 
    * - **running**: The precheck is in progress.
    * 
-   * - **passed**: The precheck is passed.
+   * - **passed**: The precheck passed.
    * 
    * - **failed**: The precheck failed.
    * 
@@ -223,7 +223,7 @@ export class DescribeNatFirewallPrecheckDetailResponseBodyPrecheckDetail extends
 export class DescribeNatFirewallPrecheckDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether a task exists.
+   * Indicates whether the task exists.
    * 
    * @example
    * false

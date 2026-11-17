@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAclWhitelistRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the messages to receive. Valid values:
+   * The language of the response message. Valid values:
    * 
    * - **zh** (default): Chinese
    * - **en**: English
@@ -16,7 +16,7 @@ export class DescribeAclWhitelistRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address of the requester.
    * 
    * @example
    * 101.36.65.XX

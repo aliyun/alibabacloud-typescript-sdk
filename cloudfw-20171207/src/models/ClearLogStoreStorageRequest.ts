@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ClearLogStoreStorageRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the site for which to clear logs. If there is only one Logstore, you can leave this parameter empty. If there are two Logstores, specify cn or intl.
+   * The name of the site whose logs are to be cleared. If there is only one Logstore, you can leave this parameter empty. If there are two Logstores, you must specify cn or intl.
    * 
    * @example
    * cn

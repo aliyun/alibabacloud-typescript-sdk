@@ -26,7 +26,7 @@ export class DescribeRegionInfoRequest extends $dara.Model {
   sourceCode?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address of the requester.
    * 
    * @example
    * 59.82.59.XX

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInternetDropTrafficTrendResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The number of sessions dropped by access control list (ACL) rules.
+   * The number of corresponding intrusion prevention events.
    * 
    * @example
    * 12
@@ -13,7 +13,7 @@ export class DescribeInternetDropTrafficTrendResponseBodyDataList extends $dara.
   aclDrop?: number;
   /**
    * @remarks
-   * The current time point. The time is in the `YYYY-MM-DD HH:mm:ss` format.
+   * The current time point. The time format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2018-08-25 12:00:00
@@ -21,7 +21,7 @@ export class DescribeInternetDropTrafficTrendResponseBodyDataList extends $dara.
   dataTime?: string;
   /**
    * @remarks
-   * The ratio of dropped sessions to total sessions for this data point.
+   * The list of queried traffic points.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribeInternetDropTrafficTrendResponseBodyDataList extends $dara.
   dropRatio?: string;
   /**
    * @remarks
-   * The number of dropped sessions for the corresponding data point in the previous cycle.
+   * The value range of the object: **[0,10000\\]**.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class DescribeInternetDropTrafficTrendResponseBodyDataList extends $dara.
   dropRing?: number;
   /**
    * @remarks
-   * The drop ratio for the corresponding data point in the previous cycle.
+   * The rate of network traffic. Unit: kbit/s.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class DescribeInternetDropTrafficTrendResponseBodyDataList extends $dara.
   dropRingRatio?: string;
   /**
    * @remarks
-   * The number of dropped sessions.
+   * The number of blocked sessions.
    * 
    * @example
    * 12
@@ -53,7 +53,7 @@ export class DescribeInternetDropTrafficTrendResponseBodyDataList extends $dara.
   dropSession?: number;
   /**
    * @remarks
-   * The number of sessions dropped by the intrusion prevention system (IPS).
+   * The number of queried IP addresses.
    * 
    * @example
    * 5
@@ -61,7 +61,7 @@ export class DescribeInternetDropTrafficTrendResponseBodyDataList extends $dara.
   ipsDrop?: number;
   /**
    * @remarks
-   * The corresponding time point in the previous cycle. The time is in the `YYYY-MM-DD HH:mm:ss` format.
+   * The corresponding time point in the previous period. The time format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2018-08-25 12:00:00
@@ -69,7 +69,7 @@ export class DescribeInternetDropTrafficTrendResponseBodyDataList extends $dara.
   ringDataTime?: string;
   /**
    * @remarks
-   * The timestamp for the corresponding data point in the previous cycle. This value is a Unix timestamp that represents the number of seconds that have elapsed since 00:00:00 UTC on January 1, 1970.
+   * The dynamic packet drop time. The value is a UNIX timestamp in seconds, which indicates the number of seconds that have elapsed since January 1, 1970 (UTC).
    * 
    * @example
    * 1724982259
@@ -85,7 +85,7 @@ export class DescribeInternetDropTrafficTrendResponseBodyDataList extends $dara.
   time?: number;
   /**
    * @remarks
-   * The total number of sessions.
+   * The total number of requests.
    * 
    * @example
    * 10
@@ -140,7 +140,7 @@ export class DescribeInternetDropTrafficTrendResponseBody extends $dara.Model {
   dataList?: DescribeInternetDropTrafficTrendResponseBodyDataList[];
   /**
    * @remarks
-   * The peak number of dropped sessions in the specified period.
+   * The maximum number of dropped sessions in the corresponding period (peak value).
    * 
    * @example
    * 8090
@@ -148,7 +148,7 @@ export class DescribeInternetDropTrafficTrendResponseBody extends $dara.Model {
   dropSessionMax?: number;
   /**
    * @remarks
-   * The average drop ratio for the entire query period, expressed as a percentage.
+   * The traffic multiplication mode. Valid values: - **0**: priority mode. - **1**: load balancing mode.
    * 
    * @example
    * 12.34
@@ -164,7 +164,7 @@ export class DescribeInternetDropTrafficTrendResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The average drop ratio from the previous cycle, expressed as a percentage.
+   * The traffic rate. Unit: %.
    * 
    * @example
    * 1.23

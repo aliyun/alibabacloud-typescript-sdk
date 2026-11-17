@@ -183,7 +183,7 @@ export class DescribeLocationInfoResponseBody extends $dara.Model {
   cnProvinceList?: DescribeLocationInfoResponseBodyCnProvinceList[];
   /**
    * @remarks
-   * The number of regions outside the Chinese mainland.
+   * The number of regions outside China.
    * 
    * @example
    * 238
@@ -191,7 +191,7 @@ export class DescribeLocationInfoResponseBody extends $dara.Model {
   overseasCount?: number;
   /**
    * @remarks
-   * The list of regions outside the Chinese mainland.
+   * The list of regions outside China.
    */
   overseasList?: DescribeLocationInfoResponseBodyOverseasList[];
   /**

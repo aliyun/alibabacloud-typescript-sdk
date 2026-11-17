@@ -13,7 +13,7 @@ export class DescribeInternetSlbResponseBodyDataList extends $dara.Model {
   aclId?: string;
   /**
    * @remarks
-   * The status of access control.
+   * The access control status.
    * 
    * @example
    * on
@@ -135,7 +135,7 @@ export class DescribeInternetSlbResponseBodyDataList extends $dara.Model {
 export class DescribeInternetSlbResponseBodyPageInfo extends $dara.Model {
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -143,7 +143,7 @@ export class DescribeInternetSlbResponseBodyPageInfo extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries returned on the current page.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -185,7 +185,7 @@ export class DescribeInternetSlbResponseBodyPageInfo extends $dara.Model {
 export class DescribeInternetSlbResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of data.
+   * The data list.
    */
   dataList?: DescribeInternetSlbResponseBodyDataList[];
   /**

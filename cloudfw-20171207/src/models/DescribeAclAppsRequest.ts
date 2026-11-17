@@ -6,13 +6,9 @@ export class DescribeAclAppsRequest extends $dara.Model {
   /**
    * @remarks
    * The ACL type. Valid values:
-   * 
-   * - **Internet**
-   * 
+   * - **Internet**                       
    * - **NAT**
-   * 
    * - **VPC**
-   * 
    * - **All**
    * 
    * This parameter is required.
@@ -23,11 +19,10 @@ export class DescribeAclAppsRequest extends $dara.Model {
   aclType?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response message. Valid values:
    * 
-   * - **zh** (default): Chinese
-   * 
-   * - **en**: English
+   * - **zh** (default): Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -45,7 +40,7 @@ export class DescribeAclAppsRequest extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * This parameter is required.
    * 
@@ -57,11 +52,11 @@ export class DescribeAclAppsRequest extends $dara.Model {
    * @remarks
    * Specifies whether the application is common. Valid values:
    * 
-   * - **1**: common
+   * - 1: Common.
    * 
-   * - **0**: not common
+   * - 0: Uncommon.
    * 
-   * - If you omit this parameter (the default), all applications are returned.
+   * - Empty (default): All.
    * 
    * @example
    * 1

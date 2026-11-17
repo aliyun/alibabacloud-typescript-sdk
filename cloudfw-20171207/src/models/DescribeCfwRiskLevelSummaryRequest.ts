@@ -15,7 +15,6 @@ export class DescribeCfwRiskLevelSummaryRequest extends $dara.Model {
   /**
    * @remarks
    * The language in which messages are received. Valid values:
-   * 
    * - **zh** (default): Chinese
    * - **en**: English
    * 

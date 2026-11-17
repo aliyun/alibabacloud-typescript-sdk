@@ -7,7 +7,7 @@ export class DescribeAclWhitelistResponseBody extends $dara.Model {
    * @remarks
    * Indicates whether the whitelist is enabled. Valid values:
    * - **true**: Enabled.
-   * - **false**: Not enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -25,7 +25,7 @@ export class DescribeAclWhitelistResponseBody extends $dara.Model {
   natDomainGroupUseDns?: boolean;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 7D45133B-DBC0-506B-9DF9-AB0735D3****

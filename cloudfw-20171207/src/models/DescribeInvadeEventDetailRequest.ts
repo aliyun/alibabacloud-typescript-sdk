@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInvadeEventDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asset.
+   * The asset ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeInvadeEventDetailRequest extends $dara.Model {
   assetsInstanceId?: string;
   /**
    * @remarks
-   * The UUID of the threat detection event.
+   * The UUID of the compromise awareness event.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeInvadeEventDetailRequest extends $dara.Model {
   eventUuid?: string;
   /**
    * @remarks
-   * The language of the content within the response.
+   * The language type of the received messages.
    * 
    * @example
    * zh
@@ -41,7 +41,7 @@ export class DescribeInvadeEventDetailRequest extends $dara.Model {
   publicIP?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address of the requester.
    * 
    * @example
    * 218.76.30.XXX

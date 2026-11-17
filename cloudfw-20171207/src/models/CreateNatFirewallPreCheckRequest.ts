@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNatFirewallPreCheckRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the content within the response. Valid values:
+   * The language of the response message. Valid values:
    * 
    * - **zh** (default): Chinese
-   * - **en**: English.
+   * - **en**: English
    * 
    * @example
    * zh

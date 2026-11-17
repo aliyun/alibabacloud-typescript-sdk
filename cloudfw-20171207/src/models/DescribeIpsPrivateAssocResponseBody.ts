@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIpsPrivateAssocResponseBodyIpsPrivateAssoc extends $dara.Model {
   /**
    * @remarks
-   * The status of private IP tracing.
+   * The private IP tracing status.
    * 
    * @example
    * close
@@ -21,7 +21,7 @@ export class DescribeIpsPrivateAssocResponseBodyIpsPrivateAssoc extends $dara.Mo
   errorMsg?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the resource owner.
+   * The Alibaba Cloud account ID to which the resource belongs.
    * 
    * @example
    * 1507956024994407
@@ -29,12 +29,12 @@ export class DescribeIpsPrivateAssocResponseBodyIpsPrivateAssoc extends $dara.Mo
   memberUid?: number;
   /**
    * @remarks
-   * A list of protected IP addresses.
+   * The list of protected IP addresses.
    */
   protectedIpList?: string[];
   /**
    * @remarks
-   * The ID of the region.
+   * The region ID.
    * 
    * @example
    * cn-beijing
@@ -42,7 +42,7 @@ export class DescribeIpsPrivateAssocResponseBodyIpsPrivateAssoc extends $dara.Mo
   regionId?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * cba48ec510bb640559c6f5161cde58014
@@ -50,7 +50,7 @@ export class DescribeIpsPrivateAssocResponseBodyIpsPrivateAssoc extends $dara.Mo
   resourceId?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The instance name.
    * 
    * @example
    * job-0000000061279FB000001BBB31F9D673
@@ -58,7 +58,7 @@ export class DescribeIpsPrivateAssocResponseBodyIpsPrivateAssoc extends $dara.Mo
   resourceName?: string;
   /**
    * @remarks
-   * The status of the association.
+   * The status.
    * 
    * @example
    * closed
@@ -66,12 +66,12 @@ export class DescribeIpsPrivateAssocResponseBodyIpsPrivateAssoc extends $dara.Mo
   status?: string;
   /**
    * @remarks
-   * A list of unprotected IP addresses.
+   * The list of unprotected IP addresses.
    */
   unprotectedIpList?: string[];
   /**
    * @remarks
-   * The ID of the VPC.
+   * The VPC instance ID.
    * 
    * @example
    * vpc-wz92dxepli2pgnut796tf
@@ -79,7 +79,7 @@ export class DescribeIpsPrivateAssocResponseBodyIpsPrivateAssoc extends $dara.Mo
   vpcId?: string;
   /**
    * @remarks
-   * The name of the VPC.
+   * The VPC instance name.
    * 
    * @example
    * vpc-uf62vdtifj7kffpxrydqd
@@ -135,12 +135,12 @@ export class DescribeIpsPrivateAssocResponseBodyIpsPrivateAssoc extends $dara.Mo
 export class DescribeIpsPrivateAssocResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of details about private IP tracing for the intrusion prevention system (IPS).
+   * The IPS private IP tracing list.
    */
   ipsPrivateAssoc?: DescribeIpsPrivateAssocResponseBodyIpsPrivateAssoc[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * B2841452-CB8D-4F7D-B247-38E1CF7334F8
@@ -148,7 +148,7 @@ export class DescribeIpsPrivateAssocResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries returned.
+   * The total number of returned entries.
    * 
    * @example
    * 6
@@ -156,7 +156,7 @@ export class DescribeIpsPrivateAssocResponseBody extends $dara.Model {
   totalCount?: number;
   /**
    * @remarks
-   * The total number of assets that have private IP tracing for the IPS enabled.
+   * The total number of instances for which IPS private IP tracing is enabled.
    * 
    * @example
    * 0

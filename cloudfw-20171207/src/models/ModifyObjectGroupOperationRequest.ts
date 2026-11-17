@@ -8,14 +8,14 @@ export class ModifyObjectGroupOperationRequest extends $dara.Model {
    * The comment for the operation.
    * 
    * @example
-   * test
+   * Comment for batch whitelisting
    */
   comment?: string;
   /**
    * @remarks
    * The traffic direction controlled by the access control policy. Valid values:
-   * - **in**: Inbound traffic.
-   * - **out**: Outbound traffic.
+   * - **in**: inbound
+   * - **out**: outbound
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyObjectGroupOperationRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The language for receiving messages. Valid values:
+   * The language of the response message. Valid values:
    * - **zh** (default): Chinese
    * - **en**: English
    * 
@@ -42,11 +42,11 @@ export class ModifyObjectGroupOperationRequest extends $dara.Model {
   objectList?: string[];
   /**
    * @remarks
-   * The operation to perform on the object, such as adding to or removing from a whitelist, or subscribing to or unsubscribing from the object. Valid values:
-   * - **subscribe**: Subscribes to the object.
-   * - **unsubscribe**: Unsubscribes from the object.
-   * - **ignore**: Adds the object to the whitelist.
-   * - **cancelIgnore**: Removes the object from the whitelist.
+   * The operation to whitelist, remove from the whitelist, follow, or unfollow an object. Valid values:
+   * - **subscribe**: follow
+   * - **unsubscribe**: unfollow
+   * - **ignore**: add to the whitelist
+   * - **cancelIgnore**: remove from the whitelist
    * 
    * This parameter is required.
    * 
@@ -56,11 +56,11 @@ export class ModifyObjectGroupOperationRequest extends $dara.Model {
   objectOperation?: string;
   /**
    * @remarks
-   * The type of the outbound connection whitelist or subscription. Valid values:
-   * - **assetsIp**: Asset IP address.
-   * - **destinationIp**: Destination IP address.
-   * - **destinationPort**: Destination port.
-   * - **destinationDomain**: Destination domain name.
+   * The type of the object to whitelist or follow for outbound connections. Valid values:
+   * - **assetsIp**: asset IP address
+   * - **destinationIp**: destination IP address
+   * - **destinationPort**: destination port
+   * - **destinationDomain**: destination domain name
    * 
    * This parameter is required.
    * 
@@ -70,7 +70,7 @@ export class ModifyObjectGroupOperationRequest extends $dara.Model {
   objectType?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address of the requester.
    * 
    * @example
    * 123.xxx.251.60

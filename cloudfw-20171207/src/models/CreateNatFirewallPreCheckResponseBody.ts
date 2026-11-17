@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateNatFirewallPreCheckResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The dry run ID.
+   * The precheck ID.
    * 
    * @example
    * 2122

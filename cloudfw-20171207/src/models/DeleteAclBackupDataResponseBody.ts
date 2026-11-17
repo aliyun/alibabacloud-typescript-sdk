@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAclBackupDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 75E60025-43C5-5635-B7B7-272C5246****

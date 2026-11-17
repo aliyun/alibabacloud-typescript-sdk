@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFirewallVswitchResourcesResponseBodyVswitchListFirewallList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the firewall instance.
+   * The firewall instance ID.
    * 
    * @example
    * vfw-tr-37145c8f5ede45e9****
@@ -71,7 +71,7 @@ export class DescribeFirewallVswitchResourcesResponseBodyVswitchList extends $da
   cidrBlock?: string;
   /**
    * @remarks
-   * The details of the event.
+   * The event details.
    * 
    * @example
    * []
@@ -94,9 +94,9 @@ export class DescribeFirewallVswitchResourcesResponseBodyVswitchList extends $da
    * @remarks
    * The type of the route table. Valid values:
    * 
-   * - **Custom**: a custom route table.
+   * - **Custom**: custom route table
    * 
-   * - **System**: a system route table.
+   * - **System**: system route table
    * 
    * @example
    * Custom
@@ -128,7 +128,7 @@ export class DescribeFirewallVswitchResourcesResponseBodyVswitchList extends $da
   vswitchName?: string;
   /**
    * @remarks
-   * The ID of the zone.
+   * The zone ID.
    * 
    * @example
    * cn-shanghai-b

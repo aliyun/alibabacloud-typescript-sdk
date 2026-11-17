@@ -13,7 +13,7 @@ export class DescribeOutgoingRiskDomainAndIpCountResponseBody extends $dara.Mode
   requestId?: string;
   /**
    * @remarks
-   * The number of risk domain names.
+   * The number of risky domain names.
    * 
    * @example
    * 6
@@ -21,7 +21,7 @@ export class DescribeOutgoingRiskDomainAndIpCountResponseBody extends $dara.Mode
   riskDomainCount?: number;
   /**
    * @remarks
-   * The number of risk IP addresses.
+   * The number of risky IP addresses.
    * 
    * @example
    * 47

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAclRuleCountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of inbound access control policies for the Internet firewall.
+   * The number of inbound access control policies on the Internet border.
    * 
    * @example
    * 2
@@ -13,7 +13,7 @@ export class DescribeAclRuleCountResponseBody extends $dara.Model {
   internetInAclCount?: number;
   /**
    * @remarks
-   * The number of outbound access control policies that are created for the Internet firewall.
+   * The number of outbound access control policies that are created for the Internet firewall at the Internet Border.
    * 
    * @example
    * 3
@@ -21,7 +21,7 @@ export class DescribeAclRuleCountResponseBody extends $dara.Model {
   internetOutAclCount?: number;
   /**
    * @remarks
-   * The number of inbound access control policies for the NAT firewall.>Notice: This field is deprecated.
+   * **[Deprecated]** The number of inbound access control policies on the NAT firewall.
    * 
    * @example
    * 0
@@ -31,7 +31,7 @@ export class DescribeAclRuleCountResponseBody extends $dara.Model {
   natInAclCount?: number;
   /**
    * @remarks
-   * The number of internal-to-external access control policies for the NAT firewall.
+   * The number of outbound access control policies on the NAT firewall.
    * 
    * @example
    * 2
@@ -39,7 +39,7 @@ export class DescribeAclRuleCountResponseBody extends $dara.Model {
   natOutAclCount?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 27936D6C-1B7A-5A5A-B9E4-FBEBBDAA****
@@ -55,7 +55,7 @@ export class DescribeAclRuleCountResponseBody extends $dara.Model {
   totalAclCount?: number;
   /**
    * @remarks
-   * The number of access control policies for VPC firewalls.
+   * The number of access control policies on the VPC firewall.
    * 
    * @example
    * 3

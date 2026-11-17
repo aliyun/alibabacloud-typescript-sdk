@@ -15,7 +15,7 @@ export class DescribeFirewallVswitchResourcesRequest extends $dara.Model {
   firewallType?: string;
   /**
    * @remarks
-   * The language of the response message.
+   * The language in which messages are received.
    * 
    * @example
    * zh
@@ -33,7 +33,7 @@ export class DescribeFirewallVswitchResourcesRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The ID of the VPC instance.
+   * The VPC instance ID.
    * 
    * This parameter is required.
    * 

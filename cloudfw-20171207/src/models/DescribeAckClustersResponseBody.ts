@@ -21,7 +21,7 @@ export class DescribeAckClustersResponseBodyClusters extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The specification of the ACK cluster.
+   * The specifications of the ACK cluster.
    * 
    * @example
    * ack.pro.small
@@ -29,9 +29,10 @@ export class DescribeAckClustersResponseBodyClusters extends $dara.Model {
   clusterSpec?: string;
   /**
    * @remarks
-   * The type of the ACK cluster. For more information about the valid values, see [DescribeClustersV1](~~DescribeClustersV1~~).
-   * 
-   * - [DescribeClustersV1](~~DescribeClustersV1~~): Returns a list of ACK clusters in your account that meet specific criteria, such as the cluster type and specifications.
+   * The type of the ACK cluster. Valid values:
+   * - **ManagedKubernetes**: managed ACK clusters, including ACK managed clusters (Pro Edition and Basic Edition), ACK Serverless clusters (Pro Edition and Basic Edition), ACK Edge clusters (Pro Edition and Basic Edition), and ACK Lingjun clusters (Pro Edition)
+   * - **ExternalKubernetes**: registered clusters
+   * - **Kubernetes**: dedicated ACK clusters
    * 
    * @example
    * ManagedKubernetes
@@ -39,7 +40,7 @@ export class DescribeAckClustersResponseBodyClusters extends $dara.Model {
   clusterType?: string;
   /**
    * @remarks
-   * The Alibaba Cloud UID of the account to which the ACK cluster resources belong.
+   * The Alibaba Cloud account ID to which the ACK cluster resources belong.
    * 
    * @example
    * 135809047715****
@@ -47,9 +48,9 @@ export class DescribeAckClustersResponseBodyClusters extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The network plugin of the ACK cluster. For more information about the valid values, see [DescribeClustersV1](~~DescribeClustersV1~~).
-   * 
-   * - [DescribeClustersV1](~~DescribeClustersV1~~): Lists the ACK clusters in your account that meet specified conditions, such as cluster type and specifications.
+   * The network plug-in of the ACK cluster. Valid values:
+   * - **terway-eniip**: the Terway-eniip network plug-in
+   * - **Flannel**: the Flannel network plug-in
    * 
    * @example
    * terway-eniip
@@ -57,9 +58,11 @@ export class DescribeAckClustersResponseBodyClusters extends $dara.Model {
   network?: string;
   /**
    * @remarks
-   * The subtype of the cluster. This parameter is available only when `ClusterType` is set to `ManagedKubernetes`. For more information about the valid values, see [DescribeClustersV1](~~DescribeClustersV1~~).
-   * 
-   * - [DescribeClustersV1](~~DescribeClustersV1~~): Lists ACK clusters in your account that meet specified conditions, such as cluster type and specifications.
+   * When `ClusterType` is set to `ManagedKubernetes` (managed ACK clusters), this parameter indicates the subtype of the cluster. Valid values:
+   * - **Default**: ACK managed clusters, including ACK managed clusters Pro Edition and Basic Edition
+   * - **Serverless**: ACK Serverless clusters, including ACK Serverless clusters Pro Edition and Basic Edition
+   * - **Edge**: ACK Edge clusters, including ACK Edge clusters Pro Edition and Basic Edition
+   * - **Lingjun**: ACK Lingjun clusters, available only in Pro Edition
    * 
    * @example
    * Default
@@ -75,9 +78,19 @@ export class DescribeAckClustersResponseBodyClusters extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The running status of the ACK cluster. For more information about the valid values, see [DescribeClustersV1](~~DescribeClustersV1~~).
-   * 
-   * - [DescribeClustersV1](~~DescribeClustersV1~~): Retrieves a list of ACK clusters in your account that meet specified conditions, such as cluster type and specifications.
+   * The running status of the ACK cluster. Valid values:
+   * - **initial**: The cluster is being created.
+   * - **running**: The cluster is running.
+   * - **scaling**: The cluster is being scaled.
+   * - **stopped**: The cluster is stopped.
+   * - **upgrading**: The cluster is being upgraded.
+   * - **updating**: The cluster configurations are being updated.
+   * - **deleting**: The cluster is being deleted.
+   * - **deleted**: The cluster is deleted.
+   * - **draining**: Nodes are being drained.
+   * - **removing**: Nodes are being removed.
+   * - **failed**: The cluster failed to be created.
+   * - **delete_failed**: The cluster failed to be deleted.
    * 
    * @example
    * running
@@ -85,7 +98,7 @@ export class DescribeAckClustersResponseBodyClusters extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The ID of the VPC where the ACK cluster is deployed.
+   * The ID of the VPC to which the ACK cluster belongs.
    * 
    * @example
    * vpc-2vcg932hsxsxuqbgl****
@@ -133,7 +146,7 @@ export class DescribeAckClustersResponseBodyClusters extends $dara.Model {
 export class DescribeAckClustersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of ACK clusters.
+   * The list of ACK clusters.
    */
   clusters?: DescribeAckClustersResponseBodyClusters[];
   /**
@@ -146,7 +159,7 @@ export class DescribeAckClustersResponseBody extends $dara.Model {
   pageNo?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 10

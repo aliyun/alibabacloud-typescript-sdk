@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNatFirewallTimeTopResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The inbound bandwidth. Unit: bps.
+   * The inbound bandwidth. Unit: bit/s.
    * 
    * @example
    * 187
@@ -37,7 +37,7 @@ export class DescribeNatFirewallTimeTopResponseBodyDataList extends $dara.Model 
   natFirewallName?: string;
   /**
    * @remarks
-   * The ID of the NAT Gateway.
+   * The ID of the NAT gateway.
    * 
    * @example
    * ngw-uf6pnry5vpawb****
@@ -45,7 +45,7 @@ export class DescribeNatFirewallTimeTopResponseBodyDataList extends $dara.Model 
   natGatewayId?: string;
   /**
    * @remarks
-   * The name of the NAT Gateway.
+   * The name of the NAT gateway.
    * 
    * @example
    * ngw-test
@@ -61,7 +61,7 @@ export class DescribeNatFirewallTimeTopResponseBodyDataList extends $dara.Model 
   newConn?: string;
   /**
    * @remarks
-   * The outbound bandwidth. Unit: bps.
+   * The outbound bandwidth. Unit: bit/s.
    * 
    * @example
    * 45
@@ -77,7 +77,7 @@ export class DescribeNatFirewallTimeTopResponseBodyDataList extends $dara.Model 
   regionNo?: string;
   /**
    * @remarks
-   * The ID of the asset instance.
+   * The asset instance ID.
    * 
    * @example
    * i-bp130nn8h6157dir****
@@ -101,7 +101,7 @@ export class DescribeNatFirewallTimeTopResponseBodyDataList extends $dara.Model 
   sessionCount?: string;
   /**
    * @remarks
-   * The total bandwidth. Unit: bps.
+   * The total bandwidth. Unit: bit/s.
    * 
    * @example
    * 232
@@ -155,7 +155,7 @@ export class DescribeNatFirewallTimeTopResponseBodyDataList extends $dara.Model 
 export class DescribeNatFirewallTimeTopResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of results.
+   * The number of returned results.
    * 
    * @example
    * 2
@@ -163,12 +163,12 @@ export class DescribeNatFirewallTimeTopResponseBody extends $dara.Model {
   dataCount?: number;
   /**
    * @remarks
-   * The list of data.
+   * The data list.
    */
   dataList?: DescribeNatFirewallTimeTopResponseBodyDataList[];
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * C5DDD596-1191-5F36-A504-8733045A****
@@ -176,7 +176,7 @@ export class DescribeNatFirewallTimeTopResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The point in time when the traffic data was collected. This is a UNIX timestamp. Unit: seconds.
+   * The point in time for the traffic. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1656923760

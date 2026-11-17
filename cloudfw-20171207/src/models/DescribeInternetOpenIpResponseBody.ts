@@ -12,7 +12,7 @@ export class DescribeInternetOpenIpResponseBodyDataList extends $dara.Model {
    * - Intelligent policies have been configured. No new intelligent policies recommendation is available.
    * 
    * @example
-   * No recommended intelligent policies are available.
+   * 当前无智能策略推荐
    */
   aclRecommendDetail?: string;
   /**
@@ -120,7 +120,7 @@ export class DescribeInternetOpenIpResponseBodyDataList extends $dara.Model {
    * The risk reason.
    * 
    * @example
-   * Previous traffic is all malicious traffic.
+   * 历史流量均为黑流量
    */
   riskReason?: string;
   /**

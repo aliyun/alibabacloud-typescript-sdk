@@ -13,7 +13,7 @@ export class DescribeCreatedNatFirewallRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the requester.
+   * The source IP address of the visitor.
    * 
    * @example
    * 121.225.255.XXX

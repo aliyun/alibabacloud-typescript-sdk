@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAckClusterConnectorsRequest extends $dara.Model {
   /**
    * @remarks
-   * The ACK cluster ID.
+   * The ID of the ACK cluster.
    * 
    * @example
    * 0E0C30C977463****
@@ -21,7 +21,7 @@ export class DescribeAckClusterConnectorsRequest extends $dara.Model {
   connectorName?: string;
   /**
    * @remarks
-   * The language in which the unhealthy reason of the ACK cluster connector health status is displayed.
+   * The language in which the error causes for the health status of the ACK cluster connector are displayed.
    * 
    * @example
    * zh
@@ -29,7 +29,7 @@ export class DescribeAckClusterConnectorsRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The Alibaba Cloud UID of the account to which the ACK cluster resource belongs.
+   * The Alibaba Cloud UID to which the ACK cluster resources belong.
    * 
    * @example
    * 135809047715****
@@ -57,10 +57,10 @@ export class DescribeAckClusterConnectorsRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The region ID of the ACK cluster connector. You can call the following operation to obtain the value:
-   * - [DescribeAccessInstanceRegionList](~~DescribeAccessInstanceRegionList~~): Queries the list of synchronization node regions.
+   * The region ID of the ACK cluster connector. You can obtain the value from the following API operation:
+   * - [DescribeAccessInstanceRegionList](~~DescribeAccessInstanceRegionList~~): Queries the list of regions for synchronization nodes.
    * 
-   * > For more information about the regions supported by ACK cluster connectors in Cloud Firewall, see [ACK cluster synchronization nodes](https://help.aliyun.com/document_detail/2865120.html).
+   * > For more information about the regions supported by Cloud Firewall for ACK cluster connectors, see [ACK cluster synchronization nodes](https://help.aliyun.com/document_detail/2865120.html).
    * 
    * @example
    * cn-shenzhen
@@ -68,7 +68,7 @@ export class DescribeAckClusterConnectorsRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The instance ID of the VPC-connected instance to which the ACK cluster belongs.
+   * The VPC-connected instance ID of the ACK cluster.
    * 
    * @example
    * vpc-uf6b5lyul0x******

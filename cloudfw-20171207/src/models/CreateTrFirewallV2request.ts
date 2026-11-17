@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTrFirewallV2Request extends $dara.Model {
   /**
    * @remarks
-   * The ID of the CEN instance. Create a CEN instance in the CEN console and make sure that an Enterprise Edition transit router is created.
+   * The ID of the CEN instance. Create a CEN instance in the CEN console first and make sure that an Enterprise Edition transit router is created.
    * 
    * > Note: Although the required field in the schema is set to false, this parameter is actually required. If this parameter is not specified, the API returns ErrorParameters(400).
    * 
@@ -44,7 +44,7 @@ export class CreateTrFirewallV2Request extends $dara.Model {
    * - **PrimaryStandby**: primary/secondary mode
    * - **MultiPrimary**: active-active mode
    * 
-   * > If this parameter is not specified, the system automatically selects the deployment mode based on the capabilities of the transit router. If the value is invalid, ErrorFwServiceMode (-360437) is returned. The MultiPrimary mode does not support specifying zones.
+   * > If this parameter is not specified, the system automatically selects a deployment mode based on the capabilities of the transit router. If the value is invalid, ErrorFwServiceMode (-360437) is returned. The MultiPrimary mode does not support specifying zones.
    * 
    * @example
    * PrimaryStandby
@@ -128,7 +128,7 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   routeMode?: string;
   /**
    * @remarks
-   * The primary CIDR block of the subnet used to connect to the transit router in the firewall VPC in automatic mode.
+   * The primary CIDR block of the subnet used to connect to the TR in the firewall VPC in automatic mode.
    * 
    * @example
    * 10.0.3.0/24
@@ -146,7 +146,7 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   trAttachmentMasterZone?: string;
   /**
    * @remarks
-   * The secondary CIDR block of the subnet used to connect to the transit router in the firewall VPC in automatic mode.
+   * The secondary CIDR block of the subnet used to connect to the TR in the firewall VPC in automatic mode.
    * 
    * @example
    * 10.0.0.16/28
@@ -164,7 +164,7 @@ export class CreateTrFirewallV2Request extends $dara.Model {
   trAttachmentSlaveZone?: string;
   /**
    * @remarks
-   * The list of zone IDs used for the transit router connection.
+   * The list of zone IDs used for the TR connection.
    */
   trAttachmentZones?: string[];
   /**

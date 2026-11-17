@@ -13,7 +13,7 @@ export class DescribeClearAuthInfoResponseBody extends $dara.Model {
   endTime?: number;
   /**
    * @remarks
-   * The number of remaining clearances.
+   * The number of remaining clearance operations.
    * 
    * @example
    * 20

@@ -21,7 +21,7 @@ export class DescribeAckClustersRequest extends $dara.Model {
   clusterName?: string;
   /**
    * @remarks
-   * The specification of the ACK cluster.
+   * The specifications of the ACK cluster.
    * 
    * @example
    * ack.pro.small
@@ -29,7 +29,7 @@ export class DescribeAckClustersRequest extends $dara.Model {
   clusterSpec?: string;
   /**
    * @remarks
-   * The status of the ACK cluster connector.
+   * The instance status of the connector in the ACK cluster.
    * 
    * @example
    * ready
@@ -37,7 +37,7 @@ export class DescribeAckClustersRequest extends $dara.Model {
   connectorStatus?: string;
   /**
    * @remarks
-   * The Alibaba Cloud UID of the account to which the ACK cluster resources belong.
+   * The Alibaba Cloud account ID to which the ACK cluster resources belong.
    * 
    * @example
    * 135809047715****
@@ -55,7 +55,7 @@ export class DescribeAckClustersRequest extends $dara.Model {
   pageNo?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * This parameter is required.
    * 

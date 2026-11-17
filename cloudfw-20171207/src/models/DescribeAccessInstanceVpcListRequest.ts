@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccessInstanceVpcListRequest extends $dara.Model {
   /**
    * @remarks
-   * The UID of the Alibaba Cloud account that owns the resource.
+   * The Alibaba Cloud UID of the resource owner.
    * 
    * @example
    * 135809047715****
@@ -39,7 +39,7 @@ export class DescribeAccessInstanceVpcListRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The ID of the VPC instance.
+   * The ID of the VPC-connected instance.
    * 
    * @example
    * vpc-j6cvhdscntzuvr0x****

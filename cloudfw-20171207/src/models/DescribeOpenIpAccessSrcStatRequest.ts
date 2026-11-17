@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOpenIpAccessSrcStatRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class DescribeOpenIpAccessSrcStatRequest extends $dara.Model {
   dstIp?: string;
   /**
    * @remarks
-   * The language of the response.
+   * The language type.
    * 
    * @example
    * zh
@@ -29,7 +29,7 @@ export class DescribeOpenIpAccessSrcStatRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class DescribeOpenIpAccessSrcStatRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address.
    * 
    * @example
    * 47.100.XX.XX

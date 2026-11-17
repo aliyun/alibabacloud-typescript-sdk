@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTrafficLogRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the ACL pre-match rule.
+   * The ACL pre-match rule ID.
    * 
    * @example
    * 00000000-0000-0000-0000-000000000000
@@ -117,7 +117,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
   dstVpcRegionNo?: string;
   /**
    * @remarks
-   * The end time. Specify the time in the UNIX timestamp format in seconds.
+   * The end time. Specify a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 
@@ -167,7 +167,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
   isp?: string;
   /**
    * @remarks
-   * The language of the received messages. Valid values:
+   * The language in which you want to receive messages. Valid values:
    * - **zh** (default): Chinese
    * - **en**: English
    * 
@@ -185,7 +185,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
   location?: string;
   /**
    * @remarks
-   * The UID of the member accounts.
+   * The UID of the member account.
    * 
    * @example
    * 128599825273****
@@ -209,7 +209,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
   natGatewayId?: string;
   /**
    * @remarks
-   * The number of entries per page. The value cannot exceed 20.
+   * The number of entries per page. Maximum value: 20.
    * 
    * @example
    * 10
@@ -217,8 +217,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The query ID.
-   * If the query scope is too large, a query ID is returned. You can use the query ID for subsequent queries.
+   * The query ID. If the query scope is too large, a query ID is returned. You can use the query ID to perform subsequent queries.
    * 
    * @example
    * d158c8ed-bc57-40fd-86d3-468169d4cfe2
@@ -234,7 +233,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
   ruleId?: string;
   /**
    * @remarks
-   * The rule action.
+   * The action performed by the rule.
    * 
    * @example
    * 0
@@ -242,7 +241,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
   ruleResult?: string;
   /**
    * @remarks
-   * The rule source.
+   * The source of the rule.
    * 
    * @example
    * 1
@@ -292,7 +291,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
   srcPort?: string;
   /**
    * @remarks
-   * The source private IP address.
+   * The private IP address of the source.
    * 
    * @example
    * 10.100.134.XX
@@ -316,7 +315,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
   srcVpcRegionNo?: string;
   /**
    * @remarks
-   * The start time. Specify the time in the UNIX timestamp format in seconds. Only data within the last 7 days can be queried. A single query covers a maximum of one day.
+   * The start time. Specify a UNIX timestamp in seconds. You can query data only from the last 7 days. We recommend that you specify a time range of no more than one day for a single query.
    * 
    * This parameter is required.
    * 
@@ -326,7 +325,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The ID of the TLS inspection scope.
+   * The TLS inspection scope ID.
    * 
    * @example
    * tis-98fd64c5****
@@ -334,7 +333,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
   tlsScopeId?: string;
   /**
    * @remarks
-   * The instance ID of the virtual private cloud (VPC) border firewall.
+   * The instance ID of the VPC border firewall.
    * 
    * @example
    * vfw-a42bbb7b887148c9****
@@ -342,7 +341,7 @@ export class DescribeTrafficLogRequest extends $dara.Model {
   vpcFirewallId?: string;
   /**
    * @remarks
-   * The vulnerability level.
+   * The vulnerability severity.
    * 
    * @example
    * 1

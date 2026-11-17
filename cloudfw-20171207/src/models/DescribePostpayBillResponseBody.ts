@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   /**
    * @remarks
-   * The end time. The time is a UNIX timestamp accurate to seconds, representing a full hour or a full day.
+   * The end time. The time is a UNIX timestamp accurate to seconds, which represents an exact hour or day.
    * 
    * @example
    * 1733710015
@@ -38,7 +38,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   isDerated?: number;
   /**
    * @remarks
-   * The usage duration of Simple Log Service. Unit: TB × h.
+   * The usage duration of Simple Log Service. Unit: TB×h.
    * 
    * @example
    * 24
@@ -62,7 +62,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   natTraffic?: number;
   /**
    * @remarks
-   * The usage duration of sensitive data leak detection. Unit: h.
+   * The usage duration of sensitive data leak detection. Unit: hours.
    * 
    * @example
    * 0
@@ -78,7 +78,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   sdlTraffic?: number;
   /**
    * @remarks
-   * The start time. The time is a UNIX timestamp accurate to seconds, representing a full hour or a full day.
+   * The start time. The time is a UNIX timestamp accurate to seconds, which represents an exact hour or day.
    * 
    * @example
    * 1710206070000
@@ -86,7 +86,7 @@ export class DescribePostpayBillResponseBodyBillList extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The usage duration of threat intelligence. Unit: h.
+   * The usage duration of threat intelligence. Unit: hours.
    * 
    * @example
    * 1

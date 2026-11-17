@@ -13,7 +13,7 @@ export class CreateInstanceSyncTaskRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address of the requester.
    * 
    * @example
    * 60.182.79.XXX

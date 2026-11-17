@@ -8,7 +8,7 @@ export class DescribeConfiguredDomainNamesResponseBodyDomainNames extends $dara.
    * The comment.
    * 
    * @example
-   * test
+   * Office network domain name
    */
   comment?: string;
   /**
@@ -21,10 +21,10 @@ export class DescribeConfiguredDomainNamesResponseBodyDomainNames extends $dara.
   domainName?: string;
   /**
    * @remarks
-   * Indicates whether the domain name is one of the malicious domain names. Valid values: 0: Not malicious. 1: Malicious.
+   * Specifies whether the domain name is malicious. Valid values: 0 (not malicious), 1 (malicious).
    * 
    * @example
-   * 0
+   * false
    */
   isMalicious?: boolean;
   /**

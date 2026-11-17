@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIpsPrivateAssocRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -13,10 +13,9 @@ export class DescribeIpsPrivateAssocRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response message. Valid values:
    * 
    * - **zh** (default): Chinese.
-   * 
    * - **en**: English.
    * 
    * @example
@@ -25,7 +24,7 @@ export class DescribeIpsPrivateAssocRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the resource owner.
+   * The Alibaba Cloud account ID to which the resource belongs.
    * 
    * @example
    * 258039427902****
@@ -33,7 +32,7 @@ export class DescribeIpsPrivateAssocRequest extends $dara.Model {
   memberUid?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -49,7 +48,7 @@ export class DescribeIpsPrivateAssocRequest extends $dara.Model {
   publicIp?: string;
   /**
    * @remarks
-   * The ID of the resource.
+   * The resource ID.
    * 
    * @example
    * ngw-c5vhmjdfp5t****
@@ -57,7 +56,7 @@ export class DescribeIpsPrivateAssocRequest extends $dara.Model {
   resourceId?: string;
   /**
    * @remarks
-   * The status of the asset.
+   * The status.
    * 
    * @example
    * close

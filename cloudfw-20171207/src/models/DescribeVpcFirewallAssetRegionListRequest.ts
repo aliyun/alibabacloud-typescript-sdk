@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpcFirewallAssetRegionListRequest extends $dara.Model {
   /**
    * @remarks
-   * The UID of the member accounts.
+   * The UID of the member account.
    * 
    * @example
    * 258039427902****
@@ -13,7 +13,9 @@ export class DescribeVpcFirewallAssetRegionListRequest extends $dara.Model {
   memberUid?: string;
   /**
    * @remarks
-   * The instance ID of the virtual private cloud (VPC) firewall.
+   * The instance ID of the VPC border firewall.
+   * 
+   * **Note**: This parameter is required. If it is not provided, the API returns ErrorFirewallId (-360133). You can call DescribeVpcFirewallList to obtain a valid instance ID.
    * 
    * @example
    * vfw-m5e7dbc4y****

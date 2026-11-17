@@ -15,7 +15,7 @@ export class DeleteDnsFirewallPolicyRequest extends $dara.Model {
   aclUuid?: string;
   /**
    * @remarks
-   * The language of the request and response. Valid values: **zh** for Chinese and **en** for English.
+   * The language of the request and response. Valid values: - **zh**: Chinese. - **en**: English.
    * 
    * @example
    * zh
@@ -23,7 +23,7 @@ export class DeleteDnsFirewallPolicyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address.
    * 
    * @example
    * 140.210.39.***

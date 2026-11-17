@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInternetSlbRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of the page to return.
+   * The current page number.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeInternetSlbRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The ID of the SLB instance. Fuzzy search is supported.
+   * The ID of the SLB instance. Fuzzy matching is supported.
    * 
    * @example
    * lb-2ze8v2x5kd9qyvp2****
@@ -21,7 +21,7 @@ export class DescribeInternetSlbRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the SLB instance. Fuzzy search is supported.
+   * The name of the SLB instance. Fuzzy matching is supported.
    * 
    * @example
    * test
@@ -37,7 +37,7 @@ export class DescribeInternetSlbRequest extends $dara.Model {
   ipProtocol?: string;
   /**
    * @remarks
-   * The language of the response message.
+   * The language in which messages are received.
    * 
    * @example
    * zh
@@ -45,7 +45,7 @@ export class DescribeInternetSlbRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -61,7 +61,7 @@ export class DescribeInternetSlbRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The public IP address. Fuzzy search is supported. If you do not specify this parameter, all public IP addresses are queried.
+   * The public IP address. Fuzzy matching is supported. If not specified, all public IP addresses are queried.
    * 
    * @example
    * 47.108.60.XXX
@@ -69,7 +69,7 @@ export class DescribeInternetSlbRequest extends $dara.Model {
   publicIp?: string;
   /**
    * @remarks
-   * The region. If you do not specify this parameter, all regions are queried.
+   * The region. If not specified, all regions are queried.
    * 
    * @example
    * cn-hangzhou
@@ -77,7 +77,7 @@ export class DescribeInternetSlbRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address of the client.
    * 
    * @example
    * 112.64.233.XXX
@@ -85,7 +85,7 @@ export class DescribeInternetSlbRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The tag. If you do not specify this parameter, all tags are searched.
+   * The tag. If not specified, all tags are queried.
    * 
    * @example
    * test

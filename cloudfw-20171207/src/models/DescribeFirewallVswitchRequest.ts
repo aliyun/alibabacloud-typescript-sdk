@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFirewallVSwitchRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the virtual private cloud (VPC) firewall.
+   * The virtual private cloud (VPC) border firewalls instance ID.
    * 
    * @example
    * vfw-tr-5b202e7f0be64611****
@@ -21,7 +21,7 @@ export class DescribeFirewallVSwitchRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of the member account.
+   * The UID of the member accounts.
    * 
    * @example
    * 102910763545****

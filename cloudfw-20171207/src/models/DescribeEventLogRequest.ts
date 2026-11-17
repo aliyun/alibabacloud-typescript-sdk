@@ -7,20 +7,20 @@ export class DescribeEventLogRequest extends $dara.Model {
    * @remarks
    * The attack type of the intrusion prevention event. Valid values:
    * - **1**: Abnormal connection.
-   * - **2**: Command execution.
-   * - **3**: Brute-force attack.
-   * - **4**: Scanning.
+   * - **2**: execute commands.
+   * - **3**: brute-force attacks.
+   * - **4**: Scan.
    * - **5**: Other.
-   * - **6**: Information leakage.
+   * - **6**: Information leak.
    * - **7**: DoS attack.
    * - **8**: Overflow attack.
    * - **9**: Web attack.
    * - **10**: Trojan backdoor.
-   * - **11**: Viruses and worms.
+   * - **11**: Virus and worm.
    * - **12**: Mining behavior.
    * - **13**: Reverse shell.
    * 
-   * > If you do not specify this parameter, all attack types are queried.
+   * > If you do not specify the Settings for this parameter, events of all attack types are queried.
    * 
    * @example
    * 13
@@ -28,7 +28,7 @@ export class DescribeEventLogRequest extends $dara.Model {
   attackType?: number;
   /**
    * @remarks
-   * The page number for a paged query.
+   * The page number for paging in a paged query.
    * 
    * @example
    * 1
@@ -36,7 +36,7 @@ export class DescribeEventLogRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The destination IP address to query. If you specify this parameter, the system queries intrusion prevention events that involve this destination IP address.
+   * The destination IP address to query. If you specify this parameter, the intrusion prevention events that involve this destination IP address are queried.
    * 
    * @example
    * 10.0.XX.XX
@@ -54,8 +54,8 @@ export class DescribeEventLogRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The type of the Cloud Firewall. Valid values:
-   * - **VpcFirewall**: virtual private cloud (VPC) firewalls.
+   * The type of Cloud Firewall. Valid values:
+   * - **VpcFirewall**: virtual private cloud (VPC) firewalls at the border.
    * - **InternetFirewall** (default): the Internet Border firewall.
    * 
    * @example
@@ -68,7 +68,7 @@ export class DescribeEventLogRequest extends $dara.Model {
   firewallType?: string;
   /**
    * @remarks
-   * The language of the response message.
+   * The language for receiving messages.
    * 
    * @example
    * zh
@@ -84,9 +84,9 @@ export class DescribeEventLogRequest extends $dara.Model {
   logType?: string;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * Specifies the number of results per page for a paginated query.
    * 
-   * Default value: **6**, which indicates that 6 entries are returned on each page. Maximum value: **10**.
+   * Default value: **6**, which indicates that 6 results are returned per page. Maximum value: **10**.
    * 
    * @example
    * 10
@@ -94,11 +94,19 @@ export class DescribeEventLogRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The defense status of the Cloud Firewall. Valid values:
+   * Filters event logs by rule hits. The value must be the same as the RuleId value in the response. If LogType is set to ips, pass the UUID of the IPS rule (the RuleUuid value returned by DescribeIPSRules) instead of the numeric format (font style) of the RuleId. If both RuleId and AttackType are specified, records that meet both conditions are returned. This parameter takes effect for ips, app_ctl, web_filter, and threat_intelligence. If LogType is set to tls and this parameter is specified, a parameter fault is returned. If no matching records are found, TotalCount is 0. If you do not specify this parameter, event logs are not filtered by rule hit.
+   * 
+   * @example
+   * c0f5caed-d6a5-11e8-8298-00163e109533
+   */
+  ruleId?: string;
+  /**
+   * @remarks
+   * The defense status of Cloud Firewall. Valid values:
    * - **1**: Alert.
    * - **2**: Block.
    * 
-   * > If you do not specify this parameter, all defense statuses are queried.
+   * > If you do not specify this parameter, events of all defense statuses are queried.
    * 
    * @example
    * 0
@@ -116,7 +124,7 @@ export class DescribeEventLogRequest extends $dara.Model {
   sourceCode?: string;
   /**
    * @remarks
-   * The source IP address of the requester.
+   * The source IP address of the visitor.
    * 
    * @example
    * 60.182.79.XXX
@@ -124,12 +132,20 @@ export class DescribeEventLogRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The source IP address to query. If you specify this parameter, the system queries intrusion prevention events that involve this source IP address.
+   * The source IP address to query. If you specify this parameter, the intrusion prevention events that involve this source IP address are queried.
    * 
    * @example
    * 47.92.x.x
    */
   srcIP?: string;
+  /**
+   * @remarks
+   * Filters by the exact TLS handshake result. This parameter takes effect only when LogType is set to tls and is ignored for other types. Valid values: bypass, alert, and failed (handshake failure). If this parameter is not specified, records of the bypass, alert, and failed types are returned, and normal traffic with successful handshakes (success) is not returned.
+   * 
+   * @example
+   * failed
+   */
+  sslHandshakeRes?: string;
   /**
    * @remarks
    * The start time of the query. The value is a UNIX timestamp in seconds.
@@ -150,10 +166,12 @@ export class DescribeEventLogRequest extends $dara.Model {
       lang: 'Lang',
       logType: 'LogType',
       pageSize: 'PageSize',
+      ruleId: 'RuleId',
       ruleResult: 'RuleResult',
       sourceCode: 'SourceCode',
       sourceIp: 'SourceIp',
       srcIP: 'SrcIP',
+      sslHandshakeRes: 'SslHandshakeRes',
       startTime: 'StartTime',
     };
   }
@@ -168,10 +186,12 @@ export class DescribeEventLogRequest extends $dara.Model {
       lang: 'string',
       logType: 'string',
       pageSize: 'string',
+      ruleId: 'string',
       ruleResult: 'string',
       sourceCode: 'string',
       sourceIp: 'string',
       srcIP: 'string',
+      sslHandshakeRes: 'string',
       startTime: 'string',
     };
   }

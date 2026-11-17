@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "Cloudfw";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "central";
     this._endpointMap = {
       'ap-southeast-1': "cloudfw.ap-southeast-1.aliyuncs.com",
@@ -359,13 +363,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a DNS firewall ACL.
+   * Creates a DNS firewall ACL.
    * 
    * @remarks
    * Creates a DNS firewall access control policy to allow, deny, or monitor traffic that passes through the DNS firewall.
    * ## Quotas
    * DNS firewall policies are counted independently in the DNS policy table (counted separately by IP version), but **share the same quota limit** with Internet access control policies (determined by the Cloud Firewall edition). If the number of address combinations expanded from a single policy exceeds the limit, or the total number of policies exceeds the limit, the system returns ErrorAclExtendedCountExceed (-200139).
-   * > The DescribeAclCheckQuota operation returns the quota for the number of ACL policy checks, which is unrelated to firewall policy count quota and cannot be used to predict whether the quota for this operation is sufficient. Check firewall policy count quota in the Cloud Firewall console.
+   * > The DescribeAclCheckQuota operation returns the quota for the number of ACL policy checks, which is unrelated to firewall policy count quota. You cannot use it to predict whether the quota for this operation is sufficient. Check firewall policy count quota in the Cloud Firewall console.
    * 
    * @param request - AddDnsFirewallPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -440,13 +444,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Adds a DNS firewall ACL.
+   * Creates a DNS firewall ACL.
    * 
    * @remarks
    * Creates a DNS firewall access control policy to allow, deny, or monitor traffic that passes through the DNS firewall.
    * ## Quotas
    * DNS firewall policies are counted independently in the DNS policy table (counted separately by IP version), but **share the same quota limit** with Internet access control policies (determined by the Cloud Firewall edition). If the number of address combinations expanded from a single policy exceeds the limit, or the total number of policies exceeds the limit, the system returns ErrorAclExtendedCountExceed (-200139).
-   * > The DescribeAclCheckQuota operation returns the quota for the number of ACL policy checks, which is unrelated to firewall policy count quota and cannot be used to predict whether the quota for this operation is sufficient. Check firewall policy count quota in the Cloud Firewall console.
+   * > The DescribeAclCheckQuota operation returns the quota for the number of ACL policy checks, which is unrelated to firewall policy count quota. You cannot use it to predict whether the quota for this operation is sufficient. Check firewall policy count quota in the Cloud Firewall console.
    * 
    * @param request - AddDnsFirewallPolicyRequest
    * @returns AddDnsFirewallPolicyResponse
@@ -458,6 +462,12 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a real-time domain name resolution task.
+   * 
+   * @remarks
+   * This operation creates a real-time domain name resolution task for a specified domain name.
+   * ## Before you begin
+   * - Before you call this operation, you must activate Cloud Firewall. You can activate it on the Cloud Firewall buy page (China site: https://common-buy.aliyun.com/?commodityCode=cfw_sub_public_cn, International site: https://common-buy-intl.alibabacloud.com/?commodityCode=cfw_sub_public_intl).
+   * - You can call the DescribeUserBuyVersion operation to query the UserStatus parameter. If the returned value is false, the current account has not purchased or activated Cloud Firewall.
    * 
    * @param request - AddDomainResolveRealtimeTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -497,6 +507,12 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a real-time domain name resolution task.
+   * 
+   * @remarks
+   * This operation creates a real-time domain name resolution task for a specified domain name.
+   * ## Before you begin
+   * - Before you call this operation, you must activate Cloud Firewall. You can activate it on the Cloud Firewall buy page (China site: https://common-buy.aliyun.com/?commodityCode=cfw_sub_public_cn, International site: https://common-buy-intl.alibabacloud.com/?commodityCode=cfw_sub_public_intl).
+   * - You can call the DescribeUserBuyVersion operation to query the UserStatus parameter. If the returned value is false, the current account has not purchased or activated Cloud Firewall.
    * 
    * @param request - AddDomainResolveRealtimeTaskRequest
    * @returns AddDomainResolveRealtimeTaskResponse
@@ -570,7 +586,7 @@ export default class Client extends OpenApi {
    * @remarks
    * This operation is typically used to retrieve the DNS resolution results of a domain name. Currently, only Alibaba Cloud DNS is supported for retrieving resolution results. The domain name to be queried must use Alibaba Cloud DNS to retrieve its resolution results.
    * ## QPS limits
-   * The QPS limit per user for this operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API operation at a reasonable frequency.
+   * The QPS limit per user for this operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
    * 
    * @param request - AddPrivateDnsDomainNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -614,7 +630,7 @@ export default class Client extends OpenApi {
    * @remarks
    * This operation is typically used to retrieve the DNS resolution results of a domain name. Currently, only Alibaba Cloud DNS is supported for retrieving resolution results. The domain name to be queried must use Alibaba Cloud DNS to retrieve its resolution results.
    * ## QPS limits
-   * The QPS limit per user for this operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API operation at a reasonable frequency.
+   * The QPS limit per user for this operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
    * 
    * @param request - AddPrivateDnsDomainNameRequest
    * @returns AddPrivateDnsDomainNameResponse
@@ -792,7 +808,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## QPS limits
-   * The QPS limit for a single user is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
+   * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable frequency.
    * 
    * @param request - CreateAckClusterConnectorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -859,7 +875,7 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## QPS limits
-   * The QPS limit for a single user is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
+   * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable frequency.
    * 
    * @param request - CreateAckClusterConnectorRequest
    * @returns CreateAckClusterConnectorResponse
@@ -917,6 +933,130 @@ export default class Client extends OpenApi {
   async createAclCheck(request: $_model.CreateAclCheckRequest): Promise<$_model.CreateAclCheckResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createAclCheckWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates custom rules in batches for a specified application template. You can create up to 100 rules at a time, and the total number of rules in the template cannot exceed 100.
+   * 
+   * @param tmpReq - CreateApplicationCustomRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApplicationCustomRulesResponse
+   */
+  async createApplicationCustomRulesWithOptions(tmpReq: $_model.CreateApplicationCustomRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateApplicationCustomRulesResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateApplicationCustomRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.rules)) {
+      request.rulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rules, "Rules", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.applicationTemplateId)) {
+      query["ApplicationTemplateId"] = request.applicationTemplateId;
+    }
+
+    if (!$dara.isNull(request.rulesShrink)) {
+      query["Rules"] = request.rulesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateApplicationCustomRules",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateApplicationCustomRulesResponse>(await this.callApi(params, req, runtime), new $_model.CreateApplicationCustomRulesResponse({}));
+  }
+
+  /**
+   * Creates custom rules in batches for a specified application template. You can create up to 100 rules at a time, and the total number of rules in the template cannot exceed 100.
+   * 
+   * @param request - CreateApplicationCustomRulesRequest
+   * @returns CreateApplicationCustomRulesResponse
+   */
+  async createApplicationCustomRules(request: $_model.CreateApplicationCustomRulesRequest): Promise<$_model.CreateApplicationCustomRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createApplicationCustomRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an application program template. The template is at the user granularity and can be referenced by the access control policy for the Internet border, NAT, and virtual private cloud (VPC) firewalls. Before creating a template, ensure that the application program control feature is enabled and the number of templates does not exceed the quota for the instance specifications.
+   * 
+   * @param tmpReq - CreateApplicationTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateApplicationTemplateResponse
+   */
+  async createApplicationTemplateWithOptions(tmpReq: $_model.CreateApplicationTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateApplicationTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateApplicationTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.addBuiltInApplicationCustomActions)) {
+      request.addBuiltInApplicationCustomActionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.addBuiltInApplicationCustomActions, "AddBuiltInApplicationCustomActions", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.addBuiltInApplicationCustomActionsShrink)) {
+      query["AddBuiltInApplicationCustomActions"] = request.addBuiltInApplicationCustomActionsShrink;
+    }
+
+    if (!$dara.isNull(request.applicationTemplateName)) {
+      query["ApplicationTemplateName"] = request.applicationTemplateName;
+    }
+
+    if (!$dara.isNull(request.builtInApplicationStatus)) {
+      query["BuiltInApplicationStatus"] = request.builtInApplicationStatus;
+    }
+
+    if (!$dara.isNull(request.customRuleStatus)) {
+      query["CustomRuleStatus"] = request.customRuleStatus;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.templateStatus)) {
+      query["TemplateStatus"] = request.templateStatus;
+    }
+
+    if (!$dara.isNull(request.unknownAction)) {
+      query["UnknownAction"] = request.unknownAction;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateApplicationTemplate",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateApplicationTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateApplicationTemplateResponse({}));
+  }
+
+  /**
+   * Creates an application program template. The template is at the user granularity and can be referenced by the access control policy for the Internet border, NAT, and virtual private cloud (VPC) firewalls. Before creating a template, ensure that the application program control feature is enabled and the number of templates does not exceed the quota for the instance specifications.
+   * 
+   * @param request - CreateApplicationTemplateRequest
+   * @returns CreateApplicationTemplateResponse
+   */
+  async createApplicationTemplate(request: $_model.CreateApplicationTemplateRequest): Promise<$_model.CreateApplicationTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createApplicationTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -1026,7 +1166,7 @@ export default class Client extends OpenApi {
    * Creates an IPS private IP tracing association for an Internet NAT gateway that is protected by Cloud Firewall.
    * ## Before you begin
    * - The target NAT gateway must be managed by Cloud Firewall and asset synchronization must be completed. Asset synchronization is an asynchronous task. If you call this operation before the synchronization of a newly created NAT gateway is completed, the error code -103204 is returned.
-   * - If SNAT is configured for the NAT gateway, you must enable session logging first. Otherwise, the error code -103583 is returned.
+   * - If SNAT is configured for the NAT gateway, you must enable session logs first. Otherwise, the error code -103583 is returned.
    * 
    * @param request - CreateIpsPrivateAssocRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1067,7 +1207,7 @@ export default class Client extends OpenApi {
    * Creates an IPS private IP tracing association for an Internet NAT gateway that is protected by Cloud Firewall.
    * ## Before you begin
    * - The target NAT gateway must be managed by Cloud Firewall and asset synchronization must be completed. Asset synchronization is an asynchronous task. If you call this operation before the synchronization of a newly created NAT gateway is completed, the error code -103204 is returned.
-   * - If SNAT is configured for the NAT gateway, you must enable session logging first. Otherwise, the error code -103583 is returned.
+   * - If SNAT is configured for the NAT gateway, you must enable session logs first. Otherwise, the error code -103583 is returned.
    * 
    * @param request - CreateIpsPrivateAssocRequest
    * @returns CreateIpsPrivateAssocResponse
@@ -1218,10 +1358,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a dry run for a NAT firewall.
+   * Creates a precheck for a NAT firewall.
    * 
    * @remarks
-   * Creates a policy that allows, denies, or monitors traffic that passes through a NAT firewall.
+   * Creates a policy that allows, denies, or monitors traffic passing through a NAT firewall.
    * 
    * @param request - CreateNatFirewallPreCheckRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1266,10 +1406,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a dry run for a NAT firewall.
+   * Creates a precheck for a NAT firewall.
    * 
    * @remarks
-   * Creates a policy that allows, denies, or monitors traffic that passes through a NAT firewall.
+   * Creates a policy that allows, denies, or monitors traffic passing through a NAT firewall.
    * 
    * @param request - CreateNatFirewallPreCheckRequest
    * @returns CreateNatFirewallPreCheckResponse
@@ -1281,6 +1421,12 @@ export default class Client extends OpenApi {
 
   /**
    * Creates a NAT firewall asset synchronization task.
+   * 
+   * @remarks
+   * Creates a NAT firewall asset synchronization task.
+   * ## Before you begin
+   * - Before calling this operation, ensure that you have purchased and activated a Cloud Firewall instance. Both subscription and pay-as-you-go billing methods are supported.
+   * - You can activate Cloud Firewall on the buy page (Chinese site: https://common-buy.aliyun.com/?commodityCode=cfw_sub_public_cn and International site: https://common-buy-intl.alibabacloud.com/?commodityCode=cfw_sub_public_intl). After activation, call the DescribeUserBuyVersion operation and check the UserStatus parameter to confirm the activation status.
    * 
    * @param request - CreateNatFirewallSyncTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1313,6 +1459,12 @@ export default class Client extends OpenApi {
   /**
    * Creates a NAT firewall asset synchronization task.
    * 
+   * @remarks
+   * Creates a NAT firewall asset synchronization task.
+   * ## Before you begin
+   * - Before calling this operation, ensure that you have purchased and activated a Cloud Firewall instance. Both subscription and pay-as-you-go billing methods are supported.
+   * - You can activate Cloud Firewall on the buy page (Chinese site: https://common-buy.aliyun.com/?commodityCode=cfw_sub_public_cn and International site: https://common-buy-intl.alibabacloud.com/?commodityCode=cfw_sub_public_intl). After activation, call the DescribeUserBuyVersion operation and check the UserStatus parameter to confirm the activation status.
+   * 
    * @param request - CreateNatFirewallSyncTaskRequest
    * @returns CreateNatFirewallSyncTaskResponse
    */
@@ -1325,7 +1477,7 @@ export default class Client extends OpenApi {
    * Creates a private DNS endpoint.
    * 
    * @remarks
-   * Creates a private DNS firewall endpoint. When you call this operation, you must specify PrimaryVSwitchId, and the region and zone of the primary and secondary vSwitches must support private DNS firewalls.
+   * Creates a private DNS firewall endpoint. When you call this operation, you must specify PrimaryVSwitchId. The region and zone of the primary and secondary vSwitches must support private DNS firewalls.
    * 
    * @param request - CreatePrivateDnsEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1411,7 +1563,7 @@ export default class Client extends OpenApi {
    * Creates a private DNS endpoint.
    * 
    * @remarks
-   * Creates a private DNS firewall endpoint. When you call this operation, you must specify PrimaryVSwitchId, and the region and zone of the primary and secondary vSwitches must support private DNS firewalls.
+   * Creates a private DNS firewall endpoint. When you call this operation, you must specify PrimaryVSwitchId. The region and zone of the primary and secondary vSwitches must support private DNS firewalls.
    * 
    * @param request - CreatePrivateDnsEndpointRequest
    * @returns CreatePrivateDnsEndpointResponse
@@ -1431,6 +1583,10 @@ export default class Client extends OpenApi {
   async createSecurityProxyWithOptions(request: $_model.CreateSecurityProxyRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateSecurityProxyResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.basicDefenseEnabled)) {
+      query["BasicDefenseEnabled"] = request.basicDefenseEnabled;
+    }
+
     if (!$dara.isNull(request.firewallServiceMode)) {
       query["FirewallServiceMode"] = request.firewallServiceMode;
     }
@@ -1451,8 +1607,20 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!$dara.isNull(request.masterVSwitchCidr)) {
+      query["MasterVSwitchCidr"] = request.masterVSwitchCidr;
+    }
+
+    if (!$dara.isNull(request.masterZoneId)) {
+      query["MasterZoneId"] = request.masterZoneId;
+    }
+
     if (!$dara.isNull(request.natGatewayId)) {
       query["NatGatewayId"] = request.natGatewayId;
+    }
+
+    if (!$dara.isNull(request.natMode)) {
+      query["NatMode"] = request.natMode;
     }
 
     if (!$dara.isNull(request.natRouteEntryList)) {
@@ -1467,8 +1635,32 @@ export default class Client extends OpenApi {
       query["RegionNo"] = request.regionNo;
     }
 
+    if (!$dara.isNull(request.ruleClass)) {
+      query["RuleClass"] = request.ruleClass;
+    }
+
+    if (!$dara.isNull(request.runMode)) {
+      query["RunMode"] = request.runMode;
+    }
+
+    if (!$dara.isNull(request.standbyVSwitchCidr)) {
+      query["StandbyVSwitchCidr"] = request.standbyVSwitchCidr;
+    }
+
+    if (!$dara.isNull(request.standbyZoneId)) {
+      query["StandbyZoneId"] = request.standbyZoneId;
+    }
+
     if (!$dara.isNull(request.strictMode)) {
       query["StrictMode"] = request.strictMode;
+    }
+
+    if (!$dara.isNull(request.threatIntelEnabled)) {
+      query["ThreatIntelEnabled"] = request.threatIntelEnabled;
+    }
+
+    if (!$dara.isNull(request.virtualPatchEnabled)) {
+      query["VirtualPatchEnabled"] = request.virtualPatchEnabled;
     }
 
     if (!$dara.isNull(request.vpcId)) {
@@ -1562,10 +1754,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a VPC firewall for a transit router. Prerequisites: (1) Purchase Cloud Firewall is completed. (2) A Cloud Enterprise Network (CEN) instance is created and an Enterprise Edition transit router (TR) to forward traffic and manage routing is enabled. (3) TR synchronization to Cloud Firewall is completed.
+   * Creates a VPC firewall for a transit router. Prerequisites: (1) Cloud Firewall is purchased. (2) A CEN instance is created and an Enterprise Edition transit router is enabled. (3) The TR is synchronized to Cloud Firewall.
    * 
    * @remarks
-   * Creates a virtual private cloud (VPC) firewall for an Enterprise Edition transit router (TR). Before calling this operation, you must create a CEN instance and an Enterprise Edition transit router in the CEN console, and synchronize the transit router to Cloud Firewall. Then, call this operation by using the CEN ID, TransitRouterId, RegionNo, and RouteMode parameters.
+   * Creates a virtual private cloud (VPC) firewall for an Enterprise Edition transit router (TR). Before you call this operation, you must create a CEN instance and an Enterprise Edition transit router in the CEN console, and synchronize the TR to Cloud Firewall. Then, call this operation by specifying the CEN ID, TransitRouterId, RegionNo, and RouteMode parameters.
    * 
    * @param request - CreateTrFirewallV2Request
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1668,10 +1860,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a VPC firewall for a transit router. Prerequisites: (1) Purchase Cloud Firewall is completed. (2) A Cloud Enterprise Network (CEN) instance is created and an Enterprise Edition transit router (TR) to forward traffic and manage routing is enabled. (3) TR synchronization to Cloud Firewall is completed.
+   * Creates a VPC firewall for a transit router. Prerequisites: (1) Cloud Firewall is purchased. (2) A CEN instance is created and an Enterprise Edition transit router is enabled. (3) The TR is synchronized to Cloud Firewall.
    * 
    * @remarks
-   * Creates a virtual private cloud (VPC) firewall for an Enterprise Edition transit router (TR). Before calling this operation, you must create a CEN instance and an Enterprise Edition transit router in the CEN console, and synchronize the transit router to Cloud Firewall. Then, call this operation by using the CEN ID, TransitRouterId, RegionNo, and RouteMode parameters.
+   * Creates a virtual private cloud (VPC) firewall for an Enterprise Edition transit router (TR). Before you call this operation, you must create a CEN instance and an Enterprise Edition transit router in the CEN console, and synchronize the TR to Cloud Firewall. Then, call this operation by specifying the CEN ID, TransitRouterId, RegionNo, and RouteMode parameters.
    * 
    * @param request - CreateTrFirewallV2Request
    * @returns CreateTrFirewallV2Response
@@ -1861,9 +2053,9 @@ export default class Client extends OpenApi {
    * Creates a manual configuration to create a VPC firewall.
    * 
    * @remarks
-   * This operation is generally used to create a VPC firewall for VPC-connected instances in a Cloud Enterprise Network (CEN). The virtual private cloud (VPC) firewalls protect the mutual access traffic between VPC-connected instances in the CEN and the specified VPC. VPC-connected instances include VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs). It does not protect traffic between VBRs, between CCNs, or between a VBR and a CCN. For more information, see [Limits on virtual private cloud (VPC) firewalls](https://help.aliyun.com/document_detail/172295.html).
+   * This operation is typically used to create a VPC firewall for VPC-connected instances in a Cloud Enterprise Network (CEN). The VPC firewall protects the traffic between network instances in the CEN and the specified VPC. The network instances include VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs). The VPC firewall does not protect the traffic between VBRs, between CCNs, or between a VBR and a CCN. For more information, see [Limits on VPC firewalls](https://help.aliyun.com/document_detail/172295.html).
    * ## QPS limits
-   * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke this operation at a reasonable frequency.
+   * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke the API at a reasonable frequency.
    * 
    * @deprecated OpenAPI CreateVpcFirewallCenManualConfigure is deprecated
    * 
@@ -1919,9 +2111,9 @@ export default class Client extends OpenApi {
    * Creates a manual configuration to create a VPC firewall.
    * 
    * @remarks
-   * This operation is generally used to create a VPC firewall for VPC-connected instances in a Cloud Enterprise Network (CEN). The virtual private cloud (VPC) firewalls protect the mutual access traffic between VPC-connected instances in the CEN and the specified VPC. VPC-connected instances include VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs). It does not protect traffic between VBRs, between CCNs, or between a VBR and a CCN. For more information, see [Limits on virtual private cloud (VPC) firewalls](https://help.aliyun.com/document_detail/172295.html).
+   * This operation is typically used to create a VPC firewall for VPC-connected instances in a Cloud Enterprise Network (CEN). The VPC firewall protects the traffic between network instances in the CEN and the specified VPC. The network instances include VPCs, virtual border routers (VBRs), and Cloud Connect Networks (CCNs). The VPC firewall does not protect the traffic between VBRs, between CCNs, or between a VBR and a CCN. For more information, see [Limits on VPC firewalls](https://help.aliyun.com/document_detail/172295.html).
    * ## QPS limits
-   * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke this operation at a reasonable frequency.
+   * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke the API at a reasonable frequency.
    * 
    * @deprecated OpenAPI CreateVpcFirewallCenManualConfigure is deprecated
    * 
@@ -2167,10 +2359,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a precheck task before you create a VPC firewall.
+   * Creates a prerequisite task for enabling a VPC firewall.
    * 
    * @remarks
-   * This operation creates a policy to accept, deny, or monitor traffic that passes through a NAT firewall.
+   * Creates a policy to allow, deny, or monitor traffic passing through a NAT firewall.
    * 
    * @param request - CreateVpcFirewallPrecheckRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2225,10 +2417,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a precheck task before you create a VPC firewall.
+   * Creates a prerequisite task for enabling a VPC firewall.
    * 
    * @remarks
-   * This operation creates a policy to accept, deny, or monitor traffic that passes through a NAT firewall.
+   * Creates a policy to allow, deny, or monitor traffic passing through a NAT firewall.
    * 
    * @param request - CreateVpcFirewallPrecheckRequest
    * @returns CreateVpcFirewallPrecheckResponse
@@ -2239,12 +2431,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a sync task for VPC firewall assets.
+   * Creates a VPC firewall asset synchronization task.
    * 
    * @remarks
-   * This operation creates a VPC firewall that protects traffic between two VPCs connected by an Express Connect circuit. The VPC firewall does not protect cross-region traffic, cross-account traffic, or traffic between a VPC and a Virtual Border Router (VBR). For more information, see [Limits on VPC firewalls](https://help.aliyun.com/document_detail/172295.html).
-   * ### QPS limits
-   * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, your API calls will be throttled. Plan your calls accordingly.
+   * This operation is typically used to create a VPC firewall. The VPC firewall protects traffic between two VPCs that are connected by using Express Connect. The VPC firewall does not support protecting cross-region or cross-account traffic between VPCs, or traffic between a VPC and a virtual border router (VBR). For more information, see [Limits on VPC firewalls](https://help.aliyun.com/document_detail/172295.html).
+   * ### QPS limit
+   * The QPS limit on this operation is 10 queries per second per account. API calls that exceed this limit are throttled, which may affect your business. Call this operation at a reasonable rate.
    * 
    * @param request - CreateVpcFirewallTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2287,12 +2479,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a sync task for VPC firewall assets.
+   * Creates a VPC firewall asset synchronization task.
    * 
    * @remarks
-   * This operation creates a VPC firewall that protects traffic between two VPCs connected by an Express Connect circuit. The VPC firewall does not protect cross-region traffic, cross-account traffic, or traffic between a VPC and a Virtual Border Router (VBR). For more information, see [Limits on VPC firewalls](https://help.aliyun.com/document_detail/172295.html).
-   * ### QPS limits
-   * The queries per second (QPS) limit for a single user is 10 calls per second. If you exceed this limit, your API calls will be throttled. Plan your calls accordingly.
+   * This operation is typically used to create a VPC firewall. The VPC firewall protects traffic between two VPCs that are connected by using Express Connect. The VPC firewall does not support protecting cross-region or cross-account traffic between VPCs, or traffic between a VPC and a virtual border router (VBR). For more information, see [Limits on VPC firewalls](https://help.aliyun.com/document_detail/172295.html).
+   * ### QPS limit
+   * The QPS limit on this operation is 10 queries per second per account. API calls that exceed this limit are throttled, which may affect your business. Call this operation at a reasonable rate.
    * 
    * @param request - CreateVpcFirewallTaskRequest
    * @returns CreateVpcFirewallTaskResponse
@@ -2303,11 +2495,113 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Creates web filtering rules in batches under a specified web filtering template. A maximum of 100 rules can be created at a time, and the total number of rules in the template after creation must not exceed 100.
+   * 
+   * @param tmpReq - CreateWebFilterRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWebFilterRulesResponse
+   */
+  async createWebFilterRulesWithOptions(tmpReq: $_model.CreateWebFilterRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWebFilterRulesResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateWebFilterRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.rules)) {
+      request.rulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rules, "Rules", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.rulesShrink)) {
+      query["Rules"] = request.rulesShrink;
+    }
+
+    if (!$dara.isNull(request.webFilterTemplateId)) {
+      query["WebFilterTemplateId"] = request.webFilterTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWebFilterRules",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWebFilterRulesResponse>(await this.callApi(params, req, runtime), new $_model.CreateWebFilterRulesResponse({}));
+  }
+
+  /**
+   * Creates web filtering rules in batches under a specified web filtering template. A maximum of 100 rules can be created at a time, and the total number of rules in the template after creation must not exceed 100.
+   * 
+   * @param request - CreateWebFilterRulesRequest
+   * @returns CreateWebFilterRulesResponse
+   */
+  async createWebFilterRules(request: $_model.CreateWebFilterRulesRequest): Promise<$_model.CreateWebFilterRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createWebFilterRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates a web filtering template. The template is at the user granularity and can be referenced by access control policies of Internet, NAT, and virtual private cloud (VPC) firewalls. Web filtering rules can be added to the template. Before creating a template, ensure that the web filtering feature is enabled and the number of templates does not exceed the instance quota.
+   * 
+   * @param request - CreateWebFilterTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateWebFilterTemplateResponse
+   */
+  async createWebFilterTemplateWithOptions(request: $_model.CreateWebFilterTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateWebFilterTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateWebFilterTemplate",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateWebFilterTemplateResponse>(await this.callApi(params, req, runtime), new $_model.CreateWebFilterTemplateResponse({}));
+  }
+
+  /**
+   * Creates a web filtering template. The template is at the user granularity and can be referenced by access control policies of Internet, NAT, and virtual private cloud (VPC) firewalls. Web filtering rules can be added to the template. Before creating a template, ensure that the web filtering feature is enabled and the number of templates does not exceed the instance quota.
+   * 
+   * @param request - CreateWebFilterTemplateRequest
+   * @returns CreateWebFilterTemplateResponse
+   */
+  async createWebFilterTemplate(request: $_model.CreateWebFilterTemplateRequest): Promise<$_model.CreateWebFilterTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createWebFilterTemplateWithOptions(request, runtime);
+  }
+
+  /**
    * Deletes an ACK cluster connector.
    * 
    * @remarks
-   * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+   * ## Rate limit
+   * The rate limit for this API operation is 10 queries per second (QPS) per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
    * 
    * @param request - DeleteAckClusterConnectorRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2341,8 +2635,8 @@ export default class Client extends OpenApi {
    * Deletes an ACK cluster connector.
    * 
    * @remarks
-   * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+   * ## Rate limit
+   * The rate limit for this API operation is 10 queries per second (QPS) per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
    * 
    * @param request - DeleteAckClusterConnectorRequest
    * @returns DeleteAckClusterConnectorResponse
@@ -2356,9 +2650,9 @@ export default class Client extends OpenApi {
    * Deletes an ACL backup.
    * 
    * @remarks
-   * This operation deletes a backup of an access control address book.
-   * ## QPS limit
-   * This operation is limited to 10 queries per second (QPS) per user. Calls that exceed this limit are throttled, which may affect your business. Plan your calls accordingly.
+   * This operation is typically used to delete address books in access control.
+   * ## Rate limits
+   * The rate limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
    * 
    * @param request - DeleteAclBackupDataRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2400,9 +2694,9 @@ export default class Client extends OpenApi {
    * Deletes an ACL backup.
    * 
    * @remarks
-   * This operation deletes a backup of an access control address book.
-   * ## QPS limit
-   * This operation is limited to 10 queries per second (QPS) per user. Calls that exceed this limit are throttled, which may affect your business. Plan your calls accordingly.
+   * This operation is typically used to delete address books in access control.
+   * ## Rate limits
+   * The rate limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable frequency.
    * 
    * @param request - DeleteAclBackupDataRequest
    * @returns DeleteAclBackupDataResponse
@@ -2470,6 +2764,96 @@ export default class Client extends OpenApi {
   async deleteAddressBook(request: $_model.DeleteAddressBookRequest): Promise<$_model.DeleteAddressBookResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.deleteAddressBookWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes custom application rules in batches. You can delete up to 100 rules in a single request. This operation is idempotent. If none of the specified rule IDs exist, the operation still returns a success response.
+   * 
+   * @param tmpReq - DeleteApplicationCustomRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApplicationCustomRulesResponse
+   */
+  async deleteApplicationCustomRulesWithOptions(tmpReq: $_model.DeleteApplicationCustomRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteApplicationCustomRulesResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteApplicationCustomRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.applicationCustomRuleIds)) {
+      request.applicationCustomRuleIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.applicationCustomRuleIds, "ApplicationCustomRuleIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.applicationCustomRuleIdsShrink)) {
+      query["ApplicationCustomRuleIds"] = request.applicationCustomRuleIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteApplicationCustomRules",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteApplicationCustomRulesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteApplicationCustomRulesResponse({}));
+  }
+
+  /**
+   * Deletes custom application rules in batches. You can delete up to 100 rules in a single request. This operation is idempotent. If none of the specified rule IDs exist, the operation still returns a success response.
+   * 
+   * @param request - DeleteApplicationCustomRulesRequest
+   * @returns DeleteApplicationCustomRulesResponse
+   */
+  async deleteApplicationCustomRules(request: $_model.DeleteApplicationCustomRulesRequest): Promise<$_model.DeleteApplicationCustomRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteApplicationCustomRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes an application program template. You cannot delete a template if it contains custom application program rules or is referenced by an access control policy.
+   * 
+   * @param request - DeleteApplicationTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteApplicationTemplateResponse
+   */
+  async deleteApplicationTemplateWithOptions(request: $_model.DeleteApplicationTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteApplicationTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationTemplateId)) {
+      query["ApplicationTemplateId"] = request.applicationTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteApplicationTemplate",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteApplicationTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteApplicationTemplateResponse({}));
+  }
+
+  /**
+   * Deletes an application program template. You cannot delete a template if it contains custom application program rules or is referenced by an access control policy.
+   * 
+   * @param request - DeleteApplicationTemplateRequest
+   * @returns DeleteApplicationTemplateResponse
+   */
+  async deleteApplicationTemplate(request: $_model.DeleteApplicationTemplateRequest): Promise<$_model.DeleteApplicationTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteApplicationTemplateWithOptions(request, runtime);
   }
 
   /**
@@ -2599,10 +2983,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a DNS firewall policy.
+   * Deletes a DNS firewall rule.
    * 
    * @remarks
-   * You can call this operation to delete a DNS firewall policy.
+   * Creates a policy to allow, deny, or monitor traffic that passes through a NAT firewall.
    * 
    * @param request - DeleteDnsFirewallPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2641,10 +3025,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a DNS firewall policy.
+   * Deletes a DNS firewall rule.
    * 
    * @remarks
-   * You can call this operation to delete a DNS firewall policy.
+   * Creates a policy to allow, deny, or monitor traffic that passes through a NAT firewall.
    * 
    * @param request - DeleteDnsFirewallPolicyRequest
    * @returns DeleteDnsFirewallPolicyResponse
@@ -2811,7 +3195,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a private network association for an IPS.
+   * Creates IPS private network association information.
    * 
    * @param request - DeleteIpsPrivateAssocRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2846,7 +3230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a private network association for an IPS.
+   * Creates IPS private network association information.
    * 
    * @param request - DeleteIpsPrivateAssocRequest
    * @returns DeleteIpsPrivateAssocResponse
@@ -2971,12 +3355,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes all private DNS domain names.
+   * Clears private DNS domain names.
    * 
    * @remarks
-   * This API call is used to delete all private domain names.
-   * ## QPS limit
-   * Each user is limited to 10 queries per second (QPS) for this API call. If you exceed this limit, API calls are throttled, which may impact your business. We recommend that you plan your API calls accordingly.
+   * This API operation is typically used to retrieve the DNS resolution results of a domain name. Currently, resolution results can only be retrieved from Alibaba Cloud DNS. To retrieve the resolution results, the domain name to be queried must use Alibaba Cloud DNS.
+   * ## QPS limits
+   * The QPS limit per user for this API operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
    * 
    * @param request - DeletePrivateDnsAllDomainNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3011,12 +3395,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes all private DNS domain names.
+   * Clears private DNS domain names.
    * 
    * @remarks
-   * This API call is used to delete all private domain names.
-   * ## QPS limit
-   * Each user is limited to 10 queries per second (QPS) for this API call. If you exceed this limit, API calls are throttled, which may impact your business. We recommend that you plan your API calls accordingly.
+   * This API operation is typically used to retrieve the DNS resolution results of a domain name. Currently, resolution results can only be retrieved from Alibaba Cloud DNS. To retrieve the resolution results, the domain name to be queried must use Alibaba Cloud DNS.
+   * ## QPS limits
+   * The QPS limit per user for this API operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
    * 
    * @param request - DeletePrivateDnsAllDomainNameRequest
    * @returns DeletePrivateDnsAllDomainNameResponse
@@ -3027,10 +3411,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete private DNS domain names
+   * Deletes a private DNS domain name.
    * 
    * @remarks
-   * Deletes domain names that require private DNS resolution.
+   * Deletes a domain name that requires private DNS resolution.
    * 
    * @param request - DeletePrivateDnsDomainNameRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3069,10 +3453,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Delete private DNS domain names
+   * Deletes a private DNS domain name.
    * 
    * @remarks
-   * Deletes domain names that require private DNS resolution.
+   * Deletes a domain name that requires private DNS resolution.
    * 
    * @param request - DeletePrivateDnsDomainNameRequest
    * @returns DeletePrivateDnsDomainNameResponse
@@ -3086,7 +3470,7 @@ export default class Client extends OpenApi {
    * Deletes a private DNS endpoint.
    * 
    * @remarks
-   * You can use this operation to create a policy that allows, denies, or monitors traffic that passes through a NAT firewall.
+   * Creates a policy to allow, deny, or monitor traffic that passes through a NAT firewall.
    * 
    * @param request - DeletePrivateDnsEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3124,7 +3508,7 @@ export default class Client extends OpenApi {
    * Deletes a private DNS endpoint.
    * 
    * @remarks
-   * You can use this operation to create a policy that allows, denies, or monitors traffic that passes through a NAT firewall.
+   * Creates a policy to allow, deny, or monitor traffic that passes through a NAT firewall.
    * 
    * @param request - DeletePrivateDnsEndpointRequest
    * @returns DeletePrivateDnsEndpointResponse
@@ -3413,7 +3797,97 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the trend chart of Internet access control interceptions.
+   * Deletes web filtering rules in batches. A maximum of 100 rules can be deleted in a single request. This operation is idempotent and returns a success response even if none of the specified rule IDs exist.
+   * 
+   * @param tmpReq - DeleteWebFilterRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWebFilterRulesResponse
+   */
+  async deleteWebFilterRulesWithOptions(tmpReq: $_model.DeleteWebFilterRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWebFilterRulesResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteWebFilterRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.webFilterRuleIds)) {
+      request.webFilterRuleIdsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.webFilterRuleIds, "WebFilterRuleIds", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.webFilterRuleIdsShrink)) {
+      query["WebFilterRuleIds"] = request.webFilterRuleIdsShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWebFilterRules",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteWebFilterRulesResponse>(await this.callApi(params, req, runtime), new $_model.DeleteWebFilterRulesResponse({}));
+  }
+
+  /**
+   * Deletes web filtering rules in batches. A maximum of 100 rules can be deleted in a single request. This operation is idempotent and returns a success response even if none of the specified rule IDs exist.
+   * 
+   * @param request - DeleteWebFilterRulesRequest
+   * @returns DeleteWebFilterRulesResponse
+   */
+  async deleteWebFilterRules(request: $_model.DeleteWebFilterRulesRequest): Promise<$_model.DeleteWebFilterRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteWebFilterRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * Deletes a web filtering template. Deleting a template also deletes all web filtering rules within the template. A template cannot be deleted if it is referenced by an access control policy.
+   * 
+   * @param request - DeleteWebFilterTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteWebFilterTemplateResponse
+   */
+  async deleteWebFilterTemplateWithOptions(request: $_model.DeleteWebFilterTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteWebFilterTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.webFilterTemplateId)) {
+      query["WebFilterTemplateId"] = request.webFilterTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteWebFilterTemplate",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteWebFilterTemplateResponse>(await this.callApi(params, req, runtime), new $_model.DeleteWebFilterTemplateResponse({}));
+  }
+
+  /**
+   * Deletes a web filtering template. Deleting a template also deletes all web filtering rules within the template. A template cannot be deleted if it is referenced by an access control policy.
+   * 
+   * @param request - DeleteWebFilterTemplateRequest
+   * @returns DeleteWebFilterTemplateResponse
+   */
+  async deleteWebFilterTemplate(request: $_model.DeleteWebFilterTemplateRequest): Promise<$_model.DeleteWebFilterTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.deleteWebFilterTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the trend chart for Internet access control blocks.
    * 
    * @param request - DescribeACLProtectTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3468,7 +3942,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the trend chart of Internet access control interceptions.
+   * Queries the trend chart for Internet access control blocks.
    * 
    * @param request - DescribeACLProtectTrendRequest
    * @returns DescribeACLProtectTrendResponse
@@ -3479,10 +3953,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the enabling status of AI-powered traffic analysis.
+   * Queries the enabling status of AI-based network traffic analysis.
    * 
    * @remarks
-   * The statistics apply to the current Cloud Firewall instance and include all data from the date of purchase.
+   * The statistical scope covers the current Cloud Firewall instance of the user, including all data since the purchase date.
+   * ## Before you begin
+   * - Before you call this operation, the account must have purchased Purchase Cloud Firewall instance. If no instance is purchased, the operation returns the error code `202`.
+   * - You can call [DescribeUserBuyVersion](~~DescribeUserBuyVersion~~) to query the purchase status. The `UserStatus` field in the response indicates whether the Cloud Firewall instance is valid. A value of `false` indicates that the instance is invalid or not activated.
+   * - Purchase Purchase Cloud Firewall instance:
+   *   - China site: https://common-buy.aliyun.com/?commodityCode=cfw_sub_public_cn
+   *   - International site: https://common-buy-intl.alibabacloud.com/?commodityCode=cfw_sub_public_intl
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeAITrafficAnalysisStatusResponse
@@ -3504,10 +3984,16 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the enabling status of AI-powered traffic analysis.
+   * Queries the enabling status of AI-based network traffic analysis.
    * 
    * @remarks
-   * The statistics apply to the current Cloud Firewall instance and include all data from the date of purchase.
+   * The statistical scope covers the current Cloud Firewall instance of the user, including all data since the purchase date.
+   * ## Before you begin
+   * - Before you call this operation, the account must have purchased Purchase Cloud Firewall instance. If no instance is purchased, the operation returns the error code `202`.
+   * - You can call [DescribeUserBuyVersion](~~DescribeUserBuyVersion~~) to query the purchase status. The `UserStatus` field in the response indicates whether the Cloud Firewall instance is valid. A value of `false` indicates that the instance is invalid or not activated.
+   * - Purchase Purchase Cloud Firewall instance:
+   *   - China site: https://common-buy.aliyun.com/?commodityCode=cfw_sub_public_cn
+   *   - International site: https://common-buy-intl.alibabacloud.com/?commodityCode=cfw_sub_public_intl
    * @returns DescribeAITrafficAnalysisStatusResponse
    */
   async describeAITrafficAnalysisStatus(): Promise<$_model.DescribeAITrafficAnalysisStatusResponse> {
@@ -3516,7 +4002,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of regions for sync nodes.
+   * Queries the regions for synchronization nodes.
    * 
    * @param request - DescribeAccessInstanceRegionListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3543,7 +4029,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of regions for sync nodes.
+   * Queries the regions for synchronization nodes.
    * 
    * @param request - DescribeAccessInstanceRegionListRequest
    * @returns DescribeAccessInstanceRegionListResponse
@@ -3554,7 +4040,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the task progress of a synchronization node.
+   * Queries the progress of a synchronization node task.
    * 
    * @param request - DescribeAccessInstanceTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3581,7 +4067,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the task progress of a synchronization node.
+   * Queries the progress of a synchronization node task.
    * 
    * @param request - DescribeAccessInstanceTaskRequest
    * @returns DescribeAccessInstanceTaskResponse
@@ -3630,7 +4116,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the VPCs associated with synchronization nodes.
+   * Queries the list of VPCs for synchronization nodes.
    * 
    * @param request - DescribeAccessInstanceVpcListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3657,7 +4143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the VPCs associated with synchronization nodes.
+   * Queries the list of VPCs for synchronization nodes.
    * 
    * @param request - DescribeAccessInstanceVpcListRequest
    * @returns DescribeAccessInstanceVpcListResponse
@@ -3668,7 +4154,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a list of available zones for access instances.
+   * Queries the list of zones available for synchronization nodes.
    * 
    * @param request - DescribeAccessInstanceZoneListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3695,7 +4181,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns a list of available zones for access instances.
+   * Queries the list of zones available for synchronization nodes.
    * 
    * @param request - DescribeAccessInstanceZoneListRequest
    * @returns DescribeAccessInstanceZoneListResponse
@@ -3752,11 +4238,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of ACK cluster connectors in batches.
+   * Lists the ACK cluster connectors.
    * 
    * @remarks
    * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls properly.
+   * The rate limit for this API operation is 10 queries per second (QPS) per user. If you exceed the limit, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
    * 
    * @param request - DescribeAckClusterConnectorsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3815,11 +4301,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of ACK cluster connectors in batches.
+   * Lists the ACK cluster connectors.
    * 
    * @remarks
    * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the number of calls per second exceeds the limit, throttling is triggered. This may affect your business. Manage your calls properly.
+   * The rate limit for this API operation is 10 queries per second (QPS) per user. If you exceed the limit, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
    * 
    * @param request - DescribeAckClusterConnectorsRequest
    * @returns DescribeAckClusterConnectorsResponse
@@ -3830,7 +4316,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the namespaces in an Alibaba Cloud Container Service for Kubernetes (ACK) cluster.
+   * Queries the namespaces of an Alibaba Cloud Container Service for Kubernetes (ACK) cluster.
    * 
    * @param request - DescribeAckClusterNamespacesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3861,7 +4347,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the namespaces in an Alibaba Cloud Container Service for Kubernetes (ACK) cluster.
+   * Queries the namespaces of an Alibaba Cloud Container Service for Kubernetes (ACK) cluster.
    * 
    * @param request - DescribeAckClusterNamespacesRequest
    * @returns DescribeAckClusterNamespacesResponse
@@ -3872,7 +4358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the labels within an Alibaba Cloud Container Service for Kubernetes (ACK) cluster.
+   * Queries the tags of an Alibaba Cloud Container Service for Kubernetes (ACK) cluster.
    * 
    * @param request - DescribeAckClusterPodLabelsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3903,7 +4389,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the labels within an Alibaba Cloud Container Service for Kubernetes (ACK) cluster.
+   * Queries the tags of an Alibaba Cloud Container Service for Kubernetes (ACK) cluster.
    * 
    * @param request - DescribeAckClusterPodLabelsRequest
    * @returns DescribeAckClusterPodLabelsResponse
@@ -3914,7 +4400,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries for Container Service for Kubernetes (ACK) clusters based on specified conditions, such as cluster type and specifications.
+   * Queries a list of Alibaba Cloud Container Service for Kubernetes (ACK) clusters that meet specified conditions, such as cluster type and specifications.
    * 
    * @param request - DescribeAckClustersRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3973,7 +4459,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries for Container Service for Kubernetes (ACK) clusters based on specified conditions, such as cluster type and specifications.
+   * Queries a list of Alibaba Cloud Container Service for Kubernetes (ACK) clusters that meet specified conditions, such as cluster type and specifications.
    * 
    * @param request - DescribeAckClustersRequest
    * @returns DescribeAckClustersResponse
@@ -3984,11 +4470,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries multiple ACL applications.
+   * Lists access control applications.
    * 
    * @remarks
-   * ## QPS limit
-   * The single-user QPS limit for this operation is 10 requests per second. Calls that exceed this limit are throttled, which may impact your business.
+   * ## QPS limits
+   * The QPS limit per user for this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
    * 
    * @param request - DescribeAclAppsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4015,11 +4501,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries multiple ACL applications.
+   * Lists access control applications.
    * 
    * @remarks
-   * ## QPS limit
-   * The single-user QPS limit for this operation is 10 requests per second. Calls that exceed this limit are throttled, which may impact your business.
+   * ## QPS limits
+   * The QPS limit per user for this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
    * 
    * @param request - DescribeAclAppsRequest
    * @returns DescribeAclAppsResponse
@@ -4030,7 +4516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of ACL backups.
+   * Queries the access control backup list.
    * 
    * @param request - DescribeAclBackupListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4073,7 +4559,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of ACL backups.
+   * Queries the access control backup list.
    * 
    * @param request - DescribeAclBackupListRequest
    * @returns DescribeAclBackupListResponse
@@ -4084,11 +4570,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an Access Control List (ACL) check.
+   * Queries the details of an ACL check.
    * 
    * @remarks
-   * ## QPS limit
-   * This API is limited to 10 queries per second (QPS) per user. Calls exceeding this limit are throttled.
+   * ## QPS limits
+   * The QPS limit for a single user is 10 queries per second. If this limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
    * 
    * @param request - DescribeAclCheckRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4115,11 +4601,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an Access Control List (ACL) check.
+   * Queries the details of an ACL check.
    * 
    * @remarks
-   * ## QPS limit
-   * This API is limited to 10 queries per second (QPS) per user. Calls exceeding this limit are throttled.
+   * ## QPS limits
+   * The QPS limit for a single user is 10 queries per second. If this limit is exceeded, API calls are throttled, which may affect your business. Make API calls at a reasonable rate.
    * 
    * @param request - DescribeAclCheckRequest
    * @returns DescribeAclCheckResponse
@@ -4130,11 +4616,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the quota for access control list (ACL) checks.
+   * Queries the ACL check quota.
    * 
    * @remarks
-   * ## QPS limits
-   * Each user can make up to 10 queries per second (QPS). If you exceed this limit, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
+   * ## QPS limit
+   * The QPS limit per user for this API operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Plan your API calls accordingly.
    * 
    * @param request - DescribeAclCheckQuotaRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4161,11 +4647,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the quota for access control list (ACL) checks.
+   * Queries the ACL check quota.
    * 
    * @remarks
-   * ## QPS limits
-   * Each user can make up to 10 queries per second (QPS). If you exceed this limit, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
+   * ## QPS limit
+   * The QPS limit per user for this API operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Plan your API calls accordingly.
    * 
    * @param request - DescribeAclCheckQuotaRequest
    * @returns DescribeAclCheckQuotaResponse
@@ -4176,11 +4662,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Access Control List (ACL) checks in batches.
+   * Queries ACL check records in batches.
    * 
    * @remarks
    * ## QPS limit
-   * The queries per second (QPS) limit for a single user is 10 calls per second. If this limit is exceeded, your API calls are throttled. This may affect your business. We recommend that you plan your calls accordingly.
+   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
    * 
    * @param request - DescribeAclChecksRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4207,11 +4693,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries Access Control List (ACL) checks in batches.
+   * Queries ACL check records in batches.
    * 
    * @remarks
    * ## QPS limit
-   * The queries per second (QPS) limit for a single user is 10 calls per second. If this limit is exceeded, your API calls are throttled. This may affect your business. We recommend that you plan your calls accordingly.
+   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
    * 
    * @param request - DescribeAclChecksRequest
    * @returns DescribeAclChecksResponse
@@ -4222,11 +4708,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the total number of access control policy configurations.
+   * Retrieves the total number of ACL configurations.
    * 
    * @remarks
-   * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+   * ## Rate limit
+   * The rate limit for this API operation is 10 queries per second (QPS) per user. Exceeding this limit triggers throttling, which may affect your services. Call this API operation at a reasonable frequency.
    * 
    * @param request - DescribeAclRuleCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4261,11 +4747,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the total number of access control policy configurations.
+   * Retrieves the total number of ACL configurations.
    * 
    * @remarks
-   * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation appropriately.
+   * ## Rate limit
+   * The rate limit for this API operation is 10 queries per second (QPS) per user. Exceeding this limit triggers throttling, which may affect your services. Call this API operation at a reasonable frequency.
    * 
    * @param request - DescribeAclRuleCountRequest
    * @returns DescribeAclRuleCountResponse
@@ -4279,8 +4765,8 @@ export default class Client extends OpenApi {
    * Retrieves the ACL whitelist.
    * 
    * @remarks
-   * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
+   * ## Rate limit
+   * The rate limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
    * 
    * @param request - DescribeAclWhitelistRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4318,8 +4804,8 @@ export default class Client extends OpenApi {
    * Retrieves the ACL whitelist.
    * 
    * @remarks
-   * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation as needed.
+   * ## Rate limit
+   * The rate limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
    * 
    * @param request - DescribeAclWhitelistRequest
    * @returns DescribeAclWhitelistResponse
@@ -4413,6 +4899,48 @@ export default class Client extends OpenApi {
   async describeAddressBook(request: $_model.DescribeAddressBookRequest): Promise<$_model.DescribeAddressBookResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.describeAddressBookWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the number of applications in the built-in application signature library, grouped by application category, risk level, and technology type. The statistics apply to the global built-in application library and are not limited by Alibaba Cloud accounts or time ranges.
+   * 
+   * @param request - DescribeApplicationStatisticsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeApplicationStatisticsResponse
+   */
+  async describeApplicationStatisticsWithOptions(request: $_model.DescribeApplicationStatisticsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeApplicationStatisticsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeApplicationStatistics",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeApplicationStatisticsResponse>(await this.callApi(params, req, runtime), new $_model.DescribeApplicationStatisticsResponse({}));
+  }
+
+  /**
+   * Queries the number of applications in the built-in application signature library, grouped by application category, risk level, and technology type. The statistics apply to the global built-in application library and are not limited by Alibaba Cloud accounts or time ranges.
+   * 
+   * @param request - DescribeApplicationStatisticsRequest
+   * @returns DescribeApplicationStatisticsResponse
+   */
+  async describeApplicationStatistics(request: $_model.DescribeApplicationStatisticsRequest): Promise<$_model.DescribeApplicationStatisticsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeApplicationStatisticsWithOptions(request, runtime);
   }
 
   /**
@@ -4524,7 +5052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the risk level list of assets.
+   * Retrieves the list of asset risk levels.
    * 
    * @param request - DescribeAssetRiskListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4567,7 +5095,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the risk level list of assets.
+   * Retrieves the list of asset risk levels.
    * 
    * @param request - DescribeAssetRiskListRequest
    * @returns DescribeAssetRiskListResponse
@@ -4628,12 +5156,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of attack categories.
+   * Queries the attack categories.
    * 
    * @remarks
-   * This operation is typically used to perform a paged query for information about assets protected by Cloud Firewall by using paging.
-   * ## QPS limits
-   * The QPS limit per user for this operation is 10 requests per second. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke the operation at a reasonable rate.
+   * This operation is typically used to perform paging queries on the information about assets protected by Cloud Firewall.
+   * ## QPS limit
+   * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke the API at a reasonable rate.
    * 
    * @param request - DescribeAttackAppCategoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4664,12 +5192,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of attack categories.
+   * Queries the attack categories.
    * 
    * @remarks
-   * This operation is typically used to perform a paged query for information about assets protected by Cloud Firewall by using paging.
-   * ## QPS limits
-   * The QPS limit per user for this operation is 10 requests per second. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke the operation at a reasonable rate.
+   * This operation is typically used to perform paging queries on the information about assets protected by Cloud Firewall.
+   * ## QPS limit
+   * The queries per second (QPS) limit per user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke the API at a reasonable rate.
    * 
    * @param request - DescribeAttackAppCategoryRequest
    * @returns DescribeAttackAppCategoryResponse
@@ -4726,7 +5254,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the firewall risk level.
+   * Queries the firewall risk levels.
    * 
    * @deprecated OpenAPI DescribeCfwRiskLevelSummary is deprecated
    * 
@@ -4767,7 +5295,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the firewall risk level.
+   * Queries the firewall risk levels.
    * 
    * @deprecated OpenAPI DescribeCfwRiskLevelSummary is deprecated
    * 
@@ -4781,11 +5309,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the authorization clearance information.
+   * Retrieves the authorization information for clearing.
    * 
    * @remarks
    * ### QPS limits
-   * The QPS limit per user for this API operation is 10 calls per second. If you exceed the limit, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
+   * The QPS limit per user for this API operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable rate.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeClearAuthInfoResponse
@@ -4807,11 +5335,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the authorization clearance information.
+   * Retrieves the authorization information for clearing.
    * 
    * @remarks
    * ### QPS limits
-   * The QPS limit per user for this API operation is 10 calls per second. If you exceed the limit, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
+   * The QPS limit per user for this API operation is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your business. Call this API operation at a reasonable rate.
    * @returns DescribeClearAuthInfoResponse
    */
   async describeClearAuthInfo(): Promise<$_model.DescribeClearAuthInfoResponse> {
@@ -4820,7 +5348,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Outbound IP Address list for outbound connections.
+   * Queries the list of outbound IP addresses for outbound connections.
    * 
    * @param request - DescribeConfiguredDestinationIPRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4891,7 +5419,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the Outbound IP Address list for outbound connections.
+   * Queries the list of outbound IP addresses for outbound connections.
    * 
    * @param request - DescribeConfiguredDestinationIPRequest
    * @returns DescribeConfiguredDestinationIPResponse
@@ -4902,7 +5430,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of outbound domains for outbound connections.
+   * Queries the list of outbound domains.
    * 
    * @param request - DescribeConfiguredDomainNamesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4965,7 +5493,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of outbound domains for outbound connections.
+   * Queries the list of outbound domains.
    * 
    * @param request - DescribeConfiguredDomainNamesRequest
    * @returns DescribeConfiguredDomainNamesResponse
@@ -5156,12 +5684,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of member accounts.
+   * Retrieves a list of member accounts.
    * 
    * @remarks
-   * This operation queries information about the member accounts of Cloud Firewall.
-   * ## QPS limits
-   * This operation is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled. Throttling may affect your business. We recommend that you call this operation at a reasonable rate.
+   * This operation is generally used to query information about Cloud Firewall member accounts.
+   * ## Rate limit
+   * The rate limit for this operation is 10 queries per second (QPS) per user. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke this operation at a reasonable rate.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeCtrlInstanceMemberAccountsResponse
@@ -5183,12 +5711,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of member accounts.
+   * Retrieves a list of member accounts.
    * 
    * @remarks
-   * This operation queries information about the member accounts of Cloud Firewall.
-   * ## QPS limits
-   * This operation is limited to 10 queries per second (QPS) for each user. If you exceed this limit, API calls are throttled. Throttling may affect your business. We recommend that you call this operation at a reasonable rate.
+   * This operation is generally used to query information about Cloud Firewall member accounts.
+   * ## Rate limit
+   * The rate limit for this operation is 10 queries per second (QPS) per user. If the limit is exceeded, API calls are throttled, which may affect your services. Invoke this operation at a reasonable rate.
    * @returns DescribeCtrlInstanceMemberAccountsResponse
    */
   async describeCtrlInstanceMemberAccounts(): Promise<$_model.DescribeCtrlInstanceMemberAccountsResponse> {
@@ -5239,7 +5767,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of access control lists (ACLs) for the DNS firewall.
+   * Queries the DNS firewall ACL list.
    * 
    * @param request - DescribeDnsFirewallPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5314,7 +5842,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of access control lists (ACLs) for the DNS firewall.
+   * Queries the DNS firewall ACL list.
    * 
    * @param request - DescribeDnsFirewallPolicyRequest
    * @returns DescribeDnsFirewallPolicyResponse
@@ -5398,7 +5926,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information and download URLs of file download tasks.
+   * Queries file download tasks, including task information and download URLs.
    * 
    * @param request - DescribeDownloadTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5441,7 +5969,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the information and download URLs of file download tasks.
+   * Queries file download tasks, including task information and download URLs.
    * 
    * @param request - DescribeDownloadTaskRequest
    * @returns DescribeDownloadTaskResponse
@@ -5509,9 +6037,9 @@ export default class Client extends OpenApi {
    * Queries the event logs of Cloud Firewall.
    * 
    * @remarks
-   * Queries the event logs of Cloud Firewall. This operation supports five types of logs: application access control (app_ctl), web filtering (web_filter), TLS inspection (tls), intrusion prevention (ips), and threat intelligence (threat_intelligence). You can filter logs by time range, source IP address, destination IP address, URL, action, rule result, and attack type. Log details are returned in pages. StartTime and EndTime are UNIX timestamps in seconds. The time span of a single query cannot exceed 8 days. If FirewallType is not specified, the Internet Border firewall (InternetFirewall) is queried by default. To query the VPC firewall, set FirewallType to VpcFirewall.
-   * ## QPS limits
-   * The QPS limit per user for this API operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable frequency.
+   * Queries the event logs of Cloud Firewall. This operation supports five types of logs: application access control (app_ctl), web filtering (web_filter), TLS inspection (tls), intrusion prevention (ips), and threat intelligence (threat_intelligence). You can filter logs by time range, source IP address, destination IP address, URL, action, rule result, and attack type. Log details are returned with paging. StartTime and EndTime are UNIX timestamps in seconds. The time span of a single query cannot exceed 8 days. If FirewallType is not specified, the Internet Border firewall (InternetFirewall) is queried by default. To query the virtual private cloud (VPC) firewalls at the border, set FirewallType to VpcFirewall.
+   * ## QPS limit
+   * The QPS limit for a single user is 10 requests per second. If the limit is exceeded, the API invoke is throttled, which may affect your business. Make API calls at a reasonable rate.
    * 
    * @param request - DescribeEventLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5556,6 +6084,10 @@ export default class Client extends OpenApi {
       query["PageSize"] = request.pageSize;
     }
 
+    if (!$dara.isNull(request.ruleId)) {
+      query["RuleId"] = request.ruleId;
+    }
+
     if (!$dara.isNull(request.ruleResult)) {
       query["RuleResult"] = request.ruleResult;
     }
@@ -5570,6 +6102,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.srcIP)) {
       query["SrcIP"] = request.srcIP;
+    }
+
+    if (!$dara.isNull(request.sslHandshakeRes)) {
+      query["SslHandshakeRes"] = request.sslHandshakeRes;
     }
 
     if (!$dara.isNull(request.startTime)) {
@@ -5597,9 +6133,9 @@ export default class Client extends OpenApi {
    * Queries the event logs of Cloud Firewall.
    * 
    * @remarks
-   * Queries the event logs of Cloud Firewall. This operation supports five types of logs: application access control (app_ctl), web filtering (web_filter), TLS inspection (tls), intrusion prevention (ips), and threat intelligence (threat_intelligence). You can filter logs by time range, source IP address, destination IP address, URL, action, rule result, and attack type. Log details are returned in pages. StartTime and EndTime are UNIX timestamps in seconds. The time span of a single query cannot exceed 8 days. If FirewallType is not specified, the Internet Border firewall (InternetFirewall) is queried by default. To query the VPC firewall, set FirewallType to VpcFirewall.
-   * ## QPS limits
-   * The QPS limit per user for this API operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable frequency.
+   * Queries the event logs of Cloud Firewall. This operation supports five types of logs: application access control (app_ctl), web filtering (web_filter), TLS inspection (tls), intrusion prevention (ips), and threat intelligence (threat_intelligence). You can filter logs by time range, source IP address, destination IP address, URL, action, rule result, and attack type. Log details are returned with paging. StartTime and EndTime are UNIX timestamps in seconds. The time span of a single query cannot exceed 8 days. If FirewallType is not specified, the Internet Border firewall (InternetFirewall) is queried by default. To query the virtual private cloud (VPC) firewalls at the border, set FirewallType to VpcFirewall.
+   * ## QPS limit
+   * The QPS limit for a single user is 10 requests per second. If the limit is exceeded, the API invoke is throttled, which may affect your business. Make API calls at a reasonable rate.
    * 
    * @param request - DescribeEventLogRequest
    * @returns DescribeEventLogResponse
@@ -5610,11 +6146,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves statistics on packets dropped by the firewall.
+   * Retrieves firewall DROP statistics.
    * 
    * @remarks
-   * ### QPS limit
-   * The queries per second (QPS) limit for this API is 10 per user. If you exceed this limit, your API calls are throttled. This may affect your business operations. We recommend that you make API calls at a reasonable rate.
+   * ### Rate limit
+   * The rate limit for this API operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
    * 
    * @deprecated OpenAPI DescribeFirewallDropStatistics is deprecated
    * 
@@ -5639,11 +6175,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves statistics on packets dropped by the firewall.
+   * Retrieves firewall DROP statistics.
    * 
    * @remarks
-   * ### QPS limit
-   * The queries per second (QPS) limit for this API is 10 per user. If you exceed this limit, your API calls are throttled. This may affect your business operations. We recommend that you make API calls at a reasonable rate.
+   * ### Rate limit
+   * The rate limit for this API operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
    * 
    * @deprecated OpenAPI DescribeFirewallDropStatistics is deprecated
    * @returns DescribeFirewallDropStatisticsResponse
@@ -5655,7 +6191,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the overall firewall interception trends, including Internet, VPC, and NAT traffic.
+   * Retrieves the overall firewall blocking trends, including Internet, VPC, and NAT traffic.
    * 
    * @param request - DescribeFirewallDropTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5694,7 +6230,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the overall firewall interception trends, including Internet, VPC, and NAT traffic.
+   * Retrieves the overall firewall blocking trends, including Internet, VPC, and NAT traffic.
    * 
    * @param request - DescribeFirewallDropTrendRequest
    * @returns DescribeFirewallDropTrendResponse
@@ -5705,11 +6241,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves firewall tasks.
+   * Retrieves a firewall task.
    * 
    * @remarks
    * ### QPS limit
-   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
+   * The rate limit for this API operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
    * 
    * @param request - DescribeFirewallTaskRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5734,6 +6270,10 @@ export default class Client extends OpenApi {
       query["TaskId"] = request.taskId;
     }
 
+    if (!$dara.isNull(request.taskName)) {
+      query["TaskName"] = request.taskName;
+    }
+
     if (!$dara.isNull(request.taskType)) {
       query["TaskType"] = request.taskType;
     }
@@ -5756,11 +6296,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves firewall tasks.
+   * Retrieves a firewall task.
    * 
    * @remarks
    * ### QPS limit
-   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable frequency.
+   * The rate limit for this API operation is 10 calls per second per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
    * 
    * @param request - DescribeFirewallTaskRequest
    * @returns DescribeFirewallTaskResponse
@@ -5771,7 +6311,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the traffic trend of a firewall.
+   * Queries the traffic trends of the firewall.
    * 
    * @param request - DescribeFirewallTrafficTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5810,7 +6350,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the traffic trend of a firewall.
+   * Queries the traffic trends of the firewall.
    * 
    * @param request - DescribeFirewallTrafficTrendRequest
    * @returns DescribeFirewallTrafficTrendResponse
@@ -5821,11 +6361,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the vSwitches created by the firewall.
+   * Queries the vSwitches created by the firewall.
    * 
    * @remarks
-   * ### Rate limit
-   * The rate limit for this API operation is 10 queries per second (QPS) per user. If you exceed this limit, throttling is triggered, which may affect your services. Call this API operation at a reasonable frequency.
+   * ### QPS limit
+   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable rate.
    * 
    * @param request - DescribeFirewallVSwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5888,11 +6428,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the vSwitches created by the firewall.
+   * Queries the vSwitches created by the firewall.
    * 
    * @remarks
-   * ### Rate limit
-   * The rate limit for this API operation is 10 queries per second (QPS) per user. If you exceed this limit, throttling is triggered, which may affect your services. Call this API operation at a reasonable frequency.
+   * ### QPS limit
+   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable rate.
    * 
    * @param request - DescribeFirewallVSwitchRequest
    * @returns DescribeFirewallVSwitchResponse
@@ -5903,7 +6443,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the vSwitch resources for Cloud Firewall.
+   * Queries firewall vSwitch resources.
    * 
    * @param request - DescribeFirewallVswitchResourcesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5950,7 +6490,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the vSwitch resources for Cloud Firewall.
+   * Queries firewall vSwitch resources.
    * 
    * @param request - DescribeFirewallVswitchResourcesRequest
    * @returns DescribeFirewallVswitchResourcesResponse
@@ -6016,6 +6556,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.pageSize)) {
       query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.proxyId)) {
+      query["ProxyId"] = request.proxyId;
     }
 
     if (!$dara.isNull(request.queryModify)) {
@@ -6155,7 +6699,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the account in a resource directory for an instance.
+   * Retrieves the account in a resource directory for the instance.
    * 
    * @param request - DescribeInstanceRdAccountsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6210,7 +6754,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the account in a resource directory for an instance.
+   * Retrieves the account in a resource directory for the instance.
    * 
    * @param request - DescribeInstanceRdAccountsRequest
    * @returns DescribeInstanceRdAccountsResponse
@@ -6267,11 +6811,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Internet security trends
+   * Queries Internet defense trends.
    * 
    * @remarks
    * ## QPS limit
-   * This API is limited to 10 requests per second per user. Exceeding this limit triggers throttling, which can disrupt your service. Plan your API calls accordingly.
+   * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable rate.
    * 
    * @param request - DescribeInternetDropTrafficTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6326,11 +6870,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Internet security trends
+   * Queries Internet defense trends.
    * 
    * @remarks
    * ## QPS limit
-   * This API is limited to 10 requests per second per user. Exceeding this limit triggers throttling, which can disrupt your service. Plan your API calls accordingly.
+   * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API at a reasonable rate.
    * 
    * @param request - DescribeInternetDropTrafficTrendRequest
    * @returns DescribeInternetDropTrafficTrendResponse
@@ -6341,7 +6885,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can obtain details about Internet access.
+   * Retrieves the details of Internet exposure.
    * 
    * @param request - DescribeInternetOpenDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6440,7 +6984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can obtain details about Internet access.
+   * Retrieves the details of Internet exposure.
    * 
    * @param request - DescribeInternetOpenDetailRequest
    * @returns DescribeInternetOpenDetailResponse
@@ -6541,11 +7085,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the ports that are open to the Internet.
+   * Queries open ports on the Internet.
    * 
    * @remarks
-   * ## QPS limit
-   * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
+   * ## Rate limit
+   * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
    * 
    * @param request - DescribeInternetOpenPortRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6620,11 +7164,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the ports that are open to the Internet.
+   * Queries open ports on the Internet.
    * 
    * @remarks
-   * ## QPS limit
-   * The queries per second (QPS) limit for this operation is 10 calls per second for each user. If you exceed this limit, API calls are throttled. This may affect your business. Plan your calls accordingly.
+   * ## Rate limit
+   * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable rate.
    * 
    * @param request - DescribeInternetOpenPortRequest
    * @returns DescribeInternetOpenPortResponse
@@ -6635,11 +7179,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries services exposed to the Internet.
+   * Queries Internet-facing open services.
    * 
    * @remarks
    * ## QPS limits
-   * You can make up to 10 queries per second (QPS). If you exceed this limit, API calls are throttled. This may affect your business. We recommend that you make API calls at a reasonable rate.
+   * The QPS limit for a single user is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
    * 
    * @param request - DescribeInternetOpenServiceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6714,11 +7258,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries services exposed to the Internet.
+   * Queries Internet-facing open services.
    * 
    * @remarks
    * ## QPS limits
-   * You can make up to 10 queries per second (QPS). If you exceed this limit, API calls are throttled. This may affect your business. We recommend that you make API calls at a reasonable rate.
+   * The QPS limit for a single user is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
    * 
    * @param request - DescribeInternetOpenServiceRequest
    * @returns DescribeInternetOpenServiceResponse
@@ -6729,7 +7273,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves statistics about assets exposed to the Internet.
+   * Retrieves Internet exposure statistics.
    * 
    * @param request - DescribeInternetOpenStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6776,7 +7320,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves statistics about assets exposed to the Internet.
+   * Retrieves Internet exposure statistics.
    * 
    * @param request - DescribeInternetOpenStatisticRequest
    * @returns DescribeInternetOpenStatisticResponse
@@ -6787,7 +7331,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of Internet service names.
+   * Retrieves the list of Internet service names.
    * 
    * @param request - DescribeInternetServiceNameListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6826,7 +7370,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a list of Internet service names.
+   * Retrieves the list of Internet service names.
    * 
    * @param request - DescribeInternetServiceNameListRequest
    * @returns DescribeInternetServiceNameListResponse
@@ -6837,7 +7381,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of Internet-facing SLB instances.
+   * Retrieves Internet-facing SLB instances.
    * 
    * @param request - DescribeInternetSlbRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -6912,7 +7456,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of Internet-facing SLB instances.
+   * Retrieves Internet-facing SLB instances.
    * 
    * @param request - DescribeInternetSlbRequest
    * @returns DescribeInternetSlbResponse
@@ -6923,7 +7467,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation queries the Top-N internet traffic over time.
+   * Queries the top Internet traffic by time.
    * 
    * @param request - DescribeInternetTimeTopRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7014,7 +7558,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * This operation queries the Top-N internet traffic over time.
+   * Queries the top Internet traffic by time.
    * 
    * @param request - DescribeInternetTimeTopRequest
    * @returns DescribeInternetTimeTopResponse
@@ -7193,7 +7737,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the trend of vulnerabilities on ECS instances.
+   * Queries ECS vulnerability trends.
    * 
    * @param request - DescribeInvadeEcsTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7240,7 +7784,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the trend of vulnerabilities on ECS instances.
+   * Queries ECS vulnerability trends.
    * 
    * @param request - DescribeInvadeEcsTrendRequest
    * @returns DescribeInvadeEcsTrendResponse
@@ -7251,7 +7795,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a threat detection event.
+   * Retrieves the details of a compromise awareness event.
    * 
    * @param request - DescribeInvadeEventDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7302,7 +7846,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of a threat detection event.
+   * Retrieves the details of a compromise awareness event.
    * 
    * @param request - DescribeInvadeEventDetailRequest
    * @returns DescribeInvadeEventDetailResponse
@@ -7477,7 +8021,91 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries statistics about intrusion events.
+   * Retrieves the original payload of a vulnerability event.
+   * 
+   * @remarks
+   * Queries the original packet payload of a specified intrusion event. You can locate a single event by using the event UUID (EventUuid) or filter events by public IP address, private IP address, asset instance ID, and time range. StartTime and EndTime are required and must be UNIX timestamps in seconds. The response includes the original payload, the payload length (PayloadLen), and the start and end positions of the matched content in the highlight interval (HighlightStart and HighlightEnd) to help restore alert details.
+   * ## QPS limit
+   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
+   * 
+   * @param request - DescribeInvadeEventPayloadRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeInvadeEventPayloadResponse
+   */
+  async describeInvadeEventPayloadWithOptions(request: $_model.DescribeInvadeEventPayloadRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeInvadeEventPayloadResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.assetsInstanceId)) {
+      query["AssetsInstanceId"] = request.assetsInstanceId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.eventUuid)) {
+      query["EventUuid"] = request.eventUuid;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.privateIP)) {
+      query["PrivateIP"] = request.privateIP;
+    }
+
+    if (!$dara.isNull(request.publicIP)) {
+      query["PublicIP"] = request.publicIP;
+    }
+
+    if (!$dara.isNull(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["StartTime"] = request.startTime;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeInvadeEventPayload",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeInvadeEventPayloadResponse>(await this.callApi(params, req, runtime), new $_model.DescribeInvadeEventPayloadResponse({}));
+  }
+
+  /**
+   * Retrieves the original payload of a vulnerability event.
+   * 
+   * @remarks
+   * Queries the original packet payload of a specified intrusion event. You can locate a single event by using the event UUID (EventUuid) or filter events by public IP address, private IP address, asset instance ID, and time range. StartTime and EndTime are required and must be UNIX timestamps in seconds. The response includes the original payload, the payload length (PayloadLen), and the start and end positions of the matched content in the highlight interval (HighlightStart and HighlightEnd) to help restore alert details.
+   * ## QPS limit
+   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
+   * 
+   * @param request - DescribeInvadeEventPayloadRequest
+   * @returns DescribeInvadeEventPayloadResponse
+   */
+  async describeInvadeEventPayload(request: $_model.DescribeInvadeEventPayloadRequest): Promise<$_model.DescribeInvadeEventPayloadResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeInvadeEventPayloadWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves vulnerability event statistics.
    * 
    * @param request - DescribeInvadeEventStatisticRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7524,7 +8152,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries statistics about intrusion events.
+   * Retrieves vulnerability event statistics.
    * 
    * @param request - DescribeInvadeEventStatisticRequest
    * @returns DescribeInvadeEventStatisticResponse
@@ -7535,12 +8163,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of IPS Private IP Tracing associations.
+   * Queries the IPS private IP tracing list.
    * 
    * @remarks
-   * This operation queries information about assets that are protected by Cloud Firewall. The results are paginated.
-   * ## Limits
-   * This operation is limited to 10 queries per second (QPS) per user. If you exceed the limit, API calls are throttled. This may affect your business. Call this operation at a reasonable rate.
+   * This operation is generally used to perform paged queries on the information about assets protected by Cloud Firewall.
+   * ## QPS limits
+   * The QPS limit per user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable frequency.
    * 
    * @param request - DescribeIpsPrivateAssocRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7595,12 +8223,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of IPS Private IP Tracing associations.
+   * Queries the IPS private IP tracing list.
    * 
    * @remarks
-   * This operation queries information about assets that are protected by Cloud Firewall. The results are paginated.
-   * ## Limits
-   * This operation is limited to 10 queries per second (QPS) per user. If you exceed the limit, API calls are throttled. This may affect your business. Call this operation at a reasonable rate.
+   * This operation is generally used to perform paged queries on the information about assets protected by Cloud Firewall.
+   * ## QPS limits
+   * The QPS limit per user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable frequency.
    * 
    * @param request - DescribeIpsPrivateAssocRequest
    * @returns DescribeIpsPrivateAssocResponse
@@ -8006,7 +8634,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of NAT firewalls.
+   * Queries the details of NAT firewalls.
    * 
    * @param request - DescribeNatFirewallListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8077,7 +8705,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the details of NAT firewalls.
+   * Queries the details of NAT firewalls.
    * 
    * @param request - DescribeNatFirewallListRequest
    * @returns DescribeNatFirewallListResponse
@@ -8148,7 +8776,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the precheck details for a NAT firewall.
+   * Queries the precheck results of a NAT firewall.
    * 
    * @param request - DescribeNatFirewallPrecheckDetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8175,7 +8803,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the precheck details for a NAT firewall.
+   * Queries the precheck results of a NAT firewall.
    * 
    * @param request - DescribeNatFirewallPrecheckDetailRequest
    * @returns DescribeNatFirewallPrecheckDetailResponse
@@ -8194,7 +8822,15 @@ export default class Client extends OpenApi {
    */
   async describeNatFirewallQuotaWithOptions(request: $_model.DescribeNatFirewallQuotaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeNatFirewallQuotaResponse> {
     request.validate();
-    let query = OpenApiUtil.query(request.toMap());
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.sourceIp)) {
+      query["SourceIp"] = request.sourceIp;
+    }
+
     let req = new $OpenApiUtil.OpenApiRequest({
       query: OpenApiUtil.query(query),
     });
@@ -8203,7 +8839,7 @@ export default class Client extends OpenApi {
       version: "2017-12-07",
       protocol: "HTTPS",
       pathname: "/",
-      method: "GET",
+      method: "POST",
       authType: "AK",
       style: "RPC",
       reqBodyType: "formData",
@@ -8224,7 +8860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top traffic data of a NAT firewall at a specific point in time.
+   * Queries the top traffic of a NAT firewall at a specific point in time.
    * 
    * @param request - DescribeNatFirewallTimeTopRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8251,7 +8887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the top traffic data of a NAT firewall at a specific point in time.
+   * Queries the top traffic of a NAT firewall at a specific point in time.
    * 
    * @param request - DescribeNatFirewallTimeTopRequest
    * @returns DescribeNatFirewallTimeTopResponse
@@ -8530,7 +9166,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves statistics about access sources for public IP addresses.
+   * Retrieves the statistics of access sources for open IP addresses. Before calling this operation, you must purchase and activate Cloud Firewall. You can check the activation status by using the UserStatus parameter returned by DescribeUserBuyVersion. A value of false indicates that Cloud Firewall is not activated.
    * 
    * @param request - DescribeOpenIpAccessSrcStatRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8577,7 +9213,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves statistics about access sources for public IP addresses.
+   * Retrieves the statistics of access sources for open IP addresses. Before calling this operation, you must purchase and activate Cloud Firewall. You can check the activation status by using the UserStatus parameter returned by DescribeUserBuyVersion. A value of false indicates that Cloud Firewall is not activated.
    * 
    * @param request - DescribeOpenIpAccessSrcStatRequest
    * @returns DescribeOpenIpAccessSrcStatResponse
@@ -8878,7 +9514,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Displays the destination IP of an active outbound connection.
+   * Queries the destination IP addresses of outbound connections.
+   * 
+   * @remarks
+   * This operation queries the destination IP addresses of outbound connections.
+   * ## Before you begin
+   * - Make sure that Cloud Firewall is activated for your account. Both subscription and pay-as-you-go editions are supported.
+   * - You can call the DescribeUserBuyVersion operation to query the UserStatus parameter. A value of false indicates that Cloud Firewall is not activated.
    * 
    * @param request - DescribeOutgoingDestinationIPRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8961,7 +9603,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Displays the destination IP of an active outbound connection.
+   * Queries the destination IP addresses of outbound connections.
+   * 
+   * @remarks
+   * This operation queries the destination IP addresses of outbound connections.
+   * ## Before you begin
+   * - Make sure that Cloud Firewall is activated for your account. Both subscription and pay-as-you-go editions are supported.
+   * - You can call the DescribeUserBuyVersion operation to query the UserStatus parameter. A value of false indicates that Cloud Firewall is not activated.
    * 
    * @param request - DescribeOutgoingDestinationIPRequest
    * @returns DescribeOutgoingDestinationIPResponse
@@ -9270,7 +9918,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of intrusion prevention threats.
+   * Retrieves the number of intrusion prevention risks. Before you call this operation, activate Cloud Firewall. You can check the activation status by using the UserStatus parameter returned by DescribeUserBuyVersion. A value of false indicates that Cloud Firewall is not activated.
    * 
    * @param request - DescribeOutgoingRiskDomainAndIpCountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9297,7 +9945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the number of intrusion prevention threats.
+   * Retrieves the number of intrusion prevention risks. Before you call this operation, activate Cloud Firewall. You can check the activation status by using the UserStatus parameter returned by DescribeUserBuyVersion. A value of false indicates that Cloud Firewall is not activated.
    * 
    * @param request - DescribeOutgoingRiskDomainAndIpCountRequest
    * @returns DescribeOutgoingRiskDomainAndIpCountResponse
@@ -9308,7 +9956,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries outbound connection risk trends.
+   * Queries the trend of outbound connection risks.
+   * 
+   * @remarks
+   * This operation queries the trend of outbound connection risks.
+   * ## Before you begin
+   * - Ensure that Cloud Firewall is activated before you call this operation.
+   * - You can call the DescribeUserBuyVersion operation to query the UserStatus parameter. If false is returned, the service is not activated.
    * 
    * @param request - DescribeOutgoingRiskTrendRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9355,7 +10009,13 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries outbound connection risk trends.
+   * Queries the trend of outbound connection risks.
+   * 
+   * @remarks
+   * This operation queries the trend of outbound connection risks.
+   * ## Before you begin
+   * - Ensure that Cloud Firewall is activated before you call this operation.
+   * - You can call the DescribeUserBuyVersion operation to query the UserStatus parameter. If false is returned, the service is not activated.
    * 
    * @param request - DescribeOutgoingRiskTrendRequest
    * @returns DescribeOutgoingRiskTrendResponse
@@ -9573,12 +10233,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of strict mode for access control policies.
+   * Queries the enabling status of strict mode for access control policies.
    * 
    * @remarks
-   * You can call this operation to query the status of strict mode for access control policies.
-   * ## QPS limits
-   * This operation is limited to 10 queries per second (QPS) for each user. API calls that exceed this limit are throttled, which may affect your business. Plan your calls accordingly.
+   * This operation is typically used to query the enabling status of strict mode for access control policies.
+   * ## Before you begin
+   * - Before calling this operation, you must purchase and activate Cloud Firewall. You can activate the service on the Cloud Firewall buy page (China site: https://common-buy.aliyun.com/?commodityCode=cfw_sub_public_cn; International site: https://common-buy-intl.alibabacloud.com/?commodityCode=cfw_sub_public_intl).
+   * ## Rate limit
+   * The rate limit for this operation is 10 queries per second (QPS) per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
    * 
    * @param request - DescribePolicyAdvancedConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9617,12 +10279,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the status of strict mode for access control policies.
+   * Queries the enabling status of strict mode for access control policies.
    * 
    * @remarks
-   * You can call this operation to query the status of strict mode for access control policies.
-   * ## QPS limits
-   * This operation is limited to 10 queries per second (QPS) for each user. API calls that exceed this limit are throttled, which may affect your business. Plan your calls accordingly.
+   * This operation is typically used to query the enabling status of strict mode for access control policies.
+   * ## Before you begin
+   * - Before calling this operation, you must purchase and activate Cloud Firewall. You can activate the service on the Cloud Firewall buy page (China site: https://common-buy.aliyun.com/?commodityCode=cfw_sub_public_cn; International site: https://common-buy-intl.alibabacloud.com/?commodityCode=cfw_sub_public_intl).
+   * ## Rate limit
+   * The rate limit for this operation is 10 queries per second (QPS) per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation at a reasonable rate.
    * 
    * @param request - DescribePolicyAdvancedConfigRequest
    * @returns DescribePolicyAdvancedConfigResponse
@@ -9697,10 +10361,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the bills for pay-as-you-go 2.0.
+   * Queries pay-as-you-go 2.0 bills.
    * 
    * @remarks
-   * The details are accurate to the specific resource instance level for pay-as-you-go users. For subscription users, only overall queries are supported.
+   * For pay-as-you-go users, the billing details are accurate to the specific resource instance level. For subscription users, only overall queries are supported.
    * 
    * @param request - DescribePostpayBillRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9751,10 +10415,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the bills for pay-as-you-go 2.0.
+   * Queries pay-as-you-go 2.0 bills.
    * 
    * @remarks
-   * The details are accurate to the specific resource instance level for pay-as-you-go users. For subscription users, only overall queries are supported.
+   * For pay-as-you-go users, the billing details are accurate to the specific resource instance level. For subscription users, only overall queries are supported.
    * 
    * @param request - DescribePostpayBillRequest
    * @returns DescribePostpayBillResponse
@@ -10326,8 +10990,8 @@ export default class Client extends OpenApi {
    * Retrieves region information.
    * 
    * @remarks
-   * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+   * ## QPS limits
+   * The QPS limit per user for this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
    * 
    * @param request - DescribeRegionInfoRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10373,8 +11037,8 @@ export default class Client extends OpenApi {
    * Retrieves region information.
    * 
    * @remarks
-   * ## QPS limit
-   * The single-user QPS limit for this operation is 10 calls per second. If this limit is exceeded, API calls are throttled, which may affect your business. Call this operation at a reasonable frequency.
+   * ## QPS limits
+   * The QPS limit per user for this API operation is 10 queries per second. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
    * 
    * @param request - DescribeRegionInfoRequest
    * @returns DescribeRegionInfoResponse
@@ -10489,12 +11153,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detailed data of intrusion prevention events.
+   * Retrieves the detailed data of intrusion prevention events.
    * 
    * @remarks
    * This operation queries and downloads detailed data of intrusion prevention events. Query 5 to 10 entries at a time. To prevent query timeouts, set the NoLocation parameter to true if IP geolocation information is not required.
    * ## QPS limits
-   * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable rate.
+   * The QPS limit per user for this operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable frequency.
    * 
    * @param request - DescribeRiskEventGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -10621,12 +11285,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the detailed data of intrusion prevention events.
+   * Retrieves the detailed data of intrusion prevention events.
    * 
    * @remarks
    * This operation queries and downloads detailed data of intrusion prevention events. Query 5 to 10 entries at a time. To prevent query timeouts, set the NoLocation parameter to true if IP geolocation information is not required.
    * ## QPS limits
-   * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the API at a reasonable rate.
+   * The QPS limit per user for this operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call the operation at a reasonable frequency.
    * 
    * @param request - DescribeRiskEventGroupRequest
    * @returns DescribeRiskEventGroupResponse
@@ -11852,7 +12516,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution status of a log configuration update task.
+   * Queries the execution status of a log configuration modification task.
    * 
    * @remarks
    * Before calling this operation, call ModifySlsDispatchConfig to obtain the TaskId.
@@ -11886,7 +12550,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the execution status of a log configuration update task.
+   * Queries the execution status of a log configuration modification task.
    * 
    * @remarks
    * Before calling this operation, call ModifySlsDispatchConfig to obtain the TaskId.
@@ -11900,10 +12564,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the threat intelligence configuration information.
+   * Queries the information about threat intelligence configurations.
    * 
    * @remarks
-   * This operation is generally used to perform a paged query on the information about access control policies of NAT firewalls.
+   * This operation is typically used to perform paging queries on the information about NAT firewall access control policies.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeThreatIntelligenceSwitchResponse
@@ -11925,10 +12589,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the threat intelligence configuration information.
+   * Queries the information about threat intelligence configurations.
    * 
    * @remarks
-   * This operation is generally used to perform a paged query on the information about access control policies of NAT firewalls.
+   * This operation is typically used to perform paging queries on the information about NAT firewall access control policies.
    * @returns DescribeThreatIntelligenceSwitchResponse
    */
   async describeThreatIntelligenceSwitch(): Promise<$_model.DescribeThreatIntelligenceSwitchResponse> {
@@ -12058,7 +12722,7 @@ export default class Client extends OpenApi {
    * Retrieves the details of a VPC firewall for a transit router.
    * 
    * @remarks
-   * Queries the details of a virtual private cloud (VPC) firewall for an Enterprise Edition transit router. You can call DescribeTrFirewallsV2List to obtain the FirewallId. If no firewall has been created, prepare an Enterprise Edition transit router in the Cloud Enterprise Network (CEN) console first, and then call CreateTrFirewallV2 to create a firewall and obtain the FirewallId.
+   * Queries the details of a VPC firewall for an Enterprise Edition transit router. You can obtain the FirewallId by calling DescribeTrFirewallsV2List. If the firewall has not been created, you must first prepare an Enterprise Edition transit router in Cloud Enterprise Network (CEN) and then call CreateTrFirewallV2 to create the firewall and obtain the FirewallId.
    * 
    * @param request - DescribeTrFirewallsV2DetailRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -12096,7 +12760,7 @@ export default class Client extends OpenApi {
    * Retrieves the details of a VPC firewall for a transit router.
    * 
    * @remarks
-   * Queries the details of a virtual private cloud (VPC) firewall for an Enterprise Edition transit router. You can call DescribeTrFirewallsV2List to obtain the FirewallId. If no firewall has been created, prepare an Enterprise Edition transit router in the Cloud Enterprise Network (CEN) console first, and then call CreateTrFirewallV2 to create a firewall and obtain the FirewallId.
+   * Queries the details of a VPC firewall for an Enterprise Edition transit router. You can obtain the FirewallId by calling DescribeTrFirewallsV2List. If the firewall has not been created, you must first prepare an Enterprise Edition transit router in Cloud Enterprise Network (CEN) and then call CreateTrFirewallV2 to create the firewall and obtain the FirewallId.
    * 
    * @param request - DescribeTrFirewallsV2DetailRequest
    * @returns DescribeTrFirewallsV2DetailResponse
@@ -13196,7 +13860,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the regions where the VPC firewall is enabled for asset protection.
+   * Queries the regions where VPC firewall assets are enabled.
    * 
    * @param request - DescribeVpcFirewallAssetRegionListRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13223,7 +13887,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the regions where the VPC firewall is enabled for asset protection.
+   * Queries the regions where VPC firewall assets are enabled.
    * 
    * @param request - DescribeVpcFirewallAssetRegionListRequest
    * @returns DescribeVpcFirewallAssetRegionListResponse
@@ -13472,10 +14136,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all access control policy information for a specified virtual private cloud (VPC) firewall.
+   * Queries all access control policies of the specified virtual private cloud (VPC) firewalls.
    * 
    * @remarks
-   * This operation is used to query access control policies of virtual private cloud (VPC) firewalls. Virtual private cloud (VPC) firewalls use different access control policies when protecting traffic between two VPCs connected through Cloud Enterprise Network (CEN) or traffic between two VPCs connected through Express Connect.
+   * This operation is typically used to query the access control policies of virtual private cloud (VPC) firewalls. Virtual private cloud (VPC) firewalls use different access control policies when protecting traffic between two VPCs connected by Cloud Enterprise Network (CEN) and traffic between two VPCs connected by Express Connect.
+   * ## QPS limits
+   * The queries per second (QPS) limit per user for this operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
    * 
    * @param request - DescribeVpcFirewallControlPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -13554,10 +14220,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries all access control policy information for a specified virtual private cloud (VPC) firewall.
+   * Queries all access control policies of the specified virtual private cloud (VPC) firewalls.
    * 
    * @remarks
-   * This operation is used to query access control policies of virtual private cloud (VPC) firewalls. Virtual private cloud (VPC) firewalls use different access control policies when protecting traffic between two VPCs connected through Cloud Enterprise Network (CEN) or traffic between two VPCs connected through Express Connect.
+   * This operation is typically used to query the access control policies of virtual private cloud (VPC) firewalls. Virtual private cloud (VPC) firewalls use different access control policies when protecting traffic between two VPCs connected by Cloud Enterprise Network (CEN) and traffic between two VPCs connected by Express Connect.
+   * ## QPS limits
+   * The queries per second (QPS) limit per user for this operation is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
    * 
    * @param request - DescribeVpcFirewallControlPolicyRequest
    * @returns DescribeVpcFirewallControlPolicyResponse
@@ -14466,7 +15134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of zones available for a VPC firewall.
+   * Queries the list of zones available for VPC firewalls.
    * 
    * @param request - DescribeVpcFirewallZoneRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -14521,7 +15189,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of zones available for a VPC firewall.
+   * Queries the list of zones available for VPC firewalls.
    * 
    * @param request - DescribeVpcFirewallZoneRequest
    * @returns DescribeVpcFirewallZoneResponse
@@ -14856,6 +15524,87 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of a specified application template, including the status of each switch, the action for unidentified applications, and the list of built-in application actions.
+   * 
+   * @param request - GetApplicationTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetApplicationTemplateResponse
+   */
+  async getApplicationTemplateWithOptions(request: $_model.GetApplicationTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetApplicationTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationTemplateId)) {
+      query["ApplicationTemplateId"] = request.applicationTemplateId;
+    }
+
+    if (!$dara.isNull(request.builtInApplicationActionType)) {
+      query["BuiltInApplicationActionType"] = request.builtInApplicationActionType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetApplicationTemplate",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetApplicationTemplateResponse>(await this.callApi(params, req, runtime), new $_model.GetApplicationTemplateResponse({}));
+  }
+
+  /**
+   * Queries the details of a specified application template, including the status of each switch, the action for unidentified applications, and the list of built-in application actions.
+   * 
+   * @param request - GetApplicationTemplateRequest
+   * @returns GetApplicationTemplateResponse
+   */
+  async getApplicationTemplate(request: $_model.GetApplicationTemplateRequest): Promise<$_model.GetApplicationTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getApplicationTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the activation status of the application control and web filtering features for the current Alibaba Cloud account. This operation does not require request parameters and always returns the status of these two features.
+   * 
+   * @param request - GetFirewallFeatureRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetFirewallFeatureResponse
+   */
+  async getFirewallFeatureWithOptions(request: $_model.GetFirewallFeatureRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetFirewallFeatureResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({ });
+    let params = new $OpenApiUtil.Params({
+      action: "GetFirewallFeature",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetFirewallFeatureResponse>(await this.callApi(params, req, runtime), new $_model.GetFirewallFeatureResponse({}));
+  }
+
+  /**
+   * Queries the activation status of the application control and web filtering features for the current Alibaba Cloud account. This operation does not require request parameters and always returns the status of these two features.
+   * 
+   * @param request - GetFirewallFeatureRequest
+   * @returns GetFirewallFeatureResponse
+   */
+  async getFirewallFeature(request: $_model.GetFirewallFeatureRequest): Promise<$_model.GetFirewallFeatureResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getFirewallFeatureWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the download path for the certificate of a Transport Layer Security (TLS) inspection policy.
    * 
    * @remarks
@@ -14901,6 +15650,286 @@ export default class Client extends OpenApi {
   async getTlsInspectCertificateDownloadUrl(request: $_model.GetTlsInspectCertificateDownloadUrlRequest): Promise<$_model.GetTlsInspectCertificateDownloadUrlResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getTlsInspectCertificateDownloadUrlWithOptions(request, runtime);
+  }
+
+  /**
+   * Performs a paged query to retrieve the list of custom rules under a specified application program template, sorted by priority in ascending order. Supports paging, fuzzy search by rule name, and filtering by rule ID, priority, action, and application ID.
+   * 
+   * @param request - ListApplicationCustomRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationCustomRulesResponse
+   */
+  async listApplicationCustomRulesWithOptions(request: $_model.ListApplicationCustomRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApplicationCustomRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationCustomRuleId)) {
+      query["ApplicationCustomRuleId"] = request.applicationCustomRuleId;
+    }
+
+    if (!$dara.isNull(request.applicationCustomRuleName)) {
+      query["ApplicationCustomRuleName"] = request.applicationCustomRuleName;
+    }
+
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationTemplateId)) {
+      query["ApplicationTemplateId"] = request.applicationTemplateId;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.priority)) {
+      query["Priority"] = request.priority;
+    }
+
+    if (!$dara.isNull(request.ruleAction)) {
+      query["RuleAction"] = request.ruleAction;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApplicationCustomRules",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApplicationCustomRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListApplicationCustomRulesResponse({}));
+  }
+
+  /**
+   * Performs a paged query to retrieve the list of custom rules under a specified application program template, sorted by priority in ascending order. Supports paging, fuzzy search by rule name, and filtering by rule ID, priority, action, and application ID.
+   * 
+   * @param request - ListApplicationCustomRulesRequest
+   * @returns ListApplicationCustomRulesResponse
+   */
+  async listApplicationCustomRules(request: $_model.ListApplicationCustomRulesRequest): Promise<$_model.ListApplicationCustomRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApplicationCustomRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * Performs a paged query to retrieve the list of application program templates under the current Alibaba Cloud account. Supports paging, fuzzy search by template name and description, batch exact filtering by template ID, and exact filtering by switch statuses and actions for unrecognized applications.
+   * 
+   * @param request - ListApplicationTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationTemplateResponse
+   */
+  async listApplicationTemplateWithOptions(request: $_model.ListApplicationTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApplicationTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationTemplateIds)) {
+      query["ApplicationTemplateIds"] = request.applicationTemplateIds;
+    }
+
+    if (!$dara.isNull(request.applicationTemplateName)) {
+      query["ApplicationTemplateName"] = request.applicationTemplateName;
+    }
+
+    if (!$dara.isNull(request.builtInApplicationStatus)) {
+      query["BuiltInApplicationStatus"] = request.builtInApplicationStatus;
+    }
+
+    if (!$dara.isNull(request.customRuleStatus)) {
+      query["CustomRuleStatus"] = request.customRuleStatus;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.templateStatus)) {
+      query["TemplateStatus"] = request.templateStatus;
+    }
+
+    if (!$dara.isNull(request.unknownAction)) {
+      query["UnknownAction"] = request.unknownAction;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApplicationTemplate",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApplicationTemplateResponse>(await this.callApi(params, req, runtime), new $_model.ListApplicationTemplateResponse({}));
+  }
+
+  /**
+   * Performs a paged query to retrieve the list of application program templates under the current Alibaba Cloud account. Supports paging, fuzzy search by template name and description, batch exact filtering by template ID, and exact filtering by switch statuses and actions for unrecognized applications.
+   * 
+   * @param request - ListApplicationTemplateRequest
+   * @returns ListApplicationTemplateResponse
+   */
+  async listApplicationTemplate(request: $_model.ListApplicationTemplateRequest): Promise<$_model.ListApplicationTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApplicationTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Performs a paged query on the version update records of the built-in application signature library and returns the paging results in descending sequence of update time. Each record corresponds to an incremental update of the signature library and includes the list of application programs added or updated in this update.
+   * 
+   * @param request - ListApplicationUpdateDynamicsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationUpdateDynamicsResponse
+   */
+  async listApplicationUpdateDynamicsWithOptions(request: $_model.ListApplicationUpdateDynamicsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApplicationUpdateDynamicsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApplicationUpdateDynamics",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApplicationUpdateDynamicsResponse>(await this.callApi(params, req, runtime), new $_model.ListApplicationUpdateDynamicsResponse({}));
+  }
+
+  /**
+   * Performs a paged query on the version update records of the built-in application signature library and returns the paging results in descending sequence of update time. Each record corresponds to an incremental update of the signature library and includes the list of application programs added or updated in this update.
+   * 
+   * @param request - ListApplicationUpdateDynamicsRequest
+   * @returns ListApplicationUpdateDynamicsResponse
+   */
+  async listApplicationUpdateDynamics(request: $_model.ListApplicationUpdateDynamicsRequest): Promise<$_model.ListApplicationUpdateDynamicsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApplicationUpdateDynamicsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the applications in the built-in application signature library by using paging. Supports fuzzy match by application name, description, technology type, category name, and group name, exact filtering by application ID and category ID, and filtering by risk level. The query targets the global built-in application library regardless of the Alibaba Cloud account.
+   * 
+   * @param request - ListApplicationsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListApplicationsResponse
+   */
+  async listApplicationsWithOptions(request: $_model.ListApplicationsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListApplicationsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.applicationId)) {
+      query["ApplicationId"] = request.applicationId;
+    }
+
+    if (!$dara.isNull(request.applicationName)) {
+      query["ApplicationName"] = request.applicationName;
+    }
+
+    if (!$dara.isNull(request.categoryId)) {
+      query["CategoryId"] = request.categoryId;
+    }
+
+    if (!$dara.isNull(request.categoryName)) {
+      query["CategoryName"] = request.categoryName;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.groupName)) {
+      query["GroupName"] = request.groupName;
+    }
+
+    if (!$dara.isNull(request.lang)) {
+      query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.risk)) {
+      query["Risk"] = request.risk;
+    }
+
+    if (!$dara.isNull(request.technology)) {
+      query["Technology"] = request.technology;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListApplications",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListApplicationsResponse>(await this.callApi(params, req, runtime), new $_model.ListApplicationsResponse({}));
+  }
+
+  /**
+   * Queries the applications in the built-in application signature library by using paging. Supports fuzzy match by application name, description, technology type, category name, and group name, exact filtering by application ID and category ID, and filtering by risk level. The query targets the global built-in application library regardless of the Alibaba Cloud account.
+   * 
+   * @param request - ListApplicationsRequest
+   * @returns ListApplicationsResponse
+   */
+  async listApplications(request: $_model.ListApplicationsRequest): Promise<$_model.ListApplicationsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listApplicationsWithOptions(request, runtime);
   }
 
   /**
@@ -14951,6 +15980,126 @@ export default class Client extends OpenApi {
   async listTlsInspectCACertificates(request: $_model.ListTlsInspectCACertificatesRequest): Promise<$_model.ListTlsInspectCACertificatesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listTlsInspectCACertificatesWithOptions(request, runtime);
+  }
+
+  /**
+   * Performs a paged query on the web filtering rules. Supports paging and exact filtering by web filtering template ID, rule ID, and rule action.
+   * 
+   * @param request - ListWebFilterRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWebFilterRulesResponse
+   */
+  async listWebFilterRulesWithOptions(request: $_model.ListWebFilterRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListWebFilterRulesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.ruleAction)) {
+      query["RuleAction"] = request.ruleAction;
+    }
+
+    if (!$dara.isNull(request.webFilterRuleId)) {
+      query["WebFilterRuleId"] = request.webFilterRuleId;
+    }
+
+    if (!$dara.isNull(request.webFilterTemplateId)) {
+      query["WebFilterTemplateId"] = request.webFilterTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWebFilterRules",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWebFilterRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListWebFilterRulesResponse({}));
+  }
+
+  /**
+   * Performs a paged query on the web filtering rules. Supports paging and exact filtering by web filtering template ID, rule ID, and rule action.
+   * 
+   * @param request - ListWebFilterRulesRequest
+   * @returns ListWebFilterRulesResponse
+   */
+  async listWebFilterRules(request: $_model.ListWebFilterRulesRequest): Promise<$_model.ListWebFilterRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWebFilterRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the web filtering templates under the current Alibaba Cloud account by using paging. Supports fuzzy search by name and description, exact filtering by status, and batch exact filtering by template IDs.
+   * 
+   * @param request - ListWebFilterTemplatesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListWebFilterTemplatesResponse
+   */
+  async listWebFilterTemplatesWithOptions(request: $_model.ListWebFilterTemplatesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListWebFilterTemplatesResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.webFilterTemplateIds)) {
+      query["WebFilterTemplateIds"] = request.webFilterTemplateIds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListWebFilterTemplates",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListWebFilterTemplatesResponse>(await this.callApi(params, req, runtime), new $_model.ListWebFilterTemplatesResponse({}));
+  }
+
+  /**
+   * Queries the web filtering templates under the current Alibaba Cloud account by using paging. Supports fuzzy search by name and description, exact filtering by status, and batch exact filtering by template IDs.
+   * 
+   * @param request - ListWebFilterTemplatesRequest
+   * @returns ListWebFilterTemplatesResponse
+   */
+  async listWebFilterTemplates(request: $_model.ListWebFilterTemplatesRequest): Promise<$_model.ListWebFilterTemplatesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listWebFilterTemplatesWithOptions(request, runtime);
   }
 
   /**
@@ -15352,9 +16501,11 @@ export default class Client extends OpenApi {
    * Modifies the priority of an access control policy.
    * 
    * @remarks
-   * You can call this operation to modify the priority of an access control policy. An access control policy determines whether to allow, deny, or monitor traffic that passes through Cloud Firewall.
-   * ## QPS limit
-   * The queries per second (QPS) limit for this operation is 10 calls per second per user. Exceeding this limit triggers throttling, which may affect your business. We recommend that you plan your calls accordingly.
+   * This operation is typically used to modify the configuration of an access control policy that allows, denies, or monitors traffic passing through Cloud Firewall.
+   * ## Before you begin
+   * Before calling this operation, call DescribeControlPolicy and pass the same Direction parameter to obtain the current policy list and the number of policies. This helps you determine the valid value range of the Order parameter, which is from 1 to the number of policies.
+   * ## Rate limit
+   * The rate limit for this operation is 10 queries per second (QPS) per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
    * 
    * @param request - ModifyControlPolicyPriorityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15392,9 +16543,11 @@ export default class Client extends OpenApi {
    * Modifies the priority of an access control policy.
    * 
    * @remarks
-   * You can call this operation to modify the priority of an access control policy. An access control policy determines whether to allow, deny, or monitor traffic that passes through Cloud Firewall.
-   * ## QPS limit
-   * The queries per second (QPS) limit for this operation is 10 calls per second per user. Exceeding this limit triggers throttling, which may affect your business. We recommend that you plan your calls accordingly.
+   * This operation is typically used to modify the configuration of an access control policy that allows, denies, or monitors traffic passing through Cloud Firewall.
+   * ## Before you begin
+   * Before calling this operation, call DescribeControlPolicy and pass the same Direction parameter to obtain the current policy list and the number of policies. This helps you determine the valid value range of the Order parameter, which is from 1 to the number of policies.
+   * ## Rate limit
+   * The rate limit for this operation is 10 queries per second (QPS) per user. If the limit is exceeded, API calls are throttled, which may affect your services. Call this operation as needed.
    * 
    * @param request - ModifyControlPolicyPriorityRequest
    * @returns ModifyControlPolicyPriorityResponse
@@ -15559,7 +16712,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables a routing policy.
+   * Modifies the route policy switch.
+   * 
+   * @remarks
+   * This operation modifies the route policy switch of the virtual private cloud (VPC) firewalls for a transit router (TR).
+   * ## Before you begin
+   * - You have created virtual private cloud (VPC) firewalls for a transit router (TR) and obtained the FirewallId by calling CreateTrFirewallV2.
+   * - You have created a route policy and obtained the TrFirewallRoutePolicyId by calling CreateTrFirewallV2RoutePolicy.
+   * - You can call DescribeTrFirewallsV2List and DescribeTrFirewallV2RoutePolicyList to query and confirm the preceding resources.
    * 
    * @param request - ModifyFirewallV2RoutePolicySwitchRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15606,7 +16766,14 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables a routing policy.
+   * Modifies the route policy switch.
+   * 
+   * @remarks
+   * This operation modifies the route policy switch of the virtual private cloud (VPC) firewalls for a transit router (TR).
+   * ## Before you begin
+   * - You have created virtual private cloud (VPC) firewalls for a transit router (TR) and obtained the FirewallId by calling CreateTrFirewallV2.
+   * - You have created a route policy and obtained the TrFirewallRoutePolicyId by calling CreateTrFirewallV2RoutePolicy.
+   * - You can call DescribeTrFirewallsV2List and DescribeTrFirewallV2RoutePolicyList to query and confirm the preceding resources.
    * 
    * @param request - ModifyFirewallV2RoutePolicySwitchRequest
    * @returns ModifyFirewallV2RoutePolicySwitchResponse
@@ -15735,7 +16902,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets IPS rules to default.
+   * Restores IPS rules to default.
+   * 
+   * @remarks
+   * Restores user-defined intrusion prevention system (IPS) rules to the system defaults by deleting user override records. After restoration, the rules follow the default values of the rule library. This operation uses the FirewallType parameter to determine the scope and input constraints:\\n- **InternetFirewall / VpcFirewall**: The scope is the entire account. RuleType is required. You must specify at least one of Rules or AttackApp.\\n- **NatFirewall**: The scope is a single NAT firewall instance specified by ProxyId. RuleType is optional. Both Rules and AttackApp are optional.\\nThe two branches handle an empty array for Rules differently. For the Internet or VPC firewall, passing [] is equivalent to restoring all rules of the specified RuleType. For the NAT firewall, passing [] returns a 400 ErrorParameters error. To restore all rules for a NAT firewall, do not pass the Rules parameter.
    * 
    * @param request - ModifyIpsRulesToDefaultRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -15758,6 +16928,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.lang)) {
       query["Lang"] = request.lang;
+    }
+
+    if (!$dara.isNull(request.proxyId)) {
+      query["ProxyId"] = request.proxyId;
     }
 
     if (!$dara.isNull(request.ruleType)) {
@@ -15790,7 +16964,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Resets IPS rules to default.
+   * Restores IPS rules to default.
+   * 
+   * @remarks
+   * Restores user-defined intrusion prevention system (IPS) rules to the system defaults by deleting user override records. After restoration, the rules follow the default values of the rule library. This operation uses the FirewallType parameter to determine the scope and input constraints:\\n- **InternetFirewall / VpcFirewall**: The scope is the entire account. RuleType is required. You must specify at least one of Rules or AttackApp.\\n- **NatFirewall**: The scope is a single NAT firewall instance specified by ProxyId. RuleType is optional. Both Rules and AttackApp are optional.\\nThe two branches handle an empty array for Rules differently. For the Internet or VPC firewall, passing [] is equivalent to restoring all rules of the specified RuleType. For the NAT firewall, passing [] returns a 400 ErrorParameters error. To restore all rules for a NAT firewall, do not pass the Rules parameter.
    * 
    * @param request - ModifyIpsRulesToDefaultRequest
    * @returns ModifyIpsRulesToDefaultResponse
@@ -15995,7 +17172,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the operations of an object group.
+   * Modifies object group operations.
+   * 
+   * @remarks
+   * ## Before you begin
+   * - Before you call this operation, you must activate a Cloud Firewall instance.
+   * - You can call [DescribeUserBuyVersion](~~DescribeUserBuyVersion~~) to query the activation status. The UserStatus field in the response indicates whether the Cloud Firewall instance is valid. A value of false indicates that the instance is invalid or not activated.
+   * - Activate a Cloud Firewall instance:
+   *   - China site: https://common-buy.aliyun.com/?commodityCode=cfw_sub_public_cn
+   *   - International site: https://common-buy-intl.alibabacloud.com/?commodityCode=cfw_sub_public_intl
    * 
    * @param request - ModifyObjectGroupOperationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -16050,7 +17235,15 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the operations of an object group.
+   * Modifies object group operations.
+   * 
+   * @remarks
+   * ## Before you begin
+   * - Before you call this operation, you must activate a Cloud Firewall instance.
+   * - You can call [DescribeUserBuyVersion](~~DescribeUserBuyVersion~~) to query the activation status. The UserStatus field in the response indicates whether the Cloud Firewall instance is valid. A value of false indicates that the instance is invalid or not activated.
+   * - Activate a Cloud Firewall instance:
+   *   - China site: https://common-buy.aliyun.com/?commodityCode=cfw_sub_public_cn
+   *   - International site: https://common-buy-intl.alibabacloud.com/?commodityCode=cfw_sub_public_intl
    * 
    * @param request - ModifyObjectGroupOperationRequest
    * @returns ModifyObjectGroupOperationResponse
@@ -17347,7 +18540,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the intrusion prevention system (IPS) whitelist for a VPC firewall.
+   * Modifies the IPS whitelist for a VPC firewall. Before calling this operation, ensure that Cloud Firewall is activated. You can check the activation status by using the UserStatus parameter returned by the DescribeUserBuyVersion operation. A value of false indicates that Cloud Firewall is not activated.
    * 
    * @param request - ModifyVpcFirewallIPSWhitelistRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -17398,7 +18591,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the intrusion prevention system (IPS) whitelist for a VPC firewall.
+   * Modifies the IPS whitelist for a VPC firewall. Before calling this operation, ensure that Cloud Firewall is activated. You can check the activation status by using the UserStatus parameter returned by the DescribeUserBuyVersion operation. A value of false indicates that Cloud Firewall is not activated.
    * 
    * @param request - ModifyVpcFirewallIPSWhitelistRequest
    * @returns ModifyVpcFirewallIPSWhitelistResponse
@@ -18082,8 +19275,16 @@ export default class Client extends OpenApi {
       query["Lang"] = request.lang;
     }
 
+    if (!$dara.isNull(request.natRouteEntryList)) {
+      query["NatRouteEntryList"] = request.natRouteEntryList;
+    }
+
     if (!$dara.isNull(request.proxyId)) {
       query["ProxyId"] = request.proxyId;
+    }
+
+    if (!$dara.isNull(request.routeAction)) {
+      query["RouteAction"] = request.routeAction;
     }
 
     if (!$dara.isNull(request.switch)) {
@@ -18220,8 +19421,8 @@ export default class Client extends OpenApi {
    * Modifies the status of an ACL check detail.
    * 
    * @remarks
-   * ## QPS limit
-   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
+   * ## QPS limits
+   * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
    * 
    * @param request - UpdateAclCheckDetailStatusRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -18267,8 +19468,8 @@ export default class Client extends OpenApi {
    * Modifies the status of an ACL check detail.
    * 
    * @remarks
-   * ## QPS limit
-   * The QPS limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
+   * ## QPS limits
+   * The queries per second (QPS) limit for a single user is 10. If the limit is exceeded, API calls are throttled, which may affect your services. Call this API operation at a reasonable rate.
    * 
    * @param request - UpdateAclCheckDetailStatusRequest
    * @returns UpdateAclCheckDetailStatusResponse
@@ -18276,6 +19477,192 @@ export default class Client extends OpenApi {
   async updateAclCheckDetailStatus(request: $_model.UpdateAclCheckDetailStatusRequest): Promise<$_model.UpdateAclCheckDetailStatusResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateAclCheckDetailStatusWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies custom application rules in batches. You can modify up to 20 rules at a time. The template to which a rule belongs is queried based on the rule ID, so you do not need to specify the template ID.
+   * 
+   * @param tmpReq - UpdateApplicationCustomRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApplicationCustomRulesResponse
+   */
+  async updateApplicationCustomRulesWithOptions(tmpReq: $_model.UpdateApplicationCustomRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateApplicationCustomRulesResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateApplicationCustomRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.rules)) {
+      request.rulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rules, "Rules", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.rulesShrink)) {
+      query["Rules"] = request.rulesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateApplicationCustomRules",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateApplicationCustomRulesResponse>(await this.callApi(params, req, runtime), new $_model.UpdateApplicationCustomRulesResponse({}));
+  }
+
+  /**
+   * Modifies custom application rules in batches. You can modify up to 20 rules at a time. The template to which a rule belongs is queried based on the rule ID, so you do not need to specify the template ID.
+   * 
+   * @param request - UpdateApplicationCustomRulesRequest
+   * @returns UpdateApplicationCustomRulesResponse
+   */
+  async updateApplicationCustomRules(request: $_model.UpdateApplicationCustomRulesRequest): Promise<$_model.UpdateApplicationCustomRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateApplicationCustomRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the name, switch status, action for unidentified applications, or custom actions for built-in applications of an application template. The template ID must belong to the current Alibaba Cloud account.
+   * 
+   * @remarks
+   * ## QPS limit
+   * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
+   * 
+   * @param tmpReq - UpdateApplicationTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateApplicationTemplateResponse
+   */
+  async updateApplicationTemplateWithOptions(tmpReq: $_model.UpdateApplicationTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateApplicationTemplateResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateApplicationTemplateShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.addBuiltInApplicationCustomActions)) {
+      request.addBuiltInApplicationCustomActionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.addBuiltInApplicationCustomActions, "AddBuiltInApplicationCustomActions", "json");
+    }
+
+    if (!$dara.isNull(tmpReq.removeBuiltInApplicationCustomActions)) {
+      request.removeBuiltInApplicationCustomActionsShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.removeBuiltInApplicationCustomActions, "RemoveBuiltInApplicationCustomActions", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.addBuiltInApplicationCustomActionsShrink)) {
+      query["AddBuiltInApplicationCustomActions"] = request.addBuiltInApplicationCustomActionsShrink;
+    }
+
+    if (!$dara.isNull(request.applicationTemplateId)) {
+      query["ApplicationTemplateId"] = request.applicationTemplateId;
+    }
+
+    if (!$dara.isNull(request.applicationTemplateName)) {
+      query["ApplicationTemplateName"] = request.applicationTemplateName;
+    }
+
+    if (!$dara.isNull(request.builtInApplicationStatus)) {
+      query["BuiltInApplicationStatus"] = request.builtInApplicationStatus;
+    }
+
+    if (!$dara.isNull(request.customRuleStatus)) {
+      query["CustomRuleStatus"] = request.customRuleStatus;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.removeBuiltInApplicationCustomActionsShrink)) {
+      query["RemoveBuiltInApplicationCustomActions"] = request.removeBuiltInApplicationCustomActionsShrink;
+    }
+
+    if (!$dara.isNull(request.templateStatus)) {
+      query["TemplateStatus"] = request.templateStatus;
+    }
+
+    if (!$dara.isNull(request.unknownAction)) {
+      query["UnknownAction"] = request.unknownAction;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateApplicationTemplate",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateApplicationTemplateResponse>(await this.callApi(params, req, runtime), new $_model.UpdateApplicationTemplateResponse({}));
+  }
+
+  /**
+   * Modifies the name, switch status, action for unidentified applications, or custom actions for built-in applications of an application template. The template ID must belong to the current Alibaba Cloud account.
+   * 
+   * @remarks
+   * ## QPS limit
+   * The queries per second (QPS) limit for a single user is 10 calls per second. If the limit is exceeded, API calls are throttled, which may affect your services. Make API calls at a reasonable rate.
+   * 
+   * @param request - UpdateApplicationTemplateRequest
+   * @returns UpdateApplicationTemplateResponse
+   */
+  async updateApplicationTemplate(request: $_model.UpdateApplicationTemplateRequest): Promise<$_model.UpdateApplicationTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateApplicationTemplateWithOptions(request, runtime);
+  }
+
+  /**
+   * Enables the application control or web filtering feature for the current Alibaba Cloud account. Only enabling is supported. This feature cannot be enabled for Finance Cloud Free Edition or pay-as-you-go 1.0 instances.
+   * 
+   * @param request - UpdateFirewallFeatureRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateFirewallFeatureResponse
+   */
+  async updateFirewallFeatureWithOptions(request: $_model.UpdateFirewallFeatureRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateFirewallFeatureResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.featureName)) {
+      query["FeatureName"] = request.featureName;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateFirewallFeature",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateFirewallFeatureResponse>(await this.callApi(params, req, runtime), new $_model.UpdateFirewallFeatureResponse({}));
+  }
+
+  /**
+   * Enables the application control or web filtering feature for the current Alibaba Cloud account. Only enabling is supported. This feature cannot be enabled for Finance Cloud Free Edition or pay-as-you-go 1.0 instances.
+   * 
+   * @param request - UpdateFirewallFeatureRequest
+   * @returns UpdateFirewallFeatureResponse
+   */
+  async updateFirewallFeature(request: $_model.UpdateFirewallFeatureRequest): Promise<$_model.UpdateFirewallFeatureResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateFirewallFeatureWithOptions(request, runtime);
   }
 
   /**
@@ -18480,6 +19867,108 @@ export default class Client extends OpenApi {
   async updateSecurityProxy(request: $_model.UpdateSecurityProxyRequest): Promise<$_model.UpdateSecurityProxyResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.updateSecurityProxyWithOptions(request, runtime);
+  }
+
+  /**
+   * Updates the actions and match conditions of web filtering rules in batches. You can update up to 20 rules at a time. The rule IDs in the list must be unique.
+   * 
+   * @param tmpReq - UpdateWebFilterRulesRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWebFilterRulesResponse
+   */
+  async updateWebFilterRulesWithOptions(tmpReq: $_model.UpdateWebFilterRulesRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWebFilterRulesResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateWebFilterRulesShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.rules)) {
+      request.rulesShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.rules, "Rules", "json");
+    }
+
+    let query = { };
+    if (!$dara.isNull(request.rulesShrink)) {
+      query["Rules"] = request.rulesShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWebFilterRules",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWebFilterRulesResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWebFilterRulesResponse({}));
+  }
+
+  /**
+   * Updates the actions and match conditions of web filtering rules in batches. You can update up to 20 rules at a time. The rule IDs in the list must be unique.
+   * 
+   * @param request - UpdateWebFilterRulesRequest
+   * @returns UpdateWebFilterRulesResponse
+   */
+  async updateWebFilterRules(request: $_model.UpdateWebFilterRulesRequest): Promise<$_model.UpdateWebFilterRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateWebFilterRulesWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the name, status, or description of a web filtering template. The template ID must belong to the current Alibaba Cloud account.
+   * 
+   * @param request - UpdateWebFilterTemplateRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateWebFilterTemplateResponse
+   */
+  async updateWebFilterTemplateWithOptions(request: $_model.UpdateWebFilterTemplateRequest, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateWebFilterTemplateResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.description)) {
+      query["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.name)) {
+      query["Name"] = request.name;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["Status"] = request.status;
+    }
+
+    if (!$dara.isNull(request.webFilterTemplateId)) {
+      query["WebFilterTemplateId"] = request.webFilterTemplateId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateWebFilterTemplate",
+      version: "2017-12-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateWebFilterTemplateResponse>(await this.callApi(params, req, runtime), new $_model.UpdateWebFilterTemplateResponse({}));
+  }
+
+  /**
+   * Modifies the name, status, or description of a web filtering template. The template ID must belong to the current Alibaba Cloud account.
+   * 
+   * @param request - UpdateWebFilterTemplateRequest
+   * @returns UpdateWebFilterTemplateResponse
+   */
+  async updateWebFilterTemplate(request: $_model.UpdateWebFilterTemplateRequest): Promise<$_model.UpdateWebFilterTemplateResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.updateWebFilterTemplateWithOptions(request, runtime);
   }
 
   /**

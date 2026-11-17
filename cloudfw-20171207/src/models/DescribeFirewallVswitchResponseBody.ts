@@ -45,7 +45,7 @@ export class DescribeFirewallVSwitchResponseBodyVswitchListFirewallList extends 
 export class DescribeFirewallVSwitchResponseBodyVswitchList extends $dara.Model {
   /**
    * @remarks
-   * The number of available IP addresses.
+   * The available IP address count.
    * 
    * @example
    * 10
@@ -74,7 +74,7 @@ export class DescribeFirewallVSwitchResponseBodyVswitchList extends $dara.Model 
   firewallList?: DescribeFirewallVSwitchResponseBodyVswitchListFirewallList[];
   /**
    * @remarks
-   * The UID of the member account.
+   * The UID of the member accounts.
    * 
    * @example
    * 184480249330****
@@ -98,7 +98,7 @@ export class DescribeFirewallVSwitchResponseBodyVswitchList extends $dara.Model 
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-bp10qla9mgi42eo****
@@ -106,7 +106,7 @@ export class DescribeFirewallVSwitchResponseBodyVswitchList extends $dara.Model 
   vswitchId?: string;
   /**
    * @remarks
-   * The name of the vSwitch.
+   * The vSwitch name.
    * 
    * @example
    * vsw-test

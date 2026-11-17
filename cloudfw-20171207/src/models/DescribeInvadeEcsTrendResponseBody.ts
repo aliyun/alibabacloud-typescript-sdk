@@ -50,7 +50,7 @@ export class DescribeInvadeEcsTrendResponseBody extends $dara.Model {
   dataList?: DescribeInvadeEcsTrendResponseBodyDataList[];
   /**
    * @remarks
-   * The end of the time range. This is a UNIX timestamp. Unit: seconds.
+   * The end time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1736820365
@@ -82,7 +82,7 @@ export class DescribeInvadeEcsTrendResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start of the time range. This is a UNIX timestamp. Unit: seconds.
+   * The start time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1742177725

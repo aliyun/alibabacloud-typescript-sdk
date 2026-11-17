@@ -71,7 +71,7 @@ export class DescribeAccessInstanceTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task completion time.
+   * The time when the task was completed.
    * 
    * @example
    * 17151381075
@@ -95,7 +95,7 @@ export class DescribeAccessInstanceTaskResponseBody extends $dara.Model {
   taskName?: string;
   /**
    * @remarks
-   * The task creation time.
+   * The time when the task was created.
    * 
    * @example
    * 17151361285

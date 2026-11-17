@@ -16,18 +16,18 @@ export class DescribeAclAppsResponseBodyAclApps extends $dara.Model {
    * The application name.
    * 
    * @example
-   * test
+   * HTTP
    */
   appName?: string;
   /**
    * @remarks
-   * Indicates whether the application is common. Valid values:
+   * Specifies whether the application is common. Valid values:
    * 
-   * - **1**: common
+   * - 1: Common.
    * 
-   * - **0**: not common
+   * - 0: Uncommon.
    * 
-   * -
+   * - Empty (default): All.
    * 
    * @example
    * 1
@@ -35,18 +35,16 @@ export class DescribeAclAppsResponseBodyAclApps extends $dara.Model {
   popular?: number;
   /**
    * @remarks
-   * The protocols supported by the application.
+   * The list of protocol types.
    */
   protocols?: string[];
   /**
    * @remarks
-   * The risk level. Valid values:
+   * The risk assessment level. Valid values:
    * 
-   * - **1**: Low
-   * 
-   * - **2**: Medium
-   * 
-   * - **3**: High
+   * - **1**: Low-risk.
+   * - **2**: Medium-risk.
+   * - **3**: High-risk.
    * 
    * @example
    * 1
@@ -54,11 +52,11 @@ export class DescribeAclAppsResponseBodyAclApps extends $dara.Model {
   riskLevel?: number;
   /**
    * @remarks
-   * Indicates whether the application supports `FQDN`. Valid values:
+   * Specifies whether **FQDN** is supported. Valid values:
    * 
-   * - **0**: No
+   * - **0**: Not supported.
    * 
-   * - **1**: Yes
+   * - **1**: Supported.
    * 
    * @example
    * 1
@@ -101,7 +99,7 @@ export class DescribeAclAppsResponseBodyAclApps extends $dara.Model {
 export class DescribeAclAppsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of ACL applications.
+   * The list of access control applications.
    */
   aclApps?: DescribeAclAppsResponseBodyAclApps[];
   /**
@@ -114,7 +112,7 @@ export class DescribeAclAppsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total count.
+   * The total number of entries.
    * 
    * @example
    * 20

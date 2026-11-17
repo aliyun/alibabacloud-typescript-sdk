@@ -13,7 +13,7 @@ export class DescribeNatFirewallTimeTopRequest extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The language of the content within the request and response.
+   * The language type.
    * 
    * @example
    * zh
@@ -21,7 +21,7 @@ export class DescribeNatFirewallTimeTopRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of top entries to return. The default value is 200. Valid values: 1 to 500.
+   * The maximum number of top entries to return. Default value: 200. Valid values: 1 to 500.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class DescribeNatFirewallTimeTopRequest extends $dara.Model {
   limit?: number;
   /**
    * @remarks
-   * The ID of the NAT Gateway.
+   * The NAT gateway ID.
    * 
    * @example
    * ngw-uf62zzi7000bca7zn****
@@ -45,7 +45,7 @@ export class DescribeNatFirewallTimeTopRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The private IP address of the NAT Gateway.
+   * The private IP address of the NAT gateway.
    * 
    * @example
    * 10.100.134.XXX
@@ -53,7 +53,7 @@ export class DescribeNatFirewallTimeTopRequest extends $dara.Model {
   srcPrivateIP?: string;
   /**
    * @remarks
-   * The public IP address of the NAT Gateway.
+   * The public IP address of the NAT gateway.
    * 
    * @example
    * 47.93.47.XXX
@@ -61,7 +61,7 @@ export class DescribeNatFirewallTimeTopRequest extends $dara.Model {
   srcPublicIP?: string;
   /**
    * @remarks
-   * The point in time to query the traffic data. This is a UNIX timestamp. Unit: seconds.
+   * The point in time for the traffic. The value is a UNIX timestamp in seconds.
    * 
    * This parameter is required.
    * 

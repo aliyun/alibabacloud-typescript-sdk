@@ -37,7 +37,7 @@ export class DescribeAclChecksResponseBodyCheckRecordsRecords extends $dara.Mode
   checkStatus?: string;
   /**
    * @remarks
-   * The type of ACL check.
+   * The ACL check type.
    * 
    * @example
    * AddressBookGather
@@ -45,7 +45,7 @@ export class DescribeAclChecksResponseBodyCheckRecordsRecords extends $dara.Mode
   checkType?: string;
   /**
    * @remarks
-   * The UNIX timestamp of the last check, in seconds.
+   * The timestamp of the latest check. Unit: seconds.
    * 
    * @example
    * 1724982259
@@ -105,7 +105,7 @@ export class DescribeAclChecksResponseBodyCheckRecordsRecords extends $dara.Mode
 export class DescribeAclChecksResponseBodyCheckRecords extends $dara.Model {
   /**
    * @remarks
-   * The type of ACL check.
+   * The ACL check type.
    * 
    * @example
    * Internet

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeConfiguredDestinationIPRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number.
+   * The current page number.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class DescribeConfiguredDestinationIPRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The group name.
+   * The name of the group.
    * 
    * This parameter is required.
    * 
@@ -57,7 +57,7 @@ export class DescribeConfiguredDestinationIPRequest extends $dara.Model {
   groupName?: string;
   /**
    * @remarks
-   * The language for receiving messages.
+   * The language type for receiving messages.
    * 
    * @example
    * zh
@@ -73,7 +73,7 @@ export class DescribeConfiguredDestinationIPRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The tracing code.
+   * The source code.
    * 
    * This parameter is required.
    * 

@@ -13,7 +13,7 @@ export class DescribeFirewallTaskResponseBodyTaskSteps extends $dara.Model {
   stepInfo?: string;
   /**
    * @remarks
-   * Creating Cloud Firewall security.
+   * Creates Cloud Firewall security.
    * 
    * @example
    * Create Firewall

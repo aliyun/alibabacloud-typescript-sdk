@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInternetTimeTopResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The public IP address.
+   * The IP address.
    * 
    * @example
    * 183.60.164.XXX
@@ -61,7 +61,7 @@ export class DescribeInternetTimeTopResponseBodyDataList extends $dara.Model {
   newConn?: number;
   /**
    * @remarks
-   * The outbound traffic. Unit: bit/s.
+   * The outbound bandwidth. Unit: bit/s.
    * 
    * @example
    * 45
@@ -93,7 +93,7 @@ export class DescribeInternetTimeTopResponseBodyDataList extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The ID of the asset instance.
+   * The instance ID of the resource.
    * 
    * @example
    * lb-bp14ue2rgktunncq****
@@ -101,7 +101,7 @@ export class DescribeInternetTimeTopResponseBodyDataList extends $dara.Model {
   resourceInstanceId?: string;
   /**
    * @remarks
-   * The name of the asset.
+   * The name of the asset instance.
    * 
    * @example
    * test
@@ -141,7 +141,7 @@ export class DescribeInternetTimeTopResponseBodyDataList extends $dara.Model {
   totalPps?: number;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC) instance.
+   * The instance ID of the VPC-connected instance.
    * 
    * @example
    * vpc-wz9o0uzfjuj81fx7m****
@@ -205,7 +205,7 @@ export class DescribeInternetTimeTopResponseBodyDataList extends $dara.Model {
 export class DescribeInternetTimeTopResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of entries returned.
+   * The number of returned entries.
    * 
    * @example
    * 19
@@ -213,12 +213,12 @@ export class DescribeInternetTimeTopResponseBody extends $dara.Model {
   dataCount?: number;
   /**
    * @remarks
-   * The list of data entries.
+   * The list of returned data.
    */
   dataList?: DescribeInternetTimeTopResponseBodyDataList[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 7F2D5C04-731F-50B0-ADE1-01637B3C****
@@ -226,7 +226,7 @@ export class DescribeInternetTimeTopResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The timestamp of the traffic data. Unit: seconds.
+   * The traffic time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1734399660

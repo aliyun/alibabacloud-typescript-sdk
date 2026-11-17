@@ -45,12 +45,12 @@ export class DescribeInvadeEventNameListResponseBodyEventNameList extends $dara.
 export class DescribeInvadeEventNameListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of anomalous activity names.
+   * The list of abnormal event names.
    */
   eventNameList?: DescribeInvadeEventNameListResponseBodyEventNameList[];
   /**
    * @remarks
-   * A list of vulnerability names.
+   * The list of vulnerability names.
    */
   nameList?: string[];
   /**

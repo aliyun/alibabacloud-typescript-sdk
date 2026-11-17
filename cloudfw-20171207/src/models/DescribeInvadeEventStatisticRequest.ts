@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInvadeEventStatisticRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time. This is a UNIX timestamp that is accurate to the second.
+   * The end time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1774713600
@@ -13,7 +13,7 @@ export class DescribeInvadeEventStatisticRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The language of the response.
+   * The language type.
    * 
    * @example
    * zh
@@ -21,7 +21,7 @@ export class DescribeInvadeEventStatisticRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The source IP address.
    * 
    * @example
    * 52.130.200.XXX
@@ -29,7 +29,7 @@ export class DescribeInvadeEventStatisticRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The start time. This is a UNIX timestamp that is accurate to the second.
+   * The start time. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1746151757

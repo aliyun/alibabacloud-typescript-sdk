@@ -13,7 +13,7 @@ export class DescribeInternetOpenDetailRequestSortList extends $dara.Model {
   dir?: string;
   /**
    * @remarks
-   * The sorting key.
+   * The sort field.
    * 
    * @example
    * ServiceName
@@ -45,7 +45,7 @@ export class DescribeInternetOpenDetailRequestSortList extends $dara.Model {
 export class DescribeInternetOpenDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the asset. Fuzzy search is supported.
+   * The asset ID. Supports fuzzy search.
    * 
    * @example
    * i-uf6faknmuby7ezht****
@@ -53,7 +53,7 @@ export class DescribeInternetOpenDetailRequest extends $dara.Model {
   assetsInstanceId?: string;
   /**
    * @remarks
-   * The name of the asset. Fuzzy search is supported.
+   * The asset name. Supports fuzzy search.
    * 
    * @example
    * instance_test
@@ -61,7 +61,7 @@ export class DescribeInternetOpenDetailRequest extends $dara.Model {
   assetsInstanceName?: string;
   /**
    * @remarks
-   * The type of the asset for an exact match. If you leave this parameter empty, all asset types are queried.
+   * The asset type. Supports exact match. If not specified, all asset types are queried.
    * 
    * @example
    * EcsPublicIP
@@ -69,7 +69,7 @@ export class DescribeInternetOpenDetailRequest extends $dara.Model {
   assetsType?: string;
   /**
    * @remarks
-   * The page number of the returned page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -77,7 +77,7 @@ export class DescribeInternetOpenDetailRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The end time of the query. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1745251200
@@ -85,7 +85,7 @@ export class DescribeInternetOpenDetailRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The language of the content.
+   * The language type.
    * 
    * @example
    * zh
@@ -93,7 +93,7 @@ export class DescribeInternetOpenDetailRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of the page to return.
+   * The number of entries per page.
    * 
    * @example
    * 10
@@ -101,7 +101,7 @@ export class DescribeInternetOpenDetailRequest extends $dara.Model {
   pageSize?: string;
   /**
    * @remarks
-   * The port for an exact match. The value must be an integer from 1 to 65535. If you leave this parameter empty, all ports are queried.
+   * The port number. Supports exact match for ports from 1 to 65535. If not specified, all ports are queried.
    * 
    * @example
    * 9100
@@ -109,7 +109,7 @@ export class DescribeInternetOpenDetailRequest extends $dara.Model {
   port?: string;
   /**
    * @remarks
-   * The public IP address for an exact match. If you leave this parameter empty, all public IP addresses are queried.
+   * The public IP address. Supports exact match. If not specified, all public IP addresses are queried.
    * 
    * @example
    * 203.0.13.XX
@@ -125,7 +125,7 @@ export class DescribeInternetOpenDetailRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The risk level. If you leave this parameter empty, all risk levels are queried.
+   * The risk level. If not specified, all risk levels are queried.
    * 
    * @example
    * 3
@@ -133,7 +133,7 @@ export class DescribeInternetOpenDetailRequest extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The name of the application for an exact match. If you leave this parameter empty, all applications are queried.
+   * The application name. Supports exact match. If not specified, all applications are queried.
    * 
    * @example
    * SMB
@@ -141,7 +141,7 @@ export class DescribeInternetOpenDetailRequest extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The name of the application for a fuzzy match. If you leave this parameter empty, all applications are queried.
+   * The application name. Supports fuzzy match. If not specified, all applications are queried.
    * 
    * @example
    * SMB
@@ -149,12 +149,12 @@ export class DescribeInternetOpenDetailRequest extends $dara.Model {
   serviceNameFuzzy?: string;
   /**
    * @remarks
-   * The sorting conditions.
+   * The sort list.
    */
   sortList?: DescribeInternetOpenDetailRequestSortList[];
   /**
    * @remarks
-   * The source IP address of the access request.
+   * The source IP address.
    * 
    * @example
    * 222.212.86.7XXX
@@ -162,7 +162,7 @@ export class DescribeInternetOpenDetailRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The start of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The start time of the query. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1656837360

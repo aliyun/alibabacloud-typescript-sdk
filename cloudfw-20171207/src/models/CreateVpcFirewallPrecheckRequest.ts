@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVpcFirewallPrecheckRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Cloud Enterprise Network (CEN) instance.
+   * The CEN instance ID.
    * 
    * @example
    * cen-iv8m2lj2fqg1xt****
@@ -25,7 +25,7 @@ export class CreateVpcFirewallPrecheckRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of the member account of Cloud Firewall.
+   * The UID of the Cloud Firewall member account.
    * 
    * @example
    * 128599825273****
@@ -55,7 +55,7 @@ export class CreateVpcFirewallPrecheckRequest extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The ID of the transit router instance.
+   * The transit router instance ID.
    * 
    * @example
    * tr-t4n16htuv1jalj9cq****
@@ -63,7 +63,7 @@ export class CreateVpcFirewallPrecheckRequest extends $dara.Model {
   transitRouterId?: string;
   /**
    * @remarks
-   * The ID of the VPC instance.
+   * The VPC-connected instance ID.
    * 
    * @example
    * vpc-bp132e2wpu9o6qth****

@@ -13,7 +13,7 @@ export class DescribeInternetOpenServiceRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp in seconds.
+   * The end time of the query. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1753804800
@@ -21,7 +21,7 @@ export class DescribeInternetOpenServiceRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The language of the response.
+   * The language type.
    * 
    * @example
    * zh
@@ -53,7 +53,7 @@ export class DescribeInternetOpenServiceRequest extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The name of the application for an exact match. If you do not specify this parameter, all applications are queried.
+   * The application name for exact match. If you do not specify this parameter, all applications are queried.
    * 
    * @example
    * SMB
@@ -61,7 +61,7 @@ export class DescribeInternetOpenServiceRequest extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The name of the application for a fuzzy match. If you do not specify this parameter, all applications are queried.
+   * The application name for fuzzy match. If you do not specify this parameter, all applications are queried.
    * 
    * @example
    * SMB
@@ -69,7 +69,7 @@ export class DescribeInternetOpenServiceRequest extends $dara.Model {
   serviceNameFuzzy?: string;
   /**
    * @remarks
-   * The source IP address of the visitor.
+   * The originating IP address of the requester.
    * 
    * @example
    * 122.200.64.XXX
@@ -77,7 +77,7 @@ export class DescribeInternetOpenServiceRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The start of the time range to query. The value is a UNIX timestamp in seconds.
+   * The start time of the query. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1755742107

@@ -45,7 +45,7 @@ export class DescribeAckClusterPodLabelsResponseBodyAckLabels extends $dara.Mode
 export class DescribeAckClusterPodLabelsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A list of ACK labels.
+   * The list of ACK tags.
    */
   ackLabels?: DescribeAckClusterPodLabelsResponseBodyAckLabels[];
   /**

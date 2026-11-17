@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccessInstanceVpcListResponseBodyVpcList extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the VPC is managed by Cloud Firewall.
+   * Indicates whether the VPC is a firewall-managed VPC.
    * 
    * @example
    * false
@@ -13,7 +13,7 @@ export class DescribeAccessInstanceVpcListResponseBodyVpcList extends $dara.Mode
   firewallVpc?: boolean;
   /**
    * @remarks
-   * The ID of the VPC instance.
+   * The ID of the VPC-connected instance.
    * 
    * @example
    * vpc-2ze1t4irqj0fljlbb****
@@ -21,7 +21,7 @@ export class DescribeAccessInstanceVpcListResponseBodyVpcList extends $dara.Mode
   vpcId?: string;
   /**
    * @remarks
-   * The name of the VPC instance.
+   * The name of the VPC-connected instance.
    * 
    * @example
    * Cloud_Firewall_VPC

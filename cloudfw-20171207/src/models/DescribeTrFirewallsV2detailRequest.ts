@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTrFirewallsV2DetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the VPC firewall instance. This parameter is required. If this parameter is not specified, the error ErrorMissingFirewallId (-360444, firewall id is required) is returned.
+   * The ID of the VPC firewall instance. This parameter is required. If this parameter is not specified, the ErrorMissingFirewallId (-360444, firewall id is required) error is returned.
    * 
-   * > You can call DescribeTrFirewallsV2List to query existing FirewallId values (in the format of vfw-tr-\\*). If no firewall has been created, create an Enterprise Edition transit router in the CEN console first, and then call CreateTrFirewallV2.
+   * > You can call DescribeTrFirewallsV2List to query existing FirewallIds (in the format of vfw-tr-*). If the firewall has not been created, you must first create an Enterprise Edition transit router in CEN and then call CreateTrFirewallV2.
    * 
    * @example
    * vfw-tr-a5a6b89f46764928****
@@ -15,7 +15,7 @@ export class DescribeTrFirewallsV2DetailRequest extends $dara.Model {
   firewallId?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response message. Valid values:
    * 
    * - **zh** (default): Chinese
    * - **en**: English

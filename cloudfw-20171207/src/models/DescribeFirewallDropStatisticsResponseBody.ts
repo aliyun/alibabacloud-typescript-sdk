@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFirewallDropStatisticsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of packets blocked by access control list (ACL) policies.
+   * The number of ACL policy blocks.
    * 
    * @example
    * 20
@@ -13,7 +13,7 @@ export class DescribeFirewallDropStatisticsResponseBody extends $dara.Model {
   aclDropCnt?: number;
   /**
    * @remarks
-   * The number of packets blocked by the intrusion prevention system (IPS).
+   * The number of IPS blocks.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class DescribeFirewallDropStatisticsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of blocked packets.
+   * The total number of blocks.
    * 
    * @example
    * 50
@@ -37,7 +37,7 @@ export class DescribeFirewallDropStatisticsResponseBody extends $dara.Model {
   totalDropCnt?: number;
   /**
    * @remarks
-   * The number of packets blocked by the vulnerability prevention feature.
+   * The number of Vulnerability Prevention blocks.
    * 
    * @example
    * 10

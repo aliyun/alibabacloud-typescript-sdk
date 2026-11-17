@@ -6,9 +6,7 @@ export class ModifyVpcFirewallIPSWhitelistRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the request and response. Valid values:
-   * 
    * - **zh** (default): Chinese
-   * 
    * - **en**: English
    * 
    * @example
@@ -18,10 +16,8 @@ export class ModifyVpcFirewallIPSWhitelistRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the list. Valid values:
-   * 
-   * - **1**: user-defined
-   * 
-   * - **2**: address book
+   * - **1**: custom type
+   * - **2**: address book type
    * 
    * This parameter is required.
    * 
@@ -39,7 +35,7 @@ export class ModifyVpcFirewallIPSWhitelistRequest extends $dara.Model {
   listValue?: string;
   /**
    * @remarks
-   * The UID of the member account.
+   * The UID of the member accounts of the current Alibaba Cloud account.
    * 
    * @example
    * 1415189284827022
@@ -47,7 +43,7 @@ export class ModifyVpcFirewallIPSWhitelistRequest extends $dara.Model {
   memberUid?: number;
   /**
    * @remarks
-   * The instance ID of the VPC firewall.
+   * The instance ID of the virtual private cloud (VPC) firewalls at the border.
    * 
    * This parameter is required.
    * 
@@ -58,10 +54,8 @@ export class ModifyVpcFirewallIPSWhitelistRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the whitelist. Valid values:
-   * 
-   * - **1**: destination
-   * 
-   * - **2**: source
+   * - **1**: destination type
+   * - **2**: source type
    * 
    * This parameter is required.
    * 

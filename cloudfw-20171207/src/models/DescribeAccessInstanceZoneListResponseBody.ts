@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccessInstanceZoneListResponseBodyZones extends $dara.Model {
   /**
    * @remarks
-   * The name of the zone in the local language.
+   * The local name of the zone.
    * 
    * @example
    * Beijing Area G

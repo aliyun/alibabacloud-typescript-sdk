@@ -7,8 +7,8 @@ export class DescribePrefixListsResponseBodyPrefixList extends $dara.Model {
    * @remarks
    * The address family of the prefix list. Valid values:
    * 
-   * - IPv4.
-   * - IPv6.
+   * - IPv4
+   * - IPv6
    * 
    * @example
    * IPv4
@@ -98,7 +98,7 @@ export class DescribePrefixListsResponseBodyPrefixList extends $dara.Model {
 export class DescribePrefixListsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * An array of prefix lists.
+   * The array of prefix list information.
    */
   prefixList?: DescribePrefixListsResponseBodyPrefixList[];
   /**

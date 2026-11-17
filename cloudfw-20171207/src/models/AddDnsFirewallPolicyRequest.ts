@@ -6,9 +6,9 @@ export class AddDnsFirewallPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The action that Cloud Firewall performs on traffic in the access control policy. Valid values:
-   * - **accept**: Allows the traffic.
-   * - **drop**: Denies the traffic.
-   * - **log**: Monitors the traffic.
+   * - **accept**: allows the traffic.
+   * - **drop**: denies the traffic.
+   * - **log**: monitors the traffic.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class AddDnsFirewallPolicyRequest extends $dara.Model {
    * - If **DestinationType** is set to net, **Destination** is the destination CIDR block. Example: 1.2.3.4/24.
    * - If **DestinationType** is set to group, **Destination** is the name of the destination address book. Example: db_group.
    * - If **DestinationType** is set to domain, **Destination** is the destination domain name. Example: *.aliyuncs.com.
-   * - If **DestinationType** is set to location, **Destination** is the destination area (for specific area positional encoding, see the following sections). Example: ["BJ11", "ZB"].
+   * - If **DestinationType** is set to location, **Destination** is the destination area (for specific area positional encoding, see the following section). Example: ["BJ11", "ZB"].
    * 
    * This parameter is required.
    * 
@@ -55,7 +55,7 @@ export class AddDnsFirewallPolicyRequest extends $dara.Model {
    * @remarks
    * The traffic direction of the DNS firewall access control policy.
    * 
-   * > This parameter is not verified by the backend. When you create or modify a DNS firewall policy, the direction is always stored as **out** (outbound). Passing **in** neither returns an error nor takes effect. DNS firewalls only support outbound policies.
+   * > This parameter is not verified by the backend. When you create or modify a DNS firewall policy, the direction is always stored as **out** (outbound). If you pass **in**, no error is reported, but it does not take effect. DNS firewalls only support outbound policies.
    * 
    * @example
    * out
@@ -99,8 +99,8 @@ export class AddDnsFirewallPolicyRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable the access control policy. By default, the policy is enabled after it is created. Valid values:
    * 
-   * - **true**: Enables the access control policy.
-   * - **false**: Disables the access control policy.
+   * - **true**: enables the access control policy.
+   * - **false**: disables the access control policy.
    * 
    * This parameter is required.
    * 
@@ -134,9 +134,9 @@ export class AddDnsFirewallPolicyRequest extends $dara.Model {
    * @remarks
    * The type of the source address in the access control policy. Valid values:
    * 
-   * - **net**: Source CIDR block
+   * - **net**: source CIDR block
    * 
-   * - **group**: Source address book
+   * - **group**: source address book
    * 
    * This parameter is required.
    * 

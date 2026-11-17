@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAccessInstanceVSwitchListRequest extends $dara.Model {
   /**
    * @remarks
-   * The UID of the Alibaba Cloud account to which the resource belongs.
+   * The Alibaba Cloud UID to which the resource belongs.
    * 
    * @example
    * 135809047715****
@@ -39,7 +39,7 @@ export class DescribeAccessInstanceVSwitchListRequest extends $dara.Model {
   regionNo?: string;
   /**
    * @remarks
-   * The ID of the vSwitch.
+   * The vSwitch ID.
    * 
    * @example
    * vsw-qzeaol304m***
@@ -47,7 +47,7 @@ export class DescribeAccessInstanceVSwitchListRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The ID of the VPC-connected instance.
    * 
    * @example
    * vpc-uf6b5lyul0x******

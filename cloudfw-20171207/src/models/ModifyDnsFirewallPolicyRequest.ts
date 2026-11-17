@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDnsFirewallPolicyRequest extends $dara.Model {
   /**
    * @remarks
-   * The action that the access control policy performs on traffic in Cloud Firewall. Valid values:
-   * - **accept**: allows the traffic.
-   * - **drop**: deny the traffic.
-   * - **log**: monitors the traffic.
+   * The action that Cloud Firewall performs on traffic that matches the access control policy. Valid values:
+   * - **accept**: Allows the traffic.
+   * - **drop**: Denies the traffic.
+   * - **log**: Monitors the traffic.
    * 
    * @example
    * log
@@ -35,11 +35,10 @@ export class ModifyDnsFirewallPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The destination address in the access control policy.
-   * 
-   * - If **DestinationType** is set to net, **Destination** is a destination CIDR block. Example: 1.2.3.4/24.
-   * - If **DestinationType** is set to group, **Destination** is the name of a destination address book. Example: db_group.
-   * - If **DestinationType** is set to domain, **Destination** is a destination domain name. Example: *.aliyuncs.com.
-   * - If **DestinationType** is set to location, **Destination** is a destination area. For more information about area positional encoding, see the following sections. Example: ["BJ11", "ZB"\\].
+   * - If **DestinationType** is set to net, **Destination** specifies the destination CIDR block. Example: 1.2.3.4/24.
+   * - If **DestinationType** is set to group, **Destination** specifies the name of the destination address book. Example: db_group.
+   * - If **DestinationType** is set to domain, **Destination** specifies the destination domain name. Example: *.aliyuncs.com.
+   * - If **DestinationType** is set to location, **Destination** specifies the destination area. For the positional encoding of specific areas, see the following section. Example: ["BJ11", "ZB"\\].
    * 
    * @example
    * db_group
@@ -47,13 +46,10 @@ export class ModifyDnsFirewallPolicyRequest extends $dara.Model {
   destination?: string;
   /**
    * @remarks
-   * The type of the destination address in the access control policy.
-   * 
-   * Valid values:
-   * 
-   * - **net**: destination CIDR block
-   * - **group**: destination address book
-   * - **domain**: destination domain name
+   * The type of the destination address in the access control policy. Valid values:
+   * - **net**: Destination CIDR block.
+   * - **group**: Destination address book.
+   * - **domain**: Destination domain name.
    * 
    * @example
    * net
@@ -62,8 +58,8 @@ export class ModifyDnsFirewallPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The language of the request and response. Valid values:
-   * - **zh**: Chinese
-   * - **en**: English
+   * - **zh**: Chinese.
+   * - **en**: English.
    * 
    * @example
    * zh
@@ -71,7 +67,7 @@ export class ModifyDnsFirewallPolicyRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The policy priority of the access control policy before the modification.
+   * Policy priority of the access control policy before policy priority is modified.
    * 
    * @example
    * 1
@@ -79,10 +75,9 @@ export class ModifyDnsFirewallPolicyRequest extends $dara.Model {
   priority?: string;
   /**
    * @remarks
-   * Specifies whether to enable the access control policy. The policy is enabled by default after it is created. Valid values:
-   * 
-   * - **true**: enables the access control policy.
-   * - **false**: disables the access control policy.
+   * The status of the access control policy. By default, the policy is enabled after it is created. Valid values:
+   * - **true**: Enables the access control policy.
+   * - **false**: Disables the access control policy.
    * 
    * @example
    * true
@@ -91,7 +86,7 @@ export class ModifyDnsFirewallPolicyRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The source IP address of the request.
+   * The source IP address of the requester.
    * 
    * @example
    * 192.0.XX.XX
@@ -100,10 +95,8 @@ export class ModifyDnsFirewallPolicyRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the source address in the access control policy. Valid values:
-   * 
-   * - **net**: source CIDR block
-   * 
-   * - **group**: source address book
+   * - **net**: Source CIDR block.
+   * - **group**: Source address book.
    * 
    * @example
    * net

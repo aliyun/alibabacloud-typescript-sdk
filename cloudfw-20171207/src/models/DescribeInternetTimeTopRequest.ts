@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInternetTimeTopRequest extends $dara.Model {
   /**
    * @remarks
-   * The direction of the traffic.
+   * The traffic direction.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeInternetTimeTopRequest extends $dara.Model {
   direction?: string;
   /**
    * @remarks
-   * The end of the query time range, specified as a Unix timestamp in seconds.
+   * The end time of the query. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1733796528
@@ -31,7 +31,7 @@ export class DescribeInternetTimeTopRequest extends $dara.Model {
   IPType?: string;
   /**
    * @remarks
-   * The time interval in seconds.
+   * The time interval.
    * 
    * @example
    * 60
@@ -39,7 +39,7 @@ export class DescribeInternetTimeTopRequest extends $dara.Model {
   interval?: number;
   /**
    * @remarks
-   * The language of the response.
+   * The language of the response message.
    * 
    * @example
    * zh
@@ -47,7 +47,7 @@ export class DescribeInternetTimeTopRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The maximum number of entries to return. The value must be between 1 and 50. Default value: 50.
+   * The maximum number of top entries to return. Default value: 50. Valid values: 1 to 50.
    * 
    * @example
    * 5
@@ -55,7 +55,7 @@ export class DescribeInternetTimeTopRequest extends $dara.Model {
   limit?: string;
   /**
    * @remarks
-   * The NAT public IP address. If omitted, traffic data for all assets is returned.
+   * The public IP address of the NAT gateway. If you leave this parameter empty, all asset IP addresses are queried.
    * 
    * @example
    * 47.97.66.XXX
@@ -71,7 +71,7 @@ export class DescribeInternetTimeTopRequest extends $dara.Model {
   order?: string;
   /**
    * @remarks
-   * The metric by which to sort the results.
+   * The sorting method.
    * 
    * @example
    * in_bps
@@ -79,7 +79,7 @@ export class DescribeInternetTimeTopRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The identifier for the trace source.
+   * The tracing code.
    * 
    * This parameter is required.
    * 
@@ -89,7 +89,7 @@ export class DescribeInternetTimeTopRequest extends $dara.Model {
   sourceCode?: string;
   /**
    * @remarks
-   * The source IP address.
+   * The source IP address of the visitor.
    * 
    * @example
    * 60.179.179.XXX
@@ -105,7 +105,7 @@ export class DescribeInternetTimeTopRequest extends $dara.Model {
   srcIP?: string;
   /**
    * @remarks
-   * The start of the query time range, specified as a Unix timestamp in seconds.
+   * The start time of the query. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1749434787
@@ -113,7 +113,7 @@ export class DescribeInternetTimeTopRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The traffic timestamp to query, specified as a Unix timestamp in seconds.
+   * The traffic time to query. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1745222880

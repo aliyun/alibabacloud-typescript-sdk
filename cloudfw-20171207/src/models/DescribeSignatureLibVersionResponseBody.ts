@@ -13,7 +13,7 @@ export class DescribeSignatureLibVersionResponseBodyVersion extends $dara.Model 
   type?: string;
   /**
    * @remarks
-   * The update time of the signature library version. The value is a UNIX timestamp accurate to seconds.
+   * The update time of the signature library version. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1741067915

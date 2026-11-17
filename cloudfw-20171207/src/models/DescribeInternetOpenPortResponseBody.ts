@@ -29,7 +29,7 @@ export class DescribeInternetOpenPortResponseBodyDataList extends $dara.Model {
   outBytes?: number;
   /**
    * @remarks
-   * The open port.
+   * The open ports.
    * 
    * @example
    * 80
@@ -37,7 +37,7 @@ export class DescribeInternetOpenPortResponseBodyDataList extends $dara.Model {
   port?: number;
   /**
    * @remarks
-   * The security threat.
+   * The security risk.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class DescribeInternetOpenPortResponseBodyDataList extends $dara.Model {
   probRisk?: string;
   /**
    * @remarks
-   * The description of the security threat.
+   * The description of the security risk.
    * 
    * @example
    * desc
@@ -61,7 +61,7 @@ export class DescribeInternetOpenPortResponseBodyDataList extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The number of public IP addresses that have the port open.
+   * The number of open public IP addresses.
    * 
    * @example
    * 10
@@ -77,7 +77,7 @@ export class DescribeInternetOpenPortResponseBodyDataList extends $dara.Model {
   riskLevel?: number;
   /**
    * @remarks
-   * The description of the risk.
+   * The risk description.
    * 
    * @example
    * test
@@ -106,7 +106,7 @@ export class DescribeInternetOpenPortResponseBodyDataList extends $dara.Model {
   totalBytes?: number;
   /**
    * @remarks
-   * The percentage of traffic in the last 24 hours. Valid values: **1** to **100**.
+   * The traffic proportion. Valid values: **1** to **100**.
    * 
    * @example
    * 10
@@ -114,7 +114,7 @@ export class DescribeInternetOpenPortResponseBodyDataList extends $dara.Model {
   trafficPercent1Day?: string;
   /**
    * @remarks
-   * The percentage of traffic in the last 30 days.
+   * The traffic proportion over the last 30 days.
    * 
    * @example
    * 48
@@ -122,7 +122,7 @@ export class DescribeInternetOpenPortResponseBodyDataList extends $dara.Model {
   trafficPercent30Day?: string;
   /**
    * @remarks
-   * The percentage of traffic in the last 7 days.
+   * The traffic proportion over the last 7 days.
    * 
    * @example
    * 30
@@ -130,7 +130,7 @@ export class DescribeInternetOpenPortResponseBodyDataList extends $dara.Model {
   trafficPercent7Day?: string;
   /**
    * @remarks
-   * The reason why the protocol is not identified when the protocol is detected as Unknown.
+   * The reason why the protocol is not identified when the recognized protocol is Unknown.
    */
   unknownReason?: string[];
   static names(): { [key: string]: string } {

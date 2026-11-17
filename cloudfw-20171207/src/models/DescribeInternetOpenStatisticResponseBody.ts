@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInternetOpenStatisticResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The total number of public IP addresses exposed to the Internet.
+   * The total number of open public IP addresses.
    * 
    * @example
    * 9
@@ -13,7 +13,7 @@ export class DescribeInternetOpenStatisticResponseBody extends $dara.Model {
   internetIpNum?: number;
   /**
    * @remarks
-   * The total number of ports exposed to the Internet.
+   * The total number of open ports.
    * 
    * @example
    * 38
@@ -21,7 +21,7 @@ export class DescribeInternetOpenStatisticResponseBody extends $dara.Model {
   internetPortNum?: number;
   /**
    * @remarks
-   * The number of risky public IP addresses exposed to the Internet.
+   * The number of risky open public IP addresses.
    * 
    * @example
    * 8
@@ -45,7 +45,7 @@ export class DescribeInternetOpenStatisticResponseBody extends $dara.Model {
   internetRiskServiceNum?: number;
   /**
    * @remarks
-   * The total number of applications exposed to the Internet.
+   * The total number of open applications.
    * 
    * @example
    * 15
@@ -53,7 +53,7 @@ export class DescribeInternetOpenStatisticResponseBody extends $dara.Model {
   internetServiceNum?: number;
   /**
    * @remarks
-   * The number of public IP addresses of Server Load Balancer (SLB) instances.
+   * The number of SLB public IP addresses.
    * 
    * @example
    * 10
@@ -61,7 +61,7 @@ export class DescribeInternetOpenStatisticResponseBody extends $dara.Model {
   internetSlbIpNum?: number;
   /**
    * @remarks
-   * The number of public ports of SLB instances.
+   * The number of SLB public ports.
    * 
    * @example
    * 16
@@ -69,7 +69,7 @@ export class DescribeInternetOpenStatisticResponseBody extends $dara.Model {
   internetSlbIpPortNum?: number;
   /**
    * @remarks
-   * The number of ports that are not protected by an access control list (ACL).
+   * The number of ports that are not protected by access control lists (ACLs).
    * 
    * @example
    * 6

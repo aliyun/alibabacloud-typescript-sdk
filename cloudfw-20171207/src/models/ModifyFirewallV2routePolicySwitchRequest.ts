@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyFirewallV2RoutePolicySwitchRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the VPC boundary firewall.
+   * The instance ID of the virtual private cloud (VPC) firewalls.
+   * 
+   * **Note**: This parameter is actually required. If it is not provided, the operation returns ErrorParameters (-360103).
    * 
    * @example
    * vfw-tr-5b202e7f0be64611****
@@ -13,10 +15,9 @@ export class ModifyFirewallV2RoutePolicySwitchRequest extends $dara.Model {
   firewallId?: string;
   /**
    * @remarks
-   * The language of the response. Valid values:
+   * The language of the response message. Valid values:
    * 
    * - **zh** (default): Chinese
-   * 
    * - **en**: English
    * 
    * @example
@@ -37,7 +38,9 @@ export class ModifyFirewallV2RoutePolicySwitchRequest extends $dara.Model {
   shouldRecover?: string;
   /**
    * @remarks
-   * The ID of the routing policy for the firewall.
+   * The ID of the firewall route policy.
+   * 
+   * **Note**: This parameter is actually required. If it is not provided or the policy does not exist, the operation returns ErrorTrFirewallPolicyNotFound (-361043). You can call DescribeTrFirewallV2RoutePolicyList to query valid route policy IDs.
    * 
    * @example
    * policy-93684cc5caa44b2e****
@@ -45,11 +48,13 @@ export class ModifyFirewallV2RoutePolicySwitchRequest extends $dara.Model {
   trFirewallRoutePolicyId?: string;
   /**
    * @remarks
-   * The status of the policy. Valid values:
+   * The status of the policy switch. Valid values:
    * 
-   * - open: Enables the policy.
+   * - open: Enabled.
    * 
-   * - close: Disables the policy.
+   * - close: Disabled.
+   * 
+   * **Note**: This parameter is actually required. If it is not provided or the value is not within the preceding range, the operation returns ErrorParameters (-360103).
    * 
    * @example
    * open

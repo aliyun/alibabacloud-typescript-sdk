@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInternetOpenPortRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number for a paged query.
+   * The page number for paging.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class DescribeInternetOpenPortRequest extends $dara.Model {
   currentPage?: string;
   /**
    * @remarks
-   * The end of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The end time of the query. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1748358644
@@ -21,7 +21,7 @@ export class DescribeInternetOpenPortRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The language of the content.
+   * The language type.
    * 
    * @example
    * zh
@@ -29,7 +29,7 @@ export class DescribeInternetOpenPortRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The number of entries per page for a paged query.
+   * The number of entries per page for paging.
    * 
    * @example
    * 10
@@ -53,7 +53,7 @@ export class DescribeInternetOpenPortRequest extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The name of the application. This is an exact match. If you do not specify this parameter, all applications are queried.
+   * The application name. Exact match. If this parameter is not specified, all applications are queried.
    * 
    * @example
    * SMB
@@ -61,7 +61,7 @@ export class DescribeInternetOpenPortRequest extends $dara.Model {
   serviceName?: string;
   /**
    * @remarks
-   * The name of the application. This is a fuzzy match. If you do not specify this parameter, all applications are queried.
+   * The application name. Fuzzy match. If this parameter is not specified, all applications are queried.
    * 
    * @example
    * SMB
@@ -77,7 +77,7 @@ export class DescribeInternetOpenPortRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The start of the time range to query. The value is a UNIX timestamp. Unit: seconds.
+   * The start time of the query. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1735264800

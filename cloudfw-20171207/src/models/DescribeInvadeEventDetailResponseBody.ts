@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInvadeEventDetailResponseBodyOperationList extends $dara.Model {
   /**
    * @remarks
-   * The parameters for the operation.
+   * The operation parameters.
    * 
    * @example
    * test
@@ -45,7 +45,7 @@ export class DescribeInvadeEventDetailResponseBodyOperationList extends $dara.Mo
 export class DescribeInvadeEventDetailResponseBodyUnhandleOperationList extends $dara.Model {
   /**
    * @remarks
-   * The parameters for the operation.
+   * The operation parameters.
    * 
    * @example
    * test
@@ -85,7 +85,7 @@ export class DescribeInvadeEventDetailResponseBodyUnhandleOperationList extends 
 export class DescribeInvadeEventDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the asset.
+   * The asset instance ID.
    * 
    * @example
    * i-8vb2nmm070m****
@@ -93,7 +93,7 @@ export class DescribeInvadeEventDetailResponseBody extends $dara.Model {
   assetsInstanceId?: string;
   /**
    * @remarks
-   * The name of the asset.
+   * The asset name.
    * 
    * @example
    * ECS_test
@@ -101,7 +101,7 @@ export class DescribeInvadeEventDetailResponseBody extends $dara.Model {
   assetsInstanceName?: string;
   /**
    * @remarks
-   * The description of the event.
+   * The event description.
    * 
    * @example
    * test
@@ -109,7 +109,7 @@ export class DescribeInvadeEventDetailResponseBody extends $dara.Model {
   eventDesc?: string;
   /**
    * @remarks
-   * The details of the event.
+   * The event details.
    * 
    * @example
    * test
@@ -117,7 +117,7 @@ export class DescribeInvadeEventDetailResponseBody extends $dara.Model {
   eventDetail?: string;
   /**
    * @remarks
-   * The key of the event.
+   * The event key.
    * 
    * @example
    * C&CActivity
@@ -125,7 +125,7 @@ export class DescribeInvadeEventDetailResponseBody extends $dara.Model {
   eventKey?: string;
   /**
    * @remarks
-   * The name of the event.
+   * The event name.
    * 
    * @example
    * event_test
@@ -133,7 +133,7 @@ export class DescribeInvadeEventDetailResponseBody extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The UUID of the threat detection event.
+   * The UUID of the compromise awareness event.
    * 
    * @example
    * aa6e786c-5034-457a-8e05-1c63fab****
@@ -141,7 +141,7 @@ export class DescribeInvadeEventDetailResponseBody extends $dara.Model {
   eventUuid?: string;
   /**
    * @remarks
-   * The time when the event first occurred. This value is a UNIX timestamp. Unit: seconds.
+   * The time when the event first occurred. The value is a UNIX timestamp accurate to seconds.
    * 
    * @example
    * 1735006706
@@ -157,7 +157,7 @@ export class DescribeInvadeEventDetailResponseBody extends $dara.Model {
   isIgnore?: boolean;
   /**
    * @remarks
-   * The time when the event last occurred. This value is a UNIX timestamp. Unit: seconds.
+   * The time when the event last occurred. The value is a UNIX timestamp accurate to seconds.
    * 
    * @example
    * 1740104108
@@ -178,7 +178,7 @@ export class DescribeInvadeEventDetailResponseBody extends $dara.Model {
   privateIP?: string;
   /**
    * @remarks
-   * The handling status of the event.
+   * The processing status.
    * 
    * @example
    * 1
@@ -218,7 +218,7 @@ export class DescribeInvadeEventDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The risk level of the event.
+   * The risk level.
    * 
    * @example
    * 2

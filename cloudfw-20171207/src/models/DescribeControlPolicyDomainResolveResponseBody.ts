@@ -13,7 +13,7 @@ export class DescribeControlPolicyDomainResolveResponseBodyResolveResult extends
   domain?: string;
   /**
    * @remarks
-   * The list of IP addresses.
+   * The IP address list.
    */
   ipAddrList?: string[];
   /**
@@ -65,7 +65,7 @@ export class DescribeControlPolicyDomainResolveResponseBodyResolveResult extends
 export class DescribeControlPolicyDomainResolveResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * F0F82705-CFC7-5F83-86C8-A063892F****

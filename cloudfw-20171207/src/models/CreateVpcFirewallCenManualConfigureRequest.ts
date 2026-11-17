@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateVpcFirewallCenManualConfigureRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the Cloud Enterprise Network (CEN) instance.
+   * The ID of the CEN instance.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateVpcFirewallCenManualConfigureRequest extends $dara.Model {
   lang?: string;
   /**
    * @remarks
-   * The UID of the Cloud Firewall member accounts.
+   * The UID of the Cloud Firewall member account.
    * 
    * @example
    * 258039427902****
@@ -43,7 +43,7 @@ export class CreateVpcFirewallCenManualConfigureRequest extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The border instance name of the virtual private cloud (VPC) firewalls.
+   * The instance name of the VPC firewall.
    * 
    * This parameter is required.
    * 
@@ -53,7 +53,7 @@ export class CreateVpcFirewallCenManualConfigureRequest extends $dara.Model {
   vpcFirewallName?: string;
   /**
    * @remarks
-   * The VPC-connected instance ID.
+   * The ID of the VPC-connected instance.
    * 
    * This parameter is required.
    * 

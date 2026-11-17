@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIPSRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The attacked application.
+   * The attack application.
    * 
    * @example
    * SMB
@@ -13,12 +13,12 @@ export class DescribeIPSRulesRequest extends $dara.Model {
   attackApp?: string;
   /**
    * @remarks
-   * The list of categories of the attacked applications. Specify the value in the ["AttackAppCategory1","AttackAppCategory2"] format.
+   * The list of categories of the attacked applications, in the format of ["AttackAppCategory1","AttackAppCategory2"].
    */
   attackAppCategory?: string[];
   /**
    * @remarks
-   * The list of attacked applications.
+   * The list of attack applications.
    */
   attackApps?: string[];
   /**
@@ -91,6 +91,14 @@ export class DescribeIPSRulesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
+   * The instance ID of the NAT firewall. This parameter is required only when FirewallType is set to **NatFirewall** and is mutually exclusive with VpcFirewallId. You can obtain the ID by calling the [ListNatFirewallIpsConfigs](https://help.aliyun.com/document_detail/2879296.html) operation.
+   * 
+   * @example
+   * proxy-nat53f4bbc233234271a1d7
+   */
+  proxyId?: string;
+  /**
+   * @remarks
    * Specifies whether the rule has been modified.
    * 
    * @example
@@ -157,7 +165,7 @@ export class DescribeIPSRulesRequest extends $dara.Model {
   sort?: string;
   /**
    * @remarks
-   * The source IP address of the requester.
+   * The source IP address of the visitor.
    * 
    * @example
    * 8.139.222.XXX
@@ -165,7 +173,7 @@ export class DescribeIPSRulesRequest extends $dara.Model {
   sourceIp?: string;
   /**
    * @remarks
-   * The instance ID of the virtual private cloud (VPC) firewalls.
+   * The instance ID of the virtual private cloud (VPC) border firewalls.
    * 
    * @example
    * cen-rnbkqx4a8er21a****
@@ -184,6 +192,7 @@ export class DescribeIPSRulesRequest extends $dara.Model {
       order: 'Order',
       pageNo: 'PageNo',
       pageSize: 'PageSize',
+      proxyId: 'ProxyId',
       queryModify: 'QueryModify',
       ruleAction: 'RuleAction',
       ruleClass: 'RuleClass',
@@ -210,6 +219,7 @@ export class DescribeIPSRulesRequest extends $dara.Model {
       order: 'string',
       pageNo: 'number',
       pageSize: 'number',
+      proxyId: 'string',
       queryModify: 'string',
       ruleAction: 'string',
       ruleClass: 'string',

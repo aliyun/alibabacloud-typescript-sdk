@@ -8,7 +8,7 @@ export class DescribeIspInfoResponseBodyDataList extends $dara.Model {
    * The ISP ID.
    * 
    * @example
-   * isp-dhyw2lxfpc****
+   * 1000323
    */
   ispId?: number;
   /**

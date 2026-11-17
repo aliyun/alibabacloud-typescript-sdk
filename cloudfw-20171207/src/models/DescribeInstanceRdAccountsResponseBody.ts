@@ -13,7 +13,7 @@ export class DescribeInstanceRdAccountsResponseBodyAccounts extends $dara.Model 
   accountId?: string;
   /**
    * @remarks
-   * The name of the member account.
+   * The name of the member.
    * 
    * @example
    * test
@@ -50,7 +50,7 @@ export class DescribeInstanceRdAccountsResponseBody extends $dara.Model {
   accounts?: DescribeInstanceRdAccountsResponseBodyAccounts[];
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 06D1EC07-C9EB-58AC-A750-C87C9A0****

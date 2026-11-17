@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeAclCheckResponseBodyCheckRecordAclsAclAddresses extends $dara.Model {
   /**
    * @remarks
-   * The address in the address book.
+   * The address information in the address book.
    * 
    * @example
    * 192.0.XX.XX/32
@@ -13,7 +13,7 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAclAddresses extends $da
   address?: string;
   /**
    * @remarks
-   * The remarks.
+   * The description note.
    * 
    * @example
    * Reviewed
@@ -85,13 +85,11 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAclTagList extends $dara
 export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model {
   /**
    * @remarks
-   * The action performed on traffic that matches the access control policy. Valid values:
+   * The action that Cloud Firewall performs on the traffic in the access control policy. Valid values:
    * 
-   * - **accept**: allow
-   * 
-   * - **drop**: deny
-   * 
-   * - **log**: monitor
+   * - **accept**: allows the traffic.
+   * - **drop**: blocks the traffic.
+   * - **log**: monitors the traffic.
    * 
    * @example
    * log
@@ -107,7 +105,7 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   aclUuid?: string;
   /**
    * @remarks
-   * The addresses in the address book.
+   * The address information in the address book.
    */
   addressList?: string[];
   /**
@@ -120,12 +118,12 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   addressListCount?: number;
   /**
    * @remarks
-   * The addresses and their remarks.
+   * The list of addresses and description notes.
    */
   addresses?: DescribeAclCheckResponseBodyCheckRecordAclsAclAddresses[];
   /**
    * @remarks
-   * The ID of the application that is used in the access control policy.
+   * The ID of the application for the traffic in the access control policy.
    * 
    * @example
    * plugin_idp4_ciam
@@ -133,35 +131,22 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   applicationId?: string;
   /**
    * @remarks
-   * The application type supported by the access control policy for the VPC firewall. We recommend that you use the ApplicationNameList parameter instead. Valid values:
+   * The application types supported by the access control policies of VPC border firewalls. Use ApplicationNameList. Valid values:
    * 
    * - **HTTP**
-   * 
    * - **HTTPS**
-   * 
    * - **MySQL**
-   * 
    * - **SMTP**
-   * 
    * - **SMTPS**
-   * 
    * - **RDP**
-   * 
    * - **VNC**
-   * 
    * - **SSH**
-   * 
    * - **Redis**
-   * 
    * - **MQTT**
-   * 
    * - **MongoDB**
-   * 
    * - **Memcache**
-   * 
    * - **SSL**
-   * 
-   * - **ANY**: All application types.
+   * - **ANY**: all application types.
    * 
    * @example
    * ANY
@@ -169,42 +154,27 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   applicationName?: string;
   /**
    * @remarks
-   * The application types that are supported by the access control policy. Valid values:
-   * 
+   * The list of application types supported by the access control policy. Valid values:
    * - **FTP**
-   * 
    * - **HTTP**
-   * 
    * - **HTTPS**
-   * 
    * - **Memcache**
-   * 
    * - **MongoDB**
-   * 
    * - **MQTT**
-   * 
    * - **MySQL**
-   * 
    * - **RDP**
-   * 
    * - **Redis**
-   * 
    * - **SMTP**
-   * 
    * - **SMTPS**
-   * 
    * - **SSH**
-   * 
    * - **SSL**
-   * 
    * - **VNC**
-   * 
-   * - **ANY** (indicates all application types)
+   * - **ANY**: all application types.
    */
   applicationNameList?: string[];
   /**
    * @remarks
-   * Indicates whether to automatically add the public IP addresses of new ECS instances that match the tags to the address book. New ECS instances include newly purchased instances with the specified tags and existing instances whose tags are modified to match.
+   * Specifies whether to automatically add the public IP addresses of newly matched ECS instances to the address book. Newly matched ECS instances refer to newly purchased ECS instances with tags configured or ECS instances with modified tags.
    * 
    * @example
    * 0
@@ -212,7 +182,7 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   autoAddTagEcs?: number;
   /**
    * @remarks
-   * The time when the policy was created, provided as a UNIX timestamp in seconds.
+   * The time when the policy was created. The value is a UNIX timestamp measured in seconds.
    * 
    * @example
    * 1761062400
@@ -228,7 +198,7 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   description?: string;
   /**
    * @remarks
-   * The destination port that is used in the access control policy.
+   * The destination port of the traffic in the access control policy.
    * 
    * @example
    * 80/80
@@ -236,11 +206,9 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   destPort?: string;
   /**
    * @remarks
-   * The name of the destination port address book.
-   * 
-   * - **port**: Port
-   * 
-   * - **group**: Port address book
+   * The type of the destination port for traffic access in the access control policy. Valid values:
+   * - **port**: port.
+   * - **group**: port address book.
    * 
    * @example
    * my_port_group
@@ -253,11 +221,9 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   destPortGroupPorts?: string[];
   /**
    * @remarks
-   * The type of the destination port in the access control policy. Valid values:
-   * 
-   * - **port**: port
-   * 
-   * - **group**: port address book
+   * The type of the destination port for traffic access in the access control policy. Valid values:
+   * - **port**: port.
+   * - **group**: port address book.
    * 
    * @example
    * port
@@ -265,17 +231,17 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   destPortType?: string;
   /**
    * @remarks
-   * The destination address in the access control policy. The value of this parameter varies based on the value of DestinationType.
+   * The destination address in the access control policy. Fuzzy match is supported. The value varies based on the destination type (DestinationType).
    * 
-   * - If the value of DestinationType is`net`, the value of this parameter is a CIDR block. Example: 10.0.3.0/24.
+   * - If DestinationType is set to `net`, the destination address is a CIDR block. Example: 10.0.3.0/24.
    * 
-   * - If the value of DestinationType is`domain`, the value of this parameter is a domain name. Example: aliyun.
+   * - If DestinationType is set to `domain`, the destination address is a domain name. Example: aliyun.
    * 
-   * - If the value of DestinationType is`group`, the value of this parameter is the name of an address book. Example: db_group.
+   * - If DestinationType is set to `group`, the destination address is the name of an address book. Example: db_group.
    * 
-   * - If the value of DestinationType is`location`, the value of this parameter is a location. For more information about the location codes, see AddControlPolicy. Example: ["BJ11", "ZB"].
+   * - If DestinationType is set to `location`, the destination address is an area name. For more information about area positional encoding, see AddControlPolicy. Example: ["BJ11", "ZB"].
    * 
-   * > If this parameter is omitted, all types of destination addresses are retrieved.
+   * > If you do not specify this parameter, destination addresses of all types are queried.
    * 
    * @example
    * kms.cn-shanghai.aliyuncs.com
@@ -283,22 +249,22 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   destination?: string;
   /**
    * @remarks
-   * The CIDR blocks in the destination address book.
+   * The CIDR blocks in the destination address book of the access control policy.
    */
   destinationGroupCidrs?: string[];
   /**
    * @remarks
    * The type of the destination address book in the access control policy. Valid values:
    * 
-   * - **ip**: an IP address book, which contains one or more CIDR blocks.
+   * - **ip**: IP address book, which contains one or more CIDR blocks.
    * 
-   * - **tag**: an ECS tag-based address book, which contains the public IP addresses of ECS instances that have specific tags.
+   * - **tag**: ECS tag-based address book, which contains the IP addresses of one or more ECS tags.
    * 
-   * - **domain**: a domain name address book, which contains one or more domain names.
+   * - **domain**: domain name address book, which contains one or more domain names.
    * 
-   * - **threat**: a threat intelligence address book, which contains one or more malicious IP addresses or domain names.
+   * - **threat**: threat intelligence address book, which contains one or more malicious IP addresses or domain names.
    * 
-   * - **backsrc**: a back-to-source address book, which contains the back-to-source IP addresses of one or more Anti-DDoS or WAF instances.
+   * - **backsrc**: back-to-origin address book, which contains the back-to-origin IP addresses of one or more Anti-DDoS or WAF instances.
    * 
    * @example
    * domain
@@ -308,13 +274,10 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
    * @remarks
    * The type of the destination address in the access control policy. Valid values:
    * 
-   * - **net**: destination CIDR block
-   * 
-   * - **group**: destination address book
-   * 
-   * - **domain**: destination domain name
-   * 
-   * - **location**: destination region
+   * - **net**: destination CIDR block.
+   * - **group**: destination address book.
+   * - **domain**: destination domain name.
+   * - **location**: destination location.
    * 
    * @example
    * domain
@@ -322,11 +285,10 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   destinationType?: string;
   /**
    * @remarks
-   * The direction of internet traffic. Valid values:
+   * The traffic direction on the Internet. Valid values:
    * 
-   * - **in**: inbound traffic
-   * 
-   * - **out**: outbound traffic
+   * - **in**: access control for inbound traffic.
+   * - **out**: access control for outbound traffic.
    * 
    * @example
    * out
@@ -334,7 +296,7 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   direction?: string;
   /**
    * @remarks
-   * The result of the DNS resolution.
+   * The DNS resolution result.
    * 
    * @example
    * 192.0.XX.XX
@@ -342,7 +304,7 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   dnsResult?: string;
   /**
    * @remarks
-   * The time of the DNS resolution, provided as a UNIX timestamp in seconds.
+   * The timestamp of the DNS resolution. The value is a UNIX timestamp measured in seconds.
    * 
    * @example
    * 1579261141
@@ -350,13 +312,11 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   dnsResultTime?: number;
   /**
    * @remarks
-   * The DNS resolution method of the domain name in the access control policy. Valid values:
+   * The domain name resolution method of the access control policy. Valid values:
    * 
-   * - **0**: FQDN-based resolution
-   * 
-   * - **1**: DNS-based dynamic resolution
-   * 
-   * - **2**: FQDN-based and DNS-based dynamic resolution
+   * * **FQDN**: FQDN-based resolution.
+   * * **DNS**: DNS-based dynamic resolution.
+   * * **FQDN_AND_DNS**: FQDN- and DNS-based dynamic resolution.
    * 
    * @example
    * FQDN
@@ -364,9 +324,8 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   domainResolveType?: number;
   /**
    * @remarks
-   * The end time of the policy validity period. This is a UNIX timestamp, accurate to the second. The time must be on the hour or half-hour and must be at least 30 minutes later than the start time.
-   * 
-   * > This parameter is empty if RepeatType is set to Permanent. It is required if RepeatType is set to None, Daily, Weekly, or Monthly.
+   * The end time of the policy validity period for the access control policy. The value is a UNIX timestamp measured in seconds. The time must be on the hour or half-hour, and must be at least 30 minutes later than the start time.
+   * > If RepeatType is set to Permanent, EndTime is empty. If RepeatType is set to None, Daily, Weekly, or Monthly, EndTime must be specified.
    * 
    * @example
    * 1758334822
@@ -384,17 +343,17 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
    * @remarks
    * The type of the address book. Valid values:
    * 
-   * - **ip**: IP address book
+   * - **ip**: IP address book.
    * 
-   * - **domain**: domain address book
+   * - **domain**: domain name address book.
    * 
-   * - **port**: port address book
+   * - **port**: port address book.
    * 
-   * - **tag**: ECS tag-based address book
+   * - **tag**: ECS tag-based address book.
    * 
-   * - **allCloud**: cloud service address book
+   * - **allCloud**: cloud service address book.
    * 
-   * - **threat**: threat intelligence address book
+   * - **threat**: threat intelligence address book.
    * 
    * @example
    * ip
@@ -404,7 +363,7 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
    * @remarks
    * The unique ID of the address book.
    * 
-   * This ID is required for other operations, such as deleting the address book. You can obtain the ID by calling the [DescribeAddressBook](https://help.aliyun.com/document_detail/138869.html) operation.
+   * To delete an address book for access control, you must provide the unique ID of the address book. You can call the [DescribeAddressBook](https://help.aliyun.com/document_detail/138869.html) operation to obtain the ID.
    * 
    * @example
    * b91d86c3-2b52-4534-aae9-8d0339b12a48
@@ -412,7 +371,7 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   groupUuid?: string;
   /**
    * @remarks
-   * The time when the policy was last hit, provided as a UNIX timestamp in seconds.
+   * The UNIX timestamp of the latest hit. The value is a UNIX timestamp measured in seconds.
    * 
    * @example
    * 1579261141
@@ -420,7 +379,7 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   hitLastTime?: number;
   /**
    * @remarks
-   * The hit count of the access control policy.
+   * The number of hits for the access control policy.
    * 
    * @example
    * 1
@@ -428,11 +387,10 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   hitTimes?: number;
   /**
    * @remarks
-   * The IP version. Valid values:
+   * The IP address version. Valid values:
    * 
-   * - **4**: IPv4
-   * 
-   * - **6**: IPv6
+   * - **4**: IPv4.
+   * - **6**: IPv6.
    * 
    * @example
    * 4
@@ -440,7 +398,7 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   ipVersion?: number;
   /**
    * @remarks
-   * The time when the policy was last modified, provided as a UNIX timestamp in seconds.
+   * The time when the policy was last modified. The value is a UNIX timestamp measured in seconds.
    * 
    * @example
    * 1761062400
@@ -458,7 +416,7 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
    * @remarks
    * The priority of the access control policy.
    * 
-   * The priority starts from 1. A smaller value indicates a higher priority.
+   * The priority starts from 1 and increases in ascending order. A smaller value indicates a higher priority.
    * 
    * @example
    * 1
@@ -469,14 +427,10 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
    * The protocol type of the traffic in the access control policy. Valid values:
    * 
    * - **TCP**
-   * 
    * - **UDP**
-   * 
    * - **ICMP**
-   * 
-   * - **ANY**: All protocol types
-   * 
-   * >
+   * - **ANY**: all protocol types.
+   * > If you do not specify this parameter, all protocol types are queried.
    * 
    * @example
    * TCP
@@ -484,7 +438,7 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   proto?: string;
   /**
    * @remarks
-   * The number of policies that reference this address book.
+   * The number of times the address book is referenced.
    * 
    * @example
    * 1
@@ -494,9 +448,9 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
    * @remarks
    * The status of the access control policy. Valid values:
    * 
-   * - **true**: enabled
+   * - **true**: The access control policy is enabled.
    * 
-   * - **false**: disabled
+   * - **false**: The access control policy is disabled.
    * 
    * @example
    * true
@@ -504,17 +458,16 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   release?: string;
   /**
    * @remarks
-   * The days of a week or month on which the policy recurs.
-   * 
-   * > If RepeatType is set to Weekly, the valid values are 0 to 6. The week starts on Sunday.
-   * > If RepeatType is set to Monthly, the valid values are 1 to 31.
+   * The recurrence days of the policy validity period for the access control policy.
+   * > If RepeatType is set to Weekly, valid values are 0 to 6. A week starts on Sunday.
+   * > If RepeatType is set to Monthly, valid values are 1 to 31.
    */
   repeatDays?: number[];
   /**
    * @remarks
-   * The time when the policy stops to take effect. Example: 23:30. The time must be on the hour or half-hour and must be at least 30 minutes later than the recurrence start time.
-   * 
-   * > This parameter is returned empty if RepeatType is set to Permanent or None. This parameter is required if RepeatType is set to Daily, Weekly, or Monthly. The time is in the HH:mm format. Examples: 08:00 and 23:30.
+   * The recurrence end time of the policy validity period for the access control policy. Example: 23:30. The time must be on the hour or half-hour, and must be at least 30 minutes later than the recurrence start time.
+   * > If RepeatType is set to Permanent or None, RepeatEndTime is empty. If RepeatType is set to Daily, Weekly, or Monthly, RepeatEndTime must be specified.
+   * > The time is in the HH:mm format (24-hour clock). Examples: 08:00 and 23:30.
    * 
    * @example
    * 23:30
@@ -522,9 +475,9 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   repeatEndTime?: string;
   /**
    * @remarks
-   * The time when the policy starts to take effect. Example: 08:00. The time must be on the hour or half-hour and must be at least 30 minutes earlier than the recurrence end time.
-   * 
-   * > This parameter is returned empty if RepeatType is set to Permanent or None. This parameter is required if RepeatType is set to Daily, Weekly, or Monthly. The time is in the HH:mm format. Examples: 08:00 and 23:30.
+   * The recurrence start time of the policy validity period for the access control policy. Example: 08:00. The time must be on the hour or half-hour, and must be at least 30 minutes earlier than the recurrence end time.
+   * > If RepeatType is set to Permanent or None, RepeatStartTime is empty. If RepeatType is set to Daily, Weekly, or Monthly, RepeatStartTime must be specified.
+   * > The time is in the HH:mm format (24-hour clock). Examples: 08:00 and 23:30.
    * 
    * @example
    * 08:00
@@ -532,17 +485,12 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   repeatStartTime?: string;
   /**
    * @remarks
-   * The recurrence type of the policy. Valid values:
-   * 
-   * - **Permanent** (default): The policy is always valid.
-   * 
-   * - **None**: The policy is valid only once.
-   * 
-   * - **Daily**: The policy recurs daily.
-   * 
-   * - **Weekly**: The policy recurs weekly.
-   * 
-   * - **Monthly**: The policy recurs monthly.
+   * The recurrence type of the policy validity period for the access control policy. Valid values:
+   * - **Permanent** (default): always.
+   * - **None**: specified single time.
+   * - **Daily**: every day.
+   * - **Weekly**: every week.
+   * - **Monthly**: every month.
    * 
    * @example
    * Permanent
@@ -550,13 +498,11 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   repeatType?: string;
   /**
    * @remarks
-   * The source address in the access control policy. The value of this parameter varies based on the value of SourceType.
+   * The source address in the access control policy. Valid values:
    * 
-   * - If **SourceType** is set to`net`, the value of this parameter is a CIDR block. Example: 192.0.XX.XX/24.
-   * 
-   * - If **SourceType** is set to`group`, the value of this parameter is the name of a source address book. Example: db_group.
-   * 
-   * - If **SourceType** is set to`location`, the value of this parameter is a location. For more information, see [AddControlPolicy](https://help.aliyun.com/document_detail/138867.html). Example: ["BJ11", "ZB"].
+   * - If **SourceType** is set to `net`, the source address is a CIDR block. Example: 192.0.XX.XX/24.
+   * - If **SourceType** is set to `group`, the source address is the name of the source address book. Example: db_group.
+   * - If **SourceType** is set to `location`, the source address is an area. For more information about area positional encoding, see [AddControlPolicy](https://help.aliyun.com/document_detail/138867.html). Example: ["BJ11", "ZB"].
    * 
    * @example
    * 172.28.7.167
@@ -564,22 +510,22 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   source?: string;
   /**
    * @remarks
-   * The CIDR blocks in the source address book.
+   * The CIDR blocks in the source address book of the access control policy.
    */
   sourceGroupCidrs?: string[];
   /**
    * @remarks
    * The type of the source address book in the access control policy. Valid values:
    * 
-   * - **ip**: An address book that contains one or more IP addresses or CIDR blocks.
+   * - **ip**: IP address book, which contains one or more CIDR blocks.
    * 
-   * - **tag**: An address book that contains the public IP addresses of ECS instances with specific tags.
+   * - **tag**: ECS tag-based address book, which contains the IP addresses of one or more ECS tags.
    * 
-   * - **domain**: A domain name address book, which contains one or more domain names.
+   * - **domain**: domain name address book, which contains one or more domain names.
    * 
-   * - **threat**: a threat intelligence address book, which contains one or more malicious IP addresses or domain names.
+   * - **threat**: threat intelligence address book, which contains one or more malicious IP addresses or domain names.
    * 
-   * - **backsrc**: a back-to-source address book, which contains the back-to-source IP addresses of one or more Anti-DDoS or WAF instances.
+   * - **backsrc**: back-to-origin address book, which contains the back-to-origin IP addresses of one or more Anti-DDoS or WAF instances.
    * 
    * @example
    * ip
@@ -589,11 +535,9 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
    * @remarks
    * The type of the source address in the access control policy. Valid values:
    * 
-   * - **net**: a source CIDR block
-   * 
-   * - **group**: a source address book
-   * 
-   * - **location**: a source region
+   * - **net**: source CIDR block.
+   * - **group**: source address book.
+   * - **location**: source location.
    * 
    * @example
    * group
@@ -601,7 +545,8 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   sourceType?: string;
   /**
    * @remarks
-   * The number of specification units that the policy consumes. The value is calculated by using the following formula: Number of source addresses × Number of destination addresses × Number of port ranges × Number of applications.
+   * The number of access control policy quotas consumed. This value is the sum of the quotas consumed by each policy.
+   * Number of quotas consumed by a single policy = Number of source addresses (CIDR blocks or locations) × Number of destination addresses (CIDR blocks, locations, or domain names) × Number of port ranges × Number of applications.
    * 
    * @example
    * 10
@@ -609,7 +554,7 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   spreadCnt?: number;
   /**
    * @remarks
-   * The start of the policy\\"s validity period, provided as a UNIX timestamp in seconds.
+   * The start time of the query. The value is a UNIX timestamp measured in seconds.
    * 
    * @example
    * 1730318400
@@ -617,16 +562,16 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   startTime?: number;
   /**
    * @remarks
-   * The ECS tags.
+   * The list of ECS tags.
    */
   tagList?: DescribeAclCheckResponseBodyCheckRecordAclsAclTagList[];
   /**
    * @remarks
-   * The logical relationship among multiple ECS tags. Valid values:
+   * The relationship between multiple ECS labels. Valid values:
    * 
-   * - **and**: An ECS instance must have all the specified tags.
+   * - **and**: The logical AND relation is used. The public IP addresses of Elastic Compute Service (ECS) instances that match all specified labels are added to the address book.
    * 
-   * - **or**: An ECS instance must have one of the specified tags.
+   * - **or**: The logical OR relation is used. The public IP addresses of Elastic Compute Service (ECS) instances that match any of the specified labels are added to the address book.
    * 
    * @example
    * or
@@ -634,7 +579,7 @@ export class DescribeAclCheckResponseBodyCheckRecordAclsAcl extends $dara.Model 
   tagRelation?: string;
   /**
    * @remarks
-   * The instance ID of the VPC firewall.
+   * The instance ID of the VPC border firewall.
    * 
    * @example
    * vfw-925514970c2c4bcab222
@@ -789,7 +734,7 @@ export class DescribeAclCheckResponseBodyCheckRecordAcls extends $dara.Model {
   acl?: DescribeAclCheckResponseBodyCheckRecordAclsAcl;
   /**
    * @remarks
-   * The assessment details of the access control policy.
+   * The assessment details of the ACL policy.
    * 
    * @example
    * No traffic hit policy.
@@ -797,7 +742,7 @@ export class DescribeAclCheckResponseBodyCheckRecordAcls extends $dara.Model {
   aclAssessmentDetail?: string;
   /**
    * @remarks
-   * The status of the ACL check.
+   * The ACL check status.
    * 
    * @example
    * Pending
@@ -834,7 +779,7 @@ export class DescribeAclCheckResponseBodyCheckRecordAcls extends $dara.Model {
 export class DescribeAclCheckResponseBodyCheckRecord extends $dara.Model {
   /**
    * @remarks
-   * The total number of access control policies at the time of the check.
+   * The total number of access control list (ACL) policies at the time of the check.
    * 
    * @example
    * 10
@@ -842,7 +787,7 @@ export class DescribeAclCheckResponseBodyCheckRecord extends $dara.Model {
   aclTotalCount?: number;
   /**
    * @remarks
-   * The ACL check results.
+   * The list of ACL check results.
    */
   acls?: DescribeAclCheckResponseBodyCheckRecordAcls[];
   /**
@@ -863,7 +808,7 @@ export class DescribeAclCheckResponseBodyCheckRecord extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The time of the last check, provided as a UNIX timestamp in seconds.
+   * The timestamp of the last check. Unit: seconds.
    * 
    * @example
    * 1724982259

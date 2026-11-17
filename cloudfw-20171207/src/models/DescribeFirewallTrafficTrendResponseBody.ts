@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeFirewallTrafficTrendResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The Internet firewall traffic.
+   * The traffic of the Internet firewall.
    * 
    * @example
    * 100
@@ -13,7 +13,7 @@ export class DescribeFirewallTrafficTrendResponseBodyDataList extends $dara.Mode
   internetBps?: number;
   /**
    * @remarks
-   * The NAT firewall traffic.
+   * The traffic of the NAT firewall.
    * 
    * @example
    * 100
@@ -21,9 +21,9 @@ export class DescribeFirewallTrafficTrendResponseBodyDataList extends $dara.Mode
   natBps?: number;
   /**
    * @remarks
-   * The time when the traffic occurred. The value is a UNIX timestamp in seconds.
+   * The time when the traffic is generated. The value is a UNIX timestamp in seconds.
    * 
-   * If the data at this point in time has not been processed, the values of other fields are -1.
+   * If the data for this time point is not processed, the values of other fields are -1.
    * 
    * @example
    * 1758470400
@@ -31,7 +31,7 @@ export class DescribeFirewallTrafficTrendResponseBodyDataList extends $dara.Mode
   time?: number;
   /**
    * @remarks
-   * The total firewall traffic.
+   * The total traffic of the firewall.
    * 
    * @example
    * 300
@@ -39,7 +39,7 @@ export class DescribeFirewallTrafficTrendResponseBodyDataList extends $dara.Mode
   totalBps?: number;
   /**
    * @remarks
-   * The VPC firewall traffic.
+   * The traffic of the VPC firewall.
    * 
    * @example
    * 100
@@ -77,7 +77,7 @@ export class DescribeFirewallTrafficTrendResponseBodyDataList extends $dara.Mode
 export class DescribeFirewallTrafficTrendResponseBodyMaxBandwidthTimeBps extends $dara.Model {
   /**
    * @remarks
-   * The Internet firewall traffic at the time of peak total traffic.
+   * The traffic of the Internet firewall at the time when the total traffic peaks.
    * 
    * @example
    * 100
@@ -85,7 +85,7 @@ export class DescribeFirewallTrafficTrendResponseBodyMaxBandwidthTimeBps extends
   internetBps?: number;
   /**
    * @remarks
-   * The NAT firewall traffic at the time of peak total traffic.
+   * The traffic of the NAT firewall at the time when the total traffic peaks.
    * 
    * @example
    * 100
@@ -101,7 +101,7 @@ export class DescribeFirewallTrafficTrendResponseBodyMaxBandwidthTimeBps extends
   totalBps?: number;
   /**
    * @remarks
-   * The VPC firewall traffic at the time of peak total traffic.
+   * The traffic of the VPC firewall at the time when the total traffic peaks.
    * 
    * @example
    * 100
@@ -137,12 +137,12 @@ export class DescribeFirewallTrafficTrendResponseBodyMaxBandwidthTimeBps extends
 export class DescribeFirewallTrafficTrendResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data list.
+   * The list of returned data.
    */
   dataList?: DescribeFirewallTrafficTrendResponseBodyDataList[];
   /**
    * @remarks
-   * The timestamp when the peak total traffic occurred. The value is a UNIX timestamp in seconds.
+   * The timestamp when the total traffic peaks. The value is a UNIX timestamp in seconds.
    * 
    * @example
    * 1758470400
@@ -150,7 +150,7 @@ export class DescribeFirewallTrafficTrendResponseBody extends $dara.Model {
   maxBandwidthTime?: number;
   /**
    * @remarks
-   * The traffic distribution at the time of peak total traffic.
+   * The traffic distribution at the time when the total traffic peaks.
    */
   maxBandwidthTimeBps?: DescribeFirewallTrafficTrendResponseBodyMaxBandwidthTimeBps;
   /**
