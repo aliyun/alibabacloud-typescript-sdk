@@ -3,6 +3,13 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ConfirmReceiptCmd extends $dara.Model {
+  /**
+   * @remarks
+   * The refund dispute ID.
+   * 
+   * @example
+   * 6693****4352
+   */
   disputeId?: string;
   static names(): { [key: string]: string } {
     return {

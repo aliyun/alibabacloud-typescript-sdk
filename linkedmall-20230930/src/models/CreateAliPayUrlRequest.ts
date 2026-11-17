@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAliPayUrlRequest extends $dara.Model {
   /**
    * @remarks
+   * The ID of the applied shop.
+   * 
    * This parameter is required.
    * 
    * @example

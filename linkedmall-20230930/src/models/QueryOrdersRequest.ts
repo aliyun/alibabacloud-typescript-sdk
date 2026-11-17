@@ -6,7 +6,7 @@ import { OrderPageQuery } from "./OrderPageQuery";
 export class QueryOrdersRequest extends $dara.Model {
   /**
    * @remarks
-   * Queries the list of main orders.
+   * The main order list.
    * 
    * This parameter is required.
    */

@@ -33,7 +33,7 @@ export class RefundResult extends $dara.Model {
    * Dispute creation time
    * 
    * @example
-   * 2023-09-15T19:23:59.000+08:00
+   * 2023-09-02T00:00:00.000Z
    */
   disputeCreateTime?: string;
   /**
@@ -49,7 +49,7 @@ export class RefundResult extends $dara.Model {
    * Reverse process end time
    * 
    * @example
-   * 2023-09-15T19:23:59.000+08:00
+   * 2023-09-02T12:00:00.000Z
    */
   disputeEndTime?: string;
   /**

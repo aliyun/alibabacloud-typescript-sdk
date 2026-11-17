@@ -7,7 +7,7 @@ import { SkuSaleInfo } from "./SkuSaleInfo";
 export class ProductSaleInfo extends $dara.Model {
   /**
    * @remarks
-   * Is sellable, calculated value
+   * The calculated value that indicates whether the product is sellable.
    * 
    * @example
    * true
@@ -15,7 +15,7 @@ export class ProductSaleInfo extends $dara.Model {
   canSell?: boolean;
   /**
    * @remarks
-   * Region code
+   * The division code.
    * 
    * @example
    * 330106109
@@ -23,20 +23,20 @@ export class ProductSaleInfo extends $dara.Model {
   divisionCode?: string;
   /**
    * @remarks
-   * Fuzzy inventory quantity.
+   * The fuzzy inventory.
    * 
    * @example
-   * 有货
+   * In stock
    */
   fuzzyQuantity?: string;
   /**
    * @remarks
-   * Purchase limit configuration
+   * The purchase limit configuration.
    */
   limitRules?: LimitRule[];
   /**
    * @remarks
-   * LM product ID
+   * The LM product ID.
    * 
    * @example
    * 21000017-4580902812
@@ -44,7 +44,7 @@ export class ProductSaleInfo extends $dara.Model {
   lmItemId?: string;
   /**
    * @remarks
-   * Product ID
+   * The product ID.
    * 
    * @example
    * 660460842235822080
@@ -52,7 +52,7 @@ export class ProductSaleInfo extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * Product status
+   * The product status.
    * 
    * @example
    * Online
@@ -60,7 +60,7 @@ export class ProductSaleInfo extends $dara.Model {
   productStatus?: string;
   /**
    * @remarks
-   * Inventory
+   * The inventory.
    * 
    * @example
    * 10
@@ -68,7 +68,7 @@ export class ProductSaleInfo extends $dara.Model {
   quantity?: number;
   /**
    * @remarks
-   * API request ID
+   * The API request ID.
    * 
    * @example
    * 3239281273464326823
@@ -76,7 +76,7 @@ export class ProductSaleInfo extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Channel shop ID
+   * The channel shop ID.
    * 
    * @example
    * 21000017
@@ -84,15 +84,15 @@ export class ProductSaleInfo extends $dara.Model {
   shopId?: string;
   /**
    * @remarks
-   * SKU collection
+   * The SKU collection.
    */
   skus?: SkuSaleInfo[];
   /**
    * @remarks
-   * Title
+   * The title.
    * 
    * @example
-   * 发财树
+   * Money tree
    */
   title?: string;
   static names(): { [key: string]: string } {

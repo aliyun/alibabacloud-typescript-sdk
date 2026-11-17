@@ -8,7 +8,7 @@ export class ProductSaleInfoListQuery extends $dara.Model {
    * Area code (recommended to use a five-level township/street-level address code)
    * 
    * @example
-   * 330106109
+   * 110000
    */
   divisionCode?: string;
   /**

@@ -6,49 +6,77 @@ import { Money } from "./Money";
 export class GeneralBill extends $dara.Model {
   /**
    * @remarks
-   * bill ID
+   * The bill ID.
+   * 
+   * @example
+   * bill_demo_001
    */
   billId?: string;
   /**
    * @remarks
-   * billing cycle
+   * The billing cycle.
+   * 
+   * @example
+   * 2022-08
    */
   billPeriod?: string;
   /**
    * @remarks
-   * download URL for details
+   * The details download URL.
    */
   downloadUrl?: string[];
   /**
    * @remarks
-   * billing cycle End Time
+   * The end time of the billing cycle.
+   * 
+   * @example
+   * 2026-01-01 00:00:00
    */
   endTime?: string;
   /**
    * @remarks
-   * bill Creation Time
+   * The bill creation time.
+   * 
+   * @example
+   * 2026-01-01 00:00:00
    */
   gmtCreate?: string;
   /**
    * @remarks
-   * bill Updated At
+   * The bill modification time.
+   * 
+   * @example
+   * 2026-01-01 00:00:00
    */
   gmtModified?: string;
   /**
    * @remarks
-   * shop ID
+   * The shop ID.
+   * 
+   * @example
+   * 21000017
    */
   shopId?: string;
   /**
    * @remarks
-   * shop Name
+   * The shop name.
+   * 
+   * @example
+   * Children\\"s distribution store
    */
   shopName?: string;
   /**
    * @remarks
-   * billing cycle Start Time
+   * The start time of the billing cycle.
+   * 
+   * @example
+   * 2026-01-01 00:00:00
    */
   startTime?: string;
+  /**
+   * @remarks
+   * The bill amount.
+   */
   totalAmount?: Money;
   static names(): { [key: string]: string } {
     return {

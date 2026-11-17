@@ -26,7 +26,7 @@ export class AddressInfo extends $dara.Model {
    * The level-4 address code for the district or county. This parameter is recommended.
    * 
    * @example
-   * 330106
+   * 610102
    */
   divisionCode?: string;
   /**
@@ -54,7 +54,7 @@ export class AddressInfo extends $dara.Model {
    * The level-5 address code for the town or street. This parameter is required.
    * 
    * @example
-   * 330106109
+   * 61010212
    */
   townDivisionCode?: string;
   static names(): { [key: string]: string } {

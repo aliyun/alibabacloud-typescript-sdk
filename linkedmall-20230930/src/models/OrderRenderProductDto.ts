@@ -20,7 +20,7 @@ export class OrderRenderProductDTO extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * PID56****2304
+   * 56****2304
    */
   purchaserId?: string;
   /**

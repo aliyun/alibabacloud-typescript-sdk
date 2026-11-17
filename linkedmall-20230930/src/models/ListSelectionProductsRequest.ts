@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ListSelectionProductsRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number. The value must be 1 or greater.
+   * The cursor.
+   * 
+   * @example
+   * 134412333321
+   */
+  cursor?: string;
+  /**
+   * @remarks
+   * The current page number. Pages start from 1.
    * 
    * This parameter is required.
    * 
@@ -35,6 +43,7 @@ export class ListSelectionProductsRequest extends $dara.Model {
   purchaserId?: string;
   static names(): { [key: string]: string } {
     return {
+      cursor: 'cursor',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       purchaserId: 'purchaserId',
@@ -43,6 +52,7 @@ export class ListSelectionProductsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      cursor: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       purchaserId: 'string',

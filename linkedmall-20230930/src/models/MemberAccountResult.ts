@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class MemberAccountResult extends $dara.Model {
   /**
+   * @remarks
+   * The signed and bound Alipay auto-debit account (masked).
+   * 
    * @example
-   * "yue***@newburn.cn"
+   * ["yue***@newburn.cn"]
    */
   accountNo?: string[];
   /**
+   * @remarks
+   * The store ID.
+   * 
    * @example
    * 123
    */

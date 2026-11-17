@@ -6,7 +6,7 @@ import { ProductSaleInfoListQuery } from "./ProductSaleInfoListQuery";
 export class ListSelectionProductSaleInfosRequest extends $dara.Model {
   /**
    * @remarks
-   * Parameters for querying product sales information in batches
+   * The parameters for batch querying product sales information.
    * 
    * This parameter is required.
    */

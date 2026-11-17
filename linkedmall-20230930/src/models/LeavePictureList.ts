@@ -14,6 +14,9 @@ export class LeavePictureList extends $dara.Model {
   /**
    * @remarks
    * Image of the after-sales Credential>Notice: If the after-sales order rendering API returns that an after-sales image is required, this field is mandatory.</notice>
+   * 
+   * @example
+   * https://
    */
   picture?: string;
   static names(): { [key: string]: string } {

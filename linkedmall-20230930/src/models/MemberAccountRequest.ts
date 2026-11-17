@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class MemberAccountRequest extends $dara.Model {
   /**
    * @remarks
+   * The shop ID.
+   * 
    * This parameter is required.
    * 
    * @example

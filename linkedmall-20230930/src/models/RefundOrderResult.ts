@@ -39,7 +39,7 @@ export class RefundOrderResult extends $dara.Model {
    * API request ID
    * 
    * @example
-   * 841471F6-5D61-1331-8C38-2****B55
+   * 3239281273464326823
    */
   requestId?: string;
   static names(): { [key: string]: string } {

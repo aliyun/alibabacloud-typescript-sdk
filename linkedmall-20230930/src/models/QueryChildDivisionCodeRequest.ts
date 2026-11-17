@@ -6,7 +6,7 @@ import { DivisionQuery } from "./DivisionQuery";
 export class QueryChildDivisionCodeRequest extends $dara.Model {
   /**
    * @remarks
-   * The parameters for querying child division codes.
+   * The sub-region code.
    * 
    * This parameter is required.
    */

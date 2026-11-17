@@ -9,12 +9,12 @@ export class Shop extends $dara.Model {
    * The partner shops.
    * 
    * @example
-   * 12***01
+   * [{"shopId":"22000019","cooperationCompanyId":"11200003","cooperationShopId":"21000026"}]
    */
   cooperationShops?: CooperationShop[];
   /**
    * @remarks
-   * The ID of the distributor.
+   * The distributor ID.
    * 
    * @example
    * 12****09
@@ -30,7 +30,7 @@ export class Shop extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The ID of the purchaser.
+   * The purchaser ID.
    * 
    * @example
    * PID56****2304
@@ -38,7 +38,7 @@ export class Shop extends $dara.Model {
   purchaserId?: string;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 48A34399-A72C-1E23-8388-7E63****E927
@@ -46,7 +46,7 @@ export class Shop extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the shop.
+   * The shop ID.
    * 
    * @example
    * 22****09
@@ -54,15 +54,15 @@ export class Shop extends $dara.Model {
   shopId?: string;
   /**
    * @remarks
-   * The name of the shop.
+   * The shop name.
    * 
    * @example
-   * 儿童分销店铺
+   * Children\\"s distribution shop
    */
   shopName?: string;
   /**
    * @remarks
-   * The type of the shop.
+   * The shop type.
    * 
    * @example
    * DistributorQYG
@@ -78,7 +78,7 @@ export class Shop extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The status of the shop.
+   * The shop status.
    * 
    * @example
    * Working

@@ -8,7 +8,7 @@ export class LogisticsDetail extends $dara.Model {
    * Time when the logistics event occurred
    * 
    * @example
-   * 2023-09-11T12:22:24.000+08:00
+   * 2023-09-01 00:00:00
    */
   ocurrTimeStr?: string;
   /**

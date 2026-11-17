@@ -9,7 +9,7 @@ export class OrderResult extends $dara.Model {
    * The order creation time.
    * 
    * @example
-   * 2023-09-11T12:22:24.000+08:00
+   * 2023-09-01T12:00:00.000Z
    */
   createDate?: string;
   /**
@@ -70,7 +70,7 @@ export class OrderResult extends $dara.Model {
    * The unique identifier for the request.
    * 
    * @example
-   * 841471F6-5D61-1331-8C38-2****B55
+   * D12***111
    */
   requestId?: string;
   static names(): { [key: string]: string } {

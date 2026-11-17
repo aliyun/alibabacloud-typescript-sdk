@@ -30,7 +30,7 @@ export class GoodsShippingNoticeCreateCmd extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * SF145****4353
+   * SF145****4351
    */
   logisticsNo?: string;
   static names(): { [key: string]: string } {

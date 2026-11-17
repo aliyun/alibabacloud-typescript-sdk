@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class SkuSaleInfo extends $dara.Model {
   /**
    * @remarks
-   * Reason for not being sellable
+   * The unsellable reason.
    * 
    * @example
-   * 不可售
+   * Unsellable
    */
   canNotSellReason?: string;
   /**
    * @remarks
-   * Indicates whether the SKU is sellable
+   * The sellable status of the SKU.
    * 
    * @example
    * true
@@ -21,7 +21,7 @@ export class SkuSaleInfo extends $dara.Model {
   canSell?: boolean;
   /**
    * @remarks
-   * Area code
+   * The division code.
    * 
    * @example
    * 330106109
@@ -29,15 +29,15 @@ export class SkuSaleInfo extends $dara.Model {
   divisionCode?: string;
   /**
    * @remarks
-   * Blur inventory availability
+   * The fuzzy available inventory.
    * 
    * @example
-   * 有货
+   * In stock
    */
   fuzzyQuantity?: string;
   /**
    * @remarks
-   * Strikethrough price, in cents
+   * The strikethrough price in cents.
    * 
    * @example
    * 999900
@@ -45,7 +45,7 @@ export class SkuSaleInfo extends $dara.Model {
   markPrice?: number;
   /**
    * @remarks
-   * Distributor purchase price, in cents
+   * The distributor purchase price in cents.
    * 
    * @example
    * 19800
@@ -53,7 +53,7 @@ export class SkuSaleInfo extends $dara.Model {
   price?: number;
   /**
    * @remarks
-   * Product ID
+   * The product ID.
    * 
    * @example
    * 660460842235822080
@@ -61,7 +61,7 @@ export class SkuSaleInfo extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * Available inventory
+   * The available inventory.
    * 
    * @example
    * -1
@@ -69,7 +69,7 @@ export class SkuSaleInfo extends $dara.Model {
   quantity?: number;
   /**
    * @remarks
-   * Shop ID
+   * The store ID.
    * 
    * @example
    * 21000017
@@ -85,7 +85,7 @@ export class SkuSaleInfo extends $dara.Model {
   skuId?: string;
   /**
    * @remarks
-   * SKU control status
+   * The control status of the SKU.
    * 
    * @example
    * Online
@@ -93,10 +93,10 @@ export class SkuSaleInfo extends $dara.Model {
   skuStatus?: string;
   /**
    * @remarks
-   * SKU title
+   * The SKU title.
    * 
    * @example
-   * 天蓝色
+   * Sky blue
    */
   title?: string;
   static names(): { [key: string]: string } {

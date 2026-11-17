@@ -6,7 +6,7 @@ import { CategoryListQuery } from "./CategoryListQuery";
 export class ListCategoriesRequest extends $dara.Model {
   /**
    * @remarks
-   * Category query parameters
+   * The category query parameters.
    */
   body?: CategoryListQuery;
   static names(): { [key: string]: string } {

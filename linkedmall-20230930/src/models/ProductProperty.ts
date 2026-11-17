@@ -5,15 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class ProductProperty extends $dara.Model {
   /**
    * @remarks
-   * The text of the property.
+   * The attribute text.
    * 
    * @example
-   * 颜色
+   * Color
    */
   text?: string;
   /**
    * @remarks
-   * A collection of property values.
+   * The attribute value set.
    */
   values?: string[];
   static names(): { [key: string]: string } {

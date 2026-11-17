@@ -7,80 +7,54 @@ import { LogisticsDetail } from "./LogisticsDetail";
 export class LogisticsOrderResult extends $dara.Model {
   /**
    * @remarks
-   * The data provider.
+   * The data source.
    * 
    * @example
-   * 菜鸟
+   * Cainiao
    */
   dataProvider?: string;
   /**
    * @remarks
-   * The display title of the data provider.
+   * The data text.
    * 
    * @example
-   * 菜鸟裹裹
+   * Cainiao Guoguo
    */
   dataProviderTitle?: string;
   /**
    * @remarks
-   * Details of the goods.
+   * The product details.
    */
   goods?: Good[];
   /**
    * @remarks
    * The logistics company code.
-   * 
    * > Valid values:
-   * >
-   * > - `ZTKY` - China Railway Logistics
-   * >
-   * > - `POST` - China Post
-   * >
-   * > - `DBKD` - Deppon Express
-   * >
-   * > - `JT` - J\\&T Express
-   * >
-   * > - `QFKD` - Quanfeng Express
-   * >
-   * > - `EYB` - China Post E-commerce Express
-   * >
-   * > - `STO` - STO Express
-   * >
-   * > - `SF` - SF Express
-   * >
-   * > - `ZTO` - ZTO Express
-   * >
-   * > - `YTO` - YTO Express
-   * >
-   * > - `TTKDEX` - Tiantian Express
-   * >
-   * > - `JDLEx` - JD Express
-   * >
-   * > - `ETICKET` - e-ticket
-   * >
-   * > - `HTKY` - Best Express
-   * >
-   * > - `SHQ` - Huaqiang Logistics
-   * >
-   * > - `TAOBAO` - Taobao Logistics
-   * >
-   * > - `YUNDA` - Yunda Express
-   * >
-   * > - `ZJS` - ZJS Express
-   * >
-   * > - `FEDEX` - FedEx
-   * >
-   * > - `EMS` - EMS
-   * >
-   * > - `POSTB` - China Post Parcel
-   * >
-   * > - `OTHER` - other
-   * >
-   * > - `CNDJWL` - Cainiao Heavy Parcel Logistics
-   * >
-   * > - `TN` - T-neng Logistics
-   * >
-   * > - `ZMKM` - Cainiao Express
+   * > - ZTKY: China Railway Logistics
+   * > - POST: China Post
+   * > - DBKD: Deppon Express
+   * > - JT: J&T Express
+   * > - QFKD: Quanfeng Express
+   * > - EYB: China Post E-commerce Express EYB
+   * > - STO: STO Express
+   * > - SF: SF Express
+   * > - ZTO: ZTO Express
+   * > - YTO: YTO Express
+   * > - TTKDEX: Tiantian Express
+   * > - JDLEx: JD Express
+   * > - ETICKET: Electronic vouchers
+   * > - HTKY: Best Express
+   * > - SHQ: Huaqiang Logistics
+   * > - TAOBAO: Taobao Logistics
+   * > - YUNDA: Yunda Express
+   * > - ZJS: ZJS Express
+   * > - FEDEX: FedEx
+   * > - EMS: EMS
+   * > - POSTB: China Post Parcel
+   * > - OTHER: Other
+   * > - CNDJWL: Cainiao Large Item Logistics
+   * > - TN: Teneng
+   * > - ZMKM: Cainiao Express
    * 
    * @example
    * SF
@@ -88,22 +62,21 @@ export class LogisticsOrderResult extends $dara.Model {
   logisticsCompanyCode?: string;
   /**
    * @remarks
-   * The name of the logistics company.
+   * The logistics company name.
    * 
    * @example
-   * 顺丰
+   * SF Express
    */
   logisticsCompanyName?: string;
   /**
    * @remarks
-   * A list of logistics details.
+   * The logistics details.
    */
   logisticsDetailList?: LogisticsDetail[];
   /**
    * @remarks
-   * The tracking number.
-   * 
-   * > For an e-ticket, the tracking number is a fixed value: \\*
+   * The logistics tracking number.
+   * > The logistics tracking number for electronic vouchers is a fixed value: *.
    * 
    * @example
    * SF234***2345

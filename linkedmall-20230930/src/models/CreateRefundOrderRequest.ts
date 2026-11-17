@@ -6,7 +6,7 @@ import { RefundOrderCmd } from "./RefundOrderCmd";
 export class CreateRefundOrderRequest extends $dara.Model {
   /**
    * @remarks
-   * Create a return order
+   * Creates a reverse ticket.
    * 
    * This parameter is required.
    */

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchProductsResponseBodyProductsCategoryChain extends $dara.Model {
   /**
    * @remarks
-   * Category ID
+   * The category ID.
    * 
    * @example
    * 201792301
@@ -13,7 +13,7 @@ export class SearchProductsResponseBodyProductsCategoryChain extends $dara.Model
   categoryId?: number;
   /**
    * @remarks
-   * Is leaf node
+   * Indicates whether the node is a leaf node.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class SearchProductsResponseBodyProductsCategoryChain extends $dara.Model
   isLeaf?: boolean;
   /**
    * @remarks
-   * Level
+   * The level.
    * 
    * @example
    * 1
@@ -29,15 +29,15 @@ export class SearchProductsResponseBodyProductsCategoryChain extends $dara.Model
   level?: number;
   /**
    * @remarks
-   * Category name
+   * The category name.
    * 
    * @example
-   * 名称测试
+   * Name test
    */
   name?: string;
   /**
    * @remarks
-   * Parent class ID
+   * The parent category ID.
    * 
    * @example
    * 0
@@ -75,23 +75,23 @@ export class SearchProductsResponseBodyProductsCategoryChain extends $dara.Model
 export class SearchProductsResponseBodyProducts extends $dara.Model {
   /**
    * @remarks
-   * Brand name
+   * The brand name.
    * 
    * @example
-   * 绿植
+   * Plants
    */
   bandName?: string;
   /**
    * @remarks
-   * Reason for unsellable status
+   * The reason why the product is unavailable for sale.
    * 
    * @example
-   * 库存不足
+   * Insufficient inventory
    */
   canNotSellReason?: string;
   /**
    * @remarks
-   * Whether the product is sellable (calculated value)
+   * Indicates whether the product is available for sale. This is a calculated value.
    * 
    * @example
    * true
@@ -99,17 +99,17 @@ export class SearchProductsResponseBodyProducts extends $dara.Model {
   canSell?: boolean;
   /**
    * @remarks
-   * Category
+   * The category chain.
    */
   categoryChain?: SearchProductsResponseBodyProductsCategoryChain[];
   /**
    * @remarks
-   * Billing cycle
+   * The billing cycle.
    */
   credit?: string[];
   /**
    * @remarks
-   * Price difference range
+   * The price difference range.
    * 
    * @example
    * ￥-9998.95 ~ ￥-9977.90
@@ -117,7 +117,7 @@ export class SearchProductsResponseBodyProducts extends $dara.Model {
   diffPrice?: string;
   /**
    * @remarks
-   * Distribution purchase price range
+   * The distribution purchase price range.
    * 
    * @example
    * ￥0.05 ~ ￥21.10
@@ -125,7 +125,7 @@ export class SearchProductsResponseBodyProducts extends $dara.Model {
   distributionPrice?: string;
   /**
    * @remarks
-   * Distribution premium rate range
+   * The distribution premium rate range.
    * 
    * @example
    * -100.00% ~ -99.79%
@@ -133,17 +133,17 @@ export class SearchProductsResponseBodyProducts extends $dara.Model {
   distributionPriceRatio?: string;
   /**
    * @remarks
-   * Source platform
+   * The source platform.
    * 
    * @example
-   * Taobao（来源淘宝）
-   * Tmall（来源天猫）
-   * Cbu（来源1688分销货盘）
+   * Taobao (sourced from Taobao)
+   * Tmall (sourced from Tmall)
+   * Cbu (sourced from the 1688 distribution platform)
    */
   externalPlatformType?: string;
   /**
    * @remarks
-   * Creation time.
+   * The creation time.
    * 
    * @example
    * 2025-01-02 12:23:34
@@ -152,7 +152,7 @@ export class SearchProductsResponseBodyProducts extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * Last modified time.
+   * The last modification time.
    * 
    * @example
    * 2025-01-02 12:23:34
@@ -161,7 +161,7 @@ export class SearchProductsResponseBodyProducts extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * Whether the product is in inventory
+   * Specifies whether the product is added to the inventory.
    * 
    * @example
    * true
@@ -169,7 +169,7 @@ export class SearchProductsResponseBodyProducts extends $dara.Model {
   inGroup?: boolean;
   /**
    * @remarks
-   * Inventory time
+   * The time when the product was added to the inventory. The format is yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-01-02 12:23:34
@@ -178,7 +178,7 @@ export class SearchProductsResponseBodyProducts extends $dara.Model {
   inGroupTime?: string;
   /**
    * @remarks
-   * Inventory risk level
+   * The inventory risk level.
    * 
    * @example
    * Low
@@ -186,7 +186,7 @@ export class SearchProductsResponseBodyProducts extends $dara.Model {
   inventoryRiskLevel?: string;
   /**
    * @remarks
-   * Invoice type
+   * The invoice type.
    * 
    * @example
    * HasInvoice
@@ -194,7 +194,7 @@ export class SearchProductsResponseBodyProducts extends $dara.Model {
   invoiceType?: string;
   /**
    * @remarks
-   * LM product ID
+   * The LM product ID.
    * 
    * @example
    * xxx-xxxxx
@@ -202,7 +202,7 @@ export class SearchProductsResponseBodyProducts extends $dara.Model {
   lmItemId?: string;
   /**
    * @remarks
-   * Product main image URL
+   * The main image URL of the product.
    * 
    * @example
    * https://img.alicdn.com/xxx.jpg
@@ -210,7 +210,7 @@ export class SearchProductsResponseBodyProducts extends $dara.Model {
   picUrl?: string;
   /**
    * @remarks
-   * Suggested retail price range
+   * The suggested retail price range.
    * 
    * @example
    * ￥9999.00 ~ ￥9999.00
@@ -218,7 +218,7 @@ export class SearchProductsResponseBodyProducts extends $dara.Model {
   platformPrice?: string;
   /**
    * @remarks
-   * Strikethrough price range
+   * The strikethrough price range.
    * 
    * @example
    * ￥9999.00 ~ ￥9999.00
@@ -226,7 +226,7 @@ export class SearchProductsResponseBodyProducts extends $dara.Model {
   platformReservePrice?: string;
   /**
    * @remarks
-   * Product ID
+   * The product ID.
    * 
    * @example
    * xxxxx
@@ -234,15 +234,15 @@ export class SearchProductsResponseBodyProducts extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * Product name
+   * The product name.
    * 
    * @example
-   * 绿植
+   * Plants
    */
   productName?: string;
   /**
    * @remarks
-   * Channel store name
+   * The channel store name.
    * 
    * @example
    * xxx
@@ -250,7 +250,7 @@ export class SearchProductsResponseBodyProducts extends $dara.Model {
   shopName?: string;
   /**
    * @remarks
-   * Accumulated sales volume
+   * The cumulative sales volume.
    * 
    * @example
    * 100
@@ -258,7 +258,7 @@ export class SearchProductsResponseBodyProducts extends $dara.Model {
   soldQuantity?: string;
   /**
    * @remarks
-   * Tax code
+   * The tax code.
    * 
    * @example
    * 3040203000000000000
@@ -266,16 +266,16 @@ export class SearchProductsResponseBodyProducts extends $dara.Model {
   taxCode?: string;
   /**
    * @remarks
-   * Tax rate
+   * The tax rate.
    * 
    * @example
-   * 600（6%）
-   * -100（免税）
+   * 600 (6%)
+   * -100 (Tax-exempt)
    */
   taxRate?: number;
   /**
    * @remarks
-   * Sales pattern
+   * The sales mode.
    * 
    * @example
    * JingXiao
@@ -361,12 +361,20 @@ export class SearchProductsResponseBodyProducts extends $dara.Model {
 export class SearchProductsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * Product collection
+   * The cursor for the next page.
+   * 
+   * @example
+   * 899192313AB192938441CCW
+   */
+  nextCursor?: string;
+  /**
+   * @remarks
+   * The product collection.
    */
   products?: SearchProductsResponseBodyProducts[];
   /**
    * @remarks
-   * Total quantity
+   * The total number of items.
    * 
    * @example
    * 3
@@ -374,6 +382,7 @@ export class SearchProductsResponseBody extends $dara.Model {
   total?: number;
   static names(): { [key: string]: string } {
     return {
+      nextCursor: 'nextCursor',
       products: 'products',
       total: 'total',
     };
@@ -381,6 +390,7 @@ export class SearchProductsResponseBody extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      nextCursor: 'string',
       products: { 'type': 'array', 'itemType': SearchProductsResponseBodyProducts },
       total: 'number',
     };

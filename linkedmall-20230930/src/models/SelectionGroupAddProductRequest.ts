@@ -5,16 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class SelectionGroupAddProductRequest extends $dara.Model {
   /**
    * @remarks
-   * Collection of product IDs to add
-   * 
-   * > - You can add up to 30 products per call.
+   * The IDs of the products to be added to the selection pool.
+   * > 
+   * > - A maximum of 30 products can be added in a single call.
    * 
    * This parameter is required.
    */
   productIds?: string[];
   /**
    * @remarks
-   * Purchaser ID
+   * The ID of the purchaser.
    * 
    * This parameter is required.
    * 

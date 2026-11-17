@@ -6,15 +6,15 @@ import { CooperationShop } from "./CooperationShop";
 export class ShopPageDataResult extends $dara.Model {
   /**
    * @remarks
-   * Partner shops
+   * The partner shops.
    * 
    * @example
-   * 12****01
+   * [{"shopId":"22000019","cooperationCompanyId":"11200003","cooperationShopId":"21000026"}]
    */
   cooperationShops?: CooperationShop[];
   /**
    * @remarks
-   * End time
+   * The end time.
    * 
    * @example
    * 2023-09-11T12:22:24.000+08:00
@@ -22,7 +22,7 @@ export class ShopPageDataResult extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * Purchaser ID
+   * The purchaser ID.
    * 
    * @example
    * PID56****2304
@@ -30,7 +30,7 @@ export class ShopPageDataResult extends $dara.Model {
   purchaserId?: string;
   /**
    * @remarks
-   * Shop ID
+   * The shop ID.
    * 
    * @example
    * 22****09
@@ -38,15 +38,15 @@ export class ShopPageDataResult extends $dara.Model {
   shopId?: string;
   /**
    * @remarks
-   * Shop name
+   * The shop name.
    * 
    * @example
-   * 儿童座椅分销店铺
+   * Child seat distribution shop
    */
   shopName?: string;
   /**
    * @remarks
-   * Shop type
+   * The shop type.
    * 
    * @example
    * DistributorQYG
@@ -54,7 +54,7 @@ export class ShopPageDataResult extends $dara.Model {
   shopType?: string;
   /**
    * @remarks
-   * Start time
+   * The start time.
    * 
    * @example
    * 2023-09-11T12:22:24.000+08:00
@@ -62,7 +62,7 @@ export class ShopPageDataResult extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * Shop status
+   * The shop status.
    * 
    * @example
    * Working

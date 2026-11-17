@@ -5,6 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ShopStatusChangeRequest extends $dara.Model {
   /**
    * @remarks
+   * The shop ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -13,6 +15,8 @@ export class ShopStatusChangeRequest extends $dara.Model {
   shopId?: string;
   /**
    * @remarks
+   * The shop status.
+   * 
    * This parameter is required.
    * 
    * @example

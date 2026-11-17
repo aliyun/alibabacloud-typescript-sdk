@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetSelectionProductRequest extends $dara.Model {
   /**
    * @remarks
-   * Region code (use a five-level township or subdistrict address code)
+   * The division code. A fifth-level township or subdistrict address code is recommended.
    * 
    * @example
    * 330106109
@@ -13,7 +13,7 @@ export class GetSelectionProductRequest extends $dara.Model {
   divisionCode?: string;
   /**
    * @remarks
-   * Purchaser ID
+   * The purchaser ID.
    * 
    * This parameter is required.
    * 

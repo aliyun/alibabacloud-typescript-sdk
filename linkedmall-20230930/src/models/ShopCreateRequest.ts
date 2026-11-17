@@ -4,20 +4,27 @@ import * as $dara from '@darabonba/typescript';
 
 export class ShopCreateRequest extends $dara.Model {
   /**
+   * @remarks
+   * The after-sales DingTalk ID.
+   * 
    * @example
    * 12344335
    */
   afterSaleDingTalkId?: string;
   /**
    * @remarks
+   * The shop description.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 店铺描述
+   * Shop description
    */
   description?: string;
   /**
    * @remarks
+   * The operations DingTalk ID.
+   * 
    * This parameter is required.
    * 
    * @example
@@ -25,16 +32,21 @@ export class ShopCreateRequest extends $dara.Model {
    */
   operatorDingTalkId?: string;
   /**
+   * @remarks
+   * The pre-sales DingTalk ID.
+   * 
    * @example
    * 12344335
    */
   preSaleDingTalkId?: string;
   /**
    * @remarks
+   * The shop name.
+   * 
    * This parameter is required.
    * 
    * @example
-   * 店铺名称
+   * Shop name
    */
   shopName?: string;
   static names(): { [key: string]: string } {

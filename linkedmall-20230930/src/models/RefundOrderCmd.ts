@@ -6,7 +6,7 @@ import { LeavePictureList } from "./LeavePictureList";
 export class RefundOrderCmd extends $dara.Model {
   /**
    * @remarks
-   * Refund reason ID
+   * The refund reason ID.
    * 
    * This parameter is required.
    * 
@@ -16,15 +16,15 @@ export class RefundOrderCmd extends $dara.Model {
   applyReasonTextId?: number;
   /**
    * @remarks
-   * Refund reason text
+   * The refund reason text.
    * 
    * @example
-   * 不想要了
+   * I no longer want it
    */
   applyReasonTips?: string;
   /**
    * @remarks
-   * Number of items to return
+   * The return quantity.
    * 
    * This parameter is required.
    * 
@@ -34,7 +34,7 @@ export class RefundOrderCmd extends $dara.Model {
   applyRefundCount?: number;
   /**
    * @remarks
-   * Refund amount in cents
+   * The requested refund amount in cents.
    * 
    * This parameter is required.
    * 
@@ -44,9 +44,9 @@ export class RefundOrderCmd extends $dara.Model {
   applyRefundFee?: number;
   /**
    * @remarks
-   * Refund type
-   * 1: Refund only
-   * 3: Return and refund
+   * The refund type. Valid values:
+   * - 1: Refund only. 
+   * - 3: Return and refund.
    * 
    * This parameter is required.
    * 
@@ -56,10 +56,10 @@ export class RefundOrderCmd extends $dara.Model {
   bizClaimType?: number;
   /**
    * @remarks
-   * Item status
-   * 4: Not shipped
-   * 1: Not received
-   * 2: Received
+   * The goods status. Valid values:
+   * - 4: Not shipped. 
+   * - 1: Not received.
+   * - 2: Received.
    * 
    * This parameter is required.
    * 
@@ -69,20 +69,20 @@ export class RefundOrderCmd extends $dara.Model {
   goodsStatus?: number;
   /**
    * @remarks
-   * Customer message
+   * The message.
    * 
    * @example
-   * 不想要了
+   * I no longer want it
    */
   leaveMessage?: string;
   /**
    * @remarks
-   * Collection of images
+   * The image list.
    */
   leavePictureLists?: LeavePictureList[];
   /**
    * @remarks
-   * Sub-distribution order ID
+   * The sub-distribution order ID.
    * 
    * This parameter is required.
    * 

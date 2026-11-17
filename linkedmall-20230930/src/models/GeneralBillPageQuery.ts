@@ -11,11 +11,17 @@ export class GeneralBillPageQuery extends $dara.Model {
   /**
    * @remarks
    * billId
+   * 
+   * @example
+   * bill_demo_001
    */
   billId?: string;
   /**
    * @remarks
    * billPeriod
+   * 
+   * @example
+   * 2022-08
    */
   billPeriod?: string;
   /**
@@ -36,16 +42,25 @@ export class GeneralBillPageQuery extends $dara.Model {
   /**
    * @remarks
    * pageNumber
+   * 
+   * @example
+   * 1
    */
   pageNumber?: number;
   /**
    * @remarks
    * pageSize
+   * 
+   * @example
+   * 20
    */
   pageSize?: number;
   /**
    * @remarks
    * shopId
+   * 
+   * @example
+   * 21000017
    */
   shopId?: string;
   /**

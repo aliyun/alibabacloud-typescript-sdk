@@ -6,7 +6,15 @@ import { Product } from "./Product";
 export class ProductPageResult extends $dara.Model {
   /**
    * @remarks
-   * Current page number
+   * The cursor value for the next page.
+   * 
+   * @example
+   * 7091510713
+   */
+  nextCursor?: string;
+  /**
+   * @remarks
+   * The current page number.
    * 
    * This parameter is required.
    * 
@@ -16,7 +24,7 @@ export class ProductPageResult extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size
+   * The page size.
    * 
    * This parameter is required.
    * 
@@ -26,12 +34,12 @@ export class ProductPageResult extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Collection of products
+   * The product collection.
    */
   products?: Product[];
   /**
    * @remarks
-   * Request ID for the API call
+   * The request ID.
    * 
    * @example
    * 3239281273464326823
@@ -39,7 +47,7 @@ export class ProductPageResult extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Total count
+   * The total count.
    * 
    * This parameter is required.
    * 
@@ -49,6 +57,7 @@ export class ProductPageResult extends $dara.Model {
   total?: number;
   static names(): { [key: string]: string } {
     return {
+      nextCursor: 'nextCursor',
       pageNumber: 'pageNumber',
       pageSize: 'pageSize',
       products: 'products',
@@ -59,6 +68,7 @@ export class ProductPageResult extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      nextCursor: 'string',
       pageNumber: 'number',
       pageSize: 'number',
       products: { 'type': 'array', 'itemType': Product },

@@ -6,7 +6,7 @@ import { SkuSpec } from "./SkuSpec";
 export class Sku extends $dara.Model {
   /**
    * @remarks
-   * 69 barcode
+   * The barcode.
    * 
    * @example
    * 6922454329176
@@ -14,7 +14,7 @@ export class Sku extends $dara.Model {
   barcode?: string;
   /**
    * @remarks
-   * Indicates whether the SKU is available for sale
+   * Indicates whether the SKU is available for sale.
    * 
    * @example
    * true
@@ -22,12 +22,15 @@ export class Sku extends $dara.Model {
   canSell?: boolean;
   /**
    * @remarks
-   * Reserved field
+   * The reserved field.
+   * 
+   * @example
+   * 0
    */
   discountRetailPrice?: number;
   /**
    * @remarks
-   * Region code
+   * The region code.
    * 
    * @example
    * 110000
@@ -35,17 +38,17 @@ export class Sku extends $dara.Model {
   divisionCode?: string;
   /**
    * @remarks
-   * Fuzzy inventory availability
+   * The fuzzy available inventory.
    * 
    * @example
-   * 有货
-   * 无货
-   * 库存紧张
+   * In stock
+   * Out of stock
+   * Low stock
    */
   fuzzyQuantity?: string;
   /**
    * @remarks
-   * Strikethrough price, in cents
+   * The list price in cents.
    * 
    * @example
    * 999900
@@ -53,7 +56,7 @@ export class Sku extends $dara.Model {
   markPrice?: number;
   /**
    * @remarks
-   * SKU image URL
+   * The SKU image.
    * 
    * @example
    * https:////img.alicdn.com/imgextra///img.alicdn.com/imgextra/i2/2216003305543/O1CN010DEQCX1qokFYGRfPE_!!2216003305543.png
@@ -61,7 +64,7 @@ export class Sku extends $dara.Model {
   picUrl?: string;
   /**
    * @remarks
-   * Suggested retail price, in cents
+   * The suggested retail price in cents.
    * 
    * @example
    * 999900
@@ -69,7 +72,7 @@ export class Sku extends $dara.Model {
   platformPrice?: number;
   /**
    * @remarks
-   * Distributor purchase price, in cents
+   * The distributor purchase price in cents.
    * 
    * @example
    * 19800
@@ -77,7 +80,7 @@ export class Sku extends $dara.Model {
   price?: number;
   /**
    * @remarks
-   * Product ID
+   * The product ID.
    * 
    * @example
    * 660460842235822080
@@ -85,7 +88,7 @@ export class Sku extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * Available inventory. Note: This field is currently set to -1 for all SKUs and has no practical meaning.
+   * The available inventory. <notice>Currently, the value of this field is uniformly set to -1 and has no practical significance.</notice>
    * 
    * @example
    * -1
@@ -93,7 +96,7 @@ export class Sku extends $dara.Model {
   quantity?: number;
   /**
    * @remarks
-   * SKU sort order
+   * The SKU sort order.
    * 
    * @example
    * 3
@@ -101,7 +104,7 @@ export class Sku extends $dara.Model {
   rankValue?: number;
   /**
    * @remarks
-   * Shop ID
+   * The shop ID.
    * 
    * @example
    * 21000017
@@ -109,12 +112,15 @@ export class Sku extends $dara.Model {
   shopId?: string;
   /**
    * @remarks
-   * SKU note
+   * The SKU remark.
+   * 
+   * @example
+   * Sample SKU remark
    */
   skuAlias?: string;
   /**
    * @remarks
-   * SKU ID
+   * skuId
    * 
    * @example
    * 660460842235822081
@@ -122,20 +128,20 @@ export class Sku extends $dara.Model {
   skuId?: string;
   /**
    * @remarks
-   * SKU specifications
+   * sku
    */
   skuSpecs?: SkuSpec[];
   /**
    * @remarks
-   * SKU sales specification code. Used by the frontend to filter SKUs
+   * The SKU sales specifications used to assist frontend filtering.
    * 
    * @example
-   * 颜色分类:天蓝色
+   * Color:Sky blue
    */
   skuSpecsCode?: string;
   /**
    * @remarks
-   * SKU control status
+   * The SKU control status.
    * 
    * @example
    * Online
@@ -143,15 +149,18 @@ export class Sku extends $dara.Model {
   skuStatus?: string;
   /**
    * @remarks
-   * Reserved field
+   * The reserved field.
+   * 
+   * @example
+   * 0
    */
   suggestedRetailPrice?: number;
   /**
    * @remarks
-   * SKU title. Note: We recommend that distributors build the customer-facing SKU title by concatenating the value or valueAlias field from the SkuSpec struct (use `valueAlias` if it is present). Do not use this field directly as the customer-facing SKU title.
+   * The SKU title. <notice>Distributors should concatenate the value or valueAlias (if available) from the SkuSpec struct to form the SKU title for customer display. Do not use this field directly as the SKU title for customer display.</notice>
    * 
    * @example
-   * 天蓝色
+   * Sky blue
    */
   title?: string;
   static names(): { [key: string]: string } {

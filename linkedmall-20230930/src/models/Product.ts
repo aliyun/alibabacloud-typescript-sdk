@@ -14,12 +14,12 @@ export class Product extends $dara.Model {
    * The brand name.
    * 
    * @example
-   * Apple/苹果
+   * Apple
    */
   brandName?: string;
   /**
    * @remarks
-   * Indicates whether the product is available for sale. This is a calculated value.
+   * The calculated value indicating whether the product is available for sale.
    * 
    * @example
    * true
@@ -40,7 +40,7 @@ export class Product extends $dara.Model {
   categoryLeafId?: number;
   /**
    * @remarks
-   * The product description URL.
+   * The product details URL.
    * 
    * @example
    * https://img.alicdn.com/descpath/O1CN01wciRDp22AEU1*******f34
@@ -48,7 +48,7 @@ export class Product extends $dara.Model {
   descPath?: string;
   /**
    * @remarks
-   * The region code.
+   * The division code.
    * 
    * @example
    * 110000
@@ -56,25 +56,25 @@ export class Product extends $dara.Model {
   divisionCode?: string;
   /**
    * @remarks
-   * The product\\"s extended properties.
+   * The extended product properties.
    */
   extendProperties?: ProductExtendProperty[];
   /**
    * @remarks
-   * The stock status.
+   * The approximate inventory.
    * 
    * @example
-   * 有货
+   * In stock
    */
   fuzzyQuantity?: string;
   /**
    * @remarks
-   * The product images.
+   * images
    */
   images?: string[];
   /**
    * @remarks
-   * The warehousing status.
+   * The warehousing status of the product.
    * 
    * @example
    * True
@@ -95,7 +95,7 @@ export class Product extends $dara.Model {
   lmItemId?: string;
   /**
    * @remarks
-   * The main product image URL.
+   * The product main image.
    * 
    * @example
    * https://img.alicdn.com/imgextra/i3/221*******988/O1CN01w4vomR1QYYEx6nyr5_!!221******988.jpg
@@ -132,14 +132,14 @@ export class Product extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The product attributes.
+   * The product properties.
    */
   properties?: ProductProperty[];
   /**
    * @remarks
    * The inventory.
-   * 
-   * > - This parameter is fixed at -1 and can be ignored.
+   * > 
+   * > - This field is currently a fixed value of -1 and can be ignored.
    * 
    * @example
    * -1
@@ -147,7 +147,7 @@ export class Product extends $dara.Model {
   quantity?: number;
   /**
    * @remarks
-   * The request ID.
+   * The API request ID.
    * 
    * @example
    * 3239281273******823
@@ -155,12 +155,12 @@ export class Product extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The service promises.>Notice:  Suppliers maintain all service promises. If a supplier fails to update this information in a timely manner, the service promise labels for some products may be inaccurate. Distributors should display this information to their customers with caution.
+   * The service commitments.<notice>Service commitments are maintained by suppliers. If suppliers fail to maintain or update them promptly, the service commitment labels for some products may be inaccurate. Distributors should display these commitments to their customers with caution.</notice>
    */
   servicePromises?: string[];
   /**
    * @remarks
-   * The channel shop ID.
+   * The channel store ID.
    * 
    * @example
    * 210*****7
@@ -168,12 +168,12 @@ export class Product extends $dara.Model {
   shopId?: string;
   /**
    * @remarks
-   * The product SKUs.
+   * skus
    */
   skus?: Sku[];
   /**
    * @remarks
-   * The quantity sold.
+   * The sales volume.
    * 
    * @example
    * 100+
@@ -197,10 +197,10 @@ export class Product extends $dara.Model {
   taxRate?: number;
   /**
    * @remarks
-   * The product title.
+   * The title.
    * 
    * @example
-   * 发财树
+   * Money tree
    */
   title?: string;
   static names(): { [key: string]: string } {

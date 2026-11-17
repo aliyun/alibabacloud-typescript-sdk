@@ -8,26 +8,41 @@ export class MoneyCurrency extends $dara.Model {
   /**
    * @remarks
    * currencyCode
+   * 
+   * @example
+   * CNY
    */
   currencyCode?: string;
   /**
    * @remarks
    * defaultFractionDigits
+   * 
+   * @example
+   * 2
    */
   defaultFractionDigits?: number;
   /**
    * @remarks
    * displayName
+   * 
+   * @example
+   * CNY
    */
   displayName?: string;
   /**
    * @remarks
    * numericCode
+   * 
+   * @example
+   * 156
    */
   numericCode?: number;
   /**
    * @remarks
    * symbol
+   * 
+   * @example
+   * ￥
    */
   symbol?: string;
   static names(): { [key: string]: string } {
@@ -63,6 +78,9 @@ export class Money extends $dara.Model {
   /**
    * @remarks
    * amount
+   * 
+   * @example
+   * 128
    */
   amount?: number;
   /**
@@ -78,6 +96,9 @@ export class Money extends $dara.Model {
   /**
    * @remarks
    * cent
+   * 
+   * @example
+   * 12800
    */
   cent?: number;
   /**
@@ -88,6 +109,9 @@ export class Money extends $dara.Model {
   /**
    * @remarks
    * currencyCode
+   * 
+   * @example
+   * CNY
    */
   currencyCode?: string;
   /**

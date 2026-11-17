@@ -4,11 +4,17 @@ import * as $dara from '@darabonba/typescript';
 
 export class ShopCreateResult extends $dara.Model {
   /**
+   * @remarks
+   * The store ID.
+   * 
    * @example
    * 123
    */
   shopId?: string;
   /**
+   * @remarks
+   * The store status.
+   * 
    * @example
    * WORKING
    */

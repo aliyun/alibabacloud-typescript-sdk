@@ -3,19 +3,93 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DistributionSku extends $dara.Model {
+  /**
+   * @remarks
+   * The alias.
+   * 
+   * @example
+   * 示例规格
+   */
   aliasTitle?: string;
+  /**
+   * @remarks
+   * The barcode.
+   * 
+   * @example
+   * 6901234567892
+   */
   barCode?: string;
+  /**
+   * @remarks
+   * The maximum acceptable credit period.
+   */
   creditPeriod?: number;
+  /**
+   * @remarks
+   * The consignment supply price.
+   */
   dxPrice?: number;
+  /**
+   * @remarks
+   * Specifies whether credit periods are supported.
+   */
   hasCredit?: boolean;
+  /**
+   * @remarks
+   * Specifies whether invoicing is supported.
+   */
   hasInvoice?: boolean;
+  /**
+   * @remarks
+   * The distribution supply price.
+   */
   jxPrice?: number;
+  /**
+   * @remarks
+   * The image.
+   * 
+   * @example
+   * https://example.com/images/product.png
+   */
   picUrl?: string;
+  /**
+   * @remarks
+   * The inventory.
+   * 
+   * @example
+   * 100
+   */
   quantity?: number;
+  /**
+   * @remarks
+   * sku id
+   * 
+   * @example
+   * 660460842235822082
+   */
   skuId?: string;
+  /**
+   * @remarks
+   * The status.
+   */
   skuStatus?: string;
+  /**
+   * @remarks
+   * The tax code.
+   */
   taxCode?: string;
+  /**
+   * @remarks
+   * The tax rate.
+   */
   taxRate?: number;
+  /**
+   * @remarks
+   * The name.
+   * 
+   * @example
+   * 示例商品名称
+   */
   title?: string;
   static names(): { [key: string]: string } {
     return {

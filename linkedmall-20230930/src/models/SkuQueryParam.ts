@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SkuQueryParam extends $dara.Model {
   /**
    * @remarks
-   * Quantity
+   * The quantity.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class SkuQueryParam extends $dara.Model {
   buyAmount?: number;
   /**
    * @remarks
-   * Product ID
+   * The commodity ID.
    * 
    * This parameter is required.
    * 

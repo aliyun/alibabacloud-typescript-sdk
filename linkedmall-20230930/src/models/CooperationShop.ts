@@ -5,17 +5,26 @@ import * as $dara from '@darabonba/typescript';
 export class CooperationShop extends $dara.Model {
   /**
    * @remarks
-   * The partner company ID.
+   * The partner enterprise ID.
+   * 
+   * @example
+   * 11200003
    */
   cooperationCompanyId?: string;
   /**
    * @remarks
-   * The partner shop ID.
+   * The partner store ID.
+   * 
+   * @example
+   * 21000026
    */
   cooperationShopId?: string;
   /**
    * @remarks
-   * The shop ID.
+   * The store ID.
+   * 
+   * @example
+   * 22000019
    */
   shopId?: string;
   static names(): { [key: string]: string } {

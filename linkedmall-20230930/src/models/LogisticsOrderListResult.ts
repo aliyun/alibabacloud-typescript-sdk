@@ -6,12 +6,12 @@ import { LogisticsOrderResult } from "./LogisticsOrderResult";
 export class LogisticsOrderListResult extends $dara.Model {
   /**
    * @remarks
-   * Collection of logistics orders
+   * The logistics order list.
    */
   logisticsOrderList?: LogisticsOrderResult[];
   /**
    * @remarks
-   * Request ID for the API call
+   * The API request ID.
    * 
    * @example
    * 841471F6-5D61-1331-8C38-2****B55

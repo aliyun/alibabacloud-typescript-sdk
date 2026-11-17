@@ -4,9 +4,31 @@ import { DistributionProduct } from "./DistributionProduct";
 
 
 export class GetDistributionProductResult extends $dara.Model {
+  /**
+   * @remarks
+   * The return code.
+   */
   code?: string;
+  /**
+   * @remarks
+   * The return message.
+   * 
+   * @example
+   * 操作成功
+   */
   message?: string;
+  /**
+   * @remarks
+   * The product information.
+   */
   products?: DistributionProduct[];
+  /**
+   * @remarks
+   * The request ID.
+   * 
+   * @example
+   * 48A34399-A72C-1E23-8388-7E63A1B2E927
+   */
   requestId?: string;
   static names(): { [key: string]: string } {
     return {

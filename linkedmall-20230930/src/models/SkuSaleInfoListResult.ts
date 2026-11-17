@@ -6,7 +6,7 @@ import { SkuSaleInfo } from "./SkuSaleInfo";
 export class SkuSaleInfoListResult extends $dara.Model {
   /**
    * @remarks
-   * Request ID of the API call
+   * The API request ID.
    * 
    * @example
    * 3239281273464326823
@@ -14,7 +14,7 @@ export class SkuSaleInfoListResult extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Collection of SKU inventory records
+   * The SKU inventory collection.
    */
   skuSaleInfos?: SkuSaleInfo[];
   static names(): { [key: string]: string } {

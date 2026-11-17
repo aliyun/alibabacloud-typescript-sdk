@@ -6,12 +6,12 @@ import { ProductSaleInfo } from "./ProductSaleInfo";
 export class ProductSaleInfoListResult extends $dara.Model {
   /**
    * @remarks
-   * Product sales information
+   * The commodity sales information.
    */
   productSaleInfos?: ProductSaleInfo[];
   /**
    * @remarks
-   * The request ID of the API call
+   * The ID of the API request.
    * 
    * @example
    * 3239281273464326823

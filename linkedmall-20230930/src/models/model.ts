@@ -83,6 +83,8 @@ export { SkuSaleInfo } from './SkuSaleInfo';
 export { SkuSaleInfoListQuery } from './SkuSaleInfoListQuery';
 export { SkuSaleInfoListResult } from './SkuSaleInfoListResult';
 export { SkuSpec } from './SkuSpec';
+export { StopDistributionChannelCommand } from './StopDistributionChannelCommand';
+export { StopDistributionChannelResult } from './StopDistributionChannelResult';
 export { StopDistributionCommand } from './StopDistributionCommand';
 export { StopDistributionResult } from './StopDistributionResult';
 export { CancelRefundOrderResponse } from './CancelRefundOrderResponse';

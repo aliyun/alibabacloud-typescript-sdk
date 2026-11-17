@@ -61,7 +61,7 @@ export class OrderProductResult extends $dara.Model {
    * Purchaser ID
    * 
    * @example
-   * PID56****2304
+   * 56****2304
    */
   purchaserId?: string;
   /**

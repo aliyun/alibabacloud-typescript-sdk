@@ -7,16 +7,23 @@ import { RefundReason } from "./RefundReason";
 export class RefundRenderResult extends $dara.Model {
   /**
    * @remarks
-   * The return methods supported for the order.
+   * The supported order return methods.
    * 
    * @example
    * 1
    */
   bizClaimType?: number;
+  /**
+   * @remarks
+   * The refund fee.
+   * 
+   * @example
+   * {"minRefundFee":1,"maxRefundFee":100}
+   */
   maxRefundFeeData?: DistributionMaxRefundFee;
   /**
    * @remarks
-   * The ID of the sub-distribution order.
+   * The sub-distribution order ID.
    * 
    * @example
    * 6692****5458
@@ -24,12 +31,12 @@ export class RefundRenderResult extends $dara.Model {
   orderLineId?: string;
   /**
    * @remarks
-   * A collection of refund reasons.
+   * The refund reason list.
    */
   refundReasonList?: RefundReason[];
   /**
    * @remarks
-   * The ID of the request.
+   * The API request ID.
    * 
    * @example
    * 841471F6-5D61-1331-8C38-2****B55

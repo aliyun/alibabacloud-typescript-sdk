@@ -4,6 +4,9 @@ import * as $dara from '@darabonba/typescript';
 
 export class ShopStatusChangeResult extends $dara.Model {
   /**
+   * @remarks
+   * Indicates whether the operation is successful.
+   * 
    * @example
    * true
    */

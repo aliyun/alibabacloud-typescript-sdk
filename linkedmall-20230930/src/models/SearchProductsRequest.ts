@@ -5,20 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class SearchProductsRequest extends $dara.Model {
   /**
    * @remarks
-   * Brand name
+   * The brand name.
    * 
    * @example
-   * 绿植
+   * Plants
    */
   brandName?: string;
   /**
    * @remarks
-   * Collection of category IDs
+   * The list of category IDs.
    */
   categoryIds?: string[];
   /**
    * @remarks
-   * Creation end time
+   * The end time of the creation. The format is yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-01-02 12:23:34
@@ -27,7 +27,7 @@ export class SearchProductsRequest extends $dara.Model {
   createEndTime?: string;
   /**
    * @remarks
-   * Creation start time
+   * The start time of the creation. The format is yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-01-02 12:23:34
@@ -36,55 +36,63 @@ export class SearchProductsRequest extends $dara.Model {
   createStartTime?: string;
   /**
    * @remarks
-   * Upper limit of distribution purchase price
+   * The cursor.
    * 
    * @example
-   * 100（单位：分）
+   * 899192313AB192938441CCW
+   */
+  cursor?: string;
+  /**
+   * @remarks
+   * The maximum distribution purchase price, in cents.
+   * 
+   * @example
+   * 100
    */
   distributionHighPrice?: number;
   /**
    * @remarks
-   * Upper limit of distribution premium rate
+   * The maximum distribution premium rate. A value of 244 indicates 2.44%.
    * 
    * @example
-   * 244（2.44%）
+   * 244
    */
   distributionHighPriceRatio?: number;
   /**
    * @remarks
-   * Lower limit of distribution purchase price
+   * The minimum distribution purchase price, in cents.
    * 
    * @example
-   * 100（单位：分）
+   * 100
    */
   distributionLowPrice?: number;
   /**
    * @remarks
-   * Lower limit of distribution premium rate
+   * The minimum distribution premium rate. A value of 133 indicates 1.33%.
    * 
    * @example
-   * 133（1.33%）
+   * 133
    */
   distributionLowPriceRatio?: number;
   /**
    * @remarks
-   * Upper limit of strikethrough price
+   * The maximum strikethrough price, in cents.
    * 
    * @example
-   * 100（单位：分）
+   * 100
    */
   highMarkPrice?: number;
   /**
    * @remarks
-   * Upper limit of suggested retail price
+   * The maximum suggested retail price, in cents.
    * 
    * @example
-   * 100（单位：分）
+   * 100
    */
   highPrice?: number;
   /**
    * @remarks
-   * Whether the product is in inventory
+   * Specifies whether the product is added to the inventory.
    * 
    * @example
    * true
@@ -92,7 +100,7 @@ export class SearchProductsRequest extends $dara.Model {
   inGroup?: boolean;
   /**
    * @remarks
-   * End time of the product’s entry period.
+   * The end time when the product was added to the inventory. The format is yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-01-02 12:23:34
@@ -101,7 +109,7 @@ export class SearchProductsRequest extends $dara.Model {
   inGroupEndTime?: string;
   /**
    * @remarks
-   * Inventory start time
+   * The start time when the product was added to the inventory. The format is yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-01-02 12:23:34
@@ -110,7 +118,7 @@ export class SearchProductsRequest extends $dara.Model {
   inGroupStartTime?: string;
   /**
    * @remarks
-   * Inventory risk level
+   * The inventory risk level.
    * 
    * @example
    * Low
@@ -118,7 +126,7 @@ export class SearchProductsRequest extends $dara.Model {
   inventoryRiskLevel?: string;
   /**
    * @remarks
-   * LM product ID
+   * The LM product ID.
    * 
    * @example
    * xxx-xxxxx
@@ -126,23 +134,23 @@ export class SearchProductsRequest extends $dara.Model {
   lmItemId?: string;
   /**
    * @remarks
-   * Lower limit of strikethrough price
+   * The minimum strikethrough price, in cents.
    * 
    * @example
-   * 100（单位：分）
+   * 100
    */
   lowMarkPrice?: number;
   /**
    * @remarks
-   * Lower limit of suggested retail price
+   * The minimum suggested retail price, in cents.
    * 
    * @example
-   * 100（单位：分）
+   * 100
    */
   lowPrice?: number;
   /**
    * @remarks
-   * Modification end time
+   * The end time of the modification. The format is yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-01-02 12:23:34
@@ -151,7 +159,7 @@ export class SearchProductsRequest extends $dara.Model {
   modifyEndTime?: string;
   /**
    * @remarks
-   * Modification start time
+   * The start time of the modification. The format is yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-01-02 12:23:34
@@ -160,19 +168,19 @@ export class SearchProductsRequest extends $dara.Model {
   modifyStartTime?: string;
   /**
    * @remarks
-   * Sort field
-   * 
-   * > - Used in combination with the sort direction field
+   * The sort field.
+   * > 
+   * > - This parameter must be used in combination with the sort direction parameter.
    * 
    * @example
-   * soldQuantity（按销量排序，不填默认创建时间倒序)
+   * soldQuantity (sorts by sales volume. If not specified, the default is descending order of creation time)
    */
   orderBy?: string;
   /**
    * @remarks
-   * Sort direction
-   * 
-   * > - Used in combination with the sort field
+   * The sort direction.
+   * > 
+   * > - This parameter must be used in combination with the sort field parameter.
    * 
    * @example
    * ASC
@@ -180,7 +188,7 @@ export class SearchProductsRequest extends $dara.Model {
   orderDirection?: string;
   /**
    * @remarks
-   * Page number
+   * The page number.
    * 
    * This parameter is required.
    * 
@@ -190,9 +198,9 @@ export class SearchProductsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * Page size
-   * 
-   * > - Maximum of 20 items per page
+   * The number of items per page.
+   * > 
+   * > - Maximum value: 20.
    * 
    * This parameter is required.
    * 
@@ -202,17 +210,17 @@ export class SearchProductsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Source platform
+   * The source platform.
    * 
    * @example
-   * Taobao（来源淘宝）
-   * Tmall（来源天猫）
-   * Cbu（来源1688分销货盘）
+   * Taobao (sourced from Taobao)
+   * Tmall (sourced from Tmall)
+   * Cbu (sourced from the 1688 distribution platform)
    */
   platform?: string;
   /**
    * @remarks
-   * Product ID
+   * The product ID.
    * 
    * @example
    * xxxxxxx
@@ -220,15 +228,15 @@ export class SearchProductsRequest extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * Product name
+   * The product name.
    * 
    * @example
-   * 绿植
+   * Plants
    */
   productName?: string;
   /**
    * @remarks
-   * Product status
+   * The product status.
    * 
    * @example
    * Sellable
@@ -236,7 +244,7 @@ export class SearchProductsRequest extends $dara.Model {
   productStatus?: string;
   /**
    * @remarks
-   * Purchaser ID
+   * The ID of the purchaser.
    * 
    * This parameter is required.
    * 
@@ -246,11 +254,10 @@ export class SearchProductsRequest extends $dara.Model {
   purchaserId?: string;
   /**
    * @remarks
-   * Tax rate
-   * 
-   * > - Supports combining multiple tax rate enumeration values as request parameters. Use commas to separate them, for example: Rate0,Rate1.
-   * >
-   * > - HasRate cannot be combined with other enumeration values as request parameters.
+   * The tax rate.
+   * > 
+   * > - You can combine multiple tax rate enum values. Separate the values with commas (,). Example: Rate0,Rate1.
+   * > - HasRate cannot be combined with other enum values.
    * 
    * @example
    * Rate0
@@ -258,7 +265,7 @@ export class SearchProductsRequest extends $dara.Model {
   taxRate?: string;
   /**
    * @remarks
-   * Sales pattern
+   * The sales mode.
    * 
    * @example
    * JingXiao
@@ -270,6 +277,7 @@ export class SearchProductsRequest extends $dara.Model {
       categoryIds: 'categoryIds',
       createEndTime: 'createEndTime',
       createStartTime: 'createStartTime',
+      cursor: 'cursor',
       distributionHighPrice: 'distributionHighPrice',
       distributionHighPriceRatio: 'distributionHighPriceRatio',
       distributionLowPrice: 'distributionLowPrice',
@@ -305,6 +313,7 @@ export class SearchProductsRequest extends $dara.Model {
       categoryIds: { 'type': 'array', 'itemType': 'string' },
       createEndTime: 'string',
       createStartTime: 'string',
+      cursor: 'string',
       distributionHighPrice: 'number',
       distributionHighPriceRatio: 'number',
       distributionLowPrice: 'number',

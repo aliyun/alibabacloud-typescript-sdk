@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SelectionGroupAddProductResponseBody extends $dara.Model {
   /**
    * @remarks
-   * List of product IDs successfully added
+   * The IDs of the products that are successfully added to the selection pool.
    */
   productIds?: string[];
   static names(): { [key: string]: string } {
