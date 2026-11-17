@@ -241,16 +241,16 @@ export default class Client extends OpenApi {
    * ## Before you begin
    * - The app instance group is created, and **the application specified by AppId is deployed in the image used by the app instance group**. Otherwise, the error code `InvalidAppId.NotFound` is returned.
    * - The app instance group **is not added to an active app instance group set**. App instance groups added to a set cannot be authorized individually and must be authorized through the set. Otherwise, the error code `InvalidAppInstanceGroup.AuthorizeBlockedBySet` is returned.
-   * - If the workspace to which the app instance group belongs is an AD workspace, **UserMeta must be specified**, the value of UserMeta.Type must be ad, and the value of UserMeta.AdDomain must be the same as the AD domain bound to the workspace.
-   * - If the app instance group is already authorized through a user group and mixed authorization of users and user groups is not supported, you cannot authorize individual users. Otherwise, the error code `AuthAppInstanceGroup.MixNotSupported` is returned.
+   * - If the workspace to which the app instance group belongs is an AD workspace, **UserMeta must be specified**, the value of `UserMeta.Type` must be `ad`, and the value of `UserMeta.AdDomain` must be the same as the AD domain bound to the workspace.
+   * - If the app instance group has been authorized through a user group and mixed authorization of users and user groups is not supported, you cannot authorize individual users. Otherwise, the error code `AuthAppInstanceGroup.MixNotSupported` is returned.
    * ## Parameter description
-   * - **You must specify at least one of AuthorizeUserIds and UnAuthorizeUserIds**, or specify both. If both are empty, the system does not change any authorization relationships when you invoke this operation.
+   * - **Specify at least one of AuthorizeUserIds and UnAuthorizeUserIds**, or specify both. If both are empty, no authorization relationships are changed when you invoke this operation.
    * - When adding authorization, the sum of the current number of authorized users for the application and the number of newly added users cannot exceed the authorized user quota for the application. If the quota is exceeded, the error code `ExceedAppAuthUserQuota` is returned. Removing authorization is not subject to the quota limit.
    * ## Call sequence
    * 1. Call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) or [GetAppInstanceGroup](https://help.aliyun.com/document_detail/600836.html) operation to obtain the app instance group ID (AppInstanceGroupId) and the application IDs of the applications deployed in the app instance group (AppId in the Apps list).
-   * 2. Call the [DescribeUsers](https://help.aliyun.com/document_detail/436936.html) operation to obtain the usernames of the users to be authorized or unauthorized.
+   * 2. Call the [DescribeUsers](https://help.aliyun.com/document_detail/436936.html) operation to obtain the usernames of the users to be authorized or whose authorization is to be removed.
    * 3. Call this operation to complete the authorization change.
-   * > After the authorization is changed, the selected users will receive a notification email. It generally takes about 2 minutes for the changes to take effect on the terminal.
+   * > After the authorization is changed, the selected users will receive a notification email. Generally, it takes about 2 minutes for the changes to take effect on the terminal.
    * 
    * @param tmpReq - AuthorizeUsersForAppRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -317,16 +317,16 @@ export default class Client extends OpenApi {
    * ## Before you begin
    * - The app instance group is created, and **the application specified by AppId is deployed in the image used by the app instance group**. Otherwise, the error code `InvalidAppId.NotFound` is returned.
    * - The app instance group **is not added to an active app instance group set**. App instance groups added to a set cannot be authorized individually and must be authorized through the set. Otherwise, the error code `InvalidAppInstanceGroup.AuthorizeBlockedBySet` is returned.
-   * - If the workspace to which the app instance group belongs is an AD workspace, **UserMeta must be specified**, the value of UserMeta.Type must be ad, and the value of UserMeta.AdDomain must be the same as the AD domain bound to the workspace.
-   * - If the app instance group is already authorized through a user group and mixed authorization of users and user groups is not supported, you cannot authorize individual users. Otherwise, the error code `AuthAppInstanceGroup.MixNotSupported` is returned.
+   * - If the workspace to which the app instance group belongs is an AD workspace, **UserMeta must be specified**, the value of `UserMeta.Type` must be `ad`, and the value of `UserMeta.AdDomain` must be the same as the AD domain bound to the workspace.
+   * - If the app instance group has been authorized through a user group and mixed authorization of users and user groups is not supported, you cannot authorize individual users. Otherwise, the error code `AuthAppInstanceGroup.MixNotSupported` is returned.
    * ## Parameter description
-   * - **You must specify at least one of AuthorizeUserIds and UnAuthorizeUserIds**, or specify both. If both are empty, the system does not change any authorization relationships when you invoke this operation.
+   * - **Specify at least one of AuthorizeUserIds and UnAuthorizeUserIds**, or specify both. If both are empty, no authorization relationships are changed when you invoke this operation.
    * - When adding authorization, the sum of the current number of authorized users for the application and the number of newly added users cannot exceed the authorized user quota for the application. If the quota is exceeded, the error code `ExceedAppAuthUserQuota` is returned. Removing authorization is not subject to the quota limit.
    * ## Call sequence
    * 1. Call the [ListAppInstanceGroup](https://help.aliyun.com/document_detail/428506.html) or [GetAppInstanceGroup](https://help.aliyun.com/document_detail/600836.html) operation to obtain the app instance group ID (AppInstanceGroupId) and the application IDs of the applications deployed in the app instance group (AppId in the Apps list).
-   * 2. Call the [DescribeUsers](https://help.aliyun.com/document_detail/436936.html) operation to obtain the usernames of the users to be authorized or unauthorized.
+   * 2. Call the [DescribeUsers](https://help.aliyun.com/document_detail/436936.html) operation to obtain the usernames of the users to be authorized or whose authorization is to be removed.
    * 3. Call this operation to complete the authorization change.
-   * > After the authorization is changed, the selected users will receive a notification email. It generally takes about 2 minutes for the changes to take effect on the terminal.
+   * > After the authorization is changed, the selected users will receive a notification email. Generally, it takes about 2 minutes for the changes to take effect on the terminal.
    * 
    * @param request - AuthorizeUsersForAppRequest
    * @returns AuthorizeUsersForAppResponse
@@ -334,6 +334,60 @@ export default class Client extends OpenApi {
   async authorizeUsersForApp(request: $_model.AuthorizeUsersForAppRequest): Promise<$_model.AuthorizeUsersForAppResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.authorizeUsersForAppWithOptions(request, runtime);
+  }
+
+  /**
+   * Configures third-party channels for multiple agent runtimes in batches, supports delivering different channel configurations to different runtimes, and returns the configuration result for each configuration item.
+   * 
+   * @param request - BatchConfigRuntimeChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BatchConfigRuntimeChannelResponse
+   */
+  async batchConfigRuntimeChannelWithOptions(request: $_model.BatchConfigRuntimeChannelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BatchConfigRuntimeChannelResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentPlatform)) {
+      body["AgentPlatform"] = request.agentPlatform;
+    }
+
+    if (!$dara.isNull(request.agentProvider)) {
+      body["AgentProvider"] = request.agentProvider;
+    }
+
+    if (!$dara.isNull(request.channelConfigs)) {
+      body["ChannelConfigs"] = request.channelConfigs;
+    }
+
+    if (!$dara.isNull(request.runtimeType)) {
+      body["RuntimeType"] = request.runtimeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BatchConfigRuntimeChannel",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BatchConfigRuntimeChannelResponse>(await this.callApi(params, req, runtime), new $_model.BatchConfigRuntimeChannelResponse({}));
+  }
+
+  /**
+   * Configures third-party channels for multiple agent runtimes in batches, supports delivering different channel configurations to different runtimes, and returns the configuration result for each configuration item.
+   * 
+   * @param request - BatchConfigRuntimeChannelRequest
+   * @returns BatchConfigRuntimeChannelResponse
+   */
+  async batchConfigRuntimeChannel(request: $_model.BatchConfigRuntimeChannelRequest): Promise<$_model.BatchConfigRuntimeChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.batchConfigRuntimeChannelWithOptions(request, runtime);
   }
 
   /**
@@ -398,9 +452,9 @@ export default class Client extends OpenApi {
    * Creates a custom image based on an existing image and starts an image creation task.
    * 
    * @remarks
-   * Before you call this operation, make sure that the parent image is available and an available image distribution record exists in the region where the image is created.
+   * Before you call this operation, make sure that the parent image is available and an available image distribution record exists in the creation region.
    * 1. Call ListImage to obtain the parent image ID.
-   * 2. Specify the creation mode, disk capacity, and resource type, and then call this operation.
+   * 2. Specify the creation mode, cloud disk capacity, and resource type, and then call this operation.
    * 3. Save the returned ImageId, VersionId, and TaskId.
    * 4. Call GetTask to query the creation progress. **A successful request does not indicate that the image creation is complete.**
    * 
@@ -522,9 +576,9 @@ export default class Client extends OpenApi {
    * Creates a custom image based on an existing image and starts an image creation task.
    * 
    * @remarks
-   * Before you call this operation, make sure that the parent image is available and an available image distribution record exists in the region where the image is created.
+   * Before you call this operation, make sure that the parent image is available and an available image distribution record exists in the creation region.
    * 1. Call ListImage to obtain the parent image ID.
-   * 2. Specify the creation mode, disk capacity, and resource type, and then call this operation.
+   * 2. Specify the creation mode, cloud disk capacity, and resource type, and then call this operation.
    * 3. Save the returned ImageId, VersionId, and TaskId.
    * 4. Call GetTask to query the creation progress. **A successful request does not indicate that the image creation is complete.**
    * 
@@ -540,7 +594,7 @@ export default class Client extends OpenApi {
    * Clears the memory of a specified agent instance.
    * 
    * @remarks
-   * First, call `ListAgentInstanceMemory` to query the target instance ID and the associated user. **Verify the instance and user before clearing the memory.**
+   * Call `ListAgentInstanceMemory` to query the target instance ID and the associated user. **Verify the instance and user before clearing the memory.**
    * 
    * @param request - ClearAgentInstanceMemoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -574,7 +628,7 @@ export default class Client extends OpenApi {
    * Clears the memory of a specified agent instance.
    * 
    * @remarks
-   * First, call `ListAgentInstanceMemory` to query the target instance ID and the associated user. **Verify the instance and user before clearing the memory.**
+   * Call `ListAgentInstanceMemory` to query the target instance ID and the associated user. **Verify the instance and user before clearing the memory.**
    * 
    * @param request - ClearAgentInstanceMemoryRequest
    * @returns ClearAgentInstanceMemoryResponse
@@ -588,16 +642,16 @@ export default class Client extends OpenApi {
    * Configures the model group for a resource group.
    * 
    * @remarks
-   * You can assign a model group to the resource group that contains agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. The assigned model group serves as the inference engine for agents within the resource group to execute tasks.
-   * If an agent runtime has a model group configured and its resource group also has a model group configured, the model group assigned to the resource group takes effect. The resource group settings take precedence over the agent runtime settings.
+   * You can assign model groups to the resource groups that contain agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. These model groups serve as inference engines for agents within the resource groups to execute tasks.
+   * If an agent runtime has its own model group configured and its resource group also has a model group configured, the model group bound to the resource group takes effect. That is, the resource group settings take precedence over the agent runtime settings.
    * **Before you begin**
-   * - The ResourceGroupId parameter in this operation specifically refers to the WUYING Enterprise Edition resource group ID, which starts with rg-. This resource group is managed by the WUYING Enterprise Edition management and control service. It must be created before you deploy agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent. You do not need to and cannot create it by using the API of this service. Although the account-level resource group ID in Alibaba Cloud Resource Manager also starts with rg-, it does not belong to WUYING resource groups and cannot be passed as this parameter.
+   * - The ResourceGroupId parameter in this operation specifically refers to the WUYING Enterprise Edition resource group ID, which starts with rg-. This resource group is managed by the WUYING Enterprise Edition control plane and must be created before you deploy agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent. You do not need to and cannot create it by using the API operations of this service. Although the account-level resource group IDs in Alibaba Cloud Resource Manager also start with rg-, they do not belong to WUYING resource groups and cannot be passed as this parameter.
    * - Before you call this operation, obtain an existing WUYING resource group ID by using one of the following methods:
-   *   - Call the DescribeResourceGroups operation of WUYING Workspace eds-user (API version 2021-03-08). The ResourceGroup[].ResourceGroupId field in the response is the resource group ID required for this parameter. You can set the ResourceClassification request parameter to DesktopAgent and filter agent resource groups by AgentType (JVSClaw or HermesAgent). The AliyunResourceGroupId field in the response is the resource group ID of Alibaba Cloud Resource Manager and cannot be used in this operation.
+   *   - Call the DescribeResourceGroups operation of WUYING Cloud Desktop eds-user (API version 2021-03-08). The ResourceGroup[].ResourceGroupId field in the response is the resource group ID required for this parameter. You can set the ResourceClassification request parameter to DesktopAgent and filter agent resource groups by AgentType (JVSClaw or HermesAgent). The AliyunResourceGroupId field in the response is the resource group ID of Alibaba Cloud Resource Manager and cannot be used for this operation.
    *   - Call the GetRuntimeModelConfig operation of this service. The Data.ResourceGroupId field in the response is the WUYING resource group ID to which the specified agent runtime currently belongs. If the runtime does not belong to any resource group, this field is null.
    *   - When you call the ListDesktopAgentRuntime operation of this service, you can use the ResourceGroupId request parameter to filter agent runtimes by resource group to confirm which runtimes are included in a specific resource group.
    * - The ListModelTemplateResourceGroup operation returns only the resource groups that have been authorized for a specified model group. It cannot be used to discover resource groups that have not been authorized for any model group.
-   * Make sure that you are fully familiar with the operations and usage of the WUYING Agent Management Center before you use this operation.
+   * Make sure that you are fully familiar with the operations and usage of the WUYING Agent Management Center before you call this operation.
    * 
    * @param request - ConfigResourceGroupModelTemplateRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -635,16 +689,16 @@ export default class Client extends OpenApi {
    * Configures the model group for a resource group.
    * 
    * @remarks
-   * You can assign a model group to the resource group that contains agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. The assigned model group serves as the inference engine for agents within the resource group to execute tasks.
-   * If an agent runtime has a model group configured and its resource group also has a model group configured, the model group assigned to the resource group takes effect. The resource group settings take precedence over the agent runtime settings.
+   * You can assign model groups to the resource groups that contain agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent in the WUYING Agent Management Center. These model groups serve as inference engines for agents within the resource groups to execute tasks.
+   * If an agent runtime has its own model group configured and its resource group also has a model group configured, the model group bound to the resource group takes effect. That is, the resource group settings take precedence over the agent runtime settings.
    * **Before you begin**
-   * - The ResourceGroupId parameter in this operation specifically refers to the WUYING Enterprise Edition resource group ID, which starts with rg-. This resource group is managed by the WUYING Enterprise Edition management and control service. It must be created before you deploy agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent. You do not need to and cannot create it by using the API of this service. Although the account-level resource group ID in Alibaba Cloud Resource Manager also starts with rg-, it does not belong to WUYING resource groups and cannot be passed as this parameter.
+   * - The ResourceGroupId parameter in this operation specifically refers to the WUYING Enterprise Edition resource group ID, which starts with rg-. This resource group is managed by the WUYING Enterprise Edition control plane and must be created before you deploy agent runtimes such as JVS Computer, OpenClaw, and Hermes Agent. You do not need to and cannot create it by using the API operations of this service. Although the account-level resource group IDs in Alibaba Cloud Resource Manager also start with rg-, they do not belong to WUYING resource groups and cannot be passed as this parameter.
    * - Before you call this operation, obtain an existing WUYING resource group ID by using one of the following methods:
-   *   - Call the DescribeResourceGroups operation of WUYING Workspace eds-user (API version 2021-03-08). The ResourceGroup[].ResourceGroupId field in the response is the resource group ID required for this parameter. You can set the ResourceClassification request parameter to DesktopAgent and filter agent resource groups by AgentType (JVSClaw or HermesAgent). The AliyunResourceGroupId field in the response is the resource group ID of Alibaba Cloud Resource Manager and cannot be used in this operation.
+   *   - Call the DescribeResourceGroups operation of WUYING Cloud Desktop eds-user (API version 2021-03-08). The ResourceGroup[].ResourceGroupId field in the response is the resource group ID required for this parameter. You can set the ResourceClassification request parameter to DesktopAgent and filter agent resource groups by AgentType (JVSClaw or HermesAgent). The AliyunResourceGroupId field in the response is the resource group ID of Alibaba Cloud Resource Manager and cannot be used for this operation.
    *   - Call the GetRuntimeModelConfig operation of this service. The Data.ResourceGroupId field in the response is the WUYING resource group ID to which the specified agent runtime currently belongs. If the runtime does not belong to any resource group, this field is null.
    *   - When you call the ListDesktopAgentRuntime operation of this service, you can use the ResourceGroupId request parameter to filter agent runtimes by resource group to confirm which runtimes are included in a specific resource group.
    * - The ListModelTemplateResourceGroup operation returns only the resource groups that have been authorized for a specified model group. It cannot be used to discover resource groups that have not been authorized for any model group.
-   * Make sure that you are fully familiar with the operations and usage of the WUYING Agent Management Center before you use this operation.
+   * Make sure that you are fully familiar with the operations and usage of the WUYING Agent Management Center before you call this operation.
    * 
    * @param request - ConfigResourceGroupModelTemplateRequest
    * @returns ConfigResourceGroupModelTemplateResponse
@@ -1063,21 +1117,21 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Prerequisites
-   * - Prepare an available office network, image, and specification in the target business region, and ensure that the account has the corresponding browser configurations and resource quotas.
-   * - Specify CloudBrowserName and BizRegionId. You must set OsType to `Windows`.
-   * - The authorized users must be created in advance and match the account type. The authorized user groups must belong to the current account and match the account type of the office network.
-   * - **Users and UserGroupIds cannot be specified at the same time.**
+   * - Prepare an available office network, image, and specifications in the target business region, and ensure that the account has the corresponding browser configurations and resource quotas.
+   * - Specify `CloudBrowserName` and `BizRegionId`. You must set `OsType` to `Windows`.
+   * - Authorized users must be created in advance and match the account type. Authorized user groups must belong to the current account and match the account type of the office network.
+   * - **`Users` and `UserGroupIds` cannot be both non-empty.**
    * ## MAU billing parameters
-   * - Set ChargeType to `PostPaid`.
-   * - **You must explicitly set SubPayType to `mau`. Omitting this parameter does not enable MAU billing.**
-   * - Set ChargeResourceMode to `AppInstance`.
-   * - You do not need to specify Period, PeriodUnit, AppPackageType, AutoPay, AutoRenew, or NodePool.
+   * - Set `ChargeType` to `PostPaid`.
+   * - **You must explicitly set `SubPayType` to `mau`. Omitting this field does not enable MAU billing.**
+   * - Set `ChargeResourceMode` to `AppInstance`.
+   * - You do not need to specify `Period`, `PeriodUnit`, `AppPackageType`, `AutoPay`, `AutoRenew`, or `NodePool`.
    * ## Post-call processing
-   * **A successful API response does not indicate that the browser resources are ready.** After the creation, query the status of the browser group and use it only after you confirm that it is connectable.
-   * This operation creates a new cloud browser group. You do not need to create a delivery group in advance.
+   * **A successful API response does not indicate that the browser resources are ready.** After creation, query the status of the browser group and use it only after confirming that it is connectable.
+   * This operation creates a new cloud browser group and does not require a delivery group to be created in advance.
    * ## Example descriptions
-   * Field examples are provided to show how to specify parameters. Replace resource identifiers with the actual values under the current account. Capacity examples do not represent default values or upper limits.
-   * An example value of `-` indicates that the parameter is not required. When you call the operation, omit the corresponding parameter and do not pass the `-` character.
+   * Field examples are used to demonstrate how to specify values. Replace resource identifiers with the actual values under the current account. Capacity examples do not represent default values or upper limits.
+   * An example value of `-` indicates that the field is not required. When calling the API, omit the corresponding parameter and do not pass the `-` character.
    * 
    * @param tmpReq - CreateBrowserInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1258,21 +1312,21 @@ export default class Client extends OpenApi {
    * 
    * @remarks
    * ## Prerequisites
-   * - Prepare an available office network, image, and specification in the target business region, and ensure that the account has the corresponding browser configurations and resource quotas.
-   * - Specify CloudBrowserName and BizRegionId. You must set OsType to `Windows`.
-   * - The authorized users must be created in advance and match the account type. The authorized user groups must belong to the current account and match the account type of the office network.
-   * - **Users and UserGroupIds cannot be specified at the same time.**
+   * - Prepare an available office network, image, and specifications in the target business region, and ensure that the account has the corresponding browser configurations and resource quotas.
+   * - Specify `CloudBrowserName` and `BizRegionId`. You must set `OsType` to `Windows`.
+   * - Authorized users must be created in advance and match the account type. Authorized user groups must belong to the current account and match the account type of the office network.
+   * - **`Users` and `UserGroupIds` cannot be both non-empty.**
    * ## MAU billing parameters
-   * - Set ChargeType to `PostPaid`.
-   * - **You must explicitly set SubPayType to `mau`. Omitting this parameter does not enable MAU billing.**
-   * - Set ChargeResourceMode to `AppInstance`.
-   * - You do not need to specify Period, PeriodUnit, AppPackageType, AutoPay, AutoRenew, or NodePool.
+   * - Set `ChargeType` to `PostPaid`.
+   * - **You must explicitly set `SubPayType` to `mau`. Omitting this field does not enable MAU billing.**
+   * - Set `ChargeResourceMode` to `AppInstance`.
+   * - You do not need to specify `Period`, `PeriodUnit`, `AppPackageType`, `AutoPay`, `AutoRenew`, or `NodePool`.
    * ## Post-call processing
-   * **A successful API response does not indicate that the browser resources are ready.** After the creation, query the status of the browser group and use it only after you confirm that it is connectable.
-   * This operation creates a new cloud browser group. You do not need to create a delivery group in advance.
+   * **A successful API response does not indicate that the browser resources are ready.** After creation, query the status of the browser group and use it only after confirming that it is connectable.
+   * This operation creates a new cloud browser group and does not require a delivery group to be created in advance.
    * ## Example descriptions
-   * Field examples are provided to show how to specify parameters. Replace resource identifiers with the actual values under the current account. Capacity examples do not represent default values or upper limits.
-   * An example value of `-` indicates that the parameter is not required. When you call the operation, omit the corresponding parameter and do not pass the `-` character.
+   * Field examples are used to demonstrate how to specify values. Replace resource identifiers with the actual values under the current account. Capacity examples do not represent default values or upper limits.
+   * An example value of `-` indicates that the field is not required. When calling the API, omit the corresponding parameter and do not pass the `-` character.
    * 
    * @param request - CreateBrowserInstanceGroupRequest
    * @returns CreateBrowserInstanceGroupResponse
@@ -2292,7 +2346,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures Simple Log Service (SLS) log delivery.
+   * Configures operation log delivery for specified products and writes the logs to a Simple Log Service (SLS) project and Logstore of the current account.
+   * 
+   * @remarks
+   * ## Before you begin
+   * - Specify the region where SLS is deployed and at least one product delivery scope.
+   * - Specify either `ProjectName` or `ExistedProjectName`. If you use an existing project, make sure that it belongs to the current account and is located in the specified region.
+   * - Only one enabled delivery configuration can exist for the same account and product type. Before you call this operation, you can call `DescribeSlsDeliveryConfig` to query existing configurations. If an enabled configuration already exists, calling this operation again returns `SlsDeliveryAlreadyExists`.
+   * ## Configuration management
+   * - This operation is used to configure delivery, not to query logs.
+   * - To pause delivery, call `StopDeliveryConfig`. Stopping delivery does not delete the delivery configuration.
+   * - To reconfigure the delivery destination or rebuild the configuration, query and delete the corresponding old configuration by calling `DeleteDeliveryConfig` before you call this operation. Deleting a delivery configuration does not delete the SLS project or Logstore.
+   * - Do not treat repeated calls for an existing configuration as update or resume operations. After the call, you can call `DescribeSlsDeliveryConfig` to confirm the configuration status.
    * 
    * @param request - DeliverToUserSlsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2348,7 +2413,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Configures Simple Log Service (SLS) log delivery.
+   * Configures operation log delivery for specified products and writes the logs to a Simple Log Service (SLS) project and Logstore of the current account.
+   * 
+   * @remarks
+   * ## Before you begin
+   * - Specify the region where SLS is deployed and at least one product delivery scope.
+   * - Specify either `ProjectName` or `ExistedProjectName`. If you use an existing project, make sure that it belongs to the current account and is located in the specified region.
+   * - Only one enabled delivery configuration can exist for the same account and product type. Before you call this operation, you can call `DescribeSlsDeliveryConfig` to query existing configurations. If an enabled configuration already exists, calling this operation again returns `SlsDeliveryAlreadyExists`.
+   * ## Configuration management
+   * - This operation is used to configure delivery, not to query logs.
+   * - To pause delivery, call `StopDeliveryConfig`. Stopping delivery does not delete the delivery configuration.
+   * - To reconfigure the delivery destination or rebuild the configuration, query and delete the corresponding old configuration by calling `DeleteDeliveryConfig` before you call this operation. Deleting a delivery configuration does not delete the SLS project or Logstore.
+   * - Do not treat repeated calls for an existing configuration as update or resume operations. After the call, you can call `DescribeSlsDeliveryConfig` to confirm the configuration status.
    * 
    * @param request - DeliverToUserSlsRequest
    * @returns DeliverToUserSlsResponse
@@ -2359,10 +2435,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve the resource and session events of the current account within the last 30 days by using paging.
+   * Performs a paged query of the resource and session events of the current account within the last 30 days, supporting paging.
    * 
    * @remarks
-   * Queries the resource and session events of the current account. `StartTime` and `EndTime` must be specified at the same time, and the time range includes the start and end times. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified, the intersection of the conditions is used. Results are returned in descending order of the event log time. To use page number-based pagination, specify `PageSize` and `PageNumber`. The current version does not use `MaxResults` and `NextToken`.
+   * Queries the resource and session events of the current account. `StartTime` and `EndTime` must be specified at the same time, and the time range includes the start and end times. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified, the intersection is used. Results are returned in descending order of the event log time. To use page number-based pagination, specify `PageSize` and `PageNumber`. The current version does not use `MaxResults` and `NextToken`.
    * 
    * @param request - DescribeEventsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2389,6 +2465,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.endTime)) {
       body["EndTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.endUserIds)) {
+      body["EndUserIds"] = request.endUserIds;
     }
 
     if (!$dara.isNull(request.eventId)) {
@@ -2453,10 +2533,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query to retrieve the resource and session events of the current account within the last 30 days by using paging.
+   * Performs a paged query of the resource and session events of the current account within the last 30 days, supporting paging.
    * 
    * @remarks
-   * Queries the resource and session events of the current account. `StartTime` and `EndTime` must be specified at the same time, and the time range includes the start and end times. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified, the intersection of the conditions is used. Results are returned in descending order of the event log time. To use page number-based pagination, specify `PageSize` and `PageNumber`. The current version does not use `MaxResults` and `NextToken`.
+   * Queries the resource and session events of the current account. `StartTime` and `EndTime` must be specified at the same time, and the time range includes the start and end times. The service only retrieves logs from 30 days before the call time to the current time, so events outside this window are not returned. If multiple filter parameters are specified, the intersection is used. Results are returned in descending order of the event log time. To use page number-based pagination, specify `PageSize` and `PageNumber`. The current version does not use `MaxResults` and `NextToken`.
    * 
    * @param request - DescribeEventsRequest
    * @returns DescribeEventsResponse
@@ -2579,10 +2659,89 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the system default path rules or the user data roaming rules of a specified app instance group or app instance group set.
+   * Queries the Simple Log Service (SLS) delivery configurations of the current account.
    * 
    * @remarks
-   * When querying a specified target, specify either the app instance group ID or the app instance group set ID. When querying a set, the rules of the primary app instance group are returned. You can use the query result as a reference for modifying rules and then call SetUserProfilePathRules to submit the complete rule list.
+   * ## Query description
+   * - Queries existing delivery configurations under the current account. This operation does not create or modify configurations.
+   * - You can filter configurations by SLS region, project name, Logstore name, and product type. If multiple conditions are specified, they take effect together.
+   * - If no filter conditions are specified, all delivery configurations under the current account are queried. If no configurations match the conditions, an empty list is returned.
+   * - The returned results are displayed hierarchically by project, Logstore, and delivery scope.
+   * ## Example description
+   * The examples of names and retention periods are used to demonstrate the format. Refer to the actual configurations. The retention period examples do not represent default values or upper limits.
+   * 
+   * @param request - DescribeSlsDeliveryConfigRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DescribeSlsDeliveryConfigResponse
+   */
+  async describeSlsDeliveryConfigWithOptions(request: $_model.DescribeSlsDeliveryConfigRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DescribeSlsDeliveryConfigResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.logStoreName)) {
+      query["LogStoreName"] = request.logStoreName;
+    }
+
+    if (!$dara.isNull(request.projectName)) {
+      query["ProjectName"] = request.projectName;
+    }
+
+    if (!$dara.isNull(request.slsRegionId)) {
+      query["SlsRegionId"] = request.slsRegionId;
+    }
+
+    let body : {[key: string ]: any} = { };
+    let bodyFlat : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.deliveryScopes)) {
+      bodyFlat["DeliveryScopes"] = request.deliveryScopes;
+    }
+
+    body = {
+      ...body,
+      ...OpenApiUtil.query(bodyFlat),
+    };
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DescribeSlsDeliveryConfig",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DescribeSlsDeliveryConfigResponse>(await this.callApi(params, req, runtime), new $_model.DescribeSlsDeliveryConfigResponse({}));
+  }
+
+  /**
+   * Queries the Simple Log Service (SLS) delivery configurations of the current account.
+   * 
+   * @remarks
+   * ## Query description
+   * - Queries existing delivery configurations under the current account. This operation does not create or modify configurations.
+   * - You can filter configurations by SLS region, project name, Logstore name, and product type. If multiple conditions are specified, they take effect together.
+   * - If no filter conditions are specified, all delivery configurations under the current account are queried. If no configurations match the conditions, an empty list is returned.
+   * - The returned results are displayed hierarchically by project, Logstore, and delivery scope.
+   * ## Example description
+   * The examples of names and retention periods are used to demonstrate the format. Refer to the actual configurations. The retention period examples do not represent default values or upper limits.
+   * 
+   * @param request - DescribeSlsDeliveryConfigRequest
+   * @returns DescribeSlsDeliveryConfigResponse
+   */
+  async describeSlsDeliveryConfig(request: $_model.DescribeSlsDeliveryConfigRequest): Promise<$_model.DescribeSlsDeliveryConfigResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.describeSlsDeliveryConfigWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the system default path rules, or the user profile roaming rules for a specified app instance group or app instance group set.
+   * 
+   * @remarks
+   * When querying a specified target, specify either the app instance group ID or the app instance group set ID. When querying a set, the rules of the primary app instance group are returned. You can use the query results as a reference for modifying rules, and then call SetUserProfilePathRules to submit the complete rule list.
    * 
    * @param request - DescribeUserProfilePathRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2625,10 +2784,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the system default path rules or the user data roaming rules of a specified app instance group or app instance group set.
+   * Queries the system default path rules, or the user profile roaming rules for a specified app instance group or app instance group set.
    * 
    * @remarks
-   * When querying a specified target, specify either the app instance group ID or the app instance group set ID. When querying a set, the rules of the primary app instance group are returned. You can use the query result as a reference for modifying rules and then call SetUserProfilePathRules to submit the complete rule list.
+   * When querying a specified target, specify either the app instance group ID or the app instance group set ID. When querying a set, the rules of the primary app instance group are returned. You can use the query results as a reference for modifying rules, and then call SetUserProfilePathRules to submit the complete rule list.
    * 
    * @param request - DescribeUserProfilePathRulesRequest
    * @returns DescribeUserProfilePathRulesResponse
@@ -2960,15 +3119,15 @@ export default class Client extends OpenApi {
    * Queries the configuration, status, and authorization statistics of a specified cloud browser group.
    * 
    * @remarks
-   * This topic describes how to use the query operation in the monthly active user (MAU) billing scenario.
+   * This topic describes the query usage for the monthly active user (MAU) billing scenario.
    * ## Before you begin
-   * You have obtained the ID of a cloud browser group under the current account. You can call the `ListBrowserInstanceGroup` operation to obtain the ID.
+   * Obtain the ID of the cloud browser group within the current account. You can call the ListBrowserInstanceGroup operation to obtain the ID.
    * ## Response content
-   * The operation returns the current configuration, status, and authorization statistics of the browser group. The details return up to the first 20 bookmarks and website access records. To query the complete lists, call the `ListBrowserBookmarks` and `ListBrowserRestrictedURLs` operations.
+   * Returns the current configuration, status, and authorization statistics of the browser group. The bookmark and website access lists in the details return up to 20 entries each. To query the complete lists, call the ListBrowserBookmarks and ListBrowserRestrictedURLs operations, respectively.
    * ## What to do next
-   * This operation only queries configurations and does not modify resources. After you read the returned status, perform connection or management operations that match the status.
-   * ## Examples
-   * In the examples, `-` indicates that the field is not applicable or not returned in the current scenario, and is not an actual string returned by the operation. Common resource ID examples are desensitized. Use the actual query results.
+   * This operation only queries configurations and does not modify resources. After reading the returned status, perform connection or management operations that match the status.
+   * ## Example description
+   * In the examples, a hyphen (-) indicates that the field is not applicable to the current scenario or is not returned. It is not an actual string returned by the operation. The examples of common resource IDs are masked. Use the actual query results.
    * 
    * @param request - GetBrowserInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2998,15 +3157,15 @@ export default class Client extends OpenApi {
    * Queries the configuration, status, and authorization statistics of a specified cloud browser group.
    * 
    * @remarks
-   * This topic describes how to use the query operation in the monthly active user (MAU) billing scenario.
+   * This topic describes the query usage for the monthly active user (MAU) billing scenario.
    * ## Before you begin
-   * You have obtained the ID of a cloud browser group under the current account. You can call the `ListBrowserInstanceGroup` operation to obtain the ID.
+   * Obtain the ID of the cloud browser group within the current account. You can call the ListBrowserInstanceGroup operation to obtain the ID.
    * ## Response content
-   * The operation returns the current configuration, status, and authorization statistics of the browser group. The details return up to the first 20 bookmarks and website access records. To query the complete lists, call the `ListBrowserBookmarks` and `ListBrowserRestrictedURLs` operations.
+   * Returns the current configuration, status, and authorization statistics of the browser group. The bookmark and website access lists in the details return up to 20 entries each. To query the complete lists, call the ListBrowserBookmarks and ListBrowserRestrictedURLs operations, respectively.
    * ## What to do next
-   * This operation only queries configurations and does not modify resources. After you read the returned status, perform connection or management operations that match the status.
-   * ## Examples
-   * In the examples, `-` indicates that the field is not applicable or not returned in the current scenario, and is not an actual string returned by the operation. Common resource ID examples are desensitized. Use the actual query results.
+   * This operation only queries configurations and does not modify resources. After reading the returned status, perform connection or management operations that match the status.
+   * ## Example description
+   * In the examples, a hyphen (-) indicates that the field is not applicable to the current scenario or is not returned. It is not an actual string returned by the operation. The examples of common resource IDs are masked. Use the actual query results.
    * 
    * @param request - GetBrowserInstanceGroupRequest
    * @returns GetBrowserInstanceGroupResponse
@@ -4001,6 +4160,64 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the details of the QR code configuration process for a specific channel on a specified runtime, including the process status, QR code content, and the URL of the QR code configuration page.
+   * 
+   * @param request - GetRuntimeChannelQrCodeDetailRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetRuntimeChannelQrCodeDetailResponse
+   */
+  async getRuntimeChannelQrCodeDetailWithOptions(request: $_model.GetRuntimeChannelQrCodeDetailRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetRuntimeChannelQrCodeDetailResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.agentPlatform)) {
+      query["AgentPlatform"] = request.agentPlatform;
+    }
+
+    if (!$dara.isNull(request.agentProvider)) {
+      query["AgentProvider"] = request.agentProvider;
+    }
+
+    if (!$dara.isNull(request.code)) {
+      query["Code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.runtimeId)) {
+      query["RuntimeId"] = request.runtimeId;
+    }
+
+    if (!$dara.isNull(request.runtimeType)) {
+      query["RuntimeType"] = request.runtimeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetRuntimeChannelQrCodeDetail",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetRuntimeChannelQrCodeDetailResponse>(await this.callApi(params, req, runtime), new $_model.GetRuntimeChannelQrCodeDetailResponse({}));
+  }
+
+  /**
+   * Queries the details of the QR code configuration process for a specific channel on a specified runtime, including the process status, QR code content, and the URL of the QR code configuration page.
+   * 
+   * @param request - GetRuntimeChannelQrCodeDetailRequest
+   * @returns GetRuntimeChannelQrCodeDetailResponse
+   */
+  async getRuntimeChannelQrCodeDetail(request: $_model.GetRuntimeChannelQrCodeDetailRequest): Promise<$_model.GetRuntimeChannelQrCodeDetailResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getRuntimeChannelQrCodeDetailWithOptions(request, runtime);
+  }
+
+  /**
    * Queries the model configuration details of a cloud desktop.
    * 
    * @remarks
@@ -4359,10 +4576,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the memory configurations, memory statistics, and backup summary of agent instances for the current account by using a paged query with paging.
+   * Queries the memory configurations, memory statistics, and backup summaries of agent instances for the current account in a paged manner.
    * 
    * @remarks
-   * Filter by agent provider, business platform, business type, end user, and instance memory switch as needed. Retain the filter conditions and increment the page number when navigating to the next page.
+   * Filter by Agent provider, business platform, business type, end user, and instance memory switch as needed. Retain the filter conditions and increment the page number when navigating to the next page.
    * 
    * @param request - ListAgentInstanceMemoryRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -4429,10 +4646,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the memory configurations, memory statistics, and backup summary of agent instances for the current account by using a paged query with paging.
+   * Queries the memory configurations, memory statistics, and backup summaries of agent instances for the current account in a paged manner.
    * 
    * @remarks
-   * Filter by agent provider, business platform, business type, end user, and instance memory switch as needed. Retain the filter conditions and increment the page number when navigating to the next page.
+   * Filter by Agent provider, business platform, business type, end user, and instance memory switch as needed. Retain the filter conditions and increment the page number when navigating to the next page.
    * 
    * @param request - ListAgentInstanceMemoryRequest
    * @returns ListAgentInstanceMemoryResponse
@@ -5525,18 +5742,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries cloud browser groups and their current status by page.
+   * Queries cloud browser groups and their current status by using paging.
    * 
    * @remarks
-   * This topic describes the query usage for the monthly active user (MAU) billing scenario.
+   * This topic describes how to use queries in the monthly active user (MAU) billing scenario.
    * ## Query conditions
-   * You can filter by browser group ID, name, business region, office network, set, authorized user groups, and status. You can specify only one status value at a time.
-   * ## Pagination
-   * Use `PageNumber` and `PageSize` to perform a paged query. Determine whether to query the next page based on the returned `TotalCount`.
+   * You can filter by browser group identity, name, business region, office network, set, authorized user group, and status. You can specify only one value for status filtering at a time.
+   * ## Paging
+   * Use `PageNumber` and `PageSize` to perform a paged query. Use the returned `TotalCount` to determine whether to query the next page.
    * ## What to do next
-   * To view the detailed configuration of a single browser group, call `GetBrowserInstanceGroup` by using the returned ID.
+   * To view the detailed configuration of a single browser group, invoke `GetBrowserInstanceGroup` by using the returned identity.
    * ## Example description
-   * A hyphen (`-`) in the examples indicates that the field is not applicable or not returned in the current scenario. It is not a string actually returned by the API operation. Common resource ID examples are masked. Use the actual query results.
+   * The `-` in the examples only indicates that the current scenario does not apply or the field is not returned. It is not a character string actually returned by the API operation. Common resource identity examples are masked. Use the actual query results when you use them.
    * 
    * @param request - ListBrowserInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -5622,18 +5839,18 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries cloud browser groups and their current status by page.
+   * Queries cloud browser groups and their current status by using paging.
    * 
    * @remarks
-   * This topic describes the query usage for the monthly active user (MAU) billing scenario.
+   * This topic describes how to use queries in the monthly active user (MAU) billing scenario.
    * ## Query conditions
-   * You can filter by browser group ID, name, business region, office network, set, authorized user groups, and status. You can specify only one status value at a time.
-   * ## Pagination
-   * Use `PageNumber` and `PageSize` to perform a paged query. Determine whether to query the next page based on the returned `TotalCount`.
+   * You can filter by browser group identity, name, business region, office network, set, authorized user group, and status. You can specify only one value for status filtering at a time.
+   * ## Paging
+   * Use `PageNumber` and `PageSize` to perform a paged query. Use the returned `TotalCount` to determine whether to query the next page.
    * ## What to do next
-   * To view the detailed configuration of a single browser group, call `GetBrowserInstanceGroup` by using the returned ID.
+   * To view the detailed configuration of a single browser group, invoke `GetBrowserInstanceGroup` by using the returned identity.
    * ## Example description
-   * A hyphen (`-`) in the examples indicates that the field is not applicable or not returned in the current scenario. It is not a string actually returned by the API operation. Common resource ID examples are masked. Use the actual query results.
+   * The `-` in the examples only indicates that the current scenario does not apply or the field is not returned. It is not a character string actually returned by the API operation. Common resource identity examples are masked. Use the actual query results when you use them.
    * 
    * @param request - ListBrowserInstanceGroupRequest
    * @returns ListBrowserInstanceGroupResponse
@@ -5709,6 +5926,92 @@ export default class Client extends OpenApi {
   async listBrowserRestrictedURLs(request: $_model.ListBrowserRestrictedURLsRequest): Promise<$_model.ListBrowserRestrictedURLsResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listBrowserRestrictedURLsWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries the execution results of commands delivered by calling RunAppInstanceCommand in persistent sessions, including the execution status, start and end times, and command output.
+   * 
+   * @remarks
+   * Call this operation to query the execution results of a command delivery (InvocationId) in each persistent session to track the execution status and obtain the command output. InvocationId is the command execution ID returned when you call RunAppInstanceCommand to deliver a command.
+   * Currently, only WuyingServer is supported for ProductType. You must specify at least one of AppInstanceGroupIds and AppInstanceGroupId. If both are specified, AppInstanceGroupIds takes precedence. When AppInstanceGroupIds is specified, you can pass up to 200 delivery group IDs, and these delivery groups must be in the same region. If any delivery group does not exist, a delivery group not found error is returned. If the delivery groups are in different regions, a region mismatch error is returned. When only AppInstanceGroupId is specified, the command execution results under this delivery group are queried.
+   * You can use AppInstancePersistentIds to query only the execution results of specified persistent sessions. When AppInstanceGroupIds is specified, only persistent sessions belonging to these delivery groups are retained. If no matching persistent sessions are found, an empty list is returned directly, and TotalCount is 0. For pagination, use PageNumber and PageSize. MaxResults and NextToken do not take effect currently.
+   * 
+   * @param request - ListCommandInvocationResultsRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListCommandInvocationResultsResponse
+   */
+  async listCommandInvocationResultsWithOptions(request: $_model.ListCommandInvocationResultsRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListCommandInvocationResultsResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["MaxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["NextToken"] = request.nextToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appInstanceGroupId)) {
+      body["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.appInstanceGroupIds)) {
+      body["AppInstanceGroupIds"] = request.appInstanceGroupIds;
+    }
+
+    if (!$dara.isNull(request.appInstancePersistentIds)) {
+      body["AppInstancePersistentIds"] = request.appInstancePersistentIds;
+    }
+
+    if (!$dara.isNull(request.invocationId)) {
+      body["InvocationId"] = request.invocationId;
+    }
+
+    if (!$dara.isNull(request.pageNumber)) {
+      body["PageNumber"] = request.pageNumber;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      body["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListCommandInvocationResults",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListCommandInvocationResultsResponse>(await this.callApi(params, req, runtime), new $_model.ListCommandInvocationResultsResponse({}));
+  }
+
+  /**
+   * Queries the execution results of commands delivered by calling RunAppInstanceCommand in persistent sessions, including the execution status, start and end times, and command output.
+   * 
+   * @remarks
+   * Call this operation to query the execution results of a command delivery (InvocationId) in each persistent session to track the execution status and obtain the command output. InvocationId is the command execution ID returned when you call RunAppInstanceCommand to deliver a command.
+   * Currently, only WuyingServer is supported for ProductType. You must specify at least one of AppInstanceGroupIds and AppInstanceGroupId. If both are specified, AppInstanceGroupIds takes precedence. When AppInstanceGroupIds is specified, you can pass up to 200 delivery group IDs, and these delivery groups must be in the same region. If any delivery group does not exist, a delivery group not found error is returned. If the delivery groups are in different regions, a region mismatch error is returned. When only AppInstanceGroupId is specified, the command execution results under this delivery group are queried.
+   * You can use AppInstancePersistentIds to query only the execution results of specified persistent sessions. When AppInstanceGroupIds is specified, only persistent sessions belonging to these delivery groups are retained. If no matching persistent sessions are found, an empty list is returned directly, and TotalCount is 0. For pagination, use PageNumber and PageSize. MaxResults and NextToken do not take effect currently.
+   * 
+   * @param request - ListCommandInvocationResultsRequest
+   * @returns ListCommandInvocationResultsResponse
+   */
+  async listCommandInvocationResults(request: $_model.ListCommandInvocationResultsRequest): Promise<$_model.ListCommandInvocationResultsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listCommandInvocationResultsWithOptions(request, runtime);
   }
 
   /**
@@ -7783,10 +8086,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the memory feature for specified agent instances.
+   * Enables or disables the memory feature for the specified agent instances.
    * 
    * @remarks
-   * Call `ListAgentInstanceMemory` to obtain the target instance IDs. The server validates all instances in the request before updating the memory status. After the update, you can query the memory status of the instances.
+   * Call `ListAgentInstanceMemory` to obtain the target instance IDs. The server validates all instances in the request before updating the memory settings. After the update, you can query the memory settings of the instances.
    * 
    * @param request - ModifyAgentInstanceMemoryConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -7821,10 +8124,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Enables or disables the memory feature for specified agent instances.
+   * Enables or disables the memory feature for the specified agent instances.
    * 
    * @remarks
-   * Call `ListAgentInstanceMemory` to obtain the target instance IDs. The server validates all instances in the request before updating the memory status. After the update, you can query the memory status of the instances.
+   * Call `ListAgentInstanceMemory` to obtain the target instance IDs. The server validates all instances in the request before updating the memory settings. After the update, you can query the memory settings of the instances.
    * 
    * @param request - ModifyAgentInstanceMemoryConfigRequest
    * @returns ModifyAgentInstanceMemoryConfigResponse
@@ -8101,10 +8404,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes of a Wuying cloud browser.
+   * Modifies the properties of a Wuying cloud browser.
    * 
    * @remarks
-   * Modifies the attributes of a Wuying cloud browser.
+   * Modifies the properties of a Wuying cloud browser.
    * 
    * @param tmpReq - ModifyBrowserInstanceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8191,10 +8494,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the attributes of a Wuying cloud browser.
+   * Modifies the properties of a Wuying cloud browser.
    * 
    * @remarks
-   * Modifies the attributes of a Wuying cloud browser.
+   * Modifies the properties of a Wuying cloud browser.
    * 
    * @param request - ModifyBrowserInstanceGroupRequest
    * @returns ModifyBrowserInstanceGroupResponse
@@ -8439,10 +8742,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the tenant-level memory configuration for the current account based on the agent provider, business platform, and business type.
+   * Modifies the tenant-level memory configuration for the current account based on the agent provider, business platform, and business type.
    * 
    * @remarks
-   * *Changing the switch also updates existing instances that have the corresponding memory feature configured under the same business combination.** After the update, call `GetTenantMemoryConfig` and pass the same provider, platform, and business type to verify the configuration.
+   * *Modifying the switch status also updates existing instances that have the corresponding memory feature configured under the same business combination.** After the modification, call `GetTenantMemoryConfig` and pass the same provider, platform, and business type to verify the configuration.
    * 
    * @param request - ModifyTenantMemoryConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -8485,10 +8788,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the tenant-level memory configuration for the current account based on the agent provider, business platform, and business type.
+   * Modifies the tenant-level memory configuration for the current account based on the agent provider, business platform, and business type.
    * 
    * @remarks
-   * *Changing the switch also updates existing instances that have the corresponding memory feature configured under the same business combination.** After the update, call `GetTenantMemoryConfig` and pass the same provider, platform, and business type to verify the configuration.
+   * *Modifying the switch status also updates existing instances that have the corresponding memory feature configured under the same business combination.** After the modification, call `GetTenantMemoryConfig` and pass the same provider, platform, and business type to verify the configuration.
    * 
    * @param request - ModifyTenantMemoryConfigRequest
    * @returns ModifyTenantMemoryConfigResponse
@@ -8554,6 +8857,80 @@ export default class Client extends OpenApi {
   async modifyWuyingServerAttribute(request: $_model.ModifyWuyingServerAttributeRequest): Promise<$_model.ModifyWuyingServerAttributeResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyWuyingServerAttributeWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the specifications of an existing WUYING workstation.
+   * 
+   * @remarks
+   * ## Before you begin
+   * - The workstation is created and belongs to the current account.
+   * - When you change the specifications, the resource must be in the Deployed, Published Successfully, or Maintenance Failed state. The target specifications must be available in the region where the resource is located and compatible with the operating system and existing resource configurations.
+   * - Conversion between CPU specifications and GPU specifications is not supported.
+   * ## Post-processing
+   * A successful response from the API does not mean that the specification change is complete. If the generated order is unpaid, complete the payment first, and then query the workstation status and specifications to confirm the change result.
+   * 
+   * @param request - ModifyWuyingServerSpecRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyWuyingServerSpecResponse
+   */
+  async modifyWuyingServerSpecWithOptions(request: $_model.ModifyWuyingServerSpecRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyWuyingServerSpecResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.afterStatus)) {
+      body["AfterStatus"] = request.afterStatus;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.promotionId)) {
+      body["PromotionId"] = request.promotionId;
+    }
+
+    if (!$dara.isNull(request.serverInstanceType)) {
+      body["ServerInstanceType"] = request.serverInstanceType;
+    }
+
+    if (!$dara.isNull(request.wuyingServerId)) {
+      body["WuyingServerId"] = request.wuyingServerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyWuyingServerSpec",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyWuyingServerSpecResponse>(await this.callApi(params, req, runtime), new $_model.ModifyWuyingServerSpecResponse({}));
+  }
+
+  /**
+   * Modifies the specifications of an existing WUYING workstation.
+   * 
+   * @remarks
+   * ## Before you begin
+   * - The workstation is created and belongs to the current account.
+   * - When you change the specifications, the resource must be in the Deployed, Published Successfully, or Maintenance Failed state. The target specifications must be available in the region where the resource is located and compatible with the operating system and existing resource configurations.
+   * - Conversion between CPU specifications and GPU specifications is not supported.
+   * ## Post-processing
+   * A successful response from the API does not mean that the specification change is complete. If the generated order is unpaid, complete the payment first, and then query the workstation status and specifications to confirm the change result.
+   * 
+   * @param request - ModifyWuyingServerSpecRequest
+   * @returns ModifyWuyingServerSpecResponse
+   */
+  async modifyWuyingServerSpec(request: $_model.ModifyWuyingServerSpecRequest): Promise<$_model.ModifyWuyingServerSpecResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyWuyingServerSpecWithOptions(request, runtime);
   }
 
   /**
@@ -9761,6 +10138,72 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Resizes the system cloud disk or user data cloud disk of a WUYING Workspace Enterprise Edition instance and returns the related order information.
+   * 
+   * @remarks
+   * This operation resizes the disks of a WUYING Workspace.
+   * 
+   * @param tmpReq - ResizeWuyingServerDiskRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ResizeWuyingServerDiskResponse
+   */
+  async resizeWuyingServerDiskWithOptions(tmpReq: $_model.ResizeWuyingServerDiskRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ResizeWuyingServerDiskResponse> {
+    tmpReq.validate();
+    let request = new $_model.ResizeWuyingServerDiskShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.dataDiskList)) {
+      request.dataDiskListShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.dataDiskList, "DataDiskList", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.dataDiskListShrink)) {
+      body["DataDiskList"] = request.dataDiskListShrink;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.systemDiskNewSize)) {
+      body["SystemDiskNewSize"] = request.systemDiskNewSize;
+    }
+
+    if (!$dara.isNull(request.wuyingServerId)) {
+      body["WuyingServerId"] = request.wuyingServerId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ResizeWuyingServerDisk",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ResizeWuyingServerDiskResponse>(await this.callApi(params, req, runtime), new $_model.ResizeWuyingServerDiskResponse({}));
+  }
+
+  /**
+   * Resizes the system cloud disk or user data cloud disk of a WUYING Workspace Enterprise Edition instance and returns the related order information.
+   * 
+   * @remarks
+   * This operation resizes the disks of a WUYING Workspace.
+   * 
+   * @param request - ResizeWuyingServerDiskRequest
+   * @returns ResizeWuyingServerDiskResponse
+   */
+  async resizeWuyingServerDisk(request: $_model.ResizeWuyingServerDiskRequest): Promise<$_model.ResizeWuyingServerDiskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.resizeWuyingServerDiskWithOptions(request, runtime);
+  }
+
+  /**
    * Restarts a workstation.
    * 
    * @param request - RestartWuyingServerRequest
@@ -9818,10 +10261,184 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets user profile path rules for an app instance group or an app instance group set.
+   * Issues Cloud Assistant commands to persistent sessions in WUYING Workspace delivery groups. This operation supports issuing commands to a single delivery group or multiple delivery groups in the same region, and returns the command execution ID.
    * 
    * @remarks
-   * Call `DescribeUserProfilePathRules` to query the target rules before you submit the complete list of rules to retain. **The submission overwrites the existing rules of the target. Passing an empty array or omitting the rule list sets the target rules to an empty list.** When a set ID is used, the rules apply to the members of the set. After the rules are set, you can call the query operation to verify the settings.
+   * Issues Cloud Assistant commands to persistent sessions in WUYING Workspace delivery groups. Currently, the ProductType parameter only supports WuyingServer, and the CommandType parameter only supports CloudAssistantCmd. Specifying other values results in a parameter error.
+   * You can specify the execution scope in two ways:
+   * - Single delivery group: Specify the delivery group by using AppInstanceGroupId. You can also specify persistent sessions within the delivery group by using AppInstancePersistentId or AppInstancePersistentIds.
+   * - Multiple delivery groups in the same region: Specify a list of delivery groups by using AppInstanceGroupIds. The command is executed on all persistent sessions in each delivery group in the list. All delivery groups must belong to the same region. Otherwise, the InvalidRegion.NotMatch error is returned. If any delivery group does not exist or none of the delivery groups have persistent sessions, the InvalidAppInstanceGroup.NotFound error is returned.
+   * You must specify at least one of AppInstanceGroupIds and AppInstanceGroupId. If both are specified, AppInstanceGroupIds takes precedence.
+   * This operation only issues the command. The command is executed asynchronously in the sessions. Regardless of whether the command is issued to one or multiple delivery groups, only one command execution ID (InvocationId) is returned. You can use this ID to call the ListCommandInvocationResults operation to query the execution status and output on each session.
+   * 
+   * @param request - RunAppInstanceCommandRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RunAppInstanceCommandResponse
+   */
+  async runAppInstanceCommandWithOptions(request: $_model.RunAppInstanceCommandRequest, runtime: $dara.RuntimeOptions): Promise<$_model.RunAppInstanceCommandResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.appInstanceGroupId)) {
+      body["AppInstanceGroupId"] = request.appInstanceGroupId;
+    }
+
+    if (!$dara.isNull(request.appInstanceGroupIds)) {
+      body["AppInstanceGroupIds"] = request.appInstanceGroupIds;
+    }
+
+    if (!$dara.isNull(request.appInstancePersistentId)) {
+      body["AppInstancePersistentId"] = request.appInstancePersistentId;
+    }
+
+    if (!$dara.isNull(request.appInstancePersistentIds)) {
+      body["AppInstancePersistentIds"] = request.appInstancePersistentIds;
+    }
+
+    if (!$dara.isNull(request.commandContent)) {
+      body["CommandContent"] = request.commandContent;
+    }
+
+    if (!$dara.isNull(request.commandParam)) {
+      body["CommandParam"] = request.commandParam;
+    }
+
+    if (!$dara.isNull(request.commandType)) {
+      body["CommandType"] = request.commandType;
+    }
+
+    if (!$dara.isNull(request.description)) {
+      body["Description"] = request.description;
+    }
+
+    if (!$dara.isNull(request.productType)) {
+      body["ProductType"] = request.productType;
+    }
+
+    if (!$dara.isNull(request.runScriptType)) {
+      body["RunScriptType"] = request.runScriptType;
+    }
+
+    if (!$dara.isNull(request.timeout)) {
+      body["Timeout"] = request.timeout;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RunAppInstanceCommand",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RunAppInstanceCommandResponse>(await this.callApi(params, req, runtime), new $_model.RunAppInstanceCommandResponse({}));
+  }
+
+  /**
+   * Issues Cloud Assistant commands to persistent sessions in WUYING Workspace delivery groups. This operation supports issuing commands to a single delivery group or multiple delivery groups in the same region, and returns the command execution ID.
+   * 
+   * @remarks
+   * Issues Cloud Assistant commands to persistent sessions in WUYING Workspace delivery groups. Currently, the ProductType parameter only supports WuyingServer, and the CommandType parameter only supports CloudAssistantCmd. Specifying other values results in a parameter error.
+   * You can specify the execution scope in two ways:
+   * - Single delivery group: Specify the delivery group by using AppInstanceGroupId. You can also specify persistent sessions within the delivery group by using AppInstancePersistentId or AppInstancePersistentIds.
+   * - Multiple delivery groups in the same region: Specify a list of delivery groups by using AppInstanceGroupIds. The command is executed on all persistent sessions in each delivery group in the list. All delivery groups must belong to the same region. Otherwise, the InvalidRegion.NotMatch error is returned. If any delivery group does not exist or none of the delivery groups have persistent sessions, the InvalidAppInstanceGroup.NotFound error is returned.
+   * You must specify at least one of AppInstanceGroupIds and AppInstanceGroupId. If both are specified, AppInstanceGroupIds takes precedence.
+   * This operation only issues the command. The command is executed asynchronously in the sessions. Regardless of whether the command is issued to one or multiple delivery groups, only one command execution ID (InvocationId) is returned. You can use this ID to call the ListCommandInvocationResults operation to query the execution status and output on each session.
+   * 
+   * @param request - RunAppInstanceCommandRequest
+   * @returns RunAppInstanceCommandResponse
+   */
+  async runAppInstanceCommand(request: $_model.RunAppInstanceCommandRequest): Promise<$_model.RunAppInstanceCommandResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.runAppInstanceCommandWithOptions(request, runtime);
+  }
+
+  /**
+   * Initiates the third-party channel QR code configuration process in batches for the specified cloud desktop runtimes, generates the URLs of the QR code configuration pages, and notifies the authorized users of the runtimes by email and SMS.
+   * 
+   * @remarks
+   * Initiates the third-party channel QR code configuration process in batches for managed cloud desktop runtimes in the Wuying Agent Management Center. The system generates a QR code configuration page URL for each runtime and notifies the authorized user of the runtime by email and SMS. The user can complete the channel configuration by opening the page and scanning the QR code.
+   * Usage notes:
+   * - Currently, only CloudDesktop is supported for RuntimeType. You can specify up to 200 runtime IDs in a single request.
+   * - Each runtime must have exactly one authorized user. Otherwise, the sending result for the runtime returns the Runtime.UserNotSupported error code.
+   * - The taskId in the QR code configuration page URL is valid for 1 hour. After it expires, you must call this operation again to initiate the process.
+   * - If the sending fails for some runtimes, the operation still returns a success response overall. Check the Success, Code, and Message fields for each runtime in Data. If the sending fails for all runtimes, the operation returns a failure response. If the error codes for all runtimes are the same, that error code is returned. Otherwise, SendQrCodeConfigMessage.SendFailed is returned.
+   * - Email and SMS notifications are sent on a best-effort basis. Notification failures do not affect the API response. After initiation, you can call GetRuntimeChannelQrCodeDetail to query the details of the QR code configuration process.
+   * 
+   * @param request - SendRuntimeQrCodeConfigChannelMessageRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns SendRuntimeQrCodeConfigChannelMessageResponse
+   */
+  async sendRuntimeQrCodeConfigChannelMessageWithOptions(request: $_model.SendRuntimeQrCodeConfigChannelMessageRequest, runtime: $dara.RuntimeOptions): Promise<$_model.SendRuntimeQrCodeConfigChannelMessageResponse> {
+    request.validate();
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentPlatform)) {
+      body["AgentPlatform"] = request.agentPlatform;
+    }
+
+    if (!$dara.isNull(request.agentProvider)) {
+      body["AgentProvider"] = request.agentProvider;
+    }
+
+    if (!$dara.isNull(request.code)) {
+      body["Code"] = request.code;
+    }
+
+    if (!$dara.isNull(request.runtimeIds)) {
+      body["RuntimeIds"] = request.runtimeIds;
+    }
+
+    if (!$dara.isNull(request.runtimeType)) {
+      body["RuntimeType"] = request.runtimeType;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "SendRuntimeQrCodeConfigChannelMessage",
+      version: "2021-09-01",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.SendRuntimeQrCodeConfigChannelMessageResponse>(await this.callApi(params, req, runtime), new $_model.SendRuntimeQrCodeConfigChannelMessageResponse({}));
+  }
+
+  /**
+   * Initiates the third-party channel QR code configuration process in batches for the specified cloud desktop runtimes, generates the URLs of the QR code configuration pages, and notifies the authorized users of the runtimes by email and SMS.
+   * 
+   * @remarks
+   * Initiates the third-party channel QR code configuration process in batches for managed cloud desktop runtimes in the Wuying Agent Management Center. The system generates a QR code configuration page URL for each runtime and notifies the authorized user of the runtime by email and SMS. The user can complete the channel configuration by opening the page and scanning the QR code.
+   * Usage notes:
+   * - Currently, only CloudDesktop is supported for RuntimeType. You can specify up to 200 runtime IDs in a single request.
+   * - Each runtime must have exactly one authorized user. Otherwise, the sending result for the runtime returns the Runtime.UserNotSupported error code.
+   * - The taskId in the QR code configuration page URL is valid for 1 hour. After it expires, you must call this operation again to initiate the process.
+   * - If the sending fails for some runtimes, the operation still returns a success response overall. Check the Success, Code, and Message fields for each runtime in Data. If the sending fails for all runtimes, the operation returns a failure response. If the error codes for all runtimes are the same, that error code is returned. Otherwise, SendQrCodeConfigMessage.SendFailed is returned.
+   * - Email and SMS notifications are sent on a best-effort basis. Notification failures do not affect the API response. After initiation, you can call GetRuntimeChannelQrCodeDetail to query the details of the QR code configuration process.
+   * 
+   * @param request - SendRuntimeQrCodeConfigChannelMessageRequest
+   * @returns SendRuntimeQrCodeConfigChannelMessageResponse
+   */
+  async sendRuntimeQrCodeConfigChannelMessage(request: $_model.SendRuntimeQrCodeConfigChannelMessageRequest): Promise<$_model.SendRuntimeQrCodeConfigChannelMessageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.sendRuntimeQrCodeConfigChannelMessageWithOptions(request, runtime);
+  }
+
+  /**
+   * Sets user data roaming path rules for an app instance group or an app instance group set.
+   * 
+   * @remarks
+   * First, call `DescribeUserProfilePathRules` to query the target rules, and then submit the complete list of rules that you want to retain. **The submission overwrites the existing rules of the target. Passing an empty array or omitting the rule list sets the target rules to an empty list.** When a set ID is used, the rules apply to the members of the set. After the rules are configured, you can call the query operation to verify the settings.
    * 
    * @param request - SetUserProfilePathRulesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -9868,10 +10485,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Sets user profile path rules for an app instance group or an app instance group set.
+   * Sets user data roaming path rules for an app instance group or an app instance group set.
    * 
    * @remarks
-   * Call `DescribeUserProfilePathRules` to query the target rules before you submit the complete list of rules to retain. **The submission overwrites the existing rules of the target. Passing an empty array or omitting the rule list sets the target rules to an empty list.** When a set ID is used, the rules apply to the members of the set. After the rules are set, you can call the query operation to verify the settings.
+   * First, call `DescribeUserProfilePathRules` to query the target rules, and then submit the complete list of rules that you want to retain. **The submission overwrites the existing rules of the target. Passing an empty array or omitting the rule list sets the target rules to an empty list.** When a set ID is used, the rules apply to the members of the set. After the rules are configured, you can call the query operation to verify the settings.
    * 
    * @param request - SetUserProfilePathRulesRequest
    * @returns SetUserProfilePathRulesResponse

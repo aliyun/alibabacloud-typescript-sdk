@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeliverToUserSlsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request. It is used to troubleshoot call issues.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****

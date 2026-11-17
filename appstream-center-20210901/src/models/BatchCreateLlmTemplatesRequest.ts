@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BatchCreateLlmTemplatesRequestLlmTemplateItems extends $dara.Model {
   /**
    * @remarks
-   * The JSON object for model configuration.
+   * The model configuration JSON object.
    * 
    * @example
    * {
@@ -37,7 +37,7 @@ export class BatchCreateLlmTemplatesRequestLlmTemplateItems extends $dara.Model 
   description?: string;
   /**
    * @remarks
-   * Specifies whether to set the model as the default model. Each model group can have at most one default model.
+   * Specifies whether to set the model as the default model. A model group can have at most one default model.
    * 
    * @example
    * false
@@ -45,7 +45,7 @@ export class BatchCreateLlmTemplatesRequestLlmTemplateItems extends $dara.Model 
   isDefaultModel?: boolean;
   /**
    * @remarks
-   * The model code. It must be unique under the same provider.
+   * The model code. The code must be unique under the same provider.
    * 
    * @example
    * qwen3.6-plus
@@ -104,7 +104,7 @@ export class BatchCreateLlmTemplatesRequest extends $dara.Model {
   modelTemplateId?: string;
   /**
    * @remarks
-   * The ID of the model provider template to which the model templates belong.
+   * The ID of the model provider template.
    * 
    * This parameter is required.
    * 

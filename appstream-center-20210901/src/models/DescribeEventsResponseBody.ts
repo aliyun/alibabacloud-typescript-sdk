@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventsResponseBodyEventList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the delivery group associated with the event. This field may be empty if the event is not associated with a delivery group.
+   * The delivery group ID associated with the event. This field may be empty if the event is not associated with a delivery group.
    * 
    * @example
    * aig-9ciijz60n4xsv****
@@ -13,7 +13,7 @@ export class DescribeEventsResponseBodyEventList extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The name of the delivery group associated with the event. This field may be empty if the event is not associated with a delivery group.
+   * The delivery group name associated with the event. This field may be empty if the event is not associated with a delivery group.
    * 
    * @example
    * R&D workstation group
@@ -21,7 +21,7 @@ export class DescribeEventsResponseBodyEventList extends $dara.Model {
   appInstanceGroupName?: string;
   /**
    * @remarks
-   * The event detail text. The content varies with `EventType` and may be empty. For example, a session release event may return JSON text that describes the release reason.
+   * The event detail text. The content varies with `EventType` and may be empty. For example, a session release event may return a JSON text that describes the release cause.
    * 
    * @example
    * {"Reason":"ByUser"}
@@ -61,7 +61,7 @@ export class DescribeEventsResponseBodyEventList extends $dara.Model {
   occurredTime?: string;
   /**
    * @remarks
-   * The ID of the office network associated with the event. This field may be empty if it is not applicable.
+   * The office network ID associated with the event. This field may be empty if it is not applicable.
    * 
    * @example
    * cn-shanghai+dir-123456****
@@ -69,7 +69,7 @@ export class DescribeEventsResponseBodyEventList extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The product type to which the event belongs. This field is an open string and may be extended as supported event sources expand. Callers should not restrict the value to the products currently listed in the `ProductType` request parameter.
+   * The product type to which the event belongs. This field is an open string and may be extended as supported event sources increase. The caller should not restrict the values to the products currently listed in the `ProductType` request parameter.
    * 
    * @example
    * CloudApp
@@ -77,7 +77,7 @@ export class DescribeEventsResponseBodyEventList extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The ID of the end user who generated the event. This field may be empty if the event is not associated with an end user.
+   * The end user ID that generated the event. This field may be empty if the event is not associated with an end user.
    * 
    * @example
    * user01
@@ -130,7 +130,7 @@ export class DescribeEventsResponseBody extends $dara.Model {
   eventList?: DescribeEventsResponseBodyEventList[];
   /**
    * @remarks
-   * A compatibility field. The current version does not set this field. Do not rely on its value.
+   * The compatibility field. The current version does not set this field. Do not rely on its value.
    * 
    * @example
    * 0
@@ -138,7 +138,7 @@ export class DescribeEventsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A compatibility field. The current version does not generate a next page token. Do not use this field for pagination.
+   * The compatibility field. The current version does not generate a next page token. Do not use this field for pagination.
    * 
    * @example
    * unused
@@ -162,7 +162,7 @@ export class DescribeEventsResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The unique identifier of the request, which can be used to troubleshoot request issues.
+   * The unique identifier of the request, which can be used to troubleshoot the request.
    * 
    * @example
    * 1CBAFFAB-B697-4049-A9B1-67E1FC5F****
@@ -170,7 +170,7 @@ export class DescribeEventsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of events that meet all filter conditions within the 30-day retrievable window. Unit: records.
+   * The total number of events that meet all filter conditions within the retrievable window of the last 30 days. Unit: events.
    * 
    * @example
    * 36

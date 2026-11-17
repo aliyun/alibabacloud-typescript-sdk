@@ -146,7 +146,7 @@ export class ModifyBrowserInstanceGroupRequestBrowserConfig extends $dara.Model 
 export class ModifyBrowserInstanceGroupRequestNetworkRestrictedURLs extends $dara.Model {
   /**
    * @remarks
-   * The ID of the domain name configuration. This parameter is required only when you modify the configuration.
+   * The domain name configuration ID. Required only when modifying an existing configuration.
    * 
    * @example
    * ru-12345
@@ -186,7 +186,7 @@ export class ModifyBrowserInstanceGroupRequestNetworkRestrictedURLs extends $dar
 export class ModifyBrowserInstanceGroupRequestNetwork extends $dara.Model {
   /**
    * @remarks
-   * The type of access restriction.
+   * The access restriction type.
    * 
    * @example
    * ALLOW_LIST
@@ -199,15 +199,15 @@ export class ModifyBrowserInstanceGroupRequestNetwork extends $dara.Model {
   removeRestrictedURLIds?: string[];
   /**
    * @remarks
-   * The restricted domain name configurations.
+   * The restricted domain name configuration.
    */
   restrictedURLs?: ModifyBrowserInstanceGroupRequestNetworkRestrictedURLs[];
   /**
    * @remarks
-   * The file path for network restricted URLs.
+   * The network restricted URL file path.
    * 
    * @example
-   * cn-hangzhou/aig_upm/xxx/temp/BrowserRestrictionUrls/URLWhitelistTemplate.csv
+   * cn-hangzhou/aig_upm/xxx/temp/BrowserRestrictionUrls/URL_allowlist_template.csv
    */
   restrictedURLsFilePath?: string;
   static names(): { [key: string]: string } {
@@ -286,7 +286,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyAuthorizeAccessPolicyRules e
 export class ModifyBrowserInstanceGroupRequestPolicyClientTypes extends $dara.Model {
   /**
    * @remarks
-   * The type of the client.
+   * The client type.
    * 
    * @example
    * windows
@@ -334,7 +334,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   clipboard?: string;
   /**
    * @remarks
-   * The read length limit for the clipboard.
+   * The clipboard read length limit.
    * 
    * @example
    * 1000
@@ -358,7 +358,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   clipboardSizeUnit?: string;
   /**
    * @remarks
-   * The write length limit for the clipboard.
+   * The clipboard write length limit.
    * 
    * @example
    * 1000
@@ -390,7 +390,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardLimit?: number;
   /**
    * @remarks
-   * The outbound size limit for rich text in the clipboard.
+   * The rich text clipboard read limit.
    * 
    * @example
    * 1
@@ -398,7 +398,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardReadLimit?: number;
   /**
    * @remarks
-   * The outbound size unit for rich text in the clipboard.
+   * The rich text clipboard read size unit.
    * 
    * @example
    * KB
@@ -414,7 +414,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardSizeUnit?: string;
   /**
    * @remarks
-   * The inbound size limit for rich text in the clipboard.
+   * The rich text clipboard write limit.
    * 
    * @example
    * 1
@@ -422,7 +422,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   richTextClipboardWriteLimit?: number;
   /**
    * @remarks
-   * The inbound size unit for rich text in the clipboard.
+   * The rich text clipboard write size unit.
    * 
    * @example
    * KB
@@ -438,7 +438,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   textClipboard?: string;
   /**
    * @remarks
-   * The outbound size limit for text in the clipboard.
+   * The text clipboard read limit.
    * 
    * @example
    * 1
@@ -446,7 +446,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   textClipboardReadLimit?: number;
   /**
    * @remarks
-   * The outbound size unit for text in the clipboard.
+   * The text clipboard read size unit.
    * 
    * @example
    * KB
@@ -454,7 +454,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   textClipboardReadSizeUnit?: string;
   /**
    * @remarks
-   * The inbound size limit for text in the clipboard.
+   * The text clipboard write limit.
    * 
    * @example
    * 1
@@ -462,7 +462,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
   textClipboardWriteLimit?: number;
   /**
    * @remarks
-   * The inbound size unit for text in the clipboard.
+   * The text clipboard write size unit.
    * 
    * @example
    * KB
@@ -526,7 +526,7 @@ export class ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy extends $dar
 export class ModifyBrowserInstanceGroupRequestPolicyRevokeAccessPolicyRules extends $dara.Model {
   /**
    * @remarks
-   * The IPv4 address or CIDR block to be revoked.
+   * The IPv4 addresses or CIDR blocks to be revoked.
    * 
    * @example
    * 192.168.1.0/24
@@ -644,12 +644,12 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   appContentProtection?: string;
   /**
    * @remarks
-   * The server-side access IP address whitelist.
+   * The server access IP address whitelist.
    */
   authorizeAccessPolicyRules?: ModifyBrowserInstanceGroupRequestPolicyAuthorizeAccessPolicyRules[];
   /**
    * @remarks
-   * The client type control for logon.
+   * The logon client type control settings.
    */
   clientTypes?: ModifyBrowserInstanceGroupRequestPolicyClientTypes[];
   /**
@@ -659,7 +659,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   clipboardPolicy?: ModifyBrowserInstanceGroupRequestPolicyClipboardPolicy;
   /**
    * @remarks
-   * The data retention policy upon disconnection.
+   * The data retention policy after disconnection.
    * 
    * @example
    * customTime
@@ -667,7 +667,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   disconnectKeepSession?: string;
   /**
    * @remarks
-   * The session retention duration upon disconnection.
+   * The session retention duration after disconnection.
    * 
    * @example
    * 15
@@ -675,7 +675,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   disconnectKeepSessionTime?: number;
   /**
    * @remarks
-   * The switch for the file manager in the floating button.
+   * The floating button file manager switch.
    * 
    * @example
    * off
@@ -683,7 +683,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   fileManager?: string;
   /**
    * @remarks
-   * The file transfer policy for the web client.
+   * The web client file transfer policy.
    * 
    * @example
    * off
@@ -691,7 +691,10 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   html5FileTransfer?: string;
   /**
    * @remarks
-   * The dual-screen switch for the cloud browser.
+   * The cloud browser dual-screen switch.
+   * 
+   * - `on`: Enables the dual-screen feature.
+   * - `off`: Disables the dual-screen feature.
    * 
    * @example
    * off
@@ -699,7 +702,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   multiScreen?: string;
   /**
    * @remarks
-   * The policy for disconnecting upon inactivity.
+   * The disconnect on inactivity policy.
    * 
    * @example
    * on
@@ -707,7 +710,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   noOperationDisconnect?: string;
   /**
    * @remarks
-   * The inactivity disconnect time, in seconds.
+   * The inactivity disconnect time in seconds.
    * 
    * @example
    * 1
@@ -731,7 +734,7 @@ export class ModifyBrowserInstanceGroupRequestPolicy extends $dara.Model {
   policyVersion?: string;
   /**
    * @remarks
-   * The server access IP address whitelist to be revoked.
+   * The server access IP address whitelists to be revoked.
    */
   revokeAccessPolicyRules?: ModifyBrowserInstanceGroupRequestPolicyRevokeAccessPolicyRules[];
   /**
@@ -843,7 +846,7 @@ export class ModifyBrowserInstanceGroupRequestStoragePolicyUserProfile extends $
 export class ModifyBrowserInstanceGroupRequestStoragePolicy extends $dara.Model {
   /**
    * @remarks
-   * The user roaming-related policy.
+   * The user roaming-related policies.
    */
   userProfile?: ModifyBrowserInstanceGroupRequestStoragePolicyUserProfile;
   static names(): { [key: string]: string } {
@@ -952,7 +955,7 @@ export class ModifyBrowserInstanceGroupRequest extends $dara.Model {
   maxAmount?: number;
   /**
    * @remarks
-   * The network configurations.
+   * The network configuration.
    */
   network?: ModifyBrowserInstanceGroupRequestNetwork;
   /**
@@ -962,12 +965,12 @@ export class ModifyBrowserInstanceGroupRequest extends $dara.Model {
   policy?: ModifyBrowserInstanceGroupRequestPolicy;
   /**
    * @remarks
-   * The storage-related policy.
+   * The storage-related policies.
    */
   storagePolicy?: ModifyBrowserInstanceGroupRequestStoragePolicy;
   /**
    * @remarks
-   * The timer.
+   * The timers.
    */
   timers?: ModifyBrowserInstanceGroupRequestTimers[];
   static names(): { [key: string]: string } {

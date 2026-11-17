@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEventsRequest extends $dara.Model {
   /**
    * @remarks
-   * The delivery group ID, which is used to filter events of the delivery group. If this parameter is not specified, events are not filtered by delivery group. You can call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the ID.
+   * The app instance group ID. This parameter is used to filter app instance group events. If this parameter is not specified, events are not filtered by app instance group. You can call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the ID.
    * 
    * @example
    * aig-9ciijz60n4xsv****
@@ -13,7 +13,7 @@ export class DescribeEventsRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The delivery group name. If the name contains only letters, digits, underscores, or hyphens, events are filtered by name prefix. If the name contains spaces or other special characters, events are filtered by the exact value. If this parameter is not specified, events are not filtered by name.
+   * The delivery group name. If the name contains only letters, digits, underscores, or hyphens, events are filtered by name prefix. If the name contains spaces or other special characters, events are filtered by the exact value. If you do not specify this parameter, events are not filtered by name.
    * 
    * @example
    * R&D workstation group
@@ -21,7 +21,7 @@ export class DescribeEventsRequest extends $dara.Model {
   appInstanceGroupName?: string;
   /**
    * @remarks
-   * The application instance ID, which is used to filter events associated with the instance. If this parameter is not specified, events are not filtered by application instance. To obtain this value, first call the [ListAppInstanceGroup](~~ListAppInstanceGroup~~) operation to obtain the delivery group ID, and then use the ID as `AppInstanceGroupId` to call the [ListAppInstances](~~ListAppInstances~~) operation.
+   * The ID of the application instance. This parameter is used to filter events associated with the instance. If this parameter is not specified, events are not filtered by application instance. To obtain this value, call [ListAppInstanceGroup](~~ListAppInstanceGroup~~) to obtain the app instance group ID, and then specify the ID as `AppInstanceGroupId` when calling [ListAppInstances](~~ListAppInstances~~).
    * 
    * @example
    * ai-azn3kmwruh1vl****
@@ -29,7 +29,7 @@ export class DescribeEventsRequest extends $dara.Model {
   appInstanceId?: string;
   /**
    * @remarks
-   * The business region ID of the event, which is used to filter events. If this parameter is not specified, events are not filtered by business region. You can call the [ListRegions](~~ListRegions~~) operation to obtain the ID.
+   * The business region ID of the event, which is used for exact filtering. If you do not specify this parameter, events are not filtered by business region. You can call the [ListRegions](~~ListRegions~~) operation to obtain the ID.
    * 
    * @example
    * cn-shanghai
@@ -47,7 +47,15 @@ export class DescribeEventsRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The event ID, which is used to query a single event. If this parameter is not specified, events are not filtered by event ID.
+   * The optional list of user IDs. If you specify multiple user IDs, events are filtered by using the OR logic. If you specify both `EndUserIds` and `UserId`, the intersection is used. If you do not specify this parameter, the original query is retained. If you specify an empty list or a list that contains only blank user IDs, an empty result is returned. The caller must convert usernames or display names to user IDs before calling this operation.
+   * 
+   * @example
+   * ["user-1","user-2"]
+   */
+  endUserIds?: string[];
+  /**
+   * @remarks
+   * The event ID, which is used to query a single event. If you do not specify this parameter, events are not filtered by event ID.
    * 
    * @example
    * evt-9ciijz60n4xsv****
@@ -55,7 +63,7 @@ export class DescribeEventsRequest extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The event type identifier, which is used to filter events. Different products may generate different event types. This operation does not restrict the value to a fixed enumeration. You should use the `EventList.EventType` value obtained from previous queries as the filter value.
+   * The event type identifier, which is used to filter events. Different products may generate different event types. This operation does not restrict the values to a fixed enumeration. You should use the `EventList.EventType` values obtained from previous queries as filter values.
    * 
    * @example
    * SessionDisconnected
@@ -63,7 +71,7 @@ export class DescribeEventsRequest extends $dara.Model {
   eventType?: string;
   /**
    * @remarks
-   * A compatibility field. The current version does not read this parameter. Use `PageSize` to control the number of records on each page.
+   * The compatibility field. The current version does not read this parameter. Use `PageSize` to control the number of records on each page.
    * 
    * @example
    * 20
@@ -71,7 +79,7 @@ export class DescribeEventsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The private IP address of the member elastic network interface (ENI) of the cloud resource, which is used to filter related events. If this parameter is not specified, events are not filtered by IP address.
+   * The private IP address of the member elastic network interface (ENI) of the cloud resource, which is used to filter related events. If you do not specify this parameter, events are not filtered by IP address.
    * 
    * @example
    * 192.168.1.10
@@ -79,7 +87,7 @@ export class DescribeEventsRequest extends $dara.Model {
   memberEniIp?: string;
   /**
    * @remarks
-   * A compatibility field. The current version does not read this parameter and does not support token-based pagination. Use `PageNumber`.
+   * The compatibility field. The current version does not read this parameter and does not support token-based pagination. Use `PageNumber`.
    * 
    * @example
    * unused
@@ -87,7 +95,7 @@ export class DescribeEventsRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The office network ID, which is used to filter events generated within the office network. If this parameter is not specified, events are not filtered by office network.
+   * The office network ID, which is used to filter events generated within the office network. If you do not specify this parameter, events are not filtered by office network.
    * 
    * @example
    * cn-shanghai+dir-123456****
@@ -95,7 +103,7 @@ export class DescribeEventsRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The page number to query. Pages start from 1. Default value: 1. This parameter is used together with `PageSize`.
+   * The page number to query. Pages start from `1`. Default value: 1. This parameter is used together with `PageSize`.
    * 
    * @example
    * 1
@@ -111,9 +119,9 @@ export class DescribeEventsRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The product type. The value is case-insensitive. If you specify an unsupported value, the request fails. If this parameter is not specified, events are not filtered by product type. Only the following public product values are supported:
+   * The product type. Values are not case-sensitive. If you specify an unsupported value, the request fails. If you do not specify this parameter, events are not filtered by product type. Valid values:
    * 
-   * - `CloudApp`: Wuying Cloud Application.
+   * - `CloudApp`: Wuying Cloud App.
    * - `CloudBrowser`: Cloud Browser.
    * - `WuyingServer`: Enterprise Edition workstation.
    * - `WuyingWorkstation`: Personal Edition Linggou container workstation.
@@ -128,7 +136,7 @@ export class DescribeEventsRequest extends $dara.Model {
   productType?: string;
   /**
    * @remarks
-   * The start time of the query. **Required**. Use the ISO 8601 format: `yyyy-MM-dd\\"T\\"HH:mm:ss`. You can include three-digit milliseconds and use `Z` or `±HH:mm` to specify the time zone. We recommend that you always include the time zone offset. The query includes this time, and the start time must be earlier than or equal to `EndTime`. The service only retains and retrieves events that occurred within 30 days before the call time.
+   * The start time of the query. **Required**. Specify the time in the ISO 8601 format: `yyyy-MM-dd\\"T\\"HH:mm:ss`. You can include three-digit milliseconds and use `Z` or `±HH:mm` to specify the time zone. We recommend that you always include the time zone offset. The query includes this time, and the start time must be earlier than or equal to `EndTime`. The service only retains and retrieves events that occurred within 30 days before the call time.
    * 
    * This parameter is required.
    * 
@@ -138,7 +146,7 @@ export class DescribeEventsRequest extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The end user ID, which is used to filter events generated by the user. If this parameter is not specified, events are not filtered by user.
+   * The end user ID, which is used to filter events generated by the user. If you do not specify this parameter, events are not filtered by user.
    * 
    * @example
    * user01
@@ -151,6 +159,7 @@ export class DescribeEventsRequest extends $dara.Model {
       appInstanceId: 'AppInstanceId',
       bizRegionId: 'BizRegionId',
       endTime: 'EndTime',
+      endUserIds: 'EndUserIds',
       eventId: 'EventId',
       eventType: 'EventType',
       maxResults: 'MaxResults',
@@ -172,6 +181,7 @@ export class DescribeEventsRequest extends $dara.Model {
       appInstanceId: 'string',
       bizRegionId: 'string',
       endTime: 'string',
+      endUserIds: { 'type': 'array', 'itemType': 'string' },
       eventId: 'string',
       eventType: 'string',
       maxResults: 'number',
@@ -187,6 +197,9 @@ export class DescribeEventsRequest extends $dara.Model {
   }
 
   validate() {
+    if(Array.isArray(this.endUserIds)) {
+      $dara.Model.validateArray(this.endUserIds);
+    }
     super.validate();
   }
 

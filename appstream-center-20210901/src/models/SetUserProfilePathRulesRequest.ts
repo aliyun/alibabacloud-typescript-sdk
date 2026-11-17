@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SetUserProfilePathRulesRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of a single app instance group. This parameter and AppInstanceGroupSetId are mutually exclusive. If a cloud app or cloud browser app instance group belongs to an enabled set, you must configure the rules at the set level.
+   * The ID of a single app instance group. You must specify either this parameter or AppInstanceGroupSetId. If the cloud application or cloud browser app instance group belongs to an enabled set, you must configure the rules for the set.
    * 
    * @example
    * aig-0bi83v****
@@ -13,7 +13,7 @@ export class SetUserProfilePathRulesRequest extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The ID of an enabled app instance group set. This parameter and AppInstanceGroupId are mutually exclusive. You can set rules for up to 200 member app instance groups at a time.
+   * The ID of an enabled app instance group set. You must specify either this parameter or AppInstanceGroupId. You can configure rules for up to 200 member app instance groups at a time.
    * 
    * @example
    * set-3jm9d0abc00example
@@ -21,7 +21,7 @@ export class SetUserProfilePathRulesRequest extends $dara.Model {
   appInstanceGroupSetId?: string;
   /**
    * @remarks
-   * The region ID of the request. When you query or set rules for a specified app instance group, use the region where the target app instance group resides.
+   * The region ID. When you query or configure rules for a specific app instance group, specify the region where the target app instance group resides.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class SetUserProfilePathRulesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The JSON array string of the complete rule list. Each item uses `blackPath` to specify the excluded path and `whitePaths` to specify the relative paths that still require roaming within the excluded directory. The path type `file` indicates a file, and `folder` indicates a directory.
+   * The JSON array string that contains the complete list of rules. Each item uses `blackPath` to specify the excluded path and `whitePaths` to specify the relative paths that still require roaming within the excluded directory. The path type `file` indicates a file, and `folder` indicates a directory.
    * 
    * @example
    * [{"blackPath":{"path":"AppData\\\\Local","type":"folder"},"whitePaths":[{"path":".\\\\Microsoft\\\\Office","type":"folder"}]}]
@@ -39,7 +39,7 @@ export class SetUserProfilePathRulesRequest extends $dara.Model {
   userProfilePathRules?: string;
   /**
    * @remarks
-   * The type of rule to set. Set this parameter to `AppInstanceGroup` when you configure rules for an app instance group or an app instance group set.
+   * The type of rule to configure. Set this parameter to `AppInstanceGroup` when you configure rules for an app instance group or an app instance group set.
    * 
    * This parameter is required.
    * 

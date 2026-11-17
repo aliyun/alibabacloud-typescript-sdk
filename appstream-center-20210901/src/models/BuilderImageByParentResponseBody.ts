@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class BuilderImageByParentResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The image ID, which is used for subsequent queries or modifications of the image.
+   * The ID of the image. You can use this ID to query or modify the image later.
    * 
    * @example
    * imgc-bp1example****
@@ -13,7 +13,7 @@ export class BuilderImageByParentResponseBodyData extends $dara.Model {
   imageId?: string;
   /**
    * @remarks
-   * The task ID, which can be used to call GetTask to query the task status.
+   * The ID of the task. You can use this ID to call GetTask to query the task status.
    * 
    * @example
    * tid-bp1example****
@@ -21,7 +21,7 @@ export class BuilderImageByParentResponseBodyData extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The image version ID, which is used to query or manage the specified version of the image.
+   * The ID of the image version. You can use this ID to query or manage the specified version of the image.
    * 
    * @example
    * iv-bp1example****
@@ -63,12 +63,12 @@ export class BuilderImageByParentResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The business data returned by this operation.
+   * The business data returned by the operation.
    */
   data?: BuilderImageByParentResponseBodyData;
   /**
    * @remarks
-   * The error or result message. This parameter describes the cause when the request fails. A successful response may not contain this parameter.
+   * The error message or result prompt. This parameter describes the cause of a failed request. A successful response may not contain this parameter.
    * 
    * @example
    * The maximum number of builders is reached.
@@ -84,7 +84,7 @@ export class BuilderImageByParentResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request is processed successfully. A value of true indicates that the request is processed successfully. To check whether the asynchronous task is completed, you must query the task status separately.
+   * Indicates whether the request is successful. A value of true indicates that the request is successful. To check whether the asynchronous task is complete, you must query the task status separately.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

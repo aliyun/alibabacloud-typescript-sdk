@@ -13,7 +13,7 @@ export class CreateBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel ext
   browserInstanceGroupId?: string;
   /**
    * @remarks
-   * The ID of the order generated for this creation.
+   * The order ID generated for this creation.
    * 
    * @example
    * 12345****
@@ -45,7 +45,7 @@ export class CreateBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel ext
 export class CreateBrowserInstanceGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The creation result of the cloud browser group, including the resource ID and the order ID.
+   * The creation result of the cloud browser group, including the resource ID and order ID.
    */
   browserInstanceGroupModel?: CreateBrowserInstanceGroupResponseBodyBrowserInstanceGroupModel;
   /**

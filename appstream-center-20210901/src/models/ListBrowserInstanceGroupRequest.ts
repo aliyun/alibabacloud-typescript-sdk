@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListBrowserInstanceGroupRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. Do not specify this parameter in customer-facing scenarios.
+   * The tag key. Do not specify this parameter in current customer-facing scenarios.
    * 
    * @example
    * -
@@ -13,7 +13,7 @@ export class ListBrowserInstanceGroupRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value. Do not specify this parameter in customer-facing scenarios.
+   * The tag value. Do not specify this parameter in current customer-facing scenarios.
    * 
    * @example
    * -
@@ -45,7 +45,7 @@ export class ListBrowserInstanceGroupRequestTag extends $dara.Model {
 export class ListBrowserInstanceGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the browser group set. This parameter is used to query the valid members of the set by exact match.
+   * The browser group set ID. This parameter is used to query the valid members of the set by exact match.
    * 
    * @example
    * set-3jm9d0abc00example
@@ -61,7 +61,7 @@ export class ListBrowserInstanceGroupRequest extends $dara.Model {
   bizRegionId?: string;
   /**
    * @remarks
-   * The ID of the cloud browser group. This parameter is used for exact match.
+   * The cloud browser group ID, which is used for exact match queries.
    * 
    * @example
    * big-0c7loey7fzjq****
@@ -69,7 +69,7 @@ export class ListBrowserInstanceGroupRequest extends $dara.Model {
   browserInstanceGroupId?: string;
   /**
    * @remarks
-   * The name of the browser group. Fuzzy match is supported.
+   * The browser group name. Fuzzy match is supported.
    * 
    * @example
    * Office
@@ -77,7 +77,7 @@ export class ListBrowserInstanceGroupRequest extends $dara.Model {
   browserInstanceGroupName?: string;
   /**
    * @remarks
-   * Filters by browser group name or ID by using partial match.
+   * Filters browser groups by name or ID by using a contains match.
    * 
    * @example
    * Office
@@ -85,7 +85,7 @@ export class ListBrowserInstanceGroupRequest extends $dara.Model {
   cloudBrowserName?: string;
   /**
    * @remarks
-   * Excludes browser groups that are authorized to the specified user groups.
+   * Excludes browser groups that are authorized for the specified user groups.
    * 
    * **if can be null:**
    * true
@@ -101,7 +101,7 @@ export class ListBrowserInstanceGroupRequest extends $dara.Model {
   officeSiteId?: string;
   /**
    * @remarks
-   * The page number. Pages start from page 1.
+   * The page number. Pages start from 1.
    * 
    * @example
    * 1
@@ -117,20 +117,19 @@ export class ListBrowserInstanceGroupRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Filters by browser group status.
+   * Filters browser groups by status.
    * 
    * **Limit:** You can specify only one status at a time.
    */
   status?: string[];
   /**
    * @remarks
-   * The tag filter parameter. This parameter is not supported in customer-facing scenarios. Do not specify this parameter.
+   * The tag filtering parameter. This parameter is not supported in current customer-facing scenarios. Do not specify this parameter.
    */
   tag?: ListBrowserInstanceGroupRequestTag[];
   /**
    * @remarks
-   * Filters by the version of the browser. Valid values:
-   * 
+   * Filters browser groups by the version of the browser. Valid values:
    * - `Basic`: Basic Edition.
    * - `Pro`: Premium Edition.
    * 
@@ -142,7 +141,7 @@ export class ListBrowserInstanceGroupRequest extends $dara.Model {
   tier?: string;
   /**
    * @remarks
-   * Filters by the IDs of authorized user groups.
+   * Filters browser groups by authorized user group ID.
    * 
    * **if can be null:**
    * true

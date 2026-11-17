@@ -14,8 +14,8 @@ export class DescribeUserProfilePathRulesResponseBodyDataRulesBlackPath extends 
   /**
    * @remarks
    * The path type. Valid values:
-   * - file: File.
-   * - folder: Folder.
+   * - `file`: File.
+   * - `folder`: Folder.
    * 
    * @example
    * folder
@@ -56,8 +56,8 @@ export class DescribeUserProfilePathRulesResponseBodyDataRulesWhitePaths extends
   /**
    * @remarks
    * The path type. Valid values:
-   * - file: File.
-   * - folder: Folder.
+   * - `file`: File.
+   * - `folder`: Folder.
    * 
    * @example
    * folder
@@ -89,12 +89,12 @@ export class DescribeUserProfilePathRulesResponseBodyDataRulesWhitePaths extends
 export class DescribeUserProfilePathRulesResponseBodyDataRules extends $dara.Model {
   /**
    * @remarks
-   * The file or directory excluded from user data roaming.
+   * The file or directory excluded from user profile roaming.
    */
   blackPath?: DescribeUserProfilePathRulesResponseBodyDataRulesBlackPath;
   /**
    * @remarks
-   * The list of files or directories that still participate in user data roaming under the excluded directories.
+   * The list of files or directories that still participate in user profile roaming under the excluded directories.
    */
   whitePaths?: DescribeUserProfilePathRulesResponseBodyDataRulesWhitePaths[];
   static names(): { [key: string]: string } {
@@ -129,7 +129,7 @@ export class DescribeUserProfilePathRulesResponseBodyDataRules extends $dara.Mod
 export class DescribeUserProfilePathRulesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the app instance group to which the rule applies. When querying set rules, this is the ID of the primary app instance group.
+   * The app instance group ID corresponding to the rule. When querying set rules, this is the primary app instance group ID.
    * 
    * @example
    * aig-0bi83v****
@@ -137,7 +137,7 @@ export class DescribeUserProfilePathRulesResponseBodyData extends $dara.Model {
   appInstanceGroupId?: string;
   /**
    * @remarks
-   * The ID of the app instance group set to which the rule applies. This parameter is returned when querying set rules.
+   * The app instance group set ID corresponding to the rule. This is returned when querying set rules.
    * 
    * @example
    * set-3jm9d0abc00example
@@ -145,7 +145,7 @@ export class DescribeUserProfilePathRulesResponseBodyData extends $dara.Model {
   appInstanceGroupSetId?: string;
   /**
    * @remarks
-   * The ID of the user data roaming storage domain bound to the app instance group. This parameter may be omitted if no domain is bound.
+   * The user profile roaming storage domain ID bound to the app instance group. This field may be omitted if no domain is bound.
    * 
    * @example
    * domain-existing
@@ -153,22 +153,20 @@ export class DescribeUserProfilePathRulesResponseBodyData extends $dara.Model {
   domainId?: string;
   /**
    * @remarks
-   * This field is not enabled. The current query result does not provide the file system ID. The example is used to illustrate the field status.
+   * Not enabled. The current query result does not provide the file system ID. The example is used to illustrate the field status.
    * 
    * @example
-   * N/A (not enabled)
+   * Not applicable (not enabled)
    */
   fileSystemId?: string;
   /**
    * @remarks
-   * Specifies whether user data roaming is enabled. Valid values:
-   * - true: Enabled.
-   * - false: Disabled.
+   * The user profile roaming switch. A value of `true` indicates that the feature is enabled, and a value of `false` indicates that the feature is disabled.
    */
   profileFollowSwitch?: boolean;
   /**
    * @remarks
-   * The remote storage path for user data roaming. If the app instance group is not separately configured with this path, the app instance group ID is returned.
+   * The remote storage path for user profile roaming. If this path is not separately configured for the app instance group, the app instance group ID is returned.
    * 
    * @example
    * aig-0bi83v****
@@ -177,8 +175,8 @@ export class DescribeUserProfilePathRulesResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The path rule type. Valid values:
-   * - Default: Queries the system default rules. Both target IDs can be omitted.
-   * - AppInstanceGroup: Queries the rules of an app instance group or an app instance group set.
+   * - `Default`: Queries system default rules. Both target IDs can be omitted.
+   * - `AppInstanceGroup`: Queries the rules of an app instance group or an app instance group set.
    * 
    * @example
    * AppInstanceGroup
@@ -186,12 +184,12 @@ export class DescribeUserProfilePathRulesResponseBodyData extends $dara.Model {
   ruleType?: string;
   /**
    * @remarks
-   * The list of user data roaming path rules.
+   * The list of user profile roaming path rules.
    */
   rules?: DescribeUserProfilePathRulesResponseBodyDataRules[];
   /**
    * @remarks
-   * The storage quota for user data roaming, in GB. This parameter may be omitted if it is not configured.
+   * The storage quota for user profile roaming, in GB. This field may be omitted if it is not configured.
    * 
    * @example
    * 30
@@ -199,9 +197,7 @@ export class DescribeUserProfilePathRulesResponseBodyData extends $dara.Model {
   userProfileSize?: number;
   /**
    * @remarks
-   * Specifies whether user data roaming is enabled. The value is the same as ProfileFollowSwitch. Valid values:
-   * - true: Enabled.
-   * - false: Disabled.
+   * The user profile roaming switch. The value is the same as ProfileFollowSwitch. A value of `true` indicates that the feature is enabled, and a value of `false` indicates that the feature is disabled.
    */
   userProfileSwitch?: boolean;
   static names(): { [key: string]: string } {
@@ -257,7 +253,7 @@ export class DescribeUserProfilePathRulesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The path rules and user data roaming configurations.
+   * The path rules and user profile roaming configurations.
    */
   data?: DescribeUserProfilePathRulesResponseBodyData;
   /**

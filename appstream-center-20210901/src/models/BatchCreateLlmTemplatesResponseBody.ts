@@ -13,7 +13,7 @@ export class BatchCreateLlmTemplatesResponseBodyDataSkippedItems extends $dara.M
   llmCode?: string;
   /**
    * @remarks
-   * The reason why the model configuration item was skipped.
+   * The reason why the item is skipped.
    * 
    * @example
    * LLM template already exists with same providerTemplateId and llmCode.
@@ -55,7 +55,7 @@ export class BatchCreateLlmTemplatesResponseBodyData extends $dara.Model {
   skippedItems?: BatchCreateLlmTemplatesResponseBodyDataSkippedItems[];
   /**
    * @remarks
-   * The number of successfully created model templates.
+   * The number of successfully created items.
    * 
    * @example
    * 5
@@ -63,7 +63,7 @@ export class BatchCreateLlmTemplatesResponseBodyData extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * The total number of requested model templates.
+   * The total number of requested items.
    * 
    * @example
    * 6

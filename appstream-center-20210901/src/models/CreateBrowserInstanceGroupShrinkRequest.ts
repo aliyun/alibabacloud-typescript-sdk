@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBrowserInstanceGroupShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The package ID.
+   * The package identifier.
    * 
    * You do not need to specify this parameter.
    * 
@@ -17,6 +17,7 @@ export class CreateBrowserInstanceGroupShrinkRequest extends $dara.Model {
    * @remarks
    * Specifies whether to send notification emails for authorization and deauthorization.
    * 
+   * Valid values:
    * - `true`: Sends notification emails.
    * - `false`: Does not send notification emails.
    * 
@@ -46,7 +47,7 @@ export class CreateBrowserInstanceGroupShrinkRequest extends $dara.Model {
   autoRenew?: boolean;
   /**
    * @remarks
-   * The ID of the business region. This parameter is required.
+   * The business region identifier. This parameter is required.
    * 
    * This parameter is required.
    * 
@@ -63,7 +64,7 @@ export class CreateBrowserInstanceGroupShrinkRequest extends $dara.Model {
    * @remarks
    * The resource billing method.
    * 
-   * **For MAU scenarios:** Set this parameter to `AppInstance`, which indicates billing by instance resource.
+   * **For MAU scenarios:** Set this parameter to `AppInstance`, which indicates billing by instance resources.
    * 
    * @example
    * AppInstance
@@ -81,7 +82,7 @@ export class CreateBrowserInstanceGroupShrinkRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The name of the cloud browser group. This parameter is required. It is used to distinguish different browser groups in business management scenarios.
+   * The name of the cloud browser group. This parameter cannot be empty. It is used to distinguish different browser groups in business management scenarios.
    * 
    * This parameter is required.
    * 
@@ -95,7 +96,7 @@ export class CreateBrowserInstanceGroupShrinkRequest extends $dara.Model {
    * 
    * If this parameter is omitted, the default image available for the account is used. If no default image is available, the creation may fail.
    * 
-   * **Usage condition:** When `CookiesSync` is enabled, explicitly specify an image that supports cookie synchronization.
+   * **Usage condition:** When CookiesSync is enabled, explicitly specify an image that supports cookie synchronization.
    * 
    * @example
    * img-bp13mu****
@@ -113,7 +114,7 @@ export class CreateBrowserInstanceGroupShrinkRequest extends $dara.Model {
   instanceType?: string;
   /**
    * @remarks
-   * The capacity configuration for the MAU billing scenario.
+   * The capacity configuration for MAU billing scenarios.
    * 
    * @example
    * 5
@@ -121,7 +122,7 @@ export class CreateBrowserInstanceGroupShrinkRequest extends $dara.Model {
   maxAmount?: number;
   /**
    * @remarks
-   * The configurations of the office network and website access restrictions. The selected office network must belong to the current account and reside in the region specified by BizRegionId.
+   * The configurations for the office network and website access restrictions. The selected office network must belong to the current account and be located in the region specified by `BizRegionId`.
    */
   networkShrink?: string;
   /**
@@ -138,7 +139,7 @@ export class CreateBrowserInstanceGroupShrinkRequest extends $dara.Model {
    * @remarks
    * The operating system type. This parameter is required.
    * 
-   * Only `Windows` is supported. Other operating systems are not supported.
+   * Only Windows is supported. Other operating systems are not supported.
    * 
    * @example
    * Windows
@@ -146,7 +147,7 @@ export class CreateBrowserInstanceGroupShrinkRequest extends $dara.Model {
   osType?: string;
   /**
    * @remarks
-   * The number of subscription periods.
+   * The number of billing cycles for the purchase.
    * 
    * You do not need to specify this parameter.
    * 
@@ -156,7 +157,7 @@ export class CreateBrowserInstanceGroupShrinkRequest extends $dara.Model {
   period?: number;
   /**
    * @remarks
-   * The unit of the subscription period.
+   * The unit of the billing cycle for the purchase.
    * 
    * You do not need to specify this parameter.
    * 
@@ -166,14 +167,14 @@ export class CreateBrowserInstanceGroupShrinkRequest extends $dara.Model {
   periodUnit?: string;
   /**
    * @remarks
-   * The configurations of clipboard, video, watermark, session, and client access policies.
+   * The configurations for clipboard, video, watermark, session, and client access policies.
    */
   policyShrink?: string;
   /**
    * @remarks
-   * The promotion ID, which is used to specify the promotional offer applied to the order.
+   * The promotion identifier, which is used to specify the promotional offer applied to the order.
    * 
-   * The applicability and specific discounts are subject to the promotion rules. You do not need to specify this parameter if no promotional offer is applied.
+   * Applicability and specific discounts are subject to the promotion rules. You do not need to specify this parameter if no promotional offer is applied.
    * 
    * @example
    * 17440009****
@@ -181,19 +182,19 @@ export class CreateBrowserInstanceGroupShrinkRequest extends $dara.Model {
   promotionId?: string;
   /**
    * @remarks
-   * The connection security policy of the browser group.
+   * The connection security policy for the browser group.
    */
   securityPolicyShrink?: string;
   /**
    * @remarks
-   * The user data storage configuration of the browser group.
+   * The user data storage configuration for the browser group.
    */
   storagePolicyShrink?: string;
   /**
    * @remarks
    * The billing sub-type.
    * 
-   * **You must explicitly set this parameter to `mau`, which indicates billing by monthly active users.** Omitting this parameter does not enable MAU billing.
+   * **You must explicitly set this parameter to `mau`, which indicates billing by monthly active users.** Omitting this field does not enable MAU billing.
    * 
    * @example
    * mau
@@ -217,9 +218,9 @@ export class CreateBrowserInstanceGroupShrinkRequest extends $dara.Model {
   timersShrink?: string;
   /**
    * @remarks
-   * The list of authorized user group IDs. You can specify up to 10 user group IDs. The user groups must belong to the current account and match the account type of the office network.
+   * The list of authorized user group IDs. You can specify up to 10 user group IDs. The user groups must belong to the current account and match the office network account type.
    * 
-   * **Limits:** This parameter cannot be specified together with a non-empty `Users` parameter.
+   * **Limits:** This parameter cannot be specified together with a non-empty Users parameter.
    * 
    * **if can be null:**
    * true
@@ -232,9 +233,9 @@ export class CreateBrowserInstanceGroupShrinkRequest extends $dara.Model {
   userInfoShrink?: string;
   /**
    * @remarks
-   * The list of authorized users. You can specify up to 200 users. The users must be created in advance and match the account type.
+   * The list of authorized users. You can specify up to 200 users. Users must be created in advance and match the account type.
    * 
-   * **Limit:** This parameter cannot be specified together with a non-empty UserGroupIds parameter.
+   * **Limits:** This parameter cannot be specified together with a non-empty `UserGroupIds` parameter.
    */
   usersShrink?: string;
   static names(): { [key: string]: string } {

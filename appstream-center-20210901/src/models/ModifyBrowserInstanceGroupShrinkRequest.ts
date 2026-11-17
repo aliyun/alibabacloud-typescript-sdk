@@ -44,7 +44,7 @@ export class ModifyBrowserInstanceGroupShrinkRequest extends $dara.Model {
   maxAmount?: number;
   /**
    * @remarks
-   * The network configurations.
+   * The network configuration.
    */
   networkShrink?: string;
   /**
@@ -54,12 +54,12 @@ export class ModifyBrowserInstanceGroupShrinkRequest extends $dara.Model {
   policyShrink?: string;
   /**
    * @remarks
-   * The storage-related policy.
+   * The storage-related policies.
    */
   storagePolicyShrink?: string;
   /**
    * @remarks
-   * The timer.
+   * The timers.
    */
   timersShrink?: string;
   static names(): { [key: string]: string } {

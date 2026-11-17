@@ -61,7 +61,7 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsBrows
   cookiesSync?: string;
   /**
    * @remarks
-   * The URL of the homepage that opens when the browser starts.
+   * The homepage URL that opens when the browser starts.
    * 
    * @example
    * https://www.aliyun.com
@@ -166,11 +166,9 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsNetwo
   /**
    * @remarks
    * The website access restriction mode. Valid values:
-   * 
-   * - `ALLOW_ALL`: Allows all domain names.
-   * - `ALLOW_LIST`: Allows only websites in the whitelist.
-   * 
-   * The returned value reflects the existing configurations of the browser instance group.
+   * - `ALLOW_ALL`: All domain names are allowed.
+   * - `ALLOW_LIST`: Only websites in the whitelist are allowed.
+   * The returned value reflects the existing configuration of the browser instance group.
    * 
    * @example
    * ALLOW_ALL
@@ -186,7 +184,7 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsNetwo
   officeSiteId?: string;
   /**
    * @remarks
-   * The list of vSwitch IDs used by the browser instance group. This parameter is available for scenarios where custom networks are configured.
+   * The list of vSwitch IDs used by the browser instance group. This parameter is available for scenarios where a custom network is configured.
    */
   vSwitchIds?: string[];
   static names(): { [key: string]: string } {
@@ -237,9 +235,8 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsPolic
   /**
    * @remarks
    * The action of the client access rule. Valid values:
-   * 
-   * - `allow`: Allows access.
-   * - `deny`: Denies access.
+   * - `allow`: Access is allowed.
+   * - `deny`: Access is denied.
    * 
    * @example
    * allow
@@ -274,14 +271,12 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsPolic
   /**
    * @remarks
    * The client type. Valid values:
-   * 
    * - `windows`: Windows client.
    * - `macos`: macOS client.
    * - `html5`: Web client.
    * - `linux`: Linux client.
    * - `android`: Android client.
    * - `ios`: iOS client.
-   * 
    * This field reflects the existing access configurations and does not indicate that all clients are currently available for the product.
    * 
    * @example
@@ -291,9 +286,8 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsPolic
   /**
    * @remarks
    * The access policy switch for the client type. Valid values:
-   * 
-   * - `on`: Allows access from this type of client.
-   * - `off`: Denies access from this type of client.
+   * - `on`: Access from this type of client is allowed.
+   * - `off`: Access from this type of client is denied.
    * 
    * @example
    * on
@@ -326,11 +320,10 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsPolic
   /**
    * @remarks
    * The clipboard transfer direction. The value is case-insensitive. Valid values:
-   * 
-   * - `off`: Disables transfer in both directions.
-   * - `read`: Allows copy and paste from the local PC to the cloud browser.
-   * - `write`: Allows copy and paste from the cloud browser to the local PC.
-   * - `readwrite`: Enables transfer in both directions.
+   * - `off`: Bidirectional transfer is disabled.
+   * - `read`: Copy and paste from the local PC to the cloud browser are allowed.
+   * - `write`: Copy and paste from the cloud browser to the local PC are allowed.
+   * - `readwrite`: Bidirectional transfer is allowed.
    * 
    * @example
    * readwrite
@@ -390,9 +383,9 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsPolic
 export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsPolicyWatermarkPolicy extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable the watermark. Values are case-insensitive. Valid values:
-   * - `ON`: Enables the watermark.
-   * - `OFF`: Disables the watermark.
+   * The watermark switch. The value is not case-sensitive. Valid values:
+   * - ON: Enables the watermark.
+   * - OFF: Disables the watermark.
    * 
    * When the watermark is disabled, the watermark content type list is not used.
    * 
@@ -403,9 +396,9 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsPolic
   /**
    * @remarks
    * The list of watermark content types. Valid values:
-   * - `EndUserId`: the user identifier.
-   * - `InstanceGroupId`: the delivery group identifier.
-   * - `ClientTime`: the current time of the client.
+   * - EndUserId: The user identifier.
+   * - InstanceGroupId: The delivery group identifier.
+   * - ClientTime: The current time of the client.
    * 
    * Use the watermark types supported by the browser and the client.
    */
@@ -440,9 +433,8 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsPolic
   /**
    * @remarks
    * The screen capture prevention switch. Valid values:
-   * 
-   * - `on`: Enables screen capture prevention.
-   * - `off`: Disables screen capture prevention.
+   * - `on`: Screen capture prevention is enabled.
+   * - `off`: Screen capture prevention is disabled.
    * 
    * @example
    * on
@@ -460,12 +452,14 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsPolic
   clientTypes?: ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsPolicyClientTypes[];
   /**
    * @remarks
-   * Sets the clipboard transfer direction, content type, and size limit. `read` indicates transfer from the local PC to the cloud browser, and `write` indicates transfer from the cloud browser to the local PC.
+   * The settings for the clipboard transfer direction, content type, and size limit. A value of read indicates transfer from the local PC to the cloud browser, and a value of write indicates transfer from the cloud browser to the local PC.
    */
   clipboardPolicy?: ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsPolicyClipboardPolicy;
   /**
    * @remarks
-   * The dual-screen switch for cloud browsers.
+   * The cloud browser dual-screen switch. Valid values:
+   * - on: Enables the dual-screen feature.
+   * - off: Disables the dual-screen feature.
    * 
    * @example
    * off
@@ -572,7 +566,7 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsTags 
 export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsTimers extends $dara.Model {
   /**
    * @remarks
-   * The session retention duration after disconnection, in minutes. A value of `-1` indicates that the session is not unbound due to the timeout of this duration, but is still affected by authorization and other session release policies.
+   * The session retention duration after disconnection, in minutes. A value of `-1` indicates that the session is not unbound due to a timeout of this duration, but is still subject to authorization and other session release policies.
    * 
    * @example
    * 15
@@ -642,7 +636,7 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsUserL
 export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModels extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether notification emails for authorization and revocation are enabled. A value of `true` indicates that the feature is enabled. A value of `false` indicates that the feature is disabled.
+   * Indicates whether authorization and revocation notification emails are enabled. A value of `true` indicates that the feature is enabled. A value of `false` indicates that the feature is disabled.
    * 
    * @example
    * true
@@ -663,7 +657,7 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModels exte
   bizRegionId?: string;
   /**
    * @remarks
-   * The current configurations of the browser.
+   * The current configuration of the browser.
    */
   browserConfig?: ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsBrowserConfig;
   /**
@@ -692,7 +686,7 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModels exte
   browserInstanceGroupSetId?: string;
   /**
    * @remarks
-   * The billing method. In the MAU scenario, `PostPaid` is returned, which indicates pay-as-you-go.
+   * The billing method. In the monthly active user (MAU) scenario, `PostPaid` is returned, which indicates the pay-as-you-go billing method.
    * 
    * @example
    * PostPaid
@@ -700,7 +694,7 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModels exte
   chargeType?: string;
   /**
    * @remarks
-   * The default access URL of the browser instance group. Use the actual URL returned by the API operation. Replace the resource ID in the example.
+   * The default access URL of the browser instance group. Use the actual URL returned by the API operation. Replace the resource ID in the example with the actual value.
    * 
    * @example
    * https://wuying.aliyun.com/integration?appId=browser&appInstanceGroupId=big-0c7loey7fzjq****
@@ -721,7 +715,7 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModels exte
   expiredTime?: string;
   /**
    * @remarks
-   * The creation time of the browser instance group. The time follows the RFC 3339 standard in the `yyyy-MM-dd\\"T\\"HH:mm:ss.SSSXXX` format, which includes milliseconds and time zone offset. The actual POP response uses the UTC offset `+00:00`.
+   * The creation time of the browser instance group. The time follows the RFC 3339 standard in the `yyyy-MM-dd\\"T\\"HH:mm:ss.SSSXXX` format, which includes milliseconds and time zone offsets. The actual response uses the UTC offset `+00:00`.
    * 
    * @example
    * 2026-09-21T07:00:39.000+00:00
@@ -766,21 +760,21 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModels exte
   osType?: string;
   /**
    * @remarks
-   * The policy configurations returned for the browser instance group. The policy fields are used to view existing settings and do not indicate that all corresponding creation parameters are configurable.
+   * The policy configuration returned for the browser instance group. The policy fields are used to view existing settings and do not indicate that all corresponding creation parameters are configurable.
    */
   policy?: ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModelsPolicy;
   /**
    * @remarks
    * The browser group status. Valid values:
-   * - `DEPLOYING`: Deploying.
-   * - `PUBLISHED`: Published.
-   * - `FAILED`: Failed.
-   * - `EXPIRED`: Expired.
-   * - `CEASED`: Suspended due to overdue payment.
-   * - `MAINTAINING`: Updating.
-   * - `MAINTAIN_FAILED`: Update failed.
-   * - `DELETING`: Deleting.
-   * - `UNAVAILABLE`: Unavailable.
+   * - `DEPLOYING`: deploying
+   * - `PUBLISHED`: published
+   * - `FAILED`: publish failed
+   * - `EXPIRED`: expired
+   * - `CEASED`: suspended due to overdue payment
+   * - `MAINTAINING`: updating
+   * - `MAINTAIN_FAILED`: update failed
+   * - `DELETING`: deleting
+   * - `UNAVAILABLE`: unavailable
    * 
    * @example
    * PUBLISHED
@@ -791,12 +785,12 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModels exte
    * The sub-billing type. In the MAU scenario, `mau` is returned, which indicates billing by monthly active users.
    * 
    * @example
-   * mau
+   * PostPaid
    */
   subPayType?: string;
   /**
    * @remarks
-   * Specifies whether mixed authorization of users and user groups is supported. A value of `true` indicates that mixed authorization is supported, and a value of `false` indicates that mixed authorization is not supported. Evaluate this parameter based on the current authorization mode.
+   * Specifies whether mixed authorization of users and user groups is supported. A value of `true` indicates that mixed authorization is supported. A value of `false` indicates that mixed authorization is not supported. Evaluate this parameter based on the current authorization mode.
    * 
    * @example
    * false
@@ -810,8 +804,8 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModels exte
   /**
    * @remarks
    * The version of the browser. Valid values:
-   * - `Basic`: Basic Edition.
-   * - `Pro`: Premium Edition.
+   * - Basic: Basic Edition.
+   * - Pro: Premium Edition.
    * 
    * In the MAU scenario, the value is `Pro`.
    * 
@@ -827,9 +821,9 @@ export class ListBrowserInstanceGroupResponseBodyBrowserInstanceGroupModels exte
   /**
    * @remarks
    * The current authorization mode. Valid values:
-   * - `Mixed`: mixed authorization of users and user groups.
-   * - `User`: user authorization.
-   * - `UserGroup`: user group authorization.
+   * - Mixed: Mixed authorization of users and user groups.
+   * - User: User authorization.
+   * - UserGroup: User group authorization.
    * 
    * @example
    * Mixed
@@ -959,7 +953,7 @@ export class ListBrowserInstanceGroupResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 01A0C2ED-95F2-1A37-9FC6-4A395179****

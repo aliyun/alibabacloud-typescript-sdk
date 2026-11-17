@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAgentInstanceMemoryConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The unique identifier of the request, which can be used for troubleshooting.
+   * The unique identifier of the request, which can be used to troubleshoot issues.
    * 
    * @example
    * 01A1CEEB-CDFF-18F9-B2BF-9997600D****

@@ -21,7 +21,7 @@ export class SetUserProfilePathRulesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The unique identifier of the request, which can be used for troubleshooting.
+   * The unique identifier of the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * 01A1CEEB-CDFF-18F9-B2BF-9997600D****

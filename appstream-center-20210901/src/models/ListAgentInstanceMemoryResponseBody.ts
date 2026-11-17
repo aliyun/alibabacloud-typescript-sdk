@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAgentInstanceMemoryResponseBodyDataUserGroups extends $dara.Model {
   /**
    * @remarks
-   * The ID of the user group.
+   * The user group ID.
    * 
    * @example
    * group-aliy****
@@ -13,7 +13,7 @@ export class ListAgentInstanceMemoryResponseBodyDataUserGroups extends $dara.Mod
   groupId?: string;
   /**
    * @remarks
-   * The name of the user group.
+   * The user group name.
    * 
    * @example
    * Office user group
@@ -45,7 +45,7 @@ export class ListAgentInstanceMemoryResponseBodyDataUserGroups extends $dara.Mod
 export class ListAgentInstanceMemoryResponseBodyDataUserOrgs extends $dara.Model {
   /**
    * @remarks
-   * The ID of the organization.
+   * The organization ID.
    * 
    * @example
    * org-aliy****
@@ -53,7 +53,7 @@ export class ListAgentInstanceMemoryResponseBodyDataUserOrgs extends $dara.Model
   orgId?: string;
   /**
    * @remarks
-   * The name of the organization.
+   * The organization name.
    * 
    * @example
    * Enterprise office
@@ -85,7 +85,7 @@ export class ListAgentInstanceMemoryResponseBodyDataUserOrgs extends $dara.Model
 export class ListAgentInstanceMemoryResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The ID of the agent instance, which can be used to configure the instance memory switch or clear the instance memory.
+   * The Agent instance ID, which can be used to set the instance memory switch or clear the instance memory.
    * 
    * @example
    * agi-08vm****
@@ -93,18 +93,18 @@ export class ListAgentInstanceMemoryResponseBodyData extends $dara.Model {
   agentInstanceId?: string;
   /**
    * @remarks
-   * The instance lifetime and epoch status of the agent instance.
-   * - `UNDEPLOYED`: No deployment.
-   * - `DEPLOYING`: Deployment in progress.
-   * - `DEPLOYED`: Deployment completed.
+   * The lifecycle status of the agent instance.
+   * - `UNDEPLOYED`: Undeployed.
+   * - `DEPLOYING`: Deploying.
+   * - `DEPLOYED`: Deployed.
    * - `STARTING`: Starting.
    * - `RUNNING`: Running.
    * - `STOPPING`: Stopping.
    * - `STOPPED`: Stopped.
-   * - `UNAVAILABLE`: Not active.
+   * - `UNAVAILABLE`: Unavailable.
    * - `FAILED`: Failed.
-   * - `UPGRADING`: Upgrade in progress.
-   * - `REBUILDING`: Reset in progress.
+   * - `UPGRADING`: Upgrading.
+   * - `REBUILDING`: Resetting.
    * - `DELETING`: Deleting.
    * - `DELETED`: Deleted.
    * 
@@ -114,7 +114,7 @@ export class ListAgentInstanceMemoryResponseBodyData extends $dara.Model {
   agentInstanceStatus?: string;
   /**
    * @remarks
-   * The business platform to which the agent belongs.
+   * The business platform to which the Agent belongs.
    * 
    * @example
    * ENTERPRISE_AGENTIC_COMPUTER
@@ -122,7 +122,7 @@ export class ListAgentInstanceMemoryResponseBodyData extends $dara.Model {
   agentPlatform?: string;
   /**
    * @remarks
-   * The provider of the agent.
+   * The Agent provider.
    * 
    * @example
    * AgenticComputer
@@ -146,7 +146,7 @@ export class ListAgentInstanceMemoryResponseBodyData extends $dara.Model {
   endUserId?: string;
   /**
    * @remarks
-   * The time of the last memory update. The time is returned in the YYYY-MM-DDThh:mm:ss format, with optional fractional seconds. The time value uses the default time zone of the server, and the string does not include a time zone offset. This field is omitted if the last update time is unavailable.
+   * The time of the last memory update. The time is returned in the YYYY-MM-DDThh:mm:ss format, which may include fractional seconds. The time value uses the default time zone of the server, and the string does not contain a time zone offset. This field is omitted if the last update time is unavailable.
    * 
    * @example
    * 2026-10-26T21:14:36.693
@@ -154,7 +154,7 @@ export class ListAgentInstanceMemoryResponseBodyData extends $dara.Model {
   lastMemoryUpdatedAt?: string;
   /**
    * @remarks
-   * The time of the latest backup. The time is returned in the YYYY-MM-DDThh:mm:ss format, with optional fractional seconds. The time value uses the default time zone of the server, and the string does not include a time zone offset. This field is omitted if the backup time is unavailable.
+   * The time of the latest backup. The time is returned in the YYYY-MM-DDThh:mm:ss format, which may include fractional seconds. The time value uses the default time zone of the server, and the string does not contain a time zone offset. This field is omitted if the backup time is unavailable.
    * 
    * @example
    * 2026-10-26T20:58:00.536
@@ -178,7 +178,7 @@ export class ListAgentInstanceMemoryResponseBodyData extends $dara.Model {
   memoryEnabled?: string;
   /**
    * @remarks
-   * The ID of the region where the runtime environment is located.
+   * The ID of the region where the runtime is located.
    * 
    * @example
    * cn-hangzhou
@@ -202,7 +202,7 @@ export class ListAgentInstanceMemoryResponseBodyData extends $dara.Model {
   runtimeId?: string;
   /**
    * @remarks
-   * The name of the runtime environment. The name of the associated resource is returned first. If the resource name is unavailable, the instance name is returned.
+   * The runtime name. The associated resource name is returned in preference. If the resource name is unavailable, the instance name is returned.
    * 
    * @example
    * Office Assistant
@@ -298,7 +298,7 @@ export class ListAgentInstanceMemoryResponseBodyData extends $dara.Model {
 export class ListAgentInstanceMemoryResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The memory configurations and statistics information of the agent instances on the current page.
+   * The memory configurations and statistics information of agent instances on the current page.
    */
   data?: ListAgentInstanceMemoryResponseBodyData[];
   /**
