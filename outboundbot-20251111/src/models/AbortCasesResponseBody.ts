@@ -16,7 +16,7 @@ export class AbortCasesResponseBody extends $dara.Model {
    * The returned data.
    * 
    * @example
-   * Flash message configuration ID
+   * true
    */
   data?: boolean;
   /**
@@ -29,7 +29,7 @@ export class AbortCasesResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned by the operation.
+   * The message returned by the API.
    * 
    * @example
    * Success
@@ -50,7 +50,7 @@ export class AbortCasesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

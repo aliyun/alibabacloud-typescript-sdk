@@ -53,7 +53,7 @@ export class ListCampaignsResponseBodyDataList extends $dara.Model {
   casesUncompleted?: number;
   /**
    * @remarks
-   * The number of cases that were attempted but not completed.
+   * The number of attempted but uncompleted cases.
    * 
    * @example
    * 0
@@ -69,7 +69,7 @@ export class ListCampaignsResponseBodyDataList extends $dara.Model {
   completedRate?: number;
   /**
    * @remarks
-   * The time when the campaign was created.
+   * The creation time.
    * 
    * @example
    * 2025-07-27T11:25:15+08:00
@@ -77,7 +77,7 @@ export class ListCampaignsResponseBodyDataList extends $dara.Model {
   createdTime?: number;
   /**
    * @remarks
-   * The fixed number of concurrent calls.
+   * The fixed concurrency.
    * 
    * @example
    * 0
@@ -104,7 +104,7 @@ export class ListCampaignsResponseBodyDataList extends $dara.Model {
    * The campaign name.
    * 
    * @example
-   * Kiaconnect本月到期续费外呼话术-OPIO_20260727_102718
+   * Kiaconnect renewal outbound script for this month-OPIO_20260727_102718
    */
   name?: string;
   /**
@@ -125,7 +125,7 @@ export class ListCampaignsResponseBodyDataList extends $dara.Model {
   plannedStartTime?: number;
   /**
    * @remarks
-   * Indicates whether the campaign continues to run until the planned end time after all contacts have been called.
+   * Specifies whether to continue running the campaign until the end time when all contacts have been called.
    * 
    * @example
    * false
@@ -157,7 +157,7 @@ export class ListCampaignsResponseBodyDataList extends $dara.Model {
   totalCases?: number;
   /**
    * @remarks
-   * The time when the campaign was last updated.
+   * The update time.
    * 
    * @example
    * 1760272478
@@ -165,7 +165,7 @@ export class ListCampaignsResponseBodyDataList extends $dara.Model {
   updatedTime?: number;
   /**
    * @remarks
-   * The weight of the campaign.
+   * The campaign weight.
    * 
    * @example
    * 1
@@ -248,7 +248,7 @@ export class ListCampaignsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * @example
    * 10
@@ -256,7 +256,7 @@ export class ListCampaignsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of records.
+   * The total count.
    * 
    * @example
    * 0
@@ -303,7 +303,7 @@ export class ListCampaignsResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The paged query result.
+   * The paged query results.
    */
   data?: ListCampaignsResponseBodyData;
   /**
@@ -337,7 +337,7 @@ export class ListCampaignsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

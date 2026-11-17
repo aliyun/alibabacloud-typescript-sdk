@@ -53,7 +53,7 @@ export class GetCampaignResponseBodyData extends $dara.Model {
   casesUncompleted?: number;
   /**
    * @remarks
-   * The number of cases that were attempted but not completed.
+   * The number of attempted but uncompleted cases.
    * 
    * @example
    * 0
@@ -69,7 +69,7 @@ export class GetCampaignResponseBodyData extends $dara.Model {
   completedRate?: number;
   /**
    * @remarks
-   * The time when the campaign was created.
+   * The creation time.
    * 
    * @example
    * 1735660800000
@@ -77,7 +77,7 @@ export class GetCampaignResponseBodyData extends $dara.Model {
   createdTime?: number;
   /**
    * @remarks
-   * The fixed number of concurrent calls.
+   * The fixed concurrency.
    * 
    * @example
    * 0
@@ -104,12 +104,12 @@ export class GetCampaignResponseBodyData extends $dara.Model {
    * The name of the campaign.
    * 
    * @example
-   * Satisfaction Survey
+   * Satisfaction survey
    */
   name?: string;
   /**
    * @remarks
-   * The list of caller numbers.
+   * The list of calling numbers.
    */
   numbers?: string[];
   /**
@@ -130,7 +130,7 @@ export class GetCampaignResponseBodyData extends $dara.Model {
   plannedStartTime?: number;
   /**
    * @remarks
-   * Indicates whether the campaign continues to run until the planned end time after all contacts have been called.
+   * Specifies whether to continue running the campaign until the end time after all contacts have been called.
    * 
    * @example
    * false
@@ -146,7 +146,7 @@ export class GetCampaignResponseBodyData extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * The state of the campaign.
+   * The status of the campaign.
    * 
    * @example
    * Completed
@@ -162,7 +162,7 @@ export class GetCampaignResponseBodyData extends $dara.Model {
   totalCases?: number;
   /**
    * @remarks
-   * The time when the campaign was last updated.
+   * The update time.
    * 
    * @example
    * 1735660800000
@@ -287,7 +287,7 @@ export class GetCampaignResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

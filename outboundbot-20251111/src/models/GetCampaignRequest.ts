@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCampaignRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the outbound task.
+   * The ID of the outbound campaign.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class GetCampaignRequest extends $dara.Model {
   campaignId?: string;
   /**
    * @remarks
-   * The instance ID of the outbound robot.
+   * The outbound instance ID.
    * 
    * This parameter is required.
    * 

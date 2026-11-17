@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateCampaignResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code of the operation.
+   * The API status code.
    * 
    * @example
    * OK
@@ -29,7 +29,7 @@ export class CreateCampaignResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned by the operation.
+   * The message returned by the API.
    * 
    * @example
    * Success
@@ -50,7 +50,7 @@ export class CreateCampaignResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

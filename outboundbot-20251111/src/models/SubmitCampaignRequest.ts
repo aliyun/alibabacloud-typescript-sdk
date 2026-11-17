@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitCampaignRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the campaign.
+   * The campaign ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class SubmitCampaignRequest extends $dara.Model {
   campaignId?: string;
   /**
    * @remarks
-   * The outbound call instance ID.
+   * The outbound instance ID.
    * 
    * This parameter is required.
    * 

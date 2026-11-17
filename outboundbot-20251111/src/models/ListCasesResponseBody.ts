@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class ListCasesResponseBodyDataListLabels extends $dara.Model {
   /**
    * @remarks
-   * The candidate values of the label.
+   * The candidate values for the label.
    */
   candidateValues?: string[];
   /**
    * @remarks
-   * Indicates whether the label is collected.
+   * Indicates whether it is collected.
    * 
    * @example
    * true
@@ -18,10 +18,10 @@ export class ListCasesResponseBodyDataListLabels extends $dara.Model {
   collected?: boolean;
   /**
    * @remarks
-   * The description of the label.
+   * The label description.
    * 
    * @example
-   * Sample description
+   * Description content
    */
   description?: string;
   /**
@@ -34,7 +34,7 @@ export class ListCasesResponseBodyDataListLabels extends $dara.Model {
   matchedValue?: string;
   /**
    * @remarks
-   * The name of the label.
+   * The label name.
    * 
    * @example
    * Flexible packaging enterprise call_20251022_165548
@@ -42,7 +42,7 @@ export class ListCasesResponseBodyDataListLabels extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * Indicates whether the label is a system label.
+   * The system label.
    * 
    * @example
    * false
@@ -85,7 +85,7 @@ export class ListCasesResponseBodyDataListLabels extends $dara.Model {
 export class ListCasesResponseBodyDataList extends $dara.Model {
   /**
    * @remarks
-   * The number of call attempts.
+   * The number of attempts.
    * 
    * @example
    * 1
@@ -178,7 +178,7 @@ export class ListCasesResponseBodyDataList extends $dara.Model {
   labels?: ListCasesResponseBodyDataListLabels[];
   /**
    * @remarks
-   * The time of the last call attempt.
+   * The time of the last attempt.
    * 
    * @example
    * 1786960840667
@@ -234,10 +234,10 @@ export class ListCasesResponseBodyDataList extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * The name of the script.
+   * The script name.
    * 
    * @example
-   * Sample scenario name
+   * Scenario name
    */
   scriptName?: string;
   /**
@@ -250,7 +250,7 @@ export class ListCasesResponseBodyDataList extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * The case status.
+   * The case state.
    * 
    * @example
    * Executing
@@ -258,7 +258,7 @@ export class ListCasesResponseBodyDataList extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The call duration.
+   * The talk time.
    * 
    * @example
    * 10
@@ -266,7 +266,7 @@ export class ListCasesResponseBodyDataList extends $dara.Model {
   talkTime?: number;
   /**
    * @remarks
-   * The number of dialogue turns.
+   * The number of conversation turns.
    * 
    * @example
    * 1
@@ -345,7 +345,7 @@ export class ListCasesResponseBodyDataList extends $dara.Model {
 export class ListCasesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The case list.
+   * The list of cases.
    */
   list?: ListCasesResponseBodyDataList[];
   /**
@@ -434,7 +434,7 @@ export class ListCasesResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The pass-through parameter.
+   * The pass-through parameters.
    */
   params?: string[];
   /**

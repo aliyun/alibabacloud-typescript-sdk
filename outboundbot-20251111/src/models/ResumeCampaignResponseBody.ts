@@ -13,7 +13,7 @@ export class ResumeCampaignResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -37,7 +37,7 @@ export class ResumeCampaignResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The list of error message parameters.
+   * The list of parameters in the error message.
    */
   params?: string[];
   /**
@@ -50,7 +50,7 @@ export class ResumeCampaignResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

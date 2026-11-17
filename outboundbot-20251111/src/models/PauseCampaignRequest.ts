@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class PauseCampaignRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the campaign.
+   * The task ID.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class PauseCampaignRequest extends $dara.Model {
   campaignId?: string;
   /**
    * @remarks
-   * The outbound robot instance ID.
+   * The outbound instance ID.
    * 
    * This parameter is required.
    * 

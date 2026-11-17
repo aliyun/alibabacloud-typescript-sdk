@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScriptsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The chatbot builder type.
+   * The bot builder type.
    * 
    * @example
    * LITE
@@ -21,7 +21,7 @@ export class ListScriptsShrinkRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The script name.
+   * The scenario name.
    * 
    * @example
    * Satisfaction survey
@@ -53,7 +53,7 @@ export class ListScriptsShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * Specifies whether to return only published scripts.
+   * Specifies whether to return only published scenarios.
    * 
    * @example
    * true
@@ -61,7 +61,7 @@ export class ListScriptsShrinkRequest extends $dara.Model {
   publishOnly?: boolean;
   /**
    * @remarks
-   * The list of script IDs.
+   * The list of scenario IDs.
    */
   scriptIdsShrink?: string;
   static names(): { [key: string]: string } {

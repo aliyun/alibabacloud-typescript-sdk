@@ -21,7 +21,7 @@ export class ListFlashSmsAccessProfilesResponseBodyDataFlashSmsAccessProfiles ex
   accessProfileId?: string;
   /**
    * @remarks
-   * The creation time, in millisecond-level timestamp.
+   * The creation time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1735660800000
@@ -29,13 +29,13 @@ export class ListFlashSmsAccessProfilesResponseBodyDataFlashSmsAccessProfiles ex
   createdTime?: number;
   /**
    * @remarks
-   * The provider ID. Valid values:\\
-   * Uincall: Beijing Youyin Communication Co., Ltd.\\
-   * ChuangLan: Beijing ChuangLan Cloud Intelligence Information Co., Ltd.\\
-   * ChinaMobile: China Mobile.\\
-   * ShangHaiTianNan: Shanghai Tiannan.\\
-   * HeDao: Galexis.\\
-   * DySms: Alibaba Communication.
+   * The provider ID. Valid values:
+   * - Uincall: Beijing Uincall Communication Co., Ltd.
+   * - ChuangLan: Beijing Chuanglan Cloud Intelligence Information Technology Co., Ltd.
+   * - ChinaMobile: China Mobile
+   * - ShangHaiTianNan: Shanghai Tiannan
+   * - HeDao: Hedaokesi
+   * - DySms: Alibaba Cloud Communications
    * 
    * @example
    * Uincall
@@ -46,12 +46,12 @@ export class ListFlashSmsAccessProfilesResponseBodyDataFlashSmsAccessProfiles ex
    * The provider name.
    * 
    * @example
-   * 北京优音通信有限公司
+   * Beijing Uincall Communication Co., Ltd
    */
   providerName?: string;
   /**
    * @remarks
-   * The update time, in millisecond-level timestamp.
+   * The update time. The value is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1735660800000
@@ -91,12 +91,12 @@ export class ListFlashSmsAccessProfilesResponseBodyDataFlashSmsAccessProfiles ex
 export class ListFlashSmsAccessProfilesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The data list.
+   * The list of flash SMS access profiles.
    */
   flashSmsAccessProfiles?: ListFlashSmsAccessProfilesResponseBodyDataFlashSmsAccessProfiles[];
   /**
    * @remarks
-   * The page number, starting from 1.
+   * The page number. Pages start from 1.
    * 
    * @example
    * 1
@@ -104,7 +104,7 @@ export class ListFlashSmsAccessProfilesResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -112,7 +112,7 @@ export class ListFlashSmsAccessProfilesResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of records that match the conditions.
+   * The total number of entries that meet the query conditions.
    * 
    * @example
    * 0

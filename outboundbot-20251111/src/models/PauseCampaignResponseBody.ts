@@ -13,7 +13,7 @@ export class PauseCampaignResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful.
+   * Indicates whether the operation is successful.
    * 
    * @example
    * true
@@ -50,7 +50,7 @@ export class PauseCampaignResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

@@ -13,7 +13,7 @@ export class ListFlashSmsAccessProfilesRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The page number, starting from 1.
+   * The page number. Pages start from 1.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ListFlashSmsAccessProfilesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 20

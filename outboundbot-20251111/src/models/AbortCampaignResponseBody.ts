@@ -16,7 +16,7 @@ export class AbortCampaignResponseBody extends $dara.Model {
    * The returned data.
    * 
    * @example
-   * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b15
+   * true
    */
   data?: boolean;
   /**
@@ -29,7 +29,7 @@ export class AbortCampaignResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The message returned by the operation.
+   * The message returned by the API.
    * 
    * @example
    * Success
@@ -50,7 +50,7 @@ export class AbortCampaignResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

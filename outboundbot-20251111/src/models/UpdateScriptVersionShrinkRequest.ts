@@ -18,7 +18,7 @@ export class UpdateScriptVersionShrinkRequest extends $dara.Model {
   interactionConfigShrink?: string;
   /**
    * @remarks
-   * The label configurations.
+   * The label configuration.
    */
   labelConfigsShrink?: string;
   /**
@@ -36,12 +36,12 @@ export class UpdateScriptVersionShrinkRequest extends $dara.Model {
   scriptProfileShrink?: string;
   /**
    * @remarks
-   * The Text-to-Speech (TTS) configuration.
+   * The TTS configuration.
    */
   synthesizerConfigShrink?: string;
   /**
    * @remarks
-   * The Automatic Speech Recognition (ASR) configuration.
+   * The ASR configuration.
    */
   transcriberConfigShrink?: string;
   /**

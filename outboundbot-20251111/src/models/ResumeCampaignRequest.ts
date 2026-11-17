@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResumeCampaignRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the campaign.
+   * The ID of the task.
    * 
    * This parameter is required.
    * 

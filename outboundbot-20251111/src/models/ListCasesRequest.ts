@@ -45,22 +45,22 @@ export class ListCasesRequest extends $dara.Model {
   caseCompleted?: boolean;
   /**
    * @remarks
-   * The list of case IDs.
+   * The case IDs.
    */
   caseIds?: string[];
   /**
    * @remarks
-   * The list of disposition codes.
+   * The disposition codes.
    */
   dispositionCodes?: string[];
   /**
    * @remarks
-   * The list of disposition reasons.
+   * The disposition reasons.
    */
   dispositionReasons?: string[];
   /**
    * @remarks
-   * Specifies whether it is a draft version.
+   * Specifies whether the version is a draft.
    * 
    * @example
    * true
@@ -183,7 +183,7 @@ export class ListCasesRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The list of case statuses.
+   * The case states.
    */
   states?: string[];
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   /**
    * @remarks
-   * The chatbot builder type.
+   * The bot builder type.
    * 
    * @example
    * LITE
@@ -77,7 +77,7 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   nluEngine?: string;
   /**
    * @remarks
-   * The phone number bound to the script.
+   * The phone number bound to the scenario.
    * 
    * @example
    * 01057316547
@@ -93,7 +93,7 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   publishedVersionId?: string;
   /**
    * @remarks
-   * The script ID.
+   * The scenario ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b04
@@ -101,7 +101,7 @@ export class ListScriptsResponseBodyDataScripts extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * The script status.
+   * The scenario status.
    * 
    * @example
    * PUBLISHED
@@ -181,7 +181,7 @@ export class ListScriptsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The list of scripts.
+   * The data list.
    */
   scripts?: ListScriptsResponseBodyDataScripts[];
   /**
@@ -267,7 +267,7 @@ export class ListScriptsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call is successful.
    * 
    * @example
    * true

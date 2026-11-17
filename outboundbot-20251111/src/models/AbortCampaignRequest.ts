@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AbortCampaignRequest extends $dara.Model {
   /**
    * @remarks
-   * The outbound call task ID.
+   * The outbound campaign ID.
    * 
    * This parameter is required.
    * 

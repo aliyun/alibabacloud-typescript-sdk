@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AbortCasesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the predictive outbound call campaign.
+   * The predictive outbound call campaign ID.
    * 
    * This parameter is required.
    * 

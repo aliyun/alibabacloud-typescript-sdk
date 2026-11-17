@@ -8,7 +8,7 @@ export class ListFlashSmsProvidersResponseBodyData extends $dara.Model {
    * The provider parameter information.
    * 
    * @example
-   * {\\"Pwd\\":{\\"displayName\\":\\"密码\\",\\"dataType\\":\\"TEXT\\",\\"displayOrder\\":2,\\"required\\":true,\\"maxLength\\":64},\\"User\\":{\\"displayName\\":\\"用户\\",\\"dataType\\":\\"TEXT\\",\\"displayOrder\\":1,\\"required\\":true,\\"maxLength\\":64},\\"Account\\":{\\"displayName\\":\\"账号\\",\\"dataType\\":\\"TEXT\\",\\"displayOrder\\":3,\\"required\\":true,\\"maxLength\\":64}}
+   * {"Pwd":{"displayName":"Password","dataType":"TEXT","displayOrder":2,"required":true,"maxLength":64},"User":{"displayName":"User","dataType":"TEXT","displayOrder":1,"required":true,"maxLength":64},"Account":{"displayName":"Account","dataType":"TEXT","displayOrder":3,"required":true,"maxLength":64}}
    */
   profileSchema?: string;
   /**
@@ -24,7 +24,7 @@ export class ListFlashSmsProvidersResponseBodyData extends $dara.Model {
    * The provider name.
    * 
    * @example
-   * 北京优音通信有限公司
+   * Beijing Youyin Communication Co., Ltd
    */
   providerName?: string;
   static names(): { [key: string]: string } {
@@ -97,7 +97,7 @@ export class ListFlashSmsProvidersResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call was successful.
+   * Indicates whether the call is successful.
    * 
    * @example
    * true

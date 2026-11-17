@@ -16,7 +16,7 @@ export class ListScriptsByFlowResponseBodyData extends $dara.Model {
    * The name.
    * 
    * @example
-   * Satisfaction Survey
+   * Satisfaction survey
    */
   name?: string;
   /**

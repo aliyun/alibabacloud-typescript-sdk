@@ -45,22 +45,22 @@ export class ListCasesShrinkRequest extends $dara.Model {
   caseCompleted?: boolean;
   /**
    * @remarks
-   * The list of case IDs.
+   * The case IDs.
    */
   caseIdsShrink?: string;
   /**
    * @remarks
-   * The list of disposition codes.
+   * The disposition codes.
    */
   dispositionCodesShrink?: string;
   /**
    * @remarks
-   * The list of disposition reasons.
+   * The disposition reasons.
    */
   dispositionReasonsShrink?: string;
   /**
    * @remarks
-   * Specifies whether it is a draft version.
+   * Specifies whether the version is a draft.
    * 
    * @example
    * true
@@ -183,7 +183,7 @@ export class ListCasesShrinkRequest extends $dara.Model {
   startTime?: number;
   /**
    * @remarks
-   * The list of case statuses.
+   * The case states.
    */
   statesShrink?: string;
   static names(): { [key: string]: string } {

@@ -21,7 +21,7 @@ export class ListCampaignsRequest extends $dara.Model {
   actualStartTimeTo?: string;
   /**
    * @remarks
-   * The instance ID of the outbound robot.
+   * The outbound instance ID.
    * 
    * This parameter is required.
    * 
@@ -31,10 +31,10 @@ export class ListCampaignsRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The name of the campaign.
+   * The name of the task.
    * 
    * @example
-   * SatisfactionSurvey
+   * Satisfaction follow-up
    */
   name?: string;
   /**
@@ -49,7 +49,7 @@ export class ListCampaignsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of items per page.
    * 
    * This parameter is required.
    * 
@@ -75,7 +75,7 @@ export class ListCampaignsRequest extends $dara.Model {
   plannedStartTimeTo?: string;
   /**
    * @remarks
-   * The status of the campaign.
+   * The status of the task.
    * 
    * @example
    * Completed

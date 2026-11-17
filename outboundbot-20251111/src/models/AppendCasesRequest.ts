@@ -7,7 +7,7 @@ import * as $dara from '@darabonba/typescript';
 export class AppendCasesRequestCases extends $dara.Model {
   /**
    * @remarks
-   * Custom variables defined by the customer. The value is a JSON object that contains up to 10 properties. The name and value of each property are defined by the customer.
+   * The custom variables defined by the customer. The format is a JSON object. The object can contain up to 10 properties, and the name and value of each property are defined by the customer.
    * 
    * @example
    * ["key1":"value1"]
@@ -15,7 +15,7 @@ export class AppendCasesRequestCases extends $dara.Model {
   customVariables?: string;
   /**
    * @remarks
-   * The phone number of the contact.
+   * The contact number.
    * 
    * @example
    * 1331234****

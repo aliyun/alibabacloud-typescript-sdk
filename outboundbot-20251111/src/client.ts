@@ -34,7 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Terminates an outbound call campaign.
+   * Stops an outbound campaign.
    * 
    * @remarks
    * ***
@@ -72,7 +72,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Terminates an outbound call campaign.
+   * Stops an outbound campaign.
    * 
    * @remarks
    * ***
@@ -86,7 +86,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops an outbound call case.
+   * Terminates outbound call cases.
    * 
    * @remarks
    * ***
@@ -134,7 +134,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Stops an outbound call case.
+   * Terminates outbound call cases.
    * 
    * @remarks
    * ***
@@ -148,7 +148,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Appends contacts to an outbound call campaign.
+   * Appends outbound call cases.
    * 
    * @remarks
    * ***
@@ -198,7 +198,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Appends contacts to an outbound call campaign.
+   * Appends outbound call cases.
    * 
    * @remarks
    * ***
@@ -212,7 +212,411 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an outbound call campaign.
+   * Creates a text conversation session for a specified instance and scenario, and streams the initial reply from the robot.
+   * 
+   * @remarks
+   * Creates a text conversation session for a specified instance and scenario, and streams the initial reply from the robot. An available scenario version must exist before you call this operation. Use DraftVersion to select the draft or published version, and use VendorParams to pass the accompanying variables required by the scenario. The response uses Server-Sent Events (SSE), and each data event carries a business response object. Save the returned SessionId for subsequent Dialogue and EndSession calls. A StreamEnd value of true indicates that the current response stream has ended, but the session remains active. The resource identifiers, phone numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values in production calls.
+   * 
+   * @param request - BeginSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BeginSessionResponse
+   */
+  async *beginSessionWithSSE(request: $_model.BeginSessionRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.BeginSessionResponse, any, unknown> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.draftVersion)) {
+      query["DraftVersion"] = request.draftVersion;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.vendorParams)) {
+      query["VendorParams"] = request.vendorParams;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BeginSession",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.BeginSessionResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.BeginSessionResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * Creates a text conversation session for a specified instance and scenario, and streams the initial reply from the robot.
+   * 
+   * @remarks
+   * Creates a text conversation session for a specified instance and scenario, and streams the initial reply from the robot. An available scenario version must exist before you call this operation. Use DraftVersion to select the draft or published version, and use VendorParams to pass the accompanying variables required by the scenario. The response uses Server-Sent Events (SSE), and each data event carries a business response object. Save the returned SessionId for subsequent Dialogue and EndSession calls. A StreamEnd value of true indicates that the current response stream has ended, but the session remains active. The resource identifiers, phone numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values in production calls.
+   * 
+   * @param request - BeginSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BeginSessionResponse
+   */
+  async beginSessionWithOptions(request: $_model.BeginSessionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BeginSessionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.draftVersion)) {
+      query["DraftVersion"] = request.draftVersion;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.vendorParams)) {
+      query["VendorParams"] = request.vendorParams;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BeginSession",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BeginSessionResponse>(await this.callApi(params, req, runtime), new $_model.BeginSessionResponse({}));
+  }
+
+  /**
+   * Creates a text conversation session for a specified instance and scenario, and streams the initial reply from the robot.
+   * 
+   * @remarks
+   * Creates a text conversation session for a specified instance and scenario, and streams the initial reply from the robot. An available scenario version must exist before you call this operation. Use DraftVersion to select the draft or published version, and use VendorParams to pass the accompanying variables required by the scenario. The response uses Server-Sent Events (SSE), and each data event carries a business response object. Save the returned SessionId for subsequent Dialogue and EndSession calls. A StreamEnd value of true indicates that the current response stream has ended, but the session remains active. The resource identifiers, phone numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values in production calls.
+   * 
+   * @param request - BeginSessionRequest
+   * @returns BeginSessionResponse
+   */
+  async beginSession(request: $_model.BeginSessionRequest): Promise<$_model.BeginSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.beginSessionWithOptions(request, runtime);
+  }
+
+  /**
+   * Initiates a trial session.
+   * 
+   * @remarks
+   * Creates a trial text session in a specified instance and scenario by using the VisitorToken from a trial link, and returns the first-round reply in Server-Sent Events (SSE) format. The service verifies the channel and expiration time corresponding to the token, and then starts the session based on the tenant to which the channel belongs. The token does not replace the business parameters of the scenario and instance. Save the returned SessionId for subsequent calls to TrialDialogue to send user input, and call EndTrialSession to end the session. StreamEnd=true only indicates that the streaming response for the current round has ended. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+   * 
+   * @param request - BeginTrialSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BeginTrialSessionResponse
+   */
+  async *beginTrialSessionWithSSE(request: $_model.BeginTrialSessionRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.BeginTrialSessionResponse, any, unknown> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.draftVersion)) {
+      query["DraftVersion"] = request.draftVersion;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.vendorParams)) {
+      query["VendorParams"] = request.vendorParams;
+    }
+
+    if (!$dara.isNull(request.visitorToken)) {
+      query["VisitorToken"] = request.visitorToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BeginTrialSession",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.BeginTrialSessionResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.BeginTrialSessionResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * Initiates a trial session.
+   * 
+   * @remarks
+   * Creates a trial text session in a specified instance and scenario by using the VisitorToken from a trial link, and returns the first-round reply in Server-Sent Events (SSE) format. The service verifies the channel and expiration time corresponding to the token, and then starts the session based on the tenant to which the channel belongs. The token does not replace the business parameters of the scenario and instance. Save the returned SessionId for subsequent calls to TrialDialogue to send user input, and call EndTrialSession to end the session. StreamEnd=true only indicates that the streaming response for the current round has ended. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+   * 
+   * @param request - BeginTrialSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BeginTrialSessionResponse
+   */
+  async beginTrialSessionWithOptions(request: $_model.BeginTrialSessionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BeginTrialSessionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.draftVersion)) {
+      query["DraftVersion"] = request.draftVersion;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.vendorParams)) {
+      query["VendorParams"] = request.vendorParams;
+    }
+
+    if (!$dara.isNull(request.visitorToken)) {
+      query["VisitorToken"] = request.visitorToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BeginTrialSession",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BeginTrialSessionResponse>(await this.callApi(params, req, runtime), new $_model.BeginTrialSessionResponse({}));
+  }
+
+  /**
+   * Initiates a trial session.
+   * 
+   * @remarks
+   * Creates a trial text session in a specified instance and scenario by using the VisitorToken from a trial link, and returns the first-round reply in Server-Sent Events (SSE) format. The service verifies the channel and expiration time corresponding to the token, and then starts the session based on the tenant to which the channel belongs. The token does not replace the business parameters of the scenario and instance. Save the returned SessionId for subsequent calls to TrialDialogue to send user input, and call EndTrialSession to end the session. StreamEnd=true only indicates that the streaming response for the current round has ended. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+   * 
+   * @param request - BeginTrialSessionRequest
+   * @returns BeginTrialSessionResponse
+   */
+  async beginTrialSession(request: $_model.BeginTrialSessionRequest): Promise<$_model.BeginTrialSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.beginTrialSessionWithOptions(request, runtime);
+  }
+
+  /**
+   * Initiates a trial call.
+   * 
+   * @remarks
+   * Initiates a trial web voice call for a specified scenario by using the VisitorToken of a trial link. The service verifies the token, the associated channel, and the validity period, and then delegates the web call service to bridge the web voice channel and the robot channel. The DeviceId must be consistent with the data channel device identifier of the trial client. After the call is initiated, use the returned ChannelId, ServerUrl, and Token to connect to the voice channel. If the data event channel of the trial client is required, you can call GetTrialDataChannelCredential with the same DeviceId. The web voice connection token and the data channel username and password are not the same set of credentials. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+   * 
+   * @param request - BridgeTrialWebCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BridgeTrialWebCallResponse
+   */
+  async bridgeTrialWebCallWithOptions(request: $_model.BridgeTrialWebCallRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BridgeTrialWebCallResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.caller)) {
+      query["Caller"] = request.caller;
+    }
+
+    if (!$dara.isNull(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!$dara.isNull(request.draftVersion)) {
+      query["DraftVersion"] = request.draftVersion;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.sampleRate)) {
+      query["SampleRate"] = request.sampleRate;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    if (!$dara.isNull(request.timeoutSeconds)) {
+      query["TimeoutSeconds"] = request.timeoutSeconds;
+    }
+
+    if (!$dara.isNull(request.visitorToken)) {
+      query["VisitorToken"] = request.visitorToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BridgeTrialWebCall",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BridgeTrialWebCallResponse>(await this.callApi(params, req, runtime), new $_model.BridgeTrialWebCallResponse({}));
+  }
+
+  /**
+   * Initiates a trial call.
+   * 
+   * @remarks
+   * Initiates a trial web voice call for a specified scenario by using the VisitorToken of a trial link. The service verifies the token, the associated channel, and the validity period, and then delegates the web call service to bridge the web voice channel and the robot channel. The DeviceId must be consistent with the data channel device identifier of the trial client. After the call is initiated, use the returned ChannelId, ServerUrl, and Token to connect to the voice channel. If the data event channel of the trial client is required, you can call GetTrialDataChannelCredential with the same DeviceId. The web voice connection token and the data channel username and password are not the same set of credentials. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+   * 
+   * @param request - BridgeTrialWebCallRequest
+   * @returns BridgeTrialWebCallResponse
+   */
+  async bridgeTrialWebCall(request: $_model.BridgeTrialWebCallRequest): Promise<$_model.BridgeTrialWebCallResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.bridgeTrialWebCallWithOptions(request, runtime);
+  }
+
+  /**
+   * Initiates a call.
+   * 
+   * @remarks
+   * Initiates a web voice call for a specified instance and scenario by bridging the web voice channel and the robot SIP channel through an RTC gateway. Pass information such as DeviceId, audio sampling rate, and scenario version in the request. TimeoutSeconds specifies the timeout for unanswered calls, defaults to 60 seconds, and does not indicate the maximum duration of an answered call. Upon success, returns the connection context such as SessionId, ChannelId, ServerUrl, and Token. The client must use the returned address and valid credentials to establish the web voice connection. This operation initiates a web interactive voice response instead of dialing a real phone number specified by Number. Resource identity, numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values when you invoke the operation.
+   * 
+   * @param request - BridgeWebCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns BridgeWebCallResponse
+   */
+  async bridgeWebCallWithOptions(request: $_model.BridgeWebCallRequest, runtime: $dara.RuntimeOptions): Promise<$_model.BridgeWebCallResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.caller)) {
+      query["Caller"] = request.caller;
+    }
+
+    if (!$dara.isNull(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!$dara.isNull(request.draftVersion)) {
+      query["DraftVersion"] = request.draftVersion;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.sampleRate)) {
+      query["SampleRate"] = request.sampleRate;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    if (!$dara.isNull(request.timeoutSeconds)) {
+      query["TimeoutSeconds"] = request.timeoutSeconds;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "BridgeWebCall",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.BridgeWebCallResponse>(await this.callApi(params, req, runtime), new $_model.BridgeWebCallResponse({}));
+  }
+
+  /**
+   * Initiates a call.
+   * 
+   * @remarks
+   * Initiates a web voice call for a specified instance and scenario by bridging the web voice channel and the robot SIP channel through an RTC gateway. Pass information such as DeviceId, audio sampling rate, and scenario version in the request. TimeoutSeconds specifies the timeout for unanswered calls, defaults to 60 seconds, and does not indicate the maximum duration of an answered call. Upon success, returns the connection context such as SessionId, ChannelId, ServerUrl, and Token. The client must use the returned address and valid credentials to establish the web voice connection. This operation initiates a web interactive voice response instead of dialing a real phone number specified by Number. Resource identity, numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values when you invoke the operation.
+   * 
+   * @param request - BridgeWebCallRequest
+   * @returns BridgeWebCallResponse
+   */
+  async bridgeWebCall(request: $_model.BridgeWebCallRequest): Promise<$_model.BridgeWebCallResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.bridgeWebCallWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates an outbound campaign.
    * 
    * @remarks
    * ***
@@ -330,7 +734,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates an outbound call campaign.
+   * Creates an outbound campaign.
    * 
    * @remarks
    * ***
@@ -672,7 +1076,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a scenario configuration.
+   * Creates a script configuration.
    * 
    * @param tmpReq - CreateScriptVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -753,7 +1157,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a scenario configuration.
+   * Creates a script configuration.
    * 
    * @param request - CreateScriptVersionRequest
    * @returns CreateScriptVersionResponse
@@ -1270,6 +1674,134 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Initiates a session.
+   * 
+   * @remarks
+   * Sends a round of user input to a text session created by BeginSession and returns the robot reply and control instructions in Server-Sent Events (SSE) format. The InstanceId, ScriptId, and SessionId must be consistent with those used when the session was initiated. The SessionId must use the value returned by the session initiation operation. The conversation cannot continue if the session context does not exist. Utterance is used for plain text input, and Extras is used to pass structured events such as key presses and silence. You can call this operation multiple times in succession. StreamId identifies the reply round, and StreamEnd=true indicates that the output of the current round has ended. Call EndSession after the entire interaction is completed. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+   * 
+   * @param request - DialogueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DialogueResponse
+   */
+  async *dialogueWithSSE(request: $_model.DialogueRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.DialogueResponse, any, unknown> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.extras)) {
+      query["Extras"] = request.extras;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.utterance)) {
+      query["Utterance"] = request.utterance;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "Dialogue",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.DialogueResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.DialogueResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * Initiates a session.
+   * 
+   * @remarks
+   * Sends a round of user input to a text session created by BeginSession and returns the robot reply and control instructions in Server-Sent Events (SSE) format. The InstanceId, ScriptId, and SessionId must be consistent with those used when the session was initiated. The SessionId must use the value returned by the session initiation operation. The conversation cannot continue if the session context does not exist. Utterance is used for plain text input, and Extras is used to pass structured events such as key presses and silence. You can call this operation multiple times in succession. StreamId identifies the reply round, and StreamEnd=true indicates that the output of the current round has ended. Call EndSession after the entire interaction is completed. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+   * 
+   * @param request - DialogueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DialogueResponse
+   */
+  async dialogueWithOptions(request: $_model.DialogueRequest, runtime: $dara.RuntimeOptions): Promise<$_model.DialogueResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.extras)) {
+      query["Extras"] = request.extras;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.utterance)) {
+      query["Utterance"] = request.utterance;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "Dialogue",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DialogueResponse>(await this.callApi(params, req, runtime), new $_model.DialogueResponse({}));
+  }
+
+  /**
+   * Initiates a session.
+   * 
+   * @remarks
+   * Sends a round of user input to a text session created by BeginSession and returns the robot reply and control instructions in Server-Sent Events (SSE) format. The InstanceId, ScriptId, and SessionId must be consistent with those used when the session was initiated. The SessionId must use the value returned by the session initiation operation. The conversation cannot continue if the session context does not exist. Utterance is used for plain text input, and Extras is used to pass structured events such as key presses and silence. You can call this operation multiple times in succession. StreamId identifies the reply round, and StreamEnd=true indicates that the output of the current round has ended. Call EndSession after the entire interaction is completed. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+   * 
+   * @param request - DialogueRequest
+   * @returns DialogueResponse
+   */
+  async dialogue(request: $_model.DialogueRequest): Promise<$_model.DialogueResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.dialogueWithOptions(request, runtime);
+  }
+
+  /**
    * Disables message subscription.
    * 
    * @param request - DisableSubscriptionRequest
@@ -1309,6 +1841,122 @@ export default class Client extends OpenApi {
   async disableSubscription(request: $_model.DisableSubscriptionRequest): Promise<$_model.DisableSubscriptionResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.disableSubscriptionWithOptions(request, runtime);
+  }
+
+  /**
+   * Ends a session.
+   * 
+   * @remarks
+   * Ends a text session created by BeginSession, notifies the dialog engine to end the interaction, and clears the text session state. The InstanceId, ScriptId, and SessionId must match those used when the session was started. The Data field in the response returns the SessionId of the ended session. If the text session no longer exists due to prolonged inactivity or cache expiration, the current implementation still returns the SessionId without reporting a session not found error. This operation is used to conclude a text session and is not intended for hanging up web voice or actual phone calls. The resource identifiers, phone numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values for real calls.
+   * 
+   * @param request - EndSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EndSessionResponse
+   */
+  async endSessionWithOptions(request: $_model.EndSessionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EndSessionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EndSession",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EndSessionResponse>(await this.callApi(params, req, runtime), new $_model.EndSessionResponse({}));
+  }
+
+  /**
+   * Ends a session.
+   * 
+   * @remarks
+   * Ends a text session created by BeginSession, notifies the dialog engine to end the interaction, and clears the text session state. The InstanceId, ScriptId, and SessionId must match those used when the session was started. The Data field in the response returns the SessionId of the ended session. If the text session no longer exists due to prolonged inactivity or cache expiration, the current implementation still returns the SessionId without reporting a session not found error. This operation is used to conclude a text session and is not intended for hanging up web voice or actual phone calls. The resource identifiers, phone numbers, and authentication credentials in the examples are masked or placeholder values. Use actual resources and service return values for real calls.
+   * 
+   * @param request - EndSessionRequest
+   * @returns EndSessionResponse
+   */
+  async endSession(request: $_model.EndSessionRequest): Promise<$_model.EndSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.endSessionWithOptions(request, runtime);
+  }
+
+  /**
+   * Ends a trial session.
+   * 
+   * @remarks
+   * Ends a trial text session created by BeginTrialSession by using a valid VisitorToken from a trial link. The service first validates the token and then delegates the request to the text session termination service. The InstanceId, ScriptId, and SessionId must maintain session persistence consistent with those of the trial session. The returned Data is the SessionId of the ended session. If the text session context has expired, the termination service can still return the SessionId, but the validation will be marked as failed if the trial token itself is invalid or expired. This operation is not used to hang up web voice calls. The resource identity, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values when you invoke the operation.
+   * 
+   * @param request - EndTrialSessionRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns EndTrialSessionResponse
+   */
+  async endTrialSessionWithOptions(request: $_model.EndTrialSessionRequest, runtime: $dara.RuntimeOptions): Promise<$_model.EndTrialSessionResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.visitorToken)) {
+      query["VisitorToken"] = request.visitorToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "EndTrialSession",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.EndTrialSessionResponse>(await this.callApi(params, req, runtime), new $_model.EndTrialSessionResponse({}));
+  }
+
+  /**
+   * Ends a trial session.
+   * 
+   * @remarks
+   * Ends a trial text session created by BeginTrialSession by using a valid VisitorToken from a trial link. The service first validates the token and then delegates the request to the text session termination service. The InstanceId, ScriptId, and SessionId must maintain session persistence consistent with those of the trial session. The returned Data is the SessionId of the ended session. If the text session context has expired, the termination service can still return the SessionId, but the validation will be marked as failed if the trial token itself is invalid or expired. This operation is not used to hang up web voice calls. The resource identity, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values when you invoke the operation.
+   * 
+   * @param request - EndTrialSessionRequest
+   * @returns EndTrialSessionResponse
+   */
+  async endTrialSession(request: $_model.EndTrialSessionRequest): Promise<$_model.EndTrialSessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.endTrialSessionWithOptions(request, runtime);
   }
 
   /**
@@ -1467,6 +2115,58 @@ export default class Client extends OpenApi {
   async getCaseDetail(request: $_model.GetCaseDetailRequest): Promise<$_model.GetCaseDetailResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.getCaseDetailWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves voice conversation parameters.
+   * 
+   * @remarks
+   * Retrieves temporary connection credentials for the client data channel of a specified InstanceId and DeviceId. Requests are verified based on the current POP authentication and instance permission configurations. DeviceId cannot be empty. Unlike GetTrialDataChannelCredential, this operation does not use the VisitorToken for trial links. The client must use the actual Topic, ClientId, Endpoint, UserName, and Password returned to connect to and subscribe to the data channel, and must not infer the address, topic, or authentication information. The same client must keep the DeviceId consistent when initiating BridgeWebCall or MakePilotCall. This operation only retrieves data channel credentials and does not create text sessions, initiate phone calls, or establish web voice channels. The username and password for the data channel are not the same set of credentials as the token returned for web calls. The protocol, the unit of ExpirationTime, and field mappings are subject to the actual RTC gateway deployment version and return conventions. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+   * 
+   * @param request - GetDataChannelCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetDataChannelCredentialResponse
+   */
+  async getDataChannelCredentialWithOptions(request: $_model.GetDataChannelCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetDataChannelCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetDataChannelCredential",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetDataChannelCredentialResponse>(await this.callApi(params, req, runtime), new $_model.GetDataChannelCredentialResponse({}));
+  }
+
+  /**
+   * Retrieves voice conversation parameters.
+   * 
+   * @remarks
+   * Retrieves temporary connection credentials for the client data channel of a specified InstanceId and DeviceId. Requests are verified based on the current POP authentication and instance permission configurations. DeviceId cannot be empty. Unlike GetTrialDataChannelCredential, this operation does not use the VisitorToken for trial links. The client must use the actual Topic, ClientId, Endpoint, UserName, and Password returned to connect to and subscribe to the data channel, and must not infer the address, topic, or authentication information. The same client must keep the DeviceId consistent when initiating BridgeWebCall or MakePilotCall. This operation only retrieves data channel credentials and does not create text sessions, initiate phone calls, or establish web voice channels. The username and password for the data channel are not the same set of credentials as the token returned for web calls. The protocol, the unit of ExpirationTime, and field mappings are subject to the actual RTC gateway deployment version and return conventions. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+   * 
+   * @param request - GetDataChannelCredentialRequest
+   * @returns GetDataChannelCredentialResponse
+   */
+  async getDataChannelCredential(request: $_model.GetDataChannelCredentialRequest): Promise<$_model.GetDataChannelCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getDataChannelCredentialWithOptions(request, runtime);
   }
 
   /**
@@ -1646,6 +2346,114 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Retrieves the trial channel.
+   * 
+   * @remarks
+   * Retrieves the corresponding trial access channel and the list of available trial scenarios based on the VisitorToken in a trial link. The service verifies whether the token exists, whether it can locate the channel, and whether it has expired. Upon success, it returns information such as the instance to which the channel belongs, the channel type, display configurations, validity period, and scenario configurations. This operation can be used as an initialization step for the trial page: first read the returned instance and scenarios, and then call the corresponding trial text or web voice operation. This operation does not create a text session or initiate a voice call. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+   * 
+   * @param request - GetTrialAccessChannelRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTrialAccessChannelResponse
+   */
+  async getTrialAccessChannelWithOptions(request: $_model.GetTrialAccessChannelRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTrialAccessChannelResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.productCode)) {
+      query["ProductCode"] = request.productCode;
+    }
+
+    if (!$dara.isNull(request.visitorToken)) {
+      query["VisitorToken"] = request.visitorToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTrialAccessChannel",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTrialAccessChannelResponse>(await this.callApi(params, req, runtime), new $_model.GetTrialAccessChannelResponse({}));
+  }
+
+  /**
+   * Retrieves the trial channel.
+   * 
+   * @remarks
+   * Retrieves the corresponding trial access channel and the list of available trial scenarios based on the VisitorToken in a trial link. The service verifies whether the token exists, whether it can locate the channel, and whether it has expired. Upon success, it returns information such as the instance to which the channel belongs, the channel type, display configurations, validity period, and scenario configurations. This operation can be used as an initialization step for the trial page: first read the returned instance and scenarios, and then call the corresponding trial text or web voice operation. This operation does not create a text session or initiate a voice call. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+   * 
+   * @param request - GetTrialAccessChannelRequest
+   * @returns GetTrialAccessChannelResponse
+   */
+  async getTrialAccessChannel(request: $_model.GetTrialAccessChannelRequest): Promise<$_model.GetTrialAccessChannelResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTrialAccessChannelWithOptions(request, runtime);
+  }
+
+  /**
+   * Retrieves the parameters for a trial voice conversation.
+   * 
+   * @remarks
+   * Retrieves temporary connection credentials for the client data channel for a specified InstanceId and DeviceId by using a valid VisitorToken from a trial link. The response includes information such as Topic, ClientId, Endpoint, UserName, Password, and expiration time. The client must use the actual values returned by the service to connect to and subscribe to the data channel, and must not concatenate addresses, topics, or authentication information. The DeviceId must be consistent with the BridgeTrialWebCall request from the same client. This operation only retrieves data channel credentials and does not initiate text sessions or establish web voice calls. The credential protocol and expiration time unit are subject to the conventions returned by the actual RTC gateway. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+   * 
+   * @param request - GetTrialDataChannelCredentialRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetTrialDataChannelCredentialResponse
+   */
+  async getTrialDataChannelCredentialWithOptions(request: $_model.GetTrialDataChannelCredentialRequest, runtime: $dara.RuntimeOptions): Promise<$_model.GetTrialDataChannelCredentialResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.visitorToken)) {
+      query["VisitorToken"] = request.visitorToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetTrialDataChannelCredential",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetTrialDataChannelCredentialResponse>(await this.callApi(params, req, runtime), new $_model.GetTrialDataChannelCredentialResponse({}));
+  }
+
+  /**
+   * Retrieves the parameters for a trial voice conversation.
+   * 
+   * @remarks
+   * Retrieves temporary connection credentials for the client data channel for a specified InstanceId and DeviceId by using a valid VisitorToken from a trial link. The response includes information such as Topic, ClientId, Endpoint, UserName, Password, and expiration time. The client must use the actual values returned by the service to connect to and subscribe to the data channel, and must not concatenate addresses, topics, or authentication information. The DeviceId must be consistent with the BridgeTrialWebCall request from the same client. This operation only retrieves data channel credentials and does not initiate text sessions or establish web voice calls. The credential protocol and expiration time unit are subject to the conventions returned by the actual RTC gateway. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+   * 
+   * @param request - GetTrialDataChannelCredentialRequest
+   * @returns GetTrialDataChannelCredentialResponse
+   */
+  async getTrialDataChannelCredential(request: $_model.GetTrialDataChannelCredentialRequest): Promise<$_model.GetTrialDataChannelCredentialResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.getTrialDataChannelCredentialWithOptions(request, runtime);
+  }
+
+  /**
    * Retrieves the list of ASR models.
    * 
    * @param request - ListAsrModelsRequest
@@ -1688,7 +2496,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of outbound call campaigns.
+   * Queries a list of outbound campaigns.
    * 
    * @remarks
    * ***
@@ -1754,7 +2562,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of outbound call campaigns.
+   * Queries a list of outbound campaigns.
    * 
    * @remarks
    * ***
@@ -2694,7 +3502,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of scenarios associated with a flow by flow ID.
+   * Retrieves a list of scenarios based on the flow ID.
    * 
    * @param request - ListScriptsByFlowRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2729,7 +3537,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the list of scenarios associated with a flow by flow ID.
+   * Retrieves a list of scenarios based on the flow ID.
    * 
    * @param request - ListScriptsByFlowRequest
    * @returns ListScriptsByFlowResponse
@@ -2840,7 +3648,83 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pauses an outbound call campaign.
+   * Initiates an outbound call.
+   * 
+   * @remarks
+   * Initiates an outbound call test to the real phone number corresponding to Number by using the specified instance and scenario. Before calling this operation, you must obtain an SMS verification code for the OutboundCallTest scenario for the called number and pass it in VerificationCode. The service verifies the code and initiates the call by using the outbound caller ID configured on the platform. DeviceId is used to bind the client data stream to the current call. CallVariables passes call variables in JSON object format, and Tags passes attached data. Upon success, a SessionId with the test- prefix is returned to associate with the current call. A successful API response does not indicate that the called party has answered or that the conversation has ended. Test only authorized numbers. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use real resources and service return values for actual calls.
+   * 
+   * @param request - MakePilotCallRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns MakePilotCallResponse
+   */
+  async makePilotCallWithOptions(request: $_model.MakePilotCallRequest, runtime: $dara.RuntimeOptions): Promise<$_model.MakePilotCallResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.callVariables)) {
+      query["CallVariables"] = request.callVariables;
+    }
+
+    if (!$dara.isNull(request.deviceId)) {
+      query["DeviceId"] = request.deviceId;
+    }
+
+    if (!$dara.isNull(request.draftVersion)) {
+      query["DraftVersion"] = request.draftVersion;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.number)) {
+      query["Number"] = request.number;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.tags)) {
+      query["Tags"] = request.tags;
+    }
+
+    if (!$dara.isNull(request.verificationCode)) {
+      query["VerificationCode"] = request.verificationCode;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "MakePilotCall",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.MakePilotCallResponse>(await this.callApi(params, req, runtime), new $_model.MakePilotCallResponse({}));
+  }
+
+  /**
+   * Initiates an outbound call.
+   * 
+   * @remarks
+   * Initiates an outbound call test to the real phone number corresponding to Number by using the specified instance and scenario. Before calling this operation, you must obtain an SMS verification code for the OutboundCallTest scenario for the called number and pass it in VerificationCode. The service verifies the code and initiates the call by using the outbound caller ID configured on the platform. DeviceId is used to bind the client data stream to the current call. CallVariables passes call variables in JSON object format, and Tags passes attached data. Upon success, a SessionId with the test- prefix is returned to associate with the current call. A successful API response does not indicate that the called party has answered or that the conversation has ended. Test only authorized numbers. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use real resources and service return values for actual calls.
+   * 
+   * @param request - MakePilotCallRequest
+   * @returns MakePilotCallResponse
+   */
+  async makePilotCall(request: $_model.MakePilotCallRequest): Promise<$_model.MakePilotCallResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.makePilotCallWithOptions(request, runtime);
+  }
+
+  /**
+   * Pauses an outbound campaign.
    * 
    * @param request - PauseCampaignRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2875,7 +3759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Pauses an outbound call campaign.
+   * Pauses an outbound campaign.
    * 
    * @param request - PauseCampaignRequest
    * @returns PauseCampaignResponse
@@ -2988,7 +3872,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an outbound call campaign.
+   * Submits an outbound campaign.
    * 
    * @remarks
    * ***
@@ -3026,7 +3910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Submits an outbound call campaign.
+   * Submits an outbound campaign.
    * 
    * @remarks
    * ***
@@ -3037,6 +3921,142 @@ export default class Client extends OpenApi {
   async submitCampaign(request: $_model.SubmitCampaignRequest): Promise<$_model.SubmitCampaignResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.submitCampaignWithOptions(request, runtime);
+  }
+
+  /**
+   * Sends a user input to a trial text conversation.
+   * 
+   * @remarks
+   * Sends a round of user input to a trial text conversation created by BeginTrialSession and returns the robot reply in Server-Sent Events (SSE) format. Use the same InstanceId, ScriptId, SessionId, and experience link VisitorToken as those used to start the trial conversation. The service validates the token and its expiration time on each call. Utterance is plain text input, and Extras is a JSON array string of structured events such as key presses and silence. StreamEnd=true only ends the response stream for the current turn. Call EndTrialSession when the entire experience ends. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+   * 
+   * @param request - TrialDialogueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TrialDialogueResponse
+   */
+  async *trialDialogueWithSSE(request: $_model.TrialDialogueRequest, runtime: $dara.RuntimeOptions): AsyncGenerator<$_model.TrialDialogueResponse, any, unknown> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.extras)) {
+      query["Extras"] = request.extras;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.utterance)) {
+      query["Utterance"] = request.utterance;
+    }
+
+    if (!$dara.isNull(request.visitorToken)) {
+      query["VisitorToken"] = request.visitorToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TrialDialogue",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    let sseResp = await this.callSSEApi(params, req, runtime);
+
+    for await (let resp of sseResp) {
+      if (!$dara.isNull(resp.event) && !$dara.isNull(resp.event.data)) {
+        let data = JSON.parse(resp.event.data);
+        yield $dara.cast<$_model.TrialDialogueResponse>({
+          statusCode: resp.statusCode,
+          headers: resp.headers,
+          id: resp.event.id,
+          event: resp.event.event,
+          body: data,
+        }, new $_model.TrialDialogueResponse({}));
+      }
+
+    }
+  }
+
+  /**
+   * Sends a user input to a trial text conversation.
+   * 
+   * @remarks
+   * Sends a round of user input to a trial text conversation created by BeginTrialSession and returns the robot reply in Server-Sent Events (SSE) format. Use the same InstanceId, ScriptId, SessionId, and experience link VisitorToken as those used to start the trial conversation. The service validates the token and its expiration time on each call. Utterance is plain text input, and Extras is a JSON array string of structured events such as key presses and silence. StreamEnd=true only ends the response stream for the current turn. Call EndTrialSession when the entire experience ends. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+   * 
+   * @param request - TrialDialogueRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns TrialDialogueResponse
+   */
+  async trialDialogueWithOptions(request: $_model.TrialDialogueRequest, runtime: $dara.RuntimeOptions): Promise<$_model.TrialDialogueResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.extras)) {
+      query["Extras"] = request.extras;
+    }
+
+    if (!$dara.isNull(request.instanceId)) {
+      query["InstanceId"] = request.instanceId;
+    }
+
+    if (!$dara.isNull(request.scriptId)) {
+      query["ScriptId"] = request.scriptId;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["SessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.utterance)) {
+      query["Utterance"] = request.utterance;
+    }
+
+    if (!$dara.isNull(request.visitorToken)) {
+      query["VisitorToken"] = request.visitorToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "TrialDialogue",
+      version: "2025-11-11",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.TrialDialogueResponse>(await this.callApi(params, req, runtime), new $_model.TrialDialogueResponse({}));
+  }
+
+  /**
+   * Sends a user input to a trial text conversation.
+   * 
+   * @remarks
+   * Sends a round of user input to a trial text conversation created by BeginTrialSession and returns the robot reply in Server-Sent Events (SSE) format. Use the same InstanceId, ScriptId, SessionId, and experience link VisitorToken as those used to start the trial conversation. The service validates the token and its expiration time on each call. Utterance is plain text input, and Extras is a JSON array string of structured events such as key presses and silence. StreamEnd=true only ends the response stream for the current turn. Call EndTrialSession when the entire experience ends. The resource identifiers, numbers, and authentication credentials in the examples are desensitized or placeholder values. Use actual resources and service return values for actual calls.
+   * 
+   * @param request - TrialDialogueRequest
+   * @returns TrialDialogueResponse
+   */
+  async trialDialogue(request: $_model.TrialDialogueRequest): Promise<$_model.TrialDialogueResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.trialDialogueWithOptions(request, runtime);
   }
 
   /**

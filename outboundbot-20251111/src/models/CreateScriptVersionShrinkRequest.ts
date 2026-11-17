@@ -23,7 +23,7 @@ export class CreateScriptVersionShrinkRequest extends $dara.Model {
   labelConfigsShrink?: string;
   /**
    * @remarks
-   * The scenario ID.
+   * The script ID.
    * 
    * @example
    * 4f9a8e2b-6c1d-4a7e-9b3f-2d5c8a1e7b15
@@ -31,7 +31,7 @@ export class CreateScriptVersionShrinkRequest extends $dara.Model {
   scriptId?: string;
   /**
    * @remarks
-   * The dialogue capability configuration.
+   * The dialog capability configuration.
    */
   scriptProfileShrink?: string;
   /**
@@ -44,12 +44,12 @@ export class CreateScriptVersionShrinkRequest extends $dara.Model {
   sourceVersionId?: string;
   /**
    * @remarks
-   * The Text-to-Speech (TTS) configuration.
+   * The TTS configuration.
    */
   synthesizerConfigShrink?: string;
   /**
    * @remarks
-   * The Automatic Speech Recognition (ASR) configuration.
+   * The ASR configuration.
    */
   transcriberConfigShrink?: string;
   static names(): { [key: string]: string } {
