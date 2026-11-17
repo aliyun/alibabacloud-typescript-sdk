@@ -24,16 +24,15 @@ export class CreateScheduledTaskRequestDescription extends $dara.Model {
    * The name.
    * 
    * @example
-   * SampleName.pdf
+   * Sample name.pdf
    */
   name?: string;
   /**
    * @remarks
    * The object ID. Pass the project task ID.
    * 
-   * - For internal enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) API operation to obtain the taskId.
-   * 
-   * - For third-party enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) API operation to obtain the taskId.
+   * - For internal enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) API to obtain the taskId.
+   * - For third-party enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) API to obtain the taskId.
    * 
    * @example
    * exampleObjectId
@@ -57,7 +56,7 @@ export class CreateScheduledTaskRequestDescription extends $dara.Model {
   skillCode?: string;
   /**
    * @remarks
-   * The HTTP API type. Valid values: Http (standard HTTP API), Rest (RESTful API), WebSocket (WebSocket API), HttpIngress (HTTP API accessed through Ingress), LLM (large language model API), and Agent (agent API).
+   * The HTTP API type. Valid values: Http (common HTTP API), Rest (RESTful API), WebSocket (WebSocket API), HttpIngress (HTTP API accessed through Ingress), LLM (large language model API), and Agent (agent API).
    * 
    * @example
    * text
@@ -107,7 +106,7 @@ export class CreateScheduledTaskRequestSegments extends $dara.Model {
   content?: string;
   /**
    * @remarks
-   * Specifies whether the feature is enabled.
+   * Specifies whether to enable the feature.
    * 
    * @example
    * true
@@ -118,12 +117,12 @@ export class CreateScheduledTaskRequestSegments extends $dara.Model {
    * The name.
    * 
    * @example
-   * SampleName.pdf
+   * Sample name.pdf
    */
   name?: string;
   /**
    * @remarks
-   * The ID of the recommended item, which can be a **feedId** or a mini-app ID.
+   * The ID of the recommended item. The value can be a **feedId** or a mini-app ID.
    * 
    * @example
    * exampleObjectId
@@ -200,16 +199,15 @@ export class CreateScheduledTaskRequestTaskDetailRelatedObjects extends $dara.Mo
    * The name.
    * 
    * @example
-   * SampleName.pdf
+   * Sample name.pdf
    */
   name?: string;
   /**
    * @remarks
    * The object ID. Pass the project task ID.
    * 
-   * - For internal enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) API operation to obtain the taskId.
-   * 
-   * - For third-party enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) API operation to obtain the taskId.
+   * - For internal enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/orgapp-server/create-a-project-task) API to obtain the taskId.
+   * - For third-party enterprise applications, call the [Create a project task](https://open.dingtalk.com/document/isvapp-server/create-a-project-task) API to obtain the taskId.
    * 
    * @example
    * exampleObjectId
@@ -306,7 +304,7 @@ export class CreateScheduledTaskRequestTaskDetailRelatedSkills extends $dara.Mod
    * The name.
    * 
    * @example
-   * SampleName.pdf
+   * Sample name.pdf
    */
   name?: string;
   /**
@@ -420,10 +418,10 @@ export class CreateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
    * @remarks
    * The notification method. Valid values:
    * 
-   * - **hdm_alarm_sms**: SMS.
+   * - **hdm_alarm_sms**: Text message.
    * - **dingtalk**: DingTalk chatbot.
-   * - **hdm_alarm_sms_and_email**: SMS and email.
-   * - **hdm_alarm_sms,dingtalk**: SMS and DingTalk chatbot.
+   * - **hdm_alarm_sms_and_email**: Text message and email.
+   * - **hdm_alarm_sms,dingtalk**: Text message and DingTalk chatbot.
    * 
    * @example
    * DINGTALK
@@ -449,7 +447,7 @@ export class CreateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
    * @remarks
    * Specifies whether the credential is enabled. Valid values:
    * 
-   * - true: Enabled. 
+   * - true: Enabled.
    * - false: Disabled.
    * 
    * @example
@@ -474,14 +472,11 @@ export class CreateScheduledTaskRequestTriggerConfigPushConfig extends $dara.Mod
   operatingObjectName?: string;
   /**
    * @remarks
-   * The type of the file recipient. Valid values:
+   * The type of the file receiver. Valid values:
    * 
    * - 0: Private chat.
-   * 
    * - 1: Group chat.
-   * 
    * - 2: DingTalk Drive.
-   * 
    * - 3: Document.
    * 
    * @example
@@ -543,7 +538,7 @@ export class CreateScheduledTaskRequestTriggerConfig extends $dara.Model {
   language?: string;
   /**
    * @remarks
-   * The list of task push channels. If the list is empty or no channel is enabled, no push is performed.
+   * The list of task push channels. If this parameter is empty or no channel is enabled, no push is performed.
    */
   pushConfig?: CreateScheduledTaskRequestTriggerConfigPushConfig[];
   /**
@@ -556,17 +551,13 @@ export class CreateScheduledTaskRequestTriggerConfig extends $dara.Model {
   timezone?: string;
   /**
    * @remarks
-   * - Trigger mode
-   *  
-   *   1: Manual trigger
-   *    
-   *   2: Scheduled trigger 
+   * The trigger mode. Valid values:
    * 
-   *   3: Code commit trigger
-   *  
-   *   5: Pipeline trigger
-   * 
-   *   6: Webhook trigger
+   * - 1: Manual trigger.
+   * - 2: Scheduled trigger.
+   * - 3: Code commit trigger.
+   * - 5: Pipeline trigger.
+   * - 6: WEBHOOK trigger.
    * 
    * @example
    * manual
@@ -607,7 +598,7 @@ export class CreateScheduledTaskRequestTriggerConfig extends $dara.Model {
 export class CreateScheduledTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the collaboration group to which the task belongs, such as cg_101. If this parameter is passed, a group space task is created, and the caller must be a valid group member. If this parameter is empty, a personal task is created.
+   * The ID of the associated collaboration group (such as cg_101). If this parameter is passed, a group space task is created, and the caller must be a valid group member. If this parameter is empty, a personal task is created.
    * 
    * @example
    * exampleCollaborationGroupId
@@ -620,7 +611,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   description?: CreateScheduledTaskRequestDescription[];
   /**
    * @remarks
-   * The name of the current effective digital employee. This parameter is empty if it is not configured.
+   * The name of the currently effective digital employee. This parameter is empty if it is not configured.
    * 
    * @example
    * ["pcitc-magent"]
@@ -636,7 +627,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   isOpen?: boolean;
   /**
    * @remarks
-   * The large language model used by the assistant. The default value is empty, which indicates that DingTalk automatically selects the model.
+   * The large model used by the assistant. The default value is empty, which indicates that DingTalk automatically selects the model.
    * 
    * @example
    * quick
@@ -649,12 +640,12 @@ export class CreateScheduledTaskRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * SampleName.pdf
+   * Sample name.pdf
    */
   name?: string;
   /**
    * @remarks
-   * 输出会话模式，默认 NEW_CONVERSATION
+   * The output conversation mode. Default value: NEW_CONVERSATION.
    * 
    * @example
    * NEW_CONVERSATION
@@ -672,7 +663,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   taskDetail?: CreateScheduledTaskRequestTaskDetail;
   /**
    * @remarks
-   * The effective tenant ID.
+   * The ID of the effective tenant.
    * 
    * @example
    * 10000
@@ -680,7 +671,7 @@ export class CreateScheduledTaskRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The trigger configuration of the scheduled task. The triggerMode parameter supports manual (manual trigger) and scheduled (scheduled trigger). If scheduled is used, the cron parameter must be specified. The timezone and language parameters are injected by the server, and the client does not need to pass them. The pushConfig parameter is the list of task push channels. If the list is empty or no channel is enabled, no push is performed.
+   * The trigger configuration of the scheduled task. triggerMode supports manual (manual trigger) and scheduled (scheduled trigger). If scheduled is used, cron must be specified. timezone and language are injected by the server, and the client does not need to pass them. pushConfig is the list of task push channels. If it is empty or no channel is enabled, no push is performed.
    */
   triggerConfig?: CreateScheduledTaskRequestTriggerConfig;
   /**

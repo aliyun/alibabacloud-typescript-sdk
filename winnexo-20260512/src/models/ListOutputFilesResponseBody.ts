@@ -71,7 +71,7 @@ export class ListOutputFilesResponseBodyItemsOutputItemsFileInfo extends $dara.M
    * The file description.
    * 
    * @example
-   * Analysis report on quarterly revenue, costs, and trends
+   * Quarterly revenue, cost, and trend analysis report
    */
   description?: string;
   /**
@@ -84,7 +84,7 @@ export class ListOutputFilesResponseBodyItemsOutputItemsFileInfo extends $dara.M
   name?: string;
   /**
    * @remarks
-   * The file download link. For versioned files, it is bound to the published version and content revision at the time of query. The link has a validity period. If it expires, query the list again to obtain a new link.
+   * The file download URL. For versioned files, it is bound to the published version and content revision at the time of query. The URL has a time-to-live (TTL). If it expires, query the list again to obtain a new URL.
    * 
    * @example
    * https://winnexo.agentone.console.aliyun.com/api/v1/output-preview/demo_download_ticket/download
@@ -196,12 +196,12 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The email information. This field is available only when the item type is email.
+   * The email information. This field is present when the item type is email.
    */
   emailInfo?: ListOutputFilesResponseBodyItemsOutputItemsEmailInfo;
   /**
    * @remarks
-   * The file information. This field is available only when the item type is file.
+   * The file information. This field is present when the item type is file.
    */
   fileInfo?: ListOutputFilesResponseBodyItemsOutputItemsFileInfo;
   /**
@@ -262,7 +262,7 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   outputItemId?: string;
   /**
    * @remarks
-   * Indicates whether sharing is enabled.
+   * Specifies whether sharing is enabled.
    * 
    * @example
    * true
@@ -270,7 +270,7 @@ export class ListOutputFilesResponseBodyItemsOutputItems extends $dara.Model {
   shareEnabled?: boolean;
   /**
    * @remarks
-   * The share token. This field is present when sharing is enabled and can be used to access the public share preview API.
+   * The share token, which is present when sharing is enabled and can be used to access the public share preview API.
    * 
    * @example
    * demo_public_preview_token
@@ -390,7 +390,7 @@ export class ListOutputFilesResponseBodyItems extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The name of the digital worker (operating object).
+   * The name of the digital employee (operating object).
    * 
    * @example
    * Business Analysis Assistant

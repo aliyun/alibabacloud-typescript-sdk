@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListOutputFilesRequest extends $dara.Model {
   /**
    * @remarks
-   * The business ID used for exact filtering. The length is 1 to 128 characters. This value is derived from file registration or the businessId of associated workflow instances.
+   * The business ID used for exact filtering. The length is 1 to 128 characters. This ID is derived from file registrations or the businessId of associated workflow instances.
    * 
    * @example
    * REQ-20261012-001
@@ -13,7 +13,7 @@ export class ListOutputFilesRequest extends $dara.Model {
   bizId?: string;
   /**
    * @remarks
-   * The collaboration workspace ID. The length is 1 to 64 characters. If this parameter is not provided, the personal outputs of the current user are queried. If provided, the real-time permissions of workspace members and source resources are verified.
+   * The ID of the collaboration workspace. The length is 1 to 64 characters. This parameter is optional. If not specified, the personal outputs of the current user are queried. If specified, the real-time permissions of the workspace members and source resources are verified.
    * 
    * @example
    * cg_123e4567-e89b-42d3-a456-426614174001
@@ -21,7 +21,7 @@ export class ListOutputFilesRequest extends $dara.Model {
   collaborationGroupId?: string;
   /**
    * @remarks
-   * The output item type: ppt, html, document, picture, slides, video, audio, email, or others.
+   * The output detail type. Valid values: ppt, html, document, picture, slides, video, audio, email, and others.
    * 
    * @example
    * document
@@ -32,12 +32,12 @@ export class ListOutputFilesRequest extends $dara.Model {
    * The keyword used to match the output title or detail name.
    * 
    * @example
-   * Quarterly operations
+   * Quarterly business
    */
   keyword?: string;
   /**
    * @remarks
-   * The name of the digital employee. Filters results by name.
+   * The name of the digital employee (operating object). Filters results by name.
    * 
    * @example
    * Business Analysis Assistant
@@ -53,7 +53,7 @@ export class ListOutputFilesRequest extends $dara.Model {
   page?: number;
   /**
    * @remarks
-   * The number of items per page. Valid values: 1 to 100. Default value: 20.
+   * The number of entries per page. Valid values: 1 to 100. Default value: 20.
    * 
    * @example
    * 20
@@ -77,12 +77,12 @@ export class ListOutputFilesRequest extends $dara.Model {
   sharedOnly?: boolean;
   /**
    * @remarks
-   * The tags used for exact filtering. All specified tags must match simultaneously. You can specify up to 20 tags. Each tag must be a non-empty string of 1 to 128 characters. Tags are derived from file registration or the variables.tags of associated instances.
+   * The tags used for exact filtering. All specified tags must match simultaneously. You can specify up to 20 tags. Each tag must be a non-empty string of 1 to 128 characters. Tags are derived from file registrations or the variables.tags of associated instances.
    */
   tags?: string[];
   /**
    * @remarks
-   * 按本次执行 ID 精确筛选产出
+   * The ID of the current execution used to exactly filter outputs.
    * 
    * @example
    * exampleExecutionId
@@ -90,7 +90,7 @@ export class ListOutputFilesRequest extends $dara.Model {
   taskExecutionId?: string;
   /**
    * @remarks
-   * The tenant ID. This is a common parameter. If omitted, the default tenant of the caller is used. The identity and tenant permissions are determined by the gateway and backend authentication.
+   * The tenant ID. This is a common parameter. If not specified, the default tenant of the caller is used. The identity and tenant permissions are determined by the gateway and backend authentication.
    * 
    * @example
    * 10000

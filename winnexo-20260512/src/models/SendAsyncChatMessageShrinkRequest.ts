@@ -23,7 +23,7 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * 作为本轮上下文引用的消息或文件条目
+   * The message or file entries referenced as context for the current turn.
    * 
    * @example
    * []
@@ -31,15 +31,15 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
   contextItemsShrink?: string;
   /**
    * @remarks
-   * The list of digital employee names. For compatibility with the legacy format, a single string can also be passed.
+   * The list of digital employee names. For backward compatibility, a single string can also be passed.
    * 
    * @example
-   * string_value
+   * ["pcitc-magent"]
    */
   digitalEmployeeNameShrink?: string;
   /**
    * @remarks
-   * Specifies whether to enable direct connection mode. If set to true, regular scenario routing is skipped and the direct conversation scenario is used.
+   * Specifies whether to enable direct connection mode. If set to true, regular scenario routing is skipped and the direct conversation scenario is entered directly.
    * 
    * @example
    * false
@@ -47,7 +47,7 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
   directChat?: boolean;
   /**
    * @remarks
-   * 本轮携带的最近完整 direct 问答轮数，不含本轮输入。仅 workMode=direct 或 directChat=true 时生效。有效值为 0–100 的 JSON 整数，省略时由后端按 0 处理，不携带历史但仍保存当前轮。null、布尔值、字符串、小数及越界值按原 direct 路径处理，网关保留原始值供后端判定。work/ask 忽略此字段。该参数不限制转换为 work 时的历史范围
+   * The number of recent complete direct Q&A rounds carried in the current turn, excluding the current input. This parameter takes effect only when workMode is set to direct or directChat is set to true. Valid values are JSON integers from 0 to 100. If omitted, the backend processes it as 0, carrying no history but still saving the current round. Null, Boolean, string, decimal, and out-of-bounds values are processed through the original direct path, and the gateway retains the original values for backend determination. This field is ignored in work and ask modes. This parameter does not limit the history range when switching to the work mode.
    * 
    * @example
    * 1
@@ -55,7 +55,7 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
   directMaxHistoryRounds?: any;
   /**
    * @remarks
-   * Specifies whether to enable web search. Default value: false. In the task execution scenario where taskExecution is passed, the task configuration prevails.
+   * Specifies whether to enable web search. Default value: false. In task execution scenarios where taskExecution is passed, the task configuration prevails.
    * 
    * @example
    * false
@@ -63,12 +63,12 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
   enableWebSearch?: boolean;
   /**
    * @remarks
-   * The list of file references. Each item is an object, and the fileId parameter is required. The fileId is returned by the uploadChatFile operation.
+   * The list of file references. Each item is an object, and fileId is required, which is returned by uploadChatFile.
    */
   filesShrink?: string;
   /**
    * @remarks
-   * 本轮语言，可选 zh-CN、en-US，用于接口错误文案并透传给 CodeAgent；省略时沿用当前语言行为，不修改用户设置
+   * The language for the current turn. Valid values: zh-CN and en-US. This parameter is used for API error messages and passed through to CodeAgent. If omitted, the current language behavior is retained and user settings are not modified.
    * 
    * @example
    * en-US
@@ -84,7 +84,7 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
   model?: string;
   /**
    * @remarks
-   * Specifies whether to reuse the most recent session under the digital employee when sessionId is not specified. This is typically used in CLI scenarios. Default value: false, which means a new session is created.
+   * Specifies whether to reuse the most recent session under the digital employee when sessionId is not provided, which applies to CLI scenarios. Default value: false, which means a new session is created.
    * 
    * @example
    * false
@@ -92,7 +92,7 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
   reuseLastSession?: boolean;
   /**
    * @remarks
-   * 消息中的结构化片段，例如会话或对象提及
+   * The structured segments in the message, such as session or object mentions.
    * 
    * @example
    * []
@@ -108,7 +108,7 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
   sessionId?: string;
   /**
    * @remarks
-   * Specifies whether to use streaming generation. This operation always generates backend content in streaming mode and writes it to the message stream. The value of this parameter does not change the response structure.
+   * Specifies whether to use streaming generation. This API always generates background content in streaming mode and writes it to the message stream. The value does not change the response structure.
    * 
    * @example
    * true
@@ -116,7 +116,7 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
   stream?: boolean;
   /**
    * @remarks
-   * The task execution metadata returned by the executeScheduledTask operation. If passed, the request is processed through the task execution pipeline.
+   * The task execution metadata returned by executeScheduledTask. If passed, the request is processed through the task execution pipeline.
    */
   taskExecutionShrink?: string;
   /**
@@ -129,7 +129,11 @@ export class SendAsyncChatMessageShrinkRequest extends $dara.Model {
   tenantId?: string;
   /**
    * @remarks
-   * The session work mode. Valid values: ask (quick Q&A, which trims tools, skills, and connectors for single-turn direct answers), work (deep work, default), and direct (direct connection mode at the request level, which does not start a sandbox and prevents context pollution, equivalent to directChat=true). The ask and work modes are session-level. The mode is fixed when a new session is created and inherited by default in subsequent chats. If the explicitly passed value is inconsistent with the session mode, a parameter error is returned. To switch modes, create a new session or fork the current one. If ask is passed in multi-digital-employee or task execution scenarios, it takes effect as work. This parameter is ignored when directChat is set to true.
+   * The session work mode. Valid values:
+   * - ask: Quick Q&A mode. Trims tools, skills, and connectors for single-turn direct answers.
+   * - work: Deep work mode. This is the default value.
+   * - direct: Direct connection mode at the request level. Does not start a sandbox and prevents context pollution. Equivalent to setting directChat to true.
+   * The ask and work modes are session-level. Once selected during session creation, the mode is fixed and inherited by default in subsequent chats. If the explicitly passed value conflicts with the session mode, a parameter error is returned. To switch modes, create a new session or fork the current one. In scenarios with multiple digital employees or task execution, passing ask takes effect as work. This parameter is ignored when directChat is set to true.
    * 
    * @example
    * work

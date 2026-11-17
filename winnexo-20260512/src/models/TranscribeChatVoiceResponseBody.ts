@@ -21,7 +21,7 @@ export class TranscribeChatVoiceResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
@@ -29,7 +29,7 @@ export class TranscribeChatVoiceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The recognized text content.
+   * The batch text to be translated.
    * 
    * @example
    * The weather is nice today

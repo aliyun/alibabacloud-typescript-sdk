@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadChatFileByBase64Request extends $dara.Model {
   /**
    * @remarks
-   * 文件 MIME 类型（可选，不传时按 application/octet-stream 处理）
+   * The MIME type of the file.
    * 
    * @example
    * application/pdf
@@ -13,7 +13,7 @@ export class UploadChatFileByBase64Request extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * 标准 Base64 文件内容，不含 data URI 前缀
+   * The Base64-encoded string of the file content.
    * 
    * This parameter is required.
    * 
@@ -23,7 +23,7 @@ export class UploadChatFileByBase64Request extends $dara.Model {
   fileContentBase64?: string;
   /**
    * @remarks
-   * 原始文件名（含后缀）
+   * The file name.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class UploadChatFileByBase64Request extends $dara.Model {
   fileName?: string;
   /**
    * @remarks
-   * 租户ID，公共参数，缺省时使用调用方默认租户
+   * The tenant ID.
    * 
    * @example
    * 10000

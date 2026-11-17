@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UploadChatFileByBase64ResponseBody extends $dara.Model {
   /**
    * @remarks
-   * 业务状态码：成功为 200，失败为后端错误码（ERR.* / InvalidParameter.*）
+   * The response status code.
    * 
    * @example
    * 200
@@ -13,7 +13,7 @@ export class UploadChatFileByBase64ResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * 文件记录 ID
+   * The file record ID.
    * 
    * @example
    * exampleFileRecordId
@@ -21,7 +21,7 @@ export class UploadChatFileByBase64ResponseBody extends $dara.Model {
   fileRecordId?: string;
   /**
    * @remarks
-   * 错误描述，成功时为空
+   * The response message.
    * 
    * @example
    * success
@@ -29,7 +29,7 @@ export class UploadChatFileByBase64ResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * 请求追踪 ID
+   * The request ID.
    * 
    * @example
    * 019FF406-1B10-0065-A97D-2D1920C2A03D
