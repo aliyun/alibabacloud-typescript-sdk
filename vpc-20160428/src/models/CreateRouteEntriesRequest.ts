@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRouteEntriesRequestRouteEntries extends $dara.Model {
   /**
    * @remarks
-   * The description of the custom route entry. You can specify up to 50 descriptions.
+   * The description of the custom route entry. You can specify at most 50 descriptions.
    * 
    * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
@@ -15,7 +15,7 @@ export class CreateRouteEntriesRequestRouteEntries extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The destination CIDR block of the custom route entry. Both IPv4 and IPv6 destination CIDR blocks are supported. You can specify up to 50 destination CIDR blocks. The following requirements must be met:
+   * The destination CIDR block of the custom route entry. Both IPv4 and IPv6 CIDR blocks are supported. You can specify at most 50 destination CIDR blocks. The destination CIDR block must meet the following requirements:
    *           
    * - The destination CIDR block cannot point to 100.64.0.0/10 or be contained by 100.64.0.0/10.  
    *  
@@ -29,7 +29,7 @@ export class CreateRouteEntriesRequestRouteEntries extends $dara.Model {
   dstCidrBlock?: string;
   /**
    * @remarks
-   * The version of the IP protocol. You can specify up to 50 IP protocol versions. Valid values:
+   * The IP version. You can specify at most 50 IP versions. Valid values:
    * 
    * - **4**: IPv4.
    * - **6**: IPv6.
@@ -40,7 +40,7 @@ export class CreateRouteEntriesRequestRouteEntries extends $dara.Model {
   ipVersion?: number;
   /**
    * @remarks
-   * The name of the custom route entry to add. You can specify up to 50 names.
+   * The name of the custom route entry to be added. You can specify at most 50 names.
    * 
    * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
@@ -50,8 +50,8 @@ export class CreateRouteEntriesRequestRouteEntries extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The ID of the next hop instance of the custom route entry. You can specify up to 50 instance IDs.
-   * > If NextHopType is set to ECR, you can call the [DescribeExpressConnectRouterAssociation](https://help.aliyun.com/document_detail/2712069.html) operation to obtain the AssociationId as the next hop ID.
+   * The ID of the next hop instance for the custom route entry. You can specify at most 50 instance IDs.
+   * > If you set NextHopType to ECR, you can call the [DescribeExpressConnectRouterAssociation](https://help.aliyun.com/document_detail/2712069.html) operation to obtain the AssociationId as the next hop ID.
    * 
    * This parameter is required.
    * 
@@ -61,31 +61,31 @@ export class CreateRouteEntriesRequestRouteEntries extends $dara.Model {
   nextHop?: string;
   /**
    * @remarks
-   * The type of the next hop of the custom route entry. You can specify up to 50 next hop types. Valid values: 
+   * The type of the next hop for the custom route entry. You can specify at most 50 next hop types. Valid values: 
    * 
-   * - **Instance** (default): ECS instance.
+   * - **Instance** (default): an ECS instance.
    * 
-   * - **HaVip**: high-availability virtual IP address.  
+   * - **HaVip**: a high-availability (active) virtual IP address.  
    * 
-   * - **RouterInterface**: vRouter interface.
+   * - **RouterInterface**: a vRouter interface.
    * 
-   * - **NetworkInterface**: elastic network interfaces (ENIs).
+   * - **NetworkInterface**: elastic network interface controller (NIC).
    * 
-   * - **VpnGateway**: VPN gateway.
+   * - **VpnGateway**: a VPN gateway.
    * 
-   * - **IPv6Gateway**: IPv6 gateway.
+   * - **IPv6Gateway**: an IPv6 gateway.
    * 
-   * - **NatGateway**: NAT gateway.
+   * - **NatGateway**: a NAT gateway.
    * 
-   * - **Attachment**: forward router.
+   * - **Attachment**: a forward transit router (TR).
    * 
-   * - **VpcPeer**: VPC peering connection.
-   * - **Ipv4Gateway**: IPv4 gateway.
-   * - **GatewayEndpoint**: gateway endpoint.
-   * - **CenBasic**: CEN that does not support forward routers.
-   * - **Ecr**: Express Connect Router (ECR).
-   * - **GatewayLoadBalancerEndpoint**: Gateway Load Balancer endpoint (GWLBe).
-   * - **RouteTargetGroup**: route target group.
+   * - **VpcPeer**: a VPC peering connection.
+   * - **Ipv4Gateway**: an IPv4 gateway.
+   * - **GatewayEndpoint**: a gateway endpoint.
+   * - **CenBasic**: a CEN instance that does not support forward transit routers.
+   * - **Ecr**: an Express Connect Router (ECR).
+   * - **GatewayLoadBalancerEndpoint**: a Gateway Load Balancer (load balancing) endpoint (GWLBe).
+   * - **RouteTargetGroup**: a routing target group.
    * 
    * This parameter is required.
    * 
@@ -95,7 +95,7 @@ export class CreateRouteEntriesRequestRouteEntries extends $dara.Model {
   nextHopType?: string;
   /**
    * @remarks
-   * The ID of the route table to which you want to add custom route entries. You can specify up to 50 route table IDs.
+   * The ID of the route table to which you want to add the custom route entry. You can specify at most 50 route table IDs.
    * 
    * This parameter is required.
    * 
@@ -139,18 +139,18 @@ export class CreateRouteEntriesRequestRouteEntries extends $dara.Model {
 export class CreateRouteEntriesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
+   * Specifies whether to perform only a dry run for this request. Valid values:
    * 
-   * **true**: performs a dry run without creating routes. The system checks the AccessKey pair, the authorization of the Resource Access Management (RAM) user, and the required parameters. If the check fails, the corresponding error is returned. If the check passes, the error code `DryRunOperation` is returned.
+   * **true**: The system performs a dry run without creating the custom route entry (routing). The system checks whether your AccessKey pair is valid, the authorization of the Resource Access Management (RAM) user, and whether the required parameters are specified. If the request fails the dry run, the system returns an error. If the request passes the dry run, the system returns the `DryRunOperation` error code.
    * 
-   * **false** (default): performs a normal request and sends the request. If the check passes, a 2xx HTTP status code is returned and the routes are created.
+   * **false** (default): The system sends a normal request. If the request passes the dry run, the system returns a 2xx HTTP status code and creates the custom route entry (routing).
    */
   dryRun?: boolean;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The ID of the region where the route table resides.
+   * The ID of the region to which the route table belongs.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
@@ -164,7 +164,7 @@ export class CreateRouteEntriesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The list of route entry information.
+   * The list of route entries.
    * 
    * This parameter is required.
    */

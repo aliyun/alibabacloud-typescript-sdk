@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRouteEntryRequestNextHopList extends $dara.Model {
   /**
    * @remarks
-   * The ID of the next hop instance of the ECMP route.
+   * The ID of the next hop instance for the ECMP route.
    * 
    * @example
    * ri-2zeo3xzyf3cd8r4****
@@ -13,7 +13,7 @@ export class CreateRouteEntryRequestNextHopList extends $dara.Model {
   nextHopId?: string;
   /**
    * @remarks
-   * The type of the next hop of the ECMP route. Set the value to **RouterInterface** (router interface).
+   * The type of the next hop for the ECMP route. Set the value to **RouterInterface**, which specifies a router interface.
    * 
    * @example
    * RouterInterface
@@ -21,7 +21,7 @@ export class CreateRouteEntryRequestNextHopList extends $dara.Model {
   nextHopType?: string;
   /**
    * @remarks
-   * The weight of the next hop of the ECMP route.
+   * The route weight of the next hop for the ECMP route.
    * 
    * @example
    * 10
@@ -57,9 +57,9 @@ export class CreateRouteEntryRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
+   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -69,7 +69,7 @@ export class CreateRouteEntryRequest extends $dara.Model {
    * @remarks
    * The description of the custom route entry.
    * 
-   * The description must be 1 to 256 characters in length and cannot start with `http://` or `https://`.
+   * The description must be 1 to 256 characters in length, and cannot start with `http://` or `https://`.
    * 
    * @example
    * test
@@ -77,11 +77,11 @@ export class CreateRouteEntryRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The destination CIDR block of the custom route entry. IPv4 CIDR blocks, IPv6 CIDR blocks, destination CIDR blocks of prefix lists, and instance IDs of prefix lists are supported. The following requirements must be met:
+   * The destination CIDR block of the custom route entry. IPv4 CIDR blocks, IPv6 CIDR blocks, destination CIDR blocks of prefix lists, and instance IDs of prefix lists are supported. The destination CIDR block must meet the following requirements:
    *           
-   * - The destination CIDR block cannot point to or be contained by 100.64.0.0/10.  
+   * - The destination CIDR block cannot point to 100.64.0.0/10 or be contained by 100.64.0.0/10.  
    *  
-   * - The destination CIDR blocks of different route entries in the same route table must be unique.
+   * - Route entries in the same route table cannot have the same destination CIDR block.
    * 
    * This parameter is required.
    * 
@@ -91,9 +91,9 @@ export class CreateRouteEntryRequest extends $dara.Model {
   destinationCidrBlock?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
-   * - **true**: performs a dry run without creating the route entry. The system checks the required parameters, request format, and service limits. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
-   * - **false** (default): sends the request. After the request passes the check, an HTTP 2xx status code is returned and the operation is performed.
+   * Specifies whether to only precheck the request. Valid values:
+   * - **true**: prechecks the request without creating the route entry. The system checks whether the required parameters are specified, the request format is valid, and the service limits are met. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+   * - **false** (default): sends the request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * false
@@ -101,7 +101,7 @@ export class CreateRouteEntryRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the next hop instance of the custom route entry.
+   * The ID of the next hop instance for the custom route entry.
    * > If you set NextHopType to ECR, you can call the [DescribeExpressConnectRouterAssociation](https://help.aliyun.com/document_detail/2712069.html) operation to obtain the AssociationId as the next hop ID.
    * > -
    * 
@@ -111,35 +111,35 @@ export class CreateRouteEntryRequest extends $dara.Model {
   nextHopId?: string;
   /**
    * @remarks
-   * The information about the next hop.
+   * The information about the next hops.
    */
   nextHopList?: CreateRouteEntryRequestNextHopList[];
   /**
    * @remarks
-   * The type of the next hop of the custom route entry. Valid values: 
+   * The type of the next hop for the custom route entry. Valid values: 
    * 
-   * - **Instance** (default): ECS instance.
+   * - **Instance** (default): an ECS instance.
    * 
-   * - **HaVip**: high-availability virtual IP address.  
+   * - **HaVip**: a high-availability virtual IP address.  
    * 
-   * - **RouterInterface**: vRouter interface.
+   * - **RouterInterface**: a vRouter interface.
    * 
-   * - **NetworkInterface**: network interface controller (NIC).
+   * - **NetworkInterface**: an elastic network interface controller (NIC).
    * 
-   * - **VpnGateway**: VPN gateway.
+   * - **VpnGateway**: a VPN gateway.
    * 
-   * - **IPv6Gateway**: IPv6 gateway.
+   * - **IPv6Gateway**: an IPv6 gateway.
    * 
-   * - **NatGateway**: NAT gateway.
+   * - **NatGateway**: a NAT gateway.
    * 
-   * - **Attachment**: transit router.
+   * - **Attachment**: a forward router.
    * 
-   * - **VpcPeer**: VPC peering connection.
-   * - **Ipv4Gateway**: IPv4 gateway.
-   * - **GatewayEndpoint**: gateway endpoint.
-   * - **Ecr**: Express Connect Router (ECR).
-   * - **GatewayLoadBalancerEndpoint**: Gateway Load Balancer endpoint (GWLBe).
-   * - **RouteTargetGroup**: route target group.
+   * - **VpcPeer**: a VPC peering connection.
+   * - **Ipv4Gateway**: an IPv4 gateway.
+   * - **GatewayEndpoint**: a gateway endpoint.
+   * - **Ecr**: an Express Connect Router (ECR).
+   * - **GatewayLoadBalancerEndpoint**: a gateway load balancing endpoint (GWLBe).
+   * - **RouteTargetGroup**: a routing target group.
    * 
    * @example
    * RouterInterface
@@ -149,9 +149,9 @@ export class CreateRouteEntryRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the route table.
+   * The ID of the region to which the route table belongs.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * @example
    * cn-hangzhou
@@ -161,9 +161,9 @@ export class CreateRouteEntryRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The name of the custom route entry to add.
+   * The name of the custom route entry to be added.
    * 
-   * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
+   * The name must be 1 to 128 characters in length, and cannot start with `http://` or `https://`.
    * 
    * @example
    * test
@@ -171,7 +171,7 @@ export class CreateRouteEntryRequest extends $dara.Model {
   routeEntryName?: string;
   /**
    * @remarks
-   * The ID of the route table to which you want to add a custom route entry.
+   * The ID of the route table to which you want to add the custom route entry.
    * 
    * This parameter is required.
    * 

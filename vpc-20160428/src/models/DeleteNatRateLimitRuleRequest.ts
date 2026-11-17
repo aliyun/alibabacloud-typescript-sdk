@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteNatRateLimitRuleRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request.
-   * 
-   * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
    * 
    * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request may be different.
    * 
@@ -17,7 +15,7 @@ export class DeleteNatRateLimitRuleRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * The ID of the NAT gateway to which the rate limiting rule belongs.
+   * The ID of the NAT gateway to which the rate limit rule belongs.
    * 
    * @example
    * ngw-bp1uewa15k4iy5770****
@@ -35,7 +33,7 @@ export class DeleteNatRateLimitRuleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IDs of the rate limiting rules to be deleted.
+   * The IDs of the rate limit rules to be deleted.
    */
   ruleIds?: string[];
   static names(): { [key: string]: string } {

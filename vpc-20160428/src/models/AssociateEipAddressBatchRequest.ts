@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class AssociateEipAddressBatchRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the cloud service instance to which you want to associate the EIPs.
+   * The instance ID of the cloud service instance to which you want to attach the EIPs.
    * 
-   * You can enter the instance ID of a NAT gateway or secondary elastic network interfaces (ENIs).
+   * You can enter the instance ID of a NAT gateway instance or a secondary elastic network interface controller (NIC).
    * 
    * This parameter is required.
    * 
@@ -17,9 +17,9 @@ export class AssociateEipAddressBatchRequest extends $dara.Model {
   bindedInstanceId?: string;
   /**
    * @remarks
-   * The type of the instance to which you want to associate the EIPs. Valid values:
+   * The type of the instance to which you want to attach the EIPs. Valid values:
    * - **Nat**: NAT gateway.
-   * - **NetworkInterface**: secondary elastic network interfaces (ENIs).
+   * - **NetworkInterface**: secondary elastic network interface controller (NIC).
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class AssociateEipAddressBatchRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must ensure that it is unique among different requests. The token can only contain ASCII characters.
+   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
    * 
    * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
@@ -62,7 +62,7 @@ export class AssociateEipAddressBatchRequest extends $dara.Model {
   /**
    * @remarks
    * The region ID of the EIPs that you want to associate with the cloud service instances.
-   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query region IDs.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 

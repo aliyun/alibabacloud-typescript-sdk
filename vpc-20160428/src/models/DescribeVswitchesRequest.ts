@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVSwitchesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot specify an empty string.
    * 
-   * The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class DescribeVSwitchesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can specify an empty string.
    * 
-   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * A tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -49,9 +49,9 @@ export class DescribeVSwitchesRequestTag extends $dara.Model {
 export class DescribeVSwitchesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to perform a dry run. Valid values:
-   * - **true**: performs a dry run. The system checks the required parameters, request syntax, and business restrictions. If the check fails, the corresponding error is returned. If the check succeeds, the `DryRunOperation` error code is returned.
-   * - **false** (default): performs a dry run and sends the request. If the check succeeds, an HTTP 2xx status code is returned and the operation is performed.
+   * Specifies whether to only precheck the request. Valid values:
+   * - **true**: The system prechecks the request without creating resources. The system checks whether required parameters are specified, the request format is valid, and service limits are met. If the request fails the precheck, the corresponding error is returned. If the request passes the precheck, the `DryRunOperation` error code is returned.
+   * - **false** (default): The system sends a normal request. If the request passes the precheck, an HTTP 2xx status code is returned and the operation is performed.
    * 
    * @example
    * true
@@ -59,13 +59,13 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * Specifies whether to query vSwitches that have IPv6 CIDR blocks enabled in the specified region. Valid values:
+   * Specifies whether to query the vSwitches that have IPv6 CIDR blocks enabled in the specified region. Valid values:
    * 
-   * - **true**: queries vSwitches that have IPv6 CIDR blocks enabled in the specified region.
+   * - **true**: Queries the vSwitches that have IPv6 CIDR blocks enabled in the specified region.
    * 
-   * - **false**: does not query vSwitches that have IPv6 CIDR blocks enabled in the specified region.
+   * - **false**: Does not query the vSwitches that have IPv6 CIDR blocks enabled in the specified region.
    * 
-   * If you do not specify this parameter, the system queries all vSwitches in the specified region.
+   * If you do not specify this parameter, the system queries all vSwitches in the specified region by default.
    * 
    * @example
    * false
@@ -76,13 +76,28 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   enableIpv6?: boolean;
   /**
    * @remarks
+   * Specifies whether to query the IPv6 single-stack vSwitches in the specified region. Valid values:
+   * - true: Queries the IPv6 single-stack vSwitches in the specified region.
+   * - false: Does not query the IPv6 single-stack vSwitches in the specified region.
+   * 
+   * If you do not specify this parameter, the system queries all vSwitches in the specified region by default.
+   * 
+   * @example
+   * false
+   * 
+   * **if can be null:**
+   * true
+   */
+  ipv6Only?: boolean;
+  /**
+   * @remarks
    * Specifies whether to query the default vSwitch in the specified region. Valid values: 
    * 
-   * - **true**: queries the default vSwitch in the specified region.  
+   * - **true**: Queries the default vSwitch in the specified region.  
    * 
-   * - **false**: does not query the default vSwitch in the specified region.  
+   * - **false**: Does not query the default vSwitch in the specified region.  
    * 
-   * If you do not specify this parameter, the system queries all vSwitches in the specified region.
+   * If you do not specify this parameter, the system queries all vSwitches in the specified region by default.
    * 
    * @example
    * true
@@ -92,7 +107,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. Default value: **1**.
+   * The page number of the list. Default value: **1**.
    * 
    * @example
    * 1
@@ -100,7 +115,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page for paging queries. Maximum value: **50**. Default value: **10**.
+   * The number of entries per page for a paged query. Maximum value: **50**. Default value: **10**.
    * 
    * @example
    * 10
@@ -108,9 +123,9 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the region to which the vSwitch belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * The ID of the region to which the vSwitch belongs. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
-   * > Specify at least one of the **RegionId** and **VpcId** parameters.
+   * > You must specify at least one of the **RegionId** and **VpcId** parameters.
    * 
    * @example
    * cn-hangzhou
@@ -141,7 +156,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   tag?: DescribeVSwitchesRequestTag[];
   /**
    * @remarks
-   * The ID of the vSwitch that you want to query.
+   * The ID of the vSwitch to be queried.
    * 
    * @example
    * vsw-23dscddcffvf3****
@@ -167,9 +182,9 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   vSwitchOwnerId?: number;
   /**
    * @remarks
-   * The ID of the VPC to which the vSwitches that you want to query belong. 
+   * The ID of the VPC to which the vSwitch to be queried belongs. 
    * 
-   * > Specify at least one of the **RegionId** and **VpcId** parameters.
+   * > You must specify at least one of the **RegionId** and **VpcId** parameters.
    * 
    * @example
    * vpc-25cdvfeq58pl****
@@ -177,7 +192,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
   vpcId?: string;
   /**
    * @remarks
-   * The ID of the zone to which the vSwitch belongs. You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query the zone ID.
+   * The ID of the zone to which the vSwitch belongs. You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query zone IDs.
    * 
    * @example
    * cn-hangzhou-d
@@ -187,6 +202,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
     return {
       dryRun: 'DryRun',
       enableIpv6: 'EnableIpv6',
+      ipv6Only: 'Ipv6Only',
       isDefault: 'IsDefault',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
@@ -210,6 +226,7 @@ export class DescribeVSwitchesRequest extends $dara.Model {
     return {
       dryRun: 'boolean',
       enableIpv6: 'boolean',
+      ipv6Only: 'boolean',
       isDefault: 'boolean',
       ownerAccount: 'string',
       ownerId: 'number',

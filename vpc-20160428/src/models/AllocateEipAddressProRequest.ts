@@ -3,7 +3,25 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class AllocateEipAddressProRequestTag extends $dara.Model {
+  /**
+   * @remarks
+   * The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot enter an empty string.
+   * 
+   * A tag key can be up to 128 characters in length. It cannot start with aliyun or acs:, and cannot contain http:// or https://.
+   * 
+   * @example
+   * FinanceDept
+   */
   key?: string;
+  /**
+   * @remarks
+   * The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can enter an empty string.
+   * 
+   * A tag value can be up to 128 characters in length. It must start with a letter or a Chinese character, and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
+   * 
+   * @example
+   * FinanceJoshua
+   */
   value?: string;
   static names(): { [key: string]: string } {
     return {
@@ -33,11 +51,11 @@ export class AllocateEipAddressProRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic payment. Valid values:
    * 
-   * - **false**: disables automatic payment. After an order is generated, you must go to the User Center to complete the payment.
+   * - **false**: Automatic payment is disabled. After an order is generated, you must go to the User Center to complete the payment.
    * 
-   * - **true**: enables automatic payment. The system automatically pays for the order.
+   * - **true**: Automatic payment is enabled, and the order is automatically paid.
    * 
-   * This parameter is required if **InstanceChargeType** is set to **PrePaid**. You can leave this parameter empty if **InstanceChargeType** is set to **PostPaid**.
+   * This parameter is required if **InstanceChargeType** is set to **PrePaid**. If **InstanceChargeType** is set to **PostPaid**, you can leave this parameter empty.
    * 
    * @example
    * true
@@ -45,7 +63,7 @@ export class AllocateEipAddressProRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The maximum bandwidth of the specified EIP. Unit: Mbit/s.
+   * The maximum bandwidth of the EIP to be allocated. Unit: Mbit/s.
    * 
    * - If **InstanceChargeType** is set to **PostPaid** and **InternetChargeType** is set to **PayByBandwidth**, valid values for **Bandwidth** are **1** to **500**.
    * 
@@ -63,9 +81,9 @@ export class AllocateEipAddressProRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
+   * You can use the client to generate the value, but you must make sure that it is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe6****
@@ -80,7 +98,7 @@ export class AllocateEipAddressProRequest extends $dara.Model {
    * 
    * For more information about BGP (multi-ISP) and BGP (multi-ISP) Pro lines, see [EIP line types](https://help.aliyun.com/document_detail/32321.html).
    * 
-   * - If you are a whitelisted user of single-ISP bandwidth, you can also select the following types:
+   * - If you are a single-ISP bandwidth whitelist user, you can also select the following types:
    *     - **ChinaTelecom**: China Telecom
    *     - **ChinaUnicom**: China Unicom
    *     - **ChinaMobile**: China Mobile
@@ -95,11 +113,11 @@ export class AllocateEipAddressProRequest extends $dara.Model {
   ISP?: string;
   /**
    * @remarks
-   * The billing method of the specified EIP. Valid values:
+   * The billing method of the EIP to be allocated. Valid values:
    *           
    * - **PrePaid**: subscription.
    * 
-   * - **PostPaid** (default): pay-as-you-go billing method.
+   * - **PostPaid** (default): pay-as-you-go.
    * 
    * If **InstanceChargeType** is set to **PrePaid**, **InternetChargeType** must be set to **PayByBandwidth**.
    * 
@@ -111,9 +129,9 @@ export class AllocateEipAddressProRequest extends $dara.Model {
   instanceChargeType?: string;
   /**
    * @remarks
-   * The instance ID of the specified EIP.
+   * The instance ID of the EIP to be allocated.
    * 
-   * You need to specify only one of the **IpAddress** and **InstanceId** parameters. If neither is specified, the system randomly allocates an EIP.
+   * You must specify either **IpAddress** or **InstanceId**. If neither is specified, the system randomly allocates an EIP.
    * 
    * @example
    * eip-25877c70gddh****
@@ -121,7 +139,7 @@ export class AllocateEipAddressProRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The metering method of the specified EIP. Valid values:
+   * The metering method of the EIP to be allocated. Valid values:
    * 
    * - **PayByBandwidth** (default): pay-by-bandwidth.
    * 
@@ -137,9 +155,9 @@ export class AllocateEipAddressProRequest extends $dara.Model {
   internetChargeType?: string;
   /**
    * @remarks
-   * The IP address of the specified EIP.
+   * The IP address of the EIP to be allocated.
    * 
-   * You need to specify only one of the **IpAddress** and **InstanceId** parameters. If neither is specified, the system randomly allocates an EIP.
+   * You must specify either **IpAddress** or **InstanceId**. If neither is specified, the system randomly allocates an EIP.
    * 
    * @example
    * 192.0.XX.XX
@@ -165,7 +183,7 @@ export class AllocateEipAddressProRequest extends $dara.Model {
    * 
    * This parameter is required if **InstanceChargeType** is set to **PrePaid**.
    * 
-   * Do not specify this parameter if **InstanceChargeType** is set to **PostPaid**.
+   * Leave this parameter empty if **InstanceChargeType** is set to **PostPaid**.
    * 
    * @example
    * 1
@@ -175,11 +193,11 @@ export class AllocateEipAddressProRequest extends $dara.Model {
    * @remarks
    * The billing cycle of the subscription. Valid values:
    * 
-   * - **Month** (default): monthly billing.
+   * - **Month** (default): billed by month.
    * 
-   * - **Year**: yearly billing.
+   * - **Year**: billed by year.
    * 
-   * This parameter is required if **InstanceChargeType** is set to **PrePaid**. You can leave this parameter empty if **InstanceChargeType** is set to **PostPaid**.
+   * This parameter is required if **InstanceChargeType** is set to **PrePaid**. If **InstanceChargeType** is set to **PostPaid**, you can leave this parameter empty.
    * 
    * @example
    * Month
@@ -189,9 +207,9 @@ export class AllocateEipAddressProRequest extends $dara.Model {
    * @remarks
    * The ID of the IP address pool.
    * 
-   * The EIP is allocated from the IP address pool.
+   * The EIP is allocated from this IP address pool.
    * 
-   * By default, the IP address pool feature is not available. To use this feature, you must apply for the quota of the IP address pool feature privilege quota Center. For more information, see [Increase quotas privilege quota Center](https://help.aliyun.com/document_detail/108213.html).
+   * By default, the IP address pool feature is not available. To use this feature, contact your account manager.
    * 
    * @example
    * pippool-2vc0kxcedhquybdsz****
@@ -199,9 +217,9 @@ export class AllocateEipAddressProRequest extends $dara.Model {
   publicIpAddressPoolId?: string;
   /**
    * @remarks
-   * The region ID of the specified EIP.
+   * The region ID of the EIP to be allocated.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
    * 
    * This parameter is required.
    * 
@@ -211,7 +229,7 @@ export class AllocateEipAddressProRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group to which the specified EIP belongs.
+   * The ID of the resource group to which the EIP to be allocated belongs.
    * 
    * @example
    * rg-resourcegroup****
@@ -221,13 +239,19 @@ export class AllocateEipAddressProRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The security protection level. Valid values:
+   * The security protection level.
    * 
    * - If this parameter is left empty, Anti-DDoS Basic is used by default.
    * 
-   * - **AntiDDoS_Enhanced**: Anti-DDoS (Enhanced).
+   * - If this parameter is set to **AntiDDoS_Enhanced**, Anti-DDoS (Enhanced) is used.
    */
   securityProtectionTypes?: string[];
+  /**
+   * @remarks
+   * The tag information.
+   * 
+   * You can specify up to 20 tags at a time.
+   */
   tag?: AllocateEipAddressProRequestTag[];
   static names(): { [key: string]: string } {
     return {

@@ -7,9 +7,9 @@ export class DescribeVpnConnectionRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the IPsec-VPN connection.
+   * The region ID of the IPsec-VPN connection. 
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
    * 
    * This parameter is required.
    * 

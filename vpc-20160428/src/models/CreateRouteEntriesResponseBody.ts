@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateRouteEntriesResponseBodyFailedRouteEntries extends $dara.Model {
   /**
    * @remarks
-   * The destination CIDR block of the custom route entry that failed to be added.
+   * The destination CIDR block of the custom route entry that fails to be added.
    * 
    * @example
    * 192.168.0.0/24
@@ -13,7 +13,7 @@ export class CreateRouteEntriesResponseBodyFailedRouteEntries extends $dara.Mode
   dstCidrBlock?: string;
   /**
    * @remarks
-   * The error code of the failure.
+   * The error code for the failure.
    * 
    * @example
    * VPC_ROUTE_ENTRY_CIDR_BLOCK_DUPLICATE
@@ -21,7 +21,7 @@ export class CreateRouteEntriesResponseBodyFailedRouteEntries extends $dara.Mode
   failedCode?: string;
   /**
    * @remarks
-   * The error message of the failure.
+   * The specific error message for the failure.
    * 
    * @example
    * Specified CIDR block is already exists, entry.cidrBlock=xxxx
@@ -29,7 +29,7 @@ export class CreateRouteEntriesResponseBodyFailedRouteEntries extends $dara.Mode
   failedMessage?: string;
   /**
    * @remarks
-   * The ID of the next hop instance of the custom route entry that failed to be added.
+   * The ID of the next hop instance for the custom route entry that fails to be added.
    * 
    * @example
    * i-j6c2fp57q8rr4jlu****
@@ -65,7 +65,7 @@ export class CreateRouteEntriesResponseBodyFailedRouteEntries extends $dara.Mode
 export class CreateRouteEntriesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The number of route entries that failed to be added.
+   * The number of route entries that fail to be added.
    * 
    * @example
    * 2
@@ -73,7 +73,7 @@ export class CreateRouteEntriesResponseBody extends $dara.Model {
   failedCount?: number;
   /**
    * @remarks
-   * The details of the route entries that failed to be added.
+   * The details of the route entries that fail to be added.
    */
   failedRouteEntries?: CreateRouteEntriesResponseBodyFailedRouteEntries[];
   /**
@@ -86,12 +86,12 @@ export class CreateRouteEntriesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The routing instance IDs returned for the custom route entries that were successfully added.
+   * The instance IDs returned for the custom route entry (routing) that is successfully added.
    */
   routeEntryIds?: string[];
   /**
    * @remarks
-   * The number of route entries that were successfully added.
+   * The number of route entries that are successfully added.
    * 
    * @example
    * 2

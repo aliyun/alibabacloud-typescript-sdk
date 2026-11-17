@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeVpnConnectionResponseBodyIkeConfig extends $dara.Model {
   /**
    * @remarks
-   * The authentication algorithm in the IKE phase.
+   * The authentication algorithm at the IKE stage.
    * 
    * @example
    * sha1
@@ -13,7 +13,7 @@ export class DescribeVpnConnectionResponseBodyIkeConfig extends $dara.Model {
   ikeAuthAlg?: string;
   /**
    * @remarks
-   * The encryption algorithm in the IKE phase.
+   * The encryption algorithm at the IKE stage.
    * 
    * @example
    * aes
@@ -21,7 +21,7 @@ export class DescribeVpnConnectionResponseBodyIkeConfig extends $dara.Model {
   ikeEncAlg?: string;
   /**
    * @remarks
-   * The IKE phase lifetime. Unit: seconds.
+   * The lifetime of the IKE SA. Unit: seconds.
    * 
    * @example
    * 86400
@@ -29,7 +29,9 @@ export class DescribeVpnConnectionResponseBodyIkeConfig extends $dara.Model {
   ikeLifetime?: number;
   /**
    * @remarks
-   * The IKE negotiation mode.
+   * The IKE negotiation mode. Valid values:
+   * - **main**: Main mode. The negotiation process is highly secure.
+   * - **aggressive**: Aggressive mode. The negotiation process is fast and has a high success rate.
    * 
    * @example
    * main
@@ -37,7 +39,7 @@ export class DescribeVpnConnectionResponseBodyIkeConfig extends $dara.Model {
   ikeMode?: string;
   /**
    * @remarks
-   * The DH group in the IKE phase.
+   * The Diffie-Hellman (DH) group at the IKE stage.
    * 
    * @example
    * group2
@@ -45,12 +47,10 @@ export class DescribeVpnConnectionResponseBodyIkeConfig extends $dara.Model {
   ikePfs?: string;
   /**
    * @remarks
-   * The IKE protocol version.
-   * 
+   * The IKE version. Valid values:
    * - **ikev1**
    * - **ikev2**
-   * 
-   * Compared with IKEv1, IKEv2 simplifies the SA negotiation process and provides better support for multi-CIDR-block scenarios.
+   * Compared with IKEv1, IKEv2 simplifies the SA negotiation process and provides better support for scenarios where multiple CIDR blocks are used.
    * 
    * @example
    * ikev1
@@ -74,7 +74,7 @@ export class DescribeVpnConnectionResponseBodyIkeConfig extends $dara.Model {
   psk?: string;
   /**
    * @remarks
-   * The identifier on the on-premises data center side of the IPsec-VPN connection.
+   * The identifier of the peer on the data center side of the IPsec-VPN connection.
    * 
    * @example
    * 139.34.XX.XX
@@ -120,7 +120,7 @@ export class DescribeVpnConnectionResponseBodyIkeConfig extends $dara.Model {
 export class DescribeVpnConnectionResponseBodyIpsecConfig extends $dara.Model {
   /**
    * @remarks
-   * The authentication algorithm in the IPsec phase.
+   * The authentication algorithm at the IPsec stage.
    * 
    * @example
    * sha1
@@ -128,7 +128,7 @@ export class DescribeVpnConnectionResponseBodyIpsecConfig extends $dara.Model {
   ipsecAuthAlg?: string;
   /**
    * @remarks
-   * The encryption algorithm in the IPsec phase.
+   * The encryption algorithm at the IPsec stage.
    * 
    * @example
    * aes
@@ -136,7 +136,7 @@ export class DescribeVpnConnectionResponseBodyIpsecConfig extends $dara.Model {
   ipsecEncAlg?: string;
   /**
    * @remarks
-   * The IPsec phase lifetime. Unit: seconds.
+   * The lifetime of the IPsec SA. Unit: seconds.
    * 
    * @example
    * 86400
@@ -144,7 +144,7 @@ export class DescribeVpnConnectionResponseBodyIpsecConfig extends $dara.Model {
   ipsecLifetime?: number;
   /**
    * @remarks
-   * The DH group in the IPsec phase.
+   * The DH group at the IPsec stage.
    * 
    * @example
    * group2
@@ -454,11 +454,9 @@ export class DescribeVpnConnectionResponseBodyVcoHealthCheck extends $dara.Model
   dip?: string;
   /**
    * @remarks
-   * Indicates whether health check is enabled for the IPsec-VPN connection.
-   * 
-   * - **false**: Not enabled.
-   * 
-   * - **true**: Enabled.
+   * Indicates whether health checks are enabled for the IPsec-VPN connection. Valid values:
+   * - **false**: Health checks are disabled.
+   * - **true**: Health checks are enabled.
    * 
    * @example
    * true
@@ -466,7 +464,7 @@ export class DescribeVpnConnectionResponseBodyVcoHealthCheck extends $dara.Model
   enable?: string;
   /**
    * @remarks
-   * The retry interval of the health check. Unit: seconds.
+   * The retry interval for health checks. Unit: seconds.
    * 
    * @example
    * 3
@@ -474,7 +472,9 @@ export class DescribeVpnConnectionResponseBodyVcoHealthCheck extends $dara.Model
   interval?: number;
   /**
    * @remarks
-   * Indicates whether published routes are withdrawn when the health check fails.
+   * Indicates whether to revoke published routes when a health check fails. Valid values:
+   * - **revoke_route**: Revoke routes.
+   * - **reserve_route**: Do not revoke routes.
    * 
    * @example
    * revoke_route
@@ -482,7 +482,7 @@ export class DescribeVpnConnectionResponseBodyVcoHealthCheck extends $dara.Model
   policy?: string;
   /**
    * @remarks
-   * The number of health check retries.
+   * The maximum number of health check retries.
    * 
    * @example
    * 3
@@ -498,7 +498,9 @@ export class DescribeVpnConnectionResponseBodyVcoHealthCheck extends $dara.Model
   sip?: string;
   /**
    * @remarks
-   * The health check status.
+   * The health check status. Valid values:
+   * - **failed**: Abnormal.
+   * - **success**: Normal.
    * 
    * @example
    * failed
@@ -548,7 +550,9 @@ export class DescribeVpnConnectionResponseBodyVpnBgpConfig extends $dara.Model {
   authKey?: string;
   /**
    * @remarks
-   * The enabling status of the BGP routing protocol.
+   * The enabling status of the BGP routing protocol. Valid values:
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -572,7 +576,7 @@ export class DescribeVpnConnectionResponseBodyVpnBgpConfig extends $dara.Model {
   localBgpIp?: string;
   /**
    * @remarks
-   * The autonomous system number of the peer.
+   * The autonomous system number (ASN) of the peer.
    * 
    * @example
    * 65530
@@ -588,7 +592,9 @@ export class DescribeVpnConnectionResponseBodyVpnBgpConfig extends $dara.Model {
   peerBgpIp?: string;
   /**
    * @remarks
-   * The negotiation status of the BGP routing protocol.
+   * The negotiation status of the BGP routing protocol. Valid values:
+   * - **success**: Normal.
+   * - **failed**: Abnormal.
    * 
    * @example
    * success
@@ -596,7 +602,7 @@ export class DescribeVpnConnectionResponseBodyVpnBgpConfig extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The BGP CIDR block of the IPsec-VPN connection. The CIDR block is a subnet with a subnet mask of 30 bits in mask length within 169.254.0.0/16.
+   * The BGP CIDR block of the IPsec-VPN connection. The CIDR block must be a subnet of 169.254.0.0/16 with a subnet mask length of 30 bits.
    * 
    * @example
    * 169.254.11.0/30
@@ -640,7 +646,7 @@ export class DescribeVpnConnectionResponseBodyVpnBgpConfig extends $dara.Model {
 export class DescribeVpnConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the Cloud Enterprise Network (CEN) instance to which the transit router instance belongs.
+   * The ID of the Cloud Enterprise Network (CEN) instance to which the transit router instance belongs.
    * 
    * @example
    * cen-lxxpbpalc776qz****
@@ -648,11 +654,10 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
   attachInstanceId?: string;
   /**
    * @remarks
-   * The type of resource attached to the IPsec-VPN connection.
-   * 
-   * - **CEN**: The IPsec-VPN connection is attached to a transit router of a Cloud Enterprise Network (CEN) instance.
-   * - **NO_ASSOCIATED**: The IPsec-VPN connection is not attached to any resource.
-   * - **VPNGW**: The IPsec-VPN connection is attached to a VPN gateway instance.
+   * The type of resource associated with the IPsec-VPN connection. Valid values:
+   * - **CEN**: The IPsec-VPN connection is associated with a transit router of a Cloud Enterprise Network (CEN) instance.
+   * - **NO_ASSOCIATED**: The IPsec-VPN connection is not associated with any resource.
+   * - **VPNGW**: The IPsec-VPN connection is associated with a VPN gateway.
    * 
    * @example
    * CEN
@@ -661,8 +666,7 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The timestamp when the IPsec-VPN connection was created. Unit: milliseconds.
-   * 
-   * The timestamp is in the UNIX timestamp format, which represents the total number of milliseconds that have elapsed since January 1, 1970, 00:00:00 (UTC) to the time when the IPsec-VPN connection was created.
+   * The timestamp is in UNIX timestamp format, which indicates the total number of milliseconds that have elapsed since 00:00:00 UTC on January 1, 1970.
    * 
    * @example
    * 1492753817000
@@ -670,7 +674,9 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
   createTime?: number;
   /**
    * @remarks
-   * Indicates whether the IPsec-VPN connection is bound to a transit router instance under a different account.
+   * Indicates whether the IPsec-VPN connection is associated with a cross-account transit router. Valid values:
+   * - **true**: Yes.
+   * - **false**: No.
    * 
    * @example
    * false
@@ -686,11 +692,9 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
   customerGatewayId?: string;
   /**
    * @remarks
-   * Indicates whether the IPsec-VPN connection configurations take effect immediately.
-   * 
-   * - **true**: The configurations take effect immediately. A reconnection is triggered after the configuration change is complete.
-   * 
-   * - **false**: The configurations do not take effect immediately. A reconnection is triggered when traffic is detected.
+   * Indicates whether the configuration of the IPsec-VPN connection takes effect immediately. Valid values:
+   * - **true**: Yes. A reconnection is triggered after the configuration is changed.
+   * - **false**: No. A reconnection is triggered when traffic is detected.
    * 
    * @example
    * true
@@ -698,7 +702,10 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
   effectImmediately?: boolean;
   /**
    * @remarks
-   * Indicates whether Dead Peer Detection (DPD) is enabled for the IPsec-VPN connection.
+   * Indicates whether dead peer detection (DPD) is enabled for the IPsec-VPN connection. Valid values:
+   * - **false**: DPD is disabled.
+   * - **true**: DPD is enabled.
+   * After DPD is enabled, the initiator of the IPsec-VPN connection sends DPD packets to check whether the peer device is alive. If no valid response is received within the specified time, the peer device is considered disconnected. The IPsec-VPN connection deletes the ISAKMP SA and the corresponding IPsec SA, and the secure tunnel is also deleted.
    * 
    * @example
    * true
@@ -706,7 +713,10 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
   enableDpd?: boolean;
   /**
    * @remarks
-   * Indicates whether NAT traversal is enabled for the IPsec-VPN connection.
+   * Indicates whether NAT traversal is enabled for the IPsec-VPN connection. Valid values:
+   * - **true**: NAT traversal is enabled.
+   * - **false**: NAT traversal is disabled.
+   * After NAT traversal is enabled, the verification of the UDP port number is skipped during the IKE negotiation process, and NAT gateway devices in the VPN tunnel can be discovered.
    * 
    * @example
    * true
@@ -714,7 +724,10 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
   enableNatTraversal?: boolean;
   /**
    * @remarks
-   * The enabling status of tunnel BGP.
+   * The enabling status of BGP for the tunnel.
+   * 
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -722,7 +735,7 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
   enableTunnelsBgp?: boolean;
   /**
    * @remarks
-   * The configuration of Phase 1 negotiation.
+   * The configuration of Phase 1 negotiations.
    */
   ikeConfig?: DescribeVpnConnectionResponseBodyIkeConfig;
   /**
@@ -735,12 +748,13 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
   internetIp?: string;
   /**
    * @remarks
-   * The configuration of Phase 2 negotiation.
+   * The configuration of Phase 2 negotiations.
    */
   ipsecConfig?: DescribeVpnConnectionResponseBodyIpsecConfig;
   /**
    * @remarks
    * The CIDR block on the Alibaba Cloud side of the IPsec-VPN connection.
+   * If multiple CIDR blocks are specified, they are separated by commas (,).
    * 
    * @example
    * 10.0.0.0/8
@@ -756,10 +770,9 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The network type of the IPsec-VPN connection.
-   * 
-   * - **public**: public network. The IPsec-VPN connection establishes an encrypted communication channel over the Internet.
-   * - **private**: private network. The IPsec-VPN connection establishes an encrypted communication channel over a private network.
+   * The network type of the IPsec-VPN connection. Valid values:
+   * - **public**: Internet. The IPsec-VPN connection establishes an encrypted communication channel over the Internet.
+   * - **private**: Private network. The IPsec-VPN connection establishes an encrypted communication channel over a private network.
    * 
    * @example
    * public
@@ -775,7 +788,8 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
   remoteCaCertificate?: string;
   /**
    * @remarks
-   * The CIDR block on the on-premises data center side.
+   * The CIDR block on the data center side of the IPsec-VPN connection.
+   * If multiple CIDR blocks are specified, they are separated by commas (,).
    * 
    * @example
    * 192.168.0.0/16
@@ -801,7 +815,7 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The bandwidth specification of the IPsec-VPN connection. Unit: **Mbps**.
+   * The bandwidth specification of the IPsec-VPN connection. Unit: **Mbit/s**.
    * 
    * @example
    * 1000M
@@ -809,7 +823,17 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
   spec?: string;
   /**
    * @remarks
-   * The binding status between the IPsec-VPN connection and the transit router instance.
+   * The association status between the IPsec-VPN connection and the transit router instance. Valid values:
+   * - **active**: The IPsec-VPN connection is associated with a VPN gateway instance and is in a normal state.
+   * - **init**: The IPsec-VPN connection is not associated with any resource, and the IPsec-VPN connection is being initialized.
+   * - **attaching**: The IPsec-VPN connection is being associated with the transit router instance.
+   * - **attached**: The IPsec-VPN connection is associated with the transit router instance.
+   * - **detaching**: The IPsec-VPN connection is being disassociated from the transit router instance.
+   * - **financialLocked**: The instance is locked due to overdue payments.
+   * - **provisioning**: The resource is being prepared.
+   * - **updating**: The IPsec-VPN connection is being updated.
+   * - **upgrading**: The IPsec-VPN connection is being upgraded.
+   * - **deleted**: The IPsec-VPN connection is deleted.
    * 
    * @example
    * attached
@@ -817,14 +841,10 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
   state?: string;
   /**
    * @remarks
-   * The status of the IPsec-VPN connection.
-   * 
+   * The status of the IPsec-VPN connection. Valid values:
    * - **ike_sa_not_established**: Phase 1 negotiation failed.
-   * 
    * - **ike_sa_established**: Phase 1 negotiation succeeded.
-   * 
    * - **ipsec_sa_not_established**: Phase 2 negotiation failed.
-   * 
    * - **ipsec_sa_established**: Phase 2 negotiation succeeded.
    * 
    * @example
@@ -834,7 +854,7 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
   tags?: DescribeVpnConnectionResponseBodyTags;
   /**
    * @remarks
-   * The instance ID of the transit router instance attached to the IPsec-VPN connection.
+   * The ID of the transit router instance associated with the IPsec-VPN connection.
    * 
    * @example
    * tr-p0we2edef9qr44a85****
@@ -842,7 +862,7 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
   transitRouterId?: string;
   /**
    * @remarks
-   * The name of the transit router instance.
+   * The name of the transit router.
    * 
    * @example
    * nametest
@@ -851,6 +871,8 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
   /**
    * @remarks
    * The bandwidth specification of a single VPN tunnel. Valid values:
+   * - Standard (default): The standard type. The default bandwidth is 1 Gbps.
+   * - Large: The large type. The default bandwidth is 3 Gbps.
    * 
    * @example
    * Standard
@@ -877,7 +899,7 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
   vpnConnectionId?: string;
   /**
    * @remarks
-   * The instance ID of the VPN gateway.
+   * The ID of the VPN gateway instance.
    * 
    * @example
    * vpn-bp1q8bgx4xnkm2ogj****
@@ -885,8 +907,7 @@ export class DescribeVpnConnectionResponseBody extends $dara.Model {
   vpnGatewayId?: string;
   /**
    * @remarks
-   * The zone ID where the IPsec-VPN connection is deployed.
-   * 
+   * The ID of the zone where the IPsec-VPN connection is deployed.
    * You can call the [DescribeZones](https://help.aliyun.com/document_detail/36064.html) operation to query the mapping between zone IDs and zones.
    * 
    * @example

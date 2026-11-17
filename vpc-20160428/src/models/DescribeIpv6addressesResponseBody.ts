@@ -2,6 +2,35 @@
 import * as $dara from '@darabonba/typescript';
 
 
+export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressCommonBandwidthPackageInfo extends $dara.Model {
+  bandwidthPackageBandwidth?: number;
+  bandwidthPackageId?: string;
+  commonBandwidthPackageIpBandwidth?: number;
+  static names(): { [key: string]: string } {
+    return {
+      bandwidthPackageBandwidth: 'BandwidthPackageBandwidth',
+      bandwidthPackageId: 'BandwidthPackageId',
+      commonBandwidthPackageIpBandwidth: 'CommonBandwidthPackageIpBandwidth',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      bandwidthPackageBandwidth: 'number',
+      bandwidthPackageId: 'string',
+      commonBandwidthPackageIpBandwidth: 'number',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressIpv6InternetBandwidth extends $dara.Model {
   bandwidth?: number;
   businessStatus?: string;
@@ -109,6 +138,7 @@ export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6Address extends $
   allocationTime?: string;
   associatedInstanceId?: string;
   associatedInstanceType?: string;
+  commonBandwidthPackageInfo?: DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressCommonBandwidthPackageInfo;
   ipv6Address?: string;
   ipv6AddressDescription?: string;
   ipv6AddressId?: string;
@@ -130,6 +160,7 @@ export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6Address extends $
       allocationTime: 'AllocationTime',
       associatedInstanceId: 'AssociatedInstanceId',
       associatedInstanceType: 'AssociatedInstanceType',
+      commonBandwidthPackageInfo: 'CommonBandwidthPackageInfo',
       ipv6Address: 'Ipv6Address',
       ipv6AddressDescription: 'Ipv6AddressDescription',
       ipv6AddressId: 'Ipv6AddressId',
@@ -154,6 +185,7 @@ export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6Address extends $
       allocationTime: 'string',
       associatedInstanceId: 'string',
       associatedInstanceType: 'string',
+      commonBandwidthPackageInfo: DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressCommonBandwidthPackageInfo,
       ipv6Address: 'string',
       ipv6AddressDescription: 'string',
       ipv6AddressId: 'string',
@@ -173,6 +205,9 @@ export class DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6Address extends $
   }
 
   validate() {
+    if(this.commonBandwidthPackageInfo && typeof (this.commonBandwidthPackageInfo as any).validate === 'function') {
+      (this.commonBandwidthPackageInfo as any).validate();
+    }
     if(this.ipv6InternetBandwidth && typeof (this.ipv6InternetBandwidth as any).validate === 'function') {
       (this.ipv6InternetBandwidth as any).validate();
     }
@@ -217,7 +252,7 @@ export class DescribeIpv6AddressesResponseBody extends $dara.Model {
   ipv6Addresses?: DescribeIpv6AddressesResponseBodyIpv6Addresses;
   /**
    * @remarks
-   * The page number of the list. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1
@@ -241,7 +276,7 @@ export class DescribeIpv6AddressesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 2

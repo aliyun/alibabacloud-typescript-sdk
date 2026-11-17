@@ -51,7 +51,7 @@ export class CalculateNatGatewayCapacityUnitsResponseBodyNatGatewayPerformanceVa
   cps?: number;
   /**
    * @remarks
-   * The number of packets. Unit: pps.
+   * The number of packets per second. Unit: pps.
    * 
    * @example
    * 160000
@@ -95,7 +95,7 @@ export class CalculateNatGatewayCapacityUnitsResponseBodyNatGatewayPerformanceVa
 export class CalculateNatGatewayCapacityUnitsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the calculated equivalent resource reservation CUs.
+   * The details of the calculated equivalent reserved CUs.
    */
   natGatewayCapacity?: CalculateNatGatewayCapacityUnitsResponseBodyNatGatewayCapacity;
   /**

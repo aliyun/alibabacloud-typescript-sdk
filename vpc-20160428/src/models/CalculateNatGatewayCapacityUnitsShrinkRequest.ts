@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CalculateNatGatewayCapacityUnitsShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must make sure that the token is unique among different requests. Note: If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId of each API request may be different.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must ensure that it is unique among different requests. Note: If you do not specify this parameter, the system automatically uses the RequestId of the API request as the ClientToken. The RequestId of each API request may be different.
    * 
    * @example
    * 02fb3da4-130e-11e9-8e44-001****
@@ -14,8 +14,8 @@ export class CalculateNatGatewayCapacityUnitsShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to perform a dry run. Valid values:
-   * - true: performs a dry run. The system checks whether your AccessKey pair is valid, the authorization of the Resource Access Management (RAM) user, and whether the required parameters are specified. If the request fails the dry run, an error message is returned. If the request passes the dry run, the DryRunOperation error code is returned. The Internet NAT gateway is not upgraded.
-   * - false (default): sends a normal request. If the request passes the check, a 2xx HTTP status code is returned and the Internet NAT gateway is upgraded.
+   * - true: sends the request without upgrading the Internet NAT gateway. The system checks whether your AccessKey pair is valid, the authorization of the Resource Access Management (RAM) user, and whether the required parameters are specified. If the request fails the check, an error message is returned. If the request passes the check, the DryRunOperation error code is returned.
+   * - false (default value): sends a normal request. If the request passes the check, a 2xx HTTP status code is returned and the Internet NAT gateway is directly upgraded.
    * 
    * @example
    * false
@@ -23,7 +23,7 @@ export class CalculateNatGatewayCapacityUnitsShrinkRequest extends $dara.Model {
   dryRun?: string;
   /**
    * @remarks
-   * The details of the resource reservation CUs to be calculated.
+   * The details of the reserved capacity units (CUs) to be calculated.
    */
   natGatewayCapacityShrink?: string;
   /**
@@ -41,7 +41,7 @@ export class CalculateNatGatewayCapacityUnitsShrinkRequest extends $dara.Model {
   natGatewayPerformanceValuesShrink?: string;
   /**
    * @remarks
-   * The region ID.
+   * The region ID of the NAT gateway.
    * 
    * @example
    * cn-hangzhou

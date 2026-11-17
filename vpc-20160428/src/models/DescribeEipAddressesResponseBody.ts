@@ -139,6 +139,7 @@ export class DescribeEipAddressesResponseBodyEipAddressesEipAddress extends $dar
   bizType?: string;
   businessStatus?: string;
   chargeType?: string;
+  commonBandwidthPackageIpBandwidth?: string;
   deletionProtection?: boolean;
   description?: string;
   eipBandwidth?: string;
@@ -183,6 +184,7 @@ export class DescribeEipAddressesResponseBodyEipAddressesEipAddress extends $dar
       bizType: 'BizType',
       businessStatus: 'BusinessStatus',
       chargeType: 'ChargeType',
+      commonBandwidthPackageIpBandwidth: 'CommonBandwidthPackageIpBandwidth',
       deletionProtection: 'DeletionProtection',
       description: 'Description',
       eipBandwidth: 'EipBandwidth',
@@ -230,6 +232,7 @@ export class DescribeEipAddressesResponseBodyEipAddressesEipAddress extends $dar
       bizType: 'string',
       businessStatus: 'string',
       chargeType: 'string',
+      commonBandwidthPackageIpBandwidth: 'string',
       deletionProtection: 'boolean',
       description: 'string',
       eipBandwidth: 'string',

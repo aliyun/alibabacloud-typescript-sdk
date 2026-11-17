@@ -63,9 +63,9 @@ export class ListTagResourcesForExpressConnectResponseBodyTagResources extends $
 export class ListTagResourcesForExpressConnectResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token for the next query. Valid values:
-   * - If **NextToken** is empty, no next query exists.
-   * - If **NextToken** is returned, the value indicates the token for the next query.
+   * The pagination token for the next query. Valid values:
+   * - If **NextToken** is empty, no subsequent query is required.
+   * - If **NextToken** returns a value, the value indicates the token for the next query.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****

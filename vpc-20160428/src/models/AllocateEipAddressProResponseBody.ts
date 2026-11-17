@@ -22,8 +22,8 @@ export class AllocateEipAddressProResponseBody extends $dara.Model {
   /**
    * @remarks
    * The order ID.
-   * <props="china">This parameter is returned if InstanceChargeType (the billing method of the specified EIP) is set to PrePaid (subscription). If AutoPay is set to false, which means automatic payment is disabled, go to the [User Center](https://usercenter2.aliyun.com/order/list) to complete the payment.
-   * <props="intl">This parameter is returned if InstanceChargeType (the billing method of the specified EIP) is set to PrePaid (subscription). If AutoPay is set to false, which means automatic payment is disabled, go to the [User Center](https://usercenter2-intl.aliyun.com/order/list) to complete the payment.
+   * <props="china">This parameter is returned if InstanceChargeType (the billing method of the EIP to be allocated) is set to PrePaid (subscription). If AutoPay is set to false, which means automatic payment is disabled, go to the [User Center](https://usercenter2.aliyun.com/order/list) to complete the payment.
+   * <props="intl">This parameter is returned if InstanceChargeType (the billing method of the EIP to be allocated) is set to PrePaid (subscription). If AutoPay is set to false, which means automatic payment is disabled, go to the [User Center](https://usercenter2-intl.aliyun.com/order/list) to complete the payment.
    * 
    * @example
    * 20190000

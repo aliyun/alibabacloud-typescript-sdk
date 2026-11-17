@@ -15,9 +15,9 @@ export class DescribeVSwitchAttributesResponseBodyRouteTable extends $dara.Model
    * @remarks
    * The type of the route table. Valid values:
    * 
-   * - **System**: system route table.
+   * - **System**: System route table.
    * 
-   * - **Custom**: custom route table.
+   * - **Custom**: Custom route table.
    * 
    * @example
    * System
@@ -109,7 +109,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   availableIpAddressCount?: number;
   /**
    * @remarks
-   * The private network address range of the vSwitch.
+   * The private endpoint range of the vSwitch.
    * 
    * @example
    * 192.168.0.1/24
@@ -133,9 +133,9 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * Indicates whether the IPv6 CIDR block is enabled for the vSwitch. Valid values:
-   * - **true**: enabled.
-   * - **false**: not enabled.
+   * Specifies whether the IPv6 CIDR block is enabled and configured for the vSwitch. Valid values:
+   * - **true**: Enabled.
+   * - **false**: Disabled.
    * 
    * @example
    * true
@@ -151,7 +151,18 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   ipv6CidrBlock?: string;
   /**
    * @remarks
-   * Indicates whether the vSwitch is the default vSwitch. Valid values:
+   * Indicates whether the vSwitch is an IPv6 single-stack vSwitch. Valid values:
+   * 
+   * - true: The vSwitch is an IPv6 single-stack vSwitch.
+   * - false: The vSwitch is not an IPv6 single-stack vSwitch.
+   * 
+   * @example
+   * false
+   */
+  ipv6Only?: boolean;
+  /**
+   * @remarks
+   * Specifies whether the vSwitch is the default vSwitch. Valid values:
    * 
    * - **true**: The vSwitch is the default vSwitch.
    * - **false**: The vSwitch is not the default vSwitch.
@@ -170,9 +181,9 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   networkAclId?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the resource ownership.
+   * The Alibaba Cloud account ID of the resource owner.
    * 
-   * >Notice: This value is of the Long type. Precision loss may occur in certain programming languages. Use this value with caution.
+   * >Notice: This value is of the Long type and may cause precision loss in some programming languages. Use it with caution.
    * 
    * @example
    * 28768383240243****
@@ -180,7 +191,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 7B48B4B9-1EAD-469F-B488-594DAB4B6A1A
@@ -188,7 +199,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The resource group ID.
+   * The ID of the resource group.
    * 
    * @example
    * rg-acfmxazb4ph****
@@ -201,11 +212,11 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
   routeTable?: DescribeVSwitchAttributesResponseBodyRouteTable;
   /**
    * @remarks
-   * The sharing type of the vSwitch.
+   * The share type of the vSwitch.
    * 
-   * - If the value is empty, the vSwitch is a private vSwitch.
+   * - If the value is empty, the vSwitch is a standard vSwitch.
    * - If the value is **Shared**, the vSwitch is a shared vSwitch.
-   * - If the value is **Sharing**, the vSwitch is being shared with other accounts.
+   * - If the value is **Sharing**, the vSwitch is being shared.
    * 
    * @example
    * Shared
@@ -215,9 +226,9 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
    * @remarks
    * The status of the vSwitch. Valid values:
    * 
-   * - **Pending**: being configured. 
+   * - **Pending**: Configuring. 
    * 
-   * - **Available**: active.
+   * - **Available**: Available.
    * 
    * @example
    * Pending
@@ -264,6 +275,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
       description: 'Description',
       enabledIpv6: 'EnabledIpv6',
       ipv6CidrBlock: 'Ipv6CidrBlock',
+      ipv6Only: 'Ipv6Only',
       isDefault: 'IsDefault',
       networkAclId: 'NetworkAclId',
       ownerId: 'OwnerId',
@@ -288,6 +300,7 @@ export class DescribeVSwitchAttributesResponseBody extends $dara.Model {
       description: 'string',
       enabledIpv6: 'boolean',
       ipv6CidrBlock: 'string',
+      ipv6Only: 'boolean',
       isDefault: 'boolean',
       networkAclId: 'string',
       ownerId: 'number',

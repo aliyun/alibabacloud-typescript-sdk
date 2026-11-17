@@ -14,6 +14,7 @@ export class SetHighDefinitionMonitorLogStatusResponseBody extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the call was successful. Valid values:
+   * 
    * - **true**: The call was successful.
    * - **false**: The call failed.
    * 

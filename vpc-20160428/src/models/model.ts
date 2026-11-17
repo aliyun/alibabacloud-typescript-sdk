@@ -167,6 +167,7 @@ export { DescribeIPv6TranslatorsResponseBodyIpv6TranslatorsIpv6TranslatorIpv6Tra
 export { DescribeIPv6TranslatorsResponseBodyIpv6TranslatorsIpv6Translator } from './DescribeIpv6translatorsResponseBody';
 export { DescribeIPv6TranslatorsResponseBodyIpv6Translators } from './DescribeIpv6translatorsResponseBody';
 export { DescribeIpv6AddressesRequestTag } from './DescribeIpv6addressesRequest';
+export { DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressCommonBandwidthPackageInfo } from './DescribeIpv6addressesResponseBody';
 export { DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressIpv6InternetBandwidth } from './DescribeIpv6addressesResponseBody';
 export { DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTagsTag } from './DescribeIpv6addressesResponseBody';
 export { DescribeIpv6AddressesResponseBodyIpv6AddressesIpv6AddressTags } from './DescribeIpv6addressesResponseBody';

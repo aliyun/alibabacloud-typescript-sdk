@@ -17,9 +17,9 @@ export class ModifyEipAddressAttributeRequest extends $dara.Model {
    * @remarks
    * The peak bandwidth of the EIP. Valid values:
    * 
-   * - **1** to **200**: If the EIP is billed on a pay-by-data-transfer basis. Unit: Mbit/s. 
+   * - **1** to **200** if the EIP is billed by data transfer. Unit: Mbit/s. 
    * 
-   * - **1** to **500**: If the EIP is billed on a pay-by-bandwidth basis. Unit: Mbit/s.
+   * - **1** to **500** if the EIP is billed by bandwidth. Unit: Mbit/s.
    * 
    * @example
    * 100
@@ -27,7 +27,7 @@ export class ModifyEipAddressAttributeRequest extends $dara.Model {
   bandwidth?: string;
   /**
    * @remarks
-   * The description of the EIP that you want to modify.  
+   * The description of the EIP.  
    * 
    * The description must be 0 to 256 characters in length and cannot start with `http://` or `https://`.
    * 
@@ -37,7 +37,7 @@ export class ModifyEipAddressAttributeRequest extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The name of the EIP that you want to modify.  
+   * The name of the EIP.  
    * 
    * The name must be 0 to 128 characters in length and cannot start with `http://` or `https://`.
    * 
@@ -51,7 +51,7 @@ export class ModifyEipAddressAttributeRequest extends $dara.Model {
    * @remarks
    * The region ID of the EIP.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * @example
    * cn-hangzhou

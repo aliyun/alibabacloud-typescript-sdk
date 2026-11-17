@@ -17,9 +17,9 @@ export class AddCommonBandwidthPackageIpRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can use the client to generate the token, but you must make sure that the token is unique among different requests. The ClientToken value can contain only ASCII characters.
+   * You can use the client to generate the value, but you must make sure that the value is unique among different requests. The client token can contain only ASCII characters.
    * 
-   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** may be different for each API request.
+   * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is unique.
    * 
    * @example
    * 0c593ea1-3bea-11e9-b96b-88e9fe637760
@@ -27,7 +27,7 @@ export class AddCommonBandwidthPackageIpRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run, without performing the actual request.
+   * Specifies whether to perform a dry run.
    * 
    * @example
    * false
@@ -35,9 +35,9 @@ export class AddCommonBandwidthPackageIpRequest extends $dara.Model {
   dryRun?: boolean;
   /**
    * @remarks
-   * The ID of the EIP instance. 
+   * The ID of the EIP. 
    * 
-   * You can call [DescribeEipAddresses](https://www.alibabacloud.com/help/en/eip/developer-reference/api-vpc-2016-04-28-describeeipaddresses-eips) to query the ID of the EIP instance.
+   * You can call the [DescribeEipAddresses](https://www.alibabacloud.com/help/en/eip/developer-reference/api-vpc-2016-04-28-describeeipaddresses-eips) operation to query the ID of the EIP.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class AddCommonBandwidthPackageIpRequest extends $dara.Model {
   ipInstanceId?: string;
   /**
    * @remarks
-   * The IP type. Set the value to **EIP**, which specifies that an EIP is added to the Internet Shared Bandwidth instance.
+   * The IP address type. Valid value: **EIP**, which indicates that an EIP is added to the Internet Shared Bandwidth instance.
    * 
    * @example
    * EIP
@@ -59,7 +59,7 @@ export class AddCommonBandwidthPackageIpRequest extends $dara.Model {
    * @remarks
    * The region ID of the Internet Shared Bandwidth instance. 
    * 
-   * You can call [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 

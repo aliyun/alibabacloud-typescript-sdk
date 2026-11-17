@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRouteEntryListRequest extends $dara.Model {
   /**
    * @remarks
-   * The list of destination CIDR blocks of the route.
+   * The list of destination CIDR blocks of the route entry.
    */
   destCidrBlockList?: string[];
   /**
    * @remarks
-   * The destination CIDR block of the route. Both IPv4 and IPv6 CIDR blocks are supported.
+   * The destination CIDR block of the route entry. Both IPv4 and IPv6 CIDR blocks are supported.
    * 
    * @example
    * 192.168.2.0/24
@@ -56,13 +56,13 @@ export class DescribeRouteEntryListRequest extends $dara.Model {
    * 
    * - **NatGateway**: NAT gateway.
    * 
-   * - **NetworkInterface**: secondary elastic network interface controller (NIC).
+   * - **NetworkInterface**: secondary ENI.
    * 
-   * - **RouterInterface**: vRouter interface.
+   * - **RouterInterface**: router interface.
    * 
    * - **IPv6Gateway**: IPv6 gateway.
    * 
-   * - **Attachment**: forwarding router.
+   * - **Attachment**: transit router.
    * - **Ipv4Gateway**: IPv4 gateway.
    * - **GatewayEndpoint**: gateway endpoint.
    * - **Ecr**: Express Connect Router (ECR).
@@ -73,9 +73,9 @@ export class DescribeRouteEntryListRequest extends $dara.Model {
   nextHopType?: string;
   /**
    * @remarks
-   * The pagination token that is used to retrieve the next page of results. Valid values:
-   * - Leave this parameter empty for the first query or when no subsequent query is required.
-   * - If a subsequent query is required, set this parameter to the value of NextToken returned from the previous API call.
+   * The pagination token for the next query. Valid values:
+   * - If this is the first query or no subsequent query is required, leave this parameter empty.
+   * - If a subsequent query is required, set this parameter to the NextToken value returned from the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -85,7 +85,7 @@ export class DescribeRouteEntryListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the route table to which the route belongs.
+   * The region ID of the route table to which the route entry belongs.
    * 
    * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
@@ -99,7 +99,7 @@ export class DescribeRouteEntryListRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The ID of the route to query.
+   * The ID of the route entry to query.
    * 
    * @example
    * rte-bp1mnnr2al0naomnp****
@@ -107,7 +107,7 @@ export class DescribeRouteEntryListRequest extends $dara.Model {
   routeEntryId?: string;
   /**
    * @remarks
-   * The name of the route.
+   * The name of the route entry.
    * 
    * The name must be 1 to 128 characters in length and cannot start with `http://` or `https://`.
    * 

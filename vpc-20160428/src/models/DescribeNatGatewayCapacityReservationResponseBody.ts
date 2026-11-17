@@ -13,12 +13,16 @@ export class DescribeNatGatewayCapacityReservationResponseBodyCapacityReservatio
   reason?: string;
   /**
    * @remarks
-   * The capacity reservation status. Valid values:
+   * The resource reservation status. Valid values:
    * 
    * - pending: The reservation is in progress.
+   * 
    * - provisioned: The reservation is completed.
+   * 
    * - failed: The reservation failed.
+   * 
    * - deleting: The reservation is being deleted.
+   * 
    * - deleted: The reservation is deleted.
    * 
    * @example
@@ -89,7 +93,7 @@ export class DescribeNatGatewayCapacityReservationResponseBodyNatGatewayPerforma
   bandwidth?: number;
   /**
    * @remarks
-   * The number of new connections per second (CPS).
+   * The number of new connections per second.
    * 
    * @example
    * 100000
@@ -97,7 +101,7 @@ export class DescribeNatGatewayCapacityReservationResponseBodyNatGatewayPerforma
   cps?: number;
   /**
    * @remarks
-   * The number of packets per second (PPS).
+   * The number of packets per second.
    * 
    * @example
    * 3200000
@@ -141,12 +145,12 @@ export class DescribeNatGatewayCapacityReservationResponseBodyNatGatewayPerforma
 export class DescribeNatGatewayCapacityReservationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The capacity reservation status.
+   * The resource reservation status.
    */
   capacityReservationStatus?: DescribeNatGatewayCapacityReservationResponseBodyCapacityReservationStatus;
   /**
    * @remarks
-   * The remaining number of times that you can downgrade the configuration or cancel the capacity reservation.
+   * The remaining number of times that you can downgrade or cancel the resource reservation.
    * 
    * @example
    * 2
@@ -154,7 +158,7 @@ export class DescribeNatGatewayCapacityReservationResponseBody extends $dara.Mod
   decreaseRequestsRemaining?: string;
   /**
    * @remarks
-   * The time when the capacity reservation was last modified.
+   * The time when the resource reservation was last modified.
    * 
    * @example
    * 2026-07-02 10:07:51
@@ -175,7 +179,7 @@ export class DescribeNatGatewayCapacityReservationResponseBody extends $dara.Mod
   natGatewayId?: string;
   /**
    * @remarks
-   * The performance metrics of the NAT gateway capacity reservation.
+   * The performance metrics of the NAT gateway resource reservation.
    */
   natGatewayPerformanceValues?: DescribeNatGatewayCapacityReservationResponseBodyNatGatewayPerformanceValues;
   /**

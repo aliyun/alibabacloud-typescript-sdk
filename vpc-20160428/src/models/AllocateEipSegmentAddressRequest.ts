@@ -7,9 +7,9 @@ export class AllocateEipSegmentAddressRequest extends $dara.Model {
    * @remarks
    * The peak bandwidth of the EIP. Unit: Mbit/s.
    * 
-   * - When **InternetChargeType** is set to **PayByBandwidth**, valid values for **Bandwidth** are **1** to **500**.
+   * - If **InternetChargeType** is set to **PayByBandwidth**, the valid values for **Bandwidth** are **1** to **500**.
    * 
-   * - When **InternetChargeType** is set to **PayByTraffic**, valid values for **Bandwidth** are **1** to **200**.
+   * - If **InternetChargeType** is set to **PayByTraffic**, the valid values for **Bandwidth** are **1** to **200**.
    * 
    * Default value: **5** Mbit/s.
    * 
@@ -21,7 +21,7 @@ export class AllocateEipSegmentAddressRequest extends $dara.Model {
    * @remarks
    * The client token that is used to ensure the idempotence of the request.
    * 
-   * You can generate the value from your client and ensure that the value is unique across different requests. The **ClientToken** parameter supports only ASCII characters.
+   * You can generate a parameter value from your client to ensure that the value is unique among different requests. **ClientToken** only supports ASCII characters.
    * 
    * > If you do not specify this parameter, the system automatically uses the **RequestId** of the API request as the **ClientToken**. The **RequestId** of each API request is different.
    * 
@@ -43,7 +43,7 @@ export class AllocateEipSegmentAddressRequest extends $dara.Model {
    * 
    * - **24**: The system allocates 256 contiguous EIPs per call.
    * 
-   * > Due to IP address reservation, the actual number of contiguous EIPs allocated may be 1, 3, or 4 less than the expected number.
+   * > Due to IP address reservation, the actual number of contiguous EIPs allocated may be 1, 3, or 4 fewer than expected.
    * 
    * This parameter is required.
    * 
@@ -72,7 +72,7 @@ export class AllocateEipSegmentAddressRequest extends $dara.Model {
    * 
    * For more information about BGP (Multi-ISP) and BGP (Multi-ISP) Pro lines, see [EIP line types](https://help.aliyun.com/document_detail/32321.html).
    * 
-   * If you are a whitelisted user of single-ISP bandwidth, you can also select the following types:
+   * If you are a single-ISP bandwidth whitelist user, you can also select the following types:
    * - **ChinaTelecom**: China Telecom
    * - **ChinaUnicom**: China Unicom
    * - **ChinaMobile**: China Mobile
@@ -110,7 +110,7 @@ export class AllocateEipSegmentAddressRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The ID of the resource group.
+   * The resource group ID.
    * 
    * @example
    * rg-bp67acfmxazb4ph****

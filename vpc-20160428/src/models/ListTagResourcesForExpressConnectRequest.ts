@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesForExpressConnectRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys. The tag key cannot be an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot specify an empty string.
    * 
-   * The tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,9 +15,9 @@ export class ListTagResourcesForExpressConnectRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values. The tag value can be an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. You can specify an empty string for this parameter.
    * 
-   * The tag value can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * The tag value can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceJoshua
@@ -49,7 +49,7 @@ export class ListTagResourcesForExpressConnectRequestTag extends $dara.Model {
 export class ListTagResourcesForExpressConnectRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of entries per page for a paged query. Valid values: **1** to **100**. Default value: **20**.
+   * The number of entries to return per page. Valid values: **1** to **100**. Default value: **20**.
    * 
    * @example
    * 20
@@ -57,9 +57,9 @@ export class ListTagResourcesForExpressConnectRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next query. Valid values:
-   * - If this is the first query or no next query exists, leave this parameter empty.
-   * - If a next query exists, set this parameter to the **NextToken** value returned by the previous API call.
+   * The pagination token for the next query. Valid values:
+   * - If this is the first query or no subsequent query is required, you do not need to specify this parameter.
+   * - If a subsequent query is required, set the value to the **NextToken** value returned from the previous API call.
    * 
    * @example
    * FFmyTO70tTpLG6I3FmYAXGKPd****
@@ -71,7 +71,7 @@ export class ListTagResourcesForExpressConnectRequest extends $dara.Model {
    * @remarks
    * The region ID of the resource.
    * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query the region ID.
+   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -89,10 +89,10 @@ export class ListTagResourcesForExpressConnectRequest extends $dara.Model {
   /**
    * @remarks
    * The resource type. Valid values:
-   * - **PHYSICALCONNECTION**: Express Connect circuit instance.
+   * - **PHYSICALCONNECTION**: Express Connect circuit.
    * - **VIRTUALBORDERROUTER**: Virtual Border Router.
-   * - **ROUTERINTERFACE**: VBR uplink.
-   * - **TRAFFICQOS**: QoS policy.
+   * - **ROUTERINTERFACE**: VBR connection.
+   * - **TRAFFICQOS**: Quality of Service (QoS) policy.
    * 
    * This parameter is required.
    * 

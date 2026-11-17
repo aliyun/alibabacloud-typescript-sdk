@@ -17,17 +17,35 @@ export class CancelCommonBandwidthPackageIpBandwidthRequest extends $dara.Model 
    * @remarks
    * The ID of the EIP that is added to the Internet Shared Bandwidth instance. This parameter applies only to EIPs. For IPv6 addresses, use IpInstanceId.
    * 
-   * This parameter is required.
-   * 
    * @example
    * eip-2zewysoansu0sxxxxxxxx
    */
   eipId?: string;
+  /**
+   * @remarks
+   * The ID of the public IP address instance for which you want to cancel the maximum available bandwidth setting in the Internet Shared Bandwidth instance. This parameter and `EipId` are mutually exclusive. We recommend that you use this parameter for new workloads. If IpType is set to **VpcIpv6**, specify the IPv6 instance ID.
+   * 
+   * @example
+   * eip-2zewysoansu0svfbg****
+   */
+  ipInstanceId?: string;
+  /**
+   * @remarks
+   * The resource type of the public IP address for which you want to cancel the maximum available bandwidth setting in the Internet Shared Bandwidth instance. Valid values:
+   * - **EIP**: the public IP address of an EIP.
+   * - **VpcIpv6**: the IPv6 address of a VPC.
+   * 
+   * If you do not specify this parameter, **EIP** is used.
+   * 
+   * @example
+   * EIP
+   */
+  ipType?: string;
   ownerAccount?: string;
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the Internet Shared Bandwidth instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to obtain the region ID.
+   * The region ID of the Internet Shared Bandwidth instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -41,6 +59,8 @@ export class CancelCommonBandwidthPackageIpBandwidthRequest extends $dara.Model 
     return {
       bandwidthPackageId: 'BandwidthPackageId',
       eipId: 'EipId',
+      ipInstanceId: 'IpInstanceId',
+      ipType: 'IpType',
       ownerAccount: 'OwnerAccount',
       ownerId: 'OwnerId',
       regionId: 'RegionId',
@@ -53,6 +73,8 @@ export class CancelCommonBandwidthPackageIpBandwidthRequest extends $dara.Model 
     return {
       bandwidthPackageId: 'string',
       eipId: 'string',
+      ipInstanceId: 'string',
+      ipType: 'string',
       ownerAccount: 'string',
       ownerId: 'number',
       regionId: 'string',

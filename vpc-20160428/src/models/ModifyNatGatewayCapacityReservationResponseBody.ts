@@ -14,15 +14,10 @@ export class ModifyNatGatewayCapacityReservationResponseBodyCapacityReservationS
   /**
    * @remarks
    * The status of the resource reservation. Valid values:
-   * 
    * - pending: The reservation is in progress.
-   * 
    * - provisioned: The reservation is completed.
-   * 
    * - failed: The reservation failed.
-   * 
    * - deleting: The reservation is being deleted.
-   * 
    * - deleted: The reservation is deleted.
    * 
    * @example
@@ -101,7 +96,7 @@ export class ModifyNatGatewayCapacityReservationResponseBodyNatGatewayPerformanc
   cps?: number;
   /**
    * @remarks
-   * The number of packets. Unit: pps.
+   * The number of packets per second.
    * 
    * @example
    * 3200000
@@ -150,7 +145,7 @@ export class ModifyNatGatewayCapacityReservationResponseBody extends $dara.Model
   capacityReservationStatus?: ModifyNatGatewayCapacityReservationResponseBodyCapacityReservationStatus;
   /**
    * @remarks
-   * The remaining number of times that you can downgrade the configuration or cancel the resource reservation.
+   * The remaining number of times that you can downgrade or cancel the resource reservation.
    * 
    * @example
    * 2

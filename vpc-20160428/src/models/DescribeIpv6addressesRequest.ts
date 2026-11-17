@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeIpv6AddressesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot specify an empty string.
+   * The tag key of the resource. You can specify up to 20 tag keys. If you specify this parameter, you cannot enter an empty string.
    * 
-   * A tag key can be up to 128 characters in length and cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * A tag key can be up to 128 characters in length. It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * FinanceDept
@@ -15,10 +15,9 @@ export class DescribeIpv6AddressesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can specify an empty string.
+   * The tag value of the resource. You can specify up to 20 tag values. If you specify this parameter, you can enter an empty string.
    * 
-   * 
-   * A tag value can be up to 128 characters in length and must start with a letter or a Chinese character. It can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`. It cannot contain `http://` or `https://`.
+   * A tag value can be up to 128 characters in length. It must start with a letter or a Chinese character, and can contain digits, periods (.), underscores (_), and hyphens (-). It cannot start with `aliyun` or `acs:`, and cannot contain `http://` or `https://`.
    * 
    * @example
    * yunke
@@ -52,8 +51,8 @@ export class DescribeIpv6AddressesRequest extends $dara.Model {
    * @remarks
    * The type of the IPv6 address. Valid values:
    * 
-   * * IPv6Address: queries an IPv6 instance of a single IPv6 address. This is the default value.
-   * * IPv6Prefix: queries an IPv6 instance of an IPv6 prefix.
+   * * IPv6Address (default): queries an IPv6 instance that has a single IPv6 address.
+   * * IPv6Prefix: queries an IPv6 instance that has an IPv6 prefix.
    * 
    * @example
    * IPv6Address
@@ -71,7 +70,7 @@ export class DescribeIpv6AddressesRequest extends $dara.Model {
    * @remarks
    * The type of the instance associated with the IPv6 address to query. Valid values:
    * 
-   *  - **EcsInstance**: an ECS instance in a VPC.
+   * - **EcsInstance**: an ECS instance in a VPC.
    * - **NetworkInterface**: elastic network interface controller (NIC).
    * 
    * This parameter must be used together with AssociatedInstanceId.
@@ -84,7 +83,7 @@ export class DescribeIpv6AddressesRequest extends $dara.Model {
    * @remarks
    * Specifies whether to include inactive order data. Valid values:
    * 
-   * - **false**: does not include inactive order data. This is the default value.
+   * - **false** (default): does not include inactive order data.
    * 
    * - **true**: includes inactive order data.
    * 
@@ -94,7 +93,7 @@ export class DescribeIpv6AddressesRequest extends $dara.Model {
   includeReservationData?: boolean;
   /**
    * @remarks
-   * The IPv6 addresses to query.
+   * The IPv6 address to query.
    * 
    * @example
    * 2408:XXXX:153:3921:851c:c435:7b12:1c5f
@@ -102,7 +101,7 @@ export class DescribeIpv6AddressesRequest extends $dara.Model {
   ipv6Address?: string;
   /**
    * @remarks
-   * The IDs of the IPv6 addresses to query. You can specify up to 20 IPv6 address IDs in each call. Separate multiple IDs with commas (,).
+   * The ID of the IPv6 address to query. You can enter up to 20 IPv6 address IDs in each call. Separate multiple IDs with commas (,).
    * 
    * @example
    * ipv6-2zen5j4axcp5l5qyy****
@@ -110,7 +109,7 @@ export class DescribeIpv6AddressesRequest extends $dara.Model {
   ipv6AddressId?: string;
   /**
    * @remarks
-   * The instance ID of the Internet bandwidth associated with the IPv6 address to query after Internet bandwidth is enabled.
+   * The Internet bandwidth instance ID corresponding to the IPv6 address to query after Internet bandwidth is enabled.
    * 
    * @example
    * ipv6bw-uf6hcyzu65v98v3du****
@@ -130,9 +129,9 @@ export class DescribeIpv6AddressesRequest extends $dara.Model {
    * @remarks
    * The network type of the IPv6 address to query. Valid values:
    * 
-   * - **Private**: private network.
+   * - **Private**: internal network.
    * 
-   * - **Public**: public network.
+   * - **Public**: Internet.
    * 
    * @example
    * Private
@@ -142,7 +141,7 @@ export class DescribeIpv6AddressesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number of the list. Default value: **1**.
+   * The page number. Default value: **1**.
    * 
    * @example
    * 1

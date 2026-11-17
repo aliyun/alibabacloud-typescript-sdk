@@ -5,12 +5,18 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesCommonBandwidthPackagePublicIpAddressesPublicIpAddresse extends $dara.Model {
   allocationId?: string;
   bandwidthPackageIpRelationStatus?: string;
+  commonBandwidthPackageIpBandwidth?: string;
   ipAddress?: string;
+  ipInstanceId?: string;
+  ipType?: string;
   static names(): { [key: string]: string } {
     return {
       allocationId: 'AllocationId',
       bandwidthPackageIpRelationStatus: 'BandwidthPackageIpRelationStatus',
+      commonBandwidthPackageIpBandwidth: 'CommonBandwidthPackageIpBandwidth',
       ipAddress: 'IpAddress',
+      ipInstanceId: 'IpInstanceId',
+      ipType: 'IpType',
     };
   }
 
@@ -18,7 +24,10 @@ export class DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackagesC
     return {
       allocationId: 'string',
       bandwidthPackageIpRelationStatus: 'string',
+      commonBandwidthPackageIpBandwidth: 'string',
       ipAddress: 'string',
+      ipInstanceId: 'string',
+      ipType: 'string',
     };
   }
 
@@ -272,7 +281,7 @@ export class DescribeCommonBandwidthPackagesResponseBody extends $dara.Model {
   commonBandwidthPackages?: DescribeCommonBandwidthPackagesResponseBodyCommonBandwidthPackages;
   /**
    * @remarks
-   * The page number.
+   * The page number of the returned page.
    * 
    * @example
    * 1
@@ -296,7 +305,7 @@ export class DescribeCommonBandwidthPackagesResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of entries.
+   * The total number of entries returned.
    * 
    * @example
    * 1

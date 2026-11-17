@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyBgpGroupAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 8C3C6D7C-A1CE-4FD8-BC57-DC493A55F76F

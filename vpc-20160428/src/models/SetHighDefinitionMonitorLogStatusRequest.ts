@@ -33,7 +33,7 @@ export class SetHighDefinitionMonitorLogStatusRequest extends $dara.Model {
   logProject?: string;
   /**
    * @remarks
-   * The name of the LogStore.
+   * The name of the Logstore.
    * 
    * This parameter is required.
    * 
@@ -45,9 +45,7 @@ export class SetHighDefinitionMonitorLogStatusRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID of the instance.
-   * 
-   * You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
+   * The region ID of the instance. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/36063.html) operation to query region IDs.
    * 
    * This parameter is required.
    * 
