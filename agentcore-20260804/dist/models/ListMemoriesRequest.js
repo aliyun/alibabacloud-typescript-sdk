@@ -33,7 +33,13 @@ class ListMemoriesRequest extends $dara.Model {
             maxResults: 'maxResults',
             nextToken: 'nextToken',
             sessionId: 'sessionId',
+            source: 'source',
+            teamId: 'teamId',
+            types: 'types',
+            updatedAtFrom: 'updatedAtFrom',
+            updatedAtTo: 'updatedAtTo',
             userId: 'userId',
+            valid: 'valid',
         };
     }
     static types() {
@@ -42,7 +48,13 @@ class ListMemoriesRequest extends $dara.Model {
             maxResults: 'number',
             nextToken: 'string',
             sessionId: 'string',
+            source: 'string',
+            teamId: 'string',
+            types: 'string',
+            updatedAtFrom: 'string',
+            updatedAtTo: 'string',
             userId: 'string',
+            valid: 'boolean',
         };
     }
     validate() {

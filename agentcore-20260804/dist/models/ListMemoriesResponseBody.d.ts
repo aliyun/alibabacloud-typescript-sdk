@@ -4,6 +4,8 @@ export declare class ListMemoriesResponseBodyItemsContent extends $dara.Model {
      * @remarks
      * The memory text.
      *
+     * This parameter is required.
+     *
      * @example
      * The user likes hiking
      */
@@ -22,7 +24,7 @@ export declare class ListMemoriesResponseBodyItemsContent extends $dara.Model {
 export declare class ListMemoriesResponseBodyItemsScope extends $dara.Model {
     /**
      * @remarks
-     * The agent ID. The length is limited to 1 to 128 UTF-8 bytes, and the value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with an agent ID.
+     * The agent ID. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with an agent ID.
      *
      * @example
      * agent-001
@@ -30,7 +32,7 @@ export declare class ListMemoriesResponseBodyItemsScope extends $dara.Model {
     agentId?: string;
     /**
      * @remarks
-     * The session ID. The length is limited to 1 to 128 UTF-8 bytes, and the value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with a session ID.
+     * The session ID. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with a session ID.
      *
      * @example
      * session-001
@@ -38,7 +40,15 @@ export declare class ListMemoriesResponseBodyItemsScope extends $dara.Model {
     sessionId?: string;
     /**
      * @remarks
-     * The user ID. The length is limited to 1 to 128 UTF-8 bytes, and the value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with a user ID.
+     * The business team ID defined by the caller. This field cannot be empty when provided and can be up to 128 UTF-8 bytes in length.
+     *
+     * @example
+     * team-001
+     */
+    teamId?: string;
+    /**
+     * @remarks
+     * The user ID. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with a user ID.
      *
      * @example
      * user-001
@@ -80,6 +90,9 @@ export declare class ListMemoriesResponseBodyItems extends $dara.Model {
     /**
      * @remarks
      * The memory metadata.
+     *
+     * @example
+     * {"topic":"hiking"}
      */
     metadata?: {
         [key: string]: string;
@@ -91,12 +104,40 @@ export declare class ListMemoriesResponseBodyItems extends $dara.Model {
     scope?: ListMemoriesResponseBodyItemsScope;
     /**
      * @remarks
+     * The source of the memory. Valid values:
+     * - session_extraction: Extracted from session events.
+     * - content_extraction: Extracted from text or messages.
+     * - direct: Written directly.
+     *
+     * @example
+     * session_extraction
+     */
+    source?: string;
+    /**
+     * @remarks
+     * The memory content type. Valid values:
+     * - semantic: Semantic memory.
+     * - skill: Skill.
+     * - user_profile: User preference.
+     * - session_summary: Session summary.
+     *
+     * @example
+     * semantic
+     */
+    type?: string;
+    /**
+     * @remarks
      * The last update time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
      *
      * @example
      * 2026-09-23T10:05:00Z
      */
     updatedAt?: string;
+    /**
+     * @remarks
+     * Indicates whether the memory is valid. A value of false indicates that the memory is revoked and is not included in valid memory retrieval.
+     */
+    valid?: boolean;
     static names(): {
         [key: string]: string;
     };
@@ -127,7 +168,7 @@ export declare class ListMemoriesResponseBody extends $dara.Model {
     httpStatusCode?: number;
     /**
      * @remarks
-     * The memory list.
+     * The list of memories.
      */
     items?: ListMemoriesResponseBodyItems[];
     /**
@@ -167,6 +208,14 @@ export declare class ListMemoriesResponseBody extends $dara.Model {
      * Indicates whether the request is successful.
      */
     success?: boolean;
+    /**
+     * @remarks
+     * The total number of records.
+     *
+     * @example
+     * null
+     */
+    totalCount?: number;
     static names(): {
         [key: string]: string;
     };

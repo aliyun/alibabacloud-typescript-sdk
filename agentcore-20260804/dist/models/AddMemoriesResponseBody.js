@@ -50,17 +50,22 @@ class AddMemoriesResponseBodyData extends $dara.Model {
         return {
             memories: 'memories',
             taskId: 'taskId',
+            taskIds: 'taskIds',
         };
     }
     static types() {
         return {
             memories: { 'type': 'array', 'itemType': AddMemoriesResponseBodyDataMemories },
             taskId: 'string',
+            taskIds: { 'type': 'array', 'itemType': 'string' },
         };
     }
     validate() {
         if (Array.isArray(this.memories)) {
             $dara.Model.validateArray(this.memories);
+        }
+        if (Array.isArray(this.taskIds)) {
+            $dara.Model.validateArray(this.taskIds);
         }
         super.validate();
     }

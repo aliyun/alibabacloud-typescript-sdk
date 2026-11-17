@@ -26,7 +26,7 @@ export declare class DeleteMemoryResponseBody extends $dara.Model {
     message?: string;
     /**
      * @remarks
-     * The request ID.
+     * The ID of the request.
      *
      * @example
      * 01A00000-0000-0000-0000-000000000001

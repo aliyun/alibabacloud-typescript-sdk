@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UpdateManagedAgentRequest = exports.UpdateManagedAgentRequestBody = exports.UpdateManagedAgentRequestBodyTools = exports.UpdateManagedAgentRequestBodyTemplate = exports.UpdateManagedAgentRequestBodyTemplateAiRegistry = exports.UpdateManagedAgentRequestBodySubAgents = exports.UpdateManagedAgentRequestBodySubAgentsSkills = exports.UpdateManagedAgentRequestBodySkills = exports.UpdateManagedAgentRequestBodySkillsVersionSelector = exports.UpdateManagedAgentRequestBodyRuntime = exports.UpdateManagedAgentRequestBodyRuntimeSessionPolicy = exports.UpdateManagedAgentRequestBodyRuntimeHpa = exports.UpdateManagedAgentRequestBodyRuntimeCompute = exports.UpdateManagedAgentRequestBodyPromptVariables = exports.UpdateManagedAgentRequestBodyOssMounts = exports.UpdateManagedAgentRequestBodyNetwork = exports.UpdateManagedAgentRequestBodyNetworkAccessVpc = exports.UpdateManagedAgentRequestBodyNetworkAccessInternet = exports.UpdateManagedAgentRequestBodyModel = exports.UpdateManagedAgentRequestBodyModelQuota = exports.UpdateManagedAgentRequestBodyHarness = exports.UpdateManagedAgentRequestBodyHarnessConfiguration = exports.UpdateManagedAgentRequestBodyEnvironment = exports.UpdateManagedAgentRequestBodyEnvironmentVariables = exports.UpdateManagedAgentRequestBodyEnvironmentCredentialReferences = exports.UpdateManagedAgentRequestBodyAgenticFsMounts = void 0;
+exports.UpdateManagedAgentRequest = exports.UpdateManagedAgentRequestBody = exports.UpdateManagedAgentRequestBodyTools = exports.UpdateManagedAgentRequestBodyTemplate = exports.UpdateManagedAgentRequestBodyTemplateAiRegistry = exports.UpdateManagedAgentRequestBodySubAgents = exports.UpdateManagedAgentRequestBodySubAgentsSkills = exports.UpdateManagedAgentRequestBodySkills = exports.UpdateManagedAgentRequestBodySkillsVersionSelector = exports.UpdateManagedAgentRequestBodyRuntime = exports.UpdateManagedAgentRequestBodyRuntimeSessionPolicy = exports.UpdateManagedAgentRequestBodyRuntimeHpa = exports.UpdateManagedAgentRequestBodyRuntimeCompute = exports.UpdateManagedAgentRequestBodyPromptVariables = exports.UpdateManagedAgentRequestBodyOssMounts = exports.UpdateManagedAgentRequestBodyNetwork = exports.UpdateManagedAgentRequestBodyNetworkAccessVpc = exports.UpdateManagedAgentRequestBodyNetworkAccessInternet = exports.UpdateManagedAgentRequestBodyModel = exports.UpdateManagedAgentRequestBodyModelQuota = exports.UpdateManagedAgentRequestBodyHarness = exports.UpdateManagedAgentRequestBodyHarnessConfiguration = exports.UpdateManagedAgentRequestBodyEnvironment = exports.UpdateManagedAgentRequestBodyEnvironmentVariables = exports.UpdateManagedAgentRequestBodyEnvironmentCredentialReferences = exports.UpdateManagedAgentRequestBodyContextConfiguration = exports.UpdateManagedAgentRequestBodyContextConfigurationBindings = exports.UpdateManagedAgentRequestBodyAgenticFsMounts = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
 class UpdateManagedAgentRequestBodyAgenticFsMounts extends $dara.Model {
@@ -51,6 +51,51 @@ class UpdateManagedAgentRequestBodyAgenticFsMounts extends $dara.Model {
     }
 }
 exports.UpdateManagedAgentRequestBodyAgenticFsMounts = UpdateManagedAgentRequestBodyAgenticFsMounts;
+class UpdateManagedAgentRequestBodyContextConfigurationBindings extends $dara.Model {
+    static names() {
+        return {
+            resourceId: 'resourceId',
+            type: 'type',
+        };
+    }
+    static types() {
+        return {
+            resourceId: 'string',
+            type: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.UpdateManagedAgentRequestBodyContextConfigurationBindings = UpdateManagedAgentRequestBodyContextConfigurationBindings;
+class UpdateManagedAgentRequestBodyContextConfiguration extends $dara.Model {
+    static names() {
+        return {
+            bindings: 'bindings',
+            enabled: 'enabled',
+        };
+    }
+    static types() {
+        return {
+            bindings: { 'type': 'array', 'itemType': UpdateManagedAgentRequestBodyContextConfigurationBindings },
+            enabled: 'boolean',
+        };
+    }
+    validate() {
+        if (Array.isArray(this.bindings)) {
+            $dara.Model.validateArray(this.bindings);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.UpdateManagedAgentRequestBodyContextConfiguration = UpdateManagedAgentRequestBodyContextConfiguration;
 class UpdateManagedAgentRequestBodyEnvironmentCredentialReferences extends $dara.Model {
     static names() {
         return {
@@ -594,6 +639,7 @@ class UpdateManagedAgentRequestBody extends $dara.Model {
             accessMode: 'accessMode',
             accessScope: 'accessScope',
             agenticFsMounts: 'agenticFsMounts',
+            contextConfiguration: 'contextConfiguration',
             description: 'description',
             environment: 'environment',
             harness: 'harness',
@@ -615,6 +661,7 @@ class UpdateManagedAgentRequestBody extends $dara.Model {
             accessMode: 'string',
             accessScope: 'string',
             agenticFsMounts: { 'type': 'array', 'itemType': UpdateManagedAgentRequestBodyAgenticFsMounts },
+            contextConfiguration: UpdateManagedAgentRequestBodyContextConfiguration,
             description: 'string',
             environment: UpdateManagedAgentRequestBodyEnvironment,
             harness: UpdateManagedAgentRequestBodyHarness,
@@ -634,6 +681,9 @@ class UpdateManagedAgentRequestBody extends $dara.Model {
     validate() {
         if (Array.isArray(this.agenticFsMounts)) {
             $dara.Model.validateArray(this.agenticFsMounts);
+        }
+        if (this.contextConfiguration && typeof this.contextConfiguration.validate === 'function') {
+            this.contextConfiguration.validate();
         }
         if (this.environment && typeof this.environment.validate === 'function') {
             this.environment.validate();

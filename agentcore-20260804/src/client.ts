@@ -34,12 +34,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Writes messages or text to a memory store. By default, sync is set to true, which synchronously waits for extraction and returns only memories (an empty array is allowed). If sync is set to false, it returns only a taskId that can be queried by using GetMemoryTask.
+   * Extracts memories from text or messages, or directly writes organized memories. When the extract parameter is omitted or set to true, either the text parameter or non-empty messages must be provided. When the extract parameter is set to false, the memories parameter is used. When the sync parameter is omitted or set to true, the operation waits for processing to complete and returns memory references. An empty array is returned if no new memories are generated. When the sync parameter is set to false, a task ID is returned, and you can use GetMemoryTask to query the result. Direct writes do not create extraction tasks.
    * 
    * @remarks
-   * Writes messages or text to a memory store to extract long-term memory for subsequent retrieval and use.
-   * - sync omitted or set to true: Waits for extraction to complete and returns memories. If no memory is extracted, an empty array is returned.
-   * - sync=false: Returns a taskId. You can query the extraction progress and results by using [GetMemoryTask](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMemoryTask).
+   * Writes messages or text to a memory store to fetch long-term memory to retrieve and use later.
+   * - If `sync` is omitted or set to `true`: waits for the extraction to complete and returns `memories`. Returns an empty array if no memories are extracted.
+   * - If `sync` is set to `false`: returns a `taskId`. You can use [GetMemoryTask](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMemoryTask) to query the extraction progress and results.
    * 
    * @param tmpReq - AddMemoriesRequest
    * @param headers - map
@@ -78,12 +78,12 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Writes messages or text to a memory store. By default, sync is set to true, which synchronously waits for extraction and returns only memories (an empty array is allowed). If sync is set to false, it returns only a taskId that can be queried by using GetMemoryTask.
+   * Extracts memories from text or messages, or directly writes organized memories. When the extract parameter is omitted or set to true, either the text parameter or non-empty messages must be provided. When the extract parameter is set to false, the memories parameter is used. When the sync parameter is omitted or set to true, the operation waits for processing to complete and returns memory references. An empty array is returned if no new memories are generated. When the sync parameter is set to false, a task ID is returned, and you can use GetMemoryTask to query the result. Direct writes do not create extraction tasks.
    * 
    * @remarks
-   * Writes messages or text to a memory store to extract long-term memory for subsequent retrieval and use.
-   * - sync omitted or set to true: Waits for extraction to complete and returns memories. If no memory is extracted, an empty array is returned.
-   * - sync=false: Returns a taskId. You can query the extraction progress and results by using [GetMemoryTask](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMemoryTask).
+   * Writes messages or text to a memory store to fetch long-term memory to retrieve and use later.
+   * - If `sync` is omitted or set to `true`: waits for the extraction to complete and returns `memories`. Returns an empty array if no memories are extracted.
+   * - If `sync` is set to `false`: returns a `taskId`. You can use [GetMemoryTask](https://api.aliyun.com/document/AgentCore/2026-08-04/GetMemoryTask) to query the extraction progress and results.
    * 
    * @param request - AddMemoriesRequest
    * @returns AddMemoriesResponse
@@ -786,6 +786,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Writes messages, summaries, or session fork events in batches. Each batch supports 1 to 100 events and returns the write results one by one in the same order as the request. A successful request does not indicate that every event is written successfully, nor does it indicate that memory extraction is complete. The session title and metadata are set only when the session is created for the first time. Subsequent writes do not update existing session information.
+   * 
+   * @remarks
+   * Writes messages, summaries, or session fork events in batches. Each batch supports 1 to 100 events and returns the write results one by one in the same order as the request. A successful request does not indicate that every event is written successfully, nor does it indicate that memory extraction is complete. The session title and metadata are set only when the session is created for the first time. Subsequent writes do not update existing session information.
+   * 
+   * @param tmpReq - CreateEventsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateEventsResponse
+   */
+  async createEventsWithOptions(workspaceId: string, memoryStoreName: string, tmpReq: $_model.CreateEventsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateEventsResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateEventsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateEvents",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/events`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateEventsResponse>(await this.callApi(params, req, runtime), new $_model.CreateEventsResponse({}));
+  }
+
+  /**
+   * Writes messages, summaries, or session fork events in batches. Each batch supports 1 to 100 events and returns the write results one by one in the same order as the request. A successful request does not indicate that every event is written successfully, nor does it indicate that memory extraction is complete. The session title and metadata are set only when the session is created for the first time. Subsequent writes do not update existing session information.
+   * 
+   * @remarks
+   * Writes messages, summaries, or session fork events in batches. Each batch supports 1 to 100 events and returns the write results one by one in the same order as the request. A successful request does not indicate that every event is written successfully, nor does it indicate that memory extraction is complete. The session title and metadata are set only when the session is created for the first time. Subsequent writes do not update existing session information.
+   * 
+   * @param request - CreateEventsRequest
+   * @returns CreateEventsResponse
+   */
+  async createEvents(workspaceId: string, memoryStoreName: string, request: $_model.CreateEventsRequest): Promise<$_model.CreateEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createEventsWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
+  }
+
+  /**
    * Creates an agent that runs in an external environment, saves the configurations for the platform model, instructions, tools, and skills, and asynchronously processes the onboarding configuration.
    * 
    * @remarks
@@ -1263,18 +1320,18 @@ export default class Client extends OpenApi {
    * @remarks
    * Creates an agent by using a platform-managed runtime framework. This corresponds to the "Managed Harness" creation method in the console, where you can configure the model, instructions, and skills.
    * ### Required configurations
-   * Submit `name`, `model`, and `runtime`. The `runtime` parameter must include both `compute` and `sessionPolicy`. The agent is deployed and run by the platform. You do not need to provide a code package or container image.
+   * Submit `name`, `model`, and `runtime`. The `runtime` parameter must include both `compute` and `sessionPolicy`. The agent is deployed and run by the platform, so you do not need to provide a code package or container image.
    * ### Harness and model
    * | Harness | Model and connector configurations |
    * | --- | --- |
-   * | `qwenpaw` | If you omit `harness` during creation, this type is used by default. Set `model.modelConnectionId` to the workspace model connection ID, and set `model.modelName` to the name of the model created under this connection. |
-   * | `qodercli` | The qodercli connector must be enabled in the workspace. Set `model.modelConnectionId` to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). You can omit `model.modelName`. |
-   * `harness` is an object, such as `{"type":"qwenpaw"}`. For qodercli, set `harness.configuration.connectorServiceAccountKey` to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. You can omit this parameter if only one key record exists. You must specify it if multiple records exist. `connectorServiceAccountName` is the account name. Do not specify these two binding fields for qwenpaw.
+   * | `qwenpaw` | If `harness` is omitted during creation, this type is used by default. Set `model.modelConnectionId` to the workspace model connection ID, and set `model.modelName` to the name of the model created under this connection. |
+   * | `qodercli` | The qodercli connector must be enabled in the workspace. Set `model.modelConnectionId` to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). `model.modelName` can be omitted. |
+   * `harness` is an object, such as `{"type":"qwenpaw"}`. For qodercli, set `harness.configuration.connectorServiceAccountKey` to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. This parameter can be omitted if there is only one key record, but must be specified if there are multiple records. `connectorServiceAccountName` is the account name. Do not specify these two binding fields for qwenpaw.
    * The harness type cannot be changed after creation.
    * ### Instructions, templates, and skills
-   * `skills` uses the skill names in the workspace AI registry. If `sourceType=REFERENCE`, the version is referenced by `versionSelector`: use `LABEL` with a label name, or `VERSION` with a specific version number. If the selector is omitted, `LABEL/latest` is used. If `sourceType=STATIC`, static files bundled with the package are used, and no version selector is provided.
+   * `skills` uses the skill names in the workspace AI registry. If `sourceType=REFERENCE`, versions are referenced by `versionSelector`: use `LABEL` with a tag name, or `VERSION` with a specific version number. If the selector is omitted, `LABEL/latest` is used. If `sourceType=STATIC`, static files bundled with the package are used, and no version selector is provided.
    * For `template.aiRegistry`, specify the agent template name and an optional version. If the version is omitted during creation, the published version is resolved and fixed. When a template is used, `instruction`, `promptVariables`, and `subAgents` are derived from the template, and the corresponding fields in the current request do not take effect. Explicit skills and template skills are recorded separately. You can query the target and effective versions by using `configuredSkills` and `skills`.
-   * If no template is used, you can set instructions by using `instruction`, declare variables by using `promptVariables`, and configure up to 20 sub-agents by using `subAgents`. The name and instruction of a sub-agent cannot be empty. Each sub-agent name must be unique. Tools currently use `tools[].type=MCP`.
+   * If no template is used, you can set instructions by using `instruction`, declare variables by using `promptVariables`, and configure up to 20 sub-agents by using `subAgents`. The name and instruction of a sub-agent cannot be empty, and the name of each sub-agent must be unique. Tools currently use `tools[].type=MCP`.
    * ### Runtime configurations and mounts
    * Omitted fields in `runtime.hpa` use the following default values:
    * | Field | Default value | Valid values and description |
@@ -1286,7 +1343,7 @@ export default class Client extends OpenApi {
    * | `sessionTtlSeconds` | `600` | The maximum idle time of a session, in seconds. Valid values: 60 to 86400. |
    * If `sessionPolicy.type=ISOLATED_HEADER_FIELD`, you must provide `headerName`. Do not specify this parameter for other policies.
    * If `network` is provided, you must specify both `accessInternet.enabled` and `accessVpc.enabled`. Actual access is restricted by the workspace network configurations.
-   * The total number of `ossMounts` and `agenticFsMounts` cannot exceed 10. The mount target `mountPath` uses an absolute path in the container, such as `/data/train`. It cannot conflict with platform-reserved directories, be duplicated, or form parent-child directory overwrites.
+   * The total number of `ossMounts` and `agenticFsMounts` cannot exceed 10. The mount target `mountPath` uses an absolute path in the container, such as `/data/train`. It cannot conflict with platform-reserved directories, and cannot be duplicated or form parent-child directory overwrites.
    * File mounts are used to allow the agent to access persistent data. When you use AgenticFS, you can first complete the access point authorization by using [GetWorkspaceAgenticFsMountRamAuthorizeUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspaceAgenticFsMountRamAuthorizeUrl).
    * The `path` for an OSS mount must be a non-empty directory prefix in a bucket. The `server` for an AgenticFS mount is the access point domain name, without a protocol, port, or path. The `path` is an existing non-empty relative directory in the access point. You cannot mount the root directory of the access point. If `readOnly` is omitted, the default value is `false`.
    * `environment.variables` configures environment variables, and `environment.credentialReferences` references workspace credentials. Environment variable names must be non-empty and unique, and values must be strings.
@@ -1341,18 +1398,18 @@ export default class Client extends OpenApi {
    * @remarks
    * Creates an agent by using a platform-managed runtime framework. This corresponds to the "Managed Harness" creation method in the console, where you can configure the model, instructions, and skills.
    * ### Required configurations
-   * Submit `name`, `model`, and `runtime`. The `runtime` parameter must include both `compute` and `sessionPolicy`. The agent is deployed and run by the platform. You do not need to provide a code package or container image.
+   * Submit `name`, `model`, and `runtime`. The `runtime` parameter must include both `compute` and `sessionPolicy`. The agent is deployed and run by the platform, so you do not need to provide a code package or container image.
    * ### Harness and model
    * | Harness | Model and connector configurations |
    * | --- | --- |
-   * | `qwenpaw` | If you omit `harness` during creation, this type is used by default. Set `model.modelConnectionId` to the workspace model connection ID, and set `model.modelName` to the name of the model created under this connection. |
-   * | `qodercli` | The qodercli connector must be enabled in the workspace. Set `model.modelConnectionId` to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). You can omit `model.modelName`. |
-   * `harness` is an object, such as `{"type":"qwenpaw"}`. For qodercli, set `harness.configuration.connectorServiceAccountKey` to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. You can omit this parameter if only one key record exists. You must specify it if multiple records exist. `connectorServiceAccountName` is the account name. Do not specify these two binding fields for qwenpaw.
+   * | `qwenpaw` | If `harness` is omitted during creation, this type is used by default. Set `model.modelConnectionId` to the workspace model connection ID, and set `model.modelName` to the name of the model created under this connection. |
+   * | `qodercli` | The qodercli connector must be enabled in the workspace. Set `model.modelConnectionId` to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). `model.modelName` can be omitted. |
+   * `harness` is an object, such as `{"type":"qwenpaw"}`. For qodercli, set `harness.configuration.connectorServiceAccountKey` to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. This parameter can be omitted if there is only one key record, but must be specified if there are multiple records. `connectorServiceAccountName` is the account name. Do not specify these two binding fields for qwenpaw.
    * The harness type cannot be changed after creation.
    * ### Instructions, templates, and skills
-   * `skills` uses the skill names in the workspace AI registry. If `sourceType=REFERENCE`, the version is referenced by `versionSelector`: use `LABEL` with a label name, or `VERSION` with a specific version number. If the selector is omitted, `LABEL/latest` is used. If `sourceType=STATIC`, static files bundled with the package are used, and no version selector is provided.
+   * `skills` uses the skill names in the workspace AI registry. If `sourceType=REFERENCE`, versions are referenced by `versionSelector`: use `LABEL` with a tag name, or `VERSION` with a specific version number. If the selector is omitted, `LABEL/latest` is used. If `sourceType=STATIC`, static files bundled with the package are used, and no version selector is provided.
    * For `template.aiRegistry`, specify the agent template name and an optional version. If the version is omitted during creation, the published version is resolved and fixed. When a template is used, `instruction`, `promptVariables`, and `subAgents` are derived from the template, and the corresponding fields in the current request do not take effect. Explicit skills and template skills are recorded separately. You can query the target and effective versions by using `configuredSkills` and `skills`.
-   * If no template is used, you can set instructions by using `instruction`, declare variables by using `promptVariables`, and configure up to 20 sub-agents by using `subAgents`. The name and instruction of a sub-agent cannot be empty. Each sub-agent name must be unique. Tools currently use `tools[].type=MCP`.
+   * If no template is used, you can set instructions by using `instruction`, declare variables by using `promptVariables`, and configure up to 20 sub-agents by using `subAgents`. The name and instruction of a sub-agent cannot be empty, and the name of each sub-agent must be unique. Tools currently use `tools[].type=MCP`.
    * ### Runtime configurations and mounts
    * Omitted fields in `runtime.hpa` use the following default values:
    * | Field | Default value | Valid values and description |
@@ -1364,7 +1421,7 @@ export default class Client extends OpenApi {
    * | `sessionTtlSeconds` | `600` | The maximum idle time of a session, in seconds. Valid values: 60 to 86400. |
    * If `sessionPolicy.type=ISOLATED_HEADER_FIELD`, you must provide `headerName`. Do not specify this parameter for other policies.
    * If `network` is provided, you must specify both `accessInternet.enabled` and `accessVpc.enabled`. Actual access is restricted by the workspace network configurations.
-   * The total number of `ossMounts` and `agenticFsMounts` cannot exceed 10. The mount target `mountPath` uses an absolute path in the container, such as `/data/train`. It cannot conflict with platform-reserved directories, be duplicated, or form parent-child directory overwrites.
+   * The total number of `ossMounts` and `agenticFsMounts` cannot exceed 10. The mount target `mountPath` uses an absolute path in the container, such as `/data/train`. It cannot conflict with platform-reserved directories, and cannot be duplicated or form parent-child directory overwrites.
    * File mounts are used to allow the agent to access persistent data. When you use AgenticFS, you can first complete the access point authorization by using [GetWorkspaceAgenticFsMountRamAuthorizeUrl](https://api.aliyun.com/document/AgentCore/2026-08-04/GetWorkspaceAgenticFsMountRamAuthorizeUrl).
    * The `path` for an OSS mount must be a non-empty directory prefix in a bucket. The `server` for an AgenticFS mount is the access point domain name, without a protocol, port, or path. The `path` is an existing non-empty relative directory in the access point. You cannot mount the root directory of the access point. If `readOnly` is omitted, the default value is `false`.
    * `environment.variables` configures environment variables, and `environment.credentialReferences` references workspace credentials. Environment variable names must be non-empty and unique, and values must be strings.
@@ -1447,6 +1504,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createMcpWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Creates an extraction rule for a memory store, specifying the rule name, enabling status, and extraction strategy. After the rule is enabled, extraction is triggered when 8 pending extraction events accumulate in a session or when no new pending extraction events are added for 60 consecutive seconds.
+   * 
+   * @remarks
+   * Creates an extraction rule for a memory store, specifying the rule name, enabling status, and extraction strategy. After the rule is enabled, extraction is triggered when 8 pending extraction events accumulate in a session or when no new pending extraction events are added for 60 consecutive seconds.
+   * 
+   * @param tmpReq - CreateMemoryRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateMemoryRuleResponse
+   */
+  async createMemoryRuleWithOptions(workspaceId: string, memoryStoreName: string, tmpReq: $_model.CreateMemoryRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateMemoryRuleResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateMemoryRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateMemoryRule",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/memory-rules`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateMemoryRuleResponse>(await this.callApi(params, req, runtime), new $_model.CreateMemoryRuleResponse({}));
+  }
+
+  /**
+   * Creates an extraction rule for a memory store, specifying the rule name, enabling status, and extraction strategy. After the rule is enabled, extraction is triggered when 8 pending extraction events accumulate in a session or when no new pending extraction events are added for 60 consecutive seconds.
+   * 
+   * @remarks
+   * Creates an extraction rule for a memory store, specifying the rule name, enabling status, and extraction strategy. After the rule is enabled, extraction is triggered when 8 pending extraction events accumulate in a session or when no new pending extraction events are added for 60 consecutive seconds.
+   * 
+   * @param request - CreateMemoryRuleRequest
+   * @returns CreateMemoryRuleResponse
+   */
+  async createMemoryRule(workspaceId: string, memoryStoreName: string, request: $_model.CreateMemoryRuleRequest): Promise<$_model.CreateMemoryRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createMemoryRuleWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
   }
 
   /**
@@ -1701,6 +1815,69 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.createPermissionRulesWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Creates a service endpoint.
+   * 
+   * @remarks
+   * Creates a named service endpoint that routes to a specific agent version within a specified workspace. For the Router type that runs independently, specifying target.agentVersion registers the independent deployment of the service endpoint. A successful response does not indicate that the deployment is complete. You must check the status of the service endpoint to confirm the deployment status. Service endpoints for collaboration components are created internally by the platform.
+   * 
+   * @param tmpReq - CreateServiceEndpointRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateServiceEndpointResponse
+   */
+  async createServiceEndpointWithOptions(workspaceId: string, tmpReq: $_model.CreateServiceEndpointRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.CreateServiceEndpointResponse> {
+    tmpReq.validate();
+    let request = new $_model.CreateServiceEndpointShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateServiceEndpoint",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/service-endpoints`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateServiceEndpointResponse>(await this.callApi(params, req, runtime), new $_model.CreateServiceEndpointResponse({}));
+  }
+
+  /**
+   * Creates a service endpoint.
+   * 
+   * @remarks
+   * Creates a named service endpoint that routes to a specific agent version within a specified workspace. For the Router type that runs independently, specifying target.agentVersion registers the independent deployment of the service endpoint. A successful response does not indicate that the deployment is complete. You must check the status of the service endpoint to confirm the deployment status. Service endpoints for collaboration components are created internally by the platform.
+   * 
+   * @param request - CreateServiceEndpointRequest
+   * @returns CreateServiceEndpointResponse
+   */
+  async createServiceEndpoint(workspaceId: string, request: $_model.CreateServiceEndpointRequest): Promise<$_model.CreateServiceEndpointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.createServiceEndpointWithOptions(workspaceId, request, headers, runtime);
   }
 
   /**
@@ -2356,6 +2533,63 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Deletes events written by a specified session in batches, supporting 1 to 100 event IDs per batch. Returns the deletion results for each event. Events inherited from a parent session cannot be deleted in a child session. Deleting events does not delete extracted memories.
+   * 
+   * @remarks
+   * Deletes events written by a specified session in batches, supporting 1 to 100 event IDs per batch. Returns the deletion results for each event. Events inherited from a parent session cannot be deleted in a child session. Deleting events does not delete extracted memories.
+   * 
+   * @param tmpReq - DeleteEventsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteEventsResponse
+   */
+  async deleteEventsWithOptions(workspaceId: string, memoryStoreName: string, tmpReq: $_model.DeleteEventsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteEventsResponse> {
+    tmpReq.validate();
+    let request = new $_model.DeleteEventsShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteEvents",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/events`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteEventsResponse>(await this.callApi(params, req, runtime), new $_model.DeleteEventsResponse({}));
+  }
+
+  /**
+   * Deletes events written by a specified session in batches, supporting 1 to 100 event IDs per batch. Returns the deletion results for each event. Events inherited from a parent session cannot be deleted in a child session. Deleting events does not delete extracted memories.
+   * 
+   * @remarks
+   * Deletes events written by a specified session in batches, supporting 1 to 100 event IDs per batch. Returns the deletion results for each event. Events inherited from a parent session cannot be deleted in a child session. Deleting events does not delete extracted memories.
+   * 
+   * @param request - DeleteEventsRequest
+   * @returns DeleteEventsResponse
+   */
+  async deleteEvents(workspaceId: string, memoryStoreName: string, request: $_model.DeleteEventsRequest): Promise<$_model.DeleteEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteEventsWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
+  }
+
+  /**
    * Deletes a managed agent from a specified workspace and asynchronously cleans up its associated platform resources.
    * 
    * @remarks
@@ -2704,10 +2938,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a long-term memory by memory ID.
+   * Deletes a long-term memory based on the memory ID.
    * 
    * @remarks
-   * Deletes a long-term memory by memory ID.
+   * Deletes a long-term memory based on the memory ID.
    * 
    * @param request - DeleteMemoryRequest
    * @param headers - map
@@ -2734,10 +2968,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a long-term memory by memory ID.
+   * Deletes a long-term memory based on the memory ID.
    * 
    * @remarks
-   * Deletes a long-term memory by memory ID.
+   * Deletes a long-term memory based on the memory ID.
    * 
    * @param request - DeleteMemoryRequest
    * @returns DeleteMemoryResponse
@@ -2749,7 +2983,111 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Asynchronously deletes a MemoryStore and all its long-term memory.
+   * Deletes a specified memory rule. The system no longer uses this rule to extract subsequent new content. Existing memories are retained. Deleting the same rule multiple times returns a success response.
+   * 
+   * @remarks
+   * Deletes a specified memory rule. The system no longer uses this rule to extract subsequent new content. Existing memories are retained. Deleting the same rule multiple times returns a success response.
+   * 
+   * @param request - DeleteMemoryRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMemoryRuleResponse
+   */
+  async deleteMemoryRuleWithOptions(workspaceId: string, memoryStoreName: string, ruleId: string, request: $_model.DeleteMemoryRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMemoryRuleResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMemoryRule",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/memory-rules/${$dara.URL.percentEncode(ruleId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMemoryRuleResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMemoryRuleResponse({}));
+  }
+
+  /**
+   * Deletes a specified memory rule. The system no longer uses this rule to extract subsequent new content. Existing memories are retained. Deleting the same rule multiple times returns a success response.
+   * 
+   * @remarks
+   * Deletes a specified memory rule. The system no longer uses this rule to extract subsequent new content. Existing memories are retained. Deleting the same rule multiple times returns a success response.
+   * 
+   * @param request - DeleteMemoryRuleRequest
+   * @returns DeleteMemoryRuleResponse
+   */
+  async deleteMemoryRule(workspaceId: string, memoryStoreName: string, ruleId: string, request: $_model.DeleteMemoryRuleRequest): Promise<$_model.DeleteMemoryRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteMemoryRuleWithOptions(workspaceId, memoryStoreName, ruleId, request, headers, runtime);
+  }
+
+  /**
+   * Deletes a session and its queryable event history within a specified association scope. If you write to the same association scope and sessionId again, a new session is created, and the history of the deleted session cannot be queried. Extracted memories are retained after the session is deleted.
+   * 
+   * @remarks
+   * Deletes a session and its queryable event history within a specified association scope. If you write to the same association scope and sessionId again, a new session is created, and the history of the deleted session cannot be queried. Extracted memories are retained after the session is deleted.
+   * 
+   * @param request - DeleteMemorySessionRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns DeleteMemorySessionResponse
+   */
+  async deleteMemorySessionWithOptions(workspaceId: string, memoryStoreName: string, sessionId: string, request: $_model.DeleteMemorySessionRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.DeleteMemorySessionResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["agentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.teamId)) {
+      query["teamId"] = request.teamId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["userId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "DeleteMemorySession",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/memory-sessions/${$dara.URL.percentEncode(sessionId)}`,
+      method: "DELETE",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.DeleteMemorySessionResponse>(await this.callApi(params, req, runtime), new $_model.DeleteMemorySessionResponse({}));
+  }
+
+  /**
+   * Deletes a session and its queryable event history within a specified association scope. If you write to the same association scope and sessionId again, a new session is created, and the history of the deleted session cannot be queried. Extracted memories are retained after the session is deleted.
+   * 
+   * @remarks
+   * Deletes a session and its queryable event history within a specified association scope. If you write to the same association scope and sessionId again, a new session is created, and the history of the deleted session cannot be queried. Extracted memories are retained after the session is deleted.
+   * 
+   * @param request - DeleteMemorySessionRequest
+   * @returns DeleteMemorySessionResponse
+   */
+  async deleteMemorySession(workspaceId: string, memoryStoreName: string, sessionId: string, request: $_model.DeleteMemorySessionRequest): Promise<$_model.DeleteMemorySessionResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.deleteMemorySessionWithOptions(workspaceId, memoryStoreName, sessionId, request, headers, runtime);
+  }
+
+  /**
+   * Asynchronously deletes a MemoryStore and all long-term memory within it.
    * 
    * @remarks
    * Asynchronously deletes a specified long-term memory store (MemoryStore) and all long-term memories within it.
@@ -2779,7 +3117,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Asynchronously deletes a MemoryStore and all its long-term memory.
+   * Asynchronously deletes a MemoryStore and all long-term memory within it.
    * 
    * @remarks
    * Asynchronously deletes a specified long-term memory store (MemoryStore) and all long-term memories within it.
@@ -4823,7 +5161,7 @@ export default class Client extends OpenApi {
    * | `sandboxPhaseCounts` | The current snapshot of the number of instances in each phase. |
    * Successful configuration processing does not mean that all old instances have been replaced. To view specific instances or active sessions, call [ListSandboxes](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxes) and [ListSandboxSessions](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxSessions) respectively.
    * ### Harness and skill versions
-   * `harness.type` indicates the runtime framework determined at creation. The `connectorServiceAccountKey` of qodercli returns the ID of the bound account key record, not the original key.
+   * `harness.type` indicates the runtime framework determined at creation. For qodercli, `connectorServiceAccountKey` returns the ID of the bound account key record, not the original key.
    * `configuredSkills` are explicitly configured skills. `skills` contains the aggregated results of templates and explicit configurations. `resolvedVersion` is the current target version, and `appliedVersion` is the version that has taken effect at runtime. These two may differ during an update. `fromTemplate=true` indicates that the skill comes from a template.
    * If the queried agent does not exist, has been deleted, or does not belong to the specified workspace, a resource not found error is returned.
    * 
@@ -4866,7 +5204,7 @@ export default class Client extends OpenApi {
    * | `sandboxPhaseCounts` | The current snapshot of the number of instances in each phase. |
    * Successful configuration processing does not mean that all old instances have been replaced. To view specific instances or active sessions, call [ListSandboxes](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxes) and [ListSandboxSessions](https://api.aliyun.com/document/AgentCore/2026-08-04/ListSandboxSessions) respectively.
    * ### Harness and skill versions
-   * `harness.type` indicates the runtime framework determined at creation. The `connectorServiceAccountKey` of qodercli returns the ID of the bound account key record, not the original key.
+   * `harness.type` indicates the runtime framework determined at creation. For qodercli, `connectorServiceAccountKey` returns the ID of the bound account key record, not the original key.
    * `configuredSkills` are explicitly configured skills. `skills` contains the aggregated results of templates and explicit configurations. `resolvedVersion` is the current target version, and `appliedVersion` is the version that has taken effect at runtime. These two may differ during an update. `fromTemplate=true` indicates that the skill comes from a template.
    * If the queried agent does not exist, has been deleted, or does not belong to the specified workspace, a resource not found error is returned.
    * 
@@ -5043,10 +5381,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a long-term memory by memory ID.
+   * Queries the content, associated scope, metadata, source, type, and validity status based on the memory ID.
    * 
    * @remarks
-   * Queries a long-term memory by memory ID.
+   * Queries a long-term memory based on the memory ID.
    * 
    * @param request - GetMemoryRequest
    * @param headers - map
@@ -5073,10 +5411,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a long-term memory by memory ID.
+   * Queries the content, associated scope, metadata, source, type, and validity status based on the memory ID.
    * 
    * @remarks
-   * Queries a long-term memory by memory ID.
+   * Queries a long-term memory based on the memory ID.
    * 
    * @param request - GetMemoryRequest
    * @returns GetMemoryResponse
@@ -5088,10 +5426,55 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Queries the configuration and task statistics of a specified memory rule, including the number of tasks and the latest execution status.
+   * 
+   * @remarks
+   * Queries the configuration and task statistics of a specified memory rule, including the number of tasks and the latest execution status.
+   * 
+   * @param request - GetMemoryRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetMemoryRuleResponse
+   */
+  async getMemoryRuleWithOptions(workspaceId: string, memoryStoreName: string, ruleId: string, request: $_model.GetMemoryRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetMemoryRuleResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetMemoryRule",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/memory-rules/${$dara.URL.percentEncode(ruleId)}`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetMemoryRuleResponse>(await this.callApi(params, req, runtime), new $_model.GetMemoryRuleResponse({}));
+  }
+
+  /**
+   * Queries the configuration and task statistics of a specified memory rule, including the number of tasks and the latest execution status.
+   * 
+   * @remarks
+   * Queries the configuration and task statistics of a specified memory rule, including the number of tasks and the latest execution status.
+   * 
+   * @param request - GetMemoryRuleRequest
+   * @returns GetMemoryRuleResponse
+   */
+  async getMemoryRule(workspaceId: string, memoryStoreName: string, ruleId: string, request: $_model.GetMemoryRuleRequest): Promise<$_model.GetMemoryRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getMemoryRuleWithOptions(workspaceId, memoryStoreName, ruleId, request, headers, runtime);
+  }
+
+  /**
    * Queries the public information and current status of a MemoryStore in a specified workspace.
    * 
    * @remarks
-   * Queries the configuration and current status of a long-term memory store (MemoryStore) for viewing memory store information.
+   * Queries the configuration and current status of a long-term memory store (MemoryStore) to view memory store information.
    * 
    * @param request - GetMemoryStoreRequest
    * @param headers - map
@@ -5121,7 +5504,7 @@ export default class Client extends OpenApi {
    * Queries the public information and current status of a MemoryStore in a specified workspace.
    * 
    * @remarks
-   * Queries the configuration and current status of a long-term memory store (MemoryStore) for viewing memory store information.
+   * Queries the configuration and current status of a long-term memory store (MemoryStore) to view memory store information.
    * 
    * @param request - GetMemoryStoreRequest
    * @returns GetMemoryStoreResponse
@@ -5133,10 +5516,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the memory extraction task by using the taskId returned by the asynchronous AddMemories operation.
+   * Queries the status, input, execute results, and error message of a memory extraction node. A successful node may not generate new memories. If a fault occurs, check the error field for the cause.
    * 
    * @remarks
-   * Queries the progress and results of a memory extraction task by using the taskId returned when asynchronously writing data through [AddMemories](https://api.aliyun.com/document/AgentCore/2026-08-04/AddMemories).
+   * Uses the `taskId` returned by [AddMemories](https://api.aliyun.com/document/AgentCore/2026-08-04/AddMemories) during asynchronous writes to query the progress and results of a memory extraction task.
    * 
    * @param request - GetMemoryTaskRequest
    * @param headers - map
@@ -5163,10 +5546,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the memory extraction task by using the taskId returned by the asynchronous AddMemories operation.
+   * Queries the status, input, execute results, and error message of a memory extraction node. A successful node may not generate new memories. If a fault occurs, check the error field for the cause.
    * 
    * @remarks
-   * Queries the progress and results of a memory extraction task by using the taskId returned when asynchronously writing data through [AddMemories](https://api.aliyun.com/document/AgentCore/2026-08-04/AddMemories).
+   * Uses the `taskId` returned by [AddMemories](https://api.aliyun.com/document/AgentCore/2026-08-04/AddMemories) during asynchronous writes to query the progress and results of a memory extraction task.
    * 
    * @param request - GetMemoryTaskRequest
    * @returns GetMemoryTaskResponse
@@ -6593,6 +6976,77 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Performs a paged query on the events of a specified session in chronological order from oldest to newest, including the parent session history referenced when a session branch is created. The sessionId parameter is required, and other scope dimensions must match those used when the events were written. If you write or delete events during paging, the results of subsequent pages may be affected.
+   * 
+   * @remarks
+   * Performs a paged query on the events of a specified session in chronological order from oldest to newest, including the parent session history referenced when a session branch is created. The sessionId parameter is required, and other scope dimensions must match those used when the events were written. If you write or delete events during paging, the results of subsequent pages may be affected.
+   * 
+   * @param request - ListEventsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListEventsResponse
+   */
+  async listEventsWithOptions(workspaceId: string, memoryStoreName: string, request: $_model.ListEventsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListEventsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.agentId)) {
+      query["agentId"] = request.agentId;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.sessionId)) {
+      query["sessionId"] = request.sessionId;
+    }
+
+    if (!$dara.isNull(request.teamId)) {
+      query["teamId"] = request.teamId;
+    }
+
+    if (!$dara.isNull(request.userId)) {
+      query["userId"] = request.userId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListEvents",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/events`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListEventsResponse>(await this.callApi(params, req, runtime), new $_model.ListEventsResponse({}));
+  }
+
+  /**
+   * Performs a paged query on the events of a specified session in chronological order from oldest to newest, including the parent session history referenced when a session branch is created. The sessionId parameter is required, and other scope dimensions must match those used when the events were written. If you write or delete events during paging, the results of subsequent pages may be affected.
+   * 
+   * @remarks
+   * Performs a paged query on the events of a specified session in chronological order from oldest to newest, including the parent session history referenced when a session branch is created. The sessionId parameter is required, and other scope dimensions must match those used when the events were written. If you write or delete events during paging, the results of subsequent pages may be affected.
+   * 
+   * @param request - ListEventsRequest
+   * @returns ListEventsResponse
+   */
+  async listEvents(workspaceId: string, memoryStoreName: string, request: $_model.ListEventsRequest): Promise<$_model.ListEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listEventsWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
+  }
+
+  /**
    * Performs a paging query for the identity, configuration version, and status summary of managed agents in a workspace.
    * 
    * @remarks
@@ -7280,10 +7734,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query for long-term memory and supports independent paging and filtering by UserId, AgentId, and SessionId.
+   * Performs a paged query on memories in a memory store. Supports paging and filtering by associate scope, content type, source, validity status, and update time. Unspecified scope dimensions are excluded from filtering. If valid is omitted, only valid memories are returned. If valid is set to false, revoked memories are returned.
    * 
    * @remarks
-   * Performs a paged query for long-term memory and supports paging and filtering by `UserId`, `AgentId`, and `SessionId`.
+   * Performs a paged query on long-term memory. Supports paging and filtering by `UserId`, `AgentId`, and `SessionId`.
    * 
    * @param request - ListMemoriesRequest
    * @param headers - map
@@ -7309,8 +7763,32 @@ export default class Client extends OpenApi {
       query["sessionId"] = request.sessionId;
     }
 
+    if (!$dara.isNull(request.source)) {
+      query["source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.teamId)) {
+      query["teamId"] = request.teamId;
+    }
+
+    if (!$dara.isNull(request.types)) {
+      query["types"] = request.types;
+    }
+
+    if (!$dara.isNull(request.updatedAtFrom)) {
+      query["updatedAtFrom"] = request.updatedAtFrom;
+    }
+
+    if (!$dara.isNull(request.updatedAtTo)) {
+      query["updatedAtTo"] = request.updatedAtTo;
+    }
+
     if (!$dara.isNull(request.userId)) {
       query["userId"] = request.userId;
+    }
+
+    if (!$dara.isNull(request.valid)) {
+      query["valid"] = request.valid;
     }
 
     let req = new $OpenApiUtil.OpenApiRequest({
@@ -7332,10 +7810,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query for long-term memory and supports independent paging and filtering by UserId, AgentId, and SessionId.
+   * Performs a paged query on memories in a memory store. Supports paging and filtering by associate scope, content type, source, validity status, and update time. Unspecified scope dimensions are excluded from filtering. If valid is omitted, only valid memories are returned. If valid is set to false, revoked memories are returned.
    * 
    * @remarks
-   * Performs a paged query for long-term memory and supports paging and filtering by `UserId`, `AgentId`, and `SessionId`.
+   * Performs a paged query on long-term memory. Supports paging and filtering by `UserId`, `AgentId`, and `SessionId`.
    * 
    * @param request - ListMemoriesRequest
    * @returns ListMemoriesResponse
@@ -7347,10 +7825,74 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query of raw messages by exact scope through paging. SessionId is required, and at least one of UserId or AgentId must be provided.
+   * Queries extraction rules in a memory store by using paging. Supports filtering by name and enabled status, and returns rule configurations.
    * 
    * @remarks
-   * Performs a paged query of the raw messages of a specific session in the memory store through paging, allowing you to view the session content used to generate long-term memory. SessionId is required, and at least one of UserId or AgentId must be provided to identify the target session.
+   * Queries extraction rules in a memory store by using paging. Supports filtering by name and enabled status, and returns rule configurations.
+   * 
+   * @param request - ListMemoryRulesRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMemoryRulesResponse
+   */
+  async listMemoryRulesWithOptions(workspaceId: string, memoryStoreName: string, request: $_model.ListMemoryRulesRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMemoryRulesResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.enabled)) {
+      query["enabled"] = request.enabled;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nameLike)) {
+      query["nameLike"] = request.nameLike;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMemoryRules",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/memory-rules`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMemoryRulesResponse>(await this.callApi(params, req, runtime), new $_model.ListMemoryRulesResponse({}));
+  }
+
+  /**
+   * Queries extraction rules in a memory store by using paging. Supports filtering by name and enabled status, and returns rule configurations.
+   * 
+   * @remarks
+   * Queries extraction rules in a memory store by using paging. Supports filtering by name and enabled status, and returns rule configurations.
+   * 
+   * @param request - ListMemoryRulesRequest
+   * @returns ListMemoryRulesResponse
+   */
+  async listMemoryRules(workspaceId: string, memoryStoreName: string, request: $_model.ListMemoryRulesRequest): Promise<$_model.ListMemoryRulesResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMemoryRulesWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
+  }
+
+  /**
+   * Performs a paging query for raw messages by exact scope. SessionId is required, and at least one of UserId or AgentId must be provided.
+   * 
+   * @remarks
+   * Performs a paging query for raw messages of a specific session in a memory store to view the session content used to generate long-term memory.
+   * `SessionId` is required, and at least one of `UserId` or `AgentId` must be provided to identify the target session.
    * 
    * @param request - ListMemorySessionMessagesRequest
    * @param headers - map
@@ -7399,10 +7941,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paged query of raw messages by exact scope through paging. SessionId is required, and at least one of UserId or AgentId must be provided.
+   * Performs a paging query for raw messages by exact scope. SessionId is required, and at least one of UserId or AgentId must be provided.
    * 
    * @remarks
-   * Performs a paged query of the raw messages of a specific session in the memory store through paging, allowing you to view the session content used to generate long-term memory. SessionId is required, and at least one of UserId or AgentId must be provided to identify the target session.
+   * Performs a paging query for raw messages of a specific session in a memory store to view the session content used to generate long-term memory.
+   * `SessionId` is required, and at least one of `UserId` or `AgentId` must be provided to identify the target session.
    * 
    * @param request - ListMemorySessionMessagesRequest
    * @returns ListMemorySessionMessagesResponse
@@ -7414,10 +7957,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query for sessions in a MemoryStore. You can filter sessions independently by user ID and agent ID.
+   * Performs a paging query of sessions in a memory store. You can filter the sessions by user, team, or agent. Unspecified dimensions are not used for filtering.
    * 
    * @remarks
-   * Performs a paging query for source sessions in a long-term memory store (MemoryStore). Supports filtering by `UserId` and `AgentId` respectively.
+   * Performs a paging query of source sessions in a long-term memory store (MemoryStore). You can filter the sessions by UserId and AgentId.
    * 
    * @param request - ListMemorySessionsRequest
    * @param headers - map
@@ -7437,6 +7980,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.nextToken)) {
       query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.teamId)) {
+      query["teamId"] = request.teamId;
     }
 
     if (!$dara.isNull(request.userId)) {
@@ -7462,10 +8009,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Performs a paging query for sessions in a MemoryStore. You can filter sessions independently by user ID and agent ID.
+   * Performs a paging query of sessions in a memory store. You can filter the sessions by user, team, or agent. Unspecified dimensions are not used for filtering.
    * 
    * @remarks
-   * Performs a paging query for source sessions in a long-term memory store (MemoryStore). Supports filtering by `UserId` and `AgentId` respectively.
+   * Performs a paging query of source sessions in a long-term memory store (MemoryStore). You can filter the sessions by UserId and AgentId.
    * 
    * @param request - ListMemorySessionsRequest
    * @returns ListMemorySessionsResponse
@@ -7529,6 +8076,69 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listMemoryStoresWithOptions(workspaceId, request, headers, runtime);
+  }
+
+  /**
+   * Performs a paging query on the memory extraction nodes for a specified rule. The ruleId parameter is required. You can further filter nodes by status. If the specified rule does not exist or is deleted, a success response with an empty list is returned.
+   * 
+   * @remarks
+   * Performs a paging query on the memory extraction nodes for a specified rule. The ruleId parameter is required. You can further filter nodes by status. If the specified rule does not exist or is deleted, a success response with an empty list is returned.
+   * 
+   * @param request - ListMemoryTasksRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMemoryTasksResponse
+   */
+  async listMemoryTasksWithOptions(workspaceId: string, memoryStoreName: string, request: $_model.ListMemoryTasksRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListMemoryTasksResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.ruleId)) {
+      query["ruleId"] = request.ruleId;
+    }
+
+    if (!$dara.isNull(request.status)) {
+      query["status"] = request.status;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMemoryTasks",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/memory-tasks`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMemoryTasksResponse>(await this.callApi(params, req, runtime), new $_model.ListMemoryTasksResponse({}));
+  }
+
+  /**
+   * Performs a paging query on the memory extraction nodes for a specified rule. The ruleId parameter is required. You can further filter nodes by status. If the specified rule does not exist or is deleted, a success response with an empty list is returned.
+   * 
+   * @remarks
+   * Performs a paging query on the memory extraction nodes for a specified rule. The ruleId parameter is required. You can further filter nodes by status. If the specified rule does not exist or is deleted, a success response with an empty list is returned.
+   * 
+   * @param request - ListMemoryTasksRequest
+   * @returns ListMemoryTasksResponse
+   */
+  async listMemoryTasks(workspaceId: string, memoryStoreName: string, request: $_model.ListMemoryTasksRequest): Promise<$_model.ListMemoryTasksResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listMemoryTasksWithOptions(workspaceId, memoryStoreName, request, headers, runtime);
   }
 
   /**
@@ -8976,10 +9586,100 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves long-term memory from a MemoryStore based on semantics.
+   * Retries a failed memory task by reusing the original task ID, input, and extraction configuration. Only tasks in the FAILED state can be retried. You can query the progress by calling GetMemoryTask after the retry.
    * 
    * @remarks
-   * Retrieves relevant memories from a long-term memory store (MemoryStore) based on semantic search, allowing agents to obtain information required for subsequent tasks.
+   * Retries a failed memory task by reusing the original task ID, input, and extraction configuration. Only tasks in the FAILED state can be retried. You can query the progress by calling GetMemoryTask after the retry.
+   * 
+   * @param request - RetryMemoryTaskRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RetryMemoryTaskResponse
+   */
+  async retryMemoryTaskWithOptions(workspaceId: string, memoryStoreName: string, taskId: string, request: $_model.RetryMemoryTaskRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RetryMemoryTaskResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RetryMemoryTask",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/memory-tasks/${$dara.URL.percentEncode(taskId)}/actions/retry`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RetryMemoryTaskResponse>(await this.callApi(params, req, runtime), new $_model.RetryMemoryTaskResponse({}));
+  }
+
+  /**
+   * Retries a failed memory task by reusing the original task ID, input, and extraction configuration. Only tasks in the FAILED state can be retried. You can query the progress by calling GetMemoryTask after the retry.
+   * 
+   * @remarks
+   * Retries a failed memory task by reusing the original task ID, input, and extraction configuration. Only tasks in the FAILED state can be retried. You can query the progress by calling GetMemoryTask after the retry.
+   * 
+   * @param request - RetryMemoryTaskRequest
+   * @returns RetryMemoryTaskResponse
+   */
+  async retryMemoryTask(workspaceId: string, memoryStoreName: string, taskId: string, request: $_model.RetryMemoryTaskRequest): Promise<$_model.RetryMemoryTaskResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.retryMemoryTaskWithOptions(workspaceId, memoryStoreName, taskId, request, headers, runtime);
+  }
+
+  /**
+   * Invalidates the specified memory while retaining its content. After revocation, the memory no longer participates in retrieval as a valid memory and can be queried by setting valid=false in ListMemories. Repeated revocations return a success response.
+   * 
+   * @remarks
+   * Invalidates the specified memory while retaining its content. After revocation, the memory no longer participates in retrieval as a valid memory and can be queried by setting valid=false in ListMemories. Repeated revocations return a success response.
+   * 
+   * @param request - RevokeMemoryRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns RevokeMemoryResponse
+   */
+  async revokeMemoryWithOptions(workspaceId: string, memoryStoreName: string, memoryId: string, request: $_model.RevokeMemoryRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.RevokeMemoryResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "RevokeMemory",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/memories/${$dara.URL.percentEncode(memoryId)}/actions/revoke`,
+      method: "POST",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.RevokeMemoryResponse>(await this.callApi(params, req, runtime), new $_model.RevokeMemoryResponse({}));
+  }
+
+  /**
+   * Invalidates the specified memory while retaining its content. After revocation, the memory no longer participates in retrieval as a valid memory and can be queried by setting valid=false in ListMemories. Repeated revocations return a success response.
+   * 
+   * @remarks
+   * Invalidates the specified memory while retaining its content. After revocation, the memory no longer participates in retrieval as a valid memory and can be queried by setting valid=false in ListMemories. Repeated revocations return a success response.
+   * 
+   * @param request - RevokeMemoryRequest
+   * @returns RevokeMemoryResponse
+   */
+  async revokeMemory(workspaceId: string, memoryStoreName: string, memoryId: string, request: $_model.RevokeMemoryRequest): Promise<$_model.RevokeMemoryResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.revokeMemoryWithOptions(workspaceId, memoryStoreName, memoryId, request, headers, runtime);
+  }
+
+  /**
+   * Retrieves relevant memories based on the query text. Supports filtering by association scope, type, and metadata, and sets result thresholds through similarity and relevance scores. If topK is omitted or set to 0, the default value 10 is used, with a maximum of 200.
+   * 
+   * @remarks
+   * Retrieves relevant memories semantically from a long-term memory store (MemoryStore) for an agent to obtain information required for subsequent tasks.
    * 
    * @param tmpReq - SearchMemoriesRequest
    * @param headers - map
@@ -9018,10 +9718,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves long-term memory from a MemoryStore based on semantics.
+   * Retrieves relevant memories based on the query text. Supports filtering by association scope, type, and metadata, and sets result thresholds through similarity and relevance scores. If topK is omitted or set to 0, the default value 10 is used, with a maximum of 200.
    * 
    * @remarks
-   * Retrieves relevant memories from a long-term memory store (MemoryStore) based on semantic search, allowing agents to obtain information required for subsequent tasks.
+   * Retrieves relevant memories semantically from a long-term memory store (MemoryStore) for an agent to obtain information required for subsequent tasks.
    * 
    * @param request - SearchMemoriesRequest
    * @returns SearchMemoriesResponse
@@ -9837,33 +10537,33 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the logon configuration of a bound identity provider in a specified workspace. DingTalk and Lark support the logon switch, incremental synchronization switch, application configuration, and synchronization scope. CustomSSO supports SAML configuration and the logon switch. Updates take effect asynchronously. Call GetIdentityProvider to query the status.
+   * Modifies the configuration of a bound identity provider in a specified workspace. DingTalk and Feishu support login switches, address book synchronization switches, application configurations, and synchronization scopes. CustomSSO supports SAML or OIDC login configurations and login switches. SCIM user synchronization is configured independently. Updates take effect asynchronously. You can query the status by calling GetIdentityProvider.
    * 
    * @remarks
-   * Modifies the logon or directory configuration of a bound enterprise identity provider to update enterprise application credentials, adjust synchronized departments, or configure custom single sign-on (SSO).
+   * Modifies the login or address book configuration of a bound enterprise identity provider to update enterprise application credentials, adjust synchronized departments, or configure custom single sign-on (SSO).
    * ### Select the configuration to modify
    * | Identity provider | Updatable content |
    * | --- | --- |
-   * | DingTalk (`DingTalk`), Lark (`Feishu`) | Enterprise application credentials `metadata`, logon switch `loginEnabled`, directory change synchronization switch `syncEnabled`, and synchronization scope `syncScope`. You must submit at least one item. |
-   * | Custom identity provider (`CustomSSO`) | SAML protocol `protocol`, logon configuration `saml`, and logon switch `loginEnabled`. SCIM-based user synchronization is configured separately by using [UpdateIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProviderSCIM). |
-   * ### Update DingTalk or Lark
-   * `metadata` is updated by field. You only need to submit the fields that you want to modify. Omitted fields and existing keys remain unchanged. The provided values must be non-empty strings. When you enable directory change synchronization, the configuration must include `encryptKey` and `verificationToken`.
+   * | DingTalk, Feishu | Enterprise application credentials metadata, login switch loginEnabled, address book change synchronization switch syncEnabled, and synchronization scope syncScope. At least one item must be submitted. |
+   * | Custom identity provider (CustomSSO) | SAML protocol, login configuration saml, and login switch loginEnabled. SCIM user synchronization is configured independently by using [UpdateIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProviderSCIM). |
+   * ### Update DingTalk or Feishu
+   * metadata is updated by field: submit only the fields that need to be modified. Omitted fields and existing keys remain unchanged. The provided values must be non-empty strings. When you enable address book change synchronization, the configuration must include encryptKey and verificationToken.
    * To adjust synchronized departments:
-   * **Step 1:** Call [ListIdentityProviderDepartments](https://api.aliyun.com/document/AgentCore/2026-08-04/ListIdentityProviderDepartments) to query and select departments.
-   * **Step 2:** Call this operation to save `syncScope`. If you omit this field or pass `null`, the current scope is retained.
-   * **Step 3:** Call [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) to wait for the configuration processing to complete, and then call [CreateIdentityProviderSyncJob](https://api.aliyun.com/document/AgentCore/2026-08-04/CreateIdentityProviderSyncJob) to synchronize users based on the new scope.
-   * Saving the scope does not automatically trigger a full synchronization. `syncEnabled` controls subsequent directory change events. The initial synchronization and manual synchronization are executed separately.
+   * **Step 1:** Query and select departments by calling [ListIdentityProviderDepartments](https://api.aliyun.com/document/AgentCore/2026-08-04/ListIdentityProviderDepartments).
+   * **Step 2:** Save syncScope by calling this operation. If you omit this field or pass null, the current scope is retained.
+   * **Step 3:** Wait for the configuration processing to complete by calling [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider), and then call [CreateIdentityProviderSyncJob](https://api.aliyun.com/document/AgentCore/2026-08-04/CreateIdentityProviderSyncJob) to synchronize users based on the new scope.
+   * Saving the scope does not automatically trigger a full synchronization. syncEnabled controls subsequent address book change events. The initial synchronization and manual synchronization are executed separately.
    * ### Configure custom single sign-on
-   * `CustomSSO` uses the SAML protocol to allow users to log on through the enterprise identity system. First, call [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) to obtain the access information of AgentCore and configure it in the enterprise identity system. Then, fill in the enterprise-side information in `saml`.
+   * CustomSSO uses the SAML protocol to allow users to log on through the enterprise identity system. First, obtain the access information of AgentCore by calling [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) and configure it in the enterprise identity system. Then, fill in the enterprise-side information in saml.
    * Choose one of the following two methods:
    * | Method | Required configuration |
    * | --- | --- |
-   * | Import metadata | `metadataXml`: A single IdP metadata XML text exported from the enterprise identity provider. The maximum size is 1 MiB. Enter the XML content instead of a download URL or file path. |
-   * | Manual entry | Provide `entityId`, `loginUrl`, `bindingType`, and `x509Certificates` at the same time. Use an HTTPS logon URL and a signing certificate within its validity period. Set `bindingType` to `HTTP-Redirect` or `HTTP-POST`. You can provide up to two certificates. |
-   * The `entityId` cannot be changed after it is saved. If the XML contains both binding methods at the same time, `HTTP-POST` and its corresponding URL are used first.
-   * After saving the configuration, set `loginEnabled=true` to enable logon. You can also enable it when submitting a valid SAML configuration. Setting it to `false` disables logon and retains the existing configuration.
+   * | Import metadata | metadataXml: a single IdP metadata XML text exported from the enterprise identity provider, with a maximum size of 1 MiB. Enter the XML content instead of a download URL or file path. |
+   * | Manual entry | Provide entityId, loginUrl, bindingType, and x509Certificates at the same time. Use an HTTPS login URL and a valid signing certificate. Set bindingType to HTTP-Redirect or HTTP-POST. You can provide up to two certificates. |
+   * The entityId cannot be changed after it is saved. If the XML contains both binding methods, HTTP-POST and its corresponding URL take precedence.
+   * After saving the configuration, set loginEnabled=true to enable login. You can also enable it when submitting a valid SAML configuration. Setting it to false disables login and retains the existing configuration.
    * ### Confirm that the configuration takes effect
-   * After the request is accepted, `UPDATING` is usually returned. Call [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) to query the progress. `READY` indicates that the configuration processing is complete. If it fails, check the returned status and configuration.
+   * After the request is accepted, UPDATING is usually returned. Query the progress by calling [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider). READY indicates that the configuration processing is complete. If it fails, check the returned status and configuration.
    * If the request times out, query the current configuration and processing status first, and then decide whether to retry. Query the SCIM processing result by calling [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM).
    * 
    * @param tmpReq - UpdateIdentityProviderRequest
@@ -9903,33 +10603,33 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the logon configuration of a bound identity provider in a specified workspace. DingTalk and Lark support the logon switch, incremental synchronization switch, application configuration, and synchronization scope. CustomSSO supports SAML configuration and the logon switch. Updates take effect asynchronously. Call GetIdentityProvider to query the status.
+   * Modifies the configuration of a bound identity provider in a specified workspace. DingTalk and Feishu support login switches, address book synchronization switches, application configurations, and synchronization scopes. CustomSSO supports SAML or OIDC login configurations and login switches. SCIM user synchronization is configured independently. Updates take effect asynchronously. You can query the status by calling GetIdentityProvider.
    * 
    * @remarks
-   * Modifies the logon or directory configuration of a bound enterprise identity provider to update enterprise application credentials, adjust synchronized departments, or configure custom single sign-on (SSO).
+   * Modifies the login or address book configuration of a bound enterprise identity provider to update enterprise application credentials, adjust synchronized departments, or configure custom single sign-on (SSO).
    * ### Select the configuration to modify
    * | Identity provider | Updatable content |
    * | --- | --- |
-   * | DingTalk (`DingTalk`), Lark (`Feishu`) | Enterprise application credentials `metadata`, logon switch `loginEnabled`, directory change synchronization switch `syncEnabled`, and synchronization scope `syncScope`. You must submit at least one item. |
-   * | Custom identity provider (`CustomSSO`) | SAML protocol `protocol`, logon configuration `saml`, and logon switch `loginEnabled`. SCIM-based user synchronization is configured separately by using [UpdateIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProviderSCIM). |
-   * ### Update DingTalk or Lark
-   * `metadata` is updated by field. You only need to submit the fields that you want to modify. Omitted fields and existing keys remain unchanged. The provided values must be non-empty strings. When you enable directory change synchronization, the configuration must include `encryptKey` and `verificationToken`.
+   * | DingTalk, Feishu | Enterprise application credentials metadata, login switch loginEnabled, address book change synchronization switch syncEnabled, and synchronization scope syncScope. At least one item must be submitted. |
+   * | Custom identity provider (CustomSSO) | SAML protocol, login configuration saml, and login switch loginEnabled. SCIM user synchronization is configured independently by using [UpdateIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/UpdateIdentityProviderSCIM). |
+   * ### Update DingTalk or Feishu
+   * metadata is updated by field: submit only the fields that need to be modified. Omitted fields and existing keys remain unchanged. The provided values must be non-empty strings. When you enable address book change synchronization, the configuration must include encryptKey and verificationToken.
    * To adjust synchronized departments:
-   * **Step 1:** Call [ListIdentityProviderDepartments](https://api.aliyun.com/document/AgentCore/2026-08-04/ListIdentityProviderDepartments) to query and select departments.
-   * **Step 2:** Call this operation to save `syncScope`. If you omit this field or pass `null`, the current scope is retained.
-   * **Step 3:** Call [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) to wait for the configuration processing to complete, and then call [CreateIdentityProviderSyncJob](https://api.aliyun.com/document/AgentCore/2026-08-04/CreateIdentityProviderSyncJob) to synchronize users based on the new scope.
-   * Saving the scope does not automatically trigger a full synchronization. `syncEnabled` controls subsequent directory change events. The initial synchronization and manual synchronization are executed separately.
+   * **Step 1:** Query and select departments by calling [ListIdentityProviderDepartments](https://api.aliyun.com/document/AgentCore/2026-08-04/ListIdentityProviderDepartments).
+   * **Step 2:** Save syncScope by calling this operation. If you omit this field or pass null, the current scope is retained.
+   * **Step 3:** Wait for the configuration processing to complete by calling [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider), and then call [CreateIdentityProviderSyncJob](https://api.aliyun.com/document/AgentCore/2026-08-04/CreateIdentityProviderSyncJob) to synchronize users based on the new scope.
+   * Saving the scope does not automatically trigger a full synchronization. syncEnabled controls subsequent address book change events. The initial synchronization and manual synchronization are executed separately.
    * ### Configure custom single sign-on
-   * `CustomSSO` uses the SAML protocol to allow users to log on through the enterprise identity system. First, call [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) to obtain the access information of AgentCore and configure it in the enterprise identity system. Then, fill in the enterprise-side information in `saml`.
+   * CustomSSO uses the SAML protocol to allow users to log on through the enterprise identity system. First, obtain the access information of AgentCore by calling [GetIdentityProviderServiceProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderServiceProvider) and configure it in the enterprise identity system. Then, fill in the enterprise-side information in saml.
    * Choose one of the following two methods:
    * | Method | Required configuration |
    * | --- | --- |
-   * | Import metadata | `metadataXml`: A single IdP metadata XML text exported from the enterprise identity provider. The maximum size is 1 MiB. Enter the XML content instead of a download URL or file path. |
-   * | Manual entry | Provide `entityId`, `loginUrl`, `bindingType`, and `x509Certificates` at the same time. Use an HTTPS logon URL and a signing certificate within its validity period. Set `bindingType` to `HTTP-Redirect` or `HTTP-POST`. You can provide up to two certificates. |
-   * The `entityId` cannot be changed after it is saved. If the XML contains both binding methods at the same time, `HTTP-POST` and its corresponding URL are used first.
-   * After saving the configuration, set `loginEnabled=true` to enable logon. You can also enable it when submitting a valid SAML configuration. Setting it to `false` disables logon and retains the existing configuration.
+   * | Import metadata | metadataXml: a single IdP metadata XML text exported from the enterprise identity provider, with a maximum size of 1 MiB. Enter the XML content instead of a download URL or file path. |
+   * | Manual entry | Provide entityId, loginUrl, bindingType, and x509Certificates at the same time. Use an HTTPS login URL and a valid signing certificate. Set bindingType to HTTP-Redirect or HTTP-POST. You can provide up to two certificates. |
+   * The entityId cannot be changed after it is saved. If the XML contains both binding methods, HTTP-POST and its corresponding URL take precedence.
+   * After saving the configuration, set loginEnabled=true to enable login. You can also enable it when submitting a valid SAML configuration. Setting it to false disables login and retains the existing configuration.
    * ### Confirm that the configuration takes effect
-   * After the request is accepted, `UPDATING` is usually returned. Call [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider) to query the progress. `READY` indicates that the configuration processing is complete. If it fails, check the returned status and configuration.
+   * After the request is accepted, UPDATING is usually returned. Query the progress by calling [GetIdentityProvider](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProvider). READY indicates that the configuration processing is complete. If it fails, check the returned status and configuration.
    * If the request times out, query the current configuration and processing status first, and then decide whether to retry. Query the SCIM processing result by calling [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM).
    * 
    * @param request - UpdateIdentityProviderRequest
@@ -9947,23 +10647,23 @@ export default class Client extends OpenApi {
    * @remarks
    * Enables or disables SCIM-based user synchronization for AgentCore. When enabled, all existing users in the shared user pool are fully imported into the workspace. Users in the user pool are provisioned by the enterprise identity system through SCIM.
    * ### Preparations before enabling
-   * **Step 1:** Call [PrepareIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/PrepareIdentityProviderSCIM) to enable the receiving endpoint and obtain the receiving URL and a valid token.
+   * **Step 1:** Enable the receiving endpoint by calling [PrepareIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/PrepareIdentityProviderSCIM) to obtain the receiving URL and a valid token.
    * **Step 2:** Complete the SCIM configuration, connection test, and user assignment in the enterprise identity system.
-   * **Step 3:** Call this operation and set `syncEnabled` to `true`.
+   * **Step 3:** Call this operation and set syncEnabled to true.
    * ```http
    * PUT /workspaces/{workspaceId}/scim-provisioning
    * {"syncEnabled":true}
    * ```
    * When the enabling task is executed, the system checks whether the receiving endpoint is enabled and whether valid credentials exist. If no users are provisioned in the enterprise identity system, the initial import may succeed but contain no user records.
    * ### Impact after disabling
-   * Setting `syncEnabled` to `false` disables user synchronization and the upstream SCIM receiving endpoint. Imported users, existing credentials, and the SAML logon configuration are retained.
+   * Setting syncEnabled to false disables user synchronization and the upstream SCIM receiving endpoint. The imported users, existing credentials, and SAML logon configuration are retained.
    * To re-enable synchronization later, call [PrepareIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/PrepareIdentityProviderSCIM) to prepare the receiving endpoint first, and then enable synchronization.
-   * ### Verify the operation result
+   * ### Confirm the operation result
    * After this operation accepts the request, it executes the enabling or disabling task in the background. You can query the progress by calling [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM):
-   * - `syncEnabled` indicates whether synchronization is expected to be enabled or disabled.
-   * - `operationStatus` indicates the execution result of the most recent operation.
-   * - The `status` field in the query operation comprehensively indicates the current stage of SCIM, such as pending configuration, processing, available, or disabled.
-   * If the operation fails, the saved `syncEnabled` value is not automatically rolled back. Verify the configuration based on the operation result before deciding on subsequent actions.
+   * - syncEnabled indicates whether synchronization is expected to be enabled or disabled.
+   * - operationStatus indicates the execution result of the most recent operation.
+   * - The status field in the query operation comprehensively indicates the current stage of SCIM, such as pending configuration, processing, available, or disabled.
+   * If the operation fails, the saved syncEnabled value is not automatically rolled back. Verify the configuration based on the operation result and determine the subsequent actions.
    * 
    * @param tmpReq - UpdateIdentityProviderSCIMRequest
    * @param headers - map
@@ -10007,23 +10707,23 @@ export default class Client extends OpenApi {
    * @remarks
    * Enables or disables SCIM-based user synchronization for AgentCore. When enabled, all existing users in the shared user pool are fully imported into the workspace. Users in the user pool are provisioned by the enterprise identity system through SCIM.
    * ### Preparations before enabling
-   * **Step 1:** Call [PrepareIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/PrepareIdentityProviderSCIM) to enable the receiving endpoint and obtain the receiving URL and a valid token.
+   * **Step 1:** Enable the receiving endpoint by calling [PrepareIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/PrepareIdentityProviderSCIM) to obtain the receiving URL and a valid token.
    * **Step 2:** Complete the SCIM configuration, connection test, and user assignment in the enterprise identity system.
-   * **Step 3:** Call this operation and set `syncEnabled` to `true`.
+   * **Step 3:** Call this operation and set syncEnabled to true.
    * ```http
    * PUT /workspaces/{workspaceId}/scim-provisioning
    * {"syncEnabled":true}
    * ```
    * When the enabling task is executed, the system checks whether the receiving endpoint is enabled and whether valid credentials exist. If no users are provisioned in the enterprise identity system, the initial import may succeed but contain no user records.
    * ### Impact after disabling
-   * Setting `syncEnabled` to `false` disables user synchronization and the upstream SCIM receiving endpoint. Imported users, existing credentials, and the SAML logon configuration are retained.
+   * Setting syncEnabled to false disables user synchronization and the upstream SCIM receiving endpoint. The imported users, existing credentials, and SAML logon configuration are retained.
    * To re-enable synchronization later, call [PrepareIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/PrepareIdentityProviderSCIM) to prepare the receiving endpoint first, and then enable synchronization.
-   * ### Verify the operation result
+   * ### Confirm the operation result
    * After this operation accepts the request, it executes the enabling or disabling task in the background. You can query the progress by calling [GetIdentityProviderSCIM](https://api.aliyun.com/document/AgentCore/2026-08-04/GetIdentityProviderSCIM):
-   * - `syncEnabled` indicates whether synchronization is expected to be enabled or disabled.
-   * - `operationStatus` indicates the execution result of the most recent operation.
-   * - The `status` field in the query operation comprehensively indicates the current stage of SCIM, such as pending configuration, processing, available, or disabled.
-   * If the operation fails, the saved `syncEnabled` value is not automatically rolled back. Verify the configuration based on the operation result before deciding on subsequent actions.
+   * - syncEnabled indicates whether synchronization is expected to be enabled or disabled.
+   * - operationStatus indicates the execution result of the most recent operation.
+   * - The status field in the query operation comprehensively indicates the current stage of SCIM, such as pending configuration, processing, available, or disabled.
+   * If the operation fails, the saved syncEnabled value is not automatically rolled back. Verify the configuration based on the operation result and determine the subsequent actions.
    * 
    * @param request - UpdateIdentityProviderSCIMRequest
    * @returns UpdateIdentityProviderSCIMResponse
@@ -10035,45 +10735,45 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the model, instructions, skills, and runtime configuration of a managed Harness agent and executes the update asynchronously. Omitted top-level fields retain their original configurations.
+   * Updates the model, instructions, skills, and runtime configuration of a managed Harness agent and executes the update asynchronously. Omitted top-level fields retain their original configuration.
    * 
    * @remarks
    * Updates the model, instructions, skills, or runtime configuration of a managed Harness agent to adjust the capabilities and runtime behavior of an existing agent.
    * ### Update rules
-   * Provide at least one updatable field. Omitted top-level fields retain their original configurations. You can set `description=null` to clear the description.
+   * At least one updatable field must be provided. Omitted top-level fields retain their original configuration. You can set description=null to clear the description.
    * | Configuration | Update method |
    * | --- | --- |
-   * | `harness` | The type cannot be changed. When updating the qodercli account binding, keep the original `type` and submit the corresponding `configuration`. |
-   * | `model` | Provide a model configuration that matches the current Harness. For qwenpaw, specify the model connection ID and model name. For qodercli, use the available model identifier of the connector. |
-   * | `runtime` | Specify both `compute` and `sessionPolicy` when submitting. Omitting the entire object retains the original runtime configuration. |
-   * | `tools`, `skills`, `promptVariables`, `subAgents` | The corresponding lists are entirely replaced upon submission. You must include the items to be retained. Pass `[]` to clear the corresponding explicit lists. |
-   * | `environment` | The variable list and credential reference list are entirely replaced respectively. Submit the items to be retained together. |
-   * | `network` | Specify both `accessInternet.enabled` and `accessVpc.enabled` when submitting. |
-   * | `ossMounts`, `agenticFsMounts` | Entirely replaced respectively. Pass `[]` to clear the corresponding lists. `agenticFsMounts` does not accept `null`. |
-   * ### Harnesses, templates, and skills
+   * | harness | The type cannot be changed. When updating the qodercli account binding, keep the original type and submit the corresponding configuration. |
+   * | model | Provide a model configuration that matches the current Harness. For qwenpaw, specify the model connection ID and model name. For qodercli, use the available model identifier of the connector. |
+   * | runtime | Specify both compute and sessionPolicy when submitting. Omitting the entire object retains the original runtime configuration. |
+   * | tools, skills, promptVariables, subAgents | The corresponding list is entirely replaced upon submission and must include the items to be retained. Pass [] to clear the corresponding explicit list. |
+   * | environment | The variable list and credential reference list are entirely replaced respectively. Submit the items to be retained together. |
+   * | network | Specify both accessInternet.enabled and accessVpc.enabled when submitting. |
+   * | ossMounts, agenticFsMounts | Entirely replaced respectively. Pass [] to clear the corresponding list. agenticFsMounts does not accept null. |
+   * ### Harness, templates, and skills
    * | Harness | Model and connector configuration |
    * | --- | --- |
-   * | `qwenpaw` | This type is used by default if `harness` is omitted during creation. Set `model.modelConnectionId` to the workspace model connection ID, and set `model.modelName` to the name of the model created under this connection. |
-   * | `qodercli` | The qodercli connector must be enabled in the workspace. Set `model.modelConnectionId` to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). `model.modelName` can be omitted. |
-   * `harness` is an object, such as `{"type":"qwenpaw"}`. For qodercli, set `harness.configuration.connectorServiceAccountKey` to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. This field can be omitted if there is only one key record, but must be specified if there are multiple records. `connectorServiceAccountName` is the account name. Do not specify these two binding fields for qwenpaw.
-   * `skills` uses the skill names in the workspace AI Registry. For `sourceType=REFERENCE`, reference the version by `versionSelector`: use `LABEL` with a tag name, or `VERSION` with a specific version number. If the selector is omitted, `LABEL/latest` is used. For `sourceType=STATIC`, static files bundled with the package are used, and no version selector is provided.
-   * For `template.aiRegistry`, specify the agent template name and an optional version. If the version is omitted during creation, the published version is resolved and fixed. When a template is used, `instruction`, `promptVariables`, and `subAgents` are derived from the template, and the corresponding fields in the current request do not take effect. Explicit skills and template skills are recorded separately. You can query the target and effective versions through `configuredSkills` and `skills`.
+   * | qwenpaw | This type is used by default if harness is omitted during creation. Set model.modelConnectionId to the workspace model connection ID, and set model.modelName to the name of a model created under this connection. |
+   * | qodercli | The qodercli connector must be enabled in the workspace. Set model.modelConnectionId to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). model.modelName can be omitted. |
+   * harness is an object, such as {"type":"qwenpaw"}. For qodercli, set harness.configuration.connectorServiceAccountKey to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. This field can be omitted if there is only one key record, but must be specified if there are multiple records. connectorServiceAccountName is the account name. Do not specify these two binding fields for qwenpaw.
+   * skills uses the skill names in the workspace AI Registry. For sourceType=REFERENCE, versions are referenced by versionSelector: use LABEL with a tag name, or VERSION with a specific version number. If the selector is omitted, LABEL/latest is used. For sourceType=STATIC, static files bundled with the package are used, and no version selector is provided.
+   * For template.aiRegistry, specify the agent template name and an optional version. If the version is omitted during creation, the published version is resolved and fixed. When a template is used, instruction, promptVariables, and subAgents are derived from the template, and the corresponding fields in the current request do not take effect. Explicit skills and template skills are recorded separately. You can query the target and effective versions through configuredSkills and skills.
    * ### Elasticity and instances
-   * If `runtime` is committed but `hpa` or some of its fields are omitted, the following default values are used for unspecified items. To retain the existing elastic policy, commit the complete `hpa`.
+   * If you commit runtime but omit hpa or some of its fields, the following default values are used for unspecified items. To retain the existing elastic policy, commit the complete hpa together.
    * | Field | Default value | Value and description |
    * | --- | --- | --- |
-   * | `enabled` | `false` | Specifies whether elastic scaling is enabled. |
-   * | `minSandboxCount` | `1` | The minimum number of instances. Valid values: 0 to 100. |
-   * | `maxSandboxCount` | `10` | The maximum number of instances. Valid values: 0 to 100. The value cannot be less than the minimum number. |
-   * | `maxConcurrentSessionsPerSandbox` | `20` | The maximum number of concurrent sessions per instance. Valid values: 1 to 20. |
-   * | `sessionTtlSeconds` | `600` | The maximum idle time of a session, in seconds. Valid values: 60 to 86400. |
-   * If you only modify instructions, models, or skills, you can omit the entire `runtime` to keep the original runtime configuration unchanged. The minimum and maximum numbers of instances are configuration borders. You can query the actual number through `sandboxPhaseCounts`.
+   * | enabled | false | Specifies whether to enable elastic scaling. |
+   * | minSandboxCount | 1 | The minimum number of instances. Valid values: 0 to 100. |
+   * | maxSandboxCount | 10 | The maximum number of instances. Valid values: 0 to 100. The value cannot be less than the minimum number. |
+   * | maxConcurrentSessionsPerSandbox | 20 | The maximum number of concurrent sessions per instance. Valid values: 1 to 20. |
+   * | sessionTtlSeconds | 600 | The maximum idle time of a session, in seconds. Valid values: 60 to 86400. |
+   * If you only modify instructions, models, or skills, you can omit the entire runtime object, and the original runtime configuration remains unchanged. The minimum and maximum number of instances are configuration borders. You can query the actual number through sandboxPhaseCounts.
    * ### Environment and mounts
-   * Omitting the entire `environment` retains the original configuration. Submitting `environment={}` or `environment=null` clears the environment configuration. Environment variable values must be strings, and variable names must be non-empty and unique.
-   * The total number of `ossMounts` and `agenticFsMounts` cannot exceed 10. The mount target `mountPath` uses an absolute path in the container, such as `/data/train`. It cannot conflict with platform reserved directories, and cannot be duplicated or form parent-child directory overwrites.
-   * The `path` for OSS mounts must be a non-empty directory prefix in the bucket. For AgenticFS mounts, `server` is the access point domain name, without a protocol, port, or path. `path` is an existing non-empty relative directory in the access point. You cannot mount the root directory of the access point. If `readOnly` is omitted, the default value is `false`.
+   * Omitting the entire environment object retains the original configuration. Submitting environment={} or environment=null clears the environment configuration. Environment variable values must be strings, and variable names must be non-empty and unique.
+   * The total number of ossMounts and agenticFsMounts cannot exceed 10. The mount target mountPath uses an absolute path within the container, such as /data/train. It cannot conflict with platform reserved directories, and cannot be duplicated or form parent-child directory overrides.
+   * The path for OSS mounts must be a non-empty directory prefix within the bucket. For AgenticFS mounts, server is the AccessPoint domain name, without a protocol, port, or path. path is an existing non-empty relative directory within the AccessPoint, and the root directory of the AccessPoint cannot be mounted. If readOnly is omitted, the default value is false.
    * ### Query update results
-   * A successful response indicates that the update request has been accepted. Call [GetManagedAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetManagedAgent) to query `latestSpecVersion`, `latestVersionStatus`, `status`, and `sandboxPhaseCounts` to confirm the configuration processing and instance status. `clientToken` does not provide idempotency guarantees at this time.
+   * A successful response indicates that the update request has been accepted. Call [GetManagedAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetManagedAgent) to query latestSpecVersion, latestVersionStatus, status, and sandboxPhaseCounts to confirm the configuration processing and instance status. clientToken does not currently provide idempotency guarantees.
    * 
    * @param tmpReq - UpdateManagedAgentRequest
    * @param headers - map
@@ -10118,45 +10818,45 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the model, instructions, skills, and runtime configuration of a managed Harness agent and executes the update asynchronously. Omitted top-level fields retain their original configurations.
+   * Updates the model, instructions, skills, and runtime configuration of a managed Harness agent and executes the update asynchronously. Omitted top-level fields retain their original configuration.
    * 
    * @remarks
    * Updates the model, instructions, skills, or runtime configuration of a managed Harness agent to adjust the capabilities and runtime behavior of an existing agent.
    * ### Update rules
-   * Provide at least one updatable field. Omitted top-level fields retain their original configurations. You can set `description=null` to clear the description.
+   * At least one updatable field must be provided. Omitted top-level fields retain their original configuration. You can set description=null to clear the description.
    * | Configuration | Update method |
    * | --- | --- |
-   * | `harness` | The type cannot be changed. When updating the qodercli account binding, keep the original `type` and submit the corresponding `configuration`. |
-   * | `model` | Provide a model configuration that matches the current Harness. For qwenpaw, specify the model connection ID and model name. For qodercli, use the available model identifier of the connector. |
-   * | `runtime` | Specify both `compute` and `sessionPolicy` when submitting. Omitting the entire object retains the original runtime configuration. |
-   * | `tools`, `skills`, `promptVariables`, `subAgents` | The corresponding lists are entirely replaced upon submission. You must include the items to be retained. Pass `[]` to clear the corresponding explicit lists. |
-   * | `environment` | The variable list and credential reference list are entirely replaced respectively. Submit the items to be retained together. |
-   * | `network` | Specify both `accessInternet.enabled` and `accessVpc.enabled` when submitting. |
-   * | `ossMounts`, `agenticFsMounts` | Entirely replaced respectively. Pass `[]` to clear the corresponding lists. `agenticFsMounts` does not accept `null`. |
-   * ### Harnesses, templates, and skills
+   * | harness | The type cannot be changed. When updating the qodercli account binding, keep the original type and submit the corresponding configuration. |
+   * | model | Provide a model configuration that matches the current Harness. For qwenpaw, specify the model connection ID and model name. For qodercli, use the available model identifier of the connector. |
+   * | runtime | Specify both compute and sessionPolicy when submitting. Omitting the entire object retains the original runtime configuration. |
+   * | tools, skills, promptVariables, subAgents | The corresponding list is entirely replaced upon submission and must include the items to be retained. Pass [] to clear the corresponding explicit list. |
+   * | environment | The variable list and credential reference list are entirely replaced respectively. Submit the items to be retained together. |
+   * | network | Specify both accessInternet.enabled and accessVpc.enabled when submitting. |
+   * | ossMounts, agenticFsMounts | Entirely replaced respectively. Pass [] to clear the corresponding list. agenticFsMounts does not accept null. |
+   * ### Harness, templates, and skills
    * | Harness | Model and connector configuration |
    * | --- | --- |
-   * | `qwenpaw` | This type is used by default if `harness` is omitted during creation. Set `model.modelConnectionId` to the workspace model connection ID, and set `model.modelName` to the name of the model created under this connection. |
-   * | `qodercli` | The qodercli connector must be enabled in the workspace. Set `model.modelConnectionId` to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). `model.modelName` can be omitted. |
-   * `harness` is an object, such as `{"type":"qwenpaw"}`. For qodercli, set `harness.configuration.connectorServiceAccountKey` to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. This field can be omitted if there is only one key record, but must be specified if there are multiple records. `connectorServiceAccountName` is the account name. Do not specify these two binding fields for qwenpaw.
-   * `skills` uses the skill names in the workspace AI Registry. For `sourceType=REFERENCE`, reference the version by `versionSelector`: use `LABEL` with a tag name, or `VERSION` with a specific version number. If the selector is omitted, `LABEL/latest` is used. For `sourceType=STATIC`, static files bundled with the package are used, and no version selector is provided.
-   * For `template.aiRegistry`, specify the agent template name and an optional version. If the version is omitted during creation, the published version is resolved and fixed. When a template is used, `instruction`, `promptVariables`, and `subAgents` are derived from the template, and the corresponding fields in the current request do not take effect. Explicit skills and template skills are recorded separately. You can query the target and effective versions through `configuredSkills` and `skills`.
+   * | qwenpaw | This type is used by default if harness is omitted during creation. Set model.modelConnectionId to the workspace model connection ID, and set model.modelName to the name of a model created under this connection. |
+   * | qodercli | The qodercli connector must be enabled in the workspace. Set model.modelConnectionId to the model identifier returned by [ListConnectorModels](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectorModels). model.modelName can be omitted. |
+   * harness is an object, such as {"type":"qwenpaw"}. For qodercli, set harness.configuration.connectorServiceAccountKey to the account key record ID returned by [ListConnectors](https://api.aliyun.com/document/AgentCore/2026-08-04/ListConnectors), not the original service account key. This field can be omitted if there is only one key record, but must be specified if there are multiple records. connectorServiceAccountName is the account name. Do not specify these two binding fields for qwenpaw.
+   * skills uses the skill names in the workspace AI Registry. For sourceType=REFERENCE, versions are referenced by versionSelector: use LABEL with a tag name, or VERSION with a specific version number. If the selector is omitted, LABEL/latest is used. For sourceType=STATIC, static files bundled with the package are used, and no version selector is provided.
+   * For template.aiRegistry, specify the agent template name and an optional version. If the version is omitted during creation, the published version is resolved and fixed. When a template is used, instruction, promptVariables, and subAgents are derived from the template, and the corresponding fields in the current request do not take effect. Explicit skills and template skills are recorded separately. You can query the target and effective versions through configuredSkills and skills.
    * ### Elasticity and instances
-   * If `runtime` is committed but `hpa` or some of its fields are omitted, the following default values are used for unspecified items. To retain the existing elastic policy, commit the complete `hpa`.
+   * If you commit runtime but omit hpa or some of its fields, the following default values are used for unspecified items. To retain the existing elastic policy, commit the complete hpa together.
    * | Field | Default value | Value and description |
    * | --- | --- | --- |
-   * | `enabled` | `false` | Specifies whether elastic scaling is enabled. |
-   * | `minSandboxCount` | `1` | The minimum number of instances. Valid values: 0 to 100. |
-   * | `maxSandboxCount` | `10` | The maximum number of instances. Valid values: 0 to 100. The value cannot be less than the minimum number. |
-   * | `maxConcurrentSessionsPerSandbox` | `20` | The maximum number of concurrent sessions per instance. Valid values: 1 to 20. |
-   * | `sessionTtlSeconds` | `600` | The maximum idle time of a session, in seconds. Valid values: 60 to 86400. |
-   * If you only modify instructions, models, or skills, you can omit the entire `runtime` to keep the original runtime configuration unchanged. The minimum and maximum numbers of instances are configuration borders. You can query the actual number through `sandboxPhaseCounts`.
+   * | enabled | false | Specifies whether to enable elastic scaling. |
+   * | minSandboxCount | 1 | The minimum number of instances. Valid values: 0 to 100. |
+   * | maxSandboxCount | 10 | The maximum number of instances. Valid values: 0 to 100. The value cannot be less than the minimum number. |
+   * | maxConcurrentSessionsPerSandbox | 20 | The maximum number of concurrent sessions per instance. Valid values: 1 to 20. |
+   * | sessionTtlSeconds | 600 | The maximum idle time of a session, in seconds. Valid values: 60 to 86400. |
+   * If you only modify instructions, models, or skills, you can omit the entire runtime object, and the original runtime configuration remains unchanged. The minimum and maximum number of instances are configuration borders. You can query the actual number through sandboxPhaseCounts.
    * ### Environment and mounts
-   * Omitting the entire `environment` retains the original configuration. Submitting `environment={}` or `environment=null` clears the environment configuration. Environment variable values must be strings, and variable names must be non-empty and unique.
-   * The total number of `ossMounts` and `agenticFsMounts` cannot exceed 10. The mount target `mountPath` uses an absolute path in the container, such as `/data/train`. It cannot conflict with platform reserved directories, and cannot be duplicated or form parent-child directory overwrites.
-   * The `path` for OSS mounts must be a non-empty directory prefix in the bucket. For AgenticFS mounts, `server` is the access point domain name, without a protocol, port, or path. `path` is an existing non-empty relative directory in the access point. You cannot mount the root directory of the access point. If `readOnly` is omitted, the default value is `false`.
+   * Omitting the entire environment object retains the original configuration. Submitting environment={} or environment=null clears the environment configuration. Environment variable values must be strings, and variable names must be non-empty and unique.
+   * The total number of ossMounts and agenticFsMounts cannot exceed 10. The mount target mountPath uses an absolute path within the container, such as /data/train. It cannot conflict with platform reserved directories, and cannot be duplicated or form parent-child directory overrides.
+   * The path for OSS mounts must be a non-empty directory prefix within the bucket. For AgenticFS mounts, server is the AccessPoint domain name, without a protocol, port, or path. path is an existing non-empty relative directory within the AccessPoint, and the root directory of the AccessPoint cannot be mounted. If readOnly is omitted, the default value is false.
    * ### Query update results
-   * A successful response indicates that the update request has been accepted. Call [GetManagedAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetManagedAgent) to query `latestSpecVersion`, `latestVersionStatus`, `status`, and `sandboxPhaseCounts` to confirm the configuration processing and instance status. `clientToken` does not provide idempotency guarantees at this time.
+   * A successful response indicates that the update request has been accepted. Call [GetManagedAgent](https://api.aliyun.com/document/AgentCore/2026-08-04/GetManagedAgent) to query latestSpecVersion, latestVersionStatus, status, and sandboxPhaseCounts to confirm the configuration processing and instance status. clientToken does not currently provide idempotency guarantees.
    * 
    * @param request - UpdateManagedAgentRequest
    * @returns UpdateManagedAgentResponse
@@ -10300,10 +11000,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the long-term memory text or metadata based on the memory ID.
+   * Updates the content or metadata of a specified memory. At least one field must be provided for the update, and unprovided fields retain their original values. The metadata is fully replaced. Pass an empty object to clear the metadata.
    * 
    * @remarks
-   * Updates the long-term memory text or metadata based on the memory ID.
+   * Updates the text or metadata of a long-term memory based on the memory ID.
    * 
    * @param tmpReq - UpdateMemoryRequest
    * @param headers - map
@@ -10342,10 +11042,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Updates the long-term memory text or metadata based on the memory ID.
+   * Updates the content or metadata of a specified memory. At least one field must be provided for the update, and unprovided fields retain their original values. The metadata is fully replaced. Pass an empty object to clear the metadata.
    * 
    * @remarks
-   * Updates the long-term memory text or metadata based on the memory ID.
+   * Updates the text or metadata of a long-term memory based on the memory ID.
    * 
    * @param request - UpdateMemoryRequest
    * @returns UpdateMemoryResponse
@@ -10354,6 +11054,63 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateMemoryWithOptions(workspaceId, memoryStoreName, memoryId, request, headers, runtime);
+  }
+
+  /**
+   * Updates the name, description, enabled status, or extraction strategy of a memory rule. You must specify at least one field to update. Unspecified fields retain their original values.
+   * 
+   * @remarks
+   * Updates the name, description, enabled status, or extraction strategy of a memory rule. You must specify at least one field to update. Unspecified fields retain their original values.
+   * 
+   * @param tmpReq - UpdateMemoryRuleRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateMemoryRuleResponse
+   */
+  async updateMemoryRuleWithOptions(workspaceId: string, memoryStoreName: string, ruleId: string, tmpReq: $_model.UpdateMemoryRuleRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateMemoryRuleResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateMemoryRuleShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateMemoryRule",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/memorystores/${$dara.URL.percentEncode(memoryStoreName)}/memory-rules/${$dara.URL.percentEncode(ruleId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateMemoryRuleResponse>(await this.callApi(params, req, runtime), new $_model.UpdateMemoryRuleResponse({}));
+  }
+
+  /**
+   * Updates the name, description, enabled status, or extraction strategy of a memory rule. You must specify at least one field to update. Unspecified fields retain their original values.
+   * 
+   * @remarks
+   * Updates the name, description, enabled status, or extraction strategy of a memory rule. You must specify at least one field to update. Unspecified fields retain their original values.
+   * 
+   * @param request - UpdateMemoryRuleRequest
+   * @returns UpdateMemoryRuleResponse
+   */
+  async updateMemoryRule(workspaceId: string, memoryStoreName: string, ruleId: string, request: $_model.UpdateMemoryRuleRequest): Promise<$_model.UpdateMemoryRuleResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateMemoryRuleWithOptions(workspaceId, memoryStoreName, ruleId, request, headers, runtime);
   }
 
   /**
@@ -10559,6 +11316,69 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.updateModelConnectionWithOptions(workspaceId, connectionId, request, headers, runtime);
+  }
+
+  /**
+   * Updates a service endpoint.
+   * 
+   * @remarks
+   * Updates the name, attached version, authentication method, or elastic policy of a service endpoint. The top-level agentVersion is used to reattach the runtime source of the service endpoint. Router service endpoints and DEFAULT service endpoints of the GATEWAY_API_WITH_VPC_INGRESS or GATEWAY_API_WITH_PUBLIC_INGRESS type support independent operation. Reattaching or changing the elastic policy triggers an independent deployment of the service endpoint. DEFAULT service endpoints of the GATEWAY_API type support reattaching the agentVersion to switch to the target version within the namespace of the original gateway runtime instance. If the original gateway runtime instance is inactive, ServiceEndpointTargetNotReady is returned. This type does not support elastic policy updates. If updateElasticity is set to true, InvalidParameter is returned, and the elastic policy inherits the configuration of the attached version. When a DEFAULT service endpoint is reattached from latest to another version, if the same agent still has a service endpoint attached to latest that is not running independently, Operation.Conflict is returned. Runtimes with the same target and normalized configuration are not repeatedly published. An explicit commit can trigger the initial initialization or a retry of a failed node. A successful response does not indicate that the deployment is complete. You must check the status of the service endpoint to confirm the deployment status.
+   * 
+   * @param tmpReq - UpdateServiceEndpointRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns UpdateServiceEndpointResponse
+   */
+  async updateServiceEndpointWithOptions(workspaceId: string, serviceEndpointId: string, tmpReq: $_model.UpdateServiceEndpointRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.UpdateServiceEndpointResponse> {
+    tmpReq.validate();
+    let request = new $_model.UpdateServiceEndpointShrinkRequest({ });
+    OpenApiUtil.convert(tmpReq, request);
+    if (!$dara.isNull(tmpReq.body)) {
+      request.bodyShrink = OpenApiUtil.arrayToStringWithSpecifiedStyle(tmpReq.body, "body", "json");
+    }
+
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.clientToken)) {
+      query["clientToken"] = request.clientToken;
+    }
+
+    let body : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.bodyShrink)) {
+      body["body"] = request.bodyShrink;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+      body: OpenApiUtil.parseToMap(body),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "UpdateServiceEndpoint",
+      version: "2026-08-04",
+      protocol: "HTTPS",
+      pathname: `/workspaces/${$dara.URL.percentEncode(workspaceId)}/service-endpoints/${$dara.URL.percentEncode(serviceEndpointId)}`,
+      method: "PUT",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.UpdateServiceEndpointResponse>(await this.callApi(params, req, runtime), new $_model.UpdateServiceEndpointResponse({}));
+  }
+
+  /**
+   * Updates a service endpoint.
+   * 
+   * @remarks
+   * Updates the name, attached version, authentication method, or elastic policy of a service endpoint. The top-level agentVersion is used to reattach the runtime source of the service endpoint. Router service endpoints and DEFAULT service endpoints of the GATEWAY_API_WITH_VPC_INGRESS or GATEWAY_API_WITH_PUBLIC_INGRESS type support independent operation. Reattaching or changing the elastic policy triggers an independent deployment of the service endpoint. DEFAULT service endpoints of the GATEWAY_API type support reattaching the agentVersion to switch to the target version within the namespace of the original gateway runtime instance. If the original gateway runtime instance is inactive, ServiceEndpointTargetNotReady is returned. This type does not support elastic policy updates. If updateElasticity is set to true, InvalidParameter is returned, and the elastic policy inherits the configuration of the attached version. When a DEFAULT service endpoint is reattached from latest to another version, if the same agent still has a service endpoint attached to latest that is not running independently, Operation.Conflict is returned. Runtimes with the same target and normalized configuration are not repeatedly published. An explicit commit can trigger the initial initialization or a retry of a failed node. A successful response does not indicate that the deployment is complete. You must check the status of the service endpoint to confirm the deployment status.
+   * 
+   * @param request - UpdateServiceEndpointRequest
+   * @returns UpdateServiceEndpointResponse
+   */
+  async updateServiceEndpoint(workspaceId: string, serviceEndpointId: string, request: $_model.UpdateServiceEndpointRequest): Promise<$_model.UpdateServiceEndpointResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.updateServiceEndpointWithOptions(workspaceId, serviceEndpointId, request, headers, runtime);
   }
 
   /**

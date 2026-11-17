@@ -50,6 +50,7 @@ class ListMemoriesResponseBodyItemsScope extends $dara.Model {
         return {
             agentId: 'agentId',
             sessionId: 'sessionId',
+            teamId: 'teamId',
             userId: 'userId',
         };
     }
@@ -57,6 +58,7 @@ class ListMemoriesResponseBodyItemsScope extends $dara.Model {
         return {
             agentId: 'string',
             sessionId: 'string',
+            teamId: 'string',
             userId: 'string',
         };
     }
@@ -76,7 +78,10 @@ class ListMemoriesResponseBodyItems extends $dara.Model {
             memoryId: 'memoryId',
             metadata: 'metadata',
             scope: 'scope',
+            source: 'source',
+            type: 'type',
             updatedAt: 'updatedAt',
+            valid: 'valid',
         };
     }
     static types() {
@@ -86,7 +91,10 @@ class ListMemoriesResponseBodyItems extends $dara.Model {
             memoryId: 'string',
             metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
             scope: ListMemoriesResponseBodyItemsScope,
+            source: 'string',
+            type: 'string',
             updatedAt: 'string',
+            valid: 'boolean',
         };
     }
     validate() {
@@ -117,6 +125,7 @@ class ListMemoriesResponseBody extends $dara.Model {
             nextToken: 'nextToken',
             requestId: 'requestId',
             success: 'success',
+            totalCount: 'totalCount',
         };
     }
     static types() {
@@ -129,6 +138,7 @@ class ListMemoriesResponseBody extends $dara.Model {
             nextToken: 'string',
             requestId: 'string',
             success: 'boolean',
+            totalCount: 'number',
         };
     }
     validate() {

@@ -5,7 +5,7 @@ export declare class CreateMemoryStoreRequestBody extends $dara.Model {
      * The description of the memory store. The description can be up to 1,024 characters in length.
      *
      * @example
-     * Used to store long-term user preferences
+     * Used to store the long-term preferences of users
      */
     description?: string;
     /**
@@ -13,7 +13,7 @@ export declare class CreateMemoryStoreRequestBody extends $dara.Model {
      * The custom extraction instructions. The instructions can be up to 4,096 characters in length.
      *
      * @example
-     * Extract only long-term preferences explicitly expressed by the user
+     * Extract only long-term preferences explicitly expressed by users
      */
     extractInstructions?: string;
     /**
@@ -47,7 +47,7 @@ export declare class CreateMemoryStoreRequest extends $dara.Model {
     body?: CreateMemoryStoreRequestBody;
     /**
      * @remarks
-     * The client request token.
+     * The client token.
      *
      * @example
      * memory-store-create-20260909-001

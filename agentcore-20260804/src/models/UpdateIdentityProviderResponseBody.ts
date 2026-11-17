@@ -13,7 +13,7 @@ export class UpdateIdentityProviderResponseBodyDataConfiguration extends $dara.M
   bindingType?: string;
   /**
    * @remarks
-   * Required for manual entry. It must be non-empty and contain up to 2,048 characters. The existing configuration cannot be replaced. It is different from the local entity ID queried by the SP.
+   * Required for manual entry. It must be non-empty and contain up to 2,048 characters. The existing configuration does not support replacement. It is different from the local entity ID returned by the SP query.
    * 
    * @example
    * https://idp.example.com/entity
@@ -21,7 +21,7 @@ export class UpdateIdentityProviderResponseBodyDataConfiguration extends $dara.M
   entityId?: string;
   /**
    * @remarks
-   * Required for manual entry. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
+   * Required for manual entry. It must be an absolute HTTPS URL and must not contain user credentials or fragments.
    * 
    * @example
    * https://idp.example.com/sso
@@ -29,7 +29,7 @@ export class UpdateIdentityProviderResponseBodyDataConfiguration extends $dara.M
   loginUrl?: string;
   /**
    * @remarks
-   * The actual SSO logon status. The actual switch value is Enabled or Disabled, which is not equivalent to the expected loginEnabled value saved in AC.
+   * The actual switch value, which is Enabled or Disabled. This is not equivalent to the expected loginEnabled value saved in AC.
    * 
    * @example
    * Enabled
@@ -65,7 +65,7 @@ export class UpdateIdentityProviderResponseBodyDataConfiguration extends $dara.M
 export class UpdateIdentityProviderResponseBodyDataOidc extends $dara.Model {
   /**
    * @remarks
-   * 手填模式必填的绝对 HTTPS URL；Discovery 模式不填写。
+   * The absolute HTTPS URL required in manual mode. Do not specify this parameter in discovery mode.
    * 
    * @example
    * https://idp.example.com/authorize
@@ -73,7 +73,7 @@ export class UpdateIdentityProviderResponseBodyDataOidc extends $dara.Model {
   authorizationEndpoint?: string;
   /**
    * @remarks
-   * 默认 client_secret_post；none 必须开启 PKCE。
+   * The default value is client_secret_post. If the value is none, PKCE must be enabled.
    * 
    * @example
    * client_secret_post
@@ -81,7 +81,7 @@ export class UpdateIdentityProviderResponseBodyDataOidc extends $dara.Model {
   clientAuthMethod?: string;
   /**
    * @remarks
-   * 外部 IdP 中注册的客户端标识，区别于 Matrix 客户端；配置后不支持原地更换。
+   * The client identifier registered in the external IdP, which is different from the Matrix client. This value cannot be changed in place after it is configured.
    * 
    * @example
    * example-client
@@ -89,7 +89,7 @@ export class UpdateIdentityProviderResponseBodyDataOidc extends $dara.Model {
   clientId?: string;
   /**
    * @remarks
-   * 绝对 HTTPS Discovery 地址；与手填端点互斥。
+   * The absolute HTTPS discovery endpoint URL. This parameter is mutually exclusive with manually specified endpoints.
    * 
    * @example
    * https://idp.example.com/.well-known/openid-configuration
@@ -97,7 +97,7 @@ export class UpdateIdentityProviderResponseBodyDataOidc extends $dara.Model {
   discoveryEndpoint?: string;
   /**
    * @remarks
-   * 外部 IdP 的绝对 HTTPS Issuer；配置后不支持原地更换。
+   * The absolute HTTPS issuer URL of the external IdP. This value cannot be changed in place after it is configured.
    * 
    * @example
    * https://idp.example.com
@@ -105,7 +105,7 @@ export class UpdateIdentityProviderResponseBodyDataOidc extends $dara.Model {
   issuer?: string;
   /**
    * @remarks
-   * 手填模式必填的绝对 HTTPS URL；Discovery 模式不填写。
+   * The absolute HTTPS URL required in manual mode. Do not specify this parameter in discovery mode.
    * 
    * @example
    * https://idp.example.com/jwks
@@ -113,7 +113,7 @@ export class UpdateIdentityProviderResponseBodyDataOidc extends $dara.Model {
   jwksUri?: string;
   /**
    * @remarks
-   * 默认 true；无客户端认证时必须为 true。
+   * Specifies whether PKCE is enabled. Default value: true. This parameter must be set to true when no client authentication is used.
    * 
    * @example
    * true
@@ -121,7 +121,7 @@ export class UpdateIdentityProviderResponseBodyDataOidc extends $dara.Model {
   pkceRequired?: boolean;
   /**
    * @remarks
-   * 字符串数组，必须包含 openid；默认 openid、profile、email。
+   * The array of scope strings. It must include openid. Default values: openid, profile, and email.
    * 
    * @example
    * ["openid","profile","email"]
@@ -129,7 +129,7 @@ export class UpdateIdentityProviderResponseBodyDataOidc extends $dara.Model {
   scopes?: string[];
   /**
    * @remarks
-   * ID Token 中用于与 SCIM externalId 匹配的 Claim 名。首次省略默认 sub；更新省略保留已保存值。Azure 可填 oid。非空且不含空白字符。查询 oidc 为保存值，oidcConfiguration 为上游实际值，可能为空。
+   * The name of the claim in the ID token used to match the SCIM externalId. If omitted during the initial configuration, the default value is sub. If omitted during an update, the saved value is retained. For Azure, you can specify oid. The value must be non-empty and cannot contain whitespace characters. When queried, oidc returns the saved value, while oidcConfiguration returns the actual upstream value, which may be empty.
    * 
    * @example
    * oid
@@ -137,7 +137,7 @@ export class UpdateIdentityProviderResponseBodyDataOidc extends $dara.Model {
   ssoMappingClaim?: string;
   /**
    * @remarks
-   * 手填模式必填的绝对 HTTPS URL；Discovery 模式不填写。
+   * The absolute HTTPS URL required in manual mode. Do not specify this parameter in discovery mode.
    * 
    * @example
    * https://idp.example.com/token
@@ -145,7 +145,7 @@ export class UpdateIdentityProviderResponseBodyDataOidc extends $dara.Model {
   tokenEndpoint?: string;
   /**
    * @remarks
-   * 手填模式可选的绝对 HTTPS URL；Discovery 模式不填写。
+   * The optional absolute HTTPS URL in manual mode. Do not specify this parameter in discovery mode.
    * 
    * @example
    * https://idp.example.com/userinfo
@@ -206,7 +206,7 @@ export class UpdateIdentityProviderResponseBodyDataSaml extends $dara.Model {
   bindingType?: string;
   /**
    * @remarks
-   * Required for manual entry. It must be non-empty and contain up to 2,048 characters. The existing configuration cannot be replaced. It is different from the local entity ID queried by the SP.
+   * Required for manual entry. It must be non-empty and contain up to 2,048 characters. The existing configuration does not support replacement. It is different from the local entity ID returned by the SP query.
    * 
    * @example
    * https://idp.example.com/entity
@@ -214,7 +214,7 @@ export class UpdateIdentityProviderResponseBodyDataSaml extends $dara.Model {
   entityId?: string;
   /**
    * @remarks
-   * Required for manual entry. It must be an absolute HTTPS URL and cannot contain user credentials or fragments.
+   * Required for manual entry. It must be an absolute HTTPS URL and must not contain user credentials or fragments.
    * 
    * @example
    * https://idp.example.com/sso
@@ -261,7 +261,7 @@ export class UpdateIdentityProviderResponseBodyDataSaml extends $dara.Model {
 export class UpdateIdentityProviderResponseBodyDataSyncScope extends $dara.Model {
   /**
    * @remarks
-   * For SelectedDepartments, it must contain at least one non-empty department ID, which should be obtained from ListIdentityProviderDepartments. For AllAuthorized, pass an empty array or omit it.
+   * When set to SelectedDepartments, it must contain at least one non-empty department ID, which should be obtained from ListIdentityProviderDepartments. When set to AllAuthorized, pass an empty array or omit this parameter.
    * 
    * @example
    * ["10001"]
@@ -269,7 +269,7 @@ export class UpdateIdentityProviderResponseBodyDataSyncScope extends $dara.Model
   departmentIds?: string[];
   /**
    * @remarks
-   * AllAuthorized: All authorized scopes, subject to application directory authorization restrictions. SelectedDepartments: Selected departments and all sub-departments. When explicitly submitting syncScope, a valid mode must be provided and verified by the backend.
+   * AllAuthorized: the full authorization scope, subject to the application address book authorization limits. SelectedDepartments: the selected departments and all their sub-departments. When explicitly submitting syncScope, a valid mode must be provided and verified by the backend.
    * 
    * @example
    * SelectedDepartments
@@ -304,12 +304,12 @@ export class UpdateIdentityProviderResponseBodyDataSyncScope extends $dara.Model
 export class UpdateIdentityProviderResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The actual upstream configuration. The actual SAML configuration is read on demand only when you call the GetIdentityProvider operation. SCIM queries and preparations return the actual receiving status and URL.
+   * The actual upstream configuration. The actual SAML configuration is read on demand only in GetIdentityProvider. SCIM queries and preparations return the actual reception status and URL.
    */
   configuration?: UpdateIdentityProviderResponseBodyDataConfiguration;
   /**
    * @remarks
-   * General CRUD operations support DingTalk, Lark, and CustomSSO. SP queries support only CustomSSO. The SCIM path uses the CustomSSO shared pool.
+   * General CRUD operations support DingTalk, Feishu, and CustomSSO. SP queries support only CustomSSO. The SCIM path uses the CustomSSO shared pool.
    * 
    * @example
    * CustomSSO
@@ -317,17 +317,17 @@ export class UpdateIdentityProviderResponseBodyData extends $dara.Model {
   identityProviderType?: string;
   /**
    * @remarks
-   * Do not pass true during CustomSSO initialization. A valid SAML configuration must be saved before enabling. Disabling does not delete the configuration. In case of asynchronous failure, this expected value does not mean that it has taken effect upstream.
+   * Do not pass true during CustomSSO initialization. A valid SAML configuration must be saved before enabling. Disabling does not delete the configuration. If an asynchronous failure occurs, this expected value does not indicate that it has taken effect upstream.
    */
   loginEnabled?: boolean;
   /**
    * @remarks
-   * 期望配置的安全摘要；不包含凭据。原 SAML 字段与含义保留。
+   * The expected security summary of the configuration. This does not include credentials. The original SAML fields and meanings are retained.
    */
   oidc?: UpdateIdentityProviderResponseBodyDataOidc;
   /**
    * @remarks
-   * The logon protocol for CustomSSO. Only SAML is supported. You can pass SAML when saving the SAML configuration. You can omit this field if you only modify loginEnabled. DingTalk and Lark do not accept this field.
+   * The login protocol for CustomSSO. Currently, only SAML is supported. You can pass SAML when saving the SAML configuration. You can omit this parameter if you only modify loginEnabled. DingTalk and Feishu do not accept this field.
    * 
    * @example
    * SAML
@@ -335,12 +335,12 @@ export class UpdateIdentityProviderResponseBodyData extends $dara.Model {
   protocol?: string;
   /**
    * @remarks
-   * The SAML configuration for CustomSSO. Choose either metadataXml or the four manual entry fields: entityId, loginUrl, bindingType, and x509Certificates. If not submitted, the existing configuration is retained. DingTalk and Lark do not accept this field.
+   * The SAML configuration for CustomSSO. Choose either metadataXml or the four manually entered fields: entityId, loginUrl, bindingType, and x509Certificates. If not submitted, the existing configuration is retained. DingTalk and Feishu do not accept this field.
    */
   saml?: UpdateIdentityProviderResponseBodyDataSaml;
   /**
    * @remarks
-   * The status of the identity source resource and logon configuration. For CustomSSO, a shared pool status of READY does not mean that SAML is configured. For SCIM, query operationStatus independently for the operation result.
+   * The status of the identity source resource and logon configuration. A READY status in the CustomSSO shared pool does not mean that SAML is configured. Query operationStatus independently for SCIM operation results.
    * 
    * @example
    * READY
@@ -348,12 +348,12 @@ export class UpdateIdentityProviderResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * Specifies whether synchronization is enabled. Do not pass true when initializing CustomSSO. You can update this parameter only by calling the UpdateIdentityProviderSCIM operation. Determine the result in combination with operationStatus.
+   * Specifies whether synchronization is enabled. Do not set this parameter to true during CustomSSO initialization. You can only update this parameter later by calling UpdateIdentityProviderSCIM. Evaluate the result in combination with operationStatus.
    */
   syncEnabled?: boolean;
   /**
    * @remarks
-   * Follows the definition of the department-based synchronization scope. If omitted during creation, the default is AllAuthorized. The initial provider synchronization is determined by syncOnBind. If omitted or set to null during an update, the original value is retained. Updating and saving the scope does not automatically execute a full synchronization.
+   * Follows the definition of the department-based synchronization scope. If omitted during creation, the default value is AllAuthorized. The initial provider synchronization is determined by syncOnBind. If omitted or set to null during an update, the original value is retained. Saving the scope during an update does not automatically trigger a full synchronization.
    */
   syncScope?: UpdateIdentityProviderResponseBodyDataSyncScope;
   /**
@@ -418,7 +418,7 @@ export class UpdateIdentityProviderResponseBodyData extends $dara.Model {
 export class UpdateIdentityProviderResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business result code. If the request fails, use this code in combination with the HTTP status code and the message for troubleshooting.
+   * The business result code. If the request fails, use this code along with the HTTP status code and message for troubleshooting.
    * 
    * @example
    * SUCCESS
@@ -426,12 +426,12 @@ export class UpdateIdentityProviderResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The business result. For the result structure, see the response parameters of this API operation. For asynchronous write operations, the response indicates that the request is accepted, but does not guarantee that the background task is completed.
+   * The business result. For the result structure, refer to the response fields of this operation. For asynchronous write operations, the response indicates that the request is accepted, but does not guarantee that the background task is completed.
    */
   data?: UpdateIdentityProviderResponseBodyData;
   /**
    * @remarks
-   * The HTTP status code of the current request. This status code indicates the processing status of the request and does not represent the final result of the background task.
+   * The processing status of the current request. This does not indicate the final result of the background task.
    * 
    * @example
    * 200
@@ -439,7 +439,7 @@ export class UpdateIdentityProviderResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * Task result message. It indicates whether the request is accepted or returns an error message. For asynchronous tasks, check task results by calling the corresponding query API operation.
+   * The request acceptance or error message. For asynchronous tasks, verify the task result by calling the corresponding query operation.
    * 
    * @example
    * success
@@ -447,7 +447,7 @@ export class UpdateIdentityProviderResponseBody extends $dara.Model {
   message?: string;
   /**
    * @remarks
-   * The request ID. Retain this ID for troubleshooting and to correlate with the current API call if the request fails.
+   * The request ID. Retain this ID to correlate the current call and troubleshoot failures.
    * 
    * @example
    * request-example
@@ -455,7 +455,7 @@ export class UpdateIdentityProviderResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the current request is successful. A value of true indicates that the request is processed successfully. For asynchronous write operations, you must continue to query the task result.
+   * Indicates whether the current request is processed successfully. A value of true indicates success. For asynchronous write operations, you must still query the task result.
    */
   success?: boolean;
   static names(): { [key: string]: string } {

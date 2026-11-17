@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SearchMemoriesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The semantic search request.
+   * The semantic retrieval request.
    * 
    * This parameter is required.
    */

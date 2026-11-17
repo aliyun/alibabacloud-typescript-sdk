@@ -13,20 +13,36 @@ export declare class CreateMemoryStoreResponseBodyData extends $dara.Model {
      * The description of the memory store.
      *
      * @example
-     * Used to store long-term user preferences
+     * Used to store the long-term preferences of users
      */
     description?: string;
+    /**
+     * @remarks
+     * The number of events. You can query this value by calling GetMemoryStore.
+     *
+     * @example
+     * 20
+     */
+    eventCount?: number;
     /**
      * @remarks
      * The custom extraction instructions.
      *
      * @example
-     * Extract only long-term preferences explicitly expressed by the user
+     * Extract only long-term preferences explicitly expressed by users
      */
     extractInstructions?: string;
     /**
      * @remarks
-     * The memory store ID.
+     * The number of valid memories. You can query this value by calling GetMemoryStore.
+     *
+     * @example
+     * 10
+     */
+    memoryCount?: number;
+    /**
+     * @remarks
+     * The ID of the memory store.
      *
      * @example
      * ms-2f5f9c5a8d0e4c3b
@@ -42,7 +58,7 @@ export declare class CreateMemoryStoreResponseBodyData extends $dara.Model {
     memoryStoreName?: string;
     /**
      * @remarks
-     * The lifecycle state of the memory store.
+     * The lifecycle status of the memory store.
      *
      * @example
      * Ready
@@ -58,7 +74,7 @@ export declare class CreateMemoryStoreResponseBodyData extends $dara.Model {
     updatedAt?: string;
     /**
      * @remarks
-     * The AgentCore workspace ID.
+     * The ID of the AgentCore workspace.
      *
      * @example
      * ws-2f5f9c5a8d0e4c3b
@@ -86,7 +102,7 @@ export declare class CreateMemoryStoreResponseBody extends $dara.Model {
     code?: string;
     /**
      * @remarks
-     * The memory store details.
+     * The details of the memory store.
      */
     data?: CreateMemoryStoreResponseBodyData;
     /**

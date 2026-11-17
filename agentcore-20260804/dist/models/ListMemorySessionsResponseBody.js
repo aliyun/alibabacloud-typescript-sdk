@@ -30,18 +30,29 @@ class ListMemorySessionsResponseBodyItems extends $dara.Model {
     static names() {
         return {
             agentId: 'agentId',
+            createdAt: 'createdAt',
+            metadata: 'metadata',
             sessionId: 'sessionId',
+            teamId: 'teamId',
+            title: 'title',
             userId: 'userId',
         };
     }
     static types() {
         return {
             agentId: 'string',
+            createdAt: 'string',
+            metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
             sessionId: 'string',
+            teamId: 'string',
+            title: 'string',
             userId: 'string',
         };
     }
     validate() {
+        if (this.metadata) {
+            $dara.Model.validateMap(this.metadata);
+        }
         super.validate();
     }
     constructor(map) {
@@ -60,6 +71,7 @@ class ListMemorySessionsResponseBody extends $dara.Model {
             nextToken: 'nextToken',
             requestId: 'requestId',
             success: 'success',
+            totalCount: 'totalCount',
         };
     }
     static types() {
@@ -72,6 +84,7 @@ class ListMemorySessionsResponseBody extends $dara.Model {
             nextToken: 'string',
             requestId: 'string',
             success: 'boolean',
+            totalCount: 'number',
         };
     }
     validate() {

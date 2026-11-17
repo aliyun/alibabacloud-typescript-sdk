@@ -18,6 +18,14 @@ export declare class SearchMemoriesRequestBodyScope extends $dara.Model {
     sessionId?: string;
     /**
      * @remarks
+     * The business team ID defined by the caller. If provided, it cannot be empty and can be up to 128 UTF-8 bytes in length.
+     *
+     * @example
+     * team-001
+     */
+    teamId?: string;
+    /**
+     * @remarks
      * The user ID. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with a user ID.
      *
      * @example
@@ -43,14 +51,17 @@ export declare class SearchMemoriesRequestBody extends $dara.Model {
     enableRerank?: boolean;
     /**
      * @remarks
-     * The string key-value metadata for exact matching. You can specify up to 16 keys. The maximum length of a key is 64 characters, and the maximum length of a value is 1,024 characters.
+     * The string key-value metadata for exact matching. A maximum of 16 keys are supported. Each key can be up to 64 characters in length, and each value can be up to 1,024 characters in length.
+     *
+     * @example
+     * {"topic":"hiking"}
      */
     metadata?: {
         [key: string]: string;
     };
     /**
      * @remarks
-     * The minimum relevance score. Valid values: 0 to 1. Default value: 0.2. If both minScore and minSimilarity are specified, the AND logic is applied for filtering.
+     * The minimum relevance score. Default value: 0.2. Valid values: 0 to 1. If both minScore and minSimilarity are specified, the results are filtered based on the AND logic.
      *
      * @example
      * 0.2
@@ -58,7 +69,7 @@ export declare class SearchMemoriesRequestBody extends $dara.Model {
     minScore?: number;
     /**
      * @remarks
-     * The minimum similarity. Valid values: 0 to 1. Default value: 0.3. If both minSimilarity and minScore are specified, the AND logic is applied for filtering.
+     * The minimum similarity score. Default value: 0.3. Valid values: 0 to 1. If both minSimilarity and minScore are specified, the results are filtered based on the AND logic.
      *
      * @example
      * 0.3
@@ -66,7 +77,7 @@ export declare class SearchMemoriesRequestBody extends $dara.Model {
     minSimilarity?: number;
     /**
      * @remarks
-     * The query text. The maximum length is 8,192 characters.
+     * The query text for retrieval, up to 8,192 characters.
      *
      * This parameter is required.
      *
@@ -76,7 +87,7 @@ export declare class SearchMemoriesRequestBody extends $dara.Model {
     query?: string;
     /**
      * @remarks
-     * The search scope. UserId, AgentId, and SessionId are all optional.
+     * The retrieval scope. UserId, AgentId, and SessionId are all optional.
      */
     scope?: SearchMemoriesRequestBodyScope;
     /**
@@ -87,6 +98,11 @@ export declare class SearchMemoriesRequestBody extends $dara.Model {
      * 10
      */
     topK?: number;
+    /**
+     * @remarks
+     * The list of memory content types. Supported types include semantic, skill, user_profile, and session_summary. If omitted or left as an empty array, no type restriction is applied.
+     */
+    types?: string[];
     static names(): {
         [key: string]: string;
     };
@@ -101,7 +117,7 @@ export declare class SearchMemoriesRequestBody extends $dara.Model {
 export declare class SearchMemoriesRequest extends $dara.Model {
     /**
      * @remarks
-     * The semantic search request.
+     * The semantic retrieval request.
      *
      * This parameter is required.
      */

@@ -23,7 +23,7 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.GetManagedAgentResponseBody = exports.GetManagedAgentResponseBodyData = exports.GetManagedAgentResponseBodyDataTools = exports.GetManagedAgentResponseBodyDataTemplate = exports.GetManagedAgentResponseBodyDataTemplateAiRegistry = exports.GetManagedAgentResponseBodyDataSubAgents = exports.GetManagedAgentResponseBodyDataSubAgentsSkills = exports.GetManagedAgentResponseBodyDataSkills = exports.GetManagedAgentResponseBodyDataSkillsVersionSelector = exports.GetManagedAgentResponseBodyDataRuntime = exports.GetManagedAgentResponseBodyDataRuntimeSessionPolicy = exports.GetManagedAgentResponseBodyDataRuntimeHpa = exports.GetManagedAgentResponseBodyDataRuntimeCompute = exports.GetManagedAgentResponseBodyDataPromptVariables = exports.GetManagedAgentResponseBodyDataOssMounts = exports.GetManagedAgentResponseBodyDataNetwork = exports.GetManagedAgentResponseBodyDataNetworkAccessVpc = exports.GetManagedAgentResponseBodyDataNetworkAccessInternet = exports.GetManagedAgentResponseBodyDataModel = exports.GetManagedAgentResponseBodyDataModelQuota = exports.GetManagedAgentResponseBodyDataHarness = exports.GetManagedAgentResponseBodyDataHarnessConfiguration = exports.GetManagedAgentResponseBodyDataEnvironment = exports.GetManagedAgentResponseBodyDataEnvironmentVariables = exports.GetManagedAgentResponseBodyDataEnvironmentCredentialReferences = exports.GetManagedAgentResponseBodyDataConfiguredSkills = exports.GetManagedAgentResponseBodyDataConfiguredSkillsVersionSelector = exports.GetManagedAgentResponseBodyDataAgenticFsMounts = void 0;
+exports.GetManagedAgentResponseBody = exports.GetManagedAgentResponseBodyData = exports.GetManagedAgentResponseBodyDataTools = exports.GetManagedAgentResponseBodyDataTemplate = exports.GetManagedAgentResponseBodyDataTemplateAiRegistry = exports.GetManagedAgentResponseBodyDataSubAgents = exports.GetManagedAgentResponseBodyDataSubAgentsSkills = exports.GetManagedAgentResponseBodyDataSkills = exports.GetManagedAgentResponseBodyDataSkillsVersionSelector = exports.GetManagedAgentResponseBodyDataRuntime = exports.GetManagedAgentResponseBodyDataRuntimeSessionPolicy = exports.GetManagedAgentResponseBodyDataRuntimeHpa = exports.GetManagedAgentResponseBodyDataRuntimeCompute = exports.GetManagedAgentResponseBodyDataPromptVariables = exports.GetManagedAgentResponseBodyDataOssMounts = exports.GetManagedAgentResponseBodyDataNetwork = exports.GetManagedAgentResponseBodyDataNetworkAccessVpc = exports.GetManagedAgentResponseBodyDataNetworkAccessInternet = exports.GetManagedAgentResponseBodyDataModel = exports.GetManagedAgentResponseBodyDataModelQuota = exports.GetManagedAgentResponseBodyDataHarness = exports.GetManagedAgentResponseBodyDataHarnessConfiguration = exports.GetManagedAgentResponseBodyDataEnvironment = exports.GetManagedAgentResponseBodyDataEnvironmentVariables = exports.GetManagedAgentResponseBodyDataEnvironmentCredentialReferences = exports.GetManagedAgentResponseBodyDataEffectiveContextConfiguration = exports.GetManagedAgentResponseBodyDataEffectiveContextConfigurationBindings = exports.GetManagedAgentResponseBodyDataContextConfiguration = exports.GetManagedAgentResponseBodyDataContextConfigurationBindings = exports.GetManagedAgentResponseBodyDataConfiguredSkills = exports.GetManagedAgentResponseBodyDataConfiguredSkillsVersionSelector = exports.GetManagedAgentResponseBodyDataAgenticFsMounts = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
 class GetManagedAgentResponseBodyDataAgenticFsMounts extends $dara.Model {
@@ -100,6 +100,96 @@ class GetManagedAgentResponseBodyDataConfiguredSkills extends $dara.Model {
     }
 }
 exports.GetManagedAgentResponseBodyDataConfiguredSkills = GetManagedAgentResponseBodyDataConfiguredSkills;
+class GetManagedAgentResponseBodyDataContextConfigurationBindings extends $dara.Model {
+    static names() {
+        return {
+            resourceId: 'resourceId',
+            type: 'type',
+        };
+    }
+    static types() {
+        return {
+            resourceId: 'string',
+            type: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.GetManagedAgentResponseBodyDataContextConfigurationBindings = GetManagedAgentResponseBodyDataContextConfigurationBindings;
+class GetManagedAgentResponseBodyDataContextConfiguration extends $dara.Model {
+    static names() {
+        return {
+            bindings: 'bindings',
+            enabled: 'enabled',
+        };
+    }
+    static types() {
+        return {
+            bindings: { 'type': 'array', 'itemType': GetManagedAgentResponseBodyDataContextConfigurationBindings },
+            enabled: 'boolean',
+        };
+    }
+    validate() {
+        if (Array.isArray(this.bindings)) {
+            $dara.Model.validateArray(this.bindings);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.GetManagedAgentResponseBodyDataContextConfiguration = GetManagedAgentResponseBodyDataContextConfiguration;
+class GetManagedAgentResponseBodyDataEffectiveContextConfigurationBindings extends $dara.Model {
+    static names() {
+        return {
+            resourceId: 'resourceId',
+            type: 'type',
+        };
+    }
+    static types() {
+        return {
+            resourceId: 'string',
+            type: 'string',
+        };
+    }
+    validate() {
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.GetManagedAgentResponseBodyDataEffectiveContextConfigurationBindings = GetManagedAgentResponseBodyDataEffectiveContextConfigurationBindings;
+class GetManagedAgentResponseBodyDataEffectiveContextConfiguration extends $dara.Model {
+    static names() {
+        return {
+            bindings: 'bindings',
+            enabled: 'enabled',
+        };
+    }
+    static types() {
+        return {
+            bindings: { 'type': 'array', 'itemType': GetManagedAgentResponseBodyDataEffectiveContextConfigurationBindings },
+            enabled: 'boolean',
+        };
+    }
+    validate() {
+        if (Array.isArray(this.bindings)) {
+            $dara.Model.validateArray(this.bindings);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.GetManagedAgentResponseBodyDataEffectiveContextConfiguration = GetManagedAgentResponseBodyDataEffectiveContextConfiguration;
 class GetManagedAgentResponseBodyDataEnvironmentCredentialReferences extends $dara.Model {
     static names() {
         return {
@@ -661,10 +751,12 @@ class GetManagedAgentResponseBodyData extends $dara.Model {
             agentId: 'agentId',
             agenticFsMounts: 'agenticFsMounts',
             configuredSkills: 'configuredSkills',
+            contextConfiguration: 'contextConfiguration',
             createMode: 'createMode',
             createdAt: 'createdAt',
             deployType: 'deployType',
             description: 'description',
+            effectiveContextConfiguration: 'effectiveContextConfiguration',
             environment: 'environment',
             harness: 'harness',
             instruction: 'instruction',
@@ -694,10 +786,12 @@ class GetManagedAgentResponseBodyData extends $dara.Model {
             agentId: 'string',
             agenticFsMounts: { 'type': 'array', 'itemType': GetManagedAgentResponseBodyDataAgenticFsMounts },
             configuredSkills: { 'type': 'array', 'itemType': GetManagedAgentResponseBodyDataConfiguredSkills },
+            contextConfiguration: GetManagedAgentResponseBodyDataContextConfiguration,
             createMode: 'string',
             createdAt: 'string',
             deployType: 'string',
             description: 'string',
+            effectiveContextConfiguration: GetManagedAgentResponseBodyDataEffectiveContextConfiguration,
             environment: GetManagedAgentResponseBodyDataEnvironment,
             harness: GetManagedAgentResponseBodyDataHarness,
             instruction: 'string',
@@ -726,6 +820,12 @@ class GetManagedAgentResponseBodyData extends $dara.Model {
         }
         if (Array.isArray(this.configuredSkills)) {
             $dara.Model.validateArray(this.configuredSkills);
+        }
+        if (this.contextConfiguration && typeof this.contextConfiguration.validate === 'function') {
+            this.contextConfiguration.validate();
+        }
+        if (this.effectiveContextConfiguration && typeof this.effectiveContextConfiguration.validate === 'function') {
+            this.effectiveContextConfiguration.validate();
         }
         if (this.environment && typeof this.environment.validate === 'function') {
             this.environment.validate();

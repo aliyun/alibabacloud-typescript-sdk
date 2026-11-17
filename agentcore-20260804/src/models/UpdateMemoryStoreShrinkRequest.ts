@@ -12,7 +12,7 @@ export class UpdateMemoryStoreShrinkRequest extends $dara.Model {
   bodyShrink?: string;
   /**
    * @remarks
-   * The client token.
+   * The client request token.
    * 
    * @example
    * memory-store-update-20260909-001

@@ -16,9 +16,17 @@ export class DeleteMemoryStoreResponseBodyData extends $dara.Model {
    * The description of the MemoryStore.
    * 
    * @example
-   * Used to store long-term user preferences
+   * Used to store the long-term preferences of users
    */
   description?: string;
+  /**
+   * @remarks
+   * The number of events. You can query this value by calling GetMemoryStore.
+   * 
+   * @example
+   * 20
+   */
+  eventCount?: number;
   /**
    * @remarks
    * The custom extraction instructions.
@@ -29,7 +37,15 @@ export class DeleteMemoryStoreResponseBodyData extends $dara.Model {
   extractInstructions?: string;
   /**
    * @remarks
-   * The MemoryStore ID.
+   * The number of valid memories. You can query this value by calling GetMemoryStore.
+   * 
+   * @example
+   * 10
+   */
+  memoryCount?: number;
+  /**
+   * @remarks
+   * The ID of the MemoryStore.
    * 
    * @example
    * ms-2f5f9c5a8d0e4c3b
@@ -45,7 +61,7 @@ export class DeleteMemoryStoreResponseBodyData extends $dara.Model {
   memoryStoreName?: string;
   /**
    * @remarks
-   * The lifecycle state of the MemoryStore.
+   * The lifecycle status of the MemoryStore.
    * 
    * @example
    * Ready
@@ -61,7 +77,7 @@ export class DeleteMemoryStoreResponseBodyData extends $dara.Model {
   updatedAt?: string;
   /**
    * @remarks
-   * The AgentCore workspace ID.
+   * The ID of the AgentCore workspace.
    * 
    * @example
    * ws-2f5f9c5a8d0e4c3b
@@ -71,7 +87,9 @@ export class DeleteMemoryStoreResponseBodyData extends $dara.Model {
     return {
       createdAt: 'createdAt',
       description: 'description',
+      eventCount: 'eventCount',
       extractInstructions: 'extractInstructions',
+      memoryCount: 'memoryCount',
       memoryStoreId: 'memoryStoreId',
       memoryStoreName: 'memoryStoreName',
       status: 'status',
@@ -84,7 +102,9 @@ export class DeleteMemoryStoreResponseBodyData extends $dara.Model {
     return {
       createdAt: 'string',
       description: 'string',
+      eventCount: 'number',
       extractInstructions: 'string',
+      memoryCount: 'number',
       memoryStoreId: 'string',
       memoryStoreName: 'string',
       status: 'string',

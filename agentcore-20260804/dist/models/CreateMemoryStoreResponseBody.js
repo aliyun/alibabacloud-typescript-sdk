@@ -31,7 +31,9 @@ class CreateMemoryStoreResponseBodyData extends $dara.Model {
         return {
             createdAt: 'createdAt',
             description: 'description',
+            eventCount: 'eventCount',
             extractInstructions: 'extractInstructions',
+            memoryCount: 'memoryCount',
             memoryStoreId: 'memoryStoreId',
             memoryStoreName: 'memoryStoreName',
             status: 'status',
@@ -43,7 +45,9 @@ class CreateMemoryStoreResponseBodyData extends $dara.Model {
         return {
             createdAt: 'string',
             description: 'string',
+            eventCount: 'number',
             extractInstructions: 'string',
+            memoryCount: 'number',
             memoryStoreId: 'string',
             memoryStoreName: 'string',
             status: 'string',

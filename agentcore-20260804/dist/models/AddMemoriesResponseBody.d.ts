@@ -4,6 +4,8 @@ export declare class AddMemoriesResponseBodyDataMemories extends $dara.Model {
      * @remarks
      * The long-term memory ID.
      *
+     * This parameter is required.
+     *
      * @example
      * mem-2f5f9c5a8d0e4c3b
      */
@@ -22,17 +24,22 @@ export declare class AddMemoriesResponseBodyDataMemories extends $dara.Model {
 export declare class AddMemoriesResponseBodyData extends $dara.Model {
     /**
      * @remarks
-     * The memory references. This parameter is returned only when sync is set to true, and an empty array is allowed. It is not returned together with taskId.
+     * The memory references returned only when sync is set to true. An empty array is allowed. It is not returned together with taskId.
      */
     memories?: AddMemoriesResponseBodyDataMemories[];
     /**
      * @remarks
-     * The task ID. This parameter is returned only when sync is set to false. It is not returned together with memories.
+     * The task ID returned only when sync is set to false. It is not returned together with memories.
      *
      * @example
      * task-2f5f9c5a8d0e4c3b
      */
     taskId?: string;
+    /**
+     * @remarks
+     * The list of extraction task IDs. Multiple tasks may be returned when multiple rules are enabled. It is not returned for direct writes.
+     */
+    taskIds?: string[];
     static names(): {
         [key: string]: string;
     };

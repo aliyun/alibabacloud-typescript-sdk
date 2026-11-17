@@ -2,7 +2,7 @@ import * as $dara from '@darabonba/typescript';
 export declare class UpdateMemoryShrinkRequest extends $dara.Model {
     /**
      * @remarks
-     * The update memory request.
+     * The request to update a memory.
      *
      * This parameter is required.
      */

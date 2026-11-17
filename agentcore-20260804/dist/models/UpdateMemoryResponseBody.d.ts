@@ -4,6 +4,8 @@ export declare class UpdateMemoryResponseBodyDataContent extends $dara.Model {
      * @remarks
      * The memory text.
      *
+     * This parameter is required.
+     *
      * @example
      * The user enjoys hiking
      */
@@ -36,6 +38,14 @@ export declare class UpdateMemoryResponseBodyDataScope extends $dara.Model {
      * session-001
      */
     sessionId?: string;
+    /**
+     * @remarks
+     * The business team ID defined by the caller. It cannot be empty when provided and can be up to 128 UTF-8 bytes in length.
+     *
+     * @example
+     * team-001
+     */
+    teamId?: string;
     /**
      * @remarks
      * The user ID. The length is limited to 1 to 128 UTF-8 bytes. The ID cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with a user ID.
@@ -71,7 +81,7 @@ export declare class UpdateMemoryResponseBodyData extends $dara.Model {
     createdAt?: string;
     /**
      * @remarks
-     * The long-term memory ID.
+     * The ID of the long-term memory.
      *
      * @example
      * mem-2f5f9c5a8d0e4c3b
@@ -80,6 +90,9 @@ export declare class UpdateMemoryResponseBodyData extends $dara.Model {
     /**
      * @remarks
      * The memory metadata.
+     *
+     * @example
+     * {"topic":"hiking"}
      */
     metadata?: {
         [key: string]: string;
@@ -91,12 +104,33 @@ export declare class UpdateMemoryResponseBodyData extends $dara.Model {
     scope?: UpdateMemoryResponseBodyDataScope;
     /**
      * @remarks
-     * The last update time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
+     * The memory source. Valid values: session_extraction: Extracted from session events. content_extraction: Extracted from text or messages. direct: Written directly.
+     *
+     * @example
+     * session_extraction
+     */
+    source?: string;
+    /**
+     * @remarks
+     * The memory content type. Valid values: semantic: Semantic memory. skill: Skill. user_profile: User preference. session_summary: Session summary.
+     *
+     * @example
+     * semantic
+     */
+    type?: string;
+    /**
+     * @remarks
+     * The last updated time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
      *
      * @example
      * 2026-09-23T10:05:00Z
      */
     updatedAt?: string;
+    /**
+     * @remarks
+     * Indicates whether the memory is valid. A value of false indicates that the memory is revoked and is not included in valid memory retrieval.
+     */
+    valid?: boolean;
     static names(): {
         [key: string]: string;
     };

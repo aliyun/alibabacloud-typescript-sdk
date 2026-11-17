@@ -23,21 +23,49 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AddMemoriesRequest = exports.AddMemoriesRequestBody = exports.AddMemoriesRequestBodyScope = exports.AddMemoriesRequestBodyMessages = void 0;
+exports.AddMemoriesRequest = exports.AddMemoriesRequestBody = exports.AddMemoriesRequestBodyScope = exports.AddMemoriesRequestBodyMessages = exports.AddMemoriesRequestBodyMemories = void 0;
 // This file is auto-generated, don't edit it
 const $dara = __importStar(require("@darabonba/typescript"));
 /**
  */
+class AddMemoriesRequestBodyMemories extends $dara.Model {
+    static names() {
+        return {
+            metadata: 'metadata',
+            text: 'text',
+            type: 'type',
+        };
+    }
+    static types() {
+        return {
+            metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
+            text: 'string',
+            type: 'string',
+        };
+    }
+    validate() {
+        if (this.metadata) {
+            $dara.Model.validateMap(this.metadata);
+        }
+        super.validate();
+    }
+    constructor(map) {
+        super(map);
+    }
+}
+exports.AddMemoriesRequestBodyMemories = AddMemoriesRequestBodyMemories;
 class AddMemoriesRequestBodyMessages extends $dara.Model {
     static names() {
         return {
             content: 'content',
+            referenceTime: 'referenceTime',
             role: 'role',
         };
     }
     static types() {
         return {
             content: 'string',
+            referenceTime: 'string',
             role: 'string',
         };
     }
@@ -54,6 +82,7 @@ class AddMemoriesRequestBodyScope extends $dara.Model {
         return {
             agentId: 'agentId',
             sessionId: 'sessionId',
+            teamId: 'teamId',
             userId: 'userId',
         };
     }
@@ -61,6 +90,7 @@ class AddMemoriesRequestBodyScope extends $dara.Model {
         return {
             agentId: 'string',
             sessionId: 'string',
+            teamId: 'string',
             userId: 'string',
         };
     }
@@ -75,6 +105,8 @@ exports.AddMemoriesRequestBodyScope = AddMemoriesRequestBodyScope;
 class AddMemoriesRequestBody extends $dara.Model {
     static names() {
         return {
+            extract: 'extract',
+            memories: 'memories',
             messages: 'messages',
             metadata: 'metadata',
             referenceTime: 'referenceTime',
@@ -85,6 +117,8 @@ class AddMemoriesRequestBody extends $dara.Model {
     }
     static types() {
         return {
+            extract: 'boolean',
+            memories: { 'type': 'array', 'itemType': AddMemoriesRequestBodyMemories },
             messages: { 'type': 'array', 'itemType': AddMemoriesRequestBodyMessages },
             metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
             referenceTime: 'string',
@@ -94,6 +128,9 @@ class AddMemoriesRequestBody extends $dara.Model {
         };
     }
     validate() {
+        if (Array.isArray(this.memories)) {
+            $dara.Model.validateArray(this.memories);
+        }
         if (Array.isArray(this.messages)) {
             $dara.Model.validateArray(this.messages);
         }

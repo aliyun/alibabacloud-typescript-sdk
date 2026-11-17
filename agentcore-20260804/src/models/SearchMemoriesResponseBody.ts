@@ -7,6 +7,8 @@ export class SearchMemoriesResponseBodyDataMemoriesMemoryContent extends $dara.M
    * @remarks
    * The memory text.
    * 
+   * This parameter is required.
+   * 
    * @example
    * The user likes hiking
    */
@@ -51,6 +53,14 @@ export class SearchMemoriesResponseBodyDataMemoriesMemoryScope extends $dara.Mod
   sessionId?: string;
   /**
    * @remarks
+   * The business team ID defined by the caller. If provided, it cannot be empty and can be up to 128 UTF-8 bytes in length.
+   * 
+   * @example
+   * team-001
+   */
+  teamId?: string;
+  /**
+   * @remarks
    * The user ID. The length is limited to 1 to 128 UTF-8 bytes. The value cannot contain a forward slash (/) or an asterisk (*). This field is not returned if the memory is not associated with a user ID.
    * 
    * @example
@@ -61,6 +71,7 @@ export class SearchMemoriesResponseBodyDataMemoriesMemoryScope extends $dara.Mod
     return {
       agentId: 'agentId',
       sessionId: 'sessionId',
+      teamId: 'teamId',
       userId: 'userId',
     };
   }
@@ -69,6 +80,7 @@ export class SearchMemoriesResponseBodyDataMemoriesMemoryScope extends $dara.Mod
     return {
       agentId: 'string',
       sessionId: 'string',
+      teamId: 'string',
       userId: 'string',
     };
   }
@@ -107,6 +119,9 @@ export class SearchMemoriesResponseBodyDataMemoriesMemory extends $dara.Model {
   /**
    * @remarks
    * The memory metadata.
+   * 
+   * @example
+   * {"topic":"hiking"}
    */
   metadata?: { [key: string]: string };
   /**
@@ -116,12 +131,33 @@ export class SearchMemoriesResponseBodyDataMemoriesMemory extends $dara.Model {
   scope?: SearchMemoriesResponseBodyDataMemoriesMemoryScope;
   /**
    * @remarks
-   * The last update time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
+   * The memory source. Valid values: session_extraction (extracted from session events), content_extraction (extracted from text or messages), and direct (written directly).
+   * 
+   * @example
+   * session_extraction
+   */
+  source?: string;
+  /**
+   * @remarks
+   * The memory content type. Valid values: semantic (semantic memory), skill (skill), user_profile (user preference), and session_summary (session summary).
+   * 
+   * @example
+   * semantic
+   */
+  type?: string;
+  /**
+   * @remarks
+   * The last updated time. The time is in RFC 3339 format. The Z at the end of the example indicates the UTC time zone.
    * 
    * @example
    * 2026-09-23T10:05:00Z
    */
   updatedAt?: string;
+  /**
+   * @remarks
+   * Indicates whether the memory is valid. A value of false indicates that the memory is revoked and is not included in valid memory retrieval.
+   */
+  valid?: boolean;
   static names(): { [key: string]: string } {
     return {
       content: 'content',
@@ -129,7 +165,10 @@ export class SearchMemoriesResponseBodyDataMemoriesMemory extends $dara.Model {
       memoryId: 'memoryId',
       metadata: 'metadata',
       scope: 'scope',
+      source: 'source',
+      type: 'type',
       updatedAt: 'updatedAt',
+      valid: 'valid',
     };
   }
 
@@ -140,7 +179,10 @@ export class SearchMemoriesResponseBodyDataMemoriesMemory extends $dara.Model {
       memoryId: 'string',
       metadata: { 'type': 'map', 'keyType': 'string', 'valueType': 'string' },
       scope: SearchMemoriesResponseBodyDataMemoriesMemoryScope,
+      source: 'string',
+      type: 'string',
       updatedAt: 'string',
+      valid: 'boolean',
     };
   }
 
@@ -166,11 +208,15 @@ export class SearchMemoriesResponseBodyDataMemories extends $dara.Model {
   /**
    * @remarks
    * The matched memory.
+   * 
+   * This parameter is required.
    */
   memory?: SearchMemoriesResponseBodyDataMemoriesMemory;
   /**
    * @remarks
    * The relevance score.
+   * 
+   * This parameter is required.
    * 
    * @example
    * 0.86
@@ -179,6 +225,8 @@ export class SearchMemoriesResponseBodyDataMemories extends $dara.Model {
   /**
    * @remarks
    * The vector similarity.
+   * 
+   * This parameter is required.
    * 
    * @example
    * 0.91
@@ -215,7 +263,9 @@ export class SearchMemoriesResponseBodyDataMemories extends $dara.Model {
 export class SearchMemoriesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of search results.
+   * The list of retrieval results.
+   * 
+   * This parameter is required.
    */
   memories?: SearchMemoriesResponseBodyDataMemories[];
   static names(): { [key: string]: string } {
@@ -253,7 +303,7 @@ export class SearchMemoriesResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The search results.
+   * The retrieval result.
    */
   data?: SearchMemoriesResponseBodyData;
   /**

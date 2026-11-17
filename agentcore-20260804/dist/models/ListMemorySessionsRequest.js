@@ -32,6 +32,7 @@ class ListMemorySessionsRequest extends $dara.Model {
             agentId: 'agentId',
             maxResults: 'maxResults',
             nextToken: 'nextToken',
+            teamId: 'teamId',
             userId: 'userId',
         };
     }
@@ -40,6 +41,7 @@ class ListMemorySessionsRequest extends $dara.Model {
             agentId: 'string',
             maxResults: 'number',
             nextToken: 'string',
+            teamId: 'string',
             userId: 'string',
         };
     }

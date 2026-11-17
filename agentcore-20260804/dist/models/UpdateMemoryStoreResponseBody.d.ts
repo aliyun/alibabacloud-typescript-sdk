@@ -18,12 +18,28 @@ export declare class UpdateMemoryStoreResponseBodyData extends $dara.Model {
     description?: string;
     /**
      * @remarks
+     * The number of events. You can query this value by calling the GetMemoryStore operation.
+     *
+     * @example
+     * 20
+     */
+    eventCount?: number;
+    /**
+     * @remarks
      * The custom extraction instructions.
      *
      * @example
      * Extract only long-term preferences explicitly expressed by the user
      */
     extractInstructions?: string;
+    /**
+     * @remarks
+     * The number of valid memories. You can query this value by calling the GetMemoryStore operation.
+     *
+     * @example
+     * 10
+     */
+    memoryCount?: number;
     /**
      * @remarks
      * The memory store ID.

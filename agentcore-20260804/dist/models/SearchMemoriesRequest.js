@@ -31,6 +31,7 @@ class SearchMemoriesRequestBodyScope extends $dara.Model {
         return {
             agentId: 'agentId',
             sessionId: 'sessionId',
+            teamId: 'teamId',
             userId: 'userId',
         };
     }
@@ -38,6 +39,7 @@ class SearchMemoriesRequestBodyScope extends $dara.Model {
         return {
             agentId: 'string',
             sessionId: 'string',
+            teamId: 'string',
             userId: 'string',
         };
     }
@@ -59,6 +61,7 @@ class SearchMemoriesRequestBody extends $dara.Model {
             query: 'query',
             scope: 'scope',
             topK: 'topK',
+            types: 'types',
         };
     }
     static types() {
@@ -70,6 +73,7 @@ class SearchMemoriesRequestBody extends $dara.Model {
             query: 'string',
             scope: SearchMemoriesRequestBodyScope,
             topK: 'number',
+            types: { 'type': 'array', 'itemType': 'string' },
         };
     }
     validate() {
@@ -78,6 +82,9 @@ class SearchMemoriesRequestBody extends $dara.Model {
         }
         if (this.scope && typeof this.scope.validate === 'function') {
             this.scope.validate();
+        }
+        if (Array.isArray(this.types)) {
+            $dara.Model.validateArray(this.types);
         }
         super.validate();
     }
