@@ -13,7 +13,7 @@ export class GetAsrConfigResponseBodyData extends $dara.Model {
   appKey?: string;
   /**
    * @remarks
-   * The ASR acoustic model ID.
+   * The ID of the ASR acoustic model.
    * 
    * @example
    * 3b1d3031-8b6e-460a-8640-d330f2ca50b8
@@ -21,7 +21,7 @@ export class GetAsrConfigResponseBodyData extends $dara.Model {
   asrAcousticModelId?: string;
   /**
    * @remarks
-   * The ASR hotword ID.
+   * The ID of the ASR class hotword.
    * 
    * @example
    * 3b1d3031-8b6e-460a-8640-d330f2ca50b8
@@ -29,16 +29,31 @@ export class GetAsrConfigResponseBodyData extends $dara.Model {
   asrClassVocabularyId?: string;
   /**
    * @remarks
-   * The ASR dataset ID.
+   * Indicates whether the ASR context is enabled.
+   * 
+   * @example
+   * true
+   */
+  asrContextEnabled?: string;
+  /**
+   * @remarks
+   * The ID of the ASR dataset.
    * 
    * @example
    * 3b1d3031-8b6e-460a-8640-d330f2ca50b8
    */
   asrCustomizationId?: string;
+  /**
+   * @remarks
+   * The ASR error correction dictionary.
+   * 
+   * @example
+   * [{"correctedText":"Hello","misrecognizedText":"Hi"}]
+   */
   asrOverrides?: string;
   /**
    * @remarks
-   * The ASR correction dictionary ID.
+   * The ID of the ASR error correction dictionary.
    * 
    * @example
    * 94001ae8-72fd-4f93-84dc-e58e2b20363b
@@ -62,7 +77,7 @@ export class GetAsrConfigResponseBodyData extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The iFLYTEK engine parameters.
+   * The parameters of the iFLYTEK engine.
    * 
    * @example
    * EngineXufei
@@ -81,6 +96,7 @@ export class GetAsrConfigResponseBodyData extends $dara.Model {
       appKey: 'AppKey',
       asrAcousticModelId: 'AsrAcousticModelId',
       asrClassVocabularyId: 'AsrClassVocabularyId',
+      asrContextEnabled: 'AsrContextEnabled',
       asrCustomizationId: 'AsrCustomizationId',
       asrOverrides: 'AsrOverrides',
       asrOverridesUuid: 'AsrOverridesUuid',
@@ -96,6 +112,7 @@ export class GetAsrConfigResponseBodyData extends $dara.Model {
       appKey: 'string',
       asrAcousticModelId: 'string',
       asrClassVocabularyId: 'string',
+      asrContextEnabled: 'string',
       asrCustomizationId: 'string',
       asrOverrides: 'string',
       asrOverridesUuid: 'string',
@@ -155,7 +172,7 @@ export class GetAsrConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

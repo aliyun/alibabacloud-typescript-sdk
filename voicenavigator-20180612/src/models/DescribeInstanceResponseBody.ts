@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance ability type.<br>
-   * DEFAULT: full abilities.<br>
-   * VOICE_ONLY: only voice abilities, without dialog intervention.
+   * The capability type of the instance.<br>Valid values:<br>- DEFAULT: All capabilities.<br>- VOICE_ONLY: Voice capabilities only, excluding dialog intervention.
    * 
    * @example
    * VOICE_ONLY
@@ -20,7 +18,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   applicableOperations?: string[];
   /**
    * @remarks
-   * The instance concurrency.
+   * The concurrency of the instance.
    * 
    * @example
    * 10
@@ -31,12 +29,12 @@ export class DescribeInstanceResponseBody extends $dara.Model {
    * The description.
    * 
    * @example
-   * 导航测试实例描述信息
+   * Description of the navigation test instance
    */
   description?: string;
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the instance.
    * 
    * @example
    * cd6fc91bc13445c2af7f2e3e31418520
@@ -52,7 +50,7 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The user who last updated the instance.
+   * The name of the user who updated the instance.
    * 
    * @example
    * 2508711*******
@@ -60,16 +58,16 @@ export class DescribeInstanceResponseBody extends $dara.Model {
   modifyUserName?: string;
   /**
    * @remarks
-   * The instance name.
+   * The name of the instance.
    * 
    * @example
-   * 导航测试实例
+   * Navigation test instance
    */
   name?: string;
   nluServiceParamsJson?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 790B5EA3-D251-1666-B1E0-4D1F4B33A592
@@ -83,7 +81,15 @@ export class DescribeInstanceResponseBody extends $dara.Model {
    * Published
    */
   status?: string;
+  /**
+   * @example
+   * demo-llm-test
+   */
   unionInstanceId?: string;
+  /**
+   * @example
+   * CCC
+   */
   unionSource?: string;
   static names(): { [key: string]: string } {
     return {

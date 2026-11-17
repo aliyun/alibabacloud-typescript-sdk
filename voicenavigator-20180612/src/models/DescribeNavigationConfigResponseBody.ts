@@ -7,23 +7,23 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeNavigationConfigResponseBodyGreetingConfig extends $dara.Model {
   /**
    * @remarks
-   * The greeting message.
+   * The greeting words.
    * 
    * @example
-   * 您好，欢迎致电智能导航
+   * Hello, welcome to the intelligent navigation service
    */
   greetingWords?: string;
   /**
    * @remarks
-   * The intent trigger.
+   * The trigger intent.
    * 
    * @example
-   * 你好
+   * Hello
    */
   intentTrigger?: string;
   /**
    * @remarks
-   * The source of the configuration.
+   * The configuration type.
    * 
    * @example
    * chatbotIntent
@@ -57,7 +57,7 @@ export class DescribeNavigationConfigResponseBodyGreetingConfig extends $dara.Mo
 export class DescribeNavigationConfigResponseBodySilenceTimeoutConfig extends $dara.Model {
   /**
    * @remarks
-   * The action to perform after the final silence prompt is played. Valid values: `TransferToAgent`, `TransferToIVR`, `RedirectToPage`, or `HangUp`.
+   * The action to perform after the prompt. Valid values: TransferToAgent, TransferToIVR, RedirectToPage, and HangUp.
    * 
    * @example
    * HangUp
@@ -65,7 +65,7 @@ export class DescribeNavigationConfigResponseBodySilenceTimeoutConfig extends $d
   finalAction?: string;
   /**
    * @remarks
-   * Parameters for the final action, such as a redirection target.
+   * The action parameters, such as the redirect target.
    * 
    * @example
    * {}
@@ -73,10 +73,10 @@ export class DescribeNavigationConfigResponseBodySilenceTimeoutConfig extends $d
   finalActionParams?: string;
   /**
    * @remarks
-   * The prompt that is played when the silence timeout threshold is reached.
+   * The final silence prompt.
    * 
    * @example
-   * 抱歉，听不到您说话，请您稍后致电
+   * Sorry, I cannot hear you. Please call back later
    */
   finalPrompt?: string;
   /**
@@ -89,15 +89,15 @@ export class DescribeNavigationConfigResponseBodySilenceTimeoutConfig extends $d
   intentTrigger?: string;
   /**
    * @remarks
-   * The prompt that is played when a silence timeout occurs.
+   * The silence timeout prompt.
    * 
    * @example
-   * 抱歉，我没听到您说话
+   * Sorry, I did not hear you
    */
   prompt?: string;
   /**
    * @remarks
-   * The source of the configuration.
+   * The source type of the configuration.
    * 
    * @example
    * chatbotIntent
@@ -113,7 +113,7 @@ export class DescribeNavigationConfigResponseBodySilenceTimeoutConfig extends $d
   threshold?: number;
   /**
    * @remarks
-   * The duration of the silence timeout.
+   * The silence timeout period.
    * 
    * @example
    * 10
@@ -157,7 +157,7 @@ export class DescribeNavigationConfigResponseBodySilenceTimeoutConfig extends $d
 export class DescribeNavigationConfigResponseBodyUnrecognizingConfig extends $dara.Model {
   /**
    * @remarks
-   * The action to take when the number of unrecognized inputs reaches the threshold. Valid values: `TransferToAgent`, `TransferToIVR`, `RedirectToPage`, or `HangUp`.
+   * The action to perform for unrecognized input. Valid values: TransferToAgent, TransferToIVR, RedirectToPage, and HangUp.
    * 
    * @example
    * TransferToAgent
@@ -165,7 +165,7 @@ export class DescribeNavigationConfigResponseBodyUnrecognizingConfig extends $da
   finalAction?: string;
   /**
    * @remarks
-   * Parameters for the final action, such as a redirection target.
+   * The action parameters, such as the redirect target.
    * 
    * @example
    * { \\"skillGroupId\\": \\"fallbackSkillGroup\\" }
@@ -173,23 +173,23 @@ export class DescribeNavigationConfigResponseBodyUnrecognizingConfig extends $da
   finalActionParams?: string;
   /**
    * @remarks
-   * The prompt that is played when the unrecognized input threshold is reached.
+   * The final prompt for unrecognized input.
    * 
    * @example
-   * 抱歉，我暂时无法处理您的问题，即将为您转接人工
+   * Sorry, I cannot process your request at the moment. I am transferring you to a human agent
    */
   finalPrompt?: string;
   /**
    * @remarks
-   * The prompt that is played when user input is not recognized.
+   * The prompt for unrecognized input.
    * 
    * @example
-   * 抱歉，我无法理解您的意思
+   * Sorry, I do not understand what you mean
    */
   prompt?: string;
   /**
    * @remarks
-   * The maximum number of times the user\\"s input is not recognized.
+   * The maximum number of unrecognized inputs.
    * 
    * @example
    * 3
@@ -245,7 +245,7 @@ export class DescribeNavigationConfigResponseBody extends $dara.Model {
   silenceTimeoutConfig?: DescribeNavigationConfigResponseBodySilenceTimeoutConfig;
   /**
    * @remarks
-   * The configuration for handling unrecognized input.
+   * The unrecognizing configuration.
    */
   unrecognizingConfig?: DescribeNavigationConfigResponseBodyUnrecognizingConfig;
   static names(): { [key: string]: string } {

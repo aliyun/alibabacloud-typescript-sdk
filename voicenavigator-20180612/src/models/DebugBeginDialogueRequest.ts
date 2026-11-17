@@ -23,7 +23,7 @@ export class DebugBeginDialogueRequest extends $dara.Model {
   callingNumber?: string;
   /**
    * @remarks
-   * The unique ID of the conversation.
+   * The session ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class DebugBeginDialogueRequest extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The initial context of the conversation.
+   * The session information.
    * 
    * @example
    * {}
@@ -41,14 +41,21 @@ export class DebugBeginDialogueRequest extends $dara.Model {
   initialContext?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The scenario ID.
    * 
    * This parameter is required.
    * 
    * @example
-   * 8a503680-815d-473e-a9b0-e010f47a64d2
+   * 8a9bdaa895a748528a15b50c281e6474
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * Specifies whether to use sandbox mode.
+   * 
+   * @example
+   * true
+   */
   shouldUseSandBox?: boolean;
   static names(): { [key: string]: string } {
     return {

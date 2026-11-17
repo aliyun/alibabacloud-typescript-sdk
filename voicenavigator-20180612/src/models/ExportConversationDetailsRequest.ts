@@ -3,10 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class ExportConversationDetailsRequest extends $dara.Model {
+  /**
+   * @remarks
+   * The ABTest ID.
+   */
   abTestId?: string;
   /**
    * @remarks
-   * The left boundary of the start date range.
+   * The lower bound of the start date range.
    * 
    * @example
    * 1582266750353
@@ -14,7 +18,7 @@ export class ExportConversationDetailsRequest extends $dara.Model {
   beginTimeLeftRange?: number;
   /**
    * @remarks
-   * The right boundary of the start date range.
+   * The upper bound of the start date range.
    * 
    * @example
    * 1640793599000
@@ -44,8 +48,20 @@ export class ExportConversationDetailsRequest extends $dara.Model {
    * The optional parameters.
    */
   options?: string[];
+  /**
+   * @example
+   * 0
+   */
   result?: number;
+  /**
+   * @example
+   * 1
+   */
   roundsLeftRange?: number;
+  /**
+   * @example
+   * 5
+   */
   roundsRightRange?: number;
   static names(): { [key: string]: string } {
     return {

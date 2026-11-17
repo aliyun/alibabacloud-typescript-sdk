@@ -21,12 +21,20 @@ export class ModifyAsrConfigRequest extends $dara.Model {
   asrAcousticModelId?: string;
   /**
    * @remarks
-   * The ASR hotword ID.
+   * The ASR class vocabulary ID.
    * 
    * @example
    * 6cc9f5ca-2cb6-4cc7-a46b-2bbfd3e61b22
    */
   asrClassVocabularyId?: string;
+  /**
+   * @remarks
+   * Specifies whether to enable the ASR context.
+   * 
+   * @example
+   * true
+   */
+  asrContextEnabled?: boolean;
   /**
    * @remarks
    * The dataset ID.
@@ -35,10 +43,17 @@ export class ModifyAsrConfigRequest extends $dara.Model {
    * 6cc9f5ca-2cb6-4cc7-a46b-2bbfd3e61b22
    */
   asrCustomizationId?: string;
+  /**
+   * @remarks
+   * The ASR error correction dictionary.
+   * 
+   * @example
+   * [{"misrecognizedText":"Hello","correctedText":"Hi"}]
+   */
   asrOverrides?: string;
   /**
    * @remarks
-   * The ASR error correction dictionary ID.
+   * The ID of the ASR error correction dictionary.
    * 
    * @example
    * 94001ae8-72fd-4f93-84dc-e58e2b20363b
@@ -46,7 +61,7 @@ export class ModifyAsrConfigRequest extends $dara.Model {
   asrOverridesUuid?: string;
   /**
    * @remarks
-   * The hotword ID. You can view the ASR hotword ID on the [ASR Hotword Management page](https://aiccs.console.aliyun.com/sentence/vocab?spm=a2c4g.11186623.0.0.7f9bf965IKBpsi).
+   * The hot word ID. You can view the ASR hot word ID on the [ASR Hot Word Management page](https://aiccs.console.aliyun.com/sentence/vocab?spm=a2c4g.11186623.0.0.7f9bf965IKBpsi).
    * 
    * @example
    * 6cc9f5ca-2cb6-4cc7-a46b-2bbfd3e61b22
@@ -54,11 +69,7 @@ export class ModifyAsrConfigRequest extends $dara.Model {
   asrVocabularyId?: string;
   /**
    * @remarks
-   * The policy level. Valid values:
-   * 
-   * - 0: system.
-   * - 1: tenant.
-   * - 2: instance.
+   * The policy level. Valid values: 0: system, 1: tenant, 2: instance.
    * 
    * @example
    * 0
@@ -82,7 +93,7 @@ export class ModifyAsrConfigRequest extends $dara.Model {
   engineXunfei?: string;
   /**
    * @remarks
-   * The entity ID corresponding to config_level.
+   * The entity ID corresponding to the config level.
    * 
    * @example
    * 6cc9f5ca-2cb6-4cc7-a46b-2bbfd3e61b22
@@ -93,7 +104,7 @@ export class ModifyAsrConfigRequest extends $dara.Model {
    * NluServiceType
    * 
    * @example
-   * Speech Recognition
+   * Speech recognition
    */
   nlsServiceType?: string;
   static names(): { [key: string]: string } {
@@ -101,6 +112,7 @@ export class ModifyAsrConfigRequest extends $dara.Model {
       appKey: 'AppKey',
       asrAcousticModelId: 'AsrAcousticModelId',
       asrClassVocabularyId: 'AsrClassVocabularyId',
+      asrContextEnabled: 'AsrContextEnabled',
       asrCustomizationId: 'AsrCustomizationId',
       asrOverrides: 'AsrOverrides',
       asrOverridesUuid: 'AsrOverridesUuid',
@@ -118,6 +130,7 @@ export class ModifyAsrConfigRequest extends $dara.Model {
       appKey: 'string',
       asrAcousticModelId: 'string',
       asrClassVocabularyId: 'string',
+      asrContextEnabled: 'boolean',
       asrCustomizationId: 'string',
       asrOverrides: 'string',
       asrOverridesUuid: 'string',

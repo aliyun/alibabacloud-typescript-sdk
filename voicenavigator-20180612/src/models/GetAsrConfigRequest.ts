@@ -5,10 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAsrConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The policy level. Valid values:
-   * - 0: system.
-   * - 1: tenant.
-   * - 2: instance.
+   * The policy level. Valid values: 0: system, 1: tenant, 2: instance.
    * 
    * @example
    * 1

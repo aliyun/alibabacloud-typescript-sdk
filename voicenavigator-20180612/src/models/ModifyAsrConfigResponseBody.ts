@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAsrConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The number of affected rows.
+   * Indicates whether rows are affected.
    * 
    * @example
    * 1
@@ -72,7 +72,7 @@ export class ModifyAsrConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "VoiceNavigator";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("voicenavigator", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -30,7 +34,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a Chatbot instance.
+   * Associates a chatbot.
    * 
    * @param request - AssociateChatbotInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -81,7 +85,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Associates a Chatbot instance.
+   * Associates a chatbot.
    * 
    * @param request - AssociateChatbotInstanceRequest
    * @returns AssociateChatbotInstanceResponse
@@ -336,7 +340,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Voice Navigator instance.
+   * Creates an intelligent navigation instance, configures the instance name, description, and maximum number of concurrent sessions, and returns the ID of the new instance.
+   * 
+   * @remarks
+   * Call this operation to create an intelligent navigation instance as the configuration object for a digital worker scenario.
+   * When you integrate with Cloud Call Center, specify the integration source and associated instance by using `UnionSource` and `UnionInstanceId`. After a successful call, `InstanceId` is returned for subsequent API calls.
    * 
    * @param request - CreateInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -387,7 +395,11 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a Voice Navigator instance.
+   * Creates an intelligent navigation instance, configures the instance name, description, and maximum number of concurrent sessions, and returns the ID of the new instance.
+   * 
+   * @remarks
+   * Call this operation to create an intelligent navigation instance as the configuration object for a digital worker scenario.
+   * When you integrate with Cloud Call Center, specify the integration source and associated instance by using `UnionSource` and `UnionInstanceId`. After a successful call, `InstanceId` is returned for subsequent API calls.
    * 
    * @param request - CreateInstanceRequest
    * @returns CreateInstanceResponse
@@ -398,7 +410,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a conversation in a debugging environment.
+   * Starts a session in the debug environment.
    * 
    * @param request - DebugBeginDialogueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -449,7 +461,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Starts a conversation in a debugging environment.
+   * Starts a session in the debug environment.
    * 
    * @param request - DebugBeginDialogueRequest
    * @returns DebugBeginDialogueResponse
@@ -510,7 +522,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Debugs a conversation in the debug environment.
+   * Tests a conversation in the debug environment.
    * 
    * @param request - DebugDialogueRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -553,7 +565,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Debugs a conversation in the debug environment.
+   * Tests a conversation in the debug environment.
    * 
    * @param request - DebugDialogueRequest
    * @returns DebugDialogueResponse
@@ -606,7 +618,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries conversation information.
+   * Queries the conversation information.
    * 
    * @param request - DescribeConversationRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -633,7 +645,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries conversation information.
+   * Queries the conversation information.
    * 
    * @param request - DescribeConversationRequest
    * @returns DescribeConversationResponse
@@ -720,7 +732,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries instance information.
+   * Retrieves the details of a navigation instance.
    * 
    * @param request - DescribeInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -747,7 +759,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries instance information.
+   * Retrieves the details of a navigation instance.
    * 
    * @param request - DescribeInstanceRequest
    * @returns DescribeInstanceResponse
@@ -758,7 +770,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View the instance IVR configuration.
+   * Queries the IVR configuration of an instance.
    * 
    * @param request - DescribeNavigationConfigRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -785,7 +797,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * View the instance IVR configuration.
+   * Queries the IVR configuration of an instance.
    * 
    * @param request - DescribeNavigationConfigRequest
    * @returns DescribeNavigationConfigResponse
@@ -796,7 +808,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the recording of a conversation.
+   * Retrieves the conversation recording.
    * 
    * @param request - DescribeRecordingRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -823,7 +835,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves the recording of a conversation.
+   * Retrieves the conversation recording.
    * 
    * @param request - DescribeRecordingRequest
    * @returns DescribeRecordingResponse
@@ -1346,7 +1358,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances.
+   * Lists instances.
    * 
    * @param request - ListChatbotInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1373,7 +1385,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries a list of instances.
+   * Lists instances.
    * 
    * @param request - ListChatbotInstancesRequest
    * @returns ListChatbotInstancesResponse
@@ -1506,7 +1518,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of intelligent navigation instances for the current tenant.
+   * Queries a paginated list of intelligent navigation instances for the current tenant.
    * 
    * @param request - ListInstancesRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1533,7 +1545,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Retrieves a paginated list of intelligent navigation instances for the current tenant.
+   * Queries a paginated list of intelligent navigation instances for the current tenant.
    * 
    * @param request - ListInstancesRequest
    * @returns ListInstancesResponse
@@ -1563,6 +1575,10 @@ export default class Client extends OpenApi {
 
     if (!$dara.isNull(request.asrClassVocabularyId)) {
       query["AsrClassVocabularyId"] = request.asrClassVocabularyId;
+    }
+
+    if (!$dara.isNull(request.asrContextEnabled)) {
+      query["AsrContextEnabled"] = request.asrContextEnabled;
     }
 
     if (!$dara.isNull(request.asrCustomizationId)) {
@@ -1684,7 +1700,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify an instance.
+   * Modifies an instance.
    * 
    * @param request - ModifyInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1727,7 +1743,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modify an instance.
+   * Modifies an instance.
    * 
    * @param request - ModifyInstanceRequest
    * @returns ModifyInstanceResponse

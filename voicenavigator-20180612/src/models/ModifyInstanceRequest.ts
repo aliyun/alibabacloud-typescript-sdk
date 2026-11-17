@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The maximum number of concurrent conversations for the instance.
+   * The maximum concurrency of the instance.
    * 
    * This parameter is required.
    * 
@@ -15,15 +15,15 @@ export class ModifyInstanceRequest extends $dara.Model {
   concurrency?: number;
   /**
    * @remarks
-   * The description of the instance.
+   * The description.
    * 
    * @example
-   * 描述
+   * Description
    */
   description?: string;
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * This parameter is required.
    * 

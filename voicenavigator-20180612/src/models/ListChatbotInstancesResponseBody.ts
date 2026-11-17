@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListChatbotInstancesResponseBodyBots extends $dara.Model {
   /**
    * @remarks
-   * The icon of the instance.
+   * The avatar of the chatbot instance.
    * 
    * @example
    * https://dss0.ali.com/70cFuHS.jpg
@@ -13,7 +13,7 @@ export class ListChatbotInstancesResponseBodyBots extends $dara.Model {
   avatar?: string;
   /**
    * @remarks
-   * The time when the instance was created.
+   * The creation time.
    * 
    * @example
    * 1582266750353
@@ -42,10 +42,10 @@ export class ListChatbotInstancesResponseBodyBots extends $dara.Model {
   languageCode?: string;
   /**
    * @remarks
-   * The name of the instance.
+   * The name.
    * 
    * @example
-   * 测试机器人
+   * Test chatbot
    */
   name?: string;
   /**
@@ -92,7 +92,7 @@ export class ListChatbotInstancesResponseBodyBots extends $dara.Model {
 export class ListChatbotInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of instances.
+   * The list of instance information.
    */
   bots?: ListChatbotInstancesResponseBodyBots[];
   /**

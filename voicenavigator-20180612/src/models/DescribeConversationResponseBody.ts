@@ -29,7 +29,7 @@ export class DescribeConversationResponseBody extends $dara.Model {
   conversationId?: string;
   /**
    * @remarks
-   * The number of effective Q&A pairs.
+   * The number of valid Q&A pairs.
    * 
    * @example
    * 8
@@ -69,7 +69,7 @@ export class DescribeConversationResponseBody extends $dara.Model {
   transferredToAgent?: boolean;
   /**
    * @remarks
-   * The number of user utterances.
+   * The number of customer questions.
    * 
    * @example
    * 10

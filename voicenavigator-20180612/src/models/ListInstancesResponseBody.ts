@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListInstancesResponseBodyInstances extends $dara.Model {
   /**
    * @remarks
-   * The list of applicable operations for the instance.
+   * The list of available operations for the instance.
    */
   applicableOperations?: string[];
   /**
@@ -29,7 +29,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
    * The description.
    * 
    * @example
-   * 测试的实例
+   * Test instance
    */
   description?: string;
   /**
@@ -42,7 +42,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 1582266750353
@@ -50,7 +50,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   modifyTime?: number;
   /**
    * @remarks
-   * The operator who performed the operation.
+   * The operator.
    * 
    * @example
    * xxx
@@ -61,12 +61,12 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
    * The name.
    * 
    * @example
-   * 测试实例
+   * Test instance
    */
   name?: string;
   /**
    * @remarks
-   * The large language model service parameters in JSON format.
+   * The JSON string of large language model service parameters.
    * 
    * @example
    * {"agentId":"1213503","isCCCAgent":"true","agentKey":"107e04a7519243eb83c9b549ea3b6829_p_ccc_public"}
@@ -90,7 +90,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
    * The instance ID.
    * 
    * 
-   * > When UnionSource is set to CCC, UnionInstanceId is set to the instance ID of Cloud Call Center.
+   * > If UnionSource is set to CCC, UnionInstanceId is the instance ID of Cloud Call Center.
    * 
    * @example
    * zhyl
@@ -98,7 +98,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
   unionInstanceId?: string;
   /**
    * @remarks
-   * The source.
+   * The source. Valid values:
    * 
    * - CCC: Cloud Call Center.
    * 
@@ -160,7 +160,7 @@ export class ListInstancesResponseBodyInstances extends $dara.Model {
 export class ListInstancesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The array of instances.
+   * The instance array.
    */
   instances?: ListInstancesResponseBodyInstances[];
   /**

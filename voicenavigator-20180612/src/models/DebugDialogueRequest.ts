@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DebugDialogueRequest extends $dara.Model {
   /**
    * @remarks
-   * The conversation context.
+   * The session context.
    * 
    * @example
    * {}
@@ -38,7 +38,7 @@ export class DebugDialogueRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * 是的
+   * Yes
    */
   utterance?: string;
   static names(): { [key: string]: string } {

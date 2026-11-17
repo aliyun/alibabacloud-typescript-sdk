@@ -13,31 +13,31 @@ export class ListInstancesRequest extends $dara.Model {
   instanceIdListJsonString?: string;
   /**
    * @remarks
-   * The scenario name used as a filter condition.
+   * The filter condition for the scenario name.
    * 
    * @example
-   * 测试
+   * Test
    */
   name?: string;
   /**
    * @remarks
-   * The NLU type used to filter by dialog capability source. If this parameter is not specified, all types are selected.
+   * The NLU type and the filter condition for the source of dialog capabilities. If you do not specify this parameter, all types are selected. Valid values:
    * 
-   *  * MANAGED: managed (deprecated).
+   *  * MANAGED: **[Deprecated]** Managed.
    * 
-   *  * AUTHORIZED: authorized. In the public cloud, this refers to Chatbot service.
+   *  * AUTHORIZED: Authorized. Public cloud: Chatbot service.
    * 
-   *  * PROVIDED: private. Configured by specifying the AccessKey ID, AccessKey Secret, and chatEndpoint in the O&M console.
-   * * CCC_AUTHORIZED: uses a Chatbot authorized by Cloud Call Center.
+   *  * PROVIDED: Private. Configured by specifying the AccessKey ID, AccessKey secret, and chatEndpoint in the O&M console.
+   * * CCC_AUTHORIZED: Uses Chatbot authorized by Cloud Call Center.
    * 
-   * * CCC_FUNCTION: uses Alibaba Cloud Function Compute.
+   * * CCC_FUNCTION: Uses Alibaba Cloud Function Compute.
    * 
-   * * SSE_FUNCTION: uses a streaming function service. Function Compute that supports SSE, used to connect to third-party large language model chatbots.
+   * * SSE_FUNCTION: Uses streaming function services. Supports Function Compute with Server-Sent Events (SSE) for integrating third-party large language model chatbots.
    * 
    * 
-   * * PROMPTS: connects to Qwen foundation models.
+   * * PROMPTS: Integrates with foundation models such as Qwen.
    * 
-   * * LOCAL: private cloud, local Chatbot.
+   * * LOCAL: Apsara Stack. Local Chatbot.
    * 
    * @example
    * ["CCC_AUTHORIZED"]
@@ -45,7 +45,7 @@ export class ListInstancesRequest extends $dara.Model {
   nluServiceTypeListJsonString?: string;
   /**
    * @remarks
-   * The inbound number used as a filter condition.
+   * The filter condition for the inbound number.
    * 
    * @example
    * 021xxxxxxx
@@ -73,9 +73,9 @@ export class ListInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The scenario status used as a filter condition. If this parameter is not specified, all statuses are selected.
-   * * DISABLED: offline.
-   * * PUBLISHED: published.
+   * The filter condition for the current scenario status. If you do not specify this parameter, all statuses are selected by default. Valid values:
+   * * DISABLED: Offline.
+   * * PUBLISHED: Published.
    * 
    * @example
    * PUBLISHED
@@ -85,7 +85,7 @@ export class ListInstancesRequest extends $dara.Model {
    * @remarks
    * The instance ID.
    * 
-   * > When UnionSource is set to CCC, set UnionInstanceId to the instance ID of Cloud Call Center.
+   * > If UnionSource is set to CCC, set UnionInstanceId to the instance ID of Cloud Call Center.
    * 
    * @example
    * zhyl
@@ -93,7 +93,7 @@ export class ListInstancesRequest extends $dara.Model {
   unionInstanceId?: string;
   /**
    * @remarks
-   * The source.
+   * The source. Valid values:
    * * CCC: Cloud Call Center.
    * 
    * @example

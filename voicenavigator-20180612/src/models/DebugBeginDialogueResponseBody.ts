@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DebugBeginDialogueResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The action to perform.
+   * The action instruction.
    * 
    * @example
    * Broadcast
@@ -13,15 +13,15 @@ export class DebugBeginDialogueResponseBody extends $dara.Model {
   action?: string;
   /**
    * @remarks
-   * The action parameters.
+   * The parameters of the action instruction.
    * 
    * @example
-   * {}
+   * {"predictStopLongPauseConfig":"{\\"NoSemantics\\":1800, \\"PauseIntent\\":2500, \\"IncompleteSemantics\\":2000}","predictStopNluResponseMinTime":400,"streamEnd":true,"predictStopNluResponseMiddleWaitTime":5000,"asrMaxEndSilence":600,"predictStopAsrDelay":250,"asrMaxBeginSilence":5000,"predictStopVad":300,"predictStopLongPause":1400,"enableStreamChat":true}
    */
   actionParams?: string;
   /**
    * @remarks
-   * Specifies whether the Interactive Voice Response (IVR) broadcast can be interrupted.
+   * Indicates whether the IVR announcement can be interrupted.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class DebugBeginDialogueResponseBody extends $dara.Model {
   interruptible?: boolean;
   /**
    * @remarks
-   * The unique ID of the request.
+   * The request ID.
    * 
    * @example
    * 14C39896-AE6D-4643-9C9A-E0566B2C2DDD
@@ -37,10 +37,10 @@ export class DebugBeginDialogueResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The broadcast content.
+   * The announcement content.
    * 
    * @example
-   * 您好，欢迎致电智能助手
+   * Hello, welcome to the intelligent assistant
    */
   textResponse?: string;
   static names(): { [key: string]: string } {

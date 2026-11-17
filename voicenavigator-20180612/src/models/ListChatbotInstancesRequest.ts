@@ -12,6 +12,10 @@ export class ListChatbotInstancesRequest extends $dara.Model {
    */
   instanceId?: string;
   nluServiceParamsJson?: string;
+  /**
+   * @example
+   * CCC_AUTHORIZED
+   */
   nluServiceType?: string;
   /**
    * @remarks
@@ -31,6 +35,10 @@ export class ListChatbotInstancesRequest extends $dara.Model {
    * 10
    */
   pageSize?: number;
+  /**
+   * @example
+   * CCC
+   */
   unionSource?: string;
   static names(): { [key: string]: string } {
     return {
