@@ -77,7 +77,7 @@ export class CheckServiceLinkedRoleForProductResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful. Valid values: true: The operation is successful. false: The operation fails.
+   * Indicates whether the operation is successful. A value of true indicates success, and a value of false indicates failure.
    * 
    * @example
    * true

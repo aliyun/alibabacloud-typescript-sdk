@@ -45,7 +45,7 @@ export class ListEventStreamingsRequestTags extends $dara.Model {
 export class ListEventStreamingsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies the maximum number of entries to return per request. You can use this parameter together with NextToken to paginate results.>Notice: The maximum number of entries returned per request cannot exceed 100.
+   * Specifies the maximum number of entries to return per request. You can use this parameter with NextToken to paginate results. <notice>The maximum number of entries returned per request cannot exceed 100.</notice>
    * 
    * @example
    * 10
@@ -61,7 +61,7 @@ export class ListEventStreamingsRequest extends $dara.Model {
   namePrefix?: string;
   /**
    * @remarks
-   * The token that is returned when Limit is specified and additional results are available.
+   * The pagination token. If you specify Limit and more results are available, this token is returned.
    * 
    * @example
    * 10

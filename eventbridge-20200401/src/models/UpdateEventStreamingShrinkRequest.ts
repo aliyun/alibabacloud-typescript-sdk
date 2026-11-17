@@ -23,7 +23,7 @@ export class UpdateEventStreamingShrinkRequest extends $dara.Model {
   eventStreamingName?: string;
   /**
    * @remarks
-   * The event filtering rule. If you do not specify this parameter, all events are matched. For more information, see [https://www.alibabacloud.com/help/en/eventbridge/user-guide/event-patterns](https://www.alibabacloud.com/help/en/eventbridge/user-guide/event-patterns).
+   * The event filter pattern. If you do not specify this parameter, all events are matched. For more information, see [Event patterns](https://www.alibabacloud.com/help/en/eventbridge/user-guide/event-patterns).
    * 
    * @example
    * {
@@ -47,7 +47,7 @@ export class UpdateEventStreamingShrinkRequest extends $dara.Model {
   filterPattern?: string;
   /**
    * @remarks
-   * The common JSON Configurations for event providers. This parameter is mutually exclusive with Source.
+   * The common JSON configurations for the event provider. This parameter is mutually exclusive with Source.
    * 
    * @example
    * {"key":"value"}
@@ -60,12 +60,12 @@ export class UpdateEventStreamingShrinkRequest extends $dara.Model {
   runOptionsShrink?: string;
   /**
    * @remarks
-   * The event target. You must select one sink, and you can configure only one sink.
+   * The event target. You must select exactly one sink.
    */
   sinkShrink?: string;
   /**
    * @remarks
-   * The event provider. You must select exactly one source type and configure its parameters.
+   * The event provider. You must specify one and only one source type.
    */
   sourceShrink?: string;
   /**

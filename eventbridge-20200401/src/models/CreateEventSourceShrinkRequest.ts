@@ -34,6 +34,9 @@ export class CreateEventSourceShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The external data source configuration.
+   * 
+   * @example
+   * {"IsBase64Decode":true,"QueueName":"queue-1"}
    */
   externalSourceConfigShrink?: string;
   /**
@@ -64,7 +67,7 @@ export class CreateEventSourceShrinkRequest extends $dara.Model {
   sourceKafkaParametersShrink?: string;
   /**
    * @remarks
-   * The parameters for a Simple Message Queue (formerly MNS) event source. If you select Simple Message Queue (formerly MNS) as the event source, the RegionId, IsBase64Decode, and QueueName parameters are required.
+   * The Simple Message Queue (formerly MNS) event source parameters. When you select Simple Message Queue (formerly MNS) as the event source, the RegionId, IsBase64Decode, and QueueName parameters are required.
    */
   sourceMNSParametersShrink?: string;
   /**

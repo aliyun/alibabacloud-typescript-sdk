@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateEventSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API response code:
+   * The API return code:
    * 
    * - Success: indicates success.
    * 
-   * - Other values: indicate error codes. For more information, see Error codes.
+   * - Other values: indicate an error code. For more information, see Error codes.
    * 
    * @example
    * Success
@@ -41,7 +41,7 @@ export class UpdateEventSourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true

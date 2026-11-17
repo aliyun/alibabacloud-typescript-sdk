@@ -16,8 +16,7 @@ export class CreateApiDestinationShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The name of the connection configuration. The name must be 2 to 127 characters in length.
-   * 
-   * <notice>Before calling this operation, call the Connection operation to create a connection configuration. Set ConnectionName to the name of an existing connection.
+   * <notice>You must first call the Connection operation to create a connection configuration, and specify an existing connection name for ConnectionName.</notice>
    * 
    * This parameter is required.
    * 
@@ -30,7 +29,7 @@ export class CreateApiDestinationShrinkRequest extends $dara.Model {
    * The description of the API destination. The description can be up to 255 characters in length.
    * 
    * @example
-   * Description of the connection configuration
+   * This is the description.
    */
   description?: string;
   /**

@@ -58,7 +58,7 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * myeventstreaming
+   * my_streaming
    */
   eventStreamingName?: string;
   /**
@@ -87,7 +87,7 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
   filterPattern?: string;
   /**
    * @remarks
-   * The common JSON configurations for the event provider. This parameter is mutually exclusive with Source.
+   * The common JSON Configurations for event providers. This parameter is mutually exclusive with Source.
    * 
    * @example
    * {"key":"value"}
@@ -95,7 +95,7 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
   metadata?: string;
   /**
    * @remarks
-   * The resource group ID. If you do not specify this parameter, the created event stream belongs to the default resource group of the account.
+   * The ID of the resource group. If you do not specify this parameter, the created event stream belongs to the default resource group of the account.
    * 
    * @example
    * rg-acfmxazb4ph6aiy****
@@ -108,22 +108,22 @@ export class CreateEventStreamingShrinkRequest extends $dara.Model {
   runOptionsShrink?: string;
   /**
    * @remarks
-   * The event target. You must select exactly one type of sink to configure.
+   * The event target. You must select one and only one sink.
    */
   sinkShrink?: string;
   /**
    * @remarks
-   * The event provider. You must select exactly one source type and configure its parameters.
+   * The event provider. You must specify exactly one source.
    */
   sourceShrink?: string;
   /**
    * @remarks
-   * The list of tags. You can specify up to 20 tags.
+   * The list of tags. Up to 20 tags are supported.
    */
   tags?: CreateEventStreamingShrinkRequestTags[];
   /**
    * @remarks
-   * The configuration for transforms.
+   * The transform configurations.
    */
   transformsShrink?: string;
   static names(): { [key: string]: string } {

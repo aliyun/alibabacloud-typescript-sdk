@@ -15,7 +15,7 @@ export class DeleteEventStreamingRequest extends $dara.Model {
   eventStreamingName?: string;
   /**
    * @remarks
-   * Specifies whether to force delete the event stream. If set to true, system label-based deletion protection is bypassed. Default value: false.
+   * Specifies whether to force delete the event stream. If Settings is true, deletion interception based on system label is ignored. Default value: false.
    */
   force?: boolean;
   static names(): { [key: string]: string } {

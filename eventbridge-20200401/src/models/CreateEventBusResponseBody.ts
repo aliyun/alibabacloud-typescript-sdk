@@ -64,8 +64,7 @@ export class CreateEventBusResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the call is successful. Valid values:
-   * - true: The call is successful.
+   * Indicates whether the call is successful. Valid values: true: The call is successful.
    * 
    * @example
    * true

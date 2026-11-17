@@ -33,10 +33,10 @@ export class UpdateEventSourceShrinkRequest extends $dara.Model {
   eventSourceName?: string;
   /**
    * @remarks
-   * The external data source configuration.
+   * The external datasource config.
    * 
    * @example
-   * {\\"ConsumePosition\\":\\"end\\",\\"LogStore\\":\\"oss_log\\",\\"Project\\":\\"slsaudit-center-5795350335281001-cn-beijing\\",\\"RoleName\\":\\"sls-beijing-tf\\"}
+   * {"IsBase64Decode":true,"QueueName":"queue-1"}
    */
   externalSourceConfigShrink?: string;
   /**
@@ -57,42 +57,42 @@ export class UpdateEventSourceShrinkRequest extends $dara.Model {
   linkedExternalSource?: boolean;
   /**
    * @remarks
-   * The SourceHttpEventParameters request parameter.
+   * The request parameter SourceHttpEventParameters.
    */
   sourceHttpEventParametersShrink?: string;
   /**
    * @remarks
-   * The SourceKafkaParameters request parameter.
+   * The request parameter SourceKafkaParameters.
    */
   sourceKafkaParametersShrink?: string;
   /**
    * @remarks
-   * The parameters for a Simple Message Queue (formerly MNS) event source.
+   * The parameters for the Simple Message Queue (formerly MNS) event source.
    */
   sourceMNSParametersShrink?: string;
   /**
    * @remarks
-   * The parameters for an OSS event source.
+   * The parameters for the OSS event source.
    */
   sourceOSSEventParametersShrink?: string;
   /**
    * @remarks
-   * The SourceRabbitMQParameters request parameter.
+   * The request parameter SourceRabbitMQParameters.
    */
   sourceRabbitMQParametersShrink?: string;
   /**
    * @remarks
-   * The SourceRocketMQParameters request parameter.
+   * The request parameter SourceRocketMQParameters.
    */
   sourceRocketMQParametersShrink?: string;
   /**
    * @remarks
-   * The parameters for a Simple Log Service event source.
+   * The parameters for the Simple Log Service event source.
    */
   sourceSLSParametersShrink?: string;
   /**
    * @remarks
-   * The SourceScheduledEventParameters request parameter.
+   * The request parameter SourceScheduledEventParameters.
    */
   sourceScheduledEventParametersShrink?: string;
   static names(): { [key: string]: string } {

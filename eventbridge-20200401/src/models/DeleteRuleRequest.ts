@@ -15,7 +15,7 @@ export class DeleteRuleRequest extends $dara.Model {
   eventBusName?: string;
   /**
    * @remarks
-   * The name of the event rule that you want to delete.
+   * The name of the rule to delete.
    * 
    * This parameter is required.
    * 

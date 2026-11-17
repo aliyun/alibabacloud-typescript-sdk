@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEventSourceRequestSourceHttpEventParameters extends $dara.Model {
   /**
    * @remarks
-   * The CIDR block for security configuration. This parameter is required only when the SecurityConfig parameter is set to ip. You can enter a CIDR block or an IP address.
+   * The CIDR block security configuration. This parameter is required only when the SecurityConfig parameter is set to ip. You can enter a CIDR block or an IP address.
    */
   ip?: string[];
   /**
@@ -24,7 +24,7 @@ export class CreateEventSourceRequestSourceHttpEventParameters extends $dara.Mod
   method?: string[];
   /**
    * @remarks
-   * The secure domain name for security configuration. This parameter is required only when the SecurityConfig parameter is set to referer. You can enter a domain name.
+   * The secure domain name configuration. This parameter is required only when the SecurityConfig parameter is set to referer. You can enter a domain name.
    */
   referer?: string[];
   /**
@@ -106,7 +106,7 @@ export class CreateEventSourceRequestSourceKafkaParameters extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The concurrency quota, which is the number of consumers.
+   * The concurrency quota (number of consumers).
    * 
    * @example
    * 1
@@ -114,7 +114,7 @@ export class CreateEventSourceRequestSourceKafkaParameters extends $dara.Model {
   maximumTasks?: number;
   /**
    * @remarks
-   * The network configuration. Valid values: Default and PublicNetwork.
+   * The network configuration. Valid values: Default (default network) and PublicNetwork (self-managed network).
    * 
    * @example
    * Default
@@ -226,8 +226,7 @@ export class CreateEventSourceRequestSourceMNSParameters extends $dara.Model {
   queueName?: string;
   /**
    * @remarks
-   * The region where the Simple Message Queue (formerly MNS) queue resides.
-   * Valid values: cn-qingdao, cn-beijing, cn-zhangjiakou, cn-huhehaote, cn-wulanchabu, cn-hangzhou, cn-shanghai, cn-shenzhen, cn-guangzhou, cn-chengdu, cn-hongkong, ap-southeast-1, ap-southeast-2, ap-southeast-3, ap-southeast-5, ap-northeast-1, eu-central-1, us-west-1, us-east-1, ap-south-1, me-east-1, and cn-north-2-gov-1.
+   * The region where the Simple Message Queue (formerly MNS) queue resides. Valid values: cn-qingdao, cn-beijing, cn-zhangjiakou, cn-huhehaote, cn-wulanchabu, cn-hangzhou, cn-shanghai, cn-shenzhen, cn-guangzhou, cn-chengdu, cn-hongkong, ap-southeast-1, ap-southeast-2, ap-southeast-3, ap-southeast-5, ap-northeast-1, eu-central-1, us-west-1, us-east-1, ap-south-1, me-east-1, and cn-north-2-gov-1.
    * 
    * @example
    * cn-hangzhou
@@ -376,7 +375,7 @@ export class CreateEventSourceRequestSourceRabbitMQParameters extends $dara.Mode
   instanceId?: string;
   /**
    * @remarks
-   * The queue name of the ApsaraMQ for RabbitMQ instance, such as eb-connect. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
+   * eb-connect: The queue name of the ApsaraMQ for RabbitMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
    * 
    * @example
    * demo
@@ -428,7 +427,7 @@ export class CreateEventSourceRequestSourceRabbitMQParameters extends $dara.Mode
 export class CreateEventSourceRequestSourceRocketMQParameters extends $dara.Model {
   /**
    * @remarks
-   * The authentication type. Valid values: ACL. You can also leave this parameter empty.
+   * The authentication type. Valid values: ACL or leave empty.
    * 
    * @example
    * ACL
@@ -436,7 +435,7 @@ export class CreateEventSourceRequestSourceRocketMQParameters extends $dara.Mode
   authType?: string;
   /**
    * @remarks
-   * The group ID of the ApsaraMQ for RocketMQ instance.
+   * The group ID of ApsaraMQ for RocketMQ.
    * 
    * @example
    * GID-test
@@ -452,7 +451,7 @@ export class CreateEventSourceRequestSourceRocketMQParameters extends $dara.Mode
   instanceEndpoint?: string;
   /**
    * @remarks
-   * The instance ID of the ApsaraMQ for RocketMQ instance. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
+   * The instance ID of ApsaraMQ for RocketMQ. For more information, see [Limits](https://help.aliyun.com/document_detail/163289.html).
    * 
    * @example
    * MQ_INST_164901546557****_BAAN****
@@ -485,8 +484,8 @@ export class CreateEventSourceRequestSourceRocketMQParameters extends $dara.Mode
   /**
    * @remarks
    * The instance type. Valid values:
-   * - Cloud_4: Version 4.0 instance.
-   * - Cloud_5: Version 5.0 instance.
+   * - Cloud_4: 4.0 instance.
+   * - Cloud_5: 5.0 instance.
    * 
    * @example
    * Cloud_4
@@ -510,7 +509,7 @@ export class CreateEventSourceRequestSourceRocketMQParameters extends $dara.Mode
   instanceVSwitchIds?: string;
   /**
    * @remarks
-   * The ID of the virtual private cloud (VPC). Required for VPCs.
+   * The ID of the VPC. Required for VPCs.
    * 
    * @example
    * vpc-bp1a4gmlk31hyg6pt****
@@ -519,9 +518,9 @@ export class CreateEventSourceRequestSourceRocketMQParameters extends $dara.Mode
   /**
    * @remarks
    * The consumption offset of the message. Valid values:
-   * - CONSUME_FROM_LAST_OFFSET: Consumes messages from the latest offset.
-   * - CONSUME_FROM_FIRST_OFFSET: Consumes messages from the earliest offset.
-   * - CONSUME_FROM_TIMESTAMP: Consumes messages from the offset at a specified point in time.
+   * - CONSUME_FROM_LAST_OFFSET: Consumes from the latest offset.
+   * - CONSUME_FROM_FIRST_OFFSET: Consumes from the earliest offset.
+   * - CONSUME_FROM_TIMESTAMP: Consumes from the offset at a specified point in time.
    * Default value: CONSUME_FROM_LAST_OFFSET.
    * 
    * @example
@@ -614,7 +613,7 @@ export class CreateEventSourceRequestSourceRocketMQParameters extends $dara.Mode
 export class CreateEventSourceRequestSourceSLSParameters extends $dara.Model {
   /**
    * @remarks
-   * The start consumption offset. You can set this parameter to begin to consume from the earliest offset, end to consume from the latest offset, or a specific timestamp in seconds.
+   * The start consumption offset. You can select the earliest or latest offset, which corresponds to begin or end. You can also specify a point in time to start consumption, in seconds.
    * 
    * @example
    * end
@@ -638,7 +637,7 @@ export class CreateEventSourceRequestSourceSLSParameters extends $dara.Model {
   project?: string;
   /**
    * @remarks
-   * When granting authorization to EventBridge to read Simple Log Service logs by using this role, the following conditions must be met: When you create the role in the Resource Access Management (RAM) console, you must select Alibaba Cloud Service as the trusted entity and EventBridge as the trusted service. For more information about the access policy for this role, see Custom event source: Simple Log Service.
+   * When authorizing EventBridge to use this role to read Simple Log Service logs, the following conditions must be met: When creating the role in the Resource Access Management (RAM) console, you must select Alibaba Cloud Service as the trusted entity and EventBridge as the trusted service. For the permission policy of this role, refer to the custom event source Simple Log Service.
    * 
    * @example
    * testRole
@@ -753,6 +752,9 @@ export class CreateEventSourceRequest extends $dara.Model {
   /**
    * @remarks
    * The external data source configuration.
+   * 
+   * @example
+   * {"IsBase64Decode":true,"QueueName":"queue-1"}
    */
   externalSourceConfig?: { [key: string]: any };
   /**
@@ -783,7 +785,7 @@ export class CreateEventSourceRequest extends $dara.Model {
   sourceKafkaParameters?: CreateEventSourceRequestSourceKafkaParameters;
   /**
    * @remarks
-   * The parameters for a Simple Message Queue (formerly MNS) event source. If you select Simple Message Queue (formerly MNS) as the event source, the RegionId, IsBase64Decode, and QueueName parameters are required.
+   * The Simple Message Queue (formerly MNS) event source parameters. When you select Simple Message Queue (formerly MNS) as the event source, the RegionId, IsBase64Decode, and QueueName parameters are required.
    */
   sourceMNSParameters?: CreateEventSourceRequestSourceMNSParameters;
   /**

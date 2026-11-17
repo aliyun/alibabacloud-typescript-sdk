@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateEventStreamingResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of Success indicates that the request was successful. Other values indicate error codes. For more information, see Error codes.
+   * The API return code. A value of Success indicates that the call was successful. Other values indicate error codes. For more information, see Error codes.
    * 
    * @example
    * Success
@@ -29,7 +29,7 @@ export class UpdateEventStreamingResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation was successful. A value of true indicates that the operation was successful.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true

@@ -874,6 +874,7 @@ export { QueryAskLumaLogResult } from './QueryAskLumaLogResult';
 export { QueryAttachment } from './QueryAttachment';
 export { Row } from './Row';
 export { SchemaColumn } from './SchemaColumn';
+export { SinkAgentCoreKnowledgeBaseParameters } from './SinkAgentCoreKnowledgeBaseParameters';
 export { SinkAgentRunParameters } from './SinkAgentRunParameters';
 export { SinkApiDestinationParameters } from './SinkApiDestinationParameters';
 export { SinkBaiLianParameters } from './SinkBaiLianParameters';

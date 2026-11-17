@@ -28,10 +28,10 @@ export class CreateRuleShrinkRequest extends $dara.Model {
   eventTargetsShrink?: string;
   /**
    * @remarks
-   * The event pattern in JSON format. The following patterns are supported:
-   * - stringEqual pattern
-   * - stringExpression pattern
-   * Each field supports up to five expressions in a map structure.
+   * The event pattern in JSON format. Valid values:
+   * stringEqual mode.
+   * stringExpression mode.
+   * Up to 5 expressions are supported for each field (map structure).
    * 
    * This parameter is required.
    * 
@@ -69,8 +69,8 @@ export class CreateRuleShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The status of the rule. Valid values:
-   * - ENABLE: The rule is enabled. This is the default status.
-   * - DISABLE: The rule is disabled.
+   * ENABLE: The rule is enabled. This is the default status.
+   * DISABLE: The rule is disabled.
    * 
    * @example
    * ENABLE

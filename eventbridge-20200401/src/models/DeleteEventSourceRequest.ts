@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteEventSourceRequest extends $dara.Model {
   /**
    * @remarks
-   * The event bus to which the event source is attached.
+   * The bound event bus.
    * 
    * @example
    * eEXaMPLEBUSNameAaAaAa

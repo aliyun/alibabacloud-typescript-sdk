@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteApiDestinationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API operation status or POP error code. Valid values: Success: The operation is successful.
+   * The API status or POP error code. Valid values: Success: Successful.
    * 
    * @example
    * Success

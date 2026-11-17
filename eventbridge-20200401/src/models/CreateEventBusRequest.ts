@@ -13,7 +13,7 @@ export class CreateEventBusRequestTags extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The tag value.
+   * The value of the first tag in the tag list.
    * 
    * @example
    * R&D
@@ -63,7 +63,7 @@ export class CreateEventBusRequest extends $dara.Model {
   eventBusName?: string;
   /**
    * @remarks
-   * The ID of the resource group. If you do not specify this parameter, the created event bus belongs to the default resource group of the account.
+   * The ID of the resource group. If you do not specify this parameter, the event bus belongs to the default resource group of the account.
    * 
    * @example
    * rg-acfmxazb4ph6aiy****
@@ -71,7 +71,7 @@ export class CreateEventBusRequest extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The list of tags.
+   * The tag list.
    */
   tags?: CreateEventBusRequestTags[];
   static names(): { [key: string]: string } {

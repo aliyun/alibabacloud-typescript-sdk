@@ -35,7 +35,7 @@ export class CreateApiDestinationResponseBodyDate extends $dara.Model {
 export class CreateApiDestinationResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API status code or POP error code. Valid values: Success: The operation is successful.
+   * The API status code or POP error code. Valid values: Success: The call is successful.
    * 
    * @example
    * Success
@@ -43,7 +43,7 @@ export class CreateApiDestinationResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The data structure returned upon successful creation of the API destination.
+   * The data structure returned when the API destination is successfully created.
    */
   date?: CreateApiDestinationResponseBodyDate;
   /**

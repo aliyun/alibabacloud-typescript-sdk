@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CheckServiceLinkedRoleForProductRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the service-linked role associated with the cloud service.
+   * The name of the service-linked role associated with the Alibaba Cloud service.
    * 
    * @example
    * AliyunServiceRoleForEventBridgeConnectVPC

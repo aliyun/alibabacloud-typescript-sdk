@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateServiceLinkedRoleForProductResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The return code of the API operation. A value of Success indicates that the request is successful. Other values indicate error codes. For more information, see Error codes.
+   * The response code. A value of Success indicates success. Other values indicate error codes. For more information, see Error codes.
    * 
    * @example
    * Success
@@ -28,7 +28,7 @@ export class CreateServiceLinkedRoleForProductResponseBody extends $dara.Model {
   httpCode?: number;
   /**
    * @remarks
-   * The response message. If the request is successful, the value is success.
+   * The response message. The value is success if the request succeeds.
    * 
    * @example
    * success

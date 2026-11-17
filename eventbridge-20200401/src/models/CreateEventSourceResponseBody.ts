@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateEventSourceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The resource ARN.
+   * The ARN of the resource.
    * 
    * @example
    * acs:eventbridge:cn-hangzhou:164901546557****:eventbus/my-event-bus/eventsource/mymns.source
@@ -35,9 +35,9 @@ export class CreateEventSourceResponseBodyData extends $dara.Model {
 export class CreateEventSourceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The API response code. Valid values:
+   * The API return code. Valid values:
    * - Success: The operation is successful.                                 
-   * - Other values: An error code.
+   * - Other values: Error codes.
    * For more information, see Error codes.
    * 
    * @example
@@ -67,7 +67,7 @@ export class CreateEventSourceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the operation is successful.
+   * Indicates whether the operation was successful.
    * 
    * @example
    * true
