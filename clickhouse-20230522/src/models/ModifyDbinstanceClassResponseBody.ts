@@ -29,7 +29,7 @@ export class ModifyDBInstanceClassResponseBodyData extends $dara.Model {
   DBInstanceName?: string;
   /**
    * @remarks
-   * The maximum value for serverless elastic scaling.
+   * **[Deprecated]** The maximum value for serverless elastic scaling.
    * 
    * @example
    * 32
@@ -37,7 +37,7 @@ export class ModifyDBInstanceClassResponseBodyData extends $dara.Model {
   scaleMax?: number;
   /**
    * @remarks
-   * The minimum value for serverless elastic scaling.
+   * **[Deprecated]** The minimum value for serverless elastic scaling.
    * 
    * @example
    * 2

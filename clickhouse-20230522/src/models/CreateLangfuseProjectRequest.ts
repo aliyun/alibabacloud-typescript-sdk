@@ -15,7 +15,7 @@ export class CreateLangfuseProjectRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The Langfuse project name.
+   * The name of the Langfuse project.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class CreateLangfuseProjectRequest extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The organization ID to which the Langfuse project belongs.
+   * The ID of the organization to which the Langfuse project belongs.
    * 
    * This parameter is required.
    * 

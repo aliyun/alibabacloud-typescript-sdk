@@ -20,7 +20,7 @@ export class ModifyAccountDescriptionRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * cc-bp1anv7jo84t****
+   * cc-xxxxxxx
    */
   DBInstanceId?: string;
   /**

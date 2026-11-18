@@ -5,20 +5,20 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAccountAuthorityRequestDmlAuthSetting extends $dara.Model {
   /**
    * @remarks
-   * The databases on which you want to grant permissions. Separate multiple databases with commas (,).
+   * The list of databases to be authorized. Separate multiple databases with commas (,).
    */
   allowDatabases?: string[];
   /**
    * @remarks
-   * The dictionaries on which you want to grant permissions. Separate multiple dictionaries with commas (,).
+   * The list of dictionaries to be authorized. Separate multiple dictionaries with commas (,).
    */
   allowDictionaries?: string[];
   /**
    * @remarks
-   * Specifies whether to grant the DDL permissions to the database account. Valid values:
+   * Specifies whether to grant DDL permissions to the database account. Valid values:
    * 
-   * *   **true**: The account has the permissions to execute DDL statements.
-   * *   **false**: The account does not have the permissions to execute DDL statements.
+   * - **true**: DDL is allowed.
+   * - **false**: DDL is not allowed.
    * 
    * This parameter is required.
    * 
@@ -28,11 +28,13 @@ export class ModifyAccountAuthorityRequestDmlAuthSetting extends $dara.Model {
   ddlAuthority?: boolean;
   /**
    * @remarks
-   * Specifies whether to grant the DML permissions to the database account. Valid values:
+   * Specifies whether to grant DML permissions to the database account. Valid values:
    * 
-   * *   **0**: The account has the permissions to read data from the database, write data to the database, and modify the settings of the database.
-   * *   **1**: The account only has the permissions to read data from the database.
-   * *   **2**: The account only has the permissions to read data from the database and modify the settings of the database.
+   * - **0**: Read, write, and change settings queries are allowed.
+   * 
+   * - **1**: Only read data queries are allowed.
+   * 
+   * - **2**: Read data and change settings queries are allowed.
    * 
    * This parameter is required.
    * 
@@ -76,7 +78,7 @@ export class ModifyAccountAuthorityRequestDmlAuthSetting extends $dara.Model {
 export class ModifyAccountAuthorityRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the database account.
+   * The database account.
    * 
    * This parameter is required.
    * 
@@ -96,7 +98,7 @@ export class ModifyAccountAuthorityRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The information about permissions.
+   * The authorization information.
    * 
    * This parameter is required.
    */

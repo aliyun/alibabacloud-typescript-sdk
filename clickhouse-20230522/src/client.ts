@@ -1,5 +1,6 @@
 // This file is auto-generated, don't edit it
 import * as $dara from '@darabonba/typescript';
+import GatewayClient from '@alicloud/gateway-pop';
 import OpenApi from '@alicloud/openapi-core';
 import { OpenApiUtil, $OpenApiUtil }from '@alicloud/openapi-core';
 
@@ -11,6 +12,9 @@ export default class Client extends OpenApi {
 
   constructor(config: $OpenApiUtil.Config) {
     super(config);
+    this._productId = "clickhouse";
+    let gatewayClient = new GatewayClient();
+    this._spi = gatewayClient;
     this._endpointRule = "regional";
     this._endpointMap = {
       'ap-northeast-2-pop': "clickhouse.aliyuncs.com",
@@ -58,6 +62,7 @@ export default class Client extends OpenApi {
       'us-east-1': "clickhouse.aliyuncs.com",
       'us-west-1': "clickhouse.aliyuncs.com",
       'ap-southeast-3': "clickhouse.aliyuncs.com",
+      'ap-southeast-7': "clickhouse.aliyuncs.com",
     };
     this.checkConfig(config);
     this._endpoint = this.getEndpoint("clickhouse", this._regionId, this._endpointRule, this._network, this._suffix, this._endpointMap, this._endpoint);
@@ -77,7 +82,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches a whitelist template to instances.
+   * Associates instances with a whitelist template.
    * 
    * @param request - AttachWhitelistTemplateToInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -116,7 +121,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Attaches a whitelist template to instances.
+   * Associates instances with a whitelist template.
    * 
    * @param request - AttachWhitelistTemplateToInstanceRequest
    * @returns AttachWhitelistTemplateToInstanceResponse
@@ -127,7 +132,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the resource group of a ClickHouse Enterprise instance.
+   * Modifies the resource group of a ClickHouse Enterprise instance.
    * 
    * @param request - ChangeResourceGroupRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -170,7 +175,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Changes the resource group of a ClickHouse Enterprise instance.
+   * Modifies the resource group of a ClickHouse Enterprise instance.
    * 
    * @param request - ChangeResourceGroupRequest
    * @returns ChangeResourceGroupResponse
@@ -257,7 +262,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a backup policy for a specified ClickHouse Enterprise Edition cluster.
+   * Creates a backup policy for a specified ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param request - CreateBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -304,7 +309,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a backup policy for a specified ClickHouse Enterprise Edition cluster.
+   * Creates a backup policy for a specified ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param request - CreateBackupPolicyRequest
    * @returns CreateBackupPolicyResponse
@@ -369,7 +374,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * To create a ClickHouse Enterprise Edition cluster, call the `CreateDBInstance` API.
+   * Creates an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param tmpReq - CreateDBInstanceRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -494,7 +499,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * To create a ClickHouse Enterprise Edition cluster, call the `CreateDBInstance` API.
+   * Creates an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param request - CreateDBInstanceRequest
    * @returns CreateDBInstanceResponse
@@ -505,7 +510,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a public endpoint that provides a public address to access a cluster.
+   * Creates a public endpoint.
    * 
    * @param request - CreateEndpointRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -552,7 +557,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Creates a public endpoint that provides a public address to access a cluster.
+   * Creates a public endpoint.
    * 
    * @param request - CreateEndpointRequest
    * @returns CreateEndpointResponse
@@ -738,6 +743,10 @@ export default class Client extends OpenApi {
   async createLangfuseUserWithOptions(request: $_model.CreateLangfuseUserRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateLangfuseUserResponse> {
     request.validate();
     let query = { };
+    if (!$dara.isNull(request.allowOrgCreation)) {
+      query["AllowOrgCreation"] = request.allowOrgCreation;
+    }
+
     if (!$dara.isNull(request.DBInstanceId)) {
       query["DBInstanceId"] = request.DBInstanceId;
     }
@@ -847,7 +856,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a database account from an ApsaraDB for ClickHouse cluster.
+   * Deletes an account.
    * 
    * @param request - DeleteAccountRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -890,7 +899,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes a database account from an ApsaraDB for ClickHouse cluster.
+   * Deletes an account.
    * 
    * @param request - DeleteAccountRequest
    * @returns DeleteAccountResponse
@@ -901,7 +910,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the backup policy for a ClickHouse Enterprise Edition cluster.
+   * Deletes the backup policy of an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param request - DeleteBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -936,7 +945,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Deletes the backup policy for a ClickHouse Enterprise Edition cluster.
+   * Deletes the backup policy of an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param request - DeleteBackupPolicyRequest
    * @returns DeleteBackupPolicyResponse
@@ -947,7 +956,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call this operation to delete a database.
+   * Deletes a database.
    * 
    * @param request - DeleteDBRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -986,7 +995,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call this operation to delete a database.
+   * Deletes a database.
    * 
    * @param request - DeleteDBRequest
    * @returns DeleteDBResponse
@@ -1409,7 +1418,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call the DescribeAccountAuthority operation to query the permissions of an account.
+   * Queries the permissions of an account.
    * 
    * @param request - DescribeAccountAuthorityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1448,7 +1457,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Call the DescribeAccountAuthority operation to query the permissions of an account.
+   * Queries the permissions of an account.
    * 
    * @param request - DescribeAccountAuthorityRequest
    * @returns DescribeAccountAuthorityResponse
@@ -1563,7 +1572,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the backup sets of a ClickHouse Enterprise Edition cluster.
+   * Queries the backup sets of an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param request - DescribeBackupsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1618,7 +1627,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the backup sets of a ClickHouse Enterprise Edition cluster.
+   * Queries the backup sets of an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param request - DescribeBackupsRequest
    * @returns DescribeBackupsResponse
@@ -1629,7 +1638,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an ApsaraDB for ClickHouse cluster.
+   * Queries the details of an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1664,7 +1673,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the details of an ApsaraDB for ClickHouse cluster.
+   * Queries the details of an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param request - DescribeDBInstanceAttributeRequest
    * @returns DescribeDBInstanceAttributeResponse
@@ -1713,7 +1722,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the parameter configuration records of an instance
+   * Queries the parameter settings change records of an instance.
    * 
    * @param request - DescribeDBInstanceConfigChangeLogRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -1740,7 +1749,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the parameter configuration records of an instance
+   * Queries the parameter settings change records of an instance.
    * 
    * @param request - DescribeDBInstanceConfigChangeLogRequest
    * @returns DescribeDBInstanceConfigChangeLogResponse
@@ -1975,7 +1984,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the member information of a Langfuse organization.
+   * Queries the members of a Langfuse organization.
    * 
    * @param request - DescribeLangfuseOrgMembershipsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2022,7 +2031,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the member information of a Langfuse organization.
+   * Queries the members of a Langfuse organization.
    * 
    * @param request - DescribeLangfuseOrgMembershipsRequest
    * @returns DescribeLangfuseOrgMembershipsResponse
@@ -2033,7 +2042,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of organizations for a Langfuse instance.
+   * Queries the organizations of a Langfuse instance.
    * 
    * @param request - DescribeLangfuseOrgsRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -2076,7 +2085,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the list of organizations for a Langfuse instance.
+   * Queries the organizations of a Langfuse instance.
    * 
    * @param request - DescribeLangfuseOrgsRequest
    * @returns DescribeLangfuseOrgsResponse
@@ -2441,7 +2450,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns information about the available regions and zones for ApsaraDB for ClickHouse.
+   * Queries the information about all regions and zones of ApsaraDB for ClickHouse Enterprise Edition.
    * 
    * @param runtime - runtime options for this request RuntimeOptions
    * @returns DescribeRegionsResponse
@@ -2463,7 +2472,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Returns information about the available regions and zones for ApsaraDB for ClickHouse.
+   * Queries the information about all regions and zones of ApsaraDB for ClickHouse Enterprise Edition.
    * @returns DescribeRegionsResponse
    */
   async describeRegions(): Promise<$_model.DescribeRegionsResponse> {
@@ -2956,7 +2965,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the permissions of a database account.
+   * Modifies the authorization information of an account.
    * 
    * @param tmpReq - ModifyAccountAuthorityRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3005,7 +3014,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the permissions of a database account.
+   * Modifies the authorization information of an account.
    * 
    * @param request - ModifyAccountAuthorityRequest
    * @returns ModifyAccountAuthorityResponse
@@ -3070,10 +3079,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the backup policy of an ApsaraDB for ClickHouse cluster.
+   * Modifies the backup policy of an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @remarks
-   * >ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8 support data backup.
+   * > ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8 support data backup.
    * 
    * @param request - ModifyBackupPolicyRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3120,10 +3129,10 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the backup policy of an ApsaraDB for ClickHouse cluster.
+   * Modifies the backup policy of an ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @remarks
-   * >ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8 support data backup.
+   * > ApsaraDB for ClickHouse clusters of versions 20.3, 20.8, and 21.8 support data backup.
    * 
    * @param request - ModifyBackupPolicyRequest
    * @returns ModifyBackupPolicyResponse
@@ -3134,7 +3143,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the ModifyDBInstanceAttribute operation to modify the configuration of a cluster.
+   * Modifies the configuration attributes of a cluster.
    * 
    * @param request - ModifyDBInstanceAttributeRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3181,7 +3190,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * You can call the ModifyDBInstanceAttribute operation to modify the configuration of a cluster.
+   * Modifies the configuration attributes of a cluster.
    * 
    * @param request - ModifyDBInstanceAttributeRequest
    * @returns ModifyDBInstanceAttributeResponse
@@ -3192,7 +3201,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the elastic configuration of an ApsaraDB for ClickHouse cluster.
+   * Modifies the elastic configuration of a cluster.
    * 
    * @remarks
    * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
@@ -3272,7 +3281,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Modifies the elastic configuration of an ApsaraDB for ClickHouse cluster.
+   * Modifies the elastic configuration of a cluster.
    * 
    * @remarks
    * Before you call this operation, make sure that you fully understand the billing methods and [pricing](https://help.aliyun.com/document_detail/167450.html) of ApsaraDB for ClickHouse.
@@ -3577,6 +3586,60 @@ export default class Client extends OpenApi {
   async modifyLangfuseSecurityIPList(request: $_model.ModifyLangfuseSecurityIPListRequest): Promise<$_model.ModifyLangfuseSecurityIPListResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.modifyLangfuseSecurityIPListWithOptions(request, runtime);
+  }
+
+  /**
+   * Modifies the organization creation permissions for a Langfuse user.
+   * 
+   * @param request - ModifyLangfuseUserAllowOrgCreationRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ModifyLangfuseUserAllowOrgCreationResponse
+   */
+  async modifyLangfuseUserAllowOrgCreationWithOptions(request: $_model.ModifyLangfuseUserAllowOrgCreationRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ModifyLangfuseUserAllowOrgCreationResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.allowOrgCreation)) {
+      query["AllowOrgCreation"] = request.allowOrgCreation;
+    }
+
+    if (!$dara.isNull(request.DBInstanceId)) {
+      query["DBInstanceId"] = request.DBInstanceId;
+    }
+
+    if (!$dara.isNull(request.email)) {
+      query["Email"] = request.email;
+    }
+
+    if (!$dara.isNull(request.regionId)) {
+      query["RegionId"] = request.regionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ModifyLangfuseUserAllowOrgCreation",
+      version: "2023-05-22",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ModifyLangfuseUserAllowOrgCreationResponse>(await this.callApi(params, req, runtime), new $_model.ModifyLangfuseUserAllowOrgCreationResponse({}));
+  }
+
+  /**
+   * Modifies the organization creation permissions for a Langfuse user.
+   * 
+   * @param request - ModifyLangfuseUserAllowOrgCreationRequest
+   * @returns ModifyLangfuseUserAllowOrgCreationResponse
+   */
+  async modifyLangfuseUserAllowOrgCreation(request: $_model.ModifyLangfuseUserAllowOrgCreationRequest): Promise<$_model.ModifyLangfuseUserAllowOrgCreationResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.modifyLangfuseUserAllowOrgCreationWithOptions(request, runtime);
   }
 
   /**
@@ -3942,7 +4005,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades the minor engine version of a specified ApsaraDB for ClickHouse cluster.
+   * Upgrades the minor engine version of a specified ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param request - UpgradeMinorVersionRequest
    * @param runtime - runtime options for this request RuntimeOptions
@@ -3989,7 +4052,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Upgrades the minor engine version of a specified ApsaraDB for ClickHouse cluster.
+   * Upgrades the minor engine version of a specified ApsaraDB for ClickHouse Enterprise Edition cluster.
    * 
    * @param request - UpgradeMinorVersionRequest
    * @returns UpgradeMinorVersionResponse

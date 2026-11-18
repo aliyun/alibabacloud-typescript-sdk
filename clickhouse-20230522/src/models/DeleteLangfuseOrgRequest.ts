@@ -15,7 +15,7 @@ export class DeleteLangfuseOrgRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The Langfuse organization ID.
+   * The ID of the Langfuse organization.
    * 
    * This parameter is required.
    * 

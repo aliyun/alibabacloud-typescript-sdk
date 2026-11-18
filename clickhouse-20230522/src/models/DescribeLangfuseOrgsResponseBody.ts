@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLangfuseOrgsResponseBodyDataOrganizations extends $dara.Model {
   /**
    * @remarks
-   * The time when the Langfuse organization was created.
+   * The time when the Langfuse organization was created. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format. The time is displayed in UTC.
    * 
    * @example
    * 2026-06-11T10:27:23Z
@@ -13,7 +13,7 @@ export class DescribeLangfuseOrgsResponseBodyDataOrganizations extends $dara.Mod
   createdAt?: string;
   /**
    * @remarks
-   * The Langfuse organization name.
+   * The name of the Langfuse organization.
    * 
    * @example
    * org_name
@@ -21,7 +21,7 @@ export class DescribeLangfuseOrgsResponseBodyDataOrganizations extends $dara.Mod
   name?: string;
   /**
    * @remarks
-   * The Langfuse organization ID.
+   * The ID of the Langfuse organization.
    * 
    * @example
    * cmrbhzx930005jw2q****
@@ -29,7 +29,7 @@ export class DescribeLangfuseOrgsResponseBodyDataOrganizations extends $dara.Mod
   organizationId?: string;
   /**
    * @remarks
-   * The time when the Langfuse organization was last updated.
+   * The time when the Langfuse organization was updated. The time follows the YYYY-MM-DDTHH:mm:ss format.
    * 
    * @example
    * 2026-06-09T10:27:55
@@ -65,7 +65,7 @@ export class DescribeLangfuseOrgsResponseBodyDataOrganizations extends $dara.Mod
 export class DescribeLangfuseOrgsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The Langfuse organization information.
+   * The Langfuse organizations.
    */
   organizations?: DescribeLangfuseOrgsResponseBodyDataOrganizations[];
   /**
@@ -78,7 +78,7 @@ export class DescribeLangfuseOrgsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -86,7 +86,7 @@ export class DescribeLangfuseOrgsResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 17
@@ -125,7 +125,7 @@ export class DescribeLangfuseOrgsResponseBodyData extends $dara.Model {
 export class DescribeLangfuseOrgsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * The response data.
    */
   data?: DescribeLangfuseOrgsResponseBodyData;
   /**

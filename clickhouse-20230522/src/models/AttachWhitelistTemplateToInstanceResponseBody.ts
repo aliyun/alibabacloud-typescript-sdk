@@ -15,10 +15,10 @@ export class AttachWhitelistTemplateToInstanceResponseBodyDataAttachFailList ext
   DBInstanceId?: string;
   /**
    * @remarks
-   * The reason for the attachment failure.
+   * The reason for the association failure.
    * 
    * @example
-   * 处理异常
+   * Processing error
    */
   reason?: string;
   static names(): { [key: string]: string } {
@@ -47,7 +47,7 @@ export class AttachWhitelistTemplateToInstanceResponseBodyDataAttachFailList ext
 export class AttachWhitelistTemplateToInstanceResponseBodyDataAttachSuccessedListTemplatesDbInstances extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * asdfwef
@@ -77,12 +77,12 @@ export class AttachWhitelistTemplateToInstanceResponseBodyDataAttachSuccessedLis
 export class AttachWhitelistTemplateToInstanceResponseBodyDataAttachSuccessedListTemplates extends $dara.Model {
   /**
    * @remarks
-   * The list of attached instances.
+   * The list of associated instances.
    */
   dbInstances?: AttachWhitelistTemplateToInstanceResponseBodyDataAttachSuccessedListTemplatesDbInstances[];
   /**
    * @remarks
-   * The IP address whitelist.
+   * The IP whitelist.
    * 
    * @example
    * 192.168.1.1,10.0.0.1
@@ -177,17 +177,17 @@ export class AttachWhitelistTemplateToInstanceResponseBodyDataAttachSuccessedLis
 export class AttachWhitelistTemplateToInstanceResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Instances that failed to be attached.
+   * The instances that failed to be associated.
    */
   attachFailList?: AttachWhitelistTemplateToInstanceResponseBodyDataAttachFailList[];
   /**
    * @remarks
-   * Instances to which the template was successfully attached.
+   * The successfully associated templates.
    */
   attachSuccessedList?: AttachWhitelistTemplateToInstanceResponseBodyDataAttachSuccessedList[];
   /**
    * @remarks
-   * The status of the operation. A value of `ok` indicates success.
+   * The status of the operation.
    * 
    * @example
    * ok
@@ -232,7 +232,7 @@ export class AttachWhitelistTemplateToInstanceResponseBody extends $dara.Model {
   data?: AttachWhitelistTemplateToInstanceResponseBodyData;
   /**
    * @remarks
-   * Request ID.
+   * Id of the request
    * 
    * @example
    * 1234567890

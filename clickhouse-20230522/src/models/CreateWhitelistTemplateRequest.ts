@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWhitelistTemplateRequest extends $dara.Model {
   /**
    * @remarks
-   * The region ID.
+   * RegionId
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class CreateWhitelistTemplateRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The IP addresses in the whitelist. Separate multiple IP addresses with commas (,). You can add up to 100 IP addresses.
+   * The whitelist. Separate multiple IP addresses with commas. You can specify up to 100 IP addresses.
    * 
    * This parameter is required.
    * 

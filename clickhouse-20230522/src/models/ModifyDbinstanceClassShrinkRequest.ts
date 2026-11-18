@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceClassShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The automatic horizontal scaling configuration.
+   * The automatic horizontal elastic configuration.
    * 
    * **if can be null:**
    * true
@@ -65,7 +65,7 @@ export class ModifyDBInstanceClassShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The maximum value for serverless elastic scaling.
+   * **[Deprecated]** The maximum value for serverless elastic scaling.
    * 
    * @example
    * 32
@@ -73,7 +73,7 @@ export class ModifyDBInstanceClassShrinkRequest extends $dara.Model {
   scaleMax?: number;
   /**
    * @remarks
-   * The minimum value for serverless elastic scaling.
+   * **[Deprecated]** The minimum value for serverless elastic scaling.
    * 
    * @example
    * 8
@@ -81,7 +81,7 @@ export class ModifyDBInstanceClassShrinkRequest extends $dara.Model {
   scaleMin?: number;
   /**
    * @remarks
-   * The pre-purchased storage quota, in GB.
+   * The purchased storage quota. Unit: GB.
    * 
    * @example
    * 100

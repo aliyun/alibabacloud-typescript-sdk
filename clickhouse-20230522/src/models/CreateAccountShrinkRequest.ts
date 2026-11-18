@@ -5,7 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAccountShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the account.
+   * The database account. The name must meet the following requirements:
+   * - The name must be unique.
+   * - The name can contain lowercase letters, digits, and underscores (_).
+   * - The name must start with a lowercase letter and end with a lowercase letter or a digit.
+   * - The name must be 2 to 64 characters in length.
    * 
    * This parameter is required.
    * 
@@ -16,10 +20,8 @@ export class CreateAccountShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The type of the database account. Valid values:
-   * 
-   * - **NormalAccount**: standard account
-   * 
-   * - **SuperAccount**: privileged account
+   * - **NormalAccount**: standard account.
+   * - **SuperAccount**: privileged account.
    * 
    * This parameter is required.
    * 
@@ -39,15 +41,15 @@ export class CreateAccountShrinkRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The description of the account.
+   * The description.
    * 
    * @example
-   * For testing
+   * For testing purposes
    */
   description?: string;
   /**
    * @remarks
-   * The information about permissions.
+   * The authorization information.
    */
   dmlAuthSettingShrink?: string;
   /**
@@ -56,7 +58,7 @@ export class CreateAccountShrinkRequest extends $dara.Model {
    * 
    * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
    * 
-   * - The following special characters are supported: ! @ # $ % ^ & \\* ( ) _ + - =
+   * - Special characters include !@#$%^&*()_+-=.
    * 
    * - The password must be 8 to 32 characters in length.
    * 
@@ -68,7 +70,7 @@ export class CreateAccountShrinkRequest extends $dara.Model {
   password?: string;
   /**
    * @remarks
-   * The code of the cloud service.
+   * The product code.
    * 
    * @example
    * clickhouse

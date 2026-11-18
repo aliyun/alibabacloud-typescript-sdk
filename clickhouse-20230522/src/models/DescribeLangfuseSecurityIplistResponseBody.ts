@@ -78,7 +78,7 @@ export class DescribeLangfuseSecurityIPListResponseBodyData extends $dara.Model 
    * The instance ID.
    * 
    * @example
-   * lfs-****
+   * 100001
    */
   DBInstanceID?: number;
   /**

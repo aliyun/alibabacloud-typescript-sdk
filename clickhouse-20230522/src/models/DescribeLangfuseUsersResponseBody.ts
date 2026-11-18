@@ -5,7 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLangfuseUsersResponseBodyDataUsers extends $dara.Model {
   /**
    * @remarks
-   * The time when the user was created.
+   * Indicates whether the user is allowed to create an organization.
+   */
+  allowOrgCreation?: boolean;
+  /**
+   * @remarks
+   * The time when the user was created. The time follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format and is displayed in UTC.
    * 
    * @example
    * 2026-06-01T10:03:05Z
@@ -21,7 +26,7 @@ export class DescribeLangfuseUsersResponseBodyDataUsers extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The username.
+   * The name of the user.
    * 
    * @example
    * john
@@ -29,6 +34,7 @@ export class DescribeLangfuseUsersResponseBodyDataUsers extends $dara.Model {
   name?: string;
   static names(): { [key: string]: string } {
     return {
+      allowOrgCreation: 'AllowOrgCreation',
       createdAt: 'CreatedAt',
       email: 'Email',
       name: 'Name',
@@ -37,6 +43,7 @@ export class DescribeLangfuseUsersResponseBodyDataUsers extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowOrgCreation: 'boolean',
       createdAt: 'string',
       email: 'string',
       name: 'string',
@@ -63,7 +70,7 @@ export class DescribeLangfuseUsersResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 30
@@ -71,7 +78,7 @@ export class DescribeLangfuseUsersResponseBodyData extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 10
@@ -115,7 +122,7 @@ export class DescribeLangfuseUsersResponseBodyData extends $dara.Model {
 export class DescribeLangfuseUsersResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * The response data.
    */
   data?: DescribeLangfuseUsersResponseBodyData;
   /**

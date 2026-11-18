@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteWhitelistTemplateResponseBodyDataTemplatesDbInstances extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance.
+   * The instance ID.
    * 
    * @example
    * asdfwef
@@ -35,12 +35,12 @@ export class DeleteWhitelistTemplateResponseBodyDataTemplatesDbInstances extends
 export class DeleteWhitelistTemplateResponseBodyDataTemplates extends $dara.Model {
   /**
    * @remarks
-   * The instances associated with the template.
+   * The associated instances.
    */
   dbInstances?: DeleteWhitelistTemplateResponseBodyDataTemplatesDbInstances[];
   /**
    * @remarks
-   * The IP whitelist.
+   * The IP whitelists.
    * 
    * @example
    * 192.168.1.1,10.0.0.1
@@ -115,7 +115,7 @@ export class DeleteWhitelistTemplateResponseBodyData extends $dara.Model {
 export class DeleteWhitelistTemplateResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned from the call.
+   * The returned result.
    */
   data?: DeleteWhitelistTemplateResponseBodyData;
   /**

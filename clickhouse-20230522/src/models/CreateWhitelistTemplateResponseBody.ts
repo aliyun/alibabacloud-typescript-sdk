@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWhitelistTemplateResponseBodyDataTemplates extends $dara.Model {
   /**
    * @remarks
-   * The list of IP addresses in the whitelist.
+   * The IP whitelist.
    * 
    * @example
    * 192.168.1.1,10.0.0.1
@@ -90,7 +90,7 @@ export class CreateWhitelistTemplateResponseBody extends $dara.Model {
   data?: CreateWhitelistTemplateResponseBodyData;
   /**
    * @remarks
-   * The request ID.
+   * Id of the request
    * 
    * @example
    * 1234567890

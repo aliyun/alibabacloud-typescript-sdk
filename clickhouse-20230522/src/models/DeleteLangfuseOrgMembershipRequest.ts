@@ -25,7 +25,7 @@ export class DeleteLangfuseOrgMembershipRequest extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The Langfuse organization ID.
+   * The ID of the Langfuse organization.
    * 
    * This parameter is required.
    * 

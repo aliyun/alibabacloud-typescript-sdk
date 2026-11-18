@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLangfuseOrgResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the Langfuse organization was created.
+   * The time when the Langfuse organization was created. The time is in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ss.SSSZ format.
    * 
    * @example
    * 2026-06-25T09:28:30.949Z

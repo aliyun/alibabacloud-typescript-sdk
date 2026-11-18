@@ -33,7 +33,7 @@ export class ModifyBackupPolicyRequest extends $dara.Model {
   preferredBackupPeriod?: string;
   /**
    * @remarks
-   * The backup time.
+   * The backup time in UTC. The format is HH:mmZ-HH:mmZ.
    * 
    * This parameter is required.
    * 

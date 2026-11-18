@@ -25,7 +25,7 @@ export class DeleteWhitelistTemplateRequest extends $dara.Model {
   templateId?: string;
   /**
    * @remarks
-   * The name of the whitelist template.
+   * The whitelist template ID.
    * 
    * @example
    * 98a6d3db05984dca

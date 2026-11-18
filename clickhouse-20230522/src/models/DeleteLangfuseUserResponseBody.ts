@@ -35,7 +35,7 @@ export class DeleteLangfuseUserResponseBodyData extends $dara.Model {
 export class DeleteLangfuseUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response result.
+   * The returned result.
    */
   data?: DeleteLangfuseUserResponseBodyData;
   /**

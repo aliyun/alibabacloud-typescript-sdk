@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLangfuseProjectsResponseBodyDataProjects extends $dara.Model {
   /**
    * @remarks
-   * The time when the Langfuse project was created.
+   * The time when the Langfuse project was created. The time is in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2026-05-27T08:23:45Z
@@ -13,7 +13,7 @@ export class DescribeLangfuseProjectsResponseBodyDataProjects extends $dara.Mode
   createdAt?: string;
   /**
    * @remarks
-   * The Langfuse project name.
+   * The name of the Langfuse project.
    * 
    * @example
    * project_name
@@ -21,7 +21,7 @@ export class DescribeLangfuseProjectsResponseBodyDataProjects extends $dara.Mode
   name?: string;
   /**
    * @remarks
-   * The organization ID to which the Langfuse project belongs.
+   * The ID of the organization to which the Langfuse project belongs.
    * 
    * @example
    * cmrbhzx930005jw2q****
@@ -37,7 +37,7 @@ export class DescribeLangfuseProjectsResponseBodyDataProjects extends $dara.Mode
   projectId?: string;
   /**
    * @remarks
-   * The time when the Langfuse project was last updated.
+   * The time when the Langfuse project was updated. The time is in the YYYY-MM-DDTHH:mm:ss format.
    * 
    * @example
    * 2026-06-09T10:27:35
@@ -83,7 +83,7 @@ export class DescribeLangfuseProjectsResponseBodyData extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of records per page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -96,7 +96,7 @@ export class DescribeLangfuseProjectsResponseBodyData extends $dara.Model {
   projects?: DescribeLangfuseProjectsResponseBodyDataProjects[];
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 1
@@ -135,7 +135,7 @@ export class DescribeLangfuseProjectsResponseBodyData extends $dara.Model {
 export class DescribeLangfuseProjectsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * The returned results.
    */
   data?: DescribeLangfuseProjectsResponseBodyData;
   /**

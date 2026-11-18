@@ -23,7 +23,7 @@ export class DescribeLangfuseUsersRequest extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The username.
+   * The name of the user.
    * 
    * @example
    * john
@@ -39,7 +39,7 @@ export class DescribeLangfuseUsersRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries to return on each page.
    * 
    * @example
    * 30

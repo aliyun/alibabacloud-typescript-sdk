@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAccountAuthorityShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the database account.
+   * The database account.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class ModifyAccountAuthorityShrinkRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The information about permissions.
+   * The authorization information.
    * 
    * This parameter is required.
    */

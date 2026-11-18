@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAccountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the database account.
+   * The database account.
    * 
    * @example
    * test1
@@ -45,7 +45,7 @@ export class CreateAccountResponseBodyData extends $dara.Model {
 export class CreateAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned result.
    */
   data?: CreateAccountResponseBodyData;
   /**

@@ -23,7 +23,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end of the time range to query. The time is in UTC.
+   * The end time of the backup in UTC.
    * 
    * This parameter is required.
    * 
@@ -41,7 +41,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return on each page.
+   * The number of entries per page.
    * 
    * @example
    * 30
@@ -59,7 +59,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. The time is in UTC.
+   * The start time of the backup in UTC.
    * 
    * This parameter is required.
    * 

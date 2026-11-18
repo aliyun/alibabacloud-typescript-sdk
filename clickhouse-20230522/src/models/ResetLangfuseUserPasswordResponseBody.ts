@@ -35,7 +35,7 @@ export class ResetLangfuseUserPasswordResponseBodyData extends $dara.Model {
 export class ResetLangfuseUserPasswordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response result.
+   * The response data.
    */
   data?: ResetLangfuseUserPasswordResponseBodyData;
   /**

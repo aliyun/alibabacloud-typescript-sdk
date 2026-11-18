@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLangfuseUserResponseBodyDataMembership extends $dara.Model {
   /**
    * @remarks
-   * The Langfuse organization ID.
+   * The ID of the Langfuse organization.
    * 
    * @example
    * cmrbhzx930005jw2q****
@@ -45,7 +45,12 @@ export class CreateLangfuseUserResponseBodyDataMembership extends $dara.Model {
 export class CreateLangfuseUserResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the user was created.
+   * Indicates whether the user is allowed to create organizations.
+   */
+  allowOrgCreation?: boolean;
+  /**
+   * @remarks
+   * The time when the user was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2026-03-04T10:20:33Z
@@ -66,7 +71,7 @@ export class CreateLangfuseUserResponseBodyData extends $dara.Model {
   membership?: CreateLangfuseUserResponseBodyDataMembership;
   /**
    * @remarks
-   * The username.
+   * The name of the user.
    * 
    * @example
    * john
@@ -74,6 +79,7 @@ export class CreateLangfuseUserResponseBodyData extends $dara.Model {
   name?: string;
   static names(): { [key: string]: string } {
     return {
+      allowOrgCreation: 'AllowOrgCreation',
       createdAt: 'CreatedAt',
       email: 'Email',
       membership: 'Membership',
@@ -83,6 +89,7 @@ export class CreateLangfuseUserResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowOrgCreation: 'boolean',
       createdAt: 'string',
       email: 'string',
       membership: CreateLangfuseUserResponseBodyDataMembership,

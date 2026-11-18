@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAccountResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The name of the account.
+   * The database account.
    * 
    * @example
    * test1
@@ -45,7 +45,7 @@ export class DeleteAccountResponseBodyData extends $dara.Model {
 export class DeleteAccountResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The data returned.
+   * The returned result.
    */
   data?: DeleteAccountResponseBodyData;
   /**

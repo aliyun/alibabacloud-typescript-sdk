@@ -15,7 +15,7 @@ export class DescribeDBInstanceConfigChangeLogRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The end time of the query. Format: yyyy-MM-dd hh:mm:ss.
+   * The end of the time range to query. Format: yyyy-MM-dd hh:mm:ss.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeDBInstanceConfigChangeLogRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The page number to return.
+   * The page number.
    * 
    * @example
    * 1
@@ -33,7 +33,7 @@ export class DescribeDBInstanceConfigChangeLogRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries to return per page. Default value: 30. Valid values:
+   * The number of entries per page. Valid values:
    * 
    * - **30** (default)
    * - **50**
@@ -55,7 +55,7 @@ export class DescribeDBInstanceConfigChangeLogRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start time of the query. Format: yyyy-MM-dd hh:mm:ss.
+   * The beginning of the time range to query. Format: yyyy-MM-dd hh:mm:ss.
    * 
    * This parameter is required.
    * 

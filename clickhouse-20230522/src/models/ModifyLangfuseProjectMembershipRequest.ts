@@ -25,7 +25,7 @@ export class ModifyLangfuseProjectMembershipRequest extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The Langfuse organization ID.
+   * The ID of the Langfuse organization.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class ModifyLangfuseProjectMembershipRequest extends $dara.Model {
   organizationId?: string;
   /**
    * @remarks
-   * The Langfuse project ID.
+   * The ID of the Langfuse project.
    * 
    * This parameter is required.
    * 

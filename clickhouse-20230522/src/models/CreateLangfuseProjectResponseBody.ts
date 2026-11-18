@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLangfuseProjectResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the Langfuse project was created.
+   * The time when the Langfuse project was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2026-06-24T10:14:33Z
@@ -13,7 +13,7 @@ export class CreateLangfuseProjectResponseBodyData extends $dara.Model {
   createdAt?: string;
   /**
    * @remarks
-   * The Langfuse project name.
+   * The name of the Langfuse project.
    * 
    * @example
    * project_name
@@ -21,7 +21,7 @@ export class CreateLangfuseProjectResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The Langfuse organization ID.
+   * The ID of the Langfuse organization.
    * 
    * @example
    * cmrbhzx930005jw2q****
@@ -29,7 +29,7 @@ export class CreateLangfuseProjectResponseBodyData extends $dara.Model {
   organizationId?: string;
   /**
    * @remarks
-   * The Langfuse project ID.
+   * The ID of the Langfuse project.
    * 
    * @example
    * cmrbhzx930005jw2q****

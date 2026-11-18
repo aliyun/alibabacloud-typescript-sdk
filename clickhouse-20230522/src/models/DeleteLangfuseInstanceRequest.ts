@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteLangfuseInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The confirmation flag for deleting the AiGateway instance associated with the Langfuse instance.
+   * The confirmation mark for deleting the AI gateway instance associated with the Langfuse instance.
    */
   confirmDeleteAiGateway?: boolean;
   /**

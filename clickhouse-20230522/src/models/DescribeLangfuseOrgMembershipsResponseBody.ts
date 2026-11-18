@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLangfuseOrgMembershipsResponseBodyDataMemberships extends $dara.Model {
   /**
    * @remarks
-   * The time when the user was created.
+   * The time when the user was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2026-06-24T10:14:33Z
@@ -21,7 +21,7 @@ export class DescribeLangfuseOrgMembershipsResponseBodyDataMemberships extends $
   email?: string;
   /**
    * @remarks
-   * The username.
+   * The name of the user.
    * 
    * @example
    * john
@@ -86,7 +86,7 @@ export class DescribeLangfuseOrgMembershipsResponseBodyData extends $dara.Model 
   pageSize?: number;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 3

@@ -5,10 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDBInstanceConfigChangeLogResponseBodyDataParamChangeLogs extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the configuration takes effect:
+   * Indicates whether the configuration has taken effect. Valid values:
    * 
-   * - true: The execution plan takes effect.
-   * - false: The execution plan does not take effect.
+   * - true: The configuration has taken effect.
+   * 
+   * - false: The configuration has not taken effect.
    */
   applied?: boolean;
   /**
@@ -21,7 +22,7 @@ export class DescribeDBInstanceConfigChangeLogResponseBodyDataParamChangeLogs ex
   gmtCreated?: string;
   /**
    * @remarks
-   * The time when the change was modified.
+   * The time when the change was last modified.
    * 
    * @example
    * 2025-06-25 13:46:06
@@ -37,7 +38,7 @@ export class DescribeDBInstanceConfigChangeLogResponseBodyDataParamChangeLogs ex
   ID?: number;
   /**
    * @remarks
-   * The name of the parameter.
+   * The parameter name.
    * 
    * @example
    * max_concurrent_queries
@@ -135,7 +136,7 @@ export class DescribeDBInstanceConfigChangeLogResponseBodyData extends $dara.Mod
 export class DescribeDBInstanceConfigChangeLogResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The result set.
+   * The query result set.
    */
   data?: DescribeDBInstanceConfigChangeLogResponseBodyData;
   /**

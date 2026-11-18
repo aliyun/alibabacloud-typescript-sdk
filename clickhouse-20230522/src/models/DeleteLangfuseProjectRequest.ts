@@ -15,7 +15,7 @@ export class DeleteLangfuseProjectRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The Langfuse organization ID.
+   * The ID of the Langfuse organization.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteLangfuseProjectRequest extends $dara.Model {
   organizationId?: string;
   /**
    * @remarks
-   * The Langfuse project ID.
+   * The ID of the Langfuse project.
    * 
    * This parameter is required.
    * 

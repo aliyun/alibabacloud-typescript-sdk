@@ -45,7 +45,7 @@ export class CreateDBResponseBodyData extends $dara.Model {
 export class CreateDBResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: CreateDBResponseBodyData;
   /**

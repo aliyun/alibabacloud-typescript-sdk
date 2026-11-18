@@ -143,13 +143,16 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
    * @remarks
    * The category. Valid values:
    * 
+   * - enterprise: Enterprise Edition.
+   * 
    * @example
    * enterprise
    */
   category?: string;
   /**
    * @remarks
-   * The billing method.
+   * The billing method. 
+   * Enterprise Edition clusters only support the pay-as-you-go billing method.
    * 
    * @example
    * POSTPAY
@@ -157,7 +160,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The ClickObserve service status.
+   * The status of the ClickObserve service.
    * 
    * @example
    * activation
@@ -181,7 +184,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Indicates whether deletion protection is enabled.
+   * Indicates whether release protection is enabled.
    * 
    * @example
    * 0/1
@@ -189,7 +192,11 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   deletionProtection?: boolean;
   /**
    * @remarks
-   * The zone deployment status of the cluster. Valid values: single_az and multi_az.
+   * The zone deployment status of the cluster. Valid values:
+   * - single_az: Servers are deployed in the primary zone specified by ZoneId.
+   * - multi_az: Servers are deployed in multiple zones specified by MultiZones.
+   * 
+   * Keeper nodes are always deployed in multiple zones specified by MultiZones.
    * 
    * @example
    * single_az
@@ -205,7 +212,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The disabled database ports. Multiple ports are separated by commas (,).
+   * The disabled database ports. Separate multiple ports with commas (,).
    * 
    * @example
    * 9001,8123
@@ -221,7 +228,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   engine?: string;
   /**
    * @remarks
-   * The minor version of the cluster engine.
+   * The minor engine version of the cluster.
    * 
    * @example
    * 23.8.1.41495_6
@@ -229,7 +236,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   engineMinorVersion?: string;
   /**
    * @remarks
-   * The DPI engine version.
+   * The database engine version.
    * 
    * @example
    * 23.8
@@ -238,6 +245,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The expiration time of the cluster. Format: yyyy-MM-ddTHH:mm:ssZ.
+   * > Pay-as-you-go clusters do not have an expiration time. An empty value is returned.
    * 
    * @example
    * 2024-04-17T08:14:48Z
@@ -245,7 +253,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   expireTime?: string;
   /**
    * @remarks
-   * The list of Langfuse instance IDs.
+   * The Langfuse instance IDs.
    */
   langfuseInstanceIds?: string[];
   /**
@@ -303,7 +311,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   nodeCount?: string;
   /**
    * @remarks
-   * The maximum elastic scaling value for serverless nodes.
+   * The maximum scaling limit for serverless nodes.
    * 
    * @example
    * 32
@@ -311,7 +319,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   nodeScaleMax?: string;
   /**
    * @remarks
-   * The minimum elastic scaling value for serverless nodes.
+   * The minimum scaling limit for serverless nodes.
    * 
    * @example
    * 4
@@ -348,7 +356,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   resourceGroupId?: string;
   /**
    * @remarks
-   * The maximum scaling value for serverless elastic scaling.
+   * The maximum value for serverless elastic scaling.
    * 
    * @example
    * 32
@@ -356,7 +364,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   scaleMax?: number;
   /**
    * @remarks
-   * The minimum scaling value for serverless elastic scaling.
+   * The minimum value for serverless elastic scaling.
    * 
    * @example
    * 8
@@ -372,7 +380,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The pre-purchased storage quota, in GB.
+   * The purchased storage quota, in GB.
    * 
    * @example
    * 100
@@ -380,7 +388,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   storageQuota?: string;
   /**
    * @remarks
-   * The storage size. Unit: GB.
+   * The storage space size. Unit: GB.
    * 
    * @example
    * 12
@@ -409,7 +417,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * VPC ID。
+   * The VPC ID.
    * 
    * @example
    * vpc-wz9duj8xd6r1gzhsg*****
@@ -542,7 +550,7 @@ export class DescribeDBInstanceAttributeResponseBodyData extends $dara.Model {
 export class DescribeDBInstanceAttributeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response data.
+   * The response result.
    */
   data?: DescribeDBInstanceAttributeResponseBodyData;
   /**

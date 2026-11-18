@@ -13,7 +13,7 @@ export class DeleteDBResponseBodyData extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The database name.
+   * The name of the database.
    * 
    * @example
    * testdb001
@@ -45,7 +45,7 @@ export class DeleteDBResponseBodyData extends $dara.Model {
 export class DeleteDBResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The returned result.
    */
   data?: DeleteDBResponseBodyData;
   /**

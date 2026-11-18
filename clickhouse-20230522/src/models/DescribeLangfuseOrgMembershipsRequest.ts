@@ -15,7 +15,7 @@ export class DescribeLangfuseOrgMembershipsRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The Langfuse organization ID.
+   * The ID of the Langfuse organization.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeLangfuseOrgMembershipsRequest extends $dara.Model {
   organizationId?: string;
   /**
    * @remarks
-   * The page number of the page to return.
+   * The page number.
    * 
    * @example
    * 1

@@ -13,12 +13,12 @@ export class DescribeAccountAuthorityResponseBodyData extends $dara.Model {
   account?: string;
   /**
    * @remarks
-   * A list of authorized databases.
+   * The list of authorized databases.
    */
   allowDatabases?: string[];
   /**
    * @remarks
-   * A list of authorized dictionaries.
+   * The list of authorized dictionaries.
    */
   allowDictionaries?: string[];
   /**
@@ -31,11 +31,10 @@ export class DescribeAccountAuthorityResponseBodyData extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * Indicates whether DDL permissions are granted to the database account. Valid values:
+   * Indicates whether Data Definition Language (DDL) permissions are granted to the database account. Valid values:
    * 
-   * - **true**: DDL operations are allowed.
-   * 
-   * - **false**: DDL operations are prohibited.
+   * - **true**: DDL is allowed.
+   * - **false**: DDL is not allowed.
    * 
    * @example
    * true
@@ -43,12 +42,10 @@ export class DescribeAccountAuthorityResponseBodyData extends $dara.Model {
   ddlAuthority?: boolean;
   /**
    * @remarks
-   * The DML permissions that are granted to the database account. Valid values:
+   * Indicates whether Data Manipulation Language (DML) permissions are granted to the database account. Valid values:
    * 
    * - 0: Read, write, and change settings queries are allowed.
-   * 
    * - 1: Only read data queries are allowed.
-   * 
    * - 2: Read data and change settings queries are allowed.
    * 
    * @example
@@ -57,12 +54,12 @@ export class DescribeAccountAuthorityResponseBodyData extends $dara.Model {
   dmlAuthority?: number;
   /**
    * @remarks
-   * A list of all databases.
+   * The list of all databases.
    */
   totalDatabases?: string[];
   /**
    * @remarks
-   * The database.
+   * The dictionaries.
    */
   totalDictionaries?: string[];
   static names(): { [key: string]: string } {
@@ -115,7 +112,7 @@ export class DescribeAccountAuthorityResponseBodyData extends $dara.Model {
 export class DescribeAccountAuthorityResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned data.
+   * The response data.
    */
   data?: DescribeAccountAuthorityResponseBodyData;
   /**

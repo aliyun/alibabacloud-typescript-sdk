@@ -5,6 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class CreateLangfuseUserRequest extends $dara.Model {
   /**
    * @remarks
+   * Specifies whether the user is allowed to create organizations. Default value: false.
+   */
+  allowOrgCreation?: boolean;
+  /**
+   * @remarks
    * The Langfuse instance ID.
    * 
    * This parameter is required.
@@ -25,7 +30,7 @@ export class CreateLangfuseUserRequest extends $dara.Model {
   email?: string;
   /**
    * @remarks
-   * The username.
+   * The name of the user.
    * 
    * This parameter is required.
    * 
@@ -43,7 +48,7 @@ export class CreateLangfuseUserRequest extends $dara.Model {
   orgRole?: string;
   /**
    * @remarks
-   * The Langfuse organization ID.
+   * The ID of the Langfuse organization.
    * 
    * @example
    * cmrbhzx930005jw2q****
@@ -53,9 +58,9 @@ export class CreateLangfuseUserRequest extends $dara.Model {
    * @remarks
    * The password of the user account. The password must meet the following requirements:
    * 
-   * - Contains at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
+   * - The password must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters.
    * 
-   * - The following special characters are supported: !@#$%^&*()_+-=
+   * - Special characters include !@#$%^&*()_+-=.
    * 
    * - The password must be 8 to 32 characters in length.
    * 
@@ -77,6 +82,7 @@ export class CreateLangfuseUserRequest extends $dara.Model {
   regionId?: string;
   static names(): { [key: string]: string } {
     return {
+      allowOrgCreation: 'AllowOrgCreation',
       DBInstanceId: 'DBInstanceId',
       email: 'Email',
       name: 'Name',
@@ -89,6 +95,7 @@ export class CreateLangfuseUserRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowOrgCreation: 'boolean',
       DBInstanceId: 'string',
       email: 'string',
       name: 'string',

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceClassRequestAutoScaleConfigVSwitchInfos extends $dara.Model {
   /**
    * @remarks
-   * The vSwitch IDs in the zone.
+   * The vSwitch ID in the zone.
    */
   vSwitchIds?: string[];
   /**
@@ -45,7 +45,7 @@ export class ModifyDBInstanceClassRequestAutoScaleConfigVSwitchInfos extends $da
 export class ModifyDBInstanceClassRequestAutoScaleConfig extends $dara.Model {
   /**
    * @remarks
-   * The number of nodes available for burstable horizontal scaling.
+   * The number of burstable nodes for horizontal elastic scaling.
    * 
    * @example
    * 2
@@ -54,9 +54,8 @@ export class ModifyDBInstanceClassRequestAutoScaleConfig extends $dara.Model {
   /**
    * @remarks
    * The configuration status. Valid values:
-   * 
-   * - disable: disabled.
-   * - enable: enabled.
+   * - disable: Disabled.
+   * - enable: Enabled.
    * 
    * @example
    * enable
@@ -98,7 +97,7 @@ export class ModifyDBInstanceClassRequestAutoScaleConfig extends $dara.Model {
 export class ModifyDBInstanceClassRequest extends $dara.Model {
   /**
    * @remarks
-   * The automatic horizontal scaling configuration.
+   * The automatic horizontal elastic configuration.
    * 
    * **if can be null:**
    * true
@@ -158,7 +157,7 @@ export class ModifyDBInstanceClassRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The maximum value for serverless elastic scaling.
+   * **[Deprecated]** The maximum value for serverless elastic scaling.
    * 
    * @example
    * 32
@@ -166,7 +165,7 @@ export class ModifyDBInstanceClassRequest extends $dara.Model {
   scaleMax?: number;
   /**
    * @remarks
-   * The minimum value for serverless elastic scaling.
+   * **[Deprecated]** The minimum value for serverless elastic scaling.
    * 
    * @example
    * 8
@@ -174,7 +173,7 @@ export class ModifyDBInstanceClassRequest extends $dara.Model {
   scaleMin?: number;
   /**
    * @remarks
-   * The pre-purchased storage quota, in GB.
+   * The purchased storage quota. Unit: GB.
    * 
    * @example
    * 100

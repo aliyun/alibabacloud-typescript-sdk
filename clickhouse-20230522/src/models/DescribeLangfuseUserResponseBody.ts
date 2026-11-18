@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeLangfuseUserResponseBodyDataMembershipsProjects extends $dara.Model {
   /**
    * @remarks
-   * The Langfuse project ID.
+   * The ID of the Langfuse project.
    * 
    * @example
    * cmrbhzx930005jw2q****
@@ -13,7 +13,7 @@ export class DescribeLangfuseUserResponseBodyDataMembershipsProjects extends $da
   projectId?: string;
   /**
    * @remarks
-   * The Langfuse project name.
+   * The name of the Langfuse project.
    * 
    * @example
    * project_name
@@ -21,7 +21,7 @@ export class DescribeLangfuseUserResponseBodyDataMembershipsProjects extends $da
   projectName?: string;
   /**
    * @remarks
-   * The role of the user within the project.
+   * The role in the project.
    * 
    * @example
    * VIEWER
@@ -55,7 +55,7 @@ export class DescribeLangfuseUserResponseBodyDataMembershipsProjects extends $da
 export class DescribeLangfuseUserResponseBodyDataMemberships extends $dara.Model {
   /**
    * @remarks
-   * The role of the user within the organization.
+   * The role in the organization.
    * 
    * @example
    * ADMIN
@@ -63,7 +63,7 @@ export class DescribeLangfuseUserResponseBodyDataMemberships extends $dara.Model
   orgRole?: string;
   /**
    * @remarks
-   * The Langfuse organization ID.
+   * The ID of the Langfuse organization.
    * 
    * @example
    * cmrbhzx930005jw2q****
@@ -71,7 +71,7 @@ export class DescribeLangfuseUserResponseBodyDataMemberships extends $dara.Model
   organizationId?: string;
   /**
    * @remarks
-   * The Langfuse organization name.
+   * The name of the Langfuse organization.
    * 
    * @example
    * org_name
@@ -115,7 +115,12 @@ export class DescribeLangfuseUserResponseBodyDataMemberships extends $dara.Model
 export class DescribeLangfuseUserResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The time when the user was created.
+   * Indicates whether the user is allowed to create an organization.
+   */
+  allowOrgCreation?: boolean;
+  /**
+   * @remarks
+   * The time when the user was created. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2026-06-01T10:03:05Z
@@ -136,7 +141,7 @@ export class DescribeLangfuseUserResponseBodyData extends $dara.Model {
   memberships?: DescribeLangfuseUserResponseBodyDataMemberships[];
   /**
    * @remarks
-   * The username.
+   * The name of the user.
    * 
    * @example
    * john
@@ -144,7 +149,7 @@ export class DescribeLangfuseUserResponseBodyData extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The time when the user was last updated.
+   * The time when the user was updated. The time is displayed in UTC and follows the ISO 8601 standard in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2026-06-01T10:03:05Z
@@ -152,6 +157,7 @@ export class DescribeLangfuseUserResponseBodyData extends $dara.Model {
   updatedAt?: string;
   static names(): { [key: string]: string } {
     return {
+      allowOrgCreation: 'AllowOrgCreation',
       createdAt: 'CreatedAt',
       email: 'Email',
       memberships: 'Memberships',
@@ -162,6 +168,7 @@ export class DescribeLangfuseUserResponseBodyData extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      allowOrgCreation: 'boolean',
       createdAt: 'string',
       email: 'string',
       memberships: { 'type': 'array', 'itemType': DescribeLangfuseUserResponseBodyDataMemberships },
@@ -185,7 +192,7 @@ export class DescribeLangfuseUserResponseBodyData extends $dara.Model {
 export class DescribeLangfuseUserResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The returned result.
+   * The response data.
    */
   data?: DescribeLangfuseUserResponseBodyData;
   /**

@@ -5,11 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyDBInstanceAttributeRequest extends $dara.Model {
   /**
    * @remarks
-   * The type of attribute to modify. Valid values:
-   * 
-   * - MaintainTime: Modify the O\\&M window.
-   * 
-   * - DBInstanceDescription: Modify the instance name.
+   * The attribute type to modify.
+   * - MaintainTime: Modifies the O&M window.
+   * - DBInstanceDescription: Modifies the instance name.
    * 
    * This parameter is required.
    * 
@@ -19,7 +17,7 @@ export class ModifyDBInstanceAttributeRequest extends $dara.Model {
   attributeType?: string;
   /**
    * @remarks
-   * The new value for the attribute.
+   * The new value of the attribute.
    * 
    * This parameter is required.
    * 

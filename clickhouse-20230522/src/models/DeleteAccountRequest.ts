@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAccountRequest extends $dara.Model {
   /**
    * @remarks
-   * The destination database account.
+   * The target database account.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DeleteAccountRequest extends $dara.Model {
   DBInstanceId?: string;
   /**
    * @remarks
-   * The code of the cloud service.
+   * The product code.
    * 
    * @example
    * clickhouse
