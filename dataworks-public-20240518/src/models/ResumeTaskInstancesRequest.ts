@@ -13,7 +13,7 @@ export class ResumeTaskInstancesRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The list of task instance IDs.
+   * The list of node instance IDs.
    */
   ids?: number[];
   static names(): { [key: string]: string } {

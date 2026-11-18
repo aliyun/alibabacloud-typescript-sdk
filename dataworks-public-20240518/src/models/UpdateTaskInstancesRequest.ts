@@ -35,7 +35,7 @@ export class UpdateTaskInstancesRequestTaskInstancesDataSource extends $dara.Mod
 export class UpdateTaskInstancesRequestTaskInstances extends $dara.Model {
   /**
    * @remarks
-   * The information about the associated data source.
+   * The associated data source information.
    */
   dataSource?: UpdateTaskInstancesRequestTaskInstancesDataSource;
   /**
@@ -99,7 +99,7 @@ export class UpdateTaskInstancesRequestTaskInstances extends $dara.Model {
 export class UpdateTaskInstancesRequest extends $dara.Model {
   /**
    * @remarks
-   * The remarks.
+   * The comment.
    * 
    * @example
    * this is a comment
@@ -107,7 +107,7 @@ export class UpdateTaskInstancesRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The list of node instances.
+   * The list of task instances.
    */
   taskInstances?: UpdateTaskInstancesRequestTaskInstances[];
   static names(): { [key: string]: string } {

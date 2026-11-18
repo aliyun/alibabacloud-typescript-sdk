@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateTaskInstancesShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The remarks.
+   * The comment.
    * 
    * @example
    * this is a comment
@@ -13,7 +13,7 @@ export class UpdateTaskInstancesShrinkRequest extends $dara.Model {
   comment?: string;
   /**
    * @remarks
-   * The list of node instances.
+   * The list of task instances.
    */
   taskInstancesShrink?: string;
   static names(): { [key: string]: string } {

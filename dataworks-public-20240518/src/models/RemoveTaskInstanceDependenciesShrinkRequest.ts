@@ -23,7 +23,7 @@ export class RemoveTaskInstanceDependenciesShrinkRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The list of upstream node instance IDs.
+   * The upstream node instance IDs.
    */
   upstreamTaskInstanceIdsShrink?: string;
   static names(): { [key: string]: string } {

@@ -23,7 +23,7 @@ export class RemoveTaskInstanceDependenciesRequest extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The list of upstream node instance IDs.
+   * The upstream node instance IDs.
    */
   upstreamTaskInstanceIds?: number[];
   static names(): { [key: string]: string } {
