@@ -5,12 +5,12 @@ import * as $dara from '@darabonba/typescript';
 export class CreateProjectRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the project. The name can be up to 50 characters in length and cannot contain single quotation marks, semicolons, less-than signs, greater-than signs, equal signs, vertical lines, or parentheses.
+   * The name of the project. The name can be up to 50 characters in length and cannot contain single quotation marks, semicolons, less than signs, greater than signs, equal signs, vertical lines, or parentheses.
    * 
    * This parameter is required.
    * 
    * @example
-   * Product demonstration
+   * Product Demo
    */
   title?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitVideoRemakeJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code in the business response. This parameter is empty when the call is successful.
+   * The error code.
    * 
    * @example
    * InvalidParameter
@@ -13,7 +13,7 @@ export class SubmitVideoRemakeJobResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The unified remake job ID. Use GetVideoRemakeJob to query the progress and outputs.
+   * The job ID.
    * 
    * @example
    * 0123456789abcdef0123456789abcdef
@@ -21,7 +21,7 @@ export class SubmitVideoRemakeJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The request tracking ID.
+   * The request ID.
    * 
    * @example
    * 12345678-1234-4321-ABCD-123456789012

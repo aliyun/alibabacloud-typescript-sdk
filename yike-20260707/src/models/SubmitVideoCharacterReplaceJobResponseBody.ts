@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitVideoCharacterReplaceJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The task ID returned by SubmitVideoCharacterReplaceJob.
+   * The job ID returned by SubmitVideoCharacterReplaceJob.
    * 
    * @example
    * ag_83baeea38b534ee1937b8a4acd08****
@@ -13,7 +13,7 @@ export class SubmitVideoCharacterReplaceJobResponseBody extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot the request.
+   * The request ID used to locate and troubleshoot the request.
    * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****

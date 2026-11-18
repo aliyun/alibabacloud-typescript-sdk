@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SubmitMediaComprehensionJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The business error code. The value is an empty string if the job is submitted successfully.
+   * The business error code. This parameter is an empty string if the job is submitted successfully.
    * 
    * @example
    * ""

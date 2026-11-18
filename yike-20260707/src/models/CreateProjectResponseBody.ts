@@ -13,7 +13,7 @@ export class CreateProjectResponseBody extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The ID of the request, which is used to locate and troubleshoot the request.
+   * The ID of the request.
    * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****

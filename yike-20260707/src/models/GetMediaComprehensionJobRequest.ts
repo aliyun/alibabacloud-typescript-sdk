@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMediaComprehensionJobRequest extends $dara.Model {
   /**
    * @remarks
-   * The job ID.
+   * The ID of the job returned by SubmitMediaComprehensionJob.
    * 
    * @example
    * 68ca759e798b40b4903b255*******

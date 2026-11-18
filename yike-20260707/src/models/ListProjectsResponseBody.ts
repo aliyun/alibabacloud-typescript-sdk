@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListProjectsResponseBodyProjectList extends $dara.Model {
   /**
    * @remarks
-   * The permissions of the current caller in the project, such as Manage for management permissions.
+   * The permissions of the current caller in the project. For example, Manage indicates management permissions.
    * 
    * @example
    * Manage
@@ -21,7 +21,7 @@ export class ListProjectsResponseBodyProjectList extends $dara.Model {
   coverUrl?: string;
   /**
    * @remarks
-   * The creation time in UTC format following the ISO 8601 standard, ending with Z.
+   * The creation time. The time is in UTC and follows the ISO 8601 standard, ending with Z.
    * 
    * @example
    * 2026-01-07T02:21:36Z
@@ -37,7 +37,7 @@ export class ListProjectsResponseBodyProjectList extends $dara.Model {
   createUserName?: string;
   /**
    * @remarks
-   * The project description.
+   * The description of the project.
    * 
    * @example
    * Product demo project
@@ -45,7 +45,7 @@ export class ListProjectsResponseBodyProjectList extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The project ID.
+   * The ID of the project.
    * 
    * @example
    * pd_061716****
@@ -53,7 +53,7 @@ export class ListProjectsResponseBodyProjectList extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The project name.
+   * The name of the project.
    * 
    * @example
    * Product Demo
@@ -61,7 +61,7 @@ export class ListProjectsResponseBodyProjectList extends $dara.Model {
   title?: string;
   /**
    * @remarks
-   * The workspace ID.
+   * The ID of the workspace.
    * 
    * @example
    * ws_zna577pdximv***
@@ -105,7 +105,7 @@ export class ListProjectsResponseBodyProjectList extends $dara.Model {
 export class ListProjectsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * A response field retained for compatibility. It is not used for current pagination and can be ignored.
+   * A response field retained for backward compatibility. This field is not used for pagination. Do not rely on this field.
    * 
    * @example
    * 50
@@ -113,7 +113,7 @@ export class ListProjectsResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * A response field retained for compatibility. It is not used for current pagination and can be ignored.
+   * A response field retained for backward compatibility. This field is not used for pagination. Do not rely on this field.
    * 
    * @example
    * Token
@@ -126,7 +126,7 @@ export class ListProjectsResponseBody extends $dara.Model {
   projectList?: ListProjectsResponseBodyProjectList[];
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot the request.
+   * The ID of the request.
    * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the default project generated through automatic creation when the studio is created.
+   * The ID of the default project created through automatic creation when the studio is created.
    * 
    * @example
    * pd_061716****

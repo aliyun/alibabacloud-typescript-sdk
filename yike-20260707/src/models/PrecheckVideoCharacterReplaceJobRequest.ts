@@ -13,7 +13,7 @@ export class PrecheckVideoCharacterReplaceJobRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The input parameters of the application, which is a JSON-serialized string. The field names and material requirements are subject to the input definition of the corresponding AppId.
+   * The application input parameters, which are provided as a JSON-serialized string. The field names and material requirements are subject to the input definition of the corresponding AppId.
    * 
    * @example
    * {"LoadImage.1.TargetImage":"1a7852b032c371f0b64fe6f6c74b****"}

@@ -15,7 +15,7 @@ export class SubmitVideoCharacterReplaceJobRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The application input parameters as a JSON-serialized string. The field names and material requirements are subject to the input definition of the corresponding AppId.
+   * The input parameters of the application, serialized as a JSON string. The field names and material requirements are subject to the input definition of the corresponding AppId.
    * 
    * @example
    * {"LoadImage.1.TargetImage":"1a7852b032c371f0b64fe6f6c74b****"}

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVideoRenderJobResponseBodyJob extends $dara.Model {
   /**
    * @remarks
-   * The ID of the online editing project, which can be used for secondary editing of the final video.
+   * The ID of the online editing project, which can be used for secondary editing of the produced video.
    * 
    * @example
    * 8239345231244512***
@@ -13,7 +13,7 @@ export class GetVideoRenderJobResponseBodyJob extends $dara.Model {
   editingProjectId?: string;
   /**
    * @remarks
-   * The error code, returned when the task status is Failed.
+   * The error code. This parameter is returned when the job status is Failed.
    * 
    * @example
    * 200
@@ -21,7 +21,7 @@ export class GetVideoRenderJobResponseBodyJob extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error message of the String type, returned when the task status is Failed.
+   * The error message. This parameter is of the String type and is returned when the job status is Failed.
    * 
    * @example
    * The specified product does not exist.
@@ -29,7 +29,7 @@ export class GetVideoRenderJobResponseBodyJob extends $dara.Model {
   errorMessage?: string;
   /**
    * @remarks
-   * The job ID.
+   * The ID of the job returned by SubmitVideoRenderJob.
    * 
    * @example
    * 68ca759e798b40b4903b255*******
@@ -37,7 +37,7 @@ export class GetVideoRenderJobResponseBodyJob extends $dara.Model {
   jobId?: string;
   /**
    * @remarks
-   * The voiceover language of the final video.
+   * The voiceover language of the produced video.
    * 
    * @example
    * zh
@@ -53,13 +53,7 @@ export class GetVideoRenderJobResponseBodyJob extends $dara.Model {
   result?: string;
   /**
    * @remarks
-   * The file status. Valid values:
-   * 
-   * - Created: The file is created.
-   * - Executing: The file is executing.
-   * - Finished: The file is finished.
-   * - Failed: The file has failed.
-   * - Deleted: The file is deleted.
+   * The status of the job. Valid values: Created, Executing, Finished, and Failed. RecordNotFound is returned if the queried job is deleted, does not exist, or does not belong to the current account.
    * 
    * @example
    * Executing
@@ -67,7 +61,7 @@ export class GetVideoRenderJobResponseBodyJob extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The user-defined parameters in JSON format.
+   * The custom user data in JSON format.
    * 
    * @example
    * {"NotifyAddress": "http://xxx.callback.url"}
@@ -111,7 +105,7 @@ export class GetVideoRenderJobResponseBodyJob extends $dara.Model {
 export class GetVideoRenderJobResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The video rendering and compositing task object.
+   * The video rendering and compositing node object.
    */
   job?: GetVideoRenderJobResponseBodyJob;
   /**

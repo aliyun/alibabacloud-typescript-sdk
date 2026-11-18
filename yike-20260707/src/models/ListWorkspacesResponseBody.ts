@@ -13,7 +13,7 @@ export class ListWorkspacesResponseBodyWorkspaceList extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The creation time. The time is in UTC and follows the ISO 8601 standard, ending with Z.
+   * The creation time. The time follows the ISO 8601 standard and is displayed in UTC.
    * 
    * @example
    * 2026-01-07T02:21:36Z
@@ -29,7 +29,7 @@ export class ListWorkspacesResponseBodyWorkspaceList extends $dara.Model {
   defaultProjectId?: string;
   /**
    * @remarks
-   * The workspace status. Valid values: Online (enabled) and Offline (disabled).
+   * The workspace status. Valid values: Online: enabled. Offline: disabled.
    * 
    * @example
    * Online
@@ -95,7 +95,7 @@ export class ListWorkspacesResponseBodyWorkspaceList extends $dara.Model {
 export class ListWorkspacesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot requests.
+   * The request ID.
    * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****

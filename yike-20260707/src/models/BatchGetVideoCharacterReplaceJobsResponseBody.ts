@@ -183,7 +183,7 @@ export class BatchGetVideoCharacterReplaceJobsResponseBodyJobList extends $dara.
   appId?: string;
   /**
    * @remarks
-   * The application input parameters specified when the job was submitted. The value is a JSON serialized string. This corresponds to the AppParams parameter in the submit operation.
+   * The application input parameters specified when the job was submitted. The value is a JSON-serialized string. This corresponds to the AppParams parameter in the submit operation.
    * 
    * @example
    * {"LoadImage.1.TargetImage":"1a7852b032c371f0b64fe6f6c74b****"}
@@ -238,7 +238,7 @@ export class BatchGetVideoCharacterReplaceJobsResponseBodyJobList extends $dara.
    * @remarks
    * The job status. Valid values:
    * - Created: The job is created.
-   * - Queuing: The job is queuing.
+   * - Queuing: The job is in the queue.
    * - Executing: The job is being executed.
    * - Finished: The job is finished.
    * - Failed: The job failed.
@@ -290,7 +290,7 @@ export class BatchGetVideoCharacterReplaceJobsResponseBodyJobList extends $dara.
 export class BatchGetVideoCharacterReplaceJobsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of job query results.
+   * The list of queried jobs.
    */
   jobList?: BatchGetVideoCharacterReplaceJobsResponseBodyJobList[];
   /**

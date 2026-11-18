@@ -13,7 +13,7 @@ export class DeleteProjectResponseBody extends $dara.Model {
   projectId?: string;
   /**
    * @remarks
-   * The request ID, which is used to locate and troubleshoot the request.
+   * The request ID used to locate and troubleshoot the request.
    * 
    * @example
    * ****63E8B7C7-4812-46AD-0FA56029AC86****

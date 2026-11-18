@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetVideoCharacterReplaceJobResponseBodyResultAudioResult extends $dara.Model {
   /**
    * @remarks
-   * The output media asset ID.
+   * The ID of the output media asset.
    * 
    * @example
    * 1a7852b032c371f0b64fe6f6c74b****
@@ -45,7 +45,7 @@ export class GetVideoCharacterReplaceJobResponseBodyResultAudioResult extends $d
 export class GetVideoCharacterReplaceJobResponseBodyResultImageResult extends $dara.Model {
   /**
    * @remarks
-   * The output media asset ID.
+   * The ID of the output media asset.
    * 
    * @example
    * 1a7852b032c371f0b64fe6f6c74b****
@@ -85,7 +85,7 @@ export class GetVideoCharacterReplaceJobResponseBodyResultImageResult extends $d
 export class GetVideoCharacterReplaceJobResponseBodyResultVideoResult extends $dara.Model {
   /**
    * @remarks
-   * The output media asset ID.
+   * The ID of the output media asset.
    * 
    * @example
    * 1a7852b032c371f0b64fe6f6c74b****
@@ -125,7 +125,7 @@ export class GetVideoCharacterReplaceJobResponseBodyResultVideoResult extends $d
 export class GetVideoCharacterReplaceJobResponseBodyResult extends $dara.Model {
   /**
    * @remarks
-   * The list of output audio.
+   * The list of output audio files.
    */
   audioResult?: GetVideoCharacterReplaceJobResponseBodyResultAudioResult[];
   /**
@@ -239,7 +239,7 @@ export class GetVideoCharacterReplaceJobResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task output results, which are categorized by image, video, and audio.
+   * The task output results, categorized by image, video, and audio.
    */
   result?: GetVideoCharacterReplaceJobResponseBodyResult;
   /**
@@ -247,7 +247,7 @@ export class GetVideoCharacterReplaceJobResponseBody extends $dara.Model {
    * The task status. Valid values:
    * - Created: The task is created.
    * - Queuing: The task is queuing.
-   * - Executing: The task is executing.
+   * - Executing: The task is being executed.
    * - Finished: The task is finished.
    * - Failed: The task failed.
    * 
