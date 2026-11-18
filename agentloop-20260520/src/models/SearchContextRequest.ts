@@ -65,10 +65,10 @@ export class SearchContextRequestScope extends $dara.Model {
 export class SearchContextRequest extends $dara.Model {
   /**
    * @remarks
-   * The structured filter conditions. The key is the field name, and the value is the expected match value.
+   * The structured filter conditions. The experience store supports scene. When __agentloopControl.mode is set to direct, hybrid, or agentic, multi-strategy recall with auditing is used, and you can pass source, callId, application, fields, channels, and budget simultaneously. The management plane can additionally pass contentStatus=all, active, candidate, gray, or deprecated to perform content retrieval, which includes disabled or unreviewed content and is not affected by store-level runtime switches. The API key runtime entry prohibits contentStatus and retains the original governance thresholds. The maximum value of timeoutMs is 60000. If mode is not passed, the existing semantics of fields, channels, minQualityScore, expansion, and debug are retained. When query is *, you can use includeCandidates, cursor, and offset to browse experiences (management plane only).
    * 
    * @example
-   * {"userId":"alice"}
+   * {"scene":"incident-recovery","__agentloopControl":{"fields":["when_to_use","summary"],"channels":["vector","fulltext"],"minQualityScore":0.6,"expansion":false,"debug":true}}
    */
   filter?: { [key: string]: any };
   /**
@@ -81,7 +81,7 @@ export class SearchContextRequest extends $dara.Model {
   formatted?: boolean;
   /**
    * @remarks
-   * Specifies whether to include memories with sourceState=inactive. Default value: false.
+   * Specifies whether to include memories with sourceState set to inactive. Default value: false.
    * 
    * @example
    * false
@@ -89,7 +89,7 @@ export class SearchContextRequest extends $dara.Model {
   includeInactive?: boolean;
   /**
    * @remarks
-   * The maximum number of returned results based on the top-N similarity.
+   * The maximum number of returned results (Top-N similarity).
    * 
    * @example
    * 10
@@ -102,25 +102,25 @@ export class SearchContextRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * Recent user preferences
+   * Recent user preference settings
    */
   query?: string;
   /**
    * @remarks
-   * The retrieval options used to control the retrieval strategy.
+   * The retrieval options. The experience store supports normal and reranker (deterministic reranking). The memory store uses its own retrieval strategy. For real-time recall in the experience store, the limit ranges from 1 to 20.
    * 
    * @example
-   * semantic
+   * normal
    */
   retrievalOption?: string;
   /**
    * @remarks
-   * The recall scope. If a field with the same name exists in the filter, a 400 ScopeFilterConflict error is returned.
+   * The recall scope. If this field conflicts with a field of the same name in filter, a 400 ScopeFilterConflict error is returned.
    */
   scope?: SearchContextRequestScope;
   /**
    * @remarks
-   * Filters results by extraction strategy IDs. Multiple IDs in the list are evaluated with an OR logic. If this parameter is not specified, all strategies are recalled. An empty list returns a 400 error. Valid IDs with no matches return empty results. Historical removed strategy IDs are supported.
+   * Filters results by extraction strategy IDs. The conditions in the list are combined by using the OR operator. If this parameter is not passed, all strategies are recalled. An empty list returns a 400 error. If the format is valid but no matching IDs are found, an empty result is returned. Historical removed strategy IDs are supported.
    * 
    * @example
    * ["preferences","profile"]
@@ -128,7 +128,7 @@ export class SearchContextRequest extends $dara.Model {
   strategyIds?: string[];
   /**
    * @remarks
-   * The similarity threshold. Results with a similarity score below this value are filtered out. Valid values: 0 to 1.
+   * The similarity threshold. Results with a score lower than this value are filtered out. Valid values: 0 to 1.
    * 
    * @example
    * 0.5
