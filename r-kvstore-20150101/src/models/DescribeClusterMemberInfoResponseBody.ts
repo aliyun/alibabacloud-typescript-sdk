@@ -14,7 +14,7 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $dara.
   bandWidth?: number;
   /**
    * @remarks
-   * The number of days for which binary logs are retained.
+   * The binary log retention period in days.
    * 
    * @example
    * 7
@@ -66,7 +66,7 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $dara.
   /**
    * @remarks
    * The storage space of the [ESSD cloud disk](https://help.aliyun.com/document_detail/122389.html) for the data node. Unit: MB.
-   * > The ESSD cloud disk is used only for system operations, such as data persistence, and is not used as a medium for data access.
+   * > The ESSD cloud disk is used only for system operations, such as data persistence, and is not used as a medium for data storage and access.
    * 
    * @example
    * 4096
@@ -107,8 +107,8 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $dara.
   /**
    * @remarks
    * The node type. Valid values:
-   * * **redis**: data node.
-   * * **redis_cs**: configuration server node.
+   * * **redis**: data node
+   * * **redis_cs**: configuration server node
    * 
    * @example
    * redis
@@ -116,7 +116,7 @@ export class DescribeClusterMemberInfoResponseBodyClusterChildren extends $dara.
   service?: string;
   /**
    * @remarks
-   * The major version of the node.
+   * The major engine version of the node.
    * 
    * @example
    * 5.0

@@ -3,14 +3,18 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribePriceResponseBodyOrderCouponsCoupon extends $dara.Model {
+  activityExtInfo?: { [key: string]: any };
   couponNo?: string;
   description?: string;
+  effective?: boolean;
   isSelected?: string;
   name?: string;
   static names(): { [key: string]: string } {
     return {
+      activityExtInfo: 'ActivityExtInfo',
       couponNo: 'CouponNo',
       description: 'Description',
+      effective: 'Effective',
       isSelected: 'IsSelected',
       name: 'Name',
     };
@@ -18,14 +22,19 @@ export class DescribePriceResponseBodyOrderCouponsCoupon extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      activityExtInfo: { 'type': 'map', 'keyType': 'string', 'valueType': 'any' },
       couponNo: 'string',
       description: 'string',
+      effective: 'boolean',
       isSelected: 'string',
       name: 'string',
     };
   }
 
   validate() {
+    if(this.activityExtInfo) {
+      $dara.Model.validateMap(this.activityExtInfo);
+    }
     super.validate();
   }
 
@@ -100,12 +109,12 @@ export class DescribePriceResponseBodyOrderDepreciateInfoContractActivity extend
    * The promotion name.
    * 
    * @example
-   * Contract_Discount_Order_xxxOff
+   * Contract discount_Entire order_xxx% off
    */
   activityName?: string;
   /**
    * @remarks
-   * The price after the discount.
+   * The final price after the discount.
    */
   finalFee?: number;
   /**
@@ -169,7 +178,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfoContractActivity extend
 export class DescribePriceResponseBodyOrderDepreciateInfo extends $dara.Model {
   /**
    * @remarks
-   * The price reduction ratio.
+   * The price reduction rate.
    * 
    * @example
    * 30%
@@ -190,7 +199,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfo extends $dara.Model {
   contractActivity?: DescribePriceResponseBodyOrderDepreciateInfoContractActivity;
   /**
    * @remarks
-   * The price difference discount, displayed in the order total.
+   * The price difference discount (displayed in the total order price).
    * 
    * @example
    * **
@@ -206,7 +215,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfo extends $dara.Model {
   differentialName?: string;
   /**
    * @remarks
-   * Indicates whether a contract-based discount is applied.
+   * Indicates whether a contract discount is applied.
    * 
    * @example
    * false
@@ -214,7 +223,7 @@ export class DescribePriceResponseBodyOrderDepreciateInfo extends $dara.Model {
   isContractActivity?: boolean;
   /**
    * @remarks
-   * Indicates whether the price reduction is displayed.
+   * Indicates whether to display the price reduction extent.
    * 
    * @example
    * true
@@ -324,7 +333,7 @@ export class DescribePriceResponseBodyOrder extends $dara.Model {
   coupons?: DescribePriceResponseBodyOrderCoupons;
   /**
    * @remarks
-   * The currency. The value is CNY (Chinese Yuan) for the China site and USD (US Dollar) for the international site.
+   * The currency. CNY for the China site and USD for the international site.
    * 
    * @example
    * CNY
@@ -353,7 +362,7 @@ export class DescribePriceResponseBodyOrder extends $dara.Model {
   handlingFeeAmount?: string;
   /**
    * @remarks
-   * Indicates whether a contract-based discount is applied.
+   * Indicates whether a contract discount is applied.
    * 
    * @example
    * false
@@ -378,7 +387,7 @@ export class DescribePriceResponseBodyOrder extends $dara.Model {
   ruleIds?: DescribePriceResponseBodyOrderRuleIds;
   /**
    * @remarks
-   * Indicates whether discount information is displayed.
+   * Indicates whether to display the discount information.
    */
   showDiscountInfo?: boolean;
   /**
@@ -840,6 +849,7 @@ export class DescribePriceResponseBodySubOrdersSubOrderOptionalPromotionsOptiona
   canPromFee?: string;
   couponNo?: string;
   description?: string;
+  effective?: boolean;
   name?: string;
   optionCode?: string;
   promotionName?: string;
@@ -852,6 +862,7 @@ export class DescribePriceResponseBodySubOrdersSubOrderOptionalPromotionsOptiona
       canPromFee: 'CanPromFee',
       couponNo: 'CouponNo',
       description: 'Description',
+      effective: 'Effective',
       name: 'Name',
       optionCode: 'OptionCode',
       promotionName: 'PromotionName',
@@ -867,6 +878,7 @@ export class DescribePriceResponseBodySubOrdersSubOrderOptionalPromotionsOptiona
       canPromFee: 'string',
       couponNo: 'string',
       description: 'string',
+      effective: 'boolean',
       name: 'string',
       optionCode: 'string',
       promotionName: 'string',
@@ -1121,7 +1133,7 @@ export class DescribePriceResponseBody extends $dara.Model {
   order?: DescribePriceResponseBodyOrder;
   /**
    * @remarks
-   * The order parameters. This parameter is returned when OrderParamOut is set to `true`.
+   * The order parameters. Returned when OrderParamOut is set to `true`.
    * 
    * @example
    * String

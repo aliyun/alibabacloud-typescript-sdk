@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTaskDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The time when the node started. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The start time of the task, in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC time).
    * 
    * @example
    * 2026-05-12T07:18:57Z
@@ -21,7 +21,7 @@ export class DescribeTaskDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The node status.
+   * The task status.
    * 
    * @example
    * RUNNING

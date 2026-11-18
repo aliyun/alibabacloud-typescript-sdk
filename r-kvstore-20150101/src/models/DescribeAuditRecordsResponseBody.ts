@@ -80,7 +80,7 @@ export class DescribeAuditRecordsResponseBody extends $dara.Model {
    * @remarks
    * The end time of the query.
    * 
-   * The time is in the YYYY-MM-DDTHH:mm:ssZ format and displayed in UTC.
+   * The time is in the YYYY-MM-DDTHH:mm:ssZ format and is displayed in UTC.
    * 
    * @example
    * 2019-03-25T12:10:00Z
@@ -123,7 +123,7 @@ export class DescribeAuditRecordsResponseBody extends $dara.Model {
    * @remarks
    * The start time of the query.
    * 
-   * The time is in the YYYY-MM-DDTHH:mm:ssZ format and displayed in UTC.
+   * The time is in the YYYY-MM-DDTHH:mm:ssZ format and is displayed in UTC.
    * 
    * @example
    * 2019-03-24T12:10:00Z

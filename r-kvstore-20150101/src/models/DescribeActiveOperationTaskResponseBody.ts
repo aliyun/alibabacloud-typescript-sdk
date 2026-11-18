@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The time when the O&M task was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The time when the O&M task was created. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2023-02-24T06:00:11Z
@@ -13,7 +13,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
   createdTime?: string;
   /**
    * @remarks
-   * The database type. Return value: **redis**.
+   * The database type. Valid value: **redis**.
    * 
    * @example
    * redis
@@ -21,7 +21,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
   dbType?: string;
   /**
    * @remarks
-   * The latest time within the adjustable range for the O&M task execution time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The latest time to which the execution time of the O&M task can be adjusted. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2023-03-29T13:59:59Z
@@ -45,7 +45,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
   insName?: string;
   /**
    * @remarks
-   * The time when the O&M task was modified. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The time when the O&M task was modified. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2023-02-24T08:18:53Z
@@ -53,7 +53,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
   modifiedTime?: string;
   /**
    * @remarks
-   * The preparation time required between the O&M task start time and the switchover time. The time is in the <i>HH:mm:ss</i> format.
+   * The preparation time required between the start time and the switchover time of the O&M task. The time is in the <i>HH:mm:ss</i> format.
    * 
    * @example
    * 14:00:00
@@ -69,7 +69,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
   region?: string;
   /**
    * @remarks
-   * The execution time of the O&M task. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The execution time of the O&M task. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2023-03-20T02:40:00Z
@@ -78,12 +78,12 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The task status. Valid values:
-   * * **2**: Waiting for the user to specify a time.
-   * * **3**: Waiting to be processed.
-   * * **4**: Being processed. After the task enters this state, you cannot call **ModifyActiveOperationTask** to modify the scheduled switchover time.
-   * * **5**: Succeeded.
-   * * **6**: Failed.
-   * * **7**: Canceled.
+   * * **2**: waiting for the user to specify a time.
+   * * **3**: waiting to be processed.
+   * * **4**: processing. After the task enters this state, you cannot call **ModifyActiveOperationTask** to modify the scheduled switchover time.
+   * * **5**: successful.
+   * * **6**: failed.
+   * * **7**: canceled.
    * 
    * @example
    * 5
@@ -91,7 +91,7 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The time when the system-initiated switchover operation is performed. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The time when the system initiates the switchover. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * 
    * @example
    * 2023-03-20T03:10:00Z
@@ -100,10 +100,9 @@ export class DescribeActiveOperationTaskResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The task type. Valid values:
-   * 
-   * - **rds_apsaradb_ha**: node failover.
+   * - **rds_apsaradb_ha**: switch of primary and secondary nodes.
    * - **rds_apsaradb_transfer**: instance migration.
-   * - **rds_apsaradb_upgrade**: minor engine version update.
+   * - **rds_apsaradb_upgrade**: minor version update.
    * - **all**: all task types.
    * 
    * @example
@@ -169,7 +168,7 @@ export class DescribeActiveOperationTaskResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of entries per page.
+   * The maximum number of entries returned on each page.
    * 
    * @example
    * 30
@@ -185,7 +184,7 @@ export class DescribeActiveOperationTaskResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 1

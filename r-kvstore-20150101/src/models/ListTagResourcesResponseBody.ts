@@ -63,7 +63,7 @@ export class ListTagResourcesResponseBodyTagResources extends $dara.Model {
 export class ListTagResourcesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The token used to start the next query. If a query does not return all results, you can pass the token returned from the previous query in subsequent queries to continue the query.
+   * The token used to start the next query. If a query does not return all results, you can pass this token in subsequent queries to continue the query.
    * 
    * @example
    * 212db86sca4384811e0b5e8707ec2****

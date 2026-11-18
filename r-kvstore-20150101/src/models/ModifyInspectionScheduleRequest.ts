@@ -13,7 +13,7 @@ export class ModifyInspectionScheduleRequest extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
-   * Specifies whether to start the scheduled task. Default value: true.
+   * Specifies whether to enable the scheduled task. Default value: true.
    * 
    * @example
    * false
@@ -21,7 +21,7 @@ export class ModifyInspectionScheduleRequest extends $dara.Model {
   enabled?: number;
   /**
    * @remarks
-   * The specified inspection items. The following inspection items are supported:
+   * The specified inspection items. Supported inspection items:
    * - RESOURCE_USAGE
    * - BIGKEY
    * - HOTKEY
@@ -60,7 +60,7 @@ export class ModifyInspectionScheduleRequest extends $dara.Model {
   instanceIds?: string;
   /**
    * @remarks
-   * The report language.
+   * The language of the report.
    * 
    * @example
    * zh-CN

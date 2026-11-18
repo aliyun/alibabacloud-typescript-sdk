@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RebootProxyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 561AFBF1-BE20-44DB-9BD1-6988B53E****

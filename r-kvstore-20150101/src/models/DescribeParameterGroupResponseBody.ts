@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeParameterGroupResponseBodyParameterGroupParamGroupsDetails extends $dara.Model {
   /**
    * @remarks
-   * The parameter name.
+   * The name of the parameter.
    * 
    * @example
    * timeout
@@ -13,7 +13,7 @@ export class DescribeParameterGroupResponseBodyParameterGroupParamGroupsDetails 
   paramName?: string;
   /**
    * @remarks
-   * The parameter value.
+   * The value of the parameter.
    * 
    * @example
    * 1000
@@ -46,9 +46,8 @@ export class DescribeParameterGroupResponseBodyParameterGroup extends $dara.Mode
   /**
    * @remarks
    * The product category. Valid values:
-   * 
-   * - **0**: Redis Community Edition.
-   * - **1**: Tair (Enterprise Edition).
+   * - **0**: open-source Redis
+   * - **1**: Tair (Enterprise Edition)
    * 
    * @example
    * 1
@@ -72,7 +71,7 @@ export class DescribeParameterGroupResponseBodyParameterGroup extends $dara.Mode
   engine?: string;
   /**
    * @remarks
-   * The engine-compatible version.
+   * The compatible engine version.
    * 
    * @example
    * 5.0

@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class TagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the label.
+   * The label key.
    * 
    * > * **N** specifies the sequence number of the label key. For example, **Tag.1.Key** specifies the key of the first label, and **Tag.2.Key** specifies the key of the second label.
-   * > * If the label key does not exist, automatic creation of the key is performed.
+   * > * If the label key does not exist, automatic creation is performed.
    * 
    * This parameter is required.
    * 
@@ -18,7 +18,7 @@ export class TagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * > **N** specifies the sequence number of the tag value. For example, **Tag.1.Value** specifies the value of the first tag, and **Tag.2.Value** specifies the value of the second tag.
    * 
@@ -69,9 +69,6 @@ export class TagResourcesRequest extends $dara.Model {
    * The instance ID.
    * 
    * This parameter is required.
-   * 
-   * @example
-   * r-bp1zxszhcgatnx****
    */
   resourceId?: string[];
   resourceOwnerAccount?: string;
@@ -88,7 +85,7 @@ export class TagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tags of the instances.
+   * The tag information of the instances.
    * 
    * This parameter is required.
    */

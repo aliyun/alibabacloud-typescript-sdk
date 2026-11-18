@@ -5,16 +5,16 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstancesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The tag key. It forms a key-value pair with the tag value.
+   * The tag key. The tag key and value form a key-value pair.
    * > You can specify up to 5 tag key-value pairs in a single request.
    * 
    * @example
-   * Storage type
+   * StorageType
    */
   key?: string;
   /**
    * @remarks
-   * The tag value. It forms a key-value pair with the tag key.
+   * The value of the tag key. The tag key and value form a key-value pair.
    * 
    * @example
    * Development
@@ -47,9 +47,9 @@ export class DescribeInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The architecture type. Valid values:
-   * * **cluster**: cluster edition
-   * * **standard**: standard edition
-   * * **rwsplit**: read/write splitting edition
+   * * **cluster**: Cluster Edition
+   * * **standard**: Standard Edition
+   * * **rwsplit**: Read/Write Splitting Edition
    * 
    * @example
    * standard
@@ -68,7 +68,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The edition type of the instance. Valid values:
-   * * **Community**: open-source Redis
+   * * **Community**: Redis Community Edition
    * * **Enterprise**: Tair Enterprise Edition
    * 
    * @example
@@ -87,8 +87,8 @@ export class DescribeInstancesRequest extends $dara.Model {
    * @remarks
    * The expiration status of the instance. Valid values:
    * 
-   * * **true**: The instance has expired.
-   * * **false**: The instance has not expired.
+   * * **true**: The instance is expired.
+   * * **false**: The instance is not expired.
    * 
    * @example
    * false
@@ -96,9 +96,9 @@ export class DescribeInstancesRequest extends $dara.Model {
   expired?: string;
   /**
    * @remarks
-   * Specifies whether to filter child instances of distributed instances in the returned instance list. Valid values:
-   * * **true**: Only child instance information is returned.
-   * * **false**: Child instance information is not returned.
+   * Specifies whether to filter out child instances of distributed instances in the returned instance list. Valid values:
+   * * **true**: Only child instances are returned.
+   * * **false**: Child instances are not returned.
    * 
    * @example
    * true
@@ -106,7 +106,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   globalInstance?: boolean;
   /**
    * @remarks
-   * The instance specifications. For more information, see [Instance specifications](https://help.aliyun.com/document_detail/107984.html).
+   * The instance type. For more information, see [Instance types](https://help.aliyun.com/document_detail/107984.html).
    * 
    * @example
    * redis.master.small.default
@@ -114,7 +114,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   instanceClass?: string;
   /**
    * @remarks
-   * The IDs of the instances to be queried.
+   * The IDs of the instances to query.
    * > To specify multiple instance IDs, separate the IDs with commas (,). You can specify up to 30 instance IDs in a single request.
    * 
    * @example
@@ -132,11 +132,11 @@ export class DescribeInstancesRequest extends $dara.Model {
    * * **Released**: released
    * * **Transforming**: transforming
    * * **Migrating**: migrating
-   * * **BackupRecovering**: recovering from backup
+   * * **BackupRecovering**: recovering from a backup
    * * **MinorVersionUpgrading**: minor version upgrade in progress
    * * **NetworkModifying**: changing the network type
-   * * **SSLModifying**: changing SSL configurations
-   * * **MajorVersionUpgrading**: major engine version upgrade in progress, during which the instance remains accessible
+   * * **SSLModifying**: changing SSL settings
+   * * **MajorVersionUpgrading**: major engine version upgrade in progress. The instance remains accessible.
    * 
    * > For more information about instance statuses, see [Instance statuses and impacts](https://help.aliyun.com/document_detail/200740.html).
    * 
@@ -172,7 +172,7 @@ export class DescribeInstancesRequest extends $dara.Model {
    * * **STAND_ALONE**: single-replica
    * * **double**: dual-replica
    * * **single**: single-replica
-   * > For cloud-native instances, select **MASTER_SLAVE** or **STAND_ALONE**. For classic instances, select **double** or **single**.
+   * > Select **MASTER_SLAVE** or **STAND_ALONE** for Cloud-native Edition instances, and select **double** or **single** for Classic Edition instances.
    * 
    * @example
    * MASTER_SLAVE
@@ -208,7 +208,7 @@ export class DescribeInstancesRequest extends $dara.Model {
    * @remarks
    * The region ID of the instance.
    * 
-   * > When you call this operation, if the **Tag** parameter is specified, this parameter is required.
+   * > If you specify the **Tag** parameter when you call this operation, you must also specify this parameter.
    * 
    * @example
    * cn-hangzhou
@@ -217,7 +217,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The resource group ID.
-   * > You can invoke the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation or use the console to obtain the list of resource group IDs. For related operations, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * > You can invoke the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation or use the console to obtain the resource group ID list. Related operations: [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
    * 
    * @example
    * rg-acfmyiu4ekp****
@@ -227,7 +227,7 @@ export class DescribeInstancesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The search keyword. Fuzzy match is supported for instance names and instance IDs.
+   * The keyword used for fuzzy search by instance name or instance ID.
    * 
    * @example
    * apitest

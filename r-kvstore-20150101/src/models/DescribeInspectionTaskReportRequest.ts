@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInspectionTaskReportRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the inspection instance.
+   * The inspection instance ID.
    * 
    * @example
    * r-bp19f4f6994813xxx
@@ -21,6 +21,18 @@ export class DescribeInspectionTaskReportRequest extends $dara.Model {
    * ta-bp19f4f6994813xxx
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The summary of risk levels for inspection results. You can specify multiple values. Valid values:
+   * - Normal: normal
+   * - Warning: warning
+   * - Error: high-risk
+   * - Failed: failed
+   * 
+   * @example
+   * Error,Warning
+   */
+  levelSummary?: string;
   securityToken?: string;
   /**
    * @remarks
@@ -36,6 +48,7 @@ export class DescribeInspectionTaskReportRequest extends $dara.Model {
     return {
       inspectionInsId: 'InspectionInsId',
       instanceId: 'InstanceId',
+      levelSummary: 'LevelSummary',
       securityToken: 'SecurityToken',
       taskId: 'TaskId',
     };
@@ -45,6 +58,7 @@ export class DescribeInspectionTaskReportRequest extends $dara.Model {
     return {
       inspectionInsId: 'string',
       instanceId: 'string',
+      levelSummary: 'string',
       securityToken: 'string',
       taskId: 'string',
     };

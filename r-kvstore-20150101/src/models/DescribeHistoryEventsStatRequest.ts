@@ -7,8 +7,8 @@ export class DescribeHistoryEventsStatRequest extends $dara.Model {
    * @remarks
    * The event status. Valid values:
    * - **Archived**: Archived.
-   * - **UnArchived**: Not archived.
-   * - **All**: All events.
+   * - **UnArchived**: Unarchived.
+   * - **All**: All.
    * 
    * @example
    * Archived
@@ -16,7 +16,7 @@ export class DescribeHistoryEventsStatRequest extends $dara.Model {
   archiveStatus?: string;
   /**
    * @remarks
-   * The beginning of the time range for the task start time. Only tasks whose start time is later than this time are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0. The earliest supported time is 30 days before the current time. If the specified time is more than 30 days before the current time, it is automatically converted to 30 days before the current time.
+   * The lower bound of the time range for task start times. Only tasks that started after this time are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC. The earliest supported time is 30 days ago. If the specified time is more than 30 days before the current time, it is automatically adjusted to 30 days ago.
    * 
    * @example
    * 2022-01-02T11:31:03Z
@@ -39,7 +39,7 @@ export class DescribeHistoryEventsStatRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The end of the time range for the task start time. Only tasks whose start time is earlier than this time are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC+0.
+   * The upper bound of the time range for task start times. Only tasks that started before this time are queried. Specify the time in the ISO 8601 standard in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * @example
    * 2022-02-02T11:31:03Z

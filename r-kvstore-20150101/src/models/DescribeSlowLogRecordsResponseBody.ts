@@ -78,7 +78,7 @@ export class DescribeSlowLogRecordsResponseBodyItems extends $dara.Model {
 export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The database engine.
+   * The database type.
    * 
    * @example
    * Redis
@@ -127,9 +127,7 @@ export class DescribeSlowLogRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the query.
-   * 
-   * The time is in the YYYY-MM-DDTHH:mmZ format and displayed in UTC.
+   * The start time of the query. The time is in the YYYY-MM-DDTHH:mmZ format and displayed in UTC.
    * 
    * @example
    * 2019-03-10T14:00Z

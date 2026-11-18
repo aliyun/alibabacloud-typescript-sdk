@@ -57,10 +57,10 @@ export class DescribeTairKVCacheInferInstancesRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The expiration status of the instance. Valid values:
+   * Specifies whether the instance has expired. Valid values:
    * 
-   * * **true**: Expired.
-   * * **false**: Not expired.
+   * * **true**: The instance has expired.
+   * * **false**: The instance has not expired.
    * 
    * @example
    * false
@@ -77,7 +77,7 @@ export class DescribeTairKVCacheInferInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of the instances to query.
-   * > If you specify multiple instance IDs, separate them with commas (,). You can specify up to 30 instance IDs in a single request.
+   * > Separate multiple instance IDs with commas (,). You can specify up to 30 instance IDs in a single request.
    * 
    * @example
    * tk-2zefe7728c2c****
@@ -85,7 +85,7 @@ export class DescribeTairKVCacheInferInstancesRequest extends $dara.Model {
   instanceIds?: string;
   /**
    * @remarks
-   * The instance status. Valid values:
+   * The status of the instance. Valid values:
    * * **Normal**: Normal.
    * * **Creating**: Creating.
    * 
@@ -98,7 +98,7 @@ export class DescribeTairKVCacheInferInstancesRequest extends $dara.Model {
   /**
    * @remarks
    * The network type. Valid values:
-   * * **VPC**: Virtual Private Cloud (VPC). This is the default value.
+   * * **VPC**: VPC. This is the default value.
    * 
    * @example
    * VPC
@@ -124,7 +124,7 @@ export class DescribeTairKVCacheInferInstancesRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * **[Deprecated]** The private IP address of the VPC.
+   * The private IP address in the VPC. **[Deprecated]** This parameter is deprecated.
    * 
    * @example
    * 172.16.49.***
@@ -152,7 +152,7 @@ export class DescribeTairKVCacheInferInstancesRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The search keyword. You can use this parameter to perform a fuzzy search by instance name or instance ID.
+   * The keyword for fuzzy search by instance name or instance ID.
    * 
    * @example
    * apitest

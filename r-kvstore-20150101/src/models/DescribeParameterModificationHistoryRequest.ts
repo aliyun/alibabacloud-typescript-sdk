@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeParameterModificationHistoryRequest extends $dara.Model {
   /**
    * @remarks
-   * The end of the time range to query. The end time must be later than the start time. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * The end time of the query. The end time must be later than the start time. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class DescribeParameterModificationHistoryRequest extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the instance ID.
+   * Instance ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -25,7 +25,7 @@ export class DescribeParameterModificationHistoryRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The node ID.
+   * The ID of the node.
    * > Specify this parameter to query the parameter settings of a specific node in a cluster instance.
    * 
    * @example
@@ -36,7 +36,7 @@ export class DescribeParameterModificationHistoryRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The parameter name.
+   * The name of the parameter.
    * 
    * @example
    * script_check_enable
@@ -47,7 +47,7 @@ export class DescribeParameterModificationHistoryRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The beginning of the time range to query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * The start time of the query. Specify the time in the yyyy-MM-ddTHH:mm:ssZ format. The time must be in UTC.
    * 
    * This parameter is required.
    * 

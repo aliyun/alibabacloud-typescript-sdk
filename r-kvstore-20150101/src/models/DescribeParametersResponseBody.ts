@@ -134,7 +134,7 @@ export class DescribeParametersResponseBody extends $dara.Model {
   configParameters?: DescribeParametersResponseBodyConfigParameters;
   /**
    * @remarks
-   * The database type.
+   * The database engine.
    * 
    * @example
    * redis

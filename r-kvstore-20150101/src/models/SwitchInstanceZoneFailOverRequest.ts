@@ -15,8 +15,7 @@ export class SwitchInstanceZoneFailOverRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The duration of the simulated failure. Unit: minutes.
-   * Valid values:
+   * The duration of the failure. Unit: minutes. Valid values:
    * - 5
    * - 10
    * - 30
@@ -27,7 +26,7 @@ export class SwitchInstanceZoneFailOverRequest extends $dara.Model {
   siteFaultTime?: string;
   /**
    * @remarks
-   * The target zone ID.
+   * The ID of the target zone.
    * 
    * @example
    * cn-hangzhou-j

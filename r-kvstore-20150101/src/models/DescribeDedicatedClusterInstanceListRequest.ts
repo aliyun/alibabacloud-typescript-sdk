@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeDedicatedClusterInstanceListRequest extends $dara.Model {
   /**
    * @remarks
-   * The dedicated cluster ID. You can obtain the ID on the dedicated cluster information page in the ApsaraDB for MyBase console.
+   * The dedicated cluster ID. You can obtain the ID on the Dedicated Cluster Information page in the ApsaraDB MyBase console.
    * > To specify multiple IDs, separate them with commas (,).
    * 
    * @example
@@ -23,7 +23,7 @@ export class DescribeDedicatedClusterInstanceListRequest extends $dara.Model {
   dedicatedHostName?: string;
   /**
    * @remarks
-   * The database engine. Set the value to **Redis**.
+   * The database engine type. Set the value to **Redis**.
    * 
    * @example
    * Redis
@@ -40,7 +40,7 @@ export class DescribeDedicatedClusterInstanceListRequest extends $dara.Model {
   /**
    * @remarks
    * The instance ID.
-   * > The instance must be created in a dedicated cluster. For more information, see [ApsaraDB for MyBase](https://help.aliyun.com/document_detail/141455.html).
+   * > The instance must be created in a dedicated cluster. For more information, see [ApsaraDB MyBase](https://help.aliyun.com/document_detail/141455.html).
    * 
    * @example
    * r-bp1zxszhcgatnx****
@@ -51,7 +51,7 @@ export class DescribeDedicatedClusterInstanceListRequest extends $dara.Model {
    * The network type of the instance endpoint. Valid values:
    * * **0**: Internet.
    * * **1**: Classic network.
-   * * **2**: Virtual Private Cloud (VPC).
+   * * **2**: VPC.
    * 
    * @example
    * 2
@@ -77,7 +77,7 @@ export class DescribeDedicatedClusterInstanceListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be greater than **0** and less than or equal to the maximum value of the Integer data type. Default value: **1**.
+   * The page number. The value must be greater than **0** and cannot exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -93,7 +93,7 @@ export class DescribeDedicatedClusterInstanceListRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) to query region IDs.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) to query available regions.
    * 
    * This parameter is required.
    * 
@@ -106,7 +106,7 @@ export class DescribeDedicatedClusterInstanceListRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The zone ID. You can call [DescribeZones](https://help.aliyun.com/document_detail/473764.html) to query zone IDs.
+   * The zone ID. You can call [DescribeZones](https://help.aliyun.com/document_detail/473764.html) to query available zones.
    * 
    * @example
    * cn-hangzhou-e

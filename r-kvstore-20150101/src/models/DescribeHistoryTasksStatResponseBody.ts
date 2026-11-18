@@ -6,12 +6,12 @@ export class DescribeHistoryTasksStatResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The task status. Valid values:
-   * - **Scheduled**: Waiting to be executed.
+   * - **Scheduled**: Pending execution.
    * - **Running**: Running.
    * - **Succeed**: Succeeded.
    * - **Failed**: Failed.
-   * - **Cancelling**: Being stopped.
-   * - **Canceled**: Stopped.
+   * - **Cancelling**: Cancelling.
+   * - **Canceled**: Canceled.
    * - **Waiting**: Waiting for the scheduled time.
    * 
    * @example
@@ -52,7 +52,7 @@ export class DescribeHistoryTasksStatResponseBodyItems extends $dara.Model {
 export class DescribeHistoryTasksStatResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The task list.
+   * The list of tasks.
    */
   items?: DescribeHistoryTasksStatResponseBodyItems[];
   /**

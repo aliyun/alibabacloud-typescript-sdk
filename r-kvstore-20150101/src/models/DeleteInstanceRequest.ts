@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the distributed instance to which the instance that you want to release belongs. This parameter is applicable only to Chinese site (aliyun.com).
+   * The distributed instance ID to which the instance ID to be released belongs. This parameter is applicable only to the China site.
    * 
    * @example
    * gr-bp14rkqrhac****
@@ -13,7 +13,7 @@ export class DeleteInstanceRequest extends $dara.Model {
   globalInstanceId?: string;
   /**
    * @remarks
-   * The instance ID of the instance that you want to release.
+   * The instance ID of the instance to be released.
    * 
    * This parameter is required.
    * 

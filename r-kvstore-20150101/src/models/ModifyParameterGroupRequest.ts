@@ -5,10 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyParameterGroupRequest extends $dara.Model {
   /**
    * @remarks
-   * The product category. Valid values:
-   * 
-   * - **standard**: Redis Community Edition.
-   * - **enterprise**: Tair (Enhanced Edition).
+   * The product edition. Valid values:
+   * - **standard**: open-source Redis
+   * - **enterprise**: Tair (Enterprise Edition)
    * 
    * This parameter is required.
    * 
@@ -20,7 +19,7 @@ export class ModifyParameterGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The description of the parameter template. The description can be up to 200 characters in length.
+   * The description of the parameter template. The description must be 0 to 200 characters in length.
    * 
    * @example
    * test
@@ -38,8 +37,7 @@ export class ModifyParameterGroupRequest extends $dara.Model {
   parameterGroupId?: string;
   /**
    * @remarks
-   * The name of the parameter template. The name must meet the following requirements:
-   * 
+   * The new name of the parameter template. The name must meet the following requirements:
    * * The name can contain letters, digits, and underscores (_). It must start with a letter and cannot contain Chinese characters.
    * * The name must be 8 to 64 characters in length.
    * > This parameter is required. If you do not want to change the name of the parameter template, specify the original name.
@@ -52,8 +50,8 @@ export class ModifyParameterGroupRequest extends $dara.Model {
   parameterGroupName?: string;
   /**
    * @remarks
-   * The parameters and their values in JSON format: {"Parameter1":"Value1","Parameter2":"Value2",...}. The specified values overwrite the existing values.
-   * > The parameters that can be added vary by version. Refer to the console for details.
+   * The parameters and their values in JSON format. Format: {"Parameter1":"Value1","Parameter2":"Value2",...}. The specified values overwrite the original values.
+   * > The parameters that can be configured vary by edition. For more information, see the console.
    * 
    * This parameter is required.
    * 
@@ -63,7 +61,7 @@ export class ModifyParameterGroupRequest extends $dara.Model {
   parameters?: string;
   /**
    * @remarks
-   * The ID of the region where the instance resides. You can call the [DescribeInstanceAttribute](https://help.aliyun.com/document_detail/473779.html) operation to query the region ID.
+   * The region ID of the instance. You can call the [DescribeInstanceAttribute](https://help.aliyun.com/document_detail/473779.html) operation to query the region ID.
    * 
    * @example
    * cn-zhangjiakou

@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyActiveOperationTaskRequest extends $dara.Model {
   /**
    * @remarks
-   * The O&M task IDs, separated by commas (,).
-   * > You can call [DescribeActiveOperationTask](https://help.aliyun.com/document_detail/473865.html) to obtain the O&M task IDs.
+   * The IDs of the O&M tasks. Separate multiple IDs with commas (,).
+   * > You can call the [DescribeActiveOperationTask](https://help.aliyun.com/document_detail/473865.html) operation to obtain the O&M task IDs.
    * 
    * This parameter is required.
    * 
@@ -21,8 +21,8 @@ export class ModifyActiveOperationTaskRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The scheduled switchover time to set. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
-   * > The time cannot be later than the latest operation time. You can call [DescribeActiveOperationTask](https://help.aliyun.com/document_detail/473865.html) and check the value of the **Deadline** response parameter to obtain the latest operation time.
+   * The scheduled switchover time to set. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time must be in UTC.
+   * > The time cannot be later than the deadline. You can call the [DescribeActiveOperationTask](https://help.aliyun.com/document_detail/473865.html) operation and check the value of the **Deadline** response parameter to obtain the deadline.
    * 
    * This parameter is required.
    * 

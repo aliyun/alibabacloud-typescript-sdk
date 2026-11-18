@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeCacheAnalysisReportListRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of days within which analysis results are queried. By default, analysis results of the last 7 days are queried.
-   * 
-   * > If the automatic analysis for the current day has not started when you query and no manual analysis task has been initiated, no records exist for the current day.
+   * Specifies the number of recent days for which to query analysis results. By default, the analysis results of the last 7 days are queried.
+   * > If the automatic analysis for the current day has not started and no manual analysis task has been initiated, no records are available for the current day.
    * 
    * @example
    * 7
@@ -25,8 +24,7 @@ export class DescribeCacheAnalysisReportListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The child node ID of a cluster instance.
-   * 
+   * The ID of the child node in a cluster instance.
    * > If you do not specify this parameter, the analysis results of all child nodes are returned.
    * 
    * @example
@@ -37,7 +35,7 @@ export class DescribeCacheAnalysisReportListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number to return.
+   * The number of the page to return.
    * 
    * @example
    * 1

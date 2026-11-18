@@ -20,7 +20,7 @@ export class ModifyInstanceVpcAuthModeRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The authentication mode in a VPC. Valid values:
+   * The authentication mode in the VPC. Valid values:
    * * **Open**: Uses password authentication.
    * * **Close**: Disables password authentication and enables password-free access.
    * 

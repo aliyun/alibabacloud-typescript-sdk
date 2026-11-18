@@ -7,7 +7,7 @@ export class CreateInspectionTaskRequest extends $dara.Model {
    * @remarks
    * The end time of the inspection time range.
    * 
-   * The time is in the YYYY-MM-DDTHH:mm:ssZ format and in UTC.
+   * The time is in the YYYY-MM-DDTHH:mm:ssZ format and must be in UTC.
    * 
    * @example
    * 2026-07-29T06:59:26Z
@@ -30,7 +30,7 @@ export class CreateInspectionTaskRequest extends $dara.Model {
   inspectionItems?: string;
   /**
    * @remarks
-   * The ID of the assistant instance.
+   * The assistant instance ID.
    * 
    * This parameter is required.
    * 
@@ -50,7 +50,7 @@ export class CreateInspectionTaskRequest extends $dara.Model {
   instanceIds?: string;
   /**
    * @remarks
-   * The language of the report.
+   * The report language.
    * 
    * @example
    * zh-CN
@@ -60,7 +60,7 @@ export class CreateInspectionTaskRequest extends $dara.Model {
    * @remarks
    * The start time of the inspection time range.
    * 
-   * The time is in the YYYY-MM-DDTHH:mm:ssZ format and in UTC.
+   * The time is in the YYYY-MM-DDTHH:mm:ssZ format and must be in UTC.
    * 
    * @example
    * 2026-07-29T05:59:26Z

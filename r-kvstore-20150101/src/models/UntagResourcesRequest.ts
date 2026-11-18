@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class UntagResourcesRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to remove all tags from the instance. Valid values:
-   * * **true**: removes all tags from the instance.
-   * * **false**: does not remove all tags from the instance. This is the default value.
+   * Specifies whether to remove all tags from the instances. Valid values:
+   * * **true**: Removes all tags from the instances.
+   * * **false**: Does not remove all tags from the instances. This is the default value.
    * 
-   * > If both **TagKey.N** and this parameter are specified, this parameter does not take effect.
+   * > If you specify both **TagKey.N** and this parameter, this parameter does not take effect.
    * 
    * @example
    * false
@@ -19,7 +19,7 @@ export class UntagResourcesRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) to query the region ID.
+   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) to query region IDs.
    * 
    * This parameter is required.
    * 
@@ -29,12 +29,9 @@ export class UntagResourcesRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The list of instance IDs.
+   * The instance IDs.
    * 
    * This parameter is required.
-   * 
-   * @example
-   * r-bp1zxszhcgatnx****
    */
   resourceId?: string[];
   resourceOwnerAccount?: string;
@@ -51,10 +48,7 @@ export class UntagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The list of tag keys.
-   * 
-   * @example
-   * demokey
+   * The tag keys.
    */
   tagKey?: string[];
   static names(): { [key: string]: string } {

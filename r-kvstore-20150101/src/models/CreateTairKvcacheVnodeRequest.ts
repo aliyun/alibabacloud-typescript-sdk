@@ -84,7 +84,7 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
   autoUseCoupon?: boolean;
   /**
    * @remarks
-   * The extended information, such as the campaign ID and business information.
+   * The extended information such as the campaign ID and business information.
    * 
    * @example
    * 000000000
@@ -92,8 +92,8 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
   businessInfo?: string;
   /**
    * @remarks
-   * The billing method. Valid values:
-   * * **PrePaid**: subscription. If you set this parameter to PrePaid, you must also specify the **Period** parameter.
+   * The billing method to switch to. Valid values:
+   * * **PrePaid**: Subscription. If you specify this value, you must also specify the **Period** parameter.
    * 
    * @example
    * PrePaid
@@ -101,7 +101,7 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must ensure that the token is unique among different requests. The token is case-sensitive and can be up to 64 ASCII characters in length.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the token, but you must ensure that it is unique among different requests. The token is case-sensitive and can be up to 64 ASCII characters in length.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz****
@@ -148,7 +148,7 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
   instanceClass?: string;
   /**
    * @remarks
-   * The name of the new instance. The name must be 2 to 80 characters in length and start with a letter or a Chinese character. It cannot contain spaces or the following special characters: `@/:=”<>{[]}`.
+   * The name of the new instance. The name must be 2 to 80 characters in length and start with a letter or a Chinese character. It cannot contain spaces or the following special characters: `@/:="<>{[]}`.
    * 
    * @example
    * vnodetest
@@ -158,7 +158,7 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The subscription duration. Unit: months. Valid values: **1** to **9**, **12**, **24**, and **36**.
+   * The subscription period. Unit: months. Valid values: **1** to **9**, **12**, **24**, and **36**.
    * > This parameter is required when the **ChargeType** parameter is set to **PrePaid**.
    * 
    * @example
@@ -179,7 +179,7 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
    * @remarks
    * The ID of the destination resource group.
    * 
-   * > * You can invoke the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation or go to the console to obtain the resource group ID list. For related operations, see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * > * You can invoke the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation or go to the console to obtain the resource group ID list. Related operations: see [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
    * > * Before you change the resource group to which the instance belongs, you can invoke the [ListResources](https://help.aliyun.com/document_detail/158866.html) operation to view the current resource group of the instance.
    * 
    * @example
@@ -195,14 +195,17 @@ export class CreateTairKVCacheVNodeRequest extends $dara.Model {
    */
   tag?: CreateTairKVCacheVNodeRequestTag[];
   /**
+   * @remarks
+   * The virtual node type. Valid values: fixed and elastic.
+   * 
    * @example
    * fixed
    */
   VNodeType?: string;
   /**
    * @remarks
-   * The vSwitch ID of the instance. The vSwitch must belong to the VPC associated with the specified VCluster virtual cluster. You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation of the VPC API to query the vSwitch ID.
-   * > The zone of the vSwitch must be the same as the zone of the instance.
+   * The vSwitch ID of the instance. The vSwitch must belong to the VPC of the specified VCluster virtual cluster. You can call the [DescribeVpcs](https://help.aliyun.com/document_detail/35739.html) operation of the VPC API to query the vSwitch ID.
+   * > The zone of the vSwitch must be the same as that of the instance.
    * 
    * This parameter is required.
    * 

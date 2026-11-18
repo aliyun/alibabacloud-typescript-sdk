@@ -256,7 +256,7 @@ export class DescribeInstancesResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The number of entries per page specified in the request.
    * 
    * @example
    * 30

@@ -13,7 +13,7 @@ export class DescribeBackupsRequest extends $dara.Model {
   backupId?: number;
   /**
    * @remarks
-   * The ID of the backup job. This ID is returned by the CreateBackup operation. If CreateBackup returns multiple BackupJobIds, you must call this operation to query each of them separately.
+   * The ID of the backup task. This ID is returned by the CreateBackup operation. If the CreateBackup operation returns multiple BackupJobIds, you must call this operation to query each of them separately.
    * 
    * @example
    * 10001
@@ -42,8 +42,8 @@ export class DescribeBackupsRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable AOF persistence. Valid values:
-   * * **0**: Disabled.
-   * * **1**: Enabled.
+   * * **0**: disabled.
+   * * **1**: enabled.
    * 
    * > Default value: **0**.
    * 

@@ -25,9 +25,8 @@ export class ModifyAccountParameterRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The account parameters to modify, in JSON format. The modified values overwrite the original values. For example, if you want to modify only the access-db-id parameter to 1, pass in {"access-db-id":"1"}.
-   * Only two parameters are supported: access-db-id (accessible DB ID) and cu-limit (CU Limit).
-   * >Notice: Currently, only Tair Serverless KV instances are supported.
+   * The account parameters to modify. The parameters must be in JSON format, and the modified values overwrite the original values. For example, if you want to modify only the access-db-id parameter to 1, you can pass {"access-db-id":"1"}. Currently, only two parameters are supported: access-db-id (accessible DB ID) and cu-limit (throttling value (CU limit)).
+   * >Notice: This operation is supported only for Tair Serverless KV instances.
    * 
    * This parameter is required.
    * 

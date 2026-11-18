@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeClusterBackupListResponseBodyClusterBackupsBackupsExtraInfo extends $dara.Model {
   /**
    * @remarks
-   * The database engine version.
+   * The database version.
    * 
    * @example
    * 5.0
@@ -60,7 +60,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackupsBackups extends 
   /**
    * @remarks
    * The internal download URL of the backup file.
-   * > You can use this URL to download the backup file from an ECS instance that is connected to the current instance. Both instances must reside in the same VPC.
+   * > You can use this URL to download the backup file from an ECS instance that is connected to the current instance. Both instances must belong to the same VPC.
    * 
    * @example
    * http://rdsbakbucket-huhehaote-v2.oss-cn-huhehaote-internal.aliyuncs.com/custins424747958/hins100322105_data_20240110012135.rdb
@@ -93,8 +93,8 @@ export class DescribeClusterBackupListResponseBodyClusterBackupsBackups extends 
   /**
    * @remarks
    * The backup status. Valid values:
-   * * **OK**: The backup is successful.
-   * * **ERROR**: The backup failed.
+   * * **OK**: Successful.
+   * * **ERROR**: Failed.
    * 
    * @example
    * OK
@@ -124,8 +124,8 @@ export class DescribeClusterBackupListResponseBodyClusterBackupsBackups extends 
   /**
    * @remarks
    * Indicates whether the backup set is available. Valid values:
-   * * **0**: unavailable.
-   * * **1**: available.
+   * * **0**: Unavailable.
+   * * **1**: Available.
    * 
    * @example
    * 1
@@ -236,9 +236,9 @@ export class DescribeClusterBackupListResponseBodyClusterBackups extends $dara.M
   /**
    * @remarks
    * The status of the cluster backup set. Valid values:
-   * - OK: The backup is successful.
-   * - RUNNING: The backup is in progress.
-   * - Other values: The backup failed.
+   * - OK: Successful.
+   * - RUNNING: Running.
+   * - Other values: Failed.
    * 
    * @example
    * OK
@@ -270,7 +270,7 @@ export class DescribeClusterBackupListResponseBodyClusterBackups extends $dara.M
   progress?: string;
   /**
    * @remarks
-   * The memory size of a single DB node when the full backup is created. Unit: MB.
+   * The memory size of a single database node when the full backup was created. Unit: MB.
    * 
    * @example
    * 1024
@@ -323,12 +323,12 @@ export class DescribeClusterBackupListResponseBodyClusterBackups extends $dara.M
 export class DescribeClusterBackupListResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of cluster backup sets. A cluster backup set contains the backup sets of all nodes in the cluster.
+   * The list of cluster backup sets. A cluster backup contains the backup sets of all nodes in the cluster.
    */
   clusterBackups?: DescribeClusterBackupListResponseBodyClusterBackups[];
   /**
    * @remarks
-   * <props="china">The free backup quota of the instance. Unit: bytes. The free quota is equal to the default memory capacity of the instance type. For more information, see the notice on backup commercialization. Full backups and log backups share this free quota. When you change the instance type, the free quota of the instance changes accordingly.
+   * <props="china">The free backup quota of the instance. Unit: bytes. The free quota is equal to the default memory capacity of the instance type. For more information, see the notice on the commercialization of backups. Full backups and log backups share this free quota. When you change the instance type, the free quota of the instance changes accordingly.
    * <props="intl">This parameter is not in effect. Ignore this parameter.
    * 
    * @example
@@ -346,8 +346,8 @@ export class DescribeClusterBackupListResponseBody extends $dara.Model {
   fullStorageSize?: number;
   /**
    * @remarks
-   * The size of the instance log backup files for the current instance. Unit: bytes. This value is valid only when the flashback feature is enabled.
-   * > This value is independent of the number and size of backup sets in the current response. It represents the total size of all valid instance log backups for the current instance.
+   * The size of instance log backup files for the current instance. Unit: bytes. This value is valid only when the flashback feature is enabled.
+   * > This value is independent of the number and size of backup sets in the response to the current request. It represents the total size of all valid instance log backups for the instance.
    * 
    * @example
    * 5000
@@ -355,7 +355,7 @@ export class DescribeClusterBackupListResponseBody extends $dara.Model {
   logStorageSize?: number;
   /**
    * @remarks
-   * The maximum number of records returned by the current request.
+   * The maximum number of entries returned for the current request.
    * 
    * @example
    * 4
@@ -371,7 +371,7 @@ export class DescribeClusterBackupListResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of records per page, which is the same as the request parameter.
+   * The maximum number of entries per page, which is the same as the request parameter.
    * 
    * @example
    * 30

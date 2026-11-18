@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInspectionTasksRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID.
+   * The ID of the assistant instance.
    * 
    * This parameter is required.
    * 
@@ -13,6 +13,18 @@ export class DescribeInspectionTasksRequest extends $dara.Model {
    * ta-bp1zxszhcgatnx****
    */
   instanceId?: string;
+  /**
+   * @remarks
+   * The summary of risk levels for inspection results. You can specify multiple values. Valid values:
+   * - Normal: Normal.
+   * - Warning: Warning.
+   * - Error: High-risk.
+   * - Failed: Failed.
+   * 
+   * @example
+   * Error
+   */
+  levelSummary?: string;
   /**
    * @remarks
    * The page number.
@@ -32,9 +44,9 @@ export class DescribeInspectionTasksRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The task type.
-   * - 1: manual task
-   * - 2: scheduled task
+   * The task type. Valid values:
+   * - 1: Manual task.
+   * - 2: Scheduled task.
    * 
    * @example
    * 1
@@ -43,6 +55,7 @@ export class DescribeInspectionTasksRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       instanceId: 'InstanceId',
+      levelSummary: 'LevelSummary',
       pageNum: 'PageNum',
       pageSize: 'PageSize',
       securityToken: 'SecurityToken',
@@ -53,6 +66,7 @@ export class DescribeInspectionTasksRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       instanceId: 'string',
+      levelSummary: 'string',
       pageNum: 'string',
       pageSize: 'string',
       securityToken: 'string',

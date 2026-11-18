@@ -43,7 +43,7 @@ export class DescribeAccountsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The fuzzy match string for the account name.
+   * The keyword for fuzzy search of the account name.
    * 
    * @example
    * test

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInspectionScheduleRequest extends $dara.Model {
   /**
    * @remarks
-   * The cron expression for the periodic scheduling.
+   * The cron expression for the periodic schedule.
    * 
    * @example
    * 0 0 2 * * ?
@@ -13,7 +13,7 @@ export class CreateInspectionScheduleRequest extends $dara.Model {
   cronExpression?: string;
   /**
    * @remarks
-   * The specified inspection items. The following inspection items are supported:
+   * The specified inspection items. Valid values:
    * 
    * - RESOURCE_USAGE
    * - BIGKEY
@@ -35,7 +35,7 @@ export class CreateInspectionScheduleRequest extends $dara.Model {
   inspectionWindow?: string;
   /**
    * @remarks
-   * The O&M Assistant instance ID.
+   * The ID of the assistant instance.
    * 
    * This parameter is required.
    * 
@@ -47,7 +47,7 @@ export class CreateInspectionScheduleRequest extends $dara.Model {
    * @remarks
    * The list of associated instance IDs.
    * > 
-   * > - Separate multiple instances with commas (,).
+   * > - Separate multiple instance IDs with commas (,).
    * 
    * @example
    * r-bp1zxszhcgatnx****
@@ -55,7 +55,7 @@ export class CreateInspectionScheduleRequest extends $dara.Model {
   instanceIds?: string;
   /**
    * @remarks
-   * The report language.
+   * The language of the report.
    * 
    * @example
    * zh-CN

@@ -6,8 +6,8 @@ export class DescribeActiveOperationTaskRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to return historical tasks. Valid values:
-   * * **0** (default): Returns current tasks.
-   * * **1**: Returns historical tasks.
+   * * **0**: returns current tasks. This is the default value.
+   * * **1**: returns historical tasks.
    * 
    * @example
    * 1
@@ -17,7 +17,7 @@ export class DescribeActiveOperationTaskRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be greater than **0** and cannot exceed the maximum value of the Integer data type. Default value: **1**.
+   * The page number. The value must be greater than **0** and not exceed the maximum value of the Integer data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -25,7 +25,7 @@ export class DescribeActiveOperationTaskRequest extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The maximum number of entries per page. The value must be greater than **10**. Default value: **30**.
+   * The maximum number of entries to return on each page. The value must be greater than **10**. Default value: **30**.
    * 
    * @example
    * 30
@@ -33,8 +33,8 @@ export class DescribeActiveOperationTaskRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The region ID of the pending event. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the region ID.
-   * > Set this parameter to **all** to specify all region IDs.
+   * The ID of the region to which the pending events belong. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the region ID.
+   * > A value of **all** specifies all region IDs.
    * 
    * This parameter is required.
    * 
@@ -48,10 +48,9 @@ export class DescribeActiveOperationTaskRequest extends $dara.Model {
   /**
    * @remarks
    * The task type. Valid values:
-   * 
-   * - **rds_apsaradb_ha**: node failover.
+   * - **rds_apsaradb_ha**: switch of primary and secondary nodes.
    * - **rds_apsaradb_transfer**: instance migration.
-   * - **rds_apsaradb_upgrade**: minor engine version update.
+   * - **rds_apsaradb_upgrade**: minor version update.
    * 
    * This parameter is required.
    * 

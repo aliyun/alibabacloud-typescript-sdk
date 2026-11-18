@@ -14,6 +14,9 @@ export class SwitchInstanceToTargetZoneResponseBody extends $dara.Model {
   /**
    * @remarks
    * The ID of the task.
+   * 
+   * @example
+   * 62****07
    */
   taskId?: string;
   static names(): { [key: string]: string } {

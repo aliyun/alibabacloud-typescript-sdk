@@ -6,9 +6,9 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   /**
    * @remarks
    * The architecture type. Valid values:
-   * * **cluster**: Cluster Edition.
-   * * **standard**: Standard Edition.
-   * * **rwsplit**: read/write splitting Edition.
+   * * **cluster**: Cluster.
+   * * **standard**: Standard.
+   * * **rwsplit**: Read/write splitting.
    * 
    * @example
    * cluster
@@ -25,8 +25,8 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   /**
    * @remarks
    * The billing method. Valid values:
-   * * **PrePaid**: subscription.
-   * * **PostPaid**: pay-as-you-go.
+   * * **PrePaid**: Subscription.
+   * * **PostPaid**: Pay-as-you-go.
    * 
    * @example
    * PrePaid
@@ -34,7 +34,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   chargeType?: string;
   /**
    * @remarks
-   * The internal endpoint of the instance.
+   * The internal network endpoint of the instance.
    * 
    * @example
    * r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
@@ -75,7 +75,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   globalInstanceId?: string;
   /**
    * @remarks
-   * The instance type.
+   * The instance specifications.
    * 
    * @example
    * redis.logic.sharding.2g.2db.0rodb.4proxy.default
@@ -100,21 +100,21 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   /**
    * @remarks
    * The instance status. Valid values:
-   * * **Normal**: The instance is running.
-   * * **Creating**: The instance is being created.
-   * * **Changing**: The instance is being modified.
-   * * **Inactive**: The instance is disabled.
-   * * **Flushing**: The instance is being purged.
-   * * **Released**: The instance is released.
-   * * **Transforming**: The instance is being transformed.
-   * * **Unavailable**: The instance is unavailable.
-   * * **Error**: The instance failed to be created.
-   * * **Migrating**: The instance is being migrated.
-   * * **BackupRecovering**: The instance is being restored from a backup.
-   * * **MinorVersionUpgrading**: A minor version upgrade is in progress.
-   * * **NetworkModifying**: The network configuration is being modified.
-   * * **SSLModifying**: The SSL configuration is being modified.
-   * * **MajorVersionUpgrading**: A major engine version upgrade is in progress. The instance can be accessed normally.
+   * * **Normal**: Running.
+   * * **Creating**: Being created.
+   * * **Changing**: Being modified.
+   * * **Inactive**: Disabled.
+   * * **Flushing**: Being purged.
+   * * **Released**: Released.
+   * * **Transforming**: Being transformed.
+   * * **Unavailable**: Service stopped.
+   * * **Error**: Creation failed.
+   * * **Migrating**: Being migrated.
+   * * **BackupRecovering**: Recovering from a backup.
+   * * **MinorVersionUpgrading**: Minor version upgrade in progress.
+   * * **NetworkModifying**: Modifying the network.
+   * * **SSLModifying**: Modifying SSL configurations.
+   * * **MajorVersionUpgrading**: Major engine version upgrade in progress. The instance remains accessible.
    * 
    * @example
    * Normal
@@ -123,9 +123,9 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   /**
    * @remarks
    * The instance type. Valid values:
-   * * **Tair**: Tair (Enterprise Edition).
-   * * **Redis**: Redis Community Edition.
-   * * **Memcache**
+   * * **Tair**: Tair (Enterprise Edition)
+   * * **Redis**: Open-source Redis
+   * * **Memcache**: Memcache
    * 
    * @example
    * Redis
@@ -134,8 +134,8 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   /**
    * @remarks
    * The network type. Valid values:
-   * * **CLASSIC**: classic network.
-   * * **VPC**: virtual private cloud (VPC).
+   * * **CLASSIC**: Classic network.
+   * * **VPC**: VPC.
    * 
    * @example
    * CLASSIC
@@ -144,7 +144,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   nodeType?: string;
   /**
    * @remarks
-   * The private IP address of the instance in a VPC. The IP address may change. Use ConnectionDomain (the internal endpoint) to connect to the instance.
+   * The VPC IP address. The IP address may change. Connect to the instance by using the internal network endpoint specified by ConnectionDomain.
    * > - This parameter is not returned if the network type of the instance is classic network.
    * > - This parameter is not returned for cloud-native instances.
    * 
@@ -162,7 +162,7 @@ export class DescribeInstancesOverviewResponseBodyInstances extends $dara.Model 
   regionId?: string;
   /**
    * @remarks
-   * The resource group ID to which the instance belongs.
+   * The resource group ID of the instance.
    * 
    * @example
    * rg-acfmyiu4ekp****

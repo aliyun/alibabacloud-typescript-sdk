@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInspectionTaskReportResponseBodyDataSummary extends $dara.Model {
   /**
    * @remarks
-   * The number of high-risk items.
+   * The high-risk count.
    * 
    * @example
    * 0
@@ -13,7 +13,7 @@ export class DescribeInspectionTaskReportResponseBodyDataSummary extends $dara.M
   error?: number;
   /**
    * @remarks
-   * The number of failed items.
+   * The failed count.
    * 
    * @example
    * 0
@@ -21,7 +21,7 @@ export class DescribeInspectionTaskReportResponseBodyDataSummary extends $dara.M
   failed?: number;
   /**
    * @remarks
-   * The number of normal items.
+   * The normal count.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class DescribeInspectionTaskReportResponseBodyDataSummary extends $dara.M
   normal?: number;
   /**
    * @remarks
-   * The number of warning items.
+   * The warning count.
    * 
    * @example
    * 0
@@ -73,7 +73,7 @@ export class DescribeInspectionTaskReportResponseBodyData extends $dara.Model {
    * The Markdown text of the report details.
    * 
    * @example
-   * # Tair Intelligent Inspection Report\\n\\n## Overview..
+   * # Tair intelligent inspection report\\n\\n## Overview..
    */
   markdownText?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class FlushInstanceForDBRequest extends $dara.Model {
   /**
    * @remarks
-   * The index number of the specified DB. Valid values: 0 to 255.
+   * The index of the specified database. Valid values: 0 to 255.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class FlushInstanceForDBRequest extends $dara.Model {
   dbIndex?: number;
   /**
    * @remarks
-   * The instance ID. You can call [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) to query the instance ID.
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 

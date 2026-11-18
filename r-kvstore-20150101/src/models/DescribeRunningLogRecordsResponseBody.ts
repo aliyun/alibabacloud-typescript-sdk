@@ -112,7 +112,9 @@ export class DescribeRunningLogRecordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The start time of the query. The time is in the YYYY-MM-DDTHH:mmZ format and is in UTC.
+   * The start time of the query.
+   * 
+   * The time is in the YYYY-MM-DDTHH:mmZ format and is in UTC.
    * 
    * @example
    * 2018-12-03T07:01Z

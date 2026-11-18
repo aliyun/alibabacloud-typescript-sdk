@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchNetworkResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * F0997EE8-F4C2-4503-9168-85177ED78C70
@@ -13,7 +13,7 @@ export class SwitchNetworkResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 578678678

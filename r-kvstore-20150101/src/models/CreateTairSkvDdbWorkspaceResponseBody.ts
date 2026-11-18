@@ -14,6 +14,7 @@ export class CreateTairSkvDdbWorkspaceResponseBody extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
+   * 
    * * `PrePaid`: subscription.
    * * `PostPaid`: pay-as-you-go.
    * 
@@ -31,7 +32,7 @@ export class CreateTairSkvDdbWorkspaceResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The internal network connection endpoint of the Redis instance.
+   * The internal endpoint of the Redis instance.
    * 
    * @example
    * r-bp1zxszhcgatnx**.redis.rds.aliyuncs.com
@@ -95,7 +96,7 @@ export class CreateTairSkvDdbWorkspaceResponseBody extends $dara.Model {
   QPS?: number;
   /**
    * @remarks
-   * The region where the instance is deployed.
+   * The region ID of the instance.
    * 
    * @example
    * cn-hongkong
@@ -111,7 +112,7 @@ export class CreateTairSkvDdbWorkspaceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The ID of the task flow executed for creation.
+   * The ID of the creation task flow.
    * 
    * @example
    * 1111
@@ -119,7 +120,7 @@ export class CreateTairSkvDdbWorkspaceResponseBody extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The ID of the zone where the instance is deployed.
+   * The zone ID of the instance.
    * 
    * @example
    * cn-hangzhou-b

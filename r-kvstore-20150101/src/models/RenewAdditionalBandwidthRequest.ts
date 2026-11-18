@@ -7,8 +7,8 @@ export class RenewAdditionalBandwidthRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic payment. Valid values:
    * 
-   * * **true**: Automatic payment is enabled. This is the default value.
-   * * **false**: Automatic payment is disabled. You must manually pay for the order. On the top menu bar of the console, choose **Expenses** > **Renewal Management**. In the left-side navigation pane, choose **Order Management** > **My Orders**. Find the order and complete the payment.
+   * * **true**: Automatic payment. This is the default value.
+   * * **false**: Manual payment. You must choose **Expenses and Costs** > **Renewals** in the top navigation bar of the console, and then choose **Order Management** > **My Orders** in the left-side navigation pane to find and pay for the order.
    * 
    * @example
    * true
@@ -24,7 +24,7 @@ export class RenewAdditionalBandwidthRequest extends $dara.Model {
   couponNo?: string;
   /**
    * @remarks
-   * The instance ID. You can call [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) to query the instance ID.
+   * Instance ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query instance ID.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class RenewAdditionalBandwidthRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The request source. This parameter is used only for internal maintenance and does not need to be specified.
+   * The source of the API call. This parameter is used only for internal maintenance and does not need to be specified.
    * 
    * @example
    * SDK

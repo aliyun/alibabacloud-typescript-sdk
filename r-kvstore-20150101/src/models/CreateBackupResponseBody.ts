@@ -5,7 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class CreateBackupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The backup task ID. For cluster instances created before December 5, 2023, the return value consists of the job IDs of individual child DB nodes. For example, for a cluster instance with two shards, the BackupJobID value is returned in the format of "10000,10001". For cluster instances created on or after December 5, 2023, all DB nodes in a cluster are described by a single job ID. You only need to use this single job ID.
+   * The backup job ID.  
+   * For cluster instances created before December 5, 2023, the return value consists of the job IDs of all child database nodes. For example, for a cluster instance with two shards, the return value is similar to "10000,10001".  
+   * For cluster instances created on or after December 5, 2023, the jobs of all database nodes in a cluster are described by a single job ID. You only need to focus on this job ID.
    * 
    * @example
    * "1022,2480"

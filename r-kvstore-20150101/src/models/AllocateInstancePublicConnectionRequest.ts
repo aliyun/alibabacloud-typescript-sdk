@@ -5,8 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class AllocateInstancePublicConnectionRequest extends $dara.Model {
   /**
    * @remarks
-   * The prefix of the public endpoint. The prefix must start with a lowercase letter and can contain lowercase letters and digits. The prefix must be 8 to 40 characters in length.
-   * > The public endpoint is in the format of `<prefix>.redis.rds.aliyuncs.com`.
+   * The prefix of the public endpoint. The prefix must be 8 to 40 characters in length, start with a lowercase letter, and contain only lowercase letters and digits.
+   * > The public endpoint is in the following format: `<prefix>.redis.rds.aliyuncs.com`.
    * 
    * This parameter is required.
    * 

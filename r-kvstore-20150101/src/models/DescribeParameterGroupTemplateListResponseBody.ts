@@ -13,7 +13,7 @@ export class DescribeParameterGroupTemplateListResponseBodyParameters extends $d
   checkingCode?: string;
   /**
    * @remarks
-   * Indicates whether the parameter has taken effect. Valid values:
+   * Specifies whether the parameter takes effect. Valid values:
    * * **0**: No.
    * * **1**: Yes.
    * 
@@ -23,7 +23,7 @@ export class DescribeParameterGroupTemplateListResponseBodyParameters extends $d
   effective?: number;
   /**
    * @remarks
-   * The divisor factor. For integer and byte type parameters, the parameter value must not only fall within the valid range but also be a multiple of Factor (when Factor is not 0).
+   * The divisibility factor. For integer and byte parameters, the parameter value must not only fall within the valid value range but also be a multiple of the factor (which cannot be 0).
    * 
    * @example
    * 1
@@ -31,15 +31,15 @@ export class DescribeParameterGroupTemplateListResponseBodyParameters extends $d
   factor?: number;
   /**
    * @remarks
-   * The parameter description.
+   * The description of the parameter.
    * 
    * @example
-   * Enable AOF persistence mode
+   * Enable the AOF persistence mode
    */
   parameterDescription?: string;
   /**
    * @remarks
-   * The parameter name.
+   * The name of the parameter.
    * 
    * @example
    * appendonly
@@ -55,7 +55,7 @@ export class DescribeParameterGroupTemplateListResponseBodyParameters extends $d
   parameterValue?: string;
   /**
    * @remarks
-   * Indicates whether the parameter can be modified. Valid values:
+   * Specifies whether the parameter can be modified. Valid values:
    * 
    * - **0**: The parameter cannot be modified.
    * - **1**: The parameter can be modified.
@@ -66,7 +66,7 @@ export class DescribeParameterGroupTemplateListResponseBodyParameters extends $d
   revisable?: number;
   /**
    * @remarks
-   * Indicates whether modification for minor versions is supported. Valid values:
+   * Specifies whether the minor version can be modified. Valid values:
    * * **true**: Supported.
    * * **false**: Not supported.
    * 
@@ -77,9 +77,9 @@ export class DescribeParameterGroupTemplateListResponseBodyParameters extends $d
   /**
    * @remarks
    * The unit of the parameter value. Valid values:
-   * * **INT**: a common integer.
-   * * **STRING**: a fixed string.
-   * * **B**: bytes.
+   * * **INT**: Standard integer.
+   * * **STRING**: Fixed string.
+   * * **B**: Byte.
    * 
    * @example
    * STRING

@@ -6,9 +6,9 @@ export class DescribeParameterGroupsRequest extends $dara.Model {
   /**
    * @remarks
    * The engine type. Valid values:
-   * - **redis**: open-source Redis or Tair (Memory-optimized).
-   * - **tair_pena**: Tair (Persistent Memory-optimized).
-   * - **tair_pdb**: Tair (Disk-optimized, ESSD/SSD).
+   * - **redis**: open-source Redis or Tair (memory-optimized).
+   * - **tair_pena**: Tair (persistent memory-optimized).
+   * - **tair_pdb**: Tair (disk-optimized, ESSD/SSD).
    * 
    * @example
    * redis
@@ -17,6 +17,9 @@ export class DescribeParameterGroupsRequest extends $dara.Model {
   /**
    * @remarks
    * The compatible engine version.
+   * 
+   * @example
+   * 6.0
    */
   engineVersion?: string;
   ownerAccount?: string;

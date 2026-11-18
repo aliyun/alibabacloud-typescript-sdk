@@ -23,7 +23,7 @@ export class CreateTairInstanceResponseBody extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The detailed configurations of the instance, in the format of a JSON character string. For more information about the parameters, see Parameter settings description.
+   * The detailed configuration of the instance, in the format of a JSON character string. For more information about the parameters, see [Description of parameter settings](https://help.aliyun.com/document_detail/43885.html).
    * 
    * @example
    * {\\"EvictionPolicy\\":\\"volatile-lru\\",\\"hash-max-ziplist-entries\\":512,\\"zset-max-ziplist-entries\\":128,\\"list-max-ziplist-entries\\":512,\\"list-max-ziplist-value\\":64,\\"zset-max-ziplist-value\\":64,\\"set-max-intset-entries\\":512,\\"hash-max-ziplist-value\\":64}
@@ -39,7 +39,7 @@ export class CreateTairInstanceResponseBody extends $dara.Model {
   connectionDomain?: string;
   /**
    * @remarks
-   * The maximum number of connections supported by the instance.
+   * The maximum number of connections to the instance.
    * 
    * @example
    * 10000
@@ -64,7 +64,7 @@ export class CreateTairInstanceResponseBody extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The current status of the instance. The value is fixed as **Creating**.
+   * The current status of the instance. The return value is fixed to **Creating**.
    * 
    * @example
    * Creating

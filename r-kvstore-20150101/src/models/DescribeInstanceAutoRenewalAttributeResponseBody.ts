@@ -64,7 +64,7 @@ export class DescribeInstanceAutoRenewalAttributeResponseBody extends $dara.Mode
   items?: DescribeInstanceAutoRenewalAttributeResponseBodyItems;
   /**
    * @remarks
-   * The page number of the current page.
+   * The current page number.
    * 
    * @example
    * 1
@@ -72,7 +72,7 @@ export class DescribeInstanceAutoRenewalAttributeResponseBody extends $dara.Mode
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries on the current page.
+   * The number of entries returned on the current page.
    * 
    * @example
    * 30

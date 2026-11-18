@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeEncryptionKeyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The Alibaba Cloud account ID of the key creator.
+   * The ID of the Alibaba Cloud account that created the key.
    * 
    * @example
    * 17649847********
@@ -13,8 +13,8 @@ export class DescribeEncryptionKeyResponseBody extends $dara.Model {
   creator?: string;
   /**
    * @remarks
-   * The estimated time when the key is to be deleted. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
-   * > If this parameter is empty, the key will not be automatically deleted.
+   * The scheduled deletion time of the key for the instance. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
+   * > If this parameter is empty, the key is not automatically deleted.
    * 
    * @example
    * 2021-09-24T18:22:03Z
@@ -22,7 +22,7 @@ export class DescribeEncryptionKeyResponseBody extends $dara.Model {
   deleteDate?: string;
   /**
    * @remarks
-   * The description of the key. By default, this parameter is empty.
+   * The description of the key. Default value: empty.
    * 
    * @example
    * testkey
@@ -30,7 +30,7 @@ export class DescribeEncryptionKeyResponseBody extends $dara.Model {
   description?: string;
   /**
    * @remarks
-   * The key ID of the instance.
+   * The ID of the key for the instance.
    * 
    * @example
    * ad463061-992d-4195-8a94-ed63********
@@ -38,9 +38,9 @@ export class DescribeEncryptionKeyResponseBody extends $dara.Model {
   encryptionKey?: string;
   /**
    * @remarks
-   * The status of the key. Valid values:
-   * * **Enabled**: The key is available.
-   * * **Disabled**: The key is unavailable.
+   * The status of the key for the instance. Valid values:
+   * * **Enabled**: Available.
+   * * **Disabled**: Unavailable.
    * 
    * @example
    * Enabled
@@ -56,7 +56,7 @@ export class DescribeEncryptionKeyResponseBody extends $dara.Model {
   encryptionName?: string;
   /**
    * @remarks
-   * The purpose of the key. The return value `ENCRYPT/DECRYPT` indicates that the key is used for encryption and decryption.
+   * The purpose of the key for the instance. A value of `ENCRYPT/DECRYPT` indicates encryption and decryption.
    * 
    * @example
    * ENCRYPT/DECRYPT
@@ -64,7 +64,7 @@ export class DescribeEncryptionKeyResponseBody extends $dara.Model {
   keyUsage?: string;
   /**
    * @remarks
-   * The expiration time of the key. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format (UTC).
+   * The expiration time of the key. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
    * > If this parameter is empty, the key does not expire.
    * 
    * @example
@@ -73,7 +73,7 @@ export class DescribeEncryptionKeyResponseBody extends $dara.Model {
   materialExpireTime?: string;
   /**
    * @remarks
-   * The source of the key material. The return value is **Aliyun_KMS**, which indicates Alibaba Cloud [Key Management Service (KMS)](https://help.aliyun.com/document_detail/28935.html).
+   * The source of the key material. A value of **Aliyun_KMS** indicates Alibaba Cloud [Key Management Service (KMS)](https://help.aliyun.com/document_detail/28935.html).
    * 
    * @example
    * Aliyun_KMS
@@ -81,7 +81,7 @@ export class DescribeEncryptionKeyResponseBody extends $dara.Model {
   origin?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 9A931CE5-C926-5E09-B0EC-6299C4A6****
@@ -89,7 +89,7 @@ export class DescribeEncryptionKeyResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The global resource descriptor ARN (Alibaba Cloud Resource Name) of the role to be granted authorization.
+   * The global resource descriptor ARN (Alibaba Cloud Resource Name) of the role pending authorization.
    * 
    * @example
    * acs:ram::123456789012****:role/AliyunRdsInstanceEncryptionDefaultRole

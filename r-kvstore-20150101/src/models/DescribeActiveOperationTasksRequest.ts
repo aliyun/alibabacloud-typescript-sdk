@@ -7,9 +7,9 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
    * @remarks
    * Specifies whether the event can be canceled. Default value: -1. Valid values:
    * 
-   * - **-1**: all events.
-   * - **0**: returns only O&M events that cannot be canceled.
-   * - **1**: returns only O&M events that can be canceled.
+   * - **-1**: All events.
+   * - **0**: Only O&M events that cannot be canceled are returned.
+   * - **1**: Only O&M events that can be canceled are returned.
    * 
    * @example
    * 1
@@ -17,11 +17,11 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   allowCancel?: number;
   /**
    * @remarks
-   * Specifies whether the event time can be modified. Default value: -1. Valid values:
+   * Specifies whether the execution time can be modified. Default value: -1. Valid values:
    * 
-   * - **-1**: all events.
-   * - **0**: returns only O&M events whose time cannot be modified.
-   * - **1**: returns only O&M events whose time can be modified.
+   * - **-1**: All events.
+   * - **0**: Only O&M events whose execution time cannot be modified are returned.
+   * - **1**: Only O&M events whose execution time can be modified are returned.
    * 
    * @example
    * -1
@@ -31,9 +31,9 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
    * @remarks
    * The change level. Default value: all. Valid values:
    * 
-   * - **all**: all levels including exception recovery and system O&M.
-   * - **S0**: exception recovery.
-   * - **S1**: system O&M.
+   * - **all**: All exception repair and system O&M levels.
+   * - **S0**: Exception repair.
+   * - **S1**: System O&M.
    * 
    * @example
    * all
@@ -41,7 +41,7 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   changeLevel?: string;
   /**
    * @remarks
-   * The database type. Set this parameter to **redis**.
+   * The database engine. Set the value to **redis**.
    * 
    * @example
    * redis
@@ -49,7 +49,7 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   dbType?: string;
   /**
    * @remarks
-   * The instance name. This parameter is optional. If specified, only one instance name is allowed.
+   * The name of the instance. This parameter is optional. If you specify this parameter, you can specify only one instance name.
    * 
    * @example
    * r-wz96fzmpvpr2qnqnlb
@@ -75,7 +75,7 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The product name. Valid values: RDS, POLARDB, MongoDB, and Redis. For Redis instances, set this parameter to Redis.
+   * The name of the service. Valid values: RDS, POLARDB, MongoDB, and Redis. For Redis instances, set the value to Redis.
    * 
    * @example
    * Redis
@@ -83,8 +83,8 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   productId?: string;
   /**
    * @remarks
-   * The region ID of the pending event. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query available region IDs.
-   * > Set this parameter to **all** to query events in all regions.
+   * The region ID of the pending events. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/473763.html) operation to query the region ID.
+   * > A value of **all** specifies all region IDs.
    * 
    * @example
    * cn-shanghai
@@ -95,13 +95,13 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The status of the O&M event. This parameter is used to filter the returned events. Valid values:
-   * * **-1**: all events.
-   * * **3**: pending events.
-   * * **4**: events being processed.
-   * * **5**: events that ended successfully.
-   * * **6**: events that ended with failures.
-   * * **7**: canceled events.
+   * The status of the O&M event, which is used to filter the returned tasks. Valid values:
+   * * **-1**: All events.
+   * * **3**: Pending events.
+   * * **4**: Processing events.
+   * * **5**: Successfully completed events.
+   * * **6**: Failed events.
+   * * **7**: Canceled events.
    * 
    * @example
    * 3
@@ -109,7 +109,7 @@ export class DescribeActiveOperationTasksRequest extends $dara.Model {
   status?: number;
   /**
    * @remarks
-   * The event type of the O&M event. If this parameter is left empty, all types are queried.
+   * The event type. If this parameter is left empty, all event types are queried.
    * 
    * @example
    * rds_apsradb_transfer

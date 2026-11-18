@@ -6,8 +6,8 @@ export class AddShardingNodeRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable automatic payment. Valid values:
-   * * **true**: Automatic payment is enabled. Make sure that your account has sufficient balance.
-   * * **false**: Automatic payment is disabled. You must manually complete the payment in the console. For more information, see [Manual renewal](https://help.aliyun.com/document_detail/26352.html).
+   * * **true**: enables automatic payment. Make sure that your account has sufficient balance.
+   * * **false**: disables automatic payment. You must manually renew the instance in the console. For more information, see [Manual renewal](https://help.aliyun.com/document_detail/26352.html).
    * 
    * > Default value: **true**.
    * 
@@ -17,7 +17,7 @@ export class AddShardingNodeRequest extends $dara.Model {
   autoPay?: boolean;
   /**
    * @remarks
-   * The additional parameter for business information.
+   * The additional parameter that contains business information.
    * 
    * @example
    * 000000000
@@ -33,9 +33,9 @@ export class AddShardingNodeRequest extends $dara.Model {
   couponNo?: string;
   /**
    * @remarks
-   * Specifies whether to enable forced transmission. Valid values:
-   * - **false** (default): Before the Upgrade/Downgrade, the system checks the current minor engine version of the instance. If the minor engine version is outdated, an error is returned. You must upgrade the minor engine version and retry.
-   * - **true**: Skips the check and directly executes the Upgrade/Downgrade operation.
+   * Specifies whether to enable forced transition. Valid values:
+   * - **false** (default): Before the upgrade/downgrade, the system checks the current minor engine version of the instance. If the engine version is too low, an error is reported. You must upgrade the minor engine version and retry.
+   * - **true**: skips the check to directly execute the upgrade/downgrade operation.
    * 
    * @example
    * false
@@ -59,7 +59,7 @@ export class AddShardingNodeRequest extends $dara.Model {
   /**
    * @remarks
    * The number of shards to add. Default value: **1**.
-   * > The minimum total number of shards for an instance is 2. You can add up to 64 shards in a single operation, and the total number of shards for an instance cannot exceed 256. Make sure that the number of shards does not exceed this limit.
+   * > The total number of shards in the instance must be at least 2. The maximum number of shards that can be added in a single operation is 64, and the maximum total number of shards for an instance is 256. Make sure that the number of shards does not exceed these limits.
    * 
    * @example
    * 2
@@ -67,7 +67,7 @@ export class AddShardingNodeRequest extends $dara.Model {
   shardCount?: number;
   /**
    * @remarks
-   * The request source. This parameter is used only for internal maintenance and does not need to be specified.
+   * The source of the call. This parameter is used only for internal maintenance and does not need to be specified.
    * 
    * @example
    * SDK
@@ -75,8 +75,8 @@ export class AddShardingNodeRequest extends $dara.Model {
   sourceBiz?: string;
   /**
    * @remarks
-   * The ID of a different vSwitch within the same VPC. The new data shards are created under the specified vSwitch.
-   * If you leave this parameter empty, the new data shards are created under the original vSwitch.
+   * The ID of a different vSwitch in the same VPC. The new data shards are created in the specified vSwitch.
+   * If you do not specify this parameter, the new data shards are created in the original vSwitch.
    * 
    * @example
    * vsw-bp1e7clcw529l773d****

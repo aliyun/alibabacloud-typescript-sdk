@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DestroyInstanceRequest extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the instance to revoke from the recycle bin.
+   * The ID of the revoked instance.
    * 
    * This parameter is required.
    * 

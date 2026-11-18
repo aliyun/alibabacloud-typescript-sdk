@@ -104,7 +104,7 @@ export class DescribeRoleZoneInfoResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID of the request.
+   * The request ID.
    * 
    * @example
    * 224B97FB-A275-4EAC-86E9-8922FEA2****

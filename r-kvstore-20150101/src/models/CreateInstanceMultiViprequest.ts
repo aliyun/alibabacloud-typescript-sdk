@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateInstanceMultiVIPRequest extends $dara.Model {
   /**
    * @remarks
-   * The number of LBs to add.
+   * The number of load balancers to add.
    * 
    * This parameter is required.
    * 

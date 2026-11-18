@@ -5,11 +5,11 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAuditLogConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether to enable audit logging. Valid values:
-   * * **true** (default): Enabled.
-   * * **false**: Disabled.
+   * Specifies whether to enable the audit log feature. Valid values:
+   * * **true**: enables the feature. This is the default value.
+   * * **false**: disables the feature.
    * 
-   * > If the instance uses the [cluster architecture](https://help.aliyun.com/document_detail/52228.html) or [read/write splitting architecture](https://help.aliyun.com/document_detail/62870.html), audit logs for data nodes and proxy nodes are enabled or disabled at the same time. You cannot enable them separately.
+   * > If the instance uses the [cluster](https://help.aliyun.com/document_detail/52228.html) or [read/write splitting](https://help.aliyun.com/document_detail/62870.html) architecture, the audit logs of data nodes and proxy nodes are enabled or disabled at the same time. You cannot enable the audit logs for data nodes or proxy nodes separately.
    * 
    * @example
    * true
@@ -17,7 +17,7 @@ export class ModifyAuditLogConfigRequest extends $dara.Model {
   dbAudit?: boolean;
   /**
    * @remarks
-   * The instance ID. You can call [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) to query the instance ID.
+   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 
@@ -33,7 +33,7 @@ export class ModifyAuditLogConfigRequest extends $dara.Model {
    * @remarks
    * The number of days for which audit logs are retained. Valid values: **1** to **365**.
    * > * This parameter is required when **DbAudit** is set to **true**.
-   * > * This parameter takes effect on all instances in the current region.
+   * > * The setting of this parameter takes effect on all instances in the current region.
    * 
    * @example
    * 10

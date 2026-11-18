@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetAccountPasswordResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 8BE02313-5395-4EBE-BAE7-E90A053F****

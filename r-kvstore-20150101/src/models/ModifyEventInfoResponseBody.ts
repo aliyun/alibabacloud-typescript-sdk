@@ -13,7 +13,7 @@ export class ModifyEventInfoResponseBody extends $dara.Model {
   errorCode?: string;
   /**
    * @remarks
-   * The error event IDs.
+   * The error event ID.
    * 
    * @example
    * 12343
@@ -37,7 +37,7 @@ export class ModifyEventInfoResponseBody extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * The success event IDs.
+   * The success event ID.
    * 
    * @example
    * 234221

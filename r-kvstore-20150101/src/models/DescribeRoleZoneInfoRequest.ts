@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeRoleZoneInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to obtain the instance ID.
+   * The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to obtain the instance ID.
    * 
    * This parameter is required.
    * 
@@ -35,7 +35,7 @@ export class DescribeRoleZoneInfoRequest extends $dara.Model {
    * @remarks
    * The type of the target node to query. Valid values:
    * * **0**: proxy node.
-   *   > This parameter is supported only by instances that use the cluster or read/write splitting architecture.
+   *   > This value is supported only for instances of the cluster or read/write splitting architecture.
    * 
    * 
    * * **1**: data node. This is the default value.

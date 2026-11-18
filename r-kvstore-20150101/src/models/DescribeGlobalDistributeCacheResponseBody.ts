@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGlobalDistributeCacheResponseBodyGlobalDistributeCachesSubInstances extends $dara.Model {
   /**
    * @remarks
-   * The distributed instance ID.
+   * The instance ID of the distributed instance.
    * 
    * @example
    * gr-bp14rkqrhac****
@@ -14,9 +14,9 @@ export class DescribeGlobalDistributeCacheResponseBodyGlobalDistributeCachesSubI
   /**
    * @remarks
    * The instance type of the child instance. For more information, see:
-   * * [Memory-optimized Standard Edition instance types](https://help.aliyun.com/document_detail/145228.html).
-   * * [Memory-optimized Cluster Edition instance types](https://help.aliyun.com/document_detail/150458.html).
-   * * [Memory-optimized read/write splitting instance types](https://help.aliyun.com/document_detail/150459.html).
+   * * [Standard memory-optimized instance types](https://help.aliyun.com/document_detail/145228.html).
+   * * [Cluster memory-optimized instance types](https://help.aliyun.com/document_detail/150458.html).
+   * * [Read/write splitting memory-optimized instance types](https://help.aliyun.com/document_detail/150459.html).
    * 
    * @example
    * redis.amber.logic.sharding.2g.2db.0rodb.6proxy.multithread
@@ -24,7 +24,7 @@ export class DescribeGlobalDistributeCacheResponseBodyGlobalDistributeCachesSubI
   instanceClass?: string;
   /**
    * @remarks
-   * The child instance ID.
+   * The instance ID of the child instance.
    * 
    * @example
    * r-bp1zxszhcgatnx****
@@ -34,23 +34,23 @@ export class DescribeGlobalDistributeCacheResponseBodyGlobalDistributeCachesSubI
    * @remarks
    * The instance status of the child instance. Valid values:
    * 
-   * * **Normal**: Normal.
-   * * **Creating**: Being created.
-   * * **Changing**: Being modified.
-   * * **Inactive**: Disabled.
-   * * **Flushing**: Being purged.
-   * * **Released**: Released.
-   * * **Transforming**: Being transformed.
-   * * **Unavailable**: Service stopped.
-   * * **Error**: Failed to create.
-   * * **Migrating**: Being migrated.
-   * * **BackupRecovering**: Being restored from a backup.
-   * * **MinorVersionUpgrading**: Minor version being upgraded.
-   * * **NetworkModifying**: Network being modified.
-   * * **SSLModifying**: SSL being modified.
-   * * **MajorVersionUpgrading**: Major engine version upgrade in progress. The instance can be accessed normally.
+   * * **Normal**: The instance is in a normal state.
+   * * **Creating**: The instance is being created.
+   * * **Changing**: The instance is being modified.
+   * * **Inactive**: The instance is disabled.
+   * * **Flushing**: The instance is being purged.
+   * * **Released**: The instance is released.
+   * * **Transforming**: The instance is being transformed.
+   * * **Unavailable**: The service is stopped.
+   * * **Error**: The instance failed to be created.
+   * * **Migrating**: The instance is being migrated.
+   * * **BackupRecovering**: The instance is recovering from a backup.
+   * * **MinorVersionUpgrading**: The minor version of the instance is being upgraded.
+   * * **NetworkModifying**: The network of the instance is being modified.
+   * * **SSLModifying**: The SSL certificate of the instance is being modified.
+   * * **MajorVersionUpgrading**: A major engine version upgrade is in progress. The instance remains accessible.
    * 
-   * > For more information about instance status and details, see [Instance states and impacts](https://help.aliyun.com/document_detail/200740.html).
+   * > For more information about instance statuses and their impacts, see [Instance statuses and impacts](https://help.aliyun.com/document_detail/200740.html).
    * 
    * @example
    * Normal
@@ -96,7 +96,7 @@ export class DescribeGlobalDistributeCacheResponseBodyGlobalDistributeCachesSubI
 export class DescribeGlobalDistributeCacheResponseBodyGlobalDistributeCaches extends $dara.Model {
   /**
    * @remarks
-   * The distributed instance ID.
+   * The instance ID of the distributed instance.
    * 
    * @example
    * gr-bp14rkqrhac****
@@ -105,9 +105,9 @@ export class DescribeGlobalDistributeCacheResponseBodyGlobalDistributeCaches ext
   /**
    * @remarks
    * The instance status of the distributed instance. Valid values:
-   * * **Normal**: Running.
-   * * **Changing**: Being modified.
-   * * **Creating**: Being created.
+   * * **Normal**: The instance is running.
+   * * **Changing**: The instance is being modified.
+   * * **Creating**: The instance is being created.
    * 
    * @example
    * Normal
@@ -115,7 +115,7 @@ export class DescribeGlobalDistributeCacheResponseBodyGlobalDistributeCaches ext
   status?: string;
   /**
    * @remarks
-   * The details of the child instances.
+   * The list of child instances.
    */
   subInstances?: DescribeGlobalDistributeCacheResponseBodyGlobalDistributeCachesSubInstances[];
   static names(): { [key: string]: string } {
@@ -149,7 +149,7 @@ export class DescribeGlobalDistributeCacheResponseBodyGlobalDistributeCaches ext
 export class DescribeGlobalDistributeCacheResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The details of the distributed instance.
+   * The list of distributed instances.
    */
   globalDistributeCaches?: DescribeGlobalDistributeCacheResponseBodyGlobalDistributeCaches[];
   /**
@@ -162,7 +162,7 @@ export class DescribeGlobalDistributeCacheResponseBody extends $dara.Model {
   pageNumber?: number;
   /**
    * @remarks
-   * The number of entries that can be displayed per page.
+   * The number of entries returned per page.
    * 
    * @example
    * 20
@@ -178,7 +178,7 @@ export class DescribeGlobalDistributeCacheResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 1

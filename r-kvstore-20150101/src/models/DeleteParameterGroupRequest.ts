@@ -7,7 +7,7 @@ export class DeleteParameterGroupRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The parameter template ID.
+   * The ID of the parameter template.
    * 
    * This parameter is required.
    * 

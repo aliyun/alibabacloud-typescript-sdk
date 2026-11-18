@@ -17,7 +17,7 @@ export class RebootProxyRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The IDs of the proxy nodes to operate. Separate multiple IDs with commas.
+   * The IDs of the proxy nodes to be operated on. Separate multiple IDs with commas.
    * 
    * @example
    * 90310144,90310144
@@ -25,7 +25,7 @@ export class RebootProxyRequest extends $dara.Model {
   proxyList?: string;
   /**
    * @remarks
-   * The IDs of the hosts on which the proxy nodes to operate reside. Separate multiple IDs with commas.
+   * The IDs of the hosts where the proxy nodes to be operated on reside. Separate multiple IDs with commas.
    * 
    * @example
    * 36912280,36912282

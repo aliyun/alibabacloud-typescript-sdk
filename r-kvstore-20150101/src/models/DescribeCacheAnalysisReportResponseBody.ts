@@ -6,6 +6,9 @@ export class DescribeCacheAnalysisReportResponseBody extends $dara.Model {
   /**
    * @remarks
    * The list of big keys.
+   * 
+   * @example
+   * [{"db":"0","qps":0,"keyType":"list","isExpired":"no","analysisType":"BIGKEY","key":"mylist","memory":1005377,"size":200000}]
    */
   bigKeys?: { [key: string]: any }[];
   /**

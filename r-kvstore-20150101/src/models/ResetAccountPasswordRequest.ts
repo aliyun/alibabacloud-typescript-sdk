@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ResetAccountPasswordRequest extends $dara.Model {
   /**
    * @remarks
-   * The account name. You can call [DescribeAccounts](https://help.aliyun.com/document_detail/473816.html) to query the account name.
+   * The name of the account. You can call the [DescribeAccounts](https://help.aliyun.com/document_detail/473816.html) operation to query the account name.
    * 
    * This parameter is required.
    * 
@@ -15,7 +15,7 @@ export class ResetAccountPasswordRequest extends $dara.Model {
   accountName?: string;
   /**
    * @remarks
-   * The new password. The password must be 8 to 32 characters in length and must contain at least three of the following character types: uppercase letters, lowercase letters, digits, and special characters. The following special characters are supported: `!@#$%^&*()_+-=`.
+   * The new password. The password must be 8 to 32 characters in length and contain at least three of the following character types: uppercase letters, lowercase letters, special characters, and digits. Allowed special characters include `!@#$%^&*()_+-=`.
    * 
    * This parameter is required.
    * 
@@ -40,7 +40,7 @@ export class ResetAccountPasswordRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * This parameter is used only for internal maintenance. You do not need to specify this parameter.
+   * This parameter is for internal maintenance only. You do not need to specify it.
    * 
    * @example
    * SDK

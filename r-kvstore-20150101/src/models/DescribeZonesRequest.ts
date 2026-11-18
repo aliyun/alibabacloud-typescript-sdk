@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeZonesRequest extends $dara.Model {
   /**
    * @remarks
-   * The language of the zone names in the response. Valid values:
-   * 
+   * Specifies the language of the returned zone names. Valid values:
    * * **zh-CN** (default): Chinese.
    * * **en-US**: English.
    * 

@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInspectionTasksResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The time when the task was created.
-   * 
-   * The time is displayed in UTC time in the YYYY-MM-DDTHH:mm:ssZ format.
+   * The creation time of the task. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2024-07-01T02:06:34Z
@@ -15,9 +13,7 @@ export class DescribeInspectionTasksResponseBodyDataItems extends $dara.Model {
   createTime?: string;
   /**
    * @remarks
-   * The end time of the task.
-   * 
-   * The time is displayed in UTC time in the YYYY-MM-DDTHH:mm:ssZ format.
+   * The end time of the task. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2025-09-23T00:00:00Z
@@ -25,9 +21,7 @@ export class DescribeInspectionTasksResponseBodyDataItems extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The completion time of the task.
-   * 
-   * The time is displayed in UTC time in the YYYY-MM-DDTHH:mm:ssZ format.
+   * The completion time of the task. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2026-01-09T02:13:01Z
@@ -35,7 +29,7 @@ export class DescribeInspectionTasksResponseBodyDataItems extends $dara.Model {
   finishTime?: string;
   /**
    * @remarks
-   * The specified inspection items. The following inspection items are supported:
+   * The specified inspection items. Supported inspection items:
    * - RESOURCE_USAGE
    * - BIGKEY
    * - HOTKEY
@@ -64,7 +58,7 @@ export class DescribeInspectionTasksResponseBodyDataItems extends $dara.Model {
   reportLanguage?: string;
   /**
    * @remarks
-   * The ID of the scheduled task.
+   * The ID of the timed scheduling.
    * 
    * @example
    * sch-4dfb08ddf9f84855bacca35axxx
@@ -80,9 +74,7 @@ export class DescribeInspectionTasksResponseBodyDataItems extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The start time of the task.
-   * 
-   * The time is displayed in UTC time in the YYYY-MM-DDTHH:mm:ssZ format.
+   * The start time of the task. The time is displayed in UTC in the YYYY-MM-DDTHH:mm:ssZ format.
    * 
    * @example
    * 2026-05-30T02:11:01Z
@@ -90,7 +82,7 @@ export class DescribeInspectionTasksResponseBodyDataItems extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The status of the task.
+   * The status.
    * 
    * @example
    * SUCCEEDED
@@ -148,7 +140,7 @@ export class DescribeInspectionTasksResponseBodyDataItems extends $dara.Model {
 export class DescribeInspectionTasksResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The list of tasks.
+   * The list of task data.
    */
   items?: DescribeInspectionTasksResponseBodyDataItems[];
   /**
@@ -221,7 +213,7 @@ export class DescribeInspectionTasksResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

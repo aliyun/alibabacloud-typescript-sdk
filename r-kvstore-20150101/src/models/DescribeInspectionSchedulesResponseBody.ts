@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInspectionSchedulesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The time when the scheduled task configuration was created.
-   * 
-   * The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
+   * The time when the scheduled task configuration was created. The time is in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
    * 
    * @example
    * 2026-04-21T02:26:18Z
@@ -33,7 +31,7 @@ export class DescribeInspectionSchedulesResponseBodyDataItems extends $dara.Mode
    * @remarks
    * The inspection items.
    * > 
-   * > - Supported inspection items include RESOURCE_USAGE, BIGKEY, HOTKEY, PERFORMANCE_METRICS, and SLOWLOG.
+   * > - Currently, the supported inspection items are RESOURCE_USAGE, BIGKEY, HOTKEY, PERFORMANCE_METRICS, and SLOWLOG.
    * 
    * @example
    * HOTKEY
@@ -57,9 +55,7 @@ export class DescribeInspectionSchedulesResponseBodyDataItems extends $dara.Mode
   instanceIds?: string;
   /**
    * @remarks
-   * The next time the task is scheduled to run.
-   * 
-   * The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
+   * The next time the task is scheduled to run. The time is in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
    * 
    * @example
    * 2026-07-29T10:00:00Z
@@ -107,9 +103,7 @@ export class DescribeInspectionSchedulesResponseBodyDataItems extends $dara.Mode
   timezone?: string;
   /**
    * @remarks
-   * The update time.
-   * 
-   * The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
+   * The update time. The time is in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
    * 
    * @example
    * 2026-07-29T06:50:04Z
@@ -176,7 +170,7 @@ export class DescribeInspectionSchedulesResponseBodyData extends $dara.Model {
   pageNum?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 20

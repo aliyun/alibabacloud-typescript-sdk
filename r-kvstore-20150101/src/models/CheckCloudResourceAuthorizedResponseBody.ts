@@ -16,7 +16,7 @@ export class CheckCloudResourceAuthorizedResponseBody extends $dara.Model {
   authorizationState?: number;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * A501A191-BD70-5E50-98A9-C2A486A82****

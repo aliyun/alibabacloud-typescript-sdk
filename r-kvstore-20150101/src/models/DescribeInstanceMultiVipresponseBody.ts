@@ -43,7 +43,7 @@ export class DescribeInstanceMultiVIPResponseBody extends $dara.Model {
   masterDns?: string;
   /**
    * @remarks
-   * The list of IP addresses corresponding to all LBs of the current instance.
+   * The list of IP addresses for all load balancers of the instance.
    */
   masterDnsRecord?: string[];
   /**
@@ -56,7 +56,7 @@ export class DescribeInstanceMultiVIPResponseBody extends $dara.Model {
   maxQuota?: number;
   /**
    * @remarks
-   * The list of multiple LB VIPs.
+   * The list of virtual IP addresses (VIPs) for multiple load balancers.
    */
   multiVIPList?: DescribeInstanceMultiVIPResponseBodyMultiVIPList[];
   /**

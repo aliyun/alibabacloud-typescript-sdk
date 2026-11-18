@@ -40,7 +40,7 @@ export class DescribeDedicatedClusterInstanceListResponseBodyInstancesInstanceNo
    * The node type. Valid values:
    * * **db**: Data node.
    * * **proxy**: Proxy node.
-   * * **normal**: Regular node. This value is returned for instances that use the standard architecture.
+   * * **normal**: Regular node. This value is returned for instances of the standard architecture.
    * 
    * @example
    * normal
@@ -176,7 +176,7 @@ export class DescribeDedicatedClusterInstanceListResponseBodyInstances extends $
   customId?: string;
   /**
    * @remarks
-   * The database engine. The value is fixed as **redis**.
+   * The database engine type. The value is fixed as **redis**.
    * 
    * @example
    * redis
@@ -224,7 +224,7 @@ export class DescribeDedicatedClusterInstanceListResponseBodyInstances extends $
    * The instance status. Valid values:
    * * **Normal**: Normal.
    * * **Creating**: Creating.
-   * * **Changing**: Changing.
+   * * **Changing**: Modifying.
    * * **Inactive**: Disabled.
    * * **Flushing**: Purge in progress.
    * * **Released**: Released.
@@ -233,9 +233,9 @@ export class DescribeDedicatedClusterInstanceListResponseBodyInstances extends $
    * * **Error**: Creation failed.
    * * **Migrating**: Migrating.
    * * **BackupRecovering**: Restoring from backup.
-   * * **MinorVersionUpgrading**: Minor version upgrade in progress.
-   * * **NetworkModifying**: Changing the network.
-   * * **SSLModifying**: Changing SSL configurations.
+   * * **MinorVersionUpgrading**: Upgrading the minor engine version.
+   * * **NetworkModifying**: Modifying the network.
+   * * **SSLModifying**: Modifying SSL settings.
    * * **MajorVersionUpgrading**: Major engine version upgrade in progress. The instance remains accessible.
    * 
    * @example
@@ -261,6 +261,7 @@ export class DescribeDedicatedClusterInstanceListResponseBodyInstances extends $
   /**
    * @remarks
    * The number of proxy nodes.
+   * 
    * > * A value of **0** indicates that the proxy mode is disabled for the instance. A value greater than **0** (such as **1**) indicates that the proxy mode is enabled for the instance.
    * > * This parameter is returned only when the instance uses the [cluster architecture](https://help.aliyun.com/document_detail/52228.html).
    * 
@@ -287,7 +288,7 @@ export class DescribeDedicatedClusterInstanceListResponseBodyInstances extends $
   shardCount?: number;
   /**
    * @remarks
-   * The storage type. The value is fixed as LOCAL_SSD ([ESSD cloud disk (standard SSD)](https://help.aliyun.com/document_detail/122389.html)).
+   * The storage type. The value is fixed as LOCAL_SSD ([ESSD standard SSD](https://help.aliyun.com/document_detail/122389.html)).
    * 
    * @example
    * LOCAL_SSD

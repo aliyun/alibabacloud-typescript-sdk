@@ -16,7 +16,6 @@ export class ModifySecurityIpsRequest extends $dara.Model {
   /**
    * @remarks
    * The modification method. Valid values:
-   * 
    * * **Cover** (default): overwrites the original whitelist.
    * * **Append**: appends IP addresses to the whitelist.
    * * **Delete**: deletes the whitelist.
@@ -31,7 +30,7 @@ export class ModifySecurityIpsRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The attribute of the IP whitelist group. This parameter is empty by default. The console does not display the whitelist group if the value is set to **hidden**.
+   * The attribute of the IP whitelist group. Default value: empty. This parameter is used to distinguish different attribute values. The console does not display whitelist groups whose attribute value is **hidden**.
    * 
    * @example
    * hidden
@@ -39,8 +38,7 @@ export class ModifySecurityIpsRequest extends $dara.Model {
   securityIpGroupAttribute?: string;
   /**
    * @remarks
-   * The name of the IP whitelist group.
-   * <warning>You cannot modify a system-generated whitelist group. If you do not specify this parameter, the whitelist of the default group is modified.</warning>
+   * The name of the IP whitelist group. <warning>You cannot modify a system-generated whitelist group. If you do not specify this parameter, the whitelist of the default group is modified by default.</warning>
    * 
    * @example
    * default
@@ -48,7 +46,7 @@ export class ModifySecurityIpsRequest extends $dara.Model {
   securityIpGroupName?: string;
   /**
    * @remarks
-   * The IP addresses in the IP whitelist group. You can add up to 1,000 IP addresses. Separate multiple IP addresses with commas (,). The following formats are supported: 0.0.0.0/0,10.23.12.24 or 10.23.12.24/24 (CIDR notation, where /24 specifies the prefix length, which ranges from 1 to 32).
+   * The list of IP addresses in the IP whitelist group. A maximum of 1,000 IP addresses can be added. Separate multiple IP addresses with commas (,). Valid formats: 0.0.0.0/0, 10.23.12.24, or 10.23.12.24/24 (CIDR format, where /24 specifies the prefix length of the address, ranging from 1 to 32).
    * 
    * This parameter is required.
    * 

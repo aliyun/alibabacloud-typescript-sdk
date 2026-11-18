@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTairKVCacheVNodeResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The instance ID of the virtual node.
+   * The virtual node instance ID.
    * 
    * @example
    * tv-2zeb1ce76fee****
@@ -53,7 +53,7 @@ export class CreateTairKVCacheVNodeResponseBody extends $dara.Model {
   VClusterId?: string;
   /**
    * @remarks
-   * The instance ID of the virtual cluster.
+   * The virtual cluster instance ID.
    * 
    * @example
    * tk-2ze4bba3c8fe****

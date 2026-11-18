@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteParameterGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The parameter template ID.
+   * The ID of the parameter template.
    * 
    * @example
    * rpg-sys-00*****

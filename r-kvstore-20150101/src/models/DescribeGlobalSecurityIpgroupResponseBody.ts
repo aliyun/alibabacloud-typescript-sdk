@@ -76,7 +76,7 @@ export class DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup exte
 export class DescribeGlobalSecurityIPGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The IP whitelist template information.
+   * The information about the IP whitelist templates.
    */
   globalSecurityIPGroup?: DescribeGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup[];
   /**

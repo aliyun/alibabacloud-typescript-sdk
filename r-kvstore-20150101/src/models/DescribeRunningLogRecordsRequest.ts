@@ -6,9 +6,9 @@ export class DescribeRunningLogRecordsRequest extends $dara.Model {
   /**
    * @remarks
    * The shard type of the cluster instance. Valid values:
-   * * **proxy**: proxy node
-   * * **db**: data node
-   * * **cs**: config server node
+   * * **proxy**: proxy node.
+   * * **db**: data node.
+   * * **cs**: config server node.
    * 
    * > If you specify this parameter, you must also specify the **NodeId** parameter.
    * 
@@ -26,7 +26,7 @@ export class DescribeRunningLogRecordsRequest extends $dara.Model {
   DBName?: string;
   /**
    * @remarks
-   * The end time of the query. The end time must be later than the start time, and the time span between the start time and end time cannot exceed one day. We recommend that you set the time span to one hour. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
+   * The end time of the query. The end time must be later than the start time. The time range between the start time and the end time cannot exceed one day. We recommend that you set the time range to one hour. Specify the time in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format. The time must be in UTC.
    * 
    * This parameter is required.
    * 
@@ -58,8 +58,8 @@ export class DescribeRunningLogRecordsRequest extends $dara.Model {
   /**
    * @remarks
    * The sort order of the query results. Valid values:
-   * * **asc**: ascending order
-   * * **desc**: descending order
+   * * **asc**: ascending order.
+   * * **desc**: descending order.
    * 
    * @example
    * asc
@@ -69,7 +69,7 @@ export class DescribeRunningLogRecordsRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The page number. The value must be greater than **0** and cannot exceed the maximum value of the Integer data type. Default value: **1**.
+   * The page number. The value must be greater than **0** and cannot exceed the maximum value of the INTEGER data type. Default value: **1**.
    * 
    * @example
    * 1
@@ -104,8 +104,8 @@ export class DescribeRunningLogRecordsRequest extends $dara.Model {
   /**
    * @remarks
    * The role type of the data shard. Valid values:
-   * * **master** (default): primary node
-   * * **slave**: secondary node
+   * * **master** (default): primary node.
+   * * **slave**: secondary node.
    * 
    * @example
    * master

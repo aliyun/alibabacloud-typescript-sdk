@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreateTairSkvDdbTableRequest extends $dara.Model {
   /**
    * @remarks
-   * The cluster backup set ID. Some new cluster architectures support this parameter. You can call [DescribeClusterBackupList](https://www.alibabacloud.com/help/en/redis/developer-reference/api-r-kvstore-2015-01-01-describeclusterbackuplist-redis) to obtain the ID.
+   * The ID of the cluster backup set. Some new cluster architectures support cluster backup set IDs. You can call the [DescribeClusterBackupList](https://www.alibabacloud.com/help/en/redis/developer-reference/api-r-kvstore-2015-01-01-describeclusterbackuplist-redis) operation to query the ID.
    * 
    * @example
    * cb-hyxdof5x9kqb**
@@ -13,7 +13,7 @@ export class CreateTairSkvDdbTableRequest extends $dara.Model {
   backupId?: string;
   /**
    * @remarks
-   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value. Make sure that the value is unique among different requests. The token is case-sensitive and can contain up to 64 ASCII characters.
+   * The client token that is used to ensure the idempotence of the request. You can use the client to generate the value, but you must make sure that the value is unique among different requests. The value is case-sensitive and can be up to 64 ASCII characters in length.
    * 
    * @example
    * ETnLKlblzczshOTUbOCz**
@@ -33,7 +33,7 @@ export class CreateTairSkvDdbTableRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The region ID. You can call [DescribeRegions](https://help.aliyun.com/document_detail/61012.htm) to query available regions. Use this parameter to specify the region in which to create the instance.
+   * The region ID. You can call the [DescribeRegions](https://help.aliyun.com/document_detail/61012.htm) operation to query the most recent region list. Set this parameter to the ID of the region where you want to create the instance.
    * 
    * This parameter is required.
    * 
@@ -46,7 +46,7 @@ export class CreateTairSkvDdbTableRequest extends $dara.Model {
   restoreTime?: string;
   /**
    * @remarks
-   * The table schema configuration in JSON format.
+   * The table schema configuration information in JSON format.
    * 
    * @example
    * {"AttributeDefinitions":[{"AttributeType":"S","AttributeName":"pk"},{"AttributeType":"S","AttributeName":"sk"}],"KeySchema":[{"KeyType":"HASH","AttributeName":"pk"},{"KeyType":"RANGE","AttributeName":"sk"}]}
@@ -55,9 +55,11 @@ export class CreateTairSkvDdbTableRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * To create an instance from a backup set of an existing instance, specify the ID of the source instance in this parameter.
+   * The ID of the source instance. If you want to create an instance based on the backup set of a specific instance, specify the ID of the source instance in this parameter.
    * 
-   * > This parameter must be used together with BackupId.
+   * Note
+   * 
+   * This parameter must be used in combination with BackupId.
    * 
    * @example
    * r-bp1zxszhcgatnx**
@@ -65,7 +67,7 @@ export class CreateTairSkvDdbTableRequest extends $dara.Model {
   srcDBInstanceId?: string;
   /**
    * @remarks
-   * The table name. The name must be 2 to 128 characters in length and must start with an uppercase letter, a lowercase letter, or a Chinese character. The name cannot contain the following characters: @/:="<>{}[] or spaces.
+   * The table name. The name must be 2 to 128 characters in length and start with a letter or a Chinese character. The name cannot contain the following special characters: @, /, :, =, <, >, {, }, [, ], and spaces.
    * 
    * This parameter is required.
    * 
@@ -75,7 +77,7 @@ export class CreateTairSkvDdbTableRequest extends $dara.Model {
   tableName?: string;
   /**
    * @remarks
-   * The parameter settings switch in JSON format.
+   * The parameter settings in JSON format.
    * 
    * @example
    * {"attributeName":"Expiretime","enabled":true}
@@ -83,7 +85,7 @@ export class CreateTairSkvDdbTableRequest extends $dara.Model {
   ttlSpec?: string;
   /**
    * @remarks
-   * The ID of the workspace instance. You can call [DescribeInstances](https://www.alibabacloud.com/help/en/redis/developer-reference/api-r-kvstore-2015-01-01-describeinstances-redis) to obtain the ID.
+   * The workspace instance ID. You can call the [DescribeInstances](https://www.alibabacloud.com/help/en/redis/developer-reference/api-r-kvstore-2015-01-01-describeinstances-redis) operation to query the ID.
    * 
    * This parameter is required.
    * 

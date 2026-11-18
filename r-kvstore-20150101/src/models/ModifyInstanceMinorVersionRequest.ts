@@ -6,8 +6,8 @@ export class ModifyInstanceMinorVersionRequest extends $dara.Model {
   /**
    * @remarks
    * The time when the upgrade is performed. Valid values:
-   * * **Immediately**: Performs the upgrade immediately. This is the default value.
-   * * **MaintainTime**: Performs the upgrade during the maintenance window.
+   * * **Immediately**: The upgrade is performed immediately. This is the default value.
+   * * **MaintainTime**: The upgrade is performed during the maintenance window.
    * 
    * > You can call [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/473775.html) to change the maintenance window of the instance.
    * 
@@ -27,7 +27,7 @@ export class ModifyInstanceMinorVersionRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The minor version to which you want to upgrade. Default value: **latest_version**, which indicates the latest version.
+   * The minor engine version to which you want to upgrade. Default value: **latest_version**, which indicates the latest version.
    * 
    * @example
    * latest_version

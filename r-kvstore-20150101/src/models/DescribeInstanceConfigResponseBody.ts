@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeInstanceConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The default configuration parameters of the instance. For more comprehensive parameter settings, call the [DescribeParameters](https://help.aliyun.com/document_detail/473847.html) operation.
+   * The default configuration parameters of the instance. For more comprehensive parameter configurations, call the [Describeparamters](https://help.aliyun.com/document_detail/473847.html) operation.
    * 
    * @example
    * {\\"EvictionPolicy\\":\\"volatile-lru\\",\\"hash-max-ziplist-entries\\":512,\\"zset-max-ziplist-entries\\":128,\\"list-max-ziplist-entries\\":512,\\"list-max-ziplist-value\\":64,\\"zset-max-ziplist-value\\":64,\\"set-max-intset-entries\\":512,\\"hash-max-ziplist-value\\":64}
@@ -13,9 +13,8 @@ export class DescribeInstanceConfigResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The Sentinel compatibility mode. This parameter applies to non-cluster instances. Valid values:
-   * 
-   * * **no** (default): disabled.
+   * The Sentinel compatibility mode, which applies to non-cluster instances. Valid values:
+   * * **no**: disabled. This is the default value.
    * * **yes**: enabled.
    * > For more information, see [Sentinel compatibility mode](https://help.aliyun.com/document_detail/178911.html).
    * 
@@ -25,10 +24,9 @@ export class DescribeInstanceConfigResponseBody extends $dara.Model {
   paramNoLooseSentinelEnabled?: string;
   /**
    * @remarks
-   * Specifies whether to allow password-free execution of Sentinel-related commands when Sentinel mode is enabled. Valid values:
-   * 
-   * * **no** (default): disabled.
-   * * **yes**: enabled. After this parameter is enabled, you can run Sentinel commands without a password on any connection and use the SENTINEL command to listen on the +switch-master channel.
+   * Specifies whether to allow password-free execution of Sentinel-related commands when the Sentinel mode is enabled. Valid values:
+   * * **no**: disabled. This is the default value.
+   * * **yes**: enabled. After this feature is enabled, you can execute Sentinel commands without a password on any connection and use the SENTINEL command to monitor the +switch-master channel.
    * 
    * @example
    * no
@@ -36,7 +34,7 @@ export class DescribeInstanceConfigResponseBody extends $dara.Model {
   paramNoLooseSentinelPasswordFreeAccess?: string;
   /**
    * @remarks
-   * After Sentinel mode and the ParamNoLooseSentinelPasswordFreeAccess parameter are enabled, you can use this parameter to add additional password-free commands to the list. The default value is empty.
+   * The list of additional password-free commands. After the Sentinel mode and the ParamNoLooseSentinelPasswordFreeAccess parameter are enabled, you can use this parameter to add extra password-free commands. Default value: empty.
    * 
    * @example
    * ****
@@ -45,8 +43,7 @@ export class DescribeInstanceConfigResponseBody extends $dara.Model {
   /**
    * @remarks
    * The synchronization mode. Valid values:
-   * 
-   * * **async** (default): asynchronous mode.
+   * * **async**: asynchronous mode. This is the default value.
    * * **semisync**: semi-synchronous mode.
    * 
    * @example
@@ -55,8 +52,8 @@ export class DescribeInstanceConfigResponseBody extends $dara.Model {
   paramReplMode?: string;
   /**
    * @remarks
-   * The degradation threshold for semi-synchronous mode. This parameter can be configured only in semi-synchronous mode. Unit: ms. Valid values: 10 to 60000. Default value: 500.
-   * > When the synchronization latency exceeds this threshold, the synchronization mode automatically switches to asynchronous mode. When the synchronization latency is eliminated, the synchronization mode automatically switches back to semi-synchronous mode.
+   * The degradation threshold for the semi-synchronous mode. This parameter can be configured only when the semi-synchronous mode is used. Unit: milliseconds. Valid values: 10 to 60000. Default value: 500.
+   * > When the synchronization latency exceeds this threshold, the synchronization mode automatically degrades to the asynchronous mode. After the synchronization latency is eliminated, the synchronization mode automatically switches back to the semi-synchronous mode.
    * 
    * @example
    * 500
@@ -64,9 +61,8 @@ export class DescribeInstanceConfigResponseBody extends $dara.Model {
   paramReplTimeout?: string;
   /**
    * @remarks
-   * The Sentinel compatibility mode. This parameter applies to instances that use the proxy connection mode in cluster architecture or the read/write splitting architecture. Valid values:
-   * 
-   * * **0** (default): disabled.
+   * The Sentinel compatibility mode, which applies to instances in the cluster architecture proxy mode or read/write splitting architecture. Valid values:
+   * * **0**: disabled. This is the default value.
    * * **1**: enabled.
    * > For more information, see [Sentinel compatibility mode](https://help.aliyun.com/document_detail/178911.html).
    * 
@@ -76,7 +72,7 @@ export class DescribeInstanceConfigResponseBody extends $dara.Model {
   paramSentinelCompatEnable?: string;
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 4E2C08F6-2D11-4ECD-9A4C-27EF2D3D****

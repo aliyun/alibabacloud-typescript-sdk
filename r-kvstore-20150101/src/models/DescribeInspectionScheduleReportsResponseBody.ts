@@ -7,7 +7,7 @@ export class DescribeInspectionScheduleReportsResponseBodyDataItems extends $dar
    * @remarks
    * The creation time of the task.
    * 
-   * The value is a UNIX timestamp in milliseconds.
+   * The time is a UNIX timestamp in milliseconds.
    * 
    * @example
    * 1773211755000
@@ -17,7 +17,7 @@ export class DescribeInspectionScheduleReportsResponseBodyDataItems extends $dar
    * @remarks
    * The end time of the task.
    * 
-   * The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
+   * The time is in the YYYY-MM-DDTHH:mm:ssZ format and displayed in UTC.
    * 
    * @example
    * 2026-06-29T02:12:02Z
@@ -27,7 +27,7 @@ export class DescribeInspectionScheduleReportsResponseBodyDataItems extends $dar
    * @remarks
    * The completion time of the task.
    * 
-   * The time is displayed in the ISO 8601 format with an explicit time zone offset.
+   * The time is in the ISO 8601 format and includes a specific time zone offset.
    * 
    * @example
    * 2026-06-16T13:52:35+08:00
@@ -53,7 +53,7 @@ export class DescribeInspectionScheduleReportsResponseBodyDataItems extends $dar
    * @remarks
    * The start time of the task.
    * 
-   * The time is displayed in the YYYY-MM-DDTHH:mmZ format in UTC.
+   * The time is in the YYYY-MM-DDTHH:mmZ format and displayed in UTC.
    * 
    * @example
    * 2025-09-26T21:10Z
@@ -126,7 +126,7 @@ export class DescribeInspectionScheduleReportsResponseBodyData extends $dara.Mod
   pageNum?: number;
   /**
    * @remarks
-   * The page size. Default value: 25.
+   * The number of entries per page. Default value: 25.
    * 
    * @example
    * 100

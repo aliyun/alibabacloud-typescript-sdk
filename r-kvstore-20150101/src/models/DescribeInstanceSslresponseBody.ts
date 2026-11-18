@@ -49,7 +49,7 @@ export class DescribeInstanceSSLResponseBody extends $dara.Model {
    * @remarks
    * The expiration time of the CA certificate.
    * 
-   * The time is displayed in the YYYY-MM-DDTHH:mm:ssZ format in UTC.
+   * The time follows the YYYY-MM-DDTHH:mm:ssZ format and is displayed in UTC.
    * 
    * @example
    * 2020-08-05T09:05:53Z

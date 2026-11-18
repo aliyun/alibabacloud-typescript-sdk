@@ -6,7 +6,7 @@ export class FlushExpireKeysRequest extends $dara.Model {
   /**
    * @remarks
    * The execution time. Valid values:
-   * * **Immediately**: Executes the operation immediately. This is the default value.
+   * * **Immediately**: Executes the operation immediately. Default value.
    * * **MaintainTime**: Executes the operation during the maintenance window.
    * 
    * > You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/473775.html) operation to modify the maintenance window of the instance.

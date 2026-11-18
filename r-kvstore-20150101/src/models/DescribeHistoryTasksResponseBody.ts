@@ -5,23 +5,23 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The allowed operation information. When used, the operation Action is matched based on currentStepName and status in this information. If no Action is matched, the task does not support operations in its current state. Example:
+   * The information about allowed operations. When you use this parameter, the system matches the operation action based on the CurrentStepName and Status in this information. If no action is matched, the current task status does not support the operation. Example:
    * 
    * ```
    * {"steps": [
    *     {
-   *       "step_name": "exec_task", // Step name, matched with currentStepName
-   *       "action_info": {    // Operations supported by the step
-   *         "Waiting": [      // Status, matched with status
-   *           "modifySwitchTime" // Operation Action, may have multiple values, indicating multiple supported operations
+   *       "step_name": "exec_task", // The step name, which matches CurrentStepName.
+   *       "action_info": {    // The operations supported by the step.
+   *         "Waiting": [      // The status, which matches Status.
+   *           "modifySwitchTime" // The operation action. Multiple actions indicate that multiple operations are supported.
    *         ]
    *       }
    *     },
    *     {
-   *       "step_name": "init_task", // Step name
-   *       "action_info": {    // Operations supported by the step
-   *         "Running": [      // Status
-   *           "cancel",       // Operation
+   *       "step_name": "init_task", // The step name.
+   *       "action_info": {    // The operations supported by the step.
+   *         "Running": [      // The status.
+   *           "cancel",       // The operation.
    *           "pause"
    *         ]
    *       }
@@ -30,7 +30,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
    * }
    * ```
    * 
-   * Operations that the system may support: 
+   * Operations that may be supported by the system: 
    * * **retry**: Retry.
    * * **cancel**: Cancel.
    * * **modifySwitchTime**: Modify the switchover time or recovery time.
@@ -41,7 +41,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   actionInfo?: string;
   /**
    * @remarks
-   * The request user ID. When callerSource is User, this value represents the user UID.
+   * The ID of the requesting user. If CallerSource is set to User, this parameter represents the user ID.
    * 
    * @example
    * 141345906006****
@@ -50,8 +50,8 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The request source. Valid values: 
-   * * **System**: Automatically initiated by the system.
-   * * **User**: Initiated by a user.
+   * * **System**: Automatic system operation.
+   * * **User**: User.
    * 
    * @example
    * User
@@ -59,7 +59,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   callerUid?: string;
   /**
    * @remarks
-   * The name of the current step being executed. An empty value indicates that the task has not started.
+   * The name of the current step being executed. If this parameter is empty, the task has not started.
    * 
    * @example
    * exec_task
@@ -75,7 +75,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   dbType?: string;
   /**
    * @remarks
-   * The end time of the task in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * The end time of the task. The time is in the yyyy-MM-ddTHH:mm:ssZ format and displayed in UTC.
    * 
    * @example
    * 2022-02-03T12:06:17Z
@@ -126,7 +126,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
    * The reason why the current task was initiated.
    * 
    * @example
-   * 小版本升级
+   * Minor version upgrade
    */
   reasonCode?: string;
   /**
@@ -147,7 +147,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   remainTime?: number;
   /**
    * @remarks
-   * The start time of the task in the yyyy-MM-ddTHH:mm:ssZ format (UTC).
+   * The start time of the task. The time is in the yyyy-MM-ddTHH:mm:ssZ format and displayed in UTC.
    * 
    * @example
    * 2022-02-03T11:31:03Z
@@ -156,12 +156,12 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The task status. Valid values:
-   * - **Scheduled**: Waiting for execution.
+   * - **Scheduled**: Pending execution.
    * - **Running**: Running.
    * - **Succeed**: Succeeded.
    * - **Failed**: Failed.
-   * - **Cancelling**: Being stopped.
-   * - **Canceled**: Stopped.
+   * - **Cancelling**: Cancelling.
+   * - **Canceled**: Canceled.
    * - **Waiting**: Waiting for the scheduled time.
    * 
    * @example
@@ -170,7 +170,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The task details. Different task types correspond to different outputs.
+   * The task details. The output varies based on the task type.
    * 
    * @example
    * {\\"callerUid\\":\\"test\\"}
@@ -187,7 +187,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   /**
    * @remarks
    * The task type. Valid values:
-   * - **ModifyInsSpec**: Specification change or migration.
+   * - **ModifyInsSpec**: Instance specification change or migration.
    * - **DeleteInsNode**: Shard deletion.
    * - **AddInsNode**: Shard addition.
    * - **HaSwitch**: Primary/secondary switchover.
@@ -201,7 +201,7 @@ export class DescribeHistoryTasksResponseBodyItems extends $dara.Model {
   taskType?: string;
   /**
    * @remarks
-   * The user ID of the resource owner.
+   * The ID of the user to whom the resource belongs.
    * 
    * @example
    * 141345906006****

@@ -7,7 +7,7 @@ export class CreateGlobalSecurityIPGroupRequest extends $dara.Model {
    * @remarks
    * The IP addresses in the whitelist template.
    * 
-   * > Separate multiple IP addresses with commas (,). IP addresses cannot be duplicated. You can add up to 1,000 IP addresses.
+   * > Separate multiple IP addresses with commas (,). The IP addresses must be unique. You can specify up to 1,000 IP addresses.
    * 
    * This parameter is required.
    * 
@@ -17,10 +17,10 @@ export class CreateGlobalSecurityIPGroupRequest extends $dara.Model {
   GIpList?: string;
   /**
    * @remarks
-   * The name of the IP address whitelist template. The name must meet the following requirements:
-   * - The name can contain lowercase letters, digits, and underscores (_).
-   * - The name must start with a letter and end with a letter or digit.
-   * - The name must be 2 to 120 characters in length.
+   * The name of the IP whitelist template. The name must meet the following requirements:
+   * - It must consist of lowercase letters, digits, and underscores (_).
+   * - It must start with a letter and end with a letter or a digit.
+   * - It must be 2 to 120 characters in length.
    * 
    * This parameter is required.
    * 

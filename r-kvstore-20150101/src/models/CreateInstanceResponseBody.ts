@@ -39,7 +39,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The internal network connection endpoint of the ApsaraDB for Redis instance.
+   * The internal network endpoint of the Redis instance.
    * 
    * @example
    * r-bp1zxszhcgatnx****.redis.rds.aliyuncs.com
@@ -47,7 +47,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   connectionDomain?: string;
   /**
    * @remarks
-   * The maximum number of connections supported by the instance.
+   * The maximum number of connections to the instance.
    * 
    * @example
    * 10000
@@ -55,7 +55,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   connections?: number;
   /**
    * @remarks
-   * The time when the subscription instance expires. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is displayed in UTC.
+   * The time when the subscription instance expires. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm:ss</i>Z format. The time is in UTC.
    * 
    * @example
    * 2019-01-18T16:00:00Z
@@ -63,7 +63,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The globally unique instance ID.
+   * Instance ID of the instance. Instance ID is globally unique.
    * 
    * @example
    * r-bp1zxszhcgatnx****
@@ -79,7 +79,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   instanceName?: string;
   /**
    * @remarks
-   * The current status of the instance. The return value is fixed to Creating.
+   * The current status of the instance. The value is fixed to Creating.
    * 
    * @example
    * Creating
@@ -117,7 +117,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   orderId?: number;
   /**
    * @remarks
-   * The service port of ApsaraDB for Redis.
+   * The Redis service port.
    * 
    * @example
    * 6379
@@ -141,7 +141,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   QPS?: number;
   /**
    * @remarks
-   * The region where the instance resides.
+   * The region where the instance is deployed.
    * 
    * @example
    * cn-hongkong
@@ -157,7 +157,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The username used to connect to ApsaraDB for Redis. By default, an account named after the instance ID is included.
+   * The username used to connect to the Redis instance. By default, an account named after the instance ID is included.
    * 
    * @example
    * r-bp1zxszhcgatnx****
@@ -173,7 +173,7 @@ export class CreateInstanceResponseBody extends $dara.Model {
   vSwitchId?: string;
   /**
    * @remarks
-   * The ID of the VPC.
+   * The ID of the virtual private cloud (VPC).
    * 
    * @example
    * vpc-bp1nme44gek34slfc****

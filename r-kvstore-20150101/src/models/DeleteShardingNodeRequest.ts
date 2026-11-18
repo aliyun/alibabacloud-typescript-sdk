@@ -5,9 +5,9 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteShardingNodeRequest extends $dara.Model {
   /**
    * @remarks
-   * The time when the proxy deletion takes effect if proxy nodes are deleted when you delete shards from a cluster instance in proxy mode. Valid values:
-   * * **0 or Immediately**: Takes effect immediately. This is the default value.
-   * * **1 or MaintainTime**: Takes effect during the maintenance window.
+   * The time when the proxy deletion operation is performed if proxy nodes are deleted when you delete shards from a cluster instance in proxy mode. Valid values:
+   * * **0 or Immediately**: The operation is immediately performed. This is the default value.
+   * * **1 or MaintainTime**: The operation is performed during the maintenance window.
    * 
    * > You can call the [ModifyInstanceMaintainTime](https://help.aliyun.com/document_detail/473775.html) operation to modify the maintenance window of the instance.
    * 
@@ -17,9 +17,9 @@ export class DeleteShardingNodeRequest extends $dara.Model {
   effectiveTime?: string;
   /**
    * @remarks
-   * Specifies whether to enable forced migration. Valid values:
-   * - **false** (default): Before the upgrade/downgrade, the system checks the current minor engine version of the instance. If the kernel version is too low, an error is reported. You must upgrade the minor engine version and retry.
-   * - **true**: Skips the checks and directly executes the upgrade/downgrade operation.
+   * Specifies whether to enable forced transfer. Valid values:
+   * - **false** (default): Before the Upgrade/Downgrade, the system checks the current minor engine version of the instance. If the minor engine version is too low, an error is reported. You must upgrade the minor engine version and retry.
+   * - **true**: Skips the check and directly executes the Upgrade/Downgrade operation.
    * 
    * @example
    * false
@@ -37,7 +37,7 @@ export class DeleteShardingNodeRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * The ID of the data shard node to be deleted. To specify multiple shard node IDs, separate them with commas (,).
+   * The ID of the data shard node to be deleted. To specify multiple shard node IDs at a time, separate the IDs with commas (,).
    * > If both the NodeId and ShardCount parameters are specified, the NodeId parameter takes precedence.
    * 
    * @example
@@ -53,7 +53,7 @@ export class DeleteShardingNodeRequest extends $dara.Model {
   securityToken?: string;
   /**
    * @remarks
-   * The number of shards to be deleted. The system deletes the specified number of shard nodes starting from the end.
+   * The number of shards to be deleted. The system counts from the tail and deletes the specified number of shard nodes.
    * > For example, if an instance has five shard nodes: db-0, db-1, db-2, db-3, and db-4, and you set this parameter to 2, the db-3 and db-4 nodes are deleted.
    * 
    * @example

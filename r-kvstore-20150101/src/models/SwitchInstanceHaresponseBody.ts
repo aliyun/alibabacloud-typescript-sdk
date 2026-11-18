@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchInstanceHAResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5D622714-AEDD-4609-9167-F5DDD3D1****
@@ -13,7 +13,7 @@ export class SwitchInstanceHAResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The task ID.
+   * The ID of the task.
    * 
    * @example
    * 674546459

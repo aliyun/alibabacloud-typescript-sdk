@@ -7,7 +7,7 @@ export class TransformToPrePaidRequest extends $dara.Model {
    * @remarks
    * Specifies whether to enable automatic payment. Valid values:
    * * **true**: enables automatic payment.
-   * * **false**: disables automatic payment (default). You must manually renew the instance in the console. For more information, see [Manual renewal](https://help.aliyun.com/document_detail/26352.html).
+   * * **false**: disables automatic payment (default). You must manually renew the instance in the console. For more information, refer to [Manually renew an instance](https://help.aliyun.com/document_detail/26352.html).
    * 
    * @example
    * true
@@ -26,7 +26,7 @@ export class TransformToPrePaidRequest extends $dara.Model {
   autoRenew?: string;
   /**
    * @remarks
-   * The auto-renewal epoch. Unit: months. Valid values: **1**, **2**, **3**, **6**, and **12**.
+   * The Unified Auto Renewal Cycle. Unit: months. Valid values: **1**, **2**, **3**, **6**, and **12**.
    * 
    * > This parameter is required when **AutoRenew** is set to **true**.
    * 
@@ -34,10 +34,17 @@ export class TransformToPrePaidRequest extends $dara.Model {
    * 3
    */
   autoRenewPeriod?: number;
+  /**
+   * @remarks
+   * The coupon code. Default value: default.
+   * 
+   * @example
+   * default
+   */
   couponNo?: string;
   /**
    * @remarks
-   * Instance ID of the instance. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query instance ID.
+   * The instance ID. You can call the [DescribeInstances](https://help.aliyun.com/document_detail/473778.html) operation to query the instance ID.
    * 
    * This parameter is required.
    * 

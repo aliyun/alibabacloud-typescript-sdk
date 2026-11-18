@@ -6,9 +6,9 @@ export class DescribeInstancesOverviewRequest extends $dara.Model {
   /**
    * @remarks
    * The architecture type. Valid values:
-   * * **cluster**: Cluster Edition.
-   * * **standard**: Standard Edition.
-   * * **rwsplit**: read/write splitting Edition.
+   * * **cluster**: Cluster.
+   * * **standard**: Standard.
+   * * **rwsplit**: Read/write splitting.
    * 
    * @example
    * standard
@@ -17,8 +17,8 @@ export class DescribeInstancesOverviewRequest extends $dara.Model {
   /**
    * @remarks
    * The billing method. Valid values:
-   * * **PrePaid**: subscription.
-   * * **PostPaid**: pay-as-you-go.
+   * * **PrePaid**: Subscription.
+   * * **PostPaid**: Pay-as-you-go.
    * 
    * @example
    * PostPaid
@@ -26,7 +26,7 @@ export class DescribeInstancesOverviewRequest extends $dara.Model {
   chargeType?: string;
   /**
    * @remarks
-   * The edition type. Valid values:
+   * The edition. Valid values:
    * * **Community**: Community Edition.
    * * **Enterprise**: Enterprise Edition.
    * 
@@ -44,7 +44,7 @@ export class DescribeInstancesOverviewRequest extends $dara.Model {
   engineVersion?: string;
   /**
    * @remarks
-   * The instance type. For more information, see [Instance types](https://help.aliyun.com/document_detail/107984.html).
+   * The instance specifications. For more information, see [Instance specifications](https://help.aliyun.com/document_detail/107984.html).
    * 
    * @example
    * redis.master.small.default
@@ -53,7 +53,7 @@ export class DescribeInstancesOverviewRequest extends $dara.Model {
   /**
    * @remarks
    * The IDs of the instances that you want to query.
-   * > By default, all instances under the current account are queried. To specify multiple instance IDs, separate them with commas (,).
+   * > By default, all instances under the account are queried. To specify multiple instance IDs, separate the IDs with commas (,).
    * 
    * @example
    * r-bp1zxszhcgatnx****
@@ -62,21 +62,21 @@ export class DescribeInstancesOverviewRequest extends $dara.Model {
   /**
    * @remarks
    * The instance status. Valid values:
-   * * **Normal**: The instance is running.
-   * * **Creating**: The instance is being created.
-   * * **Changing**: The instance is being modified.
-   * * **Inactive**: The instance is disabled.
-   * * **Flushing**: The instance is being purged.
-   * * **Released**: The instance is released.
-   * * **Transforming**: The instance is being transformed.
-   * * **Migrating**: The instance is being migrated.
-   * * **BackupRecovering**: The instance is being restored from a backup.
-   * * **MinorVersionUpgrading**: A minor version upgrade is in progress.
-   * * **NetworkModifying**: The network configuration is being modified.
-   * * **SSLModifying**: The SSL configuration is being modified.
-   * * **MajorVersionUpgrading**: A major engine version upgrade is in progress. The instance can be accessed normally.
+   * * **Normal**: Running.
+   * * **Creating**: Being created.
+   * * **Changing**: Being modified.
+   * * **Inactive**: Disabled.
+   * * **Flushing**: Being purged.
+   * * **Released**: Released.
+   * * **Transforming**: Being transformed.
+   * * **Migrating**: Being migrated.
+   * * **BackupRecovering**: Recovering from a backup.
+   * * **MinorVersionUpgrading**: Minor version upgrade in progress.
+   * * **NetworkModifying**: Modifying the network.
+   * * **SSLModifying**: Modifying SSL configurations.
+   * * **MajorVersionUpgrading**: Major engine version upgrade in progress. The instance remains accessible.
    * 
-   * > For more information about instance statuses, see [Instance states and impacts](https://help.aliyun.com/document_detail/200740.html).
+   * > For more information about instance statuses, see [Instance statuses and impacts](https://help.aliyun.com/document_detail/200740.html).
    * 
    * @example
    * Normal
@@ -96,8 +96,8 @@ export class DescribeInstancesOverviewRequest extends $dara.Model {
   /**
    * @remarks
    * The network type. Valid values:
-   * * **CLASSIC**: classic network.
-   * * **VPC**: virtual private cloud (VPC).
+   * * **CLASSIC**: Classic network.
+   * * **VPC**: VPC.
    * 
    * @example
    * CLASSIC
@@ -108,7 +108,7 @@ export class DescribeInstancesOverviewRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The private IP address.
+   * The VPC IP address.
    * 
    * @example
    * 172.16.49.***
@@ -125,7 +125,7 @@ export class DescribeInstancesOverviewRequest extends $dara.Model {
   /**
    * @remarks
    * The resource group ID.
-   * > You can invoke the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation or use the console to obtain the resource group ID. Related operations: see [View basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
+   * > You can invoke the [ListResourceGroups](https://help.aliyun.com/document_detail/158855.html) operation or go to the console to obtain the resource group ID. Related operations: [View the basic information of a resource group](https://help.aliyun.com/document_detail/151181.html).
    * 
    * @example
    * rg-acfmyiu4ekp****
@@ -135,7 +135,7 @@ export class DescribeInstancesOverviewRequest extends $dara.Model {
   resourceOwnerId?: number;
   /**
    * @remarks
-   * The keyword used for fuzzy search by instance ID or instance description.
+   * The keyword used for fuzzy search based on the instance ID or description.
    * 
    * @example
    * apitest

@@ -33,9 +33,9 @@ export class DescribeClusterBackupListRequest extends $dara.Model {
   instanceId?: string;
   /**
    * @remarks
-   * Specifies whether to display the details of the backup sets for cluster nodes. Valid values:
-   * * **false** (default): displays the backup set information of cluster nodes.
-   * * **true**: does not display the backup set information of cluster nodes.
+   * Specifies whether to display the backup set details of cluster nodes. Valid values:
+   * * **false** (default): Displays the backup set information of cluster nodes.
+   * * **true**: Does not display the backup set information of cluster nodes.
    * 
    * @example
    * True
@@ -45,7 +45,7 @@ export class DescribeClusterBackupListRequest extends $dara.Model {
   ownerId?: number;
   /**
    * @remarks
-   * The current page number.
+   * The page number.
    * 
    * @example
    * 1

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeTairSkvDdbTableSchemaResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID. For more information, see common parameters.
+   * See common parameters.
    * 
    * @example
    * A1604E1B-6825-1577-BBDA-2A64E8D5F126
@@ -21,7 +21,7 @@ export class DescribeTairSkvDdbTableSchemaResponseBody extends $dara.Model {
   schema?: string;
   /**
    * @remarks
-   * The TTL property. The parameter settings toggle in JSON format.
+   * The TTL property and parameter setting switches in JSON format.
    * 
    * @example
    * {"attributeName":"Expiretime","enabled":true}

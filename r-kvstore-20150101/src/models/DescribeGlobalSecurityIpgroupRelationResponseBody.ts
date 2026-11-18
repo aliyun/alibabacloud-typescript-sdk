@@ -5,8 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel extends $dara.Model {
   /**
    * @remarks
-   * The IP addresses in the whitelist template.
-   * > Separate multiple IP addresses with commas (,).
+   * The IP addresses in the whitelist template. Separate multiple IP addresses with commas (,).
    * 
    * @example
    * 192.168.0.1,10.10.10.10
@@ -74,7 +73,7 @@ export class DescribeGlobalSecurityIPGroupRelationResponseBody extends $dara.Mod
   DBClusterId?: string;
   /**
    * @remarks
-   * The information about the associated global IP whitelist templates.
+   * The global IP whitelist templates associated with the instance.
    */
   globalSecurityIPGroupRel?: DescribeGlobalSecurityIPGroupRelationResponseBodyGlobalSecurityIPGroupRel[];
   /**

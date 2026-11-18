@@ -14,7 +14,7 @@ export class MasterNodeShutDownFailOverRequest extends $dara.Model {
   /**
    * @remarks
    * - **Specify**: Specifies the data nodes.
-   * - **Random**: The system randomly simulates a failure for one-fourth of the data nodes (rounded up to the nearest integer, with a minimum of 1). This parameter takes effect only when no data nodes are specified.
+   * - **Random**: The system randomly simulates a failure for one-fourth of the data nodes (rounded up, with a minimum of 1). This parameter takes effect only when no data nodes are specified.
    * 
    * @example
    * Random
@@ -30,8 +30,8 @@ export class MasterNodeShutDownFailOverRequest extends $dara.Model {
   DBNodes?: string;
   /**
    * @remarks
-   * - **Hard**: Simulates an unrecoverable hardware failure. A switchover (HA) is directly triggered.
-   * - **Soft** (default): Simulates a recoverable hardware failure. The system preferentially attempts to recover the failed node. If the recovery fails, a switchover (HA) is triggered.
+   * - **Hard**: Simulates an unrecoverable hardware failure and directly triggers a switchover.
+   * - **Soft** (default): Simulates a recoverable hardware failure. The system preferentially attempts to recover the failed node and triggers a switchover if the recovery fails.
    * 
    * @example
    * Hard
@@ -48,7 +48,7 @@ export class MasterNodeShutDownFailOverRequest extends $dara.Model {
   /**
    * @remarks
    * - **Specify**: Specifies the proxy nodes.
-   * - **Random**: The system randomly simulates a failure for one-fourth of the proxy nodes (rounded up to the nearest integer, with a minimum of 1). This parameter takes effect only when no proxy nodes are specified.
+   * - **Random**: The system randomly simulates a failure for one-fourth of the proxy nodes (rounded up, with a minimum of 1). This parameter takes effect only when no proxy nodes are specified.
    * 
    * @example
    * Specify

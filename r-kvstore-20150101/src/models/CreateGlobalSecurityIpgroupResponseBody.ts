@@ -15,7 +15,7 @@ export class CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extend
   GIpList?: string;
   /**
    * @remarks
-   * The name of the IP address whitelist template.
+   * The name of the IP whitelist template.
    * 
    * @example
    * test_123
@@ -23,7 +23,7 @@ export class CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extend
   globalIgName?: string;
   /**
    * @remarks
-   * The ID of the IP address whitelist template.
+   * The ID of the IP whitelist template.
    * 
    * @example
    * g-sdgwqyp4f5j1x3qk****
@@ -67,7 +67,7 @@ export class CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup extend
 export class CreateGlobalSecurityIPGroupResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The information about the global IP address whitelist template.
+   * The global IP whitelist template information.
    */
   globalSecurityIPGroup?: CreateGlobalSecurityIPGroupResponseBodyGlobalSecurityIPGroup[];
   /**

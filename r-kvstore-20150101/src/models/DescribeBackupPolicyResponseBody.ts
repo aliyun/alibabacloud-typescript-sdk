@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Model {
   /**
    * @remarks
-   * Same as above.
+   * The description is the same as above.
    * 
    * @example
    * -
@@ -13,7 +13,7 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
   authAction?: string;
   /**
    * @remarks
-   * Same as above.
+   * The description is the same as above.
    * 
    * @example
    * -
@@ -21,7 +21,7 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
   authPrincipalDisplayName?: string;
   /**
    * @remarks
-   * Same as above.
+   * The description is the same as above.
    * 
    * @example
    * -
@@ -29,7 +29,7 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
   authPrincipalOwnerId?: string;
   /**
    * @remarks
-   * Same as above.
+   * The description is the same as above.
    * 
    * @example
    * -
@@ -37,7 +37,7 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
   authPrincipalType?: string;
   /**
    * @remarks
-   * Same as above.
+   * The description is the same as above.
    * 
    * @example
    * -
@@ -45,7 +45,7 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
   encodedDiagnosticMessage?: string;
   /**
    * @remarks
-   * Same as above.
+   * The description is the same as above.
    * 
    * @example
    * -
@@ -53,7 +53,7 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
   noPermissionType?: string;
   /**
    * @remarks
-   * Same as above.
+   * The description is the same as above.
    * 
    * @example
    * -
@@ -95,13 +95,20 @@ export class DescribeBackupPolicyResponseBodyAccessDeniedDetail extends $dara.Mo
 export class DescribeBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * This parameter is deprecated. Ignore this parameter.
+   * **[Deprecated]** This group of parameters is deprecated. Ignore it.
    */
   accessDeniedDetail?: DescribeBackupPolicyResponseBodyAccessDeniedDetail;
+  /**
+   * @remarks
+   * The earliest point in time for data flashback, in the yyyy-MM-ddTHH:mm:ssZ format (UTC). This parameter is returned only when the data flashback feature is enabled for the instance.
+   * 
+   * @example
+   * 2021-07-06T05:49:55Z
+   */
   backupLogStartTime?: string;
   /**
    * @remarks
-   * The number of days for which backup data is retained.
+   * The backup retention period in days.
    * 
    * @example
    * 7
@@ -130,13 +137,13 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   /**
    * @remarks
    * The backup cycle. Valid values:
-   * * **Monday**
-   * * **Tuesday**
-   * * **Wednesday**
-   * * **Thursday**
-   * * **Friday**
-   * * **Saturday**
-   * * **Sunday**
+   * * **Monday**: Monday.
+   * * **Tuesday**: Tuesday.
+   * * **Wednesday**: Wednesday.
+   * * **Thursday**: Thursday.
+   * * **Friday**: Friday.
+   * * **Saturday**: Saturday.
+   * * **Sunday**: Sunday.
    * 
    * @example
    * Monday,Tuesday,Wednesday,Thursday,Friday,Saturday,Sunday
@@ -144,7 +151,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   preferredBackupPeriod?: string;
   /**
    * @remarks
-   * The backup time. The time is in the <i>HH:mm</i>Z-<i>HH:mm</i>Z format (UTC).
+   * The backup time, in the <i>HH:mm</i>Z-<i>HH:mm</i>Z format (UTC).
    * 
    * @example
    * 05:00Z-06:00Z
@@ -152,7 +159,7 @@ export class DescribeBackupPolicyResponseBody extends $dara.Model {
   preferredBackupTime?: string;
   /**
    * @remarks
-   * The next backup time. The time is in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
+   * The time of the next backup, in the <i>yyyy-MM-dd</i>T<i>HH:mm</i>Z format (UTC).
    * 
    * @example
    * 2019-03-14T05:28Z

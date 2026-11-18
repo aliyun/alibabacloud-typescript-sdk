@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class SwitchInstanceProxyResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The request ID.
+   * The ID of the request.
    * 
    * @example
    * 5D622714-AEDD-4609-9167-F5DDD3D1****

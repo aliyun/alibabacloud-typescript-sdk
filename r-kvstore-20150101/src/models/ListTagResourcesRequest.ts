@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListTagResourcesRequestTag extends $dara.Model {
   /**
    * @remarks
-   * The key of the tag.
+   * The tag key.
    * 
    * @example
    * demokey
@@ -13,7 +13,7 @@ export class ListTagResourcesRequestTag extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The value of the tag.
+   * The tag value.
    * 
    * @example
    * demovalue
@@ -46,7 +46,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   /**
    * @remarks
    * The token used to start the next query to return more results.
-   * > You do not need to provide this parameter for the first query. If a query does not return all results, you can pass the **NextToken** value returned from the previous query in subsequent queries to continue the query.
+   * > You do not need to specify this parameter for the first query. If a query does not return all results, you can pass the **NextToken** value returned from the previous query in subsequent queries to continue the query.
    * 
    * @example
    * 212db86sca4384811e0b5e8707ec2****
@@ -68,10 +68,7 @@ export class ListTagResourcesRequest extends $dara.Model {
    * @remarks
    * The list of instance IDs.
    * 
-   * > * You must specify at least one of this parameter and the **Tag** parameter.
-   * 
-   * @example
-   * r-bp1zxszhcgatnx****
+   * > * You must specify either this parameter or the **Tag** parameter.
    */
   resourceId?: string[];
   resourceOwnerAccount?: string;
@@ -88,7 +85,7 @@ export class ListTagResourcesRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The tag information of the instance. You must specify at least one of this parameter and the **ResourceId** parameter.
+   * The tag information of the instance. You must specify either this parameter or the **ResourceId** parameter.
    */
   tag?: ListTagResourcesRequestTag[];
   static names(): { [key: string]: string } {
