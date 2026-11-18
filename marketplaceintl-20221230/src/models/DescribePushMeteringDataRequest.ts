@@ -6,9 +6,6 @@ export class DescribePushMeteringDataRequest extends $dara.Model {
   /**
    * @remarks
    * This parameter is required.
-   * 
-   * @example
-   * pushData123456
    */
   pushOrderBizId?: string;
   static names(): { [key: string]: string } {

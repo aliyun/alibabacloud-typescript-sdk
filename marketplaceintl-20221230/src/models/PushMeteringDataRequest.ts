@@ -3,35 +3,15 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class PushMeteringDataRequestMeteringData extends $dara.Model {
-  /**
-   * @example
-   * 1666854480406
-   */
   endTime?: number;
-  /**
-   * @example
-   * gtm-cn-20p314k5h05
-   */
   instanceId?: string;
-  /**
-   * @example
-   * test001
-   */
   meteringAssist?: string;
-  /**
-   * @example
-   * {"VirtualCpu":10}
-   */
   meteringEntity?: string;
   /**
    * @example
    * ORDER20231001
    */
   pushOrderBizId?: string;
-  /**
-   * @example
-   * 1662284820000
-   */
   startTime?: number;
   static names(): { [key: string]: string } {
     return {
@@ -65,15 +45,13 @@ export class PushMeteringDataRequestMeteringData extends $dara.Model {
 }
 
 export class PushMeteringDataRequest extends $dara.Model {
-  /**
-   * @example
-   * 2023-01-11 10:31:00
-   */
   gmtCreate?: string;
+  metering?: string;
   meteringData?: PushMeteringDataRequestMeteringData[];
   static names(): { [key: string]: string } {
     return {
       gmtCreate: 'GmtCreate',
+      metering: 'Metering',
       meteringData: 'MeteringData',
     };
   }
@@ -81,6 +59,7 @@ export class PushMeteringDataRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       gmtCreate: 'string',
+      metering: 'string',
       meteringData: { 'type': 'array', 'itemType': PushMeteringDataRequestMeteringData },
     };
   }

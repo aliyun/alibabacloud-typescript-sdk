@@ -3,30 +3,14 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class DescribeSellerInstancesRequest extends $dara.Model {
-  /**
-   * @example
-   * 5000002763123
-   */
   instanceId?: number;
-  /**
-   * @example
-   * OPENED
-   */
   instanceStatus?: string;
-  /**
-   * @example
-   * 1
-   */
   pageIndex?: number;
   /**
    * @example
    * 10
    */
   pageSize?: number;
-  /**
-   * @example
-   * 5322460655123456
-   */
   userId?: number;
   static names(): { [key: string]: string } {
     return {

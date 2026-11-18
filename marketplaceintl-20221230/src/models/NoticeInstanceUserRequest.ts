@@ -3,16 +3,8 @@ import * as $dara from '@darabonba/typescript';
 
 
 export class NoticeInstanceUserRequest extends $dara.Model {
-  /**
-   * @example
-   * 5000000264872
-   */
   instanceId?: number;
   noticeParam?: string;
-  /**
-   * @example
-   * 1
-   */
   noticeType?: number;
   static names(): { [key: string]: string } {
     return {

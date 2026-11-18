@@ -45,30 +45,10 @@ export class NoticeInstanceUserResponseBodyAccessDeniedDetail extends $dara.Mode
 
 export class NoticeInstanceUserResponseBody extends $dara.Model {
   accessDeniedDetail?: NoticeInstanceUserResponseBodyAccessDeniedDetail;
-  /**
-   * @example
-   * 200
-   */
   code?: string;
-  /**
-   * @example
-   * Instance 5723f7ee-952d-411f-94f4-b942a550d9b8 does not exist.
-   */
   message?: string;
-  /**
-   * @example
-   * A6A33748-D573-593C-A3BC-593E33D68311
-   */
   requestId?: string;
-  /**
-   * @example
-   * True
-   */
   result?: boolean;
-  /**
-   * @example
-   * True
-   */
   success?: boolean;
   static names(): { [key: string]: string } {
     return {
