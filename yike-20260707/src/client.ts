@@ -356,6 +356,76 @@ export default class Client extends OpenApi {
   }
 
   /**
+   * Generates OSS upload credentials for client-side direct upload without registering media assets or creating media asset records.
+   * 
+   * @remarks
+   * ## Request description
+   * - This API operation generates a temporary OSS upload credential so that the client can directly upload files to a specified OSS bucket.
+   * - The `FileExt` parameter is required and specifies the file name extension of the file to be uploaded, such as mp4 or wav. Do not include the dot.
+   * - The `FileType` parameter is optional. The default value is `Media`. This parameter affects the path segment in the returned `ObjectKey`.
+   * 
+   * @param request - CreateOssUploadRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateOssUploadResponse
+   */
+  async createOssUploadWithOptions(request: $_model.CreateOssUploadRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateOssUploadResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.bizConfig)) {
+      query["BizConfig"] = request.bizConfig;
+    }
+
+    if (!$dara.isNull(request.credentialType)) {
+      query["CredentialType"] = request.credentialType;
+    }
+
+    if (!$dara.isNull(request.fileExt)) {
+      query["FileExt"] = request.fileExt;
+    }
+
+    if (!$dara.isNull(request.fileType)) {
+      query["FileType"] = request.fileType;
+    }
+
+    if (!$dara.isNull(request.targetBucket)) {
+      query["TargetBucket"] = request.targetBucket;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateOssUpload",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateOssUploadResponse>(await this.callApi(params, req, runtime), new $_model.CreateOssUploadResponse({}));
+  }
+
+  /**
+   * Generates OSS upload credentials for client-side direct upload without registering media assets or creating media asset records.
+   * 
+   * @remarks
+   * ## Request description
+   * - This API operation generates a temporary OSS upload credential so that the client can directly upload files to a specified OSS bucket.
+   * - The `FileExt` parameter is required and specifies the file name extension of the file to be uploaded, such as mp4 or wav. Do not include the dot.
+   * - The `FileType` parameter is optional. The default value is `Media`. This parameter affects the path segment in the returned `ObjectKey`.
+   * 
+   * @param request - CreateOssUploadRequest
+   * @returns CreateOssUploadResponse
+   */
+  async createOssUpload(request: $_model.CreateOssUploadRequest): Promise<$_model.CreateOssUploadResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createOssUploadWithOptions(request, runtime);
+  }
+
+  /**
    * Creates a project.
    * 
    * @remarks
@@ -405,6 +475,94 @@ export default class Client extends OpenApi {
   async createProject(request: $_model.CreateProjectRequest): Promise<$_model.CreateProjectResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.createProjectWithOptions(request, runtime);
+  }
+
+  /**
+   * Creates or overwrites a media asset for upload and obtains upload credentials.
+   * 
+   * @remarks
+   * ## Request description
+   * - This operation supports two modes: creating a new media asset and overwriting an existing one.
+   * - When creating a new media asset, the `FileInfo` and `MediaMetaData` parameters are required.
+   * - When overwriting an existing media asset, you must set `Overwrite` to true and provide `MediaId`.
+   * - You can specify the credential type by using `CredentialType`. The default value is STS_TOKEN.
+   * 
+   * @param request - CreateUploadMediaRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns CreateUploadMediaResponse
+   */
+  async createUploadMediaWithOptions(request: $_model.CreateUploadMediaRequest, runtime: $dara.RuntimeOptions): Promise<$_model.CreateUploadMediaResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.credentialType)) {
+      query["CredentialType"] = request.credentialType;
+    }
+
+    if (!$dara.isNull(request.entityId)) {
+      query["EntityId"] = request.entityId;
+    }
+
+    if (!$dara.isNull(request.fileInfo)) {
+      query["FileInfo"] = request.fileInfo;
+    }
+
+    if (!$dara.isNull(request.mediaId)) {
+      query["MediaId"] = request.mediaId;
+    }
+
+    if (!$dara.isNull(request.mediaMetaData)) {
+      query["MediaMetaData"] = request.mediaMetaData;
+    }
+
+    if (!$dara.isNull(request.overwrite)) {
+      query["Overwrite"] = request.overwrite;
+    }
+
+    if (!$dara.isNull(request.projectId)) {
+      query["ProjectId"] = request.projectId;
+    }
+
+    if (!$dara.isNull(request.storageLocation)) {
+      query["StorageLocation"] = request.storageLocation;
+    }
+
+    if (!$dara.isNull(request.userData)) {
+      query["UserData"] = request.userData;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "CreateUploadMedia",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.CreateUploadMediaResponse>(await this.callApi(params, req, runtime), new $_model.CreateUploadMediaResponse({}));
+  }
+
+  /**
+   * Creates or overwrites a media asset for upload and obtains upload credentials.
+   * 
+   * @remarks
+   * ## Request description
+   * - This operation supports two modes: creating a new media asset and overwriting an existing one.
+   * - When creating a new media asset, the `FileInfo` and `MediaMetaData` parameters are required.
+   * - When overwriting an existing media asset, you must set `Overwrite` to true and provide `MediaId`.
+   * - You can specify the credential type by using `CredentialType`. The default value is STS_TOKEN.
+   * 
+   * @param request - CreateUploadMediaRequest
+   * @returns CreateUploadMediaResponse
+   */
+  async createUploadMedia(request: $_model.CreateUploadMediaRequest): Promise<$_model.CreateUploadMediaResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.createUploadMediaWithOptions(request, runtime);
   }
 
   /**
@@ -1744,6 +1902,66 @@ export default class Client extends OpenApi {
   async listInfiniteCanvases(request: $_model.ListInfiniteCanvasesRequest): Promise<$_model.ListInfiniteCanvasesResponse> {
     let runtime = new $dara.RuntimeOptions({ });
     return await this.listInfiniteCanvasesWithOptions(request, runtime);
+  }
+
+  /**
+   * Queries a paginated list of media folders in a specified project.
+   * 
+   * @remarks
+   * ## Request description
+   * - This operation retrieves all media folders in a specified project (`ProductionId`). Pagination is supported by using the `PageNo` and `PageSize` parameters.
+   * - If `ProductionId` is not provided, the default project of the current account is used.
+   * 
+   * @param request - ListMediaFoldersRequest
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListMediaFoldersResponse
+   */
+  async listMediaFoldersWithOptions(request: $_model.ListMediaFoldersRequest, runtime: $dara.RuntimeOptions): Promise<$_model.ListMediaFoldersResponse> {
+    request.validate();
+    let query = { };
+    if (!$dara.isNull(request.pageNo)) {
+      query["PageNo"] = request.pageNo;
+    }
+
+    if (!$dara.isNull(request.pageSize)) {
+      query["PageSize"] = request.pageSize;
+    }
+
+    if (!$dara.isNull(request.productionId)) {
+      query["ProductionId"] = request.productionId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListMediaFolders",
+      version: "2026-07-07",
+      protocol: "HTTPS",
+      pathname: "/",
+      method: "POST",
+      authType: "AK",
+      style: "RPC",
+      reqBodyType: "formData",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListMediaFoldersResponse>(await this.callApi(params, req, runtime), new $_model.ListMediaFoldersResponse({}));
+  }
+
+  /**
+   * Queries a paginated list of media folders in a specified project.
+   * 
+   * @remarks
+   * ## Request description
+   * - This operation retrieves all media folders in a specified project (`ProductionId`). Pagination is supported by using the `PageNo` and `PageSize` parameters.
+   * - If `ProductionId` is not provided, the default project of the current account is used.
+   * 
+   * @param request - ListMediaFoldersRequest
+   * @returns ListMediaFoldersResponse
+   */
+  async listMediaFolders(request: $_model.ListMediaFoldersRequest): Promise<$_model.ListMediaFoldersResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    return await this.listMediaFoldersWithOptions(request, runtime);
   }
 
   /**
