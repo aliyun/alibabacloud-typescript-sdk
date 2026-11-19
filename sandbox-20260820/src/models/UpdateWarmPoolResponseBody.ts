@@ -6,7 +6,7 @@ import { PublicWarmPoolConfig } from "./PublicWarmPoolConfig";
 export class UpdateWarmPoolResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response business code.
+   * The business code in the response.
    * 
    * @example
    * 200

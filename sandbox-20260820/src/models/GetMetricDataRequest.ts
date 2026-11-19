@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetMetricDataRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time of the time series query. This time is excluded from the query range. Specify the UTC time accurate to seconds. The end time must be later than the start time. You can query metrics for a maximum of 7 days at a time. The time range must include at least one time point aligned with the period, and these time points cannot be later than the current time.
+   * The end time of the time series query. This time is exclusive. Specify a UTC time accurate to seconds. The end time must be later than the start time. You can query metrics for a maximum of 7 days at a time. The time range must include at least one time point aligned with the period, and these time points cannot be later than the current time.
    * 
    * @example
    * 2026-11-05T00:02:00Z
@@ -21,7 +21,7 @@ export class GetMetricDataRequest extends $dara.Model {
   groupBy?: string[];
   /**
    * @remarks
-   * The names of the metrics to query. You can query 1 to 16 different metrics at a time. For available metrics and query scopes, see the metric catalog.
+   * The names of the metrics to query. You can query 1 to 16 different metrics at a time. For available metrics and query scopes, refer to the metric catalog.
    * 
    * This parameter is required.
    * 
@@ -31,7 +31,7 @@ export class GetMetricDataRequest extends $dara.Model {
   metricNames?: string[];
   /**
    * @remarks
-   * The time interval for time series queries, in seconds. Valid values: 60, 300, 900, 1800, 3600, and 86400. A value of 60 corresponds to full minutes, and 86400 corresponds to midnight UTC every day. The calculation duration of some statistical metrics varies with the interval.
+   * The time interval for time series queries, in seconds. Valid values: 60, 300, 900, 1800, 3600, and 86400. A value of 60 corresponds to exact minutes, and 86400 corresponds to 00:00:00 UTC every day. The calculation duration of some statistical metrics varies with the interval.
    * 
    * This parameter is required.
    * 
@@ -49,7 +49,7 @@ export class GetMetricDataRequest extends $dara.Model {
   sandboxID?: string;
   /**
    * @remarks
-   * Queries the number of sandboxes by sandbox plan. This parameter applies only to sandboxCount. Valid values: eco, std, pro, and ent.
+   * Queries the number of sandboxes by sandbox plan. This parameter applies only to the sandboxCount metric. Valid values: eco, std, pro, and ent.
    * 
    * @example
    * pro
@@ -57,7 +57,7 @@ export class GetMetricDataRequest extends $dara.Model {
   sandboxPlan?: string;
   /**
    * @remarks
-   * The start time of the time series query. This time is included in the query range. Specify the UTC time accurate to seconds and also specify endTime.
+   * The start time of the time series query. This time is inclusive. Specify a UTC time accurate to seconds, and also specify the endTime parameter.
    * 
    * @example
    * 2026-11-05T00:00:00Z
@@ -81,7 +81,7 @@ export class GetMetricDataRequest extends $dara.Model {
   templateID?: string;
   /**
    * @remarks
-   * The specific point in time to query. If you query metrics at a specific point in time, specify only this parameter. Specify the current or past UTC time accurate to seconds. If you omit all time parameters, the metrics at the current time are queried.
+   * The specific point in time to query. If you query metrics at a specific point in time, specify only this parameter. Specify a current or past UTC time accurate to seconds. If you omit all time parameters, the metrics at the current time are queried.
    * 
    * @example
    * 2026-11-05T00:01:00Z

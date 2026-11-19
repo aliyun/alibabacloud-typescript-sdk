@@ -6,7 +6,7 @@ import { CustomDomainResp } from "./CustomDomainResp";
 export class ListCustomDomainsResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response code. A value of 200 indicates success.
+   * The response code. The value is 200 if the request is successful.
    * 
    * @example
    * 200
@@ -22,7 +22,7 @@ export class ListCustomDomainsResponseBody extends $dara.Model {
   customDomains?: CustomDomainResp[];
   /**
    * @remarks
-   * Indicates whether there is a next page.
+   * Indicates whether a next page is available.
    * 
    * @example
    * False
@@ -54,7 +54,7 @@ export class ListCustomDomainsResponseBody extends $dara.Model {
   nextOffset?: number;
   /**
    * @remarks
-   * The pagination token for the next page. This value is empty when no more results are available.
+   * The pagination token for the next page. This parameter is empty if no more results are available.
    * 
    * @example
    * cae5f900-8b1d-4c0e-9c2a-1a2b3c4d5e6f

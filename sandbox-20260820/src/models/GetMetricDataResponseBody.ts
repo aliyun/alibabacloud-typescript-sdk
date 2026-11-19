@@ -6,7 +6,7 @@ import { MetricData } from "./MetricData";
 export class GetMetricDataResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The status code. A value of 200 indicates success. If the request fails, the corresponding error code is returned.
+   * The response code. A value of 200 indicates success. If the request fails, the corresponding error code is returned.
    * 
    * @example
    * 200
@@ -14,7 +14,7 @@ export class GetMetricDataResponseBody extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The message returned for the request.
+   * The description of the request result.
    * 
    * @example
    * success

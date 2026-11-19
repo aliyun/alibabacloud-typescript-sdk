@@ -13,7 +13,7 @@ export class ListCustomDomainsRequest extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token for the next page.
+   * The pagination token for the next page, used for subsequent queries.
    * 
    * @example
    * example-token
