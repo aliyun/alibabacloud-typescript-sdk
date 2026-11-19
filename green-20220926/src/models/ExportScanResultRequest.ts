@@ -13,7 +13,7 @@ export class ExportScanResultRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end time of the query. Format: yyyy-MM-dd HH:mm:ss.
+   * The end time of the query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2024-03-11 10:00:00
@@ -30,6 +30,9 @@ export class ExportScanResultRequest extends $dara.Model {
   /**
    * @remarks
    * The query content.
+   * 
+   * @example
+   * {"RequestId":"D83A46FF-9EA6-1477-A0C3-C8FD57C6F572"}
    */
   query?: { [key: string]: string };
   /**
@@ -51,11 +54,14 @@ export class ExportScanResultRequest extends $dara.Model {
   /**
    * @remarks
    * The sort field.
+   * 
+   * @example
+   * {"RequestTime":"desc"}
    */
   sort?: { [key: string]: string };
   /**
    * @remarks
-   * The start time of the query. Format: yyyy-MM-dd HH:mm:ss.
+   * The start time of the query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2024-03-10 10:00:00

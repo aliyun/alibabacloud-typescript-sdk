@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * App ID。
+   * The application ID.
    * 
    * @example
    * txt_check_pro_agent_01
@@ -54,11 +54,14 @@ export class GetAppConfigResponseBody extends $dara.Model {
   /**
    * @remarks
    * The preset options.
+   * 
+   * @example
+   * {"models":["qwen3.7-plus","max3.7","deepseek-v4-pro","glm-5.1","glm-5.2"]}
    */
   option?: { [key: string]: any };
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. This ID can be used to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

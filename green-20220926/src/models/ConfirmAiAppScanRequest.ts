@@ -10,12 +10,12 @@ export class ConfirmAiAppScanRequest extends $dara.Model {
    * This parameter is required.
    * 
    * @example
-   * xxx
+   * lvwang_guardrail_public_cn
    */
   commodityCode?: string;
   /**
    * @remarks
-   * The ID of the region where the application resides.
+   * The ID of the region to which the application belongs.
    * 
    * @example
    * cn-shanghai

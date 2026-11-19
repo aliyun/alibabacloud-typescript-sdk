@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateAnswerLibRequest extends $dara.Model {
   /**
    * @remarks
-   * The name of the proxy answer library.
+   * The name of the fallback answer library.
    * 
    * @example
-   * 测试代答库
+   * Test fallback answer library
    */
   libName?: string;
   /**
@@ -21,7 +21,7 @@ export class CreateAnswerLibRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The name of the storage space.
+   * The name of the bucket.
    * 
    * @example
    * oss-cip-shanghai
@@ -29,7 +29,7 @@ export class CreateAnswerLibRequest extends $dara.Model {
   sampleBucket?: string;
   /**
    * @remarks
-   * The file name of the proxy answer sample to be added.
+   * The name of the file that contains the fallback answer samples to be added.
    * 
    * @example
    * data/xxx.xlsx
@@ -40,7 +40,7 @@ export class CreateAnswerLibRequest extends $dara.Model {
    * The samples to be added.
    * 
    * @example
-   * 代答答案1\\n代答答案2
+   * Fallback answer 1\\nFallback answer 2
    */
   samples?: string;
   static names(): { [key: string]: string } {

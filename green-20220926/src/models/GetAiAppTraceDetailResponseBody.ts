@@ -13,7 +13,7 @@ export class GetAiAppTraceDetailResponseBodyLabels extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The label name.
+   * The name of the label.
    * 
    * @example
    * porn
@@ -21,10 +21,10 @@ export class GetAiAppTraceDetailResponseBodyLabels extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * The label description.
+   * The description of the label.
    * 
    * @example
-   * xxx
+   * Politically sensitive content
    */
   labelDesc?: string;
   /**
@@ -68,7 +68,7 @@ export class GetAiAppTraceDetailResponseBody extends $dara.Model {
    * The AI analysis result.
    * 
    * @example
-   * xxxx
+   * This request triggered a politically sensitive content risk. The model confidence is high. Manual review is recommended
    */
   analysis?: string;
   /**
@@ -81,7 +81,7 @@ export class GetAiAppTraceDetailResponseBody extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The application name.
+   * The name of the application.
    * 
    * @example
    * appxxx
@@ -89,7 +89,7 @@ export class GetAiAppTraceDetailResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The application channel.
+   * The channel of the application.
    * 
    * @example
    * bailian
@@ -102,7 +102,7 @@ export class GetAiAppTraceDetailResponseBody extends $dara.Model {
   labels?: GetAiAppTraceDetailResponseBodyLabels[];
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
+   * The ID of the request.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -110,7 +110,7 @@ export class GetAiAppTraceDetailResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The trace ID, which is used to correlate and track alert events.
+   * The trace ID.
    * 
    * @example
    * 0abb7ee117615311812886711e0a15
@@ -118,7 +118,7 @@ export class GetAiAppTraceDetailResponseBody extends $dara.Model {
   traceId?: string;
   /**
    * @remarks
-   * The alert time. Format: YYYY-MM-DD HH:mm:ss.
+   * The time when the alert was triggered. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2026-01-01 16:08:38

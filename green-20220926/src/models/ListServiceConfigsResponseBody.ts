@@ -70,7 +70,7 @@ export class ListServiceConfigsResponseBodyDataCustomServiceConfRules extends $d
   imageScanRule?: ListServiceConfigsResponseBodyDataCustomServiceConfRulesImageScanRule;
   /**
    * @remarks
-   * The ordinal number.
+   * The sequence number.
    * 
    * @example
    * 1
@@ -128,12 +128,12 @@ export class ListServiceConfigsResponseBodyDataCustomServiceConf extends $dara.M
   imageService?: string[];
   /**
    * @remarks
-   * The ignored keyword library.
+   * The ignored keyword libraries.
    */
   keywordFilterLibs?: string[];
   /**
    * @remarks
-   * The hit keyword library.
+   * The matched keyword libraries.
    */
   keywordHitLibs?: string[];
   /**
@@ -143,7 +143,7 @@ export class ListServiceConfigsResponseBodyDataCustomServiceConf extends $dara.M
   rules?: ListServiceConfigsResponseBodyDataCustomServiceConfRules[];
   /**
    * @remarks
-   * The hit similar text library.
+   * The matched similar text libraries.
    */
   similarTextHitLibs?: string[];
   static names(): { [key: string]: string } {
@@ -195,7 +195,7 @@ export class ListServiceConfigsResponseBodyDataCustomServiceConf extends $dara.M
 export class ListServiceConfigsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The classification.
+   * The category.
    * 
    * @example
    * guard-scene
@@ -241,10 +241,8 @@ export class ListServiceConfigsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The scene type. Valid values:
-   * 
-   * - recommended_scene: recommended scenario.
-   * 
-   * - all_scene: all scenarios.
+   * - recommended_scene: recommended scene
+   * - all_scene: all scenes
    * 
    * @example
    * all_scene
@@ -263,7 +261,7 @@ export class ListServiceConfigsResponseBodyData extends $dara.Model {
    * The service description.
    * 
    * @example
-   * 服务描述
+   * Service description
    */
   serviceDesc?: string;
   /**
@@ -271,7 +269,7 @@ export class ListServiceConfigsResponseBodyData extends $dara.Model {
    * The service name.
    * 
    * @example
-   * 服务名称
+   * Service name
    */
   serviceName?: string;
   /**
@@ -284,7 +282,7 @@ export class ListServiceConfigsResponseBodyData extends $dara.Model {
   serviceType?: string;
   /**
    * @remarks
-   * UID。
+   * The user UID.
    * 
    * @example
    * 1674*****0071291
@@ -365,7 +363,7 @@ export class ListServiceConfigsResponseBody extends $dara.Model {
   data?: ListServiceConfigsResponseBodyData[];
   /**
    * @remarks
-   * The description of the error code.
+   * The detailed description of the error code.
    * 
    * @example
    * OK
@@ -373,7 +371,7 @@ export class ListServiceConfigsResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The request ID assigned by the backend, which uniquely identifies the request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -381,7 +379,7 @@ export class ListServiceConfigsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

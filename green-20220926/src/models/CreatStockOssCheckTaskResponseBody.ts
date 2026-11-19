@@ -13,7 +13,7 @@ export class CreatStockOssCheckTaskResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

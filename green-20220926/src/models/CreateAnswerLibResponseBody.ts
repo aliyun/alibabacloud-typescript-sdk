@@ -8,12 +8,12 @@ export class CreateAnswerLibResponseBodyResult extends $dara.Model {
    * The internationalization key.
    * 
    * @example
-   * xxx
+   * answer.lib.create.success
    */
   i18nKey?: string;
   /**
    * @remarks
-   * The list of invalid proxy answers.
+   * The list of invalid fallback answers.
    */
   illegalLengthSamples?: string[];
   /**
@@ -26,7 +26,7 @@ export class CreateAnswerLibResponseBodyResult extends $dara.Model {
   invalidCount?: number;
   /**
    * @remarks
-   * The ID of the proxy answer library.
+   * The ID of the fallback answer library.
    * 
    * @example
    * alxxxx
@@ -34,7 +34,7 @@ export class CreateAnswerLibResponseBodyResult extends $dara.Model {
   libId?: string;
   /**
    * @remarks
-   * The task progress percentage.
+   * The progress percentage of the task.
    * 
    * @example
    * 100
@@ -50,7 +50,7 @@ export class CreateAnswerLibResponseBodyResult extends $dara.Model {
   repeatCount?: number;
   /**
    * @remarks
-   * The list of duplicate proxy answers.
+   * The list of duplicate fallback answers.
    */
   repeatSamples?: string[];
   /**
@@ -125,7 +125,7 @@ export class CreateAnswerLibResponseBodyResult extends $dara.Model {
 export class CreateAnswerLibResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the proxy answer library.
+   * The ID of the fallback answer library.
    * 
    * @example
    * alxxxx
@@ -133,7 +133,7 @@ export class CreateAnswerLibResponseBody extends $dara.Model {
   libId?: string;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

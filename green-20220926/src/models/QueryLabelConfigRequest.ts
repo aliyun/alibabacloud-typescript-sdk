@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryLabelConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The classification. Separate multiple values with commas.
+   * The category. Separate multiple values with commas.
    * 
    * @example
    * guard-scene

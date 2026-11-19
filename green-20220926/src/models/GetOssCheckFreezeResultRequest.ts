@@ -13,7 +13,7 @@ export class GetOssCheckFreezeResultRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end time. Format: YYYY-MM-DD HH:mm:ss.
+   * The end time. Specify the time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-05-19 10:05:11
@@ -21,7 +21,7 @@ export class GetOssCheckFreezeResultRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The number of completed tasks.
+   * The number of completed items.
    * 
    * @example
    * 0
@@ -37,7 +37,7 @@ export class GetOssCheckFreezeResultRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query condition.
+   * The query conditions. Note: This parameter is actually required. You must provide a JSON string that contains the TaskId field, such as {"TaskId":"P_XXX"}. If this parameter is not provided, the API returns a 400 error (oss.check.task.not.exists).
    * 
    * @example
    * {\\"TaskId\\":\\"P_O3SI0I\\"}
@@ -54,11 +54,14 @@ export class GetOssCheckFreezeResultRequest extends $dara.Model {
   /**
    * @remarks
    * The sort field.
+   * 
+   * @example
+   * {"GmtCreate":"desc"}
    */
   sort?: { [key: string]: string };
   /**
    * @remarks
-   * The start time. Format: YYYY-MM-DD HH:mm:ss.
+   * The start time. Specify the time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-01-09 10:28:54

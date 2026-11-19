@@ -18,8 +18,10 @@ export { DescribeOssV2ResultResponseBodyItemsLabelDetails2 } from './DescribeOss
 export { DescribeOssV2ResultResponseBodyItems } from './DescribeOssV2resultResponseBody';
 export { GetAiAppDetailResponseBodyChartY } from './GetAiAppDetailResponseBody';
 export { GetAiAppDetailResponseBodyChart } from './GetAiAppDetailResponseBody';
+export { GetAiAppDetailResponseBodyProperty } from './GetAiAppDetailResponseBody';
 export { GetAiAppDetailResponseBodyRiskEventsLabels } from './GetAiAppDetailResponseBody';
 export { GetAiAppDetailResponseBodyRiskEvents } from './GetAiAppDetailResponseBody';
+export { GetAiAppDetailResponseBodyRiskStats } from './GetAiAppDetailResponseBody';
 export { GetAiAppDetailTopoRequestTimeQuery } from './GetAiAppDetailTopoRequest';
 export { GetAiAppDetailTopoResponseBodyData } from './GetAiAppDetailTopoResponseBody';
 export { GetAiAppNodeDetailResponseBodyEventDataLabels } from './GetAiAppNodeDetailResponseBody';
@@ -79,6 +81,7 @@ export { GetUserBuyStatusResponseBodyData } from './GetUserBuyStatusResponseBody
 export { InitAiAppScanResponseBodyAuthInfo } from './InitAiAppScanResponseBody';
 export { ListAiAppByPageResponseBodyItemsRiskEventsLabels } from './ListAiAppByPageResponseBody';
 export { ListAiAppByPageResponseBodyItemsRiskEvents } from './ListAiAppByPageResponseBody';
+export { ListAiAppByPageResponseBodyItemsRiskStats } from './ListAiAppByPageResponseBody';
 export { ListAiAppByPageResponseBodyItems } from './ListAiAppByPageResponseBody';
 export { ListAiAppRiskEventResponseBodyData } from './ListAiAppRiskEventResponseBody';
 export { ListAiAppRiskEventByPageResponseBodyItems } from './ListAiAppRiskEventByPageResponseBody';

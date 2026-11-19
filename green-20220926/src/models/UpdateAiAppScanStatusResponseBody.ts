@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAiAppScanStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of application IDs that failed.
+   * The list of failed application IDs.
    */
   failedAppIds?: string[];
   /**
@@ -19,12 +19,9 @@ export class UpdateAiAppScanStatusResponseBody extends $dara.Model {
   /**
    * @remarks
    * The status. Valid values:
-   * 
-   * - SUCCESS: Succeeded.
-   * 
-   * - PARTIAL_SUCCESS: Partially succeeded.
-   * 
-   * - FAILED: Failed.
+   * - SUCCESS: Success.
+   * - PARTIAL_SUCCESS: Partial success.
+   * - FAILED: Failure.
    * 
    * @example
    * Success
@@ -32,7 +29,7 @@ export class UpdateAiAppScanStatusResponseBody extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The list of application IDs that succeeded.
+   * The list of successful application IDs.
    */
   successAppIds?: string[];
   static names(): { [key: string]: string } {

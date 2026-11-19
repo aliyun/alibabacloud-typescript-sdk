@@ -54,6 +54,9 @@ export class ListImagesFromLibRequest extends $dara.Model {
   /**
    * @remarks
    * The sort field.
+   * 
+   * @example
+   * {"field":"GmtModified","order":"desc"}
    */
   sort?: { [key: string]: string };
   /**

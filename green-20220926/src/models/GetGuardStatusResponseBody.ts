@@ -7,7 +7,7 @@ export class GetGuardStatusResponseBodyLogScanStatus extends $dara.Model {
    * @remarks
    * The status. Valid values:
    * - enabled: Running.
-   * - disabled: Not accessed.
+   * - disabled: Not connected.
    * 
    * @example
    * enabled
@@ -49,7 +49,7 @@ export class GetGuardStatusResponseBodyProtectionStatus extends $dara.Model {
    * @remarks
    * The status. Valid values:
    * - enabled: Running.
-   * - disabled: Not accessed.
+   * - disabled: Not connected.
    * 
    * @example
    * enabled
@@ -91,7 +91,7 @@ export class GetGuardStatusResponseBodyRealTimeStatus extends $dara.Model {
    * @remarks
    * The status. Valid values:
    * - enabled: Running.
-   * - disabled: Not accessed.
+   * - disabled: Not connected.
    * 
    * @example
    * enabled
@@ -131,22 +131,22 @@ export class GetGuardStatusResponseBodyRealTimeStatus extends $dara.Model {
 export class GetGuardStatusResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The list of log scan statistics.
+   * The list of statistics related to log scanning.
    */
   logScanStatus?: GetGuardStatusResponseBodyLogScanStatus[];
   /**
    * @remarks
-   * The list of protection status statistics.
+   * The list of statistics related to protection status.
    */
   protectionStatus?: GetGuardStatusResponseBodyProtectionStatus[];
   /**
    * @remarks
-   * The list of real-time protection statistics.
+   * The list of statistics related to real-time protection.
    */
   realTimeStatus?: GetGuardStatusResponseBodyRealTimeStatus[];
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. This ID can be used to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

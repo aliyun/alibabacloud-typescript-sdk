@@ -15,7 +15,7 @@ export class ChartsValueY extends $dara.Model {
   name?: string;
   /**
    * @remarks
-   * The QPS at the point in time.
+   * The QPS at each time point.
    */
   data?: number[];
   static names(): { [key: string]: string } {

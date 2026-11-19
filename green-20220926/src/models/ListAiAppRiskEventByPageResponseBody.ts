@@ -21,7 +21,7 @@ export class ListAiAppRiskEventByPageResponseBodyItems extends $dara.Model {
   appName?: string;
   /**
    * @remarks
-   * The channel source.
+   * The source channel.
    * 
    * @example
    * bailian
@@ -29,7 +29,7 @@ export class ListAiAppRiskEventByPageResponseBodyItems extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The time when the event was resolved. Format: YYYY-MM-DD HH:mm:ss.
+   * The time when the event processing was completed. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-01-10 11:42:31
@@ -37,7 +37,7 @@ export class ListAiAppRiskEventByPageResponseBodyItems extends $dara.Model {
   endTime?: string;
   /**
    * @remarks
-   * The event code that identifies the type or category of the event.
+   * The code of the event, which identifies the type or category of the event.
    * 
    * @example
    * de_aamexg3015
@@ -45,23 +45,23 @@ export class ListAiAppRiskEventByPageResponseBodyItems extends $dara.Model {
   eventCode?: string;
   /**
    * @remarks
-   * The detailed description of the risk event.
+   * The description of the event, which details the content of the risk event.
    * 
    * @example
-   * xxx
+   * Sensitive information detected in model output
    */
   eventDesc?: string;
   /**
    * @remarks
-   * The detailed description of the risk event in English.
+   * The English description of the event, which details the content of the risk event.
    * 
    * @example
-   * xxx
+   * Sensitive information detected in model output
    */
   eventDescEn?: string;
   /**
    * @remarks
-   * The event ID that uniquely identifies a risk event.
+   * The ID of the event, which uniquely identifies a risk event.
    * 
    * @example
    * e-a7gvnv3vid536dfxj
@@ -69,7 +69,7 @@ export class ListAiAppRiskEventByPageResponseBodyItems extends $dara.Model {
   eventId?: string;
   /**
    * @remarks
-   * The name that briefly describes the risk event.
+   * The name of the event, which provides a brief description of the risk event.
    * 
    * @example
    * ALL
@@ -77,7 +77,7 @@ export class ListAiAppRiskEventByPageResponseBodyItems extends $dara.Model {
   eventName?: string;
   /**
    * @remarks
-   * The time when the event was handled. Format: YYYY-MM-DD HH:mm:ss.
+   * The time when the event was processed. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-01-10 11:42:31
@@ -85,7 +85,7 @@ export class ListAiAppRiskEventByPageResponseBodyItems extends $dara.Model {
   handleTime?: string;
   /**
    * @remarks
-   * The label used to tag or categorize the event.
+   * The label used to mark or classify the event.
    * 
    * @example
    * label-03
@@ -93,15 +93,15 @@ export class ListAiAppRiskEventByPageResponseBodyItems extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * The detailed description of the label.
+   * The description of the label, which provides detailed information about the label.
    * 
    * @example
-   * xxxx
+   * Sensitive data label
    */
   labelDesc?: string;
   /**
    * @remarks
-   * The risk level that indicates the severity of the event, such as high, medium, or low.
+   * The risk level, which indicates the severity of the event, such as high, medium, or low.
    * 
    * @example
    * normal
@@ -109,7 +109,7 @@ export class ListAiAppRiskEventByPageResponseBodyItems extends $dara.Model {
   level?: string;
   /**
    * @remarks
-   * The time when the event occurred. Format: YYYY-MM-DD HH:mm:ss.
+   * The time when the event started. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2025-12-21 15:30:19
@@ -117,7 +117,7 @@ export class ListAiAppRiskEventByPageResponseBodyItems extends $dara.Model {
   startTime?: string;
   /**
    * @remarks
-   * The event status that indicates the current processing state, such as pending or resolved.
+   * The status of the event, which indicates the processing status of the current event, such as pending or processed.
    * 
    * @example
    * resolved
@@ -125,7 +125,7 @@ export class ListAiAppRiskEventByPageResponseBodyItems extends $dara.Model {
   status?: string;
   /**
    * @remarks
-   * The event type that indicates the category of the risk event, such as security or performance.
+   * The event type, which indicates the category of the risk event, such as security or performance.
    * 
    * @example
    * 0
@@ -206,7 +206,7 @@ export class ListAiAppRiskEventByPageResponseBody extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The token for the next page. An empty value indicates that no more pages exist.
+   * The token for the next page. An empty value indicates that there are no more pages.
    * 
    * @example
    * 1a320d468c75e987f297484532c16e34d0ab6e7e43f8b73d
@@ -214,7 +214,7 @@ export class ListAiAppRiskEventByPageResponseBody extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10

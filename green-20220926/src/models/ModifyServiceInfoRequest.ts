@@ -32,7 +32,7 @@ export class ModifyServiceInfoRequest extends $dara.Model {
    * The service description.
    * 
    * @example
-   * 描述
+   * Description
    */
   serviceDesc?: string;
   /**
@@ -40,7 +40,7 @@ export class ModifyServiceInfoRequest extends $dara.Model {
    * The service name.
    * 
    * @example
-   * 通用基线检测
+   * General baseline check
    */
   serviceName?: string;
   static names(): { [key: string]: string } {

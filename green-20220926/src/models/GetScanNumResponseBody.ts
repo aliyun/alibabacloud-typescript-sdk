@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetScanNumResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The upper limit on the number.
+   * The upper limit.
    * 
    * @example
    * 10

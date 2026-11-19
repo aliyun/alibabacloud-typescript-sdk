@@ -13,10 +13,10 @@ export class CreateCallbackRequest extends $dara.Model {
   cryptType?: string;
   /**
    * @remarks
-   * The name of the scheme.
+   * The scheme name.
    * 
    * @example
-   * 消息通知1
+   * MessageNotification1
    */
   name?: string;
   /**
@@ -29,7 +29,7 @@ export class CreateCallbackRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The moderation result.
+   * The moderation results.
    * 
    * @example
    * all

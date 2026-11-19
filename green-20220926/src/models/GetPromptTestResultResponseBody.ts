@@ -8,7 +8,7 @@ export class GetPromptTestResultResponseBodyResultLabelDetails extends $dara.Mod
    * The label description.
    * 
    * @example
-   * 暴恐
+   * Terrorism
    */
   description?: string;
   /**
@@ -21,10 +21,10 @@ export class GetPromptTestResultResponseBodyResultLabelDetails extends $dara.Mod
   label?: string;
   /**
    * @remarks
-   * The reason why the model determined this risk level for the text.
+   * The reason why the model determines this risk level for the text.
    * 
    * @example
-   * 该文本涉及暴力恐怖信息
+   * The text contains violent and terrorist content
    */
   reason?: string;
   static names(): { [key: string]: string } {
@@ -58,7 +58,7 @@ export class GetPromptTestResultResponseBodyResult extends $dara.Model {
    * The content.
    * 
    * @example
-   * 测试文本
+   * Test text
    */
   content?: string;
   /**
@@ -68,7 +68,7 @@ export class GetPromptTestResultResponseBodyResult extends $dara.Model {
   labelDetails?: GetPromptTestResultResponseBodyResultLabelDetails[];
   /**
    * @remarks
-   * The risk level, which is returned based on the configured high and low risk scores. Valid values:
+   * The risk level. The value is returned based on the configured high and low risk scores. Valid values:
    * 
    * - high: High risk.
    * 
@@ -76,7 +76,7 @@ export class GetPromptTestResultResponseBodyResult extends $dara.Model {
    *  
    * - low: Low risk.
    * 
-   *  - none: No risk detected.
+   * - none: No risk detected.
    * 
    * @example
    * high

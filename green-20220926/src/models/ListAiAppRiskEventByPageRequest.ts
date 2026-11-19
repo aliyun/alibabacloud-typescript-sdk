@@ -29,7 +29,7 @@ export class ListAiAppRiskEventByPageRequest extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -37,7 +37,7 @@ export class ListAiAppRiskEventByPageRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query parameter.
+   * The query parameters.
    * 
    * @example
    * {\\"Lang\\":\\"zh\\"}

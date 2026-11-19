@@ -16,7 +16,7 @@ export class DescribeOssV2ResultResponseBodyItemsLabelDetails extends $dara.Mode
    * The label description.
    * 
    * @example
-   * Political sensitivity
+   * Political content
    */
   description?: string;
   /**
@@ -66,7 +66,7 @@ export class DescribeOssV2ResultResponseBodyItemsLabelDetails2 extends $dara.Mod
    * The label description.
    * 
    * @example
-   * Political sensitivity
+   * Political content
    */
   description?: string;
   /**
@@ -105,7 +105,7 @@ export class DescribeOssV2ResultResponseBodyItemsLabelDetails2 extends $dara.Mod
 export class DescribeOssV2ResultResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket.
+   * The bucket.
    * 
    * @example
    * buckect_test
@@ -121,7 +121,7 @@ export class DescribeOssV2ResultResponseBodyItems extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The moderation modality type.
+   * The detection modality type.
    * 
    * @example
    * image
@@ -129,7 +129,7 @@ export class DescribeOssV2ResultResponseBodyItems extends $dara.Model {
   contentType?: string;
   /**
    * @remarks
-   * Indicates whether automatic freezing is configured.
+   * Specifies whether automatic freezing is configured.
    * 
    * @example
    * true
@@ -153,12 +153,12 @@ export class DescribeOssV2ResultResponseBodyItems extends $dara.Model {
   freezeType?: string;
   /**
    * @remarks
-   * The label details, corresponding to labels.
+   * The label details, which correspond to labels.
    */
   labelDetails?: DescribeOssV2ResultResponseBodyItemsLabelDetails[];
   /**
    * @remarks
-   * The details of labels2, corresponding to labels2.
+   * The label 2 details, which correspond to labels2.
    */
   labelDetails2?: DescribeOssV2ResultResponseBodyItemsLabelDetails2[];
   /**
@@ -173,7 +173,7 @@ export class DescribeOssV2ResultResponseBodyItems extends $dara.Model {
   labels2?: string[];
   /**
    * @remarks
-   * The manual disposition status.
+   * The manual handling status.
    * 
    * @example
    * FREEZE
@@ -181,7 +181,7 @@ export class DescribeOssV2ResultResponseBodyItems extends $dara.Model {
   manualFreezeAction?: string;
   /**
    * @remarks
-   * The disposition time. Format: yyyy-MM-dd HH:mm:ss.
+   * The handling time. Format: yyyy-MM-dd HH:mm:ss.
    * 
    * @example
    * 2025-08-09 12:00:00
@@ -189,10 +189,10 @@ export class DescribeOssV2ResultResponseBodyItems extends $dara.Model {
   manualOperateTime?: string;
   /**
    * @remarks
-   * The operator who performed the disposition.
+   * The operator.
    * 
    * @example
-   * xx
+   * Sample reviewer
    */
   manualOperator?: string;
   /**
@@ -237,7 +237,7 @@ export class DescribeOssV2ResultResponseBodyItems extends $dara.Model {
   riskLevel0?: string;
   /**
    * @remarks
-   * The audio or text risk level.
+   * The audio and text risk levels.
    * 
    * @example
    * none
@@ -253,7 +253,7 @@ export class DescribeOssV2ResultResponseBodyItems extends $dara.Model {
   scanResult?: string;
   /**
    * @remarks
-   * Service code。
+   * The service code.
    * 
    * @example
    * baselineCheck
@@ -261,7 +261,7 @@ export class DescribeOssV2ResultResponseBodyItems extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * The automatic freeze operation performed by the system.
+   * The automatic system freeze operation.
    * 
    * @example
    * COPY
@@ -378,7 +378,7 @@ export class DescribeOssV2ResultResponseBody extends $dara.Model {
   items?: DescribeOssV2ResultResponseBodyItems[];
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -386,7 +386,7 @@ export class DescribeOssV2ResultResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

@@ -8,7 +8,7 @@ export class UpdateImageLibFreeInspectionRequest extends $dara.Model {
    * The configuration.
    * 
    * @example
-   * {\\"2833014490001\\":0}
+   * {"2833014490001":0}
    */
   config?: { [key: string]: number };
   /**
@@ -21,7 +21,7 @@ export class UpdateImageLibFreeInspectionRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The selected service identifier.
+   * The identifier of the selected service.
    * 
    * @example
    * response_security_check

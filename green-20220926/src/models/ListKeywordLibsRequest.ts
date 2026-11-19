@@ -13,9 +13,16 @@ export class ListKeywordLibsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The library code.
+   * The service code. If specified, the PreprocessList for each library under this service dimension is returned.
    * 
-   * - desensitize: desensitization library.
+   * @example
+   * ugc_moderation_byllm_pro
+   */
+  serviceCode?: string;
+  /**
+   * @remarks
+   * The library code.
+   * - desensitize: Desensitization library
    * 
    * @example
    * desensitize
@@ -24,6 +31,7 @@ export class ListKeywordLibsRequest extends $dara.Model {
   static names(): { [key: string]: string } {
     return {
       regionId: 'RegionId',
+      serviceCode: 'ServiceCode',
       tenantCode: 'TenantCode',
     };
   }
@@ -31,6 +39,7 @@ export class ListKeywordLibsRequest extends $dara.Model {
   static types(): { [key: string]: any } {
     return {
       regionId: 'string',
+      serviceCode: 'string',
       tenantCode: 'string',
     };
   }

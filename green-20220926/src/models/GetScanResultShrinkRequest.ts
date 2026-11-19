@@ -13,7 +13,7 @@ export class GetScanResultShrinkRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end time. Format: YYYY-MM-DD HH:mm:ss.
+   * The end time. Specify the time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-08-24 10:01:55
@@ -29,7 +29,10 @@ export class GetScanResultShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The search condition.
+   * The search conditions.
+   * 
+   * @example
+   * {"RequestId":"1E4A2F01-2B3C-4D5E-6F70-8192A3B4C5D6"}
    */
   queryShrink?: string;
   /**
@@ -42,7 +45,7 @@ export class GetScanResultShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource type.
+   * The resource type. Note: This parameter is required. If it is not specified, the API returns ScanResultQueryFailed (HTTP 400). Valid value: image.
    * 
    * @example
    * image
@@ -51,11 +54,14 @@ export class GetScanResultShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The sort field.
+   * 
+   * @example
+   * {"RequestTime":"desc"}
    */
   sortShrink?: string;
   /**
    * @remarks
-   * The start time. Format: YYYY-MM-DD HH:mm:ss.
+   * The start time. Specify the time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2023-08-11 09:00:19

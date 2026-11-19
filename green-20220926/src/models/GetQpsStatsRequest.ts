@@ -5,9 +5,8 @@ import * as $dara from '@darabonba/typescript';
 export class GetQpsStatsRequest extends $dara.Model {
   /**
    * @remarks
-   * The query condition. The value is a string in JSON format.
-   * 
-   * >Different query conditions return different protected objects. For more information, see **Query parameter description**.
+   * The query conditions in JSON format.
+   * > The protected objects returned vary based on the query conditions. For more information, see **Query parameter description**.
    * 
    * @example
    * {}

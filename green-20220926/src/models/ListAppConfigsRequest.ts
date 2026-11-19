@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * The classification.
+   * The category.
    * 
    * @example
    * guard-scene
@@ -21,7 +21,7 @@ export class ListAppConfigsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource type.
+   * The resource type. Note: This parameter is actually required. If it is not provided, the API returns a 400 error (Code: 400, Message: resourceType may not be empty). Valid values: agent_text | agent_text_image | agent_image.
    * 
    * @example
    * agent_text

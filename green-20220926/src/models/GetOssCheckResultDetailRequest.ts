@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetOssCheckResultDetailRequest extends $dara.Model {
   /**
    * @remarks
-   * The storage bucket.
+   * The bucket. Note: This parameter is actually required. If it is not provided, the API returns a 400 error.
    * 
    * @example
    * oss-tmp
@@ -13,7 +13,7 @@ export class GetOssCheckResultDetailRequest extends $dara.Model {
   bucket?: string;
   /**
    * @remarks
-   * The media asset type.
+   * The media asset type. Note: This parameter is actually required. If it is not provided, the API returns a 400 error.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class GetOssCheckResultDetailRequest extends $dara.Model {
   mediaType?: number;
   /**
    * @remarks
-   * The object name.
+   * The object name. Note: This parameter is actually required. If it is not provided, the API returns a 400 error.
    * 
    * @example
    * 1748396909030.jpg
@@ -37,7 +37,7 @@ export class GetOssCheckResultDetailRequest extends $dara.Model {
   parentTaskId?: string;
   /**
    * @remarks
-   * The request ID of the query.
+   * The request ID of the query. Note: This parameter is actually required. If it is not provided, the API returns a 400 error.
    * 
    * @example
    * 62E97001-1255-50A9-8E1E-4FD05473D952
@@ -53,7 +53,7 @@ export class GetOssCheckResultDetailRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The service code.
+   * The service code. Note: This parameter is actually required. If it is not provided, the API returns a 400 error.
    * 
    * @example
    * audio_media_detection_01

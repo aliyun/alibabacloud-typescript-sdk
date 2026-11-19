@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAppAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * Agent ID。
+   * The agent ID, which is the unique identifier of the agent and is returned in the response of the AddAppAgent operation.
    * 
    * @example
    * ag.abcxxx
@@ -13,15 +13,15 @@ export class ModifyAppAgentRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * The agent name.
+   * The name of the agent.
    * 
    * @example
-   * Agent1
+   * Agent 1
    */
   agentName?: string;
   /**
    * @remarks
-   * App ID。
+   * The app ID, which is the unique identifier of the application and is returned in the response of the AddAppConfig operation. Note: This parameter is actually required. If it is not provided, the API returns a 400 error with the message "appId may not be empty".
    * 
    * @example
    * txt_check_agent_01
@@ -32,7 +32,7 @@ export class ModifyAppAgentRequest extends $dara.Model {
    * The configuration details.
    * 
    * @example
-   * {"model":"default","scene":"0swLgojx","labelConfig":[{"label":"Abuse","labelDefinition":"Text content in the reviewed text that contains abusive language"}]}
+   * {"model":"default","scene":"0swLgojx","labelConfig":[{"label":"Abuse","labelDefinition":"The moderated text contains abusive content."}]}
    */
   config?: string;
   /**
@@ -55,7 +55,7 @@ export class ModifyAppAgentRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource type.
+   * The resource type. Note: This parameter is actually required. If it is not provided, the API returns a 400 error with the message "resourceType may not be empty".
    * 
    * @example
    * agent_text

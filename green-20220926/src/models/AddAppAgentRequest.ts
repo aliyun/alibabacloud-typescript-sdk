@@ -16,12 +16,12 @@ export class AddAppAgentRequest extends $dara.Model {
    * The agent name.
    * 
    * @example
-   * Agent1
+   * Agent 1
    */
   agentName?: string;
   /**
    * @remarks
-   * App ID。
+   * The app ID.
    * 
    * @example
    * txt_check_agent_01
@@ -30,7 +30,6 @@ export class AddAppAgentRequest extends $dara.Model {
   /**
    * @remarks
    * Specifies whether to enable the agent. Valid values:
-   * 
    * - **true**: Enabled.
    * - **false**: Disabled.
    * 

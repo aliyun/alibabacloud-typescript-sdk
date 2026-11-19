@@ -8,17 +8,17 @@ export class GetAnswerImportProgressResponseBody extends $dara.Model {
    * The internationalization key.
    * 
    * @example
-   * xxx
+   * common.success
    */
   i18nKey?: string;
   /**
    * @remarks
-   * The list of invalid proxy answers.
+   * The list of invalid fallback answers.
    */
   illegalLengthSamples?: string[];
   /**
    * @remarks
-   * The number of invalid entries.
+   * The invalid count.
    * 
    * @example
    * 1
@@ -26,7 +26,7 @@ export class GetAnswerImportProgressResponseBody extends $dara.Model {
   invalidCount?: number;
   /**
    * @remarks
-   * The proxy answer library ID.
+   * The fallback answer library ID.
    * 
    * @example
    * alxxxx
@@ -42,7 +42,7 @@ export class GetAnswerImportProgressResponseBody extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * The number of duplicate entries.
+   * The duplicate count.
    * 
    * @example
    * 1
@@ -50,12 +50,12 @@ export class GetAnswerImportProgressResponseBody extends $dara.Model {
   repeatCount?: number;
   /**
    * @remarks
-   * The list of duplicate proxy answers.
+   * The list of duplicate fallback answers.
    */
   repeatSamples?: string[];
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. This ID can be used for troubleshooting.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -63,7 +63,7 @@ export class GetAnswerImportProgressResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The number of successful imports.
+   * The success count.
    * 
    * @example
    * 8
@@ -82,7 +82,7 @@ export class GetAnswerImportProgressResponseBody extends $dara.Model {
    * The prompt message.
    * 
    * @example
-   * xxxxx
+   * A total of 10 fallback answers were imported: 8 successful, 1 duplicate, and 1 invalid
    */
   tips?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateImageLibFreeInspectionResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The error code, which is the same as the HTTP status code.
+   * The error code, which is consistent with the HTTP status code.
    * 
    * @example
    * 200
@@ -45,7 +45,7 @@ export class UpdateImageLibFreeInspectionResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The success flag.
    * 
    * @example
    * True

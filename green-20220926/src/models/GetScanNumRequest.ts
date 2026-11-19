@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetScanNumRequest extends $dara.Model {
   /**
    * @remarks
-   * The storage space.
+   * The buckets. Note: This parameter is required. If it is not provided, the service returns a 400 error.
    * 
    * @example
    * tmpsample

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DeleteAppAgentRequest extends $dara.Model {
   /**
    * @remarks
-   * Agent ID。
+   * The agent ID.
    * 
    * @example
    * ag.abcxxx
@@ -13,7 +13,7 @@ export class DeleteAppAgentRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * App ID。
+   * The app ID.
    * 
    * @example
    * txt_check_agent_01

@@ -34,7 +34,7 @@ export class GetFeatureConfigResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * UID。
+   * The user UID.
    * 
    * @example
    * 1643953****74290
@@ -96,7 +96,7 @@ export class GetFeatureConfigResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message for this request.
+   * The response message for the request.
    * 
    * @example
    * success
@@ -104,7 +104,7 @@ export class GetFeatureConfigResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -112,7 +112,7 @@ export class GetFeatureConfigResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * true

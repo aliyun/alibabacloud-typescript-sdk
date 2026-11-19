@@ -45,12 +45,12 @@ export class GetAiAppDetailResponseBodyChartY extends $dara.Model {
 export class GetAiAppDetailResponseBodyChart extends $dara.Model {
   /**
    * @remarks
-   * The X value of the coordinate point.
+   * The X-coordinate of the data point.
    */
   x?: string[];
   /**
    * @remarks
-   * The Y value of the coordinate point.
+   * The Y-coordinate of the data point.
    */
   y?: GetAiAppDetailResponseBodyChartY[];
   static names(): { [key: string]: string } {
@@ -82,6 +82,66 @@ export class GetAiAppDetailResponseBodyChart extends $dara.Model {
   }
 }
 
+export class GetAiAppDetailResponseBodyProperty extends $dara.Model {
+  /**
+   * @remarks
+   * The email address.
+   * 
+   * @example
+   * xx@qoder.alibaba-inc.com
+   */
+  email?: string;
+  /**
+   * @remarks
+   * The hostname.
+   * 
+   * @example
+   * xx.local
+   */
+  hostname?: string;
+  /**
+   * @remarks
+   * The IP address.
+   * 
+   * @example
+   * 1.xx.xx
+   */
+  ip?: string;
+  /**
+   * @remarks
+   * The MAC address.
+   * 
+   * @example
+   * xx.xx.xx
+   */
+  mac?: string;
+  static names(): { [key: string]: string } {
+    return {
+      email: 'Email',
+      hostname: 'Hostname',
+      ip: 'Ip',
+      mac: 'Mac',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      email: 'string',
+      hostname: 'string',
+      ip: 'string',
+      mac: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAiAppDetailResponseBodyRiskEventsLabels extends $dara.Model {
   /**
    * @remarks
@@ -96,7 +156,7 @@ export class GetAiAppDetailResponseBodyRiskEventsLabels extends $dara.Model {
    * The label description.
    * 
    * @example
-   * xxx
+   * The output content contains insulting or discriminatory remarks
    */
   labelDesc?: string;
   /**
@@ -135,7 +195,7 @@ export class GetAiAppDetailResponseBodyRiskEventsLabels extends $dara.Model {
 export class GetAiAppDetailResponseBodyRiskEvents extends $dara.Model {
   /**
    * @remarks
-   * The risk event code.
+   * The code of the risk event.
    * 
    * @example
    * hit_xxx
@@ -156,17 +216,17 @@ export class GetAiAppDetailResponseBodyRiskEvents extends $dara.Model {
   eventIds?: string[];
   /**
    * @remarks
-   * The risk event name.
+   * The name of the risk event.
    * 
    * @example
-   * xxx
+   * Insults and personal attacks
    */
   eventName?: string;
   /**
    * @remarks
    * The event status. Valid values:
-   * - **unhandled**: Not handled.
-   * - **resolved**: Handled.
+   * - **unhandled**: unhandled
+   * - **resolved**: resolved
    * 
    * @example
    * resolved
@@ -214,10 +274,60 @@ export class GetAiAppDetailResponseBodyRiskEvents extends $dara.Model {
   }
 }
 
+export class GetAiAppDetailResponseBodyRiskStats extends $dara.Model {
+  /**
+   * @remarks
+   * The number of requests.
+   * 
+   * @example
+   * 10
+   */
+  requestCount?: number;
+  /**
+   * @remarks
+   * The number of risks.
+   * 
+   * @example
+   * 1
+   */
+  riskCount?: number;
+  /**
+   * @remarks
+   * The risk statistics type.
+   * 
+   * @example
+   * content_moderation
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestCount: 'RequestCount',
+      riskCount: 'RiskCount',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestCount: 'number',
+      riskCount: 'number',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class GetAiAppDetailResponseBody extends $dara.Model {
   /**
    * @remarks
-   * appId。
+   * The AI application ID.
    * 
    * @example
    * id-xxx
@@ -225,7 +335,7 @@ export class GetAiAppDetailResponseBody extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The application name.
+   * The name of the application.
    * 
    * @example
    * app-xxx
@@ -233,9 +343,22 @@ export class GetAiAppDetailResponseBody extends $dara.Model {
   appName?: string;
   /**
    * @remarks
+   * The channel information.
+   * 
+   * @example
+   * qoder
+   */
+  channel?: string;
+  /**
+   * @remarks
    * The chart.
    */
   chart?: GetAiAppDetailResponseBodyChart;
+  /**
+   * @remarks
+   * The properties.
+   */
+  property?: GetAiAppDetailResponseBodyProperty;
   /**
    * @remarks
    * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
@@ -251,6 +374,11 @@ export class GetAiAppDetailResponseBody extends $dara.Model {
   riskEvents?: GetAiAppDetailResponseBodyRiskEvents[];
   /**
    * @remarks
+   * The risk statistics information.
+   */
+  riskStats?: GetAiAppDetailResponseBodyRiskStats[];
+  /**
+   * @remarks
    * The score.
    * 
    * @example
@@ -259,7 +387,7 @@ export class GetAiAppDetailResponseBody extends $dara.Model {
   score?: number;
   /**
    * @remarks
-   * UID。
+   * The UID of the user.
    * 
    * @example
    * 17726*****370735
@@ -269,9 +397,12 @@ export class GetAiAppDetailResponseBody extends $dara.Model {
     return {
       appId: 'AppId',
       appName: 'AppName',
+      channel: 'Channel',
       chart: 'Chart',
+      property: 'Property',
       requestId: 'RequestId',
       riskEvents: 'RiskEvents',
+      riskStats: 'RiskStats',
       score: 'Score',
       uid: 'Uid',
     };
@@ -281,9 +412,12 @@ export class GetAiAppDetailResponseBody extends $dara.Model {
     return {
       appId: 'string',
       appName: 'string',
+      channel: 'string',
       chart: GetAiAppDetailResponseBodyChart,
+      property: GetAiAppDetailResponseBodyProperty,
       requestId: 'string',
       riskEvents: { 'type': 'array', 'itemType': GetAiAppDetailResponseBodyRiskEvents },
+      riskStats: { 'type': 'array', 'itemType': GetAiAppDetailResponseBodyRiskStats },
       score: 'number',
       uid: 'string',
     };
@@ -293,8 +427,14 @@ export class GetAiAppDetailResponseBody extends $dara.Model {
     if(this.chart && typeof (this.chart as any).validate === 'function') {
       (this.chart as any).validate();
     }
+    if(this.property && typeof (this.property as any).validate === 'function') {
+      (this.property as any).validate();
+    }
     if(Array.isArray(this.riskEvents)) {
       $dara.Model.validateArray(this.riskEvents);
+    }
+    if(Array.isArray(this.riskStats)) {
+      $dara.Model.validateArray(this.riskStats);
     }
     super.validate();
   }

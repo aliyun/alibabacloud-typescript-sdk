@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateOssCheckResultsUnfreezeRequest extends $dara.Model {
   /**
    * @remarks
-   * The end time. Format: YYYY-MM-DD HH:mm:ss.
+   * The end time. The format is YYYY-MM-DD HH:mm:ss. Note: This parameter is actually required. If it is not provided, the service returns a 400 error.
    * 
    * @example
    * 2023-10-21 16:08:38
@@ -13,7 +13,7 @@ export class UpdateOssCheckResultsUnfreezeRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The frozen items.
+   * The freeze items. Note: This parameter is actually required. If it is not provided, the service returns a 400 error.
    * 
    * @example
    * []
@@ -29,7 +29,7 @@ export class UpdateOssCheckResultsUnfreezeRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start time. Format: YYYY-MM-DD HH:mm:ss.
+   * The start time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-08-21 16:08:38
@@ -37,7 +37,7 @@ export class UpdateOssCheckResultsUnfreezeRequest extends $dara.Model {
   startDate?: string;
   /**
    * @remarks
-   * The task ID.
+   * The task ID. Note: This parameter is actually required. If it is not provided, the service returns a 400 error.
    * 
    * @example
    * P_B6YRVD

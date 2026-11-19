@@ -22,7 +22,7 @@ export class InitAiAppScanResponseBodyAuthInfo extends $dara.Model {
   privateDomain?: string;
   /**
    * @remarks
-   * The project space.
+   * The project workspace.
    * 
    * @example
    * proj-xxx
@@ -66,7 +66,7 @@ export class InitAiAppScanResponseBodyAuthInfo extends $dara.Model {
 export class InitAiAppScanResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The access entry information.
+   * The access endpoint information.
    */
   authInfo?: InitAiAppScanResponseBodyAuthInfo;
   /**
@@ -100,7 +100,7 @@ export class InitAiAppScanResponseBody extends $dara.Model {
   readyStatus?: string;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. You can use this ID for troubleshooting.
+   * The ID assigned by the backend to uniquely identify a request. You can use it to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

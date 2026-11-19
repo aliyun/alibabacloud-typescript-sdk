@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppConfigsResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * App ID。
+   * The application ID.
    * 
    * @example
    * txt_check_pro_agent_01
@@ -13,7 +13,7 @@ export class ListAppConfigsResponseBodyData extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The classification.
+   * The category.
    * 
    * @example
    * guard-scene
@@ -29,7 +29,7 @@ export class ListAppConfigsResponseBodyData extends $dara.Model {
   customConfig?: { [key: string]: any };
   /**
    * @remarks
-   * The sort number.
+   * The sort order.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ListAppConfigsResponseBodyData extends $dara.Model {
   deployStatus?: string;
   /**
    * @remarks
-   * The last modified time.
+   * The last modification time.
    * 
    * @example
    * 2026-06-15 10:17:49
@@ -62,6 +62,9 @@ export class ListAppConfigsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The preset options.
+   * 
+   * @example
+   * {"models":["qwen3.7-plus","max3.7","deepseek-v4-pro","glm-5.1","glm-5.2"]}
    */
   option?: { [key: string]: any };
   /**

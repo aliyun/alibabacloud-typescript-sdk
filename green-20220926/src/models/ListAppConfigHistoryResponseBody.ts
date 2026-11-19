@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAppConfigHistoryResponseBodyHistory extends $dara.Model {
   /**
    * @remarks
-   * App ID。
+   * The app ID.
    * 
    * @example
    * txt_check_agent_01
@@ -13,7 +13,7 @@ export class ListAppConfigHistoryResponseBodyHistory extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * **[Deprecated]** The categorization.
+   * **[Deprecated]** The category.
    * 
    * @example
    * guard-scene
@@ -128,7 +128,7 @@ export class ListAppConfigHistoryResponseBodyHistory extends $dara.Model {
 export class ListAppConfigHistoryResponseBodyPublish extends $dara.Model {
   /**
    * @remarks
-   * App ID。
+   * The app ID.
    * 
    * @example
    * txt_check_agent_01
@@ -136,7 +136,7 @@ export class ListAppConfigHistoryResponseBodyPublish extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * **[Deprecated]** The categorization.
+   * **[Deprecated]** The category.
    * 
    * @example
    * guard-scene
@@ -261,7 +261,7 @@ export class ListAppConfigHistoryResponseBody extends $dara.Model {
   publish?: ListAppConfigHistoryResponseBodyPublish[];
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. It can be used to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

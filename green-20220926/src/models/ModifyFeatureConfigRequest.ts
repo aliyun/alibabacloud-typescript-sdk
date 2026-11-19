@@ -13,18 +13,18 @@ export class ModifyFeatureConfigRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The description of the label.
+   * The tag description.
    * 
    * @example
-   * 标签2
+   * Tag 2
    */
   description?: string;
   /**
    * @remarks
-   * The label value. This value is user-defined.
+   * The custom tag value. Valid values for Field must be obtained by calling the GetFeatureConfig API, such as labels and __option__.
    * 
    * @example
-   * __config__
+   * labels
    */
   field?: string;
   /**
@@ -53,7 +53,7 @@ export class ModifyFeatureConfigRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * The type.
+   * The type. This parameter is actually required. If it is not provided, the API returns the error \\"type may not be empty\\".
    * 
    * @example
    * custom_llm_template

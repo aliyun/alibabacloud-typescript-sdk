@@ -54,6 +54,9 @@ export class ListImagesFromLibShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The sort field.
+   * 
+   * @example
+   * {"field":"GmtModified","order":"desc"}
    */
   sortShrink?: string;
   /**

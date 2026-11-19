@@ -6,11 +6,14 @@ export class CreatePreCheckResponseBody extends $dara.Model {
   /**
    * @remarks
    * The returned data.
+   * 
+   * @example
+   * {"BucketExisted":true,"OssServiceOpened":true,"RamGranted":true}
    */
   data?: { [key: string]: boolean };
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

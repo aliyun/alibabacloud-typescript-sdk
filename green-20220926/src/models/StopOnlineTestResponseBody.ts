@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopOnlineTestResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. It can be used to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

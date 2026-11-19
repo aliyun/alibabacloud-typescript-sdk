@@ -33,7 +33,7 @@ export class ListAiAppWarningByPageRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query condition. This parameter is required.
+   * The query conditions. This parameter is required.
    * 
    * This parameter is required.
    * 

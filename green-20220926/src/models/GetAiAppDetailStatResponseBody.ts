@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAiAppDetailStatResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The ID of the application.
    * 
    * @example
    * id-xxx
@@ -13,7 +13,7 @@ export class GetAiAppDetailStatResponseBody extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The average duration of model calls.
+   * The average duration of model invocations.
    * 
    * @example
    * 2.55
@@ -21,7 +21,7 @@ export class GetAiAppDetailStatResponseBody extends $dara.Model {
   avgModelDuration?: number;
   /**
    * @remarks
-   * The day-over-day change ratio of average model call duration.
+   * The day-over-day comparison of the average duration of model invocations.
    * 
    * @example
    * 0.05
@@ -29,7 +29,7 @@ export class GetAiAppDetailStatResponseBody extends $dara.Model {
   avgModelDurationDau?: number;
   /**
    * @remarks
-   * The number of model calls.
+   * The number of model invocations.
    * 
    * @example
    * 15
@@ -37,7 +37,7 @@ export class GetAiAppDetailStatResponseBody extends $dara.Model {
   modelCount?: number;
   /**
    * @remarks
-   * The day-over-day change ratio of model call count.
+   * The day-over-day comparison of the number of model invocations.
    * 
    * @example
    * 0.15
@@ -45,7 +45,7 @@ export class GetAiAppDetailStatResponseBody extends $dara.Model {
   modelCountDau?: number;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
+   * The request ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -69,7 +69,7 @@ export class GetAiAppDetailStatResponseBody extends $dara.Model {
   tokenCount?: number;
   /**
    * @remarks
-   * The day-over-day change ratio of token consumption count.
+   * The day-over-day comparison of the number of tokens consumed.
    * 
    * @example
    * -0.15

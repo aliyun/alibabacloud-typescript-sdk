@@ -54,6 +54,9 @@ export class GetStockOssCheckTasksListShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The sort field.
+   * 
+   * @example
+   * {"StartTime":"desc"}
    */
   sortShrink?: string;
   /**

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAppInfoRequest extends $dara.Model {
   /**
    * @remarks
-   * App ID。
+   * The app ID. Note: This parameter is actually required. If it is not provided, the service returns a 400 error (appId may not be empty).
    * 
    * @example
    * txt_check_agent_01
@@ -13,7 +13,7 @@ export class ModifyAppInfoRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The sort number.
+   * The custom order number.
    * 
    * @example
    * 1
@@ -21,7 +21,7 @@ export class ModifyAppInfoRequest extends $dara.Model {
   customOrderNum?: number;
   /**
    * @remarks
-   * The app name.
+   * The name of the app.
    * 
    * @example
    * Custom text moderation
@@ -37,7 +37,7 @@ export class ModifyAppInfoRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource type.
+   * The resource type. Note: This parameter is actually required. If it is not provided, the service returns a 400 error (resourceType may not be empty).
    * 
    * @example
    * agent_text

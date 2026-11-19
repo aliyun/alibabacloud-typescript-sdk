@@ -13,7 +13,7 @@ export class CreateAppConfigResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. It can be used for troubleshooting.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

@@ -21,7 +21,7 @@ export class ListOssCheckResultShrinkRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The number of completed tasks.
+   * The number of completed items.
    * 
    * @example
    * 2
@@ -37,7 +37,7 @@ export class ListOssCheckResultShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The search condition.
+   * The search conditions. This parameter is required. You must pass a JSON string that contains a valid TaskId, such as {"TaskId":"P_11TL5T"}. You can obtain the TaskId by calling the GetStockOssCheckTasksList operation. If this parameter is not provided, the API returns a 400 error with the error code oss.check.task.not.exists.
    * 
    * @example
    * {"TaskId":"P_11TL5T"}
@@ -54,6 +54,9 @@ export class ListOssCheckResultShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The sort field.
+   * 
+   * @example
+   * {"StartTime":"desc"}
    */
   sortShrink?: string;
   /**

@@ -54,6 +54,9 @@ export class GetStockOssCheckTasksListRequest extends $dara.Model {
   /**
    * @remarks
    * The sort field.
+   * 
+   * @example
+   * {"StartTime":"desc"}
    */
   sort?: { [key: string]: string };
   /**

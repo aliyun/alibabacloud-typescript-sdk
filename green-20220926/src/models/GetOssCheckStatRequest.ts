@@ -13,7 +13,7 @@ export class GetOssCheckStatRequest extends $dara.Model {
   byMonth?: boolean;
   /**
    * @remarks
-   * The end time. Format: YYYY-MM-DD HH:mm:ss.
+   * The end time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-08-24 10:01:55
@@ -21,7 +21,7 @@ export class GetOssCheckStatRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The parent task ID.
+   * The ID of the parent task.
    * 
    * @example
    * P_UNHBH
@@ -37,7 +37,7 @@ export class GetOssCheckStatRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start time. Format: YYYY-MM-DD HH:mm:ss.
+   * The start time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-08-11 09:00:19

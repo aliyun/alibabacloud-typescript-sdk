@@ -55,7 +55,7 @@ export class GetAiAppDetailTopoRequestTimeQuery extends $dara.Model {
 export class GetAiAppDetailTopoRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID that identifies a specific AI application.
+   * The ID of the AI application.
    * 
    * This parameter is required.
    * 

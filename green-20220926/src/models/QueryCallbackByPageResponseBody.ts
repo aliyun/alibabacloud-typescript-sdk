@@ -40,7 +40,7 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
    * The name.
    * 
    * @example
-   * callback_name
+   * callback_xxx
    */
   name?: string;
   /**
@@ -53,7 +53,7 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * Seed。
+   * The seed.
    * 
    * @example
    * cb6gYS*******x46Mq
@@ -61,7 +61,7 @@ export class QueryCallbackByPageResponseBodyItems extends $dara.Model {
   seed?: string;
   /**
    * @remarks
-   * UID。
+   * The UID.
    * 
    * @example
    * 12*****00
@@ -123,12 +123,12 @@ export class QueryCallbackByPageResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The data on the current page.
+   * The entries on the current page.
    */
   items?: QueryCallbackByPageResponseBodyItems[];
   /**
    * @remarks
-   * The page size.
+   * The number of entries per page.
    * 
    * @example
    * 20
@@ -144,10 +144,10 @@ export class QueryCallbackByPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
-   * 10
+   * 20
    */
   totalCount?: number;
   static names(): { [key: string]: string } {

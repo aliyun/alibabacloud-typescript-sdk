@@ -37,10 +37,10 @@ export class AddAppConfigRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * appId
+   * The system application ID.
    * 
    * @example
-   * xxx
+   * txt_check_pro_agent_01
    */
   sysAppId?: string;
   /**

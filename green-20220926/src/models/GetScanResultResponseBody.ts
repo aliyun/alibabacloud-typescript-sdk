@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetScanResultResponseBodyDataItemsResult extends $dara.Model {
   /**
    * @remarks
-   * The confidence score, ranging from 0 to 100, rounded to two decimal places.
+   * The confidence score. The value ranges from 0 to 100 and is rounded to two decimal places.
    * 
    * @example
    * 50.0
@@ -16,7 +16,7 @@ export class GetScanResultResponseBodyDataItemsResult extends $dara.Model {
    * The description of the Label field.
    * 
    * @example
-   * 疑似色情内容
+   * Suspected pornographic content
    */
   description?: string;
   /**
@@ -55,7 +55,7 @@ export class GetScanResultResponseBodyDataItemsResult extends $dara.Model {
 export class GetScanResultResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The AccountId input parameter from the customer.
+   * The AccountId parameter provided by the customer.
    * 
    * @example
    * accountIdtest123
@@ -71,7 +71,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   apiLabels?: string;
   /**
    * @remarks
-   * The machine-assisted moderation time. The value is a Unix/POSIX timestamp in milliseconds.
+   * The machine-assisted moderation time. The value is a UNIX/POSIX timestamp in milliseconds.
    * 
    * @example
    * 1755501226
@@ -98,12 +98,12 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
    * The machine-assisted moderation task ID.
    * 
    * @example
-   * xxx
+   * img-a1b2c3d4e5f60718
    */
   apiTaskId?: string;
   /**
    * @remarks
-   * appId
+   * The application ID.
    * 
    * @example
    * agent_01
@@ -111,15 +111,11 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The attack level, returned based on the configured risk score thresholds. Valid values:
-   * 
-   * - high: high risk.
-   * 
-   * - medium: medium risk.
-   *  
-   * - low: low risk.
-   * 
-   * - none: no risk detected.
+   * The attack level. The value is returned based on the configured high and low risk scores. Valid values:
+   * - high: High risk.
+   * - medium: Medium risk.
+   * - low: Low risk.
+   * - none: No risk detected.
    * 
    * @example
    * none
@@ -127,7 +123,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   attackLevel?: string;
   /**
    * @remarks
-   * The Bailian request ID.
+   * The Model Studio request ID.
    * 
    * @example
    * 93a2f484-ac61-9b2e-9765-88600c83c1ea
@@ -138,12 +134,12 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
    * The content.
    * 
    * @example
-   * xxx
+   * This is a sample text content for detection
    */
   content?: string;
   /**
    * @remarks
-   * dataId
+   * The data ID.
    * 
    * @example
    * 4f27b8cc7c4544cb90b41882a5b36326
@@ -151,7 +147,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   dataId?: string;
   /**
    * @remarks
-   * The segment end time, in seconds.
+   * The end time of the segment, in seconds.
    * 
    * @example
    * 22
@@ -170,7 +166,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
    * The feedback information.
    * 
    * @example
-   * xxx
+   * Violating content was detected, and the review conclusion is a violation
    */
   extFeedback?: string;
   /**
@@ -183,7 +179,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   extra?: { [key: string]: any };
   /**
    * @remarks
-   * The frame count.
+   * The number of frames.
    * 
    * @example
    * 20
@@ -191,7 +187,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   frameCount?: number;
   /**
    * @remarks
-   * The creation time. Format: YYYY-MM-DD HH:mm:ss.
+   * The creation time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-08-11 09:00:19
@@ -222,7 +218,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   imageService?: string;
   /**
    * @remarks
-   * url
+   * The image URL.
    * 
    * @example
    * https://www.aliyuncs.com/xxx.png
@@ -230,7 +226,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * imageUrls
+   * The list of image URLs.
    */
   imageUrls?: string[];
   /**
@@ -243,7 +239,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   labels?: string;
   /**
    * @remarks
-   * The LiveId input parameter from the customer.
+   * The LiveId parameter provided by the customer.
    * 
    * @example
    * liveIdtest123
@@ -267,7 +263,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   maliciousUrlLevel?: string;
   /**
    * @remarks
-   * Indicates whether only manual review is used.
+   * Specifies whether the task is exclusively manually reviewed.
    * 
    * @example
    * false
@@ -312,7 +308,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The request time. Format: YYYY-MM-DD HH:mm:ss.
+   * The request time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-08-11 09:00:19
@@ -328,7 +324,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The result set.
+   * The returned collection.
    */
   result?: GetScanResultResponseBodyDataItemsResult[];
   /**
@@ -349,7 +345,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   reviewRiskLevel?: string;
   /**
    * @remarks
-   * The review time. The value is a Unix/POSIX timestamp in milliseconds.
+   * The review time. The value is a UNIX/POSIX timestamp in milliseconds.
    * 
    * @example
    * 1755501226
@@ -360,12 +356,12 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
    * The reviewer.
    * 
    * @example
-   * xx
+   * 1234567890123456
    */
   reviewUid?: string;
   /**
    * @remarks
-   * Indicates whether the content has been reviewed.
+   * Specifies whether the task has been reviewed.
    * 
    * @example
    * false
@@ -373,15 +369,11 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   reviewed?: boolean;
   /**
    * @remarks
-   * The risk level, returned based on the configured risk score thresholds. Valid values:
-   * 
-   * - high: high risk.
-   * 
-   * - medium: medium risk.
-   *  
-   * - low: low risk.
-   * 
-   * - none: no risk detected.
+   * The risk level. The value is returned based on the configured high and low risk scores. Valid values:
+   * - high: High risk.
+   * - medium: Medium risk.
+   * - low: Low risk.
+   * - none: No risk detected.
    * 
    * @example
    * none
@@ -389,18 +381,18 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The details of the matched risk.
+   * The details of the hit risk.
    * 
    * @example
-   * 色情服务
+   * Pornographic services
    */
   riskTips?: string;
   /**
    * @remarks
-   * The matched risk keywords.
+   * The hit risk keywords.
    * 
    * @example
-   * 色情_低俗词
+   * Pornography_vulgar words
    */
   riskWords?: string;
   /**
@@ -421,12 +413,12 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   score?: number;
   /**
    * @remarks
-   * The sensitivity level, returned based on the configured risk score thresholds. Valid values:
+   * The sensitivity level. The value is returned based on the configured sensitivity scores. Valid values:
    * - **S1**: Low sensitivity.
    * - **S2**: Medium sensitivity.
-   * - **S3**: Moderately high sensitivity.
+   * - **S3**: Relatively high sensitivity.
    * - **S4**: High sensitivity.
-   * - **S0**: Not sensitive.
+   * - **S0**: Non-sensitive.
    * 
    * @example
    * S0
@@ -442,7 +434,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * The segment start time, in seconds.
+   * The start time of the segment, in seconds.
    * 
    * @example
    * 11
@@ -500,7 +492,7 @@ export class GetScanResultResponseBodyDataItems extends $dara.Model {
   voiceLabels?: { [key: string]: any }[];
   /**
    * @remarks
-   * Indicates whether audio detection is enabled.
+   * Specifies whether audio detection is enabled.
    * 
    * @example
    * True
@@ -760,7 +752,7 @@ export class GetScanResultResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The further description of the error code.
+   * The detailed description of the error code.
    * 
    * @example
    * OK
@@ -768,7 +760,7 @@ export class GetScanResultResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The ID assigned by the backend that uniquely identifies a request. You can use this ID for troubleshooting.
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

@@ -29,7 +29,7 @@ export class ModifyFeatureConfigResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The response message.
+   * The response message for the request.
    * 
    * @example
    * success
@@ -37,7 +37,7 @@ export class ModifyFeatureConfigResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The request ID. You can use this ID to locate issues.
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

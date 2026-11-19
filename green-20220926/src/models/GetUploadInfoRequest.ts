@@ -8,7 +8,7 @@ export class GetUploadInfoRequest extends $dara.Model {
    * The upload name.
    * 
    * @example
-   * Test.
+   * Test
    */
   name?: string;
   /**

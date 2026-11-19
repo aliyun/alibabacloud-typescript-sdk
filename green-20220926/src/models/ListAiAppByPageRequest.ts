@@ -13,7 +13,7 @@ export class ListAiAppByPageRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -21,7 +21,7 @@ export class ListAiAppByPageRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query condition.
+   * The query conditions.
    * 
    * @example
    * {}

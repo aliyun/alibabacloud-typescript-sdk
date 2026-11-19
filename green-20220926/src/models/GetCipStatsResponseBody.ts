@@ -281,12 +281,12 @@ export class GetCipStatsResponseBodyDataLabelStatChart extends $dara.Model {
   voiceTreeChart?: GetCipStatsResponseBodyDataLabelStatChartVoiceTreeChart[];
   /**
    * @remarks
-   * The X value of the coordinate point.
+   * The X-axis value of the coordinate point.
    */
   x?: string[];
   /**
    * @remarks
-   * The Y value of the coordinate point.
+   * The Y-axis value of the coordinate point.
    */
   y?: GetCipStatsResponseBodyDataLabelStatChartY[];
   static names(): { [key: string]: string } {
@@ -430,7 +430,10 @@ export class GetCipStatsResponseBodyData extends $dara.Model {
   labelStatChart?: GetCipStatsResponseBodyDataLabelStatChart[];
   /**
    * @remarks
-   * The total count by category.
+   * The categorized statistics of the total count.
+   * 
+   * @example
+   * {"porn":{"totalCount":10},"ad":{"totalCount":2}}
    */
   totalStat?: { [key: string]: {[key: string]: any} };
   /**
@@ -440,12 +443,12 @@ export class GetCipStatsResponseBodyData extends $dara.Model {
   uids?: string[];
   /**
    * @remarks
-   * The X value of the coordinate point.
+   * The X-axis value of the coordinate point.
    */
   x?: string[];
   /**
    * @remarks
-   * The Y value of the coordinate point.
+   * The Y-axis value of the coordinate point.
    */
   y?: GetCipStatsResponseBodyDataY[];
   /**
@@ -526,7 +529,7 @@ export class GetCipStatsResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The further description of the error code.
+   * The detailed description of the error code.
    * 
    * @example
    * OK
@@ -534,7 +537,7 @@ export class GetCipStatsResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -542,7 +545,7 @@ export class GetCipStatsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The success flag.
    * 
    * @example
    * True

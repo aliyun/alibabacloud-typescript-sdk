@@ -5,9 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetCipStatsRequest extends $dara.Model {
   /**
    * @remarks
-   * Specifies whether monthly indexing is supported. Valid values:
-   * - true: Supported.
-   * - false: Not supported.
+   * Specifies whether monthly indexing is supported. Valid values: true: Supported. false: Not supported.
    * 
    * @example
    * true
@@ -15,7 +13,7 @@ export class GetCipStatsRequest extends $dara.Model {
   byMonth?: boolean;
   /**
    * @remarks
-   * The end time of the query. Format: yyyy-MM-dd HH:mm:ss.
+   * The end time of the query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2024-03-11 10:00:00
@@ -26,12 +24,12 @@ export class GetCipStatsRequest extends $dara.Model {
    * The label.
    * 
    * @example
-   * xx
+   * porn
    */
   label?: string;
   /**
    * @remarks
-   * The query condition.
+   * The query conditions.
    * 
    * @example
    * {}
@@ -63,7 +61,7 @@ export class GetCipStatsRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * The start time of the query. Format: yyyy-MM-dd HH:mm:ss.
+   * The start time of the query. Specify the time in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2024-03-10 10:00:00
@@ -79,7 +77,7 @@ export class GetCipStatsRequest extends $dara.Model {
   subUid?: string;
   /**
    * @remarks
-   * The type. Valid values: **cip**: Content Moderation invoke volume statistics. **risk_level**: Content Moderation risk level statistics. **content_moderation**: AI security guardrail content compliance risk level and tag statistics. **sensitive_data**: AI security guardrail sensitive data risk level and tag statistics. **prompt_attack**: AI security guardrail prompt risk level and tag statistics.
+   * The type. Valid values: **cip**: Content Moderation invoke usage statistics. **risk_level**: Content Moderation security risk level statistics. **content_moderation**: content compliance risk level and label statistics for AI security guardrails. **sensitive_data**: sensitive data risk level and label statistics for AI security guardrails. **prompt_attack**: prompt risk level and label statistics for AI security guardrails.
    * 
    * @example
    * risk_level

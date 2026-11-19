@@ -13,7 +13,7 @@ export class ListImageLibRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The selected service identifier.
+   * The service identifier.
    * 
    * @example
    * response_security_check

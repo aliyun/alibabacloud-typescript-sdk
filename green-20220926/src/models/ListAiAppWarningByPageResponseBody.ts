@@ -5,7 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class ListAiAppWarningByPageResponseBodyExt extends $dara.Model {
   /**
    * @remarks
-   * The option.
+   * The options.
+   * 
+   * @example
+   * {"warningLevel":"high"}
    */
   option?: { [key: string]: any };
   static names(): { [key: string]: string } {
@@ -43,7 +46,7 @@ export class ListAiAppWarningByPageResponseBodyItemsLabels extends $dara.Model {
   count?: number;
   /**
    * @remarks
-   * The label name.
+   * The name of the label.
    * 
    * @example
    * porn
@@ -51,7 +54,7 @@ export class ListAiAppWarningByPageResponseBodyItemsLabels extends $dara.Model {
   label?: string;
   /**
    * @remarks
-   * The label description.
+   * The description of the label.
    * 
    * @example
    * desc-xxx
@@ -95,7 +98,7 @@ export class ListAiAppWarningByPageResponseBodyItemsLabels extends $dara.Model {
 export class ListAiAppWarningByPageResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * appId。
+   * The application ID.
    * 
    * @example
    * id-xxx
@@ -103,7 +106,7 @@ export class ListAiAppWarningByPageResponseBodyItems extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The application name.
+   * The name of the application.
    * 
    * @example
    * name-xxx
@@ -124,7 +127,7 @@ export class ListAiAppWarningByPageResponseBodyItems extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * The trace ID used to correlate and trace alert events.
+   * The trace ID used to associate and trace alert events.
    * 
    * @example
    * 0bc3b4b0********516098843e19bc
@@ -140,7 +143,7 @@ export class ListAiAppWarningByPageResponseBodyItems extends $dara.Model {
   warningCount?: number;
   /**
    * @remarks
-   * The alert time in the format of YYYY-MM-DD HH:mm:ss.
+   * The time when the alert was triggered. The time is in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2026-01-01 00:00:00
@@ -193,12 +196,12 @@ export class ListAiAppWarningByPageResponseBody extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The extension field.
+   * The extended fields.
    */
   ext?: ListAiAppWarningByPageResponseBodyExt;
   /**
    * @remarks
-   * The data on the current page.
+   * The entries on the current page.
    */
   items?: ListAiAppWarningByPageResponseBodyItems[];
   /**
@@ -211,7 +214,7 @@ export class ListAiAppWarningByPageResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
+   * The ID of the request. You can use the request ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -219,7 +222,7 @@ export class ListAiAppWarningByPageResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The total number of records.
+   * The total number of entries.
    * 
    * @example
    * 10

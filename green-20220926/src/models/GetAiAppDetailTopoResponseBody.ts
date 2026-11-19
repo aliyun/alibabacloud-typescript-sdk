@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAiAppDetailTopoResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The node category.
+   * The node category. Valid values:
    * 
    * - LLM
    * 
@@ -21,7 +21,7 @@ export class GetAiAppDetailTopoResponseBodyData extends $dara.Model {
   nodeCategory?: string;
   /**
    * @remarks
-   * The node ID.
+   * The ID of the node.
    * 
    * @example
    * idxxx
@@ -29,7 +29,7 @@ export class GetAiAppDetailTopoResponseBodyData extends $dara.Model {
   nodeId?: string;
   /**
    * @remarks
-   * The node name.
+   * The name of the node.
    * 
    * @example
    * namexxx
@@ -39,9 +39,9 @@ export class GetAiAppDetailTopoResponseBodyData extends $dara.Model {
    * @remarks
    * The node type. Valid values:
    * 
-   * - **APP**: end-to-end agent.
-   * - **MODEL**: large language model.
-   * - **TOOL**: tool.
+   * - **APP**: The full agent trace.
+   * - **MODEL**: The large language model.
+   * - **TOOL**: The tool.
    * 
    * @example
    * TOOL
@@ -49,7 +49,7 @@ export class GetAiAppDetailTopoResponseBodyData extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * The request count.
+   * The number of requests.
    * 
    * @example
    * 100
@@ -65,7 +65,7 @@ export class GetAiAppDetailTopoResponseBodyData extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The alert count.
+   * The number of alerts.
    * 
    * @example
    * 20

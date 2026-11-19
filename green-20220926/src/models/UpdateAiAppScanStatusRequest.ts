@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateAiAppScanStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID.
+   * The application IDs.
    * 
    * This parameter is required.
    * 
@@ -24,9 +24,8 @@ export class UpdateAiAppScanStatusRequest extends $dara.Model {
   /**
    * @remarks
    * The status. Valid values:
-   * 
-   * - enable: enabled
-   * - disable: disabled
+   * - enable: Enabled.
+   * - disable: Disabled.
    * 
    * This parameter is required.
    * 

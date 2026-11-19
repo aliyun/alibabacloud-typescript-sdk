@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateServiceConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The client-generated idempotency token used to prevent duplicate operations caused by network retries. The token must be unique across requests and contain only printable ASCII characters (ASCII 32-126).
+   * The client-generated idempotency token. It prevents duplicate operations caused by network retries and must be unique across different requests. Only printable ASCII characters (ASCII 32-126) are supported.
    * 
    * @example
    * 550e8400-e29b-41d4-a716-446655440000
@@ -13,7 +13,7 @@ export class UpdateServiceConfigRequest extends $dara.Model {
   clientToken?: string;
   /**
    * @remarks
-   * Specifies whether to perform a dry run. When set to true, only parameter validation and business logic checks are performed without actually creating or updating resources.
+   * Specifies whether to enable dry run mode. When set to true, only parameter validation and business logic checks are performed, and resources are not actually created or updated.
    */
   dryRun?: boolean;
   /**
@@ -34,12 +34,20 @@ export class UpdateServiceConfigRequest extends $dara.Model {
   keywordFilterLibs?: string;
   /**
    * @remarks
-   * The keyword hit libraries.
+   * The matched keyword libraries.
    * 
    * @example
    * []
    */
   keywordHitLibs?: string;
+  /**
+   * @remarks
+   * The keyword library preprocessing configuration in JSON format. The format maps a libId to a list of preprocessing types, such as {"libId":["fps"]}. If this parameter is not passed, the configuration is not updated. An empty object {} clears all configurations. An empty array for a libId clears the configuration for that library.
+   * 
+   * @example
+   * {"libId":["fps"]}
+   */
+  keywordLibProcessConf?: string;
   /**
    * @remarks
    * The human-machine moderation configuration.
@@ -74,7 +82,7 @@ export class UpdateServiceConfigRequest extends $dara.Model {
   scene?: string;
   /**
    * @remarks
-   * The scenario configuration.
+   * The scenario configuration information.
    * 
    * @example
    * {}
@@ -111,6 +119,7 @@ export class UpdateServiceConfigRequest extends $dara.Model {
       fileConfig: 'FileConfig',
       keywordFilterLibs: 'KeywordFilterLibs',
       keywordHitLibs: 'KeywordHitLibs',
+      keywordLibProcessConf: 'KeywordLibProcessConf',
       manualMachineConfig: 'ManualMachineConfig',
       regionId: 'RegionId',
       resourceType: 'ResourceType',
@@ -129,6 +138,7 @@ export class UpdateServiceConfigRequest extends $dara.Model {
       fileConfig: 'string',
       keywordFilterLibs: 'string',
       keywordHitLibs: 'string',
+      keywordLibProcessConf: 'string',
       manualMachineConfig: 'string',
       regionId: 'string',
       resourceType: 'string',

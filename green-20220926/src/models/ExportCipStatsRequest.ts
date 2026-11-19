@@ -15,7 +15,7 @@ export class ExportCipStatsRequest extends $dara.Model {
   byMonth?: boolean;
   /**
    * @remarks
-   * The end time of the query. Format: yyyy-MM-dd HH:mm:ss.
+   * The end time of the query, in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2024-04-16 09:00:00
@@ -36,12 +36,12 @@ export class ExportCipStatsRequest extends $dara.Model {
    * The task label to export.
    * 
    * @example
-   * xx
+   * politics
    */
   label?: string;
   /**
    * @remarks
-   * The query condition.
+   * The query conditions.
    * 
    * @example
    * {"Classify":"guard-scene"}
@@ -73,7 +73,7 @@ export class ExportCipStatsRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * The start time of the query. Format: yyyy-MM-dd HH:mm:ss.
+   * The start time of the query, in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2024-04-15 09:00:00
@@ -90,11 +90,11 @@ export class ExportCipStatsRequest extends $dara.Model {
   /**
    * @remarks
    * The type. Valid values:
-   * - **cip**: Content Moderation invoke volume statistics.
+   * - **cip**: Content Moderation usage statistics.
    * - **risk_level**: Content Moderation security risk level statistics.
-   * - **content_moderation**: AI Safety Guardrail content compliance risk level and tag statistics.
-   * - **sensitive_data**: AI Safety Guardrail sensitive data risk level and tag statistics.
-   * - **prompt_attack**: AI Safety Guardrail prompt risk level and tag statistics.
+   * - **content_moderation**: AI security guardrail content compliance risk level and tag statistics.
+   * - **sensitive_data**: AI security guardrail sensitive data risk level and tag statistics.
+   * - **prompt_attack**: AI security guardrail prompt risk level and tag statistics.
    * 
    * @example
    * risk_level

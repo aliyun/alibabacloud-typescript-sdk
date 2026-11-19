@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddAnswerSampleRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the proxy answer library.
+   * The ID of the fallback answer library.
    * 
    * @example
    * alxxxx
@@ -21,7 +21,7 @@ export class AddAnswerSampleRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The file name of the proxy answer sample to be added.
+   * The name of the file that contains the fallback answer samples to be added.
    * 
    * @example
    * data/xxx.xlsx
@@ -32,7 +32,7 @@ export class AddAnswerSampleRequest extends $dara.Model {
    * The samples to be added.
    * 
    * @example
-   * 代答答案1\\n代答答案2
+   * Fallback answer 1\\nFallback answer 2
    */
   samples?: string;
   static names(): { [key: string]: string } {

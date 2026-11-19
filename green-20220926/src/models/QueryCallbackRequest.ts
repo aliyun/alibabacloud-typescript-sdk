@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryCallbackRequest extends $dara.Model {
   /**
    * @remarks
-   * Queries data under the OSS detection task.
+   * Specifies whether to query data for OSS check tasks.
    * 
    * @example
    * true

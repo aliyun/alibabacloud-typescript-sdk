@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAppConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * Agent ID。
+   * The agent ID.
    * 
    * @example
    * ag.abcxxx
@@ -13,7 +13,7 @@ export class GetAppConfigRequest extends $dara.Model {
   agentId?: string;
   /**
    * @remarks
-   * App ID。
+   * The application ID.
    * 
    * @example
    * txt_check_pro_agent_01
@@ -37,7 +37,7 @@ export class GetAppConfigRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource type.
+   * The resource type. This parameter is required. If it is not provided, the service returns a 400 error.
    * 
    * @example
    * agent_text

@@ -21,7 +21,7 @@ export class UpdateOssCheckResultsBatchFeedbackResponseBody extends $dara.Model 
   repeatCount?: number;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. This ID can be used to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -37,10 +37,10 @@ export class UpdateOssCheckResultsBatchFeedbackResponseBody extends $dara.Model 
   successCount?: number;
   /**
    * @remarks
-   * The prompt information.
+   * The prompt message.
    * 
    * @example
-   * xxxxx
+   * Feedback failed for some records: duplicate feedback was provided or the corresponding detection records do not exist. Verify the task and resources, and then resubmit
    */
   tips?: string;
   /**

@@ -85,7 +85,7 @@ export class GetOssCheckStatResponseBodyBarChart extends $dara.Model {
 export class GetOssCheckStatResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The bar chart data.
+   * The bar chart.
    */
   barChart?: GetOssCheckStatResponseBodyBarChart;
   /**

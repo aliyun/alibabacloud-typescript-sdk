@@ -15,7 +15,7 @@ export class GetAiAppDetailStatRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The end time of the query. Format: YYYY-MM-DD HH:mm:ss.
+   * The end time of the query. Specify the time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-07-09 10:30:00
@@ -31,7 +31,7 @@ export class GetAiAppDetailStatRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The start time of the query. Format: YYYY-MM-DD HH:mm:ss.
+   * The start time of the query. Specify the time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2024-09-10 14:48:01

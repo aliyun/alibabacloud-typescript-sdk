@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ModifyAnswerLibRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the proxy response library.
+   * The ID of the fallback library.
    * 
    * @example
    * custom_xxxx
@@ -16,7 +16,7 @@ export class ModifyAnswerLibRequest extends $dara.Model {
    * The name of the library.
    * 
    * @example
-   * 测试库
+   * Test library
    */
   libName?: string;
   /**

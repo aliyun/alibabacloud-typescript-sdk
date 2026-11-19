@@ -131,7 +131,10 @@ export class GetAiAppStatsResponseBodyData extends $dara.Model {
   labelStatChart?: GetAiAppStatsResponseBodyDataLabelStatChart[];
   /**
    * @remarks
-   * The total count categorized statistics.
+   * The total count statistics by category.
+   * 
+   * @example
+   * {"porn":{"Total":"100","Share":"12.50%"}}
    */
   totalStat?: { [key: string]: DataTotalStatValue };
   /**

@@ -8,7 +8,7 @@ export class ListKeywordsResponseBodyDataItemsProperties extends $dara.Model {
    * The properties.
    * 
    * @example
-   * xxx
+   * politics
    */
   attribute?: string;
   static names(): { [key: string]: string } {
@@ -59,7 +59,7 @@ export class ListKeywordsResponseBodyDataItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The keyword library ID.
+   * The ID of the keyword library.
    * 
    * @example
    * custom_xxxx
@@ -67,7 +67,7 @@ export class ListKeywordsResponseBodyDataItems extends $dara.Model {
   keywordLibId?: string;
   /**
    * @remarks
-   * The keyword data ID.
+   * The ID of the keyword data.
    * 
    * @example
    * 4205334
@@ -83,7 +83,7 @@ export class ListKeywordsResponseBodyDataItems extends $dara.Model {
    * The keyword.
    * 
    * @example
-   * 测试词
+   * Test word
    */
   word?: string;
   static names(): { [key: string]: string } {
@@ -198,7 +198,7 @@ export class ListKeywordsResponseBody extends $dara.Model {
   data?: ListKeywordsResponseBodyData;
   /**
    * @remarks
-   * The description of the error code.
+   * The detailed description of the error code.
    * 
    * @example
    * OK
@@ -214,7 +214,7 @@ export class ListKeywordsResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The success flag.
    * 
    * @example
    * True

@@ -21,7 +21,7 @@ export class ListKeywordLibsResponseBodyData extends $dara.Model {
   keywordCount?: string;
   /**
    * @remarks
-   * The library ID.
+   * The ID of the library.
    * 
    * @example
    * custom_xxxxx
@@ -29,15 +29,20 @@ export class ListKeywordLibsResponseBodyData extends $dara.Model {
   libId?: string;
   /**
    * @remarks
-   * The library name.
+   * The name of the library.
    * 
    * @example
-   * 测试
+   * Test
    */
   libName?: string;
   /**
    * @remarks
-   * The service codes.
+   * The preprocessing list of the library. If ServiceCode is not specified or not configured, an empty array is returned.
+   */
+  preprocessList?: string[];
+  /**
+   * @remarks
+   * The associated services.
    * 
    * @example
    * service1,service2
@@ -45,7 +50,7 @@ export class ListKeywordLibsResponseBodyData extends $dara.Model {
   serviceCodes?: string;
   /**
    * @remarks
-   * UID。
+   * The UID.
    * 
    * @example
    * 19964*****086772
@@ -57,6 +62,7 @@ export class ListKeywordLibsResponseBodyData extends $dara.Model {
       keywordCount: 'KeywordCount',
       libId: 'LibId',
       libName: 'LibName',
+      preprocessList: 'PreprocessList',
       serviceCodes: 'ServiceCodes',
       uid: 'Uid',
     };
@@ -68,12 +74,16 @@ export class ListKeywordLibsResponseBodyData extends $dara.Model {
       keywordCount: 'string',
       libId: 'string',
       libName: 'string',
+      preprocessList: { 'type': 'array', 'itemType': 'string' },
       serviceCodes: 'string',
       uid: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.preprocessList)) {
+      $dara.Model.validateArray(this.preprocessList);
+    }
     super.validate();
   }
 
@@ -98,7 +108,7 @@ export class ListKeywordLibsResponseBody extends $dara.Model {
   data?: ListKeywordLibsResponseBodyData[];
   /**
    * @remarks
-   * The description of the error code.
+   * The detailed description of the error code.
    * 
    * @example
    * OK
@@ -106,7 +116,7 @@ export class ListKeywordLibsResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The request ID assigned by the backend, which uniquely identifies the request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

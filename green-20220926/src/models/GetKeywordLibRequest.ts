@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetKeywordLibRequest extends $dara.Model {
   /**
    * @remarks
-   * The keyword library ID.
+   * The ID of the keyword library.
    * 
    * @example
    * customxx_xxx
@@ -21,9 +21,17 @@ export class GetKeywordLibRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The library code.
+   * The service code. This parameter is required when you query the preprocessing configurations (PreprocessList) of the library.
    * 
-   * - desensitize: masking library
+   * @example
+   * ugc_moderation_byllm_pro
+   */
+  serviceCode?: string;
+  /**
+   * @remarks
+   * The code of the keyword library.
+   * 
+   * - desensitize: Desensitization keyword library.
    * 
    * @example
    * desensitize
@@ -33,6 +41,7 @@ export class GetKeywordLibRequest extends $dara.Model {
     return {
       libId: 'LibId',
       regionId: 'RegionId',
+      serviceCode: 'ServiceCode',
       tenantCode: 'TenantCode',
     };
   }
@@ -41,6 +50,7 @@ export class GetKeywordLibRequest extends $dara.Model {
     return {
       libId: 'string',
       regionId: 'string',
+      serviceCode: 'string',
       tenantCode: 'string',
     };
   }

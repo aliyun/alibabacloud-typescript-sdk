@@ -94,7 +94,7 @@ export class ListImagesFromLibResponseBody extends $dara.Model {
   items?: ListImagesFromLibResponseBodyItems[];
   /**
    * @remarks
-   * The further description of the error code.
+   * The detailed description of the error code.
    * 
    * @example
    * OK
@@ -110,7 +110,7 @@ export class ListImagesFromLibResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The backend-assigned ID that uniquely identifies a request. This ID can be used for troubleshooting.
+   * The request ID, which uniquely identifies the request and can be used for troubleshooting.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -118,7 +118,7 @@ export class ListImagesFromLibResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The success flag.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

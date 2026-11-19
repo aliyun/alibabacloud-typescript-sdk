@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListServiceConfigsRequest extends $dara.Model {
   /**
    * @remarks
-   * The classification.
+   * The category.
    * 
    * @example
    * guard-scene
@@ -14,12 +14,9 @@ export class ListServiceConfigsRequest extends $dara.Model {
   /**
    * @remarks
    * The protection type. Valid values:
-   * 
-   * - modelProtection: model protection.
-   * 
-   * - agentRealtimeProtection: agent real-time protection.
-   * 
-   * - agentBehaviorAudit: agent behavior audit.
+   * - modelProtection: model protection
+   * - agentRealtimeProtection: real-time agent protection
+   * - agentBehaviorAudit: agent behavior audit
    * 
    * @example
    * modelProtection
@@ -35,7 +32,7 @@ export class ListServiceConfigsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The resource type.
+   * The resource type. This parameter is required. If you do not specify this parameter, the service returns a 400 error.
    * 
    * @example
    * text

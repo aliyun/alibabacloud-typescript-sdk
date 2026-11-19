@@ -5,7 +5,15 @@ import * as $dara from '@darabonba/typescript';
 export class GetRiskStatsRequest extends $dara.Model {
   /**
    * @remarks
-   * The classification.
+   * The channel identifier.
+   * 
+   * @example
+   * qoder
+   */
+  channel?: string;
+  /**
+   * @remarks
+   * The category.
    * 
    * @example
    * guard-scene
@@ -47,6 +55,7 @@ export class GetRiskStatsRequest extends $dara.Model {
   type?: string;
   static names(): { [key: string]: string } {
     return {
+      channel: 'Channel',
       classify: 'Classify',
       endTime: 'EndTime',
       regionId: 'RegionId',
@@ -57,6 +66,7 @@ export class GetRiskStatsRequest extends $dara.Model {
 
   static types(): { [key: string]: any } {
     return {
+      channel: 'string',
       classify: 'string',
       endTime: 'string',
       regionId: 'string',

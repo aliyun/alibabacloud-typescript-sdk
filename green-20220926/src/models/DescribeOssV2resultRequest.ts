@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class DescribeOssV2ResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket.
+   * The OSS bucket of the file server.
    * 
    * @example
    * buckect_test
@@ -29,7 +29,7 @@ export class DescribeOssV2ResultRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -56,7 +56,7 @@ export class DescribeOssV2ResultRequest extends $dara.Model {
    * The task name.
    * 
    * @example
-   * Image batch task 20240914100517757
+   * Image inventory task 20240914100517757
    */
   taskName?: string;
   static names(): { [key: string]: string } {

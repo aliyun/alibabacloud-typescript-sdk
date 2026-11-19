@@ -8,12 +8,12 @@ export class ListOssCheckResultResponseBodyItemsLabelDetails extends $dara.Model
    * The description of the label.
    * 
    * @example
-   * 影音娱乐类
+   * Audio and video entertainment
    */
   description?: string;
   /**
    * @remarks
-   * The label hit by the video frame.
+   * The matched label for video frames.
    * 
    * @example
    * logo_streaming
@@ -48,12 +48,12 @@ export class ListOssCheckResultResponseBodyItemsLabelDetails2 extends $dara.Mode
    * The description of the label.
    * 
    * @example
-   * 辱骂内容
+   * Abusive content
    */
   description?: string;
   /**
    * @remarks
-   * The label hit by the audio.
+   * The matched label for audio.
    * 
    * @example
    * abuse
@@ -85,7 +85,7 @@ export class ListOssCheckResultResponseBodyItemsLabelDetails2 extends $dara.Mode
 export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket.
+   * The bucket.
    * 
    * @example
    * tmp
@@ -101,7 +101,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The audio and video detection type.
+   * The audio and video moderation type.
    * 
    * @example
    * audio
@@ -133,7 +133,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   freezeType?: string;
   /**
    * @remarks
-   * The URL of the image.
+   * The image URL.
    * 
    * @example
    * http://www.aliyuncs.com/test.jpg
@@ -141,7 +141,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Indicates whether the task is copied.
+   * Indicates whether the item is copied.
    * 
    * @example
    * true
@@ -157,12 +157,12 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   jobName?: string;
   /**
    * @remarks
-   * The list of labels hit by video frames.
+   * The list of matched labels for video frames.
    */
   labelDetails?: ListOssCheckResultResponseBodyItemsLabelDetails[];
   /**
    * @remarks
-   * The list of labels hit by video audio.
+   * The list of matched labels for video audio.
    */
   labelDetails2?: ListOssCheckResultResponseBodyItemsLabelDetails2[];
   /**
@@ -185,7 +185,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
   md5?: string;
   /**
    * @remarks
-   * The description of the error code.
+   * The detailed description of the error code.
    * 
    * @example
    * OK
@@ -244,7 +244,7 @@ export class ListOssCheckResultResponseBodyItems extends $dara.Model {
    * The service name.
    * 
    * @example
-   * 服务名称
+   * Service name
    */
   serviceName?: string;
   /**
@@ -366,7 +366,7 @@ export class ListOssCheckResultResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

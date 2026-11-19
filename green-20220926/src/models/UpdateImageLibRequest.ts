@@ -8,12 +8,12 @@ export class UpdateImageLibRequest extends $dara.Model {
    * The remarks of the image library.
    * 
    * @example
-   * 备注
+   * Remarks
    */
   comment?: string;
   /**
    * @remarks
-   * The review-free configuration.
+   * The moderation-free configuration.
    * 
    * @example
    * 0
@@ -32,7 +32,7 @@ export class UpdateImageLibRequest extends $dara.Model {
    * The name of the image library.
    * 
    * @example
-   * 测试图库
+   * Test image library
    */
   libName?: string;
   /**

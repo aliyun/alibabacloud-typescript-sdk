@@ -8,7 +8,7 @@ export class GetGuardStatusRequest extends $dara.Model {
    * The commodity code.
    * 
    * @example
-   * xxx
+   * lvwang_guardrail_public_cn
    */
   commodityCode?: string;
   /**

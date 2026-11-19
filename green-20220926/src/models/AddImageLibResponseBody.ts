@@ -29,7 +29,7 @@ export class AddImageLibResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The description of the error code.
+   * The detailed description of the error code.
    * 
    * @example
    * OK
@@ -45,7 +45,7 @@ export class AddImageLibResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The success flag.
    * 
    * @example
    * True

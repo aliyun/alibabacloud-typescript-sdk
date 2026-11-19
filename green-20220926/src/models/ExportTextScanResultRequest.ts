@@ -13,7 +13,10 @@ export class ExportTextScanResultRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The query condition.
+   * The query conditions.
+   * 
+   * @example
+   * {"RequestId":"8488665D-32D3-5DD6-8BF1-B4DE21A7C3E9"}
    */
   query?: { [key: string]: string };
   /**

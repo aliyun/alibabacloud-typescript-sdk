@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class StopOnlineTestRequest extends $dara.Model {
   /**
    * @remarks
-   * The resource type.
+   * The resource type. Note: This parameter is required. If it is not provided, the service returns a 400 error with the message \\"resourceType may not be empty\\".
    * 
    * @example
    * image

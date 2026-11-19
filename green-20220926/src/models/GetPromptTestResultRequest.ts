@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetPromptTestResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The configuration item.
+   * The configuration item. Note: This parameter is actually required. If it is not provided, the service returns a 400 error (config may not be empty).
    * 
    * @example
    * {\\"enable\\":false}
@@ -13,7 +13,7 @@ export class GetPromptTestResultRequest extends $dara.Model {
   config?: string;
   /**
    * @remarks
-   * The resource type.
+   * The resource type. Note: This parameter is actually required. If it is not provided, the service returns a 400 error (resourceType may not be empty).
    * 
    * @example
    * image
@@ -21,7 +21,7 @@ export class GetPromptTestResultRequest extends $dara.Model {
   resourceType?: string;
   /**
    * @remarks
-   * The service code.
+   * The service code. Note: This parameter is actually required. If it is not provided, the service returns a 400 error (serviceCode may not be empty).
    * 
    * @example
    * baselineCheck
@@ -29,15 +29,15 @@ export class GetPromptTestResultRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * The text content.
+   * The text content. Note: This parameter is actually required. If it is not provided, the service returns a 400 error.
    * 
    * @example
-   * 测试文本
+   * Test text
    */
   text?: string;
   /**
    * @remarks
-   * The business type.
+   * The business type. Note: This parameter is actually required. If it is not provided, the service returns a 400 error.
    * 
    * @example
    * custom_llm_template

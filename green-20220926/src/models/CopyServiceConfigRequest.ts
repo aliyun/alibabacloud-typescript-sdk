@@ -32,7 +32,7 @@ export class CopyServiceConfigRequest extends $dara.Model {
    * The service description.
    * 
    * @example
-   * 服务备注
+   * Service remarks
    */
   serviceDesc?: string;
   /**
@@ -40,7 +40,7 @@ export class CopyServiceConfigRequest extends $dara.Model {
    * The service name.
    * 
    * @example
-   * 用户昵称检测
+   * User nickname detection
    */
   serviceName?: string;
   static names(): { [key: string]: string } {

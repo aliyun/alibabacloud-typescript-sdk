@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class UpdateEventStatusRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID that identifies the application to which the operation belongs.
+   * The ID of the application.
    * 
    * This parameter is required.
    * 
@@ -30,7 +30,7 @@ export class UpdateEventStatusRequest extends $dara.Model {
   operationCode?: string;
   /**
    * @remarks
-   * The operation parameters that contain additional parameter information required to execute the operation.
+   * The operation parameters that contain additional information required to perform the operation.
    * 
    * @example
    * {}
@@ -46,10 +46,10 @@ export class UpdateEventStatusRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The operation source that identifies the source system or module that triggered this status update request.
+   * The source of the operation, which identifies the system or module that triggered this status update request.
    * 
    * @example
-   * xx
+   * disposal
    */
   source?: string;
   static names(): { [key: string]: string } {

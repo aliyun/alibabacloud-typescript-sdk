@@ -8,12 +8,12 @@ export class ListImageLibResponseBodyLibList extends $dara.Model {
    * The remarks.
    * 
    * @example
-   * 备注
+   * Remarks
    */
   comment?: string;
   /**
    * @remarks
-   * The review-free configuration.
+   * The moderation exemption configuration.
    * 
    * @example
    * 1
@@ -29,7 +29,7 @@ export class ListImageLibResponseBodyLibList extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2024-06-03 15:20:14
@@ -37,7 +37,7 @@ export class ListImageLibResponseBodyLibList extends $dara.Model {
   gmtModified?: string;
   /**
    * @remarks
-   * The number of images in the library.
+   * The number of images in the image library.
    * 
    * @example
    * 1
@@ -45,7 +45,7 @@ export class ListImageLibResponseBodyLibList extends $dara.Model {
   imageNum?: number;
   /**
    * @remarks
-   * The image library ID.
+   * The ID of the image library.
    * 
    * @example
    * custom_xxxx
@@ -53,10 +53,10 @@ export class ListImageLibResponseBodyLibList extends $dara.Model {
   libId?: string;
   /**
    * @remarks
-   * The image library name.
+   * The name of the image library.
    * 
    * @example
-   * 测试
+   * Test
    */
   libName?: string;
   static names(): { [key: string]: string } {
@@ -116,7 +116,7 @@ export class ListImageLibResponseBody extends $dara.Model {
   libList?: ListImageLibResponseBodyLibList[];
   /**
    * @remarks
-   * The maximum number of libraries supported.
+   * The maximum number of supported image libraries.
    * 
    * @example
    * 5
@@ -124,7 +124,7 @@ export class ListImageLibResponseBody extends $dara.Model {
   maxLibCount?: number;
   /**
    * @remarks
-   * The further description of the error code.
+   * The detailed description of the error code.
    * 
    * @example
    * OK
@@ -132,7 +132,7 @@ export class ListImageLibResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The backend-assigned ID that uniquely identifies a request. This ID can be used for troubleshooting.
+   * The request ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

@@ -21,7 +21,7 @@ export class AuthInfoConfigValue extends $dara.Model {
   privateDomain?: string;
   /**
    * @remarks
-   * The project space.
+   * The project workspace.
    * 
    * @example
    * proj-xxx

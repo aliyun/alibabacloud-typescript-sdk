@@ -14,7 +14,7 @@ export class AddKeywordsRequest extends $dara.Model {
   keywords?: string;
   /**
    * @remarks
-   * The keyword file name.
+   * The name of the keyword file.
    * 
    * @example
    * upload/1e5353c0-0d91-40ba-9d41-ae7abd3fe561.txt
@@ -22,7 +22,7 @@ export class AddKeywordsRequest extends $dara.Model {
   keywordsObject?: string;
   /**
    * @remarks
-   * The keyword library ID.
+   * The ID of the keyword library.
    * 
    * @example
    * customxx_xxxx
@@ -38,9 +38,8 @@ export class AddKeywordsRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The library code.
-   * 
-   * - desensitize: masking library
+   * The code of the keyword library.
+   * - desensitize: desensitization keyword library.
    * 
    * @example
    * desensitize

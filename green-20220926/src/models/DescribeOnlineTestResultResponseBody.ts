@@ -92,11 +92,14 @@ export class DescribeOnlineTestResultResponseBodySummaryList extends $dara.Model
   /**
    * @remarks
    * The risk level summary.
+   * 
+   * @example
+   * {"high":1,"medium":2,"low":20}
    */
   riskLevelSummary?: { [key: string]: number };
   /**
    * @remarks
-   * The number of shards.
+   * The number of slices.
    * 
    * @example
    * 10

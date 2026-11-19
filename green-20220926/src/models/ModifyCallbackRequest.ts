@@ -26,7 +26,7 @@ export class ModifyCallbackRequest extends $dara.Model {
    * The name.
    * 
    * @example
-   * 回调通知
+   * Callback notification
    */
   name?: string;
   /**

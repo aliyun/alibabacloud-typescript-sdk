@@ -21,7 +21,7 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   code?: number;
   /**
    * @remarks
-   * The expiration time. Unit: seconds.
+   * The expiration time in seconds.
    * 
    * @example
    * 900
@@ -53,7 +53,7 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   httpStatusCode?: number;
   /**
    * @remarks
-   * The key used for uploading the file.
+   * The key used for the uploaded file.
    * 
    * @example
    * image/upload/xxx
@@ -61,7 +61,7 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   key?: string;
   /**
    * @remarks
-   * The further description of the error code.
+   * The detailed description of the error code.
    * 
    * @example
    * OK
@@ -69,23 +69,23 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * Used by the frontend for image upload.
+   * The name used for frontend image uploads.
    * 
    * @example
-   * Test.
+   * Test
    */
   name?: string;
   /**
    * @remarks
-   * The policy for uploading files to OSS.
+   * The policy for uploading files to Object Storage Service (OSS).
    * 
    * @example
-   * xxxx
+   * eyJleHBpcmF0aW9uIjoiMjAyNC0xMi0zMVQyMzo1OTo1OVoifQ==
    */
   policy?: string;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. This ID can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify a request, which can be used for troubleshooting.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -93,10 +93,10 @@ export class GetUploadInfoResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * STS token
+   * The temporary Security Token Service (STS) token.
    * 
    * @example
-   * ***
+   * CAISrgJ1q6Ft5B2yfSjIr5fYeeqHjqrv8KqThGzTrTcwOMT3nbHGtjz2IHhPenvFBusd/i2AGFBS75gc6bAadVQQRoTlYJrRbpNsqbMQ
    */
   securityToken?: string;
   /**

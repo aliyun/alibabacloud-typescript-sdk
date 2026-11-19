@@ -13,7 +13,7 @@ export class ListKeywordsRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The keyword library ID.
+   * The ID of the keyword library.
    * 
    * @example
    * custom_xxxx
@@ -40,14 +40,14 @@ export class ListKeywordsRequest extends $dara.Model {
    * The sort field.
    * 
    * @example
-   * {\\"GmtCreate\\":\\"desc\\"}
+   * {"GmtCreate":"desc"}
    */
   sort?: { [key: string]: string };
   /**
    * @remarks
-   * The keyword library code. Valid values:
+   * The library code.
    * 
-   * - desensitize: desensitization keyword library.
+   * - desensitize desensitization library
    * 
    * @example
    * desensitize
@@ -58,7 +58,7 @@ export class ListKeywordsRequest extends $dara.Model {
    * The keyword.
    * 
    * @example
-   * 测试词
+   * Test word
    */
   word?: string;
   static names(): { [key: string]: string } {

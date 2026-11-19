@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ListAiAppRiskEventRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID. This parameter is required.
+   * The ID of the application. This parameter is required.
    * 
    * This parameter is required.
    * 

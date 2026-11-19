@@ -21,7 +21,7 @@ export class ListCallbackResponseBodyData extends $dara.Model {
   gmtCreate?: string;
   /**
    * @remarks
-   * The modification time.
+   * The update time.
    * 
    * @example
    * 2024-06-03 15:20:14
@@ -40,7 +40,7 @@ export class ListCallbackResponseBodyData extends $dara.Model {
    * The name.
    * 
    * @example
-   * 回调通知
+   * Callback notification
    */
   name?: string;
   /**
@@ -53,7 +53,7 @@ export class ListCallbackResponseBodyData extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * Seed。
+   * The seed.
    * 
    * @example
    * cbupVnpBjkgjFxfINMHKkrHS-1zZPUm
@@ -61,7 +61,7 @@ export class ListCallbackResponseBodyData extends $dara.Model {
   seed?: string;
   /**
    * @remarks
-   * UID。
+   * The UID.
    * 
    * @example
    * 16537*****831937
@@ -120,7 +120,7 @@ export class ListCallbackResponseBody extends $dara.Model {
   data?: ListCallbackResponseBodyData[];
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class AddAppConfigResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * App ID。
+   * The application ID.
    * 
    * @example
    * txt_check_pro_agent_01

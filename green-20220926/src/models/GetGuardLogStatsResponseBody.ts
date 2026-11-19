@@ -14,7 +14,6 @@ export class GetGuardLogStatsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * Indicates whether the feature is enabled. Valid values:
-   * 
    * - **true**: Enabled.
    * - **false**: Disabled.
    * 
@@ -25,11 +24,14 @@ export class GetGuardLogStatsResponseBodyData extends $dara.Model {
   /**
    * @remarks
    * The log analysis configuration.
+   * 
+   * @example
+   * {"sls.region":"cn-shanghai","sls.project":"aliyun-guardrail-log","sls.logstore":"guard-analysis"}
    */
   logAnalysisConfig?: { [key: string]: any };
   /**
    * @remarks
-   * The name of the Simple Log Service Logstore.
+   * The name of the Logstore in Simple Log Service.
    * 
    * @example
    * test003x
@@ -53,7 +55,7 @@ export class GetGuardLogStatsResponseBodyData extends $dara.Model {
   preserveStorage?: number;
   /**
    * @remarks
-   * The project space.
+   * The workspace.
    * 
    * @example
    * xxx_log
@@ -69,7 +71,7 @@ export class GetGuardLogStatsResponseBodyData extends $dara.Model {
   totalStorage?: number;
   /**
    * @remarks
-   * The number of days for which data is retained.
+   * The data retention period in days.
    * 
    * @example
    * 30
@@ -85,7 +87,7 @@ export class GetGuardLogStatsResponseBodyData extends $dara.Model {
   type?: string;
   /**
    * @remarks
-   * UID。
+   * The user ID.
    * 
    * @example
    * 1643953****74290
@@ -153,7 +155,7 @@ export class GetGuardLogStatsResponseBody extends $dara.Model {
   data?: GetGuardLogStatsResponseBodyData[];
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

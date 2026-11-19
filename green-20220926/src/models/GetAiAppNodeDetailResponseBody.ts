@@ -63,7 +63,7 @@ export class GetAiAppNodeDetailResponseBodyEventData extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The list of labels.
+   * The label list.
    */
   labels?: GetAiAppNodeDetailResponseBodyEventDataLabels[];
   /**
@@ -84,7 +84,7 @@ export class GetAiAppNodeDetailResponseBodyEventData extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
-   * The time when the event occurred. Format: yyyy-MM-dd HH:mm:ss.
+   * The time when the event occurred. Specify the time in the yyyy-MM-dd HH:mm:ss format.
    * 
    * @example
    * 2026-01-01 16:08:38
@@ -92,7 +92,7 @@ export class GetAiAppNodeDetailResponseBodyEventData extends $dara.Model {
   time?: string;
   /**
    * @remarks
-   * The trace ID, which is used to query the exact call information.
+   * The trace ID, which is used to precisely query trace information.
    * 
    * @example
    * xxxxx
@@ -161,7 +161,7 @@ export class GetAiAppNodeDetailResponseBody extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The list of event data.
+   * The event data list.
    */
   eventData?: GetAiAppNodeDetailResponseBodyEventData[];
   /**
@@ -190,7 +190,7 @@ export class GetAiAppNodeDetailResponseBody extends $dara.Model {
   nodeType?: string;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
+   * The request ID, which is assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

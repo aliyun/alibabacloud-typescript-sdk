@@ -8,7 +8,7 @@ export class LlmStreamChatResponseBodyChoicesDelta extends $dara.Model {
    * The text content generated in real time.
    * 
    * @example
-   * I am Deepseek-V3. How can I help you?
+   * I am DeepSeek-V3. How can I help you?
    */
   content?: string;
   /**
@@ -50,7 +50,7 @@ export class LlmStreamChatResponseBodyChoices extends $dara.Model {
   delta?: LlmStreamChatResponseBodyChoicesDelta;
   /**
    * @remarks
-   * During streaming output, this value is null while content is being generated. When generation is complete, the value is stop if the generation ended due to a stop token.
+   * For streaming output, this parameter is null during generation. If the generation ends due to a stop token, the value is stop.
    * 
    * @example
    * stop
@@ -178,12 +178,12 @@ export class LlmStreamChatResponseBody extends $dara.Model {
   created?: number;
   /**
    * @remarks
-   * The fault information content in the streaming response.
+   * The fault message content in the streaming response.
    */
   error?: LlmStreamChatResponseBodyError;
   /**
    * @remarks
-   * The unique ID of this session.
+   * The unique ID of the current session.
    * 
    * @example
    * chatcmpl-777bce52-93d3-9f8c-89c3-e99884f4f57f
@@ -223,7 +223,7 @@ export class LlmStreamChatResponseBody extends $dara.Model {
   systemFingerprint?: string;
   /**
    * @remarks
-   * The token usage information.
+   * The token usage.
    * 
    * @example
    * null

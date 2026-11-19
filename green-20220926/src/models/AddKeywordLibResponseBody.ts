@@ -8,12 +8,12 @@ export class AddKeywordLibResponseBodyDataKeywordsResult extends $dara.Model {
    * The internationalization key.
    * 
    * @example
-   * xxx
+   * keyword.lib.create.success
    */
   i18nKey?: string;
   /**
    * @remarks
-   * The list of keywords with invalid length.
+   * The list of keywords that are too long or too short.
    */
   illegalLengthKeywords?: string[];
   /**
@@ -60,10 +60,10 @@ export class AddKeywordLibResponseBodyDataKeywordsResult extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * The prompt information.
+   * The prompt message.
    * 
    * @example
-   * xxx
+   * Keywords added. Duplicate and invalid keywords are automatically skipped
    */
   tips?: string;
   /**
@@ -125,7 +125,7 @@ export class AddKeywordLibResponseBodyDataKeywordsResult extends $dara.Model {
 export class AddKeywordLibResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * The result.
+   * The results.
    */
   keywordsResult?: AddKeywordLibResponseBodyDataKeywordsResult;
   /**
@@ -188,7 +188,7 @@ export class AddKeywordLibResponseBody extends $dara.Model {
   data?: AddKeywordLibResponseBodyData;
   /**
    * @remarks
-   * The description of the error code.
+   * The detailed description of the error code.
    * 
    * @example
    * OK
@@ -196,7 +196,7 @@ export class AddKeywordLibResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -204,7 +204,7 @@ export class AddKeywordLibResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The success identifier.
    * 
    * @example
    * True

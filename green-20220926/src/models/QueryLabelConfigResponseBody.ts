@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class QueryLabelConfigResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The content moderation configuration.
+   * The content compliance.
    */
   contentModeration?: any[];
   /**

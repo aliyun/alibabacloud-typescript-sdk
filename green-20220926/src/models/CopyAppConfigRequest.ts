@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CopyAppConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The ID of the source App to copy from.
+   * The ID of the source app.
    * 
    * @example
    * txt_check_agent_01
@@ -13,10 +13,10 @@ export class CopyAppConfigRequest extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The name of the new App to be created from the copy.
+   * The name of the new app.
    * 
    * @example
-   * CustomTextModeration
+   * Custom text moderation
    */
   name?: string;
   /**

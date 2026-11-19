@@ -13,7 +13,7 @@ export class QueryCallbackResponseBody extends $dara.Model {
   cryptType?: string;
   /**
    * @remarks
-   * Indicates whether an OSS detection task exists.
+   * Indicates whether an OSS check task exists.
    * 
    * @example
    * false
@@ -48,12 +48,12 @@ export class QueryCallbackResponseBody extends $dara.Model {
    * The name.
    * 
    * @example
-   * 回调通知
+   * Callback notification
    */
   name?: string;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. This ID can be used to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -69,7 +69,7 @@ export class QueryCallbackResponseBody extends $dara.Model {
   scope?: string;
   /**
    * @remarks
-   * Seed。
+   * The seed.
    * 
    * @example
    * cb2MysbJTAAIf6gB3u4vpIEU-1ySnnf
@@ -77,7 +77,7 @@ export class QueryCallbackResponseBody extends $dara.Model {
   seed?: string;
   /**
    * @remarks
-   * UID。
+   * The UID.
    * 
    * @example
    * 19964*****086772

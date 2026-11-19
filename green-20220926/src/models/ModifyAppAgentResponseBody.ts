@@ -13,7 +13,7 @@ export class ModifyAppAgentResponseBody extends $dara.Model {
   data?: boolean;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. It can be used for troubleshooting.
+   * The ID assigned by the backend to uniquely identify a request, which can be used to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

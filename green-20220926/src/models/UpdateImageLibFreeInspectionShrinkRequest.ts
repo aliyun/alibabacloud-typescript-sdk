@@ -8,7 +8,7 @@ export class UpdateImageLibFreeInspectionShrinkRequest extends $dara.Model {
    * The configuration.
    * 
    * @example
-   * {\\"2833014490001\\":0}
+   * {"2833014490001":0}
    */
   configShrink?: string;
   /**
@@ -21,7 +21,7 @@ export class UpdateImageLibFreeInspectionShrinkRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The selected service identifier.
+   * The identifier of the selected service.
    * 
    * @example
    * response_security_check

@@ -22,6 +22,9 @@ export class GetAiAppOverviewResponseBody extends $dara.Model {
   /**
    * @remarks
    * The distribution of risk events by level.
+   * 
+   * @example
+   * {"high":2,"medium":5,"low":8,"none":85}
    */
   riskEventLevelDistribution?: { [key: string]: any };
   /**

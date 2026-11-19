@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class RecoverAppConfigHistoryRequest extends $dara.Model {
   /**
    * @remarks
-   * App ID。
+   * The app ID.
    * 
    * @example
    * txt_check_agent_01

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class CreatePreCheckRequest extends $dara.Model {
   /**
    * @remarks
-   * The filter configuration for each bucket. The value can be parsed as a JSON map. The key is the bucket name, and the value is the filter configuration, which includes prefix/suffix filters and a list of filter strings.
+   * The filter configuration for each bucket. This parameter can be parsed as a JSON map. The key is the bucket name, and the value is the filter configuration, which includes prefix and suffix filters and a list of filter characters.
    * 
    * @example
    * "{\\"test-bucket1\\":{\\"prefixFilterType\\":\\"include\\",\\"prefixFilters\\":[\\"test1\\"]},\\"test-bucket2\\":{\\"prefixFilterType\\":\\"exclude\\",\\"prefixFilters\\":[\\"test2\\"]}}"
@@ -13,7 +13,7 @@ export class CreatePreCheckRequest extends $dara.Model {
   bucketPrefixFilterConfig?: string;
   /**
    * @remarks
-   * The OSS buckets.
+   * The buckets.
    * 
    * @example
    * [{\\"Bucket\\":\\"bucket01-test\\",\\"Region\\":\\"cn-beijing\\"}]
@@ -21,7 +21,7 @@ export class CreatePreCheckRequest extends $dara.Model {
   buckets?: string;
   /**
    * @remarks
-   * Specifies whether to deduplicate against historically scanned tasks.
+   * Specifies whether to deduplicate historical scan tasks.
    * 
    * @example
    * true
@@ -29,7 +29,7 @@ export class CreatePreCheckRequest extends $dara.Model {
   distinctHistoryTasks?: boolean;
   /**
    * @remarks
-   * The task end time. Format: YYYY-MM-DD HH:mm:ss.
+   * The end time of the task. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-12-18 10:08:00
@@ -85,7 +85,7 @@ export class CreatePreCheckRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The maximum number of items to scan.
+   * The scan limit.
    * 
    * @example
    * 10
@@ -109,7 +109,7 @@ export class CreatePreCheckRequest extends $dara.Model {
   scanService?: string;
   /**
    * @remarks
-   * The task start time. Format: YYYY-MM-DD HH:mm:ss.
+   * The start time of the task. Format: YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-12-17 10:08:00
@@ -120,7 +120,7 @@ export class CreatePreCheckRequest extends $dara.Model {
    * The task name.
    * 
    * @example
-   * 图片任务 20240709101602004
+   * Image task 20240709101602004
    */
   taskName?: string;
   static names(): { [key: string]: string } {

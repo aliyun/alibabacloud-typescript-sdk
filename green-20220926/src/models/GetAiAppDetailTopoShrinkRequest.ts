@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetAiAppDetailTopoShrinkRequest extends $dara.Model {
   /**
    * @remarks
-   * The application ID that identifies a specific AI application.
+   * The ID of the AI application.
    * 
    * This parameter is required.
    * 

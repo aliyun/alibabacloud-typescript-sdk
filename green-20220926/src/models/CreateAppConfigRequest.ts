@@ -8,7 +8,7 @@ export class CreateAppConfigRequest extends $dara.Model {
    * The name.
    * 
    * @example
-   * CustomReview
+   * Custom review
    */
   name?: string;
   /**

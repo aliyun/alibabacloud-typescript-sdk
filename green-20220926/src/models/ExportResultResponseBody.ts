@@ -21,7 +21,7 @@ export class ExportResultResponseBody extends $dara.Model {
   data?: string;
   /**
    * @remarks
-   * The description of the error code.
+   * The detailed description of the error code.
    * 
    * @example
    * OK
@@ -37,7 +37,7 @@ export class ExportResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class ExportResultRequest extends $dara.Model {
   /**
    * @remarks
-   * The page number of the paginated query results. Default value: 1.
+   * The page number. Default value: 1.
    * 
    * @example
    * 1
@@ -13,7 +13,7 @@ export class ExportResultRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end time. Format: YYYY-MM-DD HH:mm:ss.
+   * The end time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-08-24 10:01:55
@@ -21,7 +21,7 @@ export class ExportResultRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The number of entries per page in the paginated query results.
+   * The number of entries to return on each page.
    * 
    * @example
    * 20
@@ -29,7 +29,7 @@ export class ExportResultRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query condition.
+   * The query conditions.
    * 
    * @example
    * {"TaskId":"P_11TL5T"}
@@ -46,11 +46,14 @@ export class ExportResultRequest extends $dara.Model {
   /**
    * @remarks
    * The sort field.
+   * 
+   * @example
+   * {"GmtCreate":"desc"}
    */
   sort?: { [key: string]: string };
   /**
    * @remarks
-   * The operation source.
+   * The source of the operation.
    * 
    * @example
    * disposal
@@ -58,7 +61,7 @@ export class ExportResultRequest extends $dara.Model {
   source?: string;
   /**
    * @remarks
-   * The start time. Format: YYYY-MM-DD HH:mm:ss.
+   * The start time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-08-11 09:00:19

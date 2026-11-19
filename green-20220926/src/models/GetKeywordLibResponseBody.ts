@@ -21,7 +21,7 @@ export class GetKeywordLibResponseBodyData extends $dara.Model {
   keywordCount?: string;
   /**
    * @remarks
-   * The keyword library ID.
+   * The ID of the keyword library.
    * 
    * @example
    * customxx_xxx
@@ -29,15 +29,20 @@ export class GetKeywordLibResponseBodyData extends $dara.Model {
   libId?: string;
   /**
    * @remarks
-   * The library name.
+   * The name of the keyword library.
    * 
    * @example
-   * TestLibrary.
+   * Test keyword library
    */
   libName?: string;
   /**
    * @remarks
-   * The Alibaba Cloud account ID.
+   * The preprocessing list of the keyword library. If ServiceCode is not specified or no preprocessing is configured, an empty array is returned.
+   */
+  preprocessList?: string[];
+  /**
+   * @remarks
+   * The ID of the Alibaba Cloud account.
    * 
    * @example
    * 1825457112123838
@@ -49,6 +54,7 @@ export class GetKeywordLibResponseBodyData extends $dara.Model {
       keywordCount: 'KeywordCount',
       libId: 'LibId',
       libName: 'LibName',
+      preprocessList: 'PreprocessList',
       uid: 'Uid',
     };
   }
@@ -59,11 +65,15 @@ export class GetKeywordLibResponseBodyData extends $dara.Model {
       keywordCount: 'string',
       libId: 'string',
       libName: 'string',
+      preprocessList: { 'type': 'array', 'itemType': 'string' },
       uid: 'string',
     };
   }
 
   validate() {
+    if(Array.isArray(this.preprocessList)) {
+      $dara.Model.validateArray(this.preprocessList);
+    }
     super.validate();
   }
 
@@ -88,7 +98,7 @@ export class GetKeywordLibResponseBody extends $dara.Model {
   data?: GetKeywordLibResponseBodyData;
   /**
    * @remarks
-   * The description of the error code.
+   * The detailed description of the error code.
    * 
    * @example
    * OK
@@ -96,7 +106,7 @@ export class GetKeywordLibResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The request ID assigned by the backend, which uniquely identifies the request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

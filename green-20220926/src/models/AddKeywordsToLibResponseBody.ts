@@ -8,12 +8,12 @@ export class AddKeywordsToLibResponseBodyDataKeywordsResult extends $dara.Model 
    * The internationalization key.
    * 
    * @example
-   * xxx
+   * common.success
    */
   i18nKey?: string;
   /**
    * @remarks
-   * The list of keywords with illegal length (too long or too short).
+   * The list of keywords that are too long or too short.
    */
   illegalLengthKeywords?: string[];
   /**
@@ -31,7 +31,7 @@ export class AddKeywordsToLibResponseBodyDataKeywordsResult extends $dara.Model 
   invalidKeywords?: string[];
   /**
    * @remarks
-   * The keyword library ID.
+   * The ID of the keyword library.
    * 
    * @example
    * customxx_xxxx
@@ -130,7 +130,7 @@ export class AddKeywordsToLibResponseBodyData extends $dara.Model {
   keywordsResult?: AddKeywordsToLibResponseBodyDataKeywordsResult;
   /**
    * @remarks
-   * The keyword library ID.
+   * The ID of the keyword library.
    * 
    * @example
    * customxx_xxxx

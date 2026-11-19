@@ -8,7 +8,7 @@ export class GetKeywordImportResultResponseBodyData extends $dara.Model {
    * The internationalization key.
    * 
    * @example
-   * xxx
+   * keyword.import.success
    */
   i18nKey?: string;
   /**
@@ -18,7 +18,7 @@ export class GetKeywordImportResultResponseBodyData extends $dara.Model {
   illegalLengthKeywords?: string[];
   /**
    * @remarks
-   * The number of invalid keywords.
+   * The invalid count.
    * 
    * @example
    * 1
@@ -47,7 +47,7 @@ export class GetKeywordImportResultResponseBodyData extends $dara.Model {
   progress?: number;
   /**
    * @remarks
-   * The number of duplicate keywords.
+   * The duplicate count.
    * 
    * @example
    * 1
@@ -60,7 +60,7 @@ export class GetKeywordImportResultResponseBodyData extends $dara.Model {
   repeatKeywords?: string[];
   /**
    * @remarks
-   * The number of successfully imported keywords.
+   * The success count.
    * 
    * @example
    * 8
@@ -68,10 +68,10 @@ export class GetKeywordImportResultResponseBodyData extends $dara.Model {
   successCount?: number;
   /**
    * @remarks
-   * The prompt information.
+   * The prompt message.
    * 
    * @example
-   * xxx
+   * Keyword import completed. Total: 10, Succeeded: 8, Duplicates: 1, Invalid: 1
    */
   tips?: string;
   /**
@@ -148,7 +148,7 @@ export class GetKeywordImportResultResponseBody extends $dara.Model {
   data?: GetKeywordImportResultResponseBodyData;
   /**
    * @remarks
-   * The description of the error code.
+   * The detailed description of the error code.
    * 
    * @example
    * OK
@@ -156,7 +156,7 @@ export class GetKeywordImportResultResponseBody extends $dara.Model {
   msg?: string;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * The request ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****
@@ -164,7 +164,7 @@ export class GetKeywordImportResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * The success indicator.
    * 
    * @example
    * True

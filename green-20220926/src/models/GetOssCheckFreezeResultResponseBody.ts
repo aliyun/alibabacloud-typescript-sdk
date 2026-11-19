@@ -16,7 +16,7 @@ export class GetOssCheckFreezeResultResponseBodyItemsLabelDetails extends $dara.
    * The label description.
    * 
    * @example
-   * 涉政
+   * Political content
    */
   description?: string;
   /**
@@ -55,7 +55,7 @@ export class GetOssCheckFreezeResultResponseBodyItemsLabelDetails extends $dara.
 export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * The OSS bucket.
+   * The bucket.
    * 
    * @example
    * tmp
@@ -71,7 +71,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   code?: string;
   /**
    * @remarks
-   * The audio or video scan type.
+   * The audio and video detection type.
    * 
    * @example
    * audio
@@ -87,9 +87,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   copyFrom?: string;
   /**
    * @remarks
-   * The feedback. Valid values:
-   * - misreport: False positive (not a violation).
-   * - missOut: Missed violation.
+   * The feedback.
    * 
    * @example
    * misreport
@@ -97,7 +95,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   feedback?: string;
   /**
    * @remarks
-   * Indicates whether the object is frozen.
+   * Indicates whether the item is frozen.
    * 
    * @example
    * true
@@ -105,7 +103,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   freeze?: boolean;
   /**
    * @remarks
-   * The freeze status.
+   * The freezing status.
    * 
    * @example
    * FREEZED
@@ -113,7 +111,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   freezeStatus?: string;
   /**
    * @remarks
-   * The freeze type.
+   * The freezing type.
    * 
    * @example
    * ACL
@@ -129,7 +127,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   imageUrl?: string;
   /**
    * @remarks
-   * Indicates whether the task is copied.
+   * Indicates whether the item is copied.
    * 
    * @example
    * true
@@ -160,9 +158,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   labels2?: string[];
   /**
    * @remarks
-   * The manual action status. Valid values:
-   * - FREEZE: Frozen.
-   * - UNFREEZE: Unfrozen.
+   * The manual disposal status.
    * 
    * @example
    * FREEZE
@@ -170,7 +166,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   manualFreezeAction?: string;
   /**
    * @remarks
-   * The action time. Format: YYYY-MM-DD HH:mm:ss.
+   * The disposal time. Specify the time in the YYYY-MM-DD HH:mm:ss format.
    * 
    * @example
    * 2025-08-09 12:00:00
@@ -178,10 +174,10 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   manualOperateTime?: string;
   /**
    * @remarks
-   * The operator who performed the action.
+   * The operator.
    * 
    * @example
-   * xx
+   * John Doe
    */
   manualOperator?: string;
   /**
@@ -242,7 +238,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   riskLevel2?: string;
   /**
    * @remarks
-   * The scan result details.
+   * The result details.
    * 
    * @example
    * {}
@@ -261,17 +257,12 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
    * The service name.
    * 
    * @example
-   * 服务名称
+   * Service name
    */
   serviceName?: string;
   /**
    * @remarks
-   * The system action status. Valid values:
-   * - FREEZING: Freezing in progress.
-   * - FREEZED: Frozen.
-   * - UNFREEZED: Unfrozen.
-   * - NONE: No action taken.
-   * - UNFREEZING: Unfreezing in progress.
+   * The system disposal status.
    * 
    * @example
    * FREEZED
@@ -287,7 +278,7 @@ export class GetOssCheckFreezeResultResponseBodyItems extends $dara.Model {
   taskId?: string;
   /**
    * @remarks
-   * The task URL.
+   * The URL of the task.
    * 
    * @example
    * http://www.aliyuncs.com/test.mp3
@@ -405,7 +396,7 @@ export class GetOssCheckFreezeResultResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * The ID of the request. You can use the ID to troubleshoot issues.
    * 
    * @example
    * F0A594BB-FA7A-580F-AE9E-A4188E092823

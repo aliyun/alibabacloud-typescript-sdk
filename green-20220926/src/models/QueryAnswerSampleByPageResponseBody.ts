@@ -8,7 +8,7 @@ export class QueryAnswerSampleByPageResponseBodyItems extends $dara.Model {
    * The answer.
    * 
    * @example
-   * 答案
+   * Answer
    */
   answer?: string;
   /**
@@ -29,7 +29,7 @@ export class QueryAnswerSampleByPageResponseBodyItems extends $dara.Model {
   id?: number;
   /**
    * @remarks
-   * The ID of the proxy answer library.
+   * The ID of the fallback answer library.
    * 
    * @example
    * custom_xxxx
@@ -37,7 +37,7 @@ export class QueryAnswerSampleByPageResponseBodyItems extends $dara.Model {
   libId?: string;
   /**
    * @remarks
-   * UID。
+   * The UID of the user.
    * 
    * @example
    * 104813*****2399

@@ -13,7 +13,7 @@ export class OssCheckResultListShrinkRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end time. Format: YYYY-MM-DD HH:mm:ss.
+   * The end time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-10-21 16:08:38
@@ -21,7 +21,7 @@ export class OssCheckResultListShrinkRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The number of completed items.
+   * The number of completed tasks.
    * 
    * @example
    * 55
@@ -37,7 +37,7 @@ export class OssCheckResultListShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The query condition.
+   * The query conditions. Note: This parameter is required. You must specify a valid JSON string that contains at least one key-value pair, such as {"Labels":"porn"}. The scan results cannot be filtered properly without query conditions.
    * 
    * @example
    * {}
@@ -54,11 +54,14 @@ export class OssCheckResultListShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The sort field.
+   * 
+   * @example
+   * {"GmtCreate":"desc"}
    */
   sortShrink?: string;
   /**
    * @remarks
-   * The start time. Format: YYYY-MM-DD HH:mm:ss.
+   * The start time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-08-21 16:08:38

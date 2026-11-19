@@ -9,7 +9,7 @@ export class AddKeywordLibRequest extends $dara.Model {
    * .
    * 
    * @example
-   * keyword1\\nkeyword2
+   * Keyword1\\nKeyword2
    */
   keywords?: string;
   /**
@@ -25,7 +25,7 @@ export class AddKeywordLibRequest extends $dara.Model {
    * The name of the keyword library.
    * 
    * @example
-   * TestLibrary.
+   * Test keyword library
    */
   libName?: string;
   /**
@@ -46,9 +46,8 @@ export class AddKeywordLibRequest extends $dara.Model {
   regionId?: string;
   /**
    * @remarks
-   * The library code.
-   * 
-   * - desensitize: desensitization library
+   * The code of the keyword library.
+   * - desensitize: desensitization keyword library.
    * 
    * @example
    * desensitize

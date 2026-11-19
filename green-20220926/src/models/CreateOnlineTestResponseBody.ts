@@ -16,7 +16,7 @@ export class CreateOnlineTestResponseBody extends $dara.Model {
    * The service code.
    * 
    * @example
-   * VideoModeration
+   * videoDetection
    */
   serviceCode?: string;
   /**
@@ -37,7 +37,7 @@ export class CreateOnlineTestResponseBody extends $dara.Model {
   taskStatus?: string;
   /**
    * @remarks
-   * The URL to be detected.
+   * The detection URL.
    * 
    * @example
    * https://xxxxxxxxxx.com/data/data.png

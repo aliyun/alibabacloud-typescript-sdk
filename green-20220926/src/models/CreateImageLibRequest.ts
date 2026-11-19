@@ -5,10 +5,10 @@ import * as $dara from '@darabonba/typescript';
 export class CreateImageLibRequest extends $dara.Model {
   /**
    * @remarks
-   * The remarks.
+   * The remark.
    * 
    * @example
-   * Politically sensitive.
+   * Politically sensitive content
    */
   comment?: string;
   /**
@@ -16,7 +16,7 @@ export class CreateImageLibRequest extends $dara.Model {
    * The name of the image library.
    * 
    * @example
-   * Malicious ads.
+   * Malicious advertising
    */
   libName?: string;
   /**

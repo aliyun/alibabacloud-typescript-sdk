@@ -16,7 +16,7 @@ export class ListAiAppByPageResponseBodyItemsRiskEventsLabels extends $dara.Mode
    * The label description.
    * 
    * @example
-   * xxx
+   * The output content contains insulting or discriminatory remarks against others
    */
   labelDesc?: string;
   /**
@@ -55,7 +55,7 @@ export class ListAiAppByPageResponseBodyItemsRiskEventsLabels extends $dara.Mode
 export class ListAiAppByPageResponseBodyItemsRiskEvents extends $dara.Model {
   /**
    * @remarks
-   * The risk event code.
+   * The code of the risk event.
    * 
    * @example
    * hit-xxx
@@ -81,10 +81,10 @@ export class ListAiAppByPageResponseBodyItemsRiskEvents extends $dara.Model {
   eventIds?: string[];
   /**
    * @remarks
-   * The risk event name.
+   * The name of the risk event.
    * 
    * @example
-   * xxx
+   * Abuse and personal attacks
    */
   eventName?: string;
   /**
@@ -144,10 +144,60 @@ export class ListAiAppByPageResponseBodyItemsRiskEvents extends $dara.Model {
   }
 }
 
+export class ListAiAppByPageResponseBodyItemsRiskStats extends $dara.Model {
+  /**
+   * @remarks
+   * The number of requests.
+   * 
+   * @example
+   * 10
+   */
+  requestCount?: number;
+  /**
+   * @remarks
+   * The number of risks.
+   * 
+   * @example
+   * 1
+   */
+  riskCount?: number;
+  /**
+   * @remarks
+   * The type.
+   * 
+   * @example
+   * content_moderation
+   */
+  type?: string;
+  static names(): { [key: string]: string } {
+    return {
+      requestCount: 'RequestCount',
+      riskCount: 'RiskCount',
+      type: 'Type',
+    };
+  }
+
+  static types(): { [key: string]: any } {
+    return {
+      requestCount: 'number',
+      riskCount: 'number',
+      type: 'string',
+    };
+  }
+
+  validate() {
+    super.validate();
+  }
+
+  constructor(map?: { [key: string]: any }) {
+    super(map);
+  }
+}
+
 export class ListAiAppByPageResponseBodyItems extends $dara.Model {
   /**
    * @remarks
-   * appId。
+   * The ID of the AI application.
    * 
    * @example
    * id-xxx
@@ -155,7 +205,7 @@ export class ListAiAppByPageResponseBodyItems extends $dara.Model {
   appId?: string;
   /**
    * @remarks
-   * The application name.
+   * The name of the application.
    * 
    * @example
    * name-xxx
@@ -179,7 +229,7 @@ export class ListAiAppByPageResponseBodyItems extends $dara.Model {
   channel?: string;
   /**
    * @remarks
-   * The last active time. Format: YYYY-MM-DD HH:mm:ss.
+   * The last active time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2026-01-01 00:00:00
@@ -200,6 +250,11 @@ export class ListAiAppByPageResponseBodyItems extends $dara.Model {
   riskLevel?: string;
   /**
    * @remarks
+   * The risk statistics.
+   */
+  riskStats?: ListAiAppByPageResponseBodyItemsRiskStats[];
+  /**
+   * @remarks
    * The Tracing Analysis status.
    * 
    * @example
@@ -208,7 +263,7 @@ export class ListAiAppByPageResponseBodyItems extends $dara.Model {
   traceStatus?: string;
   /**
    * @remarks
-   * UID。
+   * The UID of the user.
    * 
    * @example
    * 104813*****2399
@@ -231,6 +286,7 @@ export class ListAiAppByPageResponseBodyItems extends $dara.Model {
       lastTraceTime: 'LastTraceTime',
       riskEvents: 'RiskEvents',
       riskLevel: 'RiskLevel',
+      riskStats: 'RiskStats',
       traceStatus: 'TraceStatus',
       uid: 'Uid',
       warningCount: 'WarningCount',
@@ -246,6 +302,7 @@ export class ListAiAppByPageResponseBodyItems extends $dara.Model {
       lastTraceTime: 'string',
       riskEvents: { 'type': 'array', 'itemType': ListAiAppByPageResponseBodyItemsRiskEvents },
       riskLevel: 'string',
+      riskStats: { 'type': 'array', 'itemType': ListAiAppByPageResponseBodyItemsRiskStats },
       traceStatus: 'string',
       uid: 'string',
       warningCount: 'number',
@@ -255,6 +312,9 @@ export class ListAiAppByPageResponseBodyItems extends $dara.Model {
   validate() {
     if(Array.isArray(this.riskEvents)) {
       $dara.Model.validateArray(this.riskEvents);
+    }
+    if(Array.isArray(this.riskStats)) {
+      $dara.Model.validateArray(this.riskStats);
     }
     super.validate();
   }
@@ -280,7 +340,7 @@ export class ListAiAppByPageResponseBody extends $dara.Model {
   items?: ListAiAppByPageResponseBodyItems[];
   /**
    * @remarks
-   * The number of entries per page.
+   * The page size.
    * 
    * @example
    * 10
@@ -288,7 +348,7 @@ export class ListAiAppByPageResponseBody extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * The ID of the request, which is assigned by the backend to uniquely identify the request and can be used to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

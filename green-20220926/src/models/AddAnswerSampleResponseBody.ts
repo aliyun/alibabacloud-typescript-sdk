@@ -8,12 +8,12 @@ export class AddAnswerSampleResponseBodyResult extends $dara.Model {
    * The internationalization key.
    * 
    * @example
-   * xxx
+   * common.success
    */
   i18nKey?: string;
   /**
    * @remarks
-   * The collection of samples whose length is too long or too short.
+   * The collection of samples that are too long or too short.
    */
   illegalLengthSamples?: string[];
   /**
@@ -26,7 +26,7 @@ export class AddAnswerSampleResponseBodyResult extends $dara.Model {
   invalidCount?: number;
   /**
    * @remarks
-   * The ID of the proxy answer library.
+   * The ID of the fallback answer library.
    * 
    * @example
    * alxxxx
@@ -34,7 +34,7 @@ export class AddAnswerSampleResponseBodyResult extends $dara.Model {
   libId?: string;
   /**
    * @remarks
-   * The progress. For example, 90 indicates 90%.
+   * The progress. A value of 90 indicates 90%.
    * 
    * @example
    * 100
@@ -125,7 +125,7 @@ export class AddAnswerSampleResponseBodyResult extends $dara.Model {
 export class AddAnswerSampleResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The ID of the proxy answer library.
+   * The ID of the fallback answer library.
    * 
    * @example
    * alxxxx
@@ -133,7 +133,7 @@ export class AddAnswerSampleResponseBody extends $dara.Model {
   libId?: string;
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify the request. You can use this ID to troubleshoot issues.
+   * The ID assigned by the backend to uniquely identify a request. You can use this ID to troubleshoot issues.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

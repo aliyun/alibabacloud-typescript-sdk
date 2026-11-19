@@ -7,11 +7,14 @@ export class GetQpsStatsResponseBody extends $dara.Model {
   /**
    * @remarks
    * The chart configurations.
+   * 
+   * @example
+   * {"cn-shanghai":{"X":["20260701"],"Y":[{"Name":"cn-shanghai","Data":[10]}]}}
    */
   charts?: { [key: string]: ChartsValue };
   /**
    * @remarks
-   * The ID assigned by the backend to uniquely identify a request. It can be used to troubleshoot issues.
+   * The ID of the request.
    * 
    * @example
    * AAAAAA-BBBB-CCCCC-DDDD-EEEEEEEE****

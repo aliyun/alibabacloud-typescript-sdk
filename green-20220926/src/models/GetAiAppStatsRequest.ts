@@ -21,7 +21,7 @@ export class GetAiAppStatsRequest extends $dara.Model {
   endDate?: string;
   /**
    * @remarks
-   * The query condition.
+   * The query conditions.
    * 
    * @example
    * {}

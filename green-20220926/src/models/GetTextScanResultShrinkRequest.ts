@@ -13,7 +13,7 @@ export class GetTextScanResultShrinkRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The end time. Format: YYYY-MM-DD HH:mm:ss.
+   * The end time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-08-24 10:01:55
@@ -29,7 +29,10 @@ export class GetTextScanResultShrinkRequest extends $dara.Model {
   pageSize?: number;
   /**
    * @remarks
-   * The search condition.
+   * The search conditions.
+   * 
+   * @example
+   * {"DataId":"data-test-001"}
    */
   queryShrink?: string;
   /**
@@ -43,11 +46,14 @@ export class GetTextScanResultShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The sort field.
+   * 
+   * @example
+   * {"GmtCreate":"desc"}
    */
   sortShrink?: string;
   /**
    * @remarks
-   * The start time. Format: YYYY-MM-DD HH:mm:ss.
+   * The start time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-08-11 09:00:19

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetFeatureConfigRequest extends $dara.Model {
   /**
    * @remarks
-   * The query condition.
+   * The query conditions.
    * 
    * @example
    * {\\"Lang\\":\\"zh\\",\\"CategoryType\\":1,\\"Default\\":false,\\"ParentCategoryId\\":1720}
@@ -37,7 +37,7 @@ export class GetFeatureConfigRequest extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * The type.
+   * The type. Note: This parameter is actually required. If it is not provided, the API returns a 400 error (type may not be empty).
    * 
    * @example
    * custom_llm_template

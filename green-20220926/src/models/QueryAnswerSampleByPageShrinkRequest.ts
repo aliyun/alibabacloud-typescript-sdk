@@ -8,7 +8,7 @@ export class QueryAnswerSampleByPageShrinkRequest extends $dara.Model {
    * The answer.
    * 
    * @example
-   * 答案
+   * Answer
    */
   answer?: string;
   /**
@@ -21,7 +21,7 @@ export class QueryAnswerSampleByPageShrinkRequest extends $dara.Model {
   currentPage?: number;
   /**
    * @remarks
-   * The ID of the proxy answer library.
+   * The ID of the fallback answer library. Note: This parameter is required. If you do not specify this parameter, the API returns a 400 error with the message "libId may not be empty".
    * 
    * @example
    * custom_xxxx
@@ -46,6 +46,9 @@ export class QueryAnswerSampleByPageShrinkRequest extends $dara.Model {
   /**
    * @remarks
    * The sort field.
+   * 
+   * @example
+   * {"field":"GmtCreate","order":"desc"}
    */
   sortShrink?: string;
   static names(): { [key: string]: string } {

@@ -5,7 +5,7 @@ import * as $dara from '@darabonba/typescript';
 export class GetTextScanResultResponseBodyDataItemsResult extends $dara.Model {
   /**
    * @remarks
-   * The confidence score, ranging from 0 to 100 and rounded to two decimal places.
+   * The confidence score. Valid values: 0 to 100. The score is accurate to two decimal places.
    * 
    * @example
    * 25.0
@@ -16,7 +16,7 @@ export class GetTextScanResultResponseBodyDataItemsResult extends $dara.Model {
    * The description.
    * 
    * @example
-   * 疑似色情内容
+   * Suspected pornographic content
    */
   description?: string;
   /**
@@ -55,7 +55,7 @@ export class GetTextScanResultResponseBodyDataItemsResult extends $dara.Model {
 export class GetTextScanResultResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * The AccountId passed in by the customer.
+   * The AccountId parameter passed by the customer.
    * 
    * @example
    * accountIdtest123
@@ -63,10 +63,10 @@ export class GetTextScanResultResponseBodyDataItems extends $dara.Model {
   accountId?: string;
   /**
    * @remarks
-   * The Bailian request ID.
+   * The Model Studio request ID.
    * 
    * @example
-   * xxx
+   * e1063275-a239-4f0c-8b7b-9c6f0d5e4a21
    */
   bailianRequestId?: string;
   /**
@@ -74,15 +74,15 @@ export class GetTextScanResultResponseBodyDataItems extends $dara.Model {
    * The content.
    * 
    * @example
-   * 测试内容
+   * Test content
    */
   content?: string;
   /**
    * @remarks
-   * The DataId passed in by the customer.
+   * The DataId parameter passed by the customer.
    * 
    * @example
-   * xxxx
+   * data_id_001
    */
   dataId?: string;
   /**
@@ -95,7 +95,7 @@ export class GetTextScanResultResponseBodyDataItems extends $dara.Model {
   extFeedback?: string;
   /**
    * @remarks
-   * The reserved parameter.
+   * The extra parameters.
    * 
    * @example
    * {}
@@ -127,7 +127,7 @@ export class GetTextScanResultResponseBodyDataItems extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * The request time. Format: YYYY-MM-DD HH:mm:ss.
+   * The request time. The format is YYYY-MM-DD HH:mm:ss.
    * 
    * @example
    * 2023-07-11 14:21:36
@@ -135,20 +135,16 @@ export class GetTextScanResultResponseBodyDataItems extends $dara.Model {
   requestTime?: string;
   /**
    * @remarks
-   * The detection results.
+   * The moderation result.
    */
   result?: GetTextScanResultResponseBodyDataItemsResult[];
   /**
    * @remarks
-   * The risk level, which is returned based on the configured high and low risk score thresholds. Valid values:
-   * 
-   * - high: high risk.
-   * 
-   * - medium: medium risk.
-   *  
-   * - low: low risk.
-   * 
-   * - none: no risk detected.
+   * The risk level. The value is returned based on the configured high and low risk scores. Valid values:
+   * - high: High risk.
+   * - medium: Medium risk.
+   * - low: Low risk.
+   * - none: No risk detected.
    * 
    * @example
    * none
@@ -180,7 +176,7 @@ export class GetTextScanResultResponseBodyDataItems extends $dara.Model {
   serviceCode?: string;
   /**
    * @remarks
-   * The suggested action.
+   * The suggestion.
    * 
    * @example
    * review
@@ -329,7 +325,7 @@ export class GetTextScanResultResponseBody extends $dara.Model {
   data?: GetTextScanResultResponseBodyData;
   /**
    * @remarks
-   * The description of the error code.
+   * The detailed description of the error code.
    * 
    * @example
    * OK
@@ -345,7 +341,7 @@ export class GetTextScanResultResponseBody extends $dara.Model {
   requestId?: string;
   /**
    * @remarks
-   * Indicates whether the request was successful.
+   * Indicates whether the request is successful.
    * 
    * @example
    * True
