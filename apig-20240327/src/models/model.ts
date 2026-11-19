@@ -348,6 +348,7 @@ export { GetGatewayQuotaRuleSubjectUsageExportTaskResponseBodyDataResult } from 
 export { GetGatewayQuotaRuleSubjectUsageExportTaskResponseBodyData } from './GetGatewayQuotaRuleSubjectUsageExportTaskResponseBody';
 export { GetGatewayResourceQuotaUsageResponseBodyDataItems } from './GetGatewayResourceQuotaUsageResponseBody';
 export { GetGatewayResourceQuotaUsageResponseBodyData } from './GetGatewayResourceQuotaUsageResponseBody';
+export { GetGatewayWebsocketUsageResponseBodyData } from './GetGatewayWebsocketUsageResponseBody';
 export { GetHiMarketConsumerResponseBodyData } from './GetHiMarketConsumerResponseBody';
 export { GetHiMarketConsumerCredentialResponseBodyData } from './GetHiMarketConsumerCredentialResponseBody';
 export { GetLogicalModelResponseBodyDataAvailablePaths } from './GetLogicalModelResponseBody';
@@ -485,6 +486,7 @@ export { ListGatewayLoadBalancersResponseBodyDataItems } from './ListGatewayLoad
 export { ListGatewayLoadBalancersResponseBodyData } from './ListGatewayLoadBalancersResponseBody';
 export { ListGatewayQuotaRulesResponseBodyDataItems } from './ListGatewayQuotaRulesResponseBody';
 export { ListGatewayQuotaRulesResponseBodyData } from './ListGatewayQuotaRulesResponseBody';
+export { ListGatewayWebsocketEventsResponseBodyData } from './ListGatewayWebsocketEventsResponseBody';
 export { ListGatewaysRequestTag } from './ListGatewaysRequest';
 export { ListGatewaysResponseBodyDataItemsLoadBalancersPorts } from './ListGatewaysResponseBody';
 export { ListGatewaysResponseBodyDataItemsLoadBalancers } from './ListGatewaysResponseBody';
@@ -1116,6 +1118,9 @@ export { GetGatewayQuotaRuleSubjectUsageExportTaskResponse } from './GetGatewayQ
 export { GetGatewayResourceQuotaUsageRequest } from './GetGatewayResourceQuotaUsageRequest';
 export { GetGatewayResourceQuotaUsageResponseBody } from './GetGatewayResourceQuotaUsageResponseBody';
 export { GetGatewayResourceQuotaUsageResponse } from './GetGatewayResourceQuotaUsageResponse';
+export { GetGatewayWebsocketUsageRequest } from './GetGatewayWebsocketUsageRequest';
+export { GetGatewayWebsocketUsageResponseBody } from './GetGatewayWebsocketUsageResponseBody';
+export { GetGatewayWebsocketUsageResponse } from './GetGatewayWebsocketUsageResponse';
 export { GetHiMarketConsumerRequest } from './GetHiMarketConsumerRequest';
 export { GetHiMarketConsumerResponseBody } from './GetHiMarketConsumerResponseBody';
 export { GetHiMarketConsumerResponse } from './GetHiMarketConsumerResponse';
@@ -1279,6 +1284,9 @@ export { ListGatewayLoadBalancersResponse } from './ListGatewayLoadBalancersResp
 export { ListGatewayQuotaRulesRequest } from './ListGatewayQuotaRulesRequest';
 export { ListGatewayQuotaRulesResponseBody } from './ListGatewayQuotaRulesResponseBody';
 export { ListGatewayQuotaRulesResponse } from './ListGatewayQuotaRulesResponse';
+export { ListGatewayWebsocketEventsRequest } from './ListGatewayWebsocketEventsRequest';
+export { ListGatewayWebsocketEventsResponseBody } from './ListGatewayWebsocketEventsResponseBody';
+export { ListGatewayWebsocketEventsResponse } from './ListGatewayWebsocketEventsResponse';
 export { ListGatewaysRequest } from './ListGatewaysRequest';
 export { ListGatewaysShrinkRequest } from './ListGatewaysShrinkRequest';
 export { ListGatewaysResponseBody } from './ListGatewaysResponseBody';

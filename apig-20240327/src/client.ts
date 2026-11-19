@@ -5256,7 +5256,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the access overview of a consumer.
+   * Queries the consumer access overview.
    * 
    * @param request - GetConsumerAccessOverviewRequest
    * @param headers - map
@@ -5289,7 +5289,7 @@ export default class Client extends OpenApi {
   }
 
   /**
-   * Queries the access overview of a consumer.
+   * Queries the consumer access overview.
    * 
    * @param request - GetConsumerAccessOverviewRequest
    * @returns GetConsumerAccessOverviewResponse
@@ -6022,6 +6022,51 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.getGatewayResourceQuotaUsageWithOptions(gatewayId, request, headers, runtime);
+  }
+
+  /**
+   * Retrieves the current cycle usage of the configured metering policy for a dedicated Professional AI gateway. Returns a specific error if cycle metering is not configured, and does not pad with zeros when no cycle data is available.
+   * 
+   * @remarks
+   * Retrieves the current half-open cycle Redis summary for the configured metering policy of the current user\\"s dedicated Professional AI gateway. Only total instance counts are supported. Filters for time ranges, models, connections, or SLS destinations are not accepted. If data_present is false, it indicates that no cycle data is available, and the value is not padded with zeros.
+   * 
+   * @param request - GetGatewayWebsocketUsageRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns GetGatewayWebsocketUsageResponse
+   */
+  async getGatewayWebsocketUsageWithOptions(gatewayId: string, request: $_model.GetGatewayWebsocketUsageRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.GetGatewayWebsocketUsageResponse> {
+    request.validate();
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "GetGatewayWebsocketUsage",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/websocket-observability/usage`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.GetGatewayWebsocketUsageResponse>(await this.callApi(params, req, runtime), new $_model.GetGatewayWebsocketUsageResponse({}));
+  }
+
+  /**
+   * Retrieves the current cycle usage of the configured metering policy for a dedicated Professional AI gateway. Returns a specific error if cycle metering is not configured, and does not pad with zeros when no cycle data is available.
+   * 
+   * @remarks
+   * Retrieves the current half-open cycle Redis summary for the configured metering policy of the current user\\"s dedicated Professional AI gateway. Only total instance counts are supported. Filters for time ranges, models, connections, or SLS destinations are not accepted. If data_present is false, it indicates that no cycle data is available, and the value is not padded with zeros.
+   * 
+   * @param request - GetGatewayWebsocketUsageRequest
+   * @returns GetGatewayWebsocketUsageResponse
+   */
+  async getGatewayWebsocketUsage(gatewayId: string, request: $_model.GetGatewayWebsocketUsageRequest): Promise<$_model.GetGatewayWebsocketUsageResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.getGatewayWebsocketUsageWithOptions(gatewayId, request, headers, runtime);
   }
 
   /**
@@ -8999,6 +9044,89 @@ export default class Client extends OpenApi {
     let runtime = new $dara.RuntimeOptions({ });
     let headers : {[key: string ]: string} = { };
     return await this.listGatewayQuotaRulesWithOptions(gatewayId, request, headers, runtime);
+  }
+
+  /**
+   * Queries historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
+   * 
+   * @remarks
+   * Reads historical events delivered by the dedicated Professional AI gateway of the current user to the user\\"s SLS. Standard user log delivery and corresponding indexes must be enabled. The query time range is a left-closed and right-open interval, with a span of no more than 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results are not an online connection directory, and missing logs do not indicate that no calls occurred.
+   * 
+   * @param request - ListGatewayWebsocketEventsRequest
+   * @param headers - map
+   * @param runtime - runtime options for this request RuntimeOptions
+   * @returns ListGatewayWebsocketEventsResponse
+   */
+  async listGatewayWebsocketEventsWithOptions(gatewayId: string, request: $_model.ListGatewayWebsocketEventsRequest, headers: {[key: string ]: string}, runtime: $dara.RuntimeOptions): Promise<$_model.ListGatewayWebsocketEventsResponse> {
+    request.validate();
+    let query : {[key: string ]: any} = { };
+    if (!$dara.isNull(request.connectionId)) {
+      query["connectionId"] = request.connectionId;
+    }
+
+    if (!$dara.isNull(request.endTime)) {
+      query["endTime"] = request.endTime;
+    }
+
+    if (!$dara.isNull(request.maxResults)) {
+      query["maxResults"] = request.maxResults;
+    }
+
+    if (!$dara.isNull(request.model)) {
+      query["model"] = request.model;
+    }
+
+    if (!$dara.isNull(request.nextToken)) {
+      query["nextToken"] = request.nextToken;
+    }
+
+    if (!$dara.isNull(request.provider)) {
+      query["provider"] = request.provider;
+    }
+
+    if (!$dara.isNull(request.source)) {
+      query["source"] = request.source;
+    }
+
+    if (!$dara.isNull(request.startTime)) {
+      query["startTime"] = request.startTime;
+    }
+
+    if (!$dara.isNull(request.turnId)) {
+      query["turnId"] = request.turnId;
+    }
+
+    let req = new $OpenApiUtil.OpenApiRequest({
+      headers: headers,
+      query: OpenApiUtil.query(query),
+    });
+    let params = new $OpenApiUtil.Params({
+      action: "ListGatewayWebsocketEvents",
+      version: "2024-03-27",
+      protocol: "HTTPS",
+      pathname: `/v1/gateways/${$dara.URL.percentEncode(gatewayId)}/websocket-observability/events`,
+      method: "GET",
+      authType: "AK",
+      style: "ROA",
+      reqBodyType: "json",
+      bodyType: "json",
+    });
+    return $dara.cast<$_model.ListGatewayWebsocketEventsResponse>(await this.callApi(params, req, runtime), new $_model.ListGatewayWebsocketEventsResponse({}));
+  }
+
+  /**
+   * Queries historical WebSocket events delivered by a dedicated Professional AI gateway to the Simple Log Service (SLS) of the current user. Supports a time range of up to 31 days, conditional filtering, and cursor-based pagination. The results do not represent the online connection status.
+   * 
+   * @remarks
+   * Reads historical events delivered by the dedicated Professional AI gateway of the current user to the user\\"s SLS. Standard user log delivery and corresponding indexes must be enabled. The query time range is a left-closed and right-open interval, with a span of no more than 31 days and cannot include future time. Uses maxResults and nextToken for cursor-based pagination. The results are not an online connection directory, and missing logs do not indicate that no calls occurred.
+   * 
+   * @param request - ListGatewayWebsocketEventsRequest
+   * @returns ListGatewayWebsocketEventsResponse
+   */
+  async listGatewayWebsocketEvents(gatewayId: string, request: $_model.ListGatewayWebsocketEventsRequest): Promise<$_model.ListGatewayWebsocketEventsResponse> {
+    let runtime = new $dara.RuntimeOptions({ });
+    let headers : {[key: string ]: string} = { };
+    return await this.listGatewayWebsocketEventsWithOptions(gatewayId, request, headers, runtime);
   }
 
   /**

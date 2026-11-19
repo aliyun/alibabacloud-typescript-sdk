@@ -73,7 +73,7 @@ export class ListConsumerConsoleSummariesResponseBodyDataItemsConsumerGroups ext
   consumerGroupId?: string;
   /**
    * @remarks
-   * The description of the consumer.
+   * The purpose description of the consumer.
    * 
    * @example
    * Consumer for service integration
@@ -255,7 +255,7 @@ export class ListConsumerConsoleSummariesResponseBodyDataItemsOtherGateways exte
 export class ListConsumerConsoleSummariesResponseBodyDataItems extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the authorization scope of the resource includes all models.
+   * Specifies whether the authorization scope of the resource includes all models.
    */
   allModels?: boolean;
   /**
@@ -265,7 +265,7 @@ export class ListConsumerConsoleSummariesResponseBodyDataItems extends $dara.Mod
   consumerGroups?: ListConsumerConsoleSummariesResponseBodyDataItemsConsumerGroups[];
   /**
    * @remarks
-   * The consumer ID returned by the create or query consumer API operation.
+   * The consumer ID, which is the identifier returned by the consumer creation or query API operation.
    * 
    * @example
    * cs-d00000000000000000000
@@ -281,12 +281,12 @@ export class ListConsumerConsoleSummariesResponseBodyDataItems extends $dara.Mod
   createTimestamp?: number;
   /**
    * @remarks
-   * The summary of credential types and quantities for the consumer. The credential content is not returned.
+   * The summary of credential types and counts for the consumer. The credential content is not returned.
    */
   credentials?: ListConsumerConsoleSummariesResponseBodyDataItemsCredentials[];
   /**
    * @remarks
-   * The deployment status of the consumer configuration. An empty string is returned if no deployment status is available.
+   * The deployment status of the consumer configuration. If no deployment status is available, an empty string is returned.
    * 
    * @example
    * ""
@@ -294,7 +294,7 @@ export class ListConsumerConsoleSummariesResponseBodyDataItems extends $dara.Mod
   deployStatus?: string;
   /**
    * @remarks
-   * The description of the consumer.
+   * The purpose description of the consumer.
    * 
    * @example
    * Consumer for service integration
@@ -302,7 +302,7 @@ export class ListConsumerConsoleSummariesResponseBodyDataItems extends $dara.Mod
   description?: string;
   /**
    * @remarks
-   * Indicates whether the consumer is enabled.
+   * Specifies whether the consumer is enabled.
    */
   enable?: boolean;
   /**
@@ -399,7 +399,7 @@ export class ListConsumerConsoleSummariesResponseBodyDataItems extends $dara.Mod
 export class ListConsumerConsoleSummariesResponseBodyData extends $dara.Model {
   /**
    * @remarks
-   * Indicates whether the query result is complete. A successful response returns a complete projection.
+   * Specifies whether the query result is complete. A successful response returns a complete projection.
    */
   complete?: boolean;
   /**
@@ -422,7 +422,7 @@ export class ListConsumerConsoleSummariesResponseBodyData extends $dara.Model {
   maxResults?: number;
   /**
    * @remarks
-   * The pagination token returned from the previous page. Omit this parameter when querying the first page.
+   * The pagination token returned from the previous page. Do not specify this parameter when you query the first page.
    * 
    * @example
    * eyJvZmZzZXQiOjIwfQ==
@@ -430,7 +430,7 @@ export class ListConsumerConsoleSummariesResponseBodyData extends $dara.Model {
   nextToken?: string;
   /**
    * @remarks
-   * The total number of records that match the current query conditions.
+   * The total number of entries that match the current query conditions.
    * 
    * @example
    * 4
@@ -476,7 +476,7 @@ export class ListConsumerConsoleSummariesResponseBodyData extends $dara.Model {
 export class ListConsumerConsoleSummariesResponseBody extends $dara.Model {
   /**
    * @remarks
-   * The response status code. A value of Ok indicates a successful request. A specific business error code is returned for a failed request.
+   * The response status code. A value of Ok indicates success, and a specific business error code indicates failure.
    * 
    * @example
    * Ok
@@ -489,7 +489,7 @@ export class ListConsumerConsoleSummariesResponseBody extends $dara.Model {
   data?: ListConsumerConsoleSummariesResponseBodyData;
   /**
    * @remarks
-   * The response message that describes the result of the request.
+   * The response message that describes the request processing result.
    * 
    * @example
    * success
